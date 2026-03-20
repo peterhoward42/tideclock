@@ -1,7 +1,11 @@
-o  main display requirements
-o  main display design
+*  main display requirements
+*  main display design
 o  generative code
-o  go function to generate the svg conceptually
+	o  split steady (daily) state vs real time update, or all one place - in
+	   which case client side
+
+	o  js or go?
+
 
 o  reading the open source api
 o  info extraction from open source api

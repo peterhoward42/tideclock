@@ -1,4 +1,4 @@
-# Tide Clock Design Summary
+# Tide Clock Design Requirements
 
 ## Core Principle
 Preserve the conventional analogue clock mapping (12-hour dial = real clock time). Do not reinterpret the dial as relative time.
