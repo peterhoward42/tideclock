@@ -1,0 +1,13 @@
+o  main display requirements
+o  main display design
+o  generative code
+o  go function to generate the svg conceptually
+
+o  reading the open source api
+o  info extraction from open source api
+
+o  snapshot generation of display - single frame
+
+o  dist sys arch
+o  backend standup
+o  frontend standup
