@@ -1,10 +1,25 @@
 *  main display requirements
 *  main display design
-o  generative code
-	o  split steady (daily) state vs real time update, or all one place - in
-	   which case client side
+*  generative code strategy
+o  analysis of api data avail
+o  analysis of derived data
+o  trade offs for third party terms of use, perf and cost / statefullness
 
-	o  js or go?
+o  starter client side repo
+	o  architecture strategy
+		o  consult on
+			o  framework routing
+			o  responsive
+			o  kiosk / appliance (ish)
+			o  n page display
+			o  hamburger -> n page
+			o  broad sep of concerns
+				o  clock face
+				o  server deps
+				o  sync and fetch api assumptions / decoupling
+			o  test arch
+			o  local run
+			o  vercel deploy compat
 
 
 o  reading the open source api
