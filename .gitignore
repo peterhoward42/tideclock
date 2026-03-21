@@ -1,0 +1,66 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+*.icloud
+
+# VS Code — local / machine-specific (keep shared config via ! rules if you use them)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Cursor — local/cache under .cursor; un-ignore `.cursor/rules/` if you version shared rules
+.cursor/*
+!.cursor/rules/
+
+# Node / package managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+.pnpm-debug.log*
+
+# Env and secrets
+.env
+.env.*
+!.env.example
+
+# Svelte + Vite (no SvelteKit)
+dist/
+dist-ssr/
+.vite/
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Logs and temp
+logs/
+*.log
+tmp/
+temp/
+.cache/
+
+# Editor / OS swap
+*~
+*.swp
+*.swo
+Thumbs.db

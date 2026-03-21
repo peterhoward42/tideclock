@@ -3,41 +3,13 @@
 *  generative code strategy
 *  analysis of api data avail
 
-o  proxy server
-	*  register with world tides extremes api
-	o  digress to design and scope proxy API
-	o  create repo as copy of cursor-fullspec
-	o  modify prompts  starting with overview
-	o  hard code stations lookup from town?
+*  make and deploy the proxy server
 
 o  starter client side repo
-	o  architecture strategy
-		o  consult on
-			o  proxy server
-			o  cookies
-			o  framework routing
-			o  responsive
-			o  kiosk / appliance (ish)
-			o  n page display
-			o  hamburger -> n page
-			o  broad sep of concerns
-				o  clock face
-				o  server deps
-				o  sync and fetch api assumptions / decoupling
-			o  test arch
-			o  local run
-			o  vercel deploy compat
-			o  new or modified cursor skills
+	o  put in gitignore
+	o  init overview and soc
+	o  svelte project skeleton
 
-
-o  reading the open source api
-o  info extraction from open source api
-
-o  snapshot generation of display - single frame
-
-o  dist sys arch
-o  backend standup
-o  frontend standup
-
+       
 o  don't forget
 	o  price cap control
