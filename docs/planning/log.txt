@@ -9,7 +9,12 @@ o  starter client side repo
 	*  put in gitignore
 	*  init overview and soc
 	*  svelte project skeleton
-	o  first cut separation of concerns
+	*  first cut separation of concerns
+	o  design phase for fetch lifecycle to cache - not yet used
+	o  live network fetch thus
+	o  timing sync to update model chain for clock display
+	o  overlay wall clock behaviour
+	
 
        
 o  don't forget
