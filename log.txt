@@ -1,13 +1,20 @@
 *  main display requirements
 *  main display design
 *  generative code strategy
-o  analysis of api data avail
-o  analysis of derived data
-o  trade offs for third party terms of use, perf and cost / statefullness
+*  analysis of api data avail
+
+o  proxy server
+	*  register with world tides extremes api
+	o  digress to design and scope proxy API
+	o  create repo as copy of cursor-fullspec
+	o  modify prompts  starting with overview
+	o  hard code stations lookup from town?
 
 o  starter client side repo
 	o  architecture strategy
 		o  consult on
+			o  proxy server
+			o  cookies
 			o  framework routing
 			o  responsive
 			o  kiosk / appliance (ish)
@@ -20,6 +27,7 @@ o  starter client side repo
 			o  test arch
 			o  local run
 			o  vercel deploy compat
+			o  new or modified cursor skills
 
 
 o  reading the open source api
@@ -30,3 +38,6 @@ o  snapshot generation of display - single frame
 o  dist sys arch
 o  backend standup
 o  frontend standup
+
+o  don't forget
+	o  price cap control
