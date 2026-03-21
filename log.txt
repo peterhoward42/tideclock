@@ -6,8 +6,8 @@
 *  make and deploy the proxy server
 
 o  starter client side repo
-	o  put in gitignore
-	o  init overview and soc
+	*  put in gitignore
+	*  init overview and soc
 	o  svelte project skeleton
 
        

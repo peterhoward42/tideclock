@@ -42,6 +42,7 @@ pnpm-debug.log*
 .env
 .env.*
 !.env.example
+*.local
 
 # Svelte + Vite (no SvelteKit)
 dist/
