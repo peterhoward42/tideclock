@@ -8,7 +8,8 @@
 o  starter client side repo
 	*  put in gitignore
 	*  init overview and soc
-	o  svelte project skeleton
+	*  svelte project skeleton
+	o  first cut separation of concerns
 
        
 o  don't forget

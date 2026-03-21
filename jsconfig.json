@@ -18,5 +18,6 @@
     "src/**/*.svelte",
     "vite.config.js",
     "svelte.config.js"
-  ]
+  ],
+  "exclude": ["node_modules", "dist"]
 }
