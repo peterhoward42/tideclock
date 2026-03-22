@@ -2,7 +2,9 @@
   import { onMount } from "svelte";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import { createTidePredictionsModel } from "../core-models/tide-predictions";
-  import { setTidePredictionsModel } from "../core-models/tide-predictions-context.svelte";
+  import { TidePredictionsCache } from "../datapipelines/tideprediction-cache";
+  import { createTideProxyFetcher } from "../datapipelines/tideproxy-fetcher";
+  import { LocalStorageFacade } from "../infrastructure/local-storage-facade";
   import Home from "./routes/Home.svelte";
   import Settings from "./routes/Settings.svelte";
   import About from "./routes/About.svelte";
@@ -10,21 +12,46 @@
   import Support from "./routes/Support.svelte";
   import Cookies from "./routes/Cookies.svelte";
 
-  // One shared TidePredictionsModel for this mounted app (`extremes` is public).
+  /** Placeholder; revisit when product settles on staleness tolerance. */
+  const TIDE_CACHE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
+
+  const TIDE_CACHE_KEY = "tidepredictions:v1";
+
+  /** Placeholder coordinates; location selection will replace these. */
+  const PLACEHOLDER_LAT = 51.5;
+  const PLACEHOLDER_LON = -0.1;
+
   const tidePredictionsModel = createTidePredictionsModel();
 
-  // Publish that instance into Svelte context for descendants (e.g. getTidePredictionsModel()).
-  setTidePredictionsModel(tidePredictionsModel);
+  const tidePredictionsCache = new TidePredictionsCache({
+    key: TIDE_CACHE_KEY,
+    maxAgeMs: TIDE_CACHE_MAX_AGE_MS,
+    storage: new LocalStorageFacade(),
+  });
 
-  // Seed extremes (placeholder until loaders / API / cache wire in).
-  tidePredictionsModel.extremes = [
-    { type: "high", height: 4.2, time: "2026-03-22T01:15:00.000Z" },
-    { type: "low", height: 1.1, time: "2026-03-22T07:32:00.000Z" },
-    { type: "high", height: 4.5, time: "2026-03-22T13:48:00.000Z" },
-    { type: "low", height: 0.9, time: "2026-03-22T20:05:00.000Z" },
-  ];
+  function tideProxyBaseUrl(): string {
+    const url = import.meta.env.VITE_TIDE_PROXY_BASE_URL;
+    if (typeof url !== "string" || url.trim() === "") {
+      throw new Error("VITE_TIDE_PROXY_BASE_URL is missing or empty");
+    }
+    return url.trim();
+  }
 
-  onMount(() => attachHashListener());
+  async function loadTidePredictions(): Promise<void> {
+    const fetcher = createTideProxyFetcher({
+      baseUrl: tideProxyBaseUrl(),
+      lat: PLACEHOLDER_LAT,
+      lon: PLACEHOLDER_LON,
+      model: tidePredictionsModel,
+    });
+    const result = await tidePredictionsCache.getOrFetch(fetcher);
+    tidePredictionsModel.extremes = result.extremes;
+  }
+
+  onMount(() => {
+    attachHashListener();
+    void loadTidePredictions();
+  });
 </script>
 
 <div class="app-shell">
@@ -45,7 +72,7 @@
 
   <section class="content">
     {#if $route === "home"}
-      <Home />
+      <Home tidePredictionsModel={tidePredictionsModel} />
     {:else if $route === "settings"}
       <Settings />
     {:else if $route === "about"}
