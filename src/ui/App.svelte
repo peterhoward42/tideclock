@@ -10,38 +10,19 @@
   import Support from "./routes/Support.svelte";
   import Cookies from "./routes/Cookies.svelte";
 
-  // Create one TidePredictionsModel instance for this mounted app.
-  //
-  // createTidePredictionsModel is a factory function. It returns a model
-  // instance object exposing setAll(...) and getAll(). Internally the model
-  // holds private mutable state that is not exposed directly here.
+  // One shared TidePredictionsModel for this mounted app (`extremes` is public).
   const tidePredictionsModel = createTidePredictionsModel();
 
-  // Publish that exact model instance into Svelte context for this component
-  // subtree.
-  //
-  // setTidePredictionsModel is the setter half of the context pair. Its role
-  // is dependency injection, scoped to descendants of this App component.
-  // Child components can later retrieve this same instance with
-  // getTidePredictionsModel().
+  // Publish that instance into Svelte context for descendants (e.g. getTidePredictionsModel()).
   setTidePredictionsModel(tidePredictionsModel);
 
-  // Populate the model with initial tide-extreme data.
-  //
-  // This is placeholder or seed content, hard-coded here simply to initialise
-  // the app with valid data. In a fuller version of the app, the array passed
-  // to setAll(...) would likely come from a loader, API call, file parse, or
-  // some other upstream source.
-  //
-  // The model interface places the obligation on the caller to provide the
-  // array in the desired order already. setAll(...) then copies that array
-  // into the model's private state.
-  tidePredictionsModel.setAll([
+  // Seed extremes (placeholder until loaders / API / cache wire in).
+  tidePredictionsModel.extremes = [
     { type: "high", height: 4.2, time: "2026-03-22T01:15:00.000Z" },
     { type: "low", height: 1.1, time: "2026-03-22T07:32:00.000Z" },
     { type: "high", height: 4.5, time: "2026-03-22T13:48:00.000Z" },
     { type: "low", height: 0.9, time: "2026-03-22T20:05:00.000Z" },
-  ]);
+  ];
 
   onMount(() => attachHashListener());
 </script>

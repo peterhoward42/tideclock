@@ -70,7 +70,7 @@ function errorMessageFromBody(body: unknown): string | null {
 
 /**
  * Returns a fetcher that loads extremes from the tide proxy GET /v1/tides API,
- * updates `model` via {@link TidePredictionsModel.setAll}, and returns that model.
+ * assigns them to `model.extremes`, and returns that model.
  */
 export function createTideProxyFetcher(options: {
   baseUrl: string;
@@ -95,8 +95,7 @@ export function createTideProxyFetcher(options: {
       );
     }
 
-    const extremes = parseTidesPayload(body);
-    options.model.setAll(extremes);
+    options.model.extremes = parseTidesPayload(body);
     return options.model;
   };
 }

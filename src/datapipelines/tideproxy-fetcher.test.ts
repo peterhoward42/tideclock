@@ -40,7 +40,7 @@ describe("createTideProxyFetcher", () => {
     const out = await fetcher();
 
     expect(out).toBe(model);
-    const got = model.getAll();
+    const got = model.extremes;
     expect(got).toHaveLength(apiTides.length);
     for (let i = 0; i < apiTides.length; i++) {
       const raw = apiTides[i];

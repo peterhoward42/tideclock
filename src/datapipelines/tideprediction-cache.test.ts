@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import type { TidePredictionsModel } from "../core-models/tide-predictions";
+import type { TideExtreme, TidePredictionsModel } from "../core-models/tide-predictions";
 import type { StorageLike } from "../infrastructure/storage-like";
 import { TidePredictionsCache } from "./tideprediction-cache";
 
@@ -20,9 +20,8 @@ class FakeStorage implements StorageLike {
   }
 }
 
-/** Plain data that round-trips through `JSON.stringify` like real cached payloads. */
-function modelStub(payload: Record<string, unknown> = {}): TidePredictionsModel {
-  return payload as unknown as TidePredictionsModel;
+function modelStub(extremes: TideExtreme[] = []): TidePredictionsModel {
+  return { extremes };
 }
 
 describe("TidePredictionsCache", () => {
@@ -41,7 +40,7 @@ describe("TidePredictionsCache", () => {
   it("fetches when storage is empty and persists the result", async () => {
     const storage = new FakeStorage();
     const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
-    const model = modelStub({ id: "a" });
+    const model = modelStub();
     const fetcher = vi.fn(async () => model);
 
     const out = await cache.getOrFetch(fetcher);
@@ -50,35 +49,43 @@ describe("TidePredictionsCache", () => {
     expect(fetcher).toHaveBeenCalledTimes(1);
     const raw = storage.getItem(key);
     expect(raw).not.toBeNull();
-    const parsed = JSON.parse(raw!) as { value: Record<string, unknown>; fetchedAt: number };
+    const parsed = JSON.parse(raw!) as { value: TidePredictionsModel; fetchedAt: number };
     expect(parsed.fetchedAt).toBe(Date.now());
-    expect(parsed.value).toEqual({ id: "a" });
+    expect(parsed.value).toEqual({ extremes: [] });
   });
 
   it("returns cached data without calling the fetcher when fresh", async () => {
     const storage = new FakeStorage();
     const t0 = Date.now();
-    const model = modelStub({ id: "cached" });
+    const model = modelStub([
+      { type: "high", height: 1, time: "2025-01-15T10:00:00.000Z" },
+    ]);
     storage.setItem(key, JSON.stringify({ value: model, fetchedAt: t0 }));
     const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
-    const fetcher = vi.fn(async () => modelStub({ id: "other" }));
+    const fetcher = vi.fn(async () =>
+      modelStub([{ type: "low", height: 0, time: "2025-01-15T11:00:00.000Z" }])
+    );
 
     const out = await cache.getOrFetch(fetcher);
 
-    expect(out).toEqual({ id: "cached" });
+    expect(out).toEqual(model);
     expect(fetcher).not.toHaveBeenCalled();
   });
 
   it("refetches when the cached record is older than maxAgeMs", async () => {
     const storage = new FakeStorage();
     const staleTime = Date.now() - maxAgeMs - 1;
-    const staleModel = modelStub({ id: "stale" });
+    const staleModel = modelStub([
+      { type: "low", height: 0.5, time: "2020-01-01T00:00:00.000Z" },
+    ]);
     storage.setItem(
       key,
       JSON.stringify({ value: staleModel, fetchedAt: staleTime })
     );
     const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
-    const freshModel = modelStub({ id: "fresh" });
+    const freshModel = modelStub([
+      { type: "high", height: 2, time: "2025-01-15T12:00:00.000Z" },
+    ]);
     const fetcher = vi.fn(async () => freshModel);
 
     const out = await cache.getOrFetch(fetcher);
@@ -86,27 +93,29 @@ describe("TidePredictionsCache", () => {
     expect(out).toBe(freshModel);
     expect(fetcher).toHaveBeenCalledTimes(1);
     const parsed = JSON.parse(storage.getItem(key)!) as {
-      value: { id: string };
+      value: TidePredictionsModel;
       fetchedAt: number;
     };
-    expect(parsed.value.id).toBe("fresh");
+    expect(parsed.value.extremes[0]?.time).toBe("2025-01-15T12:00:00.000Z");
     expect(parsed.fetchedAt).toBe(Date.now());
   });
 
   it("treats age equal to maxAgeMs as still fresh", async () => {
     const storage = new FakeStorage();
     const t0 = Date.now() - maxAgeMs;
-    const model = modelStub({ id: "edge" });
+    const model = modelStub([
+      { type: "high", height: 1, time: "2025-01-14T00:00:00.000Z" },
+    ]);
     storage.setItem(
       key,
       JSON.stringify({ value: model, fetchedAt: t0 })
     );
     const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
-    const fetcher = vi.fn(async () => modelStub({ id: "no" }));
+    const fetcher = vi.fn(async () => modelStub());
 
     const out = await cache.getOrFetch(fetcher);
 
-    expect(out).toEqual({ id: "edge" });
+    expect(out).toEqual(model);
     expect(fetcher).not.toHaveBeenCalled();
   });
 
@@ -124,7 +133,9 @@ describe("TidePredictionsCache", () => {
     const storage = new FakeStorage();
     storage.setItem(key, "not-json{");
     const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
-    const freshModel = modelStub({ id: "after-invalid" });
+    const freshModel = modelStub([
+      { type: "high", height: 1, time: "2025-01-15T12:00:00.000Z" },
+    ]);
     const fetcher = vi.fn(async () => freshModel);
 
     const out = await cache.getOrFetch(fetcher);
@@ -138,7 +149,9 @@ describe("TidePredictionsCache", () => {
     const storage = new FakeStorage();
     storage.setItem(key, JSON.stringify({ fetchedAt: "not-a-number", value: {} }));
     const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
-    const freshModel = modelStub({ id: "reshaped" });
+    const freshModel = modelStub([
+      { type: "low", height: 0.1, time: "2025-01-15T12:00:00.000Z" },
+    ]);
     const fetcher = vi.fn(async () => freshModel);
 
     await cache.getOrFetch(fetcher);
@@ -152,7 +165,9 @@ describe("TidePredictionsCache", () => {
     const storage = new FakeStorage();
     storage.setItem(key, JSON.stringify({ fetchedAt: Date.now() }));
     const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
-    const fetcher = vi.fn(async () => modelStub({ id: "recovered" }));
+    const fetcher = vi.fn(async () =>
+      modelStub([{ type: "high", height: 3, time: "2025-06-01T00:00:00.000Z" }])
+    );
 
     await cache.getOrFetch(fetcher);
 
