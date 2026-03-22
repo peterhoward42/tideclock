@@ -1,5 +1,9 @@
 // @ts-check
 
+/**
+ * Hash-based SPA routing: `route` mirrors `window.location.hash`; {@link navigate} writes `#/{id}`.
+ */
+
 import { writable } from 'svelte/store'
 
 /**

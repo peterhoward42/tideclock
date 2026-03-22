@@ -30,8 +30,12 @@ o  starter client side repo
 			*  see if local run runs - incl net request to tides proxy
 
 			o  max age is chicken and egg
-				o  basics
+				*  basics
 				o  digress behavioural and role comments
+					o  if it works capture it as a cross language skill
+					o  try it
+					o  remove it from repo skills register
+
 				o  come back to edge cases below
 				o  come back to policy buffer time
 				o  prevent locking into system cache miss due to a bug

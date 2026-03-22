@@ -1,3 +1,7 @@
+/**
+ * HTTP client for the tide proxy GET `/v1/tides`: validates JSON, maps High/Low and fields into the shared {@link TidePredictionsModel}.
+ */
+
 import type {
   TideExtreme,
   TidePredictionsModel,
@@ -84,8 +88,7 @@ function errorMessageFromBody(body: unknown): string | null {
 }
 
 /**
- * Returns a fetcher that loads extremes from the tide proxy GET /v1/tides API,
- * assigns them to `model.extremes`, and returns that model.
+ * createTideProxyFetcher returns a {@link Fetcher} that GETs `/v1/tides`, mutates `model.extremes` / `expiresAt`, and returns the same `model` instance.
  */
 export function createTideProxyFetcher(options: {
   baseUrl: string;

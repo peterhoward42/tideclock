@@ -1,3 +1,7 @@
+/**
+ * Tests for `TidePredictionsCache`: freshness vs `expiresAt`, corrupt storage recovery, and fetcher call counts.
+ */
+
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { TideExtreme, TidePredictionsModel } from "../core-models/tide-predictions";
 import type { StorageLike } from "../infrastructure/storage-like";
@@ -20,6 +24,7 @@ class FakeStorage implements StorageLike {
   }
 }
 
+/** modelStub builds a `TidePredictionsModel` with optional extremes and `expiresAt` for cache behaviour assertions. */
 function modelStub(
   extremes: TideExtreme[] = [],
   expiresAt = "2025-01-20T00:00:00.000Z"

@@ -1,3 +1,7 @@
+/**
+ * Tests for tide proxy fetcher: request URL shape, success JSON mapping, and error payload surfaces on HTTP errors.
+ */
+
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { createTidePredictionsModel } from "../core-models/tide-predictions";
 import { createTideProxyFetcher } from "./tideproxy-fetcher";

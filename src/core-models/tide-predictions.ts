@@ -1,10 +1,13 @@
-// tide-predictions.ts
+/**
+ * Shared tide domain types and factory for the in-memory model the UI and datapipelines pass around.
+ */
 
 export type TideExtremeType = "high" | "low";
 
+/** One predicted high or low water: type, height in metres, instant in UTC ISO-8601. */
 export interface TideExtreme {
-  type: TideExtremeType; // 'high' or 'low'
-  height: number; // metres
+  type: TideExtremeType;
+  height: number;
   /** UTC instant as ISO-8601 (same form as `Date.prototype.toISOString()`). */
   time: string;
 }
@@ -22,6 +25,7 @@ export interface TidePredictionsModel {
   expiresAt?: string;
 }
 
+/** Returns an empty model (no extremes; `expiresAt` unset until a successful load). */
 export function createTidePredictionsModel(): TidePredictionsModel {
   return { extremes: [] };
 }

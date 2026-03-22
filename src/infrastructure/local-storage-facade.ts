@@ -1,7 +1,7 @@
 import type { StorageLike } from "./storage-like";
 
 /**
- * {@link StorageLike} adapter over the browser `localStorage` API.
+ * LocalStorageFacade implements {@link StorageLike} by delegating to the global `localStorage` API (browser tests may stub it).
  */
 export class LocalStorageFacade implements StorageLike {
   getItem(key: string): string | null {

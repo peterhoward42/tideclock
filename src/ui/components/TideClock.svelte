@@ -1,4 +1,5 @@
 <script>
+  // Local-time display driven by the shared `nowMs` store (one tick per second).
   import { nowMs } from '../../application/appClock.js'
 
   /** @param {number} ms */

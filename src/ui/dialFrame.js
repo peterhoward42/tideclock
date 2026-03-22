@@ -1,6 +1,8 @@
 // @ts-check
 
 /**
+ * buildDialFrame returns centre, outer radius, and a smaller inner radius for dial SVG layout.
+ *
  * @param {number} cx
  * @param {number} cy
  * @param {number} outerR

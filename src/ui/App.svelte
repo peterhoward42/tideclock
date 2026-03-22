@@ -1,4 +1,5 @@
 <script lang="ts">
+  // Root shell: hash router, tide proxy + `TidePredictionsCache`, and route outlets.
   import { onMount } from "svelte";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import { createTidePredictionsModel } from "../core-models/tide-predictions";

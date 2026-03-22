@@ -1,6 +1,7 @@
 import type { TidePredictionsModel } from "../core-models/tide-predictions";
 import type { StorageLike } from "../infrastructure/storage-like";
 
+/** Async loader invoked on cache miss or when stored `expiresAt` (exclusive) is no longer in the future. */
 export type Fetcher<T> = () => Promise<T>;
 
 interface CacheRecord<T> {
@@ -20,6 +21,9 @@ function predictionsStillValid(model: TidePredictionsModel, nowMs: number): bool
   return nowMs < endMs;
 }
 
+/**
+ * TidePredictionsCache JSON-serializes `TidePredictionsModel` under a storage key, serves it while `now < expiresAt` (exclusive end from the proxy), and refetches otherwise.
+ */
 export class TidePredictionsCache {
   private readonly key: string;
   private readonly storage: StorageLike;
@@ -30,8 +34,7 @@ export class TidePredictionsCache {
   }
 
   /**
-   * Returns cached data if it exists and is still fresh.
-   * Otherwise fetches, stores, and returns fresh data.
+   * getOrFetch returns storage-backed predictions when still valid; otherwise runs `fetcher`, persists, and returns the new model.
    */
   async getOrFetch(fetcher: Fetcher<TidePredictionsModel>): Promise<TidePredictionsModel> {
     const record = this.readRecord();
