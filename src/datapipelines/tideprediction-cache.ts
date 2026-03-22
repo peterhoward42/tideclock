@@ -2,7 +2,7 @@ import type { TidePredictionsModel } from "../core-models/tide-predictions.svelt
 
 type Fetcher<T> = () => Promise<T>;
 
-interface StorageLike {
+export interface StorageLike {
   getItem(key: string): string | null;
   setItem(key: string, value: string): void;
   removeItem(key: string): void;
