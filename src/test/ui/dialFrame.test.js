@@ -1,8 +1,8 @@
 // @ts-check
 import { describe, expect, it } from 'vitest'
-import { buildDialFrame } from '../../geometry/dialGeometry.js'
+import { buildDialFrame } from '../../ui/dialFrame.js'
 
-describe('dialGeometry (skeleton)', () => {
+describe('dialFrame (skeleton)', () => {
   it('builds concentric frame radii', () => {
     const f = buildDialFrame(100, 120, 40)
     expect(f.cx).toBe(100)

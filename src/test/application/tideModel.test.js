@@ -1,6 +1,6 @@
 // @ts-check
 import { describe, expect, it } from 'vitest'
-import { heightAt, nextHigh, trendAt } from '../../domain/tideModel.js'
+import { heightAt, nextHigh, trendAt } from '../../application/tideModel.js'
 
 describe('tideModel (skeleton)', () => {
   it('returns neutral height with no extremes', () => {

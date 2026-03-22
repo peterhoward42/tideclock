@@ -9,7 +9,7 @@ let lastFetchAtMs = null
 
 /**
  * @param {number} nowMs
- * @returns {Promise<import('../domain/tideExtremes.js').TideExtreme[]>}
+ * @returns {Promise<import('./tideExtremes.js').TideExtreme[]>}
  */
 export async function loadTideExtremes(nowMs) {
   const cached = loadCachedExtremes()

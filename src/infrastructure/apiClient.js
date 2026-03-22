@@ -8,7 +8,7 @@ function tideApiBaseUrl() {
 }
 
 /**
- * @returns {Promise<import('../domain/tideExtremes.js').TideExtreme[]>}
+ * @returns {Promise<import('../application/tideExtremes.js').TideExtreme[]>}
  */
 export async function fetchTideExtremes() {
   const base = tideApiBaseUrl()

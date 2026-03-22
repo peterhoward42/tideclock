@@ -1,9 +1,9 @@
 <script>
-  import { tideProfilePath } from '../../geometry/tideProfileGeometry.js'
+  import { tideProfilePath } from '../tideProfilePath.js'
 
   /**
    * @typedef {Object} TideLayerProps
-   * @property {import('../../domain/tideExtremes.js').TideExtreme[]} [extremes]
+   * @property {import('../../application/tideExtremes.js').TideExtreme[]} [extremes]
    */
   /** @type {TideLayerProps} */
   let { extremes = [] } = $props()

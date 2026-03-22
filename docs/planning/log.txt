@@ -13,9 +13,9 @@ o  starter client side repo
 	*  capture changing data pipeline static and dynamic
 	*  work out tide knowing model and caches can be decoupled yet cooperate with timing models
 
-	o  document the model srp and scope as input to code change - with no behaviour yet - but clearly documented
-
 	o  ask AI to rip out all modelling and most of APP leaving hellow world and pages model
+
+	o  ask AI to introduce one model with docco at a time.
 	o  ask AI to implement the models in dependency orders with tests
 
 	o  onto real app beahviour iteration

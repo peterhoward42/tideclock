@@ -1,5 +1,5 @@
 <script>
-  import { buildDialFrame } from '../../geometry/dialGeometry.js'
+  import { buildDialFrame } from '../dialFrame.js'
 
   const frame = buildDialFrame(100, 100, 90)
 </script>
