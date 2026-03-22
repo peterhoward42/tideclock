@@ -20,13 +20,15 @@ class FakeStorage implements StorageLike {
   }
 }
 
-function modelStub(extremes: TideExtreme[] = []): TidePredictionsModel {
-  return { extremes };
+function modelStub(
+  extremes: TideExtreme[] = [],
+  expiresAt = "2025-01-20T00:00:00.000Z"
+): TidePredictionsModel {
+  return { extremes, expiresAt };
 }
 
 describe("TidePredictionsCache", () => {
   const key = "test-cache-key";
-  const maxAgeMs = 60_000;
 
   beforeEach(() => {
     vi.useFakeTimers();
@@ -39,7 +41,7 @@ describe("TidePredictionsCache", () => {
 
   it("fetches when storage is empty and persists the result", async () => {
     const storage = new FakeStorage();
-    const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
+    const cache = new TidePredictionsCache({ key, storage });
     const model = modelStub();
     const fetcher = vi.fn(async () => model);
 
@@ -51,17 +53,18 @@ describe("TidePredictionsCache", () => {
     expect(raw).not.toBeNull();
     const parsed = JSON.parse(raw!) as { value: TidePredictionsModel; fetchedAt: number };
     expect(parsed.fetchedAt).toBe(Date.now());
-    expect(parsed.value).toEqual({ extremes: [] });
+    expect(parsed.value).toEqual(model);
   });
 
-  it("returns cached data without calling the fetcher when fresh", async () => {
+  it("returns cached data without calling the fetcher when still before expiresAt", async () => {
     const storage = new FakeStorage();
     const t0 = Date.now();
-    const model = modelStub([
-      { type: "high", height: 1, time: "2025-01-15T10:00:00.000Z" },
-    ]);
+    const model = modelStub(
+      [{ type: "high", height: 1, time: "2025-01-15T10:00:00.000Z" }],
+      "2025-01-16T00:00:00.000Z"
+    );
     storage.setItem(key, JSON.stringify({ value: model, fetchedAt: t0 }));
-    const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
+    const cache = new TidePredictionsCache({ key, storage });
     const fetcher = vi.fn(async () =>
       modelStub([{ type: "low", height: 0, time: "2025-01-15T11:00:00.000Z" }])
     );
@@ -72,20 +75,18 @@ describe("TidePredictionsCache", () => {
     expect(fetcher).not.toHaveBeenCalled();
   });
 
-  it("refetches when the cached record is older than maxAgeMs", async () => {
+  it("refetches when expiresAt is in the past (exclusive end)", async () => {
     const storage = new FakeStorage();
-    const staleTime = Date.now() - maxAgeMs - 1;
-    const staleModel = modelStub([
-      { type: "low", height: 0.5, time: "2020-01-01T00:00:00.000Z" },
-    ]);
-    storage.setItem(
-      key,
-      JSON.stringify({ value: staleModel, fetchedAt: staleTime })
+    const staleModel = modelStub(
+      [{ type: "low", height: 0.5, time: "2020-01-01T00:00:00.000Z" }],
+      "2025-01-15T12:00:00.000Z"
     );
-    const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
-    const freshModel = modelStub([
-      { type: "high", height: 2, time: "2025-01-15T12:00:00.000Z" },
-    ]);
+    storage.setItem(key, JSON.stringify({ value: staleModel, fetchedAt: Date.now() - 60_000 }));
+    const cache = new TidePredictionsCache({ key, storage });
+    const freshModel = modelStub(
+      [{ type: "high", height: 2, time: "2025-01-15T12:00:00.000Z" }],
+      "2025-01-18T00:00:00.000Z"
+    );
     const fetcher = vi.fn(async () => freshModel);
 
     const out = await cache.getOrFetch(fetcher);
@@ -100,17 +101,14 @@ describe("TidePredictionsCache", () => {
     expect(parsed.fetchedAt).toBe(Date.now());
   });
 
-  it("treats age equal to maxAgeMs as still fresh", async () => {
+  it("treats now strictly before expiresAt as still fresh", async () => {
     const storage = new FakeStorage();
-    const t0 = Date.now() - maxAgeMs;
-    const model = modelStub([
-      { type: "high", height: 1, time: "2025-01-14T00:00:00.000Z" },
-    ]);
-    storage.setItem(
-      key,
-      JSON.stringify({ value: model, fetchedAt: t0 })
+    const model = modelStub(
+      [{ type: "high", height: 1, time: "2025-01-14T00:00:00.000Z" }],
+      "2025-01-15T12:00:00.001Z"
     );
-    const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
+    storage.setItem(key, JSON.stringify({ value: model, fetchedAt: Date.now() }));
+    const cache = new TidePredictionsCache({ key, storage });
     const fetcher = vi.fn(async () => modelStub());
 
     const out = await cache.getOrFetch(fetcher);
@@ -122,7 +120,7 @@ describe("TidePredictionsCache", () => {
   it("clear removes the cache entry", () => {
     const storage = new FakeStorage();
     storage.setItem(key, "{}");
-    const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
+    const cache = new TidePredictionsCache({ key, storage });
 
     cache.clear();
 
@@ -132,7 +130,7 @@ describe("TidePredictionsCache", () => {
   it("refetches and clears storage when stored JSON is invalid", async () => {
     const storage = new FakeStorage();
     storage.setItem(key, "not-json{");
-    const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
+    const cache = new TidePredictionsCache({ key, storage });
     const freshModel = modelStub([
       { type: "high", height: 1, time: "2025-01-15T12:00:00.000Z" },
     ]);
@@ -148,7 +146,7 @@ describe("TidePredictionsCache", () => {
   it("refetches and clears when the parsed record is not a valid shape", async () => {
     const storage = new FakeStorage();
     storage.setItem(key, JSON.stringify({ fetchedAt: "not-a-number", value: {} }));
-    const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
+    const cache = new TidePredictionsCache({ key, storage });
     const freshModel = modelStub([
       { type: "low", height: 0.1, time: "2025-01-15T12:00:00.000Z" },
     ]);
@@ -161,10 +159,29 @@ describe("TidePredictionsCache", () => {
     expect(typeof parsed.fetchedAt).toBe("number");
   });
 
+  it("refetches when cached value has no expiresAt", async () => {
+    const storage = new FakeStorage();
+    storage.setItem(
+      key,
+      JSON.stringify({
+        fetchedAt: Date.now(),
+        value: { extremes: [{ type: "high", height: 1, time: "2025-01-01T00:00:00.000Z" }] },
+      })
+    );
+    const cache = new TidePredictionsCache({ key, storage });
+    const fetcher = vi.fn(async () =>
+      modelStub([{ type: "high", height: 3, time: "2025-06-01T00:00:00.000Z" }])
+    );
+
+    await cache.getOrFetch(fetcher);
+
+    expect(fetcher).toHaveBeenCalledTimes(1);
+  });
+
   it("refetches when value is missing from the record", async () => {
     const storage = new FakeStorage();
     storage.setItem(key, JSON.stringify({ fetchedAt: Date.now() }));
-    const cache = new TidePredictionsCache({ key, maxAgeMs, storage });
+    const cache = new TidePredictionsCache({ key, storage });
     const fetcher = vi.fn(async () =>
       modelStub([{ type: "high", height: 3, time: "2025-06-01T00:00:00.000Z" }])
     );

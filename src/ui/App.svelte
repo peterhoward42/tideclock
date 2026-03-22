@@ -14,9 +14,6 @@
 
   console.log("[tideclock] boot: App.svelte module evaluated");
 
-  /** Placeholder; revisit when product settles on staleness tolerance. */
-  const TIDE_CACHE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
-
   const TIDE_CACHE_KEY = "tidepredictions:v1";
 
   /** Placeholder coordinates; location selection will replace these. */
@@ -27,7 +24,6 @@
 
   const tidePredictionsCache = new TidePredictionsCache({
     key: TIDE_CACHE_KEY,
-    maxAgeMs: TIDE_CACHE_MAX_AGE_MS,
     storage: new LocalStorageFacade(),
   });
 
@@ -61,6 +57,7 @@
     const result = await tidePredictionsCache.getOrFetch(fetcher);
 
     tidePredictionsModel.extremes = result.extremes;
+    tidePredictionsModel.expiresAt = result.expiresAt;
     console.log("[tideclock] tides: loadTidePredictions() finished", {
       extremesCount: result.extremes.length,
     });

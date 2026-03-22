@@ -8,18 +8,24 @@ interface CacheRecord<T> {
   fetchedAt: number;
 }
 
+/** Proxy `expiresAt` is exclusive; treat cached data as fresh while `now < expiresAt`. */
+function predictionsStillValid(model: TidePredictionsModel, nowMs: number): boolean {
+  if (typeof model.expiresAt !== "string") {
+    return false;
+  }
+  const endMs = Date.parse(model.expiresAt);
+  if (Number.isNaN(endMs)) {
+    return false;
+  }
+  return nowMs < endMs;
+}
+
 export class TidePredictionsCache {
   private readonly key: string;
-  private readonly maxAgeMs: number;
   private readonly storage: StorageLike;
 
-  constructor(options: {
-    key: string;
-    maxAgeMs: number;
-    storage?: StorageLike;
-  }) {
+  constructor(options: { key: string; storage?: StorageLike }) {
     this.key = options.key;
-    this.maxAgeMs = options.maxAgeMs;
     this.storage = options.storage ?? window.localStorage;
   }
 
@@ -29,13 +35,12 @@ export class TidePredictionsCache {
    */
   async getOrFetch(fetcher: Fetcher<TidePredictionsModel>): Promise<TidePredictionsModel> {
     const record = this.readRecord();
-    const ageMs = record !== null ? Date.now() - record.fetchedAt : null;
-    const stale = record !== null && ageMs !== null && ageMs > this.maxAgeMs;
+    const now = Date.now();
+    const stale =
+      record !== null && !predictionsStillValid(record.value, now);
     console.log("[tideclock] tides cache: getOrFetch — storage snapshot", {
       key: this.key,
-      maxAgeMs: this.maxAgeMs,
       hasUsableRecord: record !== null,
-      ageMs: ageMs ?? undefined,
       stale: record !== null ? stale : undefined,
     });
 
@@ -71,8 +76,7 @@ export class TidePredictionsCache {
       return null;
     }
 
-    const ageMs = Date.now() - record.fetchedAt;
-    if (ageMs > this.maxAgeMs) {
+    if (!predictionsStillValid(record.value, Date.now())) {
       return null;
     }
 

@@ -11,6 +11,8 @@ interface TideProxyTidesPayload {
     time: string;
     heightMetres: number;
   }>;
+  /** ISO 8601 UTC; exclusive end of the forecast window (see tideproxy OpenAPI). */
+  expiresAt: string;
 }
 
 function buildTidesUrl(baseUrl: string, lat: number, lon: number): string {
@@ -44,17 +46,30 @@ function mapTideExtreme(raw: TideProxyTidesPayload["tides"][number]): TideExtrem
   };
 }
 
-function parseTidesPayload(body: unknown): TideExtreme[] {
+function parseTidesSuccess(body: unknown): { extremes: TideExtreme[]; expiresAt: string } {
   if (typeof body !== "object" || body === null || !("tides" in body)) {
     throw new Error("Tide proxy response is missing tides");
   }
 
-  const tides = (body as TideProxyTidesPayload).tides;
+  const payload = body as TideProxyTidesPayload;
+  const tides = payload.tides;
   if (!Array.isArray(tides)) {
     throw new Error("Tide proxy tides is not an array");
   }
 
-  return tides.map(mapTideExtreme);
+  if (typeof payload.expiresAt !== "string") {
+    throw new Error("Tide proxy response is missing expiresAt");
+  }
+
+  const expiresAt = payload.expiresAt;
+  if (Number.isNaN(Date.parse(expiresAt))) {
+    throw new Error(`Invalid tide proxy expiresAt: ${expiresAt}`);
+  }
+
+  return {
+    extremes: tides.map(mapTideExtreme),
+    expiresAt,
+  };
 }
 
 function errorMessageFromBody(body: unknown): string | null {
@@ -104,7 +119,9 @@ export function createTideProxyFetcher(options: {
       );
     }
 
-    options.model.extremes = parseTidesPayload(body);
+    const { extremes, expiresAt } = parseTidesSuccess(body);
+    options.model.extremes = extremes;
+    options.model.expiresAt = expiresAt;
     return options.model;
   };
 }

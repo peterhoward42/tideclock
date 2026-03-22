@@ -28,10 +28,14 @@ o  starter client side repo
 			   to trace as a human
 			*  init tide predictions in app from cache and real storer and fetcher
 			*  see if local run runs - incl net request to tides proxy
-			o  debug app with breakpoint at tides proxy?
-			o  log proxy api call and init state of tides
 
 			o  max age is chicken and egg
+				o  basics
+				o  digress behavioural and role comments
+				o  come back to edge cases below
+				o  come back to policy buffer time
+				o  prevent locking into system cache miss due to a bug
+
 			o  deal with placeholder lat and long values
 			o  policy for expections
 
@@ -49,11 +53,7 @@ o  don't forget
 	o  proxy api should come from envar?
 	o  price cap control
 
-
-const fetcher = createTideProxyFetcher({
-  baseUrl: "https://europe-west1-tides-proxy.cloudfunctions.net/tides-proxy",
-  lat,
-  lon,
-  model: tidePredictionsModel,
-});
-await cache.getOrFetch(fetcher);
+5. Edge cases to design for explicitly
+Missing expiry in JSON: fallback TTL, or always refetch, or fail closed — but don’t silently use only maxAgeMs without documenting it as fallback.
+Clock skew: expiresAt in the past immediately after fetch → treat as stale or clamp; optional small skew buffer if the API contract allows.
+Serialization: version the storage key or record shape if you add expiresAt so old localStorage entries don’t parse as valid forever.

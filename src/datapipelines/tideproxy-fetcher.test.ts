@@ -30,9 +30,16 @@ describe("createTideProxyFetcher", () => {
       model,
     });
 
+    const expiresAt = "2025-01-18T00:00:00.000Z";
     vi.spyOn(globalThis, "fetch").mockResolvedValue(
       new Response(
-        JSON.stringify({ tides: apiTides }),
+        JSON.stringify({
+          tides: apiTides,
+          expiresAt,
+          datum: "CD",
+          windowStart: "2025-01-15T00:00:00.000Z",
+          attribution: "test",
+        }),
         { status: 200, headers: { "Content-Type": "application/json" } }
       )
     );
@@ -40,6 +47,7 @@ describe("createTideProxyFetcher", () => {
     const out = await fetcher();
 
     expect(out).toBe(model);
+    expect(model.expiresAt).toBe(expiresAt);
     const got = model.extremes;
     expect(got).toHaveLength(apiTides.length);
     for (let i = 0; i < apiTides.length; i++) {
@@ -86,10 +94,19 @@ describe("createTideProxyFetcher", () => {
     });
 
     const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(
-      new Response(JSON.stringify({ tides: [] }), {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      })
+      new Response(
+        JSON.stringify({
+          tides: [],
+          expiresAt: "2025-01-18T00:00:00.000Z",
+          datum: "CD",
+          windowStart: "2025-01-15T00:00:00.000Z",
+          attribution: "test",
+        }),
+        {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        }
+      )
     );
 
     await fetcher();
