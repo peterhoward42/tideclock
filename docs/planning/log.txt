@@ -18,15 +18,11 @@ o  starter client side repo
 		o  named and skel only with role and scope comments for you and human
 			
 			*  TidePredictionsModel
-			o  the cache
-				*  design it 
-				*  code it 
-				*  put in repo
-				o  put in a fake test double for
-					o  StorageLike
-					o  Fetcher 
-				and then write tests for the cache using it
+			*  TidePredictionCache
 			o  localstorage implementation of storer
+		      * think it preserved old import of StorageLike from cache
+			  * possibly undeseriable signature
+
 			o  proxy api fetcher implementation of fetcher
 			o  init tide predictions in app from cache and real storer and fetcher
 			o  scheduler

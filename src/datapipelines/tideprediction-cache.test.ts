@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { TidePredictionsModel } from "../core-models/tide-predictions.svelte";
-import { TidePredictionsCache, type StorageLike } from "./tideprediction-cache";
+import type { StorageLike } from "../infrastructure/storage-like";
+import { TidePredictionsCache } from "./tideprediction-cache";
 
 /** In-memory stand-in for `StorageLike` — no `window` required. */
 class FakeStorage implements StorageLike {

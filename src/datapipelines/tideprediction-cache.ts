@@ -1,12 +1,7 @@
 import type { TidePredictionsModel } from "../core-models/tide-predictions.svelte";
+import type { StorageLike } from "../infrastructure/storage-like";
 
 type Fetcher<T> = () => Promise<T>;
-
-export interface StorageLike {
-  getItem(key: string): string | null;
-  setItem(key: string, value: string): void;
-  removeItem(key: string): void;
-}
 
 interface CacheRecord<T> {
   value: T;
