@@ -37,10 +37,10 @@
   // array in the desired order already. setAll(...) then copies that array
   // into the model's private state.
   tidePredictionsModel.setAll([
-    { type: "high", height: 4.2, time: new Date("2026-03-22T01:15:00Z") },
-    { type: "low", height: 1.1, time: new Date("2026-03-22T07:32:00Z") },
-    { type: "high", height: 4.5, time: new Date("2026-03-22T13:48:00Z") },
-    { type: "low", height: 0.9, time: new Date("2026-03-22T20:05:00Z") },
+    { type: "high", height: 4.2, time: "2026-03-22T01:15:00.000Z" },
+    { type: "low", height: 1.1, time: "2026-03-22T07:32:00.000Z" },
+    { type: "high", height: 4.5, time: "2026-03-22T13:48:00.000Z" },
+    { type: "low", height: 0.9, time: "2026-03-22T20:05:00.000Z" },
   ]);
 
   onMount(() => attachHashListener());

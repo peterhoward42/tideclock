@@ -46,7 +46,7 @@ describe("createTideProxyFetcher", () => {
       const raw = apiTides[i];
       expect(got[i].type).toBe(raw.type === "High" ? "high" : "low");
       expect(got[i].height).toBe(raw.heightMetres);
-      expect(got[i].time.toISOString()).toBe(raw.time);
+      expect(got[i].time).toBe(raw.time);
     }
   });
 

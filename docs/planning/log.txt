@@ -24,7 +24,7 @@ o  starter client side repo
 			  * possibly undeseriable signature
 			*  proxy api fetcher implementation of fetcher
 
-			o  strip TidePredictionsModel back to just offering set and get
+			*  strip TidePredictionsModel back to just offering set and get
 			   methods and droppoing reactivity - it is getting to complicated
 			   to trace as a human
 

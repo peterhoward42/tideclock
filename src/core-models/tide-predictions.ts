@@ -5,7 +5,8 @@ export type TideExtremeType = "high" | "low";
 export interface TideExtreme {
   type: TideExtremeType; // 'high' or 'low'
   height: number; // metres
-  time: Date; // UTC
+  /** UTC instant as ISO-8601 (same form as `Date.prototype.toISOString()`). */
+  time: string;
 }
 
 export function createTidePredictionsModel() {

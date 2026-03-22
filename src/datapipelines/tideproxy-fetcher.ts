@@ -32,9 +32,14 @@ function mapTideExtreme(raw: TideProxyTidesPayload["tides"][number]): TideExtrem
     throw new Error(`Invalid tide extreme type: ${raw.type}`);
   }
 
+  const instant = new Date(raw.time);
+  if (Number.isNaN(instant.getTime())) {
+    throw new Error(`Invalid tide extreme time: ${raw.time}`);
+  }
+
   return {
     type,
-    time: new Date(raw.time),
+    time: instant.toISOString(),
     height: raw.heightMetres,
   };
 }
