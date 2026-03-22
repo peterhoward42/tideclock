@@ -22,9 +22,10 @@ o  starter client side repo
 				*  design it 
 				*  code it 
 				*  put in repo
-				o  write test to it with faked storage double
-			o  localstorage implementation of fetcher
-			o  proxy api fetcher implementation
+				o  put in a fake test double storer and fetcher and then write tests for the cache using it
+			o  localstorage implementation of storer
+			o  proxy api fetcher implementation of fetcher
+			o  init tide predictions in app from cache and real storer and fetcher
 			o  scheduler
 			o  batch fetch propagator
 			o  timer event propagator
