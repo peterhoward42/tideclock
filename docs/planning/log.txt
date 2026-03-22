@@ -22,7 +22,7 @@ o  starter client side repo
 			o  localstorage implementation of storer
 		      * think it preserved old import of StorageLike from cache
 			  * possibly undeseriable signature
-
+			o  fix up vite test
 			o  proxy api fetcher implementation of fetcher
 			o  init tide predictions in app from cache and real storer and fetcher
 			o  scheduler
