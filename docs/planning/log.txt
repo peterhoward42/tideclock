@@ -10,10 +10,15 @@ o  starter client side repo
 	*  init overview and soc
 	*  svelte project skeleton
 	*  first cut separation of concerns
-	o  design phase for fetch lifecycle to cache - not yet used
-	o  live network fetch thus
-	o  timing sync to update model chain for clock display
-	o  overlay wall clock behaviour
+	*  capture changing data pipeline static and dynamic
+	*  work out tide knowing model and caches can be decoupled yet cooperate with timing models
+
+	o  document the model srp and scope as input to code change - with no behaviour yet - but clearly documented
+
+	o  ask AI to rip out all modelling and most of APP leaving hellow world and pages model
+	o  ask AI to implement the models in dependency orders with tests
+
+	o  onto real app beahviour iteration
 	
 
        
