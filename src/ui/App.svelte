@@ -12,6 +12,8 @@
   import Support from "./routes/Support.svelte";
   import Cookies from "./routes/Cookies.svelte";
 
+  console.log("[tideclock] boot: App.svelte module evaluated");
+
   /** Placeholder; revisit when product settles on staleness tolerance. */
   const TIDE_CACHE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 
@@ -38,17 +40,34 @@
   }
 
   async function loadTidePredictions(): Promise<void> {
+    console.log("[tideclock] tides: loadTidePredictions() started");
+    const baseUrl = tideProxyBaseUrl();
+    console.log("[tideclock] tides: resolved proxy base URL and placeholder location", {
+      baseUrl,
+      lat: PLACEHOLDER_LAT,
+      lon: PLACEHOLDER_LON,
+    });
+
     const fetcher = createTideProxyFetcher({
-      baseUrl: tideProxyBaseUrl(),
+      baseUrl,
       lat: PLACEHOLDER_LAT,
       lon: PLACEHOLDER_LON,
       model: tidePredictionsModel,
     });
+    console.log(
+      "[tideclock] tides: calling tidePredictionsCache.getOrFetch(fetcher) — network only runs on cache miss"
+    );
+
     const result = await tidePredictionsCache.getOrFetch(fetcher);
+
     tidePredictionsModel.extremes = result.extremes;
+    console.log("[tideclock] tides: loadTidePredictions() finished", {
+      extremesCount: result.extremes.length,
+    });
   }
 
   onMount(() => {
+    console.log("[tideclock] boot: App onMount (DOM ready, starting router + tides)");
     attachHashListener();
     void loadTidePredictions();
   });

@@ -79,14 +79,23 @@ export function createTideProxyFetcher(options: {
   model: TidePredictionsModel;
 }): Fetcher<TidePredictionsModel> {
   return async () => {
+    console.log("[tideclock] tide proxy: fetcher invoked — this means cache missed; issuing HTTP request");
     const url = buildTidesUrl(options.baseUrl, options.lat, options.lon);
+    console.log("[tide proxy] request", url);
     const res = await fetch(url);
     let body: unknown;
     try {
       body = await res.json();
     } catch {
+      console.log("[tide proxy] response (not JSON)", res.status);
       throw new Error(`Tide proxy response was not JSON (status ${res.status})`);
     }
+
+    console.log("[tide proxy] response", {
+      status: res.status,
+      ok: res.ok,
+      body,
+    });
 
     if (!res.ok) {
       const detail = errorMessageFromBody(body);

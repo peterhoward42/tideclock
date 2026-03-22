@@ -27,8 +27,9 @@ o  starter client side repo
 			   methods and droppoing reactivity - it is getting to complicated
 			   to trace as a human
 			*  init tide predictions in app from cache and real storer and fetcher
-
-			o  see if local run runs - incl net request to tides proxy
+			*  see if local run runs - incl net request to tides proxy
+			o  debug app with breakpoint at tides proxy?
+			o  log proxy api call and init state of tides
 
 			o  max age is chicken and egg
 			o  deal with placeholder lat and long values

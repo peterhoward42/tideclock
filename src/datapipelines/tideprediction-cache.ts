@@ -28,13 +28,33 @@ export class TidePredictionsCache {
    * Otherwise fetches, stores, and returns fresh data.
    */
   async getOrFetch(fetcher: Fetcher<TidePredictionsModel>): Promise<TidePredictionsModel> {
+    const record = this.readRecord();
+    const ageMs = record !== null ? Date.now() - record.fetchedAt : null;
+    const stale = record !== null && ageMs !== null && ageMs > this.maxAgeMs;
+    console.log("[tideclock] tides cache: getOrFetch — storage snapshot", {
+      key: this.key,
+      maxAgeMs: this.maxAgeMs,
+      hasUsableRecord: record !== null,
+      ageMs: ageMs ?? undefined,
+      stale: record !== null ? stale : undefined,
+    });
+
     const cached = this.readFresh();
     if (cached !== null) {
+      console.log("[tideclock] tides cache: hit — returning cached model, fetcher will not run", {
+        extremes: cached.extremes.length,
+      });
       return cached;
     }
 
+    console.log(
+      "[tideclock] tides cache: miss — calling fetcher (tide proxy GET /v1/tides should run next)"
+    );
     const fresh = await fetcher();
     this.write(fresh);
+    console.log("[tideclock] tides cache: wrote fresh result to storage", {
+      extremes: fresh.extremes.length,
+    });
     return fresh;
   }
 
