@@ -1,7 +1,7 @@
 import type {
   TideExtreme,
   TidePredictionsModel,
-} from "../core-models/tide-predictions.svelte";
+} from "../core-models/tide-predictions";
 import type { Fetcher } from "./tideprediction-cache";
 
 /** JSON body for a successful GET /v1/tides response (fields used by the client). */

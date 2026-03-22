@@ -22,12 +22,17 @@ o  starter client side repo
 			*  localstorage implementation of storer
 		      * think it preserved old import of StorageLike from cache
 			  * possibly undeseriable signature
+			*  proxy api fetcher implementation of fetcher
 
-			o  proxy api fetcher implementation of fetcher
-				*  basics
-				*  more accomodating tests
+			o  strip TidePredictionsModel back to just offering set and get
+			   methods and droppoing reactivity - it is getting to complicated
+			   to trace as a human
+
+			o  replace json in cache with "real" DTO
 
 			o  init tide predictions in app from cache and real storer and fetcher
+				o  plan it
+
 			o  scheduler
 			o  batch fetch propagator
 			o  timer event propagator

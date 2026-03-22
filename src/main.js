@@ -1,6 +1,5 @@
 // @ts-check
 import { mount } from 'svelte'
-import './core-models/tide-predictions.svelte.ts'
 import './app.css'
 import App from './ui/App.svelte'
 

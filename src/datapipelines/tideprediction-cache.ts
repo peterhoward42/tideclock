@@ -1,4 +1,4 @@
-import type { TidePredictionsModel } from "../core-models/tide-predictions.svelte";
+import type { TidePredictionsModel } from "../core-models/tide-predictions";
 import type { StorageLike } from "../infrastructure/storage-like";
 
 export type Fetcher<T> = () => Promise<T>;

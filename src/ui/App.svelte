@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { attachHashListener, route } from "../infrastructure/router.js";
-  import { createTidePredictionsModel } from "../core-models/tide-predictions.svelte";
+  import { createTidePredictionsModel } from "../core-models/tide-predictions";
   import { setTidePredictionsModel } from "../core-models/tide-predictions-context.svelte";
   import Home from "./routes/Home.svelte";
   import Settings from "./routes/Settings.svelte";
@@ -13,9 +13,8 @@
   // Create one TidePredictionsModel instance for this mounted app.
   //
   // createTidePredictionsModel is a factory function. It returns a model
-  // instance object exposing the model's public interface, which in this case
-  // is just setAll(...) and getAll(). Internally the model holds private
-  // reactive state, but that state is not exposed directly here.
+  // instance object exposing setAll(...) and getAll(). Internally the model
+  // holds private mutable state that is not exposed directly here.
   const tidePredictionsModel = createTidePredictionsModel();
 
   // Publish that exact model instance into Svelte context for this component
@@ -36,7 +35,7 @@
   //
   // The model interface places the obligation on the caller to provide the
   // array in the desired order already. setAll(...) then copies that array
-  // into the model's private reactive state.
+  // into the model's private state.
   tidePredictionsModel.setAll([
     { type: "high", height: 4.2, time: new Date("2026-03-22T01:15:00Z") },
     { type: "low", height: 1.1, time: new Date("2026-03-22T07:32:00Z") },

@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import type { TidePredictionsModel } from "../core-models/tide-predictions.svelte";
+import type { TidePredictionsModel } from "../core-models/tide-predictions";
 import type { StorageLike } from "../infrastructure/storage-like";
 import { TidePredictionsCache } from "./tideprediction-cache";
 
