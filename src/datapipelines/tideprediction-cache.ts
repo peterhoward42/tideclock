@@ -1,7 +1,7 @@
 import type { TidePredictionsModel } from "../core-models/tide-predictions.svelte";
 import type { StorageLike } from "../infrastructure/storage-like";
 
-type Fetcher<T> = () => Promise<T>;
+export type Fetcher<T> = () => Promise<T>;
 
 interface CacheRecord<T> {
   value: T;
@@ -27,9 +27,7 @@ export class TidePredictionsCache {
    * Returns cached data if it exists and is still fresh.
    * Otherwise fetches, stores, and returns fresh data.
    */
-  async getOrFetch(
-    fetcher: Fetcher<TidePredictionsModel>
-  ): Promise<TidePredictionsModel> {
+  async getOrFetch(fetcher: Fetcher<TidePredictionsModel>): Promise<TidePredictionsModel> {
     const cached = this.readFresh();
     if (cached !== null) {
       return cached;

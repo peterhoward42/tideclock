@@ -19,11 +19,14 @@ o  starter client side repo
 			
 			*  TidePredictionsModel
 			*  TidePredictionCache
-			o  localstorage implementation of storer
+			*  localstorage implementation of storer
 		      * think it preserved old import of StorageLike from cache
 			  * possibly undeseriable signature
-			o  fix up vite test
+
 			o  proxy api fetcher implementation of fetcher
+				*  basics
+				*  more accomodating tests
+
 			o  init tide predictions in app from cache and real storer and fetcher
 			o  scheduler
 			o  batch fetch propagator
@@ -36,4 +39,14 @@ o  starter client side repo
 
        
 o  don't forget
+	o  proxy api should come from envar?
 	o  price cap control
+
+
+const fetcher = createTideProxyFetcher({
+  baseUrl: "https://europe-west1-tides-proxy.cloudfunctions.net/tides-proxy",
+  lat,
+  lon,
+  model: tidePredictionsModel,
+});
+await cache.getOrFetch(fetcher);
