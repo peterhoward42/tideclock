@@ -17,9 +17,14 @@ o  starter client side repo
 	o  ask AI to introduce one model with docco at a time.
 		o  named and skel only with role and scope comments for you and human
 			
-			o  tide extremes
+			*  TidePredictionsModel
 			o  the cache
-			o  batch fetcher
+				*  design it 
+				*  code it 
+				*  put in repo
+				o  write test to it with faked storage double
+			o  localstorage implementation of fetcher
+			o  proxy api fetcher implementation
 			o  scheduler
 			o  batch fetch propagator
 			o  timer event propagator
