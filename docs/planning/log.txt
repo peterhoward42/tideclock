@@ -12,17 +12,17 @@ o  starter client side repo
 	*  first cut separation of concerns
 	*  capture changing data pipeline static and dynamic
 	*  work out tide knowing model and caches can be decoupled yet cooperate with timing models
-
-	o  ask AI to rip out all modelling and most of APP leaving hellow world and pages model
+	*  ask AI to rip out all modelling and most of APP leaving hellow world and pages model
 
 	o  ask AI to introduce one model with docco at a time.
 		o  named and skel only with role and scope comments for you and human
-		o  tide extremes
-		o  the cache
-		o  batch fetcher
-		o  scheduler
-		o  batch fetch propagator
-		o  timer event propagator
+			
+			o  tide extremes
+			o  the cache
+			o  batch fetcher
+			o  scheduler
+			o  batch fetch propagator
+			o  timer event propagator
 
 	o  ask AI to implement the models in dependency orders with tests
 
