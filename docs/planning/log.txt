@@ -28,20 +28,11 @@ o  starter client side repo
 			   to trace as a human
 			*  init tide predictions in app from cache and real storer and fetcher
 			*  see if local run runs - incl net request to tides proxy
+			*  max age is chicken and egg
+			*  wire in coping for changing locations
 
-			o  max age is chicken and egg
-				*  basics
-				o  digress behavioural and role comments
-					o  if it works capture it as a cross language skill
-					o  try it
-					o  remove it from repo skills register
-
-				o  come back to edge cases below
-				o  come back to policy buffer time
-				o  prevent locking into system cache miss due to a bug
-
-			o  deal with placeholder lat and long values
-			o  policy for expections
+			o  might be better to include the lat long where necessary to 
+			   force cache misses
 
 			o  scheduler
 			o  batch fetch propagator
@@ -54,10 +45,9 @@ o  starter client side repo
 
        
 o  don't forget
+	o  come back to expiry policy buffer time
+	o  prevent locking into system cache miss due to a bug
 	o  proxy api should come from envar?
-	o  price cap control
+	o  policy for excections
+	o  price cap control on worldtimes costs
 
-5. Edge cases to design for explicitly
-Missing expiry in JSON: fallback TTL, or always refetch, or fail closed — but don’t silently use only maxAgeMs without documenting it as fallback.
-Clock skew: expiresAt in the past immediately after fetch → treat as stale or clamp; optional small skew buffer if the API contract allows.
-Serialization: version the storage key or record shape if you add expiresAt so old localStorage entries don’t parse as valid forever.

@@ -7,6 +7,25 @@ export type Fetcher<T> = () => Promise<T>;
 interface CacheRecord<T> {
   value: T;
   fetchedAt: number;
+  lat?: number;
+  lon?: number;
+}
+
+export interface TidePredictionsCacheLocation {
+  lat: number;
+  lon: number;
+}
+
+function cacheLocationMatches(
+  record: CacheRecord<TidePredictionsModel>,
+  location: TidePredictionsCacheLocation
+): boolean {
+  return (
+    typeof record.lat === "number" &&
+    typeof record.lon === "number" &&
+    record.lat === location.lat &&
+    record.lon === location.lon
+  );
 }
 
 /** Proxy `expiresAt` is exclusive; treat cached data as fresh while `now < expiresAt`. */
@@ -34,9 +53,13 @@ export class TidePredictionsCache {
   }
 
   /**
-   * getOrFetch returns storage-backed predictions when still valid; otherwise runs `fetcher`, persists, and returns the new model.
+   * getOrFetch returns storage-backed predictions when still valid **for this lat/lon**; otherwise runs `fetcher`, persists, and returns the new model.
+   * A hit requires `expiresAt` still in the future and matching coordinates on the stored record (otherwise it is a miss and the fetcher runs).
    */
-  async getOrFetch(fetcher: Fetcher<TidePredictionsModel>): Promise<TidePredictionsModel> {
+  async getOrFetch(
+    fetcher: Fetcher<TidePredictionsModel>,
+    location: TidePredictionsCacheLocation
+  ): Promise<TidePredictionsModel> {
     const record = this.readRecord();
     const now = Date.now();
     const stale =
@@ -47,7 +70,7 @@ export class TidePredictionsCache {
       stale: record !== null ? stale : undefined,
     });
 
-    const cached = this.readFresh();
+    const cached = this.readFresh(location);
     if (cached !== null) {
       console.log("[tideclock] tides cache: hit — returning cached model, fetcher will not run", {
         extremes: cached.extremes.length,
@@ -59,7 +82,7 @@ export class TidePredictionsCache {
       "[tideclock] tides cache: miss — calling fetcher (tide proxy GET /v1/tides should run next)"
     );
     const fresh = await fetcher();
-    this.write(fresh);
+    this.write(fresh, location);
     console.log("[tideclock] tides cache: wrote fresh result to storage", {
       extremes: fresh.extremes.length,
     });
@@ -73,13 +96,17 @@ export class TidePredictionsCache {
     this.storage.removeItem(this.key);
   }
 
-  private readFresh(): TidePredictionsModel | null {
+  private readFresh(location: TidePredictionsCacheLocation): TidePredictionsModel | null {
     const record = this.readRecord();
     if (record === null) {
       return null;
     }
 
     if (!predictionsStillValid(record.value, Date.now())) {
+      return null;
+    }
+
+    if (!cacheLocationMatches(record, location)) {
       return null;
     }
 
@@ -112,10 +139,12 @@ export class TidePredictionsCache {
     }
   }
 
-  private write(value: TidePredictionsModel): void {
+  private write(value: TidePredictionsModel, location: TidePredictionsCacheLocation): void {
     const record: CacheRecord<TidePredictionsModel> = {
       value,
       fetchedAt: Date.now(),
+      lat: location.lat,
+      lon: location.lon,
     };
 
     this.storage.setItem(this.key, JSON.stringify(record));

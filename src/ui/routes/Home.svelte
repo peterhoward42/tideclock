@@ -1,13 +1,13 @@
 <script lang="ts">
-  // Home route: receives tide predictions for upcoming dial/UI wiring; `TideClock` is local time only for now.
-  import type { TidePredictionsModel } from "../../core-models/tide-predictions";
+  // Home route: main display; `tidePredictionsModel` will plug in here when the tide UI lands.
+  import type { TidePredictionsLoadState } from "../../application/tide-predictions-load-state";
   import TideClock from "../components/TideClock.svelte";
 
   interface Props {
-    tidePredictionsModel: TidePredictionsModel;
+    tideLoadState: TidePredictionsLoadState;
   }
 
-  let { tidePredictionsModel }: Props = $props();
+  let { tideLoadState }: Props = $props();
 </script>
 
-<TideClock />
+<TideClock tideLoadState={tideLoadState} />
