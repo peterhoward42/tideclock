@@ -1,26 +1,26 @@
 import { TideExtreme, type TideExtremeType } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 
-export const TIDE_EXTREMES_LOCAL_STORAGE_KEY = 'tide-extremes-at-location';
+export const EXTREMES_SNAPSHOT_KEY = 'tide-extremes-at-location';
 
-export interface TideExtremesStorer {
+export interface ExtremesStorer {
   setItem(key: string, value: string): void;
 }
 
-export interface TideExtremesLoader {
+export interface ExtremesLoader {
   getItem(key: string): string | null;
 }
 
-interface TideExtremeSnapshot {
+interface ExtremeRow {
   type: TideExtremeType;
   timeUtc: string;
   heightMetres: number;
 }
 
-interface TideExtremesAtLocationSnapshot {
+interface StoredExtremesShape {
   latitude: number;
   longitude: number;
-  extremes: TideExtremeSnapshot[];
+  extremes: ExtremeRow[];
 }
 
 function isFiniteNumber(value: unknown): value is number {
@@ -31,12 +31,12 @@ function isTideExtremeType(value: unknown): value is TideExtremeType {
   return value === 'high' || value === 'low';
 }
 
-function isTideExtremeSnapshot(value: unknown): value is TideExtremeSnapshot {
+function isExtremeRow(value: unknown): value is ExtremeRow {
   if (!value || typeof value !== 'object') {
     return false;
   }
 
-  const typed = value as Partial<TideExtremeSnapshot>;
+  const typed = value as Partial<ExtremeRow>;
   return (
     isTideExtremeType(typed.type) &&
     typeof typed.timeUtc === 'string' &&
@@ -46,28 +46,28 @@ function isTideExtremeSnapshot(value: unknown): value is TideExtremeSnapshot {
   );
 }
 
-function isTideExtremesAtLocationSnapshot(value: unknown): value is TideExtremesAtLocationSnapshot {
+function isStoredExtremes(value: unknown): value is StoredExtremesShape {
   if (!value || typeof value !== 'object') {
     return false;
   }
 
-  const typed = value as Partial<TideExtremesAtLocationSnapshot>;
+  const typed = value as Partial<StoredExtremesShape>;
   return (
     isFiniteNumber(typed.latitude) &&
     isFiniteNumber(typed.longitude) &&
     Array.isArray(typed.extremes) &&
-    typed.extremes.every((extreme) => isTideExtremeSnapshot(extreme))
+    typed.extremes.every((extreme) => isExtremeRow(extreme))
   );
 }
 
-export function serializeTideExtremesAtLocation(data: TideExtremesAtLocation): string {
+export function serializeExtremesSnapshot(data: TideExtremesAtLocation): string {
   return JSON.stringify(data);
 }
 
-export function deserializeTideExtremesAtLocation(raw: string): TideExtremesAtLocation | undefined {
+export function deserializeExtremesSnapshot(raw: string): TideExtremesAtLocation | undefined {
   try {
     const parsed: unknown = JSON.parse(raw);
-    if (!isTideExtremesAtLocationSnapshot(parsed)) {
+    if (!isStoredExtremes(parsed)) {
       return undefined;
     }
 

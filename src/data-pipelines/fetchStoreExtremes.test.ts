@@ -1,14 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
-import {
-  fetchAndStoreTideExtremesAtLocation
-} from './fetchAndStoreTideExtremesAtLocation';
-import type { TideProxyV1Response } from './TideProxyV1Response';
-import {
-  TIDE_EXTREMES_LOCAL_STORAGE_KEY,
-  type TideExtremesStorer
-} from './tideExtremesSnapshotStorage';
+import { fetchStoreExtremes } from './fetchStoreExtremes';
+import type { TideProxyV1Response } from './proxyV1Types';
+import { EXTREMES_SNAPSHOT_KEY, type ExtremesStorer } from './extremesSnapshot';
 
-class FakeTideExtremesStorer implements TideExtremesStorer {
+class FakeExtremesStorer implements ExtremesStorer {
   public writes: Array<{ key: string; value: string }> = [];
 
   setItem(key: string, value: string): void {
@@ -16,9 +11,9 @@ class FakeTideExtremesStorer implements TideExtremesStorer {
   }
 }
 
-describe('fetchAndStoreTideExtremesAtLocation', () => {
+describe('fetchStoreExtremes', () => {
   it('fetches, maps, and persists tide extremes via injected storer', async () => {
-    const storer = new FakeTideExtremesStorer();
+    const storer = new FakeExtremesStorer();
     const responsePayload: TideProxyV1Response = {
       tides: [
         { type: 'High', time: '2026-03-23T00:40:00Z', heightMetres: 3.2 },
@@ -37,13 +32,13 @@ describe('fetchAndStoreTideExtremesAtLocation', () => {
       });
     });
 
-    const result = await fetchAndStoreTideExtremesAtLocation({
+    const result = await fetchStoreExtremes({
       lat: 50.8,
       lon: -1.1,
       baseUrl: 'https://example.test',
       fetchImpl,
       storer,
-      storageKey: TIDE_EXTREMES_LOCAL_STORAGE_KEY
+      storageKey: EXTREMES_SNAPSHOT_KEY
     });
 
     expect(fetchImpl).toHaveBeenCalledTimes(1);
@@ -55,7 +50,7 @@ describe('fetchAndStoreTideExtremesAtLocation', () => {
     ]);
     expect(storer.writes).toEqual([
       {
-        key: TIDE_EXTREMES_LOCAL_STORAGE_KEY,
+        key: EXTREMES_SNAPSHOT_KEY,
         value: JSON.stringify({
           latitude: 50.8,
           longitude: -1.1,
@@ -69,7 +64,7 @@ describe('fetchAndStoreTideExtremesAtLocation', () => {
   });
 
   it('uses custom storage key when provided', async () => {
-    const storer = new FakeTideExtremesStorer();
+    const storer = new FakeExtremesStorer();
     const fetchImpl = vi.fn<typeof fetch>(async () => {
       return new Response(
         JSON.stringify({
@@ -86,7 +81,7 @@ describe('fetchAndStoreTideExtremesAtLocation', () => {
       );
     });
 
-    await fetchAndStoreTideExtremesAtLocation({
+    await fetchStoreExtremes({
       lat: 50.8,
       lon: -1.1,
       baseUrl: 'https://example.test',

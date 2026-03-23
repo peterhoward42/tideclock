@@ -1,20 +1,20 @@
-export type TideProxyV1ExtremeType = 'High' | 'Low';
+export type ProxyV1ExtremeType = 'High' | 'Low';
 
-export interface TideProxyV1TideExtreme {
-  type: TideProxyV1ExtremeType;
+export interface ProxyV1Extreme {
+  type: ProxyV1ExtremeType;
   time: string;
   heightMetres: number;
 }
 
 export interface TideProxyV1Response {
-  tides: TideProxyV1TideExtreme[];
+  tides: ProxyV1Extreme[];
   datum: 'CD';
   windowStart: string;
   expiresAt: string;
   attribution: string;
 }
 
-export interface TideProxyV1ErrorResponse {
+export interface ProxyV1ErrorResponse {
   error: {
     code: string;
     message: string;

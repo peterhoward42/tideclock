@@ -1,6 +1,6 @@
-import type { TideProxyV1ErrorResponse, TideProxyV1Response } from './TideProxyV1Response';
+import type { ProxyV1ErrorResponse, TideProxyV1Response } from './proxyV1Types';
 
-interface FetchTideProxyV1DataParams {
+interface FetchProxyV1TidesParams {
   lat: number;
   lon: number;
   baseUrl?: string;
@@ -25,12 +25,12 @@ function assertValidCoordinates(lat: number, lon: number): void {
  * Orchestrates one request to Tide Proxy API v1 and returns the raw payload shape.
  * No schema-to-domain transformation is performed in this pipeline helper.
  */
-export async function fetchTideProxyV1Data({
+export async function fetchProxyV1Tides({
   lat,
   lon,
   baseUrl = import.meta.env.VITE_TIDE_PROXY_BASE_URL,
   fetchImpl = fetch
-}: FetchTideProxyV1DataParams): Promise<TideProxyV1Response> {
+}: FetchProxyV1TidesParams): Promise<TideProxyV1Response> {
   assertValidCoordinates(lat, lon);
   if (typeof baseUrl !== 'string' || baseUrl.trim() === '') {
     throw new Error('Missing VITE_TIDE_PROXY_BASE_URL.');
@@ -47,7 +47,7 @@ export async function fetchTideProxyV1Data({
     }
   });
 
-  const payload = (await response.json()) as TideProxyV1Response | TideProxyV1ErrorResponse;
+  const payload = (await response.json()) as TideProxyV1Response | ProxyV1ErrorResponse;
   if (response.ok) {
     return payload as TideProxyV1Response;
   }

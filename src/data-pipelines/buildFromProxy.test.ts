@@ -1,10 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
-import {
-  buildTideExtremesAtLocationFromTideProxyV1Response,
-  TideProxyV1BuildError
-} from './toTideExtremes';
-import type { TideProxyV1Response } from './TideProxyV1Response';
+import { buildExtremesFromProxy, ProxyV1BuildError } from './buildFromProxy';
+import type { TideProxyV1Response } from './proxyV1Types';
 
 function makeResponse(overrides?: Partial<TideProxyV1Response>): TideProxyV1Response {
   return {
@@ -20,9 +17,9 @@ function makeResponse(overrides?: Partial<TideProxyV1Response>): TideProxyV1Resp
   };
 }
 
-describe('buildTideExtremesAtLocationFromTideProxyV1Response', () => {
+describe('buildExtremesFromProxy', () => {
   it('builds a TideExtremesAtLocation from a valid proxy payload', () => {
-    const result = buildTideExtremesAtLocationFromTideProxyV1Response({
+    const result = buildExtremesFromProxy({
       latitude: 50.8,
       longitude: -1.1,
       response: makeResponse()
@@ -39,17 +36,17 @@ describe('buildTideExtremesAtLocationFromTideProxyV1Response', () => {
 
   it('throws when latitude is invalid', () => {
     expect(() =>
-      buildTideExtremesAtLocationFromTideProxyV1Response({
+      buildExtremesFromProxy({
         latitude: 100,
         longitude: -1.1,
         response: makeResponse()
       })
-    ).toThrowError(new TideProxyV1BuildError('Invalid latitude "100". Expected a number in [-90, 90].'));
+    ).toThrowError(new ProxyV1BuildError('Invalid latitude "100". Expected a number in [-90, 90].'));
   });
 
   it('throws when tides is not an array', () => {
     expect(() =>
-      buildTideExtremesAtLocationFromTideProxyV1Response({
+      buildExtremesFromProxy({
         latitude: 50.8,
         longitude: -1.1,
         response: {
@@ -58,13 +55,13 @@ describe('buildTideExtremesAtLocationFromTideProxyV1Response', () => {
         }
       })
     ).toThrowError(
-      new TideProxyV1BuildError('Invalid tide proxy response. Expected "tides" to be an array.')
+      new ProxyV1BuildError('Invalid tide proxy response. Expected "tides" to be an array.')
     );
   });
 
   it('throws when an extreme type is not supported', () => {
     expect(() =>
-      buildTideExtremesAtLocationFromTideProxyV1Response({
+      buildExtremesFromProxy({
         latitude: 50.8,
         longitude: -1.1,
         response: makeResponse({
@@ -72,13 +69,13 @@ describe('buildTideExtremesAtLocationFromTideProxyV1Response', () => {
         })
       })
     ).toThrowError(
-      new TideProxyV1BuildError('Invalid tide extreme type "NOPE". Expected "High" or "Low".')
+      new ProxyV1BuildError('Invalid tide extreme type "NOPE". Expected "High" or "Low".')
     );
   });
 
   it('throws when an extreme timestamp is malformed', () => {
     expect(() =>
-      buildTideExtremesAtLocationFromTideProxyV1Response({
+      buildExtremesFromProxy({
         latitude: 50.8,
         longitude: -1.1,
         response: makeResponse({
@@ -86,7 +83,7 @@ describe('buildTideExtremesAtLocationFromTideProxyV1Response', () => {
         })
       })
     ).toThrowError(
-      new TideProxyV1BuildError(
+      new ProxyV1BuildError(
         'Invalid tide extreme time "not-a-time" at index 0. Expected an ISO-8601 timestamp.'
       )
     );
@@ -94,7 +91,7 @@ describe('buildTideExtremesAtLocationFromTideProxyV1Response', () => {
 
   it('throws when an extreme height is not finite', () => {
     expect(() =>
-      buildTideExtremesAtLocationFromTideProxyV1Response({
+      buildExtremesFromProxy({
         latitude: 50.8,
         longitude: -1.1,
         response: makeResponse({
@@ -102,7 +99,7 @@ describe('buildTideExtremesAtLocationFromTideProxyV1Response', () => {
         })
       })
     ).toThrowError(
-      new TideProxyV1BuildError(
+      new ProxyV1BuildError(
         'Invalid tide extreme heightMetres at index 0. Expected a finite number.'
       )
     );

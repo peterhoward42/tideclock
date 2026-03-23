@@ -29,12 +29,10 @@ o  new data fetch paradigm
 		*  put in a fetch, transform and store function
 
 		*  now query fn if local data spans the window if so filter it for me
-
-		o  unhappy with undefined query ressponse as sentinel
-			o  reframe the queries as give me this if it exists
-			o  improve the comments
+		*  unhappy with undefined query ressponse as sentinel
 
 		o  skill to shorten names
+			o  remind what already have
 			o  be advised
 			o  write and register the skill
 

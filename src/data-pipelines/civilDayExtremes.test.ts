@@ -2,14 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import type { TimeNowProvider } from '../time-services/TideClockCivilDayDisplayWindow';
-import {
-  getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot,
-  getIfExistsCurrentTideClockCivilDayExtremesFromStoredData
-} from './getIfExistsCurrentTideClockCivilDayExtremesFromStoredData';
-import {
-  TIDE_EXTREMES_LOCAL_STORAGE_KEY,
-  type TideExtremesLoader
-} from './tideExtremesSnapshotStorage';
+import { extremesForCurrentCivilDay, loadExtremesForCurrentCivilDay } from './civilDayExtremes';
+import { EXTREMES_SNAPSHOT_KEY, type ExtremesLoader } from './extremesSnapshot';
 
 class FakeTimeNowProvider implements TimeNowProvider {
   private readonly fixedNow: Date;
@@ -27,7 +21,7 @@ function utcIsoForLocal(year: number, monthIndex: number, day: number, hour: num
   return new Date(year, monthIndex, day, hour, minute, 0, 0).toISOString();
 }
 
-class FakeTideExtremesLoader implements TideExtremesLoader {
+class FakeExtremesLoader implements ExtremesLoader {
   private readonly byKey: Record<string, string | null>;
 
   constructor(byKey: Record<string, string | null>) {
@@ -39,7 +33,7 @@ class FakeTideExtremesLoader implements TideExtremesLoader {
   }
 }
 
-describe('getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot', () => {
+describe('extremesForCurrentCivilDay', () => {
   const nowProvider = new FakeTimeNowProvider(new Date(2026, 2, 23, 10, 30, 0, 0));
 
   it('returns undefined when stored location does not match required location', () => {
@@ -49,7 +43,7 @@ describe('getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot', () => {
       new TideExtreme('high', utcIsoForLocal(2026, 2, 24, 0, 15), 3.2)
     ]);
 
-    const result = getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot({
+    const result = extremesForCurrentCivilDay({
       requiredLatitude: 51.0,
       requiredLongitude: -1.1,
       stored,
@@ -66,7 +60,7 @@ describe('getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot', () => {
       new TideExtreme('low', utcIsoForLocal(2026, 2, 24, 1, 10), 0.6)
     ]);
 
-    const result = getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot({
+    const result = extremesForCurrentCivilDay({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       stored,
@@ -83,7 +77,7 @@ describe('getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot', () => {
       new TideExtreme('high', utcIsoForLocal(2026, 2, 23, 23, 50), 3.4)
     ]);
 
-    const result = getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot({
+    const result = extremesForCurrentCivilDay({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       stored,
@@ -108,7 +102,7 @@ describe('getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot', () => {
       afterEnd
     ]);
 
-    const result = getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot({
+    const result = extremesForCurrentCivilDay({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       stored,
@@ -124,15 +118,15 @@ describe('getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot', () => {
   });
 });
 
-describe('getIfExistsCurrentTideClockCivilDayExtremesFromStoredData', () => {
+describe('loadExtremesForCurrentCivilDay', () => {
   const nowProvider = new FakeTimeNowProvider(new Date(2026, 2, 23, 10, 30, 0, 0));
 
   it('returns undefined when there is no stored snapshot', () => {
-    const loader = new FakeTideExtremesLoader({
-      [TIDE_EXTREMES_LOCAL_STORAGE_KEY]: null
+    const loader = new FakeExtremesLoader({
+      [EXTREMES_SNAPSHOT_KEY]: null
     });
 
-    const result = getIfExistsCurrentTideClockCivilDayExtremesFromStoredData({
+    const result = loadExtremesForCurrentCivilDay({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       loader,
@@ -143,11 +137,11 @@ describe('getIfExistsCurrentTideClockCivilDayExtremesFromStoredData', () => {
   });
 
   it('returns undefined when stored snapshot is malformed JSON', () => {
-    const loader = new FakeTideExtremesLoader({
-      [TIDE_EXTREMES_LOCAL_STORAGE_KEY]: '{this is not json'
+    const loader = new FakeExtremesLoader({
+      [EXTREMES_SNAPSHOT_KEY]: '{this is not json'
     });
 
-    const result = getIfExistsCurrentTideClockCivilDayExtremesFromStoredData({
+    const result = loadExtremesForCurrentCivilDay({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       loader,
@@ -158,8 +152,8 @@ describe('getIfExistsCurrentTideClockCivilDayExtremesFromStoredData', () => {
   });
 
   it('loads, validates adequacy, and returns in-window extremes', () => {
-    const loader = new FakeTideExtremesLoader({
-      [TIDE_EXTREMES_LOCAL_STORAGE_KEY]: JSON.stringify({
+    const loader = new FakeExtremesLoader({
+      [EXTREMES_SNAPSHOT_KEY]: JSON.stringify({
         latitude: 50.8,
         longitude: -1.1,
         extremes: [
@@ -171,7 +165,7 @@ describe('getIfExistsCurrentTideClockCivilDayExtremesFromStoredData', () => {
       })
     });
 
-    const result = getIfExistsCurrentTideClockCivilDayExtremesFromStoredData({
+    const result = loadExtremesForCurrentCivilDay({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       loader,
