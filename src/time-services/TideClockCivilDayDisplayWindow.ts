@@ -1,9 +1,9 @@
-// TideClock12HourDisplayWindow captures one half-day display interval in local civil time.
-// These boundaries are intentionally local-clock cutoffs (00:00/12:00), not fixed UTC durations.
-export class TideClock12HourDisplayWindow {
-  // startLocal is inclusive.
+// TideClockCivilDayDisplayWindow captures the current civil-day interval in local civil time.
+// Interval is half-open: includes local 00:00, excludes local 00:00 of the next day.
+export class TideClockCivilDayDisplayWindow {
+  // startLocal is inclusive (local civil time).
   public readonly startLocal: Date;
-  // endLocalExclusive is exclusive.
+  // endLocalExclusive is exclusive (local civil time).
   public readonly endLocalExclusive: Date;
 
   constructor(startLocal: Date, endLocalExclusive: Date) {
@@ -24,3 +24,4 @@ export class SystemTimeNowProvider implements TimeNowProvider {
     return new Date();
   }
 }
+
