@@ -1,16 +1,7 @@
 <script lang="ts">
-  // Root shell: hash router, tide proxy + `TidePredictionsCache`, location persistence, and route outlets.
+  // Baseline app shell: keep routing and UI mount stable while domain code is being rebuilt.
   import { onMount } from "svelte";
   import { attachHashListener, route } from "../infrastructure/router.js";
-  import { createTidePredictionsModel } from "../core-models/tide-predictions";
-  import { TidePredictionsCache } from "../datapipelines/tideprediction-cache";
-  import { createTideProxyFetcher } from "../datapipelines/tideproxy-fetcher";
-  import { LocalStorageFacade } from "../infrastructure/local-storage-facade";
-  import {
-    loadLocationWithDefaultPersist,
-    writeLocation,
-  } from "../application/location-persistence";
-  import type { TidePredictionsLoadState } from "../application/tide-predictions-load-state";
   import Home from "./routes/Home.svelte";
   import Settings from "./routes/Settings.svelte";
   import About from "./routes/About.svelte";
@@ -18,80 +9,11 @@
   import Support from "./routes/Support.svelte";
   import Cookies from "./routes/Cookies.svelte";
 
-  console.log("[tideclock] boot: App.svelte module evaluated");
-
-  const TIDE_CACHE_KEY = "tidepredictions:v1";
-
-  const persistence = new LocalStorageFacade();
-
-  const tidePredictionsModel = createTidePredictionsModel();
-
-  const tidePredictionsCache = new TidePredictionsCache({
-    key: TIDE_CACHE_KEY,
-    storage: persistence,
-  });
-
-  let tideLoadState = $state<TidePredictionsLoadState>({ status: "loading" });
-
-  function tideProxyBaseUrl(): string {
-    const url = import.meta.env.VITE_TIDE_PROXY_BASE_URL;
-    if (typeof url !== "string" || url.trim() === "") {
-      throw new Error("VITE_TIDE_PROXY_BASE_URL is missing or empty");
-    }
-    return url.trim();
-  }
-
-  /**
-   * Loads or refetches tides for coordinates via `getOrFetch` (cache hit only when fresh and lat/lon match the stored row).
-   */
-  async function fetchTidesForLocation(lat: number, lon: number): Promise<void> {
-    tideLoadState = { status: "loading" };
-
-    try {
-      const baseUrl = tideProxyBaseUrl();
-      console.log("[tideclock] tides: fetch for location", { baseUrl, lat, lon });
-
-      const fetcher = createTideProxyFetcher({
-        baseUrl,
-        lat,
-        lon,
-        model: tidePredictionsModel,
-      });
-
-      const result = await tidePredictionsCache.getOrFetch(fetcher, { lat, lon });
-
-      tidePredictionsModel.extremes = result.extremes;
-      tidePredictionsModel.expiresAt = result.expiresAt;
-      tideLoadState = { status: "ready" };
-      console.log("[tideclock] tides: fetch finished", {
-        extremesCount: result.extremes.length,
-      });
-    } catch (e) {
-      console.error("[tideclock] tides: fetch failed", e);
-      tideLoadState = { status: "error" };
-    }
-  }
-
-  /**
-   * Persist first, clear the in-memory model so the UI does not show the previous location’s tides while loading, then refetch.
-   * Storage cache does not need a separate clear: `getOrFetch` misses when coordinates differ from the stored row.
-   */
-  export async function applyLocation(lat: number, lon: number): Promise<void> {
-    writeLocation(persistence, lat, lon);
-    tidePredictionsModel.extremes = [];
-    delete tidePredictionsModel.expiresAt;
-    await fetchTidesForLocation(lat, lon);
-  }
-
-  async function loadTidePredictionsOnBoot(): Promise<void> {
-    const loc = loadLocationWithDefaultPersist(persistence);
-    await fetchTidesForLocation(loc.lat, loc.lon);
-  }
+  type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
+  let tideLoadState = $state<TidePredictionsLoadState>({ status: "ready" });
 
   onMount(() => {
-    console.log("[tideclock] boot: App onMount (DOM ready, starting router + tides)");
     attachHashListener();
-    void loadTidePredictionsOnBoot();
   });
 </script>
 

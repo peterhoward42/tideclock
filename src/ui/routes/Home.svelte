@@ -1,7 +1,8 @@
 <script lang="ts">
-  // Home route: main display; `tidePredictionsModel` will plug in here when the tide UI lands.
-  import type { TidePredictionsLoadState } from "../../application/tide-predictions-load-state";
+  // Home route: minimal render surface during re-baselining.
   import TideClock from "../components/TideClock.svelte";
+
+  type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
 
   interface Props {
     tideLoadState: TidePredictionsLoadState;

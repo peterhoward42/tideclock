@@ -17,6 +17,7 @@ o  new data fetch paradigm
 
        
 o  don't forget
+	o  big docco clearout
 	o  come back to expiry policy buffer time
 	o  prevent locking into system cache miss due to a bug
 	o  proxy api should come from envar?

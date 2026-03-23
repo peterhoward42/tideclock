@@ -1,7 +1,8 @@
 <script lang="ts">
   // Local-time display driven by the shared `nowMs` store (one tick per second); tide load lifecycle for the main screen.
-  import type { TidePredictionsLoadState } from "../../application/tide-predictions-load-state";
   import { nowMs } from "../../application/appClock.js";
+
+  type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
 
   interface Props {
     tideLoadState: TidePredictionsLoadState;
