@@ -25,12 +25,15 @@ o  new data fetch paradigm
 				*  first pass from it
 				*  me reduce scope
 			*  ditch all obsolete docs - they are confusing
-			o  put in new 24 hour time services
+		*  put in new 24 hour time services
+		*  put in a fetch, transform and store function
 
-		o  put in a fetch, transform and store function
-			o  likely tell it not to use the default / override idiom
+		o  now query fn if local data spans the window if so filter it for me
+			*  first version
+			*  pushed back on it should do the retrieval
+			o  make sure it does toTideExtremes conversion
 
-		o  now query fn if local data spans the window
+		o  now a fetch via proxy and store followed if new do we have
 
 		o  change proxy to fetch earlier start window
 

@@ -1,12 +1,11 @@
 import { fetchTideProxyV1Data } from './fetchTideProxyV1Data';
 import { buildTideExtremesAtLocationFromTideProxyV1Response } from './toTideExtremes';
 import type { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
-
-export const TIDE_EXTREMES_LOCAL_STORAGE_KEY = 'tide-extremes-at-location';
-
-export interface TideExtremesStorer {
-  setItem(key: string, value: string): void;
-}
+import {
+  serializeTideExtremesAtLocation,
+  TIDE_EXTREMES_LOCAL_STORAGE_KEY,
+  type TideExtremesStorer
+} from './tideExtremesSnapshotStorage';
 
 interface FetchAndStoreTideExtremesAtLocationParams {
   lat: number;
@@ -15,10 +14,6 @@ interface FetchAndStoreTideExtremesAtLocationParams {
   fetchImpl: typeof fetch;
   storer: TideExtremesStorer;
   storageKey: string;
-}
-
-function serializeTideExtremesAtLocation(data: TideExtremesAtLocation): string {
-  return JSON.stringify(data);
 }
 
 /**

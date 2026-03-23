@@ -1,10 +1,12 @@
 import { describe, expect, it, vi } from 'vitest';
 import {
-  fetchAndStoreTideExtremesAtLocation,
-  TIDE_EXTREMES_LOCAL_STORAGE_KEY,
-  type TideExtremesStorer
+  fetchAndStoreTideExtremesAtLocation
 } from './fetchAndStoreTideExtremesAtLocation';
 import type { TideProxyV1Response } from './TideProxyV1Response';
+import {
+  TIDE_EXTREMES_LOCAL_STORAGE_KEY,
+  type TideExtremesStorer
+} from './tideExtremesSnapshotStorage';
 
 class FakeTideExtremesStorer implements TideExtremesStorer {
   public writes: Array<{ key: string; value: string }> = [];
