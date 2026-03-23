@@ -38,6 +38,24 @@ pnpm-debug.log*
 .pnpm-store/
 .pnpm-debug.log*
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
 # Env and secrets
 .env
 .env.*
@@ -52,6 +70,9 @@ dist-ssr/
 # Test / coverage
 coverage/
 .nyc_output/
+
+# OS Open Names raw CSV tiles (large; download locally)
+tools/os-open-names/incoming/
 
 # Logs and temp
 logs/
