@@ -15,8 +15,11 @@ o  new data fetch paradigm
 			constructor that demands non nil params for the field data
 		*  now ask it to provide a fetcher that massages the returned data into 
 		   a new Model called TideEventsForLocation
-		o  define application models
-		o  testable mapping
+		*  define application models
+		*  testable mapping
+		o  helper for which time window is now local
+		o  thence to which window are we on utc wise
+		o  helper for get TimeExtremesAtLocation have a low and high for
 
 
 Read /docs/planning/new-tidal-data-flow.md for context.
