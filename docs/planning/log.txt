@@ -31,8 +31,78 @@ o  starter client side repo
 			*  max age is chicken and egg
 			*  wire in coping for changing locations
 
-			o  might be better to include the lat long where necessary to 
-			   force cache misses
+This is about a client server data flow for a web app. The web app displays the
+times of the high and low tide today, at a location you have chosen - on a 12
+hour clock face. It follows that the clock has conceptually two modes - it is
+either showing the time period from 00h00 to noon today, or from noon to
+midnight today. The fundamental data is obtained via an external webservice.
+When you make a request to that service you get a set of times for your chosen
+location that go from 00h00 today, for an interval of about 3 days. The data you
+get includes the date and time (UTC) for each high and low tide event, and so is
+completely self defining. The current web app architecture holds some tide data
+locally that has been fetched from the external tide service, and it caches it,
+both in memory and persisted. There are several events that can occur that mean
+that new tide data must be fetched.
+
+It turns out that the caching mental model has been very complicated and I think
+fragile to implement, and I suspect the root cause is the fundamental modelling
+of the problem. What follows is what I believe to be simpler and more aligned
+model to think about it, that I hope will reveal a simpler architecture.
+
+The new model still depends on the external tide time service mentioned. That
+part is unchanged. The new model is predicated on a new conceptual DRY entry
+point for the data flow as follows. 
+
+The entry point is the clock needs the information right now for the high and
+low tides times today for the 12 hour daytime or nighttime slot of today as
+appropriate as implied my local time including daylight saving time. I.e. to
+match what the user expects the times to mean on the clock face it displays. The
+app will have a persistent store of the most recent data it has fetched from the
+tide service. This store is likely the browsers local storage. I propose that
+this is not a cache, and that the persisted data is the only client-side source
+of truth. It follows that the conceptual entry point can inspect the client side
+store to see if it contains the high and low tide events that fall into the
+required 12 hour window and is for the requested location. It will fetch new
+data if the required data is missing and use that to completely replace the
+client side store. Only then will it yield the requested information to the
+caller.
+
+You will note that I havent' said anything about the UX or App-side various
+reasons for wanting the data right now. I contend that it doesn't matter to help
+us judge the merit of this architecture for simplicity.
+
+
+
+
+
+you can change that location
+
+			o  maybe it isn't a cache :-(
+				o  rewrite this based on the today clock and the avail of
+				   data from the proxy api, could always fetch it, but slow 
+				   and financially costly, so choose to fetch 3 relevant days 
+				   worth of relevant chunks and store locally to avoid fetches
+				o  it is a list of tide events tied to a given location that
+				   implicitly cover a certain time range (oldest to newest)
+				o  usually circa 3 days - but implicit
+				o  we display 2 events from that data on a 12 clock analog clock
+				o  i.e. the clock represents either the day time or the night
+				   time 12 hour interval for today
+				o  we may not need an in mem repr, retreive from local store
+				   might be sufficient
+				o  consider when we will or might need to fetch new data from 
+				   proxy API:
+					o  when the location of interest changes
+					o  when the 12 hour period of today we want to show is not 
+					   represented in the data
+
+			o  why does the Cache use generics
+				o  prem opt and confusing
+			o  naming of  cacheLocationMatches record is confusing
+				o  I think it uses record to mean from storage
+			o  why make storage optional? in constructor(options: { key: string; storage?: StorageLike })
+			o  why does loadLocationWithDefaultPersist(persistence) say default,
+			   and pass one in?
 
 			o  scheduler
 			o  batch fetch propagator
