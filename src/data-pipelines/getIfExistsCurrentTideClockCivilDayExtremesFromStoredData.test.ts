@@ -3,9 +3,9 @@ import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import type { TimeNowProvider } from '../time-services/TideClockCivilDayDisplayWindow';
 import {
-  queryCurrentTideClockCivilDayExtremesFromSnapshot,
-  queryCurrentTideClockCivilDayExtremesFromStoredData
-} from './queryCurrentTideClockCivilDayExtremesFromStoredData';
+  getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot,
+  getIfExistsCurrentTideClockCivilDayExtremesFromStoredData
+} from './getIfExistsCurrentTideClockCivilDayExtremesFromStoredData';
 import {
   TIDE_EXTREMES_LOCAL_STORAGE_KEY,
   type TideExtremesLoader
@@ -39,7 +39,7 @@ class FakeTideExtremesLoader implements TideExtremesLoader {
   }
 }
 
-describe('queryCurrentTideClockCivilDayExtremesFromSnapshot', () => {
+describe('getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot', () => {
   const nowProvider = new FakeTimeNowProvider(new Date(2026, 2, 23, 10, 30, 0, 0));
 
   it('returns undefined when stored location does not match required location', () => {
@@ -49,7 +49,7 @@ describe('queryCurrentTideClockCivilDayExtremesFromSnapshot', () => {
       new TideExtreme('high', utcIsoForLocal(2026, 2, 24, 0, 15), 3.2)
     ]);
 
-    const result = queryCurrentTideClockCivilDayExtremesFromSnapshot({
+    const result = getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot({
       requiredLatitude: 51.0,
       requiredLongitude: -1.1,
       stored,
@@ -66,7 +66,7 @@ describe('queryCurrentTideClockCivilDayExtremesFromSnapshot', () => {
       new TideExtreme('low', utcIsoForLocal(2026, 2, 24, 1, 10), 0.6)
     ]);
 
-    const result = queryCurrentTideClockCivilDayExtremesFromSnapshot({
+    const result = getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       stored,
@@ -83,7 +83,7 @@ describe('queryCurrentTideClockCivilDayExtremesFromSnapshot', () => {
       new TideExtreme('high', utcIsoForLocal(2026, 2, 23, 23, 50), 3.4)
     ]);
 
-    const result = queryCurrentTideClockCivilDayExtremesFromSnapshot({
+    const result = getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       stored,
@@ -108,7 +108,7 @@ describe('queryCurrentTideClockCivilDayExtremesFromSnapshot', () => {
       afterEnd
     ]);
 
-    const result = queryCurrentTideClockCivilDayExtremesFromSnapshot({
+    const result = getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       stored,
@@ -124,7 +124,7 @@ describe('queryCurrentTideClockCivilDayExtremesFromSnapshot', () => {
   });
 });
 
-describe('queryCurrentTideClockCivilDayExtremesFromStoredData', () => {
+describe('getIfExistsCurrentTideClockCivilDayExtremesFromStoredData', () => {
   const nowProvider = new FakeTimeNowProvider(new Date(2026, 2, 23, 10, 30, 0, 0));
 
   it('returns undefined when there is no stored snapshot', () => {
@@ -132,7 +132,7 @@ describe('queryCurrentTideClockCivilDayExtremesFromStoredData', () => {
       [TIDE_EXTREMES_LOCAL_STORAGE_KEY]: null
     });
 
-    const result = queryCurrentTideClockCivilDayExtremesFromStoredData({
+    const result = getIfExistsCurrentTideClockCivilDayExtremesFromStoredData({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       loader,
@@ -147,7 +147,7 @@ describe('queryCurrentTideClockCivilDayExtremesFromStoredData', () => {
       [TIDE_EXTREMES_LOCAL_STORAGE_KEY]: '{this is not json'
     });
 
-    const result = queryCurrentTideClockCivilDayExtremesFromStoredData({
+    const result = getIfExistsCurrentTideClockCivilDayExtremesFromStoredData({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       loader,
@@ -171,7 +171,7 @@ describe('queryCurrentTideClockCivilDayExtremesFromStoredData', () => {
       })
     });
 
-    const result = queryCurrentTideClockCivilDayExtremesFromStoredData({
+    const result = getIfExistsCurrentTideClockCivilDayExtremesFromStoredData({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       loader,

@@ -10,14 +10,14 @@ import {
   type TideExtremesLoader
 } from './tideExtremesSnapshotStorage';
 
-interface QueryCurrentTideClockCivilDayExtremesFromSnapshotParams {
+interface GetIfExistsCurrentTideClockCivilDayExtremesFromSnapshotParams {
   requiredLatitude: number;
   requiredLongitude: number;
   stored: TideExtremesAtLocation;
   timeNowProvider?: TimeNowProvider;
 }
 
-interface QueryCurrentTideClockCivilDayExtremesFromStoredDataParams {
+interface GetIfExistsCurrentTideClockCivilDayExtremesFromStoredDataParams {
   requiredLatitude: number;
   requiredLongitude: number;
   loader: TideExtremesLoader;
@@ -25,12 +25,12 @@ interface QueryCurrentTideClockCivilDayExtremesFromStoredDataParams {
   timeNowProvider?: TimeNowProvider;
 }
 
-export function queryCurrentTideClockCivilDayExtremesFromSnapshot({
+export function getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot({
   requiredLatitude,
   requiredLongitude,
   stored,
   timeNowProvider = new SystemTimeNowProvider()
-}: QueryCurrentTideClockCivilDayExtremesFromSnapshotParams): TideExtremesAtLocation | undefined {
+}: GetIfExistsCurrentTideClockCivilDayExtremesFromSnapshotParams): TideExtremesAtLocation | undefined {
   if (stored.latitude !== requiredLatitude || stored.longitude !== requiredLongitude) {
     return undefined;
   }
@@ -58,13 +58,13 @@ export function queryCurrentTideClockCivilDayExtremesFromSnapshot({
   return new TideExtremesAtLocation(stored.latitude, stored.longitude, inWindowExtremes);
 }
 
-export function queryCurrentTideClockCivilDayExtremesFromStoredData({
+export function getIfExistsCurrentTideClockCivilDayExtremesFromStoredData({
   requiredLatitude,
   requiredLongitude,
   loader,
   storageKey = TIDE_EXTREMES_LOCAL_STORAGE_KEY,
   timeNowProvider = new SystemTimeNowProvider()
-}: QueryCurrentTideClockCivilDayExtremesFromStoredDataParams): TideExtremesAtLocation | undefined {
+}: GetIfExistsCurrentTideClockCivilDayExtremesFromStoredDataParams): TideExtremesAtLocation | undefined {
   const rawSnapshot = loader.getItem(storageKey);
   if (rawSnapshot === null) {
     return undefined;
@@ -75,7 +75,7 @@ export function queryCurrentTideClockCivilDayExtremesFromStoredData({
     return undefined;
   }
 
-  return queryCurrentTideClockCivilDayExtremesFromSnapshot({
+  return getIfExistsCurrentTideClockCivilDayExtremesFromSnapshot({
     requiredLatitude,
     requiredLongitude,
     stored,
