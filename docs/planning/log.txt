@@ -13,8 +13,13 @@ o  new data fetch paradigm
 		*  introduce cursor to the new design metaphor and ask it to start with
 			defining a tide extreme class with simple exposed fields and a
 			constructor that demands non nil params for the field data
-		o  now ask it to provide a fetcher that massages the returned data into 
+		*  now ask it to provide a fetcher that massages the returned data into 
 		   a new Model called TideEventsForLocation
+		o  define application models
+		o  testable mapping
+
+
+Read /docs/planning/new-tidal-data-flow.md for context.
 
 	o  ask cursor to put in getDataForNow as per spec
 	
