@@ -9,7 +9,7 @@ export class TideProxyV1BuildError extends Error {
   }
 }
 
-interface BuildTideExtremesAtLocationFromTideProxyV1ResponseParams {
+export interface BuildTideExtremesAtLocationFromTideProxyV1ResponseParams {
   latitude: number;
   longitude: number;
   response: TideProxyV1Response;

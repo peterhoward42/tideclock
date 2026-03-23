@@ -25,14 +25,14 @@ o  new data fetch paradigm
 				*  first pass from it
 				*  me reduce scope
 			*  ditch all obsolete docs - they are confusing
+			o  put in new 24 hour time services
 
-			*  update new-tidal-data-flow spec and make so
-				*  get chatgpt's version
-				*  edit it down
-				*  install it over the old one
-			o  ask cursor to assess conflicts with what have so far
+		o  put in a fetch, transform and store function
+			o  likely tell it not to use the default / override idiom
 
-		o  helper for get TimeExtremesAtLocation have a low and high for
+		o  now query fn if local data spans the window
+
+		o  change proxy to fetch earlier start window
 
 
 Read /docs/planning/new-tidal-data-flow.md for context.
