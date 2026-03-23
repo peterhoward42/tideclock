@@ -7,10 +7,12 @@
 
 o  new data fetch paradigm
 	o  rip out stuff don't want 
-		o   misleading models and logic - can ignore tests
-		o   tell cursor to repair the wreckage
-
-	o  digression classes vs interfaces
+		*   misleading models and logic - can ignore tests
+		*   tell cursor to repair the wreckage
+		*  digression classes vs interfaces
+		o  introduce cursor to the new design metaphor and ask it to start with
+			defining a tide extreme class with simple exposed fields and a
+			constructor that demands non nil params for the field data
 
 	o  ask cursor to put in getDataForNow as per spec
 	
