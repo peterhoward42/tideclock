@@ -24,10 +24,13 @@ o  new data fetch paradigm
 			*  have chatgpt modify the overview spec accordingly
 				*  first pass from it
 				*  me reduce scope
-
-			o  ditch all obsolete docs - they are confusing
+			*  ditch all obsolete docs - they are confusing
 
 			o  update new-tidal-data-flow spec and make so
+				o  get chatgpt's version
+				o  edit it down
+				o  install it over the old one
+
 			o  ask cursor to assess conflicts with what have so far
 
 		o  helper for get TimeExtremesAtLocation have a low and high for
