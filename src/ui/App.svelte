@@ -1,6 +1,8 @@
 <script lang="ts">
   // Baseline app shell: keep routing and UI mount stable while domain code is being rebuilt.
   import { onMount } from "svelte";
+  import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
+  import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import Home from "./routes/Home.svelte";
   import Settings from "./routes/Settings.svelte";
@@ -11,6 +13,21 @@
 
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
   let tideLoadState = $state<TidePredictionsLoadState>({ status: "ready" });
+
+  /**
+   * Tide data for the current civil day: reads `localStorage`, then the tide proxy if needed.
+   * Dependencies are fixed at the UI root because `main.js` mounts this component without props.
+   */
+  async function loadTideExtremesForCurrentCivilDay(
+    latitude: number,
+    longitude: number
+  ): Promise<TideExtremesAtLocation | undefined> {
+    return loadTideExtremesForCurrentCivilDayQuery(latitude, longitude, {
+      loader: localStorage,
+      storer: localStorage,
+      baseUrl: import.meta.env.VITE_TIDE_PROXY_BASE_URL
+    });
+  }
 
   onMount(() => {
     attachHashListener();
@@ -35,7 +52,10 @@
 
   <section class="content">
     {#if $route === "home"}
-      <Home tideLoadState={tideLoadState} />
+      <Home
+        tideLoadState={tideLoadState}
+        loadTideExtremesForCurrentCivilDay={loadTideExtremesForCurrentCivilDay}
+      />
     {:else if $route === "settings"}
       <Settings />
     {:else if $route === "about"}
