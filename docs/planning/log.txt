@@ -17,8 +17,14 @@ o  new data fetch paradigm
 		   a new Model called TideEventsForLocation
 		*  define application models
 		*  testable mapping
-		o  helper for which time window is now local
-		o  thence to which window are we on utc wise
+		*  helper for which time window is now local
+		*  thence to which window are we on utc wise
+		o  working with chatgpt on interp of 12 hour slot
+			*  put in tide_dial_spec.md into specs dir
+			o  have chatgpt modify the overview spec accordingly
+			o  ditch obsolete docs
+			o  ask cursor to assess conflicts with what have so far
+
 		o  helper for get TimeExtremesAtLocation have a low and high for
 
 
