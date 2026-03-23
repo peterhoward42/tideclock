@@ -33,8 +33,9 @@ o  new data fetch paradigm
 		*  skill to shorten names
 		*  now a fetch via proxy and store followed if new do we have
 
-		o  does loadTideExtremesForCurrentCivilDayQuery get called 
-		   now on load?
+		o  move on to changing location and firing the refetch, then
+		   later can reuse that with the default location
+		   	o  start by name -> town -> lat and long
 
 		o  change proxy to fetch earlier start window
 
