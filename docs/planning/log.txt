@@ -31,8 +31,10 @@ o  new data fetch paradigm
 		*  now query fn if local data spans the window if so filter it for me
 		*  unhappy with undefined query ressponse as sentinel
 		*  skill to shorten names
+		*  now a fetch via proxy and store followed if new do we have
 
-		o  now a fetch via proxy and store followed if new do we have
+		o  does loadTideExtremesForCurrentCivilDayQuery get called 
+		   now on load?
 
 		o  change proxy to fetch earlier start window
 

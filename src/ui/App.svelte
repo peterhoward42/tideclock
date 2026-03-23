@@ -14,6 +14,11 @@
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
   let tideLoadState = $state<TidePredictionsLoadState>({ status: "ready" });
 
+  function appDiag(...args: unknown[]) {
+    if (!import.meta.env.DEV || import.meta.env.MODE === "test") return;
+    console.log("[tideclock] app:", ...args);
+  }
+
   /**
    * Tide data for the current civil day: reads `localStorage`, then the tide proxy if needed.
    * Dependencies are fixed at the UI root because `main.js` mounts this component without props.
@@ -22,15 +27,29 @@
     latitude: number,
     longitude: number
   ): Promise<TideExtremesAtLocation | undefined> {
-    return loadTideExtremesForCurrentCivilDayQuery(latitude, longitude, {
-      loader: localStorage,
-      storer: localStorage,
-      baseUrl: import.meta.env.VITE_TIDE_PROXY_BASE_URL
-    });
+    appDiag("loadTideExtremesForCurrentCivilDay invoked", { latitude, longitude });
+    try {
+      const result = await loadTideExtremesForCurrentCivilDayQuery(latitude, longitude, {
+        loader: localStorage,
+        storer: localStorage,
+        baseUrl: import.meta.env.VITE_TIDE_PROXY_BASE_URL
+      });
+      appDiag("loadTideExtremesForCurrentCivilDay finished", {
+        latitude,
+        longitude,
+        extremeCount: result?.extremes.length ?? null,
+        ok: result !== undefined
+      });
+      return result;
+    } catch (e) {
+      appDiag("loadTideExtremesForCurrentCivilDay error", e);
+      throw e;
+    }
   }
 
   onMount(() => {
     attachHashListener();
+    appDiag("shell mounted, hash listener attached");
   });
 </script>
 

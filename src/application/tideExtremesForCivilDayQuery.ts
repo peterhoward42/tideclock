@@ -14,6 +14,13 @@ import {
   type TimeNowProvider
 } from '../time-services/TideClockCivilDayDisplayWindow';
 
+function tideQueryDiag(...args: unknown[]): void {
+  if (!import.meta.env.DEV || import.meta.env.MODE === 'test') {
+    return;
+  }
+  console.log('[tideclock] tide-query:', ...args);
+}
+
 export interface TideExtremesForCivilDayQueryDeps {
   loader: ExtremesLoader;
   storer: ExtremesStorer;
@@ -38,6 +45,13 @@ export async function loadTideExtremesForCurrentCivilDayQuery(
   const storageKey = deps.storageKey ?? EXTREMES_SNAPSHOT_KEY;
   const timeNowProvider = deps.timeNowProvider ?? new SystemTimeNowProvider();
 
+  tideQueryDiag('start', {
+    latitude,
+    longitude,
+    storageKey,
+    baseUrl
+  });
+
   const fromStore = loadExtremesForCurrentCivilDay({
     requiredLatitude: latitude,
     requiredLongitude: longitude,
@@ -46,8 +60,13 @@ export async function loadTideExtremesForCurrentCivilDayQuery(
     timeNowProvider
   });
   if (fromStore !== undefined) {
+    tideQueryDiag('store hit — using persisted snapshot for civil day', {
+      extremeCount: fromStore.extremes.length
+    });
     return fromStore;
   }
+
+  tideQueryDiag('store miss — fetching proxy and replacing snapshot');
 
   const fullSnapshot = await fetchStoreExtremes({
     lat: latitude,
@@ -58,10 +77,19 @@ export async function loadTideExtremesForCurrentCivilDayQuery(
     storageKey
   });
 
-  return extremesForCurrentCivilDay({
+  tideQueryDiag('fetch stored — full snapshot extreme count', fullSnapshot.extremes.length);
+
+  const sliced = extremesForCurrentCivilDay({
     requiredLatitude: latitude,
     requiredLongitude: longitude,
     stored: fullSnapshot,
     timeNowProvider
   });
+
+  tideQueryDiag('civil-day slice after fetch', {
+    extremeCount: sliced?.extremes.length ?? null,
+    defined: sliced !== undefined
+  });
+
+  return sliced;
 }
