@@ -16,6 +16,7 @@
 
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
   let tideLoadState = $state<TidePredictionsLoadState>({ status: "ready" });
+  let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
 
   function appDiag(...args: unknown[]) {
     if (!import.meta.env.DEV || import.meta.env.MODE === "test") return;
@@ -58,6 +59,10 @@
     storeCurrentLocation(town, { storer: localStorage });
   }
 
+  function closeMenu(): void {
+    menuDetails?.removeAttribute("open");
+  }
+
   onMount(() => {
     attachHashListener();
     appDiag("shell mounted, hash listener attached");
@@ -67,16 +72,16 @@
 <div class="app-shell">
   <header class="top-bar">
     <a class="brand" href="#/home">Tide clock</a>
-    <details class="menu">
+    <details class="menu" bind:this={menuDetails}>
       <summary class="menu-toggle" aria-label="Menu">Menu</summary>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#/home">Home</a>
-        <a href="#/location">Location</a>
-        <a href="#/settings">Settings</a>
-        <a href="#/about">About</a>
-        <a href="#/acknowledgements">Acknowledgements</a>
-        <a href="#/support">Support</a>
-        <a href="#/cookies">Cookies</a>
+        <a href="#/home" onclick={closeMenu}>Home</a>
+        <a href="#/location" onclick={closeMenu}>Location</a>
+        <a href="#/settings" onclick={closeMenu}>Settings</a>
+        <a href="#/about" onclick={closeMenu}>About</a>
+        <a href="#/acknowledgements" onclick={closeMenu}>Acknowledgements</a>
+        <a href="#/support" onclick={closeMenu}>Support</a>
+        <a href="#/cookies" onclick={closeMenu}>Cookies</a>
       </nav>
     </details>
   </header>
@@ -88,7 +93,7 @@
         loadTideExtremesForCurrentCivilDay={loadTideExtremesForCurrentCivilDay}
       />
     {:else if $route === "location"}
-      <Location />
+      <Location setCurrentLocation={setCurrentLocation} />
     {:else if $route === "settings"}
       <Settings />
     {:else if $route === "about"}
