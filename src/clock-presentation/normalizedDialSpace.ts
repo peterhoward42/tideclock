@@ -31,8 +31,13 @@ export type DialPoint = {
 };
 
 export function pointOnReferenceRingFromAngle(angleRad: number): DialPoint {
+  return pointOnRingFromAngle(angleRad, REFERENCE_RADIUS);
+}
+
+/** Point on a circle centred at the origin at the given radius (dial units). */
+export function pointOnRingFromAngle(angleRad: number, radius: number): DialPoint {
   return {
-    x: REFERENCE_RADIUS * Math.sin(angleRad),
-    y: -REFERENCE_RADIUS * Math.cos(angleRad),
+    x: radius * Math.sin(angleRad),
+    y: -radius * Math.cos(angleRad),
   };
 }

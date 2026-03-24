@@ -1,11 +1,27 @@
 import type { ClockSceneModel } from './clockSceneModel';
-import { pointOnReferenceRingFromAngle, type DialPoint } from './normalizedDialSpace';
+import {
+  pointOnReferenceRingFromAngle,
+  pointOnRingFromAngle,
+  REFERENCE_RADIUS,
+  type DialPoint,
+} from './normalizedDialSpace';
+
+/** Inward extent of hour ticks from the reference ring, in normalized dial units. */
+export const DEFAULT_DIVISION_TICK_LENGTH = 5;
 
 export type DivisionBoundaryGeometry = {
   readonly boundaryIndex: number;
   /** 0 at top, increasing clockwise; see `normalizedDialSpace`. */
   readonly angleRad: number;
   readonly pointOnReferenceRing: DialPoint;
+};
+
+export type DivisionTickSegmentGeometry = {
+  readonly boundaryIndex: number;
+  readonly angleRad: number;
+  /** Tip on the reference outline. */
+  readonly outer: DialPoint;
+  readonly inner: DialPoint;
 };
 
 function positiveMod(n: number, m: number): number {
@@ -44,4 +60,30 @@ export function divisionBoundariesGeometry(scene: ClockSceneModel): readonly Div
     });
   }
   return out;
+}
+
+/**
+ * Hour tick segments: radial lines from {@link inner} to {@link outer} on each division boundary.
+ * {@link tickLength} is the distance from the reference ring inward (dial units).
+ */
+export function divisionTickSegmentsGeometry(
+  scene: ClockSceneModel,
+  tickLength: number,
+): readonly DivisionTickSegmentGeometry[] {
+  if (!Number.isFinite(tickLength) || tickLength < 0) {
+    throw new RangeError(`tickLength must be a non-negative finite number, got ${tickLength}`);
+  }
+  if (tickLength > REFERENCE_RADIUS) {
+    throw new RangeError(
+      `tickLength (${tickLength}) cannot exceed REFERENCE_RADIUS (${REFERENCE_RADIUS})`,
+    );
+  }
+  const innerRadius = REFERENCE_RADIUS - tickLength;
+  const boundaries = divisionBoundariesGeometry(scene);
+  return boundaries.map((b) => ({
+    boundaryIndex: b.boundaryIndex,
+    angleRad: b.angleRad,
+    outer: b.pointOnReferenceRing,
+    inner: pointOnRingFromAngle(b.angleRad, innerRadius),
+  }));
 }
