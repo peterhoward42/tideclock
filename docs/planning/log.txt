@@ -43,7 +43,7 @@ o  new data fetch paradigm
 
 
 
-Read /docs/planning/@docs/planning/home-screen-iteration-and-design.md first for context. Do not do anything else yet.
+First read /docs/planning/@docs/planning/home-screen-iteration-and-design.md first for context. 
 
 
 
