@@ -2,6 +2,8 @@
   // Baseline app shell: keep routing and UI mount stable while domain code is being rebuilt.
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
+  import type { Town } from "../data/bakedTowns";
+  import { storeCurrentLocation } from "../data-pipelines/currentLocation";
   import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import Home from "./routes/Home.svelte";
@@ -46,6 +48,14 @@
       appDiag("loadTideExtremesForCurrentCivilDay error", e);
       throw e;
     }
+  }
+
+  /**
+   * Central write-orchestrator for the selected town.
+   * Future follow-on flows (reloads/navigation/etc.) should be added here.
+   */
+  function setCurrentLocation(town: Town): void {
+    storeCurrentLocation(town, { storer: localStorage });
   }
 
   onMount(() => {
