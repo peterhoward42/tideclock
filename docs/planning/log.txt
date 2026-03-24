@@ -37,8 +37,14 @@ o  new data fetch paradigm
 		*  have the choice call into the app level change route with logging
 		o  update clock to show days events in some way temp via a view model
 		o  get started with set location orchestration
-			o  think what
-			o  ask for it
+			*  collaborate on architecture
+			*  stash a spec for the arch and iteration plan in the repo
+			o  start working through the iterations
+
+
+
+Read /docs/planning/@docs/planning/home-screen-iteration-and-design.md first for context. Do not do anything else yet.
+
 
 
 		o  move on to changing location and firing the refetch, then
@@ -61,4 +67,7 @@ o  don't forget
 	o  proxy api should come from envar?
 	o  policy for excections
 	o  price cap control on worldtimes costs
+	o  safety and accuracy disclaimer
+
+
 
