@@ -1,10 +1,12 @@
 <script lang="ts">
-  // Baseline app shell: keep routing and UI mount stable while domain code is being rebuilt.
+  // App root: `.app-frame` wraps header + routed content; host orchestration (localStorage, tide loads). Routes stay thin.
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
   import type { Town } from "../data/bakedTowns";
-  import { storeCurrentLocation } from "../data-pipelines/currentLocation";
+  import { homeScreenModelFromHost } from "../application/homeScreenModelFromHost";
+  import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
   import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
+  import type { HomeScreenModel } from "../clock-presentation/homeScreenModel";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import Home from "./routes/Home.svelte";
   import Location from "./routes/Location.svelte";
@@ -16,6 +18,18 @@
 
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
   let tideLoadState = $state<TidePredictionsLoadState>({ status: "ready" });
+  let tideExtremesForClock = $state<TideExtremesAtLocation | undefined>(undefined);
+  /**
+   * Monotonic counter for in-flight tide loads. Each refresh captures the value after incrementing;
+   * when the async work finishes, it only updates state if that capture still matches. Rationale:
+   * network latency is unbounded, so responses can complete out of order (town A slow, town B fast).
+   * Without this guard, a late response for an abandoned location would overwrite the UI with the
+   * wrong place’s tides and corrupt `homeScreenModel`.
+   */
+  let tideLoadSerial = $state(0);
+  let homeScreenModel = $state<HomeScreenModel>(
+    homeScreenModelFromHost({ loader: localStorage, tideExtremes: undefined })
+  );
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
 
   function appDiag(...args: unknown[]) {
@@ -52,6 +66,41 @@
   }
 
   /**
+   * Loads civil-day tide extremes for `town` and refreshes the home screen model so clock-scene tide
+   * semantics stay aligned with the latest successful fetch.
+   */
+  function refreshTideExtremesForTown(town: Town): void {
+    const serial = ++tideLoadSerial;
+    tideLoadState = { status: "loading" };
+    tideExtremesForClock = undefined;
+    homeScreenModel = homeScreenModelFromHost({ loader: localStorage, tideExtremes: undefined });
+    void (async () => {
+      try {
+        const result = await loadTideExtremesForCurrentCivilDay(town.lat, town.lon);
+        if (serial !== tideLoadSerial) {
+          return;
+        }
+        tideExtremesForClock = result;
+        tideLoadState = result !== undefined ? { status: "ready" } : { status: "error" };
+      } catch (e) {
+        if (serial !== tideLoadSerial) {
+          return;
+        }
+        appDiag("refreshTideExtremesForTown error", e);
+        tideExtremesForClock = undefined;
+        tideLoadState = { status: "error" };
+      }
+      if (serial !== tideLoadSerial) {
+        return;
+      }
+      homeScreenModel = homeScreenModelFromHost({
+        loader: localStorage,
+        tideExtremes: tideExtremesForClock
+      });
+    })();
+  }
+
+  /**
    * Central write-orchestrator for the selected town.
    * Future follow-on flows (reloads/navigation/etc.) should be added here.
    */
@@ -64,6 +113,7 @@
     });
     storeCurrentLocation(town, { storer: localStorage });
     appDiag("setCurrentLocation stored town in localStorage", { townId: town.id });
+    refreshTideExtremesForTown(town);
   }
 
   function closeMenu(): void {
@@ -72,11 +122,15 @@
 
   onMount(() => {
     attachHashListener();
-    appDiag("shell mounted, hash listener attached");
+    appDiag("app root mounted, hash listener attached");
+    const town = loadCurrentLocation({ loader: localStorage });
+    if (town !== undefined) {
+      refreshTideExtremesForTown(town);
+    }
   });
 </script>
 
-<div class="app-shell">
+<div class="app-frame">
   <header class="top-bar">
     <a class="brand" href="#/home">Tide clock</a>
     <details class="menu" bind:this={menuDetails}>
@@ -95,10 +149,7 @@
 
   <section class="content">
     {#if $route === "home"}
-      <Home
-        tideLoadState={tideLoadState}
-        loadTideExtremesForCurrentCivilDay={loadTideExtremesForCurrentCivilDay}
-      />
+      <Home homeScreenModel={homeScreenModel} tideLoadState={tideLoadState} />
     {:else if $route === "location"}
       <Location setCurrentLocation={setCurrentLocation} />
     {:else if $route === "settings"}

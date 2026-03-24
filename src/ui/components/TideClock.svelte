@@ -1,20 +1,17 @@
 <script lang="ts">
   // Local-time display driven by the shared `nowMs` store (one tick per second); tide load lifecycle for the main screen.
-  import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
+  import type { ClockSceneModel } from "../../clock-presentation/clockSceneModel";
   import { nowMs } from "../../application/appClock.js";
+  import ClockDivisionDial from "./ClockDivisionDial.svelte";
 
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
 
   interface Props {
+    clockScene: ClockSceneModel;
     tideLoadState: TidePredictionsLoadState;
-    /** Provided by the UI root (`App.svelte`) for lat/lon tide loads. */
-    loadTideExtremesForCurrentCivilDay: (
-      latitude: number,
-      longitude: number
-    ) => Promise<TideExtremesAtLocation | undefined>;
   }
 
-  let { tideLoadState, loadTideExtremesForCurrentCivilDay }: Props = $props();
+  let { clockScene, tideLoadState }: Props = $props();
 
   /** @param {number} ms */
   function formatTime(ms: number) {
@@ -27,6 +24,7 @@
 </script>
 
 <div class="tide-clock">
+  <ClockDivisionDial clockScene={clockScene} />
   <p class="muted">Local time</p>
   <p style="font-family: ui-monospace, monospace; margin: 0; font-size: 1.25rem;">
     {formatTime($nowMs)}
@@ -36,5 +34,9 @@
     <p class="muted" role="status">Loading tides…</p>
   {:else if tideLoadState.status === "error"}
     <p class="muted" role="alert">Tides could not be loaded. Check the connection and try again.</p>
+  {:else if clockScene.tideEvents.length > 0}
+    <p class="muted" role="status">
+      {clockScene.tideEvents.length} tide extremes in today’s window (markers on the dial next).
+    </p>
   {/if}
 </div>

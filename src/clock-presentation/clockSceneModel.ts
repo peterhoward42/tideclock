@@ -21,9 +21,16 @@ export type ClockDialDivisions = {
   readonly topAlignedBoundaryIndex: number;
 };
 
+/** High/low instants for the current civil-day window; geometry/SVG mapping comes later. */
+export type ClockTideEventInstant = {
+  readonly kind: 'high' | 'low';
+  readonly timeUtc: string;
+};
+
 export type ClockSceneModel = {
   readonly referenceOutline: ClockReferenceOutline;
   readonly dialDivisions: ClockDialDivisions;
+  readonly tideEvents: readonly ClockTideEventInstant[];
 };
 
 /** Canonical static scene for the current narrow slice (reference ring + 24 divisions, top-aligned). */
@@ -33,4 +40,5 @@ export const defaultClockSceneModel = {
     spaceCount: 24 as const,
     topAlignedBoundaryIndex: 0,
   },
+  tideEvents: [],
 } satisfies ClockSceneModel;

@@ -1,22 +1,16 @@
 <script lang="ts">
   // Home route: minimal render surface during re-baselining.
-  import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
+  import type { HomeScreenModel } from "../../clock-presentation/homeScreenModel";
   import TideClock from "../components/TideClock.svelte";
 
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
 
   interface Props {
+    homeScreenModel: HomeScreenModel;
     tideLoadState: TidePredictionsLoadState;
-    loadTideExtremesForCurrentCivilDay: (
-      latitude: number,
-      longitude: number
-    ) => Promise<TideExtremesAtLocation | undefined>;
   }
 
-  let { tideLoadState, loadTideExtremesForCurrentCivilDay }: Props = $props();
+  let { homeScreenModel, tideLoadState }: Props = $props();
 </script>
 
-<TideClock
-  tideLoadState={tideLoadState}
-  loadTideExtremesForCurrentCivilDay={loadTideExtremesForCurrentCivilDay}
-/>
+<TideClock clockScene={homeScreenModel.clockScene} tideLoadState={tideLoadState} />

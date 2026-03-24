@@ -153,7 +153,7 @@ exports[`clockDivisionDialSvgProps > matches snapshot for default scene (midnigh
       "y2": "-48.296291",
     },
   ],
-  "viewBox": "-50 -50 100 100",
+  "viewBox": "-50.5 -50.5 101 101",
 }
 `;
 
@@ -310,6 +310,6 @@ exports[`clockDivisionDialSvgProps > matches snapshot when topAlignedBoundaryInd
       "y2": "12.940952",
     },
   ],
-  "viewBox": "-50 -50 100 100",
+  "viewBox": "-50.5 -50.5 101 101",
 }
 `;

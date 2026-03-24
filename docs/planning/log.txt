@@ -35,15 +35,21 @@ o  new data fetch paradigm
 		*  bake in a town list with lat lon
 		*  now create a choose your location UI route top down
 		*  have the choice call into the app level change route with logging
-		o  update clock to show days events in some way temp via a view model
-		o  get started with set location orchestration
-			*  collaborate on architecture
-			*  stash a spec for the arch and iteration plan in the repo
-			o  start working through the iterations
+		*  update clock to show days events in some way temp via a view model
+		*  get started with set location orchestration
+		*  sort out view modelling
+		o  introduce at least one civic day tide into the model
+			*  first pass logic
+			o  it does a proxy fetch but cors error
+				o  is the service up?
+				
+
+		o  consider a don't optional js skill
 
 
 
-First read /docs/planning/@docs/planning/home-screen-iteration-and-design.md first for context. 
+First read /docs/planning/@docs/planning/home-screen-iteration-and-design.md first for context.
+Don't do anything else yet.
 
 
 

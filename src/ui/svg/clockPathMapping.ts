@@ -3,12 +3,19 @@ import {
   divisionTickSegmentsGeometry,
 } from '../../clock-presentation/clockDivisionGeometry';
 import type { ClockSceneModel } from '../../clock-presentation/clockSceneModel';
-import { REFERENCE_RADIUS } from '../../clock-presentation/normalizedDialSpace';
+import {
+  REFERENCE_DIAMETER,
+  REFERENCE_RADIUS,
+} from '../../clock-presentation/normalizedDialSpace';
+
+/** Room past the geometric ring so centred strokes are not clipped at the viewBox edge (outline uses stroke-width 1). */
+const DIAL_VIEW_BOX_PAD = 0.5;
 
 /**
- * ViewBox for dial content in centred normalized space: origin at dial centre, ±{@link REFERENCE_RADIUS}.
+ * ViewBox for dial content in centred normalized space: origin at dial centre, nominal ±{@link REFERENCE_RADIUS},
+ * with extra margin so outline strokes are not clipped at the cardinal tangents.
  */
-export const CLOCK_DIAL_VIEW_BOX = `-50 -50 100 100`;
+export const CLOCK_DIAL_VIEW_BOX = `${-REFERENCE_RADIUS - DIAL_VIEW_BOX_PAD} ${-REFERENCE_RADIUS - DIAL_VIEW_BOX_PAD} ${REFERENCE_DIAMETER + 2 * DIAL_VIEW_BOX_PAD} ${REFERENCE_DIAMETER + 2 * DIAL_VIEW_BOX_PAD}`;
 
 function fmt(n: number): string {
   const s = n.toFixed(6);

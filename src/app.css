@@ -13,7 +13,7 @@ a {
   color: inherit;
 }
 
-.app-shell {
+.app-frame {
   min-height: 100vh;
   display: flex;
   flex-direction: column;

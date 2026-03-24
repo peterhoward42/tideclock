@@ -36,7 +36,9 @@ export async function fetchProxyV1Tides({
     throw new Error('Missing VITE_TIDE_PROXY_BASE_URL.');
   }
 
-  const endpoint = new URL('/v1/tides', baseUrl);
+  // Absolute path `/v1/tides` would drop a function prefix like `/tides-proxy`; resolve relative to base instead.
+  const baseWithSlash = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+  const endpoint = new URL('v1/tides', baseWithSlash);
   endpoint.searchParams.set('lat', String(lat));
   endpoint.searchParams.set('lon', String(lon));
 
