@@ -33,8 +33,13 @@ o  new data fetch paradigm
 		*  skill to shorten names
 		*  now a fetch via proxy and store followed if new do we have
 		*  bake in a town list with lat lon
+		*  now create a choose your location UI route top down
+		*  have the choice call into the app level change route with logging
+		o  update clock to show days events in some way temp via a view model
+		o  get started with set location orchestration
+			o  think what
+			o  ask for it
 
-		o  now create a choose your location UI route top down
 
 		o  move on to changing location and firing the refetch, then
 		   later can reuse that with the default location

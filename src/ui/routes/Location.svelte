@@ -51,6 +51,12 @@
   const visibleTowns = $derived(matchCount <= MAX_VISIBLE_RESULTS ? matchedTowns : []);
 
   function chooseTown(town: Town): void {
+    if (import.meta.env.DEV && import.meta.env.MODE !== "test") {
+      console.log("[tideclock] location:", "chooseTown invoked", {
+        townId: town.id,
+        townName: town.name
+      });
+    }
     selectedTown = town;
     setCurrentLocation(town);
   }

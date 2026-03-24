@@ -56,7 +56,14 @@
    * Future follow-on flows (reloads/navigation/etc.) should be added here.
    */
   function setCurrentLocation(town: Town): void {
+    appDiag("setCurrentLocation called from Location route", {
+      townId: town.id,
+      townName: town.name,
+      county: town.county,
+      country: town.country
+    });
     storeCurrentLocation(town, { storer: localStorage });
+    appDiag("setCurrentLocation stored town in localStorage", { townId: town.id });
   }
 
   function closeMenu(): void {
