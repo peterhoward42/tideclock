@@ -32,9 +32,9 @@ o  new data fetch paradigm
 		*  unhappy with undefined query ressponse as sentinel
 		*  skill to shorten names
 		*  now a fetch via proxy and store followed if new do we have
+		*  bake in a town list with lat lon
 
-		o  bake in a town list with lat lon
-			o  working on ETL script
+		o  now create a choose your location UI route top down
 
 		o  move on to changing location and firing the refetch, then
 		   later can reuse that with the default location

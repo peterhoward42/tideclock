@@ -5,6 +5,7 @@
   import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import Home from "./routes/Home.svelte";
+  import Location from "./routes/Location.svelte";
   import Settings from "./routes/Settings.svelte";
   import About from "./routes/About.svelte";
   import Acknowledgements from "./routes/Acknowledgements.svelte";
@@ -60,6 +61,7 @@
       <summary class="menu-toggle" aria-label="Menu">Menu</summary>
       <nav class="nav-links" aria-label="Primary">
         <a href="#/home">Home</a>
+        <a href="#/location">Location</a>
         <a href="#/settings">Settings</a>
         <a href="#/about">About</a>
         <a href="#/acknowledgements">Acknowledgements</a>
@@ -75,6 +77,8 @@
         tideLoadState={tideLoadState}
         loadTideExtremesForCurrentCivilDay={loadTideExtremesForCurrentCivilDay}
       />
+    {:else if $route === "location"}
+      <Location />
     {:else if $route === "settings"}
       <Settings />
     {:else if $route === "about"}
