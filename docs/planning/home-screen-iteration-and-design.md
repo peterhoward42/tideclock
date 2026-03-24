@@ -27,53 +27,6 @@ You are really dealing with four distinct concerns, and separating them early wi
    - Handles interaction, accessibility wiring, theme class selection.
    - Should not re-derive domain/geometry logic.
 
-## Concrete Module Layout (fits current layering)
-
-Use this naming pattern:
-
-- `src/application/clockSceneModelQuery.ts`
-  - Produces `ClockSceneModel` from domain inputs.
-- `src/application/clockGeometry.ts`
-  - Semantic model -> normalized geometry primitives.
-- `src/ui/svg/clockPathMapping.ts`
-  - Geometry -> SVG attrs (`d`, transforms, etc.).
-- `src/ui/components/tide-clock/`
-  - `TideClockRoot.svelte` (composition)
-  - `DialLayer.svelte`
-  - `MarkersLayer.svelte`
-  - `BreathingLayer.svelte`
-  - `NowLayer.svelte`
-
-And screen-level:
-
-- `src/application/homeScreenModelQuery.ts`
-  - Builds `HomeScreenModel` with `clockScene` + outside-clock data (location, status, current time instant).
-
-## Key Data Contracts (terminology to keep stable)
-
-- `HomeScreenModel`
-  - `location`
-  - `clockNowInstant`
-  - `loadState`
-  - `clockScene: ClockSceneModel`
-
-- `ClockSceneModel` (semantic, not presentational)
-  - `window` (24h reference)
-  - `divisions` (semantic ticks)
-  - `extremeMarkers` (kind + instant + magnitude metadata)
-  - `breathingSignal` (time-series / control points in semantic time)
-  - `nowInstant`
-
-- `ClockGeometry`
-  - normalized coordinates + angles/radii only
-
-- `ClockSvgLayerProps`
-  - concrete SVG attrs consumed by layer components
-
-This keeps "model" meaning clear:
-- **Scene Model** = render-intent semantics
-- **Geometry** = spatial representation
-- **SVG Props** = view tech representation
 
 ## Design Rules (decision-log worthy)
 
@@ -85,17 +38,7 @@ This keeps "model" meaning clear:
 - Presentation formatting (text style/date formatting) stays in UI adapters, not in scene model.
 - "Outside-clock" info stays in `HomeScreenModel`; the clock component only sees `ClockSceneModel`/layer props.
 
-## Suggested Iteration Plan (across sessions)
 
-1. Freeze interfaces first (`ClockSceneModel`, `HomeScreenModel`).
-2. Implement geometry for one layer (time divisions) + tests.
-3. Add marker layer geometry + tests.
-4. Add breathing layer geometry + tests.
-5. Add SVG mapping helpers + snapshot tests.
-6. Wire Svelte layered components.
-7. Add interaction/accessibility (hover/focus labels, current-time announcement).
-
-This allows incremental progress without entangling concerns.
 
 ## Stashable Reference (ADR seed)
 
