@@ -40,8 +40,8 @@ o  new data fetch paradigm
 		*  sort out view modelling
 		o  introduce at least one civic day tide into the model
 			*  first pass logic
-			o  it does a proxy fetch but cors error
-				o  is the service up?
+			o  think the proxy contract will never satisfy the window
+				o  prove it
 				
 
 		o  consider a don't optional js skill

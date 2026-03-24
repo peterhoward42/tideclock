@@ -10,6 +10,13 @@ import {
   type ExtremesLoader
 } from './extremesSnapshot';
 
+function civilDayExtremesDiag(...args: unknown[]): void {
+  if (!import.meta.env.DEV || import.meta.env.MODE === 'test') {
+    return;
+  }
+  console.log('[tideclock] civil-day-extremes:', ...args);
+}
+
 interface CivilDayFromSnapshotParams {
   requiredLatitude: number;
   requiredLongitude: number;
@@ -32,6 +39,12 @@ export function extremesForCurrentCivilDay({
   timeNowProvider = new SystemTimeNowProvider()
 }: CivilDayFromSnapshotParams): TideExtremesAtLocation | undefined {
   if (stored.latitude !== requiredLatitude || stored.longitude !== requiredLongitude) {
+    civilDayExtremesDiag('snapshot rejected — location mismatch', {
+      requiredLatitude,
+      requiredLongitude,
+      storedLatitude: stored.latitude,
+      storedLongitude: stored.longitude
+    });
     return undefined;
   }
 
@@ -48,6 +61,25 @@ export function extremesForCurrentCivilDay({
   const hasExtremeAfterWindowEnd = extremesWithTime.some(({ timeMs }) => timeMs >= windowEndExclusiveMs);
 
   if (!hasExtremeBeforeWindowStart || !hasExtremeAfterWindowEnd) {
+    const sorted = [...extremesWithTime].sort((a, b) => a.timeMs - b.timeMs);
+    const rejectReason =
+      !hasExtremeBeforeWindowStart && !hasExtremeAfterWindowEnd
+        ? 'missing_before_and_after'
+        : !hasExtremeBeforeWindowStart
+          ? 'missing_before'
+          : 'missing_after';
+    civilDayExtremesDiag('snapshot rejected — bookends', {
+      rejectReason,
+      hasExtremeBeforeWindowStart,
+      hasExtremeAfterWindowEnd,
+      windowStartLocal: window.startLocal.toString(),
+      windowEndExclusiveLocal: window.endLocalExclusive.toString(),
+      windowStartMs: windowStartMs,
+      windowEndExclusiveMs: windowEndExclusiveMs,
+      extremeCount: stored.extremes.length,
+      earliestExtremeTimeUtc: sorted[0]?.extreme.timeUtc,
+      latestExtremeTimeUtc: sorted[sorted.length - 1]?.extreme.timeUtc
+    });
     return undefined;
   }
 
