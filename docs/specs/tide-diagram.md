@@ -119,6 +119,7 @@ To specify a specific diagram in terms of a scene graph and input parameters.
 
 ## TickLabel
 
+- A tick label is associated with a given TickMark
 - A tick label is a TextElement always comprising two digits. E.g. "23", or "03"
 - One tick label is placed in the diagram for the set of time values in the <TickLabelTimes> input set, where the times are provided as 2-digit 24hour times  like "17", or "03".
 - The text content is 2-digit text.
