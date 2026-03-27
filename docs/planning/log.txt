@@ -1,3 +1,100 @@
+
+---------------
+o  Housekeep images to keep
+	o  Can chatgpt prune old chats based on their name of prompt content?
+o  File images in drive
+o  File useful prompts alongside
+---------------
+
+*  fix alignment along the wall
+o  feet separation
+o  better view of fanny
+o  shorter tee to reveal muscles of butt
+o  baggier gaps
+o  better hints at tits and nipples
+o  slightly more muscular / muscle to fat ratio
+o  outdoors
+o  provocation
+o  accessories hints
+
+
+fart ---------------
+
+Produce an image.  
+
+A woman sits on a flat surface in a relaxed, natural pose. Her bottom and both
+feet rest on the surface. Her knees are bent, with her forearms resting
+comfortably on them.
+
+Her legs extend forward in a natural way, shaped by the relaxed alignment of her
+hips, knees, and ankles. There is a visible, natural gap between her knees, and
+her feet rest apart from each other, not touching.
+
+The camera is positioned almost side-on, showing a clear near-profile view with a
+slight angle that allows both legs and their spacing to be visible. Her body faces
+to the right, and she gently turns her head toward the camera.
+
+Sunlight comes from in front of her, traveling in the same direction her body
+faces, softly illuminating the front of her body.
+
+She has blonde hair tied in a ponytail, light tan skin, and a slim, athletic
+runner’s build.
+
+She wears a thin, lightweight cotton t-shirt with a soft, natural drape. The
+fabric falls loosely over her torso without stiffness or structure. There are no
+visible undergarment lines, straps, or compression. From the near-profile view,
+the fabric follows the natural shape of her body with a gentle, relaxed contour,
+hanging slightly away from the upper chest and settling more softly over the lower
+chest, without tension or artificial lift.
+
+The overall scene feels natural, candid, and unposed.
+
+fart --------------------
+
+
+
+There's a difference between the service history I can tell you sincerely,
+and what I have documentary evidence for. I bought it 5 years ago - and the service book
+is stamped up till then. I've had it serviced every summer since then, includinga
+a cambelt was changed at 97k in 20121 (there's a garage sticker for the cambelt change
+under the bonnet) . But unfortunately the service booklet has only been
+stamped twice in my ownership - for reasons I cannot fathom.
+
+No major issues but two minor. The transmission is a little noisy now and one of the tyres
+needs pumping up every few days. There's a great tyre on the spare though. I wanted to keep
+the allow wheels on for the photo.
+
+
+o  subject matter names
+o  people in queue
+o  cum wall
+o  walking tour
+o  humiliation walk
+o  encourage entourage
+	o  feel up
+	o  wank
+	o  suck
+	o  sit on
+	o  les
+	o  humiliate
+	o  bet
+	o  give it me now in public
+o  remote control cafe
+o  guest in kitchen/garden/workshop  
+o  stranger in car
+o traffic jam misbehaviour
+o  lie down up skirt
+o  elegant destroy or celebrate
+o  watier / waitress
+o  on food over shoulders in hair
+o  pee tease
+o  all men in bar
+o  wealth
+o  total buying power influence
+o  total own body control
+
+
+
 *  main display requirements
 *  main display design
 *  generative code strategy
@@ -38,10 +135,22 @@ o  new data fetch paradigm
 		*  update clock to show days events in some way temp via a view model
 		*  get started with set location orchestration
 		*  sort out view modelling
-		o  introduce at least one civic day tide into the model
-			*  first pass logic
-			o  think the proxy contract will never satisfy the window
-				o  prove it
+		*  introduce at least one civic day tide into the model
+		o  new display concept
+			*  fart
+			*  drawexact it
+			o  define the geometry in words alone
+				o  think dropped abstraction of input units
+					o  what do I mean?
+						o  there is a RefRad input parameter. Example 100
+						o  all other linear sizing input parameters are taken to
+						   be proportions of RefRad, for example 0.15 as an input
+						   parameter is taken to mean a size = RefRad * 0.15
+
+			o  exceptions
+				o  no more high waters or low water today
+				o  collisions
+				o  truncations
 				
 
 		o  consider a don't optional js skill
@@ -74,6 +183,9 @@ o  don't forget
 	o  policy for excections
 	o  price cap control on worldtimes costs
 	o  safety and accuracy disclaimer
+	o  about me, gis a job
+	o  learn about tides
+	o  hire me
 
 
 
