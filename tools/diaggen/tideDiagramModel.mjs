@@ -28,13 +28,47 @@
  * }} TickLabelSpec
  *
  * @typedef {{
+ *   left: number,
+ *   right: number,
+ *   above: number,
+ *   below: number,
+ * }} ContentBoundsExtents
+ *
+ * @typedef {{
+ *   extents: ContentBoundsExtents,
+ *   rect: { minX: number, maxX: number, minY: number, maxY: number },
+ * }} DiagramContentBounds
+ *
+ * @typedef {{
  *   version: number,
  *   meta: { title: string, width: number, height: number },
  *   refArc: RefArcSpec,
  *   tickMarks: TickMarkSpec[],
  *   tickLabels: TickLabelSpec[],
+ *   contentBounds: DiagramContentBounds,
  * }} TideDiagramDocument
  */
+
+/**
+ * Axis-aligned box of interest in diagram space: origin at RefArc centre, each extent is a multiple of RefRadius.
+ * Left/right/below/above are positive distances in −x, +x, −y, +y respectively.
+ *
+ * @param {number} left
+ * @param {number} right
+ * @param {number} above
+ * @param {number} below
+ * @param {number} refRadius
+ * @returns {{ minX: number, maxX: number, minY: number, maxY: number }}
+ */
+export function diagramBoxFromExtents(left, right, above, below, refRadius) {
+  const R = refRadius;
+  return {
+    minX: -left * R,
+    maxX: right * R,
+    minY: -below * R,
+    maxY: above * R,
+  };
+}
 
 /**
  * Gap on the circle is centred on +Y; RefArc is symmetric about −Y (bottom), CCW from θ_left to θ_right.

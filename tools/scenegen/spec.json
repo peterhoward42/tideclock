@@ -1,4 +1,5 @@
 {
   "title": "scenegen",
-  "canvas": { "width": 400, "height": 300 }
+  "canvas": { "width": 400, "height": 300 },
+  "previewFrame": { "minX": 0, "maxX": 400, "minY": 0, "maxY": 300 }
 }

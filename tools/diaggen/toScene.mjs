@@ -63,9 +63,22 @@ export function tideDiagramToScene(diagram) {
   );
   const tickLabelsGroup = group("tickLabels", tickLabelChildren);
 
+  const { rect } = diagram.contentBounds;
+  const meta = {
+    title,
+    width,
+    height,
+    previewFrame: {
+      minX: rect.minX + cx,
+      maxX: rect.maxX + cx,
+      minY: rect.minY + cy,
+      maxY: rect.maxY + cy,
+    },
+  };
+
   return {
     version: 2,
-    meta: { title, width, height },
+    meta,
     root: group("tideDiagram", [
       refArcGroup,
       ticksGroup,

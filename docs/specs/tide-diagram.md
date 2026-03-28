@@ -56,6 +56,21 @@ To specify a specific diagram in terms of a scene graph and input parameters.
 - Above means Top-wards 
 - Below means Bottom-wards
 
+## Content bounds (box of interest, diagram model space)
+
+- Required inputs define an axis-aligned **rectangle of interest** around the RefArc centre in **diagram model space** (origin at the RefArc centre, same coordinate system as elsewhere in this document).
+- Each value is a non-negative **multiple of RefRadius**:
+    - **left** — extent in the −X direction from the centre (the plane X runs from **−left × RefRadius** to the centre).
+    - **right** — extent in the +X direction from the centre (from the centre to **+right × RefRadius**).
+    - **above** — extent in the +Y direction from the centre (from the centre to **+above × RefRadius**).
+    - **below** — extent in the −Y direction from the centre (from **−below × RefRadius** to the centre).
+- Together they define:
+
+    X ∈ [ −left × RefRadius, +right × RefRadius ],  
+    Y ∈ [ −below × RefRadius, +above × RefRadius ].
+
+- This rectangle is a modelling choice for **what region of the diagram is considered the content** (e.g. for tuning by eye). How that rectangle is mapped into a canvas, scene graph, preview viewport, or any other host layout is **not** fixed by this specification.
+
 ## The role of time in this specification
 
 - The RefArc represents a single 24 hour time span from 00h00 until 24h00.

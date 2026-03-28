@@ -36,9 +36,18 @@
  *
  * @typedef { LinePrimitive | ArcPrimitive | TextPrimitive | GroupNode } SceneNode
  *
+ * Scene-space axis-aligned rectangle for preview framing (diagram `contentBounds` via `toScene`, or set in scenegen `spec`).
+ *
+ * @typedef {{
+ *   title: string,
+ *   width: number,
+ *   height: number,
+ *   previewFrame: { minX: number, maxX: number, minY: number, maxY: number },
+ * }} SceneMeta
+ *
  * @typedef {{
  *   version: number,
- *   meta: { title: string, width: number, height: number },
+ *   meta: SceneMeta,
  *   root: GroupNode,
  * }} SceneDocument
  */
@@ -67,7 +76,9 @@ export function line(start, end) {
 }
 
 /**
- * Circular arc: radius from `center` to `start`; sweep CCW by `sweepRad`.
+ * Circular arc only (constant radius from `center` to `start`); sweep CCW by `sweepRad`.
+ * Elliptical arcs are not part of the model — preview renders with SVG `A` using rx = ry.
+ *
  * @param {Point} center
  * @param {Point} start
  * @param {number} sweepRad

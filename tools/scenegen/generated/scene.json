@@ -3,7 +3,13 @@
   "meta": {
     "title": "tide diagram (diaggen)",
     "width": 420,
-    "height": 320
+    "height": 320,
+    "previewFrame": {
+      "minX": 38.900000000000006,
+      "maxX": 345.7,
+      "minY": -17,
+      "maxY": 183.6
+    }
   },
   "root": {
     "kind": "group",

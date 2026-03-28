@@ -5,17 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>tide diagram (diaggen)</title>
   <style>
-    body { margin: 0; background: #f0f0f0; font-family: system-ui, sans-serif; }
-    svg { display: block; margin: 1rem auto; background: #fff; box-shadow: 0 1px 4px #0002; }
+    html, body { height: 100%; margin: 0; background: #fff; }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 8px;
+    }
+    svg {
+      display: block;
+      flex-shrink: 0;
+      width: min(calc(100vw - 16px), calc((100vh - 16px) * 326.79999999999995 / 220.6));
+      height: auto;
+      max-height: calc(100vh - 16px);
+    }
   </style>
 </head>
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" width="420" height="320" viewBox="0 0 420 320" aria-label="tide diagram (diaggen)">
-  <rect x="0" y="0" width="420" height="320" fill="#e8eef5" stroke="#334" stroke-width="1" />
+<svg xmlns="http://www.w3.org/2000/svg" width="326.79999999999995" height="220.6" viewBox="28.900000000000006 126.4 326.79999999999995 220.6" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
   <g transform="translate(0,320) scale(1,-1)">
     <g data-name="tideDiagram">
         <g data-name="refArc">
-        <path d="M 94.2546192712676 137.04337045729955 L 100.37952093954975 116.32677512986484 L 110.17858034815018 97.07397852486386 L 123.32336169490371 79.9302780563869 L 139.3732903668921 65.4702804066326 L 157.7904197124754 54.17864239105356 L 177.95746143917864 46.43382667986792 L 199.19847531124867 42.49541683662591 L 220.80152468875124 42.49541683662591 L 242.04253856082127 46.43382667986789 L 262.2095802875245 54.178642391053515 L 280.6267096331078 65.47028040663254 L 296.6766383050963 79.93027805638687 L 309.82141965184974 97.07397852486379 L 319.62047906045024 116.32677512986476 L 325.74538072873236 137.04337045729946" stroke="#335" stroke-width="1.5" fill="none" />
+        <path d="M 94.25461927126761 137.04337045729955 A 118.00000000000001 118.00000000000001 0 0 1 325.74538072873236 137.04337045729946" stroke="#335" stroke-width="1.5" fill="none" shape-rendering="geometricPrecision" />
     </g>
         <g data-name="tickMarks">
         <line x1="94.25461927126761" y1="137.04337045729955" x2="86.15244262025635" y2="135.4364063893105" stroke="#334" stroke-width="1.5" fill="none" />
@@ -45,22 +57,29 @@
         <line x1="325.74538072873236" y1="137.0433704572995" x2="333.84755737974365" y2="135.43640638931046" stroke="#334" stroke-width="1.5" fill="none" />
     </g>
         <g data-name="tickLabels">
-        <g transform="rotate(0, 61.845912667222564, 124.4205141853434)">
+        <g transform="translate(61.845912667222564, 124.4205141853434) scale(1,-1) translate(-61.845912667222564, -124.4205141853434)">
+      <g transform="rotate(0, 61.845912667222564, 124.4205141853434)">
       <text x="61.845912667222564" y="124.4205141853434" font-size="12.389999999999999" fill="#223" text-anchor="middle" dominant-baseline="alphabetic" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">00</text>
+      </g>
     </g>
-        <g transform="rotate(0, 114.1489466344937, 37.07600973313073)">
+        <g transform="translate(114.1489466344937, 37.07600973313073) scale(1,-1) translate(-114.1489466344937, -37.07600973313073)">
+      <g transform="rotate(0, 114.1489466344937, 37.07600973313073)">
       <text x="114.1489466344937" y="37.07600973313073" font-size="12.389999999999999" fill="#223" text-anchor="middle" dominant-baseline="alphabetic" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">06</text>
+      </g>
     </g>
-        <g transform="rotate(0, 209.99999999999997, 2.765000000000015)">
+        <g transform="translate(209.99999999999997, 2.765000000000015) scale(1,-1) translate(-209.99999999999997, -2.765000000000015)">
+      <g transform="rotate(0, 209.99999999999997, 2.765000000000015)">
       <text x="209.99999999999997" y="2.765000000000015" font-size="12.389999999999999" fill="#223" text-anchor="middle" dominant-baseline="alphabetic" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">12</text>
+      </g>
     </g>
-        <g transform="rotate(0, 305.85105336550623, 37.07600973313069)">
+        <g transform="translate(305.85105336550623, 37.07600973313069) scale(1,-1) translate(-305.85105336550623, -37.07600973313069)">
+      <g transform="rotate(0, 305.85105336550623, 37.07600973313069)">
       <text x="305.85105336550623" y="37.07600973313069" font-size="12.389999999999999" fill="#223" text-anchor="middle" dominant-baseline="alphabetic" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">18</text>
+      </g>
     </g>
     </g>
     </g>
   </g>
-  <text x="8" y="20" font-size="12" fill="#334">tide diagram (diaggen)</text>
 </svg>
 </body>
 </html>

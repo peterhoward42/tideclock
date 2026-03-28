@@ -2,6 +2,7 @@
 // diagram fields like `refRadius`) and returns a tide diagram document; `gen.mjs` then passes
 // that to `toScene.mjs` for the shared HTML preview.
 import {
+  diagramBoxFromExtents,
   polar,
   refArcAngles,
   timeToTheta,
@@ -75,6 +76,16 @@ export function buildDiagram(spec) {
     });
   }
 
+  const extents = requireContentBoundsExtents(spec);
+  const rect = diagramBoxFromExtents(
+    extents.left,
+    extents.right,
+    extents.above,
+    extents.below,
+    refRadius,
+  );
+  const contentBounds = { extents, rect };
+
   return {
     version: 1,
     meta: { title, width, height },
@@ -87,6 +98,41 @@ export function buildDiagram(spec) {
     },
     tickMarks,
     tickLabels,
+    contentBounds,
+  };
+}
+
+/**
+ * Required `contentBounds` on the spec: four non-negative RefRadius multiples (diagram model space).
+ * @param {Record<string, unknown>} spec
+ * @returns {import('./tideDiagramModel.mjs').ContentBoundsExtents}
+ */
+function requireContentBoundsExtents(spec) {
+  const raw = spec.contentBounds;
+  if (raw == null || typeof raw !== "object") {
+    throw new Error(
+      "spec.contentBounds is required: object { left, right, above, below } (non-negative RefRadius multiples)",
+    );
+  }
+  const o = /** @type {Record<string, unknown>} */ (raw);
+  const left = o.left;
+  const right = o.right;
+  const above = o.above;
+  const below = o.below;
+  if (
+    ![left, right, above, below].every(
+      (v) => typeof v === "number" && Number.isFinite(v) && v >= 0,
+    )
+  ) {
+    throw new Error(
+      "spec.contentBounds must set left, right, above, below to finite numbers ≥ 0",
+    );
+  }
+  return {
+    left: /** @type {number} */ (left),
+    right: /** @type {number} */ (right),
+    above: /** @type {number} */ (above),
+    below: /** @type {number} */ (below),
   };
 }
 

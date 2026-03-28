@@ -9,12 +9,15 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 /**
  * Turn a scene model into a fixed-path HTML preview (inline SVG) for inspection.
  * Applies a y-flip so scene math coords (y up) map into SVG (y down).
+ * v2 scenes require `scene.meta.previewFrame` (scene-space AABB).
  *
  * @param {object} scene
  * @param {string} outPath absolute or relative path to preview.html
  */
 export function writePreviewHtml(scene, outPath) {
   mkdirSync(dirname(outPath), { recursive: true });
+  const vb = computeViewBox(scene);
+  const pad = 16; // total horizontal/vertical inset from viewport edges (8px each side)
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,40 +25,105 @@ export function writePreviewHtml(scene, outPath) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${escapeHtml(String(scene.meta?.title ?? "preview"))}</title>
   <style>
-    body { margin: 0; background: #f0f0f0; font-family: system-ui, sans-serif; }
-    svg { display: block; margin: 1rem auto; background: #fff; box-shadow: 0 1px 4px #0002; }
+    html, body { height: 100%; margin: 0; background: #fff; }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: ${pad / 2}px;
+    }
+    svg {
+      display: block;
+      flex-shrink: 0;
+      width: min(calc(100vw - ${pad}px), calc((100vh - ${pad}px) * ${vb.vbW} / ${vb.vbH}));
+      height: auto;
+      max-height: calc(100vh - ${pad}px);
+    }
   </style>
 </head>
 <body>
-${sceneToSvgInline(scene)}
+${sceneToSvgInline(scene, vb)}
 </body>
 </html>
 `;
   writeFileSync(outPath, html, "utf8");
 }
 
+/** Padding inside viewBox units (scene pixels) around computed content. */
+const VIEW_BOX_PAD = 10;
+
 /**
+ * Tight viewBox in root SVG coordinates so the preview scales to the diagram, not the full canvas.
+ * Scene coords are y-up; root SVG uses y-down with `translate(0,canvasH) scale(1,-1)` on content.
+ *
  * @param {object} scene
+ * @returns {{ vbX: number, vbY: number, vbW: number, vbH: number, canvasH: number }}
  */
-function sceneToSvgInline(scene) {
+function computeViewBox(scene) {
   const w = Number(scene.meta?.width) || 400;
   const h = Number(scene.meta?.height) || 300;
-  const title = String(scene.meta?.title ?? "");
+  const useV2 =
+    scene.version >= 2 && scene.root != null && scene.root.kind === "group";
+  if (!useV2) {
+    return { vbX: 0, vbY: 0, vbW: w, vbH: h, canvasH: h };
+  }
+  const pad = VIEW_BOX_PAD;
+  const pf = scene.meta?.previewFrame;
+  if (!isValidPreviewFrame(pf)) {
+    throw new Error(
+      "v2 scene.meta.previewFrame is required: { minX, maxX, minY, maxY } in scene space (use diagram contentBounds → toScene, or scenegen spec.previewFrame)",
+    );
+  }
+  const vbX = pf.minX - pad;
+  const vbY = h - pf.maxY - pad;
+  const vbW = pf.maxX - pf.minX + 2 * pad;
+  const vbH = pf.maxY - pf.minY + 2 * pad;
+  return { vbX, vbY, vbW, vbH, canvasH: h };
+}
+
+/**
+ * @param {unknown} pf
+ * @returns {pf is { minX: number, maxX: number, minY: number, maxY: number }}
+ */
+function isValidPreviewFrame(pf) {
+  if (pf == null || typeof pf !== "object") return false;
+  const o = /** @type {Record<string, unknown>} */ (pf);
+  const { minX, maxX, minY, maxY } = o;
+  if (
+    ![minX, maxX, minY, maxY].every(
+      (v) => typeof v === "number" && Number.isFinite(v),
+    )
+  ) {
+    return false;
+  }
+  return (
+    /** @type {number} */ (maxX) - /** @type {number} */ (minX) > 1e-6 &&
+    /** @type {number} */ (maxY) - /** @type {number} */ (minY) > 1e-6
+  );
+}
+
+/**
+ * @param {object} scene
+ * @param {{ vbX: number, vbY: number, vbW: number, vbH: number, canvasH: number }} vb
+ */
+function sceneToSvgInline(scene, vb) {
+  const w = Number(scene.meta?.width) || 400;
+  const h = Number(scene.meta?.height) || 300;
   const useV2 =
     scene.version >= 2 && scene.root != null && scene.root.kind === "group";
 
   if (!useV2) {
-    return legacySceneToSvg(scene, w, h, title);
+    return legacySceneToSvg(scene, w, h);
   }
 
   const inner = renderNode(scene.root);
+  const { vbX, vbY, vbW, vbH, canvasH } = vb;
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-label="${escapeHtml(title)}">
-  <rect x="0" y="0" width="${w}" height="${h}" fill="#e8eef5" stroke="#334" stroke-width="1" />
-  <g transform="translate(0,${h}) scale(1,-1)">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${vbW}" height="${vbH}" viewBox="${vbX} ${vbY} ${vbW} ${vbH}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <g transform="translate(0,${canvasH}) scale(1,-1)">
 ${inner}
   </g>
-  <text x="8" y="20" font-size="12" fill="#334">${escapeHtml(title)}</text>
 </svg>`;
 }
 
@@ -71,8 +139,8 @@ function renderNode(node) {
       return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="#334" stroke-width="1.5" fill="none" />`;
     }
     case "arc": {
-      const d = arcToPathD(node.center, node.start, node.sweepRad);
-      return `    <path d="${escapeAttr(d)}" stroke="#335" stroke-width="1.5" fill="none" />`;
+      const d = circularArcToPathD(node.center, node.start, node.sweepRad);
+      return `    <path d="${escapeAttr(d)}" stroke="#335" stroke-width="1.5" fill="none" shape-rendering="geometricPrecision" />`;
     }
     case "text": {
       return renderTextSvg(node);
@@ -83,38 +151,42 @@ function renderNode(node) {
 }
 
 /**
- * Circular arc as a stroked path (avoids SVG A-flag ambiguity); geometry is scene space (y up).
+ * Circular arc as a single SVG elliptical-arc segment with rx = ry = r (scene space, y up, CCW positive).
+ * Precedent for all circular arcs in preview: native `A`, never polyline approximation.
+ *
  * @param {{ x: number, y: number }} center
  * @param {{ x: number, y: number }} start
- * @param {number} sweepRad
+ * @param {number} sweepRad signed angle in radians (CCW)
  */
-function arcToPathD(center, start, sweepRad) {
+function circularArcToPathD(center, start, sweepRad) {
   const r = Math.hypot(start.x - center.x, start.y - center.y);
   if (r < 1e-9) return "";
   const a0 = Math.atan2(start.y - center.y, start.x - center.x);
-  const segments = Math.max(
-    8,
-    Math.ceil(Math.abs(sweepRad) / (Math.PI / 16)),
-  );
-  const parts = [];
-  for (let i = 0; i <= segments; i++) {
-    const t = i / segments;
-    const a = a0 + t * sweepRad;
-    const x = center.x + r * Math.cos(a);
-    const y = center.y + r * Math.sin(a);
-    parts.push(i === 0 ? `M ${x} ${y}` : `L ${x} ${y}`);
-  }
-  return parts.join(" ");
+  const x0 = start.x;
+  const y0 = start.y;
+  const a1 = a0 + sweepRad;
+  const x1 = center.x + r * Math.cos(a1);
+  const y1 = center.y + r * Math.sin(a1);
+  const largeArc = Math.abs(sweepRad) > Math.PI ? 1 : 0;
+  // Scene coords are y-up; CCW is positive sweep. Same convention as SVG path in y-up user space.
+  const sweep = sweepRad >= 0 ? 1 : 0;
+  return `M ${x0} ${y0} A ${r} ${r} 0 ${largeArc} ${sweep} ${x1} ${y1}`;
 }
 
 /** @param {import('./sceneModel.mjs').TextPrimitive} node */
 function renderTextSvg(node) {
   const { anchor, content, size, hAlign, angleRad } = node;
+  const ax = anchor.x;
+  const ay = anchor.y;
   const anchorAttr = textAnchorFor(hAlign);
   const deg = (-angleRad * 180) / Math.PI;
   const inner = escapeHtml(content);
-  return `    <g transform="rotate(${deg}, ${anchor.x}, ${anchor.y})">
-      <text x="${anchor.x}" y="${anchor.y}" font-size="${size}" fill="#223" text-anchor="${anchorAttr}" dominant-baseline="alphabetic" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">${inner}</text>
+  // Scene→SVG uses scale(1,-1) on the root; that flips glyph outlines. A local scale(1,-1)
+  // around the anchor restores upright text without changing the anchor position.
+  return `    <g transform="translate(${ax}, ${ay}) scale(1,-1) translate(${-ax}, ${-ay})">
+      <g transform="rotate(${deg}, ${ax}, ${ay})">
+      <text x="${ax}" y="${ay}" font-size="${size}" fill="#223" text-anchor="${anchorAttr}" dominant-baseline="alphabetic" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">${inner}</text>
+      </g>
     </g>`;
 }
 
@@ -126,7 +198,7 @@ function textAnchorFor(h) {
 }
 
 /** v1 scene.json: `elements` rects in SVG coordinates (no y-flip). */
-function legacySceneToSvg(scene, w, h, title) {
+function legacySceneToSvg(scene, w, h) {
   const rects = (scene.elements ?? []).filter((e) => e.kind === "rect");
   const rectsSvg = rects
     .map(
@@ -134,9 +206,8 @@ function legacySceneToSvg(scene, w, h, title) {
         `<rect x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" fill="#e8eef5" stroke="#334" stroke-width="1" />`,
     )
     .join("\n    ");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-label="${escapeHtml(title)}">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
   ${rectsSvg}
-  <text x="8" y="20" font-size="12" fill="#334">${escapeHtml(title)}</text>
 </svg>`;
 }
 
