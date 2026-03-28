@@ -119,20 +119,14 @@ To specify a specific diagram in terms of a scene graph and input parameters.
 
 ## TickLabel
 
-- A tick label is associated with a given TickMark
-- A tick label is a TextElement always comprising two digits. E.g. "23", or "03"
-- One tick label is placed in the diagram for the set of time values in the <TickLabelTimes> input set, where the times are provided as 2-digit 24hour times  like "17", or "03".
-- The text content is 2-digit text.
-- The text height is defined by the <TickLabelHeight> input parameter
-- The text horizontal justification is always centre
-- The position of a tick label is defined by the following recipe - which assumes that the bounding area
-  of the visible part of the text is a square shape aligned with the X/Y axis.
-    - Calculate the square's width and height =  2 * TickLabelHeight
-    - Calculate the square's centre point
-    - Calculate the offset vector from the text's natural origin (for centre justified text) to the       square's center
-    - Now we define the position of the text:
-        -  The polar position angle for the text is determined from the time it belongs to
-        -  The polar radius at which to place the square's centre is RefRadius * (1 + TickLen + <TickLabelOffs>)
+- A tick label is associated with a given TickMark 
+- Two digit hour text e.g. "19", centre justified
+- Positioned by two vector offsets from end of TickMark:
+	-  Radial offset
+	-  Reduced Y by 0.5 text height
+
+
+
 
 ## Notes on interpretation
 

@@ -1,62 +1,5 @@
 
----------------
-o  Housekeep images to keep
-	o  Can chatgpt prune old chats based on their name of prompt content?
-o  File images in drive
-o  File useful prompts alongside
----------------
-
-*  fix alignment along the wall
-o  feet separation
-o  better view of fanny
-o  shorter tee to reveal muscles of butt
-o  baggier gaps
-o  better hints at tits and nipples
-o  slightly more muscular / muscle to fat ratio
-o  outdoors
-o  provocation
-o  accessories hints
-
-
-fart ---------------
-
-Produce an image.  
-
-A woman sits on a flat surface in a relaxed, natural way. Her bottom and both feet are in contact with the surface, clearly grounded and stable.
-
-Her knees are clearly bent at a pronounced angle, bringing her lower legs forward while keeping her feet resting on the surface. The bend at the knees is substantial, creating a compact but open seated posture rather than an extended one.
-
-Her hips are gently rotated outward, allowing her knees to fall naturally apart to either side. Her knees are spaced noticeably apart, forming the widest point of her leg position.
-
-From the knees downward, her lower legs angle slightly inward toward her ankles. This creates a natural tapering shape, with her feet placed closer together than her knees.
-
-Her feet rest independently on the surface and do not touch or overlap. There is a clear visible gap between them, maintaining separation while remaining narrower than the spacing at the knees.
-
-The overall leg arrangement forms a relaxed, open shape that feels gravity-settled rather than posed or held. There is no tension forcing symmetry or rigid alignment.
-
-Her arms rest naturally and do not constrain or influence the position of her legs.
-
-The camera is positioned to her left side, viewing her body from a side-on angle, with her body oriented to the right and her torso remaining aligned in that direction.
-
-The view is not a perfect profile: the camera is shifted slightly toward her front by a small amount, creating a subtle sense of depth so that both legs and their spacing remain visible.
-
-The overall perspective remains predominantly side-on rather than frontal, and does not resemble a three-quarter or front-facing portrait. The angle deviation from a perfect side view is minimal, just enough to avoid a flat silhouette.
-
-Her head turns gently toward the camera, while her torso stays side-oriented.
-
-Her torso is gently upright or only slightly inclined forward, not folded over her legs. There is a natural space between her torso and thighs, avoiding any compressed or compact posture.
-
-Sunlight comes from in front of her, traveling in the same direction her body faces, softly illuminating the front of her body.
-
-She has blonde hair tied in a ponytail, light tan skin, and a slim, athletic runner’s build.
-
-She wears a thin, lightweight cotton t-shirt with a soft, natural drape. The fabric falls loosely over her torso without stiffness or structure. There are no visible undergarment lines, straps, or compression. From the near-profile view, the fabric follows the natural shape of her body with a gentle, relaxed contour, hanging slightly away from the upper chest and settling more softly over the lower chest, without tension or artificial lift.
-
-The overall scene feels natural, candid, and unposed.
-
-
-fart --------------------
-
+fart-----
 
 
 There's a difference between the service history I can tell you sincerely,
@@ -145,21 +88,14 @@ o  new data fetch paradigm
 		o  new display concept
 			*  fart
 			*  drawexact it
-			o  define the geometry in words alone
-				*  fix dropped abstraction of input units
-				o  be more prescriptive with tick mark position
-					o  make a diagram for self to annote
-					o  encode what I've annoted conceptually
-						o  The text is centre justified
-						o  The location for the text's origin is reached with
-							o  Construct an imaginary radial line R,theta where:
-								o  R = (1.0 + <TickLen> + <TickLabelGap>) * RefRadius
-								o  theta = the polar angle of associated TickMark
-						o  Let P1 be the max-r end of that radial line
-						o  The text point is P1 moved down by half the label text height
-
-					o  put it in the spec
-					o  ask chatgpt review
+			*  define the geometry in words alone (some scope)
+			o  work up iteration workflow process to get right as go along
+				o  json of input values
+				o  run trigger
+				o  
+				o  ideal for me now and revisit future
+				o  negotiate with cursor
+				o  start
 
 			o  exceptions
 				o  no more high waters or low water today
