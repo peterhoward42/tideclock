@@ -26,7 +26,7 @@ export function tideDiagramToScene(diagram) {
   const { width, height, title } = diagram.meta;
   const cx = width / 2;
   const cy = height / 2;
-  const { refArc, tickMarks } = diagram;
+  const { refArc, tickMarks, tickLabels } = diagram;
   const R = refArc.refRadius;
   const C = refArc.center;
 
@@ -52,12 +52,24 @@ export function tideDiagramToScene(diagram) {
   ]);
   const ticksGroup = group("tickMarks", tickChildren);
 
+  const tickLabelChildren = (tickLabels ?? []).map((tl) =>
+    text({
+      content: tl.content,
+      size: tl.fontSize,
+      hAlign: "center",
+      angleRad: 0,
+      anchor: mapPoint(tl.anchor, cx, cy),
+    }),
+  );
+  const tickLabelsGroup = group("tickLabels", tickLabelChildren);
+
   return {
     version: 2,
     meta: { title, width, height },
     root: group("tideDiagram", [
       refArcGroup,
       ticksGroup,
+      tickLabelsGroup,
       group("labels", [
         text({
           content: `${title} (diaggen)`,

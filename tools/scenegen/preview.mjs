@@ -114,7 +114,7 @@ function renderTextSvg(node) {
   const deg = (-angleRad * 180) / Math.PI;
   const inner = escapeHtml(content);
   return `    <g transform="rotate(${deg}, ${anchor.x}, ${anchor.y})">
-      <text x="${anchor.x}" y="${anchor.y}" font-size="${size}" fill="#223" text-anchor="${anchorAttr}" dominant-baseline="alphabetic" font-family="system-ui, sans-serif">${inner}</text>
+      <text x="${anchor.x}" y="${anchor.y}" font-size="${size}" fill="#223" text-anchor="${anchorAttr}" dominant-baseline="alphabetic" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">${inner}</text>
     </g>`;
 }
 

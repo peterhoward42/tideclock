@@ -124,13 +124,14 @@ To specify a specific diagram in terms of a scene graph and input parameters.
 - We use those assoctions to define the TickLabel:
     - The text content is a two digit string representation of the time. e.g. "09"
     - centre justified
-    - FontSize = <TickLabelSize> * RefRad
+    - FontSize = <TickLabelSize> * RefRadius
     - The baseline angle is constant 0.
+- Tick labels are generated only for hours included in an input parameter (a subset of {0, 1, …, 24}).
 - The location for the TextElement is the max-radius end of the associated TickMark, plus the 
     following vector additions:
 	-  A polar vector with
         -  Angle = that associated with the TickMark
-        -  Length = <TickLabelClearance> * RefArc
+        -  Length = <TickLabelClearance> * RefRadius
     - A cartesian vector with
         X = 0
         Y = -0.5 * Font size

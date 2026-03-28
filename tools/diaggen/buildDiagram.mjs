@@ -28,6 +28,15 @@ export function buildDiagram(spec) {
   const tickLen =
     typeof spec.tickLen === "number" ? spec.tickLen : 0.08;
 
+  const tickLabelSize =
+    typeof spec.tickLabelSize === "number"
+      ? spec.tickLabelSize
+      : 1.5 * tickLen;
+  const tickLabelClearance =
+    typeof spec.tickLabelClearance === "number"
+      ? spec.tickLabelClearance
+      : 3 * tickLen;
+
   const { thetaLeft, thetaRight } = refArcAngles(sweepRad);
   const rInner = 1.0 * refRadius;
   const rOuter = (1.0 + tickLen) * refRadius;
@@ -44,6 +53,28 @@ export function buildDiagram(spec) {
     });
   }
 
+  const byHour = new Map(tickMarks.map((tm) => [tm.hour, tm]));
+  /** @type {import('./tideDiagramModel.mjs').TickLabelSpec[]} */
+  const tickLabels = [];
+  const labelHours = readTickLabelHours(spec);
+  for (const h of labelHours) {
+    const tm = byHour.get(h);
+    if (!tm) continue;
+    const fontSize = tickLabelSize * refRadius;
+    const outward = polar(tickLabelClearance * refRadius, tm.theta);
+    const anchor = {
+      x: tm.end.x + outward.x,
+      y: tm.end.y + outward.y - 0.5 * fontSize,
+    };
+    tickLabels.push({
+      hour: h,
+      theta: tm.theta,
+      content: formatHourDigits(h),
+      fontSize,
+      anchor,
+    });
+  }
+
   return {
     version: 1,
     meta: { title, width, height },
@@ -55,8 +86,8 @@ export function buildDiagram(spec) {
       thetaRight,
     },
     tickMarks,
+    tickLabels,
     placeholders: {
-      tickLabels: [],
       tideMarks: [],
       centreCluster: [],
       nowTime: [],
@@ -64,4 +95,29 @@ export function buildDiagram(spec) {
       location: [],
     },
   };
+}
+
+/**
+ * @param {Record<string, unknown>} spec
+ * @returns {number[]}
+ */
+function readTickLabelHours(spec) {
+  const raw = spec.tickLabelHours;
+  if (!Array.isArray(raw)) return [];
+  /** @type {number[]} */
+  const out = [];
+  for (const v of raw) {
+    if (typeof v !== "number" || !Number.isInteger(v) || v < 0 || v > 24) {
+      continue;
+    }
+    out.push(v);
+  }
+  return out;
+}
+
+/**
+ * @param {number} h hour 0..24
+ */
+function formatHourDigits(h) {
+  return String(h).padStart(2, "0");
 }

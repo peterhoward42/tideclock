@@ -3,5 +3,8 @@
   "canvas": { "width": 420, "height": 320 },
   "refRadius": 118,
   "sweepRad": 2.75,
-  "tickLen": 0.07
+  "tickLen": 0.07,
+  "tickLabelHours": [0, 6, 12, 18],
+  "tickLabelSize": 0.105,
+  "tickLabelClearance": 0.21
 }

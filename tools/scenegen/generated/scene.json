@@ -310,6 +310,56 @@
       },
       {
         "kind": "group",
+        "name": "tickLabels",
+        "children": [
+          {
+            "kind": "text",
+            "content": "00",
+            "size": 12.389999999999999,
+            "hAlign": "center",
+            "angleRad": 0,
+            "anchor": {
+              "x": 61.845912667222564,
+              "y": 124.4205141853434
+            }
+          },
+          {
+            "kind": "text",
+            "content": "06",
+            "size": 12.389999999999999,
+            "hAlign": "center",
+            "angleRad": 0,
+            "anchor": {
+              "x": 114.1489466344937,
+              "y": 37.07600973313073
+            }
+          },
+          {
+            "kind": "text",
+            "content": "12",
+            "size": 12.389999999999999,
+            "hAlign": "center",
+            "angleRad": 0,
+            "anchor": {
+              "x": 209.99999999999997,
+              "y": 2.765000000000015
+            }
+          },
+          {
+            "kind": "text",
+            "content": "18",
+            "size": 12.389999999999999,
+            "hAlign": "center",
+            "angleRad": 0,
+            "anchor": {
+              "x": 305.85105336550623,
+              "y": 37.07600973313069
+            }
+          }
+        ]
+      },
+      {
+        "kind": "group",
         "name": "labels",
         "children": [
           {

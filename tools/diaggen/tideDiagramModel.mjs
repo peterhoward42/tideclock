@@ -20,12 +20,20 @@
  * }} TickMarkSpec
  *
  * @typedef {{
+ *   hour: number,
+ *   theta: number,
+ *   content: string,
+ *   fontSize: number,
+ *   anchor: DiagramPoint,
+ * }} TickLabelSpec
+ *
+ * @typedef {{
  *   version: number,
  *   meta: { title: string, width: number, height: number },
  *   refArc: RefArcSpec,
  *   tickMarks: TickMarkSpec[],
+ *   tickLabels: TickLabelSpec[],
  *   placeholders: {
- *     tickLabels: unknown[],
  *     tideMarks: unknown[],
  *     centreCluster: unknown[],
  *     nowTime: unknown[],
