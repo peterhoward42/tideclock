@@ -1,0 +1,7 @@
+{
+  "title": "tide diagram (diaggen)",
+  "canvas": { "width": 420, "height": 320 },
+  "refRadius": 118,
+  "sweepRad": 2.75,
+  "tickLen": 0.07
+}

@@ -91,7 +91,9 @@ o  new data fetch paradigm
 			*  define the geometry in words alone (some scope)
 			o  work up iteration workflow process to get right as go along
 				*  abstract scene model gen framework
-				o  spec interp framework
+				*  spec interp framework
+				o  understand how to use diag gen iter with vis
+				   without prejudice to scene gen indie workflow
 
 See /docs/planning/graphics-workflow.md and /tools/scenegen for context.
 
