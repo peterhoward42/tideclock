@@ -4,6 +4,8 @@
 
 To specify a specific diagram in terms of a scene graph and input parameters.
 
+The **diagram generator** does **not** define paint order, z-height ordering, or layers. Those topics will be handled later and **outside** the generator. **Named elements** (see **Diagram elements**) exist so that an **external** host can bind layering and related presentation properties to each entity by name; the mechanics of that binding are **not in scope** for this specification yet.
+
 ## Overview and the reference arc <RefArc>
 
 - The diagram is dominated by a near semicircular arc - the reference arc. (RefArc)
@@ -105,6 +107,11 @@ To specify a specific diagram in terms of a scene graph and input parameters.
     - Line segments (for radial lines and tick marks)
     - Text elements
 
+### Curve primitives: topology, stroke, and fill
+
+- **Line segment** and **arc segment** primitives are one-dimensional curves in the logical model. They are **stroked** (rendered along the curve) and, for now, are **never** treated as **filled** regions. **Fill** of areas bounded by curves is **out of scope** at this stage of the specification.
+- Where the specification treats multiple curve primitives as **independent**, that includes **topological** independence: they are **not** joined into a single path, **do not** share endpoints as one composite entity, and **do not** define a closed region by composition in the logical scene graph—even if a viewer might perceive a closed shape optically.
+
 ## Text Element
 
 - A single line of text parameterised by:
@@ -125,8 +132,7 @@ To specify a specific diagram in terms of a scene graph and input parameters.
 - **CentreCluster** is a logical grouping of content placed **above** the RefArc (in the usual layout), centred on the vertical line **X = 0** through the RefArc centre.
 - Its **logical** constituents are: **NowTime**, **TimeDelta**, and **CentreClusterFrame**. **NowTime** and **TimeDelta** are **not** nested under **CentreClusterFrame** in the logical model—they are siblings at the **CentreCluster** level.
 - **CentreClusterFrame** is a self-contained **logical subgroup**: it consists of **two** single-line **TextElement**s and **one** **arc segment** (see **CentreClusterFrame** below). Those primitives are **not** modelled as a single path, polyline, or closed curve—they have **no** logical coupling to each other beyond subgroup membership and independently defined geometry. In a typical layout they may still **look** like a frame around **NowTime** and **TimeDelta**; that is an **optical** effect, not a path or containment relation in the scene model. **NowTime** and **TimeDelta** remain **not** nested under **CentreClusterFrame** (no parent/child relationship; inner text is not part of the frame’s subtree).
-- **Paint order**: implementations should draw **CentreClusterFrame** **behind** **NowTime** and **TimeDelta** so the inner lines remain legible on top.
-- **Vertical reading order** for the **inner** pair remains top-to-bottom in **decreasing Y** (larger **Y** nearer the top of the scene): **NowTime**, then **TimeDelta**. **CentreClusterFrame** does not insert between them; its two text lines and one arc are specified under **CentreClusterFrame**.
+- **Vertical reading order** for the **inner** pair (layout in diagram space, not render layering) is top-to-bottom in **decreasing Y** (larger **Y** nearer the top of the scene): **NowTime**, then **TimeDelta**. **CentreClusterFrame** does not insert between them; its two text lines and one arc are specified under **CentreClusterFrame**.
 
 ### NowTime
 
@@ -152,12 +158,12 @@ To specify a specific diagram in terms of a scene graph and input parameters.
 
 ### CentreClusterFrame
 
-- **CentreClusterFrame** is a **logical subgroup** whose scene output is **three** independent primitives: **two** **TextElement** lines and **one** **arc segment**. They are **not** stitched into a path, compound shape, or closed outline in the logical model; binding is **only** that they belong to this subgroup and that each has its own geometry (below).
+- **CentreClusterFrame** is a **logical subgroup** whose scene output is **three** independent primitives: **two** **TextElement** lines and **one** **arc segment**. In the scene graph they are **topologically** independent of one another: **not** stitched into a path, compound shape, or closed outline; **no** shared endpoints or single composite path; binding is **only** subgroup membership and separately defined geometry (see **Curve primitives: topology, stroke, and fill**). The **arc segment** follows the same **stroked, not filled** rule as other arc primitives; **TextElement** instances are text glyphs, not stroke/fill curve geometry.
 - The **two** text lines are **logically** the upper and lower line of the pair (conventional layout uses **decreasing Y** from the upper line to the lower). Typical roles (host may use the strings accordingly):
     1. **Location line** — **Text** supplied from outside (e.g. place name); this is the **Location** element for the diagram.
     2. **Status line** — **Text** supplied from outside (e.g. availability of further tides today); opaque to this specification beyond being a single line.
 - For each of the two lines, the **TextElement** parameters follow the usual **TextElement** rules (**FontHeight** as a multiple of **RefRadius**, **centre** justification, baseline polar angle **0**, anchor **(0, Y)** per line with **Y** a multiple of **RefRadius**).
-- **Arc segment** — one arc, geometrically **the same** as the **RefArc** in every respect except radius. Concretely, it matches **Overview and the reference arc** and **Clarification: RefArc angular extent** as applied to a circle about **(0, 0)** with the same **Sweep** input, the same orientation (omitted portion of the circle centred on the **positive Y** axis, arc spanning symmetrically about the **negative Y** axis, leftmost endpoint in the **negative X** direction, rightmost in the **positive X** direction, angles increasing **CCW**). The **only** differing quantity is the circle radius: **R_frame** = **<FrameArcRadius> × RefRadius**, where **<FrameArcRadius>** is a diagram input interpreted as a **proportion of RefRadius** in the same sense as in **Interpretation of linear sizing input parameters**. The arc is **not** defined as sharing endpoints with the text baselines in the logical model.
+- **Arc segment** — one arc, geometrically **the same** as the **RefArc** in every respect except radius. Concretely, it matches **Overview and the reference arc** and **Clarification: RefArc angular extent** as applied to a circle about **(0, 0)** with the same **Sweep** input, the same orientation (omitted portion of the circle centred on the **positive Y** axis, arc spanning symmetrically about the **negative Y** axis, leftmost endpoint in the **negative X** direction, rightmost in the **positive X** direction, angles increasing **CCW**). The **only** differing quantity is the circle radius: **R_frame** = **<FrameArcRadius> × RefRadius**, where **<FrameArcRadius>** is a diagram input interpreted as a **proportion of RefRadius** in the same sense as in **Interpretation of linear sizing input parameters**. The arc is **not** defined as sharing endpoints with the text baselines in the logical model; as a curve primitive it is **stroked** and **not** filled (**Curve primitives: topology, stroke, and fill**).
 
 ## Tick marks
 
