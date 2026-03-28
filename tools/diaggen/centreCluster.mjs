@@ -1,6 +1,8 @@
 // CentreCluster layout in diagram space (origin at RefArc centre). See docs/specs/tide-diagram.md.
 // Fixed glue between event-kind and interval text is normative here and in the spec.
 
+import { refArcAngles } from "./tideDiagramModel.mjs";
+
 /** Fixed substring between event-kind text and interval text on the TimeDelta line. */
 export const TIME_DELTA_GLUE = " water in ";
 
@@ -28,9 +30,25 @@ function textWidth(fontSize, charCount) {
  *   fontHeight: number,
  * }} timeDeltaSpec
  * @param {number} refRadius
+ * @param {number} sweepRad same subtended angle as RefArc (radians)
+ * @param {number} frameArcRadius proportion of RefRadius (CentreClusterFrame arc radius)
  */
-export function layoutCentreCluster(nowTimeSpec, timeDeltaSpec, refRadius) {
+export function layoutCentreCluster(
+  nowTimeSpec,
+  timeDeltaSpec,
+  refRadius,
+  sweepRad,
+  frameArcRadius,
+) {
   const R = refRadius;
+  const { thetaLeft, thetaRight } = refArcAngles(sweepRad);
+  const frameArc = {
+    center: { x: 0, y: 0 },
+    radius: frameArcRadius * R,
+    sweepRad,
+    thetaLeft,
+    thetaRight,
+  };
   const nowFont = nowTimeSpec.fontHeight * R;
   const nowY = nowTimeSpec.y * R;
   const nowTime = {
@@ -62,7 +80,7 @@ export function layoutCentreCluster(nowTimeSpec, timeDeltaSpec, refRadius) {
     left += w;
   }
 
-  return { nowTime, timeDelta };
+  return { nowTime, timeDelta, frameArc };
 }
 
 /**
@@ -129,9 +147,21 @@ export function buildCentreClusterFromSpec(spec) {
     );
   }
 
+  const sweepRad =
+    typeof spec.sweepRad === "number" && Number.isFinite(spec.sweepRad)
+      ? spec.sweepRad
+      : Math.PI * 0.92;
+
+  const frameArcRadius =
+    typeof o.frameArcRadius === "number" && Number.isFinite(o.frameArcRadius)
+      ? o.frameArcRadius
+      : 0.25;
+
   return layoutCentreCluster(
     { text: nowText, y: nowY, fontHeight: nowFh },
     { eventKind, interval, y: tdY, fontHeight: tdFh },
     refRadius,
+    sweepRad,
+    frameArcRadius,
   );
 }

@@ -26,8 +26,22 @@ function mapPoint(p, cx, cy) {
  * @returns {import('../scenegen/sceneModel.mjs').GroupNode}
  */
 export function centreClusterDiagramToGroup(cluster, cx, cy) {
+  const fa = cluster.frameArc;
+  const fc = fa.center;
+  const fr = fa.radius;
+  const frameArcStart = mapPoint(
+    {
+      x: fc.x + fr * Math.cos(fa.thetaLeft),
+      y: fc.y + fr * Math.sin(fa.thetaLeft),
+    },
+    cx,
+    cy,
+  );
+  const frameArcCenter = mapPoint(fc, cx, cy);
+
   const now = cluster.nowTime;
   const children = [
+    arc(frameArcCenter, frameArcStart, fa.sweepRad),
     text({
       content: now.content,
       size: now.fontSize,

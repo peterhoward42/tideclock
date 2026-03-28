@@ -1,6 +1,7 @@
 // `buildScene` turns `spec.json` into the v2 scene graph consumed by `gen.mjs` and `preview.mjs`.
 // `spec.previewFrame` (scene-space AABB) is required — same field `toScene` sets from diagram `contentBounds`.
-// Optional `centreCluster` + `refRadius` (diaggen-shaped) renders the same CentreCluster group as `tideDiagramToScene`.
+// Optional `centreCluster` + `refRadius` + `sweepRad` (diaggen-shaped) renders the same CentreCluster group as
+// `tideDiagramToScene`, including the CentreClusterFrame arc (`centreCluster.frameArcRadius`, default 0.25).
 import { buildCentreClusterFromSpec } from "../diaggen/centreCluster.mjs";
 import { centreClusterDiagramToGroup } from "../diaggen/toScene.mjs";
 import { group } from "./sceneModel.mjs";

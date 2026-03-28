@@ -369,6 +369,18 @@
         "name": "centreCluster",
         "children": [
           {
+            "kind": "arc",
+            "center": {
+              "x": 210,
+              "y": 160
+            },
+            "start": {
+              "x": 181.0636548178169,
+              "y": 154.26084261432487
+            },
+            "sweepRad": 2.75
+          },
+          {
             "kind": "text",
             "content": "Time now 18:32:01",
             "size": 10.62,

@@ -14,6 +14,7 @@
     "below": 1.5
   },
   "centreCluster": {
+    "frameArcRadius": 0.25,
     "nowTime": {
       "text": "Time now 18:32:01",
       "y": 0.1,

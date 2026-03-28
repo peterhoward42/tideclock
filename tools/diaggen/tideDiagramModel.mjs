@@ -46,8 +46,17 @@
  * }} DiagramTextInst
  *
  * @typedef {{
+ *   center: DiagramPoint,
+ *   radius: number,
+ *   sweepRad: number,
+ *   thetaLeft: number,
+ *   thetaRight: number,
+ * }} CentreClusterFrameArcSpec
+ *
+ * @typedef {{
  *   nowTime: DiagramTextInst,
  *   timeDelta: DiagramTextInst[],
+ *   frameArc: CentreClusterFrameArcSpec,
  * }} CentreClusterDiagram
  *
  * @typedef {{
