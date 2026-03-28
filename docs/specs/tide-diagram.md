@@ -119,11 +119,21 @@ To specify a specific diagram in terms of a scene graph and input parameters.
 
 ## TickLabel
 
-- A tick label is associated with a given TickMark 
-- Two digit hour text e.g. "19", centre justified
-- Positioned by two vector offsets from end of TickMark:
-	-  Radial offset
-	-  Reduced Y by 0.5 text height
+- A tick label is-a TextElement with its own generation model based on the TickMark with which it associated:
+- The associations gives implicit axis to the time it belongs to and thence the polar angle of the TickMark
+- We use those assoctions to define the TickLabel:
+    - The text content is a two digit string representation of the time. e.g. "09"
+    - centre justified
+    - FontSize = <TickLabelSize> * RefRad
+    - The baseline angle is constant 0.
+- The location for the TextElement is the max-radius end of the associated TickMark, plus the 
+    following vector additions:
+	-  A polar vector with
+        -  Angle = that associated with the TickMark
+        -  Length = <TickLabelClearance> * RefArc
+    - A cartesian vector with
+        X = 0
+        Y = -0.5 * Font size
 
 
 
