@@ -87,13 +87,6 @@ export function buildDiagram(spec) {
     },
     tickMarks,
     tickLabels,
-    placeholders: {
-      tideMarks: [],
-      centreCluster: [],
-      nowTime: [],
-      timeDelta: [],
-      location: [],
-    },
   };
 }
 

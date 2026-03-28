@@ -70,15 +70,6 @@ export function tideDiagramToScene(diagram) {
       refArcGroup,
       ticksGroup,
       tickLabelsGroup,
-      group("labels", [
-        text({
-          content: `${title} (diaggen)`,
-          size: 12,
-          hAlign: "center",
-          angleRad: 0,
-          anchor: point(cx, height - 18),
-        }),
-      ]),
     ]),
   };
 }

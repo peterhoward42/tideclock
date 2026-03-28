@@ -357,23 +357,6 @@
             }
           }
         ]
-      },
-      {
-        "kind": "group",
-        "name": "labels",
-        "children": [
-          {
-            "kind": "text",
-            "content": "tide diagram (diaggen) (diaggen)",
-            "size": 12,
-            "hAlign": "center",
-            "angleRad": 0,
-            "anchor": {
-              "x": 210,
-              "y": 302
-            }
-          }
-        ]
       }
     ]
   }

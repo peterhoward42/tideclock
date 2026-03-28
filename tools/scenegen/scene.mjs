@@ -1,12 +1,7 @@
 // `buildScene` turns `spec.json` into the v2 scene graph consumed by `gen.mjs` and `preview.mjs`.
-// Iteration: adjust the spec for parameters, or change this file for structure and primitives.
-import {
-  arc,
-  group,
-  line,
-  point,
-  text,
-} from "./sceneModel.mjs";
+// Default output is an empty scene (canvas + metadata only); add primitives here when iterating
+// scenegen without the diagram pipeline.
+import { group } from "./sceneModel.mjs";
 
 export {
   arc,
@@ -30,24 +25,9 @@ export function buildScene(spec) {
     typeof spec.canvas?.height === "number" ? spec.canvas.height : 300;
   const title = typeof spec.title === "string" ? spec.title : "scene";
 
-  const cx = width / 2;
-  const cy = height / 2;
-
   return {
     version: 2,
     meta: { title, width, height },
-    root: group("root", [
-      group("sample", [
-        line(point(16, 16), point(width - 16, height - 16)),
-        arc(point(cx, cy), point(cx + 56, cy), (3 * Math.PI) / 4),
-        text({
-          content: title,
-          size: 14,
-          hAlign: "center",
-          angleRad: 0,
-          anchor: point(cx, height - 28),
-        }),
-      ]),
-    ]),
+    root: group("root", []),
   };
 }

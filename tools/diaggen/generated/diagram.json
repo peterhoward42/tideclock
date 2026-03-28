@@ -358,12 +358,5 @@
         "y": -122.92399026686931
       }
     }
-  ],
-  "placeholders": {
-    "tideMarks": [],
-    "centreCluster": [],
-    "nowTime": [],
-    "timeDelta": [],
-    "location": []
-  }
+  ]
 }

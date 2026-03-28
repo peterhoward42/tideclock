@@ -33,13 +33,6 @@
  *   refArc: RefArcSpec,
  *   tickMarks: TickMarkSpec[],
  *   tickLabels: TickLabelSpec[],
- *   placeholders: {
- *     tideMarks: unknown[],
- *     centreCluster: unknown[],
- *     nowTime: unknown[],
- *     timeDelta: unknown[],
- *     location: unknown[],
- *   },
  * }} TideDiagramDocument
  */
 
