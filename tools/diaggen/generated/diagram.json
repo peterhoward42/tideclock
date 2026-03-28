@@ -431,14 +431,14 @@
     "extents": {
       "left": 1.45,
       "right": 1.15,
-      "above": 1.15,
+      "above": 0.1,
       "below": 1.5
     },
     "rect": {
       "minX": -171.1,
       "maxX": 135.7,
       "minY": -177,
-      "maxY": 135.7
+      "maxY": 11.8
     }
   }
 }

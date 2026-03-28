@@ -18,7 +18,7 @@
   "contentBounds": {
     "left": 1.45,
     "right": 1.15,
-    "above": 1.15,
+    "above": 0.1,
     "below": 1.5
   },
   "centreCluster": {
