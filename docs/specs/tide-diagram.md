@@ -129,10 +129,26 @@ The **diagram generator** does **not** define paint order, z-height ordering, or
 
 ## CentreCluster
 
-- **CentreCluster** is a logical grouping of content placed **above** the RefArc (in the usual layout), centred on the vertical line **X = 0** through the RefArc centre.
-- Its **logical** constituents are: **NowTime**, **TimeDelta**, and **CentreClusterFrame**. **NowTime** and **TimeDelta** are **not** nested under **CentreClusterFrame** in the logical model—they are siblings at the **CentreCluster** level.
-- **CentreClusterFrame** is a self-contained **logical subgroup**: it consists of **two** **line segments** and **one** **arc segment** (see **CentreClusterFrame** below). Those primitives are **not** modelled as a single path, polyline, or closed curve—they have **no** logical coupling to each other beyond subgroup membership and independently defined geometry. In a typical layout they may still **look** like a frame around **NowTime** and **TimeDelta**; that is an **optical** effect, not a path or containment relation in the scene model. **NowTime** and **TimeDelta** remain **not** nested under **CentreClusterFrame** (no parent/child relationship; inner text is not part of the frame’s subtree).
-- **Vertical reading order** for the **inner** pair (layout in diagram space, not render layering) is top-to-bottom in **decreasing Y** (larger **Y** nearer the top of the scene): **NowTime**, then **TimeDelta**. **CentreClusterFrame** does not insert between them; its geometry is specified under **CentreClusterFrame**.
+**CentreCluster** groups content **near the centre of the RefArc** (the RefArc centre at the diagram origin) and is centred on **X = 0** through that point.
+
+### Logical structure
+
+Under **CentreCluster** there are **three** logical parts, all **direct** members of **CentreCluster** (siblings in the named-element sense):
+
+| Part | Role |
+|------|------|
+| **NowTime** | One **TextElement** — the main “time now” line. |
+| **TimeDelta** | Three **TextElement** fragments that read as one centred line. |
+| **CentreClusterFrame** | **Curve primitives only** — two line segments and one arc (see **CentreClusterFrame**). |
+
+### Vertical layout (diagram space)
+
+Larger **Y** is nearer the **top** of the scene. The two text lines stack in this order: **NowTime** above **TimeDelta**. **CentreClusterFrame** is not a third row between them; its geometry is defined in **CentreClusterFrame** and may **look** like a frame around both lines, but that is alignment in the drawing, not an extra slot in the vertical list.
+
+### Scene model (invariants)
+
+- **NowTime** and **TimeDelta** are **not** children of **CentreClusterFrame**; they sit beside it under **CentreCluster**.
+- **CentreClusterFrame** contributes **three separate** curve primitives. They are **not** merged into one path, polyline, or closed outline; only subgroup membership and the geometry below tie them together (**Curve primitives: topology, stroke, and fill**).
 
 ### NowTime
 
@@ -153,14 +169,28 @@ The **diagram generator** does **not** define paint order, z-height ordering, or
     - **FontHeight** — one diagram input as a multiple of **RefRadius**, shared by the whole line.
     - **Horizontal justification** — **centre** per fragment; horizontal positions are chosen so the concatenation is centred on **X = 0** (implementation may use monospace character-width estimates).
     - **Baseline polar angle** — **0**.
-    - **Anchor Y** — a single diagram input **Y_delta** as a multiple of **RefRadius**, shared by all three fragments (same **Y** as for **NowTime** apart from the value of the input).
-- **Anchor X** — **0** for the **NowTime** line; for **TimeDelta**, each fragment has its own **X** (computed layout) such that the line is centred on **X = 0**.
+    - **Anchor Y** — a single diagram input **Y_delta** as a multiple of **RefRadius**, shared by all three fragments (same convention as **Y_now** in **NowTime**, with a separate input value).
+- **Anchors (X)** — **NowTime** fixes **X = 0** (see **NowTime**). **TimeDelta** assigns each fragment its own **X** (computed layout) so the full line is centred on **X = 0**.
 
 ### CentreClusterFrame
 
-- **CentreClusterFrame** is a **logical subgroup** whose scene output is **three** independent curve primitives: **two** **line segments** and **one** **arc segment**. In the scene graph they are **topologically** independent of one another as separate primitives: **not** stitched into a path, compound shape, or closed outline; binding is **only** subgroup membership and separately defined geometry (see **Curve primitives: topology, stroke, and fill**). All three are **stroked** and **not** filled.
-- **Arc segment** — one arc, geometrically **the same** as the **RefArc** in every respect except radius. Concretely, it matches **Overview and the reference arc** and **Clarification: RefArc angular extent** as applied to a circle about **(0, 0)** with the same **Sweep** input, the same orientation (omitted portion of the circle centred on the **positive Y** axis, arc spanning symmetrically about the **negative Y** axis, leftmost endpoint in the **negative X** direction, rightmost in the **positive X** direction, angles increasing **CCW**). The **only** differing quantity is the circle radius: **R_frame** = **<FrameArcRadius> × RefRadius**, where **<FrameArcRadius>** is a diagram input interpreted as a **proportion of RefRadius** in the same sense as in **Interpretation of linear sizing input parameters**. Let **θ_left** and **θ_right** be the polar angles of the **leftmost** and **rightmost** endpoints of this arc (the same angular extent as for the **RefArc** at radius **R_frame**). As a curve primitive the arc is **stroked** and **not** filled (**Curve primitives: topology, stroke, and fill**).
-- **Line segments (two)** — each is a straight segment from the **RefArc centre** **(0, 0)** to one **endpoint** of the **CentreClusterFrame arc** above (the arc sibling in this subgroup). One segment connects **(0, 0)** to the point at **θ_left** on the circle of radius **R_frame**; the other connects **(0, 0)** to the point at **θ_right** on that circle. Equivalently, each is a **Radial line** in the sense of **Radial lines**, at angle **θ_left** or **θ_right**, with bounding radii **0** and **R_frame** (from centre to arc endpoint). They are **not** defined as a single polyline with the arc in the logical model.
+**CentreClusterFrame** is a **logical subgroup** whose output is **three** curve primitives: **one** arc segment and **two** line segments. All are **stroked** and **not** filled; they are **topologically** independent as separate primitives (not stitched into one path or compound shape; see **Curve primitives: topology, stroke, and fill**).
+
+**Radius and endpoints**
+
+- **R_frame** = **<FrameArcRadius> × RefRadius**, where **<FrameArcRadius>** is a diagram input as a **proportion of RefRadius** (**Interpretation of linear sizing input parameters**).
+- The arc uses the **same** centre **(0, 0)**, **Sweep**, and angular orientation as the **RefArc** (**Overview and the reference arc**, **Clarification: RefArc angular extent**). The **only** geometric quantity that differs from the **RefArc** is the circle radius (**R_frame** instead of **RefRadius**).
+- Let **θ_left** and **θ_right** be the polar angles of the **leftmost** and **rightmost** endpoints of this arc (same angular span as the **RefArc** at radius **R_frame**).
+
+**Arc segment**
+
+- One arc at radius **R_frame** following the rules above, as a **stroked** curve primitive (**Curve primitives: topology, stroke, and fill**).
+
+**Line segments (two)**
+
+- Each runs from the RefArc centre **(0, 0)** to one endpoint of that arc: **(0, 0)** to the point at **θ_left** on the circle of radius **R_frame**, and **(0, 0)** to the point at **θ_right** on that circle.
+- Equivalently: each is a **Radial line** (**Radial lines**) at **θ_left** or **θ_right** with bounding radii **0** and **R_frame**.
+- In the logical model these two segments are **not** a single polyline joined to the arc.
 
 ## Tick marks
 

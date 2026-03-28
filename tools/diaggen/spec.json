@@ -1,10 +1,18 @@
 {
   "title": "tide diagram (diaggen)",
-  "canvas": { "width": 420, "height": 320 },
+  "canvas": {
+    "width": 420,
+    "height": 320
+  },
   "refRadius": 118,
   "sweepRad": 2.75,
   "tickLen": 0.07,
-  "tickLabelHours": [0, 6, 12, 18],
+  "tickLabelHours": [
+    0,
+    6,
+    12,
+    18
+  ],
   "tickLabelSize": 0.105,
   "tickLabelClearance": 0.07,
   "contentBounds": {
@@ -14,17 +22,17 @@
     "below": 1.5
   },
   "centreCluster": {
-    "frameArcRadius": 0.25,
+    "frameArcRadius": 0.35,
     "nowTime": {
       "text": "Time now 18:32:01",
-      "y": 0.1,
-      "fontHeight": 0.09
+      "y": -0.2,
+      "fontHeight": 0.05
     },
     "timeDelta": {
       "eventKind": "Low",
       "interval": "3h 21m",
-      "y": 0.2,
-      "fontHeight": 0.085
+      "y": -0.1,
+      "fontHeight": 0.05
     }
   }
 }

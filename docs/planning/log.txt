@@ -93,10 +93,8 @@ o  new data fetch paradigm
 			*  move on to tick labels
 			o  centre cluster
 				*  text
-				o  line arc
-					o  arc
-					o  defeat paint order
-					o  lines
+				*  line arc
+				o  diag coverage is a right mess
 
 See /docs/planning/graphics-workflow.md and /tools/scenegen for context.
 
