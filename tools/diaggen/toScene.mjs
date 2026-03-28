@@ -1,3 +1,5 @@
+// Maps a `TideDiagramDocument` from `buildDiagram` into scenegen’s scene graph so both
+// `diaggen/gen.mjs` and `scenegen/gen.mjs` can share `scenegen/preview.mjs`.
 import {
   arc,
   group,

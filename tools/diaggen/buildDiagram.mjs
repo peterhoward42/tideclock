@@ -1,3 +1,6 @@
+// `buildDiagram` reads the same shape of inputs as scenegen’s spec (`title`, `canvas`, plus
+// diagram fields like `refRadius`) and returns a tide diagram document; `gen.mjs` then passes
+// that to `toScene.mjs` for the shared HTML preview.
 import {
   polar,
   refArcAngles,

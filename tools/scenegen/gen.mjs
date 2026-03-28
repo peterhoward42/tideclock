@@ -1,3 +1,7 @@
+// Development loop (scenegen only): edit `spec.json` and/or `scene.mjs` (`buildScene`),
+// then run `./iter.sh` from this directory (or `node gen.mjs`) to refresh `generated/scene.json`
+// and `generated/preview.html`, which opens in the browser. Goal: tweak inputs or geometry
+// code and see the same inline-SVG preview path documented in `docs/planning/graphics-workflow.md`.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";

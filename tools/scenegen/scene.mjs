@@ -1,3 +1,5 @@
+// `buildScene` turns `spec.json` into the v2 scene graph consumed by `gen.mjs` and `preview.mjs`.
+// Iteration: adjust the spec for parameters, or change this file for structure and primitives.
 import {
   arc,
   group,

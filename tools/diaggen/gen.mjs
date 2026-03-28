@@ -1,3 +1,9 @@
+// Development loop (diagram → scene → preview): edit `spec.json` and/or `buildDiagram.mjs`
+// / `tideDiagramModel.mjs` / `toScene.mjs`, then run `./iter.sh` here (or `node gen.mjs`).
+// Writes `generated/diagram.json`, then maps to a scene and writes `../scenegen/generated/scene.json`
+// plus the shared `../scenegen/generated/preview.html` (same preview as scenegen). If you later
+// run `tools/scenegen/gen.mjs`, it overwrites that scene with the direct scenegen pipeline—use
+// scenegen’s loop only when iterating the scene graph without the diagram step.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
