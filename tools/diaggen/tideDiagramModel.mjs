@@ -54,9 +54,15 @@
  * }} CentreClusterFrameArcSpec
  *
  * @typedef {{
+ *   start: DiagramPoint,
+ *   end: DiagramPoint,
+ * }} DiagramLineSeg
+ *
+ * @typedef {{
  *   nowTime: DiagramTextInst,
  *   timeDelta: DiagramTextInst[],
  *   frameArc: CentreClusterFrameArcSpec,
+ *   frameLines: [DiagramLineSeg, DiagramLineSeg],
  * }} CentreClusterDiagram
  *
  * @typedef {{

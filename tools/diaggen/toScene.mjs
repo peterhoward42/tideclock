@@ -39,8 +39,13 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
   );
   const frameArcCenter = mapPoint(fc, cx, cy);
 
+  const frameLineNodes = cluster.frameLines.map((seg) =>
+    line(mapPoint(seg.start, cx, cy), mapPoint(seg.end, cx, cy)),
+  );
+
   const now = cluster.nowTime;
   const children = [
+    ...frameLineNodes,
     arc(frameArcCenter, frameArcStart, fa.sweepRad),
     text({
       content: now.content,

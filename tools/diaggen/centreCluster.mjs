@@ -1,7 +1,7 @@
 // CentreCluster layout in diagram space (origin at RefArc centre). See docs/specs/tide-diagram.md.
 // Fixed glue between event-kind and interval text is normative here and in the spec.
 
-import { refArcAngles } from "./tideDiagramModel.mjs";
+import { polar, refArcAngles } from "./tideDiagramModel.mjs";
 
 /** Fixed substring between event-kind text and interval text on the TimeDelta line. */
 export const TIME_DELTA_GLUE = " water in ";
@@ -42,13 +42,20 @@ export function layoutCentreCluster(
 ) {
   const R = refRadius;
   const { thetaLeft, thetaRight } = refArcAngles(sweepRad);
+  const rFrame = frameArcRadius * R;
   const frameArc = {
     center: { x: 0, y: 0 },
-    radius: frameArcRadius * R,
+    radius: rFrame,
     sweepRad,
     thetaLeft,
     thetaRight,
   };
+  const origin = { x: 0, y: 0 };
+  /** @type {[import('./tideDiagramModel.mjs').DiagramLineSeg, import('./tideDiagramModel.mjs').DiagramLineSeg]} */
+  const frameLines = [
+    { start: origin, end: polar(rFrame, thetaLeft) },
+    { start: origin, end: polar(rFrame, thetaRight) },
+  ];
   const nowFont = nowTimeSpec.fontHeight * R;
   const nowY = nowTimeSpec.y * R;
   const nowTime = {
@@ -80,7 +87,7 @@ export function layoutCentreCluster(
     left += w;
   }
 
-  return { nowTime, timeDelta, frameArc };
+  return { nowTime, timeDelta, frameArc, frameLines };
 }
 
 /**
