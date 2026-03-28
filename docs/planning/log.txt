@@ -90,12 +90,11 @@ o  new data fetch paradigm
 			*  drawexact it
 			*  define the geometry in words alone (some scope)
 			o  work up iteration workflow process to get right as go along
-				o  json of input values
-				o  run trigger
-				o  
-				o  ideal for me now and revisit future
-				o  negotiate with cursor
-				o  start
+				*  abstract scene model gen framework
+				o  spec interp framework
+
+See /docs/planning/graphics-workflow.md and /tools/scenegen for context.
+
 
 			o  exceptions
 				o  no more high waters or low water today

@@ -1,0 +1,167 @@
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
+
+/**
+ * Turn a scene model into a fixed-path HTML preview (inline SVG) for inspection.
+ * Applies a y-flip so scene math coords (y up) map into SVG (y down).
+ *
+ * @param {object} scene
+ * @param {string} outPath absolute or relative path to preview.html
+ */
+export function writePreviewHtml(scene, outPath) {
+  mkdirSync(dirname(outPath), { recursive: true });
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>${escapeHtml(String(scene.meta?.title ?? "preview"))}</title>
+  <style>
+    body { margin: 0; background: #f0f0f0; font-family: system-ui, sans-serif; }
+    svg { display: block; margin: 1rem auto; background: #fff; box-shadow: 0 1px 4px #0002; }
+  </style>
+</head>
+<body>
+${sceneToSvgInline(scene)}
+</body>
+</html>
+`;
+  writeFileSync(outPath, html, "utf8");
+}
+
+/**
+ * @param {object} scene
+ */
+function sceneToSvgInline(scene) {
+  const w = Number(scene.meta?.width) || 400;
+  const h = Number(scene.meta?.height) || 300;
+  const title = String(scene.meta?.title ?? "");
+  const useV2 =
+    scene.version >= 2 && scene.root != null && scene.root.kind === "group";
+
+  if (!useV2) {
+    return legacySceneToSvg(scene, w, h, title);
+  }
+
+  const inner = renderNode(scene.root);
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-label="${escapeHtml(title)}">
+  <rect x="0" y="0" width="${w}" height="${h}" fill="#e8eef5" stroke="#334" stroke-width="1" />
+  <g transform="translate(0,${h}) scale(1,-1)">
+${inner}
+  </g>
+  <text x="8" y="20" font-size="12" fill="#334">${escapeHtml(title)}</text>
+</svg>`;
+}
+
+/** @param {import('./sceneModel.mjs').SceneNode} node */
+function renderNode(node) {
+  switch (node.kind) {
+    case "group": {
+      const body = node.children.map((c) => renderNode(c)).join("\n    ");
+      return `    <g data-name="${escapeAttr(node.name)}">\n    ${body}\n    </g>`;
+    }
+    case "line": {
+      const { start: a, end: b } = node;
+      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="#334" stroke-width="1.5" fill="none" />`;
+    }
+    case "arc": {
+      const d = arcToPathD(node.center, node.start, node.sweepRad);
+      return `    <path d="${escapeAttr(d)}" stroke="#335" stroke-width="1.5" fill="none" />`;
+    }
+    case "text": {
+      return renderTextSvg(node);
+    }
+    default:
+      return "";
+  }
+}
+
+/**
+ * Circular arc as a stroked path (avoids SVG A-flag ambiguity); geometry is scene space (y up).
+ * @param {{ x: number, y: number }} center
+ * @param {{ x: number, y: number }} start
+ * @param {number} sweepRad
+ */
+function arcToPathD(center, start, sweepRad) {
+  const r = Math.hypot(start.x - center.x, start.y - center.y);
+  if (r < 1e-9) return "";
+  const a0 = Math.atan2(start.y - center.y, start.x - center.x);
+  const segments = Math.max(
+    8,
+    Math.ceil(Math.abs(sweepRad) / (Math.PI / 16)),
+  );
+  const parts = [];
+  for (let i = 0; i <= segments; i++) {
+    const t = i / segments;
+    const a = a0 + t * sweepRad;
+    const x = center.x + r * Math.cos(a);
+    const y = center.y + r * Math.sin(a);
+    parts.push(i === 0 ? `M ${x} ${y}` : `L ${x} ${y}`);
+  }
+  return parts.join(" ");
+}
+
+/** @param {import('./sceneModel.mjs').TextPrimitive} node */
+function renderTextSvg(node) {
+  const { anchor, content, size, hAlign, angleRad } = node;
+  const anchorAttr = textAnchorFor(hAlign);
+  const deg = (-angleRad * 180) / Math.PI;
+  const inner = escapeHtml(content);
+  return `    <g transform="rotate(${deg}, ${anchor.x}, ${anchor.y})">
+      <text x="${anchor.x}" y="${anchor.y}" font-size="${size}" fill="#223" text-anchor="${anchorAttr}" dominant-baseline="alphabetic" font-family="system-ui, sans-serif">${inner}</text>
+    </g>`;
+}
+
+/** @param {'left'|'center'|'right'} h */
+function textAnchorFor(h) {
+  if (h === "left") return "start";
+  if (h === "right") return "end";
+  return "middle";
+}
+
+/** v1 scene.json: `elements` rects in SVG coordinates (no y-flip). */
+function legacySceneToSvg(scene, w, h, title) {
+  const rects = (scene.elements ?? []).filter((e) => e.kind === "rect");
+  const rectsSvg = rects
+    .map(
+      (r) =>
+        `<rect x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" fill="#e8eef5" stroke="#334" stroke-width="1" />`,
+    )
+    .join("\n    ");
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-label="${escapeHtml(title)}">
+  ${rectsSvg}
+  <text x="8" y="20" font-size="12" fill="#334">${escapeHtml(title)}</text>
+</svg>`;
+}
+
+function escapeHtml(s) {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function escapeAttr(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;");
+}
+
+const isMain =
+  process.argv[1] &&
+  import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (isMain) {
+  const scenePath =
+    process.argv[2] ?? join(__dirname, "generated", "scene.json");
+  const outPath = join(__dirname, "generated", "preview.html");
+  const scene = JSON.parse(readFileSync(scenePath, "utf8"));
+  writePreviewHtml(scene, outPath);
+  console.error(`Wrote ${outPath}`);
+}

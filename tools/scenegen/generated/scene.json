@@ -1,0 +1,54 @@
+{
+  "version": 2,
+  "meta": {
+    "title": "scenegen placeholder",
+    "width": 400,
+    "height": 300
+  },
+  "root": {
+    "kind": "group",
+    "name": "root",
+    "children": [
+      {
+        "kind": "group",
+        "name": "sample",
+        "children": [
+          {
+            "kind": "line",
+            "start": {
+              "x": 16,
+              "y": 16
+            },
+            "end": {
+              "x": 384,
+              "y": 284
+            }
+          },
+          {
+            "kind": "arc",
+            "center": {
+              "x": 200,
+              "y": 150
+            },
+            "start": {
+              "x": 256,
+              "y": 150
+            },
+            "sweepRad": 2.356194490192345
+          },
+          {
+            "kind": "text",
+            "content": "scenegen placeholder",
+            "size": 14,
+            "hAlign": "center",
+            "angleRad": 0,
+            "anchor": {
+              "x": 200,
+              "y": 272
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
