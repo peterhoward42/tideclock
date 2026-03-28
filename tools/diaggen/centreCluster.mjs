@@ -1,0 +1,137 @@
+// CentreCluster layout in diagram space (origin at RefArc centre). See docs/specs/tide-diagram.md.
+// Fixed glue between event-kind and interval text is normative here and in the spec.
+
+/** Fixed substring between event-kind text and interval text on the TimeDelta line. */
+export const TIME_DELTA_GLUE = " water in ";
+
+const CHAR_WIDTH_FACTOR = 0.6;
+
+/**
+ * Approximate horizontal advance per character for monospace placement (scene preview uses monospace).
+ * @param {number} fontSize
+ * @param {number} charCount
+ */
+function textWidth(fontSize, charCount) {
+  return CHAR_WIDTH_FACTOR * fontSize * charCount;
+}
+
+/**
+ * @param {{
+ *   text: string,
+ *   y: number,
+ *   fontHeight: number,
+ * }} nowTimeSpec multiples of RefRadius for y and fontHeight
+ * @param {{
+ *   eventKind: string,
+ *   interval: string,
+ *   y: number,
+ *   fontHeight: number,
+ * }} timeDeltaSpec
+ * @param {number} refRadius
+ */
+export function layoutCentreCluster(nowTimeSpec, timeDeltaSpec, refRadius) {
+  const R = refRadius;
+  const nowFont = nowTimeSpec.fontHeight * R;
+  const nowY = nowTimeSpec.y * R;
+  const nowTime = {
+    content: nowTimeSpec.text,
+    fontSize: nowFont,
+    anchor: { x: 0, y: nowY },
+  };
+
+  const tdFont = timeDeltaSpec.fontHeight * R;
+  const tdY = timeDeltaSpec.y * R;
+  const parts = [
+    { content: timeDeltaSpec.eventKind },
+    { content: TIME_DELTA_GLUE },
+    { content: timeDeltaSpec.interval },
+  ];
+  const widths = parts.map((p) => textWidth(tdFont, p.content.length));
+  const totalW = widths.reduce((a, b) => a + b, 0);
+  let left = -totalW / 2;
+  /** @type {import('./tideDiagramModel.mjs').DiagramTextInst[]} */
+  const timeDelta = [];
+  for (let i = 0; i < parts.length; i += 1) {
+    const w = widths[i];
+    const cx = left + w / 2;
+    timeDelta.push({
+      content: parts[i].content,
+      fontSize: tdFont,
+      anchor: { x: cx, y: tdY },
+    });
+    left += w;
+  }
+
+  return { nowTime, timeDelta };
+}
+
+/**
+ * @param {Record<string, unknown>} spec
+ * @returns {import('./tideDiagramModel.mjs').CentreClusterDiagram | null}
+ */
+export function buildCentreClusterFromSpec(spec) {
+  const raw = spec.centreCluster;
+  if (raw == null || typeof raw !== "object") return null;
+  const o = /** @type {Record<string, unknown>} */ (raw);
+  const refRadius =
+    typeof spec.refRadius === "number" && Number.isFinite(spec.refRadius)
+      ? spec.refRadius
+      : 100;
+
+  const now = o.nowTime;
+  if (now == null || typeof now !== "object") {
+    throw new Error(
+      "centreCluster.nowTime is required: { text, y, fontHeight } (y and fontHeight are RefRadius multiples)",
+    );
+  }
+  const n = /** @type {Record<string, unknown>} */ (now);
+  const nowText = n.text;
+  const nowY = n.y;
+  const nowFh = n.fontHeight;
+  if (typeof nowText !== "string") {
+    throw new Error("centreCluster.nowTime.text must be a string");
+  }
+  if (
+    typeof nowY !== "number" ||
+    typeof nowFh !== "number" ||
+    !Number.isFinite(nowY) ||
+    !Number.isFinite(nowFh)
+  ) {
+    throw new Error(
+      "centreCluster.nowTime.y and .fontHeight must be finite numbers (RefRadius multiples)",
+    );
+  }
+
+  const td = o.timeDelta;
+  if (td == null || typeof td !== "object") {
+    throw new Error(
+      "centreCluster.timeDelta is required: { eventKind, interval, y, fontHeight }",
+    );
+  }
+  const t = /** @type {Record<string, unknown>} */ (td);
+  const eventKind = t.eventKind;
+  const interval = t.interval;
+  const tdY = t.y;
+  const tdFh = t.fontHeight;
+  if (typeof eventKind !== "string" || typeof interval !== "string") {
+    throw new Error(
+      "centreCluster.timeDelta.eventKind and .interval must be strings",
+    );
+  }
+  if (
+    typeof tdY !== "number" ||
+    typeof tdFh !== "number" ||
+    !Number.isFinite(tdY) ||
+    !Number.isFinite(tdFh)
+  ) {
+    throw new Error(
+      "centreCluster.timeDelta.y and .fontHeight must be finite numbers (RefRadius multiples)",
+    );
+  }
+
+  return layoutCentreCluster(
+    { text: nowText, y: nowY, fontHeight: nowFh },
+    { eventKind, interval, y: tdY, fontHeight: tdFh },
+    refRadius,
+  );
+}

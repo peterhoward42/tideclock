@@ -1,7 +1,8 @@
 // `buildScene` turns `spec.json` into the v2 scene graph consumed by `gen.mjs` and `preview.mjs`.
 // `spec.previewFrame` (scene-space AABB) is required — same field `toScene` sets from diagram `contentBounds`.
-// Default output is an empty scene (canvas + metadata + frame only); add primitives when iterating
-// scenegen without the diagram pipeline.
+// Optional `centreCluster` + `refRadius` (diaggen-shaped) renders the same CentreCluster group as `tideDiagramToScene`.
+import { buildCentreClusterFromSpec } from "../diaggen/centreCluster.mjs";
+import { centreClusterDiagramToGroup } from "../diaggen/toScene.mjs";
 import { group } from "./sceneModel.mjs";
 
 export {
@@ -26,6 +27,14 @@ export function buildScene(spec) {
     typeof spec.canvas?.height === "number" ? spec.canvas.height : 300;
   const title = typeof spec.title === "string" ? spec.title : "scene";
 
+  const cx = width / 2;
+  const cy = height / 2;
+  const centreCluster = buildCentreClusterFromSpec(spec);
+  const rootChildren = [];
+  if (centreCluster != null) {
+    rootChildren.push(centreClusterDiagramToGroup(centreCluster, cx, cy));
+  }
+
   return {
     version: 2,
     meta: {
@@ -34,7 +43,7 @@ export function buildScene(spec) {
       height,
       previewFrame: requirePreviewFrame(spec),
     },
-    root: group("root", []),
+    root: group("root", rootChildren),
   };
 }
 

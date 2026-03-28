@@ -6,11 +6,24 @@
   "tickLen": 0.07,
   "tickLabelHours": [0, 6, 12, 18],
   "tickLabelSize": 0.105,
-  "tickLabelClearance": 0.21,
+  "tickLabelClearance": 0.07,
   "contentBounds": {
     "left": 1.45,
     "right": 1.15,
-    "above": 0.2,
+    "above": 1.15,
     "below": 1.5
+  },
+  "centreCluster": {
+    "nowTime": {
+      "text": "Time now 18:32:01",
+      "y": 0.1,
+      "fontHeight": 0.09
+    },
+    "timeDelta": {
+      "eventKind": "Low",
+      "interval": "3h 21m",
+      "y": 0.2,
+      "fontHeight": 0.085
+    }
   }
 }

@@ -26,8 +26,8 @@ To specify a specific diagram in terms of a scene graph and input parameters.
 ## Interpretation of linear sizing input parameters
 
 - The inputs will include linear sizing parameters, for example the length of a TickMark.
-- All linear sizing inputs are interpreted as proporitions of RefRadius.
-- For example the input 0.15 will be interpreted as RefArc * 0.15
+- All linear sizing inputs are interpreted as proportions of RefRadius.
+- For example the input 0.15 will be interpreted as RefRadius × 0.15
 
 ## Diagram elements
 
@@ -40,7 +40,7 @@ To specify a specific diagram in terms of a scene graph and input parameters.
     - TimeDelta
     - Location
 
-*(Note: Only TickMarks are defined geometrically at this stage. Other elements are placeholders.)*
+*(Note: TideMarks, Location, and any framing around CentreCluster are not yet specified geometrically.)*
 
 ## Coordinate System
 
@@ -114,6 +114,37 @@ To specify a specific diagram in terms of a scene graph and input parameters.
  -  Assumed to be using a monospace font to support primitive font-metric type calculations
 
 *(Additional primitives may be introduced as required by later elements.)*
+
+### Text anchor Y (global)
+
+- Diagram elements that delegate to **TextElement** place the anchor **(x, y)** in diagram model space. The **Y** coordinate follows the same convention as for **TickLabel** anchors (vertical position in diagram space associated with that text for rendering in the host). The specification does not model em-boxes or similar font metrics.
+
+## CentreCluster
+
+- **CentreCluster** is a logical grouping of text placed **above** the RefArc (in the usual layout), centred on the vertical line **X = 0** through the RefArc centre.
+- It contains **NowTime** and **TimeDelta**, each defined in terms of **TextElement** configuration and inputs from outside the diagram (opaque strings where stated).
+
+### NowTime
+
+- A single **TextElement**:
+    - **Text** — one string supplied from outside (the full line, e.g. a “time now …” line as produced by the host).
+    - **FontHeight** — a diagram input as a multiple of **RefRadius** (same interpretation as other linear sizing inputs).
+    - **Horizontal justification** — **centre**.
+    - **Baseline polar angle** — **0** (horizontal in diagram space).
+    - **Anchor** — **(0, Y_now)** where **Y_now** is a diagram input as a multiple of **RefRadius** (offset in **+Y** / **−Y** from the RefArc centre per the global coordinate system).
+
+### TimeDelta
+
+- One logical sentence made of **three** **TextElement** instances, composed so the line reads as one phrase and is **centre-aligned as a whole** at **X = 0**:
+    1. **Event kind** — **Text** is a string supplied from outside (e.g. `"Low"` or `"High"`). Modelled separately from the other fragments so it can be styled or emphasised distinctly while remaining visually integrated on the line.
+    2. **Glue** — fixed literal **` water in `** (leading space, the word **water**, spaces, **in**, trailing space) between event kind and interval. Not a host input.
+    3. **Interval** — **Text** is a string supplied from outside (e.g. a relative duration such as `"3h 21m"`).
+- For all three fragments:
+    - **FontHeight** — one diagram input as a multiple of **RefRadius**, shared by the whole line.
+    - **Horizontal justification** — **centre** per fragment; horizontal positions are chosen so the concatenation is centred on **X = 0** (implementation may use monospace character-width estimates).
+    - **Baseline polar angle** — **0**.
+    - **Anchor Y** — a single diagram input **Y_delta** as a multiple of **RefRadius**, shared by all three fragments (same **Y** as for **NowTime** apart from the value of the input).
+- **Anchor X** — **0** for the **NowTime** line; for **TimeDelta**, each fragment has its own **X** (computed layout) such that the line is centred on **X = 0**.
 
 ## Tick marks
 

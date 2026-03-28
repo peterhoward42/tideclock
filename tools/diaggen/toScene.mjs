@@ -19,6 +19,36 @@ function mapPoint(p, cx, cy) {
 }
 
 /**
+ * Scene group for a CentreClusterDiagram (diagram space → scene space).
+ * @param {import('./tideDiagramModel.mjs').CentreClusterDiagram} cluster
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {import('../scenegen/sceneModel.mjs').GroupNode}
+ */
+export function centreClusterDiagramToGroup(cluster, cx, cy) {
+  const now = cluster.nowTime;
+  const children = [
+    text({
+      content: now.content,
+      size: now.fontSize,
+      hAlign: "center",
+      angleRad: 0,
+      anchor: mapPoint(now.anchor, cx, cy),
+    }),
+    ...cluster.timeDelta.map((seg) =>
+      text({
+        content: seg.content,
+        size: seg.fontSize,
+        hAlign: "center",
+        angleRad: 0,
+        anchor: mapPoint(seg.anchor, cx, cy),
+      }),
+    ),
+  ];
+  return group("centreCluster", children);
+}
+
+/**
  * @param {import('./tideDiagramModel.mjs').TideDiagramDocument} diagram
  * @returns {import('../scenegen/sceneModel.mjs').SceneDocument}
  */
@@ -63,6 +93,11 @@ export function tideDiagramToScene(diagram) {
   );
   const tickLabelsGroup = group("tickLabels", tickLabelChildren);
 
+  const centreClusterGroup =
+    diagram.centreCluster != null
+      ? centreClusterDiagramToGroup(diagram.centreCluster, cx, cy)
+      : null;
+
   const { rect } = diagram.contentBounds;
   const meta = {
     title,
@@ -83,6 +118,7 @@ export function tideDiagramToScene(diagram) {
       refArcGroup,
       ticksGroup,
       tickLabelsGroup,
+      ...(centreClusterGroup != null ? [centreClusterGroup] : []),
     ]),
   };
 }

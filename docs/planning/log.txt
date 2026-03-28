@@ -90,11 +90,7 @@ o  new data fetch paradigm
 			*  drawexact it
 			*  define the geometry in words alone (some scope)
 			*  work up iteration workflow process to get right as go along
-			o  move on to tick labels
-				*  180 degrees wrong?
-				o  clearer preview
-					o  using square container?
-					o  is it segmented?
+			*  move on to tick labels
 
 See /docs/planning/graphics-workflow.md and /tools/scenegen for context.
 

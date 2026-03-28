@@ -1,6 +1,7 @@
 // `buildDiagram` reads the same shape of inputs as scenegen’s spec (`title`, `canvas`, plus
 // diagram fields like `refRadius`) and returns a tide diagram document; `gen.mjs` then passes
 // that to `toScene.mjs` for the shared HTML preview.
+import { buildCentreClusterFromSpec } from "./centreCluster.mjs";
 import {
   diagramBoxFromExtents,
   polar,
@@ -86,6 +87,8 @@ export function buildDiagram(spec) {
   );
   const contentBounds = { extents, rect };
 
+  const centreCluster = buildCentreClusterFromSpec(spec);
+
   return {
     version: 1,
     meta: { title, width, height },
@@ -98,6 +101,7 @@ export function buildDiagram(spec) {
     },
     tickMarks,
     tickLabels,
+    centreCluster,
     contentBounds,
   };
 }

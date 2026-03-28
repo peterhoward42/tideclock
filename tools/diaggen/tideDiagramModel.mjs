@@ -40,11 +40,23 @@
  * }} DiagramContentBounds
  *
  * @typedef {{
+ *   content: string,
+ *   fontSize: number,
+ *   anchor: DiagramPoint,
+ * }} DiagramTextInst
+ *
+ * @typedef {{
+ *   nowTime: DiagramTextInst,
+ *   timeDelta: DiagramTextInst[],
+ * }} CentreClusterDiagram
+ *
+ * @typedef {{
  *   version: number,
  *   meta: { title: string, width: number, height: number },
  *   refArc: RefArcSpec,
  *   tickMarks: TickMarkSpec[],
  *   tickLabels: TickLabelSpec[],
+ *   centreCluster: CentreClusterDiagram | null,
  *   contentBounds: DiagramContentBounds,
  * }} TideDiagramDocument
  */
