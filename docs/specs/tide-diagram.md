@@ -4,39 +4,18 @@
 
 To specify a specific diagram in terms of a scene graph and input parameters.
 
+### Host responsibilities
+
 The **diagram generator** does **not** define paint order, z-height ordering, or
-layers. Those topics will be handled later and **outside** the generator. **Named
-elements** (see **Diagram elements**) exist so that an **external** host can bind
-layering and related presentation properties to each entity by name; the
-mechanics of that binding are **not in scope** for this specification yet.
+layers. Those topics are handled **outside** the generator. **Named elements**
+(see **Diagram elements**) exist so that an **external** host can bind layering
+and related presentation properties to each entity by name; the mechanics of
+that binding are **not in scope** yet.
 
-## Overview and the reference arc 
-
-- The diagram is dominated by a near semicircular arc - the reference arc.
-(RefArc)
-- The RefArc's centre is located at X:0, Y:0.
-- The RefArc's subtended angle will be defined by a  input.
-- The RefArc's radius will be defined by a  input.
-- The angular orientation of the RefArc is defined in terms of which segment of
-the circle it is derived from is absent. Which is the uppermost (max Y)
-segment.
-- The remainder of the diagram geometry is defined as a function of the RefArc.
-
-### Clarification: RefArc angular extent
-
-- The RefArc is a contiguous arc of a circle of radius .
-- The omitted portion of the circle is centred on the positive Y axis.
-- The RefArc therefore spans symmetrically about the negative Y axis.
-- The leftmost endpoint of the RefArc lies in the negative X direction.
-- The rightmost endpoint of the RefArc lies in the positive X direction.
-- Angles increase in the counterclockwise (CCW) direction.
-
-## Interpretation of linear sizing input parameters
-
-- The inputs will include linear sizing parameters, for example the length of a
-TickMark.
-- All linear sizing inputs are interpreted as proportions of RefRadius.
-- For example the input 0.15 will be interpreted as RefRadius × 0.15
+Where this specification mentions text or numeric inputs “from outside” or
+“from the host,” supply and policy for those values are host responsibilities.
+How **content bounds** map into a canvas, viewport, or layout is also **not**
+fixed here (see **Content bounds**).
 
 ## Diagram elements
 
@@ -52,345 +31,327 @@ TickMark.
 
 *(Note: **Location** is not yet specified geometrically.)*
 
-## Coordinate System
+## Conventions
 
-- A Cartesian coordinates system with its origin at the centre of the RefArc, and
-X increasing to right of the scene and Y increasing to the top of the scene.
-- Any polar angles defined in the remainder of this specification are with
-respect to the RefArc centre.
+Cross-references use the § labels below.
 
-## Left and Right, Above and Below
+### §Origin — diagram model space
 
-- Left means the direction of decreasing X
-- Right means the direction of increasing X
-- Top means the direction of increasing Y
-- Bottom means the direction of decreasing Y
-- Above means Top-wards 
-- Below means Bottom-wards
+- **O** denotes the centre of the **RefArc**, at **(0, 0)** in **diagram model
+space**.
+- Unless stated otherwise, Cartesian coordinates and polar angles are relative
+to **O** (see **§Axes** and **§Polar**).
 
-## Content bounds (box of interest, diagram model space)
+### §Sizing — linear inputs
 
-- Required inputs define an axis-aligned **rectangle of interest** around the
-RefArc centre in **diagram model space** (origin at the RefArc centre, same
-coordinate system as elsewhere in this document).
-- Each value is a non-negative **multiple of RefRadius**:
-  - **left** — extent in the −X direction from the centre (the plane X runs
-  from **−left × RefRadius** to the centre).
-  - **right** — extent in the +X direction from the centre (from the centre to
-  **+right × RefRadius**).
-  - **above** — extent in the +Y direction from the centre (from the centre to
-  **+above × RefRadius**).
-  - **below** — extent in the −Y direction from the centre (from **−below ×
-  RefRadius** to the centre).
-- Together they define:
-    X ∈ [ −left × RefRadius, +right × RefRadius ],  Y ∈ [ −below × RefRadius,
-    +above × RefRadius ].
-- This rectangle is a modelling choice for **what region of the diagram is
-considered the content** (e.g. for tuning by eye). How that rectangle is mapped
-into a canvas, scene graph, preview viewport, or any other host layout is
-**not** fixed by this specification.
+- **RefRadius** is a diagram input: the radius of the **RefArc** (see **§Polar**).
+- **k·R** means **k × RefRadius** for a dimensionless proportion **k** from a
+diagram input.
+- Unless an element explicitly states otherwise, every **linear** sizing input is
+interpreted as **k·R** (e.g. **0.15** → **0.15·R**).
 
-## The role of time in this specification
+### §Axes
 
-- The RefArc represents a single 24 hour time span from 00h00 until 24h00.
-- 00:00 corresponds to the leftmost endpoint of the RefArc.
-- 24:00 corresponds to the rightmost endpoint of the RefArc.
-- Increasing time is linearly interpolated to CCW distance along the RefArc from
-left to right.
-- The mapping between time and polar angle is monotonic and linear over the
-RefArc sweep.
+- **X** increases to the **right** of the scene; **Y** increases **upward**.
+- **Left** / **right** mean decreasing / increasing **X**. **Top** / **bottom**
+mean increasing / decreasing **Y**. **Above** / **below** mean toward **top** /
+**bottom** along **Y** (see **§Origin**).
 
-### Clarification: time to angle mapping
+### §Polar — reference arc geometry
 
-- Let θ_left be the polar angle of the leftmost endpoint of the RefArc.
-- Let θ_right be the polar angle of the rightmost endpoint of the RefArc.
-- Let t be a time in hours, where 0 ≤ t ≤ 24.
-- Then:
-    θ(t) = θ_left + (t / 24) * (θ_right - θ_left)
-- This mapping is invertible and defines the correspondence between time and
-position on the RefArc.
+- The diagram is dominated by a near-semicircular **RefArc**: a contiguous arc of
+a circle of radius **RefRadius** centred at **O**.
+- The RefArc’s **subtended angle** and **RefRadius** are diagram inputs.
+- The **omitted** portion of the full circle is centred on the **positive Y**
+axis; the RefArc spans **symmetrically about the negative Y** axis.
+- The **leftmost** endpoint of the RefArc lies toward **negative X**; the
+**rightmost** toward **positive X**.
+- Angles increase **counterclockwise (CCW)**.
+- Let **θ_left** and **θ_right** be the polar angles of the leftmost and
+rightmost endpoints of the RefArc. The remainder of the diagram geometry is a
+function of the RefArc.
 
-## Radial lines
+### §Time and θ(t)
 
-- A Radial line is defined to be a segment of the infinite line passing through
-the centre of the RefArc at a given polar angle.
-- The bounds of the radial line's segment are given by two polar radius values.
-- A radial line is not defined as having a linear direction travel in of itself.
+- The RefArc represents one **24 h** span from **00:00** to **24:00**.
+- **00:00** is the **leftmost** endpoint; **24:00** the **rightmost**.
+- Increasing time maps **monotonically and linearly** to distance along the
+RefArc from left to right (CCW along the arc).
+- For **t** in hours with **0 ≤ t ≤ 24**:
+
+  **θ(t) = θ_left + (t / 24) × (θ_right − θ_left)**
+
+  This **θ(t)** is the polar angle for time **t** on the RefArc. It is
+  invertible. Any element that “uses time **t**” uses **θ(t)** unless stated
+  otherwise.
+
+## Content bounds (box of interest)
+
+- Required inputs define an axis-aligned **rectangle of interest** around **O** in
+**diagram model space** (**§Origin**, **§Axes**).
+- Each side is a non-negative proportion **k** interpreted as **k·R**
+(**§Sizing**):
+  - **left** — extent in **−X** from **O**; **X** runs from **−left·R** to **O**.
+  - **right** — extent in **+X** from **O**; from **O** to **+right·R**.
+  - **above** — extent in **+Y** from **O**; from **O** to **+above·R**.
+  - **below** — extent in **−Y** from **O**; from **−below·R** to **O**.
+- Together:
+
+  **X ∈ [ −left·R, +right·R ],  Y ∈ [ −below·R, +above·R ].**
+
+- This rectangle models **which region counts as content** (e.g. tuning by eye).
+Mapping it into a canvas, scene graph, or viewport is **not** fixed here (see
+**Host responsibilities**).
+
+## Radial lines and radial segments
+
+- A **radial line** (infinite) passes through **O** at a given polar angle
+(**§Polar**, **§Origin**).
+- A **radial segment** is the **line segment** on that ray between two polar
+radii **r_inner** and **r_outer** (in model units). It has no inherent “direction
+of travel.”
+- Tick marks and other elements are defined as radial segments where helpful
+(**Tick marks**, **CentreClusterFrame**).
 
 ## Scene graph primitives (current scope)
 
 - The scene graph at this stage consists of:
   - Arc segments (for **RefArc** and for **CentreClusterFrame**)
-  - Line segments (for radial lines, tick marks, and the two
-  **CentreClusterFrame** lines)
+  - Line segments (for radial segments, tick marks, and the two
+    **CentreClusterFrame** lines)
   - Text elements
 
-### Curve primitives: topology, stroke, and fill
+### Independent stroked curves
 
-- **Line segment** and **arc segment** primitives are one-dimensional curves in
-the logical model. They are **stroked** (rendered along the curve) and, for
-now, are **never** treated as **filled** regions. **Fill** of areas bounded by
-curves is **out of scope** at this stage of the specification.
-- Where the specification treats multiple curve primitives as **independent**,
-that includes **topological** independence: they are **not** joined into a
-single path or merged into one composite path object, and **do not** define a
-closed region by composition in the logical scene graph—even if a viewer might
-perceive a closed shape optically. Distinct primitives may still **coincide**
-at a point in space (e.g. several segments meeting at the RefArc centre)
-without becoming a single logical path.
+- **Line** and **arc** primitives are **one-dimensional** curves in the logical
+model. They are **stroked** along the curve and, for now, **never** treated as
+**filled** regions. **Fill** of areas bounded by curves is **out of scope**.
+- Where multiple curve primitives are **independent**, they are **topologically**
+independent: **not** joined into one path, **not** merged into one composite
+path, and **do not** form a closed region by composition in the logical scene
+graph—even if a viewer perceives closure optically. Distinct primitives may
+**coincide** at a point (e.g. at **O**) without becoming one logical path.
+- Subgroups that emit several curves (**CentreClusterFrame**, **TimePointer**)
+satisfy **Independent stroked curves** unless a subsection adds detail.
 
 ## Text Element
 
-- A single line of text parameterised by:
-- Text
-- FontHeight
-- Horizontal Justification from {left, right, centre}
-- Baseline polar angle
-- Assumed to be using a monospace font to support primitive font-metric type
-calculations
+A **TextElement** is one line of text parameterised by:
 
-*(Additional primitives may be introduced as required by later elements.)*
+- **Text**
+- **FontHeight** (always **k·R** per **§Sizing**; synonym: any legacy mention of
+  “font size” for this quantity means **FontHeight**)
+- **Horizontal justification** ∈ {left, right, centre}
+- **Baseline polar angle**
+- Anchor **(x, y)** in diagram model space (**§Origin**)
+
+**Font:** monospace is assumed so hosts can use simple width estimates for layout.
+
+### TextElement defaults
+
+Unless a subsection **overrides** these:
+
+- **Baseline polar angle** = **0** (baseline horizontal in diagram space per
+  **§Axes**).
+
+Subsections may set justification, **FontHeight** **k** values, anchors, and
+non-default baselines (e.g. tide labels).
 
 ### Text anchor Y (global)
 
-- Diagram elements that delegate to **TextElement** place the anchor **(x, y)**
-in diagram model space. The **Y** coordinate follows the same convention as for
-**TickLabel** anchors (vertical position in diagram space associated with that
-text for rendering in the host). The specification does not model em-boxes or
-similar font metrics.
+Elements that delegate to **TextElement** place the anchor **(x, y)** in diagram
+model space. **Y** follows the same convention as **TickLabel** anchors
+(vertical association for rendering in the host). This specification does not
+model em-boxes or similar font metrics.
+
+*(Additional primitives may be introduced as required by later elements.)*
 
 ## CentreCluster
 
-**CentreCluster** groups content **near the centre of the RefArc** (the RefArc
-centre at the diagram origin) and is centred on **X = 0** through that point.
+**CentreCluster** groups content near **O** (**§Origin**).
+
+### CentreCluster horizontal axis
+
+- Layout is **centred on X = 0** through **O**: **NowTime** and the composed
+**TimeDelta** line use **X = 0** as the horizontal centre unless a subsection
+states otherwise.
 
 ### Logical structure
 
 Under **CentreCluster** there are **three** logical parts, all **direct** members
-of **CentreCluster** (siblings in the named-element sense):
+(siblings in the named-element sense):
 
-| Part | Role | |------|------| | **NowTime** | One **TextElement** — the main
-“time now” line. | | **TimeDelta** | Three **TextElement** fragments that read as
-one centred line. | | **CentreClusterFrame** | **Curve primitives only** — two
-line segments and one arc (see **CentreClusterFrame**). |
+| Part | Role |
+|------|------|
+| **NowTime** | One **TextElement** — the main “time now” line. |
+| **TimeDelta** | Three **TextElement** fragments that read as one centred line. |
+| **CentreClusterFrame** | **Curve primitives only** — two line segments and one arc (see **CentreClusterFrame**). |
 
-### Vertical layout (diagram space)
+### Vertical layout
 
-Larger **Y** is nearer the **top** of the scene. The two text lines stack in this
-order: **NowTime** above **TimeDelta**. **CentreClusterFrame** is not a third row
-between them; its geometry is defined in **CentreClusterFrame** and may **look**
-like a frame around both lines, but that is alignment in the drawing, not an
-extra slot in the vertical list.
+Stack order follows **§Axes**: **NowTime** is **above** **TimeDelta**. **CentreClusterFrame** is **not** a third row between them; its geometry is in **CentreClusterFrame** and may **look** like a frame around both lines without being an extra vertical slot.
 
 ### Scene model (invariants)
 
 - **NowTime** and **TimeDelta** are **not** children of **CentreClusterFrame**;
 they sit beside it under **CentreCluster**.
-- **CentreClusterFrame** contributes **three separate** curve primitives. They
-are **not** merged into one path, polyline, or closed outline; only subgroup
-membership and the geometry below tie them together (**Curve primitives:
-topology, stroke, and fill**).
+- **CentreClusterFrame** contributes **three** separate curve primitives subject
+to **Independent stroked curves**.
 
 ### NowTime
 
-- A single **TextElement**:
-  - **Text** — one string supplied from outside (the full line, e.g. a “time
-  now …” line as produced by the host).
-  - **FontHeight** — a diagram input as a multiple of **RefRadius** (same
-  interpretation as other linear sizing inputs).
-  - **Horizontal justification** — **centre**.
-  - **Baseline polar angle** — **0** (horizontal in diagram space).
-  - **Anchor** — **(0, Y_now)** where **Y_now** is a diagram input as a
-  multiple of **RefRadius** (offset in **+Y** / **−Y** from the RefArc centre
-  per the global coordinate system).
+- One **TextElement**:
+  - **Text** — from the host (full line, e.g. “time now …”).
+  - **FontHeight** — input **k** as **k·R** (**§Sizing**).
+  - **Horizontal justification** — **centre** (explicit override; matches default).
+  - **Baseline polar angle** — **0** (**TextElement defaults**).
+  - **Anchor** — **(0, Y_now)** with **Y_now** an input **k** as **k·R** along **Y**
+    from **O** (**§Axes**, **§Sizing**).
 
 ### TimeDelta
 
-- One logical sentence made of **three** **TextElement** instances, composed so
-the line reads as one phrase and is **centre-aligned as a whole** at **X = 0**:
-  1. **Event kind** — **Text** is a string supplied from outside (e.g. `"Low"` or
-  `"High"`). Modelled separately from the other fragments so it can be styled or
-  emphasised distinctly while remaining visually integrated on the line.  2.
-  **Glue** — fixed literal **` water in `** (leading space, the word **water**,
-  spaces, **in**, trailing space) between event kind and interval. Not a host
-  input.  3. **Interval** — **Text** is a string supplied from outside (e.g. a
-  relative duration such as `"3h 21m"`).
-- For all three fragments:
-  - **FontHeight** — one diagram input as a multiple of **RefRadius**, shared
-  by the whole line.
-  - **Horizontal justification** — **centre** per fragment; horizontal
-  positions are chosen so the concatenation is centred on **X = 0**
-  (implementation may use monospace character-width estimates).
-  - **Baseline polar angle** — **0**.
-  - **Anchor Y** — a single diagram input **Y_delta** as a multiple of
-  **RefRadius**, shared by all three fragments (same convention as **Y_now**
-  in **NowTime**, with a separate input value).
-- **Anchors (X)** — **NowTime** fixes **X = 0** (see **NowTime**). **TimeDelta**
-assigns each fragment its own **X** (computed layout) so the full line is
-centred on **X = 0**.
+- One logical sentence, **three** **TextElement** instances, **centre-aligned as
+a whole** at **X = 0** (**CentreCluster horizontal axis**):
+  1. **Event kind** — **Text** from host (e.g. `"Low"`, `"High"`). Separate for
+     styling while staying one visual line.
+  2. **Glue** — literal **` water in `** (fixed; not a host input).
+  3. **Interval** — **Text** from host (e.g. `"3h 21m"`).
+- Shared for all fragments:
+  - **FontHeight** — one input **k** as **k·R** for the whole line (**§Sizing**).
+  - **Horizontal justification** — **centre**; **X** positions chosen so the
+    line is centred on **X = 0** (monospace width estimates allowed).
+  - **Baseline polar angle** — **0** (**TextElement defaults**).
+  - **Anchor Y** — one input **Y_delta** as **k·R**, shared (**§Sizing**), same
+    anchor convention as **Y_now**, different parameter.
+- **Anchors (X)** — **NowTime** at **X = 0**; **TimeDelta** assigns per-fragment
+**X** for whole-line centring.
 
 ### CentreClusterFrame
 
 **CentreClusterFrame** is a **logical subgroup** whose output is **three** curve
-primitives: **one** arc segment and **two** line segments. All are **stroked**
-and **not** filled; they are **topologically** independent as separate primitives
-(not stitched into one path or compound shape; see **Curve primitives: topology,
-stroke, and fill**).
+primitives: **one** arc and **two** line segments (**Independent stroked
+curves**).
 
 **Radius and endpoints**
 
-- **R_frame** =  **× RefRadius**, where  is a
-diagram input as a **proportion of RefRadius** (**Interpretation of linear
-sizing input parameters**).
-- The arc uses the **same** centre **(0, 0)**, **Sweep**, and angular orientation
-as the **RefArc** (**Overview and the reference arc**, **Clarification: RefArc
-angular extent**). The **only** geometric quantity that differs from the
-**RefArc** is the circle radius (**R_frame** instead of **RefRadius**).
-- Let **θ_left** and **θ_right** be the polar angles of the **leftmost** and
-**rightmost** endpoints of this arc (same angular span as the **RefArc** at
-radius **R_frame**).
+- **R_frame** = **k·R** for diagram input **k** (**§Sizing**).
+- The arc uses the **same** centre **(0, 0)**, **sweep**, and angular orientation
+as the **RefArc** (**§Polar**). The **only** geometric quantity that differs
+from the **RefArc** is the circle radius (**R_frame** vs **RefRadius**).
+- **θ_left** and **θ_right** are the polar angles of the leftmost and rightmost
+endpoints of **this** arc at radius **R_frame** (same angular span as the **RefArc**).
 
 **Arc segment**
 
-- One arc at radius **R_frame** following the rules above, as a **stroked** curve
-primitive (**Curve primitives: topology, stroke, and fill**).
+- One arc at radius **R_frame** as above (**Independent stroked curves**).
 
 **Line segments (two)**
 
-- Each runs from the RefArc centre **(0, 0)** to one endpoint of that arc: **(0,
-0)** to the point at **θ_left** on the circle of radius **R_frame**, and **(0,
-0)** to the point at **θ_right** on that circle.
-- Equivalently: each is a **Radial line** (**Radial lines**) at **θ_left** or
-**θ_right** with bounding radii **0** and **R_frame**.
-- In the logical model these two segments are **not** a single polyline joined to
-the arc.
+- From **O** to each arc endpoint at **θ_left** and **θ_right** on the circle of
+radius **R_frame**—i.e. **radial segments** (**Radial lines and radial
+segments**) at those angles with **r_inner = 0**, **r_outer = R_frame**.
+- These two segments are **not** one polyline joined to the arc.
 
 ## Tick marks
 
-- A tick mark is a (typically short) radial line.
-- The bounding radius pair is:
-  - 1.0 * RefRadius
-  - (1.0 + ) * RefRadius
+- A tick mark is a (typically short) **radial segment** (**Radial lines and
+radial segments**) on the ray at **θ(t)** (**§Time and θ(t)**).
+- Radii: **1.0·R** and **(1.0 + k)·R** for diagram input **k** (**§Sizing**).
 
 ### Placement
 
-- There is a tick mark placed corresponding to each integer hour in the 24 hour
-period.
-- The set of times for which tick marks are placed is:
-    t ∈ {0, 1, 2, ..., 24}
-- Each tick mark is placed at polar angle θ(t) as defined by the time-to-angle
-mapping.
-- Tick marks at t = 0 and t = 24 are distinct and correspond to the two endpoints
-of the RefArc.
+- One tick per integer hour **t ∈ {0, 1, 2, …, 24}**.
+- Each at polar angle **θ(t)**.
+- **t = 0** and **t = 24** are **distinct** ticks at the two RefArc endpoints.
 
 ## TickLabel
 
-- A tick label is-a TextElement with its own generation model based on the
-TickMark with which it associated:
-- The associations gives implicit axis to the time it belongs to and thence the
-polar angle of the TickMark
-- We use those assoctions to define the TickLabel:
-  - The text content is a two digit string representation of the time. e.g.
-  "09"
-  - centre justified
-  - FontSize =  * RefRadius
-  - The baseline angle is constant 0.
-- Tick labels are generated only for hours included in an input parameter (a
-subset of {0, 1, …, 24}).
-- The location for the TextElement is the max-radius end of the associated
-TickMark, plus the following vector additions:
-  - A polar vector with
-    - Angle = that associated with the TickMark
-    - Length =  * RefRadius
-  - A cartesian vector with X = 0 Y = -0.5 * Font size
+- A **TickLabel** is a **TextElement** tied to its **TickMark**; association
+implies time **t** and angle **θ(t)** (**§Time and θ(t)**).
+- **Text** — two-digit hour string (e.g. `"09"`).
+- **Horizontal justification** — **centre**.
+- **FontHeight** — **k·R** for input **k** (**§Sizing**).
+- **Baseline polar angle** — **0** (**TextElement defaults**).
+- Generated only for hours in a host-chosen subset of **{0, 1, …, 24}**.
+- Anchor: start at the **outer** end of the associated tick, then:
+  - add a polar offset: angle = tick’s **θ(t)**, length = **k·R** (**§Sizing**);
+  - add Cartesian offset **(0, −0.5 × FontHeight)**.
 
 ## TideMarks
 
-**TideMarks** describe the scene structure and parameters for the tide markers
-listed under **Diagram elements**. Paint order and layering follow **Role**: named
-elements exist for external binding; z-order is **not** fixed here.
+**TideMarks** describe tide markers under **Diagram elements**. Layering and
+paint order follow **Host responsibilities** (named elements for external binding;
+z-order not fixed here).
 
 ### Count and time association
 
-- The diagram contains `**<TideMarkCount>`** tide markers, denoted **N** in this
-section. `**<TideMarkCount>`** is determined by host input (or equivalent).
-- Each tide marker is associated with a time **t** in the 24 h sense (**The role
-of time in this specification**) and therefore with polar angle **θ(t)**
-(**Clarification: time to angle mapping**).
+- **N** tide markers; count from host input.
+- Each marker has time **t** in **[0, 24]** and polar angle **θ(t)** (**§Time and
+θ(t)**).
 
 ### Logical structure
 
-Each tide marker is a **cluster**. Its **direct** children are:
+Each marker is a **cluster** with **direct** children:
 
-- **Height label** — one **TextElement** (**Text Element**).
+- **Height label** — one **TextElement**.
 - **Time label** — one **TextElement**.
-- **Time pointer** — one **TimePointer** subgroup (**Scene graph primitives**),
-defined below.
+- **Time pointer** — one **TimePointer** subgroup (below).
 
 ### Height label and time label (shared layout)
 
-For **both** the height label and the time label:
+For **both** labels:
 
 - **Horizontal justification** — **centre**.
-- Labels are placed on the marker’s **polar axis** at radius `**<TideLabelRadius>`
-× RefRadius** from the RefArc centre (**Interpretation of linear sizing input
-parameters**).
-- **Baseline polar angle** — **θ(t) − π/2**.
+- On the marker’s polar axis at radius **k·R** for **`<TideLabelRadius>`**
+  (**§Sizing**) from **O**.
+- **Baseline polar angle** — **θ(t) − π/2** (overrides **TextElement defaults**).
 
-**FontHeight** (per kind, as multiples of **RefRadius**):
+**FontHeight** (per kind, **k·R**):
 
-- **Height label** — `**<TideHeightLabelSize>` × RefRadius**.
-- **Time label** — `**<TideTimeLabelSize>` × RefRadius**.
+- Height label — **`<TideHeightLabelSize>`·R**.
+- Time label — **`<TideTimeLabelSize>`·R**.
 
-**Text** content for each label is supplied from outside the generator; other
-**Text Element** conventions apply unless overridden above.
+**Text** is from the host; other **Text Element** rules apply unless overridden.
 
 ### TimePointer
 
-**TimePointer** is a logical subgroup whose output is **curve primitives** only:
-**one** semicircular **arc segment** and **two** **line segments**. They are
-**stroked** and **not** filled, and are **topologically** independent as separate
-primitives (**Curve primitives: topology, stroke, and fill**).
+**TimePointer** outputs **curve primitives** only: **one** semicircular **arc**
+and **two** **line segments**, subject to **Independent stroked curves**.
 
 **Universal semicircle model**
 
-- Before placement, the arc is defined in a **local** frame as the **right** half  
-of a circle centred at **(0, 0)** with radius `**<TimePointerUniversalRadius>`
-× RefRadius** (**Interpretation of linear sizing input parameters**).
+- In a **local** frame: **right** half of a circle centred at **(0, 0)** with
+radius **`<TimePointerUniversalRadius>`·R** (**§Sizing**).
 
 **Placement**
 
-- **Translation** then **rotation** are applied to that universal arc (and the
-same transform governs the arc’s endpoints used by the line segments below).
-- **Translation** — polar vector from the RefArc centre with:
-  - radius **R** = **(1 − `<TimePointerInset>`) × RefRadius**, where
-  `**<TimePointerInset>`** is a diagram input in **[0, 1]** (dimensionless);
-  - angle **θ(t)**.
-- **Rotation** — angle **θ(t)**.
+- **Translation** then **rotation** on that arc (and endpoint geometry for the
+lines).
+- **Translation**: polar vector from **O** with radius **(1 −
+  `<TimePointerInset>`)·R** (**`<TimePointerInset>`** ∈ **[0, 1]**, dimensionless)
+  and angle **θ(t)** (**§Time and θ(t)**).
+- **Rotation**: **θ(t)**.
 
-Further geometric detail of the composition (endpoint coordinates, segment
-construction) is **not** fixed in this baseline section.
+Further composition detail (exact endpoints) is **not** fixed in this baseline.
 
 **Arc segment**
 
-- One **arc segment** after the placement transform above.
+- One **arc** after the placement transform.
 
 **Line segments (two)**
 
-- Two **line segments**. Each connects the point on the **RefArc** at **θ(t)** to
-one **endpoint** of the **transformed** semicircular arc (two segments, two
-endpoints).
+- Each joins the **RefArc** point at **θ(t)** to one **endpoint** of the
+transformed semicircle arc.
 
 ## Notes on interpretation
 
-- The specification assumes standard mathematical conventions for polar
-coordinates and angular measurement.
-- Where multiple reasonable interpretations exist, implementations may adopt
-widely used conventions consistent with the above constraints.
+- Standard mathematical conventions for polar coordinates and angles apply
+(**§Polar**).
+- Where ambiguity remains, implementations may follow common conventions
+consistent with the above.
 
 ## o  todo
 
 - no more high waters or low water today
 - collisions
 - truncations
-

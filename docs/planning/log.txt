@@ -92,54 +92,11 @@ o  new data fetch paradigm
 			*  work up iteration workflow process to get right as go along
 			*  move on to tick labels
 			*  centre cluster
-			o  tide marker(s)
-
 fart 
-
-o  the diagram contains <N> tide markers
-
-o  each tide marker
-
-	o  is associated with a 24 hr time  and thus acquires a corresponding 
-	   polar angle
-
-	o  is a cluster with top level children: 
-		o  height label, 
-		o  time label, 
-		o  time pointer 
-
-	o  the ht label and time label:
-		o  share common properties
-			o  are text elements 
-			o  have centre justification
-			o  are all positioned along their individual polar axis at a 
-			   common radius supplied as input in the established way
-			o  have a base angle of angle(t) - pi/2
-
-	o  all height labels have font size given by a common input
-	o  all time labels have font size given by a common input
-
-	o a TimePointer is collection of:
-		o  one semicircular arc segment
-		o  two line segments
-		o  the arc segment
-			o  is modelled universally, but then has an offset and
-				rotation  transformation applied
-			o  the universal model is a a semicircle comprising the left
-			half of a circle, centred at 0.0, and of radius (a univeral
-			input)
-			o  the transformation to apply is translation followed by a
-			rotation
-				o  the translation is the polar vector
-					o  R:		(1 - timeptroffs) * RefRad
-					o  theta: theta(t)
-				o  the rotation is theta(t)
-		o  the two line segments are the two line segments connecting
-		   the point on the RefArc(t) to each end of the transformed
-		   semicircle
-		
-
-o  input params
+			o  tide marker(s)
+				*  spec(1)
+				o  dry the spec
+				o  spec(2)
 
 fart
 
