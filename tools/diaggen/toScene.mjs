@@ -68,6 +68,45 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
 }
 
 /**
+ * @param {import('./tideDiagramModel.mjs').TideMarkDiagram} mark
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {import('../scenegen/sceneModel.mjs').GroupNode}
+ */
+export function tideMarkDiagramToGroup(mark, cx, cy) {
+  const tp = mark.timePointer;
+  const tc = tp.center;
+  const arcCenter = mapPoint(tc, cx, cy);
+  const arcStart = mapPoint(tp.arcStart, cx, cy);
+  const lineNodes = tp.lines.map((seg) =>
+    line(mapPoint(seg.start, cx, cy), mapPoint(seg.end, cx, cy)),
+  );
+  const timePointerGroup = group("timePointer", [
+    ...lineNodes,
+    arc(arcCenter, arcStart, tp.sweepRad),
+  ]);
+  const hl = mark.heightLabel;
+  const tl = mark.timeLabel;
+  return group("tideMark", [
+    timePointerGroup,
+    text({
+      content: hl.content,
+      size: hl.fontSize,
+      hAlign: "center",
+      angleRad: hl.angleRad,
+      anchor: mapPoint(hl.anchor, cx, cy),
+    }),
+    text({
+      content: tl.content,
+      size: tl.fontSize,
+      hAlign: "center",
+      angleRad: tl.angleRad,
+      anchor: mapPoint(tl.anchor, cx, cy),
+    }),
+  ]);
+}
+
+/**
  * @param {import('./tideDiagramModel.mjs').TideDiagramDocument} diagram
  * @returns {import('../scenegen/sceneModel.mjs').SceneDocument}
  */
@@ -75,7 +114,7 @@ export function tideDiagramToScene(diagram) {
   const { width, height, title } = diagram.meta;
   const cx = width / 2;
   const cy = height / 2;
-  const { refArc, tickMarks, tickLabels } = diagram;
+  const { refArc, tickMarks, tickLabels, tideMarks } = diagram;
   const R = refArc.refRadius;
   const C = refArc.center;
 
@@ -112,6 +151,11 @@ export function tideDiagramToScene(diagram) {
   );
   const tickLabelsGroup = group("tickLabels", tickLabelChildren);
 
+  const tideMarkGroups = (tideMarks ?? []).map((m) =>
+    tideMarkDiagramToGroup(m, cx, cy),
+  );
+  const tideMarksGroup = group("tideMarks", tideMarkGroups);
+
   const centreClusterGroup =
     diagram.centreCluster != null
       ? centreClusterDiagramToGroup(diagram.centreCluster, cx, cy)
@@ -136,6 +180,7 @@ export function tideDiagramToScene(diagram) {
     root: group("tideDiagram", [
       refArcGroup,
       ticksGroup,
+      tideMarksGroup,
       tickLabelsGroup,
       ...(centreClusterGroup != null ? [centreClusterGroup] : []),
     ]),

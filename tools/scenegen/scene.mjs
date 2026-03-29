@@ -1,9 +1,14 @@
 // `buildScene` turns `spec.json` into the v2 scene graph consumed by `gen.mjs` and `preview.mjs`.
-// `spec.previewFrame` (scene-space AABB) is required — same field `toScene` sets from diagram `contentBounds`.
-// Optional `centreCluster` + `refRadius` + `sweepRad` (diaggen-shaped) renders the same CentreCluster group as
-// `tideDiagramToScene`, including the CentreClusterFrame arc (`centreCluster.frameArcRadius`, default 0.25).
+// If `spec.contentBounds` is set (diagram-space extents, same as diaggen), the full tide diagram pipeline runs:
+// `buildDiagram` → `tideDiagramToScene` (RefArc, ticks, tick labels, tide marks, centre cluster, previewFrame).
+// Otherwise `spec.previewFrame` (scene-space AABB) is required; optional diaggen-shaped `centreCluster` renders
+// only that group (legacy scenegen loop).
+import { buildDiagram } from "../diaggen/buildDiagram.mjs";
 import { buildCentreClusterFromSpec } from "../diaggen/centreCluster.mjs";
-import { centreClusterDiagramToGroup } from "../diaggen/toScene.mjs";
+import {
+  centreClusterDiagramToGroup,
+  tideDiagramToScene,
+} from "../diaggen/toScene.mjs";
 import { group } from "./sceneModel.mjs";
 
 export {
@@ -22,6 +27,12 @@ export {
  * @returns {import('./sceneModel.mjs').SceneDocument}
  */
 export function buildScene(spec) {
+  const rawBounds = spec.contentBounds;
+  if (rawBounds != null && typeof rawBounds === "object") {
+    const diagram = buildDiagram(spec);
+    return tideDiagramToScene(diagram);
+  }
+
   const width =
     typeof spec.canvas?.width === "number" ? spec.canvas.width : 400;
   const height =

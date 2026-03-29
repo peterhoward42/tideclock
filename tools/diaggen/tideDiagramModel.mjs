@@ -66,11 +66,35 @@
  * }} CentreClusterDiagram
  *
  * @typedef {{
+ *   content: string,
+ *   fontSize: number,
+ *   anchor: DiagramPoint,
+ *   angleRad: number,
+ * }} TideLabelTextInst
+ *
+ * @typedef {{
+ *   center: DiagramPoint,
+ *   radius: number,
+ *   arcStart: DiagramPoint,
+ *   sweepRad: number,
+ *   lines: [DiagramLineSeg, DiagramLineSeg],
+ * }} TideTimePointerSpec
+ *
+ * @typedef {{
+ *   timeHours: number,
+ *   theta: number,
+ *   heightLabel: TideLabelTextInst,
+ *   timeLabel: TideLabelTextInst,
+ *   timePointer: TideTimePointerSpec,
+ * }} TideMarkDiagram
+ *
+ * @typedef {{
  *   version: number,
  *   meta: { title: string, width: number, height: number },
  *   refArc: RefArcSpec,
  *   tickMarks: TickMarkSpec[],
  *   tickLabels: TickLabelSpec[],
+ *   tideMarks: TideMarkDiagram[],
  *   centreCluster: CentreClusterDiagram | null,
  *   contentBounds: DiagramContentBounds,
  * }} TideDiagramDocument
