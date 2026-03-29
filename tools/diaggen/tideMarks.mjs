@@ -1,6 +1,6 @@
 // TideMarks layout in diagram space. See docs/specs/tide-diagram.md §TideMarks.
-// TimePointer: local right semicircle (CCW sweep π from angle −π/2 to π/2 in local frame),
-// then translate centre to polar((1−inset)·R, θ) and rotate by θ (world placement).
+// TimePointer: local half-circle with arc midpoint at max-X (r,0); then placement;
+// lines are pRef → arc endpoints only (derived from the final arc).
 
 import { polar, timeToTheta } from "./tideDiagramModel.mjs";
 
