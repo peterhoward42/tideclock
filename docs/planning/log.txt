@@ -91,10 +91,14 @@ o  new data fetch paradigm
 			*  define the geometry in words alone (some scope)
 			*  work up iteration workflow process to get right as go along
 			*  move on to tick labels
-			o  centre cluster
-				*  text
-				*  line arc
-				o  diag coverage is a right mess
+			*  centre cluster
+			o  tide marker(s)
+
+o  is a cluster top level struct is height label, time label, time pointer
+o  both the ht label and time label are text elements, have ctr just and
+   have a baseline angle = -90 deg
+o  
+
 
 See /docs/planning/graphics-workflow.md and /tools/scenegen for context.
 
