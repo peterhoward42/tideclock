@@ -1,4 +1,4 @@
-// `buildScene` turns `spec.json` into the v2 scene graph consumed by `gen.mjs` and `preview.mjs`.
+// `buildScene` turns `input.json` (parsed spec) into the v2 scene graph consumed by `gen.mjs` and `preview.mjs`.
 // If `spec.contentBounds` is set (diagram-space extents, same as diaggen), the full tide diagram pipeline runs:
 // `buildDiagram` → `tideDiagramToScene` (RefArc, ticks, tick labels, tide marks, centre cluster, previewFrame).
 // Otherwise `spec.previewFrame` (scene-space AABB) is required; optional diaggen-shaped `centreCluster` renders

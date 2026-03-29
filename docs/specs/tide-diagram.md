@@ -59,9 +59,9 @@ mean increasing / decreasing **Y**. **Above** / **below** mean toward **top** /
 
 ### §Polar — reference arc geometry
 
-- The diagram is dominated by a near-semicircular **RefArc**: a contiguous arc of
-a circle of radius **RefRadius** centred at **O**.
-- The RefArc’s **subtended angle** and **RefRadius** are diagram inputs.
+- The **RefArc** is a contiguous **circular arc** of radius **RefRadius** centred
+at **O**; it is the primary geometric reference for the diagram.
+- The RefArc’s **subtended angle** (**swept angle**) and **RefRadius** are diagram inputs.
 - The **omitted** portion of the full circle is centred on the **positive Y**
 axis; the RefArc spans **symmetrically about the negative Y** axis.
 - The **leftmost** endpoint of the RefArc lies toward **negative X**; the
@@ -78,9 +78,7 @@ function of the RefArc.
 - Increasing time maps **monotonically and linearly** to distance along the
 RefArc from left to right (CCW along the arc).
 - For **t** in hours with **0 ≤ t ≤ 24**:
-
   **θ(t) = θ_left + (t / 24) × (θ_right − θ_left)**
-
   This **θ(t)** is the polar angle for time **t** on the RefArc. It is
   invertible. Any element that “uses time **t**” uses **θ(t)** unless stated
   otherwise.
@@ -96,9 +94,7 @@ RefArc from left to right (CCW along the arc).
   - **above** — extent in **+Y** from **O**; from **O** to **+above·R**.
   - **below** — extent in **−Y** from **O**; from **−below·R** to **O**.
 - Together:
-
   **X ∈ [ −left·R, +right·R ],  Y ∈ [ −below·R, +above·R ].**
-
 - This rectangle models **which region counts as content** (e.g. tuning by eye).
 Mapping it into a canvas, scene graph, or viewport is **not** fixed here (see
 **Host responsibilities**).
@@ -118,7 +114,7 @@ of travel.”
 - The scene graph at this stage consists of:
   - Arc segments (for **RefArc** and for **CentreClusterFrame**)
   - Line segments (for radial segments, tick marks, and the two
-    **CentreClusterFrame** lines)
+  **CentreClusterFrame** lines)
   - Text elements
 
 ### Independent stroked curves
@@ -140,7 +136,7 @@ A **TextElement** is one line of text parameterised by:
 
 - **Text**
 - **FontHeight** (always **k·R** per **§Sizing**; synonym: any legacy mention of
-  “font size” for this quantity means **FontHeight**)
+“font size” for this quantity means **FontHeight**)
 - **Horizontal justification** ∈ {left, right, centre}
 - **Baseline polar angle**
 - Anchor **(x, y)** in diagram model space (**§Origin**)
@@ -152,7 +148,7 @@ A **TextElement** is one line of text parameterised by:
 Unless a subsection **overrides** these:
 
 - **Baseline polar angle** = **0** (baseline horizontal in diagram space per
-  **§Axes**).
+**§Axes**).
 
 Subsections may set justification, **FontHeight** **k** values, anchors, and
 non-default baselines (e.g. tide labels).
@@ -181,11 +177,13 @@ states otherwise.
 Under **CentreCluster** there are **three** logical parts, all **direct** members
 (siblings in the named-element sense):
 
-| Part | Role |
-|------|------|
-| **NowTime** | One **TextElement** — the main “time now” line. |
-| **TimeDelta** | Three **TextElement** fragments that read as one centred line. |
+
+| Part                   | Role                                                                                    |
+| ---------------------- | --------------------------------------------------------------------------------------- |
+| **NowTime**            | One **TextElement** — the main “time now” line.                                         |
+| **TimeDelta**          | Three **TextElement** fragments that read as one centred line.                          |
 | **CentreClusterFrame** | **Curve primitives only** — two line segments and one arc (see **CentreClusterFrame**). |
+
 
 ### Vertical layout
 
@@ -206,23 +204,23 @@ to **Independent stroked curves**.
   - **Horizontal justification** — **centre** (explicit override; matches default).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
   - **Anchor** — **(0, Y_now)** with **Y_now** an input **k** as **k·R** along **Y**
-    from **O** (**§Axes**, **§Sizing**).
+  from **O** (**§Axes**, **§Sizing**).
 
 ### TimeDelta
 
 - One logical sentence, **three** **TextElement** instances, **centre-aligned as
 a whole** at **X = 0** (**CentreCluster horizontal axis**):
   1. **Event kind** — **Text** from host (e.g. `"Low"`, `"High"`). Separate for
-     styling while staying one visual line.
-  2. **Glue** — literal **` water in `** (fixed; not a host input).
+    styling while staying one visual line.
+  2. **Glue** — literal `**water in`** (fixed; not a host input).
   3. **Interval** — **Text** from host (e.g. `"3h 21m"`).
 - Shared for all fragments:
   - **FontHeight** — one input **k** as **k·R** for the whole line (**§Sizing**).
   - **Horizontal justification** — **centre**; **X** positions chosen so the
-    line is centred on **X = 0** (monospace width estimates allowed).
+  line is centred on **X = 0** (monospace width estimates allowed).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
   - **Anchor Y** — one input **Y_delta** as **k·R**, shared (**§Sizing**), same
-    anchor convention as **Y_now**, different parameter.
+  anchor convention as **Y_now**, different parameter.
 - **Anchors (X)** — **NowTime** at **X = 0**; **TimeDelta** assigns per-fragment
 **X** for whole-line centring.
 
@@ -302,14 +300,14 @@ Each marker is a **cluster** with **direct** children:
 For **both** labels:
 
 - **Horizontal justification** — **centre**.
-- On the marker’s polar axis at radius **k·R** for **`<TideLabelRadius>`**
-  (**§Sizing**) from **O**.
+- On the marker’s polar axis at radius **k·R** for `**<TideLabelRadius>`**
+(**§Sizing**) from **O**.
 - **Baseline polar angle** — **θ(t) − π/2** (overrides **TextElement defaults**).
 
 **FontHeight** (per kind, **k·R**):
 
-- Height label — **`<TideHeightLabelSize>`·R**.
-- Time label — **`<TideTimeLabelSize>`·R**.
+- Height label — `**<TideHeightLabelSize>`·R**.
+- Time label — `**<TideTimeLabelSize>`·R**.
 
 **Text** is from the host; other **Text Element** rules apply unless overridden.
 
@@ -321,15 +319,15 @@ and **two** **line segments**, subject to **Independent stroked curves**.
 **Universal semicircle model**
 
 - In a **local** frame: **right** half of a circle centred at **(0, 0)** with
-radius **`<TimePointerUniversalRadius>`·R** (**§Sizing**).
+radius `**<TimePointerUniversalRadius>`·R** (**§Sizing**).
 
 **Placement**
 
 - **Translation** then **rotation** on that arc (and endpoint geometry for the
 lines).
 - **Translation**: polar vector from **O** with radius **(1 −
-  `<TimePointerInset>`)·R** (**`<TimePointerInset>`** ∈ **[0, 1]**, dimensionless)
-  and angle **θ(t)** (**§Time and θ(t)**).
+`<TimePointerInset>`)·R** (`**<TimePointerInset>`** ∈ **[0, 1]**, dimensionless)
+and angle **θ(t)** (**§Time and θ(t)**).
 - **Rotation**: **θ(t)**.
 
 Further composition detail (exact endpoints) is **not** fixed in this baseline.
@@ -355,3 +353,4 @@ consistent with the above.
 - no more high waters or low water today
 - collisions
 - truncations
+

@@ -1,4 +1,4 @@
-// Development loop (diagram → scene → preview): edit `spec.json` and/or `buildDiagram.mjs`
+// Development loop (diagram → scene → preview): edit `input.json` and/or `buildDiagram.mjs`
 // / `tideDiagramModel.mjs` / `toScene.mjs`, then run `./iter.sh` here (or `node gen.mjs`).
 // Writes `generated/diagram.json`, then maps to a scene and writes `../scenegen/generated/scene.json`
 // plus the shared `../scenegen/generated/preview.html` (same preview as scenegen). If you later
@@ -13,7 +13,7 @@ import { writePreviewHtml } from "../scenegen/preview.mjs";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
-const specPath = join(__dirname, "spec.json");
+const inputPath = join(__dirname, "input.json");
 const outDir = join(__dirname, "generated");
 const diagramPath = join(outDir, "diagram.json");
 
@@ -21,8 +21,8 @@ const scenegenDir = join(__dirname, "..", "scenegen");
 const scenePath = join(scenegenDir, "generated", "scene.json");
 const previewPath = join(scenegenDir, "generated", "preview.html");
 
-const spec = JSON.parse(readFileSync(specPath, "utf8"));
-const diagram = buildDiagram(spec);
+const input = JSON.parse(readFileSync(inputPath, "utf8"));
+const diagram = buildDiagram(input);
 const scene = tideDiagramToScene(diagram);
 
 mkdirSync(outDir, { recursive: true });

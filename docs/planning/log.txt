@@ -95,10 +95,22 @@ o  new data fetch paradigm
 fart 
 			o  tide marker(s)
 				*  spec(1)
-				o  dry the spec
-				o  spec(2)
+				*  dry the spec
+				*  spec(2)
+				o  to assess preview
+					o  note tide time markers
+				o  wrong first priorities
+					o  semi circle angle
+					o  labels base angle 180 out
+
+
+			o  ditch legacy docs
+			o  when DRY up the generators for in-app workflow will the
+			   .mjs thing still work?
 
 fart
+
+We have recently introduced code generation for TideMarkers. The top level design for the diagram of which tide markers  are part is tide-diagram.md. The generation pipeline is /tools/diaggen and /tools/scenegen. I am now providing feedback about one particular aspect of the generation - based on something wrong I can see in the preview. Unfortunately this problem could have a root cause in the spec, the generators or the visualisation preview. The two images I have attached are a small part of the diagram that should be more or less similar at least as far as the geometric principles are concerned. The geometry and placement for the two lines that are part of tide markers are correct. The semi circle that is part of the tide markers is correct all apart from being rotated about its centre to create the  right final look. - i.e. with the visible part of the segment "pointing" towards the reference arc centre. It has come out 180 degrees different from that. First please tell me if you assimilate the essence of my statement about the unexpected behaviour.
 
 
 See /docs/planning/graphics-workflow.md and /tools/scenegen for context.
