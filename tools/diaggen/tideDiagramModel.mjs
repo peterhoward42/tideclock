@@ -73,11 +73,8 @@
  * }} TideLabelTextInst
  *
  * @typedef {{
- *   center: DiagramPoint,
- *   radius: number,
- *   arcStart: DiagramPoint,
- *   sweepRad: number,
- *   lines: [DiagramLineSeg, DiagramLineSeg],
+ *   triangle: { v1: DiagramPoint, v2: DiagramPoint, v3: DiagramPoint },
+ *   circle: { center: DiagramPoint, radius: number },
  * }} TideTimePointerSpec
  *
  * @typedef {{

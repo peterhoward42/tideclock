@@ -97,19 +97,9 @@ fart
 				*  spec(1)
 				*  dry the spec
 				*  spec(2)
-				o  to assess preview
-					o  note tide time markers
-				o  wrong first priorities
-					o  semi circle wrong rotation
-						o  back out diagnostics
-						o  back out faceted implementation and leave no-op
-							placeholder
-						o  work around:
-							o  define the shape as a filled circle, and a 
-							   filled triangle, but START with not filled.
-							o  feed thru gen pipe
-							   
-					o  labels base angle 180 out
+				*  solid time markers
+
+			o  remove unused junk in generators
 
 
 			o  ditch legacy docs

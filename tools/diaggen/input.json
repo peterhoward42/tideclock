@@ -25,8 +25,8 @@
     "tideLabelRadius": 0.88,
     "tideHeightLabelSize": 0.052,
     "tideTimeLabelSize": 0.046,
-    "timePointerUniversalRadius": 0.055,
-    "timePointerInset": 0.1,
+    "TideMarkArrowDivergence": 1.0,
+    "TideMarkArrowLineLen": 0.1,
     "markers": [
       { "t": 4.25, "heightText": "4.2 m", "timeText": "04:15" },
       { "t": 16.5, "heightText": "3.8 m", "timeText": "16:30" }

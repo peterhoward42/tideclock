@@ -313,49 +313,28 @@ For **both** labels:
 
 ### TimePointer
 
-**TimePointer** outputs **curve primitives** only: **one** half-turn **arc** (π
-radians on the pointer’s circle) and **two** **line segments**, subject to
-**Independent stroked curves**.
+** TimePointer ** comprises one filled triangle and one filled circle, 
+having geometry defined as follows.
 
-**Reference geometry (arc first)** — The **arc** is the **authoritative**
-definition of the pointer’s curved edge. It is fully specified in a **local** frame
-(below), then mapped into diagram space by **placement** (**translation** then
-**rotation**). It is **not** inferred from, and must **not** be constrained by,
-the line segments below.
+- Define a new input TideMarkArrowDivergence. It is a positive angle 
+  expressed in radians
+- Define a new input TideMarkArrowLineLen. It is a positive float 
 
-**Local frame** — Use the same axis convention as diagram space (**§Axes**):
-**+X** to the right, **+Y** upward. Let **r** = `**<TimePointerUniversalRadius>`·R**
-(**§Sizing**). The pointer’s circle is centred at **(0, 0)** with radius **r**.
+- Vertex1 is the point on the RefArc corresponding to time (t).
+- halfAngle is 0.5 * TideMarkArrowDivergence
+- Vertex 2 is is located with a polar offset from Vertex1 :
+	R: TideMarkArrowLineLen * RefRad
+	theta: RadialAngle(t) + PI + halfAngle
+- Vertex 3 is is located with a polar offset from Vertex1 :
+	R: TideMarkArrowLineLen * RefRad
+	theta: RadialAngle(t) + PI - halfAngle
 
-**Half-circle choice (unique)** — The **arc** is exactly **one half** of that
-circle (subtended angle **π**). It is **uniquely** fixed by requiring that the
-**arc-length midpoint** of the visible segment — the point halfway along the arc
-between its two endpoints — is the point on the **full** circle with **maximum
-X**, namely **(r, 0)** in local coordinates.
+- The required triangle element is Vertex1, Vertex2, Vertex3
+- Let the line segment <dia> be defined as Vertex2 -> Vertex3
+- The required circle element has it's centre at the midpoint of dia and radius
+  0.5 * the length of dia
 
-**Equivalent endpoint form** — The two endpoints are **(0, −r)** and **(0, +r)**.
-The arc is the **CCW** half (**§Polar**) from **(0, −r)** to **(0, +r)** that
-passes through **(r, 0)** (positive sweep **π** in local polar angle from **+X**).
 
-**Placement** (applies to the **arc** and its centre and endpoints)
-
-- **Translation**: polar vector from **O** with radius **(1 −
-`<TimePointerInset>`)·R** (`**<TimePointerInset>`** ∈ **[0, 1]**, dimensionless)
-and angle **θ(t)** (**§Time and θ(t)**).
-- **Rotation**: **θ(t)**.
-
-Together, **Local frame** + **Half-circle choice** + **Placement** determine the
-arc in diagram space **unambiguously**.
-
-**Arc segment**
-
-- One **arc** after the placement transform — the **final** transformed curve
-primitive.
-
-**Line segments (two)** — **Derived only** from the **final** transformed arc:
-each is the segment from the **RefArc** point at **θ(t)** to one **endpoint** of
-that arc. The lines **follow** the arc; they **do not** participate in defining
-the arc.
 
 ## Notes on interpretation
 

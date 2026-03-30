@@ -151,6 +151,15 @@ function renderNode(node) {
       const d = circularArcToPathD(node.center, node.start, node.sweepRad);
       return `    <path d="${escapeAttr(d)}" stroke="#335" stroke-width="1.5" fill="none" shape-rendering="geometricPrecision" />`;
     }
+    case "triangle": {
+      const { a, b, c } = node;
+      const pts = `${a.x},${a.y} ${b.x},${b.y} ${c.x},${c.y}`;
+      return `    <polygon points="${escapeAttr(pts)}" fill="#335" stroke="#335" stroke-width="1.5" />`;
+    }
+    case "circle": {
+      const { center, radius } = node;
+      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="#335" stroke="#335" stroke-width="1.5" />`;
+    }
     case "text": {
       return renderTextSvg(node);
     }

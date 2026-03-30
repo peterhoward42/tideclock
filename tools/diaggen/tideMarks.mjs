@@ -1,30 +1,11 @@
 // TideMarks layout in diagram space. See docs/specs/tide-diagram.md §TideMarks.
-// TimePointer: local half-circle with arc midpoint at max-X (r,0); then placement;
-// lines are pRef → arc endpoints only (derived from the final arc).
+// TimePointer: filled triangle + filled circle derived from divergence & line length inputs.
+// Triangle vertices are defined in the diagram by:
+//   v1 = point on RefArc at time t
+//   v2/v3 = polar offsets from v1 at angle theta(t) + PI +/- 0.5 * divergence
+// Circle is centered at the midpoint of v2 -> v3 with radius 0.5 * |v2 - v3|.
 
 import { polar, timeToTheta } from "./tideDiagramModel.mjs";
-
-/**
- * Rotate point CCW by `theta` (diagram space, y up).
- * @param {number} theta
- * @param {{ x: number, y: number }} p
- */
-function rotPt(theta, p) {
-  const c = Math.cos(theta);
-  const s = Math.sin(theta);
-  return { x: c * p.x - s * p.y, y: s * p.x + c * p.y };
-}
-
-/**
- * @param {number} theta
- * @param {{ x: number, y: number }} centre
- * @param {{ x: number, y: number }} pLocal
- * @returns {import('./tideDiagramModel.mjs').DiagramPoint}
- */
-function localToWorld(theta, centre, pLocal) {
-  const q = rotPt(theta, pLocal);
-  return { x: q.x + centre.x, y: q.y + centre.y };
-}
 
 /**
  * @param {{
@@ -34,8 +15,8 @@ function localToWorld(theta, centre, pLocal) {
  *   tideLabelRadius: number,
  *   heightLabelSizeK: number,
  *   timeLabelSizeK: number,
- *   timePointerUniversalRadiusK: number,
- *   timePointerInset: number,
+ *   tideMarkArrowDivergence: number,
+ *   tideMarkArrowLineLen: number,
  *   markers: { t: number, heightText: string, timeText: string }[],
  * }} params
  * @returns {import('./tideDiagramModel.mjs').TideMarkDiagram[]}
@@ -48,13 +29,13 @@ export function layoutTideMarks(params) {
     tideLabelRadius,
     heightLabelSizeK,
     timeLabelSizeK,
-    timePointerUniversalRadiusK,
-    timePointerInset,
+    tideMarkArrowDivergence,
+    tideMarkArrowLineLen,
     markers,
   } = params;
   const R = refRadius;
-  const inset = clamp01(timePointerInset);
-  const rU = timePointerUniversalRadiusK * R;
+  const halfAngle = 0.5 * tideMarkArrowDivergence;
+  const offsetR = tideMarkArrowLineLen * R;
 
   /** Radial separation of height vs time anchors (spec gives one label radius for both). */
   const dk =
@@ -75,17 +56,20 @@ export function layoutTideMarks(params) {
     const heightAnchor = polar(rHeight, theta);
     const timeAnchor = polar(rTime, theta);
 
-    const centre = polar((1 - inset) * R, theta);
-    const pRef = polar(R, theta);
+    const v1 = polar(R, theta); // Vertex1 is on the RefArc at time t.
+    const v2Offset = polar(offsetR, theta + Math.PI + halfAngle);
+    const v3Offset = polar(offsetR, theta + Math.PI - halfAngle);
+    const v2 = { x: v1.x + v2Offset.x, y: v1.y + v2Offset.y };
+    const v3 = { x: v1.x + v3Offset.x, y: v1.y + v3Offset.y };
 
-    const startLocal = { x: 0, y: -rU };
-    const arcStart = localToWorld(theta, centre, startLocal);
-    const sweepRad = Math.PI;
-
-    const line0 = { start: { ...pRef }, end: { ...arcStart } };
-    const endLocal = { x: 0, y: rU };
-    const arcEnd = localToWorld(theta, centre, endLocal);
-    const line1 = { start: { ...pRef }, end: { ...arcEnd } };
+    const diaDx = v3.x - v2.x;
+    const diaDy = v3.y - v2.y;
+    const diaLen = Math.hypot(diaDx, diaDy);
+    const circleRadius = 0.5 * diaLen;
+    const circleCenter = {
+      x: 0.5 * (v2.x + v3.x),
+      y: 0.5 * (v2.y + v3.y),
+    };
 
     out.push({
       timeHours: t,
@@ -103,11 +87,8 @@ export function layoutTideMarks(params) {
         angleRad: baselineAngle,
       },
       timePointer: {
-        center: { ...centre },
-        radius: rU,
-        arcStart,
-        sweepRad,
-        lines: [line0, line1],
+        triangle: { v1, v2, v3 },
+        circle: { center: circleCenter, radius: circleRadius },
       },
     });
   }
@@ -131,8 +112,20 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const tideLabelRadius = numOr(o.tideLabelRadius, 0.82);
   const heightLabelSizeK = numOr(o.tideHeightLabelSize, 0.055);
   const timeLabelSizeK = numOr(o.tideTimeLabelSize, 0.048);
-  const timePointerUniversalRadiusK = numOr(o.timePointerUniversalRadius, 0.06);
-  const timePointerInset = numOr(o.timePointerInset, 0.12);
+  const tideMarkArrowDivergence = Math.max(
+    0,
+    numOr(
+    o.tideMarkArrowDivergence ?? o.TideMarkArrowDivergence,
+    1.0,
+  ),
+  );
+  const tideMarkArrowLineLen = Math.max(
+    0,
+    numOr(
+    o.tideMarkArrowLineLen ?? o.TideMarkArrowLineLen,
+    0.1,
+  ),
+  );
 
   /** @type {{ t: number, heightText: string, timeText: string }[]} */
   const markers = [];
@@ -156,8 +149,8 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     tideLabelRadius,
     heightLabelSizeK,
     timeLabelSizeK,
-    timePointerUniversalRadiusK,
-    timePointerInset,
+    tideMarkArrowDivergence,
+    tideMarkArrowLineLen,
     markers,
   });
 }
@@ -168,12 +161,4 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
  */
 function numOr(v, fallback) {
   return typeof v === "number" && Number.isFinite(v) ? v : fallback;
-}
-
-/**
- * @param {number} x
- */
-function clamp01(x) {
-  if (!Number.isFinite(x)) return 0;
-  return Math.min(1, Math.max(0, x));
 }

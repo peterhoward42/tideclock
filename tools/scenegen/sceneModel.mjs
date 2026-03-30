@@ -21,6 +21,19 @@
  * }} ArcPrimitive
  *
  * @typedef {{
+ *   kind: 'triangle',
+ *   a: Point,
+ *   b: Point,
+ *   c: Point,
+ * }} TrianglePrimitive
+ *
+ * @typedef {{
+ *   kind: 'circle',
+ *   center: Point,
+ *   radius: number,
+ * }} CirclePrimitive
+ *
+ * @typedef {{
  *   kind: 'text',
  *   content: string,
  *   size: number,
@@ -35,7 +48,7 @@
  *   children: SceneNode[],
  * }} GroupNode
  *
- * @typedef { LinePrimitive | ArcPrimitive | TextPrimitive | GroupNode } SceneNode
+ * @typedef { LinePrimitive | ArcPrimitive | TrianglePrimitive | CirclePrimitive | TextPrimitive | GroupNode } SceneNode
  *
  * Scene-space axis-aligned rectangle for preview framing (diagram `contentBounds` via `toScene`, or set in scenegen `spec`).
  *
@@ -95,6 +108,27 @@ export function arc(center, start, sweepRad, opts) {
   });
   if (opts?.facetedPreview === true) o.facetedPreview = true;
   return o;
+}
+
+/**
+ * Filled triangle primitive (currently preview uses a solid fill).
+ * @param {Point} a
+ * @param {Point} b
+ * @param {Point} c
+ * @returns {TrianglePrimitive}
+ */
+export function triangle(a, b, c) {
+  return { kind: "triangle", a, b, c };
+}
+
+/**
+ * Filled circle primitive (currently preview uses a solid fill).
+ * @param {Point} center
+ * @param {number} radius
+ * @returns {CirclePrimitive}
+ */
+export function circle(center, radius) {
+  return { kind: "circle", center, radius };
 }
 
 /**

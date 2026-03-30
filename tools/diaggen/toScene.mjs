@@ -6,9 +6,11 @@
 // radians, unchanged from the diagram document.
 import {
   arc,
+  circle,
   group,
   line,
   point,
+  triangle,
   text,
 } from "../scenegen/sceneModel.mjs";
 
@@ -79,16 +81,15 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
  */
 export function tideMarkDiagramToGroup(mark, cx, cy) {
   const tp = mark.timePointer;
-  const tc = tp.center;
-  const arcCenter = mapPoint(tc, cx, cy);
-  const arcStart = mapPoint(tp.arcStart, cx, cy);
-  const lineNodes = tp.lines.map((seg) =>
-    line(mapPoint(seg.start, cx, cy), mapPoint(seg.end, cx, cy)),
+  const tri = tp.triangle;
+  const circ = tp.circle;
+  const triNode = triangle(
+    mapPoint(tri.v1, cx, cy),
+    mapPoint(tri.v2, cx, cy),
+    mapPoint(tri.v3, cx, cy),
   );
-  const timePointerGroup = group("timePointer", [
-    ...lineNodes,
-    arc(arcCenter, arcStart, tp.sweepRad, { facetedPreview: true }),
-  ]);
+  const circNode = circle(mapPoint(circ.center, cx, cy), circ.radius);
+  const timePointerGroup = group("timePointer", [triNode, circNode]);
   const hl = mark.heightLabel;
   const tl = mark.timeLabel;
   return group("tideMark", [
