@@ -53,7 +53,7 @@ export function layoutTideMarks(params) {
       continue;
     }
     const theta = timeToTheta(t, thetaLeft, thetaRight);
-    const baselineAngle = theta - Math.PI / 2;
+    const baselineAngle = theta + Math.PI / 2;
 
     const rHeight = (tideLabelRadius + dk) * R;
     const rTime = (tideLabelRadius - dk) * R;

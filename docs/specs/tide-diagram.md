@@ -302,7 +302,7 @@ For **both** labels:
 - **Horizontal justification** — **centre**.
 - On the marker’s polar axis at radius **k·R** for `**<TideLabelRadius>`**
 (**§Sizing**) from **O**.
-- **Baseline polar angle** — **θ(t) − π/2** (overrides **TextElement defaults**).
+- **Baseline polar angle** — **θ(t) + π/2** (overrides **TextElement defaults**).
 
 **FontHeight** (per kind, **k·R**):
 
