@@ -139,6 +139,15 @@ function renderNode(node) {
       return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="#334" stroke-width="1.5" fill="none" />`;
     }
     case "arc": {
+      if (node.facetedPreview === true) {
+        const pts = circularArcToFacetedPoints(
+          node.center,
+          node.start,
+          node.sweepRad,
+        );
+        if (pts === "") return "";
+        return `    <polyline points="${escapeAttr(pts)}" stroke="#335" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" />`;
+      }
       const d = circularArcToPathD(node.center, node.start, node.sweepRad);
       return `    <path d="${escapeAttr(d)}" stroke="#335" stroke-width="1.5" fill="none" shape-rendering="geometricPrecision" />`;
     }
@@ -150,15 +159,39 @@ function renderNode(node) {
   }
 }
 
+const PI_TOL = 1e-9;
+
 /**
- * Circular arc as a single SVG elliptical-arc segment with rx = ry = r (scene space, y up, CCW positive).
- * Precedent for all circular arcs in preview: native `A`, never polyline approximation.
+ * Sample a circular arc in scene space (y up, CCW sweep) for `<polyline points="...">`.
+ * Avoids SVG `A`; useful to isolate preview bugs in elliptical-arc flag handling.
  *
- * @param {{ x: number, y: number }} center
- * @param {{ x: number, y: number }} start
- * @param {number} sweepRad signed angle in radians (CCW)
+ * @returns {string} space-separated "x,y" pairs, or "" if degenerate
  */
-function circularArcToPathD(center, start, sweepRad) {
+function circularArcToFacetedPoints(center, start, sweepRad) {
+  const r = Math.hypot(start.x - center.x, start.y - center.y);
+  if (r < 1e-9) return "";
+  const a0 = Math.atan2(start.y - center.y, start.x - center.x);
+  const n = Math.max(
+    16,
+    Math.ceil((32 * Math.abs(sweepRad)) / (2 * Math.PI)),
+  );
+  const parts = [];
+  for (let i = 0; i <= n; i++) {
+    const t = i / n;
+    const a = a0 + sweepRad * t;
+    parts.push(
+      `${center.x + r * Math.cos(a)},${center.y + r * Math.sin(a)}`,
+    );
+  }
+  return parts.join(" ");
+}
+
+/**
+ * One SVG elliptical-arc segment (rx = ry = r). Scene space: y up, CCW positive sweep.
+ *
+ * @param {boolean} moveToStart if true, prefix with `M start`; if false, continue current subpath (chained `A`).
+ */
+function ellipseArcSegmentD(center, start, sweepRad, moveToStart) {
   const r = Math.hypot(start.x - center.x, start.y - center.y);
   if (r < 1e-9) return "";
   const a0 = Math.atan2(start.y - center.y, start.x - center.x);
@@ -168,9 +201,40 @@ function circularArcToPathD(center, start, sweepRad) {
   const x1 = center.x + r * Math.cos(a1);
   const y1 = center.y + r * Math.sin(a1);
   const largeArc = Math.abs(sweepRad) > Math.PI ? 1 : 0;
-  // Scene coords are y-up; CCW is positive sweep. Same convention as SVG path in y-up user space.
   const sweep = sweepRad >= 0 ? 1 : 0;
-  return `M ${x0} ${y0} A ${r} ${r} 0 ${largeArc} ${sweep} ${x1} ${y1}`;
+  const prefix = moveToStart ? `M ${x0} ${y0} ` : "";
+  return `${prefix}A ${r} ${r} 0 ${largeArc} ${sweep} ${x1} ${y1}`;
+}
+
+/**
+ * Circular arc as SVG path `d` (scene space, y up, CCW positive).
+ * Precedent for all circular arcs in preview: native `A`, never polyline approximation.
+ *
+ * For a **π** sweep, SVG’s `A` command is ambiguous (two equal-length semicircles between the
+ * same endpoints; `large-arc` does not disambiguate at exactly 180°). Browsers may pick the
+ * hemisphere whose bulge points opposite the intended direction. Splitting into two **π/2**
+ * segments forces the minor arc at each step and matches the tide TimePointer spec (bulge through
+ * local +X after placement).
+ *
+ * @param {{ x: number, y: number }} center
+ * @param {{ x: number, y: number }} start
+ * @param {number} sweepRad signed angle in radians (CCW)
+ */
+function circularArcToPathD(center, start, sweepRad) {
+  const r = Math.hypot(start.x - center.x, start.y - center.y);
+  if (r < 1e-9) return "";
+  if (Math.abs(Math.abs(sweepRad) - Math.PI) < PI_TOL) {
+    const half = sweepRad / 2;
+    const a0 = Math.atan2(start.y - center.y, start.x - center.x);
+    const mid = {
+      x: center.x + r * Math.cos(a0 + half),
+      y: center.y + r * Math.sin(a0 + half),
+    };
+    const first = ellipseArcSegmentD(center, start, half, true);
+    const second = ellipseArcSegmentD(center, mid, half, false);
+    return `${first} ${second}`;
+  }
+  return ellipseArcSegmentD(center, start, sweepRad, true);
 }
 
 /** @param {import('./sceneModel.mjs').TextPrimitive} node */

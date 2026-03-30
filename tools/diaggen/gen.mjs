@@ -31,7 +31,3 @@ mkdirSync(join(scenegenDir, "generated"), { recursive: true });
 writeFileSync(diagramPath, JSON.stringify(diagram, null, 2), "utf8");
 writeFileSync(scenePath, JSON.stringify(scene, null, 2), "utf8");
 writePreviewHtml(scene, previewPath);
-
-console.error(`Wrote ${diagramPath}`);
-console.error(`Wrote ${scenePath}`);
-console.error(`Wrote ${previewPath}`);

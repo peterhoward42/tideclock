@@ -1,5 +1,9 @@
 // Maps a `TideDiagramDocument` from `buildDiagram` into scenegen’s scene graph so both
 // `diaggen/gen.mjs` and `scenegen/gen.mjs` can share `scenegen/preview.mjs`.
+//
+// Scene space is diagram model space translated by (canvasWidth/2, canvasHeight/2) so the diagram
+// origin sits at the canvas centre. Axes remain x right, y up; arc `sweepRad` is still CCW in
+// radians, unchanged from the diagram document.
 import {
   arc,
   group,
@@ -83,7 +87,7 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
   );
   const timePointerGroup = group("timePointer", [
     ...lineNodes,
-    arc(arcCenter, arcStart, tp.sweepRad),
+    arc(arcCenter, arcStart, tp.sweepRad, { facetedPreview: true }),
   ]);
   const hl = mark.heightLabel;
   const tl = mark.timeLabel;

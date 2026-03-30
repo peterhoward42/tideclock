@@ -17,6 +17,7 @@
  *   center: Point,
  *   start: Point,
  *   sweepRad: number,
+ *   facetedPreview?: boolean,
  * }} ArcPrimitive
  *
  * @typedef {{
@@ -82,10 +83,18 @@ export function line(start, end) {
  * @param {Point} center
  * @param {Point} start
  * @param {number} sweepRad
+ * @param {{ facetedPreview?: boolean }} [opts] if `facetedPreview`, HTML preview uses a polyline sample (debug).
  * @returns {ArcPrimitive}
  */
-export function arc(center, start, sweepRad) {
-  return { kind: "arc", center, start, sweepRad };
+export function arc(center, start, sweepRad, opts) {
+  const o = /** @type {ArcPrimitive} */ ({
+    kind: "arc",
+    center,
+    start,
+    sweepRad,
+  });
+  if (opts?.facetedPreview === true) o.facetedPreview = true;
+  return o;
 }
 
 /**
