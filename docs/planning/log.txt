@@ -115,40 +115,18 @@ fart
 
 See tide-diagram.md and /tools/diaggen for context.
 
-We have recently introduced code generation for TideMarkers. The top level
-design for the diagram of which tide markers  are part is tide-diagram.md.
-The generation pipeline is 
-/tools/diaggen 
-and /tools/scenegen. Consider the
-preview graphical output I see, for the tide marker with time 04:15. I see
-the arc segment part of the TimePoint correctly
-located, of the correct swept angle, but rotated 180 degrees out of its
-expected orientation. You could say the arc's end points should both point
-into the bottom left quadrant, whereas they are actually pointing into top
-right quadrant.
-
 fart
 
 
 
-
-I'll provde an addtional prompt once you've read and assimilated /tools/diaggen/iter.sh and /docs/specs/tide-diagram.md.
-
-
+			o  todo
+				o  consider baseline angle for now pointer at high
+				   TIME values
 			o  exceptions
 				o  no more high waters or low water today
 				o  collisions
 				o  truncations
 				
-
-		o  consider a don't optional js skill
-
-
-
-First read /docs/planning/@docs/planning/home-screen-iteration-and-design.md first for context.
-Don't do anything else yet.
-
-
 
 		o  move on to changing location and firing the refetch, then
 		   later can reuse that with the default location

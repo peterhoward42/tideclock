@@ -1,5 +1,5 @@
 // Development loop (diagram → scene → preview): edit `input.json` and/or `buildDiagram.mjs`
-// / `tideDiagramModel.mjs` / `toScene.mjs`, then run `./iter.sh` here (or `node gen.mjs`).
+// / `nowPointer.mjs` / `tideDiagramModel.mjs` / `toScene.mjs`, then run `./iter.sh` here (or `node gen.mjs`).
 // Writes `generated/diagram.json`, then maps to a scene and writes `../scenegen/generated/scene.json`
 // plus the shared `../scenegen/generated/preview.html` (same preview as scenegen). If you later
 // run `tools/scenegen/gen.mjs`, it overwrites that scene with the direct scenegen pipeline—use

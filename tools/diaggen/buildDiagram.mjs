@@ -2,6 +2,7 @@
 // diagram fields like `refRadius`) and returns a tide diagram document; `gen.mjs` then passes
 // that to `toScene.mjs` for the shared HTML preview.
 import { buildCentreClusterFromSpec } from "./centreCluster.mjs";
+import { buildNowPointerFromSpec } from "./nowPointer.mjs";
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
 import {
   diagramBoxFromExtents,
@@ -97,6 +98,13 @@ export function buildDiagram(spec) {
     thetaRight,
   );
 
+  const nowPointer = buildNowPointerFromSpec(
+    spec,
+    refRadius,
+    thetaLeft,
+    thetaRight,
+  );
+
   return {
     version: 1,
     meta: { title, width, height },
@@ -110,6 +118,7 @@ export function buildDiagram(spec) {
     tickMarks,
     tickLabels,
     tideMarks,
+    nowPointer,
     centreCluster,
     contentBounds,
   };

@@ -86,12 +86,20 @@
  * }} TideMarkDiagram
  *
  * @typedef {{
+ *   timeHours: number,
+ *   theta: number,
+ *   radialLine: DiagramLineSeg,
+ *   nowLabel: TideLabelTextInst,
+ * }} NowPointerDiagram
+ *
+ * @typedef {{
  *   version: number,
  *   meta: { title: string, width: number, height: number },
  *   refArc: RefArcSpec,
  *   tickMarks: TickMarkSpec[],
  *   tickLabels: TickLabelSpec[],
  *   tideMarks: TideMarkDiagram[],
+ *   nowPointer: NowPointerDiagram | null,
  *   centreCluster: CentreClusterDiagram | null,
  *   contentBounds: DiagramContentBounds,
  * }} TideDiagramDocument

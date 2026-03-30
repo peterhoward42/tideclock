@@ -23,6 +23,7 @@ fixed here (see **Content bounds**).
   - TickMarks
   - TickLabels
   - TideMarks
+  - NowPointer
   - CentreCluster
   - NowTime
   - TimeDelta
@@ -116,6 +117,7 @@ of travel.”
   - Line segments (for radial segments, tick marks, and the two
   **CentreClusterFrame** lines)
   - Text elements
+  - Non-filled triangle outlines (introduced by **NowPointer**)
 
 ### Independent stroked curves
 
@@ -161,6 +163,62 @@ model space. **Y** follows the same convention as **TickLabel** anchors
 model em-boxes or similar font metrics.
 
 *(Additional primitives may be introduced as required by later elements.)*
+
+## NowPointer
+
+**NowPointer** is a top-level named element tied to the current time now.
+
+### Logical structure
+
+**NowPointer** comprises three direct parts:
+
+- **Now radial line** — one radial segment on the time-now ray.
+- **Now label** — one **TextElement** with constant text `now`.
+- **Now triangle** — one non-filled triangle (stroke only; no fill region).
+
+### Time association
+
+- Let **t_now** be the host-provided current time in hours, constrained to
+**[0, 24]**.
+- Let **θ_now = θ(t_now)** per **§Time and θ(t)**.
+- All **NowPointer** geometry is defined relative to **θ_now**.
+
+### Geometry (first pass, pending final constants)
+
+Because exact distances and angles are not yet specified, this section defines
+the structure and leaves sizing inputs explicit.
+
+**Now radial line**
+
+- A radial segment at **θ_now** with:
+  - **r_inner = NowPointerLineInnerRadius·R** (default **0.4**)
+  - **r_outer = NowPointerLineOuterRadius·R** (default **0.6**)
+- Both radius multipliers are diagram inputs interpreted by **§Sizing**.
+
+**Now label**
+
+- One **TextElement** with:
+  - **Text** = constant `now` (not host text).
+  - **Horizontal justification** = **centre**.
+  - **Baseline polar angle** = **θ_now + π** (overrides **TextElement defaults**).
+  - **FontHeight** = **NowPointerLabelSize·R** (diagram input, **§Sizing**).
+- **Anchor** — the midpoint of the **Now radial line** segment (between its inner
+  and outer endpoints in diagram model space).
+
+**Now triangle (non-filled)**
+
+- Triangle is associated to **θ_now** and is rendered as a stroked outline.
+- Define inputs:
+  - **NowPointerTriangleRadius** (base point radius multiplier),
+  - **NowPointerTriangleLength** (leg length multiplier),
+  - **NowPointerTriangleDivergence** (included angle, radians).
+- Let:
+  - **V1 = polar(NowPointerTriangleRadius·R, θ_now)**,
+  - **half = 0.5 × NowPointerTriangleDivergence**,
+  - **V2 = V1 + polar(NowPointerTriangleLength·R, θ_now + π + half)**,
+  - **V3 = V1 + polar(NowPointerTriangleLength·R, θ_now + π − half)**.
+- The required triangle element is **(V1, V2, V3)** with **fill disabled**
+(stroke-only primitive in scene terms).
 
 ## CentreCluster
 

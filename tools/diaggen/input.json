@@ -21,6 +21,10 @@
     "above": 0.1,
     "below": 1.5
   },
+  "nowPointer": {
+    "t": 18.53361111111111,
+    "nowPointerLabelSize": 0.04
+  },
   "tideMarks": {
     "tideHeightLabelRadius": 0.88,
     "tideTimeLabelRadius": 0.8,
