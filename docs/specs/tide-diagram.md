@@ -179,7 +179,7 @@ model em-boxes or similar font metrics.
 ### Time association
 
 - Let **t_now** be the host-provided current time in hours, constrained to
-**[0, 24]**.
+  **[0, 24]**.
 - Let **θ_now = θ(t_now)** per **§Time and θ(t)**.
 - All **NowPointer** geometry is defined relative to **θ_now**.
 
@@ -188,54 +188,44 @@ model em-boxes or similar font metrics.
 Because exact distances and angles are not yet specified, this section defines
 the structure and leaves sizing inputs explicit.
 
-**Now radial line**
+#### Inputs and shared derived quantities
+
+- **NowPointerLineInnerRadius**, **NowPointerLineOuterRadius** — line radii
+  as **k·R** per **§Sizing**.
+- **NowPointerLabelSize** — label **FontHeight** multiplier **k** as **k·R**
+  (**§Sizing**).
+- **NowPointerLabelNormalOffset** — signed diagram input **k** as **k·R**
+  (**§Sizing**).
+- Let **û_rad = (cos θ_now, sin θ_now)** — unit vector along the time-now ray from
+  **O** outward (**§Axes**, **§Polar**).
+- Let **û_n = (−sin θ_now, cos θ_now)** — unit vector perpendicular to **û_rad**,
+  from rotating **û_rad** by **+π/2** CCW (**§Polar**).
+- Let **r_inner = NowPointerLineInnerRadius·R**, **r_outer = NowPointerLineOuterRadius·R**.
+- Let **P** be the midpoint of the **Now radial line** segment between
+  **r_inner** and **r_outer** along **û_rad**.
+- Define a **side sign** for label placement:
+  - **side_sign = +1** when **t_now ≤ 12** (midnight through noon inclusive).
+  - **side_sign = −1** when **t_now > 12** (afternoon through midnight).
+
+#### Now radial line
 
 - A radial segment at **θ_now** with:
   - **r_inner = NowPointerLineInnerRadius·R** (default **0.4**)
   - **r_outer = NowPointerLineOuterRadius·R** (default **0.6**)
 - Both radius multipliers are diagram inputs interpreted by **§Sizing**.
 
-**Now label**
-
-**Branch selection (by clock time)**
-
-- Let **û_rad = (cos θ_now, sin θ_now)** — unit vector along the time-now ray from
-  **O** outward (**§Axes**, **§Polar**).
-- **Branch A** applies when **t_now ≤ 12** (hours on the same **0…24** scale as
-  **§Time and θ(t)**), i.e. midnight through noon inclusive.
-- **Branch B** applies when **t_now > 12** (afternoon through midnight).
-- Exactly one branch applies for every valid **t_now**.
-
-**Shared definitions**
-
-- **P** — midpoint of the **Now radial line** segment (between inner and outer
-  endpoints in diagram model space).
-- **û_n = (−sin θ_now, cos θ_now)** — unit vector perpendicular to **û_rad**,
-  from rotating **û_rad** by **+π/2** CCW (**§Polar**).
-- **NowPointerLabelNormalOffset** — signed diagram input **k** as **k·R**
-  (**§Sizing**). Positive **k** along **+û_n** moves the label to the **left** of
-  the outward radial direction (CCW side of the ray). **k = 0** places the anchor
-  at **P**.
-
-**Branch A — Now label** *(t_now ≤ 12)*
+#### Now label
 
 - One **TextElement** with:
   - **Text** = constant `now` (not host text).
   - **Horizontal justification** = **centre**.
   - **Baseline polar angle** = **θ_now + π** (overrides **TextElement defaults**).
   - **FontHeight** = **NowPointerLabelSize·R** (diagram input, **§Sizing**).
-- **Anchor** — **P − (k·R)·û_n** (normal offset on the **opposite** side from
-  **Branch B** for the same signed **k**).
-
-**Branch B — Now label** *(t_now > 12)*
-
-- One **TextElement** with:
-  - **Text** = constant `now` (not host text).
-  - **Horizontal justification** = **centre**.
-  - **Baseline polar angle** = **θ_now + π + π** (= **θ_now + 2π**; equivalent to
-    **θ_now** modulo one full turn — hosts may reduce for rendering).
-  - **FontHeight** = **NowPointerLabelSize·R** (diagram input, **§Sizing**).
-- **Anchor** — **P + (k·R)·û_n**.
+- **Anchor** — **P + side_sign × (k·R)·û_n**, where **k** is
+  **NowPointerLabelNormalOffset**:
+  - Positive **k** with **side_sign = +1** places the label on the **left**
+    (CCW) side of the outward radial direction.
+  - For the same **k**, **side_sign = −1** moves it to the **opposite** side.
 
 **Now triangle (non-filled)**
 

@@ -61,9 +61,9 @@ o  new data fetch paradigm
 				*  get text going
 				*  bifurcate for larger theta
 				o  dry the branch up 
-				o  reuse of existing concepts to dry
-				o  srp for time now input
-				o  put into parent/child in spec and names
+				o  avoid time now name clashing
+				o  fix overall ordering - utils before elements
+				o  srp for time now input - beware clash of names
 			o fart
 
 
