@@ -13,7 +13,7 @@
     12,
     18
   ],
-  "tickLabelSize": 0.105,
+  "tickLabelSize": 0.05,
   "tickLabelClearance": 0.07,
   "contentBounds": {
     "left": 1.45,
@@ -22,14 +22,23 @@
     "below": 1.5
   },
   "tideMarks": {
-    "tideLabelRadius": 0.88,
-    "tideHeightLabelSize": 0.052,
-    "tideTimeLabelSize": 0.046,
+    "tideHeightLabelRadius": 0.88,
+    "tideTimeLabelRadius": 0.8,
+    "tideHeightLabelSize": 0.046,
+    "tideTimeLabelSize": 0.040,
     "TideMarkArrowDivergence": 1.0,
-    "TideMarkArrowLineLen": 0.1,
+    "TideMarkArrowLineLen": 0.05,
     "markers": [
-      { "t": 4.25, "heightText": "4.2 m", "timeText": "04:15" },
-      { "t": 16.5, "heightText": "3.8 m", "timeText": "16:30" }
+      {
+        "t": 4.25,
+        "heightText": "4.2 m",
+        "timeText": "04:15"
+      },
+      {
+        "t": 16.5,
+        "heightText": "3.8 m",
+        "timeText": "16:30"
+      }
     ]
   },
   "centreCluster": {

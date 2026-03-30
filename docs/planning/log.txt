@@ -95,8 +95,10 @@ o  new data fetch paradigm
 			*  tide marker(s)
 			*  stroke widths to clarify preview
 			*  time pointer shape
-			o  fix tide marker text angle
-			o  fix tide marker text location
+			*  fix tide marker text angle
+			*  make tide marker graphic smaller
+			*  make tide marker text smaller
+			*  fix tide marker text locations
 
 
 
@@ -111,11 +113,13 @@ fart
 
 fart
 
-See tide-diagram.md for context.
+See tide-diagram.md and /tools/diaggen for context.
 
 We have recently introduced code generation for TideMarkers. The top level
 design for the diagram of which tide markers  are part is tide-diagram.md.
-The generation pipeline is /tools/diaggen and /tools/scenegen. Consider the
+The generation pipeline is 
+/tools/diaggen 
+and /tools/scenegen. Consider the
 preview graphical output I see, for the tide marker with time 04:15. I see
 the arc segment part of the TimePoint correctly
 located, of the correct swept angle, but rotated 180 degrees out of its

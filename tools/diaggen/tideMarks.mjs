@@ -16,7 +16,8 @@ import { polar, timeToTheta } from "./tideDiagramModel.mjs";
  *   refRadius: number,
  *   thetaLeft: number,
  *   thetaRight: number,
- *   tideLabelRadius: number,
+ *   tideHeightLabelRadius: number,
+ *   tideTimeLabelRadius: number,
  *   heightLabelSizeK: number,
  *   timeLabelSizeK: number,
  *   tideMarkArrowDivergence: number,
@@ -30,7 +31,8 @@ export function layoutTideMarks(params) {
     refRadius,
     thetaLeft,
     thetaRight,
-    tideLabelRadius,
+    tideHeightLabelRadius,
+    tideTimeLabelRadius,
     heightLabelSizeK,
     timeLabelSizeK,
     tideMarkArrowDivergence,
@@ -40,10 +42,6 @@ export function layoutTideMarks(params) {
   const R = refRadius;
   const halfAngle = 0.5 * tideMarkArrowDivergence;
   const offsetR = tideMarkArrowLineLen * R;
-
-  /** Radial separation of height vs time anchors (spec gives one label radius for both). */
-  const dk =
-    0.45 * (heightLabelSizeK + timeLabelSizeK);
 
   /** @type {import('./tideDiagramModel.mjs').TideMarkDiagram[]} */
   const out = [];
@@ -55,8 +53,8 @@ export function layoutTideMarks(params) {
     const theta = timeToTheta(t, thetaLeft, thetaRight);
     const baselineAngle = theta + Math.PI / 2;
 
-    const rHeight = (tideLabelRadius + dk) * R;
-    const rTime = (tideLabelRadius - dk) * R;
+    const rHeight = tideHeightLabelRadius * R;
+    const rTime = tideTimeLabelRadius * R;
     const heightAnchor = polar(rHeight, theta);
     const timeAnchor = polar(rTime, theta);
 
@@ -139,7 +137,16 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const markersRaw = o.markers;
   if (!Array.isArray(markersRaw) || markersRaw.length === 0) return [];
 
-  const tideLabelRadius = numOr(o.tideLabelRadius, 0.82);
+  // Independent label radii with legacy single-radius fallback.
+  const tideLabelRadiusLegacy = numOr(o.tideLabelRadius, 0.82);
+  const tideHeightLabelRadius = numOr(
+    o.tideHeightLabelRadius,
+    tideLabelRadiusLegacy,
+  );
+  const tideTimeLabelRadius = numOr(
+    o.tideTimeLabelRadius,
+    tideLabelRadiusLegacy,
+  );
   const heightLabelSizeK = numOr(o.tideHeightLabelSize, 0.055);
   const timeLabelSizeK = numOr(o.tideTimeLabelSize, 0.048);
   const tideMarkArrowDivergence = Math.max(
@@ -176,7 +183,8 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     refRadius,
     thetaLeft,
     thetaRight,
-    tideLabelRadius,
+    tideHeightLabelRadius,
+    tideTimeLabelRadius,
     heightLabelSizeK,
     timeLabelSizeK,
     tideMarkArrowDivergence,

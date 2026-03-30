@@ -295,13 +295,14 @@ Each marker is a **cluster** with **direct** children:
 - **Time label** — one **TextElement**.
 - **Time pointer** — one **TimePointer** subgroup (below).
 
-### Height label and time label (shared layout)
+### Height label and time label (layout)
 
 For **both** labels:
 
 - **Horizontal justification** — **centre**.
-- On the marker’s polar axis at radius **k·R** for `**<TideLabelRadius>`**
-(**§Sizing**) from **O**.
+- On the marker’s polar axis from **O** at per-kind radius inputs (**§Sizing**):
+  - Height label radius: `**<TideHeightLabelRadius>`·R`.
+  - Time label radius: `**<TideTimeLabelRadius>`·R`.
 - **Baseline polar angle** — **θ(t) + π/2** (overrides **TextElement defaults**).
 
 **FontHeight** (per kind, **k·R**):
