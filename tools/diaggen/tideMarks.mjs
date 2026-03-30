@@ -3,7 +3,11 @@
 // Triangle vertices are defined in the diagram by:
 //   v1 = point on RefArc at time t
 //   v2/v3 = polar offsets from v1 at angle theta(t) + PI +/- 0.5 * divergence
-// Circle is centered at the midpoint of v2 -> v3 with radius 0.5 * |v2 - v3|.
+// Circle center is the intersection of normals drawn from v2 and v3:
+//   line1 = segment v1->v2, line2 = segment v1->v3
+//   radial1 = normal to line1 through v2
+//   radial2 = normal to line2 through v3
+//   center = intersection(radial1, radial2), radius = |center - v2|
 
 import { polar, timeToTheta } from "./tideDiagramModel.mjs";
 
@@ -62,14 +66,8 @@ export function layoutTideMarks(params) {
     const v2 = { x: v1.x + v2Offset.x, y: v1.y + v2Offset.y };
     const v3 = { x: v1.x + v3Offset.x, y: v1.y + v3Offset.y };
 
-    const diaDx = v3.x - v2.x;
-    const diaDy = v3.y - v2.y;
-    const diaLen = Math.hypot(diaDx, diaDy);
-    const circleRadius = 0.5 * diaLen;
-    const circleCenter = {
-      x: 0.5 * (v2.x + v3.x),
-      y: 0.5 * (v2.y + v3.y),
-    };
+    const circleCenter = normalLineIntersection(v1, v2, v3);
+    const circleRadius = Math.hypot(circleCenter.x - v2.x, circleCenter.y - v2.y);
 
     out.push({
       timeHours: t,
@@ -93,6 +91,38 @@ export function layoutTideMarks(params) {
     });
   }
   return out;
+}
+
+/**
+ * Intersect normals from v2 and v3 as specified for TimePointer in tide-diagram.md.
+ * If the normal lines are near-parallel, fall back to midpoint(v2, v3).
+ *
+ * @param {{x:number,y:number}} v1
+ * @param {{x:number,y:number}} v2
+ * @param {{x:number,y:number}} v3
+ * @returns {{x:number,y:number}}
+ */
+function normalLineIntersection(v1, v2, v3) {
+  const d1x = v2.x - v1.x;
+  const d1y = v2.y - v1.y;
+  const d2x = v3.x - v1.x;
+  const d2y = v3.y - v1.y;
+
+  // Any 90deg rotation gives a valid normal direction.
+  const n1x = -d1y;
+  const n1y = d1x;
+  const n2x = -d2y;
+  const n2y = d2x;
+
+  const denom = n1x * (-n2y) - n1y * (-n2x);
+  if (!Number.isFinite(denom) || Math.abs(denom) < 1e-9) {
+    return { x: 0.5 * (v2.x + v3.x), y: 0.5 * (v2.y + v3.y) };
+  }
+
+  const bx = v3.x - v2.x;
+  const by = v3.y - v2.y;
+  const t = (bx * (-n2y) - by * (-n2x)) / denom;
+  return { x: v2.x + t * n1x, y: v2.y + t * n1y };
 }
 
 /**

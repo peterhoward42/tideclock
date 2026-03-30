@@ -330,10 +330,15 @@ having geometry defined as follows.
 	theta: RadialAngle(t) + PI - halfAngle
 
 - The required triangle element is Vertex1, Vertex2, Vertex3
-- Let the line segment <dia> be defined as Vertex2 -> Vertex3
-- The required circle element has it's centre at the midpoint of dia and radius
-  0.5 * the length of dia
 
+- Let line1 = the line segment vertex1->vertex2
+- Let line2 = the line segment vertex1->vertex3
+- Let radial1 = a normal to line1 from vertex2 of length RefRadb
+- Let radial2 = a normal to line2 from vertex3 of length RefRadb
+- Let centre = the intersection of radial1 and radial2
+- let radius = the distance between centre and vertex2
+
+- The required circle element is defined by centre and radius
 
 
 ## Notes on interpretation

@@ -93,8 +93,13 @@ o  new data fetch paradigm
 			*  move on to tick labels
 			*  centre cluster
 			*  tide marker(s)
-			o  stroke widths to clarify preview
-				o  advice vs needs
+			*  stroke widths to clarify preview
+			*  time pointer shape
+			o  fix tide marker text angle
+			o  fix tide marker text location
+
+
+
 
 fart
 			o  remove unused junk in generators
