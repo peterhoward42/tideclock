@@ -197,23 +197,45 @@ the structure and leaves sizing inputs explicit.
 
 **Now label**
 
+**Branch selection (by clock time)**
+
+- Let **û_rad = (cos θ_now, sin θ_now)** — unit vector along the time-now ray from
+  **O** outward (**§Axes**, **§Polar**).
+- **Branch A** applies when **t_now ≤ 12** (hours on the same **0…24** scale as
+  **§Time and θ(t)**), i.e. midnight through noon inclusive.
+- **Branch B** applies when **t_now > 12** (afternoon through midnight).
+- Exactly one branch applies for every valid **t_now**.
+
+**Shared definitions**
+
+- **P** — midpoint of the **Now radial line** segment (between inner and outer
+  endpoints in diagram model space).
+- **û_n = (−sin θ_now, cos θ_now)** — unit vector perpendicular to **û_rad**,
+  from rotating **û_rad** by **+π/2** CCW (**§Polar**).
+- **NowPointerLabelNormalOffset** — signed diagram input **k** as **k·R**
+  (**§Sizing**). Positive **k** along **+û_n** moves the label to the **left** of
+  the outward radial direction (CCW side of the ray). **k = 0** places the anchor
+  at **P**.
+
+**Branch A — Now label** *(t_now ≤ 12)*
+
 - One **TextElement** with:
   - **Text** = constant `now` (not host text).
   - **Horizontal justification** = **centre**.
   - **Baseline polar angle** = **θ_now + π** (overrides **TextElement defaults**).
   - **FontHeight** = **NowPointerLabelSize·R** (diagram input, **§Sizing**).
-- **Anchor** — start from the midpoint **P** of the **Now radial line** segment
-  (between its inner and outer endpoints in diagram model space), then apply a
-  **normal offset**:
-  - Let **û_rad = (cos θ_now, sin θ_now)** — unit vector along the radial line
-    from **O** outward (same direction as the segment).
-  - Let **û_n = (−sin θ_now, cos θ_now)** — unit vector perpendicular to the
-    radial line, obtained by rotating **û_rad** by **+π/2** (counterclockwise,
-    **§Polar**).
-  - **NowPointerLabelNormalOffset** is a signed diagram input **k** interpreted as
-    **k·R** (**§Sizing**). The anchor is **P + (k·R)·û_n**. Positive **k** moves
-    the label to the **left** of the outward radial direction (CCW side of the
-    ray). **k = 0** places the anchor exactly at **P**.
+- **Anchor** — **P − (k·R)·û_n** (normal offset on the **opposite** side from
+  **Branch B** for the same signed **k**).
+
+**Branch B — Now label** *(t_now > 12)*
+
+- One **TextElement** with:
+  - **Text** = constant `now` (not host text).
+  - **Horizontal justification** = **centre**.
+  - **Baseline polar angle** = **θ_now + π + π** (= **θ_now + 2π**; equivalent to
+    **θ_now** modulo one full turn — hosts may reduce for rendering).
+  - **FontHeight** = **NowPointerLabelSize·R** (diagram input, **§Sizing**).
+- **Anchor** — **P + (k·R)·û_n**.
 
 **Now triangle (non-filled)**
 

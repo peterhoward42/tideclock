@@ -58,8 +58,12 @@ o  new data fetch paradigm
 			*  make tide marker text smaller
 			*  fix tide marker text locations
 			o  now pointer
-				o  get text going
-				o  bifurcate for larger theta
+				*  get text going
+				*  bifurcate for larger theta
+				o  dry the branch up 
+				o  reuse of existing concepts to dry
+				o  srp for time now input
+				o  put into parent/child in spec and names
 			o fart
 
 
@@ -84,6 +88,7 @@ fart
 			o  todo
 				o  consider baseline angle for now pointer at high
 				   TIME values
+				o  facilitate user reporting errors
 			o  exceptions
 				o  no more high waters or low water today
 				o  collisions

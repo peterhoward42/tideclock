@@ -22,7 +22,8 @@
     "below": 1.5
   },
   "nowPointer": {
-    "t": 18.53361111111111,
+    "tunused": 18.53361111111111,
+    "t": 4.533,
     "nowPointerLabelSize": 0.04,
     "nowPointerLabelNormalOffset": 0.02
   },

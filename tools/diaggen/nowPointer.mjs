@@ -56,18 +56,18 @@ export function buildNowPointerFromSpec(
     o.nowPointerLabelNormalOffset ?? o.NowPointerLabelNormalOffset,
     DEFAULT_LABEL_NORMAL_OFFSET,
   );
-  const nx = -Math.sin(theta);
-  const ny = Math.cos(theta);
-  const d = normalOffsetK * refRadius;
-  const anchor = {
-    x: mid.x + d * nx,
-    y: mid.y + d * ny,
-  };
-  const baselineAngle = theta + Math.PI;
+  // Branch A: t ≤ 12; Branch B: t > 12. See docs/specs/tide-diagram.md §NowPointer (Now label).
+  const nowLabelBranch = t <= 12 ? "A" : "B";
+
+  const { anchor, baselineAngle } = nowLabelPlacement(nowLabelBranch, theta, mid, {
+    normalOffsetK,
+    refRadius,
+  });
 
   return {
     timeHours: t,
     theta,
+    nowLabelBranch,
     radialLine: { start, end },
     nowLabel: {
       content: "now",
@@ -75,6 +75,37 @@ export function buildNowPointerFromSpec(
       anchor,
       angleRad: baselineAngle,
     },
+  };
+}
+
+/**
+ * Anchor and baseline for the "now" label: A = t≤12 (θ+π, −û_n), B = t>12 (θ+2π, +û_n).
+ * @param {'A' | 'B'} branch
+ * @param {number} theta
+ * @param {{ x: number, y: number }} mid midpoint of the Now radial line
+ * @param {{ normalOffsetK: number, refRadius: number }} opts
+ */
+function nowLabelPlacement(branch, theta, mid, opts) {
+  const { normalOffsetK, refRadius } = opts;
+  const nx = -Math.sin(theta);
+  const ny = Math.cos(theta);
+  const d = normalOffsetK * refRadius;
+
+  if (branch === "A") {
+    return {
+      anchor: {
+        x: mid.x - d * nx,
+        y: mid.y - d * ny,
+      },
+      baselineAngle: theta + Math.PI,
+    };
+  }
+  return {
+    anchor: {
+      x: mid.x + d * nx,
+      y: mid.y + d * ny,
+    },
+    baselineAngle: theta + 2 * Math.PI,
   };
 }
 

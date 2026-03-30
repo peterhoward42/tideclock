@@ -88,6 +88,7 @@
  * @typedef {{
  *   timeHours: number,
  *   theta: number,
+ *   nowLabelBranch: 'A' | 'B',
  *   radialLine: DiagramLineSeg,
  *   nowLabel: TideLabelTextInst,
  * }} NowPointerDiagram
