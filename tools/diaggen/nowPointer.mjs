@@ -1,5 +1,6 @@
 // NowPointer radial line in diagram space. See docs/specs/tide-diagram.md §NowPointer.
 import { polar, timeToTheta } from "./tideDiagramModel.mjs";
+import { parseCanonicalTimeOrThrow } from "./timeCanonical.mjs";
 
 const DEFAULT_LINE_INNER = 0.4;
 const DEFAULT_LINE_OUTER = 0.6;
@@ -22,14 +23,14 @@ export function buildNowPointerFromSpec(
   const raw = spec.nowPointer;
   if (raw == null || typeof raw !== "object") return null;
   const o = /** @type {Record<string, unknown>} */ (raw);
-  const tGlobal = spec.timeNowHours;
-  const t =
-    typeof tGlobal === "number" && Number.isFinite(tGlobal)
-      ? tGlobal
-      : o.t;
-  if (typeof t !== "number" || !Number.isFinite(t) || t < 0 || t > 24) {
-    return null;
+  const parsedNow = parseCanonicalTimeOrThrow(
+    spec.timeNow,
+    "spec.timeNow",
+  );
+  if (parsedNow.isRightEndpoint) {
+    throw new Error('spec.timeNow cannot be "24:00:00"');
   }
+  const t = parsedNow.hours;
 
   const lineInnerK = numOr(
     o.nowPointerLineInnerRadius ?? o.NowPointerLineInnerRadius,

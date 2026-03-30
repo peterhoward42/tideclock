@@ -25,7 +25,7 @@
     "above": 0.1,
     "below": 1.5
   },
-  "timeNowHours": 19.333333,
+  "timeNow": "19:20:03",
   "nowPointer": {
     "nowPointerLabelSize": 0.04,
     "nowPointerLabelNormalOffset": 0.02
@@ -39,31 +39,26 @@
     "TideMarkArrowLineLen": 0.05,
     "markers": [
       {
-        "t": 4.25,
-        "heightText": "0.94 m",
-        "timeText": "16:15"
+        "time": "04:15:00",
+        "heightText": "0.94 m"
       },
       {
-        "t": 10.75,
-        "heightText": "4.7 m",
-        "timeText": "10:45"
+        "time": "10:45:00",
+        "heightText": "4.7 m"
       },
       {
-        "t": 16.99,
-        "heightText": "0.89 m",
-        "timeText": "16:59"
+        "time": "16:59:24",
+        "heightText": "0.89 m"
       },
       {
-        "t": 23.1,
-        "heightText": "4.8 m",
-        "timeText": "23:07"
+        "time": "23:06:00",
+        "heightText": "4.8 m"
       }
     ]
   },
   "centreCluster": {
     "frameArcRadius": 0.35,
     "nowTime": {
-      "text": "Time now 19:20:03",
       "y": -0.2,
       "fontHeight": 0.05
     },

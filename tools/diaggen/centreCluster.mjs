@@ -2,6 +2,7 @@
 // Fixed glue between event-kind and interval text is normative here and in the spec.
 
 import { polar, refArcAngles } from "./tideDiagramModel.mjs";
+import { parseCanonicalTimeOrThrow } from "./timeCanonical.mjs";
 
 /** Fixed substring between event-kind text and interval text on the TimeDelta line. */
 export const TIME_DELTA_GLUE = " water in ";
@@ -106,16 +107,12 @@ export function buildCentreClusterFromSpec(spec) {
   const now = o.nowTime;
   if (now == null || typeof now !== "object") {
     throw new Error(
-      "centreCluster.nowTime is required: { text, y, fontHeight } (y and fontHeight are RefRadius multiples)",
+      "centreCluster.nowTime is required: { y, fontHeight } (y and fontHeight are RefRadius multiples)",
     );
   }
   const n = /** @type {Record<string, unknown>} */ (now);
-  const nowText = n.text;
   const nowY = n.y;
   const nowFh = n.fontHeight;
-  if (typeof nowText !== "string") {
-    throw new Error("centreCluster.nowTime.text must be a string");
-  }
   if (
     typeof nowY !== "number" ||
     typeof nowFh !== "number" ||
@@ -126,6 +123,11 @@ export function buildCentreClusterFromSpec(spec) {
       "centreCluster.nowTime.y and .fontHeight must be finite numbers (RefRadius multiples)",
     );
   }
+  const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
+  if (parsedNow.isRightEndpoint) {
+    throw new Error('spec.timeNow cannot be "24:00:00"');
+  }
+  const nowText = `Time now ${parsedNow.canonical}`;
 
   const td = o.timeDelta;
   if (td == null || typeof td !== "object") {

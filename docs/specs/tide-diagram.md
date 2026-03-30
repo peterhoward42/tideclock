@@ -76,6 +76,14 @@ function of the RefArc.
 
 - The RefArc represents one **24 h** span from **00:00** to **24:00**.
 - **00:00** is the **leftmost** endpoint; **24:00** the **rightmost**.
+- All host-provided times use one strict canonical string format:
+  - **`HH:MM:SS`** (exactly 2 digits per field, colon-delimited).
+  - Valid normal range: **`00:00:00`** through **`23:59:59`**.
+  - **`24:00:00`** is a reserved sentinel for the RefArc right endpoint only.
+- Define canonical-to-scalar conversion:
+  - For parsed components **H, M, S**, define **t = H + M/60 + S/3600**.
+  - This yields **0 ≤ t < 24** for normal canonical times and **t = 24** only
+    for **`24:00:00`**.
 - Increasing time maps **monotonically and linearly** to distance along the
 RefArc from left to right (CCW along the arc).
 - For **t** in hours with **0 ≤ t ≤ 24**:
@@ -86,11 +94,12 @@ RefArc from left to right (CCW along the arc).
 
 ### §Global “time now” input
 
-- The diagram model uses **one** global “time now” scalar:
-  - **timeNowHours** is a host-provided **real-valued quantity of hours** in the
-    range **[0, 24]**, represented as a **floating-point number**.
+- The diagram model uses **one** global canonical input:
+  - **`timeNow`** is a host-provided canonical string in **`HH:MM:SS`**.
+  - **`timeNow = "24:00:00"` is invalid** and must fail diagram generation.
 - Define:
-  - **t_now = timeNowHours**
+  - Parse **`timeNow`** per **§Time and θ(t)**.
+  - **t_now = H + M/60 + S/3600**
   - **θ_now = θ(t_now)** per **§Time and θ(t)**.
 - Any element that is “tied to the current time now” is defined **in terms of
   `t_now` and `θ_now`**; the specification does **not** introduce a second,
@@ -191,7 +200,7 @@ model em-boxes or similar font metrics.
 ### Time association
 
 - **NowPointer** is defined relative to the **global** current time:
-  - It uses **t_now = timeNowHours** and **θ_now = θ(t_now)** from
+  - It uses **t_now** derived from canonical **`timeNow`** and **θ_now = θ(t_now)** from
     **§Global “time now” input**.
 - All **NowPointer** geometry is defined relative to **θ_now**.
 
@@ -272,7 +281,7 @@ Under **CentreCluster** there are **three** logical parts, all **direct** member
 
 | Part                   | Role                                                                                    |
 | ---------------------- | --------------------------------------------------------------------------------------- |
-| **NowTime**            | One **TextElement** — the main **“time now” readout line**, derived from **timeNowHours**. |
+| **NowTime**            | One **TextElement** — the main **“time now” readout line**, derived from **`timeNow`**. |
 | **TimeDelta**          | Three **TextElement** fragments that read as one centred line.                          |
 | **CentreClusterFrame** | **Curve primitives only** — two line segments and one arc (see **CentreClusterFrame**). |
 
@@ -291,8 +300,8 @@ to **Independent stroked curves**.
 ### NowTime
 
 - One **TextElement**:
-  - **Text** — from the host (full line, e.g. “time now …”), **formatted as a
-    readout of the global `timeNowHours` (`t_now`)**.
+  - **Text** — fixed synthesis from global **`timeNow`**:
+    - exactly **`Time now HH:MM:SS`** (includes seconds; no host override).
   - **FontHeight** — input **k** as **k·R** (**§Sizing**).
   - **Horizontal justification** — **centre** (explicit override; matches default).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
@@ -377,8 +386,11 @@ z-order not fixed here).
 ### Count and time association
 
 - **N** tide markers; count from host input.
-- Each marker has time **t** in **[0, 24]** and polar angle **θ(t)** (**§Time and
-θ(t)**).
+- Each marker provides canonical **`time`** in **`HH:MM:SS`**.
+- Parse marker **`time`** per **§Time and θ(t)** to derive **t** and **θ(t)**.
+- Marker **`time = "24:00:00"`** is silently ignored (marker dropped).
+- If two retained markers share the same canonical **`time`**, generation must
+  fail with an error.
 
 ### Logical structure
 
@@ -403,7 +415,12 @@ For **both** labels:
 - Height label — `**<TideHeightLabelSize>`·R**.
 - Time label — `**<TideTimeLabelSize>`·R**.
 
-**Text** is from the host; other **Text Element** rules apply unless overridden.
+**Text** rules:
+
+- Height label text is from the host.
+- Time label text is synthesized from canonical marker **`time`** as
+  **`HH:MM`** (seconds omitted; no host override).
+- Other **Text Element** rules apply unless overridden.
 
 ### TimePointer
 

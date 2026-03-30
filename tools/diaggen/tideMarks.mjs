@@ -10,6 +10,10 @@
 //   center = intersection(radial1, radial2), radius = |center - v2|
 
 import { polar, timeToTheta } from "./tideDiagramModel.mjs";
+import {
+  formatCanonicalHHMM,
+  parseCanonicalTimeOrThrow,
+} from "./timeCanonical.mjs";
 
 /**
  * @param {{
@@ -22,7 +26,7 @@ import { polar, timeToTheta } from "./tideDiagramModel.mjs";
  *   timeLabelSizeK: number,
  *   tideMarkArrowDivergence: number,
  *   tideMarkArrowLineLen: number,
- *   markers: { t: number, heightText: string, timeText: string }[],
+ *   markers: { t: number, canonicalTime: string, heightText: string, timeText: string }[],
  * }} params
  * @returns {import('./tideDiagramModel.mjs').TideMarkDiagram[]}
  */
@@ -47,9 +51,6 @@ export function layoutTideMarks(params) {
   const out = [];
   for (const m of markers) {
     const t = m.t;
-    if (typeof t !== "number" || !Number.isFinite(t) || t < 0 || t > 24) {
-      continue;
-    }
     const theta = timeToTheta(t, thetaLeft, thetaRight);
     const baselineAngle = theta + Math.PI / 2;
 
@@ -164,20 +165,39 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   ),
   );
 
-  /** @type {{ t: number, heightText: string, timeText: string }[]} */
+  /** @type {{ t: number, canonicalTime: string, heightText: string, timeText: string }[]} */
   const markers = [];
   for (const row of markersRaw) {
     if (row == null || typeof row !== "object") continue;
     const r = /** @type {Record<string, unknown>} */ (row);
-    const t = r.t;
     const heightText = r.heightText;
-    const timeText = r.timeText;
-    if (typeof t !== "number" || !Number.isFinite(t)) continue;
-    if (typeof heightText !== "string" || typeof timeText !== "string") continue;
-    markers.push({ t, heightText, timeText });
+    const canonicalTime = r.time;
+    if (typeof heightText !== "string") continue;
+    const parsed = parseCanonicalTimeOrThrow(
+      canonicalTime,
+      "tideMarks.markers[].time",
+    );
+    // A marker exactly on the right endpoint is explicitly ignored.
+    if (parsed.isRightEndpoint) continue;
+    markers.push({
+      t: parsed.hours,
+      canonicalTime: parsed.canonical,
+      heightText,
+      timeText: formatCanonicalHHMM(parsed.canonical),
+    });
   }
 
   if (markers.length === 0) return [];
+
+  const seen = new Set();
+  for (const marker of markers) {
+    if (seen.has(marker.canonicalTime)) {
+      throw new Error(
+        `duplicate tideMarks marker time "${marker.canonicalTime}"`,
+      );
+    }
+    seen.add(marker.canonicalTime);
+  }
 
   return layoutTideMarks({
     refRadius,

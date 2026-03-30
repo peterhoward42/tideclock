@@ -63,16 +63,18 @@ o  new data fetch paradigm
 				*  dry the branch up 
 				*  avoid time now name clashing
 				*  fix: actual time inputs used
-				o  settle on universal encoding of time as  h:m:s int struct
+				*  srp for time now input - beware clash of names
+				*  settle on universal encoding of time as  h:m:s int struct
 				   time input, with utils generation to derive string
 				   representations wherever needed and into float hours in
 				   other places
-				   	o  no need for str repr of times in inputs - all
-					derivable
+				   	*  no need for str repr of times in inputs - all
+					   derivable
+					*  cursor is going for it...
 
-				o  switch tide time inputs to h:m
 				o  fix overall ordering - utils before elements
-				o  srp for time now input - beware clash of names
+				o  high water in bit of a modelling misfit because takes
+				   dumb inputs
 			o fart
 
 
