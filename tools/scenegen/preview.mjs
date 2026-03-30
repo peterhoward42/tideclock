@@ -6,6 +6,11 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
+// Visual-only preview styling.
+// Keep strokes thin so geometry relationships are easier to inspect.
+const PREVIEW_STROKE_WIDTH = 1.0;
+const SVG_NON_SCALING_STROKE_ATTR = `vector-effect="non-scaling-stroke"`;
+
 /**
  * Turn a scene model into a fixed-path HTML preview (inline SVG) for inspection.
  * Applies a y-flip so scene math coords (y up) map into SVG (y down).
@@ -136,7 +141,7 @@ function renderNode(node) {
     }
     case "line": {
       const { start: a, end: b } = node;
-      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="#334" stroke-width="1.5" fill="none" />`;
+      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="#334" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" />`;
     }
     case "arc": {
       if (node.facetedPreview === true) {
@@ -146,19 +151,19 @@ function renderNode(node) {
           node.sweepRad,
         );
         if (pts === "") return "";
-        return `    <polyline points="${escapeAttr(pts)}" stroke="#335" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" />`;
+        return `    <polyline points="${escapeAttr(pts)}" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round" />`;
       }
       const d = circularArcToPathD(node.center, node.start, node.sweepRad);
-      return `    <path d="${escapeAttr(d)}" stroke="#335" stroke-width="1.5" fill="none" shape-rendering="geometricPrecision" />`;
+      return `    <path d="${escapeAttr(d)}" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision" />`;
     }
     case "triangle": {
       const { a, b, c } = node;
       const pts = `${a.x},${a.y} ${b.x},${b.y} ${c.x},${c.y}`;
-      return `    <polygon points="${escapeAttr(pts)}" fill="#335" stroke="#335" stroke-width="1.5" />`;
+      return `    <polygon points="${escapeAttr(pts)}" fill="#335" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} />`;
     }
     case "circle": {
       const { center, radius } = node;
-      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="#335" stroke="#335" stroke-width="1.5" />`;
+      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="#335" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} />`;
     }
     case "text": {
       return renderTextSvg(node);
@@ -276,7 +281,7 @@ function legacySceneToSvg(scene, w, h) {
   const rectsSvg = rects
     .map(
       (r) =>
-        `<rect x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" fill="#e8eef5" stroke="#334" stroke-width="1" />`,
+        `<rect x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" fill="#e8eef5" stroke="#334" stroke-width="1" ${SVG_NON_SCALING_STROKE_ATTR} />`,
     )
     .join("\n    ");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">

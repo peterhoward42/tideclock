@@ -92,13 +92,11 @@ o  new data fetch paradigm
 			*  work up iteration workflow process to get right as go along
 			*  move on to tick labels
 			*  centre cluster
-fart 
-			o  tide marker(s)
-				*  spec(1)
-				*  dry the spec
-				*  spec(2)
-				*  solid time markers
+			*  tide marker(s)
+			o  stroke widths to clarify preview
+				o  advice vs needs
 
+fart
 			o  remove unused junk in generators
 
 
