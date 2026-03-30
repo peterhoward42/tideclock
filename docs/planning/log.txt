@@ -62,7 +62,15 @@ o  new data fetch paradigm
 				*  bifurcate for larger theta
 				*  dry the branch up 
 				*  avoid time now name clashing
-				o  fix: actual time inputs used
+				*  fix: actual time inputs used
+				o  settle on universal encoding of time as  h:m:s int struct
+				   time input, with utils generation to derive string
+				   representations wherever needed and into float hours in
+				   other places
+				   	o  no need for str repr of times in inputs - all
+					derivable
+
+				o  switch tide time inputs to h:m
 				o  fix overall ordering - utils before elements
 				o  srp for time now input - beware clash of names
 			o fart

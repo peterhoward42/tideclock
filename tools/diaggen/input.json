@@ -9,9 +9,13 @@
   "tickLen": 0.07,
   "tickLabelHours": [
     0,
+    3,
     6,
+    9,
     12,
-    18
+    15,
+    18,
+    21
   ],
   "tickLabelSize": 0.05,
   "tickLabelClearance": 0.07,
@@ -21,7 +25,7 @@
     "above": 0.1,
     "below": 1.5
   },
-  "timeNowHours": 4.533,
+  "timeNowHours": 19.333333,
   "nowPointer": {
     "nowPointerLabelSize": 0.04,
     "nowPointerLabelNormalOffset": 0.02
@@ -36,26 +40,36 @@
     "markers": [
       {
         "t": 4.25,
-        "heightText": "4.2 m",
-        "timeText": "04:15"
+        "heightText": "0.94 m",
+        "timeText": "16:15"
       },
       {
-        "t": 16.5,
-        "heightText": "3.8 m",
-        "timeText": "16:30"
+        "t": 10.75,
+        "heightText": "4.7 m",
+        "timeText": "10:45"
+      },
+      {
+        "t": 16.99,
+        "heightText": "0.89 m",
+        "timeText": "16:59"
+      },
+      {
+        "t": 23.1,
+        "heightText": "4.8 m",
+        "timeText": "23:07"
       }
     ]
   },
   "centreCluster": {
     "frameArcRadius": 0.35,
     "nowTime": {
-      "text": "Time now 18:32:01",
+      "text": "Time now 19:20:03",
       "y": -0.2,
       "fontHeight": 0.05
     },
     "timeDelta": {
-      "eventKind": "Low",
-      "interval": "3h 21m",
+      "eventKind": "High",
+      "interval": "4h 21m",
       "y": -0.1,
       "fontHeight": 0.05
     }
