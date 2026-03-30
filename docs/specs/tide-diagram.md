@@ -202,8 +202,18 @@ the structure and leaves sizing inputs explicit.
   - **Horizontal justification** = **centre**.
   - **Baseline polar angle** = **θ_now + π** (overrides **TextElement defaults**).
   - **FontHeight** = **NowPointerLabelSize·R** (diagram input, **§Sizing**).
-- **Anchor** — the midpoint of the **Now radial line** segment (between its inner
-  and outer endpoints in diagram model space).
+- **Anchor** — start from the midpoint **P** of the **Now radial line** segment
+  (between its inner and outer endpoints in diagram model space), then apply a
+  **normal offset**:
+  - Let **û_rad = (cos θ_now, sin θ_now)** — unit vector along the radial line
+    from **O** outward (same direction as the segment).
+  - Let **û_n = (−sin θ_now, cos θ_now)** — unit vector perpendicular to the
+    radial line, obtained by rotating **û_rad** by **+π/2** (counterclockwise,
+    **§Polar**).
+  - **NowPointerLabelNormalOffset** is a signed diagram input **k** interpreted as
+    **k·R** (**§Sizing**). The anchor is **P + (k·R)·û_n**. Positive **k** moves
+    the label to the **left** of the outward radial direction (CCW side of the
+    ray). **k = 0** places the anchor exactly at **P**.
 
 **Now triangle (non-filled)**
 

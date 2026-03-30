@@ -4,6 +4,7 @@ import { polar, timeToTheta } from "./tideDiagramModel.mjs";
 const DEFAULT_LINE_INNER = 0.4;
 const DEFAULT_LINE_OUTER = 0.6;
 const DEFAULT_LABEL_SIZE = 0.04;
+const DEFAULT_LABEL_NORMAL_OFFSET = 0;
 
 /**
  * @param {Record<string, unknown>} spec
@@ -47,9 +48,20 @@ export function buildNowPointerFromSpec(
     DEFAULT_LABEL_SIZE,
   );
   const fontSize = Math.max(0, labelSizeK) * refRadius;
-  const anchor = {
+  const mid = {
     x: 0.5 * (start.x + end.x),
     y: 0.5 * (start.y + end.y),
+  };
+  const normalOffsetK = numOr(
+    o.nowPointerLabelNormalOffset ?? o.NowPointerLabelNormalOffset,
+    DEFAULT_LABEL_NORMAL_OFFSET,
+  );
+  const nx = -Math.sin(theta);
+  const ny = Math.cos(theta);
+  const d = normalOffsetK * refRadius;
+  const anchor = {
+    x: mid.x + d * nx,
+    y: mid.y + d * ny,
   };
   const baselineAngle = theta + Math.PI;
 

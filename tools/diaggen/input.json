@@ -23,7 +23,8 @@
   },
   "nowPointer": {
     "t": 18.53361111111111,
-    "nowPointerLabelSize": 0.04
+    "nowPointerLabelSize": 0.04,
+    "nowPointerLabelNormalOffset": 0.02
   },
   "tideMarks": {
     "tideHeightLabelRadius": 0.88,

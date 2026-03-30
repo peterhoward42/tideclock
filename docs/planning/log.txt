@@ -2,48 +2,6 @@
 fart-----
 
 
-There's a difference between the service history I can tell you sincerely,
-and what I have documentary evidence for. I bought it 5 years ago - and the service book
-is stamped up till then. I've had it serviced every summer since then, includinga
-a cambelt was changed at 97k in 20121 (there's a garage sticker for the cambelt change
-under the bonnet) . But unfortunately the service booklet has only been
-stamped twice in my ownership - for reasons I cannot fathom.
-
-No major issues but two minor. The transmission is a little noisy now and one of the tyres
-needs pumping up every few days. There's a great tyre on the spare though. I wanted to keep
-the allow wheels on for the photo.
-
-
-o  subject matter names
-o  people in queue
-o  cum wall
-o  walking tour
-o  humiliation walk
-o  encourage entourage
-	o  feel up
-	o  wank
-	o  suck
-	o  sit on
-	o  les
-	o  humiliate
-	o  bet
-	o  give it me now in public
-o  remote control cafe
-o  guest in kitchen/garden/workshop  
-o  stranger in car
-o traffic jam misbehaviour
-o  lie down up skirt
-o  elegant destroy or celebrate
-o  watier / waitress
-o  on food over shoulders in hair
-o  pee tease
-o  all men in bar
-o  wealth
-o  total buying power influence
-o  total own body control
-
-
-
 *  main display requirements
 *  main display design
 *  generative code strategy
@@ -99,6 +57,10 @@ o  new data fetch paradigm
 			*  make tide marker graphic smaller
 			*  make tide marker text smaller
 			*  fix tide marker text locations
+			o  now pointer
+				o  get text going
+				o  bifurcate for larger theta
+			o fart
 
 
 
