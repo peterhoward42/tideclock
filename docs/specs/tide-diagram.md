@@ -84,6 +84,18 @@ RefArc from left to right (CCW along the arc).
   invertible. Any element that “uses time **t**” uses **θ(t)** unless stated
   otherwise.
 
+### §Global “time now” input
+
+- The diagram model uses **one** global “time now” scalar:
+  - **timeNowHours** is a host-provided **real-valued quantity of hours** in the
+    range **[0, 24]**, represented as a **floating-point number**.
+- Define:
+  - **t_now = timeNowHours**
+  - **θ_now = θ(t_now)** per **§Time and θ(t)**.
+- Any element that is “tied to the current time now” is defined **in terms of
+  `t_now` and `θ_now`**; the specification does **not** introduce a second,
+  independent notion of “now.”
+
 ## Content bounds (box of interest)
 
 - Required inputs define an axis-aligned **rectangle of interest** around **O** in
@@ -178,9 +190,9 @@ model em-boxes or similar font metrics.
 
 ### Time association
 
-- Let **t_now** be the host-provided current time in hours, constrained to
-  **[0, 24]**.
-- Let **θ_now = θ(t_now)** per **§Time and θ(t)**.
+- **NowPointer** is defined relative to the **global** current time:
+  - It uses **t_now = timeNowHours** and **θ_now = θ(t_now)** from
+    **§Global “time now” input**.
 - All **NowPointer** geometry is defined relative to **θ_now**.
 
 ### Geometry (first pass, pending final constants)
@@ -260,7 +272,7 @@ Under **CentreCluster** there are **three** logical parts, all **direct** member
 
 | Part                   | Role                                                                                    |
 | ---------------------- | --------------------------------------------------------------------------------------- |
-| **NowTime**            | One **TextElement** — the main “time now” line.                                         |
+| **NowTime**            | One **TextElement** — the main **“time now” readout line**, derived from **timeNowHours**. |
 | **TimeDelta**          | Three **TextElement** fragments that read as one centred line.                          |
 | **CentreClusterFrame** | **Curve primitives only** — two line segments and one arc (see **CentreClusterFrame**). |
 
@@ -279,7 +291,8 @@ to **Independent stroked curves**.
 ### NowTime
 
 - One **TextElement**:
-  - **Text** — from the host (full line, e.g. “time now …”).
+  - **Text** — from the host (full line, e.g. “time now …”), **formatted as a
+    readout of the global `timeNowHours` (`t_now`)**.
   - **FontHeight** — input **k** as **k·R** (**§Sizing**).
   - **Horizontal justification** — **centre** (explicit override; matches default).
   - **Baseline polar angle** — **0** (**TextElement defaults**).

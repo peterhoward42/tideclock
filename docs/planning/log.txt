@@ -60,8 +60,9 @@ o  new data fetch paradigm
 			o  now pointer
 				*  get text going
 				*  bifurcate for larger theta
-				o  dry the branch up 
-				o  avoid time now name clashing
+				*  dry the branch up 
+				*  avoid time now name clashing
+				o  fix: actual time inputs used
 				o  fix overall ordering - utils before elements
 				o  srp for time now input - beware clash of names
 			o fart

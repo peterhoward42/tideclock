@@ -21,9 +21,8 @@
     "above": 0.1,
     "below": 1.5
   },
+  "timeNowHours": 4.533,
   "nowPointer": {
-    "tunused": 18.53361111111111,
-    "t": 4.533,
     "nowPointerLabelSize": 0.04,
     "nowPointerLabelNormalOffset": 0.02
   },

@@ -22,7 +22,11 @@ export function buildNowPointerFromSpec(
   const raw = spec.nowPointer;
   if (raw == null || typeof raw !== "object") return null;
   const o = /** @type {Record<string, unknown>} */ (raw);
-  const t = o.t;
+  const tGlobal = spec.timeNowHours;
+  const t =
+    typeof tGlobal === "number" && Number.isFinite(tGlobal)
+      ? tGlobal
+      : o.t;
   if (typeof t !== "number" || !Number.isFinite(t) || t < 0 || t > 24) {
     return null;
   }
