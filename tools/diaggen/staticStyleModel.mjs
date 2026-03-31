@@ -19,6 +19,11 @@ export const STATIC_STYLE_MODEL = {
       style: { color: "yellow" },
     },
     {
+      name: "time-pointer",
+      style: { color: "ivory" },
+    },
+
+    {
       name: "tbd",
       style: { color: "red" },
     },
@@ -30,7 +35,8 @@ export const STATIC_STYLE_MODEL = {
     { name: "EventKind", styleName: "dominant" },
     { name: "NextPointer", styleName: "dominant" },
     { name: "WaitArc", styleName: "dominant" },
-    { name: "TimePointer", styleName: "tbd" },
+
+    { name: "TimePointer", styleName: "time-pointer" },
     { name: "TimeLabel", styleName: "tbd" },
     { name: "TickLabel", styleName: "tbd" },
     { name: "CentreClusterFrame", styleName: "tbd" },
