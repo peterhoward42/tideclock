@@ -6,27 +6,25 @@
 /** @type {import('./styleBindings.mjs').StyleModelSpec} */
 export const STATIC_STYLE_MODEL = {
   styles: [
-    {
-      name: "baseCurve",
-      style: { color: "#335" },
-    },
-    {
-      name: "accent",
-      style: { color: "tomato" },
-    },
+
     {
       name: "dominant",
       style: { color: "yellow" },
     },
     {
-      name: "time-pointer",
-      style: { color: "ivory" },
+      name: "time-pointer-filled",
+      style: { color: "darkgrey" },
     },
 
     {
-      name: "tbd",
-      style: { color: "red" },
+      name: "grey-writing",
+      style: { color: "darkgrey" },
     },
+    {
+      name: "grey-strokes",
+      style: { color: "darkgrey" },
+    },
+
   ],
   bindings: [
     { name: "RefArc", styleName: "dominant" },
@@ -34,17 +32,16 @@ export const STATIC_STYLE_MODEL = {
     { name: "HeightLabel", styleName: "dominant" },
     { name: "EventKind", styleName: "dominant" },
     { name: "NextPointer", styleName: "dominant" },
-    { name: "WaitArc", styleName: "dominant" },
-
-    { name: "TimePointer", styleName: "time-pointer" },
-    { name: "TimeLabel", styleName: "tbd" },
-    { name: "TickLabel", styleName: "tbd" },
-    { name: "CentreClusterFrame", styleName: "tbd" },
-    { name: "NowTime", styleName: "tbd" },
-    { name: "DeltaGlue", styleName: "tbd" },
-    { name: "DeltaInterval", styleName: "tbd" },
-    { name: "NowTriangle", styleName: "tbd" },
-    { name: "NowRadialLine", styleName: "tbd" },
-    { name: "NowLabel", styleName: "tbd" },
+    { name: "WaitArc", styleName: "grey-strokes" },
+    { name: "TimePointer", styleName: "time-pointer-filled" },
+    { name: "TimeLabel", styleName: "grey-writing" },
+    { name: "TickLabel", styleName: "grey-writing" },
+    { name: "CentreClusterFrame", styleName: "grey-strokes" },
+    { name: "NowTime", styleName: "grey-writing" },
+    { name: "DeltaGlue", styleName: "grey-writing" },
+    { name: "DeltaInterval", styleName: "grey-writing" },
+    { name: "NowTriangle", styleName: "grey-strokes" },
+    { name: "NowRadialLine", styleName: "grey-strokes" },
+    { name: "NowLabel", styleName: "grey-writing" },
   ],
 };

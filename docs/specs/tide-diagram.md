@@ -88,7 +88,7 @@ function of the RefArc.
 - **00:00** is the **leftmost** endpoint; **24:00** the **rightmost**.
 - All host-provided times use one strict canonical string format:
   - `**HH:MM:SS`** (exactly 2 digits per field, colon-delimited).
-  - Valid normal range: `**00:00:00**` through `**23:59:59**`.
+  - Valid normal range: `**00:00:00`** through `**23:59:59**`.
   - `**24:00:00**` is a reserved sentinel for the RefArc right endpoint only.
 - Define canonical-to-scalar conversion:
   - For parsed components **H, M, S**, define **t = H + M/60 + S/3600**.
@@ -105,7 +105,7 @@ otherwise.
 ### §Global “time now” input
 
 - The diagram model uses **one** global canonical input:
-  - `**timeNow`** is a host-provided canonical string in `**HH:MM:SS**`.
+  - `**timeNow`** is a host-provided canonical string in `**HH:MM:SS`**.
   - `**timeNow = "24:00:00"` is invalid** and must fail diagram generation.
 - Define:
   - Parse `**timeNow`** per **§Time and θ(t)**.
@@ -331,13 +331,13 @@ Inputs and derived quantities:
 
 - **WaitArc** contributes one arc segment concentric with **RefArc**.
 - Arrowhead rendering is **not** synthesized by diagram generation; generation
-  carries an explicit metadata intent that an arrow exists at arc end. The
-  downstream renderer is responsible for visual arrowhead geometry.
+carries an explicit metadata intent that an arrow exists at arc end. The
+downstream renderer is responsible for visual arrowhead geometry.
 
 ### Time association
 
 - Use the same **next tide marker** definition as **NextPointer** and
-  **CentreCluster.TimeDelta**.
+**CentreCluster.TimeDelta**.
 - Let **θ_now** be from `timeNow` and **θ_next** from the next marker time.
 - **WaitArc** starts at **θ_now** and sweeps CCW to **θ_next**.
 
@@ -346,23 +346,23 @@ Inputs and derived quantities:
 - Define input **WaitArcRadius** as **k·R** per **§Sizing**.
 - Radius is **R_wait = WaitArcRadius·R**.
 - Arc centre is **O**, with start angle **θ_now** and sweep
-  **max(0, θ_next − θ_now)**.
+**max(0, θ_next − θ_now)**.
 - If no next marker exists on the same civil day, **WaitArc** is omitted.
 
 ### Arrow metadata
 
 - **WaitArc** carries arrow metadata only; generator does not synthesize
-  arrowhead geometry.
+arrowhead geometry.
 - Arrow metadata fields:
   - **at** — currently fixed to `end` for **WaitArc**.
   - **lengthK** — arrowhead length multiplier (recommended in stroke-width
-    units for renderer mapping).
+  units for renderer mapping).
   - **widthK** — arrowhead width multiplier (same unit convention as
-    **lengthK**).
+  **lengthK**).
   - **insetK** — signed tip offset along the tangent at the target endpoint.
   - **style** — one of `filled` or `open`.
   - **scaleWithStroke** — boolean; when true, renderer scales marker with
-    stroke width.
+  stroke width.
 
 ## CentreCluster
 
@@ -402,7 +402,7 @@ to **Independent stroked curves**.
 
 - One **TextElement**:
   - **Text** — fixed synthesis from global `**timeNow`**:
-    - exactly `**Time now HH:MM:SS**` (includes seconds; no host override).
+    - exactly `**Time now HH:MM:SS`** (includes seconds; no host override).
   - **FontHeight** — input **k** as **k·R** (**§Sizing**).
   - **Horizontal justification** — **centre** (explicit override; matches default).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
@@ -414,8 +414,8 @@ to **Independent stroked curves**.
 - One logical sentence, **three** **TextElement** instances, **centre-aligned as
 a whole** at **X = 0** (**CentreCluster horizontal axis**):
   1. **Event kind** — **Text** **derived** from the **kind** of the **next**
-    tide marker at or after `**timeNow`**, using the marker’s `**highOrLow**`
-    flag (`"Low"` or `"High"`). Separate for styling while staying one visual
+    tide marker at or after `**timeNow`**, using the marker’s `**highOrLow`**
+    flag (`"Low"` or `"High"`). Separate for styling while staying one visual  
     line.
   2. **Glue** — literal `**water in`** (fixed; not a host input).
   3. **Interval** — **Text** **derived** from the **forward time difference**
@@ -496,10 +496,10 @@ z-order not fixed here).
 ### Count and time association
 
 - **N** tide markers; count from host input.
-- Each marker provides canonical `**time`** in `**HH:MM:SS**`.
+- Each marker provides canonical `**time`** in `**HH:MM:SS`**.
 - Parse marker `**time**` per **§Time and θ(t)** to derive **t** and **θ(t)**.
 - Marker `**time = "24:00:00"`** is silently ignored (marker dropped).
-- If two retained markers share the same canonical `**time**`, generation must
+- If two retained markers share the same canonical `**time`**, generation must
 fail with an error.
 - Each marker carries a **kind** flag `**highOrLow ∈ {"High", "Low"}`**, used
 for derived event descriptions (see **CentreCluster**).
@@ -531,7 +531,7 @@ For **both** labels:
 
 - Height label text is from the host.
 - Time label text is synthesized from canonical marker `**time`** as
-`**HH:MM**` (seconds omitted; no host override).
+`**HH:MM`** (seconds omitted; no host override).
 - Other **Text Element** rules apply unless overridden.
 
 ### TimePointer
@@ -545,11 +545,11 @@ expressed in radians
 - Vertex1 is the point on the RefArc corresponding to time (t).
 - halfAngle is 0.5 * TideMarkArrowDivergence
 - Vertex 2 is is located with a polar offset from Vertex1 :
-  R: TideMarkArrowLineLen * RefRad
-  theta: RadialAngle(t) + PI + halfAngle
+R: TideMarkArrowLineLen * RefRad
+theta: RadialAngle(t) + PI + halfAngle
 - Vertex 3 is is located with a polar offset from Vertex1 :
-  R: TideMarkArrowLineLen * RefRad
-  theta: RadialAngle(t) + PI - halfAngle
+R: TideMarkArrowLineLen * RefRad
+theta: RadialAngle(t) + PI - halfAngle
 - The required triangle element is Vertex1, Vertex2, Vertex3
 - Let line1 = the line segment vertex1->vertex2
 - Let line2 = the line segment vertex1->vertex3
