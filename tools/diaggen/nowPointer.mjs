@@ -148,7 +148,7 @@ function nowLabelPlacement(branch, theta, mid, opts) {
  * Build the NowPointer triangle: an isosceles triangle with a horizontal base in
  * its local coordinates, reference point at the peak. The peak lies on the
  * radial line at radius k·R, and the whole triangle is rotated about that peak
- * by angle θ(t) + π.
+ * by angle θ(t) + π/2.
  *
  * @param {Record<string, unknown>} nowSpec
  * @param {Record<string, unknown>} triangleSpec
@@ -191,7 +191,7 @@ function buildNowPointerTriangle(nowSpec, triangleSpec, ctx) {
   const localBaseLeft = { x: -halfBase, y: -height };
   const localBaseRight = { x: halfBase, y: -height };
 
-  const rotate = theta + Math.PI;
+  const rotate = theta + 0.5 * Math.PI;
   const cosA = Math.cos(rotate);
   const sinA = Math.sin(rotate);
 

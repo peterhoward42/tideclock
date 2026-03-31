@@ -263,7 +263,7 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
       - right base vertex at **(+½·NowPointerTriangleBaseLen·R, −NowPointerTriangleHeight·R)**.
   - Placement and orientation:
     - Let **P_ref = polar(NowPointerTriangleRadius·R, θ_now)** be the **reference point** (the peak) on the time-now radial line.
-    - Let the triangle be rotated rigidly about **P_ref** by angle **θ_now + π**.
+    - Let the triangle be rotated rigidly about **P_ref** by angle **θ_now + π/2**.
     - The required triangle element is the image of the three local vertices under this rotation+translation, with **fill disabled** (stroke-only primitive in scene terms).
 
 ## CentreCluster

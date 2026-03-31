@@ -76,12 +76,11 @@ o  new data fetch paradigm
 				fart
 					o  the now triangle
 						*  use tree for inputs
-						o  force not use divergence
-						o  sort aspect ratio
+						*  force not use divergence
+						*  sort aspect ratio
 						o  fix angle
 						o  fix radius
 						o  not filled
-						o  make scene has them parent/child
 
 				o  what if no more tides today?
 
