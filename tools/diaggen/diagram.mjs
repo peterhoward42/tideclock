@@ -1,7 +1,7 @@
-export { buildDiagram } from "./buildDiagram.mjs";
 export {
+  buildDiagram,
   polar,
   refArcAngles,
+  tideDiagramToScene,
   timeToTheta,
-} from "./tideDiagramModel.mjs";
-export { tideDiagramToScene } from "./toScene.mjs";
+} from "../../src/diagram-generation/index.mjs";

@@ -84,8 +84,8 @@ fart
 
 See /docs/planning/diagram-generation-migration-charter.md for context.
 
-
-
+				o  question merit of keeping iter.sh on gen scene - has
+					served its purpose
 
 				o  harden formerly pipeline code
 
