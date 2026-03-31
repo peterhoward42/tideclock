@@ -312,10 +312,15 @@ to **Independent stroked curves**.
 
 - One logical sentence, **three** **TextElement** instances, **centre-aligned as
 a whole** at **X = 0** (**CentreCluster horizontal axis**):
-  1. **Event kind** — **Text** from host (e.g. `"Low"`, `"High"`). Separate for
-    styling while staying one visual line.
+  1. **Event kind** — **Text** **derived** from the **kind** of the **next**
+    tide marker at or after **`timeNow`**, using the marker’s **`highOrLow`**
+    flag (`"Low"` or `"High"`). Separate for styling while staying one visual
+    line.
   2. **Glue** — literal `**water in`** (fixed; not a host input).
-  3. **Interval** — **Text** from host (e.g. `"3h 21m"`).
+  3. **Interval** — **Text** **derived** from the **forward time difference**
+    between **`timeNow`** and the **next** tide marker **on the same civil
+    day**, formatted as **`Hh Mm`** (e.g. `"3h 21m"`). Behaviour when no such
+    “next” marker exists is intentionally left undefined here.
 - Shared for all fragments:
   - **FontHeight** — one input **k** as **k·R** for the whole line (**§Sizing**).
   - **Horizontal justification** — **centre**; **X** positions chosen so the
@@ -391,6 +396,8 @@ z-order not fixed here).
 - Marker **`time = "24:00:00"`** is silently ignored (marker dropped).
 - If two retained markers share the same canonical **`time`**, generation must
   fail with an error.
+- Each marker carries a **kind** flag **`highOrLow ∈ {"High", "Low"}`**, used
+  for derived event descriptions (see **CentreCluster**).
 
 ### Logical structure
 

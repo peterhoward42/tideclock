@@ -71,10 +71,10 @@ o  new data fetch paradigm
 				   	*  no need for str repr of times in inputs - all
 					   derivable
 					*  cursor is going for it...
+				*  Model next event time from tide events not input
 
-				o  fix overall ordering - utils before elements
-				o  high water in bit of a modelling misfit because takes
-				   dumb inputs
+				o  what if no more tides today?
+
 			o fart
 
 

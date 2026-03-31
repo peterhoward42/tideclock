@@ -40,19 +40,23 @@
     "markers": [
       {
         "time": "04:15:00",
-        "heightText": "0.94 m"
+        "heightText": "0.94 m",
+        "highOrLow": "Low"
       },
       {
         "time": "10:45:00",
-        "heightText": "4.7 m"
+        "heightText": "4.7 m",
+        "highOrLow": "High"
       },
       {
         "time": "16:59:24",
-        "heightText": "0.89 m"
+        "heightText": "0.89 m",
+        "highOrLow": "Low"
       },
       {
         "time": "23:06:00",
-        "heightText": "4.8 m"
+        "heightText": "4.8 m",
+        "highOrLow": "High"
       }
     ]
   },
@@ -63,8 +67,6 @@
       "fontHeight": 0.05
     },
     "timeDelta": {
-      "eventKind": "High",
-      "interval": "4h 21m",
       "y": -0.1,
       "fontHeight": 0.05
     }

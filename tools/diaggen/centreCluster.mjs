@@ -3,6 +3,7 @@
 
 import { polar, refArcAngles } from "./tideDiagramModel.mjs";
 import { parseCanonicalTimeOrThrow } from "./timeCanonical.mjs";
+import { computeNextTideEventFromSpec } from "./tideEvents.mjs";
 
 /** Fixed substring between event-kind text and interval text on the TimeDelta line. */
 export const TIME_DELTA_GLUE = " water in ";
@@ -132,19 +133,12 @@ export function buildCentreClusterFromSpec(spec) {
   const td = o.timeDelta;
   if (td == null || typeof td !== "object") {
     throw new Error(
-      "centreCluster.timeDelta is required: { eventKind, interval, y, fontHeight }",
+      "centreCluster.timeDelta is required: { y, fontHeight } (RefRadius multiples)",
     );
   }
   const t = /** @type {Record<string, unknown>} */ (td);
-  const eventKind = t.eventKind;
-  const interval = t.interval;
   const tdY = t.y;
   const tdFh = t.fontHeight;
-  if (typeof eventKind !== "string" || typeof interval !== "string") {
-    throw new Error(
-      "centreCluster.timeDelta.eventKind and .interval must be strings",
-    );
-  }
   if (
     typeof tdY !== "number" ||
     typeof tdFh !== "number" ||
@@ -155,6 +149,16 @@ export function buildCentreClusterFromSpec(spec) {
       "centreCluster.timeDelta.y and .fontHeight must be finite numbers (RefRadius multiples)",
     );
   }
+
+  const nextEvent = computeNextTideEventFromSpec(spec, parsedNow);
+  if (nextEvent == null) {
+    throw new Error(
+      "centreCluster requires at least one valid tideMarks marker to derive next tide event",
+    );
+  }
+
+  const eventKind = nextEvent.kind;
+  const interval = nextEvent.intervalText;
 
   const sweepRad =
     typeof spec.sweepRad === "number" && Number.isFinite(spec.sweepRad)
