@@ -68,6 +68,18 @@ ${sceneToSvgInline(scene, vb, opts)}
 }
 
 /**
+ * Render a scene model into inline SVG only (no HTML wrapper).
+ *
+ * @param {object} scene
+ * @param {{ styleRuntime?: PreviewStyleRuntime }} [opts]
+ * @returns {string}
+ */
+export function renderPreviewSvg(scene, opts = {}) {
+  const vb = computeViewBox(scene);
+  return sceneToSvgInline(scene, vb, opts);
+}
+
+/**
  * Tight viewBox in root SVG coordinates so the preview scales to the diagram, not the full canvas.
  * Scene coords are y-up; root SVG uses y-down with `translate(0,canvasH) scale(1,-1)` on content.
  *
