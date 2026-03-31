@@ -29,7 +29,7 @@
   "nowPointer": {
     "radialLine": {
       "innerRadius": 0.4,
-      "outerRadius": 0.6
+      "outerRadius": 0.7
     },
     "label": {
       "size": 0.04,
@@ -48,6 +48,9 @@
     "circle": {
       "radius": 0.01
     }
+  },
+  "waitArc": {
+    "radius": 0.68
   },
   "tideMarks": {
     "tideHeightLabelRadius": 0.88,

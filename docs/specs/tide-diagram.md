@@ -25,6 +25,7 @@ fixed here (see **Content bounds**).
   - TideMarks
   - NowPointer
   - NextPointer
+  - WaitArc
   - CentreCluster
   - NowTime
   - TimeDelta
@@ -312,6 +313,33 @@ Inputs and derived quantities:
 - The **Next circle** is a filled circle at the **outer** endpoint of the Next radial line:
   - **Centre** — the point at radius **r_outer** on the ray at **θ_next**.
   - **Radius** — **r_circle** as above.
+
+## WaitArc
+
+**WaitArc** is a top-level named element representing the waiting interval from
+`timeNow` to the next tide marker on the same civil day.
+
+### Logical structure
+
+- **WaitArc** contributes one arc segment concentric with **RefArc**.
+- Arrowhead rendering is **not** synthesized by diagram generation; generation
+  carries an explicit metadata intent that an arrow exists at arc end. The
+  downstream renderer is responsible for visual arrowhead geometry.
+
+### Time association
+
+- Use the same **next tide marker** definition as **NextPointer** and
+  **CentreCluster.TimeDelta**.
+- Let **θ_now** be from `timeNow` and **θ_next** from the next marker time.
+- **WaitArc** starts at **θ_now** and sweeps CCW to **θ_next**.
+
+### Geometry
+
+- Define input **WaitArcRadius** as **k·R** per **§Sizing**.
+- Radius is **R_wait = WaitArcRadius·R**.
+- Arc centre is **O**, with start angle **θ_now** and sweep
+  **max(0, θ_next − θ_now)**.
+- If no next marker exists on the same civil day, **WaitArc** is omitted.
 
 ## CentreCluster
 

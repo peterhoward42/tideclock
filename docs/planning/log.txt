@@ -74,8 +74,9 @@ o  new data fetch paradigm
 				*  Model next event time from tide events not input
 				*  Resume tidePointer graphics definition
 				*  Next ptr
-					*  line
-					*  blob on end
+				o  WaitInterval arc
+					o  first stab
+					o  how parameterise the blob size
 
 				fart
 

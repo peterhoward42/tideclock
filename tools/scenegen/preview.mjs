@@ -126,6 +126,11 @@ function sceneToSvgInline(scene, vb) {
   const { vbX, vbY, vbW, vbH, canvasH } = vb;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${vbW}" height="${vbH}" viewBox="${vbX} ${vbY} ${vbW} ${vbH}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <defs>
+    <marker id="arc-end-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#335" />
+    </marker>
+  </defs>
   <g transform="translate(0,${canvasH}) scale(1,-1)">
 ${inner}
   </g>
@@ -144,6 +149,7 @@ function renderNode(node) {
       return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="#334" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" />`;
     }
     case "arc": {
+      const arrowAttr = node.arrowAtEnd === true ? ' marker-end="url(#arc-end-arrow)"' : "";
       if (node.facetedPreview === true) {
         const pts = circularArcToFacetedPoints(
           node.center,
@@ -151,10 +157,10 @@ function renderNode(node) {
           node.sweepRad,
         );
         if (pts === "") return "";
-        return `    <polyline points="${escapeAttr(pts)}" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round" />`;
+        return `    <polyline points="${escapeAttr(pts)}" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round"${arrowAttr} />`;
       }
       const d = circularArcToPathD(node.center, node.start, node.sweepRad);
-      return `    <path d="${escapeAttr(d)}" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision" />`;
+      return `    <path d="${escapeAttr(d)}" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${arrowAttr} />`;
     }
     case "triangle": {
       const { a, b, c } = node;

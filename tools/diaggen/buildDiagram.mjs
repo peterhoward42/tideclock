@@ -5,6 +5,8 @@ import { buildCentreClusterFromSpec } from "./centreCluster.mjs";
 import { buildNowPointerFromSpec } from "./nowPointer.mjs";
 import { buildNextPointerFromSpec } from "./nextPointer.mjs";
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
+import { parseCanonicalTimeOrThrow } from "./timeCanonical.mjs";
+import { computeNextTideEventCore } from "./tideEvents.mjs";
 import {
   diagramBoxFromExtents,
   polar,
@@ -112,6 +114,7 @@ export function buildDiagram(spec) {
     thetaLeft,
     thetaRight,
   );
+  const waitArc = buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight);
 
   return {
     version: 1,
@@ -128,6 +131,7 @@ export function buildDiagram(spec) {
     tideMarks,
     nowPointer,
     nextPointer,
+    waitArc,
     centreCluster,
     contentBounds,
   };
@@ -190,4 +194,54 @@ function readTickLabelHours(spec) {
  */
 function formatHourDigits(h) {
   return String(h).padStart(2, "0");
+}
+
+/**
+ * WaitArc: concentric to RefArc, sweeps CCW from now to next tide event.
+ * Arrowhead is renderer-owned; diagram only carries metadata intent.
+ *
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @param {number} thetaLeft
+ * @param {number} thetaRight
+ * @returns {import('./tideDiagramModel.mjs').WaitArcDiagram | null}
+ */
+function buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight) {
+  const raw = spec.waitArc;
+  const o = raw != null && typeof raw === "object"
+    ? /** @type {Record<string, unknown>} */ (raw)
+    : {};
+
+  const radiusK = numOr(
+    o.radius ?? o.waitArcRadius ?? spec.waitArcRadius ?? spec.WaitArcRadius,
+    1.0,
+  );
+  const radius = Math.max(0, radiusK) * refRadius;
+  if (radius <= 0) return null;
+
+  const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
+  if (parsedNow.isRightEndpoint) {
+    throw new Error('spec.timeNow cannot be "24:00:00"');
+  }
+  const core = computeNextTideEventCore(spec, parsedNow);
+  if (core == null) return null;
+
+  const nowTheta = timeToTheta(parsedNow.hours, thetaLeft, thetaRight);
+  const nextTheta = timeToTheta(core.seconds / 3600, thetaLeft, thetaRight);
+
+  return {
+    center: { x: 0, y: 0 },
+    radius,
+    thetaStart: nowTheta,
+    sweepRad: Math.max(0, nextTheta - nowTheta),
+    arrowAtEnd: true,
+  };
+}
+
+/**
+ * @param {unknown} v
+ * @param {number} fallback
+ */
+function numOr(v, fallback) {
+  return typeof v === "number" && Number.isFinite(v) ? v : fallback;
 }

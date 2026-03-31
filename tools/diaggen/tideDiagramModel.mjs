@@ -102,6 +102,14 @@
  * }} NextPointerDiagram
  *
  * @typedef {{
+ *   center: DiagramPoint,
+ *   radius: number,
+ *   thetaStart: number,
+ *   sweepRad: number,
+ *   arrowAtEnd: boolean,
+ * }} WaitArcDiagram
+ *
+ * @typedef {{
  *   version: number,
  *   meta: { title: string, width: number, height: number },
  *   refArc: RefArcSpec,
@@ -110,6 +118,7 @@
  *   tideMarks: TideMarkDiagram[],
  *   nowPointer: NowPointerDiagram | null,
  *   nextPointer: NextPointerDiagram | null,
+ *   waitArc: WaitArcDiagram | null,
  *   centreCluster: CentreClusterDiagram | null,
  *   contentBounds: DiagramContentBounds,
  * }} TideDiagramDocument
