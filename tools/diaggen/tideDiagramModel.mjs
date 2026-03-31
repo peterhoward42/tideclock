@@ -91,6 +91,7 @@
  *   nowLabelBranch: 'A' | 'B',
  *   radialLine: DiagramLineSeg,
  *   nowLabel: TideLabelTextInst,
+ *   triangle?: { v1: DiagramPoint, v2: DiagramPoint, v3: DiagramPoint },
  * }} NowPointerDiagram
  *
  * @typedef {{

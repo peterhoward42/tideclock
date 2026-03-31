@@ -169,6 +169,15 @@ export function tideDiagramToScene(diagram) {
   const nowPointerGroup =
     nowPointer != null
       ? group("nowPointer", [
+          ...(nowPointer.triangle
+            ? [
+                triangle(
+                  mapPoint(nowPointer.triangle.v1, cx, cy),
+                  mapPoint(nowPointer.triangle.v2, cx, cy),
+                  mapPoint(nowPointer.triangle.v3, cx, cy),
+                ),
+              ]
+            : []),
           line(
             mapPoint(nowPointer.radialLine.start, cx, cy),
             mapPoint(nowPointer.radialLine.end, cx, cy),

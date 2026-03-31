@@ -27,8 +27,19 @@
   },
   "timeNow": "19:20:03",
   "nowPointer": {
-    "nowPointerLabelSize": 0.04,
-    "nowPointerLabelNormalOffset": 0.02
+    "radialLine": {
+      "innerRadius": 0.4,
+      "outerRadius": 0.6
+    },
+    "label": {
+      "size": 0.04,
+      "normalOffset": 0.02
+    },
+    "triangle": {
+      "radius": 0.7,
+      "baseLen": 0.08,
+      "height": 0.03
+    }
   },
   "tideMarks": {
     "tideHeightLabelRadius": 0.88,

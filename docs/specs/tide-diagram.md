@@ -77,33 +77,33 @@ function of the RefArc.
 - The RefArc represents one **24 h** span from **00:00** to **24:00**.
 - **00:00** is the **leftmost** endpoint; **24:00** the **rightmost**.
 - All host-provided times use one strict canonical string format:
-  - **`HH:MM:SS`** (exactly 2 digits per field, colon-delimited).
-  - Valid normal range: **`00:00:00`** through **`23:59:59`**.
-  - **`24:00:00`** is a reserved sentinel for the RefArc right endpoint only.
+  - `**HH:MM:SS`** (exactly 2 digits per field, colon-delimited).
+  - Valid normal range: `**00:00:00**` through `**23:59:59**`.
+  - `**24:00:00**` is a reserved sentinel for the RefArc right endpoint only.
 - Define canonical-to-scalar conversion:
   - For parsed components **H, M, S**, define **t = H + M/60 + S/3600**.
   - This yields **0 ≤ t < 24** for normal canonical times and **t = 24** only
-    for **`24:00:00`**.
+  for `**24:00:00`**.
 - Increasing time maps **monotonically and linearly** to distance along the
 RefArc from left to right (CCW along the arc).
 - For **t** in hours with **0 ≤ t ≤ 24**:
-  **θ(t) = θ_left + (t / 24) × (θ_right − θ_left)**
-  This **θ(t)** is the polar angle for time **t** on the RefArc. It is
-  invertible. Any element that “uses time **t**” uses **θ(t)** unless stated
-  otherwise.
+**θ(t) = θ_left + (t / 24) × (θ_right − θ_left)**
+This **θ(t)** is the polar angle for time **t** on the RefArc. It is
+invertible. Any element that “uses time **t**” uses **θ(t)** unless stated
+otherwise.
 
 ### §Global “time now” input
 
 - The diagram model uses **one** global canonical input:
-  - **`timeNow`** is a host-provided canonical string in **`HH:MM:SS`**.
-  - **`timeNow = "24:00:00"` is invalid** and must fail diagram generation.
+  - `**timeNow`** is a host-provided canonical string in `**HH:MM:SS**`.
+  - `**timeNow = "24:00:00"` is invalid** and must fail diagram generation.
 - Define:
-  - Parse **`timeNow`** per **§Time and θ(t)**.
+  - Parse `**timeNow`** per **§Time and θ(t)**.
   - **t_now = H + M/60 + S/3600**
   - **θ_now = θ(t_now)** per **§Time and θ(t)**.
 - Any element that is “tied to the current time now” is defined **in terms of
-  `t_now` and `θ_now`**; the specification does **not** introduce a second,
-  independent notion of “now.”
+`t_now` and `θ_now`**; the specification does **not** introduce a second,
+independent notion of “now.”
 
 ## Content bounds (box of interest)
 
@@ -116,7 +116,7 @@ RefArc from left to right (CCW along the arc).
   - **above** — extent in **+Y** from **O**; from **O** to **+above·R**.
   - **below** — extent in **−Y** from **O**; from **−below·R** to **O**.
 - Together:
-  **X ∈ [ −left·R, +right·R ],  Y ∈ [ −below·R, +above·R ].**
+**X ∈ [ −left·R, +right·R ],  Y ∈ [ −below·R, +above·R ].**
 - This rectangle models **which region counts as content** (e.g. tuning by eye).
 Mapping it into a canvas, scene graph, or viewport is **not** fixed here (see
 **Host responsibilities**).
@@ -200,8 +200,8 @@ model em-boxes or similar font metrics.
 ### Time association
 
 - **NowPointer** is defined relative to the **global** current time:
-  - It uses **t_now** derived from canonical **`timeNow`** and **θ_now = θ(t_now)** from
-    **§Global “time now” input**.
+  - It uses **t_now** derived from canonical `**timeNow`** and **θ_now = θ(t_now)** from
+  **§Global “time now” input**.
 - All **NowPointer** geometry is defined relative to **θ_now**.
 
 ### Geometry (first pass, pending final constants)
@@ -212,18 +212,18 @@ the structure and leaves sizing inputs explicit.
 #### Inputs and shared derived quantities
 
 - **NowPointerLineInnerRadius**, **NowPointerLineOuterRadius** — line radii
-  as **k·R** per **§Sizing**.
+as **k·R** per **§Sizing**.
 - **NowPointerLabelSize** — label **FontHeight** multiplier **k** as **k·R**
-  (**§Sizing**).
+(**§Sizing**).
 - **NowPointerLabelNormalOffset** — signed diagram input **k** as **k·R**
-  (**§Sizing**).
+(**§Sizing**).
 - Let **û_rad = (cos θ_now, sin θ_now)** — unit vector along the time-now ray from
-  **O** outward (**§Axes**, **§Polar**).
+**O** outward (**§Axes**, **§Polar**).
 - Let **û_n = (−sin θ_now, cos θ_now)** — unit vector perpendicular to **û_rad**,
-  from rotating **û_rad** by **+π/2** CCW (**§Polar**).
+from rotating **û_rad** by **+π/2** CCW (**§Polar**).
 - Let **r_inner = NowPointerLineInnerRadius·R**, **r_outer = NowPointerLineOuterRadius·R**.
 - Let **P** be the midpoint of the **Now radial line** segment between
-  **r_inner** and **r_outer** along **û_rad**.
+**r_inner** and **r_outer** along **û_rad**.
 - Define a **side sign** for label placement:
   - **side_sign = +1** when **t_now ≤ 12** (midnight through noon inclusive).
   - **side_sign = −1** when **t_now > 12** (afternoon through midnight).
@@ -243,25 +243,28 @@ the structure and leaves sizing inputs explicit.
   - **Baseline polar angle** = **θ_now + π** (overrides **TextElement defaults**).
   - **FontHeight** = **NowPointerLabelSize·R** (diagram input, **§Sizing**).
 - **Anchor** — **P + side_sign × (k·R)·û_n**, where **k** is
-  **NowPointerLabelNormalOffset**:
+**NowPointerLabelNormalOffset**:
   - Positive **k** with **side_sign = +1** places the label on the **left**
-    (CCW) side of the outward radial direction.
+  (CCW) side of the outward radial direction.
   - For the same **k**, **side_sign = −1** moves it to the **opposite** side.
 
 **Now triangle (non-filled)**
 
-- Triangle is associated to **θ_now** and is rendered as a stroked outline.
-- Define inputs:
-  - **NowPointerTriangleRadius** (base point radius multiplier),
-  - **NowPointerTriangleLength** (leg length multiplier),
-  - **NowPointerTriangleDivergence** (included angle, radians).
-- Let:
-  - **V1 = polar(NowPointerTriangleRadius·R, θ_now)**,
-  - **half = 0.5 × NowPointerTriangleDivergence**,
-  - **V2 = V1 + polar(NowPointerTriangleLength·R, θ_now + π + half)**,
-  - **V3 = V1 + polar(NowPointerTriangleLength·R, θ_now + π − half)**.
-- The required triangle element is **(V1, V2, V3)** with **fill disabled**
-(stroke-only primitive in scene terms).
+- **Now triangle (non-filled)**
+  - Triangle is associated to **θ_now** and is rendered as a stroked outline.
+  - Define inputs:
+    - **NowPointerTriangleRadius** — radius multiplier for the **peak/reference point**,
+    - **NowPointerTriangleBaseLen** — base **length** multiplier,
+    - **NowPointerTriangleHeight** — **height** multiplier from base to peak.
+  - Local shape:
+    - In local triangle coordinates, the **peak** is at **(0, 0)**.
+    - The **base** is horizontal below the peak:
+      - left base vertex at **(−½·NowPointerTriangleBaseLen·R, −NowPointerTriangleHeight·R)**,
+      - right base vertex at **(+½·NowPointerTriangleBaseLen·R, −NowPointerTriangleHeight·R)**.
+  - Placement and orientation:
+    - Let **P_ref = polar(NowPointerTriangleRadius·R, θ_now)** be the **reference point** (the peak) on the time-now radial line.
+    - Let the triangle be rotated rigidly about **P_ref** by angle **θ_now + π**.
+    - The required triangle element is the image of the three local vertices under this rotation+translation, with **fill disabled** (stroke-only primitive in scene terms).
 
 ## CentreCluster
 
@@ -281,7 +284,7 @@ Under **CentreCluster** there are **three** logical parts, all **direct** member
 
 | Part                   | Role                                                                                    |
 | ---------------------- | --------------------------------------------------------------------------------------- |
-| **NowTime**            | One **TextElement** — the main **“time now” readout line**, derived from **`timeNow`**. |
+| **NowTime**            | One **TextElement** — the main **“time now” readout line**, derived from `**timeNow`**. |
 | **TimeDelta**          | Three **TextElement** fragments that read as one centred line.                          |
 | **CentreClusterFrame** | **Curve primitives only** — two line segments and one arc (see **CentreClusterFrame**). |
 
@@ -300,8 +303,8 @@ to **Independent stroked curves**.
 ### NowTime
 
 - One **TextElement**:
-  - **Text** — fixed synthesis from global **`timeNow`**:
-    - exactly **`Time now HH:MM:SS`** (includes seconds; no host override).
+  - **Text** — fixed synthesis from global `**timeNow`**:
+    - exactly `**Time now HH:MM:SS**` (includes seconds; no host override).
   - **FontHeight** — input **k** as **k·R** (**§Sizing**).
   - **Horizontal justification** — **centre** (explicit override; matches default).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
@@ -313,13 +316,13 @@ to **Independent stroked curves**.
 - One logical sentence, **three** **TextElement** instances, **centre-aligned as
 a whole** at **X = 0** (**CentreCluster horizontal axis**):
   1. **Event kind** — **Text** **derived** from the **kind** of the **next**
-    tide marker at or after **`timeNow`**, using the marker’s **`highOrLow`**
+    tide marker at or after `**timeNow`**, using the marker’s `**highOrLow**`
     flag (`"Low"` or `"High"`). Separate for styling while staying one visual
     line.
   2. **Glue** — literal `**water in`** (fixed; not a host input).
   3. **Interval** — **Text** **derived** from the **forward time difference**
-    between **`timeNow`** and the **next** tide marker **on the same civil
-    day**, formatted as **`Hh Mm`** (e.g. `"3h 21m"`). Behaviour when no such
+    between `**timeNow`** and the **next** tide marker **on the same civil
+    day**, formatted as `**Hh Mm`** (e.g. `"3h 21m"`). Behaviour when no such
     “next” marker exists is intentionally left undefined here.
 - Shared for all fragments:
   - **FontHeight** — one input **k** as **k·R** for the whole line (**§Sizing**).
@@ -391,13 +394,13 @@ z-order not fixed here).
 ### Count and time association
 
 - **N** tide markers; count from host input.
-- Each marker provides canonical **`time`** in **`HH:MM:SS`**.
-- Parse marker **`time`** per **§Time and θ(t)** to derive **t** and **θ(t)**.
-- Marker **`time = "24:00:00"`** is silently ignored (marker dropped).
-- If two retained markers share the same canonical **`time`**, generation must
-  fail with an error.
-- Each marker carries a **kind** flag **`highOrLow ∈ {"High", "Low"}`**, used
-  for derived event descriptions (see **CentreCluster**).
+- Each marker provides canonical `**time`** in `**HH:MM:SS**`.
+- Parse marker `**time**` per **§Time and θ(t)** to derive **t** and **θ(t)**.
+- Marker `**time = "24:00:00"`** is silently ignored (marker dropped).
+- If two retained markers share the same canonical `**time**`, generation must
+fail with an error.
+- Each marker carries a **kind** flag `**highOrLow ∈ {"High", "Low"}`**, used
+for derived event descriptions (see **CentreCluster**).
 
 ### Logical structure
 
@@ -425,8 +428,8 @@ For **both** labels:
 **Text** rules:
 
 - Height label text is from the host.
-- Time label text is synthesized from canonical marker **`time`** as
-  **`HH:MM`** (seconds omitted; no host override).
+- Time label text is synthesized from canonical marker `**time`** as
+`**HH:MM**` (seconds omitted; no host override).
 - Other **Text Element** rules apply unless overridden.
 
 ### TimePointer
@@ -435,29 +438,24 @@ For **both** labels:
 having geometry defined as follows.
 
 - Define a new input TideMarkArrowDivergence. It is a positive angle 
-  expressed in radians
+expressed in radians
 - Define a new input TideMarkArrowLineLen. It is a positive float 
-
 - Vertex1 is the point on the RefArc corresponding to time (t).
 - halfAngle is 0.5 * TideMarkArrowDivergence
 - Vertex 2 is is located with a polar offset from Vertex1 :
-	R: TideMarkArrowLineLen * RefRad
-	theta: RadialAngle(t) + PI + halfAngle
+  R: TideMarkArrowLineLen * RefRad
+  theta: RadialAngle(t) + PI + halfAngle
 - Vertex 3 is is located with a polar offset from Vertex1 :
-	R: TideMarkArrowLineLen * RefRad
-	theta: RadialAngle(t) + PI - halfAngle
-
+  R: TideMarkArrowLineLen * RefRad
+  theta: RadialAngle(t) + PI - halfAngle
 - The required triangle element is Vertex1, Vertex2, Vertex3
-
 - Let line1 = the line segment vertex1->vertex2
 - Let line2 = the line segment vertex1->vertex3
 - Let radial1 = a normal to line1 from vertex2 of length RefRadb
 - Let radial2 = a normal to line2 from vertex3 of length RefRadb
 - Let centre = the intersection of radial1 and radial2
 - let radius = the distance between centre and vertex2
-
 - The required circle element is defined by centre and radius
-
 
 ## Notes on interpretation
 
