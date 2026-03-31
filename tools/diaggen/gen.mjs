@@ -8,6 +8,8 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildDiagram } from "./buildDiagram.mjs";
+import { loadStyleModel } from "./styleBindings.mjs";
+import { STATIC_STYLE_MODEL } from "./staticStyleModel.mjs";
 import { tideDiagramToScene } from "./toScene.mjs";
 import { writePreviewHtml } from "../scenegen/preview.mjs";
 
@@ -22,6 +24,8 @@ const scenePath = join(scenegenDir, "generated", "scene.json");
 const previewPath = join(scenegenDir, "generated", "preview.html");
 
 const input = JSON.parse(readFileSync(inputPath, "utf8"));
+// Load-time validation for compile-time name -> style bindings.
+loadStyleModel(STATIC_STYLE_MODEL);
 const diagram = buildDiagram(input);
 const scene = tideDiagramToScene(diagram);
 
