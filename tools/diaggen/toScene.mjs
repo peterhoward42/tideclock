@@ -175,6 +175,7 @@ export function tideDiagramToScene(diagram) {
                   mapPoint(nowPointer.triangle.v1, cx, cy),
                   mapPoint(nowPointer.triangle.v2, cx, cy),
                   mapPoint(nowPointer.triangle.v3, cx, cy),
+                  { outline: true },
                 ),
               ]
             : []),

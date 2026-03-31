@@ -25,6 +25,8 @@
  *   a: Point,
  *   b: Point,
  *   c: Point,
+ *   // If true, preview renders stroke-only outline; otherwise filled.
+ *   outline?: boolean,
  * }} TrianglePrimitive
  *
  * @typedef {{
@@ -111,14 +113,17 @@ export function arc(center, start, sweepRad, opts) {
 }
 
 /**
- * Filled triangle primitive (currently preview uses a solid fill).
+ * Triangle primitive. Preview renders filled by default; `outline: true` requests stroke-only.
  * @param {Point} a
  * @param {Point} b
  * @param {Point} c
+ * @param {{ outline?: boolean }} [opts]
  * @returns {TrianglePrimitive}
  */
-export function triangle(a, b, c) {
-  return { kind: "triangle", a, b, c };
+export function triangle(a, b, c, opts) {
+  const node = /** @type {TrianglePrimitive} */ ({ kind: "triangle", a, b, c });
+  if (opts?.outline === true) node.outline = true;
+  return node;
 }
 
 /**

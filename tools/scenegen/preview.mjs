@@ -159,7 +159,8 @@ function renderNode(node) {
     case "triangle": {
       const { a, b, c } = node;
       const pts = `${a.x},${a.y} ${b.x},${b.y} ${c.x},${c.y}`;
-      return `    <polygon points="${escapeAttr(pts)}" fill="#335" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} />`;
+      const fillAttr = node.outline ? 'none' : '#335';
+      return `    <polygon points="${escapeAttr(pts)}" fill="${fillAttr}" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} />`;
     }
     case "circle": {
       const { center, radius } = node;
