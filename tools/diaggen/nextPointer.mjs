@@ -5,6 +5,7 @@ import { buildNowPointerFromSpec } from "./nowPointer.mjs";
 import { computeNextTideEventCore } from "./tideEvents.mjs";
 
 const DEFAULT_LINE_OUTER = 0.8;
+const DEFAULT_CIRCLE_RADIUS = 0.04;
 
 /**
  * @param {Record<string, unknown>} spec
@@ -73,6 +74,7 @@ export function buildNextPointerFromSpec(
     timeHours: tNextHours,
     theta,
     radialLine: { start, end },
+    circle: buildNextPointerCircle(o, { refRadius, radialEnd: end }),
   };
 }
 
@@ -82,5 +84,35 @@ export function buildNextPointerFromSpec(
  */
 function numOr(v, fallback) {
   return typeof v === "number" && Number.isFinite(v) ? v : fallback;
+}
+
+/**
+ * Circle at the outer end of the NextPointer radial line.
+ * Center is the radial line's outer endpoint; radius is k·R from spec.
+ *
+ * @param {Record<string, unknown>} nextSpec
+ * @param {{ refRadius: number, radialEnd: { x: number, y: number } }} ctx
+ * @returns {{ center: { x: number, y: number }, radius: number }}
+ */
+function buildNextPointerCircle(nextSpec, ctx) {
+  const { refRadius, radialEnd } = ctx;
+  const circleSpec =
+    nextSpec.circle && typeof nextSpec.circle === "object"
+      ? /** @type {Record<string, unknown>} */ (nextSpec.circle)
+      : nextSpec;
+
+  const radiusK = numOr(
+    circleSpec.radius ??
+      circleSpec.nextPointerCircleRadius ??
+      nextSpec.nextPointerCircleRadius ??
+      nextSpec.NextPointerCircleRadius,
+    DEFAULT_CIRCLE_RADIUS,
+  );
+
+  const radius = Math.max(0, radiusK) * refRadius;
+  return {
+    center: radialEnd,
+    radius,
+  };
 }
 

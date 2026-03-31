@@ -140,6 +140,8 @@ of travel.”
   **CentreClusterFrame** lines)
   - Text elements
   - Non-filled triangle outlines (introduced by **NowPointer**)
+  - Filled triangles and filled circles (introduced by **TideMarks.TimePointer**
+  and by **NextPointer**)
 
 ### Independent stroked curves
 
@@ -273,7 +275,10 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
 
 ### Logical structure
 
-- **Next radial line** — one radial segment on the ray at the next-tide time.
+**NextPointer** comprises two direct parts, both on the ray of the next-tide time:
+
+- **Next radial line** — one radial segment.
+- **Next circle** — one filled circle at the outer end of that radial segment.
 
 ### Time association
 
@@ -286,19 +291,27 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
 Inputs and derived quantities:
 
 - **NextPointerLineOuterRadius** — line **outer** radius as **k·R** per **§Sizing**.
+- **NextPointerCircleRadius** — circle radius as **k·R** per **§Sizing**.
 - The **inner** radius of **NextPointer** is **not** an independent input:
   - Define **NowPointerLineInnerRadius** as in **NowPointer**.
   - **NextPointer** reuses that same **inner** radius so its radial segment begins at the **NowPointer** minimum radius.
 - Let:
   - **r_inner = NowPointerLineInnerRadius·R** (effective value after any defaults),
-  - **r_outer = NextPointerLineOuterRadius·R**.
+  - **r_outer = NextPointerLineOuterRadius·R**,
+  - **r_circle = NextPointerCircleRadius·R**.
 
 #### Next radial line
 
 - A radial segment at **θ_next** with:
   - **inner radius** **r_inner** shared with **NowPointer**,
   - **outer radius** **r_outer** from **NextPointerLineOuterRadius** (default **0.8**).
-- If **r_outer ≤ r_inner**, **NextPointer** is omitted from the scene (no radial segment emitted).
+- If **r_outer ≤ r_inner**, **NextPointer** is omitted from the scene (no radial segment or circle emitted).
+
+#### Next circle
+
+- The **Next circle** is a filled circle at the **outer** endpoint of the Next radial line:
+  - **Centre** — the point at radius **r_outer** on the ray at **θ_next**.
+  - **Radius** — **r_circle** as above.
 
 ## CentreCluster
 

@@ -73,9 +73,9 @@ o  new data fetch paradigm
 					*  cursor is going for it...
 				*  Model next event time from tide events not input
 				*  Resume tidePointer graphics definition
-				o  Next ptr
+				*  Next ptr
 					*  line
-					o  arrow on end
+					*  blob on end
 
 				fart
 

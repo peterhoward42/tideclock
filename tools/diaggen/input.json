@@ -43,7 +43,10 @@
   },
   "nextPointer": {
     "radialLine": {
-      "outerRadius": 0.75
+      "outerRadius": 0.73
+    },
+    "circle": {
+      "radius": 0.01
     }
   },
   "tideMarks": {

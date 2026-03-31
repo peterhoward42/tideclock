@@ -98,6 +98,7 @@
  *   timeHours: number,
  *   theta: number,
  *   radialLine: DiagramLineSeg,
+ *   circle: { center: DiagramPoint, radius: number },
  * }} NextPointerDiagram
  *
  * @typedef {{

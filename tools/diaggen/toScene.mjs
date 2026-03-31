@@ -201,6 +201,10 @@ export function tideDiagramToScene(diagram) {
             mapPoint(nextPointer.radialLine.start, cx, cy),
             mapPoint(nextPointer.radialLine.end, cx, cy),
           ),
+          circle(
+            mapPoint(nextPointer.circle.center, cx, cy),
+            nextPointer.circle.radius,
+          ),
         ])
       : null;
 
