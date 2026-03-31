@@ -38,7 +38,6 @@ const PREVIEW_DEFAULTS = {
  */
 export function writePreviewHtml(scene, outPath, opts = {}) {
   mkdirSync(dirname(outPath), { recursive: true });
-  assertStyleCoverage(scene, opts.styleRuntime);
   const vb = computeViewBox(scene);
   const pad = 16; // total horizontal/vertical inset from viewport edges (8px each side)
   const html = `<!DOCTYPE html>
@@ -164,19 +163,23 @@ function renderNode(node, styleRuntime, leafName) {
       return `    <g data-name="${escapeAttr(node.name)}">\n    ${body}\n    </g>`;
     }
     case "line": {
+      assertLeafScoped(node.kind, leafName);
       const { start: a, end: b } = node;
-      const stroke = resolveLeafColor(
+      const stroke = requireLeafColor(
         styleRuntime,
         leafName,
         PREVIEW_DEFAULTS.lineStroke,
+        node.kind,
       );
       return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" />`;
     }
     case "arc": {
-      const stroke = resolveLeafColor(
+      assertLeafScoped(node.kind, leafName);
+      const stroke = requireLeafColor(
         styleRuntime,
         leafName,
         PREVIEW_DEFAULTS.curveStroke,
+        node.kind,
       );
       const arrowAttr = markerAttrForArc(node, leafName, styleRuntime);
       if (node.facetedPreview === true) {
@@ -192,37 +195,49 @@ function renderNode(node, styleRuntime, leafName) {
       return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${arrowAttr} />`;
     }
     case "triangle": {
+      assertLeafScoped(node.kind, leafName);
       const { a, b, c } = node;
       const pts = `${a.x},${a.y} ${b.x},${b.y} ${c.x},${c.y}`;
-      const stroke = resolveLeafColor(
+      const stroke = requireLeafColor(
         styleRuntime,
         leafName,
         PREVIEW_DEFAULTS.curveStroke,
+        node.kind,
       );
       const fillAttr = node.outline
         ? "none"
-        : resolveLeafColor(styleRuntime, leafName, PREVIEW_DEFAULTS.shapeFill);
+        : requireLeafColor(
+            styleRuntime,
+            leafName,
+            PREVIEW_DEFAULTS.shapeFill,
+            node.kind,
+          );
       return `    <polygon points="${escapeAttr(pts)}" fill="${fillAttr}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} />`;
     }
     case "circle": {
+      assertLeafScoped(node.kind, leafName);
       const { center, radius } = node;
-      const stroke = resolveLeafColor(
+      const stroke = requireLeafColor(
         styleRuntime,
         leafName,
         PREVIEW_DEFAULTS.curveStroke,
+        node.kind,
       );
-      const fill = resolveLeafColor(
+      const fill = requireLeafColor(
         styleRuntime,
         leafName,
         PREVIEW_DEFAULTS.shapeFill,
+        node.kind,
       );
       return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="${fill}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} />`;
     }
     case "text": {
-      const fill = resolveLeafColor(
+      assertLeafScoped(node.kind, leafName);
+      const fill = requireLeafColor(
         styleRuntime,
         leafName,
         PREVIEW_DEFAULTS.textFill,
+        node.kind,
       );
       return renderTextSvg(node, fill);
     }
@@ -330,10 +345,11 @@ function collectArcArrowMarkers(root, styleRuntime) {
     if (node.kind !== "arc" || node.arrow == null) return;
     const spec = normalizeArcArrow(node.arrow);
     if (spec.at !== "end") return;
-    const stroke = resolveLeafColor(
+    const stroke = requireLeafColor(
       styleRuntime,
       leafName,
       PREVIEW_DEFAULTS.curveStroke,
+      node.kind,
     );
     const id = markerIdFromSpec(spec, stroke);
     if (defs.has(id)) return;
@@ -354,10 +370,11 @@ function markerAttrForArc(arcNode, leafName, styleRuntime) {
   if (arcNode.arrow == null) return "";
   const spec = normalizeArcArrow(arcNode.arrow);
   if (spec.at !== "end") return "";
-  const stroke = resolveLeafColor(
+  const stroke = requireLeafColor(
     styleRuntime,
     leafName,
     PREVIEW_DEFAULTS.curveStroke,
+    arcNode.kind,
   );
   return ` marker-end="url(#${markerIdFromSpec(spec, stroke)})"`;
 }
@@ -427,89 +444,48 @@ function renderTextSvg(node, fillColor) {
 }
 
 /**
- * Leaf-level style lookup: nearest parent group name is the key.
- * If no binding exists (or style has no color), fall back to default.
+ * Leaf-level style lookup: nearest parent leaf-group name is the key.
+ * Throws for missing runtime, missing binding, or missing color.
  *
  * @param {PreviewStyleRuntime | undefined} styleRuntime
  * @param {string | null} leafName
  * @param {string} fallback
+ * @param {string} primitiveKind
  */
-function resolveLeafColor(styleRuntime, leafName, fallback) {
-  if (!styleRuntime || !leafName) return fallback;
+function requireLeafColor(styleRuntime, leafName, fallback, primitiveKind) {
+  if (!styleRuntime) {
+    throw new Error(
+      `preview styleRuntime is required for v2 scenes (while rendering ${primitiveKind})`,
+    );
+  }
+  if (!leafName) {
+    throw new Error(
+      `primitive "${primitiveKind}" is not nested under a leaf group`,
+    );
+  }
   const styleName = styleRuntime.nameToStyle.get(leafName);
-  if (!styleName) return fallback;
+  if (!styleName) {
+    throw new Error(
+      `missing style binding for leaf group name "${leafName}" (while rendering ${primitiveKind})`,
+    );
+  }
   const styleProps = styleRuntime.stylesByName.get(styleName);
   if (!styleProps || typeof styleProps.color !== "string") return fallback;
   return styleProps.color;
 }
 
 /**
- * Fail fast if any rendered leaf group name is missing a style binding.
+ * Enforce that all primitives are nested under a named leaf group.
  *
- * @param {object} scene
- * @param {PreviewStyleRuntime | undefined} styleRuntime
+ * @param {string} primitiveKind
+ * @param {string | null} leafName
  */
-function assertStyleCoverage(scene, styleRuntime) {
-  const useV2 =
-    scene.version >= 2 && scene.root != null && scene.root.kind === "group";
-  if (!useV2) return;
-  if (!styleRuntime) {
+function assertLeafScoped(primitiveKind, leafName) {
+  if (!leafName) {
     throw new Error(
-      "preview styleRuntime is required for v2 scenes and must cover every leaf group name",
+      `primitive "${primitiveKind}" is not nested under a leaf group`,
     );
   }
-  const { leafNames, unscopedPrimitiveKinds } = collectStyleCoverageData(scene.root);
-  if (unscopedPrimitiveKinds.length > 0) {
-    throw new Error(
-      `primitive(s) not nested under a leaf group: ${unscopedPrimitiveKinds.join(", ")}`,
-    );
-  }
-  const missing = Array.from(leafNames).filter(
-    (name) => !styleRuntime.nameToStyle.has(name),
-  );
-  if (missing.length > 0) {
-    missing.sort((a, b) => a.localeCompare(b));
-    throw new Error(
-      `missing style binding(s) for leaf group name(s): ${missing.join(", ")}`,
-    );
-  }
-}
-
-/**
- * @param {import('./sceneModel.mjs').SceneNode} root
- * @returns {{ leafNames: Set<string>, unscopedPrimitiveKinds: string[] }}
- */
-function collectStyleCoverageData(root) {
-  /** @type {Set<string>} */
-  const leafNames = new Set();
-  /** @type {string[]} */
-  const unscopedPrimitiveKinds = [];
-  /**
-   * @param {import('./sceneModel.mjs').SceneNode} node
-   * @param {string | null} leafName
-   */
-  function walk(node, leafName) {
-    if (node.kind === "group") {
-      const parentIsLeaf = isLeafGroup(node);
-      for (const child of node.children) walk(child, parentIsLeaf ? node.name : null);
-      return;
-    }
-    if (leafName) {
-      leafNames.add(leafName);
-      return;
-    }
-    unscopedPrimitiveKinds.push(node.kind);
-  }
-  walk(root, null);
-  return { leafNames, unscopedPrimitiveKinds };
-}
-
-/**
- * @param {import('./sceneModel.mjs').GroupNode} groupNode
- * @returns {boolean}
- */
-function isLeafGroup(groupNode) {
-  return !groupNode.children.some((c) => c.kind === "group");
 }
 
 /** @param {'left'|'center'|'right'} h */

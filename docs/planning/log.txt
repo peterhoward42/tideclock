@@ -77,15 +77,8 @@ o  new data fetch paradigm
 				*  WaitInterval arc
 
 				o  bring in styling pattern
-					o  styles for
 
-					CentreCluster
-					NowPointer
-					TickLabel
-					TideMark
-					TimePointer
 
-					o  yellow
 
 
 				o  move gen in-band and to recognize partial 

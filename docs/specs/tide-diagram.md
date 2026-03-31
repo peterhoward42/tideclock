@@ -39,13 +39,8 @@ fixed here (see **Content bounds**).
 - Style bindings are keyed by **exact** leaf element names.
 - Name matching is **case-sensitive** and has **no aliasing** or fallback.
 - A style binding name must match the emitted leaf element name byte-for-byte.
-- Canonical style binding names currently used for styling iteration:
-  - `RefArc`
-  - `TickMark`
-  - `HeightLabel`
-  - `EventKind`
-  - `NextPointer`
-  - `WaitArc`
+- This specification allocates leaf names **where the corresponding leaf is
+mandated**; it does not maintain a separate exhaustive registry section.
 
 ## Conventions
 
@@ -427,6 +422,10 @@ a whole** at **X = 0** (**CentreCluster horizontal axis**):
     between `**timeNow`** and the **next** tide marker **on the same civil
     day**, formatted as `**Hh Mm`** (e.g. `"3h 21m"`). Behaviour when no such
     “next” marker exists is intentionally left undefined here.
+- Allocated leaf names for styling/host binding (exact match):
+  - Fragment 1 (**Event kind**) — `EventKind`
+  - Fragment 2 (**Glue**) — `DeltaGlue`
+  - Fragment 3 (**Interval**) — `DeltaInterval`
 - Shared for all fragments:
   - **FontHeight** — one input **k** as **k·R** for the whole line (**§Sizing**).
   - **Horizontal justification** — **centre**; **X** positions chosen so the
