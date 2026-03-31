@@ -34,6 +34,19 @@ fixed here (see **Content bounds**).
 
 *(Note: **Location** is not yet specified geometrically.)*
 
+### Style binding names (exact-match contract)
+
+- Style bindings are keyed by **exact** leaf element names.
+- Name matching is **case-sensitive** and has **no aliasing** or fallback.
+- A style binding name must match the emitted leaf element name byte-for-byte.
+- Canonical style binding names currently used for styling iteration:
+  - `RefArc`
+  - `TickMark`
+  - `HeightLabel`
+  - `EventKind`
+  - `NextPointer`
+  - `WaitArc`
+
 ## Conventions
 
 Cross-references use the § labels below.

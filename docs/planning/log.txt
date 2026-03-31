@@ -77,13 +77,15 @@ o  new data fetch paradigm
 				*  WaitInterval arc
 
 				o  bring in styling pattern
-					o  what do I want for convenience?
-						o  specify colours, line widths, dash patterns and
-						   opacity for each primitive
-						o  via indirection through named colour roles / types
-						o  with style per role
-						o  to allow all parent nodes or sub nodes or leaves
-							to be allocated to roles
+					o  styles for
+
+					CentreCluster
+					NowPointer
+					TickLabel
+					TideMark
+					TimePointer
+
+					o  yellow
 
 
 				o  move gen in-band and to recognize partial 

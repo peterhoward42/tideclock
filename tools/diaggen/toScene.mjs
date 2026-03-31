@@ -50,9 +50,24 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
   );
 
   const now = cluster.nowTime;
-  const children = [
+  const timeDeltaNodes = cluster.timeDelta.map((seg, idx) => {
+    const node = text({
+      content: seg.content,
+      size: seg.fontSize,
+      hAlign: "center",
+      angleRad: 0,
+      anchor: mapPoint(seg.anchor, cx, cy),
+    });
+    if (idx === 0) return group("EventKind", [node]);
+    if (idx === 1) return group("DeltaGlue", [node]);
+    return group("DeltaInterval", [node]);
+  });
+
+  const frameGroup = group("CentreClusterFrame", [
     ...frameLineNodes,
     arc(frameArcCenter, frameArcStart, fa.sweepRad),
+  ]);
+  const nowTimeGroup = group("NowTime", [
     text({
       content: now.content,
       size: now.fontSize,
@@ -60,17 +75,10 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
       angleRad: 0,
       anchor: mapPoint(now.anchor, cx, cy),
     }),
-    ...cluster.timeDelta.map((seg) =>
-      text({
-        content: seg.content,
-        size: seg.fontSize,
-        hAlign: "center",
-        angleRad: 0,
-        anchor: mapPoint(seg.anchor, cx, cy),
-      }),
-    ),
-  ];
-  return group("centreCluster", children);
+  ]);
+  const timeDeltaGroup = group("TimeDelta", timeDeltaNodes);
+  const children = [frameGroup, nowTimeGroup, timeDeltaGroup];
+  return group("CentreCluster", children);
 }
 
 /**
@@ -89,25 +97,29 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
     mapPoint(tri.v3, cx, cy),
   );
   const circNode = circle(mapPoint(circ.center, cx, cy), circ.radius);
-  const timePointerGroup = group("timePointer", [triNode, circNode]);
+  const timePointerGroup = group("TimePointer", [triNode, circNode]);
   const hl = mark.heightLabel;
   const tl = mark.timeLabel;
-  return group("tideMark", [
+  return group("TideMark", [
     timePointerGroup,
-    text({
-      content: hl.content,
-      size: hl.fontSize,
-      hAlign: "center",
-      angleRad: hl.angleRad,
-      anchor: mapPoint(hl.anchor, cx, cy),
-    }),
-    text({
-      content: tl.content,
-      size: tl.fontSize,
-      hAlign: "center",
-      angleRad: tl.angleRad,
-      anchor: mapPoint(tl.anchor, cx, cy),
-    }),
+    group("HeightLabel", [
+      text({
+        content: hl.content,
+        size: hl.fontSize,
+        hAlign: "center",
+        angleRad: hl.angleRad,
+        anchor: mapPoint(hl.anchor, cx, cy),
+      }),
+    ]),
+    group("TimeLabel", [
+      text({
+        content: tl.content,
+        size: tl.fontSize,
+        hAlign: "center",
+        angleRad: tl.angleRad,
+        anchor: mapPoint(tl.anchor, cx, cy),
+      }),
+    ]),
   ]);
 }
 
@@ -149,12 +161,12 @@ export function tideDiagramToScene(diagram) {
     ),
   );
 
-  const refArcGroup = group("refArc", [
+  const refArcGroup = group("RefArc", [
     arc(arcCenter, arcStart, refArc.sweepRad),
   ]);
   const waitArcGroup =
     waitArc != null
-      ? group("waitArc", [
+      ? group("WaitArc", [
           arc(
             mapPoint(waitArc.center, cx, cy),
             mapPoint(
@@ -174,7 +186,7 @@ export function tideDiagramToScene(diagram) {
           ),
         ])
       : null;
-  const ticksGroup = group("tickMarks", tickChildren);
+  const ticksGroup = group("TickMark", tickChildren);
 
   const tickLabelChildren = (tickLabels ?? []).map((tl) =>
     text({
@@ -185,12 +197,12 @@ export function tideDiagramToScene(diagram) {
       anchor: mapPoint(tl.anchor, cx, cy),
     }),
   );
-  const tickLabelsGroup = group("tickLabels", tickLabelChildren);
+  const tickLabelsGroup = group("TickLabel", tickLabelChildren);
 
   const tideMarkGroups = (tideMarks ?? []).map((m) =>
     tideMarkDiagramToGroup(m, cx, cy),
   );
-  const tideMarksGroup = group("tideMarks", tideMarkGroups);
+  const tideMarksGroup = group("TideMarks", tideMarkGroups);
 
   const centreClusterGroup =
     diagram.centreCluster != null
@@ -199,34 +211,40 @@ export function tideDiagramToScene(diagram) {
 
   const nowPointerGroup =
     nowPointer != null
-      ? group("nowPointer", [
+      ? group("NowPointer", [
           ...(nowPointer.triangle
             ? [
-                triangle(
-                  mapPoint(nowPointer.triangle.v1, cx, cy),
-                  mapPoint(nowPointer.triangle.v2, cx, cy),
-                  mapPoint(nowPointer.triangle.v3, cx, cy),
-                  { outline: true },
-                ),
+                group("NowTriangle", [
+                  triangle(
+                    mapPoint(nowPointer.triangle.v1, cx, cy),
+                    mapPoint(nowPointer.triangle.v2, cx, cy),
+                    mapPoint(nowPointer.triangle.v3, cx, cy),
+                    { outline: true },
+                  ),
+                ]),
               ]
             : []),
-          line(
-            mapPoint(nowPointer.radialLine.start, cx, cy),
-            mapPoint(nowPointer.radialLine.end, cx, cy),
-          ),
-          text({
-            content: nowPointer.nowLabel.content,
-            size: nowPointer.nowLabel.fontSize,
-            hAlign: "center",
-            angleRad: nowPointer.nowLabel.angleRad,
-            anchor: mapPoint(nowPointer.nowLabel.anchor, cx, cy),
-          }),
+          group("NowRadialLine", [
+            line(
+              mapPoint(nowPointer.radialLine.start, cx, cy),
+              mapPoint(nowPointer.radialLine.end, cx, cy),
+            ),
+          ]),
+          group("NowLabel", [
+            text({
+              content: nowPointer.nowLabel.content,
+              size: nowPointer.nowLabel.fontSize,
+              hAlign: "center",
+              angleRad: nowPointer.nowLabel.angleRad,
+              anchor: mapPoint(nowPointer.nowLabel.anchor, cx, cy),
+            }),
+          ]),
         ])
       : null;
 
   const nextPointerGroup =
     nextPointer != null
-      ? group("nextPointer", [
+      ? group("NextPointer", [
           line(
             mapPoint(nextPointer.radialLine.start, cx, cy),
             mapPoint(nextPointer.radialLine.end, cx, cy),

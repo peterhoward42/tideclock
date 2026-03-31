@@ -38,6 +38,7 @@ const PREVIEW_DEFAULTS = {
  */
 export function writePreviewHtml(scene, outPath, opts = {}) {
   mkdirSync(dirname(outPath), { recursive: true });
+  assertStyleCoverage(scene, opts.styleRuntime);
   const vb = computeViewBox(scene);
   const pad = 16; // total horizontal/vertical inset from viewport edges (8px each side)
   const html = `<!DOCTYPE html>
@@ -440,6 +441,75 @@ function resolveLeafColor(styleRuntime, leafName, fallback) {
   const styleProps = styleRuntime.stylesByName.get(styleName);
   if (!styleProps || typeof styleProps.color !== "string") return fallback;
   return styleProps.color;
+}
+
+/**
+ * Fail fast if any rendered leaf group name is missing a style binding.
+ *
+ * @param {object} scene
+ * @param {PreviewStyleRuntime | undefined} styleRuntime
+ */
+function assertStyleCoverage(scene, styleRuntime) {
+  const useV2 =
+    scene.version >= 2 && scene.root != null && scene.root.kind === "group";
+  if (!useV2) return;
+  if (!styleRuntime) {
+    throw new Error(
+      "preview styleRuntime is required for v2 scenes and must cover every leaf group name",
+    );
+  }
+  const { leafNames, unscopedPrimitiveKinds } = collectStyleCoverageData(scene.root);
+  if (unscopedPrimitiveKinds.length > 0) {
+    throw new Error(
+      `primitive(s) not nested under a leaf group: ${unscopedPrimitiveKinds.join(", ")}`,
+    );
+  }
+  const missing = Array.from(leafNames).filter(
+    (name) => !styleRuntime.nameToStyle.has(name),
+  );
+  if (missing.length > 0) {
+    missing.sort((a, b) => a.localeCompare(b));
+    throw new Error(
+      `missing style binding(s) for leaf group name(s): ${missing.join(", ")}`,
+    );
+  }
+}
+
+/**
+ * @param {import('./sceneModel.mjs').SceneNode} root
+ * @returns {{ leafNames: Set<string>, unscopedPrimitiveKinds: string[] }}
+ */
+function collectStyleCoverageData(root) {
+  /** @type {Set<string>} */
+  const leafNames = new Set();
+  /** @type {string[]} */
+  const unscopedPrimitiveKinds = [];
+  /**
+   * @param {import('./sceneModel.mjs').SceneNode} node
+   * @param {string | null} leafName
+   */
+  function walk(node, leafName) {
+    if (node.kind === "group") {
+      const parentIsLeaf = isLeafGroup(node);
+      for (const child of node.children) walk(child, parentIsLeaf ? node.name : null);
+      return;
+    }
+    if (leafName) {
+      leafNames.add(leafName);
+      return;
+    }
+    unscopedPrimitiveKinds.push(node.kind);
+  }
+  walk(root, null);
+  return { leafNames, unscopedPrimitiveKinds };
+}
+
+/**
+ * @param {import('./sceneModel.mjs').GroupNode} groupNode
+ * @returns {boolean}
+ */
+function isLeafGroup(groupNode) {
+  return !groupNode.children.some((c) => c.kind === "group");
 }
 
 /** @param {'left'|'center'|'right'} h */

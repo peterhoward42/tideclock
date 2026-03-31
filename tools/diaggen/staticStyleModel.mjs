@@ -14,9 +14,17 @@ export const STATIC_STYLE_MODEL = {
       name: "accent",
       style: { color: "tomato" },
     },
+    {
+      name: "dominant",
+      style: { color: "yellow" },
+    },
   ],
   bindings: [
-    { name: "refArc", styleName: "baseCurve" },
-    { name: "waitArc", styleName: "accent" },
+    { name: "RefArc", styleName: "dominant" },
+    { name: "TickMark", styleName: "dominant" },
+    { name: "HeightLabel", styleName: "dominant" },
+    { name: "EventKind", styleName: "dominant" },
+    { name: "NextPointer", styleName: "dominant" },
+    { name: "WaitArc", styleName: "dominant" },
   ],
 };

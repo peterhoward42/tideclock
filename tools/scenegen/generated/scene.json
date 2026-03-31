@@ -17,7 +17,7 @@
     "children": [
       {
         "kind": "group",
-        "name": "refArc",
+        "name": "RefArc",
         "children": [
           {
             "kind": "arc",
@@ -35,7 +35,7 @@
       },
       {
         "kind": "group",
-        "name": "waitArc",
+        "name": "WaitArc",
         "children": [
           {
             "kind": "arc",
@@ -61,7 +61,7 @@
       },
       {
         "kind": "group",
-        "name": "tickMarks",
+        "name": "TickMark",
         "children": [
           {
             "kind": "line",
@@ -342,15 +342,15 @@
       },
       {
         "kind": "group",
-        "name": "tideMarks",
+        "name": "TideMarks",
         "children": [
           {
             "kind": "group",
-            "name": "tideMark",
+            "name": "TideMark",
             "children": [
               {
                 "kind": "group",
-                "name": "timePointer",
+                "name": "TimePointer",
                 "children": [
                   {
                     "kind": "triangle",
@@ -378,36 +378,48 @@
                 ]
               },
               {
-                "kind": "text",
-                "content": "0.94 m",
-                "size": 5.428,
-                "hAlign": "center",
-                "angleRad": 5.395164473846252,
-                "anchor": {
-                  "x": 129.43838235161633,
-                  "y": 94.48228207671119
-                }
+                "kind": "group",
+                "name": "HeightLabel",
+                "children": [
+                  {
+                    "kind": "text",
+                    "content": "0.94 m",
+                    "size": 5.428,
+                    "hAlign": "center",
+                    "angleRad": 5.395164473846252,
+                    "anchor": {
+                      "x": 129.43838235161633,
+                      "y": 94.48228207671119
+                    }
+                  }
+                ]
               },
               {
-                "kind": "text",
-                "content": "04:15",
-                "size": 4.72,
-                "hAlign": "center",
-                "angleRad": 5.395164473846252,
-                "anchor": {
-                  "x": 136.76216577419666,
-                  "y": 100.43843825155562
-                }
+                "kind": "group",
+                "name": "TimeLabel",
+                "children": [
+                  {
+                    "kind": "text",
+                    "content": "04:15",
+                    "size": 4.72,
+                    "hAlign": "center",
+                    "angleRad": 5.395164473846252,
+                    "anchor": {
+                      "x": 136.76216577419666,
+                      "y": 100.43843825155562
+                    }
+                  }
+                ]
               }
             ]
           },
           {
             "kind": "group",
-            "name": "tideMark",
+            "name": "TideMark",
             "children": [
               {
                 "kind": "group",
-                "name": "timePointer",
+                "name": "TimePointer",
                 "children": [
                   {
                     "kind": "triangle",
@@ -435,36 +447,48 @@
                 ]
               },
               {
-                "kind": "text",
-                "content": "4.7 m",
-                "size": 5.428,
-                "hAlign": "center",
-                "angleRad": 6.13995614051292,
-                "anchor": {
-                  "x": 195.17788317338025,
-                  "y": 57.22329810322752
-                }
+                "kind": "group",
+                "name": "HeightLabel",
+                "children": [
+                  {
+                    "kind": "text",
+                    "content": "4.7 m",
+                    "size": 5.428,
+                    "hAlign": "center",
+                    "angleRad": 6.13995614051292,
+                    "anchor": {
+                      "x": 195.17788317338025,
+                      "y": 57.22329810322752
+                    }
+                  }
+                ]
               },
               {
-                "kind": "text",
-                "content": "10:45",
-                "size": 4.72,
-                "hAlign": "center",
-                "angleRad": 6.13995614051292,
-                "anchor": {
-                  "x": 196.5253483394366,
-                  "y": 66.56663463929775
-                }
+                "kind": "group",
+                "name": "TimeLabel",
+                "children": [
+                  {
+                    "kind": "text",
+                    "content": "10:45",
+                    "size": 4.72,
+                    "hAlign": "center",
+                    "angleRad": 6.13995614051292,
+                    "anchor": {
+                      "x": 196.5253483394366,
+                      "y": 66.56663463929775
+                    }
+                  }
+                ]
               }
             ]
           },
           {
             "kind": "group",
-            "name": "tideMark",
+            "name": "TideMark",
             "children": [
               {
                 "kind": "group",
-                "name": "timePointer",
+                "name": "TimePointer",
                 "children": [
                   {
                     "kind": "triangle",
@@ -492,36 +516,48 @@
                 ]
               },
               {
-                "kind": "text",
-                "content": "0.89 m",
-                "size": 5.428,
-                "hAlign": "center",
-                "angleRad": 6.85495614051292,
-                "anchor": {
-                  "x": 266.19011555798545,
-                  "y": 72.67636909988084
-                }
+                "kind": "group",
+                "name": "HeightLabel",
+                "children": [
+                  {
+                    "kind": "text",
+                    "content": "0.89 m",
+                    "size": 5.428,
+                    "hAlign": "center",
+                    "angleRad": 6.85495614051292,
+                    "anchor": {
+                      "x": 266.19011555798545,
+                      "y": 72.67636909988084
+                    }
+                  }
+                ]
               },
               {
-                "kind": "text",
-                "content": "16:59",
-                "size": 4.72,
-                "hAlign": "center",
-                "angleRad": 6.85495614051292,
-                "anchor": {
-                  "x": 261.0819232345322,
-                  "y": 80.61488099989168
-                }
+                "kind": "group",
+                "name": "TimeLabel",
+                "children": [
+                  {
+                    "kind": "text",
+                    "content": "16:59",
+                    "size": 4.72,
+                    "hAlign": "center",
+                    "angleRad": 6.85495614051292,
+                    "anchor": {
+                      "x": 261.0819232345322,
+                      "y": 80.61488099989168
+                    }
+                  }
+                ]
               }
             ]
           },
           {
             "kind": "group",
-            "name": "tideMark",
+            "name": "TideMark",
             "children": [
               {
                 "kind": "group",
-                "name": "timePointer",
+                "name": "TimePointer",
                 "children": [
                   {
                     "kind": "triangle",
@@ -549,26 +585,38 @@
                 ]
               },
               {
-                "kind": "text",
-                "content": "4.8 m",
-                "size": 5.428,
-                "hAlign": "center",
-                "angleRad": 7.555060307179586,
-                "anchor": {
-                  "x": 309.2351843603707,
-                  "y": 129.4202062635596
-                }
+                "kind": "group",
+                "name": "HeightLabel",
+                "children": [
+                  {
+                    "kind": "text",
+                    "content": "4.8 m",
+                    "size": 5.428,
+                    "hAlign": "center",
+                    "angleRad": 7.555060307179586,
+                    "anchor": {
+                      "x": 309.2351843603707,
+                      "y": 129.4202062635596
+                    }
+                  }
+                ]
               },
               {
-                "kind": "text",
-                "content": "23:06",
-                "size": 4.72,
-                "hAlign": "center",
-                "angleRad": 7.555060307179586,
-                "anchor": {
-                  "x": 300.21380396397336,
-                  "y": 132.20018751232692
-                }
+                "kind": "group",
+                "name": "TimeLabel",
+                "children": [
+                  {
+                    "kind": "text",
+                    "content": "23:06",
+                    "size": 4.72,
+                    "hAlign": "center",
+                    "angleRad": 7.555060307179586,
+                    "anchor": {
+                      "x": 300.21380396397336,
+                      "y": 132.20018751232692
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -576,7 +624,7 @@
       },
       {
         "kind": "group",
-        "name": "tickLabels",
+        "name": "TickLabel",
         "children": [
           {
             "kind": "text",
@@ -670,135 +718,189 @@
       },
       {
         "kind": "group",
-        "name": "centreCluster",
+        "name": "CentreCluster",
         "children": [
           {
-            "kind": "line",
-            "start": {
-              "x": 210,
-              "y": 160
-            },
-            "end": {
-              "x": 169.48911674494366,
-              "y": 151.96517966005484
-            }
+            "kind": "group",
+            "name": "CentreClusterFrame",
+            "children": [
+              {
+                "kind": "line",
+                "start": {
+                  "x": 210,
+                  "y": 160
+                },
+                "end": {
+                  "x": 169.48911674494366,
+                  "y": 151.96517966005484
+                }
+              },
+              {
+                "kind": "line",
+                "start": {
+                  "x": 210,
+                  "y": 160
+                },
+                "end": {
+                  "x": 250.51088325505634,
+                  "y": 151.96517966005482
+                }
+              },
+              {
+                "kind": "arc",
+                "center": {
+                  "x": 210,
+                  "y": 160
+                },
+                "start": {
+                  "x": 169.48911674494366,
+                  "y": 151.96517966005484
+                },
+                "sweepRad": 2.75
+              }
+            ]
           },
           {
-            "kind": "line",
-            "start": {
-              "x": 210,
-              "y": 160
-            },
-            "end": {
-              "x": 250.51088325505634,
-              "y": 151.96517966005482
-            }
+            "kind": "group",
+            "name": "NowTime",
+            "children": [
+              {
+                "kind": "text",
+                "content": "Time now 19:20:03",
+                "size": 5.9,
+                "hAlign": "center",
+                "angleRad": 0,
+                "anchor": {
+                  "x": 210,
+                  "y": 136.4
+                }
+              }
+            ]
           },
           {
-            "kind": "arc",
-            "center": {
-              "x": 210,
-              "y": 160
-            },
-            "start": {
-              "x": 169.48911674494366,
-              "y": 151.96517966005484
-            },
-            "sweepRad": 2.75
-          },
-          {
-            "kind": "text",
-            "content": "Time now 19:20:03",
-            "size": 5.9,
-            "hAlign": "center",
-            "angleRad": 0,
-            "anchor": {
-              "x": 210,
-              "y": 136.4
-            }
-          },
-          {
-            "kind": "text",
-            "content": "High",
-            "size": 5.9,
-            "hAlign": "center",
-            "angleRad": 0,
-            "anchor": {
-              "x": 181.68,
-              "y": 148.2
-            }
-          },
-          {
-            "kind": "text",
-            "content": " water in ",
-            "size": 5.9,
-            "hAlign": "center",
-            "angleRad": 0,
-            "anchor": {
-              "x": 206.45999999999998,
-              "y": 148.2
-            }
-          },
-          {
-            "kind": "text",
-            "content": "3h 45m",
-            "size": 5.9,
-            "hAlign": "center",
-            "angleRad": 0,
-            "anchor": {
-              "x": 234.78,
-              "y": 148.2
-            }
+            "kind": "group",
+            "name": "TimeDelta",
+            "children": [
+              {
+                "kind": "group",
+                "name": "EventKind",
+                "children": [
+                  {
+                    "kind": "text",
+                    "content": "High",
+                    "size": 5.9,
+                    "hAlign": "center",
+                    "angleRad": 0,
+                    "anchor": {
+                      "x": 181.68,
+                      "y": 148.2
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "group",
+                "name": "DeltaGlue",
+                "children": [
+                  {
+                    "kind": "text",
+                    "content": " water in ",
+                    "size": 5.9,
+                    "hAlign": "center",
+                    "angleRad": 0,
+                    "anchor": {
+                      "x": 206.45999999999998,
+                      "y": 148.2
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "group",
+                "name": "DeltaInterval",
+                "children": [
+                  {
+                    "kind": "text",
+                    "content": "3h 45m",
+                    "size": 5.9,
+                    "hAlign": "center",
+                    "angleRad": 0,
+                    "anchor": {
+                      "x": 234.78,
+                      "y": 148.2
+                    }
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
       {
         "kind": "group",
-        "name": "nowPointer",
+        "name": "NowPointer",
         "children": [
           {
-            "kind": "triangle",
-            "a": {
-              "x": 306.68700858036937,
-              "y": 73.39940894093398
-            },
-            "b": {
-              "x": 306.17481459404974,
-              "y": 67.52168341821874
-            },
-            "c": {
-              "x": 312.47303939834546,
-              "y": 74.55346586042742
-            },
-            "outline": true
+            "kind": "group",
+            "name": "NowTriangle",
+            "children": [
+              {
+                "kind": "triangle",
+                "a": {
+                  "x": 306.68700858036937,
+                  "y": 73.39940894093398
+                },
+                "b": {
+                  "x": 306.17481459404974,
+                  "y": 67.52168341821874
+                },
+                "c": {
+                  "x": 312.47303939834546,
+                  "y": 74.55346586042742
+                },
+                "outline": true
+              }
+            ]
           },
           {
-            "kind": "line",
-            "start": {
-              "x": 245.1589122110434,
-              "y": 128.50887597852144
-            },
-            "end": {
-              "x": 271.52809636932597,
-              "y": 104.89053296241255
-            }
+            "kind": "group",
+            "name": "NowRadialLine",
+            "children": [
+              {
+                "kind": "line",
+                "start": {
+                  "x": 245.1589122110434,
+                  "y": 128.50887597852144
+                },
+                "end": {
+                  "x": 271.52809636932597,
+                  "y": 104.89053296241255
+                }
+              }
+            ]
           },
           {
-            "kind": "text",
-            "content": "now",
-            "size": 4.72,
-            "hAlign": "center",
-            "angleRad": 11.835947551453165,
-            "anchor": {
-              "x": 259.9180604912586,
-              "y": 118.45765008101917
-            }
+            "kind": "group",
+            "name": "NowLabel",
+            "children": [
+              {
+                "kind": "text",
+                "content": "now",
+                "size": 4.72,
+                "hAlign": "center",
+                "angleRad": 11.835947551453165,
+                "anchor": {
+                  "x": 259.9180604912586,
+                  "y": 118.45765008101917
+                }
+              }
+            ]
           }
         ]
       },
       {
         "kind": "group",
-        "name": "nextPointer",
+        "name": "NextPointer",
         "children": [
           {
             "kind": "line",
