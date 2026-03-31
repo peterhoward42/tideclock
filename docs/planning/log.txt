@@ -75,13 +75,12 @@ o  new data fetch paradigm
 				*  Resume tidePointer graphics definition
 				*  Next ptr
 				*  WaitInterval arc
+				*  bring in styling pattern
 
-				o  bring in styling pattern
-
-
-
-
-				o  move gen in-band and to recognize partial 
+				o  move gen into good shared place but leave preview
+				   workflow where it is
+				   	o  ask chatgpt for semantic names too
+				o  harden formerly pipeline code
 
 				o  Refinements
 					o  Say high water in 4 hours, 8 minutes (singular plural)
@@ -92,11 +91,6 @@ o  new data fetch paradigm
 
 See tide-diagram.md and /tools/diaggen for context.
 
-
-
-
-
-
 fart
 			o  remove unused junk in generators
 			o  inspect the generated code
@@ -106,7 +100,6 @@ fart
 			o  ditch legacy docs
 			o  when DRY up the generators for in-app workflow will the
 			   .mjs thing still work?
-
 fart
 
 
