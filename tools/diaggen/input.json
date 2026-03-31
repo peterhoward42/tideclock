@@ -36,7 +36,7 @@
       "normalOffset": 0.02
     },
     "triangle": {
-      "radius": 0.7,
+      "radius": 1.2,
       "baseLen": 0.08,
       "height": 0.03
     }

@@ -78,7 +78,7 @@ o  new data fetch paradigm
 						*  use tree for inputs
 						*  force not use divergence
 						*  sort aspect ratio
-						o  fix angle
+						*  fix angle
 						o  fix radius
 						o  not filled
 
