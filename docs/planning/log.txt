@@ -77,9 +77,16 @@ o  new data fetch paradigm
 				*  WaitInterval arc
 				*  bring in styling pattern
 
-				o  move gen into good shared place but leave preview
-				   workflow where it is
-				   	o  ask chatgpt for semantic names too
+fart
+				o  in-band migration
+					*  write charter
+					o  discuss phase 1 in charter
+
+See /docs/planning/diagram-generation-migration-charter.md for context.
+
+
+
+
 				o  harden formerly pipeline code
 
 				o  Refinements
@@ -87,11 +94,7 @@ o  new data fetch paradigm
 					o  what if no more tides today?
 					o  Move time now text out?
 
-				fart
 
-See tide-diagram.md and /tools/diaggen for context.
-
-fart
 			o  remove unused junk in generators
 			o  inspect the generated code
 				o  auto qual checks various
@@ -100,7 +103,6 @@ fart
 			o  ditch legacy docs
 			o  when DRY up the generators for in-app workflow will the
 			   .mjs thing still work?
-fart
 
 
 fart
