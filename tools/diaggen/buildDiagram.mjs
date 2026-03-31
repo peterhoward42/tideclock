@@ -3,6 +3,7 @@
 // that to `toScene.mjs` for the shared HTML preview.
 import { buildCentreClusterFromSpec } from "./centreCluster.mjs";
 import { buildNowPointerFromSpec } from "./nowPointer.mjs";
+import { buildNextPointerFromSpec } from "./nextPointer.mjs";
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
 import {
   diagramBoxFromExtents,
@@ -105,6 +106,13 @@ export function buildDiagram(spec) {
     thetaRight,
   );
 
+  const nextPointer = buildNextPointerFromSpec(
+    spec,
+    refRadius,
+    thetaLeft,
+    thetaRight,
+  );
+
   return {
     version: 1,
     meta: { title, width, height },
@@ -119,6 +127,7 @@ export function buildDiagram(spec) {
     tickLabels,
     tideMarks,
     nowPointer,
+    nextPointer,
     centreCluster,
     contentBounds,
   };

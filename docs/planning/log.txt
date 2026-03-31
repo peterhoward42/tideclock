@@ -72,19 +72,17 @@ o  new data fetch paradigm
 					   derivable
 					*  cursor is going for it...
 				*  Model next event time from tide events not input
-				o  Resume tidePointer graphics definition
+				*  Resume tidePointer graphics definition
+				o  Next ptr
+					*  line
+					o  arrow on end
+
 				fart
-					o  the now triangle
-						*  use tree for inputs
-						*  force not use divergence
-						*  sort aspect ratio
-						*  fix angle
-						o  fix radius
-						o  not filled
+
+See tide-diagram.md and /tools/diaggen for context.
 
 				o  what if no more tides today?
 
-			o fart
 
 
 
@@ -100,7 +98,6 @@ fart
 
 fart
 
-See tide-diagram.md and /tools/diaggen for context.
 
 fart
 

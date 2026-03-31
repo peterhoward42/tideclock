@@ -27,6 +27,27 @@ export function formatIntervalHoursMinutes(seconds) {
  * @returns {{ kind: string, intervalText: string } | null}
  */
 export function computeNextTideEventFromSpec(spec, parsedNow) {
+  const core = computeNextTideEventCore(spec, parsedNow);
+  if (core == null) return null;
+
+  const forwardSeconds = core.seconds - parsedNow.seconds;
+
+  return {
+    kind: core.kind,
+    intervalText: formatIntervalHoursMinutes(forwardSeconds),
+  };
+}
+
+/**
+ * Compute the next tide event at or after `timeNow` and return its absolute
+ * seconds-since-midnight and kind. Shared core for consumers that need the
+ * raw timing rather than just the formatted interval.
+ *
+ * @param {Record<string, unknown>} spec
+ * @param {{ canonical: string, seconds: number, hours: number, isRightEndpoint: boolean }} parsedNow
+ * @returns {{ seconds: number, kind: string } | null}
+ */
+export function computeNextTideEventCore(spec, parsedNow) {
   const rawTideMarks = /** @type {any} */ (spec.tideMarks);
   const markersRaw = rawTideMarks?.markers;
   if (!Array.isArray(markersRaw) || markersRaw.length === 0) {
@@ -53,7 +74,7 @@ export function computeNextTideEventFromSpec(spec, parsedNow) {
   events.sort((a, b) => a.seconds - b.seconds);
 
   const nowSeconds = parsedNow.seconds;
-  /** @type<{ seconds: number, kind: string } | null> */
+  /** @type{{ seconds: number, kind: string } | null} */
   let next = null;
   for (const ev of events) {
     if (ev.seconds >= nowSeconds) {
@@ -61,15 +82,6 @@ export function computeNextTideEventFromSpec(spec, parsedNow) {
       break;
     }
   }
-  if (next == null) {
-    return null;
-  }
-
-  const forwardSeconds = next.seconds - nowSeconds;
-
-  return {
-    kind: next.kind,
-    intervalText: formatIntervalHoursMinutes(forwardSeconds),
-  };
+  return next;
 }
 

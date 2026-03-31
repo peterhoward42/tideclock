@@ -24,6 +24,7 @@ fixed here (see **Content bounds**).
   - TickLabels
   - TideMarks
   - NowPointer
+  - NextPointer
   - CentreCluster
   - NowTime
   - TimeDelta
@@ -265,6 +266,39 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
     - Let **P_ref = polar(NowPointerTriangleRadius·R, θ_now)** be the **reference point** (the peak) on the time-now radial line.
     - Let the triangle be rotated rigidly about **P_ref** by angle **θ_now + π/2**.
     - The required triangle element is the image of the three local vertices under this rotation+translation, with **fill disabled** (stroke-only primitive in scene terms).
+
+## NextPointer
+
+**NextPointer** is a top-level named element tied to the **next** tide marker at or after `timeNow` on the same civil day (see **CentreCluster** and **TideMarks**).
+
+### Logical structure
+
+- **Next radial line** — one radial segment on the ray at the next-tide time.
+
+### Time association
+
+- Let the **next tide marker** be the same event used by **CentreCluster.TimeDelta** (next marker at or after `timeNow`, ignoring any marker at `24:00:00`).
+- Let its time be **t_next** in hours, with **θ_next = θ(t_next)** per **§Time and θ(t)**.
+- All **NextPointer** geometry is defined relative to **θ_next**.
+
+### Geometry
+
+Inputs and derived quantities:
+
+- **NextPointerLineOuterRadius** — line **outer** radius as **k·R** per **§Sizing**.
+- The **inner** radius of **NextPointer** is **not** an independent input:
+  - Define **NowPointerLineInnerRadius** as in **NowPointer**.
+  - **NextPointer** reuses that same **inner** radius so its radial segment begins at the **NowPointer** minimum radius.
+- Let:
+  - **r_inner = NowPointerLineInnerRadius·R** (effective value after any defaults),
+  - **r_outer = NextPointerLineOuterRadius·R**.
+
+#### Next radial line
+
+- A radial segment at **θ_next** with:
+  - **inner radius** **r_inner** shared with **NowPointer**,
+  - **outer radius** **r_outer** from **NextPointerLineOuterRadius** (default **0.8**).
+- If **r_outer ≤ r_inner**, **NextPointer** is omitted from the scene (no radial segment emitted).
 
 ## CentreCluster
 

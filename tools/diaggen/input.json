@@ -41,6 +41,11 @@
       "height": 0.03
     }
   },
+  "nextPointer": {
+    "radialLine": {
+      "outerRadius": 0.75
+    }
+  },
   "tideMarks": {
     "tideHeightLabelRadius": 0.88,
     "tideTimeLabelRadius": 0.8,

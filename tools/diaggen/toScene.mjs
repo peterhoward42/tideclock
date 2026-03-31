@@ -119,7 +119,8 @@ export function tideDiagramToScene(diagram) {
   const { width, height, title } = diagram.meta;
   const cx = width / 2;
   const cy = height / 2;
-  const { refArc, tickMarks, tickLabels, tideMarks, nowPointer } = diagram;
+  const { refArc, tickMarks, tickLabels, tideMarks, nowPointer, nextPointer } =
+    diagram;
   const R = refArc.refRadius;
   const C = refArc.center;
 
@@ -193,6 +194,16 @@ export function tideDiagramToScene(diagram) {
         ])
       : null;
 
+  const nextPointerGroup =
+    nextPointer != null
+      ? group("nextPointer", [
+          line(
+            mapPoint(nextPointer.radialLine.start, cx, cy),
+            mapPoint(nextPointer.radialLine.end, cx, cy),
+          ),
+        ])
+      : null;
+
   const { rect } = diagram.contentBounds;
   const meta = {
     title,
@@ -216,6 +227,7 @@ export function tideDiagramToScene(diagram) {
       tickLabelsGroup,
       ...(centreClusterGroup != null ? [centreClusterGroup] : []),
       ...(nowPointerGroup != null ? [nowPointerGroup] : []),
+      ...(nextPointerGroup != null ? [nextPointerGroup] : []),
     ]),
   };
 }
