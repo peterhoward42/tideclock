@@ -25,7 +25,7 @@ const previewPath = join(scenegenDir, "generated", "preview.html");
 
 const input = JSON.parse(readFileSync(inputPath, "utf8"));
 // Load-time validation for compile-time name -> style bindings.
-loadStyleModel(STATIC_STYLE_MODEL);
+const styleRuntime = loadStyleModel(STATIC_STYLE_MODEL);
 const diagram = buildDiagram(input);
 const scene = tideDiagramToScene(diagram);
 
@@ -34,4 +34,4 @@ mkdirSync(join(scenegenDir, "generated"), { recursive: true });
 
 writeFileSync(diagramPath, JSON.stringify(diagram, null, 2), "utf8");
 writeFileSync(scenePath, JSON.stringify(scene, null, 2), "utf8");
-writePreviewHtml(scene, previewPath);
+writePreviewHtml(scene, previewPath, { styleRuntime });

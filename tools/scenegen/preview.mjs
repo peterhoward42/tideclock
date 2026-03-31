@@ -10,6 +10,22 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 // Keep strokes thin so geometry relationships are easier to inspect.
 const PREVIEW_STROKE_WIDTH = 1.0;
 const SVG_NON_SCALING_STROKE_ATTR = `vector-effect="non-scaling-stroke"`;
+const PREVIEW_DEFAULTS = {
+  lineStroke: "#334",
+  curveStroke: "#335",
+  shapeFill: "#335",
+  textFill: "#223",
+  legacyRectFill: "#e8eef5",
+};
+
+/**
+ * @typedef {{ color?: string }} PreviewStyleProps
+ *
+ * @typedef {{
+ *   stylesByName: Map<string, PreviewStyleProps>,
+ *   nameToStyle: Map<string, string>,
+ * }} PreviewStyleRuntime
+ */
 
 /**
  * Turn a scene model into a fixed-path HTML preview (inline SVG) for inspection.
@@ -18,8 +34,9 @@ const SVG_NON_SCALING_STROKE_ATTR = `vector-effect="non-scaling-stroke"`;
  *
  * @param {object} scene
  * @param {string} outPath absolute or relative path to preview.html
+ * @param {{ styleRuntime?: PreviewStyleRuntime }} [opts]
  */
-export function writePreviewHtml(scene, outPath) {
+export function writePreviewHtml(scene, outPath, opts = {}) {
   mkdirSync(dirname(outPath), { recursive: true });
   const vb = computeViewBox(scene);
   const pad = 16; // total horizontal/vertical inset from viewport edges (8px each side)
@@ -48,7 +65,7 @@ export function writePreviewHtml(scene, outPath) {
   </style>
 </head>
 <body>
-${sceneToSvgInline(scene, vb)}
+${sceneToSvgInline(scene, vb, opts)}
 </body>
 </html>
 `;
@@ -111,8 +128,9 @@ function isValidPreviewFrame(pf) {
 /**
  * @param {object} scene
  * @param {{ vbX: number, vbY: number, vbW: number, vbH: number, canvasH: number }} vb
+ * @param {{ styleRuntime?: PreviewStyleRuntime }} opts
  */
-function sceneToSvgInline(scene, vb) {
+function sceneToSvgInline(scene, vb, opts) {
   const w = Number(scene.meta?.width) || 400;
   const h = Number(scene.meta?.height) || 300;
   const useV2 =
@@ -122,9 +140,9 @@ function sceneToSvgInline(scene, vb) {
     return legacySceneToSvg(scene, w, h);
   }
 
-  const markerDefs = collectArcArrowMarkers(scene.root);
+  const markerDefs = collectArcArrowMarkers(scene.root, opts.styleRuntime);
   const defs = markerDefs.length > 0 ? `\n  <defs>\n${markerDefs.join("\n")}\n  </defs>` : "";
-  const inner = renderNode(scene.root);
+  const inner = renderNode(scene.root, opts.styleRuntime, null);
   const { vbX, vbY, vbW, vbH, canvasH } = vb;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${vbW}" height="${vbH}" viewBox="${vbX} ${vbY} ${vbW} ${vbH}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
@@ -136,18 +154,30 @@ ${inner}
 }
 
 /** @param {import('./sceneModel.mjs').SceneNode} node */
-function renderNode(node) {
+function renderNode(node, styleRuntime, leafName) {
   switch (node.kind) {
     case "group": {
-      const body = node.children.map((c) => renderNode(c)).join("\n    ");
+      const body = node.children
+        .map((c) => renderNode(c, styleRuntime, node.name))
+        .join("\n    ");
       return `    <g data-name="${escapeAttr(node.name)}">\n    ${body}\n    </g>`;
     }
     case "line": {
       const { start: a, end: b } = node;
-      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="#334" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" />`;
+      const stroke = resolveLeafColor(
+        styleRuntime,
+        leafName,
+        PREVIEW_DEFAULTS.lineStroke,
+      );
+      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" />`;
     }
     case "arc": {
-      const arrowAttr = markerAttrForArc(node);
+      const stroke = resolveLeafColor(
+        styleRuntime,
+        leafName,
+        PREVIEW_DEFAULTS.curveStroke,
+      );
+      const arrowAttr = markerAttrForArc(node, leafName, styleRuntime);
       if (node.facetedPreview === true) {
         const pts = circularArcToFacetedPoints(
           node.center,
@@ -155,23 +185,45 @@ function renderNode(node) {
           node.sweepRad,
         );
         if (pts === "") return "";
-        return `    <polyline points="${escapeAttr(pts)}" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round"${arrowAttr} />`;
+        return `    <polyline points="${escapeAttr(pts)}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round"${arrowAttr} />`;
       }
       const d = circularArcToPathD(node.center, node.start, node.sweepRad);
-      return `    <path d="${escapeAttr(d)}" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${arrowAttr} />`;
+      return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${arrowAttr} />`;
     }
     case "triangle": {
       const { a, b, c } = node;
       const pts = `${a.x},${a.y} ${b.x},${b.y} ${c.x},${c.y}`;
-      const fillAttr = node.outline ? 'none' : '#335';
-      return `    <polygon points="${escapeAttr(pts)}" fill="${fillAttr}" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} />`;
+      const stroke = resolveLeafColor(
+        styleRuntime,
+        leafName,
+        PREVIEW_DEFAULTS.curveStroke,
+      );
+      const fillAttr = node.outline
+        ? "none"
+        : resolveLeafColor(styleRuntime, leafName, PREVIEW_DEFAULTS.shapeFill);
+      return `    <polygon points="${escapeAttr(pts)}" fill="${fillAttr}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} />`;
     }
     case "circle": {
       const { center, radius } = node;
-      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="#335" stroke="#335" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} />`;
+      const stroke = resolveLeafColor(
+        styleRuntime,
+        leafName,
+        PREVIEW_DEFAULTS.curveStroke,
+      );
+      const fill = resolveLeafColor(
+        styleRuntime,
+        leafName,
+        PREVIEW_DEFAULTS.shapeFill,
+      );
+      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="${fill}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} />`;
     }
     case "text": {
-      return renderTextSvg(node);
+      const fill = resolveLeafColor(
+        styleRuntime,
+        leafName,
+        PREVIEW_DEFAULTS.textFill,
+      );
+      return renderTextSvg(node, fill);
     }
     default:
       return "";
@@ -258,41 +310,55 @@ function circularArcToPathD(center, start, sweepRad) {
 
 /**
  * @param {import('./sceneModel.mjs').SceneNode} root
+ * @param {PreviewStyleRuntime | undefined} styleRuntime
  * @returns {string[]}
  */
-function collectArcArrowMarkers(root) {
+function collectArcArrowMarkers(root, styleRuntime) {
   /** @type {Map<string, string>} */
   const defs = new Map();
 
   /**
    * @param {import('./sceneModel.mjs').SceneNode} node
+   * @param {string | null} leafName
    */
-  function walk(node) {
+  function walk(node, leafName) {
     if (node.kind === "group") {
-      for (const child of node.children) walk(child);
+      for (const child of node.children) walk(child, node.name);
       return;
     }
     if (node.kind !== "arc" || node.arrow == null) return;
     const spec = normalizeArcArrow(node.arrow);
     if (spec.at !== "end") return;
-    const id = markerIdFromSpec(spec);
+    const stroke = resolveLeafColor(
+      styleRuntime,
+      leafName,
+      PREVIEW_DEFAULTS.curveStroke,
+    );
+    const id = markerIdFromSpec(spec, stroke);
     if (defs.has(id)) return;
-    defs.set(id, markerDefFromSpec(id, spec));
+    defs.set(id, markerDefFromSpec(id, spec, stroke));
   }
 
-  walk(root);
+  walk(root, null);
   return Array.from(defs.values());
 }
 
 /**
  * @param {import('./sceneModel.mjs').ArcPrimitive} arcNode
+ * @param {string | null} leafName
+ * @param {PreviewStyleRuntime | undefined} styleRuntime
  * @returns {string}
  */
-function markerAttrForArc(arcNode) {
+function markerAttrForArc(arcNode, leafName, styleRuntime) {
   if (arcNode.arrow == null) return "";
   const spec = normalizeArcArrow(arcNode.arrow);
   if (spec.at !== "end") return "";
-  return ` marker-end="url(#${markerIdFromSpec(spec)})"`;
+  const stroke = resolveLeafColor(
+    styleRuntime,
+    leafName,
+    PREVIEW_DEFAULTS.curveStroke,
+  );
+  return ` marker-end="url(#${markerIdFromSpec(spec, stroke)})"`;
 }
 
 /**
@@ -311,28 +377,31 @@ function normalizeArcArrow(raw) {
 
 /**
  * @param {{ at: 'end', lengthK: number, widthK: number, insetK: number, style: 'filled'|'open', scaleWithStroke: boolean }} spec
+ * @param {string} strokeColor
  */
-function markerIdFromSpec(spec) {
+function markerIdFromSpec(spec, strokeColor) {
   const l = spec.lengthK.toFixed(3);
   const w = spec.widthK.toFixed(3);
   const i = spec.insetK.toFixed(3);
   const styleCode = spec.style === "open" ? "o" : "f";
   const unitCode = spec.scaleWithStroke ? "sw" : "uu";
-  return `arc-arrow-${styleCode}-${unitCode}-l${l}-w${w}-i${i}`.replaceAll(".", "_");
+  const colorCode = strokeColor.replaceAll("#", "h");
+  return `arc-arrow-${styleCode}-${unitCode}-l${l}-w${w}-i${i}-c${colorCode}`.replaceAll(".", "_");
 }
 
 /**
  * @param {string} id
  * @param {{ lengthK: number, widthK: number, insetK: number, style: 'filled'|'open', scaleWithStroke: boolean }} spec
+ * @param {string} strokeColor
  */
-function markerDefFromSpec(id, spec) {
+function markerDefFromSpec(id, spec, strokeColor) {
   const L = spec.lengthK;
   const W = spec.widthK;
   const halfW = 0.5 * W;
   const refX = L - spec.insetK;
   const markerUnits = spec.scaleWithStroke ? "strokeWidth" : "userSpaceOnUse";
-  const fill = spec.style === "filled" ? "#335" : "none";
-  const stroke = "#335";
+  const fill = spec.style === "filled" ? strokeColor : "none";
+  const stroke = strokeColor;
   const strokeWidth = spec.style === "open" ? 1.5 : 1.0;
   return `    <marker id="${escapeAttr(id)}" markerWidth="${L}" markerHeight="${W}" refX="${refX}" refY="${halfW}" orient="auto" markerUnits="${markerUnits}">
       <path d="M 0 0 L ${L} ${halfW} L 0 ${W} z" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" />
@@ -340,7 +409,7 @@ function markerDefFromSpec(id, spec) {
 }
 
 /** @param {import('./sceneModel.mjs').TextPrimitive} node */
-function renderTextSvg(node) {
+function renderTextSvg(node, fillColor) {
   const { anchor, content, size, hAlign, angleRad } = node;
   const ax = anchor.x;
   const ay = anchor.y;
@@ -351,9 +420,26 @@ function renderTextSvg(node) {
   // around the anchor restores upright text without changing the anchor position.
   return `    <g transform="translate(${ax}, ${ay}) scale(1,-1) translate(${-ax}, ${-ay})">
       <g transform="rotate(${deg}, ${ax}, ${ay})">
-      <text x="${ax}" y="${ay}" font-size="${size}" fill="#223" text-anchor="${anchorAttr}" dominant-baseline="alphabetic" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">${inner}</text>
+      <text x="${ax}" y="${ay}" font-size="${size}" fill="${fillColor}" text-anchor="${anchorAttr}" dominant-baseline="alphabetic" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">${inner}</text>
       </g>
     </g>`;
+}
+
+/**
+ * Leaf-level style lookup: nearest parent group name is the key.
+ * If no binding exists (or style has no color), fall back to default.
+ *
+ * @param {PreviewStyleRuntime | undefined} styleRuntime
+ * @param {string | null} leafName
+ * @param {string} fallback
+ */
+function resolveLeafColor(styleRuntime, leafName, fallback) {
+  if (!styleRuntime || !leafName) return fallback;
+  const styleName = styleRuntime.nameToStyle.get(leafName);
+  if (!styleName) return fallback;
+  const styleProps = styleRuntime.stylesByName.get(styleName);
+  if (!styleProps || typeof styleProps.color !== "string") return fallback;
+  return styleProps.color;
 }
 
 /** @param {'left'|'center'|'right'} h */
@@ -369,7 +455,7 @@ function legacySceneToSvg(scene, w, h) {
   const rectsSvg = rects
     .map(
       (r) =>
-        `<rect x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" fill="#e8eef5" stroke="#334" stroke-width="1" ${SVG_NON_SCALING_STROKE_ATTR} />`,
+        `<rect x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" fill="${PREVIEW_DEFAULTS.legacyRectFill}" stroke="${PREVIEW_DEFAULTS.lineStroke}" stroke-width="1" ${SVG_NON_SCALING_STROKE_ATTR} />`,
     )
     .join("\n    ");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
