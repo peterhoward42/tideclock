@@ -17,7 +17,7 @@
     18,
     21
   ],
-  "tickLabelSize": 0.05,
+  "tickLabelSize": 0.04,
   "tickLabelClearance": 0.07,
   "contentBounds": {
     "left": 1.45,
@@ -36,7 +36,7 @@
       "normalOffset": 0.02
     },
     "triangle": {
-      "radius": 1.2,
+      "radius": 1.10,
       "baseLen": 0.08,
       "height": 0.03
     }
@@ -50,7 +50,14 @@
     }
   },
   "waitArc": {
-    "radius": 0.68
+    "radius": 0.68,
+    "arrow": {
+      "lengthK": 7,
+      "widthK": 5,
+      "insetK": 0,
+      "style": "filled",
+      "scaleWithStroke": true
+    }
   },
   "tideMarks": {
     "tideHeightLabelRadius": 0.88,

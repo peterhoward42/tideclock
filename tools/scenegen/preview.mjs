@@ -122,15 +122,13 @@ function sceneToSvgInline(scene, vb) {
     return legacySceneToSvg(scene, w, h);
   }
 
+  const markerDefs = collectArcArrowMarkers(scene.root);
+  const defs = markerDefs.length > 0 ? `\n  <defs>\n${markerDefs.join("\n")}\n  </defs>` : "";
   const inner = renderNode(scene.root);
   const { vbX, vbY, vbW, vbH, canvasH } = vb;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${vbW}" height="${vbH}" viewBox="${vbX} ${vbY} ${vbW} ${vbH}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-  <defs>
-    <marker id="arc-end-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
-      <path d="M 0 0 L 8 4 L 0 8 z" fill="#335" />
-    </marker>
-  </defs>
+${defs}
   <g transform="translate(0,${canvasH}) scale(1,-1)">
 ${inner}
   </g>
@@ -149,7 +147,7 @@ function renderNode(node) {
       return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="#334" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" />`;
     }
     case "arc": {
-      const arrowAttr = node.arrowAtEnd === true ? ' marker-end="url(#arc-end-arrow)"' : "";
+      const arrowAttr = markerAttrForArc(node);
       if (node.facetedPreview === true) {
         const pts = circularArcToFacetedPoints(
           node.center,
@@ -256,6 +254,89 @@ function circularArcToPathD(center, start, sweepRad) {
     return `${first} ${second}`;
   }
   return ellipseArcSegmentD(center, start, sweepRad, true);
+}
+
+/**
+ * @param {import('./sceneModel.mjs').SceneNode} root
+ * @returns {string[]}
+ */
+function collectArcArrowMarkers(root) {
+  /** @type {Map<string, string>} */
+  const defs = new Map();
+
+  /**
+   * @param {import('./sceneModel.mjs').SceneNode} node
+   */
+  function walk(node) {
+    if (node.kind === "group") {
+      for (const child of node.children) walk(child);
+      return;
+    }
+    if (node.kind !== "arc" || node.arrow == null) return;
+    const spec = normalizeArcArrow(node.arrow);
+    if (spec.at !== "end") return;
+    const id = markerIdFromSpec(spec);
+    if (defs.has(id)) return;
+    defs.set(id, markerDefFromSpec(id, spec));
+  }
+
+  walk(root);
+  return Array.from(defs.values());
+}
+
+/**
+ * @param {import('./sceneModel.mjs').ArcPrimitive} arcNode
+ * @returns {string}
+ */
+function markerAttrForArc(arcNode) {
+  if (arcNode.arrow == null) return "";
+  const spec = normalizeArcArrow(arcNode.arrow);
+  if (spec.at !== "end") return "";
+  return ` marker-end="url(#${markerIdFromSpec(spec)})"`;
+}
+
+/**
+ * @param {{ at?: string, lengthK?: number, widthK?: number, insetK?: number, style?: string, scaleWithStroke?: boolean }} raw
+ */
+function normalizeArcArrow(raw) {
+  return {
+    at: raw.at === "end" ? "end" : "end",
+    lengthK: Math.max(0.01, Number.isFinite(raw.lengthK) ? Number(raw.lengthK) : 7),
+    widthK: Math.max(0.01, Number.isFinite(raw.widthK) ? Number(raw.widthK) : 5),
+    insetK: Number.isFinite(raw.insetK) ? Number(raw.insetK) : 0,
+    style: raw.style === "open" ? "open" : "filled",
+    scaleWithStroke: raw.scaleWithStroke !== false,
+  };
+}
+
+/**
+ * @param {{ at: 'end', lengthK: number, widthK: number, insetK: number, style: 'filled'|'open', scaleWithStroke: boolean }} spec
+ */
+function markerIdFromSpec(spec) {
+  const l = spec.lengthK.toFixed(3);
+  const w = spec.widthK.toFixed(3);
+  const i = spec.insetK.toFixed(3);
+  const styleCode = spec.style === "open" ? "o" : "f";
+  const unitCode = spec.scaleWithStroke ? "sw" : "uu";
+  return `arc-arrow-${styleCode}-${unitCode}-l${l}-w${w}-i${i}`.replaceAll(".", "_");
+}
+
+/**
+ * @param {string} id
+ * @param {{ lengthK: number, widthK: number, insetK: number, style: 'filled'|'open', scaleWithStroke: boolean }} spec
+ */
+function markerDefFromSpec(id, spec) {
+  const L = spec.lengthK;
+  const W = spec.widthK;
+  const halfW = 0.5 * W;
+  const refX = L - spec.insetK;
+  const markerUnits = spec.scaleWithStroke ? "strokeWidth" : "userSpaceOnUse";
+  const fill = spec.style === "filled" ? "#335" : "none";
+  const stroke = "#335";
+  const strokeWidth = spec.style === "open" ? 1.5 : 1.0;
+  return `    <marker id="${escapeAttr(id)}" markerWidth="${L}" markerHeight="${W}" refX="${refX}" refY="${halfW}" orient="auto" markerUnits="${markerUnits}">
+      <path d="M 0 0 L ${L} ${halfW} L 0 ${W} z" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" />
+    </marker>`;
 }
 
 /** @param {import('./sceneModel.mjs').TextPrimitive} node */

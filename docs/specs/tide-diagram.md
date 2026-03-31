@@ -341,6 +341,21 @@ Inputs and derived quantities:
   **max(0, θ_next − θ_now)**.
 - If no next marker exists on the same civil day, **WaitArc** is omitted.
 
+### Arrow metadata
+
+- **WaitArc** carries arrow metadata only; generator does not synthesize
+  arrowhead geometry.
+- Arrow metadata fields:
+  - **at** — currently fixed to `end` for **WaitArc**.
+  - **lengthK** — arrowhead length multiplier (recommended in stroke-width
+    units for renderer mapping).
+  - **widthK** — arrowhead width multiplier (same unit convention as
+    **lengthK**).
+  - **insetK** — signed tip offset along the tangent at the target endpoint.
+  - **style** — one of `filled` or `open`.
+  - **scaleWithStroke** — boolean; when true, renderer scales marker with
+    stroke width.
+
 ## CentreCluster
 
 **CentreCluster** groups content near **O** (**§Origin**).

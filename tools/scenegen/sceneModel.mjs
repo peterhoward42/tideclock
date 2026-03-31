@@ -13,12 +13,21 @@
  * }} LinePrimitive
  *
  * @typedef {{
+ *   at: 'end',
+ *   lengthK: number,
+ *   widthK: number,
+ *   insetK: number,
+ *   style: 'filled' | 'open',
+ *   scaleWithStroke: boolean,
+ * }} ArcArrowMeta
+ *
+ * @typedef {{
  *   kind: 'arc',
  *   center: Point,
  *   start: Point,
  *   sweepRad: number,
  *   facetedPreview?: boolean,
- *   arrowAtEnd?: boolean,
+ *   arrow?: ArcArrowMeta,
  * }} ArcPrimitive
  *
  * @typedef {{
@@ -99,9 +108,9 @@ export function line(start, end) {
  * @param {Point} center
  * @param {Point} start
  * @param {number} sweepRad
- * @param {{ facetedPreview?: boolean, arrowAtEnd?: boolean }} [opts]
+ * @param {{ facetedPreview?: boolean, arrow?: ArcArrowMeta }} [opts]
  * if `facetedPreview`, HTML preview uses a polyline sample (debug).
- * if `arrowAtEnd`, renderers may draw an arrowhead at arc end.
+ * if `arrow` is present, renderers may draw arrowheads per metadata.
  * @returns {ArcPrimitive}
  */
 export function arc(center, start, sweepRad, opts) {
@@ -112,7 +121,7 @@ export function arc(center, start, sweepRad, opts) {
     sweepRad,
   });
   if (opts?.facetedPreview === true) o.facetedPreview = true;
-  if (opts?.arrowAtEnd === true) o.arrowAtEnd = true;
+  if (opts?.arrow != null) o.arrow = opts.arrow;
   return o;
 }
 

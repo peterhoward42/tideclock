@@ -74,15 +74,29 @@ o  new data fetch paradigm
 				*  Model next event time from tide events not input
 				*  Resume tidePointer graphics definition
 				*  Next ptr
-				o  WaitInterval arc
-					o  first stab
-					o  how parameterise the blob size
+				*  WaitInterval arc
+
+				o  bring in styling pattern
+					o  what do I want for convenience?
+						o  specify colours, line widths, dash patterns and
+						   opacity for each primitive
+						o  via indirection through named colour roles / types
+						o  with style per role
+						o  to allow all parent nodes or sub nodes or leaves
+							to be allocated to roles
+
+
+				o  move gen in-band and to recognize partial 
+
+				o  Refinements
+					o  Say high water in 4 hours, 8 minutes (singular plural)
+					o  what if no more tides today?
+					o  Move time now text out?
 
 				fart
 
 See tide-diagram.md and /tools/diaggen for context.
 
-				o  what if no more tides today?
 
 
 
@@ -91,6 +105,7 @@ See tide-diagram.md and /tools/diaggen for context.
 fart
 			o  remove unused junk in generators
 			o  inspect the generated code
+				o  auto qual checks various
 
 
 			o  ditch legacy docs

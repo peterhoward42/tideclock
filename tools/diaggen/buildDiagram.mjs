@@ -234,7 +234,14 @@ function buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     radius,
     thetaStart: nowTheta,
     sweepRad: Math.max(0, nextTheta - nowTheta),
-    arrowAtEnd: true,
+    arrow: {
+      at: "end",
+      lengthK: numOr(o.arrow?.lengthK, 7),
+      widthK: numOr(o.arrow?.widthK, 5),
+      insetK: numOr(o.arrow?.insetK, 0),
+      style: o.arrow?.style === "open" ? "open" : "filled",
+      scaleWithStroke: o.arrow?.scaleWithStroke !== false,
+    },
   };
 }
 

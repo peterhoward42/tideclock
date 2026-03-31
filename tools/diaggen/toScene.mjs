@@ -170,7 +170,7 @@ export function tideDiagramToScene(diagram) {
               cy,
             ),
             waitArc.sweepRad,
-            { arrowAtEnd: waitArc.arrowAtEnd },
+            { arrow: waitArc.arrow },
           ),
         ])
       : null;

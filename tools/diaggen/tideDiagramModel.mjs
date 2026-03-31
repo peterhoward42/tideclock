@@ -102,11 +102,20 @@
  * }} NextPointerDiagram
  *
  * @typedef {{
+ *   at: 'end',
+ *   lengthK: number,
+ *   widthK: number,
+ *   insetK: number,
+ *   style: 'filled' | 'open',
+ *   scaleWithStroke: boolean,
+ * }} ArcArrowMeta
+ *
+ * @typedef {{
  *   center: DiagramPoint,
  *   radius: number,
  *   thetaStart: number,
  *   sweepRad: number,
- *   arrowAtEnd: boolean,
+ *   arrow: ArcArrowMeta,
  * }} WaitArcDiagram
  *
  * @typedef {{
