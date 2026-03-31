@@ -47,7 +47,7 @@ export function writePreviewHtml(scene, outPath, opts = {}) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${escapeHtml(String(scene.meta?.title ?? "preview"))}</title>
   <style>
-    html, body { height: 100%; margin: 0; background: #fff; }
+    html, body { height: 100%; margin: 0; background: #000; }
     body {
       display: flex;
       align-items: center;
