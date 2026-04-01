@@ -83,7 +83,10 @@ fart
 					o  discuss phase 1 in charter
 
 				o  plan integration replace existing diagram first stab
-					o  ask chatgpt what diag content seems legacy
+					o  ask chatgpt to survey code code and collab for diag entry point in
+					application, then  identify which content seems to compete semantically -
+					trying to build list to ditch
+
 					o  ask chatgpt to analyse lifecycle and triggers thus far
 					o  riff on trigger types and lifecycles for planning
 						o  focus on partial
