@@ -68,3 +68,31 @@ And a boundary-triggered query model:
 - Users benefit from frequent visual confirmation that the display is active.
 - Separating liveness from semantic recompute avoids unnecessary churn while preserving product feel.
 - Keeping fetch behavior hidden behind query keeps orchestration simpler and consistent with current architecture intent.
+
+## Derived Decisions (diagram generation branch ownership)
+
+### 1) One-second alive-motion tranche
+
+- Include only lightweight liveness presentation.
+- **Explicit inclusion:** centre-cluster **NowTime** ticking readout.
+- **Explicit exclusion:** **NowPointer** is not part of the one-second tranche.
+
+### 2) Minute-scale semantic tranche
+
+- Own semantically meaningful recompute derived from `timeNow` and current-day marker state.
+- **Includes:**
+  - **NowPointer** (moved here from one-second consideration),
+  - next-event derivation (`computeNextTideEvent*`),
+  - **CentreCluster.TimeDelta** (`EventKind`, `DeltaInterval`),
+  - **NextPointer**,
+  - **WaitArc** semantic geometry.
+
+### 3) Boundary-triggered query tranche (load/location/day rollover)
+
+- Boundary events remain:
+  - app load/startup,
+  - location change,
+  - local civil-day rollover.
+- Boundary action remains:
+  - invoke the existing civil-day query entrypoint (memory-first; fetch internal when needed).
+- This tranche refreshes base marker data that minute-scale semantics consume.
