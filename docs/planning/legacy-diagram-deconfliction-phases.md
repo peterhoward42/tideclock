@@ -192,6 +192,20 @@ Gate:
 
 - Retained orchestration-adjacent modules are explicitly intentional, not accidental leftovers.
 
+#### Phase 5 Deliverable - Intent-Hold Annotations Recorded
+
+Implemented actions (2026-04-01):
+
+- Marked `src/application/appClock.js` as **intent hold** for orchestration cadence ownership (1s wall-clock trigger), explicitly retained pending a concrete orchestration replacement.
+- Marked `src/ui/App.svelte` orchestration entrypoints (`refreshTideExtremesForTown`, `setCurrentLocation`) as **intent hold**, clarifying they are retained for trigger/lifecycle sequencing and stale-response control rather than diagram-semantic ownership.
+- Recorded this retention rationale in planning so these modules are treated as intentional orchestration policy holders, not cleanup leftovers.
+
+#### Phase 5 Gate Status
+
+- Status: **Accepted**
+- Date: **2026-04-01**
+- Acceptance basis: orchestration-adjacent modules retained after deconfliction are now explicitly tagged as intent holds in code comments and planning notes, with revisit deferred until a concrete orchestration specification exists.
+
 ### Phase 6 - Deconfliction Exit Check
 
 Declare this phase set complete when:

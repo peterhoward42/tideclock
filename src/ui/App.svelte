@@ -60,8 +60,8 @@
   }
 
   /**
-   * Loads civil-day tide extremes for `town` and refreshes the home screen model so clock-scene tide
-   * semantics stay aligned with the latest successful fetch.
+   * Intent hold (Phase 5): this refresh flow is retained as orchestration policy
+   * (load sequencing + stale-response guards), not diagram-semantic ownership.
    */
   function refreshTideExtremesForTown(town: Town): void {
     const serial = ++tideLoadSerial;
@@ -85,7 +85,8 @@
 
   /**
    * Central write-orchestrator for the selected town.
-   * Future follow-on flows (reloads/navigation/etc.) should be added here.
+   * Intent hold (Phase 5): keep this as the single trigger point for follow-on
+   * orchestration work (reloads/navigation/etc.) until a concrete replacement exists.
    */
   function setCurrentLocation(town: Town): void {
     appDiag("setCurrentLocation called from Location route", {
