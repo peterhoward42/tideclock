@@ -162,6 +162,24 @@ Gate:
 
 - Import graph no longer depends on removed semantic generation path.
 
+#### Phase 4 Deliverable - Secondary Import Chain Cleanup
+
+Implemented actions (2026-04-01):
+
+- Updated `src/ui/routes/Home.svelte` to remove the unused `homeScreenModel` prop and its stale type import from `clock-presentation/homeScreenModel`.
+- Updated `src/ui/App.svelte` to remove dead `homeScreenModel` state, collaborator construction, and related imports that were no longer consumed after the Home route placeholder transition.
+- Kept active Home runtime behavior unchanged (status-only placeholder surface + tide load state), while eliminating stale semantic-path wiring from the primary route import chain.
+
+Verification:
+
+- `npm test` passes (45/45), confirming cleanup did not regress current behavior.
+
+#### Phase 4 Gate Status
+
+- Status: **Accepted**
+- Date: **2026-04-01**
+- Acceptance basis: the active Home import graph no longer carries stale wiring to the removed legacy semantic generation path (`homeScreenModel` route prop chain), and only currently used runtime dependencies remain on the primary path.
+
 ### Phase 5 - Intent Hold for Orchestration-Adjacent Code
 
 Protect code that may encode future orchestration behavior.

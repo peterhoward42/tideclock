@@ -3,10 +3,8 @@
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
   import type { Town } from "../data/bakedTowns";
-  import { createDiagramGenerationCollaborator } from "../application/diagramGenerationCollaborator";
   import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
   import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
-  import { defaultHomeScreenModel, type HomeScreenModel } from "../clock-presentation/homeScreenModel";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import Home from "./routes/Home.svelte";
   import Location from "./routes/Location.svelte";
@@ -18,19 +16,14 @@
 
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
   let tideLoadState = $state<TidePredictionsLoadState>({ status: "ready" });
-  const diagramGeneration = createDiagramGenerationCollaborator();
   /**
    * Monotonic counter for in-flight tide loads. Each refresh captures the value after incrementing;
    * when the async work finishes, it only updates state if that capture still matches. Rationale:
    * network latency is unbounded, so responses can complete out of order (town A slow, town B fast).
    * Without this guard, a late response for an abandoned location would overwrite the UI with the
-   * wrong place’s tides and corrupt `homeScreenModel`.
+   * wrong place's tides.
    */
   let tideLoadSerial = $state(0);
-  let homeScreenModel = $state<HomeScreenModel>({
-    ...defaultHomeScreenModel,
-    diagramGeneration
-  });
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
 
   function appDiag(...args: unknown[]) {
@@ -139,7 +132,7 @@
 
   <section class="content">
     {#if $route === "home"}
-      <Home homeScreenModel={homeScreenModel} tideLoadState={tideLoadState} />
+      <Home tideLoadState={tideLoadState} />
     {:else if $route === "location"}
       <Location setCurrentLocation={setCurrentLocation} />
     {:else if $route === "settings"}

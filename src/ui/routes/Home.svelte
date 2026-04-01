@@ -1,15 +1,12 @@
 <script lang="ts">
   // Home route: minimal render surface during re-baselining.
-  import type { HomeScreenModel } from "../../clock-presentation/homeScreenModel";
-
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
 
   interface Props {
-    homeScreenModel: HomeScreenModel;
     tideLoadState: TidePredictionsLoadState;
   }
 
-  let { homeScreenModel, tideLoadState }: Props = $props();
+  let { tideLoadState }: Props = $props();
 </script>
 
 <section class="home-placeholder">
