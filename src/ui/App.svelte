@@ -3,6 +3,7 @@
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
   import type { Town } from "../data/bakedTowns";
+  import { createDiagramGenerationCollaborator } from "../application/diagramGenerationCollaborator";
   import { homeScreenModelFromHost } from "../application/homeScreenModelFromHost";
   import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
   import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
@@ -19,6 +20,7 @@
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
   let tideLoadState = $state<TidePredictionsLoadState>({ status: "ready" });
   let tideExtremesForClock = $state<TideExtremesAtLocation | undefined>(undefined);
+  const diagramGeneration = createDiagramGenerationCollaborator();
   /**
    * Monotonic counter for in-flight tide loads. Each refresh captures the value after incrementing;
    * when the async work finishes, it only updates state if that capture still matches. Rationale:
@@ -28,7 +30,11 @@
    */
   let tideLoadSerial = $state(0);
   let homeScreenModel = $state<HomeScreenModel>(
-    homeScreenModelFromHost({ loader: localStorage, tideExtremes: undefined })
+    homeScreenModelFromHost({
+      loader: localStorage,
+      tideExtremes: undefined,
+      diagramGeneration
+    })
   );
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
 
@@ -73,7 +79,11 @@
     const serial = ++tideLoadSerial;
     tideLoadState = { status: "loading" };
     tideExtremesForClock = undefined;
-    homeScreenModel = homeScreenModelFromHost({ loader: localStorage, tideExtremes: undefined });
+    homeScreenModel = homeScreenModelFromHost({
+      loader: localStorage,
+      tideExtremes: undefined,
+      diagramGeneration
+    });
     void (async () => {
       try {
         const result = await loadTideExtremesForCurrentCivilDay(town.lat, town.lon);
@@ -95,7 +105,8 @@
       }
       homeScreenModel = homeScreenModelFromHost({
         loader: localStorage,
-        tideExtremes: tideExtremesForClock
+        tideExtremes: tideExtremesForClock,
+        diagramGeneration
       });
     })();
   }

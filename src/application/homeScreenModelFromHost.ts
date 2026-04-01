@@ -6,6 +6,7 @@ import {
 } from '../clock-presentation/clockSceneModel';
 import type { HomeScreenModel } from '../clock-presentation/homeScreenModel';
 import { loadCurrentLocation, type CurrentLocationLoader } from '../data-pipelines/currentLocation';
+import type { DiagramGenerationCollaborator } from './diagramGenerationCollaborator';
 
 function tideEventsFromExtremes(extremes: TideExtremesAtLocation | undefined): readonly ClockTideEventInstant[] {
   if (extremes === undefined) {
@@ -29,9 +30,11 @@ function clockSceneWithTideExtremes(tideExtremes: TideExtremesAtLocation | undef
 export function homeScreenModelFromHost(params: {
   loader: CurrentLocationLoader;
   tideExtremes?: TideExtremesAtLocation | undefined;
+  diagramGeneration: DiagramGenerationCollaborator;
 }): HomeScreenModel {
   loadCurrentLocation(params);
   return {
     clockScene: clockSceneWithTideExtremes(params.tideExtremes),
+    diagramGeneration: params.diagramGeneration,
   };
 }
