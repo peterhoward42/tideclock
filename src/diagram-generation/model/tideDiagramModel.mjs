@@ -58,11 +58,13 @@
  *   end: DiagramPoint,
  * }} DiagramLineSeg
  *
- * CentreClusterDiagram.timeDelta is empty when there is no next tide on the civil day (no EventKind / DeltaGlue / DeltaInterval).
+ * CentreClusterDiagram: **timeDelta** holds three fragments when counting down to the next tide;
+ * **timeDeltaEmptyMessage** is set (and **timeDelta** empty) when there is no next tide today (**NoMoreTidesToday** in the spec).
  *
  * @typedef {{
  *   nowTime: DiagramTextInst,
  *   timeDelta: DiagramTextInst[],
+ *   timeDeltaEmptyMessage: DiagramTextInst | null,
  *   frameArc: CentreClusterFrameArcSpec,
  *   frameLines: [DiagramLineSeg, DiagramLineSeg],
  * }} CentreClusterDiagram

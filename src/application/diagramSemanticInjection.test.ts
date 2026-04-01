@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { buildDiagram } from '../diagram-generation/index.mjs';
+import { TIME_DELTA_EMPTY_MESSAGE } from '../diagram-generation/layout/centreCluster.mjs';
 import { deriveNextTideSemantics } from './nextTideSemantics';
 
 /** Minimal spec with centreCluster, nextPointer, waitArc, and tide markers (diaggen-shaped). */
@@ -71,11 +72,16 @@ describe('spec.semantic.nextTide injection', () => {
     expect(withSemantic).toEqual(baseline);
   });
 
-  it('after last tide of the day keeps centre cluster with NowTime but omits TimeDelta, NextPointer, and WaitArc', () => {
+  it('after last tide of the day shows NoMoreTidesToday and omits NextPointer and WaitArc', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
     const diagram = buildDiagram(spec);
     expect(diagram.centreCluster).not.toBeNull();
     expect(diagram.centreCluster?.timeDelta).toEqual([]);
+    expect(diagram.centreCluster?.timeDeltaEmptyMessage).toEqual({
+      content: TIME_DELTA_EMPTY_MESSAGE,
+      fontSize: 5.9,
+      anchor: { x: 0, y: -11.8 },
+    });
     expect(diagram.centreCluster?.nowTime.content).toBe('Time now 23:59:00');
     expect(diagram.nextPointer).toBeNull();
     expect(diagram.waitArc).toBeNull();

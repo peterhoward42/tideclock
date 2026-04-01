@@ -69,6 +69,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "fontSize": 5.9,
       },
     ],
+    "timeDeltaEmptyMessage": null,
   },
   "contentBounds": {
     "extents": {

@@ -69,6 +69,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "fontSize": 5.9,
       },
     ],
+    "timeDeltaEmptyMessage": null,
   },
   "contentBounds": {
     "extents": {

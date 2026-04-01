@@ -43,7 +43,10 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
   );
 
   const now = cluster.nowTime;
-  const timeDeltaNodes = cluster.timeDelta.map((seg, idx) => {
+  /** @type {import('../model/sceneModel.mjs').GroupNode[]} */
+  const timeDeltaChildren = [];
+  for (let idx = 0; idx < cluster.timeDelta.length; idx += 1) {
+    const seg = cluster.timeDelta[idx];
     const node = text({
       content: seg.content,
       size: seg.fontSize,
@@ -51,10 +54,24 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
       angleRad: 0,
       anchor: mapPoint(seg.anchor, cx, cy),
     });
-    if (idx === 0) return group("EventKind", [node]);
-    if (idx === 1) return group("DeltaGlue", [node]);
-    return group("DeltaInterval", [node]);
-  });
+    if (idx === 0) timeDeltaChildren.push(group("EventKind", [node]));
+    else if (idx === 1) timeDeltaChildren.push(group("DeltaGlue", [node]));
+    else timeDeltaChildren.push(group("DeltaInterval", [node]));
+  }
+  if (cluster.timeDeltaEmptyMessage != null) {
+    const m = cluster.timeDeltaEmptyMessage;
+    timeDeltaChildren.push(
+      group("NoMoreTidesToday", [
+        text({
+          content: m.content,
+          size: m.fontSize,
+          hAlign: "center",
+          angleRad: 0,
+          anchor: mapPoint(m.anchor, cx, cy),
+        }),
+      ]),
+    );
+  }
 
   const frameGroup = group("CentreClusterFrame", [
     ...frameLineNodes,
@@ -71,8 +88,8 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
   ]);
   /** @type {import('../model/sceneModel.mjs').GroupNode[]} */
   const children = [frameGroup, nowTimeGroup];
-  if (timeDeltaNodes.length > 0) {
-    children.push(group("TimeDelta", timeDeltaNodes));
+  if (timeDeltaChildren.length > 0) {
+    children.push(group("TimeDelta", timeDeltaChildren));
   }
   return group("CentreCluster", children);
 }

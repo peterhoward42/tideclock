@@ -8,6 +8,9 @@ import { computeNextTideEventFromSpec } from "../model/tideEvents.mjs";
 /** Fixed substring between event-kind text and interval text on the TimeDelta line. */
 export const TIME_DELTA_GLUE = " water in ";
 
+/** Fixed copy when no tide remains on the civil day (docs/specs/tide-diagram.md §TimeDelta). */
+export const TIME_DELTA_EMPTY_MESSAGE = "No further tides today";
+
 const CHAR_WIDTH_FACTOR = 0.6;
 
 /**
@@ -26,18 +29,23 @@ function textWidth(fontSize, charCount) {
  *   fontHeight: number,
  * }} nowTimeSpec multiples of RefRadius for y and fontHeight
  * @param {{
+ *   kind: 'countdown',
  *   eventKind: string,
  *   interval: string,
  *   y: number,
  *   fontHeight: number,
- * } | null} timeDeltaSpec when null, no TimeDelta fragments (no next tide today); see docs/specs/tide-diagram.md
+ * } | {
+ *   kind: 'empty',
+ *   y: number,
+ *   fontHeight: number,
+ * }} timeDeltaLayout
  * @param {number} refRadius
  * @param {number} sweepRad same subtended angle as RefArc (radians)
  * @param {number} frameArcRadius proportion of RefRadius (CentreClusterFrame arc radius)
  */
 export function layoutCentreCluster(
   nowTimeSpec,
-  timeDeltaSpec,
+  timeDeltaLayout,
   refRadius,
   sweepRad,
   frameArcRadius,
@@ -68,13 +76,16 @@ export function layoutCentreCluster(
 
   /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst[]} */
   const timeDelta = [];
-  if (timeDeltaSpec != null) {
-    const tdFont = timeDeltaSpec.fontHeight * R;
-    const tdY = timeDeltaSpec.y * R;
+  /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst | null} */
+  let timeDeltaEmptyMessage = null;
+
+  if (timeDeltaLayout.kind === "countdown") {
+    const tdFont = timeDeltaLayout.fontHeight * R;
+    const tdY = timeDeltaLayout.y * R;
     const parts = [
-      { content: timeDeltaSpec.eventKind },
+      { content: timeDeltaLayout.eventKind },
       { content: TIME_DELTA_GLUE },
-      { content: timeDeltaSpec.interval },
+      { content: timeDeltaLayout.interval },
     ];
     const widths = parts.map((p) => textWidth(tdFont, p.content.length));
     const totalW = widths.reduce((a, b) => a + b, 0);
@@ -89,14 +100,22 @@ export function layoutCentreCluster(
       });
       left += w;
     }
+  } else {
+    const tdFont = timeDeltaLayout.fontHeight * R;
+    const tdY = timeDeltaLayout.y * R;
+    timeDeltaEmptyMessage = {
+      content: TIME_DELTA_EMPTY_MESSAGE,
+      fontSize: tdFont,
+      anchor: { x: 0, y: tdY },
+    };
   }
 
-  return { nowTime, timeDelta, frameArc, frameLines };
+  return { nowTime, timeDelta, timeDeltaEmptyMessage, frameArc, frameLines };
 }
 
 /**
  * @param {Record<string, unknown>} spec
- * @returns {import('../model/tideDiagramModel.mjs').CentreClusterDiagram | null} null when `spec.centreCluster` is absent; otherwise **NowTime** and frame are always built, **timeDelta** may be empty when no next tide today.
+ * @returns {import('../model/tideDiagramModel.mjs').CentreClusterDiagram | null} null when `spec.centreCluster` is absent; otherwise **NowTime** and frame are always built, with either three **timeDelta** fragments or **timeDeltaEmptyMessage** (see spec).
  */
 export function buildCentreClusterFromSpec(spec) {
   const raw = spec.centreCluster;
@@ -153,10 +172,11 @@ export function buildCentreClusterFromSpec(spec) {
   }
 
   const nextEvent = computeNextTideEventFromSpec(spec, parsedNow);
-  const timeDeltaSpec =
+  const timeDeltaLayout =
     nextEvent == null
-      ? null
+      ? { kind: "empty", y: tdY, fontHeight: tdFh }
       : {
+          kind: "countdown",
           eventKind: nextEvent.kind,
           interval: nextEvent.intervalText,
           y: tdY,
@@ -175,7 +195,7 @@ export function buildCentreClusterFromSpec(spec) {
 
   return layoutCentreCluster(
     { text: nowText, y: nowY, fontHeight: nowFh },
-    timeDeltaSpec,
+    timeDeltaLayout,
     refRadius,
     sweepRad,
     frameArcRadius,

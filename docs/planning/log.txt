@@ -87,8 +87,9 @@ fart
 						*  temp put in black background
 						*  stage 4
 						o  digress what if no more events
-							o  decide what to show
-							o  ask for it - driven from spec
+							*  decide what to show
+							*  ask for it - driven from spec
+							o  ask for alt txt for next high water
 						o  stage 5
 
 					o  how about renderer opt? e.g. in situ svg child replace

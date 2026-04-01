@@ -29,16 +29,18 @@ fixed here (see **Content bounds**).
   - CentreCluster
   - NowTime
   - TimeDelta
+  - NoMoreTidesToday
   - Location
   - CentreClusterFrame
 
 *(Note: **Location** is not yet specified geometrically.)*
 
 When there is **no** tide marker at or after `timeNow` on the same civil day
-(same “next marker” notion as **WaitArc**), these named parts are **omitted**
-from generated output: **NextPointer**, **WaitArc**, and the **TimeDelta**
-subtree (**EventKind**, **DeltaGlue**, **DeltaInterval**). **CentreCluster**
-may still be present with **NowTime** and **CentreClusterFrame** only.
+(same “next marker” notion as **WaitArc**), **NextPointer** and **WaitArc** are
+**omitted**. **TimeDelta** then carries a **single** replacement **TextElement**
+(see **TimeDelta**, empty-day case) under the stable leaf name **NoMoreTidesToday**
+instead of **EventKind**, **DeltaGlue**, and **DeltaInterval**. **CentreCluster**
+still includes **NowTime** and **CentreClusterFrame**.
 
 ### Style binding names (exact-match contract)
 
@@ -398,18 +400,18 @@ Under **CentreCluster** there are **three** logical parts, all **direct** member
 
 ### Vertical layout
 
-Stack order follows **§Axes**: **NowTime** is **above** **TimeDelta** when
-**TimeDelta** is present. If **TimeDelta** is omitted (no next tide today), only
-**NowTime** occupies the text stack; **CentreClusterFrame** is unchanged.
+Stack order follows **§Axes**: **NowTime** is **above** **TimeDelta** (countdown
+fragments or **NoMoreTidesToday**). **CentreClusterFrame** is unchanged.
 **CentreClusterFrame** is **not** a third row between them; its geometry is in
 **CentreClusterFrame** and may **look** like a frame around both lines without
 being an extra vertical slot.
 
 ### Scene model (invariants)
 
-- **NowTime** and **TimeDelta** (when present) are **not** children of **CentreClusterFrame**;
-they sit beside it under **CentreCluster**. When **TimeDelta** is omitted, no
-**EventKind**, **DeltaGlue**, or **DeltaInterval** leaves are emitted.
+- **NowTime** and **TimeDelta** are **not** children of **CentreClusterFrame**;
+they sit beside it under **CentreCluster**. When there is no next tide today,
+**TimeDelta** still exists as a parent group but contains only **NoMoreTidesToday**
+(not **EventKind** / **DeltaGlue** / **DeltaInterval**).
 - **CentreClusterFrame** contributes **three** separate curve primitives subject
 to **Independent stroked curves**.
 
@@ -426,8 +428,9 @@ to **Independent stroked curves**.
 
 ### TimeDelta
 
-- One logical sentence, **three** **TextElement** instances, **centre-aligned as
-a whole** at **X = 0** (**CentreCluster horizontal axis**):
+- When a **next** marker exists on the civil day — one logical sentence, **three**
+**TextElement** instances, **centre-aligned as a whole** at **X = 0**
+(**CentreCluster horizontal axis**):
   1. **Event kind** — **Text** **derived** from the **kind** of the **next**
     tide marker at or after `**timeNow`**, using the marker’s `**highOrLow`**
     flag (`"Low"` or `"High"`). Separate for styling while staying one visual  
@@ -436,23 +439,29 @@ a whole** at **X = 0** (**CentreCluster horizontal axis**):
   3. **Interval** — **Text** **derived** from the **forward time difference**
     between `**timeNow`** and the **next** tide marker **on the same civil
     day**, formatted as `**Hh Mm`** (e.g. `"3h 21m"`).
-- If no next marker exists on the same civil day, **TimeDelta** is **omitted**:
-  do **not** emit **EventKind**, **DeltaGlue**, or **DeltaInterval**. **NowTime**
-  and **CentreClusterFrame** under **CentreCluster** are still emitted when the
-  host supplies **CentreCluster** layout inputs.
-- Allocated leaf names for styling/host binding (exact match):
+- **Empty civil day (no next marker)** — one **TextElement** only (not the
+  three-fragment sentence above):
+  - **Text** — fixed synthesis: exactly `**No further tides today`** (not a host
+    override).
+  - **FontHeight**, **Horizontal justification** (**centre**), **Baseline polar
+    angle** (**0**), and **Anchor Y** (**Y_delta**) — same as the countdown line
+    below.
+  - **Anchor X** — **0** (centred on **X = 0**).
+  - Allocated leaf name for styling/host binding (exact match): **NoMoreTidesToday**.
+  - Do **not** emit **EventKind**, **DeltaGlue**, or **DeltaInterval** in this case.
+- **Allocated leaf names** for the countdown case (exact match):
   - Fragment 1 (**Event kind**) — `EventKind`
   - Fragment 2 (**Glue**) — `DeltaGlue`
   - Fragment 3 (**Interval**) — `DeltaInterval`
-- Shared for all fragments:
+- **Shared** for countdown fragments **and** for **NoMoreTidesToday**:
   - **FontHeight** — one input **k** as **k·R** for the whole line (**§Sizing**).
   - **Horizontal justification** — **centre**; **X** positions chosen so the
   line is centred on **X = 0** (monospace width estimates allowed).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
   - **Anchor Y** — one input **Y_delta** as **k·R**, shared (**§Sizing**), same
   anchor convention as **Y_now**, different parameter.
-- **Anchors (X)** — **NowTime** at **X = 0**; **TimeDelta** assigns per-fragment
-**X** for whole-line centring.
+- **Anchors (X)** — **NowTime** at **X = 0**; countdown **TimeDelta** assigns
+per-fragment **X** for whole-line centring; **NoMoreTidesToday** uses **X = 0**.
 
 ### CentreClusterFrame
 
