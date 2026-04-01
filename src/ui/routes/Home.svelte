@@ -1,8 +1,10 @@
 <script lang="ts">
   // Home route: civil-day diagram from collaborator output (full SVG replace). Loop B: semantic
-  // regeneration on minute boundaries only; Loop A (1 Hz NowTime) is Stage 5.
+  // regeneration on minute boundaries only. Loop A: 1 Hz DOM patch for centre-cluster NowTime only
+  // (no per-second collaborator.generate).
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
+  import { nowMs } from "../../application/appClock.js";
   import {
     buildDiagramGenerationSpec,
     utcIsoToLocalCanonicalTimeLocal,
@@ -37,6 +39,8 @@
 
   let diagramSvg = $state("");
   let diagramError = $state<string | undefined>(undefined);
+  /** Container for injected SVG; used to patch NowTime text on Loop A without regenerating the scene. */
+  let diagramHostEl = $state<HTMLElement | undefined>(undefined);
 
   function localCanonicalTimeNowFromMs(ms: number): string {
     const d = new Date(ms);
@@ -79,6 +83,17 @@
       diagramError = e instanceof Error ? e.message : String(e);
     }
   });
+
+  $effect(() => {
+    const host = diagramHostEl;
+    const svg = diagramSvg;
+    if (host == null || svg === "") return;
+    const unsub = nowMs.subscribe((ms) => {
+      const textEl = host.querySelector('svg g[data-name="NowTime"] text');
+      if (textEl) textEl.textContent = localCanonicalTimeNowFromMs(ms);
+    });
+    return unsub;
+  });
 </script>
 
 <main class="route home-route">
@@ -99,7 +114,7 @@
       Interim dark stage: scenegen preview palette assumes a black canvas (see tools/scenegen/renderPreview.mjs).
       Revisit once whole-page and header-strip visual design is settled.
     -->
-    <div class="home-diagram-stage">
+    <div class="home-diagram-stage" bind:this={diagramHostEl}>
       <figure class="home-diagram" aria-label="Tide diagram for the current civil day">
         <!-- Trusted: SVG produced locally by diagram-generation + scenegen preview. -->
         {@html diagramSvg}

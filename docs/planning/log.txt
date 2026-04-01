@@ -77,27 +77,29 @@ o  new data fetch paradigm
 				*  WaitInterval arc
 				*  bring in styling pattern
 				*  in-band migration
-fart
-					o  should I first ditch docs in illrepute
-
-				o  plan integration replace existing diagram first stab
+				*  plan integration replace existing diagram first stab
 					*  should I first ditch docs in illrepute
-					o  refactor for heterogenuous triggers
+					*  refactor for heterogenuous triggers
 						*  work through planned phases
 						*  temp put in black background
 						*  stage 4
-						o  digress what if no more events
-							*  decide what to show
-							*  ask for it - driven from spec
-							o  ask for alt txt for next high water
-						o  stage 5
+						*  deal with there being no more events today
+						*  stage 5
 
-					o  how about renderer opt? e.g. in situ svg child replace
-					o  not keen on optional - debate
-						o  as skill
-						o  try it?
+fart
+				o  when time now flashes over see time now string only for
+				   that second
+				o  corner cases treatment / todos
+				o  layout as prerequisite to location
+					o  maybe have location in header
 
-/docs/planning/diagram-generation-migration-charter.md
+				o  how about renderer opt? e.g. in situ svg child replace
+				o  not keen on optional - debate
+					o  as skill
+					o  try it?
+
+				o  network hits observability
+
 
 				o  question merit of keeping iter.sh on gen scene - has
 					served its purpose
