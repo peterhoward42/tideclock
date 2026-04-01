@@ -1,9 +1,15 @@
+import {
+  computeNextTideEventCore,
+  formatIntervalHoursMinutes,
+  parseCanonicalTimeOrThrow,
+} from '../diagram-generation/index.mjs';
+
 /**
  * Minute-scale next-tide semantics: single derivation per tick, consumed by diagram layout
  * instead of re-scanning `tideMarks.markers`. Shapes mirror diagram-generation parsers
  * (`timeCanonical.mjs`, `tideEvents.mjs`).
  *
- * @see docs/planning/dynamics-planning.md — Next-event derivation, phased plan step 1
+ * @see docs/planning/dynamics-planning.md — Next-event derivation, phased plan steps 1–2
  */
 
 /** Parsed `spec.timeNow` in the same sense as `parseCanonicalTimeOrThrow`. */
@@ -40,3 +46,43 @@ export type DerivedNextTideSemantics = {
   readonly timeNow: DiagramParsedTimeNow;
   readonly nextTide: DiagramNextTideEvent | null;
 };
+
+function diagramParsedTimeNowFromParser(
+  p: ReturnType<typeof parseCanonicalTimeOrThrow>,
+): DiagramParsedTimeNow {
+  return {
+    canonical: p.canonical,
+    seconds: p.seconds,
+    hours: p.hours,
+    isRightEndpoint: p.isRightEndpoint,
+  };
+}
+
+/**
+ * Single application-layer derivation of next-tide semantics for a civil-day diagram spec.
+ * Uses the same marker scan and interval formatting as `computeNextTideEventFromSpec` /
+ * layout callers in diagram-generation.
+ *
+ * @param spec — same shape as `buildDiagram` expects (`timeNow`, `tideMarks.markers`, …)
+ */
+export function deriveNextTideSemantics(
+  spec: Record<string, unknown>,
+  options?: { readonly timeNowLabel?: string },
+): DerivedNextTideSemantics {
+  const label = options?.timeNowLabel ?? 'spec.timeNow';
+  const parsedRaw = parseCanonicalTimeOrThrow(spec.timeNow, label);
+  const timeNow = diagramParsedTimeNowFromParser(parsedRaw);
+  const core = computeNextTideEventCore(spec, parsedRaw);
+  if (core == null) {
+    return { timeNow, nextTide: null };
+  }
+  const forwardSeconds = core.seconds - parsedRaw.seconds;
+  return {
+    timeNow,
+    nextTide: {
+      secondsSinceMidnight: core.seconds,
+      kind: core.kind,
+      timeDeltaIntervalText: formatIntervalHoursMinutes(forwardSeconds),
+    },
+  };
+}
