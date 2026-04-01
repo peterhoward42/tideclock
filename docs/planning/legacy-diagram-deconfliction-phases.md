@@ -93,6 +93,28 @@ Gate:
 
 - All identified legacy diagram-related modules are classified.
 
+#### Phase 2 Deliverable - Legacy Diagram Inventory Matrix
+
+| Module/path | Current inferred responsibility | New subsystem equivalent (if any) | Overlap type | Action | Rationale | Preconditions to remove |
+| --- | --- | --- | --- | --- | --- | --- |
+| `src/application/homeScreenModelFromHost.ts` | Semantic generation (projects tide extremes into legacy `clockScene`) + glue for route model assembly | `src/application/diagramGenerationCollaborator.ts` -> `src/diagram-generation/layout/buildDiagram.mjs` + `src/diagram-generation/mapping/toScene.mjs` | semantic generation | remove | Owns diagram-semantic projection (`tideEventsFromExtremes`/`clockSceneWithTideExtremes`) that now competes with the collaborator pipeline. Keep only if reduced to pure route assembly with no semantic derivation. | Home route host must consume collaborator output (or a successor adapter) directly for diagram semantics. |
+| `src/clock-presentation/clockSceneModel.ts` | Semantic generation contract for legacy clock dial scene | `src/diagram-generation/model/tideDiagramModel.mjs` (domain model) + `src/diagram-generation/mapping/toScene.mjs` (scene projection) | semantic generation | remove | Defines an alternate semantic owner (`ClockSceneModel`) for dial/tide state that duplicates the new subsystem's model+mapping ownership boundary. | All runtime consumers moved off `ClockSceneModel` to new subsystem model/scene contracts. |
+| `src/clock-presentation/clockDivisionGeometry.ts` | Semantic generation (deterministic dial geometry derivation) | `src/diagram-generation/layout/buildDiagram.mjs` and layout collaborators | semantic generation | remove | Computes dial boundary/tick geometry, which is diagram-semantic layout logic now expected under `diagram-generation/layout`. | UI path no longer imports legacy division geometry; replacement geometry originates from new subsystem output. |
+| `src/clock-presentation/normalizedDialSpace.ts` | Semantic generation support utility (dial coordinate conventions) | `src/diagram-generation/layout/*` internal coordinate helpers (none named 1:1 yet) | semantic generation | remove | Encodes foundational geometry conventions for legacy dial derivation, overlapping layout semantics even if helper-shaped. | Either reuse equivalent helpers inside `diagram-generation/layout` or fold conventions into retained layout modules first. |
+| `src/ui/svg/clockPathMapping.ts` | Presentation/render mapping from legacy geometry to SVG attrs | `src/diagram-generation/mapping/toScene.mjs` (scene mapping) + render path under new subsystem (current equivalent is partial) | presentation | defer | Presentation-side mapping may be replaced by scene/render outputs from new subsystem, but this phase prioritizes semantic-owner deconfliction first. | Remove only after Home render path is repointed to consume new scene/render contracts. |
+| `src/ui/components/ClockDivisionDial.svelte` | Presentation/rendering only | Future scene/render consumer using new subsystem output (none finalized) | presentation | defer | Pure renderer of prepared SVG props; does not own semantic derivation. | Replacement component path agreed and wired to new scene/render payloads. |
+| `src/ui/components/TideClock.svelte` | Presentation/rendering + local status display | Future route/component consuming new subsystem output (none finalized) | presentation | defer | Renders local time/status and embeds dial component; no primary semantic generation ownership. | New Home route contract finalized for scene/render payload and tide status display. |
+| `src/ui/routes/Home.svelte` | Presentation/rendering route wrapper | N/A (route shell remains, data contract will evolve) | presentation | defer | Thin route-level composition only; no semantic generation logic. | None for deconfliction phase; revisit during route contract migration. |
+| `src/clock-presentation/homeScreenModel.ts` | Glue/adapter/transport (route-level typed bundle) | `src/application/diagramGenerationCollaborator.ts`-backed Home route contract | none | retain | Acts as route contract wrapper; does not itself derive diagram semantics. Useful as a temporary transport boundary while semantic owners are removed. | Remove only when a replacement Home route contract is established and all consumers migrated. |
+| `src/application/appClock.js` | Orchestration intent (time trigger cadence via readable store) | none yet | none | retain | Encodes timing trigger intent (1s clock tick) and should be preserved per policy unless explicitly superseded. | Explicit replacement of clock tick orchestration is implemented and adopted. |
+| `src/ui/App.svelte` | Orchestration intent (load/invalidation sequencing, host lifecycle wiring) | none yet (future event-flow spec) | orchestration | retain | Coordinates when refresh/load work runs and guards async sequencing (`tideLoadSerial`), which is intentionally retained orchestration behavior. | Explicit orchestrator replacement exists with equivalent trigger/lifecycle policy. |
+
+#### Phase 2 Gate Status
+
+- Status: **Accepted**
+- Date: **2026-04-01**
+- Acceptance basis: inventory matrix now classifies all currently identified legacy diagram-related modules with overlap/action/rationale and explicit removal preconditions.
+
 ### Phase 3 - Remove Obvious Semantic Duplicates
 
 Delete or quarantine highest-confidence semantic duplicates first.
@@ -103,6 +125,30 @@ Delete or quarantine highest-confidence semantic duplicates first.
 Gate:
 
 - No high-confidence semantic duplicate remains active in the primary path.
+
+#### Phase 3 Deliverable - Primary Path Deconflicted
+
+Implemented actions (2026-04-01):
+
+- Removed `src/application/homeScreenModelFromHost.ts` (legacy semantic projection from tide extremes into `clockScene`).
+- Updated `src/ui/App.svelte` to stop invoking the removed semantic adapter and keep only orchestration/state-load intent for Home data refresh cadence.
+- Updated `src/clock-presentation/homeScreenModel.ts` to retain only the collaborator contract (`diagramGeneration`) and drop legacy `clockScene` semantic ownership from the route model.
+- Updated `src/ui/routes/Home.svelte` to a temporary non-diagram placeholder surface so the primary Home route path no longer activates legacy semantic generation modules.
+
+Quarantined (retained but no longer active in primary Home path):
+
+- `src/clock-presentation/clockSceneModel.ts`
+- `src/clock-presentation/clockDivisionGeometry.ts`
+- `src/clock-presentation/normalizedDialSpace.ts`
+- `src/ui/svg/clockPathMapping.ts`
+- `src/ui/components/ClockDivisionDial.svelte`
+- `src/ui/components/TideClock.svelte`
+
+#### Phase 3 Gate Status
+
+- Status: **Accepted**
+- Date: **2026-04-01**
+- Acceptance basis: the active Home runtime path no longer constructs legacy `clockScene` semantics; legacy semantic-generation modules are quarantined and not invoked by the primary route flow.
 
 ### Phase 4 - Remove Secondary Dead Helpers and Imports
 

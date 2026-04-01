@@ -4,10 +4,9 @@
   import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
   import type { Town } from "../data/bakedTowns";
   import { createDiagramGenerationCollaborator } from "../application/diagramGenerationCollaborator";
-  import { homeScreenModelFromHost } from "../application/homeScreenModelFromHost";
   import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
   import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
-  import type { HomeScreenModel } from "../clock-presentation/homeScreenModel";
+  import { defaultHomeScreenModel, type HomeScreenModel } from "../clock-presentation/homeScreenModel";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import Home from "./routes/Home.svelte";
   import Location from "./routes/Location.svelte";
@@ -19,7 +18,6 @@
 
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
   let tideLoadState = $state<TidePredictionsLoadState>({ status: "ready" });
-  let tideExtremesForClock = $state<TideExtremesAtLocation | undefined>(undefined);
   const diagramGeneration = createDiagramGenerationCollaborator();
   /**
    * Monotonic counter for in-flight tide loads. Each refresh captures the value after incrementing;
@@ -29,13 +27,10 @@
    * wrong place’s tides and corrupt `homeScreenModel`.
    */
   let tideLoadSerial = $state(0);
-  let homeScreenModel = $state<HomeScreenModel>(
-    homeScreenModelFromHost({
-      loader: localStorage,
-      tideExtremes: undefined,
-      diagramGeneration
-    })
-  );
+  let homeScreenModel = $state<HomeScreenModel>({
+    ...defaultHomeScreenModel,
+    diagramGeneration
+  });
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
 
   function appDiag(...args: unknown[]) {
@@ -78,36 +73,20 @@
   function refreshTideExtremesForTown(town: Town): void {
     const serial = ++tideLoadSerial;
     tideLoadState = { status: "loading" };
-    tideExtremesForClock = undefined;
-    homeScreenModel = homeScreenModelFromHost({
-      loader: localStorage,
-      tideExtremes: undefined,
-      diagramGeneration
-    });
     void (async () => {
       try {
         const result = await loadTideExtremesForCurrentCivilDay(town.lat, town.lon);
         if (serial !== tideLoadSerial) {
           return;
         }
-        tideExtremesForClock = result;
         tideLoadState = result !== undefined ? { status: "ready" } : { status: "error" };
       } catch (e) {
         if (serial !== tideLoadSerial) {
           return;
         }
         appDiag("refreshTideExtremesForTown error", e);
-        tideExtremesForClock = undefined;
         tideLoadState = { status: "error" };
       }
-      if (serial !== tideLoadSerial) {
-        return;
-      }
-      homeScreenModel = homeScreenModelFromHost({
-        loader: localStorage,
-        tideExtremes: tideExtremesForClock,
-        diagramGeneration
-      });
     })();
   }
 
