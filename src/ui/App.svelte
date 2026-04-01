@@ -3,9 +3,12 @@
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
   import type { Town } from "../data/bakedTowns";
-  import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
+  import { nowMs } from "../application/appClock.js";
+  import { shouldTriggerCivilDayRolloverRefresh } from "../application/civilDayRolloverRefresh";
   import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
+  import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
   import { attachHashListener, route } from "../infrastructure/router.js";
+  import { getCurrentTideClockCivilDayDisplayWindow } from "../time-services/getCurrentTideClockCivilDayDisplayWindow";
   import Home from "./routes/Home.svelte";
   import Location from "./routes/Location.svelte";
   import Settings from "./routes/Settings.svelte";
@@ -24,6 +27,12 @@
    * wrong place's tides.
    */
   let tideLoadSerial = $state(0);
+  /** Last successful civil-day slice; kept for upcoming spec assembly (Stage 2). Not cleared on transient errors. */
+  let lastSuccessfulTideExtremes = $state<TideExtremesAtLocation | undefined>(undefined);
+  /** Local civil-day window start (ms) after the last successful load completed; drives midnight rollover detection. */
+  let civilDayWindowStartMsAtLastSuccessfulLoad = $state<number | undefined>(undefined);
+  /** After a failed rollover fetch, suppress re-entry for the same civil day (see `shouldTriggerCivilDayRolloverRefresh`). */
+  let lastRolloverAttemptCivilDayStartMs = $state<number | undefined>(undefined);
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
 
   function appDiag(...args: unknown[]) {
@@ -72,7 +81,15 @@
         if (serial !== tideLoadSerial) {
           return;
         }
-        tideLoadState = result !== undefined ? { status: "ready" } : { status: "error" };
+        if (result !== undefined) {
+          lastSuccessfulTideExtremes = result;
+          civilDayWindowStartMsAtLastSuccessfulLoad =
+            getCurrentTideClockCivilDayDisplayWindow().startLocal.getTime();
+          lastRolloverAttemptCivilDayStartMs = undefined;
+          tideLoadState = { status: "ready" };
+        } else {
+          tideLoadState = { status: "error" };
+        }
       } catch (e) {
         if (serial !== tideLoadSerial) {
           return;
@@ -95,9 +112,30 @@
       county: town.county,
       country: town.country
     });
+    lastSuccessfulTideExtremes = undefined;
+    civilDayWindowStartMsAtLastSuccessfulLoad = undefined;
+    lastRolloverAttemptCivilDayStartMs = undefined;
     storeCurrentLocation(town, { storer: localStorage });
     appDiag("setCurrentLocation stored town in localStorage", { townId: town.id });
     refreshTideExtremesForTown(town);
+  }
+
+  function maybeRefreshTideAfterLocalMidnightRollover(): void {
+    const town = loadCurrentLocation({ loader: localStorage });
+    const currentStart = getCurrentTideClockCivilDayDisplayWindow().startLocal.getTime();
+    if (
+      !shouldTriggerCivilDayRolloverRefresh({
+        hasSelectedTown: town !== undefined,
+        tideLoadIsLoading: tideLoadState.status === "loading",
+        currentCivilDayStartMs: currentStart,
+        lastSuccessfulLoadCivilDayStartMs: civilDayWindowStartMsAtLastSuccessfulLoad,
+        lastRolloverAttemptCivilDayStartMs: lastRolloverAttemptCivilDayStartMs
+      })
+    ) {
+      return;
+    }
+    lastRolloverAttemptCivilDayStartMs = currentStart;
+    refreshTideExtremesForTown(town!);
   }
 
   function closeMenu(): void {
@@ -111,6 +149,10 @@
     if (town !== undefined) {
       refreshTideExtremesForTown(town);
     }
+    const unsubNow = nowMs.subscribe(() => {
+      maybeRefreshTideAfterLocalMidnightRollover();
+    });
+    return () => unsubNow();
   });
 </script>
 
