@@ -1,0 +1,137 @@
+import type { TideExtreme, TideExtremeType } from '../core-models/TideExtreme';
+import type { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
+import type { DiagramGenerationSpec } from './diagramGenerationCollaborator';
+import type { DerivedNextTideSemantics } from './nextTideSemantics';
+
+/**
+ * Maps each extreme's `timeUtc` (ISO string) to diagram-local canonical `HH:MM:SS`.
+ * Tests inject a fixed interpretation (e.g. UTC components); the host uses local civil time.
+ */
+export type UtcIsoToLocalCanonicalTime = (timeUtcIso: string) => string;
+
+export type BuildDiagramGenerationSpecParams = {
+  readonly extremesAtLocation: TideExtremesAtLocation;
+  readonly timeNow: string;
+  readonly utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime;
+  /**
+   * When set, adds `spec.semantic.nextTide` (e.g. output of `deriveNextTideSemantics` for the
+   * same conceptual spec). When omitted, layout derives next tide from `tideMarks` as usual.
+   */
+  readonly derivedSemantics?: Pick<DerivedNextTideSemantics, 'nextTide'>;
+};
+
+/** Static layout/geometry for the main tide diagram (aligned with tools/diaggen/input.json). */
+const HOME_TIDE_DIAGRAM_LAYOUT_BASE: Record<string, unknown> = {
+  title: 'home-tide-diagram',
+  canvas: { width: 420, height: 320 },
+  refRadius: 118,
+  sweepRad: 2.75,
+  tickLen: 0.07,
+  tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
+  tickLabelSize: 0.04,
+  tickLabelClearance: 0.07,
+  contentBounds: { left: 1.45, right: 1.15, above: 0.1, below: 1.5 },
+  nowPointer: {
+    radialLine: { innerRadius: 0.4, outerRadius: 0.7 },
+    label: { size: 0.04, normalOffset: 0.02 },
+    triangle: { radius: 1.1, baseLen: 0.08, height: 0.03 },
+  },
+  nextPointer: {
+    radialLine: { outerRadius: 0.73 },
+    circle: { radius: 0.01 },
+  },
+  waitArc: {
+    radius: 0.68,
+    arrow: {
+      lengthK: 7,
+      widthK: 5,
+      insetK: 0,
+      style: 'filled',
+      scaleWithStroke: true,
+    },
+  },
+  centreCluster: {
+    frameArcRadius: 0.35,
+    nowTime: { y: -0.2, fontHeight: 0.05 },
+    timeDelta: { y: -0.1, fontHeight: 0.05 },
+  },
+};
+
+function highOrLowFromExtremeType(type: TideExtremeType): string {
+  return type === 'high' ? 'High' : 'Low';
+}
+
+/** Matches proxy/diaggen-style tide height labels (e.g. "4.7 m", "0.94 m"). */
+export function formatTideHeightMetresForDiagram(metres: number): string {
+  const rounded = Math.round(metres * 100) / 100;
+  const text = Number.isInteger(rounded)
+    ? String(rounded)
+    : rounded.toFixed(2).replace(/\.?0+$/, '');
+  return `${text} m`;
+}
+
+function tideMarksFromExtremes(
+  extremes: readonly TideExtreme[],
+  utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime,
+): { markers: Array<{ time: string; heightText: string; highOrLow: string }> } {
+  return {
+    markers: extremes.map((e) => ({
+      time: utcIsoToLocalCanonicalTime(e.timeUtc),
+      heightText: formatTideHeightMetresForDiagram(e.heightMetres),
+      highOrLow: highOrLowFromExtremeType(e.type),
+    })),
+  };
+}
+
+/** Local civil clock from UTC instant using the runtime timezone (`Date` local fields). */
+export function utcIsoToLocalCanonicalTimeLocal(iso: string): string {
+  const d = new Date(iso);
+  const hh = String(d.getHours()).padStart(2, '0');
+  const mm = String(d.getMinutes()).padStart(2, '0');
+  const ss = String(d.getSeconds()).padStart(2, '0');
+  return `${hh}:${mm}:${ss}`;
+}
+
+/** Deterministic mapping for tests: canonical time from UTC calendar fields. */
+export function utcIsoToLocalCanonicalTimeUtc(iso: string): string {
+  const d = new Date(iso);
+  const hh = String(d.getUTCHours()).padStart(2, '0');
+  const mm = String(d.getUTCMinutes()).padStart(2, '0');
+  const ss = String(d.getUTCSeconds()).padStart(2, '0');
+  return `${hh}:${mm}:${ss}`;
+}
+
+/**
+ * Assembles a {@link DiagramGenerationSpec} for {@link createDiagramGenerationCollaborator}
+ * from stored civil-day extremes, canonical `timeNow`, and optional injected next-tide semantics.
+ */
+export function buildDiagramGenerationSpec(
+  params: BuildDiagramGenerationSpecParams,
+): DiagramGenerationSpec {
+  const { extremesAtLocation, timeNow, utcIsoToLocalCanonicalTime, derivedSemantics } = params;
+  if (extremesAtLocation.extremes.length === 0) {
+    throw new Error('buildDiagramGenerationSpec requires at least one tide extreme');
+  }
+
+  const tideMarks = {
+    tideHeightLabelRadius: 0.88,
+    tideTimeLabelRadius: 0.8,
+    tideHeightLabelSize: 0.046,
+    tideTimeLabelSize: 0.04,
+    TideMarkArrowDivergence: 1.0,
+    TideMarkArrowLineLen: 0.05,
+    ...tideMarksFromExtremes(extremesAtLocation.extremes, utcIsoToLocalCanonicalTime),
+  };
+
+  const spec: DiagramGenerationSpec = {
+    ...HOME_TIDE_DIAGRAM_LAYOUT_BASE,
+    timeNow,
+    tideMarks,
+  };
+
+  if (derivedSemantics !== undefined) {
+    spec.semantic = { nextTide: derivedSemantics.nextTide };
+  }
+
+  return spec;
+}
