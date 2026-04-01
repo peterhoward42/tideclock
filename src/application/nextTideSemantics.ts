@@ -9,7 +9,8 @@ import {
  * instead of re-scanning `tideMarks.markers`. Shapes mirror diagram-generation parsers
  * (`timeCanonical.mjs`, `tideEvents.mjs`).
  *
- * @see docs/planning/dynamics-planning.md — Next-event derivation, phased plan steps 1–2
+ * @see docs/planning/dynamics-planning.md — Next-event derivation, phased plan steps 1–3.
+ * Inject into diagram specs as `spec.semantic.nextTide` (same shape as `nextTide` here, or `null`).
  */
 
 /** Parsed `spec.timeNow` in the same sense as `parseCanonicalTimeOrThrow`. */

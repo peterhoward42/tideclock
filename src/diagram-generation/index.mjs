@@ -19,6 +19,7 @@ export {
   computeNextTideEventCore,
   computeNextTideEventFromSpec,
   formatIntervalHoursMinutes,
+  readOptionalInjectedNextTide,
 } from "./model/tideEvents.mjs";
 
 export { loadStyleModel } from "./presets/styleBindings.mjs";

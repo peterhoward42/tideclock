@@ -81,16 +81,13 @@ fart
 					o  should I first ditch docs in illrepute
 
 				o  plan integration replace existing diagram first stab
-					o  should I first ditch docs in illrepute
-					o  ask chatgpt to survey code code and collab for diag entry point in
-					application, then  identify which content seems to compete semantically -
-					trying to build list to ditch
-
-					o  ask chatgpt to analyse lifecycle and triggers thus far
-					o  riff on trigger types and lifecycles for planning
-						o  focus on partial
-					o  analyse challenges of diag gen vs required lifecycle
-					o  design integration for triggers
+					*  should I first ditch docs in illrepute
+					o  refactor for heterogenuous triggers
+						o  work through planned phases
+					o  how about renderer opt? e.g. in situ svg child replace
+					o  not keen on optional - debate
+						o  as skill
+						o  try it?
 
 /docs/planning/diagram-generation-migration-charter.md
 

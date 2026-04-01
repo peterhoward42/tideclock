@@ -4,6 +4,40 @@
 import { parseCanonicalTimeOrThrow } from "./timeCanonical.mjs";
 
 /**
+ * Optional `spec.semantic.nextTide` from the application minute-scale service
+ * (`deriveNextTideSemantics`): when the key is present, layout skips marker scans.
+ *
+ * @param {Record<string, unknown>} spec
+ * @returns {undefined | null | { secondsSinceMidnight: number, kind: string, timeDeltaIntervalText: string }}
+ */
+export function readOptionalInjectedNextTide(spec) {
+  const raw = spec.semantic;
+  if (raw == null || typeof raw !== "object") return undefined;
+  const o = /** @type {Record<string, unknown>} */ (raw);
+  if (!Object.prototype.hasOwnProperty.call(o, "nextTide")) return undefined;
+  const nt = o.nextTide;
+  if (nt == null) return null;
+  if (typeof nt !== "object") {
+    throw new Error("spec.semantic.nextTide must be null or an object");
+  }
+  const t = /** @type {Record<string, unknown>} */ (nt);
+  const secondsSinceMidnight = t.secondsSinceMidnight;
+  const kind = t.kind;
+  const timeDeltaIntervalText = t.timeDeltaIntervalText;
+  if (
+    typeof secondsSinceMidnight !== "number" ||
+    !Number.isFinite(secondsSinceMidnight) ||
+    typeof kind !== "string" ||
+    typeof timeDeltaIntervalText !== "string"
+  ) {
+    throw new Error(
+      "spec.semantic.nextTide requires secondsSinceMidnight (finite number), kind (string), timeDeltaIntervalText (string)",
+    );
+  }
+  return { secondsSinceMidnight, kind, timeDeltaIntervalText };
+}
+
+/**
  * Format a positive interval in seconds as "<H>h <M>m" with minutes floored.
  *
  * @param {number} seconds
@@ -28,9 +62,14 @@ export function formatIntervalHoursMinutes(seconds) {
 export function computeNextTideEventFromSpec(spec, parsedNow) {
   const core = computeNextTideEventCore(spec, parsedNow);
   if (core == null) return null;
-
+  const injected = readOptionalInjectedNextTide(spec);
+  if (injected !== undefined && injected !== null) {
+    return {
+      kind: core.kind,
+      intervalText: injected.timeDeltaIntervalText,
+    };
+  }
   const forwardSeconds = core.seconds - parsedNow.seconds;
-
   return {
     kind: core.kind,
     intervalText: formatIntervalHoursMinutes(forwardSeconds),
@@ -47,6 +86,14 @@ export function computeNextTideEventFromSpec(spec, parsedNow) {
  * @returns {{ seconds: number, kind: string } | null}
  */
 export function computeNextTideEventCore(spec, parsedNow) {
+  const injected = readOptionalInjectedNextTide(spec);
+  if (injected !== undefined) {
+    if (injected === null) return null;
+    return {
+      seconds: injected.secondsSinceMidnight,
+      kind: injected.kind,
+    };
+  }
   const rawTideMarks = /** @type {any} */ (spec.tideMarks);
   const markersRaw = rawTideMarks?.markers;
   if (!Array.isArray(markersRaw) || markersRaw.length === 0) {
