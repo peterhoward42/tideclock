@@ -80,4 +80,15 @@ describe('spec.semantic.nextTide injection', () => {
       }),
     ).toThrow(/secondsSinceMidnight/);
   });
+
+  it('golden snapshot: diagram with semantic.nextTide matches committed output', () => {
+    const spec = sampleTideDiagramSpec();
+    const { nextTide } = deriveNextTideSemantics(spec);
+    expect(nextTide).not.toBeNull();
+    const diagram = buildDiagram({
+      ...spec,
+      semantic: { nextTide },
+    });
+    expect(diagram).toMatchSnapshot();
+  });
 });
