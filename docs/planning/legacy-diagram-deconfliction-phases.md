@@ -34,6 +34,49 @@ Gate:
 
 - A shared rubric exists and is accepted before deletion work starts.
 
+#### Phase 1 Deliverable - Shared Rubric (Accepted)
+
+Use this rubric when classifying any legacy diagram-related artifact.
+
+1) Determine the **dominant responsibility** (pick one):
+
+- **Semantic generation**: computes or derives diagram meaning/state (time windows, event ordering, geometric/semantic transforms, model projection).
+- **Presentation/rendering**: displays already-computed state (Svelte/UI composition, display formatting, visual wiring) without owning semantic derivation.
+- **Orchestration intent**: coordinates when/why work runs (triggers, invalidation, sequencing, lifecycle timing, staleness policy).
+- **Glue/adapter/transport**: maps data/contracts across boundaries (host-to-view-model adapters, entrypoint wrappers, transport DTO mapping).
+
+2) Assign overlap type against the new subsystem:
+
+- `semantic generation` if both modules claim diagram meaning derivation.
+- `orchestration` if both modules encode trigger/lifecycle intent.
+- `presentation` if overlap is display-only.
+- `none` if concerns are materially different.
+
+3) Apply action rule:
+
+- Dominant responsibility `semantic generation` + overlap `semantic generation` -> **remove candidate**.
+- Dominant responsibility `orchestration intent` + overlap `orchestration` -> **retain candidate** unless explicit full replacement exists.
+- Dominant responsibility `presentation/rendering` -> **defer** unless directly blocking deconfliction.
+- Dominant responsibility `glue/adapter/transport` -> **retain or defer** until replacement path is present and verified.
+
+4) Tie-breakers (when classification is mixed):
+
+- If >50% of logic computes diagram semantics, classify as `semantic generation`.
+- If module mostly schedules/invalidates/calls collaborators, classify as `orchestration intent`.
+- If uncertain, choose `defer` and record missing evidence as a precondition.
+
+5) Evidence requirement per decision:
+
+- Quote one concrete behavior the module owns today.
+- Name the new subsystem equivalent (or explicitly note "none yet").
+- State one-line rationale for `remove`, `retain`, or `defer`.
+
+#### Phase 1 Gate Status
+
+- Status: **Accepted**
+- Date: **2026-04-01**
+- Acceptance basis: shared responsibility taxonomy, deterministic action rules, and explicit tie-breakers are now defined for all later phase decisions.
+
 ### Phase 2 - Build Inventory Matrix
 
 Create and maintain a table with:
