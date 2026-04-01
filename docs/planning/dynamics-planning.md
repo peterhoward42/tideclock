@@ -96,3 +96,35 @@ And a boundary-triggered query model:
 - Boundary action remains:
   - invoke the existing civil-day query entrypoint (memory-first; fetch internal when needed).
 - This tranche refreshes base marker data that minute-scale semantics consume.
+
+## Next-event derivation: application semantic service
+
+### Intent
+
+Today, next-event logic is invoked from several diagram layout modules (`centreCluster`, `nextPointer`, `waitArc` in `buildDiagram`). That duplicates work on every full build and fights the minute-scale semantic tranche: **one semantic refresh should derive next-event once**, then feed **NowPointer**, **TimeDelta**, **NextPointer**, and **WaitArc**.
+
+**Ownership:** an **application-side semantic service** is the single orchestration entrypoint for that derivation (aligned with boundary query + semantic loop living in the app). **Pure tide-event math** may continue to live in `src/diagram-generation/model/tideEvents.mjs` and be called from the service so we do not fork marker parsing and interval formatting in two languages.
+
+### Is a one-shot change viable?
+
+**Possible in principle, not recommended as a single step.**
+
+Reasons:
+
+- **No consolidated host path yet:** runtime diagram wiring is still thin (`createDiagramGenerationCollaborator` + tests; `tools/diaggen` / `scenegen` build specs directly). A “big bang” would change `buildDiagram` and multiple layout modules **without** a single app call site that proves the new contract, increasing regression risk for CLI previews and specs.
+- **Contract surface:** layout needs a stable injected shape (e.g. optional `spec.semantic.nextTide` or explicit builder arguments) plus fallbacks or migration rules for existing JSON specs.
+- **Verification:** behaviour must stay identical for existing scenegen inputs; that is easier to gate with a phased fallback than with an all-at-once removal of in-layout derivation.
+
+### Phased plan
+
+1. **Define the semantic result type** (TypeScript under `src/application/` or next to the future host orchestrator): e.g. parsed `timeNow`, optional next event `{ secondsSinceMidnight, kind }`, forward interval string for **TimeDelta**, and any fields **WaitArc** / **NextPointer** need so layout does not re-scan markers.
+2. **Implement `deriveNextTideSemantics` (or equivalent)** in the application layer: input = the same conceptual inputs as today (`timeNow` + civil-day marker list / tide spec slice); implementation = call existing `computeNextTideEventCore` / `computeNextTideEventFromSpec` from `diagram-generation` (re-exported) until a stronger shared-types story exists.
+3. **Thread results into diagram construction without breaking tools:** extend the spec or add a parallel `buildDiagram` overload path so **when** semantic payload is present, `centreCluster` / `nextPointer` / `waitArc` use it; **when** absent, keep current in-layout derivation so `tools/diaggen` and JSON fixtures unchanged.
+4. **Add focused tests:** application service tests (edge cases: no next marker, midnight boundaries) and one golden or snapshot path proving diagram output unchanged for a fixed spec when semantic injection is used.
+5. **Switch the app host** (once it assembles full specs): on each semantic tick, call the service once and pass the payload; remove redundant calls inside layout only after the host path is live (optional final cleanup phase).
+6. **Optional later:** delete in-layout fallback and require semantic injection everywhere, or move pure `tideEvents` next to the service if the team wants all tide semantics in TypeScript—only after callers are unified.
+
+### Outcome
+
+- Minute-scale loop does **one** next-event derivation per tick.
+- Diagram layout becomes mostly **geometry from supplied semantic facts**, matching the dynamics model and simplifying future per-tranche updates.
