@@ -124,6 +124,8 @@ Reasons:
 5. **Switch the app host** (once it assembles full specs): on each semantic tick, call the service once and pass the payload; remove redundant calls inside layout only after the host path is live (optional final cleanup phase).
 6. **Optional later:** delete in-layout fallback and require semantic injection everywhere, or move pure `tideEvents` next to the service if the team wants all tide semantics in TypeScript—only after callers are unified.
 
+   **Next first-class stage:** concrete host integration (state, boundaries, spec assembly, Home render, Loop A/B wiring) is staged in [diagram-host-integration-stages.md](./diagram-host-integration-stages.md). Treat that document as the scheduled work **after** step 5; keep this step 6 as a **tail** cleanup once the host path is live.
+
 ### Outcome
 
 - Minute-scale loop does **one** next-event derivation per tick.
