@@ -89,19 +89,41 @@
   {:else if diagramError !== undefined}
     <p class="muted" role="alert">Diagram could not be rendered: {diagramError}</p>
   {:else if diagramSvg !== ""}
-    <figure class="home-diagram" aria-label="Tide diagram for the current civil day">
-      <!-- Trusted: SVG produced locally by diagram-generation + scenegen preview. -->
-      {@html diagramSvg}
-    </figure>
+    <!--
+      Interim dark stage: scenegen preview palette assumes a black canvas (see tools/scenegen/renderPreview.mjs).
+      Revisit once whole-page and header-strip visual design is settled.
+    -->
+    <div class="home-diagram-stage">
+      <figure class="home-diagram" aria-label="Tide diagram for the current civil day">
+        <!-- Trusted: SVG produced locally by diagram-generation + scenegen preview. -->
+        {@html diagramSvg}
+      </figure>
+    </div>
   {/if}
 </main>
 
 <style>
+  /*
+   * Interim: isolate the diagram on black so preview stroke/fill contrast matches the generator’s defaults.
+   * Not the final home layout — pending decisions on full page + top-bar theming.
+   */
+  .home-diagram-stage {
+    width: 100%;
+    max-width: 28rem;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+    background: #000;
+    border-radius: 0.5rem;
+  }
+
+  .home-diagram {
+    margin: 0;
+  }
+
   .home-diagram :global(svg) {
     display: block;
     width: 100%;
-    max-width: 28rem;
     height: auto;
-    color: #0f172a;
   }
 </style>
