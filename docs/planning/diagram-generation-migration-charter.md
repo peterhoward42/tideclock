@@ -73,6 +73,13 @@ Names and exact file layout may evolve, but role boundaries should remain.
 - Tighten docs and tests around final module boundaries.
 - Gate: tests and dev workflows pass; no lingering legacy imports.
 
+### Phase 5 Execution Notes (2026-04-01)
+
+- Removed temporary compatibility re-export modules from `tools/diaggen`.
+- Confirmed no repository imports still target the removed legacy shim paths.
+- Kept `tools/diaggen/gen.mjs` as the tools-side workflow entrypoint, importing only from `src/diagram-generation`.
+- Preserved app-facing runtime collaborator under `src/application` with no Node-only imports in the runtime path.
+
 ## Verification Checklist Per Phase
 
 - Unit tests pass for touched modules.

@@ -82,6 +82,14 @@ fart
 					*  write charter
 					o  discuss phase 1 in charter
 
+				o  plan integration replace existing diagram first stab
+					o  ask chatgpt what diag content seems legacy
+					o  ask chatgpt to analyse lifecycle and triggers thus far
+					o  riff on trigger types and lifecycles for planning
+						o  focus on partial
+					o  analyse challenges of diag gen vs required lifecycle
+					o  design integration for triggers
+
 /docs/planning/diagram-generation-migration-charter.md
 
 				o  question merit of keeping iter.sh on gen scene - has
