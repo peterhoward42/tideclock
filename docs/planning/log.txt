@@ -82,7 +82,7 @@ fart
 					*  write charter
 					o  discuss phase 1 in charter
 
-See /docs/planning/diagram-generation-migration-charter.md for context.
+/docs/planning/diagram-generation-migration-charter.md
 
 				o  question merit of keeping iter.sh on gen scene - has
 					served its purpose

@@ -3,12 +3,12 @@
 // `buildDiagram` → `tideDiagramToScene` (RefArc, ticks, tick labels, tide marks, centre cluster, previewFrame).
 // Otherwise `spec.previewFrame` (scene-space AABB) is required; optional diaggen-shaped `centreCluster` renders
 // only that group (legacy scenegen loop).
-import { buildDiagram } from "../diaggen/buildDiagram.mjs";
-import { buildCentreClusterFromSpec } from "../diaggen/centreCluster.mjs";
+import { buildDiagram } from "../../src/diagram-generation/layout/buildDiagram.mjs";
+import { buildCentreClusterFromSpec } from "../../src/diagram-generation/layout/centreCluster.mjs";
 import {
   centreClusterDiagramToGroup,
   tideDiagramToScene,
-} from "../diaggen/toScene.mjs";
+} from "../../src/diagram-generation/mapping/toScene.mjs";
 import { group } from "./sceneModel.mjs";
 
 export {

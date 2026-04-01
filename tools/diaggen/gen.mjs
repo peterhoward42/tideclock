@@ -7,10 +7,12 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { buildDiagram } from "./buildDiagram.mjs";
-import { loadStyleModel } from "./styleBindings.mjs";
-import { STATIC_STYLE_MODEL } from "./staticStyleModel.mjs";
-import { tideDiagramToScene } from "./toScene.mjs";
+import {
+  buildDiagram,
+  loadStyleModel,
+  STATIC_STYLE_MODEL,
+  tideDiagramToScene,
+} from "../../src/diagram-generation/index.mjs";
 import { writePreviewHtml } from "../scenegen/preview.mjs";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
