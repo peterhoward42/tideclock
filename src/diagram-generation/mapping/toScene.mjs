@@ -69,8 +69,11 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
       anchor: mapPoint(now.anchor, cx, cy),
     }),
   ]);
-  const timeDeltaGroup = group("TimeDelta", timeDeltaNodes);
-  const children = [frameGroup, nowTimeGroup, timeDeltaGroup];
+  /** @type {import('../model/sceneModel.mjs').GroupNode[]} */
+  const children = [frameGroup, nowTimeGroup];
+  if (timeDeltaNodes.length > 0) {
+    children.push(group("TimeDelta", timeDeltaNodes));
+  }
   return group("CentreCluster", children);
 }
 

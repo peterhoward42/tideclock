@@ -83,8 +83,14 @@ fart
 				o  plan integration replace existing diagram first stab
 					*  should I first ditch docs in illrepute
 					o  refactor for heterogenuous triggers
-						o  work through planned phases
-						o  temp put in black background
+						*  work through planned phases
+						*  temp put in black background
+						*  stage 4
+						o  digress what if no more events
+							o  decide what to show
+							o  ask for it - driven from spec
+						o  stage 5
+
 					o  how about renderer opt? e.g. in situ svg child replace
 					o  not keen on optional - debate
 						o  as skill

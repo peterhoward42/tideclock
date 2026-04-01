@@ -34,6 +34,12 @@ fixed here (see **Content bounds**).
 
 *(Note: **Location** is not yet specified geometrically.)*
 
+When there is **no** tide marker at or after `timeNow` on the same civil day
+(same “next marker” notion as **WaitArc**), these named parts are **omitted**
+from generated output: **NextPointer**, **WaitArc**, and the **TimeDelta**
+subtree (**EventKind**, **DeltaGlue**, **DeltaInterval**). **CentreCluster**
+may still be present with **NowTime** and **CentreClusterFrame** only.
+
 ### Style binding names (exact-match contract)
 
 - Style bindings are keyed by **exact** leaf element names.
@@ -294,6 +300,9 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
 - Let the **next tide marker** be the same event used by **CentreCluster.TimeDelta** (next marker at or after `timeNow`, ignoring any marker at `24:00:00`).
 - Let its time be **t_next** in hours, with **θ_next = θ(t_next)** per **§Time and θ(t)**.
 - All **NextPointer** geometry is defined relative to **θ_next**.
+- If no such next marker exists on the same civil day, **NextPointer** is
+  omitted from the scene (no radial segment or circle emitted), consistent with
+  **WaitArc**.
 
 ### Geometry
 
@@ -389,12 +398,18 @@ Under **CentreCluster** there are **three** logical parts, all **direct** member
 
 ### Vertical layout
 
-Stack order follows **§Axes**: **NowTime** is **above** **TimeDelta**. **CentreClusterFrame** is **not** a third row between them; its geometry is in **CentreClusterFrame** and may **look** like a frame around both lines without being an extra vertical slot.
+Stack order follows **§Axes**: **NowTime** is **above** **TimeDelta** when
+**TimeDelta** is present. If **TimeDelta** is omitted (no next tide today), only
+**NowTime** occupies the text stack; **CentreClusterFrame** is unchanged.
+**CentreClusterFrame** is **not** a third row between them; its geometry is in
+**CentreClusterFrame** and may **look** like a frame around both lines without
+being an extra vertical slot.
 
 ### Scene model (invariants)
 
-- **NowTime** and **TimeDelta** are **not** children of **CentreClusterFrame**;
-they sit beside it under **CentreCluster**.
+- **NowTime** and **TimeDelta** (when present) are **not** children of **CentreClusterFrame**;
+they sit beside it under **CentreCluster**. When **TimeDelta** is omitted, no
+**EventKind**, **DeltaGlue**, or **DeltaInterval** leaves are emitted.
 - **CentreClusterFrame** contributes **three** separate curve primitives subject
 to **Independent stroked curves**.
 
@@ -420,8 +435,11 @@ a whole** at **X = 0** (**CentreCluster horizontal axis**):
   2. **Glue** — literal `**water in`** (fixed; not a host input).
   3. **Interval** — **Text** **derived** from the **forward time difference**
     between `**timeNow`** and the **next** tide marker **on the same civil
-    day**, formatted as `**Hh Mm`** (e.g. `"3h 21m"`). Behaviour when no such
-    “next” marker exists is intentionally left undefined here.
+    day**, formatted as `**Hh Mm`** (e.g. `"3h 21m"`).
+- If no next marker exists on the same civil day, **TimeDelta** is **omitted**:
+  do **not** emit **EventKind**, **DeltaGlue**, or **DeltaInterval**. **NowTime**
+  and **CentreClusterFrame** under **CentreCluster** are still emitted when the
+  host supplies **CentreCluster** layout inputs.
 - Allocated leaf names for styling/host binding (exact match):
   - Fragment 1 (**Event kind**) — `EventKind`
   - Fragment 2 (**Glue**) — `DeltaGlue`
@@ -568,7 +586,6 @@ consistent with the above.
 
 ## o  todo
 
-- no more high waters or low water today
 - collisions
 - truncations
 

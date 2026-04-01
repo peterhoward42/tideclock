@@ -71,10 +71,12 @@ describe('spec.semantic.nextTide injection', () => {
     expect(withSemantic).toEqual(baseline);
   });
 
-  it('with full spec including centreCluster, omits centre cluster after last tide of the day', () => {
+  it('after last tide of the day keeps centre cluster with NowTime but omits TimeDelta, NextPointer, and WaitArc', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
     const diagram = buildDiagram(spec);
-    expect(diagram.centreCluster).toBeNull();
+    expect(diagram.centreCluster).not.toBeNull();
+    expect(diagram.centreCluster?.timeDelta).toEqual([]);
+    expect(diagram.centreCluster?.nowTime.content).toBe('Time now 23:59:00');
     expect(diagram.nextPointer).toBeNull();
     expect(diagram.waitArc).toBeNull();
   });

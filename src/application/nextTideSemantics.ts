@@ -40,8 +40,9 @@ export type DiagramNextTideEvent = {
 };
 
 /**
- * One semantic refresh worth of next-event facts for NowPointer, TimeDelta, NextPointer, and WaitArc:
- * angular layout uses `timeNow.hours` and `nextTide.secondsSinceMidnight / 3600` with `timeToTheta`.
+ * One semantic refresh worth of next-event facts for NowPointer, TimeDelta, NextPointer, and WaitArc.
+ * When `nextTide` is `null`, layout omits those elements (centre cluster keeps NowTime + frame; TimeDelta empty).
+ * Angular layout uses `timeNow.hours` and `nextTide.secondsSinceMidnight / 3600` with `timeToTheta`.
  */
 export type DerivedNextTideSemantics = {
   readonly timeNow: DiagramParsedTimeNow;

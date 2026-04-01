@@ -58,6 +58,8 @@
  *   end: DiagramPoint,
  * }} DiagramLineSeg
  *
+ * CentreClusterDiagram.timeDelta is empty when there is no next tide on the civil day (no EventKind / DeltaGlue / DeltaInterval).
+ *
  * @typedef {{
  *   nowTime: DiagramTextInst,
  *   timeDelta: DiagramTextInst[],

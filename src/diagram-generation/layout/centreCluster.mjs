@@ -30,7 +30,7 @@ function textWidth(fontSize, charCount) {
  *   interval: string,
  *   y: number,
  *   fontHeight: number,
- * }} timeDeltaSpec
+ * } | null} timeDeltaSpec when null, no TimeDelta fragments (no next tide today); see docs/specs/tide-diagram.md
  * @param {number} refRadius
  * @param {number} sweepRad same subtended angle as RefArc (radians)
  * @param {number} frameArcRadius proportion of RefRadius (CentreClusterFrame arc radius)
@@ -66,27 +66,29 @@ export function layoutCentreCluster(
     anchor: { x: 0, y: nowY },
   };
 
-  const tdFont = timeDeltaSpec.fontHeight * R;
-  const tdY = timeDeltaSpec.y * R;
-  const parts = [
-    { content: timeDeltaSpec.eventKind },
-    { content: TIME_DELTA_GLUE },
-    { content: timeDeltaSpec.interval },
-  ];
-  const widths = parts.map((p) => textWidth(tdFont, p.content.length));
-  const totalW = widths.reduce((a, b) => a + b, 0);
-  let left = -totalW / 2;
   /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst[]} */
   const timeDelta = [];
-  for (let i = 0; i < parts.length; i += 1) {
-    const w = widths[i];
-    const cx = left + w / 2;
-    timeDelta.push({
-      content: parts[i].content,
-      fontSize: tdFont,
-      anchor: { x: cx, y: tdY },
-    });
-    left += w;
+  if (timeDeltaSpec != null) {
+    const tdFont = timeDeltaSpec.fontHeight * R;
+    const tdY = timeDeltaSpec.y * R;
+    const parts = [
+      { content: timeDeltaSpec.eventKind },
+      { content: TIME_DELTA_GLUE },
+      { content: timeDeltaSpec.interval },
+    ];
+    const widths = parts.map((p) => textWidth(tdFont, p.content.length));
+    const totalW = widths.reduce((a, b) => a + b, 0);
+    let left = -totalW / 2;
+    for (let i = 0; i < parts.length; i += 1) {
+      const w = widths[i];
+      const cx = left + w / 2;
+      timeDelta.push({
+        content: parts[i].content,
+        fontSize: tdFont,
+        anchor: { x: cx, y: tdY },
+      });
+      left += w;
+    }
   }
 
   return { nowTime, timeDelta, frameArc, frameLines };
@@ -94,7 +96,7 @@ export function layoutCentreCluster(
 
 /**
  * @param {Record<string, unknown>} spec
- * @returns {import('../model/tideDiagramModel.mjs').CentreClusterDiagram | null} null when no tide marker is at or after `timeNow` (same policy as nextPointer / waitArc).
+ * @returns {import('../model/tideDiagramModel.mjs').CentreClusterDiagram | null} null when `spec.centreCluster` is absent; otherwise **NowTime** and frame are always built, **timeDelta** may be empty when no next tide today.
  */
 export function buildCentreClusterFromSpec(spec) {
   const raw = spec.centreCluster;
@@ -151,12 +153,15 @@ export function buildCentreClusterFromSpec(spec) {
   }
 
   const nextEvent = computeNextTideEventFromSpec(spec, parsedNow);
-  if (nextEvent == null) {
-    return null;
-  }
-
-  const eventKind = nextEvent.kind;
-  const interval = nextEvent.intervalText;
+  const timeDeltaSpec =
+    nextEvent == null
+      ? null
+      : {
+          eventKind: nextEvent.kind,
+          interval: nextEvent.intervalText,
+          y: tdY,
+          fontHeight: tdFh,
+        };
 
   const sweepRad =
     typeof spec.sweepRad === "number" && Number.isFinite(spec.sweepRad)
@@ -170,7 +175,7 @@ export function buildCentreClusterFromSpec(spec) {
 
   return layoutCentreCluster(
     { text: nowText, y: nowY, fontHeight: nowFh },
-    { eventKind, interval, y: tdY, fontHeight: tdFh },
+    timeDeltaSpec,
     refRadius,
     sweepRad,
     frameArcRadius,
