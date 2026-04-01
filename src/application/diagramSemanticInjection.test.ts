@@ -71,6 +71,14 @@ describe('spec.semantic.nextTide injection', () => {
     expect(withSemantic).toEqual(baseline);
   });
 
+  it('with full spec including centreCluster, omits centre cluster after last tide of the day', () => {
+    const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
+    const diagram = buildDiagram(spec);
+    expect(diagram.centreCluster).toBeNull();
+    expect(diagram.nextPointer).toBeNull();
+    expect(diagram.waitArc).toBeNull();
+  });
+
   it('rejects malformed injected nextTide', () => {
     const spec = sampleTideDiagramSpec();
     expect(() =>

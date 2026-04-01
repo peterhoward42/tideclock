@@ -84,6 +84,7 @@ fart
 					*  should I first ditch docs in illrepute
 					o  refactor for heterogenuous triggers
 						o  work through planned phases
+						o  temp put in black background
 					o  how about renderer opt? e.g. in situ svg child replace
 					o  not keen on optional - debate
 						o  as skill

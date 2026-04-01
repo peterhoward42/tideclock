@@ -27,7 +27,7 @@
    * wrong place's tides.
    */
   let tideLoadSerial = $state(0);
-  /** Last successful civil-day slice; kept for upcoming spec assembly (Stage 2). Not cleared on transient errors. */
+  /** Last successful civil-day slice; Home assembles the diagram spec from this. Not cleared on transient errors. */
   let lastSuccessfulTideExtremes = $state<TideExtremesAtLocation | undefined>(undefined);
   /** Local civil-day window start (ms) after the last successful load completed; drives midnight rollover detection. */
   let civilDayWindowStartMsAtLastSuccessfulLoad = $state<number | undefined>(undefined);
@@ -175,7 +175,7 @@
 
   <section class="content">
     {#if $route === "home"}
-      <Home tideLoadState={tideLoadState} />
+      <Home tideLoadState={tideLoadState} tideExtremes={lastSuccessfulTideExtremes} />
     {:else if $route === "location"}
       <Location setCurrentLocation={setCurrentLocation} />
     {:else if $route === "settings"}

@@ -94,7 +94,7 @@ export function layoutCentreCluster(
 
 /**
  * @param {Record<string, unknown>} spec
- * @returns {import('../model/tideDiagramModel.mjs').CentreClusterDiagram | null}
+ * @returns {import('../model/tideDiagramModel.mjs').CentreClusterDiagram | null} null when no tide marker is at or after `timeNow` (same policy as nextPointer / waitArc).
  */
 export function buildCentreClusterFromSpec(spec) {
   const raw = spec.centreCluster;
@@ -152,9 +152,7 @@ export function buildCentreClusterFromSpec(spec) {
 
   const nextEvent = computeNextTideEventFromSpec(spec, parsedNow);
   if (nextEvent == null) {
-    throw new Error(
-      "centreCluster requires at least one valid tideMarks marker to derive next tide event",
-    );
+    return null;
   }
 
   const eventKind = nextEvent.kind;
