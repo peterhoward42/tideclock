@@ -1,14 +1,15 @@
 <script lang="ts">
-  // Home route: civil-day diagram from collaborator output (full SVG replace; semantic cadence in Stage 4).
+  // Home route: civil-day diagram from collaborator output (full SVG replace). Loop B: semantic
+  // regeneration on minute boundaries only; Loop A (1 Hz NowTime) is Stage 5.
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
-  import { nowMs } from "../../application/appClock.js";
   import {
     buildDiagramGenerationSpec,
     utcIsoToLocalCanonicalTimeLocal,
   } from "../../application/buildDiagramGenerationSpec";
   import { createDiagramGenerationCollaborator } from "../../application/diagramGenerationCollaborator";
   import { deriveNextTideSemantics } from "../../application/nextTideSemantics";
+  import { subscribeSemanticMinuteCadence } from "../../application/semanticMinuteCadence";
   import { renderPreviewSvg } from "../../../tools/scenegen/renderPreview.mjs";
 
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
@@ -22,11 +23,17 @@
 
   const collaborator = createDiagramGenerationCollaborator();
 
-  let wallMs = $state(Date.now());
-  onMount(() => nowMs.subscribe((v) => (wallMs = v)));
+  /** Drives Loop B: bumps only on local minute rollover (aligned scheduler), not every second. */
+  let semanticMinuteEpoch = $state(Math.floor(Date.now() / 60_000));
 
-  /** Minute bucket so we do not rebuild the full scene every second (Loop B / Stage 4). */
-  const minuteEpoch = $derived(Math.floor(wallMs / 60_000));
+  onMount(() =>
+    subscribeSemanticMinuteCadence(
+      (epoch) => {
+        semanticMinuteEpoch = epoch;
+      },
+      { fireImmediately: false }
+    )
+  );
 
   let diagramSvg = $state("");
   let diagramError = $state<string | undefined>(undefined);
@@ -40,10 +47,9 @@
   }
 
   $effect(() => {
-    const _minute = minuteEpoch;
+    const _semanticMinute = semanticMinuteEpoch;
     const extremes = tideExtremes;
     const load = tideLoadState;
-    const ms = wallMs;
 
     if (load.status !== "ready" || extremes === undefined || extremes.extremes.length === 0) {
       diagramSvg = "";
@@ -52,7 +58,7 @@
     }
 
     try {
-      const timeNow = localCanonicalTimeNowFromMs(ms);
+      const timeNow = localCanonicalTimeNowFromMs(Date.now());
       const baseSpec = buildDiagramGenerationSpec({
         extremesAtLocation: extremes,
         timeNow,
