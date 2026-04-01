@@ -76,13 +76,12 @@ o  new data fetch paradigm
 				*  Next ptr
 				*  WaitInterval arc
 				*  bring in styling pattern
-
+				*  in-band migration
 fart
-				o  in-band migration
-					*  write charter
-					o  discuss phase 1 in charter
+					o  should I first ditch docs in illrepute
 
 				o  plan integration replace existing diagram first stab
+					o  should I first ditch docs in illrepute
 					o  ask chatgpt to survey code code and collab for diag entry point in
 					application, then  identify which content seems to compete semantically -
 					trying to build list to ditch

@@ -215,6 +215,25 @@ Declare this phase set complete when:
 - Orchestration-intent modules are explicitly identified and retained intentionally.
 - Repository structure is ready for future event-flow wiring without conceptual ambiguity.
 
+#### Phase 6 Deliverable - Exit Criteria Verified
+
+Verification snapshot (2026-04-01):
+
+- **Single active semantics owner:** the active runtime path no longer computes legacy `clockScene` semantics; diagram-semantic generation authority is isolated to the new `diagram-generation` subsystem surface.
+- **Legacy semantic path isolated:** `src/application/homeScreenModelFromHost.ts` remains removed, and the active Home route (`src/ui/routes/Home.svelte`) is a placeholder that does not invoke legacy semantic-generation modules.
+- **Orchestration intent retained intentionally:** `src/application/appClock.js` and orchestration entrypoints in `src/ui/App.svelte` are explicitly annotated as Phase 5 intent holds and remain in place pending concrete orchestration replacement.
+- **Boundary clarity for next migration wave:** retained legacy presentation artifacts stay quarantined from the active Home flow, leaving a cleaner seam for future event-flow wiring and route contract redesign.
+
+Verification:
+
+- `npm test` passes (45/45), confirming deconfliction-phase end state remains stable.
+
+#### Phase 6 Gate Status
+
+- Status: **Accepted**
+- Date: **2026-04-01**
+- Acceptance basis: all deconfliction exit criteria are satisfied in the current active runtime path, with semantic ownership deconflicted and orchestration-retention intent explicitly documented.
+
 ## Execution Notes
 
 - Temporary breakage in Home route diagram rendering is acceptable during these phases.
