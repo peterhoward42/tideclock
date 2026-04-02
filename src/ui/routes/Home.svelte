@@ -41,6 +41,8 @@
   let diagramError = $state<string | undefined>(undefined);
   /** Container for injected SVG; used to patch NowTime text on Loop A without regenerating the scene. */
   let diagramHostEl = $state<HTMLElement | undefined>(undefined);
+  /** Avoid re-fitting the SVG repeatedly while NowTime updates each second. */
+  let lastFitSignature = $state<string | undefined>(undefined);
 
   function localCanonicalTimeNowFromMs(ms: number): string {
     const d = new Date(ms);
@@ -85,6 +87,52 @@
   });
 
   $effect(() => {
+    if (diagramHostEl == null) return;
+    if (diagramSvg === "") return;
+
+    const signature = `${diagramSvg.length}:${tideExtremes?.extremes.length ?? 0}`;
+    if (signature === lastFitSignature) return;
+    lastFitSignature = signature;
+
+    // Wait for the injected SVG to exist in the DOM before measuring.
+    queueMicrotask(() => {
+      requestAnimationFrame(() => {
+        const host = diagramHostEl;
+        const svg = host.querySelector("svg") as SVGSVGElement | null;
+        if (svg == null) return;
+
+        const contentGroup =
+          (svg.querySelector('g[data-name="tideDiagram"]') as SVGGElement | null) ??
+          (svg.querySelector("g") as SVGGElement | null) ??
+          svg;
+
+        let bbox: DOMRect | SVGRect;
+        try {
+          bbox = contentGroup.getBBox();
+        } catch {
+          return;
+        }
+
+        const w = bbox.width;
+        const h = bbox.height;
+        if (!Number.isFinite(w) || !Number.isFinite(h) || h <= 0 || w <= 0) return;
+
+        // Trim the viewBox to measured content with a small internal safety pad.
+        // Also update the SVG's intrinsic `width`/`height` so CSS `height:auto` remains correct.
+        const pad = Math.max(6, 0.03 * Math.max(w, h));
+        const vbX = bbox.x - pad;
+        const vbY = bbox.y - pad;
+        const vbW = w + 2 * pad;
+        const vbH = h + 2 * pad;
+
+        svg.setAttribute("viewBox", `${vbX} ${vbY} ${vbW} ${vbH}`);
+        svg.setAttribute("width", String(vbW));
+        svg.setAttribute("height", String(vbH));
+      });
+    });
+  });
+
+  $effect(() => {
     const host = diagramHostEl;
     const svg = diagramSvg;
     if (host == null || svg === "") return;
@@ -96,26 +144,30 @@
   });
 </script>
 
-<main class="route home-route">
-  <h1>Home</h1>
-
+<main class="home-route">
   {#if tideLoadState.status === "loading"}
-    <p class="muted" role="status">Loading tides…</p>
+    <div class="home-panel" aria-live="polite">
+      <p class="muted" role="status">Loading tides…</p>
+    </div>
   {:else if tideLoadState.status === "error"}
-    <p class="muted" role="alert">Tides could not be loaded. Check the connection and try again.</p>
+    <div class="home-panel" aria-live="polite">
+      <p class="muted" role="alert">Tides could not be loaded. Check the connection and try again.</p>
+    </div>
   {:else if tideExtremes === undefined}
-    <p class="muted">Choose a location to see today’s tide diagram.</p>
+    <div class="home-panel">
+      <p class="muted">Choose a location to see today’s tide diagram.</p>
+    </div>
   {:else if tideExtremes.extremes.length === 0}
-    <p class="muted" role="status">No tide extremes for this day.</p>
+    <div class="home-panel" aria-live="polite">
+      <p class="muted" role="status">No tide extremes for this day.</p>
+    </div>
   {:else if diagramError !== undefined}
-    <p class="muted" role="alert">Diagram could not be rendered: {diagramError}</p>
+    <div class="home-panel" aria-live="polite">
+      <p class="muted" role="alert">Diagram could not be rendered: {diagramError}</p>
+    </div>
   {:else if diagramSvg !== ""}
-    <!--
-      Interim dark stage: scenegen preview palette assumes a black canvas (see tools/scenegen/renderPreview.mjs).
-      Revisit once whole-page and header-strip visual design is settled.
-    -->
-    <div class="home-diagram-stage" bind:this={diagramHostEl}>
-      <figure class="home-diagram" aria-label="Tide diagram for the current civil day">
+    <div class="home-panel" bind:this={diagramHostEl}>
+      <figure class="home-instrument" aria-label="Tide diagram for the current civil day">
         <!-- Trusted: SVG produced locally by diagram-generation + scenegen preview. -->
         {@html diagramSvg}
       </figure>
@@ -125,26 +177,50 @@
 
 <style>
   /*
-   * Interim: isolate the diagram on black so preview stroke/fill contrast matches the generator’s defaults.
-   * Not the final home layout — pending decisions on full page + top-bar theming.
+   * Appliance-like layout:
+   * - Black panel fills the entire available vertical space under the header.
+   * - Diagram is centered and fills available height/width (uniform scaling via SVG preserveAspectRatio).
+   * - External “gap” is CSS-driven (panel padding), not viewBox padding.
    */
-  .home-diagram-stage {
+  .home-route {
     width: 100%;
-    max-width: 28rem;
-    margin: 0 auto;
-    padding: 1rem;
-    box-sizing: border-box;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    /* Cancel the parent `.content` padding so the black panel fills the full visible area. */
+    margin: -1.5rem -1rem -2rem;
+  }
+
+  .home-panel {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
     background: #000;
-    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(0.75rem, 2vw, 1.25rem);
+    box-sizing: border-box;
   }
 
-  .home-diagram {
+  .home-instrument {
     margin: 0;
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .home-diagram :global(svg) {
+  .home-instrument :global(svg) {
     display: block;
     width: 100%;
+    max-height: 100%;
     height: auto;
+  }
+
+  .home-panel .muted {
+    color: #dbeafe;
   }
 </style>

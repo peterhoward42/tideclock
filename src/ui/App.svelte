@@ -34,6 +34,7 @@
   /** After a failed rollover fetch, suppress re-entry for the same civil day (see `shouldTriggerCivilDayRolloverRefresh`). */
   let lastRolloverAttemptCivilDayStartMs = $state<number | undefined>(undefined);
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
+  let currentTown = $state<Town | undefined>(undefined);
 
   function appDiag(...args: unknown[]) {
     if (!import.meta.env.DEV || import.meta.env.MODE === "test") return;
@@ -115,6 +116,7 @@
     lastSuccessfulTideExtremes = undefined;
     civilDayWindowStartMsAtLastSuccessfulLoad = undefined;
     lastRolloverAttemptCivilDayStartMs = undefined;
+    currentTown = town;
     storeCurrentLocation(town, { storer: localStorage });
     appDiag("setCurrentLocation stored town in localStorage", { townId: town.id });
     refreshTideExtremesForTown(town);
@@ -122,6 +124,7 @@
 
   function maybeRefreshTideAfterLocalMidnightRollover(): void {
     const town = loadCurrentLocation({ loader: localStorage });
+    currentTown = town;
     const currentStart = getCurrentTideClockCivilDayDisplayWindow().startLocal.getTime();
     if (
       !shouldTriggerCivilDayRolloverRefresh({
@@ -142,11 +145,33 @@
     menuDetails?.removeAttribute("open");
   }
 
+  function headerPlaceholderForRoute(routeId: string): string {
+    switch (routeId) {
+      case "location":
+        return "Location";
+      case "settings":
+        return "Settings";
+      case "about":
+        return "About";
+      case "acknowledgements":
+        return "Acknowledgements";
+      case "support":
+        return "Support";
+      case "cookies":
+        return "Cookies";
+      case "home":
+        return "";
+      default:
+        return "";
+    }
+  }
+
   onMount(() => {
     attachHashListener();
     appDiag("app root mounted, hash listener attached");
     const town = loadCurrentLocation({ loader: localStorage });
     if (town !== undefined) {
+      currentTown = town;
       refreshTideExtremesForTown(town);
     }
     const unsubNow = nowMs.subscribe(() => {
@@ -158,7 +183,27 @@
 
 <div class="app-frame">
   <header class="top-bar">
-    <a class="brand" href="#/home">Tide clock</a>
+    <div class="header-left">
+      {#if $route === "home"}
+        {#if currentTown}
+          <span class="header-location">
+            Tides in <strong>{currentTown.name}</strong> today
+          </span>
+        {:else}
+          <span class="header-location">Tides today</span>
+        {/if}
+        <a
+          class="location-change"
+          href="#/location"
+          onclick={closeMenu}
+          aria-label="Change location"
+        >
+          &gt;&gt;
+        </a>
+      {:else}
+        <span class="header-route-placeholder">{headerPlaceholderForRoute($route)}</span>
+      {/if}
+    </div>
     <details class="menu" bind:this={menuDetails}>
       <summary class="menu-toggle" aria-label="Menu">Menu</summary>
       <nav class="nav-links" aria-label="Primary">
