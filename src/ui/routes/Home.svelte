@@ -31,8 +31,11 @@
   onMount(() => {
     if (!import.meta.env.DEV) return;
     try {
-      domDumpEnabled = new URLSearchParams(window.location.search).has("dom");
-      if (domDumpEnabled) refreshDomDump();
+      const params = new URLSearchParams(window.location.search);
+      domDumpEnabled = params.has("dom");
+      noFitEnabled = params.has("nofit");
+      outlineEnabled = params.has("outline");
+      if (domDumpEnabled) refreshDomSummary();
     } catch {
       // ignore (non-browser / tests)
     }
@@ -51,17 +54,48 @@
   let diagramError = $state<string | undefined>(undefined);
   /** Container for injected SVG; used to patch NowTime text on Loop A without regenerating the scene. */
   let diagramHostEl = $state<HTMLElement | undefined>(undefined);
-  /** Avoid re-fitting the SVG repeatedly while NowTime updates each second. */
-  let lastFitSignature = $state<string | undefined>(undefined);
 
-  /** Dev-only: optional DOM dump for debugging blank panel issues. */
+  /** Dev-only: optional debug tooling (toggle with query params). */
   let domDumpEnabled = $state(false);
-  let domDump = $state<string>("");
+  let noFitEnabled = $state(false);
+  let outlineEnabled = $state(false);
+  let domSummary = $state<string>("");
 
-  function refreshDomDump(): void {
+  function refreshDomSummary(): void {
     if (!domDumpEnabled) return;
-    const root = document.querySelector("main.home-route") as HTMLElement | null;
-    domDump = root?.outerHTML ?? "(home route root not found)";
+    const host =
+      diagramHostEl ?? (document.querySelector("main.home-route figure.home-instrument") as HTMLElement | null);
+    const figure = document.querySelector("main.home-route figure.home-instrument") as HTMLElement | null;
+    const svg =
+      (host?.querySelector("svg") as SVGSVGElement | null) ??
+      (document.querySelector("main.home-route svg") as SVGSVGElement | null);
+    const panel = document.querySelector("main.home-route .home-panel") as HTMLElement | null;
+
+    const svgRect = svg?.getBoundingClientRect();
+    const figureRect = figure?.getBoundingClientRect();
+    const panelRect = panel?.getBoundingClientRect();
+
+    domSummary = JSON.stringify(
+      {
+        diagramSvgLen: diagramSvg.length,
+        tideExtremesCount: tideExtremes?.extremes.length ?? 0,
+        svgExists: svg != null,
+        svg: svg
+          ? {
+              rect: svgRect ? { w: svgRect.width, h: svgRect.height, x: svgRect.x, y: svgRect.y } : null,
+              client: { w: svg.clientWidth, h: svg.clientHeight },
+              transform: svg.style.transform ?? "",
+              transformOrigin: svg.style.transformOrigin ?? "",
+              viewBox: svg.getAttribute("viewBox") ?? null,
+              ariaHidden: svg.getAttribute("aria-hidden"),
+            }
+          : null,
+        figure: figureRect ? { w: figureRect.width, h: figureRect.height, x: figureRect.x, y: figureRect.y } : null,
+        panel: panelRect ? { w: panelRect.width, h: panelRect.height } : null,
+      },
+      null,
+      2
+    );
   }
 
   function localCanonicalTimeNowFromMs(ms: number): string {
@@ -110,80 +144,27 @@
     if (diagramHostEl == null) return;
     if (diagramSvg === "") return;
 
-    const signature = `${diagramSvg.length}:${tideExtremes?.extremes.length ?? 0}`;
-    if (signature === lastFitSignature) return;
-    lastFitSignature = signature;
-
-    // Wait for the injected SVG to exist in the DOM before measuring.
+    // The diagram SVG should scale via CSS (`width/height: 100%`) + preserveAspectRatio.
+    // Keep only tiny debug affordances here (outline, summary refresh).
     queueMicrotask(() => {
       requestAnimationFrame(() => {
-        // `diagramHostEl` can become null between scheduling and execution
-        // (e.g. route change / conditional block flips). Re-check here.
         const host = diagramHostEl;
         if (host == null) return;
-
         const svg = host.querySelector("svg") as SVGSVGElement | null;
         if (svg == null) return;
 
-        const contentGroup =
-          (svg.querySelector('g[data-name="tideDiagram"]') as SVGGElement | null) ??
-          (svg.querySelector("g") as SVGGElement | null) ??
-          svg;
+        svg.style.transformOrigin = "50% 50%";
+        svg.style.transform = "scale(1)";
 
-        let bbox: DOMRect | SVGRect;
-        try {
-          bbox = contentGroup.getBBox();
-        } catch {
-          return;
+        if (outlineEnabled) {
+          svg.style.outline = "2px solid rgba(255,0,0,0.6)";
+          svg.style.background = "rgba(255,0,0,0.06)";
+        } else {
+          svg.style.outline = "";
+          svg.style.background = "";
         }
 
-        // Convert measured bbox to screen pixels using the SVG's current CTM.
-        // IMPORTANT: reset transforms before any measurement so the pixel math is stable.
-        svg.style.transformOrigin = "0 0";
-        svg.style.transform = "translate(0px, 0px) scale(1)";
-
-        const ctm = svg.getScreenCTM();
-        if (ctm == null) return;
-
-        const p1 = svg.createSVGPoint();
-        p1.x = bbox.x;
-        p1.y = bbox.y;
-        const tp1 = p1.matrixTransform(ctm);
-
-        const p2 = svg.createSVGPoint();
-        p2.x = bbox.x + bbox.width;
-        p2.y = bbox.y + bbox.height;
-        const tp2 = p2.matrixTransform(ctm);
-
-        const bboxPxW = Math.abs(tp2.x - tp1.x);
-        const bboxPxH = Math.abs(tp2.y - tp1.y);
-        if (!Number.isFinite(bboxPxW) || !Number.isFinite(bboxPxH) || bboxPxW <= 0 || bboxPxH <= 0)
-          return;
-
-        // Fit the measured diagram bbox into the available black panel area.
-        // Panel padding creates the intentional left/right/bottom gutters.
-        const panel = host.closest(".home-panel") as HTMLElement | null;
-        if (panel == null) return;
-
-        const cs = getComputedStyle(panel);
-        const padL = parseFloat(cs.paddingLeft) || 0;
-        const padR = parseFloat(cs.paddingRight) || 0;
-        const padT = parseFloat(cs.paddingTop) || 0;
-        const padB = parseFloat(cs.paddingBottom) || 0;
-
-        const availW = panel.clientWidth - padL - padR;
-        const availH = panel.clientHeight - padT - padB;
-        if (availW <= 0 || availH <= 0) return;
-
-        const scaleX = availW / bboxPxW;
-        const scaleY = availH / bboxPxH;
-        const scale = Math.min(scaleX, scaleY);
-        if (!Number.isFinite(scale) || scale <= 0) return;
-
-        // Scale only. Centering via flex/absolute positioning + transform-origin is more stable
-        // than attempting to translate in mixed coordinate frames.
-        svg.style.transformOrigin = "50% 50%";
-        svg.style.transform = `scale(${scale})`;
+        refreshDomSummary();
       });
     });
   });
@@ -195,7 +176,6 @@
     const unsub = nowMs.subscribe((ms) => {
       const textEl = host.querySelector('svg g[data-name="NowTime"] text');
       if (textEl) textEl.textContent = localCanonicalTimeNowFromMs(ms);
-      refreshDomDump();
     });
     return unsub;
   });
@@ -204,10 +184,10 @@
 <main class="home-route">
   {#if domDumpEnabled}
     <div class="home-debug">
-      <button type="button" class="home-debug__btn" onclick={refreshDomDump}>Refresh DOM dump</button>
+      <button type="button" class="home-debug__btn" onclick={refreshDomSummary}>Refresh DOM summary</button>
       <details open>
-        <summary>Home route DOM</summary>
-        <pre class="home-debug__pre">{domDump}</pre>
+        <summary>Home route DOM (summary)</summary>
+        <pre class="home-debug__pre">{domSummary}</pre>
       </details>
     </div>
   {/if}
@@ -264,8 +244,8 @@
     width: 100%;
     background: #000;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: stretch;
     padding: clamp(0.75rem, 2vw, 1.25rem);
     box-sizing: border-box;
   }
@@ -273,7 +253,8 @@
   .home-instrument {
     margin: 0;
     width: 100%;
-    height: 100%;
+    flex: 1;
+    min-height: 0;
     position: relative;
     overflow: hidden;
   }
