@@ -38,9 +38,9 @@ function sampleTideDiagramSpec(): Record<string, unknown> {
         { time: '23:06:00', heightText: '4.8 m', highOrLow: 'High' },
       ],
     },
+    timeNowLabel: { x: 0.8, fontHeight: 0.05 },
     centreCluster: {
       frameArcRadius: 0.35,
-      nowTime: { y: -0.2, fontHeight: 0.05 },
       timeDelta: { y: -0.1, fontHeight: 0.05 },
     },
   };
@@ -82,7 +82,7 @@ describe('spec.semantic.nextTide injection', () => {
       fontSize: 5.9,
       anchor: { x: 0, y: -11.8 },
     });
-    expect(diagram.centreCluster?.nowTime.content).toBe('Time now 23:59:00');
+    expect(diagram.timeNowLabel?.content).toBe('23:59:00');
     expect(diagram.nextPointer).toBeNull();
     expect(diagram.waitArc).toBeNull();
   });

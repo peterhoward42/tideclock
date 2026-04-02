@@ -1,6 +1,6 @@
 <script lang="ts">
   // Home route: civil-day diagram from collaborator output (full SVG replace). Loop B: semantic
-  // regeneration on minute boundaries only. Loop A: 1 Hz DOM patch for centre-cluster NowTime only
+  // regeneration on minute boundaries only. Loop A: 1 Hz DOM patch for TimeNowLabel only
   // (no per-second collaborator.generate).
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
@@ -52,7 +52,7 @@
 
   let diagramSvg = $state("");
   let diagramError = $state<string | undefined>(undefined);
-  /** Container for injected SVG; used to patch NowTime text on Loop A without regenerating the scene. */
+  /** Container for injected SVG; used to patch TimeNowLabel text on Loop A without regenerating the scene. */
   let diagramHostEl = $state<HTMLElement | undefined>(undefined);
 
   /** Dev-only: optional debug tooling (toggle with query params). */
@@ -177,7 +177,7 @@
     const svg = diagramSvg;
     if (host == null || svg === "") return;
     const unsub = nowMs.subscribe((ms) => {
-      const textEl = host.querySelector('svg g[data-name="NowTime"] text');
+      const textEl = host.querySelector('svg g[data-name="TimeNowLabel"] text');
       if (textEl) textEl.textContent = localCanonicalTimeNowFromMs(ms);
     });
     return unsub;

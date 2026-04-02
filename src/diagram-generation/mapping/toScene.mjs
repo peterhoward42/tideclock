@@ -214,7 +214,6 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
     line(mapPoint(seg.start, cx, cy), mapPoint(seg.end, cx, cy)),
   );
 
-  const now = cluster.nowTime;
   /** @type {import('../model/sceneModel.mjs').GroupNode[]} */
   const timeDeltaChildren = [];
   for (let idx = 0; idx < cluster.timeDelta.length; idx += 1) {
@@ -222,7 +221,7 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
     const node = text({
       content: seg.content,
       size: seg.fontSize,
-      hAlign: "center",
+      hAlign: seg.hAlign ?? "center",
       angleRad: 0,
       anchor: mapPoint(seg.anchor, cx, cy),
     });
@@ -237,7 +236,7 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
         text({
           content: m.content,
           size: m.fontSize,
-          hAlign: "center",
+          hAlign: m.hAlign ?? "center",
           angleRad: 0,
           anchor: mapPoint(m.anchor, cx, cy),
         }),
@@ -249,17 +248,8 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
     ...frameLineNodes,
     arc(frameArcCenter, frameArcStart, fa.sweepRad),
   ]);
-  const nowTimeGroup = group("NowTime", [
-    text({
-      content: now.content,
-      size: now.fontSize,
-      hAlign: "center",
-      angleRad: 0,
-      anchor: mapPoint(now.anchor, cx, cy),
-    }),
-  ]);
   /** @type {import('../model/sceneModel.mjs').GroupNode[]} */
-  const children = [frameGroup, nowTimeGroup];
+  const children = [frameGroup];
   if (timeDeltaChildren.length > 0) {
     children.push(group("TimeDelta", timeDeltaChildren));
   }
@@ -324,6 +314,7 @@ export function tideDiagramToScene(diagram) {
     nowPointer,
     nextPointer,
     waitArc,
+    timeNowLabel,
   } = diagram;
   const R = refArc.refRadius;
   const C = refArc.center;
@@ -393,6 +384,19 @@ export function tideDiagramToScene(diagram) {
       ? centreClusterDiagramToGroup(diagram.centreCluster, cx, cy)
       : null;
 
+  const timeNowLabelGroup =
+    timeNowLabel != null
+      ? group("TimeNowLabel", [
+          text({
+            content: timeNowLabel.content,
+            size: timeNowLabel.fontSize,
+            hAlign: timeNowLabel.hAlign ?? "center",
+            angleRad: 0,
+            anchor: mapPoint(timeNowLabel.anchor, cx, cy),
+          }),
+        ])
+      : null;
+
   const nowPointerGroup =
     nowPointer != null
       ? group("NowPointer", [
@@ -455,6 +459,7 @@ export function tideDiagramToScene(diagram) {
     tideMarksGroup,
     tickLabelsGroup,
     ...(centreClusterGroup != null ? [centreClusterGroup] : []),
+    ...(timeNowLabelGroup != null ? [timeNowLabelGroup] : []),
     ...(nowPointerGroup != null ? [nowPointerGroup] : []),
     ...(nextPointerGroup != null ? [nextPointerGroup] : []),
   ]);

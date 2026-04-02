@@ -34,7 +34,7 @@ export const STATIC_STYLE_MODEL = {
     { name: "TimeLabel", styleName: "grey-writing" },
     { name: "TickLabel", styleName: "grey-writing" },
     { name: "CentreClusterFrame", styleName: "grey-strokes" },
-    { name: "NowTime", styleName: "grey-writing" },
+    { name: "TimeNowLabel", styleName: "grey-writing" },
     { name: "DeltaGlue", styleName: "grey-writing" },
     { name: "DeltaInterval", styleName: "grey-writing" },
     { name: "NoMoreTidesToday", styleName: "grey-writing" },

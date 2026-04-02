@@ -35,14 +35,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         },
       },
     ],
-    "nowTime": {
-      "anchor": {
-        "x": 0,
-        "y": -23.6,
-      },
-      "content": "Time now 19:20:03",
-      "fontSize": 5.9,
-    },
     "timeDelta": [
       {
         "anchor": {
@@ -644,6 +636,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       },
     },
   ],
+  "timeNowLabel": {
+    "anchor": {
+      "x": 94.4,
+      "y": -5.9,
+    },
+    "content": "19:20:03",
+    "fontSize": 5.9,
+    "hAlign": "right",
+  },
   "version": 1,
   "waitArc": {
     "arrow": {

@@ -41,7 +41,7 @@ describe("renderPreviewHtml", () => {
 
     expect(html).toContain("<!DOCTYPE html>");
     expect(html).toContain("<title>preview-smoke</title>");
-    expect(html).toContain('viewBox="0 30 80 80"');
+    expect(html).toContain('viewBox="10 40 60 60"');
     expect(html).toContain('stroke="yellow"');
   });
 
@@ -65,6 +65,6 @@ describe("renderPreviewHtml", () => {
     });
 
     expect(svg.trimStart().startsWith("<svg")).toBe(true);
-    expect(svg).toContain('viewBox="0 30 80 80"');
+    expect(svg).toContain('viewBox="10 40 60 60"');
   });
 });

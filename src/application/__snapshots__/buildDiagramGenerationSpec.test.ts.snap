@@ -35,14 +35,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         },
       },
     ],
-    "nowTime": {
-      "anchor": {
-        "x": 0,
-        "y": -23.6,
-      },
-      "content": "Time now 19:20:03",
-      "fontSize": 5.9,
-    },
     "timeDelta": [
       {
         "anchor": {
@@ -725,6 +717,15 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       },
     },
   ],
+  "timeNowLabel": {
+    "anchor": {
+      "x": 94.4,
+      "y": -5.9,
+    },
+    "content": "19:20:03",
+    "fontSize": 5.9,
+    "hAlign": "right",
+  },
   "version": 1,
   "waitArc": {
     "arrow": {
@@ -1507,23 +1508,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           {
             "children": [
               {
-                "anchor": {
-                  "x": 210,
-                  "y": 136.4,
-                },
-                "angleRad": 0,
-                "content": "Time now 19:20:03",
-                "hAlign": "center",
-                "kind": "text",
-                "size": 5.9,
-              },
-            ],
-            "kind": "group",
-            "name": "NowTime",
-          },
-          {
-            "children": [
-              {
                 "children": [
                   {
                     "anchor": {
@@ -1581,6 +1565,23 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         ],
         "kind": "group",
         "name": "CentreCluster",
+      },
+      {
+        "children": [
+          {
+            "anchor": {
+              "x": 304.4,
+              "y": 154.1,
+            },
+            "angleRad": 0,
+            "content": "19:20:03",
+            "hAlign": "right",
+            "kind": "text",
+            "size": 5.9,
+          },
+        ],
+        "kind": "group",
+        "name": "TimeNowLabel",
       },
       {
         "children": [

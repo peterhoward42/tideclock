@@ -43,6 +43,7 @@
  *   content: string,
  *   fontSize: number,
  *   anchor: DiagramPoint,
+ *   hAlign?: 'left' | 'center' | 'right',
  * }} DiagramTextInst
  *
  * @typedef {{
@@ -62,7 +63,6 @@
  * **timeDeltaEmptyMessage** is set (and **timeDelta** empty) when there is no next tide today (**NoMoreTidesToday** in the spec).
  *
  * @typedef {{
- *   nowTime: DiagramTextInst,
  *   timeDelta: DiagramTextInst[],
  *   timeDeltaEmptyMessage: DiagramTextInst | null,
  *   frameArc: CentreClusterFrameArcSpec,
@@ -133,6 +133,7 @@
  *   nextPointer: NextPointerDiagram | null,
  *   waitArc: WaitArcDiagram | null,
  *   centreCluster: CentreClusterDiagram | null,
+ *   timeNowLabel: DiagramTextInst | null,
  *   contentBounds: DiagramContentBounds,
  * }} TideDiagramDocument
  */

@@ -41,7 +41,7 @@ export type DiagramNextTideEvent = {
 
 /**
  * One semantic refresh worth of next-event facts for NowPointer, TimeDelta, NextPointer, and WaitArc.
- * When `nextTide` is `null`, layout omits NextPointer and WaitArc; centre cluster keeps NowTime + frame and **NoMoreTidesToday** (see tide-diagram spec).
+ * When `nextTide` is `null`, layout omits NextPointer and WaitArc; centre cluster keeps frame and **NoMoreTidesToday**; clock readout is **TimeNowLabel** at diagram root (see tide-diagram spec).
  * Angular layout uses `timeNow.hours` and `nextTide.secondsSinceMidnight / 3600` with `timeToTheta`.
  */
 export type DerivedNextTideSemantics = {

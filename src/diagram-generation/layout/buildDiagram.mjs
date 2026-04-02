@@ -13,6 +13,40 @@ import {
 } from "../model/tideDiagramModel.mjs";
 
 /**
+ * Root-level clock readout from `spec.timeNow` (canonical `HH:MM:SS` only). Optional `spec.timeNowLabel`:
+ * `{ x?, fontHeight? }` as RefRadius multiples; default **x** = 0.8, **fontHeight** = 0.05; **y** = −**fontHeight**.
+ *
+ * @param {Record<string, unknown>} spec
+ * @returns {import('../model/tideDiagramModel.mjs').DiagramTextInst | null}
+ */
+function buildTimeNowLabelFromSpec(spec) {
+  const raw = spec.timeNowLabel;
+  if (raw == null || typeof raw !== "object") return null;
+  const o = /** @type {Record<string, unknown>} */ (raw);
+  const refRadius =
+    typeof spec.refRadius === "number" && Number.isFinite(spec.refRadius)
+      ? spec.refRadius
+      : 100;
+  const xRaw = o.x;
+  const xK =
+    typeof xRaw === "number" && Number.isFinite(xRaw) ? xRaw : 0.8;
+  const fhRaw = o.fontHeight;
+  const fontHeightK =
+    typeof fhRaw === "number" && Number.isFinite(fhRaw) ? fhRaw : 0.05;
+  const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
+  if (parsedNow.isRightEndpoint) {
+    throw new Error('spec.timeNow cannot be "24:00:00"');
+  }
+  const yK = -fontHeightK;
+  return {
+    content: parsedNow.canonical,
+    fontSize: fontHeightK * refRadius,
+    anchor: { x: xK * refRadius, y: yK * refRadius },
+    hAlign: "right",
+  };
+}
+
+/**
  * @param {Record<string, unknown>} spec
  * @returns {import('../model/tideDiagramModel.mjs').TideDiagramDocument}
  */
@@ -91,6 +125,7 @@ export function buildDiagram(spec) {
   const contentBounds = { extents, rect };
 
   const centreCluster = buildCentreClusterFromSpec(spec);
+  const timeNowLabel = buildTimeNowLabelFromSpec(spec);
 
   const tideMarks = buildTideMarksFromSpec(
     spec,
@@ -131,6 +166,7 @@ export function buildDiagram(spec) {
     nextPointer,
     waitArc,
     centreCluster,
+    timeNowLabel,
     contentBounds,
   };
 }

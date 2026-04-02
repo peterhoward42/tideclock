@@ -80,17 +80,9 @@ o  new data fetch paradigm
 				*  get real integration working
 				*  purge spent docs
 
-fart
-				o  get it big enough to see
-					*  policy
-					*  debugging iteration
-					*  style corrections around borders
-					*  magenta box is a win
-					*  now max fit magenta box in black area
-					o  once it works - make the gutters black also
-						o  can't do that - need to consider other pages
-							o  ask for conceptual advice
+				*  get it big enough to see
 
+fart
 				o  leave it running to spot errors / null in log
 
 				o  move time now text out to top right of diagram and have

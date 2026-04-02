@@ -50,9 +50,9 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: Record<string, unknown> = {
       scaleWithStroke: true,
     },
   },
+  timeNowLabel: { x: 0.8, fontHeight: 0.05 },
   centreCluster: {
     frameArcRadius: 0.35,
-    nowTime: { y: -0.2, fontHeight: 0.05 },
     timeDelta: { y: -0.1, fontHeight: 0.05 },
   },
 };

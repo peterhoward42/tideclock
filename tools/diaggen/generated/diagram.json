@@ -658,14 +658,6 @@
     }
   },
   "centreCluster": {
-    "nowTime": {
-      "content": "Time now 19:20:03",
-      "fontSize": 5.9,
-      "anchor": {
-        "x": 0,
-        "y": -23.6
-      }
-    },
     "timeDelta": [
       {
         "content": "High",
@@ -692,6 +684,7 @@
         }
       }
     ],
+    "timeDeltaEmptyMessage": null,
     "frameArc": {
       "center": {
         "x": 0,
@@ -724,6 +717,15 @@
         }
       }
     ]
+  },
+  "timeNowLabel": {
+    "content": "19:20:03",
+    "fontSize": 5.9,
+    "anchor": {
+      "x": 94.4,
+      "y": -5.9
+    },
+    "hAlign": "right"
   },
   "contentBounds": {
     "extents": {

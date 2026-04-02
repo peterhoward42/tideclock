@@ -24,11 +24,6 @@ function textWidth(fontSize, charCount) {
 
 /**
  * @param {{
- *   text: string,
- *   y: number,
- *   fontHeight: number,
- * }} nowTimeSpec multiples of RefRadius for y and fontHeight
- * @param {{
  *   kind: 'countdown',
  *   eventKind: string,
  *   interval: string,
@@ -44,7 +39,6 @@ function textWidth(fontSize, charCount) {
  * @param {number} frameArcRadius proportion of RefRadius (CentreClusterFrame arc radius)
  */
 export function layoutCentreCluster(
-  nowTimeSpec,
   timeDeltaLayout,
   refRadius,
   sweepRad,
@@ -66,14 +60,6 @@ export function layoutCentreCluster(
     { start: origin, end: polar(rFrame, thetaLeft) },
     { start: origin, end: polar(rFrame, thetaRight) },
   ];
-  const nowFont = nowTimeSpec.fontHeight * R;
-  const nowY = nowTimeSpec.y * R;
-  const nowTime = {
-    content: nowTimeSpec.text,
-    fontSize: nowFont,
-    anchor: { x: 0, y: nowY },
-  };
-
   /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst[]} */
   const timeDelta = [];
   /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst | null} */
@@ -110,12 +96,12 @@ export function layoutCentreCluster(
     };
   }
 
-  return { nowTime, timeDelta, timeDeltaEmptyMessage, frameArc, frameLines };
+  return { timeDelta, timeDeltaEmptyMessage, frameArc, frameLines };
 }
 
 /**
  * @param {Record<string, unknown>} spec
- * @returns {import('../model/tideDiagramModel.mjs').CentreClusterDiagram | null} null when `spec.centreCluster` is absent; otherwise **NowTime** and frame are always built, with either three **timeDelta** fragments or **timeDeltaEmptyMessage** (see spec).
+ * @returns {import('../model/tideDiagramModel.mjs').CentreClusterDiagram | null} null when `spec.centreCluster` is absent; otherwise frame and either three **timeDelta** fragments or **timeDeltaEmptyMessage** (see spec).
  */
 export function buildCentreClusterFromSpec(spec) {
   const raw = spec.centreCluster;
@@ -126,30 +112,10 @@ export function buildCentreClusterFromSpec(spec) {
       ? spec.refRadius
       : 100;
 
-  const now = o.nowTime;
-  if (now == null || typeof now !== "object") {
-    throw new Error(
-      "centreCluster.nowTime is required: { y, fontHeight } (y and fontHeight are RefRadius multiples)",
-    );
-  }
-  const n = /** @type {Record<string, unknown>} */ (now);
-  const nowY = n.y;
-  const nowFh = n.fontHeight;
-  if (
-    typeof nowY !== "number" ||
-    typeof nowFh !== "number" ||
-    !Number.isFinite(nowY) ||
-    !Number.isFinite(nowFh)
-  ) {
-    throw new Error(
-      "centreCluster.nowTime.y and .fontHeight must be finite numbers (RefRadius multiples)",
-    );
-  }
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
-  const nowText = `Time now ${parsedNow.canonical}`;
 
   const td = o.timeDelta;
   if (td == null || typeof td !== "object") {
@@ -194,7 +160,6 @@ export function buildCentreClusterFromSpec(spec) {
       : 0.25;
 
   return layoutCentreCluster(
-    { text: nowText, y: nowY, fontHeight: nowFh },
     timeDeltaLayout,
     refRadius,
     sweepRad,
