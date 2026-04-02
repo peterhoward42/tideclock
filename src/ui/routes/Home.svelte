@@ -28,6 +28,16 @@
   /** Drives Loop B: bumps only on local minute rollover (aligned scheduler), not every second. */
   let semanticMinuteEpoch = $state(Math.floor(Date.now() / 60_000));
 
+  onMount(() => {
+    if (!import.meta.env.DEV) return;
+    try {
+      domDumpEnabled = new URLSearchParams(window.location.search).has("dom");
+      if (domDumpEnabled) refreshDomDump();
+    } catch {
+      // ignore (non-browser / tests)
+    }
+  });
+
   onMount(() =>
     subscribeSemanticMinuteCadence(
       (epoch) => {
@@ -43,6 +53,16 @@
   let diagramHostEl = $state<HTMLElement | undefined>(undefined);
   /** Avoid re-fitting the SVG repeatedly while NowTime updates each second. */
   let lastFitSignature = $state<string | undefined>(undefined);
+
+  /** Dev-only: optional DOM dump for debugging blank panel issues. */
+  let domDumpEnabled = $state(false);
+  let domDump = $state<string>("");
+
+  function refreshDomDump(): void {
+    if (!domDumpEnabled) return;
+    const root = document.querySelector("main.home-route") as HTMLElement | null;
+    domDump = root?.outerHTML ?? "(home route root not found)";
+  }
 
   function localCanonicalTimeNowFromMs(ms: number): string {
     const d = new Date(ms);
@@ -97,7 +117,11 @@
     // Wait for the injected SVG to exist in the DOM before measuring.
     queueMicrotask(() => {
       requestAnimationFrame(() => {
+        // `diagramHostEl` can become null between scheduling and execution
+        // (e.g. route change / conditional block flips). Re-check here.
         const host = diagramHostEl;
+        if (host == null) return;
+
         const svg = host.querySelector("svg") as SVGSVGElement | null;
         if (svg == null) return;
 
@@ -113,21 +137,53 @@
           return;
         }
 
-        const w = bbox.width;
-        const h = bbox.height;
-        if (!Number.isFinite(w) || !Number.isFinite(h) || h <= 0 || w <= 0) return;
+        // Convert measured bbox to screen pixels using the SVG's current CTM.
+        // IMPORTANT: reset transforms before any measurement so the pixel math is stable.
+        svg.style.transformOrigin = "0 0";
+        svg.style.transform = "translate(0px, 0px) scale(1)";
 
-        // Trim the viewBox to measured content with a small internal safety pad.
-        // Also update the SVG's intrinsic `width`/`height` so CSS `height:auto` remains correct.
-        const pad = Math.max(6, 0.03 * Math.max(w, h));
-        const vbX = bbox.x - pad;
-        const vbY = bbox.y - pad;
-        const vbW = w + 2 * pad;
-        const vbH = h + 2 * pad;
+        const ctm = svg.getScreenCTM();
+        if (ctm == null) return;
 
-        svg.setAttribute("viewBox", `${vbX} ${vbY} ${vbW} ${vbH}`);
-        svg.setAttribute("width", String(vbW));
-        svg.setAttribute("height", String(vbH));
+        const p1 = svg.createSVGPoint();
+        p1.x = bbox.x;
+        p1.y = bbox.y;
+        const tp1 = p1.matrixTransform(ctm);
+
+        const p2 = svg.createSVGPoint();
+        p2.x = bbox.x + bbox.width;
+        p2.y = bbox.y + bbox.height;
+        const tp2 = p2.matrixTransform(ctm);
+
+        const bboxPxW = Math.abs(tp2.x - tp1.x);
+        const bboxPxH = Math.abs(tp2.y - tp1.y);
+        if (!Number.isFinite(bboxPxW) || !Number.isFinite(bboxPxH) || bboxPxW <= 0 || bboxPxH <= 0)
+          return;
+
+        // Fit the measured diagram bbox into the available black panel area.
+        // Panel padding creates the intentional left/right/bottom gutters.
+        const panel = host.closest(".home-panel") as HTMLElement | null;
+        if (panel == null) return;
+
+        const cs = getComputedStyle(panel);
+        const padL = parseFloat(cs.paddingLeft) || 0;
+        const padR = parseFloat(cs.paddingRight) || 0;
+        const padT = parseFloat(cs.paddingTop) || 0;
+        const padB = parseFloat(cs.paddingBottom) || 0;
+
+        const availW = panel.clientWidth - padL - padR;
+        const availH = panel.clientHeight - padT - padB;
+        if (availW <= 0 || availH <= 0) return;
+
+        const scaleX = availW / bboxPxW;
+        const scaleY = availH / bboxPxH;
+        const scale = Math.min(scaleX, scaleY);
+        if (!Number.isFinite(scale) || scale <= 0) return;
+
+        // Scale only. Centering via flex/absolute positioning + transform-origin is more stable
+        // than attempting to translate in mixed coordinate frames.
+        svg.style.transformOrigin = "50% 50%";
+        svg.style.transform = `scale(${scale})`;
       });
     });
   });
@@ -139,12 +195,22 @@
     const unsub = nowMs.subscribe((ms) => {
       const textEl = host.querySelector('svg g[data-name="NowTime"] text');
       if (textEl) textEl.textContent = localCanonicalTimeNowFromMs(ms);
+      refreshDomDump();
     });
     return unsub;
   });
 </script>
 
 <main class="home-route">
+  {#if domDumpEnabled}
+    <div class="home-debug">
+      <button type="button" class="home-debug__btn" onclick={refreshDomDump}>Refresh DOM dump</button>
+      <details open>
+        <summary>Home route DOM</summary>
+        <pre class="home-debug__pre">{domDump}</pre>
+      </details>
+    </div>
+  {/if}
   {#if tideLoadState.status === "loading"}
     <div class="home-panel" aria-live="polite">
       <p class="muted" role="status">Loading tides…</p>
@@ -207,20 +273,49 @@
   .home-instrument {
     margin: 0;
     width: 100%;
-    max-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
   }
 
   .home-instrument :global(svg) {
     display: block;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    max-height: 100%;
-    height: auto;
+    height: 100%;
+    max-height: none;
   }
 
   .home-panel .muted {
     color: #dbeafe;
+  }
+
+  .home-debug {
+    padding: 0.5rem 0.75rem;
+    background: #0b1020;
+    color: #e5e7eb;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+      monospace;
+    font-size: 12px;
+  }
+
+  .home-debug__btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: inherit;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+  }
+
+  .home-debug__pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 35vh;
+    overflow: auto;
+    margin: 0.5rem 0 0;
   }
 </style>
