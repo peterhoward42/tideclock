@@ -83,8 +83,11 @@ o  new data fetch paradigm
 fart
 				o  get it big enough to see
 					*  policy
-					o  debugging iteration
-					o  style corrections around borders
+					*  debugging iteration
+					*  style corrections around borders
+					*  magenta box is a win
+					o  now max fit magenta box in black area
+					o  once it works - make the gutters black also
 
 				o  leave it running to spot errors / null in log
 
