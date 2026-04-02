@@ -226,10 +226,10 @@
 
 <style>
   /*
-   * Appliance-like layout:
-   * - Black panel fills the entire available vertical space under the header.
-   * - Diagram is centered and fills available height/width (uniform scaling via SVG preserveAspectRatio).
-   * - External “gap” is CSS-driven (panel padding), not viewBox padding.
+   * Layout-neutral host stack:
+   * - `.home-route` remains the fit container.
+   * - Intermediate wrappers do not add spacing.
+   * - Any visible slack comes only from aspect-ratio fitting in SVG.
    */
   .home-route {
     width: 100%;
@@ -249,12 +249,14 @@
     display: flex;
     align-items: stretch;
     justify-content: stretch;
-    padding: clamp(0.75rem, 2vw, 1.25rem);
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
   }
 
   .home-instrument {
     margin: 0;
+    padding: 0;
     width: 100%;
     flex: 1;
     min-height: 0;

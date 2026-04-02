@@ -22,7 +22,7 @@ const PREVIEW_DEFAULTS = {
  */
 
 /** Padding inside viewBox units (scene pixels) around computed content. */
-const VIEW_BOX_PAD = 10;
+const VIEW_BOX_PAD = 0;
 const PREVIEW_PAD_PX = 16;
 
 /**
