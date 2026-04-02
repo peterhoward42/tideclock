@@ -77,16 +77,10 @@ o  new data fetch paradigm
 				*  WaitInterval arc
 				*  bring in styling pattern
 				*  in-band migration
-				*  plan integration replace existing diagram first stab
-					*  should I first ditch docs in illrepute
-					*  refactor for heterogenuous triggers
-						*  work through planned phases
-						*  temp put in black background
-						*  stage 4
-						*  deal with there being no more events today
-						*  stage 5
+				*  get real integration working
 
 fart
+				o  purge spent docs
 				o  when time now flashes over see time now string only for
 				   that second
 				o  corner cases treatment / todos
