@@ -34,6 +34,7 @@
       const params = new URLSearchParams(window.location.search);
       domDumpEnabled = params.has("dom");
       outlineEnabled = params.has("outline");
+      previewFrameEnabled = params.has("pf");
       if (domDumpEnabled) refreshDomSummary();
     } catch {
       // ignore (non-browser / tests)
@@ -57,6 +58,7 @@
   /** Dev-only: optional debug tooling (toggle with query params). */
   let domDumpEnabled = $state(false);
   let outlineEnabled = $state(false);
+  let previewFrameEnabled = $state(false);
   let domSummary = $state<string>("");
 
   function refreshDomSummary(): void {
@@ -130,7 +132,10 @@
         derivedSemantics: { nextTide: derived.nextTide },
       });
       const { scene, styleRuntime } = collaborator.generate(spec);
-      diagramSvg = renderPreviewSvg(scene, { styleRuntime });
+      diagramSvg = renderPreviewSvg(scene, {
+        styleRuntime,
+        debug: { previewFrame: import.meta.env.DEV && previewFrameEnabled },
+      });
       diagramError = undefined;
     } catch (e) {
       diagramSvg = "";

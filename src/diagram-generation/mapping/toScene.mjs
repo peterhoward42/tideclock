@@ -10,6 +10,178 @@ import {
 } from "../model/sceneModel.mjs";
 
 /**
+ * Deterministic scene-space bounds (x right, y up).
+ * Used to derive `scene.meta.previewFrame` from actual primitives, not from legacy spec constants.
+ */
+function emptyBounds() {
+  return { minX: Infinity, minY: Infinity, maxX: -Infinity, maxY: -Infinity };
+}
+
+function expandBoundsByPoint(b, p) {
+  if (p.x < b.minX) b.minX = p.x;
+  if (p.y < b.minY) b.minY = p.y;
+  if (p.x > b.maxX) b.maxX = p.x;
+  if (p.y > b.maxY) b.maxY = p.y;
+}
+
+function expandBoundsByRect(b, x0, y0, x1, y1) {
+  const minX = Math.min(x0, x1);
+  const maxX = Math.max(x0, x1);
+  const minY = Math.min(y0, y1);
+  const maxY = Math.max(y0, y1);
+  if (minX < b.minX) b.minX = minX;
+  if (minY < b.minY) b.minY = minY;
+  if (maxX > b.maxX) b.maxX = maxX;
+  if (maxY > b.maxY) b.maxY = maxY;
+}
+
+function normalizeAngleRad(a) {
+  const tau = 2 * Math.PI;
+  let x = a % tau;
+  if (x < 0) x += tau;
+  return x;
+}
+
+function angleInSweep(a, a0, sweep) {
+  const tau = 2 * Math.PI;
+  const an = normalizeAngleRad(a);
+  const start = normalizeAngleRad(a0);
+  const s = sweep;
+  if (Math.abs(s) < 1e-12) return false;
+  if (s > 0) {
+    const end = normalizeAngleRad(a0 + s);
+    if (end >= start) return an >= start && an <= end;
+    return an >= start || an <= end;
+  } else {
+    // CW sweep: check against CCW interval by swapping start/end
+    const end = normalizeAngleRad(a0 + s);
+    if (start >= end) return an <= start && an >= end;
+    return an <= start || an >= end;
+  }
+}
+
+function expandBoundsByArc(b, node) {
+  const cx = node.center.x;
+  const cy = node.center.y;
+  const sx = node.start.x;
+  const sy = node.start.y;
+  const r = Math.hypot(sx - cx, sy - cy);
+  if (!Number.isFinite(r) || r <= 1e-9) {
+    expandBoundsByPoint(b, node.center);
+    return;
+  }
+  const a0 = Math.atan2(sy - cy, sx - cx);
+  const sweep = node.sweepRad;
+
+  // Always include endpoints.
+  const ex = cx + r * Math.cos(a0 + sweep);
+  const ey = cy + r * Math.sin(a0 + sweep);
+  expandBoundsByPoint(b, { x: sx, y: sy });
+  expandBoundsByPoint(b, { x: ex, y: ey });
+
+  // Include extrema at cardinal angles if they lie within the sweep.
+  const cardinals = [0, 0.5 * Math.PI, Math.PI, 1.5 * Math.PI];
+  for (const a of cardinals) {
+    if (!angleInSweep(a, a0, sweep)) continue;
+    expandBoundsByPoint(b, { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) });
+  }
+}
+
+function expandBoundsByText(b, node) {
+  const size = Number(node.size) || 0;
+  const len = (node.content ?? "").length;
+  // Monospace-ish heuristic; good enough for framing and deterministic.
+  const w = Math.max(0, len) * size * 0.6;
+  const asc = size * 0.8;
+  const desc = size * 0.2;
+  let x0 = node.anchor.x;
+  let x1 = node.anchor.x;
+  if (node.hAlign === "left") {
+    x1 = x0 + w;
+  } else if (node.hAlign === "right") {
+    x0 = x0 - w;
+  } else {
+    x0 = x0 - 0.5 * w;
+    x1 = x1 + 0.5 * w;
+  }
+  // `dominant-baseline="alphabetic"`: anchor is baseline.
+  const y0 = node.anchor.y - desc;
+  const y1 = node.anchor.y + asc;
+
+  const ang = Number(node.angleRad) || 0;
+  if (Math.abs(ang) < 1e-12) {
+    expandBoundsByRect(b, x0, y0, x1, y1);
+    return;
+  }
+  const c = Math.cos(ang);
+  const s = Math.sin(ang);
+  const ax = node.anchor.x;
+  const ay = node.anchor.y;
+  const corners = [
+    { x: x0, y: y0 },
+    { x: x1, y: y0 },
+    { x: x1, y: y1 },
+    { x: x0, y: y1 },
+  ];
+  for (const p of corners) {
+    const dx = p.x - ax;
+    const dy = p.y - ay;
+    expandBoundsByPoint(b, { x: ax + dx * c - dy * s, y: ay + dx * s + dy * c });
+  }
+}
+
+function expandBoundsByNode(b, node) {
+  switch (node.kind) {
+    case "group":
+      for (const c of node.children) expandBoundsByNode(b, c);
+      return;
+    case "line":
+      expandBoundsByPoint(b, node.start);
+      expandBoundsByPoint(b, node.end);
+      return;
+    case "circle":
+      expandBoundsByRect(
+        b,
+        node.center.x - node.radius,
+        node.center.y - node.radius,
+        node.center.x + node.radius,
+        node.center.y + node.radius,
+      );
+      return;
+    case "triangle":
+      expandBoundsByPoint(b, node.a);
+      expandBoundsByPoint(b, node.b);
+      expandBoundsByPoint(b, node.c);
+      return;
+    case "arc":
+      expandBoundsByArc(b, node);
+      return;
+    case "text":
+      expandBoundsByText(b, node);
+      return;
+    default:
+      return;
+  }
+}
+
+function computeScenePreviewFrame(root) {
+  const b = emptyBounds();
+  expandBoundsByNode(b, root);
+  if (![b.minX, b.minY, b.maxX, b.maxY].every((v) => Number.isFinite(v))) {
+    // Fallback to a non-degenerate frame.
+    return { minX: 0, maxX: 1, minY: 0, maxY: 1 };
+  }
+  // Small deterministic pad for stroke/text heuristics; viewBox adds additional pad later.
+  const pad = 1;
+  return {
+    minX: b.minX - pad,
+    maxX: b.maxX + pad,
+    minY: b.minY - pad,
+    maxY: b.maxY + pad,
+  };
+}
+
+/**
  * @param {import('../model/tideDiagramModel.mjs').DiagramPoint} p
  * @param {number} cx
  * @param {number} cy
@@ -268,31 +440,29 @@ export function tideDiagramToScene(diagram) {
         ])
       : null;
 
-  const { rect } = diagram.contentBounds;
   const meta = {
     title,
     width,
     height,
-    previewFrame: {
-      minX: rect.minX + cx,
-      maxX: rect.maxX + cx,
-      minY: rect.minY + cy,
-      maxY: rect.maxY + cy,
-    },
+    // previewFrame computed from actual primitives (scene space).
+    previewFrame: null,
   };
+
+  const root = group("tideDiagram", [
+    refArcGroup,
+    ...(waitArcGroup != null ? [waitArcGroup] : []),
+    ticksGroup,
+    tideMarksGroup,
+    tickLabelsGroup,
+    ...(centreClusterGroup != null ? [centreClusterGroup] : []),
+    ...(nowPointerGroup != null ? [nowPointerGroup] : []),
+    ...(nextPointerGroup != null ? [nextPointerGroup] : []),
+  ]);
+  meta.previewFrame = computeScenePreviewFrame(root);
 
   return {
     version: 2,
     meta,
-    root: group("tideDiagram", [
-      refArcGroup,
-      ...(waitArcGroup != null ? [waitArcGroup] : []),
-      ticksGroup,
-      tideMarksGroup,
-      tickLabelsGroup,
-      ...(centreClusterGroup != null ? [centreClusterGroup] : []),
-      ...(nowPointerGroup != null ? [nowPointerGroup] : []),
-      ...(nextPointerGroup != null ? [nextPointerGroup] : []),
-    ]),
+    root,
   };
 }

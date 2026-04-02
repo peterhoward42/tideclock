@@ -751,10 +751,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "meta": {
     "height": 320,
     "previewFrame": {
-      "maxX": 345.7,
-      "maxY": 171.8,
-      "minX": 38.900000000000006,
-      "minY": -17,
+      "maxX": 334.84755737974365,
+      "maxY": 161,
+      "minX": 74.2182659692451,
+      "minY": 21.175999999999977,
     },
     "title": "home-tide-diagram",
     "width": 420,

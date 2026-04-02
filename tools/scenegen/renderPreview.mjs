@@ -71,7 +71,7 @@ ${sceneToSvgInline(scene, vb, opts)}
  * Render a scene model into inline SVG only (no HTML wrapper).
  *
  * @param {object} scene
- * @param {{ styleRuntime?: PreviewStyleRuntime }} [opts]
+ * @param {{ styleRuntime?: PreviewStyleRuntime, debug?: { previewFrame?: boolean } }} [opts]
  * @returns {string}
  */
 export function renderPreviewSvg(scene, opts = {}) {
@@ -147,10 +147,16 @@ function sceneToSvgInline(scene, vb, opts) {
   const defs = markerDefs.length > 0 ? `\n  <defs>\n${markerDefs.join("\n")}\n  </defs>` : "";
   const inner = renderNode(scene.root, opts.styleRuntime, null);
   const { vbX, vbY, vbW, vbH, canvasH } = vb;
+  const pf = scene.meta?.previewFrame;
+  const showPf = opts.debug?.previewFrame === true && isValidPreviewFrame(pf);
+  const pfOverlay = showPf
+    ? `\n    <g data-name="__debugPreviewFrame">\n      <rect x="${pf.minX}" y="${pf.minY}" width="${pf.maxX - pf.minX}" height="${pf.maxY - pf.minY}" fill="none" stroke="magenta" stroke-width="1" ${SVG_NON_SCALING_STROKE_ATTR} />\n      <line x1="${(pf.minX + pf.maxX) / 2}" y1="${pf.minY}" x2="${(pf.minX + pf.maxX) / 2}" y2="${pf.maxY}" stroke="magenta" stroke-width="1" ${SVG_NON_SCALING_STROKE_ATTR} />\n      <line x1="${pf.minX}" y1="${(pf.minY + pf.maxY) / 2}" x2="${pf.maxX}" y2="${(pf.minY + pf.maxY) / 2}" stroke="magenta" stroke-width="1" ${SVG_NON_SCALING_STROKE_ATTR} />\n    </g>`
+    : "";
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${vbW}" height="${vbH}" viewBox="${vbX} ${vbY} ${vbW} ${vbH}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
 ${defs}
   <g transform="translate(0,${canvasH}) scale(1,-1)">
+${pfOverlay}
 ${inner}
   </g>
 </svg>`;
