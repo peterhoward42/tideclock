@@ -22,6 +22,10 @@ export const STATIC_STYLE_MODEL = {
       name: "grey-strokes",
       style: { color: "darkgrey" },
     },
+    {
+      name: "time-now-label",
+      style: { color: "antiquewhite" }
+	  },
   ],
   bindings: [
     { name: "RefArc", styleName: "dominant" },
@@ -34,7 +38,7 @@ export const STATIC_STYLE_MODEL = {
     { name: "TimeLabel", styleName: "grey-writing" },
     { name: "TickLabel", styleName: "grey-writing" },
     { name: "CentreClusterFrame", styleName: "grey-strokes" },
-    { name: "TimeNowLabel", styleName: "grey-writing" },
+    { name: "TimeNowLabel", styleName: "time-now-label" },
     { name: "DeltaGlue", styleName: "grey-writing" },
     { name: "DeltaInterval", styleName: "grey-writing" },
     { name: "NoMoreTidesToday", styleName: "grey-writing" },

@@ -26,8 +26,8 @@ fixed here (see **Content bounds**).
   - NowPointer
   - NextPointer
   - WaitArc
+  - TimeNowLabel
   - CentreCluster
-  - NowTime
   - TimeDelta
   - NoMoreTidesToday
   - Location
@@ -40,7 +40,8 @@ When there is **no** tide marker at or after `timeNow` on the same civil day
 **omitted**. **TimeDelta** then carries a **single** replacement **TextElement**
 (see **TimeDelta**, empty-day case) under the stable leaf name **NoMoreTidesToday**
 instead of **EventKind**, **DeltaGlue**, and **DeltaInterval**. **CentreCluster**
-still includes **NowTime** and **CentreClusterFrame**.
+still includes **TimeDelta** (as above) and **CentreClusterFrame**. The civil
+clock readout (**TimeNowLabel**) is **not** under **CentreCluster**; see **TimeNowLabel**.
 
 ### Style binding names (exact-match contract)
 
@@ -375,56 +376,77 @@ arrowhead geometry.
   - **scaleWithStroke** — boolean; when true, renderer scales marker with
   stroke width.
 
+## TimeNowLabel
+
+**TimeNowLabel** is a **top-level** named element (sibling of **CentreCluster**,
+**NowPointer**, etc.): one **TextElement** showing the current civil clock time
+derived from global `**timeNow`**. It is **not** a child of **CentreCluster**.
+
+### Input
+
+- Diagram input object **`timeNowLabel`** (when **absent**, **TimeNowLabel** is
+  **omitted** from the scene):
+  - **`fontHeight`** — optional proportion **k** as **k·R** (**§Sizing**); when
+    omitted, a default applies in the generator (product baseline uses **0.05**).
+  - **`x`** — optional proportion **k** as **k·R** for anchor **X**; when omitted,
+    default **0.8** (near the **+X** side of the content region).
+
+### Text and placement
+
+- One **TextElement**:
+  - **Text** — exactly the canonical `**HH:MM:SS`** substring from parsed
+    `**timeNow`** (includes seconds; **no** literal prefix such as “Time now”; no
+    separate host string).
+  - **FontHeight** — **k_font·R** with **k_font** from **`fontHeight`** (or default).
+  - **Horizontal justification** — **right** (anchor at the **trailing** edge of
+    the line in **+X**).
+  - **Baseline polar angle** — **0** (**TextElement defaults**).
+  - **Anchor** — **(x, y)** in diagram model space (**§Origin**):
+    - **x = k_x·R** with **k_x** from **`x`** (or default),
+    - **y = −k_font·R** (equivalently: **Y** equals **0 − 1.0 × FontHeight** in
+      the same **k·R** sense as **§Sizing**).
+
+### Scene model
+
+- Emitted as a named group **TimeNowLabel** containing the single **TextElement**.
+- Intended paint order: after **CentreCluster** so the readout is not covered by
+  centre-cluster geometry when they overlap (generator ordering).
+
 ## CentreCluster
 
-**CentreCluster** groups content near **O** (**§Origin**).
+**CentreCluster** groups the **TimeDelta** copy and **CentreClusterFrame** near
+**O** (**§Origin**).
 
 ### CentreCluster horizontal axis
 
-- Layout is **centred on X = 0** through **O**: **NowTime** and the composed
-**TimeDelta** line use **X = 0** as the horizontal centre unless a subsection
-states otherwise.
+- The composed **TimeDelta** line uses **X = 0** as the horizontal centre unless a
+subsection states otherwise.
 
 ### Logical structure
 
-Under **CentreCluster** there are **three** logical parts, all **direct** members
+Under **CentreCluster** there are **two** logical parts, both **direct** members
 (siblings in the named-element sense):
 
 
 | Part                   | Role                                                                                    |
 | ---------------------- | --------------------------------------------------------------------------------------- |
-| **NowTime**            | One **TextElement** — the main **“time now” readout line**, derived from `**timeNow`**. |
-| **TimeDelta**          | Three **TextElement** fragments that read as one centred line.                          |
+| **TimeDelta**          | Three **TextElement** fragments that read as one centred line (or **NoMoreTidesToday**). |
 | **CentreClusterFrame** | **Curve primitives only** — two line segments and one arc (see **CentreClusterFrame**). |
 
 
 ### Vertical layout
 
-Stack order follows **§Axes**: **NowTime** is **above** **TimeDelta** (countdown
-fragments or **NoMoreTidesToday**). **CentreClusterFrame** is unchanged.
-**CentreClusterFrame** is **not** a third row between them; its geometry is in
-**CentreClusterFrame** and may **look** like a frame around both lines without
-being an extra vertical slot.
+**CentreClusterFrame** geometry may **look** like a frame around **TimeDelta**
+without being an extra vertical slot between distinct text rows.
 
 ### Scene model (invariants)
 
-- **NowTime** and **TimeDelta** are **not** children of **CentreClusterFrame**;
-they sit beside it under **CentreCluster**. When there is no next tide today,
-**TimeDelta** still exists as a parent group but contains only **NoMoreTidesToday**
-(not **EventKind** / **DeltaGlue** / **DeltaInterval**).
+- **TimeDelta** is **not** a child of **CentreClusterFrame**; it sits beside the
+frame under **CentreCluster**. When there is no next tide today, **TimeDelta**
+still exists as a parent group but contains only **NoMoreTidesToday** (not
+**EventKind** / **DeltaGlue** / **DeltaInterval**).
 - **CentreClusterFrame** contributes **three** separate curve primitives subject
 to **Independent stroked curves**.
-
-### NowTime
-
-- One **TextElement**:
-  - **Text** — fixed synthesis from global `**timeNow`**:
-    - exactly `**Time now HH:MM:SS`** (includes seconds; no host override).
-  - **FontHeight** — input **k** as **k·R** (**§Sizing**).
-  - **Horizontal justification** — **centre** (explicit override; matches default).
-  - **Baseline polar angle** — **0** (**TextElement defaults**).
-  - **Anchor** — **(0, Y_now)** with **Y_now** an input **k** as **k·R** along **Y**
-  from **O** (**§Axes**, **§Sizing**).
 
 ### TimeDelta
 
@@ -458,10 +480,9 @@ to **Independent stroked curves**.
   - **Horizontal justification** — **centre**; **X** positions chosen so the
   line is centred on **X = 0** (monospace width estimates allowed).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
-  - **Anchor Y** — one input **Y_delta** as **k·R**, shared (**§Sizing**), same
-  anchor convention as **Y_now**, different parameter.
-- **Anchors (X)** — **NowTime** at **X = 0**; countdown **TimeDelta** assigns
-per-fragment **X** for whole-line centring; **NoMoreTidesToday** uses **X = 0**.
+  - **Anchor Y** — one input **Y_delta** as **k·R**, shared (**§Sizing**).
+- **Anchors (X)** — countdown **TimeDelta** assigns per-fragment **X** for
+whole-line centring; **NoMoreTidesToday** uses **X = 0**.
 
 ### CentreClusterFrame
 

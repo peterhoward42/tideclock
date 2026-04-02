@@ -87,8 +87,8 @@ fart
 
 				o  move time now text out to top right of diagram and have
 				   consider animation locked with now pointer
-				   	o  first fix only seeing prefix on minute intervals then
-					   stomp
+				   	o  first pass
+					o  tune X and font size and colour
 
 				o  when time now flashes over see time now string only for
 				   that second
