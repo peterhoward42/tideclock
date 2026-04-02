@@ -218,7 +218,7 @@
     </details>
   </header>
 
-  <section class="content">
+  <section class="content" class:content--home={$route === "home"}>
     {#if $route === "home"}
       <Home tideLoadState={tideLoadState} tideExtremes={lastSuccessfulTideExtremes} />
     {:else if $route === "location"}

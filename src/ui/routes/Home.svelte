@@ -237,8 +237,6 @@
     min-height: 0;
     display: flex;
     flex-direction: column;
-    /* Cancel the parent `.content` padding so the black panel fills the full visible area. */
-    margin: -1.5rem -1rem -2rem;
   }
 
   .home-panel {

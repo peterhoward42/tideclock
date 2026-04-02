@@ -86,10 +86,17 @@ fart
 					*  debugging iteration
 					*  style corrections around borders
 					*  magenta box is a win
-					o  now max fit magenta box in black area
+					*  now max fit magenta box in black area
 					o  once it works - make the gutters black also
+						o  can't do that - need to consider other pages
+							o  ask for conceptual advice
 
 				o  leave it running to spot errors / null in log
+
+				o  move time now text out to top right of diagram and have
+				   consider animation locked with now pointer
+				   	o  first fix only seeing prefix on minute intervals then
+					   stomp
 
 				o  when time now flashes over see time now string only for
 				   that second
@@ -104,6 +111,7 @@ fart
 					o  try it?
 
 				o  network hits observability
+				o  how hide browser apparatus at top?
 
 
 				o  question merit of keeping iter.sh on gen scene - has

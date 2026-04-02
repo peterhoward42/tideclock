@@ -123,6 +123,11 @@ a {
   padding: 1.5rem 1rem 2rem;
 }
 
+/* Home: same horizontal padding as other routes, but paint the gutter bands black so the instrument reads framed. */
+.content--home {
+  background: #000;
+}
+
 .route {
   width: 100%;
 }
