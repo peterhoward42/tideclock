@@ -33,7 +33,6 @@
     try {
       const params = new URLSearchParams(window.location.search);
       domDumpEnabled = params.has("dom");
-      noFitEnabled = params.has("nofit");
       outlineEnabled = params.has("outline");
       if (domDumpEnabled) refreshDomSummary();
     } catch {
@@ -57,7 +56,6 @@
 
   /** Dev-only: optional debug tooling (toggle with query params). */
   let domDumpEnabled = $state(false);
-  let noFitEnabled = $state(false);
   let outlineEnabled = $state(false);
   let domSummary = $state<string>("");
 
