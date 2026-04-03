@@ -79,42 +79,43 @@ o  new data fetch paradigm
 				*  in-band migration
 				*  get real integration working
 				*  purge spent docs
-
 				*  get it big enough to see
-
+				*  move time now text out to top right of diagram 
+				*  fix: wait time squashed up
 fart
+
+				o  some lines dashed
+				o  line thicknesses
+
+				o  improve now pointer graphics - perhaps inside tick zone
+
 				o  leave it running to spot errors / null in log
-
-				o  move time now text out to top right of diagram and have
-				   consider animation locked with now pointer
-				   	o  first pass
-					o  tune X and font size and colour
-
-				o  when time now flashes over see time now string only for
-				   that second
-
-				o  corner cases treatment / todos
-				o  layout as prerequisite to location
-					o  maybe have location in header
-
+				o  change location ui not great
+				o  change location take you to clock route
 				o  say suggest use landscape
-				o  not keen on optional - debate
+				o  fit for purpose graphics design styling
+				o  not keen on optional code idiom- debate
+					o  params
+					o  state
+					o  loose types such as spec: Record<string, unknown>,
 					o  as skill
 					o  try it?
 
 				o  network hits observability
 				o  how hide browser apparatus at top?
-
+				o  test on tablet and phone
+				o  how encourage keep screen on if charging
 
 				o  question merit of keeping iter.sh on gen scene - has
 					served its purpose
 
-				o  harden formerly pipeline code
+				o  big comb / housekeep
+				o  read the code
+
 
 				o  Refinements
 					o  Say high water in 4 hours, 8 minutes (singular plural)
 					o  what if no more tides today?
-					o  Move time now text out?
 
 
 			o  remove unused junk in generators

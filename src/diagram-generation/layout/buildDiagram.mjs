@@ -4,7 +4,10 @@ import { buildNowPointerFromSpec } from "./nowPointer.mjs";
 import { buildNextPointerFromSpec } from "./nextPointer.mjs";
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
-import { computeNextTideEventCore } from "../model/tideEvents.mjs";
+import {
+  computeNextTideEventCore,
+  shouldOmitNowWaitVisualsForNextPointerClearance,
+} from "../model/tideEvents.mjs";
 import {
   diagramBoxFromExtents,
   polar,
@@ -254,7 +257,9 @@ function buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
   const core = computeNextTideEventCore(spec, parsedNow);
-  if (core == null) return null;
+  if (shouldOmitNowWaitVisualsForNextPointerClearance(parsedNow, core)) {
+    return null;
+  }
 
   const nowTheta = timeToTheta(parsedNow.hours, thetaLeft, thetaRight);
   const nextTheta = timeToTheta(core.seconds / 3600, thetaLeft, thetaRight);

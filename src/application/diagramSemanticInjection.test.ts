@@ -85,6 +85,28 @@ describe('spec.semantic.nextTide injection', () => {
     expect(diagram.timeNowLabel?.content).toBe('23:59:00');
     expect(diagram.nextPointer).toBeNull();
     expect(diagram.waitArc).toBeNull();
+    expect(diagram.nowPointer?.triangle).toBeDefined();
+    expect(diagram.nowPointer?.radialLine).toBeNull();
+    expect(diagram.nowPointer?.nowLabel).toBeNull();
+  });
+
+  it('omits Now radial line, Now label, and WaitArc when next tide is under 60 minutes away', () => {
+    const spec = { ...sampleTideDiagramSpec(), timeNow: '22:10:00' };
+    const diagram = buildDiagram(spec);
+    expect(diagram.nextPointer).not.toBeNull();
+    expect(diagram.nowPointer?.triangle).toBeDefined();
+    expect(diagram.nowPointer?.radialLine).toBeNull();
+    expect(diagram.nowPointer?.nowLabel).toBeNull();
+    expect(diagram.waitArc).toBeNull();
+  });
+
+  it('keeps Now radial line, Now label, and WaitArc when next tide is exactly 60 minutes away', () => {
+    const spec = { ...sampleTideDiagramSpec(), timeNow: '22:06:00' };
+    const diagram = buildDiagram(spec);
+    expect(diagram.nextPointer).not.toBeNull();
+    expect(diagram.nowPointer?.radialLine).not.toBeNull();
+    expect(diagram.nowPointer?.nowLabel).not.toBeNull();
+    expect(diagram.waitArc).not.toBeNull();
   });
 
   it('rejects malformed injected nextTide', () => {

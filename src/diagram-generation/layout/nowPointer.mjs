@@ -1,4 +1,8 @@
-// NowPointer radial line in diagram space. See docs/specs/tide-diagram.md section NowPointer.
+// NowPointer in diagram space. See docs/specs/tide-diagram.md section NowPointer.
+import {
+  computeNextTideEventCore,
+  shouldOmitNowWaitVisualsForNextPointerClearance,
+} from "../model/tideEvents.mjs";
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 
@@ -9,6 +13,32 @@ const DEFAULT_LABEL_NORMAL_OFFSET = 0;
 const DEFAULT_TRIANGLE_RADIUS = 0.7;
 const DEFAULT_TRIANGLE_BASE = 0.08;
 const DEFAULT_TRIANGLE_HEIGHT = 0.06;
+
+/**
+ * Inner radius of the Now radial line in px (same k·R as NextPointer’s shared inner radius).
+ * Used when the line is omitted for NextPointer clearance but NextPointer still needs **r_inner**.
+ *
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @returns {number | null} `null` when `spec.nowPointer` is missing or invalid for line geometry
+ */
+export function readNowPointerLineInnerRadiusPx(spec, refRadius) {
+  const raw = spec.nowPointer;
+  if (raw == null || typeof raw !== "object") return null;
+  const o = /** @type {Record<string, unknown>} */ (raw);
+  const radialLineSpec =
+    o.radialLine && typeof o.radialLine === "object"
+      ? /** @type {Record<string, unknown>} */ (o.radialLine)
+      : o;
+  const lineInnerK = numOr(
+    radialLineSpec.innerRadius ??
+      radialLineSpec.nowPointerLineInnerRadius ??
+      o.nowPointerLineInnerRadius ??
+      o.NowPointerLineInnerRadius,
+    DEFAULT_LINE_INNER,
+  );
+  return Math.max(0, lineInnerK) * refRadius;
+}
 
 /**
  * @param {Record<string, unknown>} spec
@@ -97,17 +127,23 @@ export function buildNowPointerFromSpec(
 
   const triangle = buildNowPointerTriangle(o, triangleSpec, { refRadius, theta });
 
+  const nextCore = computeNextTideEventCore(spec, parsedNow);
+  const omitLineAndLabel =
+    shouldOmitNowWaitVisualsForNextPointerClearance(parsedNow, nextCore);
+
   return {
     timeHours: t,
     theta,
     nowLabelBranch,
-    radialLine: { start, end },
-    nowLabel: {
-      content: "now",
-      fontSize,
-      anchor,
-      angleRad: baselineAngle,
-    },
+    radialLine: omitLineAndLabel ? null : { start, end },
+    nowLabel: omitLineAndLabel
+      ? null
+      : {
+          content: "now",
+          fontSize,
+          anchor,
+          angleRad: baselineAngle,
+        },
     triangle,
   };
 }

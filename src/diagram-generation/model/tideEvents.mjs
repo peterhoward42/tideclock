@@ -3,6 +3,9 @@
 
 import { parseCanonicalTimeOrThrow } from "./timeCanonical.mjs";
 
+/** Omit Now radial line, Now label, and WaitArc when the gap to the next tide is under this many seconds. */
+const NEXT_POINTER_OCCLUSION_CLEARANCE_SECONDS = 60 * 60;
+
 /**
  * Optional `spec.semantic.nextTide` from the application minute-scale service
  * (`deriveNextTideSemantics`): when the key is present, layout skips marker scans.
@@ -85,6 +88,23 @@ export function computeNextTideEventFromSpec(spec, parsedNow) {
  * @param {{ canonical: string, seconds: number, hours: number, isRightEndpoint: boolean }} parsedNow
  * @returns {{ seconds: number, kind: string } | null}
  */
+/**
+ * Whether to drop the **Now radial line**, **Now label**, and **WaitArc** so they do not overlap
+ * **NextPointer** (same next-marker definition as {@link computeNextTideEventCore}). The **Now
+ * triangle** is kept: it sits nearer the dial centre and does not occlude the next-tide ray.
+ *
+ * True when there is no qualifying next tide today, or when the forward interval from `timeNow`
+ * to that event is strictly less than one hour.
+ *
+ * @param {{ seconds: number }} parsedNow — same shape as `parseCanonicalTimeOrThrow` result
+ * @param {{ seconds: number, kind: string } | null} nextCore — result of `computeNextTideEventCore` for the same spec/now
+ */
+export function shouldOmitNowWaitVisualsForNextPointerClearance(parsedNow, nextCore) {
+  if (nextCore == null) return true;
+  const forwardSeconds = nextCore.seconds - parsedNow.seconds;
+  return forwardSeconds < NEXT_POINTER_OCCLUSION_CLEARANCE_SECONDS;
+}
+
 export function computeNextTideEventCore(spec, parsedNow) {
   const injected = readOptionalInjectedNextTide(spec);
   if (injected !== undefined) {

@@ -397,6 +397,8 @@ export function tideDiagramToScene(diagram) {
         ])
       : null;
 
+  // NowRadialLine, NowLabel, and WaitArc share omission when they would occlude NextPointer;
+  // NowTriangle stays in the model (see shouldOmitNowWaitVisualsForNextPointerClearance).
   const nowPointerGroup =
     nowPointer != null
       ? group("NowPointer", [
@@ -412,21 +414,29 @@ export function tideDiagramToScene(diagram) {
                 ]),
               ]
             : []),
-          group("NowRadialLine", [
-            line(
-              mapPoint(nowPointer.radialLine.start, cx, cy),
-              mapPoint(nowPointer.radialLine.end, cx, cy),
-            ),
-          ]),
-          group("NowLabel", [
-            text({
-              content: nowPointer.nowLabel.content,
-              size: nowPointer.nowLabel.fontSize,
-              hAlign: "center",
-              angleRad: nowPointer.nowLabel.angleRad,
-              anchor: mapPoint(nowPointer.nowLabel.anchor, cx, cy),
-            }),
-          ]),
+          ...(nowPointer.radialLine != null
+            ? [
+                group("NowRadialLine", [
+                  line(
+                    mapPoint(nowPointer.radialLine.start, cx, cy),
+                    mapPoint(nowPointer.radialLine.end, cx, cy),
+                  ),
+                ]),
+              ]
+            : []),
+          ...(nowPointer.nowLabel != null
+            ? [
+                group("NowLabel", [
+                  text({
+                    content: nowPointer.nowLabel.content,
+                    size: nowPointer.nowLabel.fontSize,
+                    hAlign: "center",
+                    angleRad: nowPointer.nowLabel.angleRad,
+                    anchor: mapPoint(nowPointer.nowLabel.anchor, cx, cy),
+                  }),
+                ]),
+              ]
+            : []),
         ])
       : null;
 

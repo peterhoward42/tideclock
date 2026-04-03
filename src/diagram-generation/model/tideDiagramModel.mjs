@@ -93,8 +93,8 @@
  *   timeHours: number,
  *   theta: number,
  *   nowLabelBranch: 'A' | 'B',
- *   radialLine: DiagramLineSeg,
- *   nowLabel: TideLabelTextInst,
+ *   radialLine: DiagramLineSeg | null,
+ *   nowLabel: TideLabelTextInst | null,
  *   triangle?: { v1: DiagramPoint, v2: DiagramPoint, v3: DiagramPoint },
  * }} NowPointerDiagram
  *

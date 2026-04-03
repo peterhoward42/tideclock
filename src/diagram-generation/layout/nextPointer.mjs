@@ -1,7 +1,10 @@
 // NextPointer radial line in diagram space. See docs/specs/tide-diagram.md section NextPointer.
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
-import { buildNowPointerFromSpec } from "./nowPointer.mjs";
+import {
+  buildNowPointerFromSpec,
+  readNowPointerLineInnerRadiusPx,
+} from "./nowPointer.mjs";
 import { computeNextTideEventCore } from "../model/tideEvents.mjs";
 
 const DEFAULT_LINE_OUTER = 0.8;
@@ -42,10 +45,17 @@ export function buildNextPointerFromSpec(
   );
   if (nowPointer == null) return null;
 
-  const rInner = Math.hypot(
-    nowPointer.radialLine.start.x,
-    nowPointer.radialLine.start.y,
-  );
+  let rInner;
+  if (nowPointer.radialLine != null) {
+    rInner = Math.hypot(
+      nowPointer.radialLine.start.x,
+      nowPointer.radialLine.start.y,
+    );
+  } else {
+    const fromSpec = readNowPointerLineInnerRadiusPx(spec, refRadius);
+    if (fromSpec == null) return null;
+    rInner = fromSpec;
+  }
 
   const lineOuterK = numOr(
     radialLineSpec.outerRadius ??
