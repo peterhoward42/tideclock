@@ -1,4 +1,14 @@
-// NextPointer radial line in diagram space. See docs/specs/tide-diagram.md section NextPointer.
+// NextPointer radial line in diagram space. See docs/specs/tide-diagram.md (NextPointer).
+// Reads `spec.nextPointer`, `spec.timeNow`, and (via nowPointer) shared inner-radius semantics;
+// emits a NextPointerDiagram (see tideDiagramModel.mjs) or `null` when layout cannot proceed.
+//
+// Policies for {@link buildNextPointerFromSpec}:
+// - Returns `null` when `nextPointer` is missing or not a plain object.
+// - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
+// - Returns `null` when {@link buildNowPointerFromSpec} is `null`, when inner radius cannot be resolved, when
+//   outer ≤ inner along the next radial, or when {@link computeNextTideEventCore} has no next event.
+// - Numeric styling keys are optional; defaults match historical presets (`DEFAULT_LINE_OUTER`, `DEFAULT_CIRCLE_RADIUS`).
+
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import {
@@ -11,11 +21,25 @@ const DEFAULT_LINE_OUTER = 0.8;
 const DEFAULT_CIRCLE_RADIUS = 0.04;
 
 /**
+ * Nested `radialLine` when present, else root carries line keys (legacy flat shape).
+ *
+ * @param {Record<string, unknown>} nextPointerRoot
+ * @returns {Record<string, unknown>}
+ */
+function radialLineFieldsFrom(nextPointerRoot) {
+  const nested = nextPointerRoot.radialLine;
+  return nested && typeof nested === "object"
+    ? /** @type {Record<string, unknown>} */ (nested)
+    : nextPointerRoot;
+}
+
+/**
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
- * @param {number} thetaLeft
- * @param {number} thetaRight
+ * @param {number} thetaLeft — dial arc start (radians)
+ * @param {number} thetaRight — dial arc end (radians)
  * @returns {import('../model/tideDiagramModel.mjs').NextPointerDiagram | null}
+ * @throws {Error} invalid `spec.timeNow`, or `24:00:00` (right endpoint)
  */
 export function buildNextPointerFromSpec(
   spec,
@@ -27,10 +51,7 @@ export function buildNextPointerFromSpec(
   if (raw == null || typeof raw !== "object") return null;
   const o = /** @type {Record<string, unknown>} */ (raw);
 
-  const radialLineSpec =
-    o.radialLine && typeof o.radialLine === "object"
-      ? /** @type {Record<string, unknown>} */ (o.radialLine)
-      : o;
+  const radialLineSpec = radialLineFieldsFrom(o);
 
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
@@ -87,7 +108,8 @@ export function buildNextPointerFromSpec(
 
 /**
  * @param {unknown} v
- * @param {number} fallback
+ * @param {number} fallback — used only when `v` is not a finite number (optional spec fields).
+ * @returns {number}
  */
 function numOr(v, fallback) {
   return typeof v === "number" && Number.isFinite(v) ? v : fallback;
@@ -100,9 +122,10 @@ function numOr(v, fallback) {
  */
 function buildNextPointerCircle(nextSpec, ctx) {
   const { refRadius, radialEnd } = ctx;
+  const nested = nextSpec.circle;
   const circleSpec =
-    nextSpec.circle && typeof nextSpec.circle === "object"
-      ? /** @type {Record<string, unknown>} */ (nextSpec.circle)
+    nested && typeof nested === "object"
+      ? /** @type {Record<string, unknown>} */ (nested)
       : nextSpec;
 
   const radiusK = numOr(

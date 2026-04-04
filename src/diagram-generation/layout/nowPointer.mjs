@@ -1,4 +1,16 @@
-// NowPointer in diagram space. See docs/specs/tide-diagram.md section NowPointer.
+// NowPointer in diagram space. See docs/specs/tide-diagram.md (NowPointer).
+// Reads `spec.nowPointer` and `spec.timeNow`; emits a NowPointerDiagram (see tideDiagramModel.mjs) or `null`
+// when the pointer is absent or radial geometry is unusable.
+//
+// Policies for {@link readNowPointerLineInnerRadiusPx}:
+// - Returns `null` when `nowPointer` is missing or not a plain object (no throw).
+//
+// Policies for {@link buildNowPointerFromSpec}:
+// - Returns `null` when `nowPointer` is missing, not a plain object, or inner/outer radii give `r_outer ≤ r_inner`.
+// - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid.
+// - Throws when `spec.timeNow` parses to the civil-day right endpoint (`24:00:00`).
+// - Numeric styling keys on the spec are optional; defaults match historical diagram presets (see constants below).
+
 import {
   computeNextTideEventCore,
   shouldOmitNowWaitVisualsForNextPointerClearance,
@@ -15,21 +27,33 @@ const DEFAULT_TRIANGLE_BASE = 0.08;
 const DEFAULT_TRIANGLE_HEIGHT = 0.06;
 
 /**
+ * Use nested `radialLine` / `label` / `triangle` when present; otherwise read keys from the root
+ * (legacy flat shape).
+ *
+ * @param {Record<string, unknown>} container
+ * @param {'radialLine' | 'label' | 'triangle'} key
+ * @returns {Record<string, unknown>}
+ */
+function childOrSelf(container, key) {
+  const nested = container[key];
+  return nested && typeof nested === "object"
+    ? /** @type {Record<string, unknown>} */ (nested)
+    : container;
+}
+
+/**
  * Inner radius of the Now radial line in px (same k·R as NextPointer’s shared inner radius).
  * Used when the line is omitted for NextPointer clearance but NextPointer still needs **r_inner**.
  *
  * @param {Record<string, unknown>} spec
- * @param {number} refRadius
- * @returns {number | null} `null` when `spec.nowPointer` is missing or invalid for line geometry
+ * @param {number} refRadius — diagram reference radius in px
+ * @returns {number | null} `null` when `spec.nowPointer` is missing or not a plain object
  */
 export function readNowPointerLineInnerRadiusPx(spec, refRadius) {
   const raw = spec.nowPointer;
   if (raw == null || typeof raw !== "object") return null;
   const o = /** @type {Record<string, unknown>} */ (raw);
-  const radialLineSpec =
-    o.radialLine && typeof o.radialLine === "object"
-      ? /** @type {Record<string, unknown>} */ (o.radialLine)
-      : o;
+  const radialLineSpec = childOrSelf(o, "radialLine");
   const lineInnerK = numOr(
     radialLineSpec.innerRadius ??
       radialLineSpec.nowPointerLineInnerRadius ??
@@ -43,9 +67,10 @@ export function readNowPointerLineInnerRadiusPx(spec, refRadius) {
 /**
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
- * @param {number} thetaLeft
- * @param {number} thetaRight
+ * @param {number} thetaLeft — dial arc start (radians)
+ * @param {number} thetaRight — dial arc end (radians)
  * @returns {import('../model/tideDiagramModel.mjs').NowPointerDiagram | null}
+ * @throws {Error} invalid `spec.timeNow`, or `24:00:00` (right endpoint)
  */
 export function buildNowPointerFromSpec(
   spec,
@@ -56,18 +81,9 @@ export function buildNowPointerFromSpec(
   const raw = spec.nowPointer;
   if (raw == null || typeof raw !== "object") return null;
   const o = /** @type {Record<string, unknown>} */ (raw);
-  const radialLineSpec =
-    o.radialLine && typeof o.radialLine === "object"
-      ? /** @type {Record<string, unknown>} */ (o.radialLine)
-      : o;
-  const labelSpec =
-    o.label && typeof o.label === "object"
-      ? /** @type {Record<string, unknown>} */ (o.label)
-      : o;
-  const triangleSpec =
-    o.triangle && typeof o.triangle === "object"
-      ? /** @type {Record<string, unknown>} */ (o.triangle)
-      : o;
+  const radialLineSpec = childOrSelf(o, "radialLine");
+  const labelSpec = childOrSelf(o, "label");
+  const triangleSpec = childOrSelf(o, "triangle");
   const parsedNow = parseCanonicalTimeOrThrow(
     spec.timeNow,
     "spec.timeNow",
@@ -242,7 +258,8 @@ function buildNowPointerTriangle(nowSpec, triangleSpec, ctx) {
 
 /**
  * @param {unknown} v
- * @param {number} fallback
+ * @param {number} fallback — used only when `v` is not a finite number (optional spec fields).
+ * @returns {number}
  */
 function numOr(v, fallback) {
   return typeof v === "number" && Number.isFinite(v) ? v : fallback;
