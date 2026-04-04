@@ -2,10 +2,11 @@
   import { type Town, bakedTowns } from "../../data/bakedTowns";
 
   interface Props {
-    setCurrentLocation: (town: Town) => void;
+    readonly setCurrentLocation: (town: Town) => void;
   }
 
   const MAX_VISIBLE_RESULTS = 6;
+  const title: string = "Location";
 
   let { setCurrentLocation }: Props = $props();
   let searchText = $state("");
@@ -63,7 +64,7 @@
 </script>
 
 <main class="route">
-  <h1>Location</h1>
+  <h1>{title}</h1>
   <p class="helper">Start typing a town name to set your location.</p>
 
   <label class="search-label" for="town-search">Town</label>
