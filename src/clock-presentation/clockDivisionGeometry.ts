@@ -1,24 +1,33 @@
-import type { ClockSceneModel } from './clockSceneModel';
+/**
+ * Geometry for equal dial divisions: boundary positions on the reference ring and optional inward tick segments.
+ * Angles and coordinates use {@link normalizedDialSpace}.
+ */
+
+import type { ClockDialDivisions, ClockSceneModel } from './clockSceneModel';
 import {
   pointOnReferenceRingFromAngle,
   pointOnRingFromAngle,
   REFERENCE_RADIUS,
+  type DialAngleRadians,
   type DialPoint,
 } from './normalizedDialSpace';
 
 /** Inward extent of hour ticks from the reference ring, in normalized dial units. */
 export const DEFAULT_DIVISION_TICK_LENGTH = 5;
 
+/** Inward distance from the reference ring toward the dial centre (same units as {@link REFERENCE_RADIUS}). */
+export type DivisionTickLength = number;
+
 export type DivisionBoundaryGeometry = {
   readonly boundaryIndex: number;
   /** 0 at top, increasing clockwise; see `normalizedDialSpace`. */
-  readonly angleRad: number;
+  readonly angleRad: DialAngleRadians;
   readonly pointOnReferenceRing: DialPoint;
 };
 
 export type DivisionTickSegmentGeometry = {
   readonly boundaryIndex: number;
-  readonly angleRad: number;
+  readonly angleRad: DialAngleRadians;
   /** Tip on the reference outline. */
   readonly outer: DialPoint;
   readonly inner: DialPoint;
@@ -28,8 +37,8 @@ function positiveMod(n: number, m: number): number {
   return ((n % m) + m) % m;
 }
 
-function assertDialDivisionsInRange(scene: ClockSceneModel): void {
-  const { spaceCount, topAlignedBoundaryIndex } = scene.dialDivisions;
+function assertDialDivisionsInRange(divisions: ClockDialDivisions): void {
+  const { spaceCount, topAlignedBoundaryIndex } = divisions;
   if (
     topAlignedBoundaryIndex < 0 ||
     topAlignedBoundaryIndex >= spaceCount ||
@@ -46,7 +55,7 @@ function assertDialDivisionsInRange(scene: ClockSceneModel): void {
  * Angles follow normalized dial space (0 at top, clockwise).
  */
 export function divisionBoundariesGeometry(scene: ClockSceneModel): readonly DivisionBoundaryGeometry[] {
-  assertDialDivisionsInRange(scene);
+  assertDialDivisionsInRange(scene.dialDivisions);
   const { spaceCount, topAlignedBoundaryIndex } = scene.dialDivisions;
   const step = (2 * Math.PI) / spaceCount;
   const out: DivisionBoundaryGeometry[] = [];
@@ -68,7 +77,7 @@ export function divisionBoundariesGeometry(scene: ClockSceneModel): readonly Div
  */
 export function divisionTickSegmentsGeometry(
   scene: ClockSceneModel,
-  tickLength: number,
+  tickLength: DivisionTickLength,
 ): readonly DivisionTickSegmentGeometry[] {
   if (!Number.isFinite(tickLength) || tickLength < 0) {
     throw new RangeError(`tickLength must be a non-negative finite number, got ${tickLength}`);
