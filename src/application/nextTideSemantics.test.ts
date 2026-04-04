@@ -1,10 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { deriveNextTideSemantics } from './nextTideSemantics';
+import {
+  type DeriveNextTideSemanticsSpec,
+  deriveNextTideSemantics,
+} from './nextTideSemantics';
 
 function specWithMarkers(
   timeNow: string,
   markers: Array<{ time: string; highOrLow: string }>,
-): Record<string, unknown> {
+): DeriveNextTideSemanticsSpec {
   return {
     timeNow,
     tideMarks: {

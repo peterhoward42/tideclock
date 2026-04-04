@@ -3,6 +3,7 @@ import {
   formatIntervalHoursMinutes,
   parseCanonicalTimeOrThrow,
 } from '../diagram-generation/index.mjs';
+import type { DiagramGenerationSpec } from './diagramGenerationCollaborator';
 
 /**
  * Minute-scale next-tide semantics: single derivation per tick, consumed by diagram layout
@@ -12,6 +13,24 @@ import {
  * @see docs/planning/dynamics-planning.md — Next-event derivation, phased plan steps 1–3.
  * Inject into diagram specs as `spec.semantic.nextTide` (same shape as `nextTide` here, or `null`).
  */
+
+/** Marker row fields used when scanning for the next tide (`computeNextTideEventCore`). */
+export type DeriveNextTideSemanticsMarker = {
+  readonly time: string;
+  readonly highOrLow: string;
+};
+
+/**
+ * Spec subset required for {@link deriveNextTideSemantics}. Values from
+ * {@link buildDiagramGenerationSpec} satisfy this; {@link DiagramGenerationSpec} is accepted for
+ * callers that assemble the full diagram object as a generic record.
+ */
+export type DeriveNextTideSemanticsSpec = {
+  readonly timeNow: string;
+  readonly tideMarks: {
+    readonly markers: readonly DeriveNextTideSemanticsMarker[];
+  };
+};
 
 /** Parsed `spec.timeNow` in the same sense as `parseCanonicalTimeOrThrow`. */
 export type DiagramParsedTimeNow = {
@@ -66,16 +85,27 @@ function diagramParsedTimeNowFromParser(
  * Uses the same marker scan and interval formatting as `computeNextTideEventFromSpec` /
  * layout callers in diagram-generation.
  *
- * @param spec — same shape as `buildDiagram` expects (`timeNow`, `tideMarks.markers`, …)
+ * @param spec — `timeNow` plus `tideMarks.markers` (same inputs `computeNextTideEventCore` reads).
  */
 export function deriveNextTideSemantics(
-  spec: Record<string, unknown>,
+  spec: DeriveNextTideSemanticsSpec,
+  options?: { readonly timeNowLabel?: string },
+): DerivedNextTideSemantics;
+export function deriveNextTideSemantics(
+  spec: DiagramGenerationSpec,
+  options?: { readonly timeNowLabel?: string },
+): DerivedNextTideSemantics;
+export function deriveNextTideSemantics(
+  spec: DeriveNextTideSemanticsSpec | DiagramGenerationSpec,
   options?: { readonly timeNowLabel?: string },
 ): DerivedNextTideSemantics {
   const label = options?.timeNowLabel ?? 'spec.timeNow';
   const parsedRaw = parseCanonicalTimeOrThrow(spec.timeNow, label);
   const timeNow = diagramParsedTimeNowFromParser(parsedRaw);
-  const core = computeNextTideEventCore(spec, parsedRaw);
+  const core = computeNextTideEventCore(
+    spec as Record<string, unknown>,
+    parsedRaw,
+  );
   if (core == null) {
     return { timeNow, nextTide: null };
   }
