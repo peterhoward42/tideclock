@@ -2,15 +2,15 @@ import townsCompactJson from './towns.compact.json';
 
 /** One settlement row after hydration from `towns.compact.json`. */
 export type Town = {
-  id: string;
-  name: string;
-  lat: number;
-  lon: number;
-  localType: string;
-  county: string;
-  postcodeDistrict: string;
-  region: string;
-  country: string;
+  readonly id: string;
+  readonly name: string;
+  readonly lat: number;
+  readonly lon: number;
+  readonly localType: string;
+  readonly county: string;
+  readonly postcodeDistrict: string;
+  readonly region: string;
+  readonly country: string;
 };
 
 const REQUIRED_COLUMNS = [
@@ -27,6 +27,9 @@ const REQUIRED_COLUMNS = [
 
 type RequiredColumn = (typeof REQUIRED_COLUMNS)[number];
 
+/** Column index map for the compact towns wire format (internal parse detail). */
+type TownCompactColumnIndices = Record<RequiredColumn, number>;
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
@@ -42,8 +45,8 @@ function columnIndexMap(columns: unknown): Map<string, number> {
   return map;
 }
 
-function requireIndices(map: Map<string, number>): Record<RequiredColumn, number> {
-  const out = {} as Record<RequiredColumn, number>;
+function requireIndices(map: Map<string, number>): TownCompactColumnIndices {
+  const out = {} as TownCompactColumnIndices;
   for (const name of REQUIRED_COLUMNS) {
     const idx = map.get(name);
     if (idx === undefined) {
@@ -62,7 +65,7 @@ function asString(value: unknown, field: string, rowIndex: number): string {
 }
 
 function asNumber(value: unknown, field: string, rowIndex: number): number {
-  if (typeof value !== 'number' || Number.isNaN(value)) {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
     throw new Error(`towns compact: row ${rowIndex} field "${field}" must be a finite number`);
   }
   return value;
@@ -72,7 +75,7 @@ function asNumber(value: unknown, field: string, rowIndex: number): number {
  * Turns the compact `v`/`columns`/`rows` JSON into plain town records.
  * Call once at module load; exported for tests.
  */
-export function hydrateTownsCompact(doc: unknown): Town[] {
+export function hydrateTownsCompact(doc: unknown): readonly Town[] {
   if (!isRecord(doc)) {
     throw new Error('towns compact: root must be an object');
   }

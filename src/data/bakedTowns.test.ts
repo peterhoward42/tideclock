@@ -97,6 +97,35 @@ describe('hydrateTownsCompact', () => {
       }),
     ).toThrow(/missing column/);
   });
+
+  it('rejects non-finite numeric fields', () => {
+    const base = {
+      v: 1 as const,
+      columns: [
+        'id',
+        'name',
+        'lat',
+        'lon',
+        'localType',
+        'county',
+        'postcodeDistrict',
+        'region',
+        'country',
+      ],
+    };
+    expect(() =>
+      hydrateTownsCompact({
+        ...base,
+        rows: [['i', 'N', Number.NaN, 0, 'Town', '', 'P1', 'R', 'England']],
+      }),
+    ).toThrow(/finite number/);
+    expect(() =>
+      hydrateTownsCompact({
+        ...base,
+        rows: [['i', 'N', Infinity, 0, 'Town', '', 'P1', 'R', 'England']],
+      }),
+    ).toThrow(/finite number/);
+  });
 });
 
 describe('bakedTowns', () => {
