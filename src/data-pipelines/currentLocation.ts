@@ -7,29 +7,30 @@ import {
   type CurrentLocationStorer
 } from './currentLocationSnapshot';
 
-interface StoreCurrentLocationParams {
-  storer: CurrentLocationStorer;
-  storageKey?: string;
+export interface StoreCurrentLocationInput {
+  readonly storer: CurrentLocationStorer;
+  /** Override for tests or an alternate slot; production uses {@link CURRENT_LOCATION_KEY}. */
+  readonly storageKey?: string;
 }
 
-interface LoadCurrentLocationParams {
-  loader: CurrentLocationLoader;
-  storageKey?: string;
+export interface LoadCurrentLocationInput {
+  readonly loader: CurrentLocationLoader;
+  readonly storageKey?: string;
 }
 
-/** storeCurrentLocation is the write-side adapter from Town to localStorage snapshot. */
+/** Persists a validated town snapshot via the given storer (default key: {@link CURRENT_LOCATION_KEY}). */
 export function storeCurrentLocation(
   town: Town,
-  { storer, storageKey = CURRENT_LOCATION_KEY }: StoreCurrentLocationParams
+  { storer, storageKey = CURRENT_LOCATION_KEY }: StoreCurrentLocationInput
 ): void {
   storer.setItem(storageKey, serializeCurrentLocation(town));
 }
 
-/** loadCurrentLocation is the read-side adapter that validates stored JSON before returning Town. */
+/** Loads and validates a town snapshot, or `undefined` if missing or malformed. */
 export function loadCurrentLocation({
   loader,
   storageKey = CURRENT_LOCATION_KEY
-}: LoadCurrentLocationParams): Town | undefined {
+}: LoadCurrentLocationInput): Town | undefined {
   const raw = loader.getItem(storageKey);
   if (raw === null) {
     return undefined;

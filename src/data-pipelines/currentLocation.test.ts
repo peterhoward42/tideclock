@@ -94,4 +94,21 @@ describe('currentLocation read/write', () => {
     });
     expect(loadCurrentLocation({ loader: malformed })).toBeUndefined();
   });
+
+  it('uses an explicit storage key when provided', () => {
+    const customKey = 'alt-current-location';
+    const storer = new FakeCurrentLocationStorer();
+    storeCurrentLocation(exampleTown, { storer, storageKey: customKey });
+    expect(storer.writes).toEqual([
+      {
+        key: customKey,
+        value: JSON.stringify(exampleTown)
+      }
+    ]);
+
+    const loader = new FakeCurrentLocationLoader({
+      [customKey]: JSON.stringify(exampleTown)
+    });
+    expect(loadCurrentLocation({ loader, storageKey: customKey })).toEqual(exampleTown);
+  });
 });

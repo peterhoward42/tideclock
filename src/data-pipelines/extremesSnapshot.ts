@@ -1,26 +1,29 @@
 import { TideExtreme, type TideExtremeType } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 
+/** Canonical `localStorage` key for a JSON snapshot of {@link TideExtremesAtLocation}. */
 export const EXTREMES_SNAPSHOT_KEY = 'tide-extremes-at-location';
 
+/** Write-side persistence seam for extremes snapshots (e.g. `localStorage` in production). */
 export interface ExtremesStorer {
   setItem(key: string, value: string): void;
 }
 
+/** Read-side persistence seam for extremes snapshots. */
 export interface ExtremesLoader {
   getItem(key: string): string | null;
 }
 
 interface ExtremeRow {
-  type: TideExtremeType;
-  timeUtc: string;
-  heightMetres: number;
+  readonly type: TideExtremeType;
+  readonly timeUtc: string;
+  readonly heightMetres: number;
 }
 
 interface StoredExtremesShape {
-  latitude: number;
-  longitude: number;
-  extremes: ExtremeRow[];
+  readonly latitude: number;
+  readonly longitude: number;
+  readonly extremes: readonly ExtremeRow[];
 }
 
 function isFiniteNumber(value: unknown): value is number {
@@ -60,7 +63,7 @@ function isStoredExtremes(value: unknown): value is StoredExtremesShape {
   );
 }
 
-export function serializeExtremesSnapshot(data: TideExtremesAtLocation): string {
+export function serializeExtremesSnapshot(data: Readonly<TideExtremesAtLocation>): string {
   return JSON.stringify(data);
 }
 

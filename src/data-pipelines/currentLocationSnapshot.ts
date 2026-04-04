@@ -1,12 +1,14 @@
 import type { Town } from '../data/bakedTowns';
 
-/** Storage slot for the user-selected town snapshot. */
+/** Canonical `localStorage` key for a JSON snapshot of the user-selected {@link Town}. */
 export const CURRENT_LOCATION_KEY = 'current-location';
 
+/** Write-side persistence seam for the current-location snapshot. */
 export interface CurrentLocationStorer {
   setItem(key: string, value: string): void;
 }
 
+/** Read-side persistence seam for the current-location snapshot. */
 export interface CurrentLocationLoader {
   getItem(key: string): string | null;
 }
