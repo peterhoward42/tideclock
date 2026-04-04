@@ -1,8 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
-import type { TimeNowProvider } from '../time-services/TideClockCivilDayDisplayWindow';
-import { extremesForCurrentCivilDay, loadExtremesForCurrentCivilDay } from './civilDayExtremes';
+import {
+  TideClockCivilDayDisplayWindow,
+  type TimeNowProvider
+} from '../time-services/TideClockCivilDayDisplayWindow';
+import {
+  extremesForCivilDayInWindow,
+  extremesForCurrentCivilDay,
+  loadExtremesForCurrentCivilDay
+} from './civilDayExtremes';
 import { EXTREMES_SNAPSHOT_KEY, type ExtremesLoader } from './extremesSnapshot';
 
 class FakeTimeNowProvider implements TimeNowProvider {
@@ -116,6 +123,28 @@ describe('extremesForCurrentCivilDay', () => {
       ])
     );
   });
+
+  it('matches explicit civil-day window when passed to extremesForCivilDayInWindow', () => {
+    const civilDay = new TideClockCivilDayDisplayWindow(
+      new Date(2026, 2, 23, 0, 0, 0, 0),
+      new Date(2026, 2, 24, 0, 0, 0, 0)
+    );
+    const beforeStart = new TideExtreme('high', utcIsoForLocal(2026, 2, 22, 23, 40), 3.1);
+    const atStart = new TideExtreme('low', utcIsoForLocal(2026, 2, 23, 0, 0), 0.5);
+    const midDay = new TideExtreme('high', utcIsoForLocal(2026, 2, 23, 12, 10), 3.3);
+    const afterEnd = new TideExtreme('high', utcIsoForLocal(2026, 2, 24, 0, 20), 3.0);
+
+    const stored = new TideExtremesAtLocation(50.8, -1.1, [beforeStart, atStart, midDay, afterEnd]);
+
+    const result = extremesForCivilDayInWindow({
+      requiredLatitude: 50.8,
+      requiredLongitude: -1.1,
+      stored,
+      civilDayDisplayWindow: civilDay
+    });
+
+    expect(result).toEqual(new TideExtremesAtLocation(50.8, -1.1, [atStart, midDay]));
+  });
 });
 
 describe('loadExtremesForCurrentCivilDay', () => {
@@ -130,6 +159,7 @@ describe('loadExtremesForCurrentCivilDay', () => {
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       loader,
+      storageKey: EXTREMES_SNAPSHOT_KEY,
       timeNowProvider: nowProvider
     });
 
@@ -145,6 +175,7 @@ describe('loadExtremesForCurrentCivilDay', () => {
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       loader,
+      storageKey: EXTREMES_SNAPSHOT_KEY,
       timeNowProvider: nowProvider
     });
 
@@ -169,6 +200,7 @@ describe('loadExtremesForCurrentCivilDay', () => {
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       loader,
+      storageKey: EXTREMES_SNAPSHOT_KEY,
       timeNowProvider: nowProvider
     });
 
