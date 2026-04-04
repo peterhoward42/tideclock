@@ -67,4 +67,17 @@ describe("renderPreviewHtml", () => {
     expect(svg.trimStart().startsWith("<svg")).toBe(true);
     expect(svg).toContain('viewBox="10 40 60 60"');
   });
+
+  it("emits stroke-dasharray when named style sets lineStyle dashed", () => {
+    const svg = renderPreviewSvg(sampleScene(), {
+      styleRuntime: {
+        stylesByName: new Map([
+          ["dominant", { color: "yellow", lineStyle: "dashed" }],
+        ]),
+        nameToStyle: new Map([["TickMark", "dominant"]]),
+      },
+    });
+
+    expect(svg).toContain('stroke-dasharray="6 4"');
+  });
 });

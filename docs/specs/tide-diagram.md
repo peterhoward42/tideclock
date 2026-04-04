@@ -341,8 +341,7 @@ Inputs and derived quantities:
 
 ### Logical structure
 
-- **WaitArc** contributes one arc segment concentric with **RefArc**.
-- Arrowhead rendering is **not** synthesized by diagram generation; generation
+- **WaitArc** contributes one arc segment concentric with **RefArc**.- Arrowhead rendering is **not** synthesized by diagram generation; generation
 carries an explicit metadata intent that an arrow exists at arc end. The
 downstream renderer is responsible for visual arrowhead geometry.
 

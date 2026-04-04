@@ -23,6 +23,10 @@ export const STATIC_STYLE_MODEL = {
       style: { color: "darkgrey" },
     },
     {
+      name: "grey-strokes-dashed",
+      style: { color: "darkgrey", lineStyle: "dashed" },
+    },
+    {
       name: "time-now-label",
       style: { color: "antiquewhite" }
 	  },
@@ -43,7 +47,7 @@ export const STATIC_STYLE_MODEL = {
     { name: "DeltaInterval", styleName: "grey-writing" },
     { name: "NoMoreTidesToday", styleName: "grey-writing" },
     { name: "NowTriangle", styleName: "grey-strokes" },
-    { name: "NowRadialLine", styleName: "grey-strokes" },
+    { name: "NowRadialLine", styleName: "grey-strokes-dashed" },
     { name: "NowLabel", styleName: "grey-writing" },
   ],
 };

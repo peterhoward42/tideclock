@@ -12,7 +12,7 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
  *
  * @param {object} scene
  * @param {string} outPath absolute or relative path to preview.html
- * @param {{ styleRuntime?: { stylesByName: Map<string, { color?: string }>, nameToStyle: Map<string, string> } }} [opts]
+ * @param {{ styleRuntime?: { stylesByName: Map<string, { color?: string, lineStyle?: string }>, nameToStyle: Map<string, string> } }} [opts]
  */
 export function writePreviewHtml(scene, outPath, opts = {}) {
   mkdirSync(dirname(outPath), { recursive: true });

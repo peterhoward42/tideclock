@@ -8,7 +8,10 @@ import {
 export type DiagramGenerationSpec = Record<string, unknown>;
 
 export type DiagramGenerationStyleRuntime = {
-  readonly stylesByName: Map<string, { readonly color?: string }>;
+  readonly stylesByName: Map<
+    string,
+    { readonly color?: string; readonly lineStyle?: string }
+  >;
   readonly nameToStyle: Map<string, string>;
 };
 

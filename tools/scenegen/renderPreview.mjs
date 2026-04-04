@@ -1,5 +1,7 @@
 // Pure preview rendering (scene -> HTML/SVG string), with no fs/CLI dependencies.
 
+import { svgStrokeDasharrayAttrFragment } from "../../src/diagram-generation/presets/lineStyleRendering.mjs";
+
 // Visual-only preview styling.
 // Keep strokes thin so geometry relationships are easier to inspect.
 const PREVIEW_STROKE_WIDTH = 1.0;
@@ -13,7 +15,7 @@ const PREVIEW_DEFAULTS = {
 };
 
 /**
- * @typedef {{ color?: string }} PreviewStyleProps
+ * @typedef {{ color?: string, lineStyle?: string }} PreviewStyleProps
  *
  * @typedef {{
  *   stylesByName: Map<string, PreviewStyleProps>,
@@ -180,7 +182,12 @@ function renderNode(node, styleRuntime, leafName) {
         PREVIEW_DEFAULTS.lineStroke,
         node.kind,
       );
-      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" />`;
+      const dash = strokeDashAttrFragmentFromLeaf(
+        styleRuntime,
+        leafName,
+        node.kind,
+      );
+      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none"${dash} />`;
     }
     case "arc": {
       assertLeafScoped(node.kind, leafName);
@@ -191,6 +198,11 @@ function renderNode(node, styleRuntime, leafName) {
         node.kind,
       );
       const arrowAttr = markerAttrForArc(node, leafName, styleRuntime);
+      const dash = strokeDashAttrFragmentFromLeaf(
+        styleRuntime,
+        leafName,
+        node.kind,
+      );
       if (node.facetedPreview === true) {
         const pts = circularArcToFacetedPoints(
           node.center,
@@ -198,10 +210,10 @@ function renderNode(node, styleRuntime, leafName) {
           node.sweepRad,
         );
         if (pts === "") return "";
-        return `    <polyline points="${escapeAttr(pts)}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round"${arrowAttr} />`;
+        return `    <polyline points="${escapeAttr(pts)}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round"${dash}${arrowAttr} />`;
       }
       const d = circularArcToPathD(node.center, node.start, node.sweepRad);
-      return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${arrowAttr} />`;
+      return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${dash}${arrowAttr} />`;
     }
     case "triangle": {
       assertLeafScoped(node.kind, leafName);
@@ -213,6 +225,11 @@ function renderNode(node, styleRuntime, leafName) {
         PREVIEW_DEFAULTS.curveStroke,
         node.kind,
       );
+      const dash = strokeDashAttrFragmentFromLeaf(
+        styleRuntime,
+        leafName,
+        node.kind,
+      );
       const fillAttr = node.outline
         ? "none"
         : requireLeafColor(
@@ -221,7 +238,7 @@ function renderNode(node, styleRuntime, leafName) {
             PREVIEW_DEFAULTS.shapeFill,
             node.kind,
           );
-      return `    <polygon points="${escapeAttr(pts)}" fill="${fillAttr}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} />`;
+      return `    <polygon points="${escapeAttr(pts)}" fill="${fillAttr}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
     }
     case "circle": {
       assertLeafScoped(node.kind, leafName);
@@ -232,13 +249,18 @@ function renderNode(node, styleRuntime, leafName) {
         PREVIEW_DEFAULTS.curveStroke,
         node.kind,
       );
+      const dash = strokeDashAttrFragmentFromLeaf(
+        styleRuntime,
+        leafName,
+        node.kind,
+      );
       const fill = requireLeafColor(
         styleRuntime,
         leafName,
         PREVIEW_DEFAULTS.shapeFill,
         node.kind,
       );
-      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="${fill}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} />`;
+      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="${fill}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
     }
     case "text": {
       assertLeafScoped(node.kind, leafName);
@@ -453,15 +475,14 @@ function renderTextSvg(node, fillColor) {
 }
 
 /**
- * Leaf-level style lookup: nearest parent leaf-group name is the key.
- * Throws for missing runtime, missing binding, or missing color.
+ * Resolved named style for a leaf group (geometry parent `data-name`), or undefined.
  *
  * @param {PreviewStyleRuntime | undefined} styleRuntime
  * @param {string | null} leafName
- * @param {string} fallback
  * @param {string} primitiveKind
+ * @returns {PreviewStyleProps | undefined}
  */
-function requireLeafColor(styleRuntime, leafName, fallback, primitiveKind) {
+function resolveLeafNamedStyleProps(styleRuntime, leafName, primitiveKind) {
   if (!styleRuntime) {
     throw new Error(
       `preview styleRuntime is required for v2 scenes (while rendering ${primitiveKind})`,
@@ -478,9 +499,45 @@ function requireLeafColor(styleRuntime, leafName, fallback, primitiveKind) {
       `missing style binding for leaf group name "${leafName}" (while rendering ${primitiveKind})`,
     );
   }
-  const styleProps = styleRuntime.stylesByName.get(styleName);
+  return styleRuntime.stylesByName.get(styleName);
+}
+
+/**
+ * Leaf-level color: uses bound named style when `color` is set; otherwise fallback.
+ *
+ * @param {PreviewStyleRuntime | undefined} styleRuntime
+ * @param {string | null} leafName
+ * @param {string} fallback
+ * @param {string} primitiveKind
+ */
+function requireLeafColor(styleRuntime, leafName, fallback, primitiveKind) {
+  const styleProps = resolveLeafNamedStyleProps(
+    styleRuntime,
+    leafName,
+    primitiveKind,
+  );
   if (!styleProps || typeof styleProps.color !== "string") return fallback;
   return styleProps.color;
+}
+
+/**
+ * Optional `stroke-dasharray` from domain `lineStyle` on the same named style.
+ *
+ * @param {PreviewStyleRuntime | undefined} styleRuntime
+ * @param {string | null} leafName
+ * @param {string} primitiveKind
+ */
+function strokeDashAttrFragmentFromLeaf(styleRuntime, leafName, primitiveKind) {
+  const styleProps = resolveLeafNamedStyleProps(
+    styleRuntime,
+    leafName,
+    primitiveKind,
+  );
+  const lineStyle =
+    styleProps && typeof styleProps.lineStyle === "string"
+      ? styleProps.lineStyle
+      : undefined;
+  return svgStrokeDasharrayAttrFragment(lineStyle);
 }
 
 /**

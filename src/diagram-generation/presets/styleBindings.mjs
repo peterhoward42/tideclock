@@ -4,9 +4,12 @@
  * - bindings are directional: leafName -> styleName
  * - duplicate leafName bindings are invalid and throw
  * - style color supports CSS named colors and 3-digit hex (#abc)
+ * - optional lineStyle is a domain token (solid, dashed, …) mapped to SVG later
  */
 
-/** @typedef {{ color?: string }} StyleProps */
+import { assertKnownLineStyleToken } from "./lineStyleRendering.mjs";
+
+/** @typedef {{ color?: string, lineStyle?: string }} StyleProps */
 
 /** @typedef {{ name: string, style: StyleProps }} NamedStyle */
 
@@ -168,6 +171,13 @@ function normalizeStyleProps(raw, context) {
       );
     }
     out.color = raw.color;
+  }
+  if (raw.lineStyle !== undefined) {
+    if (typeof raw.lineStyle !== "string" || raw.lineStyle.trim() === "") {
+      throw new Error(`${context}.lineStyle must be a non-empty string`);
+    }
+    assertKnownLineStyleToken(raw.lineStyle, context);
+    out.lineStyle = raw.lineStyle;
   }
   return out;
 }
