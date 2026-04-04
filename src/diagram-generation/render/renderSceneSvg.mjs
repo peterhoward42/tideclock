@@ -20,6 +20,32 @@ const RENDER_DEFAULTS = {
  *   stylesByName: Map<string, SceneRenderStyleProps>,
  *   nameToStyle: Map<string, string>,
  * }} SceneRenderStyleRuntime
+ *
+ * Scene input for the public render entrypoints: v1 rects in `elements`, or v2 (`version >= 2`) with group `root` and valid `meta.previewFrame` for the tight viewBox.
+ * @typedef {{
+ *   version?: number,
+ *   meta?: {
+ *     title?: string,
+ *     width?: number,
+ *     height?: number,
+ *     previewFrame?: unknown,
+ *   },
+ *   root?: import('../model/sceneModel.mjs').SceneNode,
+ *   elements?: ReadonlyArray<{
+ *     kind: string,
+ *     x?: number,
+ *     y?: number,
+ *     width?: number,
+ *     height?: number,
+ *   }>,
+ * }} SceneRenderInput
+ *
+ * @typedef {{
+ *   styleRuntime?: SceneRenderStyleRuntime,
+ *   debug?: { previewFrame?: boolean },
+ * }} RenderSceneSvgOptions
+ *
+ * @typedef {{ styleRuntime?: SceneRenderStyleRuntime }} RenderSceneHtmlOptions
  */
 
 /** Padding inside viewBox units (scene pixels) around computed content. */
@@ -30,9 +56,10 @@ const SCENE_HTML_PAD_PX = 16;
  * Render a scene model into HTML with inline SVG.
  * v2 scenes require `scene.meta.previewFrame` (scene-space AABB).
  *
- * @param {object} scene
- * @param {{ styleRuntime?: SceneRenderStyleRuntime }} [opts]
+ * @param {SceneRenderInput} scene
+ * @param {RenderSceneHtmlOptions} [opts]
  * @returns {string}
+ * @throws {Error} v2 scene without a valid `meta.previewFrame` (see {@link computeViewBox})
  */
 export function renderSceneHtml(scene, opts = {}) {
   const vb = computeViewBox(scene);
@@ -71,9 +98,10 @@ ${sceneToSvgInline(scene, vb, opts)}
 /**
  * Render a scene model into inline SVG only (no HTML wrapper).
  *
- * @param {object} scene
- * @param {{ styleRuntime?: SceneRenderStyleRuntime, debug?: { previewFrame?: boolean } }} [opts]
+ * @param {SceneRenderInput} scene
+ * @param {RenderSceneSvgOptions} [opts]
  * @returns {string}
+ * @throws {Error} v2 scene without a valid `meta.previewFrame`, or v2 primitive without `styleRuntime` / leaf style binding (see {@link computeViewBox}, {@link resolveLeafNamedStyleProps})
  */
 export function renderSceneSvg(scene, opts = {}) {
   const vb = computeViewBox(scene);
@@ -84,8 +112,9 @@ export function renderSceneSvg(scene, opts = {}) {
  * Tight viewBox in root SVG coordinates so the graphic scales to the diagram, not the full canvas.
  * Scene coords are y-up; root SVG uses y-down with `translate(0,canvasH) scale(1,-1)` on content.
  *
- * @param {object} scene
+ * @param {SceneRenderInput} scene
  * @returns {{ vbX: number, vbY: number, vbW: number, vbH: number, canvasH: number }}
+ * @throws {Error} v2 scene graph without a finite positive `meta.previewFrame` AABB
  */
 function computeViewBox(scene) {
   const w = Number(scene.meta?.width) || 400;
@@ -130,9 +159,9 @@ function isValidPreviewFrame(pf) {
 }
 
 /**
- * @param {object} scene
+ * @param {SceneRenderInput} scene
  * @param {{ vbX: number, vbY: number, vbW: number, vbH: number, canvasH: number }} vb
- * @param {{ styleRuntime?: SceneRenderStyleRuntime }} opts
+ * @param {RenderSceneSvgOptions} opts
  */
 function sceneToSvgInline(scene, vb, opts) {
   const w = Number(scene.meta?.width) || 400;
@@ -402,11 +431,14 @@ function markerAttrForArc(arcNode, leafName, styleRuntime) {
 }
 
 /**
- * @param {{ at?: string, lengthK?: number, widthK?: number, insetK?: number, style?: string, scaleWithStroke?: boolean }} raw
+ * Coerces partial arrow metadata from the scene graph into the shape this renderer supports.
+ * Placement is end-only (see `ArcArrowMeta` in `sceneModel.mjs`).
+ *
+ * @param {import('../model/sceneModel.mjs').ArcArrowMeta | { lengthK?: number, widthK?: number, insetK?: number, style?: string, scaleWithStroke?: boolean }} raw
  */
 function normalizeArcArrow(raw) {
   return {
-    at: raw.at === "end" ? "end" : "end",
+    at: "end",
     lengthK: Math.max(0.01, Number.isFinite(raw.lengthK) ? Number(raw.lengthK) : 7),
     widthK: Math.max(0.01, Number.isFinite(raw.widthK) ? Number(raw.widthK) : 5),
     insetK: Number.isFinite(raw.insetK) ? Number(raw.insetK) : 0,
@@ -552,7 +584,10 @@ function textAnchorFor(h) {
   return "middle";
 }
 
-/** v1 scene.json: `elements` rects in SVG coordinates (no y-flip). */
+/**
+ * v1 scene.json: `elements` rects in SVG coordinates (no y-flip).
+ * @param {SceneRenderInput} scene
+ */
 function legacySceneToSvg(scene, w, h) {
   const rects = (scene.elements ?? []).filter((e) => e.kind === "rect");
   const rectsSvg = rects
