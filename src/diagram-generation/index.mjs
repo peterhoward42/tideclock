@@ -1,3 +1,7 @@
+/**
+ * Public diagram-generation surface: layout, scene mapping, time/tide helpers, and style presets.
+ * Re-exports are the stable contract for application code; keep names and shapes unchanged.
+ */
 export { buildDiagram } from "./layout/buildDiagram.mjs";
 export {
   centreClusterDiagramToGroup,

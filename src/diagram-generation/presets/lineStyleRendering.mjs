@@ -1,6 +1,7 @@
 /**
- * Domain `lineStyle` tokens for named diagram styles (see `StyleProps.lineStyle`).
- * Preview / SVG output maps each token to `stroke-dasharray`; `null` means solid stroke.
+ * Domain `lineStyle` tokens for named diagram styles (`StyleProps.lineStyle` in styleBindings).
+ * SVG output maps each token to `stroke-dasharray`; entry value `null` means omit dasharray (solid).
+ * Tokens are asserted at style load via {@link assertKnownLineStyleToken}; render assumes loaded data only.
  *
  * Add new tokens here when the product introduces variants (e.g. `special-dashed`).
  */
@@ -25,9 +26,9 @@ export function assertKnownLineStyleToken(token, context) {
 }
 
 /**
- * SVG attribute fragment for stroked primitives (empty string when solid).
+ * SVG attribute fragment for stroked primitives: empty when solid/omitted or unknown token.
  *
- * @param {string | undefined} lineStyle
+ * @param {string | undefined} lineStyle token from a loaded style, or undefined
  * @returns {string}
  */
 export function svgStrokeDasharrayAttrFragment(lineStyle) {

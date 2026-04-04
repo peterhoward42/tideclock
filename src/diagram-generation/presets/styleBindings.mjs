@@ -1,10 +1,15 @@
 /**
- * Style registry and leaf-name style bindings.
- * Load-time policy:
- * - bindings are directional: leafName -> styleName
- * - duplicate leafName bindings are invalid and throw
- * - style color supports CSS named colors and 3-digit hex (#abc)
- * - optional lineStyle is a domain token (solid, dashed, …) mapped to SVG later
+ * Style registry and leaf-name style bindings (load-time only).
+ *
+ * Policy:
+ * - Bindings are directional: scene leaf name → named style.
+ * - Duplicate leaf names throw; unknown styleName in a binding throws.
+ * - `color` allows CSS named colors and 3-digit hex (#abc).
+ * - Optional `lineStyle` is a domain token validated against `lineStyleRendering.mjs`.
+ *
+ * `loadStyleModel` returns maps used when resolving SVG attributes from scene nodes;
+ * pass `null`/`undefined` for an empty registry (no styles), otherwise an object shaped
+ * like {@link StyleModelSpec} (validated field-by-field; throws on bad data).
  */
 
 import { assertKnownLineStyleToken } from "./lineStyleRendering.mjs";
@@ -57,13 +62,13 @@ const THREE_DIGIT_HEX = /^#[0-9a-fA-F]{3}$/;
 
 /**
  * Parse and validate a style model config.
- * Returns style registry and name->style map ready for load-time use.
  *
- * @param {unknown} raw
+ * @param {unknown} raw `null`/`undefined` → empty maps; otherwise must be an object with
+ *   `styles` and `bindings` arrays per {@link StyleModelSpec}.
  * @returns {{
  *   stylesByName: Map<string, StyleProps>,
  *   nameToStyle: Map<string, string>,
- * }}
+ * }} Resolved named styles and leaf→styleName lookup for render.
  */
 export function loadStyleModel(raw) {
   if (raw == null) {

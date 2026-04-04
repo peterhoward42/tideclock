@@ -1,6 +1,6 @@
 /**
- * Compile-time style model for tide diagram product definition.
- * Runtime input does not carry style bindings.
+ * Product style model passed to `loadStyleModel` at diagram init (see app collaborator).
+ * Not merged from runtime spec: diagram `buildDiagram` input carries geometry only.
  */
 
 /** @type {import('./styleBindings.mjs').StyleModelSpec} */
@@ -28,8 +28,8 @@ export const STATIC_STYLE_MODEL = {
     },
     {
       name: "time-now-label",
-      style: { color: "antiquewhite" }
-	  },
+      style: { color: "antiquewhite" },
+    },
   ],
   bindings: [
     { name: "RefArc", styleName: "dominant" },
