@@ -17,4 +17,11 @@ describe('clockDivisionDialSvgProps', () => {
     };
     expect(clockDivisionDialSvgProps(scene)).toMatchSnapshot();
   });
+
+  it('honours explicit tick length', () => {
+    const shorter = clockDivisionDialSvgProps(defaultClockSceneModel, 2);
+    const defaultLen = clockDivisionDialSvgProps(defaultClockSceneModel);
+    expect(shorter.ticks[0]).not.toEqual(defaultLen.ticks[0]);
+    expect(shorter.viewBox).toBe(defaultLen.viewBox);
+  });
 });

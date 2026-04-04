@@ -1,6 +1,7 @@
 import {
   DEFAULT_DIVISION_TICK_LENGTH,
   divisionTickSegmentsGeometry,
+  type DivisionTickLength,
 } from '../../clock-presentation/clockDivisionGeometry';
 import type { ClockSceneModel } from '../../clock-presentation/clockSceneModel';
 import {
@@ -42,19 +43,17 @@ export type ClockDivisionDialSvgProps = {
   readonly ticks: readonly SvgLineAttrs[];
 };
 
-export type ClockDivisionDialSvgOptions = {
-  readonly tickLength?: number;
-};
-
 /**
  * Maps division tick geometry to SVG attribute bundles. Coordinates stay centre-based; the viewBox
  * matches {@link CLOCK_DIAL_VIEW_BOX}.
+ *
+ * {@link tickLength} defaults to {@link DEFAULT_DIVISION_TICK_LENGTH} from division geometry (same
+ * contract as {@link divisionTickSegmentsGeometry}).
  */
 export function clockDivisionDialSvgProps(
   scene: ClockSceneModel,
-  options?: ClockDivisionDialSvgOptions,
+  tickLength: DivisionTickLength = DEFAULT_DIVISION_TICK_LENGTH,
 ): ClockDivisionDialSvgProps {
-  const tickLength = options?.tickLength ?? DEFAULT_DIVISION_TICK_LENGTH;
   const segments = divisionTickSegmentsGeometry(scene, tickLength);
   return {
     viewBox: CLOCK_DIAL_VIEW_BOX,
