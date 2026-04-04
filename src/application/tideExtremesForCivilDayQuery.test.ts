@@ -118,4 +118,48 @@ describe('loadTideExtremesForCurrentCivilDayQuery', () => {
       ])
     );
   });
+
+  it('uses a custom storageKey for load and persist when provided', async () => {
+    const customKey = 'tideclock-test-snapshot-key';
+    const storer = new FakeExtremesStorer();
+    const loader = new FakeExtremesLoader({
+      [customKey]: null
+    });
+
+    const responsePayload: TideProxyV1Response = {
+      tides: [
+        { type: 'High', time: utcIsoForLocal(2026, 2, 22, 23, 45), heightMetres: 3.0 },
+        { type: 'High', time: utcIsoForLocal(2026, 2, 23, 18, 0), heightMetres: 3.2 },
+        { type: 'Low', time: utcIsoForLocal(2026, 2, 24, 0, 30), heightMetres: 0.5 }
+      ],
+      datum: 'CD',
+      windowStart: '2026-03-23T00:00:00Z',
+      expiresAt: '2026-03-23T12:00:00Z',
+      attribution: 'Test'
+    };
+
+    const fetchImpl = vi.fn<typeof fetch>(async () => {
+      return new Response(JSON.stringify(responsePayload), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    });
+
+    const result = await loadTideExtremesForCurrentCivilDayQuery(50.8, -1.1, {
+      loader,
+      storer,
+      baseUrl: 'https://example.test',
+      fetchImpl,
+      storageKey: customKey,
+      timeNowProvider
+    });
+
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(storer.writes).toEqual([{ key: customKey, value: expect.any(String) }]);
+    expect(result).toEqual(
+      new TideExtremesAtLocation(50.8, -1.1, [
+        new TideExtreme('high', utcIsoForLocal(2026, 2, 23, 18, 0), 3.2)
+      ])
+    );
+  });
 });

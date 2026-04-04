@@ -21,19 +21,47 @@ function tideQueryDiag(...args: unknown[]): void {
   console.log('[tideclock] tide-query:', ...args);
 }
 
-export interface TideExtremesForCivilDayQueryDeps {
-  loader: ExtremesLoader;
-  storer: ExtremesStorer;
-  baseUrl: string;
-  fetchImpl?: typeof fetch;
-  storageKey?: string;
-  timeNowProvider?: TimeNowProvider;
+/** Loader, storer, and proxy origin — required on every call. */
+export interface TideExtremesForCivilDayQueryCoreDeps {
+  readonly loader: ExtremesLoader;
+  readonly storer: ExtremesStorer;
+  /** Non-empty tide proxy origin (e.g. from env in the app shell). */
+  readonly baseUrl: string;
+}
+
+/**
+ * Optional replacement for browser defaults. Omitting a field selects the production
+ * meaning: global `fetch`, {@link EXTREMES_SNAPSHOT_KEY}, {@link SystemTimeNowProvider}.
+ * Tests pass stubs here; the UI root typically omits the whole group.
+ */
+export interface TideExtremesForCivilDayQuerySeams {
+  readonly fetchImpl?: typeof fetch;
+  readonly storageKey?: string;
+  readonly timeNowProvider?: TimeNowProvider;
+}
+
+export type TideExtremesForCivilDayQueryDeps = TideExtremesForCivilDayQueryCoreDeps &
+  TideExtremesForCivilDayQuerySeams;
+
+function resolveTideExtremesQuerySeams(
+  seams: TideExtremesForCivilDayQuerySeams
+): {
+  fetchImpl: typeof fetch;
+  storageKey: string;
+  timeNowProvider: TimeNowProvider;
+} {
+  return {
+    fetchImpl: seams.fetchImpl ?? fetch,
+    storageKey: seams.storageKey ?? EXTREMES_SNAPSHOT_KEY,
+    timeNowProvider: seams.timeNowProvider ?? new SystemTimeNowProvider()
+  };
 }
 
 /**
  * Tries the persisted snapshot first, then fetches and replaces the store when the
- * current civil-day query is not satisfied. Used by the UI root with browser deps;
- * tests inject fakes via {@link TideExtremesForCivilDayQueryDeps}.
+ * current civil-day query is not satisfied. Used by the UI root with
+ * {@link TideExtremesForCivilDayQueryCoreDeps} only; tests supply
+ * {@link TideExtremesForCivilDayQuerySeams}.
  */
 export async function loadTideExtremesForCurrentCivilDayQuery(
   latitude: number,
@@ -41,9 +69,7 @@ export async function loadTideExtremesForCurrentCivilDayQuery(
   deps: TideExtremesForCivilDayQueryDeps
 ): Promise<TideExtremesAtLocation | undefined> {
   const { loader, storer, baseUrl } = deps;
-  const fetchImpl = deps.fetchImpl ?? fetch;
-  const storageKey = deps.storageKey ?? EXTREMES_SNAPSHOT_KEY;
-  const timeNowProvider = deps.timeNowProvider ?? new SystemTimeNowProvider();
+  const { fetchImpl, storageKey, timeNowProvider } = resolveTideExtremesQuerySeams(deps);
 
   tideQueryDiag('start', {
     latitude,
