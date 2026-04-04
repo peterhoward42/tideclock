@@ -1,10 +1,11 @@
 import type { ProxyV1ErrorResponse, TideProxyV1Response } from './proxyV1Types';
 
-interface FetchProxyV1TidesParams {
+export interface FetchProxyV1TidesParams {
   lat: number;
   lon: number;
-  baseUrl?: string;
-  fetchImpl?: typeof fetch;
+  /** Non-empty tide proxy origin (e.g. from `import.meta.env.VITE_TIDE_PROXY_BASE_URL`). */
+  baseUrl: string;
+  fetchImpl: typeof fetch;
 }
 
 function isFiniteNumber(value: unknown): value is number {
@@ -28,12 +29,12 @@ function assertValidCoordinates(lat: number, lon: number): void {
 export async function fetchProxyV1Tides({
   lat,
   lon,
-  baseUrl = import.meta.env.VITE_TIDE_PROXY_BASE_URL,
-  fetchImpl = fetch
+  baseUrl,
+  fetchImpl
 }: FetchProxyV1TidesParams): Promise<TideProxyV1Response> {
   assertValidCoordinates(lat, lon);
   if (typeof baseUrl !== 'string' || baseUrl.trim() === '') {
-    throw new Error('Missing VITE_TIDE_PROXY_BASE_URL.');
+    throw new Error('Missing tide proxy base URL. Pass a non-empty baseUrl.');
   }
 
   // Absolute path `/v1/tides` would drop a function prefix like `/tides-proxy`; resolve relative to base instead.
