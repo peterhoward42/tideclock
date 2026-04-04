@@ -1,9 +1,10 @@
 export type TideExtremeType = 'high' | 'low';
 
+/** One tidal high or low: instant in UTC (ISO 8601) and height in metres above chart datum. */
 export class TideExtreme {
-  public type: TideExtremeType;
-  public timeUtc: string;
-  public heightMetres: number;
+  public readonly type: TideExtremeType;
+  public readonly timeUtc: string;
+  public readonly heightMetres: number;
 
   constructor(type: TideExtremeType, timeUtc: string, heightMetres: number) {
     this.type = type;

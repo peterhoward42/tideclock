@@ -1,11 +1,16 @@
 import { TideExtreme } from './TideExtreme';
 
+/** Tide extremes for a fixed lat/lon (order follows the snapshot or builder that produced the list). */
 export class TideExtremesAtLocation {
-  public latitude: number;
-  public longitude: number;
-  public extremes: TideExtreme[];
+  public readonly latitude: number;
+  public readonly longitude: number;
+  public readonly extremes: readonly TideExtreme[];
 
-  constructor(latitude: number, longitude: number, extremes: TideExtreme[]) {
+  constructor(
+    latitude: number,
+    longitude: number,
+    extremes: readonly TideExtreme[]
+  ) {
     this.latitude = latitude;
     this.longitude = longitude;
     this.extremes = extremes;
