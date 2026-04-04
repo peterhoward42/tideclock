@@ -2,11 +2,12 @@ const CANONICAL_TIME_RE = /^(\d{2}):(\d{2}):(\d{2})$/;
 
 /**
  * Parse strict canonical time "HH:MM:SS".
- * Allows "24:00:00" only as a special sentinel.
+ * Allows "24:00:00" only as a special sentinel (right endpoint of the civil day).
  *
  * @param {unknown} value
- * @param {string} label
+ * @param {string} label — included in thrown `Error` messages (caller context)
  * @returns {{ canonical: string, seconds: number, hours: number, isRightEndpoint: boolean }}
+ * @throws {Error} non-string, bad format, out-of-range components (other than `24:00:00`)
  */
 export function parseCanonicalTimeOrThrow(value, label) {
   if (typeof value !== "string") {
@@ -45,6 +46,12 @@ export function parseCanonicalTimeOrThrow(value, label) {
 }
 
 /**
+ * First five characters of a strict canonical time (`HH:MM`).
+ *
+ * Precondition: `canonical` is a string that already satisfied
+ * {@link parseCanonicalTimeOrThrow} (length and colons as in `HH:MM:SS`). Callers that
+ * only have raw spec data must parse first; this helper does not re-validate.
+ *
  * @param {string} canonical
  * @returns {string}
  */

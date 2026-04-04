@@ -8,10 +8,17 @@ const NEXT_POINTER_OCCLUSION_CLEARANCE_SECONDS = 60 * 60;
 
 /**
  * Optional `spec.semantic.nextTide` from the application minute-scale service
- * (`deriveNextTideSemantics`): when the key is present, layout skips marker scans.
+ * (`deriveNextTideSemantics`): when the key is absent, marker-based logic applies; when
+ * present, layout skips marker scans.
+ *
+ * Return policy:
+ * - `undefined` — `semantic` missing / not an object, or `nextTide` key absent (fall through to markers).
+ * - `null` — explicit `nextTide: null` (no next event; same as empty marker list).
+ * - object — use injected fields; malformed shape throws (fail fast; do not guess).
  *
  * @param {Record<string, unknown>} spec
  * @returns {undefined | null | { secondsSinceMidnight: number, kind: string, timeDeltaIntervalText: string }}
+ * @throws {Error} `nextTide` is non-null and not a plain object, or required fields wrong type
  */
 export function readOptionalInjectedNextTide(spec) {
   const raw = spec.semantic;
@@ -41,7 +48,9 @@ export function readOptionalInjectedNextTide(spec) {
 }
 
 /**
- * Format a positive interval in seconds as "<H>h <M>m" with minutes floored.
+ * Format an interval in seconds as "<H>h <M>m" with whole minutes floored from a non-negative duration.
+ *
+ * Non-positive `seconds` are clamped to `0` (same display as “no forward gap”), not thrown.
  *
  * @param {number} seconds
  * @returns {string}
@@ -56,7 +65,9 @@ export function formatIntervalHoursMinutes(seconds) {
 
 /**
  * Compute the next tide event at or after `timeNow` within the current civil day.
- * If no marker is at or after `timeNow`, no next event is defined and `null` is returned.
+ *
+ * Returns `null` when there is no qualifying next event (injected `null`, empty markers, or
+ * no marker at/after `timeNow`). Marker times that fail {@link parseCanonicalTimeOrThrow} throw.
  *
  * @param {Record<string, unknown>} spec full diagram spec including timeNow and tideMarks.markers
  * @param {{ canonical: string, seconds: number, hours: number, isRightEndpoint: boolean }} parsedNow
@@ -80,15 +91,6 @@ export function computeNextTideEventFromSpec(spec, parsedNow) {
 }
 
 /**
- * Compute the next tide event at or after `timeNow` and return its absolute
- * seconds-since-midnight and kind. Shared core for consumers that need the
- * raw timing rather than just the formatted interval.
- *
- * @param {Record<string, unknown>} spec
- * @param {{ canonical: string, seconds: number, hours: number, isRightEndpoint: boolean }} parsedNow
- * @returns {{ seconds: number, kind: string } | null}
- */
-/**
  * Whether to drop the **Now radial line**, **Now label**, and **WaitArc** so they do not overlap
  * **NextPointer** (same next-marker definition as {@link computeNextTideEventCore}). The **Now
  * triangle** is kept: it sits nearer the dial centre and does not occlude the next-tide ray.
@@ -105,6 +107,19 @@ export function shouldOmitNowWaitVisualsForNextPointerClearance(parsedNow, nextC
   return forwardSeconds < NEXT_POINTER_OCCLUSION_CLEARANCE_SECONDS;
 }
 
+/**
+ * Compute the next tide event at or after `timeNow` and return its absolute
+ * seconds-since-midnight and kind. Shared core for consumers that need the
+ * raw timing rather than just the formatted interval.
+ *
+ * Returns `null` when injection is `null`, or when `tideMarks.markers` is missing, not a
+ * non-empty array, or no marker falls at or after `parsedNow`. Invalid marker times throw
+ * via {@link parseCanonicalTimeOrThrow}.
+ *
+ * @param {Record<string, unknown>} spec
+ * @param {{ canonical: string, seconds: number, hours: number, isRightEndpoint: boolean }} parsedNow
+ * @returns {{ seconds: number, kind: string } | null}
+ */
 export function computeNextTideEventCore(spec, parsedNow) {
   const injected = readOptionalInjectedNextTide(spec);
   if (injected !== undefined) {
@@ -114,8 +129,12 @@ export function computeNextTideEventCore(spec, parsedNow) {
       kind: injected.kind,
     };
   }
-  const rawTideMarks = /** @type {any} */ (spec.tideMarks);
-  const markersRaw = rawTideMarks?.markers;
+  const tideMarksUnknown = spec.tideMarks;
+  if (tideMarksUnknown == null || typeof tideMarksUnknown !== "object") {
+    return null;
+  }
+  const tideMarks = /** @type {Record<string, unknown>} */ (tideMarksUnknown);
+  const markersRaw = tideMarks.markers;
   if (!Array.isArray(markersRaw) || markersRaw.length === 0) {
     return null;
   }
