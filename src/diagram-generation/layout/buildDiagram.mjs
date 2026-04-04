@@ -1,4 +1,12 @@
-// buildDiagram reads tide diagram spec fields and returns a tide diagram document.
+// Orchestrates layout modules into a TideDiagramDocument from an open spec object.
+// See docs/specs/tide-diagram.md; spec keys mirror the open object passed from the app (diagramGenerationCollaborator.ts).
+//
+// Policies for {@link buildDiagram}:
+// - Throws if `spec.contentBounds` is missing or not `{ left, right, above, below }` with finite values ≥ 0.
+// - Canvas size, ref arc, and tick sizing: finite numbers win; non-finite or wrong-type values fall back to defaults below.
+// - `spec.title` defaults to "tide diagram" when missing or not a string.
+// - Tick labels: `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries are skipped.
+// - Sub-builders (`buildTideMarksFromSpec`, pointers, centre cluster, wait arc) enforce their own throw/return-null rules.
 import { buildCentreClusterFromSpec } from "./centreCluster.mjs";
 import { buildNowPointerFromSpec } from "./nowPointer.mjs";
 import { buildNextPointerFromSpec } from "./nextPointer.mjs";
@@ -14,6 +22,27 @@ import {
   refArcAngles,
   timeToTheta,
 } from "../model/tideDiagramModel.mjs";
+
+/** @type {number} px when canvas width is absent or not a finite number */
+const DEFAULT_CANVAS_WIDTH = 400;
+/** @type {number} px when canvas height is absent or not a finite number */
+const DEFAULT_CANVAS_HEIGHT = 300;
+/** @type {string} when `spec.title` is absent or not a string */
+const DEFAULT_TITLE = "tide diagram";
+/** @type {number} RefRadius units when `spec.refRadius` is absent or not a finite number */
+const DEFAULT_REF_RADIUS = 100;
+/** @type {number} radians when `spec.sweepRad` is absent or not a finite number */
+const DEFAULT_SWEEP_RAD = Math.PI * 0.92;
+/** @type {number} proportion of RefRadius for hour tick length when absent or not finite */
+const DEFAULT_TICK_LEN = 0.08;
+
+/**
+ * @param {unknown} v
+ * @param {number} fallback
+ */
+function numOr(v, fallback) {
+  return typeof v === "number" && Number.isFinite(v) ? v : fallback;
+}
 
 /**
  * Root-level clock readout from `spec.timeNow` (canonical `HH:MM:SS` only). Optional `spec.timeNowLabel`:
@@ -54,30 +83,21 @@ function buildTimeNowLabelFromSpec(spec) {
  * @returns {import('../model/tideDiagramModel.mjs').TideDiagramDocument}
  */
 export function buildDiagram(spec) {
-  const width =
-    typeof spec.canvas?.width === "number" ? spec.canvas.width : 400;
-  const height =
-    typeof spec.canvas?.height === "number" ? spec.canvas.height : 300;
-  const title =
-    typeof spec.title === "string" ? spec.title : "tide diagram";
+  const canvasRaw = spec.canvas;
+  const canvas =
+    canvasRaw != null && typeof canvasRaw === "object"
+      ? /** @type {Record<string, unknown>} */ (canvasRaw)
+      : null;
+  const width = numOr(canvas?.width, DEFAULT_CANVAS_WIDTH);
+  const height = numOr(canvas?.height, DEFAULT_CANVAS_HEIGHT);
+  const title = typeof spec.title === "string" ? spec.title : DEFAULT_TITLE;
 
-  const refRadius =
-    typeof spec.refRadius === "number" ? spec.refRadius : 100;
-  const sweepRad =
-    typeof spec.sweepRad === "number"
-      ? spec.sweepRad
-      : Math.PI * 0.92;
-  const tickLen =
-    typeof spec.tickLen === "number" ? spec.tickLen : 0.08;
+  const refRadius = numOr(spec.refRadius, DEFAULT_REF_RADIUS);
+  const sweepRad = numOr(spec.sweepRad, DEFAULT_SWEEP_RAD);
+  const tickLen = numOr(spec.tickLen, DEFAULT_TICK_LEN);
 
-  const tickLabelSize =
-    typeof spec.tickLabelSize === "number"
-      ? spec.tickLabelSize
-      : 1.5 * tickLen;
-  const tickLabelClearance =
-    typeof spec.tickLabelClearance === "number"
-      ? spec.tickLabelClearance
-      : 3 * tickLen;
+  const tickLabelSize = numOr(spec.tickLabelSize, 1.5 * tickLen);
+  const tickLabelClearance = numOr(spec.tickLabelClearance, 3 * tickLen);
 
   const { thetaLeft, thetaRight } = refArcAngles(sweepRad);
   const rInner = 1.0 * refRadius;
@@ -278,12 +298,4 @@ function buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight) {
       scaleWithStroke: o.arrow?.scaleWithStroke !== false,
     },
   };
-}
-
-/**
- * @param {unknown} v
- * @param {number} fallback
- */
-function numOr(v, fallback) {
-  return typeof v === "number" && Number.isFinite(v) ? v : fallback;
 }
