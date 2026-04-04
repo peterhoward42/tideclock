@@ -15,7 +15,7 @@ export const route = writable('home')
 
 /**
  * @param {string} hash
- * @returns {RouteId}
+ * @returns {RouteId} Unknown segments map to `home` (defensive default for arbitrary `#/...` input).
  */
 function parseHash(hash) {
   const raw = hash.replace(/^#\/?/, '').trim()
@@ -52,6 +52,7 @@ export function syncRouteFromHash() {
 
 /**
  * @param {RouteId} id
+ * Sets `location.hash`; if a hash listener is attached, this typically fires `hashchange` after the write.
  */
 export function navigate(id) {
   if (typeof window === 'undefined') {
@@ -61,6 +62,7 @@ export function navigate(id) {
 }
 
 /**
+ * Registers `hashchange` and runs one immediate {@link syncRouteFromHash} so the store matches the current URL.
  * @returns {() => void}
  */
 export function attachHashListener() {

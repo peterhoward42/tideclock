@@ -3,8 +3,8 @@
 import { readable } from 'svelte/store'
 
 /**
- * Intent hold (Phase 5): retain this 1s wall-clock trigger as orchestration policy,
- * even while diagram semantics ownership moves elsewhere.
+ * Milliseconds since epoch, updated about once per second while subscribed.
+ * Subscribing starts a timer; unsubscribing clears it. Initial value is `Date.now()` at store creation.
  */
 export const nowMs = readable(Date.now(), (set) => {
   const id = setInterval(() => set(Date.now()), 1000)

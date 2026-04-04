@@ -1,5 +1,5 @@
 // @ts-check
-// Entry: mounts the Svelte app on `#app` (throws if that element is missing).
+// Entry: mounts the Svelte app on `#app` (throws if missing); logs boot diagnostics to the console.
 import { mount } from 'svelte'
 import './app.css'
 import App from './ui/App.svelte'
