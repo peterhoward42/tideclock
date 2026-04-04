@@ -91,6 +91,16 @@ fart
 					*  ask chatgpt for ordered plan
 					o  automate the step application sequence with a
 					   reusable prompt
+					o  skill for finding orphaned / unused code
+					o  out of band task
+						o  write down objectives for ui styling
+							o  ask for help given role of app and image
+							   projection
+								o  write a spec doc as context
+
+fart
+
+
 
 
 TypeScript rollout — next step from git
@@ -103,7 +113,6 @@ If tests pass, stage only files touched for this step and commit with subject: t
 
 				o  try on phone
 				o  line thicknesses knobs
-
 				o  improve now triangle graphics - perhaps inside tick zone
 
 				o  leave it running to spot errors / null in log
