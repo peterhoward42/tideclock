@@ -43,8 +43,8 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: Record<string, unknown> = {
   waitArc: {
     radius: 0.68,
     arrow: {
-      lengthK: 7,
-      widthK: 5,
+      lengthK: 20,
+      widthK: 8,
       insetK: 0,
       style: 'filled',
       scaleWithStroke: true,
