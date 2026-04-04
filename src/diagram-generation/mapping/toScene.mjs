@@ -1,4 +1,5 @@
 // Maps a TideDiagramDocument from buildDiagram into the scene graph used for preview rendering.
+// Callers must pass a complete document per tideDiagramModel (e.g. tickLabels and tideMarks are arrays, not omitted).
 import {
   arc,
   circle,
@@ -17,6 +18,10 @@ function emptyBounds() {
   return { minX: Infinity, minY: Infinity, maxX: -Infinity, maxY: -Infinity };
 }
 
+/**
+ * @param {{ minX: number, minY: number, maxX: number, maxY: number }} b mutated in place
+ * @param {{ x: number, y: number }} p
+ */
 function expandBoundsByPoint(b, p) {
   if (p.x < b.minX) b.minX = p.x;
   if (p.y < b.minY) b.minY = p.y;
@@ -24,6 +29,7 @@ function expandBoundsByPoint(b, p) {
   if (p.y > b.maxY) b.maxY = p.y;
 }
 
+/** @param {{ minX: number, minY: number, maxX: number, maxY: number }} b mutated in place */
 function expandBoundsByRect(b, x0, y0, x1, y1) {
   const minX = Math.min(x0, x1);
   const maxX = Math.max(x0, x1);
@@ -60,6 +66,7 @@ function angleInSweep(a, a0, sweep) {
   }
 }
 
+/** @param {{ minX: number, minY: number, maxX: number, maxY: number }} b mutated in place */
 function expandBoundsByArc(b, node) {
   const cx = node.center.x;
   const cy = node.center.y;
@@ -87,6 +94,7 @@ function expandBoundsByArc(b, node) {
   }
 }
 
+/** @param {{ minX: number, minY: number, maxX: number, maxY: number }} b mutated in place */
 function expandBoundsByText(b, node) {
   const size = Number(node.size) || 0;
   const len = (node.content ?? "").length;
@@ -130,6 +138,7 @@ function expandBoundsByText(b, node) {
   }
 }
 
+/** @param {{ minX: number, minY: number, maxX: number, maxY: number }} b mutated in place */
 function expandBoundsByNode(b, node) {
   switch (node.kind) {
     case "group":
@@ -160,10 +169,12 @@ function expandBoundsByNode(b, node) {
       expandBoundsByText(b, node);
       return;
     default:
+      // Unknown scene node kinds: skip (extensible renderer may add kinds before bounds logic catches up).
       return;
   }
 }
 
+/** @param {import('../model/sceneModel.mjs').GroupNode} root */
 function computeScenePreviewFrame(root) {
   const b = emptyBounds();
   expandBoundsByNode(b, root);
@@ -363,7 +374,7 @@ export function tideDiagramToScene(diagram) {
       : null;
   const ticksGroup = group("TickMark", tickChildren);
 
-  const tickLabelChildren = (tickLabels ?? []).map((tl) =>
+  const tickLabelChildren = tickLabels.map((tl) =>
     text({
       content: tl.content,
       size: tl.fontSize,
@@ -374,7 +385,7 @@ export function tideDiagramToScene(diagram) {
   );
   const tickLabelsGroup = group("TickLabel", tickLabelChildren);
 
-  const tideMarkGroups = (tideMarks ?? []).map((m) =>
+  const tideMarkGroups = tideMarks.map((m) =>
     tideMarkDiagramToGroup(m, cx, cy),
   );
   const tideMarksGroup = group("TideMarks", tideMarkGroups);
