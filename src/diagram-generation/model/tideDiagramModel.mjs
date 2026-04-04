@@ -138,6 +138,13 @@
  * }} TideDiagramDocument
  */
 
+/** @param {string} label @param {number} value */
+function assertFiniteNumber(label, value) {
+  if (typeof value !== "number" || !Number.isFinite(value)) {
+    throw new Error(`${label} must be a finite number`);
+  }
+}
+
 /**
  * Axis-aligned box of interest in diagram space: origin at RefArc centre, each extent is a multiple of RefRadius.
  * Left/right/below/above are positive distances in -x, +x, -y, +y respectively.
@@ -148,8 +155,17 @@
  * @param {number} below
  * @param {number} refRadius
  * @returns {{ minX: number, maxX: number, minY: number, maxY: number }}
+ * @throws {Error} any extent or `refRadius` is not a finite number, or `refRadius` is not positive
  */
 export function diagramBoxFromExtents(left, right, above, below, refRadius) {
+  assertFiniteNumber("left", left);
+  assertFiniteNumber("right", right);
+  assertFiniteNumber("above", above);
+  assertFiniteNumber("below", below);
+  assertFiniteNumber("refRadius", refRadius);
+  if (refRadius <= 0) {
+    throw new Error("refRadius must be positive");
+  }
   const R = refRadius;
   return {
     minX: -left * R,
@@ -163,8 +179,10 @@ export function diagramBoxFromExtents(left, right, above, below, refRadius) {
  * Gap on the circle is centred on +Y; RefArc is symmetric about -Y (bottom), CCW from thetaLeft to thetaRight.
  * @param {number} sweepRad subtended angle (radians)
  * @returns {{ thetaLeft: number, thetaRight: number }}
+ * @throws {Error} `sweepRad` is not a finite number
  */
 export function refArcAngles(sweepRad) {
+  assertFiniteNumber("sweepRad", sweepRad);
   const mid = (3 * Math.PI) / 2;
   return {
     thetaLeft: mid - sweepRad / 2,
@@ -177,8 +195,12 @@ export function refArcAngles(sweepRad) {
  * @param {number} tHours
  * @param {number} thetaLeft
  * @param {number} thetaRight
+ * @throws {Error} any argument is not a finite number
  */
 export function timeToTheta(tHours, thetaLeft, thetaRight) {
+  assertFiniteNumber("tHours", tHours);
+  assertFiniteNumber("thetaLeft", thetaLeft);
+  assertFiniteNumber("thetaRight", thetaRight);
   return thetaLeft + (tHours / 24) * (thetaRight - thetaLeft);
 }
 
@@ -186,7 +208,10 @@ export function timeToTheta(tHours, thetaLeft, thetaRight) {
  * @param {number} r
  * @param {number} theta
  * @returns {DiagramPoint}
+ * @throws {Error} `r` or `theta` is not a finite number
  */
 export function polar(r, theta) {
+  assertFiniteNumber("r", r);
+  assertFiniteNumber("theta", theta);
   return { x: r * Math.cos(theta), y: r * Math.sin(theta) };
 }
