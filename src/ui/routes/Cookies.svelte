@@ -1,6 +1,5 @@
-<script>
-  /** @type {string} */
-  const title = 'Cookies'
+<script lang="ts">
+  const title: string = "Cookies";
 </script>
 
 <main class="route">
