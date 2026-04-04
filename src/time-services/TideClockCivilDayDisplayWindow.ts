@@ -1,27 +1,45 @@
-// TideClockCivilDayDisplayWindow captures the current civil-day interval in local civil time.
-// Interval is half-open: includes local 00:00, excludes local 00:00 of the next day.
-export class TideClockCivilDayDisplayWindow {
-  // startLocal is inclusive (local civil time).
+/**
+ * Half-open local civil-day bounds: inclusive start at local midnight, exclusive end
+ * at the next local midnight. `Date` values use the host’s local calendar when read
+ * via `getFullYear` / `getMonth` / `getDate` etc.
+ */
+export interface CivilDayLocalInterval {
+  readonly startLocal: Date;
+  readonly endLocalExclusive: Date;
+}
+
+/**
+ * The tide-clock “today” window: one local calendar day as a half-open interval.
+ * Instances defensively copy the constructor dates so callers cannot mutate stored bounds.
+ */
+export class TideClockCivilDayDisplayWindow implements CivilDayLocalInterval {
   public readonly startLocal: Date;
-  // endLocalExclusive is exclusive (local civil time).
   public readonly endLocalExclusive: Date;
 
   constructor(startLocal: Date, endLocalExclusive: Date) {
-    this.startLocal = new Date(startLocal.getTime());
-    this.endLocalExclusive = new Date(endLocalExclusive.getTime());
+    const start = new Date(startLocal.getTime());
+    const end = new Date(endLocalExclusive.getTime());
+    if (end.getTime() <= start.getTime()) {
+      throw new Error(
+        'TideClockCivilDayDisplayWindow: endLocalExclusive must be strictly after startLocal'
+      );
+    }
+    this.startLocal = start;
+    this.endLocalExclusive = end;
   }
 }
 
-// TimeNowProvider isolates clock access so callers/tests can control which instant
-// is interpreted under the runtime's local timezone and DST rules.
+/**
+ * Supplies the current instant when resolving which local civil day is active.
+ * Tests inject fixed instants; the app uses {@link SystemTimeNowProvider}.
+ */
 export interface TimeNowProvider {
   now(): Date;
 }
 
-// SystemTimeNowProvider uses the host machine's current local time regime.
+/** Host clock; `now()` is interpreted under the runtime’s local timezone and DST rules. */
 export class SystemTimeNowProvider implements TimeNowProvider {
   now(): Date {
     return new Date();
   }
 }
-
