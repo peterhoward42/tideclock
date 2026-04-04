@@ -1,10 +1,80 @@
 import { describe, expect, it } from 'vitest';
 import { buildDiagram } from '../diagram-generation/index.mjs';
 import { TIME_DELTA_EMPTY_MESSAGE } from '../diagram-generation/layout/centreCluster.mjs';
+import type {
+  DiagramGenerationSpec,
+  TideDiagramDocument,
+} from './diagramGenerationCollaborator';
 import { deriveNextTideSemantics } from './nextTideSemantics';
 
+/**
+ * These tests pin the seam between application-layer {@link deriveNextTideSemantics} and
+ * diagram-generation {@link buildDiagram}: when `spec.semantic.nextTide` matches the derived value,
+ * layout output is identical to letting layout scan `tideMarks` itself. The fixture type is
+ * stricter than {@link DiagramGenerationSpec}; it is cast only at the diagram-generation boundary.
+ */
+
+type SemanticInjectionTideMark = {
+  readonly time: string;
+  readonly heightText: string;
+  readonly highOrLow: string;
+};
+
+/**
+ * Layout + marker data for parity checks; structurally satisfies `deriveNextTideSemantics` input
+ * (`timeNow` + `tideMarks.markers`).
+ */
+type SemanticInjectionDiagramSpec = {
+  readonly title: string;
+  readonly contentBounds: {
+    readonly left: number;
+    readonly right: number;
+    readonly above: number;
+    readonly below: number;
+  };
+  readonly refRadius: number;
+  readonly sweepRad: number;
+  readonly timeNow: string;
+  readonly nowPointer: {
+    readonly radialLine: { readonly innerRadius: number; readonly outerRadius: number };
+    readonly label: { readonly size: number; readonly normalOffset: number };
+    readonly triangle: {
+      readonly radius: number;
+      readonly baseLen: number;
+      readonly height: number;
+    };
+  };
+  readonly nextPointer: {
+    readonly radialLine: { readonly outerRadius: number };
+    readonly circle: { readonly radius: number };
+  };
+  readonly waitArc: {
+    readonly radius: number;
+    readonly arrow: {
+      readonly lengthK: number;
+      readonly widthK: number;
+      readonly insetK: number;
+      readonly style: 'filled';
+      readonly scaleWithStroke: boolean;
+    };
+  };
+  readonly tideMarks: {
+    readonly markers: readonly SemanticInjectionTideMark[];
+  };
+  readonly timeNowLabel: { readonly x: number; readonly fontHeight: number };
+  readonly centreCluster: {
+    readonly frameArcRadius: number;
+    readonly timeDelta: { readonly y: number; readonly fontHeight: number };
+  };
+};
+
+/** `buildDiagram` is implemented in `.mjs`; align returns with {@link TideDiagramDocument}. */
+function buildDiagramFromSpec(spec: DiagramGenerationSpec): TideDiagramDocument {
+  return buildDiagram(spec) as TideDiagramDocument;
+}
+
 /** Minimal spec with centreCluster, nextPointer, waitArc, and tide markers. */
-function sampleTideDiagramSpec(): Record<string, unknown> {
+function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
   return {
     title: 'semantic-injection',
     contentBounds: { left: 1.45, right: 1.15, above: 0.1, below: 1.5 },
@@ -49,32 +119,32 @@ function sampleTideDiagramSpec(): Record<string, unknown> {
 describe('spec.semantic.nextTide injection', () => {
   it('matches buildDiagram output when derived via deriveNextTideSemantics', () => {
     const spec = sampleTideDiagramSpec();
-    const baseline = buildDiagram(spec);
+    const baseline = buildDiagramFromSpec(spec as DiagramGenerationSpec);
     const { nextTide } = deriveNextTideSemantics(spec);
     expect(nextTide).not.toBeNull();
-    const withSemantic = buildDiagram({
+    const withSemantic = buildDiagramFromSpec({
       ...spec,
       semantic: { nextTide },
-    });
+    } as DiagramGenerationSpec);
     expect(withSemantic).toEqual(baseline);
   });
 
   it('matches when semantic.nextTide is null (no qualifying marker)', () => {
     const { centreCluster: _omit, ...rest } = sampleTideDiagramSpec();
     const spec = { ...rest, timeNow: '23:59:00' };
-    const baseline = buildDiagram(spec);
+    const baseline = buildDiagramFromSpec(spec as DiagramGenerationSpec);
     const { nextTide } = deriveNextTideSemantics(spec);
     expect(nextTide).toBeNull();
-    const withSemantic = buildDiagram({
+    const withSemantic = buildDiagramFromSpec({
       ...spec,
       semantic: { nextTide: null },
-    });
+    } as DiagramGenerationSpec);
     expect(withSemantic).toEqual(baseline);
   });
 
   it('after last tide of the day shows NoMoreTidesToday and omits NextPointer and WaitArc', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
-    const diagram = buildDiagram(spec);
+    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
     expect(diagram.centreCluster).not.toBeNull();
     expect(diagram.centreCluster?.timeDelta).toEqual([]);
     expect(diagram.centreCluster?.timeDeltaEmptyMessage).toEqual({
@@ -92,7 +162,7 @@ describe('spec.semantic.nextTide injection', () => {
 
   it('omits Now radial line, Now label, and WaitArc when next tide is under 60 minutes away', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '22:10:00' };
-    const diagram = buildDiagram(spec);
+    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
     expect(diagram.nextPointer).not.toBeNull();
     expect(diagram.nowPointer?.triangle).toBeDefined();
     expect(diagram.nowPointer?.radialLine).toBeNull();
@@ -102,7 +172,7 @@ describe('spec.semantic.nextTide injection', () => {
 
   it('keeps Now radial line, Now label, and WaitArc when next tide is exactly 60 minutes away', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '22:06:00' };
-    const diagram = buildDiagram(spec);
+    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
     expect(diagram.nextPointer).not.toBeNull();
     expect(diagram.nowPointer?.radialLine).not.toBeNull();
     expect(diagram.nowPointer?.nowLabel).not.toBeNull();
@@ -112,10 +182,16 @@ describe('spec.semantic.nextTide injection', () => {
   it('rejects malformed injected nextTide', () => {
     const spec = sampleTideDiagramSpec();
     expect(() =>
-      buildDiagram({
+      buildDiagramFromSpec({
         ...spec,
-        semantic: { nextTide: { secondsSinceMidnight: 'x', kind: 'High', timeDeltaIntervalText: '1h 0m' } },
-      }),
+        semantic: {
+          nextTide: {
+            secondsSinceMidnight: 'x',
+            kind: 'High',
+            timeDeltaIntervalText: '1h 0m',
+          },
+        },
+      } as DiagramGenerationSpec),
     ).toThrow(/secondsSinceMidnight/);
   });
 
@@ -123,10 +199,10 @@ describe('spec.semantic.nextTide injection', () => {
     const spec = sampleTideDiagramSpec();
     const { nextTide } = deriveNextTideSemantics(spec);
     expect(nextTide).not.toBeNull();
-    const diagram = buildDiagram({
+    const diagram = buildDiagramFromSpec({
       ...spec,
       semantic: { nextTide },
-    });
+    } as DiagramGenerationSpec);
     expect(diagram).toMatchSnapshot();
   });
 });
