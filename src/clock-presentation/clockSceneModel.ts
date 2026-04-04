@@ -1,6 +1,12 @@
 /**
- * Semantic description of the clock face for presentation (no temporal binding in this iteration).
- * Downstream: geometry maps outline + division structure to primitives; SVG mapping renders pecks.
+ * Semantic description of the clock face for presentation (no temporal binding in this module).
+ *
+ * **Boundaries**
+ * - {@link ClockDialShell} is the static ring: reference outline and equal-arc divisions. It is stable
+ *   for the app’s current dial layout.
+ * - {@link ClockTideEventInstant} values are high/low instants for the active civil-day window; the
+ *   application layer supplies them when building a scene. Division geometry and SVG path mapping take a
+ *   {@link ClockSceneModel} as one input bundle.
  */
 
 export type ClockReferenceOutline = {
@@ -21,24 +27,35 @@ export type ClockDialDivisions = {
   readonly topAlignedBoundaryIndex: number;
 };
 
+/** Static dial structure without tide annotations (outline + division layout). */
+export type ClockDialShell = {
+  readonly referenceOutline: ClockReferenceOutline;
+  readonly dialDivisions: ClockDialDivisions;
+};
+
 /** High/low instants for the current civil-day window; geometry/SVG mapping comes later. */
 export type ClockTideEventInstant = {
   readonly kind: 'high' | 'low';
+  /** ISO 8601 instant in UTC, aligned with tide snapshot fields elsewhere in the app. */
   readonly timeUtc: string;
 };
 
-export type ClockSceneModel = {
-  readonly referenceOutline: ClockReferenceOutline;
-  readonly dialDivisions: ClockDialDivisions;
+/** Full scene passed into clock presentation: dial shell plus tide markers for the window. */
+export type ClockSceneModel = ClockDialShell & {
   readonly tideEvents: readonly ClockTideEventInstant[];
 };
 
-/** Canonical static scene for the current narrow slice (reference ring + 24 divisions, top-aligned). */
-export const defaultClockSceneModel = {
-  referenceOutline: { kind: 'circle' as const },
+/** Canonical static shell for the current narrow slice (reference ring + 24 divisions, top-aligned). */
+export const defaultClockDialShell: ClockDialShell = {
+  referenceOutline: { kind: 'circle' },
   dialDivisions: {
-    spaceCount: 24 as const,
+    spaceCount: 24,
     topAlignedBoundaryIndex: 0,
   },
+};
+
+/** Canonical scene: {@link defaultClockDialShell} with no tide events (caller fills when data exists). */
+export const defaultClockSceneModel: ClockSceneModel = {
+  ...defaultClockDialShell,
   tideEvents: [],
-} satisfies ClockSceneModel;
+};
