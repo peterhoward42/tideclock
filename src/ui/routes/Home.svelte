@@ -9,21 +9,24 @@
     buildDiagramGenerationSpec,
     utcIsoToLocalCanonicalTimeLocal,
   } from "../../application/buildDiagramGenerationSpec";
-  import { createDiagramGenerationCollaborator } from "../../application/diagramGenerationCollaborator";
+  import {
+    createDiagramGenerationCollaborator,
+    type DiagramGenerationCollaborator,
+  } from "../../application/diagramGenerationCollaborator";
   import { deriveNextTideSemantics } from "../../application/nextTideSemantics";
   import { subscribeSemanticMinuteCadence } from "../../application/semanticMinuteCadence";
   import { renderSceneSvg } from "../../diagram-generation/render/renderSceneSvg.mjs";
 
-  type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
+  type TidePredictionsLoadState = { readonly status: "loading" | "ready" | "error" };
 
   interface Props {
-    tideLoadState: TidePredictionsLoadState;
-    tideExtremes: TideExtremesAtLocation | undefined;
+    readonly tideLoadState: TidePredictionsLoadState;
+    readonly tideExtremes: TideExtremesAtLocation | undefined;
   }
 
   let { tideLoadState, tideExtremes }: Props = $props();
 
-  const collaborator = createDiagramGenerationCollaborator();
+  const collaborator: DiagramGenerationCollaborator = createDiagramGenerationCollaborator();
 
   /** Drives Loop B: bumps only on local minute rollover (aligned scheduler), not every second. */
   let semanticMinuteEpoch = $state(Math.floor(Date.now() / 60_000));
@@ -177,8 +180,10 @@
     const svg = diagramSvg;
     if (host == null || svg === "") return;
     const unsub = nowMs.subscribe((ms) => {
-      const textEl = host.querySelector('svg g[data-name="TimeNowLabel"] text');
-      if (textEl) textEl.textContent = localCanonicalTimeNowFromMs(ms);
+      const textEl = host.querySelector(
+        'svg g[data-name="TimeNowLabel"] text'
+      ) as SVGTextElement | null;
+      if (textEl !== null) textEl.textContent = localCanonicalTimeNowFromMs(ms);
     });
     return unsub;
   });
