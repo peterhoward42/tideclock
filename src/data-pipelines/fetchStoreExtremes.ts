@@ -3,13 +3,18 @@ import { buildExtremesFromProxy } from './buildFromProxy';
 import type { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import { serializeExtremesSnapshot, type ExtremesStorer } from './extremesSnapshot';
 
-interface FetchStoreExtremesParams {
-  lat: number;
-  lon: number;
-  baseUrl: string;
-  fetchImpl: typeof fetch;
-  storer: ExtremesStorer;
-  storageKey: string;
+/** Injectable network and persistence seams; tests use fakes here. */
+export interface FetchStoreExtremesDeps {
+  readonly fetchImpl: typeof fetch;
+  readonly storer: ExtremesStorer;
+}
+
+export interface FetchStoreExtremesInput extends FetchStoreExtremesDeps {
+  readonly lat: number;
+  readonly lon: number;
+  /** Non-empty tide proxy origin (e.g. from env). */
+  readonly baseUrl: string;
+  readonly storageKey: string;
 }
 
 /**
@@ -23,7 +28,7 @@ export async function fetchStoreExtremes({
   fetchImpl,
   storer,
   storageKey
-}: FetchStoreExtremesParams): Promise<TideExtremesAtLocation> {
+}: FetchStoreExtremesInput): Promise<TideExtremesAtLocation> {
   const tideProxyResponse = await fetchProxyV1Tides({
     lat,
     lon,
