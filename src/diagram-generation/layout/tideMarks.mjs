@@ -1,5 +1,12 @@
-// TideMarks layout in diagram space. See docs/specs/tide-diagram.md section TideMarks.
-// TimePointer: filled triangle + filled circle derived from divergence & line length inputs.
+// TideMarks layout in diagram space. See docs/specs/tide-diagram.md (TideMarks).
+// Parses `spec.tideMarks` into {@link layoutTideMarks} inputs; positions height/time labels and
+// the time pointer (triangle + incircle) from divergence and line-length factors.
+//
+// Policies for {@link buildTideMarksFromSpec}:
+// - Returns `[]` when `tideMarks` is missing, not a plain object, `markers` missing, empty, or
+//   yields no usable rows (skips non-objects, non-string `heightText`, right-endpoint times).
+// - Throws from {@link parseCanonicalTimeOrThrow} on invalid marker times, and on duplicate
+//   canonical times after filtering.
 
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
 import {
@@ -8,7 +15,18 @@ import {
 } from "../model/timeCanonical.mjs";
 
 /**
- * @param {{
+ * One marker after spec parsing: fractional hour on the dial, display strings, canonical time key.
+ *
+ * @typedef {{
+ *   t: number,
+ *   canonicalTime: string,
+ *   heightText: string,
+ *   timeText: string,
+ * }} LayoutTideMarkInput
+ */
+
+/**
+ * @typedef {{
  *   refRadius: number,
  *   thetaLeft: number,
  *   thetaRight: number,
@@ -18,8 +36,14 @@ import {
  *   timeLabelSizeK: number,
  *   tideMarkArrowDivergence: number,
  *   tideMarkArrowLineLen: number,
- *   markers: { t: number, canonicalTime: string, heightText: string, timeText: string }[],
- * }} params
+ *   markers: LayoutTideMarkInput[],
+ * }} LayoutTideMarksParams
+ */
+
+/**
+ * Pure layout: maps each marker to diagram-space labels and time pointer geometry.
+ *
+ * @param {LayoutTideMarksParams} params — `markers` is typically non-empty; an empty array returns `[]`.
  * @returns {import('../model/tideDiagramModel.mjs').TideMarkDiagram[]}
  */
 export function layoutTideMarks(params) {
@@ -85,10 +109,16 @@ export function layoutTideMarks(params) {
 }
 
 /**
- * @param {{x:number,y:number}} v1
- * @param {{x:number,y:number}} v2
- * @param {{x:number,y:number}} v3
- * @returns {{x:number,y:number}}
+ * Intersection of lines through `v2` and `v3` perpendicular to `v1→v2` and `v1→v3` (triangle “normals”).
+ * Used for the time-pointer incircle center.
+ *
+ * When the normals are parallel or the system is nearly singular, returns the midpoint of `v2`–`v3`
+ * so layout still produces finite coordinates.
+ *
+ * @param {{ x: number, y: number }} v1
+ * @param {{ x: number, y: number }} v2
+ * @param {{ x: number, y: number }} v3
+ * @returns {{ x: number, y: number }}
  */
 function normalLineIntersection(v1, v2, v3) {
   const d1x = v2.x - v1.x;
@@ -113,11 +143,19 @@ function normalLineIntersection(v1, v2, v3) {
 }
 
 /**
+ * Read `spec.tideMarks` and lay out tide marks for the given ref arc angles.
+ *
+ * Numeric styling keys are optional on the spec object; defaults match historical diagram presets
+ * (`tideLabelRadius` 0.82, height/time size K, arrow divergence 1.0 rad, arrow line len 0.1).
+ * Accepts legacy aliases `TideMarkArrowDivergence` / `TideMarkArrowLineLen` and falls back height/time
+ * radii to `tideLabelRadius` when the specific keys are absent.
+ *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
  * @param {number} thetaLeft
  * @param {number} thetaRight
  * @returns {import('../model/tideDiagramModel.mjs').TideMarkDiagram[]}
+ * @throws {Error} invalid marker time (via {@link parseCanonicalTimeOrThrow}) or duplicate canonical time
  */
 export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const raw = spec.tideMarks;
@@ -152,7 +190,7 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     ),
   );
 
-  /** @type {{ t: number, canonicalTime: string, heightText: string, timeText: string }[]} */
+  /** @type {LayoutTideMarkInput[]} */
   const markers = [];
   for (const row of markersRaw) {
     if (row == null || typeof row !== "object") continue;
@@ -201,7 +239,8 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
 
 /**
  * @param {unknown} v
- * @param {number} fallback
+ * @param {number} fallback — used only when `v` is not a finite number (optional spec fields).
+ * @returns {number}
  */
 function numOr(v, fallback) {
   return typeof v === "number" && Number.isFinite(v) ? v : fallback;
