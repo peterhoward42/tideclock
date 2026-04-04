@@ -1,16 +1,15 @@
-# Elevator Pitch
+# Elevator Pitch ++
 
-for people interested in tides, conveneince, novelty and amusement as well as utility, delib diff approach to lookin gup tide table or equiv website
+This is a slightly extended introduction to the Tide Times app created by this repository.
 
-example bread or kayak
+It’s designed for people who live in UK coastal areas, as well as those visiting them. The app helps users engage with today’s tide times in a deliberately unusual and distinctive way.
 
-v well hidden agenda promote my sw services
+At one level, it provides straightforward, practical information. At another, it aims to be an engaging artefact in its own right. Technically, it is just a website, but it aspires to feel more like an appliance or an instrument. You might imagine it displayed permanently on a wall-mounted screen in a hotel or guest accommodation.
 
-is-a appliance, but not really is just a responsive website. but can treat as an appliance only insofar as put it on wall. that is primary marketing stance for hotels / airbnb in coastal locations, and local residents who just want to be tide aware for any reason - whimsy or "need"
+The app does not present any data that cannot already be found in traditional tide tables or existing apps. That is not its purpose. Its identity comes from how the information is presented, and what it chooses to emphasise.
 
-focus is key novelty - mostly about how long until next high/low tide TODAY, in my (changeable) location
+Its primary focus is the relationship between the current time and the next tidal event, whether that is high tide or low tide. It highlights this upcoming moment, while still showing the full set of times and heights for the day.
 
-completely ambient / passive loosely conceptually
+The typical user might be someone whose activity depends on the state of the tide, or a visitor who is simply curious to observe its rhythm. For example, I live near a tidal river bridge that becomes impassable by car during large spring tides. Inconvenient if you need to pop out for milk, but perfect if you are planning to go kayaking.
 
-uses novel long curved arc (like a smile) to represent the 24 hours of today and marks on there
-the times of all the high / low tides that day, the time now, and the time until graphically
+The presentation is primarily visual and graphical. It centres on a long, smile-like curve representing the 24 hours of the current day, loosely borrowing from the idea of a clock face. Overlaid on this are markers for high and low tides, along with radial pointers indicating the current time, the next tidal event, and the interval between them.
