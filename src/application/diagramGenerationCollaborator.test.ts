@@ -18,12 +18,10 @@ describe('createDiagramGenerationCollaborator', () => {
   it('generates diagram and scene from app runtime code', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const output = collaborator.generate(minimalDiagramSpec());
-    const diagram = output.diagram as { version: number };
-    const scene = output.scene as { version: number; root: { kind: string } };
 
-    expect(diagram.version).toBe(1);
-    expect(scene.version).toBe(2);
-    expect(scene.root.kind).toBe('group');
+    expect(output.diagram.version).toBe(1);
+    expect(output.scene.version).toBe(2);
+    expect(output.scene.root.kind).toBe('group');
     expect(output.styleRuntime.stylesByName.size).toBeGreaterThan(0);
   });
 });

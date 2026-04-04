@@ -5,6 +5,239 @@ import {
   tideDiagramToScene,
 } from "../diagram-generation/index.mjs";
 
+/** Matches `tideDiagramModel.mjs` diagram-space coordinates. */
+type DiagramPoint = { readonly x: number; readonly y: number };
+
+type RefArcSpec = {
+  readonly center: DiagramPoint;
+  readonly refRadius: number;
+  readonly sweepRad: number;
+  readonly thetaLeft: number;
+  readonly thetaRight: number;
+};
+
+type TickMarkSpec = {
+  readonly hour: number;
+  readonly theta: number;
+  readonly start: DiagramPoint;
+  readonly end: DiagramPoint;
+};
+
+type TickLabelSpec = {
+  readonly hour: number;
+  readonly theta: number;
+  readonly content: string;
+  readonly fontSize: number;
+  readonly anchor: DiagramPoint;
+};
+
+type ContentBoundsExtents = {
+  readonly left: number;
+  readonly right: number;
+  readonly above: number;
+  readonly below: number;
+};
+
+type DiagramContentBounds = {
+  readonly extents: ContentBoundsExtents;
+  readonly rect: {
+    readonly minX: number;
+    readonly maxX: number;
+    readonly minY: number;
+    readonly maxY: number;
+  };
+};
+
+type DiagramTextInst = {
+  readonly content: string;
+  readonly fontSize: number;
+  readonly anchor: DiagramPoint;
+  readonly hAlign?: "left" | "center" | "right";
+};
+
+type CentreClusterFrameArcSpec = {
+  readonly center: DiagramPoint;
+  readonly radius: number;
+  readonly sweepRad: number;
+  readonly thetaLeft: number;
+  readonly thetaRight: number;
+};
+
+type DiagramLineSeg = {
+  readonly start: DiagramPoint;
+  readonly end: DiagramPoint;
+};
+
+type CentreClusterDiagram = {
+  readonly timeDelta: DiagramTextInst[];
+  readonly timeDeltaEmptyMessage: DiagramTextInst | null;
+  readonly frameArc: CentreClusterFrameArcSpec;
+  readonly frameLines: [DiagramLineSeg, DiagramLineSeg];
+};
+
+type TideLabelTextInst = {
+  readonly content: string;
+  readonly fontSize: number;
+  readonly anchor: DiagramPoint;
+  readonly angleRad: number;
+};
+
+type TideTimePointerSpec = {
+  readonly triangle: {
+    readonly v1: DiagramPoint;
+    readonly v2: DiagramPoint;
+    readonly v3: DiagramPoint;
+  };
+  readonly circle: { readonly center: DiagramPoint; readonly radius: number };
+};
+
+type TideMarkDiagram = {
+  readonly timeHours: number;
+  readonly theta: number;
+  readonly heightLabel: TideLabelTextInst;
+  readonly timeLabel: TideLabelTextInst;
+  readonly timePointer: TideTimePointerSpec;
+};
+
+type NowPointerDiagram = {
+  readonly timeHours: number;
+  readonly theta: number;
+  readonly nowLabelBranch: "A" | "B";
+  readonly radialLine: DiagramLineSeg | null;
+  readonly nowLabel: TideLabelTextInst | null;
+  readonly triangle?: {
+    readonly v1: DiagramPoint;
+    readonly v2: DiagramPoint;
+    readonly v3: DiagramPoint;
+  };
+};
+
+type NextPointerDiagram = {
+  readonly timeHours: number;
+  readonly theta: number;
+  readonly radialLine: DiagramLineSeg;
+  readonly circle: { readonly center: DiagramPoint; readonly radius: number };
+};
+
+type ArcArrowMeta = {
+  readonly at: "end";
+  readonly lengthK: number;
+  readonly widthK: number;
+  readonly insetK: number;
+  readonly style: "filled" | "open";
+  readonly scaleWithStroke: boolean;
+};
+
+type WaitArcDiagram = {
+  readonly center: DiagramPoint;
+  readonly radius: number;
+  readonly thetaStart: number;
+  readonly sweepRad: number;
+  readonly arrow: ArcArrowMeta;
+};
+
+/**
+ * Shape returned by {@link buildDiagram} in `buildDiagram.mjs` (see JSDoc on `TideDiagramDocument`
+ * in `tideDiagramModel.mjs`). App code treats this as the diagram-generation boundary contract.
+ */
+export type TideDiagramDocument = {
+  readonly version: number;
+  readonly meta: { readonly title: string; readonly width: number; readonly height: number };
+  readonly refArc: RefArcSpec;
+  readonly tickMarks: TickMarkSpec[];
+  readonly tickLabels: TickLabelSpec[];
+  readonly tideMarks: TideMarkDiagram[];
+  readonly nowPointer: NowPointerDiagram | null;
+  readonly nextPointer: NextPointerDiagram | null;
+  readonly waitArc: WaitArcDiagram | null;
+  readonly centreCluster: CentreClusterDiagram | null;
+  readonly timeNowLabel: DiagramTextInst | null;
+  readonly contentBounds: DiagramContentBounds;
+};
+
+type ScenePoint = { readonly x: number; readonly y: number };
+
+type SceneArcArrowMeta = {
+  readonly at: "end";
+  readonly lengthK: number;
+  readonly widthK: number;
+  readonly insetK: number;
+  readonly style: "filled" | "open";
+  readonly scaleWithStroke: boolean;
+};
+
+type SceneLinePrimitive = {
+  readonly kind: "line";
+  readonly start: ScenePoint;
+  readonly end: ScenePoint;
+};
+
+type SceneArcPrimitive = {
+  readonly kind: "arc";
+  readonly center: ScenePoint;
+  readonly start: ScenePoint;
+  readonly sweepRad: number;
+  readonly facetedPreview?: boolean;
+  readonly arrow?: SceneArcArrowMeta;
+};
+
+type SceneTrianglePrimitive = {
+  readonly kind: "triangle";
+  readonly a: ScenePoint;
+  readonly b: ScenePoint;
+  readonly c: ScenePoint;
+  readonly outline?: boolean;
+};
+
+type SceneCirclePrimitive = {
+  readonly kind: "circle";
+  readonly center: ScenePoint;
+  readonly radius: number;
+};
+
+type SceneTextPrimitive = {
+  readonly kind: "text";
+  readonly content: string;
+  readonly size: number;
+  readonly hAlign: "left" | "center" | "right";
+  readonly angleRad: number;
+  readonly anchor: ScenePoint;
+};
+
+type SceneGroupNode = {
+  readonly kind: "group";
+  readonly name: string;
+  readonly children: SceneNode[];
+};
+
+type SceneNode =
+  | SceneLinePrimitive
+  | SceneArcPrimitive
+  | SceneTrianglePrimitive
+  | SceneCirclePrimitive
+  | SceneTextPrimitive
+  | SceneGroupNode;
+
+/**
+ * Shape returned by {@link tideDiagramToScene} (see `SceneDocument` in `sceneModel.mjs`).
+ */
+export type TideSceneDocument = {
+  readonly version: number;
+  readonly meta: {
+    readonly title: string;
+    readonly width: number;
+    readonly height: number;
+    readonly previewFrame: {
+      readonly minX: number;
+      readonly maxX: number;
+      readonly minY: number;
+      readonly maxY: number;
+    };
+  };
+  readonly root: SceneGroupNode;
+};
+
+/** Open object passed into diagram-generation; keys mirror the spec consumed by `buildDiagram`. */
 export type DiagramGenerationSpec = Record<string, unknown>;
 
 export type DiagramGenerationStyleRuntime = {
@@ -16,8 +249,8 @@ export type DiagramGenerationStyleRuntime = {
 };
 
 export type DiagramGenerationOutput = {
-  readonly diagram: unknown;
-  readonly scene: unknown;
+  readonly diagram: TideDiagramDocument;
+  readonly scene: TideSceneDocument;
   readonly styleRuntime: DiagramGenerationStyleRuntime;
 };
 
@@ -30,11 +263,13 @@ export type DiagramGenerationCollaborator = {
  * Runtime-safe: composes only pure modules from src/diagram-generation.
  */
 export function createDiagramGenerationCollaborator(): DiagramGenerationCollaborator {
-  const styleRuntime = loadStyleModel(STATIC_STYLE_MODEL) as DiagramGenerationStyleRuntime;
+  const styleRuntime = loadStyleModel(
+    STATIC_STYLE_MODEL,
+  ) as DiagramGenerationStyleRuntime;
   return {
     generate(spec: DiagramGenerationSpec): DiagramGenerationOutput {
-      const diagram = buildDiagram(spec);
-      const scene = tideDiagramToScene(diagram);
+      const diagram = buildDiagram(spec) as TideDiagramDocument;
+      const scene = tideDiagramToScene(diagram) as TideSceneDocument;
       return { diagram, scene, styleRuntime };
     },
   };
