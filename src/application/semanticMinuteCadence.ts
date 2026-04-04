@@ -1,20 +1,27 @@
 const MS_PER_MINUTE = 60_000;
 
+const wallClockNowMs: () => number = () => Date.now();
+
+/** Public default: first tick runs on subscribe so UI matches the current minute. */
+const DEFAULT_FIRE_IMMEDIATELY = true;
+
+export type SemanticMinuteCadenceOptions = Readonly<{
+  /** When true (default), call `onTick` once when subscribing. */
+  fireImmediately?: boolean;
+  /** Production omits this and uses wall time; tests inject a fixed clock. */
+  now?: () => number;
+}>;
+
 /**
  * Loop B (~minute-scale): aligned to local wall-clock minute boundaries. Invokes `onTick` with
  * `Math.floor(nowMs / 60_000)` when the minute rolls, after an optional immediate sync.
  */
 export function subscribeSemanticMinuteCadence(
   onTick: (minuteEpoch: number) => void,
-  options?: {
-    /** When true (default), call `onTick` once when subscribing. */
-    fireImmediately?: boolean;
-    /** Injectable clock (ms since Unix epoch); tests only. */
-    now?: () => number;
-  }
+  options: SemanticMinuteCadenceOptions = {}
 ): () => void {
-  const now = options?.now ?? (() => Date.now());
-  const fireImmediately = options?.fireImmediately ?? true;
+  const now = options.now ?? wallClockNowMs;
+  const fireImmediately = options.fireImmediately ?? DEFAULT_FIRE_IMMEDIATELY;
 
   const bump = () => {
     onTick(Math.floor(now() / MS_PER_MINUTE));
