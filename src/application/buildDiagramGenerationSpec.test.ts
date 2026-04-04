@@ -9,7 +9,7 @@ import {
 import { createDiagramGenerationCollaborator } from './diagramGenerationCollaborator';
 import { deriveNextTideSemantics } from './nextTideSemantics';
 
-/** UTC instants chosen so `utcIsoToLocalCanonicalTimeUtc` matches diaggen marker times. */
+/** UTC instants chosen so `utcIsoToLocalCanonicalTimeUtc` matches fixture marker times. */
 function fixtureExtremesAtLocation(): TideExtremesAtLocation {
   return new TideExtremesAtLocation(50.8, -1.1, [
     new TideExtreme('low', '2026-03-23T04:15:00.000Z', 0.94),

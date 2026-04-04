@@ -82,12 +82,18 @@ o  new data fetch paradigm
 				*  get it big enough to see
 				*  move time now text out to top right of diagram 
 				*  fix: wait time squashed up
+				*  some lines dashed
 fart
+				o  ditch preview iter
 
-				o  some lines dashed
-				o  line thicknesses
+				o  try javascript for apps skill
+					o  create one
+					o  ask chatgpt for ordered plan
 
-				o  improve now pointer graphics - perhaps inside tick zone
+				o  try on phone
+				o  line thicknesses knobs
+
+				o  improve now triangle graphics - perhaps inside tick zone
 
 				o  leave it running to spot errors / null in log
 				o  change location ui not great

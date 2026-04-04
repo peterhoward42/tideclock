@@ -731,10 +731,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "arrow": {
       "at": "end",
       "insetK": 0,
-      "lengthK": 7,
+      "lengthK": 20,
       "scaleWithStroke": true,
       "style": "filled",
-      "widthK": 5,
+      "widthK": 8,
     },
     "center": {
       "x": 0,
@@ -786,10 +786,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "arrow": {
               "at": "end",
               "insetK": 0,
-              "lengthK": 7,
+              "lengthK": 20,
               "scaleWithStroke": true,
               "style": "filled",
-              "widthK": 5,
+              "widthK": 8,
             },
             "center": {
               "x": 210,

@@ -20,7 +20,7 @@ export type BuildDiagramGenerationSpecParams = {
   readonly derivedSemantics?: Pick<DerivedNextTideSemantics, 'nextTide'>;
 };
 
-/** Static layout/geometry for the main tide diagram (aligned with tools/diaggen/input.json). */
+/** Static layout/geometry for the Home tide diagram (canonical values live in this object). */
 const HOME_TIDE_DIAGRAM_LAYOUT_BASE: Record<string, unknown> = {
   title: 'home-tide-diagram',
   canvas: { width: 420, height: 320 },
@@ -61,7 +61,7 @@ function highOrLowFromExtremeType(type: TideExtremeType): string {
   return type === 'high' ? 'High' : 'Low';
 }
 
-/** Matches proxy/diaggen-style tide height labels (e.g. "4.7 m", "0.94 m"). */
+/** Tide height labels for the diagram (e.g. "4.7 m", "0.94 m"). */
 export function formatTideHeightMetresForDiagram(metres: number): string {
   const rounded = Math.round(metres * 100) / 100;
   const text = Number.isInteger(rounded)

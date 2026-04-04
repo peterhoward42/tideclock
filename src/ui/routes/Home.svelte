@@ -12,7 +12,7 @@
   import { createDiagramGenerationCollaborator } from "../../application/diagramGenerationCollaborator";
   import { deriveNextTideSemantics } from "../../application/nextTideSemantics";
   import { subscribeSemanticMinuteCadence } from "../../application/semanticMinuteCadence";
-  import { renderPreviewSvg } from "../../../tools/scenegen/renderPreview.mjs";
+  import { renderSceneSvg } from "../../diagram-generation/render/renderSceneSvg.mjs";
 
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
 
@@ -132,7 +132,7 @@
         derivedSemantics: { nextTide: derived.nextTide },
       });
       const { scene, styleRuntime } = collaborator.generate(spec);
-      diagramSvg = renderPreviewSvg(scene, {
+      diagramSvg = renderSceneSvg(scene, {
         styleRuntime,
         debug: { previewFrame: import.meta.env.DEV && previewFrameEnabled },
       });
@@ -217,7 +217,7 @@
   {:else if diagramSvg !== ""}
     <div class="home-panel" bind:this={diagramHostEl}>
       <figure class="home-instrument" aria-label="Tide diagram for the current civil day">
-        <!-- Trusted: SVG produced locally by diagram-generation + scenegen preview. -->
+        <!-- Trusted: SVG from diagram-generation scene graph (renderSceneSvg). -->
         {@html diagramSvg}
       </figure>
     </div>

@@ -1,4 +1,4 @@
-// buildDiagram reads the same shape of inputs as scenegen spec and returns a tide diagram document.
+// buildDiagram reads tide diagram spec fields and returns a tide diagram document.
 import { buildCentreClusterFromSpec } from "./centreCluster.mjs";
 import { buildNowPointerFromSpec } from "./nowPointer.mjs";
 import { buildNextPointerFromSpec } from "./nextPointer.mjs";

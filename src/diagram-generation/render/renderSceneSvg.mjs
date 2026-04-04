@@ -1,12 +1,11 @@
-// Pure preview rendering (scene -> HTML/SVG string), with no fs/CLI dependencies.
+// Scene graph → HTML/SVG strings (no fs/CLI). Used by the Home route.
 
-import { svgStrokeDasharrayAttrFragment } from "../../src/diagram-generation/presets/lineStyleRendering.mjs";
+import { svgStrokeDasharrayAttrFragment } from "../presets/lineStyleRendering.mjs";
 
-// Visual-only preview styling.
-// Keep strokes thin so geometry relationships are easier to inspect.
-const PREVIEW_STROKE_WIDTH = 1.0;
+// Default stroke width in scene units; thin strokes keep geometry relationships clear.
+const SCENE_STROKE_WIDTH = 1.0;
 const SVG_NON_SCALING_STROKE_ATTR = `vector-effect="non-scaling-stroke"`;
-const PREVIEW_DEFAULTS = {
+const RENDER_DEFAULTS = {
   lineStroke: "#334",
   curveStroke: "#335",
   shapeFill: "#335",
@@ -15,34 +14,34 @@ const PREVIEW_DEFAULTS = {
 };
 
 /**
- * @typedef {{ color?: string, lineStyle?: string }} PreviewStyleProps
+ * @typedef {{ color?: string, lineStyle?: string }} SceneRenderStyleProps
  *
  * @typedef {{
- *   stylesByName: Map<string, PreviewStyleProps>,
+ *   stylesByName: Map<string, SceneRenderStyleProps>,
  *   nameToStyle: Map<string, string>,
- * }} PreviewStyleRuntime
+ * }} SceneRenderStyleRuntime
  */
 
 /** Padding inside viewBox units (scene pixels) around computed content. */
 const VIEW_BOX_PAD = 0;
-const PREVIEW_PAD_PX = 16;
+const SCENE_HTML_PAD_PX = 16;
 
 /**
- * Render a scene model into preview HTML with inline SVG.
+ * Render a scene model into HTML with inline SVG.
  * v2 scenes require `scene.meta.previewFrame` (scene-space AABB).
  *
  * @param {object} scene
- * @param {{ styleRuntime?: PreviewStyleRuntime }} [opts]
+ * @param {{ styleRuntime?: SceneRenderStyleRuntime }} [opts]
  * @returns {string}
  */
-export function renderPreviewHtml(scene, opts = {}) {
+export function renderSceneHtml(scene, opts = {}) {
   const vb = computeViewBox(scene);
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>${escapeHtml(String(scene.meta?.title ?? "preview"))}</title>
+  <title>${escapeHtml(String(scene.meta?.title ?? "scene"))}</title>
   <style>
     html, body { height: 100%; margin: 0; background: #000; }
     body {
@@ -50,14 +49,14 @@ export function renderPreviewHtml(scene, opts = {}) {
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
-      padding: ${PREVIEW_PAD_PX / 2}px;
+      padding: ${SCENE_HTML_PAD_PX / 2}px;
     }
     svg {
       display: block;
       flex-shrink: 0;
-      width: min(calc(100vw - ${PREVIEW_PAD_PX}px), calc((100vh - ${PREVIEW_PAD_PX}px) * ${vb.vbW} / ${vb.vbH}));
+      width: min(calc(100vw - ${SCENE_HTML_PAD_PX}px), calc((100vh - ${SCENE_HTML_PAD_PX}px) * ${vb.vbW} / ${vb.vbH}));
       height: auto;
-      max-height: calc(100vh - ${PREVIEW_PAD_PX}px);
+      max-height: calc(100vh - ${SCENE_HTML_PAD_PX}px);
     }
   </style>
 </head>
@@ -73,16 +72,16 @@ ${sceneToSvgInline(scene, vb, opts)}
  * Render a scene model into inline SVG only (no HTML wrapper).
  *
  * @param {object} scene
- * @param {{ styleRuntime?: PreviewStyleRuntime, debug?: { previewFrame?: boolean } }} [opts]
+ * @param {{ styleRuntime?: SceneRenderStyleRuntime, debug?: { previewFrame?: boolean } }} [opts]
  * @returns {string}
  */
-export function renderPreviewSvg(scene, opts = {}) {
+export function renderSceneSvg(scene, opts = {}) {
   const vb = computeViewBox(scene);
   return sceneToSvgInline(scene, vb, opts);
 }
 
 /**
- * Tight viewBox in root SVG coordinates so the preview scales to the diagram, not the full canvas.
+ * Tight viewBox in root SVG coordinates so the graphic scales to the diagram, not the full canvas.
  * Scene coords are y-up; root SVG uses y-down with `translate(0,canvasH) scale(1,-1)` on content.
  *
  * @param {object} scene
@@ -99,7 +98,7 @@ function computeViewBox(scene) {
   const pf = scene.meta?.previewFrame;
   if (!isValidPreviewFrame(pf)) {
     throw new Error(
-      "v2 scene.meta.previewFrame is required: { minX, maxX, minY, maxY } in scene space (use diagram contentBounds -> toScene, or scenegen spec.previewFrame)",
+      "v2 scene.meta.previewFrame is required: { minX, maxX, minY, maxY } in scene space (from diagram contentBounds via toScene)",
     );
   }
   const vbX = pf.minX - VIEW_BOX_PAD;
@@ -133,7 +132,7 @@ function isValidPreviewFrame(pf) {
 /**
  * @param {object} scene
  * @param {{ vbX: number, vbY: number, vbW: number, vbH: number, canvasH: number }} vb
- * @param {{ styleRuntime?: PreviewStyleRuntime }} opts
+ * @param {{ styleRuntime?: SceneRenderStyleRuntime }} opts
  */
 function sceneToSvgInline(scene, vb, opts) {
   const w = Number(scene.meta?.width) || 400;
@@ -164,7 +163,7 @@ ${inner}
 </svg>`;
 }
 
-/** @param {import('./sceneModel.mjs').SceneNode} node */
+/** @param {import('../model/sceneModel.mjs').SceneNode} node */
 function renderNode(node, styleRuntime, leafName) {
   switch (node.kind) {
     case "group": {
@@ -179,7 +178,7 @@ function renderNode(node, styleRuntime, leafName) {
       const stroke = requireLeafColor(
         styleRuntime,
         leafName,
-        PREVIEW_DEFAULTS.lineStroke,
+        RENDER_DEFAULTS.lineStroke,
         node.kind,
       );
       const dash = strokeDashAttrFragmentFromLeaf(
@@ -187,14 +186,14 @@ function renderNode(node, styleRuntime, leafName) {
         leafName,
         node.kind,
       );
-      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none"${dash} />`;
+      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none"${dash} />`;
     }
     case "arc": {
       assertLeafScoped(node.kind, leafName);
       const stroke = requireLeafColor(
         styleRuntime,
         leafName,
-        PREVIEW_DEFAULTS.curveStroke,
+        RENDER_DEFAULTS.curveStroke,
         node.kind,
       );
       const arrowAttr = markerAttrForArc(node, leafName, styleRuntime);
@@ -210,10 +209,10 @@ function renderNode(node, styleRuntime, leafName) {
           node.sweepRad,
         );
         if (pts === "") return "";
-        return `    <polyline points="${escapeAttr(pts)}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round"${dash}${arrowAttr} />`;
+        return `    <polyline points="${escapeAttr(pts)}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round"${dash}${arrowAttr} />`;
       }
       const d = circularArcToPathD(node.center, node.start, node.sweepRad);
-      return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${dash}${arrowAttr} />`;
+      return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${dash}${arrowAttr} />`;
     }
     case "triangle": {
       assertLeafScoped(node.kind, leafName);
@@ -222,7 +221,7 @@ function renderNode(node, styleRuntime, leafName) {
       const stroke = requireLeafColor(
         styleRuntime,
         leafName,
-        PREVIEW_DEFAULTS.curveStroke,
+        RENDER_DEFAULTS.curveStroke,
         node.kind,
       );
       const dash = strokeDashAttrFragmentFromLeaf(
@@ -235,10 +234,10 @@ function renderNode(node, styleRuntime, leafName) {
         : requireLeafColor(
             styleRuntime,
             leafName,
-            PREVIEW_DEFAULTS.shapeFill,
+            RENDER_DEFAULTS.shapeFill,
             node.kind,
           );
-      return `    <polygon points="${escapeAttr(pts)}" fill="${fillAttr}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
+      return `    <polygon points="${escapeAttr(pts)}" fill="${fillAttr}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
     }
     case "circle": {
       assertLeafScoped(node.kind, leafName);
@@ -246,7 +245,7 @@ function renderNode(node, styleRuntime, leafName) {
       const stroke = requireLeafColor(
         styleRuntime,
         leafName,
-        PREVIEW_DEFAULTS.curveStroke,
+        RENDER_DEFAULTS.curveStroke,
         node.kind,
       );
       const dash = strokeDashAttrFragmentFromLeaf(
@@ -257,17 +256,17 @@ function renderNode(node, styleRuntime, leafName) {
       const fill = requireLeafColor(
         styleRuntime,
         leafName,
-        PREVIEW_DEFAULTS.shapeFill,
+        RENDER_DEFAULTS.shapeFill,
         node.kind,
       );
-      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="${fill}" stroke="${stroke}" stroke-width="${PREVIEW_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
+      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
     }
     case "text": {
       assertLeafScoped(node.kind, leafName);
       const fill = requireLeafColor(
         styleRuntime,
         leafName,
-        PREVIEW_DEFAULTS.textFill,
+        RENDER_DEFAULTS.textFill,
         node.kind,
       );
       return renderTextSvg(node, fill);
@@ -281,7 +280,6 @@ const PI_TOL = 1e-9;
 
 /**
  * Sample a circular arc in scene space (y up, CCW sweep) for `<polyline points="...">`.
- * Avoids SVG `A`; useful to isolate preview bugs in elliptical-arc flag handling.
  *
  * @returns {string} space-separated "x,y" pairs, or "" if degenerate
  */
@@ -326,13 +324,6 @@ function ellipseArcSegmentD(center, start, sweepRad, moveToStart) {
 
 /**
  * Circular arc as SVG path `d` (scene space, y up, CCW positive).
- * Precedent for all circular arcs in preview: native `A`, never polyline approximation.
- *
- * For a pi sweep, SVG’s `A` command is ambiguous (two equal-length semicircles between the
- * same endpoints; `large-arc` does not disambiguate at exactly 180deg). Browsers may pick the
- * hemisphere whose bulge points opposite the intended direction. Splitting into two pi/2
- * segments forces the minor arc at each step and matches the tide TimePointer spec (bulge through
- * local +X after placement).
  *
  * @param {{ x: number, y: number }} center
  * @param {{ x: number, y: number }} start
@@ -356,8 +347,8 @@ function circularArcToPathD(center, start, sweepRad) {
 }
 
 /**
- * @param {import('./sceneModel.mjs').SceneNode} root
- * @param {PreviewStyleRuntime | undefined} styleRuntime
+ * @param {import('../model/sceneModel.mjs').SceneNode} root
+ * @param {SceneRenderStyleRuntime | undefined} styleRuntime
  * @returns {string[]}
  */
 function collectArcArrowMarkers(root, styleRuntime) {
@@ -365,7 +356,7 @@ function collectArcArrowMarkers(root, styleRuntime) {
   const defs = new Map();
 
   /**
-   * @param {import('./sceneModel.mjs').SceneNode} node
+   * @param {import('../model/sceneModel.mjs').SceneNode} node
    * @param {string | null} leafName
    */
   function walk(node, leafName) {
@@ -379,7 +370,7 @@ function collectArcArrowMarkers(root, styleRuntime) {
     const stroke = requireLeafColor(
       styleRuntime,
       leafName,
-      PREVIEW_DEFAULTS.curveStroke,
+      RENDER_DEFAULTS.curveStroke,
       node.kind,
     );
     const id = markerIdFromSpec(spec, stroke);
@@ -392,9 +383,9 @@ function collectArcArrowMarkers(root, styleRuntime) {
 }
 
 /**
- * @param {import('./sceneModel.mjs').ArcPrimitive} arcNode
+ * @param {import('../model/sceneModel.mjs').ArcPrimitive} arcNode
  * @param {string | null} leafName
- * @param {PreviewStyleRuntime | undefined} styleRuntime
+ * @param {SceneRenderStyleRuntime | undefined} styleRuntime
  * @returns {string}
  */
 function markerAttrForArc(arcNode, leafName, styleRuntime) {
@@ -404,7 +395,7 @@ function markerAttrForArc(arcNode, leafName, styleRuntime) {
   const stroke = requireLeafColor(
     styleRuntime,
     leafName,
-    PREVIEW_DEFAULTS.curveStroke,
+    RENDER_DEFAULTS.curveStroke,
     arcNode.kind,
   );
   return ` marker-end="url(#${markerIdFromSpec(spec, stroke)})"`;
@@ -457,7 +448,7 @@ function markerDefFromSpec(id, spec, strokeColor) {
     </marker>`;
 }
 
-/** @param {import('./sceneModel.mjs').TextPrimitive} node */
+/** @param {import('../model/sceneModel.mjs').TextPrimitive} node */
 function renderTextSvg(node, fillColor) {
   const { anchor, content, size, hAlign, angleRad } = node;
   const ax = anchor.x;
@@ -477,15 +468,15 @@ function renderTextSvg(node, fillColor) {
 /**
  * Resolved named style for a leaf group (geometry parent `data-name`), or undefined.
  *
- * @param {PreviewStyleRuntime | undefined} styleRuntime
+ * @param {SceneRenderStyleRuntime | undefined} styleRuntime
  * @param {string | null} leafName
  * @param {string} primitiveKind
- * @returns {PreviewStyleProps | undefined}
+ * @returns {SceneRenderStyleProps | undefined}
  */
 function resolveLeafNamedStyleProps(styleRuntime, leafName, primitiveKind) {
   if (!styleRuntime) {
     throw new Error(
-      `preview styleRuntime is required for v2 scenes (while rendering ${primitiveKind})`,
+      `styleRuntime is required for v2 scenes (while rendering ${primitiveKind})`,
     );
   }
   if (!leafName) {
@@ -505,7 +496,7 @@ function resolveLeafNamedStyleProps(styleRuntime, leafName, primitiveKind) {
 /**
  * Leaf-level color: uses bound named style when `color` is set; otherwise fallback.
  *
- * @param {PreviewStyleRuntime | undefined} styleRuntime
+ * @param {SceneRenderStyleRuntime | undefined} styleRuntime
  * @param {string | null} leafName
  * @param {string} fallback
  * @param {string} primitiveKind
@@ -523,7 +514,7 @@ function requireLeafColor(styleRuntime, leafName, fallback, primitiveKind) {
 /**
  * Optional `stroke-dasharray` from domain `lineStyle` on the same named style.
  *
- * @param {PreviewStyleRuntime | undefined} styleRuntime
+ * @param {SceneRenderStyleRuntime | undefined} styleRuntime
  * @param {string | null} leafName
  * @param {string} primitiveKind
  */
@@ -567,7 +558,7 @@ function legacySceneToSvg(scene, w, h) {
   const rectsSvg = rects
     .map(
       (r) =>
-        `<rect x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" fill="${PREVIEW_DEFAULTS.legacyRectFill}" stroke="${PREVIEW_DEFAULTS.lineStroke}" stroke-width="1" ${SVG_NON_SCALING_STROKE_ATTR} />`,
+        `<rect x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" fill="${RENDER_DEFAULTS.legacyRectFill}" stroke="${RENDER_DEFAULTS.lineStroke}" stroke-width="1" ${SVG_NON_SCALING_STROKE_ATTR} />`,
     )
     .join("\n    ");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">

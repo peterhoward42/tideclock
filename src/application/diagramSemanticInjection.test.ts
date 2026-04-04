@@ -3,7 +3,7 @@ import { buildDiagram } from '../diagram-generation/index.mjs';
 import { TIME_DELTA_EMPTY_MESSAGE } from '../diagram-generation/layout/centreCluster.mjs';
 import { deriveNextTideSemantics } from './nextTideSemantics';
 
-/** Minimal spec with centreCluster, nextPointer, waitArc, and tide markers (diaggen-shaped). */
+/** Minimal spec with centreCluster, nextPointer, waitArc, and tide markers. */
 function sampleTideDiagramSpec(): Record<string, unknown> {
   return {
     title: 'semantic-injection',
