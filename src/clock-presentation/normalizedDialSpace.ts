@@ -30,12 +30,22 @@ export type DialPoint = {
   readonly y: number;
 };
 
-export function pointOnReferenceRingFromAngle(angleRad: number): DialPoint {
+/**
+ * Angle in radians for dial polar placement: {@code 0} at the top, increasing clockwise
+ * (see module overview).
+ */
+export type DialAngleRadians = number;
+
+/** Distance from dial centre in normalized dial units (same unit as {@link REFERENCE_RADIUS}). */
+export type DialRadius = number;
+
+/** Point on the reference outline at {@link REFERENCE_RADIUS} and {@link angleRad}. */
+export function pointOnReferenceRingFromAngle(angleRad: DialAngleRadians): DialPoint {
   return pointOnRingFromAngle(angleRad, REFERENCE_RADIUS);
 }
 
-/** Point on a circle centred at the origin at the given radius (dial units). */
-export function pointOnRingFromAngle(angleRad: number, radius: number): DialPoint {
+/** Point on a circle centred at the origin with radius {@link radius} (dial units). */
+export function pointOnRingFromAngle(angleRad: DialAngleRadians, radius: DialRadius): DialPoint {
   return {
     x: radius * Math.sin(angleRad),
     y: -radius * Math.cos(angleRad),
