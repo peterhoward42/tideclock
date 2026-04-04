@@ -3,7 +3,7 @@
   import { clockDivisionDialSvgProps } from "../svg/clockPathMapping";
 
   interface Props {
-    clockScene: ClockSceneModel;
+    readonly clockScene: ClockSceneModel;
   }
 
   let { clockScene }: Props = $props();

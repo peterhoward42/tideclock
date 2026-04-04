@@ -4,17 +4,16 @@
   import { nowMs } from "../../application/appClock.js";
   import ClockDivisionDial from "./ClockDivisionDial.svelte";
 
-  type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
+  type TidePredictionsLoadState = { readonly status: "loading" | "ready" | "error" };
 
   interface Props {
-    clockScene: ClockSceneModel;
-    tideLoadState: TidePredictionsLoadState;
+    readonly clockScene: ClockSceneModel;
+    readonly tideLoadState: TidePredictionsLoadState;
   }
 
   let { clockScene, tideLoadState }: Props = $props();
 
-  /** @param {number} ms */
-  function formatTime(ms: number) {
+  function formatTime(ms: number): string {
     return new Date(ms).toLocaleTimeString(undefined, {
       hour: "2-digit",
       minute: "2-digit",
@@ -24,7 +23,7 @@
 </script>
 
 <div class="tide-clock">
-  <ClockDivisionDial clockScene={clockScene} />
+  <ClockDivisionDial {clockScene} />
   <p class="muted">Local time</p>
   <p style="font-family: ui-monospace, monospace; margin: 0; font-size: 1.25rem;">
     {formatTime($nowMs)}
