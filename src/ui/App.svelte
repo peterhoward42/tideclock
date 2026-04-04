@@ -8,7 +8,7 @@
   import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
   import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
   import { attachHashListener, route } from "../infrastructure/router.js";
-  import { getCurrentTideClockCivilDayDisplayWindow } from "../time-services/getCurrentTideClockCivilDayDisplayWindow";
+  import { getCurrentTideClockCivilDayDisplayWindowFromSystemClock } from "../time-services/getCurrentTideClockCivilDayDisplayWindow";
   import Home from "./routes/Home.svelte";
   import Location from "./routes/Location.svelte";
   import Settings from "./routes/Settings.svelte";
@@ -85,7 +85,7 @@
         if (result !== undefined) {
           lastSuccessfulTideExtremes = result;
           civilDayWindowStartMsAtLastSuccessfulLoad =
-            getCurrentTideClockCivilDayDisplayWindow().startLocal.getTime();
+            getCurrentTideClockCivilDayDisplayWindowFromSystemClock().startLocal.getTime();
           lastRolloverAttemptCivilDayStartMs = undefined;
           tideLoadState = { status: "ready" };
         } else {
@@ -125,7 +125,7 @@
   function maybeRefreshTideAfterLocalMidnightRollover(): void {
     const town = loadCurrentLocation({ loader: localStorage });
     currentTown = town;
-    const currentStart = getCurrentTideClockCivilDayDisplayWindow().startLocal.getTime();
+    const currentStart = getCurrentTideClockCivilDayDisplayWindowFromSystemClock().startLocal.getTime();
     if (
       !shouldTriggerCivilDayRolloverRefresh({
         hasSelectedTown: town !== undefined,

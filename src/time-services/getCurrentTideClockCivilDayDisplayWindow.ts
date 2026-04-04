@@ -4,8 +4,13 @@ import {
   type TimeNowProvider
 } from './TideClockCivilDayDisplayWindow';
 
+/**
+ * Resolves the tide-clock’s local civil-day window for the instant returned by `timeNowProvider`.
+ * Callers that mean the host clock should use {@link getCurrentTideClockCivilDayDisplayWindowFromSystemClock}
+ * so “real time” is explicit at the call site.
+ */
 export function getCurrentTideClockCivilDayDisplayWindow(
-  timeNowProvider: TimeNowProvider = new SystemTimeNowProvider()
+  timeNowProvider: TimeNowProvider
 ): TideClockCivilDayDisplayWindow {
   // `now` is an absolute instant; extracting Y/M/D below converts it into local
   // civil fields under the runtime timezone and DST rules.
@@ -21,3 +26,7 @@ export function getCurrentTideClockCivilDayDisplayWindow(
   return new TideClockCivilDayDisplayWindow(startLocal, endLocalExclusive);
 }
 
+/** Same as {@link getCurrentTideClockCivilDayDisplayWindow} with {@link SystemTimeNowProvider}. */
+export function getCurrentTideClockCivilDayDisplayWindowFromSystemClock(): TideClockCivilDayDisplayWindow {
+  return getCurrentTideClockCivilDayDisplayWindow(new SystemTimeNowProvider());
+}
