@@ -14,17 +14,14 @@ export type CivilDayRolloverRefreshInput = {
   readonly lastRolloverAttemptCivilDayStartMs: number | undefined;
 };
 
-export function shouldTriggerCivilDayRolloverRefresh(
-  params: CivilDayRolloverRefreshInput,
-): boolean {
-  const {
-    hasSelectedTown,
-    tideLoadIsLoading,
-    currentCivilDayStartMs,
-    lastSuccessfulLoadCivilDayStartMs,
-    lastRolloverAttemptCivilDayStartMs
-  } = params;
-
+/** True when civil day advanced since last success and no rollover attempt yet for the current day. */
+export function shouldTriggerCivilDayRolloverRefresh({
+  hasSelectedTown,
+  tideLoadIsLoading,
+  currentCivilDayStartMs,
+  lastSuccessfulLoadCivilDayStartMs,
+  lastRolloverAttemptCivilDayStartMs,
+}: CivilDayRolloverRefreshInput): boolean {
   if (!hasSelectedTown || tideLoadIsLoading) {
     return false;
   }

@@ -5,19 +5,19 @@ import {
 } from './civilDayRolloverRefresh';
 
 describe('shouldTriggerCivilDayRolloverRefresh', () => {
-  const base: CivilDayRolloverRefreshInput = {
+  const base = {
     hasSelectedTown: true,
     tideLoadIsLoading: false,
     currentCivilDayStartMs: 2,
     lastSuccessfulLoadCivilDayStartMs: 1,
     lastRolloverAttemptCivilDayStartMs: undefined,
-  };
+  } satisfies CivilDayRolloverRefreshInput;
 
   it('returns false when no town', () => {
     expect(
       shouldTriggerCivilDayRolloverRefresh({
         ...base,
-        hasSelectedTown: false
+        hasSelectedTown: false,
       })
     ).toBe(false);
   });
@@ -26,7 +26,7 @@ describe('shouldTriggerCivilDayRolloverRefresh', () => {
     expect(
       shouldTriggerCivilDayRolloverRefresh({
         ...base,
-        tideLoadIsLoading: true
+        tideLoadIsLoading: true,
       })
     ).toBe(false);
   });
@@ -35,7 +35,7 @@ describe('shouldTriggerCivilDayRolloverRefresh', () => {
     expect(
       shouldTriggerCivilDayRolloverRefresh({
         ...base,
-        lastSuccessfulLoadCivilDayStartMs: undefined
+        lastSuccessfulLoadCivilDayStartMs: undefined,
       })
     ).toBe(false);
   });
@@ -45,7 +45,7 @@ describe('shouldTriggerCivilDayRolloverRefresh', () => {
       shouldTriggerCivilDayRolloverRefresh({
         ...base,
         currentCivilDayStartMs: 1,
-        lastSuccessfulLoadCivilDayStartMs: 1
+        lastSuccessfulLoadCivilDayStartMs: 1,
       })
     ).toBe(false);
   });
@@ -58,7 +58,7 @@ describe('shouldTriggerCivilDayRolloverRefresh', () => {
     expect(
       shouldTriggerCivilDayRolloverRefresh({
         ...base,
-        lastRolloverAttemptCivilDayStartMs: 2
+        lastRolloverAttemptCivilDayStartMs: 2,
       })
     ).toBe(false);
   });
