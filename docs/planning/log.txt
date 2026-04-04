@@ -92,11 +92,22 @@ fart
 					o  automate the step application sequence with a
 					   reusable prompt
 					o  skill for finding orphaned / unused code
-					o  out of band task
-						o  write down objectives for ui styling
-							o  ask for help given role of app and image
-							   projection
-								o  write a spec doc as context
+						*  apply it
+						o  module headers
+						o  survey results
+
+				o  out of band task
+					o  write elevator pitch
+					o  enumerate what it shows
+					o  riff to decide ui presso drivers
+						o  such as
+							o  data / interprettion clarity and priority
+							o  appliance like - not billboard / taste
+							o  cool elegant
+							o  visually arresting
+							o  optimised for tablet and on wall screen but still
+							   good for mobile - likely necessarily landscape
+
 
 fart
 
