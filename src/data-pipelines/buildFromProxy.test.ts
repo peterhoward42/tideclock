@@ -104,4 +104,20 @@ describe('buildExtremesFromProxy', () => {
       )
     );
   });
+
+  it('throws when a tide entry is not an object', () => {
+    expect(() =>
+      buildExtremesFromProxy({
+        latitude: 50.8,
+        longitude: -1.1,
+        response: makeResponse({
+          tides: [null as unknown as TideProxyV1Response['tides'][number]]
+        })
+      })
+    ).toThrowError(
+      new ProxyV1BuildError(
+        'Invalid tide extreme at index 0. Expected an object with type, time, and heightMetres.'
+      )
+    );
+  });
 });

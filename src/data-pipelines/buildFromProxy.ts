@@ -1,6 +1,5 @@
 import { TideExtreme, type TideExtremeType } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
-import type { ProxyV1Extreme, TideProxyV1Response } from './proxyV1Types';
 
 export class ProxyV1BuildError extends Error {
   constructor(message: string) {
@@ -9,10 +8,11 @@ export class ProxyV1BuildError extends Error {
   }
 }
 
+/** Proxy JSON body before this module has validated shape and field types. */
 export interface BuildExtremesFromProxyParams {
   latitude: number;
   longitude: number;
-  response: TideProxyV1Response;
+  response: unknown;
 }
 
 function isFiniteNumber(value: unknown): value is number {
@@ -74,8 +74,16 @@ function assertValidHeightMetres(rawHeightMetres: unknown, index: number): numbe
   return rawHeightMetres;
 }
 
-function validateResponseShape(response: TideProxyV1Response): void {
-  if (!response || typeof response !== 'object') {
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === 'object';
+}
+
+interface UnvalidatedTideProxyPayload {
+  readonly tides: readonly unknown[];
+}
+
+function validateResponseShape(response: unknown): asserts response is UnvalidatedTideProxyPayload {
+  if (!isPlainObject(response)) {
     throw new ProxyV1BuildError('Invalid tide proxy response. Expected an object payload.');
   }
 
@@ -84,10 +92,16 @@ function validateResponseShape(response: TideProxyV1Response): void {
   }
 }
 
-function mapOneExtreme(extreme: ProxyV1Extreme, index: number): TideExtreme {
-  const type = mapExtremeType(extreme?.type);
-  const timeUtc = assertValidUtcTimestamp(extreme?.time, index);
-  const heightMetres = assertValidHeightMetres(extreme?.heightMetres, index);
+function mapOneExtreme(extreme: unknown, index: number): TideExtreme {
+  if (!isPlainObject(extreme)) {
+    throw new ProxyV1BuildError(
+      `Invalid tide extreme at index ${index}. Expected an object with type, time, and heightMetres.`
+    );
+  }
+
+  const type = mapExtremeType(extreme.type);
+  const timeUtc = assertValidUtcTimestamp(extreme.time, index);
+  const heightMetres = assertValidHeightMetres(extreme.heightMetres, index);
 
   return new TideExtreme(type, timeUtc, heightMetres);
 }
