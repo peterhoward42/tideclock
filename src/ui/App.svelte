@@ -4,7 +4,10 @@
   import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
   import type { Town } from "../data/bakedTowns";
   import { nowMs } from "../application/appClock.js";
-  import { shouldTriggerCivilDayRolloverRefresh } from "../application/civilDayRolloverRefresh";
+  import {
+    shouldTriggerCivilDayRolloverRefresh,
+    type CivilDayRolloverRefreshInput
+  } from "../application/civilDayRolloverRefresh";
   import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
   import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
   import { attachHashListener, route } from "../infrastructure/router.js";
@@ -16,6 +19,16 @@
   import Acknowledgements from "./routes/Acknowledgements.svelte";
   import Support from "./routes/Support.svelte";
   import Cookies from "./routes/Cookies.svelte";
+
+  /** Mirrors {@link RouteId} in `router.js` for header copy without importing JS typedefs. */
+  type AppRouteId =
+    | "home"
+    | "location"
+    | "settings"
+    | "about"
+    | "acknowledgements"
+    | "support"
+    | "cookies";
 
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
   let tideLoadState = $state<TidePredictionsLoadState>({ status: "ready" });
@@ -126,26 +139,28 @@
     const town = loadCurrentLocation({ loader: localStorage });
     currentTown = town;
     const currentStart = getCurrentTideClockCivilDayDisplayWindowFromSystemClock().startLocal.getTime();
-    if (
-      !shouldTriggerCivilDayRolloverRefresh({
-        hasSelectedTown: town !== undefined,
-        tideLoadIsLoading: tideLoadState.status === "loading",
-        currentCivilDayStartMs: currentStart,
-        lastSuccessfulLoadCivilDayStartMs: civilDayWindowStartMsAtLastSuccessfulLoad,
-        lastRolloverAttemptCivilDayStartMs: lastRolloverAttemptCivilDayStartMs
-      })
-    ) {
+    const rolloverInput: CivilDayRolloverRefreshInput = {
+      hasSelectedTown: town !== undefined,
+      tideLoadIsLoading: tideLoadState.status === "loading",
+      currentCivilDayStartMs: currentStart,
+      lastSuccessfulLoadCivilDayStartMs: civilDayWindowStartMsAtLastSuccessfulLoad,
+      lastRolloverAttemptCivilDayStartMs: lastRolloverAttemptCivilDayStartMs
+    };
+    if (!shouldTriggerCivilDayRolloverRefresh(rolloverInput)) {
+      return;
+    }
+    if (town === undefined) {
       return;
     }
     lastRolloverAttemptCivilDayStartMs = currentStart;
-    refreshTideExtremesForTown(town!);
+    refreshTideExtremesForTown(town);
   }
 
   function closeMenu(): void {
     menuDetails?.removeAttribute("open");
   }
 
-  function headerPlaceholderForRoute(routeId: string): string {
+  function headerPlaceholderForRoute(routeId: AppRouteId): string {
     switch (routeId) {
       case "location":
         return "Location";
