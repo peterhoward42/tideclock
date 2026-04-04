@@ -1,13 +1,16 @@
 import { describe, expect, it } from 'vitest';
-import { shouldTriggerCivilDayRolloverRefresh } from './civilDayRolloverRefresh';
+import {
+  type CivilDayRolloverRefreshInput,
+  shouldTriggerCivilDayRolloverRefresh,
+} from './civilDayRolloverRefresh';
 
 describe('shouldTriggerCivilDayRolloverRefresh', () => {
-  const base = {
+  const base: CivilDayRolloverRefreshInput = {
     hasSelectedTown: true,
     tideLoadIsLoading: false,
     currentCivilDayStartMs: 2,
-    lastSuccessfulLoadCivilDayStartMs: 1 as number | undefined,
-    lastRolloverAttemptCivilDayStartMs: undefined as number | undefined
+    lastSuccessfulLoadCivilDayStartMs: 1,
+    lastRolloverAttemptCivilDayStartMs: undefined,
   };
 
   it('returns false when no town', () => {

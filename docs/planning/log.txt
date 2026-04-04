@@ -83,11 +83,11 @@ o  new data fetch paradigm
 				*  move time now text out to top right of diagram 
 				*  fix: wait time squashed up
 				*  some lines dashed
+				*  ditch preview iter
 fart
-				o  ditch preview iter
 
 				o  try javascript for apps skill
-					o  create one
+					*  create one
 					o  ask chatgpt for ordered plan
 
 				o  try on phone
