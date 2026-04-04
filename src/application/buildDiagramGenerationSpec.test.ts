@@ -4,6 +4,7 @@ import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import {
   buildDiagramGenerationSpec,
   formatTideHeightMetresForDiagram,
+  type HomeDiagramTideMarks,
   utcIsoToLocalCanonicalTimeUtc,
 } from './buildDiagramGenerationSpec';
 import { createDiagramGenerationCollaborator } from './diagramGenerationCollaborator';
@@ -41,7 +42,7 @@ describe('buildDiagramGenerationSpec', () => {
       timeNow: '19:20:03',
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     });
-    const markers = (spec.tideMarks as { markers: unknown }).markers;
+    const markers = (spec.tideMarks as HomeDiagramTideMarks).markers;
     expect(markers).toEqual(expectedFixtureMarkers);
     expect(spec.timeNow).toBe('19:20:03');
     expect(spec.semantic).toBeUndefined();

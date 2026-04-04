@@ -9,10 +9,18 @@ import type { DerivedNextTideSemantics } from './nextTideSemantics';
  */
 export type UtcIsoToLocalCanonicalTime = (timeUtcIso: string) => string;
 
-export type BuildDiagramGenerationSpecParams = {
-  readonly extremesAtLocation: TideExtremesAtLocation;
+/**
+ * Clock face input for the diagram: canonical `HH:MM:SS` on the dial and how each extreme’s
+ * UTC instant maps into that same canonical local civil timeline.
+ */
+export type BuildDiagramGenerationSpecTimeInput = {
   readonly timeNow: string;
   readonly utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime;
+};
+
+export type BuildDiagramGenerationSpecParams = BuildDiagramGenerationSpecTimeInput & {
+  /** Stored extremes for the civil day (coordinates identify the place; list order is snapshot order). */
+  readonly extremesAtLocation: TideExtremesAtLocation;
   /**
    * When set, adds `spec.semantic.nextTide` (e.g. output of `deriveNextTideSemantics` for the
    * same conceptual spec). When omitted, layout derives next tide from `tideMarks` as usual.
@@ -20,8 +28,67 @@ export type BuildDiagramGenerationSpecParams = {
   readonly derivedSemantics?: Pick<DerivedNextTideSemantics, 'nextTide'>;
 };
 
+/** One row in `tideMarks.markers` consumed by diagram-generation. */
+export type DiagramTideMarkMarker = {
+  readonly time: string;
+  readonly heightText: string;
+  readonly highOrLow: string;
+};
+
+/** Layout constants plus marker rows for the Home tide diagram `spec.tideMarks` object. */
+export type HomeDiagramTideMarks = {
+  readonly tideHeightLabelRadius: number;
+  readonly tideTimeLabelRadius: number;
+  readonly tideHeightLabelSize: number;
+  readonly tideTimeLabelSize: number;
+  readonly TideMarkArrowDivergence: number;
+  readonly TideMarkArrowLineLen: number;
+  readonly markers: readonly DiagramTideMarkMarker[];
+};
+
 /** Static layout/geometry for the Home tide diagram (canonical values live in this object). */
-const HOME_TIDE_DIAGRAM_LAYOUT_BASE: Record<string, unknown> = {
+type HomeTideDiagramLayoutBase = {
+  readonly title: 'home-tide-diagram';
+  readonly canvas: { readonly width: number; readonly height: number };
+  readonly refRadius: number;
+  readonly sweepRad: number;
+  readonly tickLen: number;
+  readonly tickLabelHours: readonly number[];
+  readonly tickLabelSize: number;
+  readonly tickLabelClearance: number;
+  readonly contentBounds: {
+    readonly left: number;
+    readonly right: number;
+    readonly above: number;
+    readonly below: number;
+  };
+  readonly nowPointer: {
+    readonly radialLine: { readonly innerRadius: number; readonly outerRadius: number };
+    readonly label: { readonly size: number; readonly normalOffset: number };
+    readonly triangle: { readonly radius: number; readonly baseLen: number; readonly height: number };
+  };
+  readonly nextPointer: {
+    readonly radialLine: { readonly outerRadius: number };
+    readonly circle: { readonly radius: number };
+  };
+  readonly waitArc: {
+    readonly radius: number;
+    readonly arrow: {
+      readonly lengthK: number;
+      readonly widthK: number;
+      readonly insetK: number;
+      readonly style: 'filled';
+      readonly scaleWithStroke: boolean;
+    };
+  };
+  readonly timeNowLabel: { readonly x: number; readonly fontHeight: number };
+  readonly centreCluster: {
+    readonly frameArcRadius: number;
+    readonly timeDelta: { readonly y: number; readonly fontHeight: number };
+  };
+};
+
+const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   title: 'home-tide-diagram',
   canvas: { width: 420, height: 320 },
   refRadius: 118,
@@ -73,7 +140,7 @@ export function formatTideHeightMetresForDiagram(metres: number): string {
 function tideMarksFromExtremes(
   extremes: readonly TideExtreme[],
   utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime,
-): { markers: Array<{ time: string; heightText: string; highOrLow: string }> } {
+): { readonly markers: readonly DiagramTideMarkMarker[] } {
   return {
     markers: extremes.map((e) => ({
       time: utcIsoToLocalCanonicalTime(e.timeUtc),
@@ -113,7 +180,7 @@ export function buildDiagramGenerationSpec(
     throw new Error('buildDiagramGenerationSpec requires at least one tide extreme');
   }
 
-  const tideMarks = {
+  const tideMarks: HomeDiagramTideMarks = {
     tideHeightLabelRadius: 0.88,
     tideTimeLabelRadius: 0.8,
     tideHeightLabelSize: 0.046,
