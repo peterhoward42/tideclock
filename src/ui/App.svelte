@@ -1,5 +1,9 @@
 <script lang="ts">
-  // App root: `.app-frame` wraps header + routed content; host orchestration (localStorage, tide loads). Routes stay thin.
+  /**
+   * App.svelte — Root shell: header, hash routing, location and extremes orchestration, child routes.
+   * Wires data pipelines and application queries into route props; delegates rendering to routes.
+   * Kind: Orchestrator / coordinator. Does not build diagram geometry or call the proxy directly.
+   */
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
   import type { Town } from "../data/bakedTowns";

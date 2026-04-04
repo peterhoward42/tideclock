@@ -1,3 +1,8 @@
+/**
+ * extremesSnapshot.ts — Key, serde, and validation for persisted {@link TideExtremesAtLocation} JSON.
+ * Consumed by fetch/slice/query layers. Kind: Adapter / boundary (persistence shape). Does not call the proxy.
+ */
+
 import { TideExtreme, type TideExtremeType } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 

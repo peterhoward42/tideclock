@@ -1,3 +1,9 @@
+/**
+ * homeScreenModel.ts — Route-facing shape for Home’s diagram collaborator injection point.
+ * Application wires a real collaborator; this module only types the slot. Kind: UI shell type bundle.
+ * Does not import diagram-generation internals.
+ */
+
 import type {
   DiagramGenerationCollaborator,
   DiagramGenerationSpec,

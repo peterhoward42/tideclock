@@ -1,5 +1,10 @@
 // @ts-check
 
+/**
+ * dialFrame.js — Preset outer→inner dial radii for SVG layout helpers.
+ * Kind: Definition (layout constants). Does not compute angles or tide positions.
+ */
+
 /** Fixed ratio from outer dial radius to inner content radius (layout preset, not caller input). */
 const INNER_RADIUS_FROM_OUTER = 0.55
 

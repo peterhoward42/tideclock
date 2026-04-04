@@ -1,4 +1,5 @@
 <script lang="ts">
+  /** Cookies.svelte — Static cookies route. Kind: Presentation. */
   const title: string = "Cookies";
 </script>
 

@@ -1,4 +1,7 @@
 /**
+ * tideDiagramModel.mjs — Diagram-space geometry helpers and typedefs shared by layout (polar, ref arc, time→θ).
+ * Consumed by layout modules and mapping. Kind: Definition + pure logic. Does not assemble full diagrams alone.
+ *
  * Tide diagram domain model (diagram space: origin at RefArc centre, x right, y up, angles CCW from +x).
  * See docs/specs/tide-diagram.md.
  *

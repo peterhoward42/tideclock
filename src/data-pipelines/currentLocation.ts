@@ -1,3 +1,8 @@
+/**
+ * currentLocation.ts — Read/write validated {@link Town} snapshots via injectable storage seams.
+ * Used by the shell for picker state and persistence. Kind: Service. Does not search the baked town list.
+ */
+
 import type { Town } from '../data/bakedTowns';
 import {
   CURRENT_LOCATION_KEY,

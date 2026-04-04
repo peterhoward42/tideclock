@@ -1,3 +1,8 @@
+/**
+ * currentLocationSnapshot.ts — Key, serde, and validation for the selected-town JSON blob in storage.
+ * Consumed by `currentLocation.ts`. Kind: Adapter / boundary (persistence shape). Does not pick towns.
+ */
+
 import type { Town } from '../data/bakedTowns';
 
 /** Canonical `localStorage` key for a JSON snapshot of the user-selected {@link Town}. */

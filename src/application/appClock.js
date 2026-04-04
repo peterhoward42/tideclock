@@ -1,5 +1,11 @@
 // @ts-check
 
+/**
+ * appClock.js — Shared ~1 Hz wall-clock store (`nowMs`) for components that avoid local timers.
+ * Fed by nothing; consumed anywhere a coarse current instant is enough.
+ * Kind: Service (Svelte store). Does not interpret civil days or time zones.
+ */
+
 import { readable } from 'svelte/store'
 
 /**

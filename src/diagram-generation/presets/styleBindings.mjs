@@ -1,4 +1,7 @@
 /**
+ * styleBindings.mjs — Loads named styles and scene-leaf bindings into runtime maps for SVG render.
+ * Consumed at collaborator init. Kind: Service (load-time). Does not layout geometry.
+ *
  * Style registry and leaf-name style bindings (load-time only).
  *
  * Policy:

@@ -1,7 +1,9 @@
 <script lang="ts">
-  // Home route: civil-day diagram from collaborator output (full SVG replace). Loop B: semantic
-  // regeneration on minute boundaries only. Loop A: 1 Hz DOM patch for TimeNowLabel only
-  // (no per-second collaborator.generate).
+  /**
+   * Home.svelte — Civil-day tide diagram: builds specs, runs diagram-generation collaborator, swaps SVG.
+   * Minute cadence for full regen; second cadence only for the live clock label. Kind: Presentation + orchestration.
+   * Does not own proxy fetch (receives extremes from the shell).
+   */
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
   import { nowMs } from "../../application/appClock.js";

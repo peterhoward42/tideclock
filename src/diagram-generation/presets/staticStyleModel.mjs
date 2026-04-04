@@ -1,4 +1,7 @@
 /**
+ * staticStyleModel.mjs — Default `StyleModelSpec` baked in at build time for `loadStyleModel`.
+ * Kind: Definition (product preset). Runtime spec does not override these bindings.
+ *
  * Product style model passed to `loadStyleModel` at diagram init (see app collaborator).
  * Not merged from runtime spec: diagram `buildDiagram` input carries geometry only.
  */

@@ -1,4 +1,7 @@
 /**
+ * civilDayRolloverRefresh.ts — Pure predicate: should the host reload tides after local civil midnight rolled.
+ * Fed by shell refresh state; no I/O. Kind: Pure logic. Does not call the proxy or advance clocks.
+ *
  * Whether the host should re-run the civil-day tide query because local midnight
  * crossed since the last successful load. See diagram-host-integration Stage 1.
  *

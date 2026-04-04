@@ -1,3 +1,8 @@
+/**
+ * buildFromProxy.ts — Validates Tide Proxy v1 JSON and builds {@link TideExtremesAtLocation}.
+ * Kind: Adapter / boundary (wire → domain). Does not perform HTTP.
+ */
+
 import { TideExtreme, type TideExtremeType } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 

@@ -1,3 +1,9 @@
+/**
+ * civilDayExtremes.ts — Slices stored extremes to the active local civil window with bookend validation.
+ * Fed by snapshots and civil-day bounds; consumed by the tide query façade. Kind: Query / selector.
+ * Does not perform HTTP.
+ */
+
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import {
   type CivilDayLocalInterval,

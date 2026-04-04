@@ -1,5 +1,9 @@
-// Maps a TideDiagramDocument from buildDiagram into the scene graph used for preview rendering.
-// Callers must pass a complete document per tideDiagramModel (e.g. tickLabels and tideMarks are arrays, not omitted).
+/**
+ * toScene.mjs — Maps a `TideDiagramDocument` from `buildDiagram` into the scene graph for SVG render.
+ * Kind: Pure logic (structure + coordinates). Does not stringify SVG.
+ *
+ * Callers must pass a complete document per tideDiagramModel (e.g. tickLabels and tideMarks are arrays, not omitted).
+ */
 import {
   arc,
   circle,

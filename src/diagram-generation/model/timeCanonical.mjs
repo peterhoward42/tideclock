@@ -1,3 +1,8 @@
+/**
+ * timeCanonical.mjs — Strict `HH:MM:SS` parse/format helpers for diagram spec times.
+ * Kind: Pure logic. Does not apply time zones beyond documented sentinel rules.
+ */
+
 const CANONICAL_TIME_RE = /^(\d{2}):(\d{2}):(\d{2})$/;
 
 /**

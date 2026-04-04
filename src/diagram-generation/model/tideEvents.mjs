@@ -1,5 +1,9 @@
-// Tide event utilities shared across diagram elements.
-// Responsible for deriving next tide event and its interval from spec inputs.
+/**
+ * tideEvents.mjs — Next-tide derivation from markers or injected semantics; shared by pointers and centre cluster.
+ * Kind: Pure logic. Does not place SVG primitives.
+ *
+ * Tide event utilities shared across diagram elements.
+ */
 
 import { parseCanonicalTimeOrThrow } from "./timeCanonical.mjs";
 

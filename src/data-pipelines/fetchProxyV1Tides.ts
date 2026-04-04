@@ -1,3 +1,8 @@
+/**
+ * fetchProxyV1Tides.ts — Single GET to Tide Proxy API v1; returns typed JSON or throws.
+ * Kind: Adapter / boundary (HTTP). Does not map into domain models.
+ */
+
 import type { ProxyV1ErrorResponse, TideProxyV1Response } from './proxyV1Types';
 
 export interface FetchProxyV1TidesParams {

@@ -1,3 +1,8 @@
+/**
+ * semanticMinuteCadence.ts — Local wall-clock minute boundary subscription with optional immediate tick.
+ * Home uses this for diagram regeneration cadence. Kind: Service (timers). Does not derive tide semantics.
+ */
+
 const MS_PER_MINUTE = 60_000;
 
 const wallClockNowMs: () => number = () => Date.now();

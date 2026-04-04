@@ -1,4 +1,7 @@
 /**
+ * TideClockCivilDayDisplayWindow.ts — Local civil-day bounds plus injectable “now” for time seams.
+ * Shared by slicing and query code. Kind: Definition + small service types. Does not fetch tides.
+ *
  * Half-open local civil-day bounds: inclusive start at local midnight, exclusive end
  * at the next local midnight. `Date` values use the host’s local calendar when read
  * via `getFullYear` / `getMonth` / `getDate` etc.

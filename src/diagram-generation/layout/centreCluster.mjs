@@ -1,13 +1,17 @@
-// CentreCluster layout in diagram space (origin at RefArc centre). See docs/specs/tide-diagram.md.
-// Fixed glue between event-kind and interval text is normative here and in the spec.
-//
-// Policies for {@link buildCentreClusterFromSpec}:
-// - Returns `null` when `spec.centreCluster` is missing or not a plain object.
-// - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
-// - Throws when `centreCluster.timeDelta` is missing or `{ y, fontHeight }` are not finite numbers.
-// - `spec.refRadius`, `spec.sweepRad`, and `centreCluster.frameArcRadius` are optional; defaults match historical diagram presets (see constants below).
-//
-// {@link layoutCentreCluster} is pure geometry + text placement from a resolved {@link TimeDeltaLayout}; it does not read the spec.
+/**
+ * centreCluster.mjs — Centre cluster layout (time delta text, frame arc) in diagram space.
+ * Fed by spec + shared tide-event helpers. Kind: Pipeline stage (layout submodule). Does not render SVG.
+ *
+ * See docs/specs/tide-diagram.md. Fixed glue between event-kind and interval text is normative here and in the spec.
+ *
+ * Policies for {@link buildCentreClusterFromSpec}:
+ * - Returns `null` when `spec.centreCluster` is missing or not a plain object.
+ * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
+ * - Throws when `centreCluster.timeDelta` is missing or `{ y, fontHeight }` are not finite numbers.
+ * - `spec.refRadius`, `spec.sweepRad`, and `centreCluster.frameArcRadius` are optional; defaults match historical diagram presets (see constants below).
+ *
+ * {@link layoutCentreCluster} is pure geometry + text placement from a resolved {@link TimeDeltaLayout}; it does not read the spec.
+ */
 
 import { polar, refArcAngles } from "../model/tideDiagramModel.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";

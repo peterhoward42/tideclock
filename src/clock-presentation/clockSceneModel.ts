@@ -1,5 +1,7 @@
 /**
- * Semantic description of the clock face for presentation (no temporal binding in this module).
+ * clockSceneModel.ts — Presentation types for the clock face (static shell + tide instants on the dial).
+ * Built from application inputs; consumed by division geometry, SVG mapping, and TideClock. Kind: Definition.
+ * Does not fetch data or call diagram-generation.
  *
  * **Boundaries**
  * - {@link ClockDialShell} is the static ring: reference outline and equal-arc divisions. It is stable

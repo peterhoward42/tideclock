@@ -1,3 +1,8 @@
+/**
+ * clockPathMapping.ts — Maps `ClockSceneModel` to SVG attributes (viewBox, outline, tick segments).
+ * Consumes clock-presentation geometry. Kind: Presentation. Does not fetch tides.
+ */
+
 import {
   DEFAULT_DIVISION_TICK_LENGTH,
   divisionTickSegmentsGeometry,

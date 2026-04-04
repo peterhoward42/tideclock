@@ -1,3 +1,9 @@
+/**
+ * tideExtremesForCivilDayQuery.ts — Application façade: civil-day slice of stored extremes plus fetch when needed.
+ * Orchestrates data-pipelines and time-services for the shell. Kind: Service / orchestrator.
+ * Does not render SVG or build diagram specs.
+ */
+
 import type { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import {
   extremesForCurrentCivilDay,

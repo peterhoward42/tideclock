@@ -1,3 +1,9 @@
+/**
+ * nextTideSemantics.ts — Derives `spec.semantic.nextTide` on a minute cadence for diagram layout.
+ * Wraps diagram-generation parsers; fed by spec builders. Kind: Pure logic.
+ * Does not mutate stores or touch storage.
+ */
+
 import {
   computeNextTideEventCore,
   formatIntervalHoursMinutes,

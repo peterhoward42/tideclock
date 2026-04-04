@@ -1,3 +1,9 @@
+/**
+ * buildDiagramGenerationSpec.ts — Maps domain extremes and local time into `DiagramGenerationSpec` fields.
+ * Fed by Home and tests; consumed by diagram-generation. Kind: Pure logic (with injectable time mapping).
+ * Does not invoke `buildDiagram` itself.
+ */
+
 import type { TideExtreme, TideExtremeType } from '../core-models/TideExtreme';
 import type { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import type { DiagramGenerationSpec } from './diagramGenerationCollaborator';

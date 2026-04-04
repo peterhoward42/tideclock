@@ -1,7 +1,9 @@
 /**
+ * lineStyleRendering.mjs — Maps domain `lineStyle` tokens to SVG `stroke-dasharray` fragments.
+ * Used at style load and render. Kind: Definition + pure logic. Does not own colour palettes.
+ *
  * Domain `lineStyle` tokens for named diagram styles (`StyleProps.lineStyle` in styleBindings).
- * SVG output maps each token to `stroke-dasharray`; entry value `null` means omit dasharray (solid).
- * Tokens are asserted at style load via {@link assertKnownLineStyleToken}; render assumes loaded data only.
+ * Entry value `null` means omit dasharray (solid). Tokens are asserted at style load via {@link assertKnownLineStyleToken}.
  *
  * Add new tokens here when the product introduces variants (e.g. `special-dashed`).
  */

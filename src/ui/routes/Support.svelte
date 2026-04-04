@@ -1,4 +1,5 @@
 <script lang="ts">
+  /** Support.svelte — Static support route. Kind: Presentation. */
   const title: string = "Support";
 </script>
 

@@ -1,5 +1,6 @@
 /**
- * Normalized dial space — abstract units used throughout clock presentation before viewport scaling.
+ * normalizedDialSpace.ts — Unit space and angle convention for dial math before viewport scaling.
+ * Shared by geometry and SVG helpers. Kind: Definition. Does not encode tide domain rules beyond coordinates.
  *
  * **Linear measure**
  * - One dial unit is arbitrary; we fix a reference diameter so mental math is easy.

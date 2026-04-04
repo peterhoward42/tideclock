@@ -1,3 +1,8 @@
+/**
+ * TideExtreme.ts — Domain row for one tidal high or low (UTC instant, height).
+ * Kind: Definition.
+ */
+
 export type TideExtremeType = 'high' | 'low';
 
 /** One tidal high or low: instant in UTC (ISO 8601) and height in metres above chart datum. */

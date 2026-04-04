@@ -1,12 +1,15 @@
-// TideMarks layout in diagram space. See docs/specs/tide-diagram.md (TideMarks).
-// Parses `spec.tideMarks` into {@link layoutTideMarks} inputs; positions height/time labels and
-// the time pointer (triangle + incircle) from divergence and line-length factors.
-//
-// Policies for {@link buildTideMarksFromSpec}:
-// - Returns `[]` when `tideMarks` is missing, not a plain object, `markers` missing, empty, or
-//   yields no usable rows (skips non-objects, non-string `heightText`, right-endpoint times).
-// - Throws from {@link parseCanonicalTimeOrThrow} on invalid marker times, and on duplicate
-//   canonical times after filtering.
+/**
+ * tideMarks.mjs — Tide mark rows (labels + time pointers) in diagram space from `spec.tideMarks`.
+ * Kind: Pipeline stage (layout submodule). Does not derive next-tide semantics.
+ *
+ * See docs/specs/tide-diagram.md (TideMarks).
+ *
+ * Policies for {@link buildTideMarksFromSpec}:
+ * - Returns `[]` when `tideMarks` is missing, not a plain object, `markers` missing, empty, or
+ *   yields no usable rows (skips non-objects, non-string `heightText`, right-endpoint times).
+ * - Throws from {@link parseCanonicalTimeOrThrow} on invalid marker times, and on duplicate
+ *   canonical times after filtering.
+ */
 
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
 import {

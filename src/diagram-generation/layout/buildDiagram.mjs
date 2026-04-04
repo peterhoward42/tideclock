@@ -1,12 +1,17 @@
-// Orchestrates layout modules into a TideDiagramDocument from an open spec object.
-// See docs/specs/tide-diagram.md; spec keys mirror the open object passed from the app (diagramGenerationCollaborator.ts).
-//
-// Policies for {@link buildDiagram}:
-// - Throws if `spec.contentBounds` is missing or not `{ left, right, above, below }` with finite values ≥ 0.
-// - Canvas size, ref arc, and tick sizing: finite numbers win; non-finite or wrong-type values fall back to defaults below.
-// - `spec.title` defaults to "tide diagram" when missing or not a string.
-// - Tick labels: `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries are skipped.
-// - Sub-builders (`buildTideMarksFromSpec`, pointers, centre cluster, wait arc) enforce their own throw/return-null rules.
+/**
+ * buildDiagram.mjs — Orchestrates layout submodules into a `TideDiagramDocument` from an open spec.
+ * Fed by the app collaborator; downstream: `toScene` and SVG render. Kind: Orchestrator / coordinator.
+ * Does not emit SVG strings.
+ *
+ * See docs/specs/tide-diagram.md; spec keys mirror the open object passed from the app (diagramGenerationCollaborator.ts).
+ *
+ * Policies for {@link buildDiagram}:
+ * - Throws if `spec.contentBounds` is missing or not `{ left, right, above, below }` with finite values ≥ 0.
+ * - Canvas size, ref arc, and tick sizing: finite numbers win; non-finite or wrong-type values fall back to defaults below.
+ * - `spec.title` defaults to "tide diagram" when missing or not a string.
+ * - Tick labels: `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries are skipped.
+ * - Sub-builders (`buildTideMarksFromSpec`, pointers, centre cluster, wait arc) enforce their own throw/return-null rules.
+ */
 import { buildCentreClusterFromSpec } from "./centreCluster.mjs";
 import { buildNowPointerFromSpec } from "./nowPointer.mjs";
 import { buildNextPointerFromSpec } from "./nextPointer.mjs";

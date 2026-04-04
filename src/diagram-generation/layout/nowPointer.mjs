@@ -1,15 +1,18 @@
-// NowPointer in diagram space. See docs/specs/tide-diagram.md (NowPointer).
-// Reads `spec.nowPointer` and `spec.timeNow`; emits a NowPointerDiagram (see tideDiagramModel.mjs) or `null`
-// when the pointer is absent or radial geometry is unusable.
-//
-// Policies for {@link readNowPointerLineInnerRadiusPx}:
-// - Returns `null` when `nowPointer` is missing or not a plain object (no throw).
-//
-// Policies for {@link buildNowPointerFromSpec}:
-// - Returns `null` when `nowPointer` is missing, not a plain object, or inner/outer radii give `r_outer ≤ r_inner`.
-// - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid.
-// - Throws when `spec.timeNow` parses to the civil-day right endpoint (`24:00:00`).
-// - Numeric styling keys on the spec are optional; defaults match historical diagram presets (see constants below).
+/**
+ * nowPointer.mjs — “Now” radial pointer and shared inner-radius read helpers in diagram space.
+ * Kind: Pipeline stage (layout submodule). Does not compute next-tide geometry alone.
+ *
+ * See docs/specs/tide-diagram.md (NowPointer).
+ *
+ * Policies for {@link readNowPointerLineInnerRadiusPx}:
+ * - Returns `null` when `nowPointer` is missing or not a plain object (no throw).
+ *
+ * Policies for {@link buildNowPointerFromSpec}:
+ * - Returns `null` when `nowPointer` is missing, not a plain object, or inner/outer radii give `r_outer ≤ r_inner`.
+ * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid.
+ * - Throws when `spec.timeNow` parses to the civil-day right endpoint (`24:00:00`).
+ * - Numeric styling keys on the spec are optional; defaults match historical diagram presets (see constants below).
+ */
 
 import {
   computeNextTideEventCore,

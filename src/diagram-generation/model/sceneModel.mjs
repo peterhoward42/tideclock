@@ -1,4 +1,7 @@
 /**
+ * sceneModel.mjs — Scene graph primitives and constructors used by `toScene` and render.
+ * Coordinates: x right, y up (math-style, not SVG). Kind: Definition. Does not read tide specs.
+ *
  * Scene graph: named groups (structure) and geometry primitives.
  * Coordinates: x right, y up (math-style, not SVG). Angles: radians (CCW from +x).
  *

@@ -142,6 +142,7 @@ If tests pass, stage only files touched for this step and commit with subject: t
 				o  how hide browser apparatus at top?
 				o  test on tablet and phone
 				o  how encourage keep screen on if charging
+				o  is it a tide smile?
 
 				o  question merit of keeping iter.sh on gen scene - has
 					served its purpose

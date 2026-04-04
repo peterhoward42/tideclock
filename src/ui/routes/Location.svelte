@@ -1,4 +1,8 @@
 <script lang="ts">
+  /**
+   * Location.svelte — Search and pick a town; calls back into the shell to persist selection.
+   * Kind: Presentation. Does not write storage directly.
+   */
   import { type Town, bakedTowns } from "../../data/bakedTowns";
 
   interface Props {

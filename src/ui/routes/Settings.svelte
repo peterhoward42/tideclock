@@ -1,4 +1,5 @@
 <script lang="ts">
+  /** Settings.svelte — Placeholder settings route. Kind: UI shell / presentation. */
   const title: string = "Settings";
 </script>
 

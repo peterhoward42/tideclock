@@ -1,13 +1,16 @@
-// NextPointer radial line in diagram space. See docs/specs/tide-diagram.md (NextPointer).
-// Reads `spec.nextPointer`, `spec.timeNow`, and (via nowPointer) shared inner-radius semantics;
-// emits a NextPointerDiagram (see tideDiagramModel.mjs) or `null` when layout cannot proceed.
-//
-// Policies for {@link buildNextPointerFromSpec}:
-// - Returns `null` when `nextPointer` is missing or not a plain object.
-// - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
-// - Returns `null` when {@link buildNowPointerFromSpec} is `null`, when inner radius cannot be resolved, when
-//   outer ≤ inner along the next radial, or when {@link computeNextTideEventCore} has no next event.
-// - Numeric styling keys are optional; defaults match historical presets (`DEFAULT_LINE_OUTER`, `DEFAULT_CIRCLE_RADIUS`).
+/**
+ * nextPointer.mjs — Next-tide radial pointer layout in diagram space.
+ * Depends on now-pointer geometry and tide-event core. Kind: Pipeline stage (layout submodule).
+ *
+ * See docs/specs/tide-diagram.md (NextPointer). Emits a NextPointerDiagram or `null` when layout cannot proceed.
+ *
+ * Policies for {@link buildNextPointerFromSpec}:
+ * - Returns `null` when `nextPointer` is missing or not a plain object.
+ * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
+ * - Returns `null` when {@link buildNowPointerFromSpec} is `null`, when inner radius cannot be resolved, when
+ *   outer ≤ inner along the next radial, or when {@link computeNextTideEventCore} has no next event.
+ * - Numeric styling keys are optional; defaults match historical presets (`DEFAULT_LINE_OUTER`, `DEFAULT_CIRCLE_RADIUS`).
+ */
 
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";

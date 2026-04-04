@@ -1,4 +1,8 @@
 /**
+ * clockDivisionGeometry.ts — Equal-hour division geometry on the reference ring from a {@link ClockSceneModel}.
+ * Consumes {@link normalizedDialSpace}; feeds SVG path mapping. Kind: Pure logic.
+ * Does not perform I/O or parse tide API payloads.
+ *
  * Geometry for equal dial divisions: boundary positions on the reference ring and optional inward tick segments.
  * Angles and coordinates use {@link normalizedDialSpace}.
  */

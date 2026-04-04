@@ -1,5 +1,9 @@
 // @ts-check
-// Entry: mounts the Svelte app on `#app` (throws if missing); logs boot diagnostics to the console.
+/**
+ * main.js — Vite browser entry: mounts `App` on `#app`, logs boot diagnostics.
+ * Downstream: Svelte UI only. Owns nothing domain-specific.
+ * Kind: Adapter / boundary (runtime entry). Does not implement routing or tide loading.
+ */
 import { mount } from 'svelte'
 import './app.css'
 import App from './ui/App.svelte'

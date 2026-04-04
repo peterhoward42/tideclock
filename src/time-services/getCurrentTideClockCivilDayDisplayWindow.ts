@@ -1,3 +1,8 @@
+/**
+ * getCurrentTideClockCivilDayDisplayWindow.ts — Builds today’s local half-open civil interval from a time provider.
+ * Consumed by civil-day slicing and tide query. Kind: Pure logic over `Date`. Does not read storage.
+ */
+
 import {
   SystemTimeNowProvider,
   TideClockCivilDayDisplayWindow,

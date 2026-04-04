@@ -1,7 +1,9 @@
 // @ts-check
 
 /**
- * Hash-based SPA routing: `route` mirrors `window.location.hash`; {@link navigate} writes `#/{id}`.
+ * router.js — Hash URL drives the `route` store; the shell subscribes and {@link navigate} writes `#/{id}`.
+ * Owns parse/normalize hash ↔ {@link RouteId} and attaching the `hashchange` listener.
+ * Kind: UI shell wiring. Does not load tides or own chrome layout.
  */
 
 import { writable } from 'svelte/store'

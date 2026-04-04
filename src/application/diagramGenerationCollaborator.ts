@@ -1,3 +1,9 @@
+/**
+ * diagramGenerationCollaborator.ts — Types and factory for `src/diagram-generation` (diagram + scene + styles).
+ * Keeps app and tests on this boundary instead of `.mjs` internals. Kind: Adapter / boundary.
+ * Does not source tide data.
+ */
+
 import {
   STATIC_STYLE_MODEL,
   buildDiagram,

@@ -1,4 +1,8 @@
 <script lang="ts">
+  /**
+   * ClockDivisionDial.svelte — SVG hour ring and ticks from `clockPathMapping` + `ClockSceneModel`.
+   * Kind: Presentation. Does not handle tide labels or network state.
+   */
   import type { ClockSceneModel } from "../../clock-presentation/clockSceneModel";
   import { clockDivisionDialSvgProps } from "../svg/clockPathMapping";
 

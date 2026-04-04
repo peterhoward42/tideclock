@@ -1,4 +1,7 @@
-/** JSON values returned by Tide Proxy API v1 (`GET …/v1/tides`). */
+/**
+ * proxyV1Types.ts — Type aliases for Tide Proxy API v1 response JSON (`GET …/v1/tides`).
+ * Kind: Definition. No runtime logic.
+ */
 
 export type ProxyV1ExtremeType = 'High' | 'Low';
 

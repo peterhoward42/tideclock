@@ -1,4 +1,5 @@
 <script lang="ts">
+  /** Acknowledgements.svelte — Static acknowledgements route. Kind: Presentation. */
   const title: string = "Acknowledgements";
 </script>
 

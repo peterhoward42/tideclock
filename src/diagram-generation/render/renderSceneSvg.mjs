@@ -1,4 +1,7 @@
-// Scene graph → HTML/SVG strings (no fs/CLI). Used by the Home route.
+/**
+ * renderSceneSvg.mjs — Scene graph → SVG string output (no fs/CLI); used by the Home route.
+ * Kind: Presentation. Does not compute layout from tide specs.
+ */
 
 import { svgStrokeDasharrayAttrFragment } from "../presets/lineStyleRendering.mjs";
 

@@ -1,5 +1,8 @@
 <script lang="ts">
-  // Local-time display driven by the shared `nowMs` store (one tick per second); tide load lifecycle for the main screen.
+  /**
+   * TideClock.svelte — Main clock card: local time from `nowMs`, dial from `ClockSceneModel`, load state chrome.
+   * Kind: Presentation. Does not fetch tides or run diagram-generation.
+   */
   import type { ClockSceneModel } from "../../clock-presentation/clockSceneModel";
   import { nowMs } from "../../application/appClock.js";
   import ClockDivisionDial from "./ClockDivisionDial.svelte";

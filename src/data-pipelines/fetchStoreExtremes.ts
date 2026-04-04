@@ -1,3 +1,8 @@
+/**
+ * fetchStoreExtremes.ts — One proxy fetch, map to domain, persist snapshot in one flow.
+ * Kind: Pipeline stage (network → model → storage). Does not slice civil days.
+ */
+
 import { fetchProxyV1Tides } from './fetchProxyV1Tides';
 import { buildExtremesFromProxy } from './buildFromProxy';
 import type { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
