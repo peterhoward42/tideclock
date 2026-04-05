@@ -718,13 +718,24 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     },
   ],
   "timeNowLabel": {
-    "anchor": {
-      "x": 123.9,
-      "y": -3.54,
+    "hms": {
+      "anchor": {
+        "x": 119.652,
+        "y": -3.54,
+      },
+      "content": "19:20:",
+      "fontSize": 3.54,
+      "hAlign": "right",
     },
-    "content": "19:20:03",
-    "fontSize": 3.54,
-    "hAlign": "right",
+    "seconds": {
+      "anchor": {
+        "x": 123.9,
+        "y": -3.54,
+      },
+      "content": "03",
+      "fontSize": 3.54,
+      "hAlign": "right",
+    },
   },
   "version": 1,
   "waitArc": {
@@ -1569,15 +1580,38 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       {
         "children": [
           {
-            "anchor": {
-              "x": 333.9,
-              "y": 156.46,
-            },
-            "angleRad": 0,
-            "content": "19:20:03",
-            "hAlign": "right",
-            "kind": "text",
-            "size": 3.54,
+            "children": [
+              {
+                "anchor": {
+                  "x": 329.652,
+                  "y": 156.46,
+                },
+                "angleRad": 0,
+                "content": "19:20:",
+                "hAlign": "right",
+                "kind": "text",
+                "size": 3.54,
+              },
+            ],
+            "kind": "group",
+            "name": "TimeNowLabelHms",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 333.9,
+                  "y": 156.46,
+                },
+                "angleRad": 0,
+                "content": "03",
+                "hAlign": "right",
+                "kind": "text",
+                "size": 3.54,
+              },
+            ],
+            "kind": "group",
+            "name": "TimeNowLabelSeconds",
           },
         ],
         "kind": "group",

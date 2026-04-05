@@ -61,6 +61,11 @@ type DiagramTextInst = {
   readonly hAlign?: "left" | "center" | "right";
 };
 
+type DiagramTimeNowLabelInst = {
+  readonly hms: DiagramTextInst;
+  readonly seconds: DiagramTextInst;
+};
+
 type CentreClusterFrameArcSpec = {
   readonly center: DiagramPoint;
   readonly radius: number;
@@ -157,7 +162,7 @@ export type TideDiagramDocument = {
   readonly nextPointer: NextPointerDiagram | null;
   readonly waitArc: WaitArcDiagram | null;
   readonly centreCluster: CentreClusterDiagram | null;
-  readonly timeNowLabel: DiagramTextInst | null;
+  readonly timeNowLabel: DiagramTimeNowLabelInst | null;
   readonly contentBounds: DiagramContentBounds;
 };
 

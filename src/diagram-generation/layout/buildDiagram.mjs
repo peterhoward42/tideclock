@@ -49,12 +49,16 @@ function numOr(v, fallback) {
   return typeof v === "number" && Number.isFinite(v) ? v : fallback;
 }
 
+/** Per-character scene width heuristic; must match {@link expandBoundsByText} in `toScene.mjs`. */
+const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
+
 /**
  * Root-level clock readout from `spec.timeNow` (canonical `HH:MM:SS` only). Optional `spec.timeNowLabel`:
  * `{ x?, fontHeight? }` as RefRadius multiples; default **x** = 0.8, **fontHeight** = 0.05; **y** = −**fontHeight**.
+ * HMS and seconds are separate {@link DiagramTextInst}s so each can bind a distinct scene style name.
  *
  * @param {Record<string, unknown>} spec
- * @returns {import('../model/tideDiagramModel.mjs').DiagramTextInst | null}
+ * @returns {import('../model/tideDiagramModel.mjs').DiagramTimeNowLabelInst | null}
  */
 function buildTimeNowLabelFromSpec(spec) {
   const raw = spec.timeNowLabel;
@@ -75,11 +79,25 @@ function buildTimeNowLabelFromSpec(spec) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
   const yK = -fontHeightK;
+  const fontSize = fontHeightK * refRadius;
+  const ax = xK * refRadius;
+  const ay = yK * refRadius;
+  const canonical = parsedNow.canonical;
+  const secondsChars = 2;
+  const secondsWidth = secondsChars * TIME_NOW_LABEL_CHAR_WIDTH_EM * fontSize;
   return {
-    content: parsedNow.canonical,
-    fontSize: fontHeightK * refRadius,
-    anchor: { x: xK * refRadius, y: yK * refRadius },
-    hAlign: "right",
+    hms: {
+      content: canonical.slice(0, 6),
+      fontSize,
+      anchor: { x: ax - secondsWidth, y: ay },
+      hAlign: "right",
+    },
+    seconds: {
+      content: canonical.slice(6),
+      fontSize,
+      anchor: { x: ax, y: ay },
+      hAlign: "right",
+    },
   };
 }
 

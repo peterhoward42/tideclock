@@ -402,13 +402,24 @@ export function tideDiagramToScene(diagram) {
   const timeNowLabelGroup =
     timeNowLabel != null
       ? group("TimeNowLabel", [
-          text({
-            content: timeNowLabel.content,
-            size: timeNowLabel.fontSize,
-            hAlign: timeNowLabel.hAlign ?? "center",
-            angleRad: 0,
-            anchor: mapPoint(timeNowLabel.anchor, cx, cy),
-          }),
+          group("TimeNowLabelHms", [
+            text({
+              content: timeNowLabel.hms.content,
+              size: timeNowLabel.hms.fontSize,
+              hAlign: timeNowLabel.hms.hAlign ?? "center",
+              angleRad: 0,
+              anchor: mapPoint(timeNowLabel.hms.anchor, cx, cy),
+            }),
+          ]),
+          group("TimeNowLabelSeconds", [
+            text({
+              content: timeNowLabel.seconds.content,
+              size: timeNowLabel.seconds.fontSize,
+              hAlign: timeNowLabel.seconds.hAlign ?? "center",
+              angleRad: 0,
+              anchor: mapPoint(timeNowLabel.seconds.anchor, cx, cy),
+            }),
+          ]),
         ])
       : null;
 

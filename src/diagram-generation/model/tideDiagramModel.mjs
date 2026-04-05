@@ -49,6 +49,14 @@
  *   hAlign?: 'left' | 'center' | 'right',
  * }} DiagramTextInst
  *
+ * Clock readout at the diagram root: `HH:MM:` and `SS` as separate text instances (same baseline;
+ * {@link buildTimeNowLabelFromSpec} offsets HMS so the pair reads as one right-aligned `HH:MM:SS`).
+ *
+ * @typedef {{
+ *   hms: DiagramTextInst,
+ *   seconds: DiagramTextInst,
+ * }} DiagramTimeNowLabelInst
+ *
  * @typedef {{
  *   center: DiagramPoint,
  *   radius: number,
@@ -136,7 +144,7 @@
  *   nextPointer: NextPointerDiagram | null,
  *   waitArc: WaitArcDiagram | null,
  *   centreCluster: CentreClusterDiagram | null,
- *   timeNowLabel: DiagramTextInst | null,
+ *   timeNowLabel: DiagramTimeNowLabelInst | null,
  *   contentBounds: DiagramContentBounds,
  * }} TideDiagramDocument
  */

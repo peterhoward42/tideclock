@@ -26,7 +26,7 @@ fixed here (see **Content bounds**).
   - NowPointer
   - NextPointer
   - WaitArc
-  - TimeNowLabel
+  - TimeNowLabel (group; style-bound leaves are **TimeNowLabelHms** and **TimeNowLabelSeconds**)
   - CentreCluster
   - TimeDelta
   - NoMoreTidesToday
@@ -389,22 +389,23 @@ derived from global `**timeNow`**. It is **not** a child of **CentreCluster**.
 
 ### Text and placement
 
-- One **TextElement**:
-  - **Text** — exactly the canonical `**HH:MM:SS`** substring from parsed
-    `**timeNow`** (includes seconds; **no** literal prefix such as “Time now”; no
-    separate host string).
+- Two **TextElement**s that read as one `**HH:MM:SS**` line (same **FontHeight** and baseline):
+  - **HMS fragment** — canonical `**HH:MM:`** (six characters, includes the colon before seconds).
+  - **Seconds fragment** — canonical **`SS`** (two digits).
+  - **No** literal prefix such as “Time now”; **no** separate host string beyond parsed `**timeNow**`.
   - **FontHeight** — **k_font·R** with **k_font** from **`fontHeight`** (or default).
-  - **Horizontal justification** — **right** (anchor at the **trailing** edge of
-    the line in **+X**).
+  - **Horizontal justification** — **right** for both; the seconds fragment’s anchor sits at the
+    readout’s trailing edge in **+X**, and the HMS anchor is offset left by a fixed monospace advance
+    so the pair abuts (**§Scene model** uses the same width heuristic as preview framing).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
-  - **Anchor** — **(x, y)** in diagram model space (**§Origin**):
-    - **x = k_x·R** with **k_x** from **`x`** (or default),
-    - **y = −k_font·R** (equivalently: **Y** equals **0 − 1.0 × FontHeight** in
-      the same **k·R** sense as **§Sizing**).
+  - **Anchor** — HMS and seconds share **y = −k_font·R**; **x** for the trailing (seconds) anchor is
+    **k_x·R** with **k_x** from **`x`** (or default).
 
 ### Scene model
 
-- Emitted as a named group **TimeNowLabel** containing the single **TextElement**.
+- Emitted as a named group **TimeNowLabel** containing two child groups:
+  - **TimeNowLabelHms** — one **TextElement** (style name **`time-now-label`**).
+  - **TimeNowLabelSeconds** — one **TextElement** (style name **`time-now-label-seconds`**).
 - Intended paint order: after **CentreCluster** so the readout is not covered by
   centre-cluster geometry when they overlap (generator ordering).
 

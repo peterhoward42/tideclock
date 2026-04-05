@@ -84,27 +84,20 @@ o  new data fetch paradigm
 				*  fix: wait time squashed up
 				*  some lines dashed
 				*  ditch preview iter
-fart
 
-				o  try javascript for apps skill
-					*  create one
-					*  ask chatgpt for ordered plan
-					*  automate the step application sequence with a
-					   reusable prompt
-					o  skill for finding orphaned / unused code
-						*  apply it
-						*  module headers
-						o  survey results
-
-				o  out of band task
-					*  write elevator pitch
-					*  enumerate what it shows
-					*  riff to decide ui presso drivers
-					o  have you enough to go on
-						o  noting yellow on black maybe too vigrant, not sure
-
+				o  split timenow into two with seconds having separate style
+				o  ditch centre cluster retaining msg standalone and position it
+				o  assemble location and hight water message into one
+				o  put change location inside diag bottom left
+				o  try ref arc being a filled shape and
+				o  move time pointer inside the filled crescent occluding the tick
+				   marks
+				o  give now triangle a shimmer
+				o  tune geom of crescent
+				o  change header on home only to dark grey with appropriate changes
+				   to menu colour on home route only
 				o  improve town picker and redirect to clock
-
+				o  improve visuals incl hierarchy
 
 fart
 
