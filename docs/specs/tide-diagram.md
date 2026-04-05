@@ -42,7 +42,7 @@ and layout submodules).
   - NowPointer
   - NextPointer
   - WaitArc
-  - TimeNowLabel (group; style-bound leaves are **TimeNowLabelHms** and **TimeNowLabelSeconds**)
+  - TimeNowLabel (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds**)
   - CentreCluster
   - TimeDelta
   - NoMoreTidesToday
@@ -406,14 +406,15 @@ shows the current civil clock time derived from global `**timeNow**`.
 
 ### Text and placement
 
-- Two **TextElement**s that read as one `**HH:MM:SS**` line (same **FontHeight** and baseline):
-  - **HMS fragment** — canonical `**HH:MM:`** (six characters, includes the colon before seconds).
+- Three **TextElement**s that read as one `**HH:MM:SS**` line (same **FontHeight** and baseline):
+  - **HH:MM fragment** — canonical `**HH:MM`** (five characters; includes the colon between hours and minutes only).
+  - **Seconds-colon fragment** — a single literal **`:`** (the colon immediately before **`SS`**).
   - **Seconds fragment** — canonical **`SS`** (two digits).
   - **No** literal prefix such as “Time now”; **no** separate host string beyond parsed `**timeNow**`.
   - **FontHeight** — **k_font·R** with **k_font** from **`fontHeight`**.
-  - **Horizontal justification** — **right** for both; the seconds fragment’s anchor sits at the
-    readout’s trailing edge in **+X**, and the HMS anchor is offset left by a fixed monospace advance
-    so the pair abuts (**§Scene model** uses the same width heuristic as preview framing).
+  - **Horizontal justification** — **right** for all three; the seconds fragment’s anchor sits at the
+    readout’s trailing edge in **+X**, and the seconds-colon and HMS anchors are offset left by fixed
+    monospace advances so the triple abuts (**§Scene model** uses the same width heuristic as preview framing).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
   - **Anchor** — HMS and seconds share **y = −below·R + k_above·R**, where **below** is the content
     **below** extent and **k_above** is **`aboveBottom`**; **x** for the trailing (seconds)
@@ -421,8 +422,9 @@ shows the current civil clock time derived from global `**timeNow**`.
 
 ### Scene model
 
-- Emitted as a named group **TimeNowLabel** containing two child groups:
-  - **TimeNowLabelHms** — one **TextElement** (style name **`time-now-label`**).
+- Emitted as a named group **TimeNowLabel** containing three child groups:
+  - **TimeNowLabelHms** — one **TextElement** for the **HH:MM** fragment (style name **`time-now-label`**).
+  - **TimeNowLabelSecondsColon** — one **TextElement** (style name **`time-now-label-seconds-colon`**).
   - **TimeNowLabelSeconds** — one **TextElement** (style name **`time-now-label-seconds`**).
 - Intended paint order: after **CentreCluster** so the readout is not covered by
   centre-cluster geometry when they overlap (generator ordering).

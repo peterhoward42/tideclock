@@ -49,11 +49,12 @@
  *   hAlign?: 'left' | 'center' | 'right',
  * }} DiagramTextInst
  *
- * Civil clock readout: `HH:MM:` and `SS` as separate text instances (same baseline;
- * {@link buildTimeNowLabelFromSpec} offsets HMS so the pair reads as one right-aligned `HH:MM:SS`).
+ * Civil clock readout: `HH:MM`, `:`, and `SS` as separate text instances (same baseline;
+ * {@link buildTimeNowLabelFromSpec} offsets anchors so the triple reads as one right-aligned `HH:MM:SS`).
  *
  * @typedef {{
- *   hms: DiagramTextInst,
+ *   hhmm: DiagramTextInst,
+ *   secondsColon: DiagramTextInst,
  *   seconds: DiagramTextInst,
  * }} DiagramTimeNowLabelInst
  *

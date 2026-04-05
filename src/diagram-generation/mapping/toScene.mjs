@@ -404,11 +404,20 @@ export function tideDiagramToScene(diagram) {
       ? group("TimeNowLabel", [
           group("TimeNowLabelHms", [
             text({
-              content: timeNowLabel.hms.content,
-              size: timeNowLabel.hms.fontSize,
-              hAlign: timeNowLabel.hms.hAlign ?? "center",
+              content: timeNowLabel.hhmm.content,
+              size: timeNowLabel.hhmm.fontSize,
+              hAlign: timeNowLabel.hhmm.hAlign ?? "center",
               angleRad: 0,
-              anchor: mapPoint(timeNowLabel.hms.anchor, cx, cy),
+              anchor: mapPoint(timeNowLabel.hhmm.anchor, cx, cy),
+            }),
+          ]),
+          group("TimeNowLabelSecondsColon", [
+            text({
+              content: timeNowLabel.secondsColon.content,
+              size: timeNowLabel.secondsColon.fontSize,
+              hAlign: timeNowLabel.secondsColon.hAlign ?? "center",
+              angleRad: 0,
+              anchor: mapPoint(timeNowLabel.secondsColon.anchor, cx, cy),
             }),
           ]),
           group("TimeNowLabelSeconds", [

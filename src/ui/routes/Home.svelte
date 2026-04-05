@@ -57,7 +57,7 @@
 
   let diagramSvg = $state("");
   let diagramError = $state<string | undefined>(undefined);
-  /** Container for injected SVG; used to patch TimeNowLabel HMS/seconds text without regenerating the scene. */
+  /** Container for injected SVG; used to patch TimeNowLabel HH:MM / colon / seconds text without regenerating the scene. */
   let diagramHostEl = $state<HTMLElement | undefined>(undefined);
 
   /** Dev-only: optional debug tooling (toggle with query params). */
@@ -183,13 +183,17 @@
     if (host == null || svg === "") return;
     const unsub = nowMs.subscribe((ms) => {
       const canonical = localCanonicalTimeNowFromMs(ms);
-      const hmsEl = host.querySelector(
+      const hhmmEl = host.querySelector(
         'svg g[data-name="TimeNowLabelHms"] text'
+      ) as SVGTextElement | null;
+      const colonEl = host.querySelector(
+        'svg g[data-name="TimeNowLabelSecondsColon"] text'
       ) as SVGTextElement | null;
       const secEl = host.querySelector(
         'svg g[data-name="TimeNowLabelSeconds"] text'
       ) as SVGTextElement | null;
-      if (hmsEl !== null) hmsEl.textContent = canonical.slice(0, 6);
+      if (hhmmEl !== null) hhmmEl.textContent = canonical.slice(0, 5);
+      if (colonEl !== null) colonEl.textContent = canonical.slice(5, 6);
       if (secEl !== null) secEl.textContent = canonical.slice(6);
     });
     return unsub;

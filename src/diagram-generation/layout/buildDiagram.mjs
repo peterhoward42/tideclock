@@ -42,7 +42,7 @@ const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
  * Root-level clock readout from `spec.timeNow` (canonical `HH:MM:SS` only). Optional `spec.timeNowLabel`:
  * `{ x, fontHeight, aboveBottom }` as RefRadius multiples (all required when the object is present);
  * **k·R** up from **contentBounds.rect** bottom (**Y = minY**) for the shared baseline.
- * HMS and seconds are separate {@link DiagramTextInst}s so each can bind a distinct scene style name.
+ * HH:MM, the colon before seconds, and SS are separate {@link DiagramTextInst}s so each can bind a distinct scene style name.
  *
  * @param {Record<string, unknown>} spec
  * @param {import('../model/tideDiagramModel.mjs').DiagramContentBounds} contentBounds
@@ -76,11 +76,18 @@ function buildTimeNowLabelFromSpec(spec, contentBounds, refRadius) {
   const ax = xK * refRadius;
   const ay = contentBounds.rect.minY + aboveBottomK * refRadius;
   const canonical = parsedNow.canonical;
-  const secondsChars = 2;
-  const secondsWidth = secondsChars * TIME_NOW_LABEL_CHAR_WIDTH_EM * fontSize;
+  const w = TIME_NOW_LABEL_CHAR_WIDTH_EM * fontSize;
+  const secondsWidth = 2 * w;
+  const colonWidth = 1 * w;
   return {
-    hms: {
-      content: canonical.slice(0, 6),
+    hhmm: {
+      content: canonical.slice(0, 5),
+      fontSize,
+      anchor: { x: ax - secondsWidth - colonWidth, y: ay },
+      hAlign: "right",
+    },
+    secondsColon: {
+      content: canonical.slice(5, 6),
       fontSize,
       anchor: { x: ax - secondsWidth, y: ay },
       hAlign: "right",

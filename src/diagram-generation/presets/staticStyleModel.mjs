@@ -34,6 +34,10 @@ export const STATIC_STYLE_MODEL = {
       style: { color: "lightgrey" },
     },
     {
+      name: "time-now-label-seconds-colon",
+      style: { color: "lightgrey" },
+    },
+    {
       name: "time-now-label-seconds",
       style: { color: "white" },
     },
@@ -50,6 +54,7 @@ export const STATIC_STYLE_MODEL = {
     { name: "TickLabel", styleName: "grey-writing" },
     { name: "CentreClusterFrame", styleName: "grey-strokes" },
     { name: "TimeNowLabelHms", styleName: "time-now-label" },
+    { name: "TimeNowLabelSecondsColon", styleName: "time-now-label-seconds-colon" },
     { name: "TimeNowLabelSeconds", styleName: "time-now-label-seconds" },
     { name: "DeltaGlue", styleName: "grey-writing" },
     { name: "DeltaInterval", styleName: "grey-writing" },

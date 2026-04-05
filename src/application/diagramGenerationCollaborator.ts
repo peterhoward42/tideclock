@@ -62,7 +62,8 @@ type DiagramTextInst = {
 };
 
 type DiagramTimeNowLabelInst = {
-  readonly hms: DiagramTextInst;
+  readonly hhmm: DiagramTextInst;
+  readonly secondsColon: DiagramTextInst;
   readonly seconds: DiagramTextInst;
 };
 

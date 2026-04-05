@@ -718,12 +718,12 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
   ],
   "timeNowLabel": {
-    "hms": {
+    "hhmm": {
       "anchor": {
-        "x": 87.32000000000001,
+        "x": 83.78,
         "y": -165.2,
       },
-      "content": "19:20:",
+      "content": "19:20",
       "fontSize": 5.9,
       "hAlign": "right",
     },
@@ -733,6 +733,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "y": -165.2,
       },
       "content": "03",
+      "fontSize": 5.9,
+      "hAlign": "right",
+    },
+    "secondsColon": {
+      "anchor": {
+        "x": 87.32000000000001,
+        "y": -165.2,
+      },
+      "content": ":",
       "fontSize": 5.9,
       "hAlign": "right",
     },
