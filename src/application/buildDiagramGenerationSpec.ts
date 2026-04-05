@@ -127,7 +127,7 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
       scaleWithStroke: true,
     },
   },
-  timeNowLabel: { x: 1.05, fontHeight: 0.03, aboveBottom: 0.1 },
+  timeNowLabel: { x: 1.05, fontHeight: 0.04, aboveBottom: 0.1 },
   centreCluster: {
     frameArcRadius: 0.35,
     timeDelta: { y: -0.1, fontHeight: 0.05 },
