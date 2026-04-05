@@ -30,10 +30,7 @@ fixed here (see **Content bounds**).
   - CentreCluster
   - TimeDelta
   - NoMoreTidesToday
-  - Location
   - CentreClusterFrame
-
-*(Note: **Location** is not yet specified geometrically.)*
 
 When there is **no** tide marker at or after `timeNow` on the same civil day
 (same “next marker” notion as **WaitArc**), **NextPointer** and **WaitArc** are

@@ -89,15 +89,15 @@ fart
 				o  try javascript for apps skill
 					*  create one
 					*  ask chatgpt for ordered plan
-					o  automate the step application sequence with a
+					*  automate the step application sequence with a
 					   reusable prompt
 					o  skill for finding orphaned / unused code
 						*  apply it
-						o  module headers
+						*  module headers
 						o  survey results
 
 				o  out of band task
-					o  write elevator pitch
+					*  write elevator pitch
 					o  enumerate what it shows
 					o  riff to decide ui presso drivers
 						o  such as
@@ -108,19 +108,13 @@ fart
 							o  optimised for tablet and on wall screen but still
 							   good for mobile - likely necessarily landscape
 
+				o  improve town picker and redirect to clock
+
 
 fart
 
 
 
-
-TypeScript rollout — next step from git
-
-Run git log --oneline -50 (or enough to be sure). Find the highest step number N in commit subjects matching typescript rollout: step (or adjust to your exact prefix).
-Next step is N + 1. If no such commit exists, run Step 2 (assume Step 1 is already on the branch).
-Open docs/planning/typescript-skill-rollout.md, locate Step (N+1) (or Step 2 in the no-match case), and apply only that step: listed files and tests, checklist in ~/.cursor/skills/typescript-coding/SKILL.md, same behaviour/APIs unless honesty fixes are required.
-Run tests per that doc (npx vitest run, scoped or full as written).
-If tests pass, stage only files touched for this step and commit with subject: typescript rollout: step <N+1> — <short title from the plan>.
 
 				o  try on phone
 				o  line thicknesses knobs
