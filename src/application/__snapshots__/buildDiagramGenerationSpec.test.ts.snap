@@ -721,7 +721,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "hms": {
       "anchor": {
         "x": 119.652,
-        "y": -3.54,
+        "y": -165.2,
       },
       "content": "19:20:",
       "fontSize": 3.54,
@@ -730,7 +730,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "seconds": {
       "anchor": {
         "x": 123.9,
-        "y": -3.54,
+        "y": -165.2,
       },
       "content": "03",
       "fontSize": 3.54,
@@ -766,7 +766,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "maxX": 334.9,
       "maxY": 161,
       "minX": 74.2182659692451,
-      "minY": 21.175999999999977,
+      "minY": -6.907999999999989,
     },
     "title": "home-tide-diagram",
     "width": 420,
@@ -1584,7 +1584,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 329.652,
-                  "y": 156.46,
+                  "y": -5.199999999999989,
                 },
                 "angleRad": 0,
                 "content": "19:20:",
@@ -1601,7 +1601,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 333.9,
-                  "y": 156.46,
+                  "y": -5.199999999999989,
                 },
                 "angleRad": 0,
                 "content": "03",

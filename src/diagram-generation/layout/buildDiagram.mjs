@@ -52,15 +52,20 @@ function numOr(v, fallback) {
 /** Per-character scene width heuristic; must match {@link expandBoundsByText} in `toScene.mjs`. */
 const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
 
+/** @type {number} proportion of RefRadius: baseline offset upward from content bottom when absent or not finite */
+const DEFAULT_TIME_NOW_LABEL_ABOVE_BOTTOM = 0.1;
+
 /**
  * Root-level clock readout from `spec.timeNow` (canonical `HH:MM:SS` only). Optional `spec.timeNowLabel`:
- * `{ x?, fontHeight? }` as RefRadius multiples; default **x** = 0.8, **fontHeight** = 0.05; **y** = −**fontHeight**.
+ * `{ x?, fontHeight?, aboveBottom? }` as RefRadius multiples; default **x** = 0.8, **fontHeight** = 0.05;
+ * **aboveBottom** = 0.1 (**k·R** up from **contentBounds.rect** bottom, **Y = minY**).
  * HMS and seconds are separate {@link DiagramTextInst}s so each can bind a distinct scene style name.
  *
  * @param {Record<string, unknown>} spec
+ * @param {import('../model/tideDiagramModel.mjs').DiagramContentBounds} contentBounds
  * @returns {import('../model/tideDiagramModel.mjs').DiagramTimeNowLabelInst | null}
  */
-function buildTimeNowLabelFromSpec(spec) {
+function buildTimeNowLabelFromSpec(spec, contentBounds) {
   const raw = spec.timeNowLabel;
   if (raw == null || typeof raw !== "object") return null;
   const o = /** @type {Record<string, unknown>} */ (raw);
@@ -74,14 +79,18 @@ function buildTimeNowLabelFromSpec(spec) {
   const fhRaw = o.fontHeight;
   const fontHeightK =
     typeof fhRaw === "number" && Number.isFinite(fhRaw) ? fhRaw : 0.05;
+  const aboveBottomRaw = o.aboveBottom;
+  const aboveBottomK =
+    typeof aboveBottomRaw === "number" && Number.isFinite(aboveBottomRaw)
+      ? aboveBottomRaw
+      : DEFAULT_TIME_NOW_LABEL_ABOVE_BOTTOM;
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
-  const yK = -fontHeightK;
   const fontSize = fontHeightK * refRadius;
   const ax = xK * refRadius;
-  const ay = yK * refRadius;
+  const ay = contentBounds.rect.minY + aboveBottomK * refRadius;
   const canonical = parsedNow.canonical;
   const secondsChars = 2;
   const secondsWidth = secondsChars * TIME_NOW_LABEL_CHAR_WIDTH_EM * fontSize;
@@ -171,7 +180,7 @@ export function buildDiagram(spec) {
   const contentBounds = { extents, rect };
 
   const centreCluster = buildCentreClusterFromSpec(spec);
-  const timeNowLabel = buildTimeNowLabelFromSpec(spec);
+  const timeNowLabel = buildTimeNowLabelFromSpec(spec, contentBounds);
 
   const tideMarks = buildTideMarksFromSpec(
     spec,

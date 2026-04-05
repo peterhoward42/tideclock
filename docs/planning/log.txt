@@ -85,7 +85,9 @@ o  new data fetch paradigm
 				*  some lines dashed
 				*  ditch preview iter
 
-				o  split timenow into two with seconds having separate style
+				*  split timenow into two with seconds having separate style
+				o  purge legacy ref: "is **not** under **CentreCluster**;"
+				o  move time now to bottom right
 				o  ditch centre cluster retaining msg standalone and position it
 				o  assemble location and hight water message into one
 				o  put change location inside diag bottom left

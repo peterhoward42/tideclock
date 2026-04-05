@@ -37,8 +37,7 @@ When there is **no** tide marker at or after `timeNow` on the same civil day
 **omitted**. **TimeDelta** then carries a **single** replacement **TextElement**
 (see **TimeDelta**, empty-day case) under the stable leaf name **NoMoreTidesToday**
 instead of **EventKind**, **DeltaGlue**, and **DeltaInterval**. **CentreCluster**
-still includes **TimeDelta** (as above) and **CentreClusterFrame**. The civil
-clock readout (**TimeNowLabel**) is **not** under **CentreCluster**; see **TimeNowLabel**.
+includes **TimeDelta** (as above) and **CentreClusterFrame**.
 
 ### Style binding names (exact-match contract)
 
@@ -374,9 +373,8 @@ arrowhead geometry.
 
 ## TimeNowLabel
 
-**TimeNowLabel** is a **top-level** named element (sibling of **CentreCluster**,
-**NowPointer**, etc.): one **TextElement** showing the current civil clock time
-derived from global `**timeNow`**. It is **not** a child of **CentreCluster**.
+**TimeNowLabel** is a **top-level** named element (see **Diagram elements**). It
+shows the current civil clock time derived from global `**timeNow**`.
 
 ### Input
 
@@ -386,6 +384,11 @@ derived from global `**timeNow`**. It is **not** a child of **CentreCluster**.
     omitted, a default applies in the generator (product baseline uses **0.05**).
   - **`x`** — optional proportion **k** as **k·R** for anchor **X**; when omitted,
     default **0.8** (near the **+X** side of the content region).
+  - **`aboveBottom`** — optional proportion **k** as **k·R** (**§Sizing**): vertical
+    offset **upward** (**+Y**) from the **bottom edge** of the **content bounds**
+    rectangle (**Y = −below·R**, **§Content bounds**) to the shared text **baseline**;
+    when omitted, default **0.1**. This places the readout low in the diagram while
+    **x** (and **right** alignment) stay as above.
 
 ### Text and placement
 
@@ -398,8 +401,9 @@ derived from global `**timeNow`**. It is **not** a child of **CentreCluster**.
     readout’s trailing edge in **+X**, and the HMS anchor is offset left by a fixed monospace advance
     so the pair abuts (**§Scene model** uses the same width heuristic as preview framing).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
-  - **Anchor** — HMS and seconds share **y = −k_font·R**; **x** for the trailing (seconds) anchor is
-    **k_x·R** with **k_x** from **`x`** (or default).
+  - **Anchor** — HMS and seconds share **y = −below·R + k_above·R**, where **below** is the content
+    **below** extent and **k_above** is **`aboveBottom`** (or default); **x** for the trailing (seconds)
+    anchor is **k_x·R** with **k_x** from **`x`** (or default).
 
 ### Scene model
 

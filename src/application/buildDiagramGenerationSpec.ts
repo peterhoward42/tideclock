@@ -87,7 +87,11 @@ type HomeTideDiagramLayoutBase = {
       readonly scaleWithStroke: boolean;
     };
   };
-  readonly timeNowLabel: { readonly x: number; readonly fontHeight: number };
+  readonly timeNowLabel: {
+    readonly x: number;
+    readonly fontHeight: number;
+    readonly aboveBottom: number;
+  };
   readonly centreCluster: {
     readonly frameArcRadius: number;
     readonly timeDelta: { readonly y: number; readonly fontHeight: number };
@@ -123,7 +127,7 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
       scaleWithStroke: true,
     },
   },
-  timeNowLabel: { x: 1.05, fontHeight: 0.03 },
+  timeNowLabel: { x: 1.05, fontHeight: 0.03, aboveBottom: 0.1 },
   centreCluster: {
     frameArcRadius: 0.35,
     timeDelta: { y: -0.1, fontHeight: 0.05 },

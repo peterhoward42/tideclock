@@ -35,7 +35,7 @@ export const STATIC_STYLE_MODEL = {
     },
     {
       name: "time-now-label-seconds",
-      style: { color: "antiquewhite" },
+      style: { color: "limegreen" },
     },
   ],
   bindings: [
