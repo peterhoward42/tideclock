@@ -13,28 +13,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "thetaLeft": 3.3373889803846897,
       "thetaRight": 6.08738898038469,
     },
-    "frameLines": [
-      {
-        "end": {
-          "x": -40.51088325505633,
-          "y": -8.034820339945163,
-        },
-        "start": {
-          "x": 0,
-          "y": 0,
-        },
-      },
-      {
-        "end": {
-          "x": 40.51088325505633,
-          "y": -8.034820339945178,
-        },
-        "start": {
-          "x": 0,
-          "y": 0,
-        },
-      },
-    ],
   },
   "contentBounds": {
     "extents": {
@@ -775,7 +753,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "height": 320,
     "previewFrame": {
       "maxX": 334.9,
-      "maxY": 161,
+      "maxY": 153.92,
       "minX": 74.2182659692451,
       "minY": -7.143999999999989,
     },
@@ -1487,28 +1465,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       },
       {
         "children": [
-          {
-            "end": {
-              "x": 169.48911674494366,
-              "y": 151.96517966005484,
-            },
-            "kind": "line",
-            "start": {
-              "x": 210,
-              "y": 160,
-            },
-          },
-          {
-            "end": {
-              "x": 250.51088325505634,
-              "y": 151.96517966005482,
-            },
-            "kind": "line",
-            "start": {
-              "x": 210,
-              "y": 160,
-            },
-          },
           {
             "center": {
               "x": 210,

@@ -13,28 +13,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "thetaLeft": 3.3373889803846897,
       "thetaRight": 6.08738898038469,
     },
-    "frameLines": [
-      {
-        "end": {
-          "x": -40.51088325505633,
-          "y": -8.034820339945163,
-        },
-        "start": {
-          "x": 0,
-          "y": 0,
-        },
-      },
-      {
-        "end": {
-          "x": 40.51088325505633,
-          "y": -8.034820339945178,
-        },
-        "start": {
-          "x": 0,
-          "y": 0,
-        },
-      },
-    ],
   },
   "contentBounds": {
     "extents": {

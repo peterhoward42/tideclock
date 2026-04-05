@@ -81,7 +81,6 @@
  *
  * @typedef {{
  *   frameArc: CentreFrameArcSpec,
- *   frameLines: [DiagramLineSeg, DiagramLineSeg],
  * }} CentreFrameDiagram
  *
  * @typedef {{

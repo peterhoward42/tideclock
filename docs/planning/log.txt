@@ -95,12 +95,18 @@ o  new data fetch paradigm
 				o  ditch centre cluster retaining msg standalone and position it
 					*  basics
 					*  tweak no optional inputs
-					o  downgrade the frame to just the arc part
+					*  downgrade the frame to just the arc part
+					o  dry the following
+						o  change min rad for NowPointer to be that of frame
+						o  NextPointer same
 
 fart
 
 				o  have lost diagram centering
 					o  is bottom right timenowlabel smoking gun
+						o  likely as "aboveBottom" is potentially a circular 
+						   definition
+						   	o  change it to being a distant from origin
 
 				o  say next hight water at foo in bar interval
 				o  assemble location and hight water message into one?

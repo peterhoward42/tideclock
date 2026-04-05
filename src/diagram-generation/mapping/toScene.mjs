@@ -224,13 +224,7 @@ export function centreFrameDiagramToGroup(cf, cx, cy) {
     cy,
   );
   const frameArcCenter = mapPoint(fc, cx, cy);
-  const frameLineNodes = cf.frameLines.map((seg) =>
-    line(mapPoint(seg.start, cx, cy), mapPoint(seg.end, cx, cy)),
-  );
-  return group("CentreFrame", [
-    ...frameLineNodes,
-    arc(frameArcCenter, frameArcStart, fa.sweepRad),
-  ]);
+  return group("CentreFrame", [arc(frameArcCenter, frameArcStart, fa.sweepRad)]);
 }
 
 /**

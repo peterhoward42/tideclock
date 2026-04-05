@@ -160,15 +160,13 @@ Mapping it into a canvas, scene graph, or viewport is **not** fixed here (see
 - A **radial segment** is the **line segment** on that ray between two polar
 radii **r_inner** and **r_outer** (in model units). It has no inherent “direction
 of travel.”
-- Tick marks and other elements are defined as radial segments where helpful
-(**Tick marks**, **CentreFrame**).
+- Tick marks are defined as radial segments (**Tick marks**).
 
 ## Scene graph primitives (current scope)
 
 - The scene graph at this stage consists of:
   - Arc segments (for **RefArc** and for **CentreFrame**)
-  - Line segments (for radial segments, tick marks, and the two **CentreFrame**
-  lines)
+  - Line segments (for radial segments and tick marks)
   - Text elements
   - Non-filled triangle outlines (introduced by **NowPointer**)
   - Filled triangles and filled circles (introduced by **TideMarks.TimePointer**
@@ -184,8 +182,8 @@ independent: **not** joined into one path, **not** merged into one composite
 path, and **do not** form a closed region by composition in the logical scene
 graph—even if a viewer perceives closure optically. Distinct primitives may
 **coincide** at a point (e.g. at **O**) without becoming one logical path.
-- Subgroups that emit several curves (**CentreFrame**, **TimePointer**)
-satisfy **Independent stroked curves** unless a subsection adds detail.
+- Subgroups that emit several curves (e.g. **TimePointer**) satisfy **Independent
+stroked curves** unless a subsection adds detail.
 
 ## Text Element
 
@@ -477,13 +475,13 @@ whole-line centring; **NoMoreTidesToday** uses **X = 0**.
 
 ## CentreFrame
 
-**CentreFrame** is a named element whose output is **three** curve primitives:
-**one** arc and **two** line segments (**Independent stroked curves**). It is not
-defined relative to **TimeDelta**; geometry follows **§Polar** and the inputs below.
+**CentreFrame** is a named element whose output is **one** arc (**Independent
+stroked curves**). It is not defined relative to **TimeDelta**; geometry follows
+**§Polar** and the inputs below.
 
 ### Scene model
 
-- Emitted as a named group **CentreFrame** ( **`centreFrame`** input is required). The group contains the three curve primitives subject to **Independent stroked curves**.
+- Emitted as a named group **CentreFrame** ( **`centreFrame`** input is required). The group contains that single arc primitive subject to **Independent stroked curves**.
 
 **Radius and endpoints**
 
@@ -497,13 +495,6 @@ endpoints of **this** arc at radius **R_frame** (same angular span as the **RefA
 **Arc segment**
 
 - One arc at radius **R_frame** as above (**Independent stroked curves**).
-
-**Line segments (two)**
-
-- From **O** to each arc endpoint at **θ_left** and **θ_right** on the circle of
-radius **R_frame**—i.e. **radial segments** (**Radial lines and radial
-segments**) at those angles with **r_inner = 0**, **r_outer = R_frame**.
-- These two segments are **not** one polyline joined to the arc.
 
 ## Tick marks
 

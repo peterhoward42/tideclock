@@ -1,5 +1,5 @@
 /**
- * centreFrame.mjs — RefArc-parallel arc and radial spokes at **R_frame** (diagram space).
+ * centreFrame.mjs — RefArc-parallel arc at **R_frame** (diagram space).
  * Independent of TimeDelta layout; see docs/specs/tide-diagram.md §CentreFrame.
  *
  * Policies for {@link buildCentreFrameDiagramFromSpec}:
@@ -7,7 +7,7 @@
  * - Throws when `centreFrame.frameArcRadius` is not a finite number.
  */
 
-import { polar, refArcAngles } from "../model/tideDiagramModel.mjs";
+import { refArcAngles } from "../model/tideDiagramModel.mjs";
 import { requireFiniteNumber, requirePlainObject } from "./specRequire.mjs";
 
 /**
@@ -20,7 +20,6 @@ export function layoutCentreFrameDiagram(refRadius, sweepRad, frameArcRadius) {
   const R = refRadius;
   const { thetaLeft, thetaRight } = refArcAngles(sweepRad);
   const rFrame = frameArcRadius * R;
-  const origin = { x: 0, y: 0 };
   return {
     frameArc: {
       center: { x: 0, y: 0 },
@@ -29,10 +28,6 @@ export function layoutCentreFrameDiagram(refRadius, sweepRad, frameArcRadius) {
       thetaLeft,
       thetaRight,
     },
-    frameLines: [
-      { start: origin, end: polar(rFrame, thetaLeft) },
-      { start: origin, end: polar(rFrame, thetaRight) },
-    ],
   };
 }
 

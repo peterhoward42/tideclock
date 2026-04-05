@@ -87,7 +87,6 @@ type TimeDeltaDiagram = {
 
 type CentreFrameDiagram = {
   readonly frameArc: CentreFrameArcSpec;
-  readonly frameLines: [DiagramLineSeg, DiagramLineSeg];
 };
 
 type TideLabelTextInst = {
