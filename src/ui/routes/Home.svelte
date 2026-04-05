@@ -287,6 +287,26 @@
     max-height: none;
   }
 
+  /*
+   * Hard-coded pulse for TimeNowLabelSecondsColon only (not in style model).
+   * ~600ms cycle: dip and return reads as a subtle “heartbeat” on the : before SS.
+   */
+  @keyframes home-time-now-colon-heartbeat {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.22;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .home-instrument :global(svg g[data-name="TimeNowLabelSecondsColon"] text) {
+      animation: home-time-now-colon-heartbeat 600ms ease-in-out infinite;
+    }
+  }
+
   .home-panel .muted {
     color: #dbeafe;
   }

@@ -91,7 +91,9 @@ o  new data fetch paradigm
 				*  force removal of fallback defaults
 
 				o  make time now animation more eye catching
-					o  first isolate colon ready
+					*  first isolate colon ready
+					o  try hard coded heartbeat
+					o  consider using the style indirection pattern for it?
 
 fart
 
