@@ -1,5 +1,5 @@
 /**
- * centreFrame.mjs — RefArc-parallel arc at **R_frame** (diagram space).
+ * centreFrame.mjs — **R_frame** from `spec.centreFrame.frameArcRadius`: CentreFrame arc and Now radial inner (diagram space). Next circle uses **σ·R_frame** (see `nextPointer.mjs`).
  * Independent of TimeDelta layout; see docs/specs/tide-diagram.md §CentreFrame.
  *
  * Policies for {@link buildCentreFrameDiagramFromSpec}:
@@ -9,6 +9,27 @@
 
 import { refArcAngles } from "../model/tideDiagramModel.mjs";
 import { requireFiniteNumber, requirePlainObject } from "./specRequire.mjs";
+
+/**
+ * @param {Record<string, unknown>} spec
+ * @returns {number} proportion **k** for **R_frame** = **k·R** (**§Sizing**)
+ */
+function readFrameArcRadiusK(spec) {
+  const o = requirePlainObject(spec.centreFrame, "spec.centreFrame");
+  return requireFiniteNumber(o.frameArcRadius, "spec.centreFrame.frameArcRadius");
+}
+
+/**
+ * **R_frame** in px: same **k·R** as the CentreFrame arc, Now radial inner, and Next circle radius.
+ *
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @returns {number}
+ */
+export function readRFramePx(spec, refRadius) {
+  const k = readFrameArcRadiusK(spec);
+  return Math.max(0, k) * refRadius;
+}
 
 /**
  * @param {number} refRadius
@@ -38,10 +59,6 @@ export function layoutCentreFrameDiagram(refRadius, sweepRad, frameArcRadius) {
  * @returns {import('../model/tideDiagramModel.mjs').CentreFrameDiagram}
  */
 export function buildCentreFrameDiagramFromSpec(spec, refRadius, sweepRad) {
-  const o = requirePlainObject(spec.centreFrame, "spec.centreFrame");
-  const frameArcRadius = requireFiniteNumber(
-    o.frameArcRadius,
-    "spec.centreFrame.frameArcRadius",
-  );
+  const frameArcRadius = readFrameArcRadiusK(spec);
   return layoutCentreFrameDiagram(refRadius, sweepRad, frameArcRadius);
 }

@@ -47,8 +47,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "y": -25.367328895001695,
       },
       "start": {
-        "x": 45.10690198198668,
-        "y": -13.899906243836545,
+        "x": 39.46853923423835,
+        "y": -12.162417963356978,
       },
     },
     "theta": 5.984263980384689,
@@ -57,8 +57,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "nowPointer": {
     "nowLabel": {
       "anchor": {
-        "x": 49.9180604912586,
-        "y": -41.54234991898083,
+        "x": 47.720628478068384,
+        "y": -39.574154667638425,
       },
       "angleRad": 11.835947551453165,
       "content": "now",
@@ -71,8 +71,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "y": -55.10946703758746,
       },
       "start": {
-        "x": 35.1589122110434,
-        "y": -31.491124021478548,
+        "x": 30.764048184662975,
+        "y": -27.55473351879373,
       },
     },
     "theta": 5.552762244273579,

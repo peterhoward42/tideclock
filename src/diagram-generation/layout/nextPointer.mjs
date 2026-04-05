@@ -7,19 +7,20 @@
  * Policies for {@link buildNextPointerFromSpec}:
  * - Returns `null` when `nextPointer` is missing or not a plain object.
  * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
- * - Returns `null` when {@link buildNowPointerFromSpec} is `null`, when inner radius cannot be resolved, when
+ * - Returns `null` when {@link buildNowPointerFromSpec} is `null`, when
  *   outer ≤ inner along the next radial, or when {@link computeNextTideEventCore} has no next event.
- * - When `nextPointer` is present, `radialLine.outerRadius` and `circle.radius` are required (finite numbers).
+ * - When `nextPointer` is present, `radialLine.outerRadius` is required (finite number). Circle radius is **σ·R_frame** (fixed **σ** in spec).
  */
 
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
-import {
-  buildNowPointerFromSpec,
-  readNowPointerLineInnerRadiusPx,
-} from "./nowPointer.mjs";
+import { readRFramePx } from "./centreFrame.mjs";
+import { buildNowPointerFromSpec } from "./nowPointer.mjs";
 import { computeNextTideEventCore } from "../model/tideEvents.mjs";
 import { requireFiniteNumber, requirePlainObject } from "./specRequire.mjs";
+
+/** @see docs/specs/tide-diagram.md — NextPointer (σ for r_circle = σ·R_frame) */
+const NEXT_POINTER_CIRCLE_FRAME_SCALE = 1 / 35;
 
 /**
  * @param {Record<string, unknown>} spec
@@ -43,7 +44,6 @@ export function buildNextPointerFromSpec(
     o.radialLine,
     "spec.nextPointer.radialLine",
   );
-  const circleSpec = requirePlainObject(o.circle, "spec.nextPointer.circle");
 
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
@@ -65,9 +65,7 @@ export function buildNextPointerFromSpec(
       nowPointer.radialLine.start.y,
     );
   } else {
-    const fromSpec = readNowPointerLineInnerRadiusPx(spec, refRadius);
-    if (fromSpec == null) return null;
-    rInner = fromSpec;
+    rInner = readRFramePx(spec, refRadius);
   }
 
   const lineOuterK = requireFiniteNumber(
@@ -86,31 +84,12 @@ export function buildNextPointerFromSpec(
   const theta = timeToTheta(tNextHours, thetaLeft, thetaRight);
   const start = polar(rInner, theta);
   const end = polar(rOuter, theta);
+  const rCircle = NEXT_POINTER_CIRCLE_FRAME_SCALE * readRFramePx(spec, refRadius);
 
   return {
     timeHours: tNextHours,
     theta,
     radialLine: { start, end },
-    circle: buildNextPointerCircle(circleSpec, { refRadius, radialEnd: end }),
-  };
-}
-
-/**
- * @param {Record<string, unknown>} circleSpec
- * @param {{ refRadius: number, radialEnd: { x: number, y: number } }} ctx
- * @returns {{ center: { x: number, y: number }, radius: number }}
- */
-function buildNextPointerCircle(circleSpec, ctx) {
-  const { refRadius, radialEnd } = ctx;
-
-  const radiusK = requireFiniteNumber(
-    circleSpec.radius,
-    "spec.nextPointer.circle.radius",
-  );
-
-  const radius = Math.max(0, radiusK) * refRadius;
-  return {
-    center: radialEnd,
-    radius,
+    circle: { center: end, radius: rCircle },
   };
 }

@@ -97,8 +97,10 @@ o  new data fetch paradigm
 					*  tweak no optional inputs
 					*  downgrade the frame to just the arc part
 					o  dry the following
-						o  change min rad for NowPointer to be that of frame
-						o  NextPointer same
+						o  radius (or min radius) for
+							o  CentreFrame (R_Frame)
+							o  NowPointerLineInnerRadius
+							o  NextPointerCircleRadius
 
 fart
 

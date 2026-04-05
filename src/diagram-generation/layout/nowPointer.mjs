@@ -1,18 +1,14 @@
 /**
- * nowPointer.mjs — “Now” radial pointer and shared inner-radius read helpers in diagram space.
+ * nowPointer.mjs — “Now” radial pointer layout in diagram space.
  * Kind: Pipeline stage (layout submodule). Does not compute next-tide geometry alone.
  *
  * See docs/specs/tide-diagram.md (NowPointer).
- *
- * Policies for {@link readNowPointerLineInnerRadiusPx}:
- * - Returns `null` when `nowPointer` is missing or not a plain object (no throw).
- * - Returns `null` when `nowPointer.radialLine` is missing or `innerRadius` is not a finite number.
  *
  * Policies for {@link buildNowPointerFromSpec}:
  * - Returns `null` when `nowPointer` is missing, not a plain object, or inner/outer radii give `r_outer ≤ r_inner`.
  * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid.
  * - Throws when `spec.timeNow` parses to the civil-day right endpoint (`24:00:00`).
- * - When `nowPointer` is present, `radialLine`, `label`, and `triangle` objects and their numeric fields are required (finite numbers; see spec).
+ * - When `nowPointer` is present, `radialLine`, `label`, and `triangle` objects and their numeric fields are required (finite numbers; see spec). Radial **inner** radius is **R_frame** from `spec.centreFrame.frameArcRadius` (not on `radialLine`).
  */
 
 import {
@@ -21,29 +17,8 @@ import {
 } from "../model/tideEvents.mjs";
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
+import { readRFramePx } from "./centreFrame.mjs";
 import { requireFiniteNumber, requirePlainObject } from "./specRequire.mjs";
-
-/**
- * Inner radius of the Now radial line in px (same k·R as NextPointer’s shared inner radius).
- * Used when the line is omitted for NextPointer clearance but NextPointer still needs **r_inner**.
- *
- * @param {Record<string, unknown>} spec
- * @param {number} refRadius — diagram reference radius in px
- * @returns {number | null} `null` when `spec.nowPointer` or `radialLine.innerRadius` cannot be read
- */
-export function readNowPointerLineInnerRadiusPx(spec, refRadius) {
-  const raw = spec.nowPointer;
-  if (raw == null || typeof raw !== "object") return null;
-  const o = /** @type {Record<string, unknown>} */ (raw);
-  const radialLine = o.radialLine;
-  if (radialLine == null || typeof radialLine !== "object") return null;
-  const radialLineSpec = /** @type {Record<string, unknown>} */ (radialLine);
-  const lineInnerK = radialLineSpec.innerRadius;
-  if (typeof lineInnerK !== "number" || !Number.isFinite(lineInnerK)) {
-    return null;
-  }
-  return Math.max(0, lineInnerK) * refRadius;
-}
 
 /**
  * @param {Record<string, unknown>} spec
@@ -82,15 +57,11 @@ export function buildNowPointerFromSpec(
   }
   const t = parsedNow.hours;
 
-  const lineInnerK = requireFiniteNumber(
-    radialLineSpec.innerRadius,
-    "spec.nowPointer.radialLine.innerRadius",
-  );
+  const rInner = readRFramePx(spec, refRadius);
   const lineOuterK = requireFiniteNumber(
     radialLineSpec.outerRadius,
     "spec.nowPointer.radialLine.outerRadius",
   );
-  const rInner = Math.max(0, lineInnerK) * refRadius;
   const rOuter = Math.max(0, lineOuterK) * refRadius;
   if (rOuter <= rInner) return null;
 

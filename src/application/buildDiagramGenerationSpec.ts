@@ -69,13 +69,12 @@ type HomeTideDiagramLayoutBase = {
     readonly below: number;
   };
   readonly nowPointer: {
-    readonly radialLine: { readonly innerRadius: number; readonly outerRadius: number };
+    readonly radialLine: { readonly outerRadius: number };
     readonly label: { readonly size: number; readonly normalOffset: number };
     readonly triangle: { readonly radius: number; readonly baseLen: number; readonly height: number };
   };
   readonly nextPointer: {
     readonly radialLine: { readonly outerRadius: number };
-    readonly circle: { readonly radius: number };
   };
   readonly waitArc: {
     readonly radius: number;
@@ -107,13 +106,12 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   tickLabelClearance: 0.07,
   contentBounds: { left: 1.45, right: 1.15, above: 0.1, below: 1.5 },
   nowPointer: {
-    radialLine: { innerRadius: 0.4, outerRadius: 0.7 },
+    radialLine: { outerRadius: 0.7 },
     label: { size: 0.04, normalOffset: 0.02 },
     triangle: { radius: 1.1, baseLen: 0.08, height: 0.03 },
   },
   nextPointer: {
     radialLine: { outerRadius: 0.73 },
-    circle: { radius: 0.01 },
   },
   waitArc: {
     radius: 0.68,

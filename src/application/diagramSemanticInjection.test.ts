@@ -41,7 +41,7 @@ type SemanticInjectionDiagramSpec = {
   readonly tickLabelClearance: number;
   readonly timeNow: string;
   readonly nowPointer: {
-    readonly radialLine: { readonly innerRadius: number; readonly outerRadius: number };
+    readonly radialLine: { readonly outerRadius: number };
     readonly label: { readonly size: number; readonly normalOffset: number };
     readonly triangle: {
       readonly radius: number;
@@ -51,7 +51,6 @@ type SemanticInjectionDiagramSpec = {
   };
   readonly nextPointer: {
     readonly radialLine: { readonly outerRadius: number };
-    readonly circle: { readonly radius: number };
   };
   readonly waitArc: {
     readonly radius: number;
@@ -100,13 +99,12 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     tickLabelClearance: 0.07,
     timeNow: '19:20:03',
     nowPointer: {
-      radialLine: { innerRadius: 0.4, outerRadius: 0.7 },
+      radialLine: { outerRadius: 0.7 },
       label: { size: 0.04, normalOffset: 0.02 },
       triangle: { radius: 1.1, baseLen: 0.08, height: 0.03 },
     },
     nextPointer: {
       radialLine: { outerRadius: 0.73 },
-      circle: { radius: 0.01 },
     },
     waitArc: {
       radius: 0.68,

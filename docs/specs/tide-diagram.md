@@ -30,9 +30,9 @@ and layout submodules).
 - `**contentBounds`** — **{ left, right, above, below }** as in **Content bounds**.
 - `**waitArc`** — object with finite `**radius**` (**k·R**). If **max(0, radius)·RefRadius** is **0**, the wait arc is omitted without evaluating next-tide logic. Otherwise `**arrow`** is required: finite `**lengthK**`, `**widthK**`, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a **boolean**.
 - `**tideMarks`** — if absent, or `**markers**` missing or empty, there are no tide marks. If `**markers**` is non-empty, these finite numbers are required on `**tideMarks**`: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. At least one marker row must yield a usable time after parsing (otherwise generation throws).
-- `**nowPointer**` / `**nextPointer**` — if present, use nested objects `**radialLine**`, `**label**`, `**triangle**` (now) and `**circle**` (next) with the finite fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks).
+- `**nowPointer**` / `**nextPointer**` — if present, use nested objects with the finite fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks): **now** — `**radialLine**`, `**label**`, `**triangle**`; **next** — `**radialLine**` only. **R_frame** from `**centreFrame.frameArcRadius**` supplies the Now radial **inner** radius; the Next filled-circle radius is **σ·R_frame** for fixed **σ** in **§NextPointer** (see **CentreFrame**, **NowPointer**, **NextPointer**).
 - `**timeDelta`** — **required** plain object; finite `**y**` and `**fontHeight**` (**k·R** per **§Sizing**). Supplies **TimeDelta** layout only (see **TimeDelta**).
-- `**centreFrame`** — **required** plain object; finite `**frameArcRadius**` (**k·R**). Supplies **CentreFrame** geometry only (see **CentreFrame**). Uses top-level `**refRadius**` and `**sweepRad**` (required above).
+- `**centreFrame`** — **required** plain object; finite `**frameArcRadius**` (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc and the **NowPointer** radial inner endpoint (**§CentreFrame**). Uses top-level `**refRadius**` and `**sweepRad**` (required above).
 
 ## Diagram elements
 
@@ -243,8 +243,8 @@ the structure and leaves sizing inputs explicit.
 
 #### Inputs and shared derived quantities
 
-- **NowPointerLineInnerRadius**, **NowPointerLineOuterRadius** — line radii
-as **k·R** per **§Sizing**.
+- **R_frame** — from `**centreFrame.frameArcRadius**` as **k·R** (**§Sizing**); same value as **§CentreFrame** (**R_frame**).
+- **NowPointerLineOuterRadius** — line **outer** radius as **k·R** per **§Sizing**.
 - **NowPointerLabelSize** — label **FontHeight** multiplier **k** as **k·R**
 (**§Sizing**).
 - **NowPointerLabelNormalOffset** — signed diagram input **k** as **k·R**
@@ -253,7 +253,7 @@ as **k·R** per **§Sizing**.
 **O** outward (**§Axes**, **§Polar**).
 - Let **û_n = (−sin θ_now, cos θ_now)** — unit vector perpendicular to **û_rad**,
 from rotating **û_rad** by **+π/2** CCW (**§Polar**).
-- Let **r_inner = NowPointerLineInnerRadius·R**, **r_outer = NowPointerLineOuterRadius·R**.
+- Let **r_inner = R_frame**, **r_outer = NowPointerLineOuterRadius·R**.
 - Let **P** be the midpoint of the **Now radial line** segment between
 **r_inner** and **r_outer** along **û_rad**.
 - Define a **side sign** for label placement:
@@ -263,9 +263,9 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
 #### Now radial line
 
 - A radial segment at **θ_now** with:
-  - **r_inner = NowPointerLineInnerRadius·R**
-  - **r_outer = NowPointerLineOuterRadius·R**
-- Both radius multipliers are **required** host diagram inputs (nested under `**nowPointer.radialLine`**) interpreted by **§Sizing** when **NowPointer** is included.
+  - **r_inner = R_frame** (from `**centreFrame.frameArcRadius**`, not on `**nowPointer.radialLine`**),
+  - **r_outer = NowPointerLineOuterRadius·R**.
+- The **outer** radius multiplier is a **required** host diagram input (nested under `**nowPointer.radialLine.outerRadius`**) interpreted by **§Sizing** when **NowPointer** is included.
 
 #### Now label
 
@@ -323,19 +323,17 @@ omitted from the scene (no radial segment or circle emitted), consistent with
 Inputs and derived quantities:
 
 - **NextPointerLineOuterRadius** — line **outer** radius as **k·R** per **§Sizing**.
-- **NextPointerCircleRadius** — circle radius as **k·R** per **§Sizing**.
-- The **inner** radius of **NextPointer** is **not** an independent input:
-  - Define **NowPointerLineInnerRadius** as in **NowPointer**.
-  - **NextPointer** reuses that same **inner** radius so its radial segment begins at the **NowPointer** minimum radius.
+- **R_frame** — from `**centreFrame.frameArcRadius**` as **k·R** (**§Sizing**); same as **§CentreFrame** and **NowPointer** inner radius.
+- **σ** — fixed dimensionless constant **1/35** (not a host input). Scales the Next filled-circle radius relative to **R_frame**.
 - Let:
-  - **r_inner = NowPointerLineInnerRadius·R** (from **NowPointer** inputs),
+  - **r_inner = R_frame**,
   - **r_outer = NextPointerLineOuterRadius·R**,
-  - **r_circle = NextPointerCircleRadius·R**.
+  - **r_circle = σ·R_frame**.
 
 #### Next radial line
 
 - A radial segment at **θ_next** with:
-  - **inner radius** **r_inner** shared with **NowPointer**,
+  - **inner radius** **r_inner** = **R_frame** (same as **NowPointer**),
   - **outer radius** **r_outer** from **NextPointerLineOuterRadius** (required host input under `**nextPointer.radialLine`**).
 - If **r_outer ≤ r_inner**, **NextPointer** is omitted from the scene (no radial segment or circle emitted).
 
@@ -343,7 +341,7 @@ Inputs and derived quantities:
 
 - The **Next circle** is a filled circle at the **outer** endpoint of the Next radial line:
   - **Centre** — the point at radius **r_outer** on the ray at **θ_next**.
-  - **Radius** — **r_circle** as above.
+  - **Radius** — **r_circle** = **σ·R_frame** (**σ** = **1/35**; **R_frame** from `**centreFrame.frameArcRadius**`; no host field on `**nextPointer`**).
 
 ## WaitArc
 
@@ -485,7 +483,7 @@ stroked curves**). It is not defined relative to **TimeDelta**; geometry follows
 
 **Radius and endpoints**
 
-- **R_frame** = **k·R** for diagram input **k** (**§Sizing**).
+- **R_frame** = **k·R** for diagram input **k** = `**centreFrame.frameArcRadius**` (**§Sizing**). The same **R_frame** is the **inner** radius of the **NowPointer** radial segment. The **NextPointer** filled-circle radius is **σ·R_frame** (**§NextPointer**).
 - The arc uses the **same** centre **(0, 0)**, **sweep**, and angular orientation
 as the **RefArc** (**§Polar**). The **only** geometric quantity that differs
 from the **RefArc** is the circle radius (**R_frame** vs **RefRadius**).
