@@ -98,15 +98,10 @@ fart
 
 				o  out of band task
 					*  write elevator pitch
-					o  enumerate what it shows
-					o  riff to decide ui presso drivers
-						o  such as
-							o  data / interprettion clarity and priority
-							o  appliance like - not billboard / taste
-							o  cool elegant
-							o  visually arresting
-							o  optimised for tablet and on wall screen but still
-							   good for mobile - likely necessarily landscape
+					*  enumerate what it shows
+					*  riff to decide ui presso drivers
+					o  have you enough to go on
+						o  noting yellow on black maybe too vigrant, not sure
 
 				o  improve town picker and redirect to clock
 

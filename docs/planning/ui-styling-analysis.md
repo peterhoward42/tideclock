@@ -132,6 +132,18 @@ The product is suited to **always-on** contexts; it should feel **current**, not
 
 If the header does not carry other live cues, the **clock readout carries the full burden** of aliveness.
 
+### 4.4 Viewport and platform priority
+
+Layout, type scale, and interaction targets are **not** equal across form factors. Use this order so the **instrument** reads correctly where it matters most:
+
+| Priority | Form factor | Role |
+|----------|-------------|------|
+| **1 — Primary** | **Tablet** | Canonical target: wall-appliance glance, comfortable reading distance, touch for location/menu without phone cramming. Tune the **arc metaphor**, hierarchy (§3.6), and header↔diagram unity (§2) here first. |
+| **2 — Secondary** | **Desktop** | Refine **use of width** (margins, optional chrome layout, larger diagram) **after** tablet is stable. Do not let desktop-only density become the only tuned layout. |
+| **3 — Discovery / occasional** | **Mobile** | Important for **first open** and quick checks; may **simplify** (stack chrome, defer secondary labels, softer collision rules). Mobile should **not** drive the sole implementation of the dial story—avoid designing only for narrow portrait and back-porting to tablet. |
+
+**Check:** at the **tablet** reference width, does “place → next story → next on arc” still win in under a second? At **mobile**, is it still **trustworthy** even if less ornate?
+
 ---
 
 ## 5. Placeholder implementation snapshot
@@ -147,8 +159,9 @@ Default diagram styles are centralised in **`src/diagram-generation/presets/stat
 When this topic comes back:
 
 1. **Re-read §1–2** before debating tokens—mission and chrome/diagram split are the guardrails.
-2. **Record decisions** as short dated bullets or a “Decisions log” subsection (what we chose, what we rejected, and why).
-3. **Split work** where it belongs: header/CSS in UI shell vs diagram bindings in `staticStyleModel.mjs` / renderer (keep naming contract with [`tide-diagram.md`](../specs/tide-diagram.md)).
+2. **Re-check §4.4 and §8** for viewport order (tablet first) and the current narrowing/implementation checklist.
+3. **Record decisions** as short dated bullets or a “Decisions log” subsection (what we chose, what we rejected, and why).
+4. **Split work** where it belongs: header/CSS in UI shell vs diagram bindings in `staticStyleModel.mjs` / renderer (keep naming contract with [`tide-diagram.md`](../specs/tide-diagram.md)).
 
 ---
 
@@ -156,4 +169,43 @@ When this topic comes back:
 
 *(Append here as styling choices firm up.)*
 
-- *— none recorded yet —*
+### 2026-04-05 — §8.1 narrowing intent
+
+- **Aesthetic pole (§4.1):** **Hybrid** — strict instrument **diagram** + **warmer header**. Warmer means **colour** and **typography** in the chrome; the face stays austere.
+- **Centre vs tide story (§3.4):** **Next-event sentence is primary** (“Low water in …”). **TimeNowLabel** is a **separate first-class element**, **clearly lower emphasis**, mainly **proof of aliveness**. **High / Low** fragment stays **especially emphasised** (dynamic). **CentreClusterFrame** is a **candidate for removal or heavy quieting** now that the cluster is essentially the words only.
+- **Dominant channels (§3.6):** **Hue / colour** (not stroke weight as the main lever). **NextPointer** is the **strongest** accent; other now→next→wait cues share **one modest** colour family. **Now radial: dashed** — own category vs solid emphasis structure.
+- **Tablet QA viewports (§4.4):** **1024×768** and **1194×834**, **landscape**, iPad-ish — first screenshots and review loop.
+- **Motion / readout (§4.3):** **TimeNowLabel** — isolate **seconds** with **differential** emphasis so the live part reads; readout may tick at **1 Hz**; **HH:MM** may re-render more often if **visually inert** (same styling, no scoped animation) without noticeable flicker — prefer **split DOM** for HH:MM vs seconds to limit reflow coupling. **Now triangle:** **~1 Hz decorative pulse** (no positional wiggle), in the **same perceptual family** as civil seconds — treated as **product definition** (analogous to a purchased clock), not optional decoration.
+
+---
+
+## 8. Next steps — narrowing intent and implementation
+
+This section turns §1–4 into **decisions** and **sequenced work**. Revisit it when starting a styling sprint; trim or extend with dated notes.
+
+### 8.1 Narrowing intent (what to decide before pixels move)
+
+These close open degrees of freedom without requiring a full design system:
+
+1. **Aesthetic pole (§4.1)** — Commit to **instrument / serious**, **playful / holiday**, or an **explicit hybrid** (e.g. strict diagram + warmer header). Reject “we’ll see when we try colours” as the only strategy; pick a default pole for the first pass.
+2. **Centre cluster vs tide story (§3.4)** — Is **TimeNowLabel** a **peer** to the next-event sentence, **subordinate**, or **dominant** (“lobby clock” vs “tide-first”)? This single choice drives scale and contrast in the inner face.
+3. **Dominant channels (§3.6)** — Name the **one or two** channels reserved for now→next→wait (e.g. hue + stroke weight). Everything else defaults to support roles until deliberately promoted.
+4. **Tablet reference viewport(s)** — Pick concrete widths/heights for **design QA** (e.g. 768×1024, 834×1112) and treat them as the **first** screenshots and review loop—not only phone or only wide desktop.
+5. **Motion policy (§4.3)** — For the **current** release: confirm **second ticks on TimeNowLabel** as sufficient “aliveness,” or set bounds for any extra motion (which elements, max amplitude, reduced-motion).
+
+Recording outcomes in **§7** keeps later sessions from re-debating the same questions.
+
+### 8.2 Practical sequence (how to decide and implement)
+
+1. **Breakpoint and shell audit** — Inventory how `App.svelte` (and any global layout CSS) behaves at **tablet** widths vs mobile vs desktop; note gaps (overflow, tiny touch targets, header vs diagram scale mismatch).
+2. **Token bridge** — Align **named diagram leaves** (`staticStyleModel.mjs`, [`tide-diagram.md`](../specs/tide-diagram.md)) with **header/shell** styling via a small set of **shared CSS custom properties** (or a documented mapping table) so palette and type roles stay **one system** across §2’s two layers.
+3. **Vertical slice** — Polish **one path** end-to-end: **place (header) → TimeDelta / wait story → NextPointer on arc → RefArc read as day spine**. Defer edge cases and full catalogue tuning until that path is convincing on **tablet**.
+4. **Desktop pass** — Widen viewport; adjust **spacing and max-width** only where tablet rules still hold (no new hierarchy without revisiting §3.6).
+5. **Mobile pass** — Simplify for **discovery**: ensure location change and core next-tide read remain obvious; accept reduced density where necessary (§4.4).
+6. **Regression checks** — **§1** mission questions, **NoMoreTidesToday** tone (§3.5), and **four-tide default density** (§3.2) on a typical day at tablet width.
+
+### 8.3 What “done enough” looks like for a first styling milestone
+
+- Tablet: focal path and full-day catalogue are both **legible**; chrome and diagram **feel one instrument**.
+- Desktop: **no worse** than tablet for hierarchy; optionally **more comfortable** whitespace.
+- Mobile: **trustworthy** and **discoverable**; may be visually quieter but not misleading.
