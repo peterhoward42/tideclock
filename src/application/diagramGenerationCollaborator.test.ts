@@ -1,23 +1,24 @@
 import { describe, expect, it } from 'vitest';
+import { TideExtreme } from '../core-models/TideExtreme';
+import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
+import { buildDiagramGenerationSpec, utcIsoToLocalCanonicalTimeUtc } from './buildDiagramGenerationSpec';
 import { createDiagramGenerationCollaborator } from './diagramGenerationCollaborator';
 
-function minimalDiagramSpec(): Record<string, unknown> {
-  return {
-    title: 'phase-4-host-surface',
-    contentBounds: {
-      left: 1.2,
-      right: 1.2,
-      above: 0.4,
-      below: 1.4,
-    },
-    timeNow: '12:00:00',
-  };
+function minimalExtremesForCollaboratorTest(): TideExtremesAtLocation {
+  return new TideExtremesAtLocation(50.8, -1.1, [
+    new TideExtreme('low', '2026-03-23T12:00:00.000Z', 1.0),
+  ]);
 }
 
 describe('createDiagramGenerationCollaborator', () => {
   it('generates diagram and scene from app runtime code', () => {
     const collaborator = createDiagramGenerationCollaborator();
-    const output = collaborator.generate(minimalDiagramSpec());
+    const spec = buildDiagramGenerationSpec({
+      extremesAtLocation: minimalExtremesForCollaboratorTest(),
+      timeNow: '12:00:00',
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+    });
+    const output = collaborator.generate(spec);
 
     expect(output.diagram.version).toBe(1);
     expect(output.scene.version).toBe(2);

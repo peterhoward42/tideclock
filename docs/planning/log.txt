@@ -89,14 +89,19 @@ o  new data fetch paradigm
 				*  purge legacy ref: "is **not** under **CentreCluster**;"
 				*  move time now to bottom right
 				o  want things like these to be explicit - no defaults: DEFAULT_TIME_NOW_LABEL_ABOVE_BOTTOM
+					o  mandate it, followed by (same session) diagram spec
+
 				o  make time now animation more eye catching
 				o  ditch centre cluster retaining msg standalone and position it
-				o  assemble location and hight water message into one
+				o  say next hight water at foo in bar interval
+				o  assemble location and hight water message into one?
 				o  put change location inside diag bottom left
-				o  try ref arc being a filled shape and
-				o  move time pointer inside the filled crescent occluding the tick
-				   marks
-				o  give now triangle a shimmer
+				o  try ref arc being a filled shape 
+					o  model it with param for thickness and fill style
+					o  render tick marks on top of it
+					o  move time pointer inside the filled crescent 
+					   occluding the tick marks
+				o  give now triangle a shimmer effect
 				o  tune geom of crescent
 				o  change header on home only to dark grey with appropriate changes
 				   to menu colour on home route only

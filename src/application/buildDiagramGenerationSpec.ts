@@ -47,8 +47,8 @@ export type HomeDiagramTideMarks = {
   readonly tideTimeLabelRadius: number;
   readonly tideHeightLabelSize: number;
   readonly tideTimeLabelSize: number;
-  readonly TideMarkArrowDivergence: number;
-  readonly TideMarkArrowLineLen: number;
+  readonly tideMarkArrowDivergence: number;
+  readonly tideMarkArrowLineLen: number;
   readonly markers: readonly DiagramTideMarkMarker[];
 };
 
@@ -195,8 +195,8 @@ export function buildDiagramGenerationSpec(
     tideTimeLabelRadius: 0.8,
     tideHeightLabelSize: 0.046,
     tideTimeLabelSize: 0.04,
-    TideMarkArrowDivergence: 1.0,
-    TideMarkArrowLineLen: 0.05,
+    tideMarkArrowDivergence: 1.0,
+    tideMarkArrowLineLen: 0.05,
     ...tideMarksFromExtremes(extremesAtLocation.extremes, utcIsoToLocalCanonicalTime),
   };
 

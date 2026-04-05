@@ -8,7 +8,7 @@
  * - Returns `null` when `spec.centreCluster` is missing or not a plain object.
  * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
  * - Throws when `centreCluster.timeDelta` is missing or `{ y, fontHeight }` are not finite numbers.
- * - `spec.refRadius`, `spec.sweepRad`, and `centreCluster.frameArcRadius` are optional; defaults match historical diagram presets (see constants below).
+ * - Throws when `centreCluster.frameArcRadius` is not a finite number.
  *
  * {@link layoutCentreCluster} is pure geometry + text placement from a resolved {@link TimeDeltaLayout}; it does not read the spec.
  */
@@ -16,6 +16,7 @@
 import { polar, refArcAngles } from "../model/tideDiagramModel.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import { computeNextTideEventFromSpec } from "../model/tideEvents.mjs";
+import { requireFiniteNumber } from "./specRequire.mjs";
 
 /** Fixed substring between event-kind text and interval text on the TimeDelta line. */
 export const TIME_DELTA_GLUE = " water in ";
@@ -24,15 +25,6 @@ export const TIME_DELTA_GLUE = " water in ";
 export const TIME_DELTA_EMPTY_MESSAGE = "No further tides today";
 
 const CHAR_WIDTH_FACTOR = 0.6;
-
-/** @type {number} px when `spec.refRadius` is absent or not a finite number */
-const DEFAULT_REF_RADIUS = 100;
-
-/** @type {number} radians when `spec.sweepRad` is absent or not a finite number */
-const DEFAULT_SWEEP_RAD = Math.PI * 0.92;
-
-/** @type {number} proportion of RefRadius for the CentreCluster frame arc when absent or not finite */
-const DEFAULT_FRAME_ARC_RADIUS = 0.25;
 
 /**
  * Layout input for the TimeDelta strip (RefRadius-normalised `y` and `fontHeight`).
@@ -131,17 +123,15 @@ export function layoutCentreCluster(
 
 /**
  * @param {Record<string, unknown>} spec
+ * @param {number} refRadius — resolved from `spec.refRadius` by {@link buildDiagram}
+ * @param {number} sweepRad — resolved from `spec.sweepRad` by {@link buildDiagram}
  * @returns {import('../model/tideDiagramModel.mjs').CentreClusterDiagram | null} null when `spec.centreCluster` is absent; otherwise frame and either three **timeDelta** fragments or **timeDeltaEmptyMessage** (see spec).
- * @throws {Error} invalid `spec.timeNow`, `24:00:00`, or bad `centreCluster.timeDelta`
+ * @throws {Error} invalid `spec.timeNow`, `24:00:00`, or bad `centreCluster` fields
  */
-export function buildCentreClusterFromSpec(spec) {
+export function buildCentreClusterFromSpec(spec, refRadius, sweepRad) {
   const raw = spec.centreCluster;
   if (raw == null || typeof raw !== "object") return null;
   const o = /** @type {Record<string, unknown>} */ (raw);
-  const refRadius =
-    typeof spec.refRadius === "number" && Number.isFinite(spec.refRadius)
-      ? spec.refRadius
-      : DEFAULT_REF_RADIUS;
 
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
@@ -180,15 +170,10 @@ export function buildCentreClusterFromSpec(spec) {
           fontHeight: tdFh,
         };
 
-  const sweepRad =
-    typeof spec.sweepRad === "number" && Number.isFinite(spec.sweepRad)
-      ? spec.sweepRad
-      : DEFAULT_SWEEP_RAD;
-
-  const frameArcRadius =
-    typeof o.frameArcRadius === "number" && Number.isFinite(o.frameArcRadius)
-      ? o.frameArcRadius
-      : DEFAULT_FRAME_ARC_RADIUS;
+  const frameArcRadius = requireFiniteNumber(
+    o.frameArcRadius,
+    "spec.centreCluster.frameArcRadius",
+  );
 
   return layoutCentreCluster(
     timeDeltaLayout,

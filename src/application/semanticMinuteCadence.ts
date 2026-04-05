@@ -7,9 +7,6 @@ const MS_PER_MINUTE = 60_000;
 
 const wallClockNowMs: () => number = () => Date.now();
 
-/** Public default: first tick runs on subscribe so UI matches the current minute. */
-const DEFAULT_FIRE_IMMEDIATELY = true;
-
 export type SemanticMinuteCadenceOptions = Readonly<{
   /** When true (default), call `onTick` once when subscribing. */
   fireImmediately?: boolean;
@@ -26,7 +23,7 @@ export function subscribeSemanticMinuteCadence(
   options: SemanticMinuteCadenceOptions = {}
 ): () => void {
   const now = options.now ?? wallClockNowMs;
-  const fireImmediately = options.fireImmediately ?? DEFAULT_FIRE_IMMEDIATELY;
+  const fireImmediately = options.fireImmediately ?? true;
 
   const bump = () => {
     onTick(Math.floor(now() / MS_PER_MINUTE));

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { defaultClockSceneModel, type ClockSceneModel } from './clockSceneModel';
+import { canonicalClockSceneModel, type ClockSceneModel } from './clockSceneModel';
 import {
-  DEFAULT_DIVISION_TICK_LENGTH,
+  STANDARD_DIVISION_TICK_LENGTH,
   divisionBoundariesGeometry,
   divisionTickSegmentsGeometry,
 } from './clockDivisionGeometry';
@@ -11,7 +11,7 @@ const twoPi = 2 * Math.PI;
 
 describe('divisionBoundariesGeometry', () => {
   it('places boundary 0 at the top for default scene (midnight-at-top slice)', () => {
-    const g = divisionBoundariesGeometry(defaultClockSceneModel);
+    const g = divisionBoundariesGeometry(canonicalClockSceneModel);
     const b0 = g[0];
     expect(b0.boundaryIndex).toBe(0);
     expect(b0.angleRad).toBe(0);
@@ -20,7 +20,7 @@ describe('divisionBoundariesGeometry', () => {
   });
 
   it('spaces 24 boundaries evenly by π/12 rad', () => {
-    const g = divisionBoundariesGeometry(defaultClockSceneModel);
+    const g = divisionBoundariesGeometry(canonicalClockSceneModel);
     expect(g).toHaveLength(24);
     for (let i = 1; i < 24; i++) {
       const delta = g[i].angleRad - g[i - 1].angleRad;
@@ -31,7 +31,7 @@ describe('divisionBoundariesGeometry', () => {
 
   it('rotates so topAlignedBoundaryIndex sits at θ = 0', () => {
     const scene: ClockSceneModel = {
-      ...defaultClockSceneModel,
+      ...canonicalClockSceneModel,
       dialDivisions: {
         spaceCount: 24,
         topAlignedBoundaryIndex: 6,
@@ -45,7 +45,7 @@ describe('divisionBoundariesGeometry', () => {
 
   it('rejects invalid topAlignedBoundaryIndex', () => {
     const bad: ClockSceneModel = {
-      ...defaultClockSceneModel,
+      ...canonicalClockSceneModel,
       dialDivisions: { spaceCount: 24, topAlignedBoundaryIndex: 24 },
     };
     expect(() => divisionBoundariesGeometry(bad)).toThrow(RangeError);
@@ -54,9 +54,9 @@ describe('divisionBoundariesGeometry', () => {
 
 describe('divisionTickSegmentsGeometry', () => {
   it('places outer tips on the reference ring and inboard by tickLength', () => {
-    const tickLength = DEFAULT_DIVISION_TICK_LENGTH;
-    const g = divisionTickSegmentsGeometry(defaultClockSceneModel, tickLength);
-    const b = divisionBoundariesGeometry(defaultClockSceneModel);
+    const tickLength = STANDARD_DIVISION_TICK_LENGTH;
+    const g = divisionTickSegmentsGeometry(canonicalClockSceneModel, tickLength);
+    const b = divisionBoundariesGeometry(canonicalClockSceneModel);
     expect(g).toHaveLength(24);
     for (let i = 0; i < 24; i++) {
       expect(g[i].outer.x).toBeCloseTo(b[i].pointOnReferenceRing.x, 10);
@@ -68,7 +68,10 @@ describe('divisionTickSegmentsGeometry', () => {
   });
 
   it('aligns top tick with default scene (midnight-at-top slice)', () => {
-    const g = divisionTickSegmentsGeometry(defaultClockSceneModel, 5);
+    const g = divisionTickSegmentsGeometry(
+      canonicalClockSceneModel,
+      STANDARD_DIVISION_TICK_LENGTH,
+    );
     const top = g[0];
     expect(top.outer.x).toBeCloseTo(0, 10);
     expect(top.outer.y).toBeCloseTo(-REFERENCE_RADIUS, 10);
@@ -77,7 +80,7 @@ describe('divisionTickSegmentsGeometry', () => {
   });
 
   it('rejects tickLength beyond reference radius', () => {
-    expect(() => divisionTickSegmentsGeometry(defaultClockSceneModel, REFERENCE_RADIUS + 1)).toThrow(
+    expect(() => divisionTickSegmentsGeometry(canonicalClockSceneModel, REFERENCE_RADIUS + 1)).toThrow(
       RangeError,
     );
   });

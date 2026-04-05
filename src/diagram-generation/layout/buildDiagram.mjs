@@ -7,15 +7,22 @@
  *
  * Policies for {@link buildDiagram}:
  * - Throws if `spec.contentBounds` is missing or not `{ left, right, above, below }` with finite values ≥ 0.
- * - Canvas size, ref arc, and tick sizing: finite numbers win; non-finite or wrong-type values fall back to defaults below.
- * - `spec.title` defaults to "tide diagram" when missing or not a string.
- * - Tick labels: `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries are skipped.
- * - Sub-builders (`buildTideMarksFromSpec`, pointers, centre cluster, wait arc) enforce their own throw/return-null rules.
+ * - Throws if `spec.canvas`, `spec.title`, ref arc, tick sizing, tick label sizing, or `spec.waitArc` omit
+ *   required fields or supply non-finite numbers (no silent defaults).
+ * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
+ * - Sub-builders (`buildTideMarksFromSpec`, pointers, centre cluster) enforce their own throw/return-null rules.
  */
 import { buildCentreClusterFromSpec } from "./centreCluster.mjs";
 import { buildNowPointerFromSpec } from "./nowPointer.mjs";
 import { buildNextPointerFromSpec } from "./nextPointer.mjs";
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
+import {
+  requireBoolean,
+  requireFiniteNumber,
+  requirePlainObject,
+  requireString,
+  requireWaitArcArrowStyle,
+} from "./specRequire.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import {
   computeNextTideEventCore,
@@ -28,62 +35,39 @@ import {
   timeToTheta,
 } from "../model/tideDiagramModel.mjs";
 
-/** @type {number} px when canvas width is absent or not a finite number */
-const DEFAULT_CANVAS_WIDTH = 400;
-/** @type {number} px when canvas height is absent or not a finite number */
-const DEFAULT_CANVAS_HEIGHT = 300;
-/** @type {string} when `spec.title` is absent or not a string */
-const DEFAULT_TITLE = "tide diagram";
-/** @type {number} RefRadius units when `spec.refRadius` is absent or not a finite number */
-const DEFAULT_REF_RADIUS = 100;
-/** @type {number} radians when `spec.sweepRad` is absent or not a finite number */
-const DEFAULT_SWEEP_RAD = Math.PI * 0.92;
-/** @type {number} proportion of RefRadius for hour tick length when absent or not finite */
-const DEFAULT_TICK_LEN = 0.08;
-
-/**
- * @param {unknown} v
- * @param {number} fallback
- */
-function numOr(v, fallback) {
-  return typeof v === "number" && Number.isFinite(v) ? v : fallback;
-}
-
 /** Per-character scene width heuristic; must match {@link expandBoundsByText} in `toScene.mjs`. */
 const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
 
-/** @type {number} proportion of RefRadius: baseline offset upward from content bottom when absent or not finite */
-const DEFAULT_TIME_NOW_LABEL_ABOVE_BOTTOM = 0.1;
-
 /**
  * Root-level clock readout from `spec.timeNow` (canonical `HH:MM:SS` only). Optional `spec.timeNowLabel`:
- * `{ x?, fontHeight?, aboveBottom? }` as RefRadius multiples; default **x** = 0.8, **fontHeight** = 0.05;
- * **aboveBottom** = 0.1 (**k·R** up from **contentBounds.rect** bottom, **Y = minY**).
+ * `{ x, fontHeight, aboveBottom }` as RefRadius multiples (all required when the object is present);
+ * **k·R** up from **contentBounds.rect** bottom (**Y = minY**) for the shared baseline.
  * HMS and seconds are separate {@link DiagramTextInst}s so each can bind a distinct scene style name.
  *
  * @param {Record<string, unknown>} spec
  * @param {import('../model/tideDiagramModel.mjs').DiagramContentBounds} contentBounds
+ * @param {number} refRadius
  * @returns {import('../model/tideDiagramModel.mjs').DiagramTimeNowLabelInst | null}
  */
-function buildTimeNowLabelFromSpec(spec, contentBounds) {
+function buildTimeNowLabelFromSpec(spec, contentBounds, refRadius) {
   const raw = spec.timeNowLabel;
   if (raw == null || typeof raw !== "object") return null;
   const o = /** @type {Record<string, unknown>} */ (raw);
-  const refRadius =
-    typeof spec.refRadius === "number" && Number.isFinite(spec.refRadius)
-      ? spec.refRadius
-      : 100;
-  const xRaw = o.x;
-  const xK =
-    typeof xRaw === "number" && Number.isFinite(xRaw) ? xRaw : 0.8;
-  const fhRaw = o.fontHeight;
-  const fontHeightK =
-    typeof fhRaw === "number" && Number.isFinite(fhRaw) ? fhRaw : 0.05;
-  const aboveBottomRaw = o.aboveBottom;
-  const aboveBottomK =
-    typeof aboveBottomRaw === "number" && Number.isFinite(aboveBottomRaw)
-      ? aboveBottomRaw
-      : DEFAULT_TIME_NOW_LABEL_ABOVE_BOTTOM;
+  const xK = o.x;
+  const fontHeightK = o.fontHeight;
+  const aboveBottomK = o.aboveBottom;
+  if (
+    typeof xK !== "number" ||
+    !Number.isFinite(xK) ||
+    typeof fontHeightK !== "number" ||
+    !Number.isFinite(fontHeightK) ||
+    typeof aboveBottomK !== "number" ||
+    !Number.isFinite(aboveBottomK)
+  ) {
+    throw new Error(
+      "spec.timeNowLabel requires finite numbers x, fontHeight, and aboveBottom (RefRadius multiples)",
+    );
+  }
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
@@ -115,21 +99,22 @@ function buildTimeNowLabelFromSpec(spec, contentBounds) {
  * @returns {import('../model/tideDiagramModel.mjs').TideDiagramDocument}
  */
 export function buildDiagram(spec) {
-  const canvasRaw = spec.canvas;
-  const canvas =
-    canvasRaw != null && typeof canvasRaw === "object"
-      ? /** @type {Record<string, unknown>} */ (canvasRaw)
-      : null;
-  const width = numOr(canvas?.width, DEFAULT_CANVAS_WIDTH);
-  const height = numOr(canvas?.height, DEFAULT_CANVAS_HEIGHT);
-  const title = typeof spec.title === "string" ? spec.title : DEFAULT_TITLE;
+  const canvas = requirePlainObject(spec.canvas, "spec.canvas");
+  const width = requireFiniteNumber(canvas.width, "spec.canvas.width");
+  const height = requireFiniteNumber(canvas.height, "spec.canvas.height");
+  const title = requireString(spec.title, "spec.title");
 
-  const refRadius = numOr(spec.refRadius, DEFAULT_REF_RADIUS);
-  const sweepRad = numOr(spec.sweepRad, DEFAULT_SWEEP_RAD);
-  const tickLen = numOr(spec.tickLen, DEFAULT_TICK_LEN);
-
-  const tickLabelSize = numOr(spec.tickLabelSize, 1.5 * tickLen);
-  const tickLabelClearance = numOr(spec.tickLabelClearance, 3 * tickLen);
+  const refRadius = requireFiniteNumber(spec.refRadius, "spec.refRadius");
+  const sweepRad = requireFiniteNumber(spec.sweepRad, "spec.sweepRad");
+  const tickLen = requireFiniteNumber(spec.tickLen, "spec.tickLen");
+  const tickLabelSize = requireFiniteNumber(
+    spec.tickLabelSize,
+    "spec.tickLabelSize",
+  );
+  const tickLabelClearance = requireFiniteNumber(
+    spec.tickLabelClearance,
+    "spec.tickLabelClearance",
+  );
 
   const { thetaLeft, thetaRight } = refArcAngles(sweepRad);
   const rInner = 1.0 * refRadius;
@@ -179,8 +164,8 @@ export function buildDiagram(spec) {
   );
   const contentBounds = { extents, rect };
 
-  const centreCluster = buildCentreClusterFromSpec(spec);
-  const timeNowLabel = buildTimeNowLabelFromSpec(spec, contentBounds);
+  const centreCluster = buildCentreClusterFromSpec(spec, refRadius, sweepRad);
+  const timeNowLabel = buildTimeNowLabelFromSpec(spec, contentBounds, refRadius);
 
   const tideMarks = buildTideMarksFromSpec(
     spec,
@@ -265,12 +250,17 @@ function requireContentBoundsExtents(spec) {
  */
 function readTickLabelHours(spec) {
   const raw = spec.tickLabelHours;
-  if (!Array.isArray(raw)) return [];
+  if (!Array.isArray(raw)) {
+    throw new Error("spec.tickLabelHours must be an array of integers in 0..24");
+  }
   /** @type {number[]} */
   const out = [];
-  for (const v of raw) {
+  for (let i = 0; i < raw.length; i += 1) {
+    const v = raw[i];
     if (typeof v !== "number" || !Number.isInteger(v) || v < 0 || v > 24) {
-      continue;
+      throw new Error(
+        `spec.tickLabelHours[${i}] must be an integer from 0 to 24 inclusive`,
+      );
     }
     out.push(v);
   }
@@ -292,17 +282,23 @@ function formatHourDigits(h) {
  * @returns {import('../model/tideDiagramModel.mjs').WaitArcDiagram | null}
  */
 function buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight) {
-  const raw = spec.waitArc;
-  const o = raw != null && typeof raw === "object"
-    ? /** @type {Record<string, unknown>} */ (raw)
-    : {};
-
-  const radiusK = numOr(
-    o.radius ?? o.waitArcRadius ?? spec.waitArcRadius ?? spec.WaitArcRadius,
-    1.0,
-  );
+  const raw = requirePlainObject(spec.waitArc, "spec.waitArc");
+  const radiusK = requireFiniteNumber(raw.radius, "spec.waitArc.radius");
   const radius = Math.max(0, radiusK) * refRadius;
   if (radius <= 0) return null;
+
+  const arrowRaw = requirePlainObject(raw.arrow, "spec.waitArc.arrow");
+  const lengthK = requireFiniteNumber(arrowRaw.lengthK, "spec.waitArc.arrow.lengthK");
+  const widthK = requireFiniteNumber(arrowRaw.widthK, "spec.waitArc.arrow.widthK");
+  const insetK = requireFiniteNumber(arrowRaw.insetK, "spec.waitArc.arrow.insetK");
+  const style = requireWaitArcArrowStyle(
+    arrowRaw.style,
+    "spec.waitArc.arrow.style",
+  );
+  const scaleWithStroke = requireBoolean(
+    arrowRaw.scaleWithStroke,
+    "spec.waitArc.arrow.scaleWithStroke",
+  );
 
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
@@ -323,11 +319,11 @@ function buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     sweepRad: Math.max(0, nextTheta - nowTheta),
     arrow: {
       at: "end",
-      lengthK: numOr(o.arrow?.lengthK, 7),
-      widthK: numOr(o.arrow?.widthK, 5),
-      insetK: numOr(o.arrow?.insetK, 0),
-      style: o.arrow?.style === "open" ? "open" : "filled",
-      scaleWithStroke: o.arrow?.scaleWithStroke !== false,
+      lengthK,
+      widthK,
+      insetK,
+      style,
+      scaleWithStroke,
     },
   };
 }

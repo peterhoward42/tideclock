@@ -30,6 +30,6 @@ const uninitializedDiagramCollaborator: DiagramGenerationCollaborator = {
 };
 
 /** Placeholder until wiring injects a real collaborator (e.g. from the app shell). */
-export const defaultHomeScreenModel: HomeScreenModel = {
+export const uninitializedHomeScreenModel: HomeScreenModel = {
   diagramGeneration: uninitializedDiagramCollaborator,
 };

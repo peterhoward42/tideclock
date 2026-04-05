@@ -48,7 +48,7 @@ export type ClockSceneModel = ClockDialShell & {
 };
 
 /** Canonical static shell for the current narrow slice (reference ring + 24 divisions, top-aligned). */
-export const defaultClockDialShell: ClockDialShell = {
+export const canonicalClockDialShell: ClockDialShell = {
   referenceOutline: { kind: 'circle' },
   dialDivisions: {
     spaceCount: 24,
@@ -56,8 +56,8 @@ export const defaultClockDialShell: ClockDialShell = {
   },
 };
 
-/** Canonical scene: {@link defaultClockDialShell} with no tide events (caller fills when data exists). */
-export const defaultClockSceneModel: ClockSceneModel = {
-  ...defaultClockDialShell,
+/** Canonical scene: {@link canonicalClockDialShell} with no tide events (caller fills when data exists). */
+export const canonicalClockSceneModel: ClockSceneModel = {
+  ...canonicalClockDialShell,
   tideEvents: [],
 };

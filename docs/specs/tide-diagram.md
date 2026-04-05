@@ -17,6 +17,22 @@ Where this specification mentions text or numeric inputs “from outside” or
 How **content bounds** map into a canvas, viewport, or layout is also **not**
 fixed here (see **Content bounds**).
 
+## Strict diagram input (generator)
+
+The generator **throws** when required host fields are missing or the wrong type;
+it does **not** substitute silent numeric defaults for layout keys (`buildDiagram.mjs`
+and layout submodules).
+
+- **`canvas`** — object with finite **`width`** and **`height`** (px).
+- **`title`** — string (diagram meta).
+- **`refRadius`**, **`sweepRad`**, **`tickLen`**, **`tickLabelSize`**, **`tickLabelClearance`** — finite numbers (**k·R** or px as documented per key).
+- **`tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid.
+- **`contentBounds`** — **{ left, right, above, below }** as in **Content bounds**.
+- **`waitArc`** — object with finite **`radius`** (**k·R**). If **max(0, radius)·RefRadius** is **0**, the wait arc is omitted without evaluating next-tide logic. Otherwise **`arrow`** is required: finite **`lengthK`**, **`widthK`**, **`insetK`**; **`style`** is **`filled`** or **`open`**; **`scaleWithStroke`** is a **boolean**.
+- **`tideMarks`** — if absent, or **`markers`** missing or empty, there are no tide marks. If **`markers`** is non-empty, these finite numbers are required on **`tideMarks`**: **`tideHeightLabelRadius`**, **`tideTimeLabelRadius`**, **`tideHeightLabelSize`**, **`tideTimeLabelSize`**, **`tideMarkArrowDivergence`**, **`tideMarkArrowLineLen`**. At least one marker row must yield a usable time after parsing (otherwise generation throws).
+- **`nowPointer`** / **`nextPointer`** — if present, use nested objects **`radialLine`**, **`label`**, **`triangle`** (now) and **`circle`** (next) with the finite fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks).
+- **`centreCluster`** — if present, finite **`frameArcRadius`** and **`timeDelta.y`**, **`timeDelta.fontHeight`** are required; **`refRadius`** and **`sweepRad`** come from the top-level spec (also required above).
+
 ## Diagram elements
 
 - The diagram has named elements:
@@ -248,9 +264,9 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
 #### Now radial line
 
 - A radial segment at **θ_now** with:
-  - **r_inner = NowPointerLineInnerRadius·R** (default **0.4**)
-  - **r_outer = NowPointerLineOuterRadius·R** (default **0.6**)
-- Both radius multipliers are diagram inputs interpreted by **§Sizing**.
+  - **r_inner = NowPointerLineInnerRadius·R**
+  - **r_outer = NowPointerLineOuterRadius·R**
+- Both radius multipliers are **required** host diagram inputs (nested under **`nowPointer.radialLine`**) interpreted by **§Sizing** when **NowPointer** is included.
 
 #### Now label
 
@@ -313,7 +329,7 @@ Inputs and derived quantities:
   - Define **NowPointerLineInnerRadius** as in **NowPointer**.
   - **NextPointer** reuses that same **inner** radius so its radial segment begins at the **NowPointer** minimum radius.
 - Let:
-  - **r_inner = NowPointerLineInnerRadius·R** (effective value after any defaults),
+  - **r_inner = NowPointerLineInnerRadius·R** (from **NowPointer** inputs),
   - **r_outer = NextPointerLineOuterRadius·R**,
   - **r_circle = NextPointerCircleRadius·R**.
 
@@ -321,7 +337,7 @@ Inputs and derived quantities:
 
 - A radial segment at **θ_next** with:
   - **inner radius** **r_inner** shared with **NowPointer**,
-  - **outer radius** **r_outer** from **NextPointerLineOuterRadius** (default **0.8**).
+  - **outer radius** **r_outer** from **NextPointerLineOuterRadius** (required host input under **`nextPointer.radialLine`**).
 - If **r_outer ≤ r_inner**, **NextPointer** is omitted from the scene (no radial segment or circle emitted).
 
 #### Next circle
@@ -379,16 +395,14 @@ shows the current civil clock time derived from global `**timeNow**`.
 ### Input
 
 - Diagram input object **`timeNowLabel`** (when **absent**, **TimeNowLabel** is
-  **omitted** from the scene):
-  - **`fontHeight`** — optional proportion **k** as **k·R** (**§Sizing**); when
-    omitted, a default applies in the generator (product baseline uses **0.05**).
-  - **`x`** — optional proportion **k** as **k·R** for anchor **X**; when omitted,
-    default **0.8** (near the **+X** side of the content region).
-  - **`aboveBottom`** — optional proportion **k** as **k·R** (**§Sizing**): vertical
-    offset **upward** (**+Y**) from the **bottom edge** of the **content bounds**
-    rectangle (**Y = −below·R**, **§Content bounds**) to the shared text **baseline**;
-    when omitted, default **0.1**. This places the readout low in the diagram while
-    **x** (and **right** alignment) stay as above.
+  **omitted** from the scene). When **present**, all of the following are **required**
+  (finite numbers as **k·R** multiples); the host supplies layout (e.g. product baseline
+  in **`buildDiagramGenerationSpec`**):
+  - **`fontHeight`** — proportion **k** as **k·R** (**§Sizing**).
+  - **`x`** — proportion **k** as **k·R** for anchor **X** (typically toward **+X** in the content region).
+  - **`aboveBottom`** — proportion **k** as **k·R** (**§Sizing**): vertical offset **upward** (**+Y**)
+    from the **bottom edge** of the **content bounds** rectangle (**Y = −below·R**, **§Content bounds**)
+    to the shared text **baseline**.
 
 ### Text and placement
 
@@ -396,14 +410,14 @@ shows the current civil clock time derived from global `**timeNow**`.
   - **HMS fragment** — canonical `**HH:MM:`** (six characters, includes the colon before seconds).
   - **Seconds fragment** — canonical **`SS`** (two digits).
   - **No** literal prefix such as “Time now”; **no** separate host string beyond parsed `**timeNow**`.
-  - **FontHeight** — **k_font·R** with **k_font** from **`fontHeight`** (or default).
+  - **FontHeight** — **k_font·R** with **k_font** from **`fontHeight`**.
   - **Horizontal justification** — **right** for both; the seconds fragment’s anchor sits at the
     readout’s trailing edge in **+X**, and the HMS anchor is offset left by a fixed monospace advance
     so the pair abuts (**§Scene model** uses the same width heuristic as preview framing).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
   - **Anchor** — HMS and seconds share **y = −below·R + k_above·R**, where **below** is the content
-    **below** extent and **k_above** is **`aboveBottom`** (or default); **x** for the trailing (seconds)
-    anchor is **k_x·R** with **k_x** from **`x`** (or default).
+    **below** extent and **k_above** is **`aboveBottom`**; **x** for the trailing (seconds)
+    anchor is **k_x·R** with **k_x** from **`x`**.
 
 ### Scene model
 
@@ -588,17 +602,16 @@ For **both** labels:
 ** TimePointer ** comprises one filled triangle and one filled circle, 
 having geometry defined as follows.
 
-- Define a new input TideMarkArrowDivergence. It is a positive angle 
-expressed in radians
-- Define a new input TideMarkArrowLineLen. It is a positive float 
+- Define input **`tideMarkArrowDivergence`** — a non-negative angle in radians (host field on **`tideMarks`**).
+- Define input **`tideMarkArrowLineLen`** — a non-negative float (**k·R** scale; host field on **`tideMarks`**).
 - Vertex1 is the point on the RefArc corresponding to time (t).
-- halfAngle is 0.5 * TideMarkArrowDivergence
-- Vertex 2 is is located with a polar offset from Vertex1 :
-R: TideMarkArrowLineLen * RefRad
-theta: RadialAngle(t) + PI + halfAngle
-- Vertex 3 is is located with a polar offset from Vertex1 :
-R: TideMarkArrowLineLen * RefRad
-theta: RadialAngle(t) + PI - halfAngle
+- halfAngle is **0.5 × tideMarkArrowDivergence**
+- Vertex 2 is located with a polar offset from Vertex1:
+  - **R:** **tideMarkArrowLineLen × RefRadius**
+  - **theta:** RadialAngle(t) + PI + halfAngle
+- Vertex 3 is located with a polar offset from Vertex1:
+  - **R:** **tideMarkArrowLineLen × RefRadius**
+  - **theta:** RadialAngle(t) + PI - halfAngle
 - The required triangle element is Vertex1, Vertex2, Vertex3
 - Let line1 = the line segment vertex1->vertex2
 - Let line2 = the line segment vertex1->vertex3

@@ -9,7 +9,7 @@
  * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
  * - Returns `null` when {@link buildNowPointerFromSpec} is `null`, when inner radius cannot be resolved, when
  *   outer ≤ inner along the next radial, or when {@link computeNextTideEventCore} has no next event.
- * - Numeric styling keys are optional; defaults match historical presets (`DEFAULT_LINE_OUTER`, `DEFAULT_CIRCLE_RADIUS`).
+ * - When `nextPointer` is present, `radialLine.outerRadius` and `circle.radius` are required (finite numbers).
  */
 
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
@@ -19,22 +19,7 @@ import {
   readNowPointerLineInnerRadiusPx,
 } from "./nowPointer.mjs";
 import { computeNextTideEventCore } from "../model/tideEvents.mjs";
-
-const DEFAULT_LINE_OUTER = 0.8;
-const DEFAULT_CIRCLE_RADIUS = 0.04;
-
-/**
- * Nested `radialLine` when present, else root carries line keys (legacy flat shape).
- *
- * @param {Record<string, unknown>} nextPointerRoot
- * @returns {Record<string, unknown>}
- */
-function radialLineFieldsFrom(nextPointerRoot) {
-  const nested = nextPointerRoot.radialLine;
-  return nested && typeof nested === "object"
-    ? /** @type {Record<string, unknown>} */ (nested)
-    : nextPointerRoot;
-}
+import { requireFiniteNumber, requirePlainObject } from "./specRequire.mjs";
 
 /**
  * @param {Record<string, unknown>} spec
@@ -54,7 +39,11 @@ export function buildNextPointerFromSpec(
   if (raw == null || typeof raw !== "object") return null;
   const o = /** @type {Record<string, unknown>} */ (raw);
 
-  const radialLineSpec = radialLineFieldsFrom(o);
+  const radialLineSpec = requirePlainObject(
+    o.radialLine,
+    "spec.nextPointer.radialLine",
+  );
+  const circleSpec = requirePlainObject(o.circle, "spec.nextPointer.circle");
 
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
@@ -81,12 +70,9 @@ export function buildNextPointerFromSpec(
     rInner = fromSpec;
   }
 
-  const lineOuterK = numOr(
-    radialLineSpec.outerRadius ??
-      radialLineSpec.nextPointerLineOuterRadius ??
-      o.nextPointerLineOuterRadius ??
-      o.NextPointerLineOuterRadius,
-    DEFAULT_LINE_OUTER,
+  const lineOuterK = requireFiniteNumber(
+    radialLineSpec.outerRadius,
+    "spec.nextPointer.radialLine.outerRadius",
   );
   const rOuter = Math.max(0, lineOuterK) * refRadius;
   if (rOuter <= rInner) return null;
@@ -105,38 +91,21 @@ export function buildNextPointerFromSpec(
     timeHours: tNextHours,
     theta,
     radialLine: { start, end },
-    circle: buildNextPointerCircle(o, { refRadius, radialEnd: end }),
+    circle: buildNextPointerCircle(circleSpec, { refRadius, radialEnd: end }),
   };
 }
 
 /**
- * @param {unknown} v
- * @param {number} fallback — used only when `v` is not a finite number (optional spec fields).
- * @returns {number}
- */
-function numOr(v, fallback) {
-  return typeof v === "number" && Number.isFinite(v) ? v : fallback;
-}
-
-/**
- * @param {Record<string, unknown>} nextSpec
+ * @param {Record<string, unknown>} circleSpec
  * @param {{ refRadius: number, radialEnd: { x: number, y: number } }} ctx
  * @returns {{ center: { x: number, y: number }, radius: number }}
  */
-function buildNextPointerCircle(nextSpec, ctx) {
+function buildNextPointerCircle(circleSpec, ctx) {
   const { refRadius, radialEnd } = ctx;
-  const nested = nextSpec.circle;
-  const circleSpec =
-    nested && typeof nested === "object"
-      ? /** @type {Record<string, unknown>} */ (nested)
-      : nextSpec;
 
-  const radiusK = numOr(
-    circleSpec.radius ??
-      circleSpec.nextPointerCircleRadius ??
-      nextSpec.nextPointerCircleRadius ??
-      nextSpec.NextPointerCircleRadius,
-    DEFAULT_CIRCLE_RADIUS,
+  const radiusK = requireFiniteNumber(
+    circleSpec.radius,
+    "spec.nextPointer.circle.radius",
   );
 
   const radius = Math.max(0, radiusK) * refRadius;

@@ -3,6 +3,7 @@
    * ClockDivisionDial.svelte — SVG hour ring and ticks from `clockPathMapping` + `ClockSceneModel`.
    * Kind: Presentation. Does not handle tide labels or network state.
    */
+  import { STANDARD_DIVISION_TICK_LENGTH } from "../../clock-presentation/clockDivisionGeometry";
   import type { ClockSceneModel } from "../../clock-presentation/clockSceneModel";
   import { clockDivisionDialSvgProps } from "../svg/clockPathMapping";
 
@@ -12,7 +13,9 @@
 
   let { clockScene }: Props = $props();
 
-  const dial = $derived(clockDivisionDialSvgProps(clockScene));
+  const dial = $derived(
+    clockDivisionDialSvgProps(clockScene, STANDARD_DIVISION_TICK_LENGTH),
+  );
 </script>
 
 <svg

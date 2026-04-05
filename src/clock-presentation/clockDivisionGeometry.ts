@@ -17,7 +17,7 @@ import {
 } from './normalizedDialSpace';
 
 /** Inward extent of hour ticks from the reference ring, in normalized dial units. */
-export const DEFAULT_DIVISION_TICK_LENGTH = 5;
+export const STANDARD_DIVISION_TICK_LENGTH = 5;
 
 /** Inward distance from the reference ring toward the dial centre (same units as {@link REFERENCE_RADIUS}). */
 export type DivisionTickLength = number;

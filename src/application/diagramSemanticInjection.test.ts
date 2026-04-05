@@ -26,6 +26,7 @@ type SemanticInjectionTideMark = {
  */
 type SemanticInjectionDiagramSpec = {
   readonly title: string;
+  readonly canvas: { readonly width: number; readonly height: number };
   readonly contentBounds: {
     readonly left: number;
     readonly right: number;
@@ -34,6 +35,10 @@ type SemanticInjectionDiagramSpec = {
   };
   readonly refRadius: number;
   readonly sweepRad: number;
+  readonly tickLen: number;
+  readonly tickLabelHours: readonly number[];
+  readonly tickLabelSize: number;
+  readonly tickLabelClearance: number;
   readonly timeNow: string;
   readonly nowPointer: {
     readonly radialLine: { readonly innerRadius: number; readonly outerRadius: number };
@@ -59,9 +64,19 @@ type SemanticInjectionDiagramSpec = {
     };
   };
   readonly tideMarks: {
+    readonly tideHeightLabelRadius: number;
+    readonly tideTimeLabelRadius: number;
+    readonly tideHeightLabelSize: number;
+    readonly tideTimeLabelSize: number;
+    readonly tideMarkArrowDivergence: number;
+    readonly tideMarkArrowLineLen: number;
     readonly markers: readonly SemanticInjectionTideMark[];
   };
-  readonly timeNowLabel: { readonly x: number; readonly fontHeight: number };
+  readonly timeNowLabel: {
+    readonly x: number;
+    readonly fontHeight: number;
+    readonly aboveBottom: number;
+  };
   readonly centreCluster: {
     readonly frameArcRadius: number;
     readonly timeDelta: { readonly y: number; readonly fontHeight: number };
@@ -77,9 +92,14 @@ function buildDiagramFromSpec(spec: DiagramGenerationSpec): TideDiagramDocument 
 function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
   return {
     title: 'semantic-injection',
+    canvas: { width: 420, height: 320 },
     contentBounds: { left: 1.45, right: 1.15, above: 0.1, below: 1.5 },
     refRadius: 118,
     sweepRad: 2.75,
+    tickLen: 0.07,
+    tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
+    tickLabelSize: 0.04,
+    tickLabelClearance: 0.07,
     timeNow: '19:20:03',
     nowPointer: {
       radialLine: { innerRadius: 0.4, outerRadius: 0.7 },
@@ -101,6 +121,12 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       },
     },
     tideMarks: {
+      tideHeightLabelRadius: 0.88,
+      tideTimeLabelRadius: 0.8,
+      tideHeightLabelSize: 0.046,
+      tideTimeLabelSize: 0.04,
+      tideMarkArrowDivergence: 1.0,
+      tideMarkArrowLineLen: 0.05,
       markers: [
         { time: '04:15:00', heightText: '0.94 m', highOrLow: 'Low' },
         { time: '10:45:00', heightText: '4.7 m', highOrLow: 'High' },
@@ -108,7 +134,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
         { time: '23:06:00', heightText: '4.8 m', highOrLow: 'High' },
       ],
     },
-    timeNowLabel: { x: 0.8, fontHeight: 0.05 },
+    timeNowLabel: { x: 0.8, fontHeight: 0.05, aboveBottom: 0.1 },
     centreCluster: {
       frameArcRadius: 0.35,
       timeDelta: { y: -0.1, fontHeight: 0.05 },

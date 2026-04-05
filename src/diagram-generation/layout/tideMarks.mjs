@@ -5,10 +5,10 @@
  * See docs/specs/tide-diagram.md (TideMarks).
  *
  * Policies for {@link buildTideMarksFromSpec}:
- * - Returns `[]` when `tideMarks` is missing, not a plain object, `markers` missing, empty, or
- *   yields no usable rows (skips non-objects, non-string `heightText`, right-endpoint times).
- * - Throws from {@link parseCanonicalTimeOrThrow} on invalid marker times, and on duplicate
- *   canonical times after filtering.
+ * - Returns `[]` when `tideMarks` is missing, not a plain object, or `markers` is missing or empty.
+ * - When `markers` is non-empty, numeric layout keys on `tideMarks` are required (finite numbers; see spec).
+ * - Throws if no marker row yields a usable layout time after filtering (invalid rows are skipped until none remain).
+ * - Throws from {@link parseCanonicalTimeOrThrow} on invalid marker times, and on duplicate canonical times after filtering.
  */
 
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
@@ -16,6 +16,7 @@ import {
   formatCanonicalHHMM,
   parseCanonicalTimeOrThrow,
 } from "../model/timeCanonical.mjs";
+import { requireFiniteNumber } from "./specRequire.mjs";
 
 /**
  * One marker after spec parsing: fractional hour on the dial, display strings, canonical time key.
@@ -148,17 +149,12 @@ function normalLineIntersection(v1, v2, v3) {
 /**
  * Read `spec.tideMarks` and lay out tide marks for the given ref arc angles.
  *
- * Numeric styling keys are optional on the spec object; defaults match historical diagram presets
- * (`tideLabelRadius` 0.82, height/time size K, arrow divergence 1.0 rad, arrow line len 0.1).
- * Accepts legacy aliases `TideMarkArrowDivergence` / `TideMarkArrowLineLen` and falls back height/time
- * radii to `tideLabelRadius` when the specific keys are absent.
- *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
  * @param {number} thetaLeft
  * @param {number} thetaRight
  * @returns {import('../model/tideDiagramModel.mjs').TideMarkDiagram[]}
- * @throws {Error} invalid marker time (via {@link parseCanonicalTimeOrThrow}) or duplicate canonical time
+ * @throws {Error} invalid marker time (via {@link parseCanonicalTimeOrThrow}), duplicate canonical time, missing layout keys, or no valid markers
  */
 export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const raw = spec.tideMarks;
@@ -167,29 +163,34 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const markersRaw = o.markers;
   if (!Array.isArray(markersRaw) || markersRaw.length === 0) return [];
 
-  const tideLabelRadiusLegacy = numOr(o.tideLabelRadius, 0.82);
-  const tideHeightLabelRadius = numOr(
+  const tideHeightLabelRadius = requireFiniteNumber(
     o.tideHeightLabelRadius,
-    tideLabelRadiusLegacy,
+    "spec.tideMarks.tideHeightLabelRadius",
   );
-  const tideTimeLabelRadius = numOr(
+  const tideTimeLabelRadius = requireFiniteNumber(
     o.tideTimeLabelRadius,
-    tideLabelRadiusLegacy,
+    "spec.tideMarks.tideTimeLabelRadius",
   );
-  const heightLabelSizeK = numOr(o.tideHeightLabelSize, 0.055);
-  const timeLabelSizeK = numOr(o.tideTimeLabelSize, 0.048);
+  const heightLabelSizeK = requireFiniteNumber(
+    o.tideHeightLabelSize,
+    "spec.tideMarks.tideHeightLabelSize",
+  );
+  const timeLabelSizeK = requireFiniteNumber(
+    o.tideTimeLabelSize,
+    "spec.tideMarks.tideTimeLabelSize",
+  );
   const tideMarkArrowDivergence = Math.max(
     0,
-    numOr(
-      o.tideMarkArrowDivergence ?? o.TideMarkArrowDivergence,
-      1.0,
+    requireFiniteNumber(
+      o.tideMarkArrowDivergence,
+      "spec.tideMarks.tideMarkArrowDivergence",
     ),
   );
   const tideMarkArrowLineLen = Math.max(
     0,
-    numOr(
-      o.tideMarkArrowLineLen ?? o.TideMarkArrowLineLen,
-      0.1,
+    requireFiniteNumber(
+      o.tideMarkArrowLineLen,
+      "spec.tideMarks.tideMarkArrowLineLen",
     ),
   );
 
@@ -214,7 +215,11 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     });
   }
 
-  if (markers.length === 0) return [];
+  if (markers.length === 0) {
+    throw new Error(
+      "spec.tideMarks.markers is non-empty but no row produced a valid tide time (check times and heightText)",
+    );
+  }
 
   const seen = new Set();
   for (const marker of markers) {
@@ -238,13 +243,4 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     tideMarkArrowLineLen,
     markers,
   });
-}
-
-/**
- * @param {unknown} v
- * @param {number} fallback — used only when `v` is not a finite number (optional spec fields).
- * @returns {number}
- */
-function numOr(v, fallback) {
-  return typeof v === "number" && Number.isFinite(v) ? v : fallback;
 }
