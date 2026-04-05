@@ -10,9 +10,10 @@
  * - Throws if `spec.canvas`, `spec.title`, ref arc, tick sizing, tick label sizing, or `spec.waitArc` omit
  *   required fields or supply non-finite numbers (no silent defaults).
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
- * - Sub-builders (`buildTideMarksFromSpec`, pointers, centre cluster) enforce their own throw/return-null rules.
+ * - Sub-builders (`buildTideMarksFromSpec`, pointers, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
  */
-import { buildCentreClusterFromSpec } from "./centreCluster.mjs";
+import { buildCentreFrameDiagramFromSpec } from "./centreFrame.mjs";
+import { buildTimeDeltaDiagramFromSpec } from "./timeDeltaDiagram.mjs";
 import { buildNowPointerFromSpec } from "./nowPointer.mjs";
 import { buildNextPointerFromSpec } from "./nextPointer.mjs";
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
@@ -171,7 +172,12 @@ export function buildDiagram(spec) {
   );
   const contentBounds = { extents, rect };
 
-  const centreCluster = buildCentreClusterFromSpec(spec, refRadius, sweepRad);
+  const timeDeltaDiagram = buildTimeDeltaDiagramFromSpec(spec, refRadius);
+  const centreFrameDiagram = buildCentreFrameDiagramFromSpec(
+    spec,
+    refRadius,
+    sweepRad,
+  );
   const timeNowLabel = buildTimeNowLabelFromSpec(spec, contentBounds, refRadius);
 
   const tideMarks = buildTideMarksFromSpec(
@@ -212,7 +218,8 @@ export function buildDiagram(spec) {
     nowPointer,
     nextPointer,
     waitArc,
-    centreCluster,
+    timeDeltaDiagram,
+    centreFrameDiagram,
     timeNowLabel,
     contentBounds,
   };

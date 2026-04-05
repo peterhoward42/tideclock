@@ -67,7 +67,7 @@ type DiagramTimeNowLabelInst = {
   readonly seconds: DiagramTextInst;
 };
 
-type CentreClusterFrameArcSpec = {
+type CentreFrameArcSpec = {
   readonly center: DiagramPoint;
   readonly radius: number;
   readonly sweepRad: number;
@@ -80,10 +80,13 @@ type DiagramLineSeg = {
   readonly end: DiagramPoint;
 };
 
-type CentreClusterDiagram = {
+type TimeDeltaDiagram = {
   readonly timeDelta: DiagramTextInst[];
   readonly timeDeltaEmptyMessage: DiagramTextInst | null;
-  readonly frameArc: CentreClusterFrameArcSpec;
+};
+
+type CentreFrameDiagram = {
+  readonly frameArc: CentreFrameArcSpec;
   readonly frameLines: [DiagramLineSeg, DiagramLineSeg];
 };
 
@@ -162,7 +165,8 @@ export type TideDiagramDocument = {
   readonly nowPointer: NowPointerDiagram | null;
   readonly nextPointer: NextPointerDiagram | null;
   readonly waitArc: WaitArcDiagram | null;
-  readonly centreCluster: CentreClusterDiagram | null;
+  readonly timeDeltaDiagram: TimeDeltaDiagram;
+  readonly centreFrameDiagram: CentreFrameDiagram;
   readonly timeNowLabel: DiagramTimeNowLabelInst | null;
   readonly contentBounds: DiagramContentBounds;
 };

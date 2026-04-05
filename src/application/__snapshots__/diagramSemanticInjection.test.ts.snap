@@ -2,7 +2,7 @@
 
 exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semantic.nextTide matches committed output 1`] = `
 {
-  "centreCluster": {
+  "centreFrameDiagram": {
     "frameArc": {
       "center": {
         "x": 0,
@@ -35,33 +35,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         },
       },
     ],
-    "timeDelta": [
-      {
-        "anchor": {
-          "x": -28.320000000000007,
-          "y": -11.8,
-        },
-        "content": "High",
-        "fontSize": 5.9,
-      },
-      {
-        "anchor": {
-          "x": -3.5400000000000063,
-          "y": -11.8,
-        },
-        "content": " water in ",
-        "fontSize": 5.9,
-      },
-      {
-        "anchor": {
-          "x": 24.779999999999994,
-          "y": -11.8,
-        },
-        "content": "3h 45m",
-        "fontSize": 5.9,
-      },
-    ],
-    "timeDeltaEmptyMessage": null,
   },
   "contentBounds": {
     "extents": {
@@ -717,6 +690,35 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       },
     },
   ],
+  "timeDeltaDiagram": {
+    "timeDelta": [
+      {
+        "anchor": {
+          "x": -28.320000000000007,
+          "y": -11.8,
+        },
+        "content": "High",
+        "fontSize": 5.9,
+      },
+      {
+        "anchor": {
+          "x": -3.5400000000000063,
+          "y": -11.8,
+        },
+        "content": " water in ",
+        "fontSize": 5.9,
+      },
+      {
+        "anchor": {
+          "x": 24.779999999999994,
+          "y": -11.8,
+        },
+        "content": "3h 45m",
+        "fontSize": 5.9,
+      },
+    ],
+    "timeDeltaEmptyMessage": null,
+  },
   "timeNowLabel": {
     "hhmm": {
       "anchor": {

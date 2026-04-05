@@ -52,7 +52,7 @@ export const STATIC_STYLE_MODEL = {
     { name: "TimePointer", styleName: "time-pointer-filled" },
     { name: "TimeLabel", styleName: "grey-writing" },
     { name: "TickLabel", styleName: "grey-writing" },
-    { name: "CentreClusterFrame", styleName: "grey-strokes" },
+    { name: "CentreFrame", styleName: "grey-strokes" },
     { name: "TimeNowLabelHms", styleName: "time-now-label" },
     { name: "TimeNowLabelSecondsColon", styleName: "time-now-label-seconds-colon" },
     { name: "TimeNowLabelSeconds", styleName: "time-now-label-seconds" },

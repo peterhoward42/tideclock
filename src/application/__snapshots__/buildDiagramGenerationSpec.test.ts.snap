@@ -2,7 +2,7 @@
 
 exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > golden snapshot: stable diagram from fixture spec 1`] = `
 {
-  "centreCluster": {
+  "centreFrameDiagram": {
     "frameArc": {
       "center": {
         "x": 0,
@@ -35,33 +35,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         },
       },
     ],
-    "timeDelta": [
-      {
-        "anchor": {
-          "x": -28.320000000000007,
-          "y": -11.8,
-        },
-        "content": "High",
-        "fontSize": 5.9,
-      },
-      {
-        "anchor": {
-          "x": -3.5400000000000063,
-          "y": -11.8,
-        },
-        "content": " water in ",
-        "fontSize": 5.9,
-      },
-      {
-        "anchor": {
-          "x": 24.779999999999994,
-          "y": -11.8,
-        },
-        "content": "3h 45m",
-        "fontSize": 5.9,
-      },
-    ],
-    "timeDeltaEmptyMessage": null,
   },
   "contentBounds": {
     "extents": {
@@ -717,14 +690,43 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       },
     },
   ],
+  "timeDeltaDiagram": {
+    "timeDelta": [
+      {
+        "anchor": {
+          "x": -28.320000000000007,
+          "y": -11.8,
+        },
+        "content": "High",
+        "fontSize": 5.9,
+      },
+      {
+        "anchor": {
+          "x": -3.5400000000000063,
+          "y": -11.8,
+        },
+        "content": " water in ",
+        "fontSize": 5.9,
+      },
+      {
+        "anchor": {
+          "x": 24.779999999999994,
+          "y": -11.8,
+        },
+        "content": "3h 45m",
+        "fontSize": 5.9,
+      },
+    ],
+    "timeDeltaEmptyMessage": null,
+  },
   "timeNowLabel": {
     "hhmm": {
       "anchor": {
-        "x": 117.528,
+        "x": 115.40400000000001,
         "y": -165.2,
       },
       "content": "19:20",
-      "fontSize": 3.54,
+      "fontSize": 4.72,
       "hAlign": "right",
     },
     "seconds": {
@@ -733,16 +735,16 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "y": -165.2,
       },
       "content": "03",
-      "fontSize": 3.54,
+      "fontSize": 4.72,
       "hAlign": "right",
     },
     "secondsColon": {
       "anchor": {
-        "x": 119.652,
+        "x": 118.236,
         "y": -165.2,
       },
       "content": ":",
-      "fontSize": 3.54,
+      "fontSize": 4.72,
       "hAlign": "right",
     },
   },
@@ -775,7 +777,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "maxX": 334.9,
       "maxY": 161,
       "minX": 74.2182659692451,
-      "minY": -6.907999999999989,
+      "minY": -7.143999999999989,
     },
     "title": "home-tide-diagram",
     "width": 420,
@@ -1486,105 +1488,42 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       {
         "children": [
           {
-            "children": [
-              {
-                "end": {
-                  "x": 169.48911674494366,
-                  "y": 151.96517966005484,
-                },
-                "kind": "line",
-                "start": {
-                  "x": 210,
-                  "y": 160,
-                },
-              },
-              {
-                "end": {
-                  "x": 250.51088325505634,
-                  "y": 151.96517966005482,
-                },
-                "kind": "line",
-                "start": {
-                  "x": 210,
-                  "y": 160,
-                },
-              },
-              {
-                "center": {
-                  "x": 210,
-                  "y": 160,
-                },
-                "kind": "arc",
-                "start": {
-                  "x": 169.48911674494366,
-                  "y": 151.96517966005484,
-                },
-                "sweepRad": 2.75,
-              },
-            ],
-            "kind": "group",
-            "name": "CentreClusterFrame",
+            "end": {
+              "x": 169.48911674494366,
+              "y": 151.96517966005484,
+            },
+            "kind": "line",
+            "start": {
+              "x": 210,
+              "y": 160,
+            },
           },
           {
-            "children": [
-              {
-                "children": [
-                  {
-                    "anchor": {
-                      "x": 181.68,
-                      "y": 148.2,
-                    },
-                    "angleRad": 0,
-                    "content": "High",
-                    "hAlign": "center",
-                    "kind": "text",
-                    "size": 5.9,
-                  },
-                ],
-                "kind": "group",
-                "name": "EventKind",
-              },
-              {
-                "children": [
-                  {
-                    "anchor": {
-                      "x": 206.45999999999998,
-                      "y": 148.2,
-                    },
-                    "angleRad": 0,
-                    "content": " water in ",
-                    "hAlign": "center",
-                    "kind": "text",
-                    "size": 5.9,
-                  },
-                ],
-                "kind": "group",
-                "name": "DeltaGlue",
-              },
-              {
-                "children": [
-                  {
-                    "anchor": {
-                      "x": 234.78,
-                      "y": 148.2,
-                    },
-                    "angleRad": 0,
-                    "content": "3h 45m",
-                    "hAlign": "center",
-                    "kind": "text",
-                    "size": 5.9,
-                  },
-                ],
-                "kind": "group",
-                "name": "DeltaInterval",
-              },
-            ],
-            "kind": "group",
-            "name": "TimeDelta",
+            "end": {
+              "x": 250.51088325505634,
+              "y": 151.96517966005482,
+            },
+            "kind": "line",
+            "start": {
+              "x": 210,
+              "y": 160,
+            },
+          },
+          {
+            "center": {
+              "x": 210,
+              "y": 160,
+            },
+            "kind": "arc",
+            "start": {
+              "x": 169.48911674494366,
+              "y": 151.96517966005484,
+            },
+            "sweepRad": 2.75,
           },
         ],
         "kind": "group",
-        "name": "CentreCluster",
+        "name": "CentreFrame",
       },
       {
         "children": [
@@ -1592,14 +1531,71 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 327.528,
+                  "x": 181.68,
+                  "y": 148.2,
+                },
+                "angleRad": 0,
+                "content": "High",
+                "hAlign": "center",
+                "kind": "text",
+                "size": 5.9,
+              },
+            ],
+            "kind": "group",
+            "name": "EventKind",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 206.45999999999998,
+                  "y": 148.2,
+                },
+                "angleRad": 0,
+                "content": " water in ",
+                "hAlign": "center",
+                "kind": "text",
+                "size": 5.9,
+              },
+            ],
+            "kind": "group",
+            "name": "DeltaGlue",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 234.78,
+                  "y": 148.2,
+                },
+                "angleRad": 0,
+                "content": "3h 45m",
+                "hAlign": "center",
+                "kind": "text",
+                "size": 5.9,
+              },
+            ],
+            "kind": "group",
+            "name": "DeltaInterval",
+          },
+        ],
+        "kind": "group",
+        "name": "TimeDelta",
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 325.404,
                   "y": -5.199999999999989,
                 },
                 "angleRad": 0,
                 "content": "19:20",
                 "hAlign": "right",
                 "kind": "text",
-                "size": 3.54,
+                "size": 4.72,
               },
             ],
             "kind": "group",
@@ -1609,14 +1605,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 329.652,
+                  "x": 328.236,
                   "y": -5.199999999999989,
                 },
                 "angleRad": 0,
                 "content": ":",
                 "hAlign": "right",
                 "kind": "text",
-                "size": 3.54,
+                "size": 4.72,
               },
             ],
             "kind": "group",
@@ -1633,7 +1629,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "content": "03",
                 "hAlign": "right",
                 "kind": "text",
-                "size": 3.54,
+                "size": 4.72,
               },
             ],
             "kind": "group",

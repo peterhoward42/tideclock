@@ -90,14 +90,18 @@ o  new data fetch paradigm
 				*  move time now to bottom right
 				*  force removal of fallback defaults
 
-				o  make time now animation more eye catching
-					*  first isolate colon ready
-					o  try hard coded heartbeat
-					o  consider using the style indirection pattern for it?
+				*  make time now animation more eye catching
+
+				o  ditch centre cluster retaining msg standalone and position it
+					*  basics
+					*  tweak no optional inputs
+					o  downgrade the frame to just the arc part
 
 fart
 
-				o  ditch centre cluster retaining msg standalone and position it
+				o  have lost diagram centering
+					o  is bottom right timenowlabel smoking gun
+
 				o  say next hight water at foo in bar interval
 				o  assemble location and hight water message into one?
 				o  put change location inside diag bottom left

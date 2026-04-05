@@ -64,22 +64,25 @@
  *   sweepRad: number,
  *   thetaLeft: number,
  *   thetaRight: number,
- * }} CentreClusterFrameArcSpec
+ * }} CentreFrameArcSpec
  *
  * @typedef {{
  *   start: DiagramPoint,
  *   end: DiagramPoint,
  * }} DiagramLineSeg
  *
- * CentreClusterDiagram: **timeDelta** holds three fragments when counting down to the next tide;
+ * TimeDeltaDiagram: **timeDelta** holds three fragments when counting down to the next tide;
  * **timeDeltaEmptyMessage** is set (and **timeDelta** empty) when there is no next tide today (**NoMoreTidesToday** in the spec).
  *
  * @typedef {{
  *   timeDelta: DiagramTextInst[],
  *   timeDeltaEmptyMessage: DiagramTextInst | null,
- *   frameArc: CentreClusterFrameArcSpec,
+ * }} TimeDeltaDiagram
+ *
+ * @typedef {{
+ *   frameArc: CentreFrameArcSpec,
  *   frameLines: [DiagramLineSeg, DiagramLineSeg],
- * }} CentreClusterDiagram
+ * }} CentreFrameDiagram
  *
  * @typedef {{
  *   content: string,
@@ -144,7 +147,8 @@
  *   nowPointer: NowPointerDiagram | null,
  *   nextPointer: NextPointerDiagram | null,
  *   waitArc: WaitArcDiagram | null,
- *   centreCluster: CentreClusterDiagram | null,
+ *   timeDeltaDiagram: TimeDeltaDiagram,
+ *   centreFrameDiagram: CentreFrameDiagram,
  *   timeNowLabel: DiagramTimeNowLabelInst | null,
  *   contentBounds: DiagramContentBounds,
  * }} TideDiagramDocument

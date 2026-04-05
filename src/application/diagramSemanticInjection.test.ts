@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { buildDiagram } from '../diagram-generation/index.mjs';
-import { TIME_DELTA_EMPTY_MESSAGE } from '../diagram-generation/layout/centreCluster.mjs';
+import { TIME_DELTA_EMPTY_MESSAGE } from '../diagram-generation/layout/timeDeltaDiagram.mjs';
 import type {
   DiagramGenerationSpec,
   TideDiagramDocument,
@@ -77,10 +77,8 @@ type SemanticInjectionDiagramSpec = {
     readonly fontHeight: number;
     readonly aboveBottom: number;
   };
-  readonly centreCluster: {
-    readonly frameArcRadius: number;
-    readonly timeDelta: { readonly y: number; readonly fontHeight: number };
-  };
+  readonly centreFrame: { readonly frameArcRadius: number };
+  readonly timeDelta: { readonly y: number; readonly fontHeight: number };
 };
 
 /** `buildDiagram` is implemented in `.mjs`; align returns with {@link TideDiagramDocument}. */
@@ -88,7 +86,7 @@ function buildDiagramFromSpec(spec: DiagramGenerationSpec): TideDiagramDocument 
   return buildDiagram(spec) as TideDiagramDocument;
 }
 
-/** Minimal spec with centreCluster, nextPointer, waitArc, and tide markers. */
+/** Minimal spec with timeDelta, centreFrame, nextPointer, waitArc, and tide markers. */
 function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
   return {
     title: 'semantic-injection',
@@ -135,10 +133,8 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       ],
     },
     timeNowLabel: { x: 0.8, fontHeight: 0.05, aboveBottom: 0.1 },
-    centreCluster: {
-      frameArcRadius: 0.35,
-      timeDelta: { y: -0.1, fontHeight: 0.05 },
-    },
+    centreFrame: { frameArcRadius: 0.35 },
+    timeDelta: { y: -0.1, fontHeight: 0.05 },
   };
 }
 
@@ -156,8 +152,7 @@ describe('spec.semantic.nextTide injection', () => {
   });
 
   it('matches when semantic.nextTide is null (no qualifying marker)', () => {
-    const { centreCluster: _omit, ...rest } = sampleTideDiagramSpec();
-    const spec = { ...rest, timeNow: '23:59:00' };
+    const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
     const baseline = buildDiagramFromSpec(spec as DiagramGenerationSpec);
     const { nextTide } = deriveNextTideSemantics(spec);
     expect(nextTide).toBeNull();
@@ -171,9 +166,8 @@ describe('spec.semantic.nextTide injection', () => {
   it('after last tide of the day shows NoMoreTidesToday and omits NextPointer and WaitArc', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.centreCluster).not.toBeNull();
-    expect(diagram.centreCluster?.timeDelta).toEqual([]);
-    expect(diagram.centreCluster?.timeDeltaEmptyMessage).toEqual({
+    expect(diagram.timeDeltaDiagram.timeDelta).toEqual([]);
+    expect(diagram.timeDeltaDiagram.timeDeltaEmptyMessage).toEqual({
       content: TIME_DELTA_EMPTY_MESSAGE,
       fontSize: 5.9,
       anchor: { x: 0, y: -11.8 },
@@ -221,6 +215,20 @@ describe('spec.semantic.nextTide injection', () => {
         },
       } as DiagramGenerationSpec),
     ).toThrow(/secondsSinceMidnight/);
+  });
+
+  it('throws when spec omits timeDelta', () => {
+    const { timeDelta: _omit, ...rest } = sampleTideDiagramSpec();
+    expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
+      /spec\.timeDelta/,
+    );
+  });
+
+  it('throws when spec omits centreFrame', () => {
+    const { centreFrame: _omit, ...rest } = sampleTideDiagramSpec();
+    expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
+      /spec\.centreFrame/,
+    );
   });
 
   it('golden snapshot: diagram with semantic.nextTide matches committed output', () => {

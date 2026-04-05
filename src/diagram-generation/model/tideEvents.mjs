@@ -1,5 +1,5 @@
 /**
- * tideEvents.mjs — Next-tide derivation from markers or injected semantics; shared by pointers and centre cluster.
+ * tideEvents.mjs — Next-tide derivation from markers or injected semantics; shared by pointers and TimeDelta.
  * Kind: Pure logic. Does not place SVG primitives.
  *
  * Tide event utilities shared across diagram elements.

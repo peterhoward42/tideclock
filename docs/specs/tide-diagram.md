@@ -23,15 +23,16 @@ The generator **throws** when required host fields are missing or the wrong type
 it does **not** substitute silent numeric defaults for layout keys (`buildDiagram.mjs`
 and layout submodules).
 
-- **`canvas`** — object with finite **`width`** and **`height`** (px).
-- **`title`** — string (diagram meta).
-- **`refRadius`**, **`sweepRad`**, **`tickLen`**, **`tickLabelSize`**, **`tickLabelClearance`** — finite numbers (**k·R** or px as documented per key).
-- **`tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid.
-- **`contentBounds`** — **{ left, right, above, below }** as in **Content bounds**.
-- **`waitArc`** — object with finite **`radius`** (**k·R**). If **max(0, radius)·RefRadius** is **0**, the wait arc is omitted without evaluating next-tide logic. Otherwise **`arrow`** is required: finite **`lengthK`**, **`widthK`**, **`insetK`**; **`style`** is **`filled`** or **`open`**; **`scaleWithStroke`** is a **boolean**.
-- **`tideMarks`** — if absent, or **`markers`** missing or empty, there are no tide marks. If **`markers`** is non-empty, these finite numbers are required on **`tideMarks`**: **`tideHeightLabelRadius`**, **`tideTimeLabelRadius`**, **`tideHeightLabelSize`**, **`tideTimeLabelSize`**, **`tideMarkArrowDivergence`**, **`tideMarkArrowLineLen`**. At least one marker row must yield a usable time after parsing (otherwise generation throws).
-- **`nowPointer`** / **`nextPointer`** — if present, use nested objects **`radialLine`**, **`label`**, **`triangle`** (now) and **`circle`** (next) with the finite fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks).
-- **`centreCluster`** — if present, finite **`frameArcRadius`** and **`timeDelta.y`**, **`timeDelta.fontHeight`** are required; **`refRadius`** and **`sweepRad`** come from the top-level spec (also required above).
+- `**canvas`** — object with finite `**width**` and `**height**` (px).
+- `**title**` — string (diagram meta).
+- `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
+- `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid.
+- `**contentBounds`** — **{ left, right, above, below }** as in **Content bounds**.
+- `**waitArc`** — object with finite `**radius**` (**k·R**). If **max(0, radius)·RefRadius** is **0**, the wait arc is omitted without evaluating next-tide logic. Otherwise `**arrow`** is required: finite `**lengthK**`, `**widthK**`, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a **boolean**.
+- `**tideMarks`** — if absent, or `**markers**` missing or empty, there are no tide marks. If `**markers**` is non-empty, these finite numbers are required on `**tideMarks**`: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. At least one marker row must yield a usable time after parsing (otherwise generation throws).
+- `**nowPointer**` / `**nextPointer**` — if present, use nested objects `**radialLine**`, `**label**`, `**triangle**` (now) and `**circle**` (next) with the finite fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks).
+- `**timeDelta`** — **required** plain object; finite `**y**` and `**fontHeight**` (**k·R** per **§Sizing**). Supplies **TimeDelta** layout only (see **TimeDelta**).
+- `**centreFrame`** — **required** plain object; finite `**frameArcRadius**` (**k·R**). Supplies **CentreFrame** geometry only (see **CentreFrame**). Uses top-level `**refRadius**` and `**sweepRad**` (required above).
 
 ## Diagram elements
 
@@ -43,17 +44,17 @@ and layout submodules).
   - NextPointer
   - WaitArc
   - TimeNowLabel (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds**)
-  - CentreCluster
   - TimeDelta
   - NoMoreTidesToday
-  - CentreClusterFrame
+  - CentreFrame
 
 When there is **no** tide marker at or after `timeNow` on the same civil day
 (same “next marker” notion as **WaitArc**), **NextPointer** and **WaitArc** are
 **omitted**. **TimeDelta** then carries a **single** replacement **TextElement**
 (see **TimeDelta**, empty-day case) under the stable leaf name **NoMoreTidesToday**
-instead of **EventKind**, **DeltaGlue**, and **DeltaInterval**. **CentreCluster**
-includes **TimeDelta** (as above) and **CentreClusterFrame**.
+instead of **EventKind**, **DeltaGlue**, and **DeltaInterval**. **TimeDelta** and
+**CentreFrame** are independent named elements (no grouping or parent/child link
+between them in the logical model).
 
 ### Style binding names (exact-match contract)
 
@@ -109,7 +110,7 @@ function of the RefArc.
 - **00:00** is the **leftmost** endpoint; **24:00** the **rightmost**.
 - All host-provided times use one strict canonical string format:
   - `**HH:MM:SS`** (exactly 2 digits per field, colon-delimited).
-  - Valid normal range: `**00:00:00`** through `**23:59:59**`.
+  - Valid normal range: `**00:00:00`** through `**23:59:59`**.
   - `**24:00:00**` is a reserved sentinel for the RefArc right endpoint only.
 - Define canonical-to-scalar conversion:
   - For parsed components **H, M, S**, define **t = H + M/60 + S/3600**.
@@ -160,14 +161,14 @@ Mapping it into a canvas, scene graph, or viewport is **not** fixed here (see
 radii **r_inner** and **r_outer** (in model units). It has no inherent “direction
 of travel.”
 - Tick marks and other elements are defined as radial segments where helpful
-(**Tick marks**, **CentreClusterFrame**).
+(**Tick marks**, **CentreFrame**).
 
 ## Scene graph primitives (current scope)
 
 - The scene graph at this stage consists of:
-  - Arc segments (for **RefArc** and for **CentreClusterFrame**)
-  - Line segments (for radial segments, tick marks, and the two
-  **CentreClusterFrame** lines)
+  - Arc segments (for **RefArc** and for **CentreFrame**)
+  - Line segments (for radial segments, tick marks, and the two **CentreFrame**
+  lines)
   - Text elements
   - Non-filled triangle outlines (introduced by **NowPointer**)
   - Filled triangles and filled circles (introduced by **TideMarks.TimePointer**
@@ -183,7 +184,7 @@ independent: **not** joined into one path, **not** merged into one composite
 path, and **do not** form a closed region by composition in the logical scene
 graph—even if a viewer perceives closure optically. Distinct primitives may
 **coincide** at a point (e.g. at **O**) without becoming one logical path.
-- Subgroups that emit several curves (**CentreClusterFrame**, **TimePointer**)
+- Subgroups that emit several curves (**CentreFrame**, **TimePointer**)
 satisfy **Independent stroked curves** unless a subsection adds detail.
 
 ## Text Element
@@ -266,7 +267,7 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
 - A radial segment at **θ_now** with:
   - **r_inner = NowPointerLineInnerRadius·R**
   - **r_outer = NowPointerLineOuterRadius·R**
-- Both radius multipliers are **required** host diagram inputs (nested under **`nowPointer.radialLine`**) interpreted by **§Sizing** when **NowPointer** is included.
+- Both radius multipliers are **required** host diagram inputs (nested under `**nowPointer.radialLine`**) interpreted by **§Sizing** when **NowPointer** is included.
 
 #### Now label
 
@@ -301,7 +302,7 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
 
 ## NextPointer
 
-**NextPointer** is a top-level named element tied to the **next** tide marker at or after `timeNow` on the same civil day (see **CentreCluster** and **TideMarks**).
+**NextPointer** is a top-level named element tied to the **next** tide marker at or after `timeNow` on the same civil day (see **TimeDelta** and **TideMarks**).
 
 ### Logical structure
 
@@ -312,12 +313,12 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
 
 ### Time association
 
-- Let the **next tide marker** be the same event used by **CentreCluster.TimeDelta** (next marker at or after `timeNow`, ignoring any marker at `24:00:00`).
+- Let the **next tide marker** be the same event used by **TimeDelta** (next marker at or after `timeNow`, ignoring any marker at `24:00:00`).
 - Let its time be **t_next** in hours, with **θ_next = θ(t_next)** per **§Time and θ(t)**.
 - All **NextPointer** geometry is defined relative to **θ_next**.
 - If no such next marker exists on the same civil day, **NextPointer** is
-  omitted from the scene (no radial segment or circle emitted), consistent with
-  **WaitArc**.
+omitted from the scene (no radial segment or circle emitted), consistent with
+**WaitArc**.
 
 ### Geometry
 
@@ -337,7 +338,7 @@ Inputs and derived quantities:
 
 - A radial segment at **θ_next** with:
   - **inner radius** **r_inner** shared with **NowPointer**,
-  - **outer radius** **r_outer** from **NextPointerLineOuterRadius** (required host input under **`nextPointer.radialLine`**).
+  - **outer radius** **r_outer** from **NextPointerLineOuterRadius** (required host input under `**nextPointer.radialLine`**).
 - If **r_outer ≤ r_inner**, **NextPointer** is omitted from the scene (no radial segment or circle emitted).
 
 #### Next circle
@@ -360,7 +361,7 @@ downstream renderer is responsible for visual arrowhead geometry.
 ### Time association
 
 - Use the same **next tide marker** definition as **NextPointer** and
-**CentreCluster.TimeDelta**.
+**TimeDelta**.
 - Let **θ_now** be from `timeNow` and **θ_next** from the next marker time.
 - **WaitArc** starts at **θ_now** and sweeps CCW to **θ_next**.
 
@@ -390,86 +391,59 @@ arrowhead geometry.
 ## TimeNowLabel
 
 **TimeNowLabel** is a **top-level** named element (see **Diagram elements**). It
-shows the current civil clock time derived from global `**timeNow**`.
+shows the current civil clock time derived from global `**timeNow`**.
 
 ### Input
 
-- Diagram input object **`timeNowLabel`** (when **absent**, **TimeNowLabel** is
-  **omitted** from the scene). When **present**, all of the following are **required**
-  (finite numbers as **k·R** multiples); the host supplies layout (e.g. product baseline
-  in **`buildDiagramGenerationSpec`**):
-  - **`fontHeight`** — proportion **k** as **k·R** (**§Sizing**).
-  - **`x`** — proportion **k** as **k·R** for anchor **X** (typically toward **+X** in the content region).
-  - **`aboveBottom`** — proportion **k** as **k·R** (**§Sizing**): vertical offset **upward** (**+Y**)
-    from the **bottom edge** of the **content bounds** rectangle (**Y = −below·R**, **§Content bounds**)
-    to the shared text **baseline**.
+- Diagram input object `**timeNowLabel**` (when **absent**, **TimeNowLabel** is
+**omitted** from the scene). When **present**, all of the following are **required**
+(finite numbers as **k·R** multiples); the host supplies layout (e.g. product baseline
+in `**buildDiagramGenerationSpec`**):
+  - `**fontHeight**` — proportion **k** as **k·R** (**§Sizing**).
+  - `**x`** — proportion **k** as **k·R** for anchor **X** (typically toward **+X** in the content region).
+  - `**aboveBottom`** — proportion **k** as **k·R** (**§Sizing**): vertical offset **upward** (**+Y**)
+  from the **bottom edge** of the **content bounds** rectangle (**Y = −below·R**, **§Content bounds**)
+  to the shared text **baseline**.
 
 ### Text and placement
 
-- Three **TextElement**s that read as one `**HH:MM:SS**` line (same **FontHeight** and baseline):
+- Three **TextElement**s that read as one `**HH:MM:SS`** line (same **FontHeight** and baseline):
   - **HH:MM fragment** — canonical `**HH:MM`** (five characters; includes the colon between hours and minutes only).
-  - **Seconds-colon fragment** — a single literal **`:`** (the colon immediately before **`SS`**).
-  - **Seconds fragment** — canonical **`SS`** (two digits).
-  - **No** literal prefix such as “Time now”; **no** separate host string beyond parsed `**timeNow**`.
-  - **FontHeight** — **k_font·R** with **k_font** from **`fontHeight`**.
+  - **Seconds-colon fragment** — a single literal `**:`** (the colon immediately before `**SS**`).
+  - **Seconds fragment** — canonical `**SS`** (two digits).
+  - **No** literal prefix such as “Time now”; **no** separate host string beyond parsed `**timeNow`**.
+  - **FontHeight** — **k_font·R** with **k_font** from `**fontHeight`**.
   - **Horizontal justification** — **right** for all three; the seconds fragment’s anchor sits at the
-    readout’s trailing edge in **+X**, and the seconds-colon and HMS anchors are offset left by fixed
-    monospace advances so the triple abuts (**§Scene model** uses the same width heuristic as preview framing).
+  readout’s trailing edge in **+X**, and the seconds-colon and HMS anchors are offset left by fixed
+  monospace advances so the triple abuts (**§Scene model** uses the same width heuristic as preview framing).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
   - **Anchor** — HMS and seconds share **y = −below·R + k_above·R**, where **below** is the content
-    **below** extent and **k_above** is **`aboveBottom`**; **x** for the trailing (seconds)
-    anchor is **k_x·R** with **k_x** from **`x`**.
+  **below** extent and **k_above** is `**aboveBottom`**; **x** for the trailing (seconds)
+  anchor is **k_x·R** with **k_x** from `**x`**.
 
 ### Scene model
 
 - Emitted as a named group **TimeNowLabel** containing three child groups:
-  - **TimeNowLabelHms** — one **TextElement** for the **HH:MM** fragment (style name **`time-now-label`**).
-  - **TimeNowLabelSecondsColon** — one **TextElement** (style name **`time-now-label-seconds-colon`**).
-  - **TimeNowLabelSeconds** — one **TextElement** (style name **`time-now-label-seconds`**).
-- Intended paint order: after **CentreCluster** so the readout is not covered by
-  centre-cluster geometry when they overlap (generator ordering).
+  - **TimeNowLabelHms** — one **TextElement** for the **HH:MM** fragment (style name `**time-now-label`**).
+  - **TimeNowLabelSecondsColon** — one **TextElement** (style name `**time-now-label-seconds-colon`**).
+  - **TimeNowLabelSeconds** — one **TextElement** (style name `**time-now-label-seconds`**).
 
-## CentreCluster
+## TimeDelta
 
-**CentreCluster** groups the **TimeDelta** copy and **CentreClusterFrame** near
-**O** (**§Origin**).
-
-### CentreCluster horizontal axis
+### TimeDelta horizontal axis
 
 - The composed **TimeDelta** line uses **X = 0** as the horizontal centre unless a
 subsection states otherwise.
 
-### Logical structure
+### Scene model
 
-Under **CentreCluster** there are **two** logical parts, both **direct** members
-(siblings in the named-element sense):
+- Emitted as a named group **TimeDelta** ( **`timeDelta`** input is required). When there is no next tide today, that group contains only **NoMoreTidesToday** (not **EventKind** / **DeltaGlue** / **DeltaInterval**).
 
-
-| Part                   | Role                                                                                    |
-| ---------------------- | --------------------------------------------------------------------------------------- |
-| **TimeDelta**          | Three **TextElement** fragments that read as one centred line (or **NoMoreTidesToday**). |
-| **CentreClusterFrame** | **Curve primitives only** — two line segments and one arc (see **CentreClusterFrame**). |
-
-
-### Vertical layout
-
-**CentreClusterFrame** geometry may **look** like a frame around **TimeDelta**
-without being an extra vertical slot between distinct text rows.
-
-### Scene model (invariants)
-
-- **TimeDelta** is **not** a child of **CentreClusterFrame**; it sits beside the
-frame under **CentreCluster**. When there is no next tide today, **TimeDelta**
-still exists as a parent group but contains only **NoMoreTidesToday** (not
-**EventKind** / **DeltaGlue** / **DeltaInterval**).
-- **CentreClusterFrame** contributes **three** separate curve primitives subject
-to **Independent stroked curves**.
-
-### TimeDelta
+### Copy and layout
 
 - When a **next** marker exists on the civil day — one logical sentence, **three**
 **TextElement** instances, **centre-aligned as a whole** at **X = 0**
-(**CentreCluster horizontal axis**):
+(**TimeDelta horizontal axis**):
   1. **Event kind** — **Text** **derived** from the **kind** of the **next**
     tide marker at or after `**timeNow`**, using the marker’s `**highOrLow`**
     flag (`"Low"` or `"High"`). Separate for styling while staying one visual  
@@ -479,12 +453,12 @@ to **Independent stroked curves**.
     between `**timeNow`** and the **next** tide marker **on the same civil
     day**, formatted as `**Hh Mm`** (e.g. `"3h 21m"`).
 - **Empty civil day (no next marker)** — one **TextElement** only (not the
-  three-fragment sentence above):
+three-fragment sentence above):
   - **Text** — fixed synthesis: exactly `**No further tides today`** (not a host
-    override).
+  override).
   - **FontHeight**, **Horizontal justification** (**centre**), **Baseline polar
-    angle** (**0**), and **Anchor Y** (**Y_delta**) — same as the countdown line
-    below.
+  angle** (**0**), and **Anchor Y** (**Y_delta**) — same as the countdown line
+  below.
   - **Anchor X** — **0** (centred on **X = 0**).
   - Allocated leaf name for styling/host binding (exact match): **NoMoreTidesToday**.
   - Do **not** emit **EventKind**, **DeltaGlue**, or **DeltaInterval** in this case.
@@ -501,11 +475,15 @@ to **Independent stroked curves**.
 - **Anchors (X)** — countdown **TimeDelta** assigns per-fragment **X** for
 whole-line centring; **NoMoreTidesToday** uses **X = 0**.
 
-### CentreClusterFrame
+## CentreFrame
 
-**CentreClusterFrame** is a **logical subgroup** whose output is **three** curve
-primitives: **one** arc and **two** line segments (**Independent stroked
-curves**).
+**CentreFrame** is a named element whose output is **three** curve primitives:
+**one** arc and **two** line segments (**Independent stroked curves**). It is not
+defined relative to **TimeDelta**; geometry follows **§Polar** and the inputs below.
+
+### Scene model
+
+- Emitted as a named group **CentreFrame** ( **`centreFrame`** input is required). The group contains the three curve primitives subject to **Independent stroked curves**.
 
 **Radius and endpoints**
 
@@ -562,12 +540,12 @@ z-order not fixed here).
 
 - **N** tide markers; count from host input.
 - Each marker provides canonical `**time`** in `**HH:MM:SS`**.
-- Parse marker `**time**` per **§Time and θ(t)** to derive **t** and **θ(t)**.
+- Parse marker `**time`** per **§Time and θ(t)** to derive **t** and **θ(t)**.
 - Marker `**time = "24:00:00"`** is silently ignored (marker dropped).
 - If two retained markers share the same canonical `**time`**, generation must
 fail with an error.
 - Each marker carries a **kind** flag `**highOrLow ∈ {"High", "Low"}`**, used
-for derived event descriptions (see **CentreCluster**).
+for derived event descriptions (see **TimeDelta**).
 
 ### Logical structure
 
@@ -604,8 +582,8 @@ For **both** labels:
 ** TimePointer ** comprises one filled triangle and one filled circle, 
 having geometry defined as follows.
 
-- Define input **`tideMarkArrowDivergence`** — a non-negative angle in radians (host field on **`tideMarks`**).
-- Define input **`tideMarkArrowLineLen`** — a non-negative float (**k·R** scale; host field on **`tideMarks`**).
+- Define input `**tideMarkArrowDivergence`** — a non-negative angle in radians (host field on `**tideMarks**`).
+- Define input `**tideMarkArrowLineLen**` — a non-negative float (**k·R** scale; host field on `**tideMarks`**).
 - Vertex1 is the point on the RefArc corresponding to time (t).
 - halfAngle is **0.5 × tideMarkArrowDivergence**
 - Vertex 2 is located with a polar offset from Vertex1:

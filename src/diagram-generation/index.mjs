@@ -7,9 +7,10 @@
  */
 export { buildDiagram } from "./layout/buildDiagram.mjs";
 export {
-  centreClusterDiagramToGroup,
+  centreFrameDiagramToGroup,
   tideDiagramToScene,
   tideMarkDiagramToGroup,
+  timeDeltaDiagramToGroup,
 } from "./mapping/toScene.mjs";
 
 export {

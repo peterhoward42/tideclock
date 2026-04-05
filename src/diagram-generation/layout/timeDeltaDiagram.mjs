@@ -1,22 +1,18 @@
 /**
- * centreCluster.mjs — Centre cluster layout (time delta text, frame arc) in diagram space.
- * Fed by spec + shared tide-event helpers. Kind: Pipeline stage (layout submodule). Does not render SVG.
+ * timeDeltaDiagram.mjs — Time-delta text layout in diagram space (countdown or empty-day message).
+ * Fed by spec + shared tide-event helpers. See docs/specs/tide-diagram.md §TimeDelta.
  *
- * See docs/specs/tide-diagram.md. Fixed glue between event-kind and interval text is normative here and in the spec.
- *
- * Policies for {@link buildCentreClusterFromSpec}:
- * - Returns `null` when `spec.centreCluster` is missing or not a plain object.
+ * Policies for {@link buildTimeDeltaDiagramFromSpec}:
+ * - Throws when `spec.timeDelta` is missing or not a plain object.
  * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
- * - Throws when `centreCluster.timeDelta` is missing or `{ y, fontHeight }` are not finite numbers.
- * - Throws when `centreCluster.frameArcRadius` is not a finite number.
+ * - Throws when `timeDelta.y` and `timeDelta.fontHeight` are not finite numbers.
  *
- * {@link layoutCentreCluster} is pure geometry + text placement from a resolved {@link TimeDeltaLayout}; it does not read the spec.
+ * {@link layoutTimeDeltaDiagram} is pure geometry + text placement from a resolved {@link TimeDeltaLayout}; it does not read the spec.
  */
 
-import { polar, refArcAngles } from "../model/tideDiagramModel.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import { computeNextTideEventFromSpec } from "../model/tideEvents.mjs";
-import { requireFiniteNumber } from "./specRequire.mjs";
+import { requirePlainObject } from "./specRequire.mjs";
 
 /** Fixed substring between event-kind text and interval text on the TimeDelta line. */
 export const TIME_DELTA_GLUE = " water in ";
@@ -56,32 +52,10 @@ function textWidth(fontSize, charCount) {
 /**
  * @param {TimeDeltaLayout} timeDeltaLayout
  * @param {number} refRadius
- * @param {number} sweepRad same subtended angle as RefArc (radians)
- * @param {number} frameArcRadius proportion of RefRadius (CentreClusterFrame arc radius)
- * @returns {import('../model/tideDiagramModel.mjs').CentreClusterDiagram}
+ * @returns {import('../model/tideDiagramModel.mjs').TimeDeltaDiagram}
  */
-export function layoutCentreCluster(
-  timeDeltaLayout,
-  refRadius,
-  sweepRad,
-  frameArcRadius,
-) {
+export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
   const R = refRadius;
-  const { thetaLeft, thetaRight } = refArcAngles(sweepRad);
-  const rFrame = frameArcRadius * R;
-  const frameArc = {
-    center: { x: 0, y: 0 },
-    radius: rFrame,
-    sweepRad,
-    thetaLeft,
-    thetaRight,
-  };
-  const origin = { x: 0, y: 0 };
-  /** @type {[import('../model/tideDiagramModel.mjs').DiagramLineSeg, import('../model/tideDiagramModel.mjs').DiagramLineSeg]} */
-  const frameLines = [
-    { start: origin, end: polar(rFrame, thetaLeft) },
-    { start: origin, end: polar(rFrame, thetaRight) },
-  ];
   /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst[]} */
   const timeDelta = [];
   /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst | null} */
@@ -118,35 +92,25 @@ export function layoutCentreCluster(
     };
   }
 
-  return { timeDelta, timeDeltaEmptyMessage, frameArc, frameLines };
+  return { timeDelta, timeDeltaEmptyMessage };
 }
 
 /**
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius — resolved from `spec.refRadius` by {@link buildDiagram}
- * @param {number} sweepRad — resolved from `spec.sweepRad` by {@link buildDiagram}
- * @returns {import('../model/tideDiagramModel.mjs').CentreClusterDiagram | null} null when `spec.centreCluster` is absent; otherwise frame and either three **timeDelta** fragments or **timeDeltaEmptyMessage** (see spec).
- * @throws {Error} invalid `spec.timeNow`, `24:00:00`, or bad `centreCluster` fields
+ * @returns {import('../model/tideDiagramModel.mjs').TimeDeltaDiagram}
+ * @throws {Error} missing `spec.timeDelta`, invalid `spec.timeNow`, `24:00:00`, or bad `timeDelta` fields
  */
-export function buildCentreClusterFromSpec(spec, refRadius, sweepRad) {
-  const raw = spec.centreCluster;
-  if (raw == null || typeof raw !== "object") return null;
-  const o = /** @type {Record<string, unknown>} */ (raw);
+export function buildTimeDeltaDiagramFromSpec(spec, refRadius) {
+  const o = requirePlainObject(spec.timeDelta, "spec.timeDelta");
 
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
 
-  const td = o.timeDelta;
-  if (td == null || typeof td !== "object") {
-    throw new Error(
-      "centreCluster.timeDelta is required: { y, fontHeight } (RefRadius multiples)",
-    );
-  }
-  const t = /** @type {Record<string, unknown>} */ (td);
-  const tdY = t.y;
-  const tdFh = t.fontHeight;
+  const tdY = o.y;
+  const tdFh = o.fontHeight;
   if (
     typeof tdY !== "number" ||
     typeof tdFh !== "number" ||
@@ -154,7 +118,7 @@ export function buildCentreClusterFromSpec(spec, refRadius, sweepRad) {
     !Number.isFinite(tdFh)
   ) {
     throw new Error(
-      "centreCluster.timeDelta.y and .fontHeight must be finite numbers (RefRadius multiples)",
+      "spec.timeDelta requires finite numbers y and fontHeight (RefRadius multiples)",
     );
   }
 
@@ -170,15 +134,5 @@ export function buildCentreClusterFromSpec(spec, refRadius, sweepRad) {
           fontHeight: tdFh,
         };
 
-  const frameArcRadius = requireFiniteNumber(
-    o.frameArcRadius,
-    "spec.centreCluster.frameArcRadius",
-  );
-
-  return layoutCentreCluster(
-    timeDeltaLayout,
-    refRadius,
-    sweepRad,
-    frameArcRadius,
-  );
+  return layoutTimeDeltaDiagram(timeDeltaLayout, refRadius);
 }

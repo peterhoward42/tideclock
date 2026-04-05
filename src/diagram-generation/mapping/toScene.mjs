@@ -206,13 +206,13 @@ function mapPoint(p, cx, cy) {
 }
 
 /**
- * @param {import('../model/tideDiagramModel.mjs').CentreClusterDiagram} cluster
+ * @param {import('../model/tideDiagramModel.mjs').CentreFrameDiagram} cf
  * @param {number} cx
  * @param {number} cy
  * @returns {import('../model/sceneModel.mjs').GroupNode}
  */
-export function centreClusterDiagramToGroup(cluster, cx, cy) {
-  const fa = cluster.frameArc;
+export function centreFrameDiagramToGroup(cf, cx, cy) {
+  const fa = cf.frameArc;
   const fc = fa.center;
   const fr = fa.radius;
   const frameArcStart = mapPoint(
@@ -224,15 +224,26 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
     cy,
   );
   const frameArcCenter = mapPoint(fc, cx, cy);
-
-  const frameLineNodes = cluster.frameLines.map((seg) =>
+  const frameLineNodes = cf.frameLines.map((seg) =>
     line(mapPoint(seg.start, cx, cy), mapPoint(seg.end, cx, cy)),
   );
+  return group("CentreFrame", [
+    ...frameLineNodes,
+    arc(frameArcCenter, frameArcStart, fa.sweepRad),
+  ]);
+}
 
+/**
+ * @param {import('../model/tideDiagramModel.mjs').TimeDeltaDiagram} td
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {import('../model/sceneModel.mjs').GroupNode}
+ */
+export function timeDeltaDiagramToGroup(td, cx, cy) {
   /** @type {import('../model/sceneModel.mjs').GroupNode[]} */
   const timeDeltaChildren = [];
-  for (let idx = 0; idx < cluster.timeDelta.length; idx += 1) {
-    const seg = cluster.timeDelta[idx];
+  for (let idx = 0; idx < td.timeDelta.length; idx += 1) {
+    const seg = td.timeDelta[idx];
     const node = text({
       content: seg.content,
       size: seg.fontSize,
@@ -244,8 +255,8 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
     else if (idx === 1) timeDeltaChildren.push(group("DeltaGlue", [node]));
     else timeDeltaChildren.push(group("DeltaInterval", [node]));
   }
-  if (cluster.timeDeltaEmptyMessage != null) {
-    const m = cluster.timeDeltaEmptyMessage;
+  if (td.timeDeltaEmptyMessage != null) {
+    const m = td.timeDeltaEmptyMessage;
     timeDeltaChildren.push(
       group("NoMoreTidesToday", [
         text({
@@ -258,17 +269,7 @@ export function centreClusterDiagramToGroup(cluster, cx, cy) {
       ]),
     );
   }
-
-  const frameGroup = group("CentreClusterFrame", [
-    ...frameLineNodes,
-    arc(frameArcCenter, frameArcStart, fa.sweepRad),
-  ]);
-  /** @type {import('../model/sceneModel.mjs').GroupNode[]} */
-  const children = [frameGroup];
-  if (timeDeltaChildren.length > 0) {
-    children.push(group("TimeDelta", timeDeltaChildren));
-  }
-  return group("CentreCluster", children);
+  return group("TimeDelta", timeDeltaChildren);
 }
 
 /**
@@ -394,10 +395,16 @@ export function tideDiagramToScene(diagram) {
   );
   const tideMarksGroup = group("TideMarks", tideMarkGroups);
 
-  const centreClusterGroup =
-    diagram.centreCluster != null
-      ? centreClusterDiagramToGroup(diagram.centreCluster, cx, cy)
-      : null;
+  const centreFrameGroup = centreFrameDiagramToGroup(
+    diagram.centreFrameDiagram,
+    cx,
+    cy,
+  );
+  const timeDeltaGroup = timeDeltaDiagramToGroup(
+    diagram.timeDeltaDiagram,
+    cx,
+    cy,
+  );
 
   const timeNowLabelGroup =
     timeNowLabel != null
@@ -503,7 +510,8 @@ export function tideDiagramToScene(diagram) {
     ticksGroup,
     tideMarksGroup,
     tickLabelsGroup,
-    ...(centreClusterGroup != null ? [centreClusterGroup] : []),
+    centreFrameGroup,
+    timeDeltaGroup,
     ...(timeNowLabelGroup != null ? [timeNowLabelGroup] : []),
     ...(nowPointerGroup != null ? [nowPointerGroup] : []),
     ...(nextPointerGroup != null ? [nextPointerGroup] : []),
