@@ -86,8 +86,10 @@ o  new data fetch paradigm
 				*  ditch preview iter
 
 				*  split timenow into two with seconds having separate style
-				o  purge legacy ref: "is **not** under **CentreCluster**;"
-				o  move time now to bottom right
+				*  purge legacy ref: "is **not** under **CentreCluster**;"
+				*  move time now to bottom right
+				o  want things like these to be explicit - no defaults: DEFAULT_TIME_NOW_LABEL_ABOVE_BOTTOM
+				o  make time now animation more eye catching
 				o  ditch centre cluster retaining msg standalone and position it
 				o  assemble location and hight water message into one
 				o  put change location inside diag bottom left

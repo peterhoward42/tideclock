@@ -31,11 +31,11 @@ export const STATIC_STYLE_MODEL = {
     },
     {
       name: "time-now-label",
-      style: { color: "antiquewhite" },
+      style: { color: "lightgrey" },
     },
     {
       name: "time-now-label-seconds",
-      style: { color: "limegreen" },
+      style: { color: "white" },
     },
   ],
   bindings: [
