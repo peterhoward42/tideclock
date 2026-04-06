@@ -33,6 +33,7 @@ and layout submodules).
 - `**nowPointer**` / `**nextPointer**` — if present, use nested objects with the finite fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks): **now** — `**radialLine**`, `**label**`, `**triangle**`; **next** — `**radialLine**` only. **R_frame** from `**centreFrame.frameArcRadius**` supplies the Now radial **inner** radius; the Next filled-circle radius is **σ·R_frame** for fixed **σ** in **§NextPointer** (see **CentreFrame**, **NowPointer**, **NextPointer**).
 - `**timeDelta`** — **required** plain object; finite `**x**`, `**y**`, and `**fontHeight**` (**k·R** per **§Sizing**). **`x`** is the signed offset from **X = 0** to the **left edge** of the composed **TimeDelta** text line; **`y`** is the signed offset from **Y = 0** to the shared text **baseline**. Supplies **TimeDelta** layout only (see **TimeDelta**).
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius**` (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc and the **NowPointer** radial inner endpoint (**§CentreFrame**). Uses top-level `**refRadius**` and `**sweepRad**` (required above).
+- `**annularBand**` — if **absent**, **AnnularBand** is omitted from the scene. If **present**, `**annularBandWidth**` is **required**: a finite number interpreted per **§Sizing** as **k·R**, i.e. **AnnularBandWidth·RefRadius**, the **radial thickness** of the band (see **AnnularBand**). If **AnnularBandWidth ≤ 0**, **AnnularBand** is omitted without error.
 
 ## Diagram elements
 
@@ -47,6 +48,7 @@ and layout submodules).
   - TimeDelta
   - NoMoreTidesToday
   - CentreFrame
+  - AnnularBand
 
 When there is **no** tide marker at or after `timeNow` on the same civil day
 (same “next marker” notion as **WaitArc**), **NextPointer** and **WaitArc** are
@@ -171,12 +173,16 @@ of travel.”
   - Non-filled triangle outlines (introduced by **NowPointer**)
   - Filled triangles and filled circles (introduced by **TideMarks.TimePointer**
   and by **NextPointer**)
+  - One **closed annular sector** path (**fill** and **stroke** on the composite
+  boundary) introduced by **AnnularBand** (see **AnnularBand**)
 
 ### Independent stroked curves
 
 - **Line** and **arc** primitives are **one-dimensional** curves in the logical
 model. They are **stroked** along the curve and, for now, **never** treated as
-**filled** regions. **Fill** of areas bounded by curves is **out of scope**.
+**filled** regions. **Fill** of areas bounded by curves is **out of scope** for
+those primitives **except** for the dedicated **AnnularBand** closed region
+(**AnnularBand**).
 - Where multiple curve primitives are **independent**, they are **topologically**
 independent: **not** joined into one path, **not** merged into one composite
 path, and **do not** form a closed region by composition in the logical scene
@@ -184,6 +190,8 @@ graph—even if a viewer perceives closure optically. Distinct primitives may
 **coincide** at a point (e.g. at **O**) without becoming one logical path.
 - Subgroups that emit several curves (e.g. **TimePointer**) satisfy **Independent
 stroked curves** unless a subsection adds detail.
+- **AnnularBand** is **not** covered by **Independent stroked curves**: it is one
+closed region with unified **fill** and **stroke** on its boundary (**AnnularBand**).
 
 ## Text Element
 
@@ -492,6 +500,52 @@ endpoints of **this** arc at radius **R_frame** (same angular span as the **RefA
 **Arc segment**
 
 - One arc at radius **R_frame** as above (**Independent stroked curves**).
+
+## AnnularBand
+
+**AnnularBand** is a **top-level** named element. It is the region between two
+**concentric** circular arcs sharing the **RefArc**’s centre **O**, **sweep**, and
+angular orientation (**§Polar**), closed at the two angular extremes by **radial
+segments** on the rays at **θ_left** and **θ_right**.
+
+### Geometry
+
+- **Inner** circular boundary — coincident with the **RefArc**: radius **RefRadius**,
+centre **O**, from **θ_left** to **θ_right** with the same CCW sweep as **§Polar**.
+- **Outer** circular boundary — same centre **O**, same **θ_left**, **θ_right**,
+and CCW sweep; radius **RefRadius + w** where **w = AnnularBandWidth·RefRadius**
+and **AnnularBandWidth** is the dimensionless multiplier supplied as
+`**annularBand.annularBandWidth**` (**§Sizing**: linear quantity **k·R** with
+**k** = **AnnularBandWidth**).
+- **End closures** — two **radial segments**: at **θ_left**, between radii
+**RefRadius** and **RefRadius + w**; at **θ_right**, between the same radii.
+
+Together these four edges form one **closed** region (an **annular sector**).
+
+### Logical model and presentation
+
+- **AnnularBand** is a **single** drawable with **both** **fill** and **stroke**
+applied to the **entire** closed boundary (inner arc, outer arc, and both radial
+segments).
+- The **RefArc** remains a **separate** top-level stroked arc, **unchanged** by this
+specification (same geometry as the **inner** circular edge of **AnnularBand**).
+- **Paint order** is a **host** responsibility (**Host responsibilities**). For
+the intended appearance—**RefArc** stroke **replacing** the **inner** portion of
+**AnnularBand**’s stroke along the shared curve—the host should paint **RefArc**
+**after** **AnnularBand** so the **RefArc** stroke **wins** at the inner boundary.
+
+### Input
+
+- Diagram input object `**annularBand**` (see **Strict diagram input**). When
+**present**, `**annularBandWidth**` is **required** (finite, **§Sizing** as
+above). When **AnnularBandWidth ≤ 0**, **AnnularBand** is omitted.
+
+### Scene model
+
+- Emitted as a named group **AnnularBand** containing the single closed-region
+primitive (exact-match **style binding name** **AnnularBand**, same indirection
+contract as **RefArc**, **CentreFrame**, **WaitArc**, etc.; concrete `styleName`
+values are **not** fixed in this specification).
 
 ## Tick marks
 

@@ -89,23 +89,14 @@ o  new data fetch paradigm
 				*  purge legacy ref: "is **not** under **CentreCluster**;"
 				*  move time now to bottom right
 				*  force removal of fallback defaults
-
 				*  make time now animation more eye catching
+				*  ditch centre cluster retaining msg standalone and position it
+				*  fix diagram centering
 
-				o  ditch centre cluster retaining msg standalone and position it
-					*  basics
-					*  tweak no optional inputs
-					*  downgrade the frame to just the arc part
-					*  sync the frame radii group
-					*  position the next tide label
-
-
-				o  have lost diagram centering
-					o  change TimeNowLabel Y mandate to be signed offset from 0
+				o  ref arc filled
 fart
 
-				o  give the now ptr (line and triangle only) not label, same shimmer
-				   as time now
+
 				o  say next hight water at foo in bar interval
 					o  maybe in header strip
 
