@@ -2,6 +2,16 @@
 
 exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > golden snapshot: stable diagram from fixture spec 1`] = `
 {
+  "annularBand": {
+    "center": {
+      "x": 0,
+      "y": 0,
+    },
+    "rInner": 118,
+    "rOuter": 123.9,
+    "sweepRad": 2.75,
+    "thetaLeft": 3.3373889803846897,
+  },
   "centreFrameDiagram": {
     "frameArc": {
       "center": {
@@ -704,7 +714,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "hhmm": {
       "anchor": {
         "x": 115.40400000000001,
-        "y": -112.1,
+        "y": -141.6,
       },
       "content": "19:20",
       "fontSize": 4.72,
@@ -713,7 +723,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "seconds": {
       "anchor": {
         "x": 123.9,
-        "y": -112.1,
+        "y": -141.6,
       },
       "content": "03",
       "fontSize": 4.72,
@@ -722,7 +732,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "secondsColon": {
       "anchor": {
         "x": 118.236,
-        "y": -112.1,
+        "y": -141.6,
       },
       "content": ":",
       "fontSize": 4.72,
@@ -758,13 +768,30 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "maxX": 334.9,
       "maxY": 153.92,
       "minX": 74.2182659692451,
-      "minY": 21.175999999999977,
+      "minY": 16.456000000000007,
     },
     "title": "home-tide-diagram",
     "width": 420,
   },
   "root": {
     "children": [
+      {
+        "children": [
+          {
+            "center": {
+              "x": 210,
+              "y": 160,
+            },
+            "kind": "annularSector",
+            "rInner": 118,
+            "rOuter": 123.9,
+            "sweepRad": 2.75,
+            "thetaStart": 3.3373889803846897,
+          },
+        ],
+        "kind": "group",
+        "name": "AnnularBand",
+      },
       {
         "children": [
           {
@@ -1548,7 +1575,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 325.404,
-                  "y": 47.900000000000006,
+                  "y": 18.400000000000006,
                 },
                 "angleRad": 0,
                 "content": "19:20",
@@ -1565,7 +1592,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 328.236,
-                  "y": 47.900000000000006,
+                  "y": 18.400000000000006,
                 },
                 "angleRad": 0,
                 "content": ":",
@@ -1582,7 +1609,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 333.9,
-                  "y": 47.900000000000006,
+                  "y": 18.400000000000006,
                 },
                 "angleRad": 0,
                 "content": "03",

@@ -138,6 +138,16 @@
  *   arrow: ArcArrowMeta,
  * }} WaitArcDiagram
  *
+ * Annular sector between RefRadius and RefRadius + w (**w** = **annularBandWidth·RefRadius**); same **θ_left** and CCW sweep as RefArc.
+ *
+ * @typedef {{
+ *   center: DiagramPoint,
+ *   rInner: number,
+ *   rOuter: number,
+ *   thetaLeft: number,
+ *   sweepRad: number,
+ * }} AnnularBandDiagram
+ *
  * @typedef {{
  *   version: number,
  *   meta: { title: string, width: number, height: number },
@@ -148,6 +158,7 @@
  *   nowPointer: NowPointerDiagram | null,
  *   nextPointer: NextPointerDiagram | null,
  *   waitArc: WaitArcDiagram | null,
+ *   annularBand: AnnularBandDiagram,
  *   timeDeltaDiagram: TimeDeltaDiagram,
  *   centreFrameDiagram: CentreFrameDiagram,
  *   timeNowLabel: DiagramTimeNowLabelInst | null,

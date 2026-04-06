@@ -5,6 +5,7 @@
  * Callers must pass a complete document per tideDiagramModel (e.g. tickLabels and tideMarks are arrays, not omitted).
  */
 import {
+  annularSector,
   arc,
   circle,
   group,
@@ -169,6 +170,9 @@ function expandBoundsByNode(b, node) {
     case "arc":
       expandBoundsByArc(b, node);
       return;
+    case "annularSector":
+      expandBoundsByAnnularSector(b, node);
+      return;
     case "text":
       expandBoundsByText(b, node);
       return;
@@ -176,6 +180,27 @@ function expandBoundsByNode(b, node) {
       // Unknown scene node kinds: skip (extensible renderer may add kinds before bounds logic catches up).
       return;
   }
+}
+
+/** @param {{ center: { x: number, y: number }, rInner: number, rOuter: number, thetaStart: number, sweepRad: number }} node */
+function expandBoundsByAnnularSector(b, node) {
+  const { center, rInner, rOuter, thetaStart, sweepRad } = node;
+  expandBoundsByArc(b, {
+    center,
+    start: {
+      x: center.x + rInner * Math.cos(thetaStart),
+      y: center.y + rInner * Math.sin(thetaStart),
+    },
+    sweepRad,
+  });
+  expandBoundsByArc(b, {
+    center,
+    start: {
+      x: center.x + rOuter * Math.cos(thetaStart),
+      y: center.y + rOuter * Math.sin(thetaStart),
+    },
+    sweepRad,
+  });
 }
 
 /** @param {import('../model/sceneModel.mjs').GroupNode} root */
@@ -324,6 +349,7 @@ export function tideDiagramToScene(diagram) {
     nowPointer,
     nextPointer,
     waitArc,
+    annularBand: annularBandDiagram,
     timeNowLabel,
   } = diagram;
   const R = refArc.refRadius;
@@ -345,6 +371,16 @@ export function tideDiagramToScene(diagram) {
       mapPoint(tm.end, cx, cy),
     ),
   );
+
+  const annularBandGroup = group("AnnularBand", [
+    annularSector(
+      mapPoint(annularBandDiagram.center, cx, cy),
+      annularBandDiagram.rInner,
+      annularBandDiagram.rOuter,
+      annularBandDiagram.thetaLeft,
+      annularBandDiagram.sweepRad,
+    ),
+  ]);
 
   const refArcGroup = group("RefArc", [
     arc(arcCenter, arcStart, refArc.sweepRad),
@@ -499,6 +535,7 @@ export function tideDiagramToScene(diagram) {
   };
 
   const root = group("tideDiagram", [
+    annularBandGroup,
     refArcGroup,
     ...(waitArcGroup != null ? [waitArcGroup] : []),
     ticksGroup,

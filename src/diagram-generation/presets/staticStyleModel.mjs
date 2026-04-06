@@ -30,6 +30,10 @@ export const STATIC_STYLE_MODEL = {
       style: { color: "darkgrey", lineStyle: "dashed" },
     },
     {
+      name: "annular-band",
+      style: { color: "#235" },
+    },
+    {
       name: "time-now-label",
       style: { color: "lightgrey" },
     },
@@ -43,6 +47,7 @@ export const STATIC_STYLE_MODEL = {
     },
   ],
   bindings: [
+    { name: "AnnularBand", styleName: "annular-band" },
     { name: "RefArc", styleName: "dominant" },
     { name: "TickMark", styleName: "dominant" },
     { name: "HeightLabel", styleName: "dominant" },

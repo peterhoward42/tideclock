@@ -11,6 +11,7 @@
  *   required fields or supply non-finite numbers (no silent defaults).
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
  * - Sub-builders (`buildTideMarksFromSpec`, pointers, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
+ * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
  */
 import { buildCentreFrameDiagramFromSpec } from "./centreFrame.mjs";
 import { buildTimeDeltaDiagramFromSpec } from "./timeDeltaDiagram.mjs";
@@ -200,6 +201,12 @@ export function buildDiagram(spec) {
     thetaRight,
   );
   const waitArc = buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight);
+  const annularBand = buildAnnularBandFromSpec(
+    spec,
+    refRadius,
+    thetaLeft,
+    sweepRad,
+  );
 
   return {
     version: 1,
@@ -217,6 +224,7 @@ export function buildDiagram(spec) {
     nowPointer,
     nextPointer,
     waitArc,
+    annularBand,
     timeDeltaDiagram,
     centreFrameDiagram,
     timeNowLabel,
@@ -285,6 +293,34 @@ function readTickLabelHours(spec) {
  */
 function formatHourDigits(h) {
   return String(h).padStart(2, "0");
+}
+
+/**
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @param {number} thetaLeft
+ * @param {number} sweepRad same subtended angle as RefArc (radians)
+ * @returns {import('../model/tideDiagramModel.mjs').AnnularBandDiagram}
+ */
+function buildAnnularBandFromSpec(spec, refRadius, thetaLeft, sweepRad) {
+  const o = requirePlainObject(spec.annularBand, "spec.annularBand");
+  const wK = requireFiniteNumber(
+    o.annularBandWidth,
+    "spec.annularBand.annularBandWidth",
+  );
+  if (wK <= 0) {
+    throw new Error(
+      "spec.annularBand.annularBandWidth must be a finite number greater than 0",
+    );
+  }
+  const w = wK * refRadius;
+  return {
+    center: { x: 0, y: 0 },
+    rInner: refRadius,
+    rOuter: refRadius + w,
+    thetaLeft,
+    sweepRad,
+  };
 }
 
 /**

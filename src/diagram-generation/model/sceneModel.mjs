@@ -47,6 +47,18 @@
  *   radius: number,
  * }} CirclePrimitive
  *
+ * Closed annular sector: inner/outer circular arcs (same centre, CCW **sweepRad** from **thetaStart**)
+ * joined by radial segments at both ends. See docs/specs/tide-diagram.md §AnnularBand.
+ *
+ * @typedef {{
+ *   kind: 'annularSector',
+ *   center: Point,
+ *   rInner: number,
+ *   rOuter: number,
+ *   thetaStart: number,
+ *   sweepRad: number,
+ * }} AnnularSectorPrimitive
+ *
  * @typedef {{
  *   kind: 'text',
  *   content: string,
@@ -62,7 +74,7 @@
  *   children: SceneNode[],
  * }} GroupNode
  *
- * @typedef { LinePrimitive | ArcPrimitive | TrianglePrimitive | CirclePrimitive | TextPrimitive | GroupNode } SceneNode
+ * @typedef { LinePrimitive | ArcPrimitive | TrianglePrimitive | CirclePrimitive | AnnularSectorPrimitive | TextPrimitive | GroupNode } SceneNode
  *
  * @typedef {{
  *   title: string,
@@ -191,6 +203,37 @@ export function circle(center, radius) {
     throw new Error("radius must be non-negative");
   }
   return { kind: "circle", center, radius };
+}
+
+/**
+ * @param {Point} center
+ * @param {number} rInner
+ * @param {number} rOuter
+ * @param {number} thetaStart radians (CCW from +x), inner arc start angle
+ * @param {number} sweepRad signed CCW sweep for the inner arc (same subtended angle as RefArc)
+ * @returns {AnnularSectorPrimitive}
+ * @throws {Error} invalid geometry
+ */
+export function annularSector(center, rInner, rOuter, thetaStart, sweepRad) {
+  assertPoint("center", center);
+  assertFiniteNumber("rInner", rInner);
+  assertFiniteNumber("rOuter", rOuter);
+  assertFiniteNumber("thetaStart", thetaStart);
+  assertFiniteNumber("sweepRad", sweepRad);
+  if (rInner <= 0) {
+    throw new Error("rInner must be positive");
+  }
+  if (rOuter <= rInner) {
+    throw new Error("rOuter must be greater than rInner");
+  }
+  return {
+    kind: "annularSector",
+    center,
+    rInner,
+    rOuter,
+    thetaStart,
+    sweepRad,
+  };
 }
 
 /**

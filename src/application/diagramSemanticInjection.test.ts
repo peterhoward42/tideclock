@@ -78,6 +78,7 @@ type SemanticInjectionDiagramSpec = {
   };
   readonly centreFrame: { readonly frameArcRadius: number };
   readonly timeDelta: { readonly x: number; readonly y: number; readonly fontHeight: number };
+  readonly annularBand: { readonly annularBandWidth: number };
 };
 
 /** `buildDiagram` is implemented in `.mjs`; align returns with {@link TideDiagramDocument}. */
@@ -133,6 +134,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     timeNowLabel: { x: 0.8, fontHeight: 0.05, y: 0.95 },
     centreFrame: { frameArcRadius: 0.35 },
     timeDelta: { x: -1, y: -0.1, fontHeight: 0.05 },
+    annularBand: { annularBandWidth: 0.05 },
   };
 }
 
@@ -227,6 +229,13 @@ describe('spec.semantic.nextTide injection', () => {
     const { centreFrame: _omit, ...rest } = sampleTideDiagramSpec();
     expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
       /spec\.centreFrame/,
+    );
+  });
+
+  it('throws when spec omits annularBand', () => {
+    const { annularBand: _omit, ...rest } = sampleTideDiagramSpec();
+    expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
+      /spec\.annularBand/,
     );
   });
 

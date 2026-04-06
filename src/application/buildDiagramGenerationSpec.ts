@@ -93,6 +93,7 @@ type HomeTideDiagramLayoutBase = {
   };
   readonly centreFrame: { readonly frameArcRadius: number };
   readonly timeDelta: { readonly x: number; readonly y: number; readonly fontHeight: number };
+  readonly annularBand: { readonly annularBandWidth: number };
 };
 
 const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
@@ -126,6 +127,7 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   timeNowLabel: { x: 1.05, fontHeight: 0.04, y: 1.2 },
   centreFrame: { frameArcRadius: 0.35 },
   timeDelta: { x: -1, y: -0.1, fontHeight: 0.05 },
+  annularBand: { annularBandWidth: 0.05 },
 };
 
 function highOrLowFromExtremeType(type: TideExtremeType): string {

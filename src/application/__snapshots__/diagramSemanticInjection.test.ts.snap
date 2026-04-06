@@ -2,6 +2,16 @@
 
 exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semantic.nextTide matches committed output 1`] = `
 {
+  "annularBand": {
+    "center": {
+      "x": 0,
+      "y": 0,
+    },
+    "rInner": 118,
+    "rOuter": 123.9,
+    "sweepRad": 2.75,
+    "thetaLeft": 3.3373889803846897,
+  },
   "centreFrameDiagram": {
     "frameArc": {
       "center": {

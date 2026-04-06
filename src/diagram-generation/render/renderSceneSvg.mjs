@@ -246,6 +246,29 @@ function renderNode(node, styleRuntime, leafName) {
       const d = circularArcToPathD(node.center, node.start, node.sweepRad);
       return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${dash}${arrowAttr} />`;
     }
+    case "annularSector": {
+      assertLeafScoped(node.kind, leafName);
+      const stroke = requireLeafColor(
+        styleRuntime,
+        leafName,
+        RENDER_DEFAULTS.curveStroke,
+        node.kind,
+      );
+      const fill = requireLeafColor(
+        styleRuntime,
+        leafName,
+        RENDER_DEFAULTS.shapeFill,
+        node.kind,
+      );
+      const dash = strokeDashAttrFragmentFromLeaf(
+        styleRuntime,
+        leafName,
+        node.kind,
+      );
+      const d = annularSectorToPathD(node);
+      if (d === "") return "";
+      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
+    }
     case "triangle": {
       assertLeafScoped(node.kind, leafName);
       const { a, b, c } = node;
@@ -355,13 +378,14 @@ function ellipseArcSegmentD(center, start, sweepRad, moveToStart) {
 }
 
 /**
- * Circular arc as SVG path `d` (scene space, y up, CCW positive).
+ * SVG `A` segment(s) only (no leading `M`), for chaining subpaths.
  *
  * @param {{ x: number, y: number }} center
  * @param {{ x: number, y: number }} start
  * @param {number} sweepRad signed angle in radians (CCW)
+ * @returns {string}
  */
-function circularArcToPathD(center, start, sweepRad) {
+function circularArcToPathSegments(center, start, sweepRad) {
   const r = Math.hypot(start.x - center.x, start.y - center.y);
   if (r < 1e-9) return "";
   if (Math.abs(Math.abs(sweepRad) - Math.PI) < PI_TOL) {
@@ -371,11 +395,48 @@ function circularArcToPathD(center, start, sweepRad) {
       x: center.x + r * Math.cos(a0 + half),
       y: center.y + r * Math.sin(a0 + half),
     };
-    const first = ellipseArcSegmentD(center, start, half, true);
-    const second = ellipseArcSegmentD(center, mid, half, false);
-    return `${first} ${second}`;
+    return `${ellipseArcSegmentD(center, start, half, false)} ${ellipseArcSegmentD(center, mid, half, false)}`;
   }
-  return ellipseArcSegmentD(center, start, sweepRad, true);
+  return ellipseArcSegmentD(center, start, sweepRad, false);
+}
+
+/**
+ * Circular arc as SVG path `d` (scene space, y up, CCW positive).
+ *
+ * @param {{ x: number, y: number }} center
+ * @param {{ x: number, y: number }} start
+ * @param {number} sweepRad signed angle in radians (CCW)
+ */
+function circularArcToPathD(center, start, sweepRad) {
+  const r = Math.hypot(start.x - center.x, start.y - center.y);
+  if (r < 1e-9) return "";
+  const segs = circularArcToPathSegments(center, start, sweepRad);
+  if (segs === "") return "";
+  return `M ${start.x} ${start.y} ${segs}`;
+}
+
+/**
+ * Closed annular sector: inner arc (CCW), radial out, outer arc (CW), close.
+ *
+ * @param {import('../model/sceneModel.mjs').AnnularSectorPrimitive} node
+ * @returns {string} path `d` or "" if degenerate
+ */
+function annularSectorToPathD(node) {
+  const { center, rInner, rOuter, thetaStart, sweepRad } = node;
+  if (Math.abs(sweepRad) < 1e-12) return "";
+  const innerStart = {
+    x: center.x + rInner * Math.cos(thetaStart),
+    y: center.y + rInner * Math.sin(thetaStart),
+  };
+  const outerEnd = {
+    x: center.x + rOuter * Math.cos(thetaStart + sweepRad),
+    y: center.y + rOuter * Math.sin(thetaStart + sweepRad),
+  };
+  const innerPath = circularArcToPathD(center, innerStart, sweepRad);
+  if (innerPath === "") return "";
+  const outerSegs = circularArcToPathSegments(center, outerEnd, -sweepRad);
+  if (outerSegs === "") return "";
+  return `${innerPath} L ${outerEnd.x} ${outerEnd.y} ${outerSegs} Z`;
 }
 
 /**

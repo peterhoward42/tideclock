@@ -150,6 +150,14 @@ type WaitArcDiagram = {
   readonly arrow: ArcArrowMeta;
 };
 
+type AnnularBandDiagram = {
+  readonly center: DiagramPoint;
+  readonly rInner: number;
+  readonly rOuter: number;
+  readonly thetaLeft: number;
+  readonly sweepRad: number;
+};
+
 /**
  * Shape returned by {@link buildDiagram} in `buildDiagram.mjs` (see JSDoc on `TideDiagramDocument`
  * in `tideDiagramModel.mjs`). App code treats this as the diagram-generation boundary contract.
@@ -164,6 +172,7 @@ export type TideDiagramDocument = {
   readonly nowPointer: NowPointerDiagram | null;
   readonly nextPointer: NextPointerDiagram | null;
   readonly waitArc: WaitArcDiagram | null;
+  readonly annularBand: AnnularBandDiagram;
   readonly timeDeltaDiagram: TimeDeltaDiagram;
   readonly centreFrameDiagram: CentreFrameDiagram;
   readonly timeNowLabel: DiagramTimeNowLabelInst | null;
@@ -210,6 +219,15 @@ type SceneCirclePrimitive = {
   readonly radius: number;
 };
 
+type SceneAnnularSectorPrimitive = {
+  readonly kind: "annularSector";
+  readonly center: ScenePoint;
+  readonly rInner: number;
+  readonly rOuter: number;
+  readonly thetaStart: number;
+  readonly sweepRad: number;
+};
+
 type SceneTextPrimitive = {
   readonly kind: "text";
   readonly content: string;
@@ -230,6 +248,7 @@ type SceneNode =
   | SceneArcPrimitive
   | SceneTrianglePrimitive
   | SceneCirclePrimitive
+  | SceneAnnularSectorPrimitive
   | SceneTextPrimitive
   | SceneGroupNode;
 
