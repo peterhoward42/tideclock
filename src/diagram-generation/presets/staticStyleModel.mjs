@@ -64,7 +64,7 @@ export const STATIC_STYLE_MODEL = {
     { name: "DeltaGlue", styleName: "grey-writing" },
     { name: "DeltaInterval", styleName: "grey-writing" },
     { name: "NoMoreTidesToday", styleName: "grey-writing" },
-    { name: "NowTriangle", styleName: "grey-strokes" },
+    { name: "NowTriangle", styleName: "time-pointer-filled" },
     { name: "NowRadialLine", styleName: "grey-strokes-dashed" },
     { name: "NowLabel", styleName: "grey-writing" },
   ],

@@ -67,8 +67,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "nowPointer": {
     "nowLabel": {
       "anchor": {
-        "x": 60.90522055720967,
-        "y": -51.38332617569288,
+        "x": 47.720628478068384,
+        "y": -39.574154667638425,
       },
       "angleRad": 11.835947551453165,
       "content": "now",
@@ -77,8 +77,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "nowLabelBranch": "B",
     "radialLine": {
       "end": {
-        "x": 87.8972805276085,
-        "y": -78.72781005369637,
+        "x": 61.52809636932595,
+        "y": -55.10946703758746,
       },
       "start": {
         "x": 30.764048184662975,
@@ -1654,8 +1654,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "end": {
-                  "x": 297.8972805276085,
-                  "y": 81.27218994630363,
+                  "x": 271.52809636932597,
+                  "y": 104.89053296241255,
                 },
                 "kind": "line",
                 "start": {
@@ -1671,8 +1671,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 270.90522055720965,
-                  "y": 108.61667382430713,
+                  "x": 257.72062847806836,
+                  "y": 120.42584533236158,
                 },
                 "angleRad": 11.835947551453165,
                 "content": "now",

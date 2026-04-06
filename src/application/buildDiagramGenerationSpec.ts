@@ -107,8 +107,7 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   tickLabelClearance: 0.07,
   contentBounds: { left: 1.45, right: 1.15, above: 0.1, below: 1.5 },
   nowPointer: {
-    /** k·R = RefRadius so the radial cap sits on the RefArc with the Now wedge vertex. */
-    radialLine: { outerRadius: 1.0 },
+    radialLine: { outerRadius: 0.7 },
     label: { size: 0.04, normalOffset: 0.02 },
     triangle: { subtendedAngleRad: Math.PI / 6 },
   },

@@ -41,8 +41,9 @@
  *   outline?: boolean,
  * }} TrianglePrimitive
  *
- * Stroke-only closed path for the Now “triangle”: vertex on RefArc, two segments to the annulus
- * outer circle, cap = minor arc on that circle. See docs/specs/tide-diagram.md §NowPointer.
+ * Filled closed path for the Now “triangle” (same fill/stroke style contract as **TimePointer** triangles):
+ * vertex on RefArc, two segments to the annulus outer circle, cap = minor arc on that circle.
+ * See docs/specs/tide-diagram.md §NowPointer.
  *
  * @typedef {{
  *   kind: 'nowWedgeOutline',

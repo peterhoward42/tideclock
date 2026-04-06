@@ -170,7 +170,7 @@ of travel.”
   - Arc segments (for **RefArc** and for **CentreFrame**)
   - Line segments (for radial segments and tick marks)
   - Text elements
-  - Stroke-only closed paths for the Now **triangle** (two straight segments and a minor arc on the annulus outer circle; **NowPointer**)
+  - Filled closed paths for the Now **triangle** (annular wedge: two straight segments and a minor arc on the annulus outer circle; **NowPointer**); **fill** and **stroke** use the same leaf-style rules as **TideMarks.TimePointer** filled triangles (product default: same style preset as **TimePointer**)
   - Filled triangles and filled circles (introduced by **TideMarks.TimePointer**
   and by **NextPointer**)
   - One **closed annular sector** path (**fill** and **stroke** on the composite
@@ -192,6 +192,7 @@ graph—even if a viewer perceives closure optically. Distinct primitives may
 stroked curves** unless a subsection adds detail.
 - **AnnularBand** is **not** covered by **Independent stroked curves**: it is one
 closed region with unified **fill** and **stroke** on its boundary (**AnnularBand**).
+- The **NowPointer** Now **triangle** wedge is **not** covered by **Independent stroked curves** for fill semantics: it is one closed path with unified **fill** and **stroke** (same presentation contract as **TideMarks.TimePointer** filled triangles).
 
 ## Text Element
 
@@ -235,7 +236,7 @@ model em-boxes or similar font metrics.
 
 - **Now radial line** — one radial segment on the time-now ray.
 - **Now label** — one **TextElement** with constant text `now`.
-- **Now triangle** — one stroke-only closed outline (no fill): geometrically a wedge whose **vertex** lies on the **RefArc** at **θ_now**; the wedge **opens outward** along the time-now ray (**away from O**, into **AnnularBand**). Two **equal** straight sides diverge from that outward bisector by **±½·subtendedAngleRad** and meet the **outer** circle of **AnnularBand**; the third boundary is the **minor circular arc** on that outer circle between the two outer endpoints (same centre **O** as the RefArc).
+- **Now triangle** — one **filled** closed wedge (**fill** and **stroke** on the composite boundary), geometrically as follows: **vertex** on the **RefArc** at **θ_now**; the wedge **opens outward** along the time-now ray (**away from O**, into **AnnularBand**). Two **equal** straight sides diverge from that outward bisector by **±½·subtendedAngleRad** and meet the **outer** circle of **AnnularBand**; the third boundary is the **minor circular arc** on that outer circle between the two outer endpoints (same centre **O** as the RefArc). Paint follows the same named-leaf style rules as **TideMarks.TimePointer** filled triangles (product default binds **NowTriangle** to the same style preset as **TimePointer**).
 
 ### Time association
 
@@ -288,10 +289,10 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
   (CCW) side of the outward radial direction.
   - For the same **k**, **side_sign = −1** moves it to the **opposite** side.
 
-**Now triangle (non-filled)**
+**Now triangle (filled)**
 
-- **Now triangle (non-filled)** is still named “triangle” in the input and scene grouping, but its geometry is the **annular wedge** above.
-  - It is tied to **θ_now** and rendered as a **single stroked closed path** (**fill** off).
+- **Now triangle (filled)** is still named “triangle” in the input and scene grouping, but its geometry is the **annular wedge** above.
+  - It is tied to **θ_now** and emitted as a **single closed path** with **fill** and **stroke** (same style contract as **TideMarks.TimePointer** filled triangles; see **Scene graph primitives**).
   - **Required** diagram input on `**nowPointer.triangle**`:
     - `**subtendedAngleRad**` — **literal** angle in **radians** between the two straight sides at the vertex (**not** a **k·R** value). Must satisfy **0 < subtendedAngleRad < π**.
   - **Radii** (model units):
@@ -300,7 +301,7 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
   - **Construction**:
     - Let **û_rad** be the unit vector from **O** **through V** (**outward** along the time-now ray; same **û_rad** as **§NowPointer** shared quantities). The wedge bisector from **V** into the band follows **û_rad**. The two rays from **V** that bound the wedge are **û_rad** rotated by **±½·subtendedAngleRad** in the diagram plane (CCW positive, **§Polar**), i.e. directions at polar angles **θ_now ± ½·subtendedAngleRad**.
     - Let **P_a** and **P_b** be the first forward intersections of those rays with the circle **|P − O| = r_ann_outer**.
-    - The outline is **V → P_a → (minor arc along that circle from P_a to P_b) → V**, with **fill disabled** in scene terms (closed path, stroke only).
+    - The closed path is **V → P_a → (minor arc along that circle from P_a to P_b) → V**, with **fill** and **stroke** applied to that path in scene terms (same fill/stroke resolution as filled **TrianglePrimitive** leaves).
   - **AnnularBand** must be present with **annularBandWidth > 0** whenever **NowPointer** is used, so **r_ann_outer > r_ref** holds (same rule as **§Strict diagram input** for **annularBand**).
 
 ## NextPointer

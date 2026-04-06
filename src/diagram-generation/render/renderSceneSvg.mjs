@@ -277,6 +277,12 @@ function renderNode(node, styleRuntime, leafName) {
         RENDER_DEFAULTS.curveStroke,
         node.kind,
       );
+      const fill = requireLeafColor(
+        styleRuntime,
+        leafName,
+        RENDER_DEFAULTS.shapeFill,
+        node.kind,
+      );
       const dash = strokeDashAttrFragmentFromLeaf(
         styleRuntime,
         leafName,
@@ -284,7 +290,7 @@ function renderNode(node, styleRuntime, leafName) {
       );
       const d = nowWedgeOutlineToPathD(node);
       if (d === "") return "";
-      return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${dash} />`;
+      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
     }
     case "triangle": {
       assertLeafScoped(node.kind, leafName);
