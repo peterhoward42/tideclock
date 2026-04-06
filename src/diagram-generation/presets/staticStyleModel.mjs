@@ -15,7 +15,7 @@ export const STATIC_STYLE_MODEL = {
     },
     {
       name: "time-pointer-filled",
-      style: { color: "darkgrey" },
+      style: { color: "#555" },
     },
     {
       name: "grey-writing",
@@ -30,8 +30,12 @@ export const STATIC_STYLE_MODEL = {
       style: { color: "darkgrey", lineStyle: "dashed" },
     },
     {
-      name: "annular-band",
-      style: { color: "#235" },
+      name: "grey-skeleton",
+      style: { color: "darkgrey" },
+    },
+    {
+      name: "dim-grey-fill",
+      style: { color: "#222" },
     },
     {
       name: "time-now-label",
@@ -47,9 +51,9 @@ export const STATIC_STYLE_MODEL = {
     },
   ],
   bindings: [
-    { name: "AnnularBand", styleName: "annular-band" },
-    { name: "RefArc", styleName: "dominant" },
-    { name: "TickMark", styleName: "dominant" },
+    { name: "AnnularBand", styleName: "dim-grey-fill" },
+    { name: "RefArc", styleName: "grey-skeleton" },
+    { name: "TickMark", styleName: "grey-skeleton" },
     { name: "HeightLabel", styleName: "dominant" },
     { name: "EventKind", styleName: "dominant" },
     { name: "NextPointer", styleName: "dominant" },

@@ -101,7 +101,7 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   canvas: { width: 420, height: 320 },
   refRadius: 118,
   sweepRad: 2.75,
-  tickLen: 0.07,
+  tickLen: 0.02,
   tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
   tickLabelSize: 0.04,
   tickLabelClearance: 0.07,
@@ -109,7 +109,7 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   nowPointer: {
     radialLine: { outerRadius: 0.7 },
     label: { size: 0.04, normalOffset: 0.02 },
-    triangle: { subtendedAngleRad: Math.PI / 6 },
+    triangle: { subtendedAngleRad: Math.PI / 5 },
   },
   nextPointer: {
     radialLine: { outerRadius: 0.73 },
@@ -191,8 +191,8 @@ export function buildDiagramGenerationSpec(
     tideTimeLabelRadius: 0.8,
     tideHeightLabelSize: 0.046,
     tideTimeLabelSize: 0.04,
-    tideMarkArrowDivergence: 1.0,
-    tideMarkArrowLineLen: 0.05,
+    tideMarkArrowDivergence: 0.8,
+    tideMarkArrowLineLen: 0.045,
     ...tideMarksFromExtremes(extremesAtLocation.extremes, utcIsoToLocalCanonicalTime),
   };
 

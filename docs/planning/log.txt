@@ -99,7 +99,7 @@ o  new data fetch paradigm
 					*  experiment with making a cheese segment
 					*  have corrupted length of time now radial line
 					*  filled or not filled?
-					o  maybe subtle shimmer
+					*  maybe subtle shimmer
 					o  rough improvements to colours and sizes for arc etc.
 fart
 
