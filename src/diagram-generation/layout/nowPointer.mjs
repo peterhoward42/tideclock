@@ -29,15 +29,19 @@ import { requireFiniteNumber, requirePlainObject } from "./specRequire.mjs";
  * @returns {{ x: number, y: number } | null}
  */
 function rayCircleForwardIntersect(origin, dirUnit, circleCenter, rCircle) {
-  const vx = origin.x - circleCenter.x;
-  const vy = origin.y - circleCenter.y;
-  const dvd = vx * dirUnit.x + vy * dirUnit.y;
+  const wx = origin.x - circleCenter.x;
+  const wy = origin.y - circleCenter.y;
+  const dvd = wx * dirUnit.x + wy * dirUnit.y;
   const rSq = rCircle * rCircle;
-  const vLenSq = vx * vx + vy * vy;
+  const vLenSq = wx * wx + wy * wy;
   const disc = dvd * dvd - vLenSq + rSq;
   if (disc < 0 || !Number.isFinite(disc)) return null;
-  const t = -dvd + Math.sqrt(disc);
-  if (!Number.isFinite(t) || t <= 0) return null;
+  const s = Math.sqrt(disc);
+  const t0 = -dvd - s;
+  const t1 = -dvd + s;
+  const hits = [t0, t1].filter((u) => Number.isFinite(u) && u > 1e-12);
+  if (hits.length === 0) return null;
+  const t = Math.min(...hits);
   return {
     x: origin.x + t * dirUnit.x,
     y: origin.y + t * dirUnit.y,

@@ -97,6 +97,7 @@ o  new data fetch paradigm
 					*  make the time now triangle filled - homogenuous colour
 					*  move it radially inward on top of tick marks
 					*  experiment with making a cheese segment
+					o  have corrupted length of time now radial line
 					o  filled or not filled?
 					o  maybe smaller
 					o  maybe subtle shimmer
@@ -104,6 +105,8 @@ o  new data fetch paradigm
 					o  colours tune
 fart
 
+				o  now label "now" should be positioned to be justified just
+				   inside the wait arc radius
 
 				o  say next hight water at foo in bar interval
 					o  maybe in header strip

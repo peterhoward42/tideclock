@@ -67,8 +67,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "nowPointer": {
     "nowLabel": {
       "anchor": {
-        "x": 47.720628478068384,
-        "y": -39.574154667638425,
+        "x": 60.90522055720967,
+        "y": -51.38332617569288,
       },
       "angleRad": 11.835947551453165,
       "content": "now",
@@ -77,8 +77,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "nowLabelBranch": "B",
     "radialLine": {
       "end": {
-        "x": 61.52809636932595,
-        "y": -55.10946703758746,
+        "x": 87.8972805276085,
+        "y": -78.72781005369637,
       },
       "start": {
         "x": 30.764048184662975,

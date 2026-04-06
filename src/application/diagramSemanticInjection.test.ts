@@ -96,7 +96,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     tickLabelClearance: 0.07,
     timeNow: '19:20:03',
     nowPointer: {
-      radialLine: { outerRadius: 0.7 },
+      radialLine: { outerRadius: 1.0 },
       label: { size: 0.04, normalOffset: 0.02 },
       triangle: { subtendedAngleRad: Math.PI / 6 },
     },
