@@ -101,6 +101,9 @@ o  new data fetch paradigm
 					*  filled or not filled?
 					*  maybe subtle shimmer
 					o  rough improvements to colours and sizes for arc etc.
+						o  o
+
+				o  does contentBounds have any active role?
 fart
 
 				o  now label "now" should be positioned to be justified just
