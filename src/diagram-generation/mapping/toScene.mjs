@@ -12,7 +12,6 @@ import {
   line,
   nowWedgeOutline,
   point,
-  triangle,
   text,
 } from "../model/sceneModel.mjs";
 
@@ -52,6 +51,67 @@ function normalizeAngleRad(a) {
   let x = a % tau;
   if (x < 0) x += tau;
   return x;
+}
+
+/**
+ * Shortest signed CCW/CW delta from angle a2 to a3, in (-π, π].
+ *
+ * @param {number} a2
+ * @param {number} a3
+ * @returns {number}
+ */
+function shortestSignedAngleDelta(a2, a3) {
+  let d = a3 - a2;
+  const tau = 2 * Math.PI;
+  while (d <= -Math.PI) d += tau;
+  while (d > Math.PI) d -= tau;
+  return d;
+}
+
+/**
+ * True if `pointAngle` lies strictly in the interior of the arc from `startAngle`
+ * with signed `sweepRad` (CCW positive), modulo 2π.
+ *
+ * @param {number} pointAngle
+ * @param {number} startAngle
+ * @param {number} sweepRad
+ * @returns {boolean}
+ */
+function angleStrictlyInSignedSweep(pointAngle, startAngle, sweepRad) {
+  const eps = 1e-7;
+  if (Math.abs(sweepRad) < eps) return false;
+  const p = normalizeAngleRad(pointAngle);
+  const s0 = normalizeAngleRad(startAngle);
+  const s1 = normalizeAngleRad(startAngle + sweepRad);
+  if (sweepRad > 0) {
+    if (s1 >= s0) return p > s0 + eps && p < s1 - eps;
+    return p > s0 + eps || p < s1 - eps;
+  }
+  if (s1 <= s0) return p < s0 - eps && p > s1 + eps;
+  return p < s0 - eps || p > s1 + eps;
+}
+
+/**
+ * CCW arc from v2 to v3 on the circle through the tide-pointer head that does **not**
+ * pass through v1 (the pin tip). See docs/specs/tide-diagram.md §TimePointer.
+ *
+ * @param {{ x: number, y: number }} v1
+ * @param {{ x: number, y: number }} v2
+ * @param {{ x: number, y: number }} v3
+ * @param {{ x: number, y: number }} center
+ * @returns {number}
+ */
+function timePointerHeadArcSweepRad(v1, v2, v3, center) {
+  const cx = center.x;
+  const cy = center.y;
+  const a1 = Math.atan2(v1.y - cy, v1.x - cx);
+  const a2 = Math.atan2(v2.y - cy, v2.x - cx);
+  const a3 = Math.atan2(v3.y - cy, v3.x - cx);
+  const shortSweep = shortestSignedAngleDelta(a2, a3);
+  const tau = 2 * Math.PI;
+  const longSweep = shortSweep > 0 ? shortSweep - tau : shortSweep + tau;
+  const shortHasV1 = angleStrictlyInSignedSweep(a1, a2, shortSweep);
+  return shortHasV1 ? longSweep : shortSweep;
 }
 
 function angleInSweep(a, a0, sweep) {
@@ -311,13 +371,16 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
   const tp = mark.timePointer;
   const tri = tp.triangle;
   const circ = tp.circle;
-  const triNode = triangle(
-    mapPoint(tri.v1, cx, cy),
-    mapPoint(tri.v2, cx, cy),
-    mapPoint(tri.v3, cx, cy),
-  );
-  const circNode = circle(mapPoint(circ.center, cx, cy), circ.radius);
-  const timePointerGroup = group("TimePointer", [triNode, circNode]);
+  const p1 = mapPoint(tri.v1, cx, cy);
+  const p2 = mapPoint(tri.v2, cx, cy);
+  const p3 = mapPoint(tri.v3, cx, cy);
+  const c = mapPoint(circ.center, cx, cy);
+  const headSweep = timePointerHeadArcSweepRad(p1, p2, p3, c);
+  const timePointerGroup = group("TimePointer", [
+    line(p1, p2),
+    line(p1, p3),
+    arc(c, p2, headSweep),
+  ]);
   const hl = mark.heightLabel;
   const tl = mark.timeLabel;
   return group("TideMark", [

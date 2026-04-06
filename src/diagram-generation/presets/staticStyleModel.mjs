@@ -14,7 +14,11 @@ export const STATIC_STYLE_MODEL = {
       style: { color: "yellow" },
     },
     {
-      name: "time-pointer-filled",
+      name: "time-pointer-stroke",
+      style: { color: "#555" },
+    },
+    {
+      name: "now-triangle-fill",
       style: { color: "#555" },
     },
     {
@@ -58,7 +62,7 @@ export const STATIC_STYLE_MODEL = {
     { name: "EventKind", styleName: "dominant" },
     { name: "NextPointer", styleName: "dominant" },
     { name: "WaitArc", styleName: "grey-strokes" },
-    { name: "TimePointer", styleName: "time-pointer-filled" },
+    { name: "TimePointer", styleName: "time-pointer-stroke" },
     { name: "TimeLabel", styleName: "grey-writing" },
     { name: "TickLabel", styleName: "grey-writing" },
     { name: "CentreFrame", styleName: "grey-strokes" },
@@ -68,7 +72,7 @@ export const STATIC_STYLE_MODEL = {
     { name: "DeltaGlue", styleName: "grey-writing" },
     { name: "DeltaInterval", styleName: "grey-writing" },
     { name: "NoMoreTidesToday", styleName: "grey-writing" },
-    { name: "NowTriangle", styleName: "time-pointer-filled" },
+    { name: "NowTriangle", styleName: "now-triangle-fill" },
     { name: "NowRadialLine", styleName: "grey-strokes-dashed" },
     { name: "NowLabel", styleName: "grey-writing" },
   ],

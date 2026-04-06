@@ -170,9 +170,9 @@ of travel.”
   - Arc segments (for **RefArc** and for **CentreFrame**)
   - Line segments (for radial segments and tick marks)
   - Text elements
-  - Filled closed paths for the Now **triangle** (annular wedge: two straight segments and a minor arc on the annulus outer circle; **NowPointer**); **fill** and **stroke** use the same leaf-style rules as **TideMarks.TimePointer** filled triangles (product default: same style preset as **TimePointer**)
-  - Filled triangles and filled circles (introduced by **TideMarks.TimePointer**
-  and by **NextPointer**)
+  - Filled closed paths for the Now **triangle** (annular wedge: two straight segments and a minor arc on the annulus outer circle; **NowPointer**); **fill** and **stroke** use **NowTriangle** leaf styles (product default: **stroke**/**fill** colour aligned with **TideMarks.TimePointer** outline colour)
+  - Filled circles (**NextPointer**)
+  - **Line** segments and **arc** segments for **TideMarks.TimePointer** (two equal sides of the pointer triangle as strokes, head as a circular arc; **fill** is **none**)
   - One **closed annular sector** path (**fill** and **stroke** on the composite
   boundary) introduced by **AnnularBand** (see **AnnularBand**)
 
@@ -192,7 +192,7 @@ graph—even if a viewer perceives closure optically. Distinct primitives may
 stroked curves** unless a subsection adds detail.
 - **AnnularBand** is **not** covered by **Independent stroked curves**: it is one
 closed region with unified **fill** and **stroke** on its boundary (**AnnularBand**).
-- The **NowPointer** Now **triangle** wedge is **not** covered by **Independent stroked curves** for fill semantics: it is one closed path with unified **fill** and **stroke** (same presentation contract as **TideMarks.TimePointer** filled triangles).
+- The **NowPointer** Now **triangle** wedge is **not** covered by **Independent stroked curves** for fill semantics: it is one closed path with unified **fill** and **stroke** (see **NowTriangle** vs **TimePointer** under **Scene graph primitives**).
 
 ## Text Element
 
@@ -236,7 +236,7 @@ model em-boxes or similar font metrics.
 
 - **Now radial line** — one radial segment on the time-now ray.
 - **Now label** — one **TextElement** with constant text `now`.
-- **Now triangle** — one **filled** closed wedge (**fill** and **stroke** on the composite boundary), geometrically as follows: **vertex** on the **RefArc** at **θ_now**; the wedge **opens outward** along the time-now ray (**away from O**, into **AnnularBand**). Two **equal** straight sides diverge from that outward bisector by **±½·subtendedAngleRad** and meet the **outer** circle of **AnnularBand**; the third boundary is the **minor circular arc** on that outer circle between the two outer endpoints (same centre **O** as the RefArc). Paint follows the same named-leaf style rules as **TideMarks.TimePointer** filled triangles (product default binds **NowTriangle** to the same style preset as **TimePointer**).
+- **Now triangle** — one **filled** closed wedge (**fill** and **stroke** on the composite boundary), geometrically as follows: **vertex** on the **RefArc** at **θ_now**; the wedge **opens outward** along the time-now ray (**away from O**, into **AnnularBand**). Two **equal** straight sides diverge from that outward bisector by **±½·subtendedAngleRad** and meet the **outer** circle of **AnnularBand**; the third boundary is the **minor circular arc** on that outer circle between the two outer endpoints (same centre **O** as the RefArc). Paint uses **NowTriangle** leaf styles (product default: **fill** and **stroke** colour matched to **TideMarks.TimePointer** outline colour for visual consistency).
 
 ### Time association
 
@@ -292,7 +292,7 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
 **Now triangle (filled)**
 
 - **Now triangle (filled)** is still named “triangle” in the input and scene grouping, but its geometry is the **annular wedge** above.
-  - It is tied to **θ_now** and emitted as a **single closed path** with **fill** and **stroke** (same style contract as **TideMarks.TimePointer** filled triangles; see **Scene graph primitives**).
+  - It is tied to **θ_now** and emitted as a **single closed path** with **fill** and **stroke** (see **Scene graph primitives**; **NowTriangle** vs **TimePointer**).
   - **Required** diagram input on `**nowPointer.triangle**`:
     - `**subtendedAngleRad**` — **literal** angle in **radians** between the two straight sides at the vertex (**not** a **k·R** value). Must satisfy **0 < subtendedAngleRad < π**.
   - **Radii** (model units):
@@ -619,27 +619,31 @@ For **both** labels:
 
 ### TimePointer
 
-** TimePointer ** comprises one filled triangle and one filled circle, 
-having geometry defined as follows.
+**TimePointer** is the tide **time pointer** (map-pin silhouette). Layout derives the same **metric** geometry as before; the scene emits **stroked** primitives only (**no fill** on the pointer itself).
+
+**Construction** (unchanged; used for vertex positions and the head circle):
 
 - Define input `**tideMarkArrowDivergence`** — a non-negative angle in radians (host field on `**tideMarks**`).
-- Define input `**tideMarkArrowLineLen**` — a non-negative float (**k·R** scale; host field on `**tideMarks`**).
-- Vertex1 is the point on the RefArc corresponding to time (t).
-- halfAngle is **0.5 × tideMarkArrowDivergence**
-- Vertex 2 is located with a polar offset from Vertex1:
+- Define input `**tideMarkArrowLineLen**` — a non-negative float (**k·R** scale; host field on `**tideMarks**`).
+- **Vertex1** is the point on the RefArc corresponding to time **t**.
+- **halfAngle** is **0.5 × tideMarkArrowDivergence**
+- **Vertex2** is located with a polar offset from Vertex1:
   - **R:** **tideMarkArrowLineLen × RefRadius**
-  - **theta:** RadialAngle(t) + PI + halfAngle
-- Vertex 3 is located with a polar offset from Vertex1:
+  - **theta:** RadialAngle(t) + π + halfAngle
+- **Vertex3** is located with a polar offset from Vertex1:
   - **R:** **tideMarkArrowLineLen × RefRadius**
-  - **theta:** RadialAngle(t) + PI - halfAngle
-- The required triangle element is Vertex1, Vertex2, Vertex3
-- Let line1 = the line segment vertex1->vertex2
-- Let line2 = the line segment vertex1->vertex3
-- Let radial1 = a normal to line1 from vertex2 of length RefRadb
-- Let radial2 = a normal to line2 from vertex3 of length RefRadb
-- Let centre = the intersection of radial1 and radial2
-- let radius = the distance between centre and vertex2
-- The required circle element is defined by centre and radius
+  - **theta:** RadialAngle(t) + π − halfAngle
+- Let **line1** = the segment **Vertex1 → Vertex2** and **line2** = **Vertex1 → Vertex3** (the two equal sides of the isosceles triangle **Vertex1, Vertex2, Vertex3**).
+- Let **radial1** be the line through **Vertex2** perpendicular to **line1**, and **radial2** the line through **Vertex3** perpendicular to **line2**.
+- Let **centre** = the intersection of **radial1** and **radial2**.
+- Let **radius** = the distance from **centre** to **Vertex2** (equals distance to **Vertex3**; **Vertex1, Vertex2, Vertex3** lie on this circle).
+
+**Scene emission** (outline, same silhouette as the former filled triangle ∪ filled disk):
+
+- Two **line** primitives: **Vertex1 → Vertex2** and **Vertex1 → Vertex3** (**stroke** only).
+- One **arc** primitive: circular arc from **Vertex2** to **Vertex3** with centre **centre** and radius **radius**, choosing the arc that does **not** contain **Vertex1** in its interior (the **head** cap—the arc whose interior points lie on the opposite side of chord **Vertex2–Vertex3** from **Vertex1**). Equivalently: of the two arcs between **Vertex2** and **Vertex3**, use the one that does **not** pass through **Vertex1** along the circle.
+
+**Presentation:** the **TimePointer** subgroup uses **stroke** colour from its leaf style; **fill** is **none** on these primitives. Hosts may set **stroke-linecap** / **stroke-linejoin** so the three curves meet cleanly at **Vertex1**, **Vertex2**, and **Vertex3** (product default: round caps and joins on the **TimePointer** group).
 
 ## Notes on interpretation
 

@@ -199,10 +199,14 @@ ${inner}
 function renderNode(node, styleRuntime, leafName) {
   switch (node.kind) {
     case "group": {
+      const strokeJoinAttrs =
+        node.name === "TimePointer"
+          ? ' stroke-linecap="round" stroke-linejoin="round"'
+          : "";
       const body = node.children
         .map((c) => renderNode(c, styleRuntime, node.name))
         .join("\n    ");
-      return `    <g data-name="${escapeAttr(node.name)}">\n    ${body}\n    </g>`;
+      return `    <g data-name="${escapeAttr(node.name)}"${strokeJoinAttrs}>\n    ${body}\n    </g>`;
     }
     case "line": {
       assertLeafScoped(node.kind, leafName);

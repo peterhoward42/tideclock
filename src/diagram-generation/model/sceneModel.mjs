@@ -41,7 +41,7 @@
  *   outline?: boolean,
  * }} TrianglePrimitive
  *
- * Filled closed path for the Now “triangle” (same fill/stroke style contract as **TimePointer** triangles):
+ * Filled closed path for the Now “triangle” (product default: **NowTriangle** fill/stroke palette aligned with tide **TimePointer** stroke colour):
  * vertex on RefArc, two segments to the annulus outer circle, cap = minor arc on that circle.
  * See docs/specs/tide-diagram.md §NowPointer.
  *
