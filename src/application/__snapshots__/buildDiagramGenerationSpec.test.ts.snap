@@ -1643,7 +1643,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   "y": 74.55346586042742,
                 },
                 "kind": "triangle",
-                "outline": true,
               },
             ],
             "kind": "group",

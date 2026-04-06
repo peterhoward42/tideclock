@@ -94,6 +94,12 @@ o  new data fetch paradigm
 				*  fix diagram centering
 
 				o  ref arc filled
+					o  make the time now triangle filled - homogenuous colour
+					o  move it radially inward on top of tick marks
+					o  maybe smaller
+					o  maybe subtle shimmer
+					o  tick len tune
+					o  colours tune
 fart
 
 
