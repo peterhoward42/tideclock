@@ -109,7 +109,7 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   nowPointer: {
     radialLine: { outerRadius: 0.7 },
     label: { size: 0.04, normalOffset: 0.02 },
-    triangle: { radius: 1.1, baseLen: 0.08, height: 0.03 },
+    triangle: { radius: 1.01, baseLen: 0.08, height: 0.03 },
   },
   nextPointer: {
     radialLine: { outerRadius: 0.73 },
