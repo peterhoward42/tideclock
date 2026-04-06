@@ -5,7 +5,7 @@
  * Policies for {@link buildTimeDeltaDiagramFromSpec}:
  * - Throws when `spec.timeDelta` is missing or not a plain object.
  * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
- * - Throws when `timeDelta.y` and `timeDelta.fontHeight` are not finite numbers.
+ * - Throws when `timeDelta.x`, `timeDelta.y`, and `timeDelta.fontHeight` are not finite numbers.
  *
  * {@link layoutTimeDeltaDiagram} is pure geometry + text placement from a resolved {@link TimeDeltaLayout}; it does not read the spec.
  */
@@ -14,8 +14,8 @@ import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import { computeNextTideEventFromSpec } from "../model/tideEvents.mjs";
 import { requirePlainObject } from "./specRequire.mjs";
 
-/** Fixed substring between event-kind text and interval text on the TimeDelta line. */
-export const TIME_DELTA_GLUE = " water in ";
+/** Fixed substring between event-kind text and interval text on the TimeDelta line (spec literal; no padding spaces). */
+export const TIME_DELTA_GLUE = "water in";
 
 /** Fixed copy when no tide remains on the civil day (docs/specs/tide-diagram.md §TimeDelta). */
 export const TIME_DELTA_EMPTY_MESSAGE = "No further tides today";
@@ -23,17 +23,19 @@ export const TIME_DELTA_EMPTY_MESSAGE = "No further tides today";
 const CHAR_WIDTH_FACTOR = 0.6;
 
 /**
- * Layout input for the TimeDelta strip (RefRadius-normalised `y` and `fontHeight`).
+ * Layout input for the TimeDelta strip (RefRadius-normalised `x`, `y`, and `fontHeight`).
  *
  * @typedef {object} TimeDeltaLayoutCountdown
  * @property {'countdown'} kind
  * @property {string} eventKind
  * @property {string} interval
+ * @property {number} x
  * @property {number} y
  * @property {number} fontHeight
  *
  * @typedef {object} TimeDeltaLayoutEmpty
  * @property {'empty'} kind
+ * @property {number} x
  * @property {number} y
  * @property {number} fontHeight
  *
@@ -64,31 +66,37 @@ export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
   if (timeDeltaLayout.kind === "countdown") {
     const tdFont = timeDeltaLayout.fontHeight * R;
     const tdY = timeDeltaLayout.y * R;
+    const leftEdge = timeDeltaLayout.x * R;
     const parts = [
       { content: timeDeltaLayout.eventKind },
       { content: TIME_DELTA_GLUE },
       { content: timeDeltaLayout.interval },
     ];
     const widths = parts.map((p) => textWidth(tdFont, p.content.length));
-    const totalW = widths.reduce((a, b) => a + b, 0);
-    let left = -totalW / 2;
+    const spaceW = textWidth(tdFont, 1);
+    let x = leftEdge;
     for (let i = 0; i < parts.length; i += 1) {
       const w = widths[i];
-      const cx = left + w / 2;
       timeDelta.push({
         content: parts[i].content,
         fontSize: tdFont,
-        anchor: { x: cx, y: tdY },
+        anchor: { x, y: tdY },
+        hAlign: "left",
       });
-      left += w;
+      x += w;
+      if (i < parts.length - 1) {
+        x += spaceW;
+      }
     }
   } else {
     const tdFont = timeDeltaLayout.fontHeight * R;
     const tdY = timeDeltaLayout.y * R;
+    const leftEdge = timeDeltaLayout.x * R;
     timeDeltaEmptyMessage = {
       content: TIME_DELTA_EMPTY_MESSAGE,
       fontSize: tdFont,
-      anchor: { x: 0, y: tdY },
+      anchor: { x: leftEdge, y: tdY },
+      hAlign: "left",
     };
   }
 
@@ -109,27 +117,31 @@ export function buildTimeDeltaDiagramFromSpec(spec, refRadius) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
 
+  const tdX = o.x;
   const tdY = o.y;
   const tdFh = o.fontHeight;
   if (
+    typeof tdX !== "number" ||
     typeof tdY !== "number" ||
     typeof tdFh !== "number" ||
+    !Number.isFinite(tdX) ||
     !Number.isFinite(tdY) ||
     !Number.isFinite(tdFh)
   ) {
     throw new Error(
-      "spec.timeDelta requires finite numbers y and fontHeight (RefRadius multiples)",
+      "spec.timeDelta requires finite numbers x, y, and fontHeight (RefRadius multiples)",
     );
   }
 
   const nextEvent = computeNextTideEventFromSpec(spec, parsedNow);
   const timeDeltaLayout =
     nextEvent == null
-      ? { kind: "empty", y: tdY, fontHeight: tdFh }
+      ? { kind: "empty", x: tdX, y: tdY, fontHeight: tdFh }
       : {
           kind: "countdown",
           eventKind: nextEvent.kind,
           interval: nextEvent.intervalText,
+          x: tdX,
           y: tdY,
           fontHeight: tdFh,
         };

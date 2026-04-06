@@ -50,7 +50,7 @@
  * }} DiagramTextInst
  *
  * Civil clock readout: `HH:MM`, `:`, and `SS` as separate text instances (same baseline;
- * {@link buildTimeNowLabelFromSpec} offsets anchors so the triple reads as one right-aligned `HH:MM:SS`).
+ * {@link buildTimeNowLabelFromSpec} sets baseline **y** to **0 − k·R** for **`timeNowLabel.y`** = **k** and offsets **x** so the triple reads as one right-aligned `HH:MM:SS`).
  *
  * @typedef {{
  *   hhmm: DiagramTextInst,
@@ -71,8 +71,10 @@
  *   end: DiagramPoint,
  * }} DiagramLineSeg
  *
- * TimeDeltaDiagram: **timeDelta** holds three fragments when counting down to the next tide;
+ * TimeDeltaDiagram: **timeDelta** holds three left-justified fragments when counting down to the next tide;
  * **timeDeltaEmptyMessage** is set (and **timeDelta** empty) when there is no next tide today (**NoMoreTidesToday** in the spec).
+ * Each **DiagramTextInst** includes **hAlign** `'left'`; anchors follow **timeDelta.x** / **timeDelta.y** on the spec (**k·R**),
+ * with one monospace space-width inserted in **X** between countdown fragments (not part of fragment **Text**).
  *
  * @typedef {{
  *   timeDelta: DiagramTextInst[],

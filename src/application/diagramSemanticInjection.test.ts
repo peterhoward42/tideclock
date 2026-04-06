@@ -74,10 +74,10 @@ type SemanticInjectionDiagramSpec = {
   readonly timeNowLabel: {
     readonly x: number;
     readonly fontHeight: number;
-    readonly aboveBottom: number;
+    readonly y: number;
   };
   readonly centreFrame: { readonly frameArcRadius: number };
-  readonly timeDelta: { readonly y: number; readonly fontHeight: number };
+  readonly timeDelta: { readonly x: number; readonly y: number; readonly fontHeight: number };
 };
 
 /** `buildDiagram` is implemented in `.mjs`; align returns with {@link TideDiagramDocument}. */
@@ -130,9 +130,9 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
         { time: '23:06:00', heightText: '4.8 m', highOrLow: 'High' },
       ],
     },
-    timeNowLabel: { x: 0.8, fontHeight: 0.05, aboveBottom: 0.1 },
+    timeNowLabel: { x: 0.8, fontHeight: 0.05, y: 0.95 },
     centreFrame: { frameArcRadius: 0.35 },
-    timeDelta: { y: -0.1, fontHeight: 0.05 },
+    timeDelta: { x: -1, y: -0.1, fontHeight: 0.05 },
   };
 }
 
@@ -168,7 +168,8 @@ describe('spec.semantic.nextTide injection', () => {
     expect(diagram.timeDeltaDiagram.timeDeltaEmptyMessage).toEqual({
       content: TIME_DELTA_EMPTY_MESSAGE,
       fontSize: 5.9,
-      anchor: { x: 0, y: -11.8 },
+      anchor: { x: -118, y: -11.8 },
+      hAlign: 'left',
     });
     expect(diagram.timeNowLabel?.hhmm.content).toBe('23:59');
     expect(diagram.timeNowLabel?.secondsColon.content).toBe(':');

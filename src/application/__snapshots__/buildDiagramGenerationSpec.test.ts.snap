@@ -672,27 +672,30 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "timeDelta": [
       {
         "anchor": {
-          "x": -28.320000000000007,
+          "x": -118,
           "y": -11.8,
         },
         "content": "High",
         "fontSize": 5.9,
+        "hAlign": "left",
       },
       {
         "anchor": {
-          "x": -3.5400000000000063,
+          "x": -100.3,
           "y": -11.8,
         },
-        "content": " water in ",
+        "content": "water in",
         "fontSize": 5.9,
+        "hAlign": "left",
       },
       {
         "anchor": {
-          "x": 24.779999999999994,
+          "x": -68.43999999999998,
           "y": -11.8,
         },
         "content": "3h 45m",
         "fontSize": 5.9,
+        "hAlign": "left",
       },
     ],
     "timeDeltaEmptyMessage": null,
@@ -701,7 +704,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "hhmm": {
       "anchor": {
         "x": 115.40400000000001,
-        "y": -165.2,
+        "y": -112.1,
       },
       "content": "19:20",
       "fontSize": 4.72,
@@ -710,7 +713,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "seconds": {
       "anchor": {
         "x": 123.9,
-        "y": -165.2,
+        "y": -112.1,
       },
       "content": "03",
       "fontSize": 4.72,
@@ -719,7 +722,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "secondsColon": {
       "anchor": {
         "x": 118.236,
-        "y": -165.2,
+        "y": -112.1,
       },
       "content": ":",
       "fontSize": 4.72,
@@ -755,7 +758,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "maxX": 334.9,
       "maxY": 153.92,
       "minX": 74.2182659692451,
-      "minY": -7.143999999999989,
+      "minY": 21.175999999999977,
     },
     "title": "home-tide-diagram",
     "width": 420,
@@ -1487,12 +1490,12 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 181.68,
+                  "x": 92,
                   "y": 148.2,
                 },
                 "angleRad": 0,
                 "content": "High",
-                "hAlign": "center",
+                "hAlign": "left",
                 "kind": "text",
                 "size": 5.9,
               },
@@ -1504,12 +1507,12 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 206.45999999999998,
+                  "x": 109.7,
                   "y": 148.2,
                 },
                 "angleRad": 0,
-                "content": " water in ",
-                "hAlign": "center",
+                "content": "water in",
+                "hAlign": "left",
                 "kind": "text",
                 "size": 5.9,
               },
@@ -1521,12 +1524,12 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 234.78,
+                  "x": 141.56,
                   "y": 148.2,
                 },
                 "angleRad": 0,
                 "content": "3h 45m",
-                "hAlign": "center",
+                "hAlign": "left",
                 "kind": "text",
                 "size": 5.9,
               },
@@ -1545,7 +1548,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 325.404,
-                  "y": -5.199999999999989,
+                  "y": 47.900000000000006,
                 },
                 "angleRad": 0,
                 "content": "19:20",
@@ -1562,7 +1565,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 328.236,
-                  "y": -5.199999999999989,
+                  "y": 47.900000000000006,
                 },
                 "angleRad": 0,
                 "content": ":",
@@ -1579,7 +1582,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 333.9,
-                  "y": -5.199999999999989,
+                  "y": 47.900000000000006,
                 },
                 "angleRad": 0,
                 "content": "03",

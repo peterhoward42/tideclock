@@ -96,21 +96,19 @@ o  new data fetch paradigm
 					*  basics
 					*  tweak no optional inputs
 					*  downgrade the frame to just the arc part
-					o  dry the following
-						o  radius (or min radius) for
-							o  CentreFrame (R_Frame)
-							o  NowPointerLineInnerRadius
-							o  NextPointerCircleRadius
+					*  sync the frame radii group
+					*  position the next tide label
 
-fart
 
 				o  have lost diagram centering
-					o  is bottom right timenowlabel smoking gun
-						o  likely as "aboveBottom" is potentially a circular 
-						   definition
-						   	o  change it to being a distant from origin
+					o  change TimeNowLabel Y mandate to be signed offset from 0
+fart
 
+				o  give the now ptr (line and triangle only) not label, same shimmer
+				   as time now
 				o  say next hight water at foo in bar interval
+					o  maybe in header strip
+
 				o  assemble location and hight water message into one?
 				o  put change location inside diag bottom left
 				o  try ref arc being a filled shape 

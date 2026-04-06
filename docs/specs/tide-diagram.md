@@ -31,7 +31,7 @@ and layout submodules).
 - `**waitArc`** — object with finite `**radius**` (**k·R**). If **max(0, radius)·RefRadius** is **0**, the wait arc is omitted without evaluating next-tide logic. Otherwise `**arrow`** is required: finite `**lengthK**`, `**widthK**`, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a **boolean**.
 - `**tideMarks`** — if absent, or `**markers**` missing or empty, there are no tide marks. If `**markers**` is non-empty, these finite numbers are required on `**tideMarks**`: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. At least one marker row must yield a usable time after parsing (otherwise generation throws).
 - `**nowPointer**` / `**nextPointer**` — if present, use nested objects with the finite fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks): **now** — `**radialLine**`, `**label**`, `**triangle**`; **next** — `**radialLine**` only. **R_frame** from `**centreFrame.frameArcRadius**` supplies the Now radial **inner** radius; the Next filled-circle radius is **σ·R_frame** for fixed **σ** in **§NextPointer** (see **CentreFrame**, **NowPointer**, **NextPointer**).
-- `**timeDelta`** — **required** plain object; finite `**y**` and `**fontHeight**` (**k·R** per **§Sizing**). Supplies **TimeDelta** layout only (see **TimeDelta**).
+- `**timeDelta`** — **required** plain object; finite `**x**`, `**y**`, and `**fontHeight**` (**k·R** per **§Sizing**). **`x`** is the signed offset from **X = 0** to the **left edge** of the composed **TimeDelta** text line; **`y`** is the signed offset from **Y = 0** to the shared text **baseline**. Supplies **TimeDelta** layout only (see **TimeDelta**).
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius**` (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc and the **NowPointer** radial inner endpoint (**§CentreFrame**). Uses top-level `**refRadius**` and `**sweepRad**` (required above).
 
 ## Diagram elements
@@ -397,9 +397,7 @@ shows the current civil clock time derived from global `**timeNow`**.
 in `**buildDiagramGenerationSpec`**):
   - `**fontHeight**` — proportion **k** as **k·R** (**§Sizing**).
   - `**x`** — proportion **k** as **k·R** for anchor **X** (typically toward **+X** in the content region).
-  - `**aboveBottom`** — proportion **k** as **k·R** (**§Sizing**): vertical offset **upward** (**+Y**)
-  from the **bottom edge** of the **content bounds** rectangle (**Y = −below·R**, **§Content bounds**)
-  to the shared text **baseline**.
+  - `**y`** — proportion **k** as **k·R** (**§Sizing**): a **positive** host value is interpreted as **k·R** **subtracted** from **Y = 0** (**§Origin**) to place the shared text **baseline** at **Y = 0 − k·R** (toward **−Y** / **below** the arc centre when **k > 0**). **Not** the same convention as **`timeDelta.y`** (which is a signed offset to the baseline).
 
 ### Text and placement
 
@@ -413,8 +411,7 @@ in `**buildDiagramGenerationSpec`**):
   readout’s trailing edge in **+X**, and the seconds-colon and HMS anchors are offset left by fixed
   monospace advances so the triple abuts (**§Scene model** uses the same width heuristic as preview framing).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
-  - **Anchor** — HMS and seconds share **y = −below·R + k_above·R**, where **below** is the content
-  **below** extent and **k_above** is `**aboveBottom`**; **x** for the trailing (seconds)
+  - **Anchor** — HMS and seconds share **y = 0 − k_y·R** with **k_y** from `**y`**; **x** for the trailing (seconds)
   anchor is **k_x·R** with **k_x** from `**x`**.
 
 ### Scene model
@@ -426,10 +423,10 @@ in `**buildDiagramGenerationSpec`**):
 
 ## TimeDelta
 
-### TimeDelta horizontal axis
+### TimeDelta placement
 
-- The composed **TimeDelta** line uses **X = 0** as the horizontal centre unless a
-subsection states otherwise.
+- **`timeDelta.x`** (**k·R**, **§Sizing**) — signed offset from **X = 0** to the **left edge** of the composed **TimeDelta** line (all fragments share this edge as their **left**-justification origin).
+- **`timeDelta.y`** (**k·R**) — signed offset from **Y = 0** to the shared text **baseline** for the line.
 
 ### Scene model
 
@@ -438,8 +435,7 @@ subsection states otherwise.
 ### Copy and layout
 
 - When a **next** marker exists on the civil day — one logical sentence, **three**
-**TextElement** instances, **centre-aligned as a whole** at **X = 0**
-(**TimeDelta horizontal axis**):
+**TextElement** instances, **left**-justified in order so the line’s **left edge** sits at **x = x_delta·R** for host input **x_delta** = `**timeDelta.x**`:
   1. **Event kind** — **Text** **derived** from the **kind** of the **next**
     tide marker at or after `**timeNow`**, using the marker’s `**highOrLow`**
     flag (`"Low"` or `"High"`). Separate for styling while staying one visual  
@@ -452,10 +448,9 @@ subsection states otherwise.
 three-fragment sentence above):
   - **Text** — fixed synthesis: exactly `**No further tides today`** (not a host
   override).
-  - **FontHeight**, **Horizontal justification** (**centre**), **Baseline polar
-  angle** (**0**), and **Anchor Y** (**Y_delta**) — same as the countdown line
-  below.
-  - **Anchor X** — **0** (centred on **X = 0**).
+  - **FontHeight**, **Horizontal justification** (**left**), **Baseline polar
+  angle** (**0**), **Anchor X** (**x_delta·R**), and **Anchor Y** (**y_delta·R**) —
+  same placement rule as the countdown line below (`**timeDelta.x**`, `**timeDelta.y**`).
   - Allocated leaf name for styling/host binding (exact match): **NoMoreTidesToday**.
   - Do **not** emit **EventKind**, **DeltaGlue**, or **DeltaInterval** in this case.
 - **Allocated leaf names** for the countdown case (exact match):
@@ -464,12 +459,16 @@ three-fragment sentence above):
   - Fragment 3 (**Interval**) — `DeltaInterval`
 - **Shared** for countdown fragments **and** for **NoMoreTidesToday**:
   - **FontHeight** — one input **k** as **k·R** for the whole line (**§Sizing**).
-  - **Horizontal justification** — **centre**; **X** positions chosen so the
-  line is centred on **X = 0** (monospace width estimates allowed).
+  - **Horizontal justification** — **left** for every fragment; **X** anchors
+  step left-to-right using the same monospace width heuristic as layout (see **TimeDelta placement**),
+  with **one** space-width advance (**0.6 × FontHeight** in model units, matching layout) after each
+  fragment except the last so words read with normal gaps (glue text is the literal `**water in**` only).
   - **Baseline polar angle** — **0** (**TextElement defaults**).
-  - **Anchor Y** — one input **Y_delta** as **k·R**, shared (**§Sizing**).
-- **Anchors (X)** — countdown **TimeDelta** assigns per-fragment **X** for
-whole-line centring; **NoMoreTidesToday** uses **X = 0**.
+  - **Anchor Y** — **y_delta·R** for host input **y_delta** = `**timeDelta.y**` (**§Sizing**).
+- **Anchors (X)** — countdown **TimeDelta** places fragment **i** at **x_delta·R** plus the sum of
+approximate widths of all preceding fragments **and** one space-width after each of those fragments
+(between **EventKind** and **DeltaGlue**, and between **DeltaGlue** and **DeltaInterval**);
+**NoMoreTidesToday** uses **x_delta·R** as its **left** anchor.
 
 ## CentreFrame
 

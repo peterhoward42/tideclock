@@ -241,7 +241,7 @@ export function timeDeltaDiagramToGroup(td, cx, cy) {
     const node = text({
       content: seg.content,
       size: seg.fontSize,
-      hAlign: seg.hAlign ?? "center",
+      hAlign: seg.hAlign,
       angleRad: 0,
       anchor: mapPoint(seg.anchor, cx, cy),
     });
@@ -256,7 +256,7 @@ export function timeDeltaDiagramToGroup(td, cx, cy) {
         text({
           content: m.content,
           size: m.fontSize,
-          hAlign: m.hAlign ?? "center",
+          hAlign: m.hAlign,
           angleRad: 0,
           anchor: mapPoint(m.anchor, cx, cy),
         }),
