@@ -10,6 +10,7 @@ import {
   circle,
   group,
   line,
+  nowWedgeOutline,
   point,
   triangle,
   text,
@@ -166,6 +167,15 @@ function expandBoundsByNode(b, node) {
       expandBoundsByPoint(b, node.a);
       expandBoundsByPoint(b, node.b);
       expandBoundsByPoint(b, node.c);
+      return;
+    case "nowWedgeOutline":
+      expandBoundsByPoint(b, node.vertex);
+      expandBoundsByPoint(b, node.outerArcStart);
+      expandBoundsByArc(b, {
+        center: node.center,
+        start: node.outerArcStart,
+        sweepRad: node.outerArcSweepRad,
+      });
       return;
     case "arc":
       expandBoundsByArc(b, node);
@@ -477,10 +487,11 @@ export function tideDiagramToScene(diagram) {
           ...(nowPointer.triangle
             ? [
                 group("NowTriangle", [
-                  triangle(
-                    mapPoint(nowPointer.triangle.v1, cx, cy),
-                    mapPoint(nowPointer.triangle.v2, cx, cy),
-                    mapPoint(nowPointer.triangle.v3, cx, cy),
+                  nowWedgeOutline(
+                    mapPoint(nowPointer.triangle.center, cx, cy),
+                    mapPoint(nowPointer.triangle.vertex, cx, cy),
+                    mapPoint(nowPointer.triangle.outerArcStart, cx, cy),
+                    nowPointer.triangle.outerArcSweepRad,
                   ),
                 ]),
               ]

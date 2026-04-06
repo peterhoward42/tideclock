@@ -43,11 +43,7 @@ type SemanticInjectionDiagramSpec = {
   readonly nowPointer: {
     readonly radialLine: { readonly outerRadius: number };
     readonly label: { readonly size: number; readonly normalOffset: number };
-    readonly triangle: {
-      readonly radius: number;
-      readonly baseLen: number;
-      readonly height: number;
-    };
+    readonly triangle: { readonly subtendedAngleRad: number };
   };
   readonly nextPointer: {
     readonly radialLine: { readonly outerRadius: number };
@@ -102,7 +98,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     nowPointer: {
       radialLine: { outerRadius: 0.7 },
       label: { size: 0.04, normalOffset: 0.02 },
-      triangle: { radius: 1.1, baseLen: 0.08, height: 0.03 },
+      triangle: { subtendedAngleRad: Math.PI / 6 },
     },
     nextPointer: {
       radialLine: { outerRadius: 0.73 },

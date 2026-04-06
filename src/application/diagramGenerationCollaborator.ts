@@ -113,17 +113,20 @@ type TideMarkDiagram = {
   readonly timePointer: TideTimePointerSpec;
 };
 
+type NowPointerTriangleDiagram = {
+  readonly center: DiagramPoint;
+  readonly vertex: DiagramPoint;
+  readonly outerArcStart: DiagramPoint;
+  readonly outerArcSweepRad: number;
+};
+
 type NowPointerDiagram = {
   readonly timeHours: number;
   readonly theta: number;
   readonly nowLabelBranch: "A" | "B";
   readonly radialLine: DiagramLineSeg | null;
   readonly nowLabel: TideLabelTextInst | null;
-  readonly triangle?: {
-    readonly v1: DiagramPoint;
-    readonly v2: DiagramPoint;
-    readonly v3: DiagramPoint;
-  };
+  readonly triangle?: NowPointerTriangleDiagram;
 };
 
 type NextPointerDiagram = {
@@ -213,6 +216,14 @@ type SceneTrianglePrimitive = {
   readonly outline?: boolean;
 };
 
+type SceneNowWedgeOutlinePrimitive = {
+  readonly kind: "nowWedgeOutline";
+  readonly center: ScenePoint;
+  readonly vertex: ScenePoint;
+  readonly outerArcStart: ScenePoint;
+  readonly outerArcSweepRad: number;
+};
+
 type SceneCirclePrimitive = {
   readonly kind: "circle";
   readonly center: ScenePoint;
@@ -247,6 +258,7 @@ type SceneNode =
   | SceneLinePrimitive
   | SceneArcPrimitive
   | SceneTrianglePrimitive
+  | SceneNowWedgeOutlinePrimitive
   | SceneCirclePrimitive
   | SceneAnnularSectorPrimitive
   | SceneTextPrimitive

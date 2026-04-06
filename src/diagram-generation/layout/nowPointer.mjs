@@ -9,6 +9,7 @@
  * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid.
  * - Throws when `spec.timeNow` parses to the civil-day right endpoint (`24:00:00`).
  * - When `nowPointer` is present, `radialLine`, `label`, and `triangle` objects and their numeric fields are required (finite numbers; see spec). Radial **inner** radius is **R_frame** from `spec.centreFrame.frameArcRadius` (not on `radialLine`).
+ * - The Now **triangle** uses `spec.annularBand.annularBandWidth` (same rules as **AnnularBand**): required finite **> 0** so the wedge can reach the annulus outer radius.
  */
 
 import {
@@ -19,6 +20,45 @@ import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import { readRFramePx } from "./centreFrame.mjs";
 import { requireFiniteNumber, requirePlainObject } from "./specRequire.mjs";
+
+/**
+ * @param {{ x: number, y: number }} origin
+ * @param {{ x: number, y: number }} dirUnit
+ * @param {{ x: number, y: number }} circleCenter
+ * @param {number} rCircle
+ * @returns {{ x: number, y: number } | null}
+ */
+function rayCircleForwardIntersect(origin, dirUnit, circleCenter, rCircle) {
+  const vx = origin.x - circleCenter.x;
+  const vy = origin.y - circleCenter.y;
+  const dvd = vx * dirUnit.x + vy * dirUnit.y;
+  const rSq = rCircle * rCircle;
+  const vLenSq = vx * vx + vy * vy;
+  const disc = dvd * dvd - vLenSq + rSq;
+  if (disc < 0 || !Number.isFinite(disc)) return null;
+  const t = -dvd + Math.sqrt(disc);
+  if (!Number.isFinite(t) || t <= 0) return null;
+  return {
+    x: origin.x + t * dirUnit.x,
+    y: origin.y + t * dirUnit.y,
+  };
+}
+
+/**
+ * Signed CCW sweep along the circle centred at **center** from **pFrom** to **pAlongMinor** (minor arc).
+ *
+ * @param {{ x: number, y: number }} center
+ * @param {{ x: number, y: number }} pFrom
+ * @param {{ x: number, y: number }} pTo
+ */
+function minorArcSweepRadCCW(center, pFrom, pTo) {
+  const b1 = Math.atan2(pFrom.y - center.y, pFrom.x - center.x);
+  const b2 = Math.atan2(pTo.y - center.y, pTo.x - center.x);
+  let d = b2 - b1;
+  while (d > Math.PI) d -= 2 * Math.PI;
+  while (d < -Math.PI) d += 2 * Math.PI;
+  return d;
+}
 
 /**
  * @param {Record<string, unknown>} spec
@@ -89,7 +129,23 @@ export function buildNowPointerFromSpec(
     refRadius,
   });
 
-  const triangle = buildNowPointerTriangle(triangleSpec, { refRadius, theta });
+  const annularRaw = requirePlainObject(spec.annularBand, "spec.annularBand");
+  const wK = requireFiniteNumber(
+    annularRaw.annularBandWidth,
+    "spec.annularBand.annularBandWidth",
+  );
+  if (wK <= 0) {
+    throw new Error(
+      "spec.annularBand.annularBandWidth must be a finite number greater than 0",
+    );
+  }
+  const rAnnularOuter = refRadius * (1 + wK);
+
+  const triangle = buildNowPointerTriangle(triangleSpec, {
+    refRadius,
+    theta,
+    rAnnularOuter,
+  });
 
   const nextCore = computeNextTideEventCore(spec, parsedNow);
   const omitLineAndLabel =
@@ -143,53 +199,54 @@ function nowLabelPlacement(branch, theta, mid, opts) {
 }
 
 /**
+ * Now “triangle”: vertex on RefArc toward **O**, two straight sides to **rAnnularOuter**, cap = minor outer arc.
+ *
  * @param {Record<string, unknown>} triangleSpec
- * @param {{ refRadius: number, theta: number }} ctx
- * @returns {{ v1: {x:number,y:number}, v2: {x:number,y:number}, v3: {x:number,y:number} }}
+ * @param {{ refRadius: number, theta: number, rAnnularOuter: number }} ctx
+ * @returns {import('../model/tideDiagramModel.mjs').NowPointerTriangleDiagram}
  */
 function buildNowPointerTriangle(triangleSpec, ctx) {
-  const { refRadius, theta } = ctx;
+  const { refRadius, theta, rAnnularOuter } = ctx;
 
-  const radiusK = requireFiniteNumber(
-    triangleSpec.radius,
-    "spec.nowPointer.triangle.radius",
+  const phi = requireFiniteNumber(
+    triangleSpec.subtendedAngleRad,
+    "spec.nowPointer.triangle.subtendedAngleRad",
   );
-  const baseK = requireFiniteNumber(
-    triangleSpec.baseLen,
-    "spec.nowPointer.triangle.baseLen",
-  );
-  const heightK = requireFiniteNumber(
-    triangleSpec.height,
-    "spec.nowPointer.triangle.height",
-  );
+  if (!(phi > 0 && phi < Math.PI)) {
+    throw new Error(
+      "spec.nowPointer.triangle.subtendedAngleRad must be strictly between 0 and π radians",
+    );
+  }
 
-  const radius = Math.max(0, radiusK) * refRadius;
-  const baseLen = Math.max(0, baseK) * refRadius;
-  const height = Math.max(0, heightK) * refRadius;
+  const R = refRadius;
+  if (!(rAnnularOuter > R)) {
+    throw new Error(
+      "Now triangle requires annulus outer radius greater than RefRadius",
+    );
+  }
 
-  const referencePoint = polar(radius, theta);
+  const center = { x: 0, y: 0 };
+  const vertex = polar(R, theta);
 
-  const halfBase = 0.5 * baseLen;
-  const localPeak = { x: 0, y: 0 };
-  const localBaseLeft = { x: -halfBase, y: -height };
-  const localBaseRight = { x: halfBase, y: -height };
+  // Outward along the time-now radial (into the annulus), not inward toward O:
+  // θ+π±φ/2 hits the outer circle on the far side and inverts the wedge.
+  const alpha1 = theta - 0.5 * phi;
+  const alpha2 = theta + 0.5 * phi;
+  const d1 = { x: Math.cos(alpha1), y: Math.sin(alpha1) };
+  const d2 = { x: Math.cos(alpha2), y: Math.sin(alpha2) };
 
-  const rotate = theta + 0.5 * Math.PI;
-  const cosA = Math.cos(rotate);
-  const sinA = Math.sin(rotate);
+  const p1 = rayCircleForwardIntersect(vertex, d1, center, rAnnularOuter);
+  const p2 = rayCircleForwardIntersect(vertex, d2, center, rAnnularOuter);
+  if (p1 == null || p2 == null) {
+    throw new Error("Now triangle: ray did not meet annulus outer circle");
+  }
 
-  const v1 = {
-    x: referencePoint.x + localPeak.x * cosA - localPeak.y * sinA,
-    y: referencePoint.y + localPeak.x * sinA + localPeak.y * cosA,
+  const outerArcSweepRad = minorArcSweepRadCCW(center, p1, p2);
+
+  return {
+    center,
+    vertex,
+    outerArcStart: p1,
+    outerArcSweepRad,
   };
-  const v2 = {
-    x: referencePoint.x + localBaseLeft.x * cosA - localBaseLeft.y * sinA,
-    y: referencePoint.y + localBaseLeft.x * sinA + localBaseLeft.y * cosA,
-  };
-  const v3 = {
-    x: referencePoint.x + localBaseRight.x * cosA - localBaseRight.y * sinA,
-    y: referencePoint.y + localBaseRight.x * sinA + localBaseRight.y * cosA,
-  };
-
-  return { v1, v2, v3 };
 }

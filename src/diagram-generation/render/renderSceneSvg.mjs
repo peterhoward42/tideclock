@@ -269,6 +269,23 @@ function renderNode(node, styleRuntime, leafName) {
       if (d === "") return "";
       return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
     }
+    case "nowWedgeOutline": {
+      assertLeafScoped(node.kind, leafName);
+      const stroke = requireLeafColor(
+        styleRuntime,
+        leafName,
+        RENDER_DEFAULTS.curveStroke,
+        node.kind,
+      );
+      const dash = strokeDashAttrFragmentFromLeaf(
+        styleRuntime,
+        leafName,
+        node.kind,
+      );
+      const d = nowWedgeOutlineToPathD(node);
+      if (d === "") return "";
+      return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${dash} />`;
+    }
     case "triangle": {
       assertLeafScoped(node.kind, leafName);
       const { a, b, c } = node;
@@ -437,6 +454,19 @@ function annularSectorToPathD(node) {
   const outerSegs = circularArcToPathSegments(center, outerEnd, -sweepRad);
   if (outerSegs === "") return "";
   return `${innerPath} L ${outerEnd.x} ${outerEnd.y} ${outerSegs} Z`;
+}
+
+/**
+ * Now “triangle”: segment vertex→outer start, minor outer arc, close to vertex.
+ *
+ * @param {import('../model/sceneModel.mjs').NowWedgeOutlinePrimitive} node
+ * @returns {string}
+ */
+function nowWedgeOutlineToPathD(node) {
+  const { center, vertex, outerArcStart, outerArcSweepRad } = node;
+  const segs = circularArcToPathSegments(center, outerArcStart, outerArcSweepRad);
+  if (segs === "") return "";
+  return `M ${vertex.x} ${vertex.y} L ${outerArcStart.x} ${outerArcStart.y} ${segs} Z`;
 }
 
 /**

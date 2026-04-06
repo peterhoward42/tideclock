@@ -95,7 +95,9 @@ o  new data fetch paradigm
 
 				o  ref arc filled
 					*  make the time now triangle filled - homogenuous colour
-					o  move it radially inward on top of tick marks
+					*  move it radially inward on top of tick marks
+					*  experiment with making a cheese segment
+					o  filled or not filled?
 					o  maybe smaller
 					o  maybe subtle shimmer
 					o  tick len tune

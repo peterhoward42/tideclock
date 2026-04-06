@@ -105,13 +105,22 @@
  *   timePointer: TideTimePointerSpec,
  * }} TideMarkDiagram
  *
+ * Now “triangle” in diagram space: wedge tip on RefArc; maps to scene kind `nowWedgeOutline`.
+ *
+ * @typedef {{
+ *   center: DiagramPoint,
+ *   vertex: DiagramPoint,
+ *   outerArcStart: DiagramPoint,
+ *   outerArcSweepRad: number,
+ * }} NowPointerTriangleDiagram
+ *
  * @typedef {{
  *   timeHours: number,
  *   theta: number,
  *   nowLabelBranch: 'A' | 'B',
  *   radialLine: DiagramLineSeg | null,
  *   nowLabel: TideLabelTextInst | null,
- *   triangle?: { v1: DiagramPoint, v2: DiagramPoint, v3: DiagramPoint },
+ *   triangle?: NowPointerTriangleDiagram,
  * }} NowPointerDiagram
  *
  * @typedef {{

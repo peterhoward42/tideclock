@@ -30,7 +30,7 @@ and layout submodules).
 - `**contentBounds`** — **{ left, right, above, below }** as in **Content bounds**.
 - `**waitArc`** — object with finite `**radius**` (**k·R**). If **max(0, radius)·RefRadius** is **0**, the wait arc is omitted without evaluating next-tide logic. Otherwise `**arrow`** is required: finite `**lengthK**`, `**widthK**`, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a **boolean**.
 - `**tideMarks`** — if absent, or `**markers**` missing or empty, there are no tide marks. If `**markers**` is non-empty, these finite numbers are required on `**tideMarks**`: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. At least one marker row must yield a usable time after parsing (otherwise generation throws).
-- `**nowPointer**` / `**nextPointer**` — if present, use nested objects with the finite fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks): **now** — `**radialLine**`, `**label**`, `**triangle**`; **next** — `**radialLine**` only. **R_frame** from `**centreFrame.frameArcRadius**` supplies the Now radial **inner** radius; the Next filled-circle radius is **σ·R_frame** for fixed **σ** in **§NextPointer** (see **CentreFrame**, **NowPointer**, **NextPointer**).
+- `**nowPointer**` / `**nextPointer**` — if present, use nested objects with the finite fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks): **now** — `**radialLine**`, `**label**`, `**triangle**`; **next** — `**radialLine**` only. On `**nowPointer.triangle**`, `**subtendedAngleRad**` is **required**: a **literal** angle in **radians** (not a **k·R** length); see **§NowPointer**. **R_frame** from `**centreFrame.frameArcRadius**` supplies the Now radial **inner** radius; the Next filled-circle radius is **σ·R_frame** for fixed **σ** in **§NextPointer** (see **CentreFrame**, **NowPointer**, **NextPointer**).
 - `**timeDelta`** — **required** plain object; finite `**x**`, `**y**`, and `**fontHeight**` (**k·R** per **§Sizing**). **`x`** is the signed offset from **X = 0** to the **left edge** of the composed **TimeDelta** text line; **`y`** is the signed offset from **Y = 0** to the shared text **baseline**. Supplies **TimeDelta** layout only (see **TimeDelta**).
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius**` (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc and the **NowPointer** radial inner endpoint (**§CentreFrame**). Uses top-level `**refRadius**` and `**sweepRad**` (required above).
 - `**annularBand**` — if **absent**, **AnnularBand** is omitted from the scene. If **present**, `**annularBandWidth**` is **required**: a finite number interpreted per **§Sizing** as **k·R**, i.e. **AnnularBandWidth·RefRadius**, the **radial thickness** of the band (see **AnnularBand**). If **AnnularBandWidth ≤ 0**, **AnnularBand** is omitted without error.
@@ -170,7 +170,7 @@ of travel.”
   - Arc segments (for **RefArc** and for **CentreFrame**)
   - Line segments (for radial segments and tick marks)
   - Text elements
-  - Non-filled triangle outlines (introduced by **NowPointer**)
+  - Stroke-only closed paths for the Now **triangle** (two straight segments and a minor arc on the annulus outer circle; **NowPointer**)
   - Filled triangles and filled circles (introduced by **TideMarks.TimePointer**
   and by **NextPointer**)
   - One **closed annular sector** path (**fill** and **stroke** on the composite
@@ -235,7 +235,7 @@ model em-boxes or similar font metrics.
 
 - **Now radial line** — one radial segment on the time-now ray.
 - **Now label** — one **TextElement** with constant text `now`.
-- **Now triangle** — one non-filled triangle (stroke only; no fill region).
+- **Now triangle** — one stroke-only closed outline (no fill): geometrically a wedge whose **vertex** lies on the **RefArc** at **θ_now**; the wedge **opens outward** along the time-now ray (**away from O**, into **AnnularBand**). Two **equal** straight sides diverge from that outward bisector by **±½·subtendedAngleRad** and meet the **outer** circle of **AnnularBand**; the third boundary is the **minor circular arc** on that outer circle between the two outer endpoints (same centre **O** as the RefArc).
 
 ### Time association
 
@@ -290,21 +290,18 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
 
 **Now triangle (non-filled)**
 
-- **Now triangle (non-filled)**
-  - Triangle is associated to **θ_now** and is rendered as a stroked outline.
-  - Define inputs:
-    - **NowPointerTriangleRadius** — radius multiplier for the **peak/reference point**,
-    - **NowPointerTriangleBaseLen** — base **length** multiplier,
-    - **NowPointerTriangleHeight** — **height** multiplier from base to peak.
-  - Local shape:
-    - In local triangle coordinates, the **peak** is at **(0, 0)**.
-    - The **base** is horizontal below the peak:
-      - left base vertex at **(−½·NowPointerTriangleBaseLen·R, −NowPointerTriangleHeight·R)**,
-      - right base vertex at **(+½·NowPointerTriangleBaseLen·R, −NowPointerTriangleHeight·R)**.
-  - Placement and orientation:
-    - Let **P_ref = polar(NowPointerTriangleRadius·R, θ_now)** be the **reference point** (the peak) on the time-now radial line.
-    - Let the triangle be rotated rigidly about **P_ref** by angle **θ_now + π/2**.
-    - The required triangle element is the image of the three local vertices under this rotation+translation, with **fill disabled** (stroke-only primitive in scene terms).
+- **Now triangle (non-filled)** is still named “triangle” in the input and scene grouping, but its geometry is the **annular wedge** above.
+  - It is tied to **θ_now** and rendered as a **single stroked closed path** (**fill** off).
+  - **Required** diagram input on `**nowPointer.triangle**`:
+    - `**subtendedAngleRad**` — **literal** angle in **radians** between the two straight sides at the vertex (**not** a **k·R** value). Must satisfy **0 < subtendedAngleRad < π**.
+  - **Radii** (model units):
+    - **r_ref = RefRadius** — vertex **V = polar(r_ref, θ_now)** lies on the RefArc.
+    - **r_ann_outer = RefRadius + AnnularBandWidth·RefRadius** with **AnnularBandWidth** from `**annularBand.annularBandWidth**` (**§AnnularBand**, **§Sizing**). The straight sides end where they meet the circle of radius **r_ann_outer** about **O**.
+  - **Construction**:
+    - Let **û_rad** be the unit vector from **O** **through V** (**outward** along the time-now ray; same **û_rad** as **§NowPointer** shared quantities). The wedge bisector from **V** into the band follows **û_rad**. The two rays from **V** that bound the wedge are **û_rad** rotated by **±½·subtendedAngleRad** in the diagram plane (CCW positive, **§Polar**), i.e. directions at polar angles **θ_now ± ½·subtendedAngleRad**.
+    - Let **P_a** and **P_b** be the first forward intersections of those rays with the circle **|P − O| = r_ann_outer**.
+    - The outline is **V → P_a → (minor arc along that circle from P_a to P_b) → V**, with **fill disabled** in scene terms (closed path, stroke only).
+  - **AnnularBand** must be present with **annularBandWidth > 0** whenever **NowPointer** is used, so **r_ann_outer > r_ref** holds (same rule as **§Strict diagram input** for **annularBand**).
 
 ## NextPointer
 

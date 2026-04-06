@@ -41,6 +41,17 @@
  *   outline?: boolean,
  * }} TrianglePrimitive
  *
+ * Stroke-only closed path for the Now “triangle”: vertex on RefArc, two segments to the annulus
+ * outer circle, cap = minor arc on that circle. See docs/specs/tide-diagram.md §NowPointer.
+ *
+ * @typedef {{
+ *   kind: 'nowWedgeOutline',
+ *   center: Point,
+ *   vertex: Point,
+ *   outerArcStart: Point,
+ *   outerArcSweepRad: number,
+ * }} NowWedgeOutlinePrimitive
+ *
  * @typedef {{
  *   kind: 'circle',
  *   center: Point,
@@ -74,7 +85,7 @@
  *   children: SceneNode[],
  * }} GroupNode
  *
- * @typedef { LinePrimitive | ArcPrimitive | TrianglePrimitive | CirclePrimitive | AnnularSectorPrimitive | TextPrimitive | GroupNode } SceneNode
+ * @typedef { LinePrimitive | ArcPrimitive | TrianglePrimitive | NowWedgeOutlinePrimitive | CirclePrimitive | AnnularSectorPrimitive | TextPrimitive | GroupNode } SceneNode
  *
  * @typedef {{
  *   title: string,
@@ -188,6 +199,27 @@ export function triangle(a, b, c, opts) {
   const node = /** @type {TrianglePrimitive} */ ({ kind: "triangle", a, b, c });
   if (opts?.outline === true) node.outline = true;
   return node;
+}
+
+/**
+ * @param {Point} center — RefArc centre (diagram space)
+ * @param {Point} vertex — on RefArc, wedge tip toward **center**
+ * @param {Point} outerArcStart — one intersection of a wedge ray with the annulus outer circle
+ * @param {number} outerArcSweepRad — signed CCW sweep on the outer circle to the other ray intersection (minor arc)
+ * @returns {NowWedgeOutlinePrimitive}
+ */
+export function nowWedgeOutline(center, vertex, outerArcStart, outerArcSweepRad) {
+  assertPoint("center", center);
+  assertPoint("vertex", vertex);
+  assertPoint("outerArcStart", outerArcStart);
+  assertFiniteNumber("outerArcSweepRad", outerArcSweepRad);
+  return {
+    kind: "nowWedgeOutline",
+    center,
+    vertex,
+    outerArcStart,
+    outerArcSweepRad,
+  };
 }
 
 /**
