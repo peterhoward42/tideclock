@@ -290,7 +290,11 @@ function renderNode(node, styleRuntime, leafName) {
       );
       const d = nowWedgeOutlineToPathD(node);
       if (d === "") return "";
-      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
+      const nowTriClass =
+        leafName === "NowTriangle"
+          ? ' class="home-now-triangle-pulse"'
+          : "";
+      return `    <path d="${escapeAttr(d)}"${nowTriClass} fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
     }
     case "triangle": {
       assertLeafScoped(node.kind, leafName);

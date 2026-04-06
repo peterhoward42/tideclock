@@ -307,6 +307,25 @@
     }
   }
 
+  /*
+   * Time-now pointer wedge (rendered as path.home-now-triangle-pulse): 50%→100% opacity in 600ms, full cycle 1s.
+   */
+  @keyframes home-now-triangle-pulse {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    60% {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .home-instrument :global(svg path.home-now-triangle-pulse) {
+      animation: home-now-triangle-pulse 1s linear infinite;
+    }
+  }
+
   .home-panel .muted {
     color: #dbeafe;
   }
