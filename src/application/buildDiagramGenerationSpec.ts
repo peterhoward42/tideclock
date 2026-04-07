@@ -132,9 +132,9 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   timeNowLabel: { x: 1.05, fontHeight: 0.04, y: 1.2 },
   centreFrame: { frameArcRadius: 0.30 },
   timeDelta: {
-    leftOfOrigin: 1,
-    belowOrigin: 0.1,
-    fontHeight: 0.05,
+    leftOfOrigin: 1.1,
+    belowOrigin: -0.03,
+    fontHeight: 0.04,
     town: 'Unset',
     tidePhasePair: 'out-low',
   },

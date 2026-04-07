@@ -47,7 +47,7 @@ export const STATIC_STYLE_MODEL = {
     { name: "RefArc", styleName: "grey8" },
     { name: "TickMark", styleName: "grey8" },
     { name: "HeightLabel", styleName: "emph" },
-    { name: "TimeDeltaLine", styleName: "grey6" },
+    { name: "TimeDeltaLine", styleName: "greyA" },
     { name: "NextPointer", styleName: "emph" },
     { name: "WaitArc", styleName: "grey8" },
     { name: "TimePointer", styleName: "emph" },

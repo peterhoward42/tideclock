@@ -98,7 +98,8 @@ o  new data fetch paradigm
 
 
 				o  rationalise header and messages
-					o  one sentence
+					*  one sentence
+					*  position, size and style
 					o  deriving if high/out or opposite
 
 
@@ -110,6 +111,8 @@ fart
 				o  put opacity throb on some time now artefacts
 				o  now label "now" should be positioned to be justified just
 				   inside the wait arc radius
+				o  try making the boss match the annular arc 
+				o  tune line thicknesses and font for platforms
 				o  other screens
 				o  optimise svg for mobile/table/desktop
 				o  branding
