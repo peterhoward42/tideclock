@@ -141,17 +141,14 @@
         timeNowDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
         townName,
-        timeDeltaTidePhasePair: "out-low",
       });
       const derived = deriveNextTideSemantics(baseSpec);
-      const tidePhasePair = derived.nextTide?.kind === "High" ? "in-high" : "out-low";
       const spec = buildDiagramGenerationSpec({
         extremesAtLocation: extremes,
         timeNow,
         timeNowDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
         townName,
-        timeDeltaTidePhasePair: tidePhasePair,
         derivedSemantics: { nextTide: derived.nextTide },
       });
       const { scene, styleRuntime } = collaborator.generate(spec);

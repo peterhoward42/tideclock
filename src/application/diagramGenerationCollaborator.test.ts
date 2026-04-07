@@ -20,7 +20,6 @@ describe('createDiagramGenerationCollaborator', () => {
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
     });
     const output = collaborator.generate(spec);
 
@@ -38,7 +37,6 @@ describe('createDiagramGenerationCollaborator', () => {
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
     });
     const { diagram, scene } = collaborator.generate(spec);
     expect(diagram.annularBand.rInner).toBe(diagram.refArc.refRadius);
@@ -59,7 +57,6 @@ describe('createDiagramGenerationCollaborator', () => {
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
     });
     const { annularBand: _omit, ...rest } = base;
     expect(() => collaborator.generate(rest)).toThrow(/annularBand/);
@@ -73,7 +70,6 @@ describe('createDiagramGenerationCollaborator', () => {
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
     });
     const spec = { ...base, annularBand: { annularBandWidth: 0 } };
     expect(() => collaborator.generate(spec)).toThrow(/greater than 0/);
@@ -87,7 +83,6 @@ describe('createDiagramGenerationCollaborator', () => {
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
     });
     const spec = { ...base, annularBand: {} };
     expect(() => collaborator.generate(spec)).toThrow(/annularBandWidth/);

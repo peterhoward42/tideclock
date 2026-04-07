@@ -36,8 +36,6 @@ export type BuildDiagramGenerationSpecParams = BuildDiagramGenerationSpecTimeInp
   readonly derivedSemantics?: Pick<DerivedNextTideSemantics, 'nextTide'>;
   /** Display town name for TimeDelta sentence. */
   readonly townName: string;
-  /** Explicit phase pair used by TimeDelta sentence copy. */
-  readonly timeDeltaTidePhasePair: 'out-low' | 'in-high';
 };
 
 /** One row in `tideMarks.markers` consumed by diagram-generation. */
@@ -167,6 +165,60 @@ function tideMarksFromExtremes(
   };
 }
 
+type TidePhasePair = 'out-low' | 'in-high';
+
+function canonicalTimeToSeconds(time: string): number {
+  const [hh, mm, ss] = time.split(':').map((part) => Number(part));
+  return hh * 3600 + mm * 60 + ss;
+}
+
+function oppositeTidePhasePair(pair: TidePhasePair): TidePhasePair {
+  return pair === 'in-high' ? 'out-low' : 'in-high';
+}
+
+function phasePairFromSegmentHeightDelta(
+  earlier: TideExtreme,
+  later: TideExtreme,
+): TidePhasePair {
+  return later.heightMetres > earlier.heightMetres ? 'in-high' : 'out-low';
+}
+
+export function deriveTimeDeltaTidePhasePair(params: {
+  readonly extremes: readonly TideExtreme[];
+  readonly timeNow: string;
+  readonly utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime;
+}): TidePhasePair {
+  const { extremes, timeNow, utcIsoToLocalCanonicalTime } = params;
+  if (extremes.length === 0) {
+    throw new Error('deriveTimeDeltaTidePhasePair requires at least one tide extreme');
+  }
+
+  const anchorSegmentPair: TidePhasePair =
+    extremes.length >= 2 ? phasePairFromSegmentHeightDelta(extremes[0], extremes[1]) : 'out-low';
+  if (extremes.length === 1) {
+    return anchorSegmentPair;
+  }
+
+  const markerTimes = extremes.map((e) => canonicalTimeToSeconds(utcIsoToLocalCanonicalTime(e.timeUtc)));
+  const nowSeconds = canonicalTimeToSeconds(timeNow);
+
+  if (nowSeconds < markerTimes[0]) {
+    return oppositeTidePhasePair(anchorSegmentPair);
+  }
+
+  for (let i = 0; i < markerTimes.length - 1; i += 1) {
+    if (nowSeconds < markerTimes[i + 1]) {
+      return phasePairFromSegmentHeightDelta(extremes[i], extremes[i + 1]);
+    }
+  }
+
+  const finalDefinedSegmentPair = phasePairFromSegmentHeightDelta(
+    extremes[extremes.length - 2],
+    extremes[extremes.length - 1],
+  );
+  return oppositeTidePhasePair(finalDefinedSegmentPair);
+}
+
 /** Local civil clock from UTC instant using the runtime timezone (`Date` local fields). */
 export function utcIsoToLocalCanonicalTimeLocal(iso: string): string {
   const d = new Date(iso);
@@ -199,7 +251,6 @@ export function buildDiagramGenerationSpec(
     utcIsoToLocalCanonicalTime,
     derivedSemantics,
     townName,
-    timeDeltaTidePhasePair,
   } = params;
   if (extremesAtLocation.extremes.length === 0) {
     throw new Error('buildDiagramGenerationSpec requires at least one tide extreme');
@@ -222,7 +273,11 @@ export function buildDiagramGenerationSpec(
     timeDelta: {
       ...HOME_TIDE_DIAGRAM_LAYOUT_BASE.timeDelta,
       town: townName,
-      tidePhasePair: timeDeltaTidePhasePair,
+      tidePhasePair: deriveTimeDeltaTidePhasePair({
+        extremes: extremesAtLocation.extremes,
+        timeNow,
+        utcIsoToLocalCanonicalTime,
+      }),
     },
     tideMarks,
   };

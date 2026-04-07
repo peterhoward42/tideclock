@@ -101,6 +101,8 @@ o  new data fetch paradigm
 					*  one sentence
 					*  position, size and style
 					o  deriving if high/out or opposite
+						o  basics
+						o  make sure it has ditched redundant / orphaned stuff
 
 
 				o  improve change location UX
@@ -108,10 +110,14 @@ o  new data fetch paradigm
 				o  loop back to fix no more times today
 fart
 				o  say the date and day eg Wednesday
+				o  scrape diag spec for optional / if present errors
+					o  fix spec
+					o  clean implementation
 				o  put opacity throb on some time now artefacts
 				o  now label "now" should be positioned to be justified just
 				   inside the wait arc radius
 				o  try making the boss match the annular arc 
+				o  come back to alternating in/out edge cases 
 				o  tune line thicknesses and font for platforms
 				o  other screens
 				o  optimise svg for mobile/table/desktop

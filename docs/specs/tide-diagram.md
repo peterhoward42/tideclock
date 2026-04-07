@@ -430,6 +430,12 @@ in `**buildDiagramGenerationSpec`**):
   - Copy format: `**<town> · Tide <going out|coming in> · <Low tide|High tide> in <Hh Mm> (<HH:MM>)`**
   - `**town**` comes from `**timeDelta.town**`.
   - Direction/event pair comes from `**timeDelta.tidePhasePair**` (`"out-low"` → `going out` + `Low tide`; `"in-high"` → `coming in` + `High tide`).
+  - Host derivation policy for `**timeDelta.tidePhasePair**`:
+    - Use adjacent retained tide extrema as ordered in civil-day time.
+    - For a fully defined segment `**[event_i, event_{i+1})`**, compare heights:
+      - if `**height_{i+1} > height_i`**, use `**"in-high"`**;
+      - if `**height_{i+1} < height_i`**, use `**"out-low"`**.
+    - For `**timeNow`** before the first retained event or after the last retained event, treat those as half-defined edge segments and resolve by alternating opposite to the nearest fully defined segment.
   - `<Hh Mm>` and `<HH:MM>` are derived from the next marker at or after `**timeNow`** on the same civil day.
 - **Empty civil day (no next marker)** — one **TextElement** only (not the
 three-fragment sentence above):

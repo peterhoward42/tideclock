@@ -3,6 +3,7 @@ import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import {
   buildDiagramGenerationSpec,
+  deriveTimeDeltaTidePhasePair,
   formatTideHeightMetresForDiagram,
   type HomeDiagramTideMarks,
   utcIsoToLocalCanonicalTimeUtc,
@@ -44,7 +45,6 @@ describe('buildDiagramGenerationSpec', () => {
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
     });
     const markers = (spec.tideMarks as HomeDiagramTideMarks).markers;
     expect(markers).toEqual(expectedFixtureMarkers);
@@ -60,7 +60,6 @@ describe('buildDiagramGenerationSpec', () => {
         timeNowDatePrefix: FIXTURE_DATE_PREFIX,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
         townName: 'Lymington',
-        timeDeltaTidePhasePair: 'out-low',
       }),
     ).toThrow(/at least one tide extreme/);
   });
@@ -72,7 +71,6 @@ describe('buildDiagramGenerationSpec', () => {
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
     });
     const { nextTide } = deriveNextTideSemantics(base);
     const withSemantic = buildDiagramGenerationSpec({
@@ -81,7 +79,6 @@ describe('buildDiagramGenerationSpec', () => {
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
       derivedSemantics: { nextTide },
     });
     expect(withSemantic.semantic).toEqual({ nextTide });
@@ -97,7 +94,6 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
     });
     const baseline = collaborator.generate(baseSpec);
     const { nextTide } = deriveNextTideSemantics(baseSpec);
@@ -107,7 +103,6 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
       derivedSemantics: { nextTide },
     });
     expect(collaborator.generate(injected).diagram).toEqual(baseline.diagram);
@@ -121,7 +116,6 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
     });
     const spec = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
@@ -129,7 +123,6 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
       derivedSemantics: deriveNextTideSemantics(baseSpec),
     });
     expect(collaborator.generate(spec).diagram).toMatchSnapshot();
@@ -143,8 +136,45 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
       timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
-      timeDeltaTidePhasePair: 'out-low',
     });
     expect(collaborator.generate(spec).scene).toMatchSnapshot();
+  });
+});
+
+describe('deriveTimeDeltaTidePhasePair', () => {
+  const extremes = fixtureExtremesAtLocation().extremes;
+
+  it('uses segment slope for times between adjacent extremes', () => {
+    expect(
+      deriveTimeDeltaTidePhasePair({
+        extremes,
+        timeNow: '07:00:00',
+        utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+      }),
+    ).toBe('in-high');
+    expect(
+      deriveTimeDeltaTidePhasePair({
+        extremes,
+        timeNow: '14:00:00',
+        utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+      }),
+    ).toBe('out-low');
+  });
+
+  it('resolves before-first and after-last as alternating half segments', () => {
+    expect(
+      deriveTimeDeltaTidePhasePair({
+        extremes,
+        timeNow: '03:00:00',
+        utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+      }),
+    ).toBe('out-low');
+    expect(
+      deriveTimeDeltaTidePhasePair({
+        extremes,
+        timeNow: '23:40:00',
+        utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+      }),
+    ).toBe('out-low');
   });
 });
