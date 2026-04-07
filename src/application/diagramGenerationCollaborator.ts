@@ -64,7 +64,7 @@ type DiagramLineSeg = {
 };
 
 type TimeDeltaDiagram = {
-  readonly timeDelta: DiagramTextInst[];
+  readonly timeDeltaLine: DiagramTextInst | null;
   readonly timeDeltaEmptyMessage: DiagramTextInst | null;
 };
 

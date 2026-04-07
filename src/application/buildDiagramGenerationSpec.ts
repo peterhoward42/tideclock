@@ -34,6 +34,10 @@ export type BuildDiagramGenerationSpecParams = BuildDiagramGenerationSpecTimeInp
    * same conceptual spec). When omitted, layout derives next tide from `tideMarks` as usual.
    */
   readonly derivedSemantics?: Pick<DerivedNextTideSemantics, 'nextTide'>;
+  /** Display town name for TimeDelta sentence. */
+  readonly townName: string;
+  /** Explicit phase pair used by TimeDelta sentence copy. */
+  readonly timeDeltaTidePhasePair: 'out-low' | 'in-high';
 };
 
 /** One row in `tideMarks.markers` consumed by diagram-generation. */
@@ -88,7 +92,13 @@ type HomeTideDiagramLayoutBase = {
     readonly y: number;
   };
   readonly centreFrame: { readonly frameArcRadius: number };
-  readonly timeDelta: { readonly x: number; readonly y: number; readonly fontHeight: number };
+  readonly timeDelta: {
+    readonly leftOfOrigin: number;
+    readonly belowOrigin: number;
+    readonly fontHeight: number;
+    readonly town: string;
+    readonly tidePhasePair: 'out-low' | 'in-high';
+  };
   readonly annularBand: { readonly annularBandWidth: number };
 };
 
@@ -121,7 +131,13 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   },
   timeNowLabel: { x: 1.05, fontHeight: 0.04, y: 1.2 },
   centreFrame: { frameArcRadius: 0.30 },
-  timeDelta: { x: -1, y: -0.1, fontHeight: 0.05 },
+  timeDelta: {
+    leftOfOrigin: 1,
+    belowOrigin: 0.1,
+    fontHeight: 0.05,
+    town: 'Unset',
+    tidePhasePair: 'out-low',
+  },
   annularBand: { annularBandWidth: 0.05 },
 };
 
@@ -176,7 +192,15 @@ export function utcIsoToLocalCanonicalTimeUtc(iso: string): string {
 export function buildDiagramGenerationSpec(
   params: BuildDiagramGenerationSpecParams,
 ): DiagramGenerationSpec {
-  const { extremesAtLocation, timeNow, timeNowDatePrefix, utcIsoToLocalCanonicalTime, derivedSemantics } = params;
+  const {
+    extremesAtLocation,
+    timeNow,
+    timeNowDatePrefix,
+    utcIsoToLocalCanonicalTime,
+    derivedSemantics,
+    townName,
+    timeDeltaTidePhasePair,
+  } = params;
   if (extremesAtLocation.extremes.length === 0) {
     throw new Error('buildDiagramGenerationSpec requires at least one tide extreme');
   }
@@ -195,6 +219,11 @@ export function buildDiagramGenerationSpec(
     ...HOME_TIDE_DIAGRAM_LAYOUT_BASE,
     timeNow,
     timeNowDatePrefix,
+    timeDelta: {
+      ...HOME_TIDE_DIAGRAM_LAYOUT_BASE.timeDelta,
+      town: townName,
+      tidePhasePair: timeDeltaTidePhasePair,
+    },
     tideMarks,
   };
 

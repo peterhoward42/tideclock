@@ -59,7 +59,7 @@ export type DiagramNextTideEvent = {
   readonly kind: string;
   /**
    * Forward interval from current `timeNow` to this event (`formatIntervalHoursMinutes` in tideEvents).
-   * **TimeDelta** uses this after the fixed glue segment.
+   * **TimeDelta** uses this in the composed sentence line.
    */
   readonly timeDeltaIntervalText: string;
 };

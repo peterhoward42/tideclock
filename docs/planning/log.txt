@@ -96,19 +96,15 @@ o  new data fetch paradigm
 				*  does contentBounds have any active role?
 				*  move day of week to be part of time now
 
-				o  update typescript skills:
-					o  fix yaml
-					o  say unless asked for explic - all func args mandatory. No
-					default or fallback behaviours.
 
 				o  rationalise header and messages
-					o  bits
-						o  Tides today in Looe
-						o  Tue 7 Apr
-						o  Right now, it's going out 
-						o  Low water in 2 hours, 20 minutes - at 8:19
+					o  one sentence
+					o  deriving if high/out or opposite
+
 
 				o  improve change location UX
+				o  make the wait arrow fat
+				o  loop back to fix no more times today
 fart
 				o  say the date and day eg Wednesday
 				o  put opacity throb on some time now artefacts

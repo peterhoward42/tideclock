@@ -24,9 +24,10 @@
   interface Props {
     readonly tideLoadState: TidePredictionsLoadState;
     readonly tideExtremes: TideExtremesAtLocation | undefined;
+    readonly townName: string;
   }
 
-  let { tideLoadState, tideExtremes }: Props = $props();
+  let { tideLoadState, tideExtremes, townName }: Props = $props();
 
   const collaborator: DiagramGenerationCollaborator = createDiagramGenerationCollaborator();
 
@@ -139,13 +140,18 @@
         timeNow,
         timeNowDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
+        townName,
+        timeDeltaTidePhasePair: "out-low",
       });
       const derived = deriveNextTideSemantics(baseSpec);
+      const tidePhasePair = derived.nextTide?.kind === "High" ? "in-high" : "out-low";
       const spec = buildDiagramGenerationSpec({
         extremesAtLocation: extremes,
         timeNow,
         timeNowDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
+        townName,
+        timeDeltaTidePhasePair: tidePhasePair,
         derivedSemantics: { nextTide: derived.nextTide },
       });
       const { scene, styleRuntime } = collaborator.generate(spec);

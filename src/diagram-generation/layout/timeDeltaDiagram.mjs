@@ -5,51 +5,39 @@
  * Policies for {@link buildTimeDeltaDiagramFromSpec}:
  * - Throws when `spec.timeDelta` is missing or not a plain object.
  * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
- * - Throws when `timeDelta.x`, `timeDelta.y`, and `timeDelta.fontHeight` are not finite numbers.
+ * - Throws when `timeDelta.leftOfOrigin`, `timeDelta.belowOrigin`, and `timeDelta.fontHeight` are not finite numbers.
  *
  * {@link layoutTimeDeltaDiagram} is pure geometry + text placement from a resolved {@link TimeDeltaLayout}; it does not read the spec.
  */
 
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import { computeNextTideEventFromSpec } from "../model/tideEvents.mjs";
-import { requirePlainObject } from "./specRequire.mjs";
-
-/** Fixed substring between event-kind text and interval text on the TimeDelta line (spec literal; no padding spaces). */
-export const TIME_DELTA_GLUE = "water in";
+import { requirePlainObject, requireString } from "./specRequire.mjs";
 
 /** Fixed copy when no tide remains on the civil day (docs/specs/tide-diagram.md §TimeDelta). */
 export const TIME_DELTA_EMPTY_MESSAGE = "No further tides today";
-
-const CHAR_WIDTH_FACTOR = 0.6;
 
 /**
  * Layout input for the TimeDelta strip (RefRadius-normalised `x`, `y`, and `fontHeight`).
  *
  * @typedef {object} TimeDeltaLayoutCountdown
  * @property {'countdown'} kind
- * @property {string} eventKind
+ * @property {string} town
+ * @property {'out-low' | 'in-high'} tidePhasePair
+ * @property {string} nextEventTimeHhmm
  * @property {string} interval
- * @property {number} x
- * @property {number} y
+ * @property {number} leftOfOrigin
+ * @property {number} belowOrigin
  * @property {number} fontHeight
  *
  * @typedef {object} TimeDeltaLayoutEmpty
  * @property {'empty'} kind
- * @property {number} x
- * @property {number} y
+ * @property {number} leftOfOrigin
+ * @property {number} belowOrigin
  * @property {number} fontHeight
  *
  * @typedef {TimeDeltaLayoutCountdown | TimeDeltaLayoutEmpty} TimeDeltaLayout
  */
-
-/**
- * Approximate horizontal advance per character for monospace placement (scene preview uses monospace).
- * @param {number} fontSize
- * @param {number} charCount
- */
-function textWidth(fontSize, charCount) {
-  return CHAR_WIDTH_FACTOR * fontSize * charCount;
-}
 
 /**
  * @param {TimeDeltaLayout} timeDeltaLayout
@@ -58,40 +46,28 @@ function textWidth(fontSize, charCount) {
  */
 export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
   const R = refRadius;
-  /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst[]} */
-  const timeDelta = [];
+  /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst | null} */
+  let timeDeltaLine = null;
   /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst | null} */
   let timeDeltaEmptyMessage = null;
 
   if (timeDeltaLayout.kind === "countdown") {
     const tdFont = timeDeltaLayout.fontHeight * R;
-    const tdY = timeDeltaLayout.y * R;
-    const leftEdge = timeDeltaLayout.x * R;
-    const parts = [
-      { content: timeDeltaLayout.eventKind },
-      { content: TIME_DELTA_GLUE },
-      { content: timeDeltaLayout.interval },
-    ];
-    const widths = parts.map((p) => textWidth(tdFont, p.content.length));
-    const spaceW = textWidth(tdFont, 1);
-    let x = leftEdge;
-    for (let i = 0; i < parts.length; i += 1) {
-      const w = widths[i];
-      timeDelta.push({
-        content: parts[i].content,
-        fontSize: tdFont,
-        anchor: { x, y: tdY },
-        hAlign: "left",
-      });
-      x += w;
-      if (i < parts.length - 1) {
-        x += spaceW;
-      }
-    }
+    const tdY = 0 - timeDeltaLayout.belowOrigin * R;
+    const leftEdge = 0 - timeDeltaLayout.leftOfOrigin * R;
+    const isOutLow = timeDeltaLayout.tidePhasePair === "out-low";
+    const direction = isOutLow ? "going out" : "coming in";
+    const eventLabel = isOutLow ? "Low tide" : "High tide";
+    timeDeltaLine = {
+      content: `${timeDeltaLayout.town} · Tide ${direction} · ${eventLabel} in ${timeDeltaLayout.interval} (${timeDeltaLayout.nextEventTimeHhmm})`,
+      fontSize: tdFont,
+      anchor: { x: leftEdge, y: tdY },
+      hAlign: "left",
+    };
   } else {
     const tdFont = timeDeltaLayout.fontHeight * R;
-    const tdY = timeDeltaLayout.y * R;
-    const leftEdge = timeDeltaLayout.x * R;
+    const tdY = 0 - timeDeltaLayout.belowOrigin * R;
+    const leftEdge = 0 - timeDeltaLayout.leftOfOrigin * R;
     timeDeltaEmptyMessage = {
       content: TIME_DELTA_EMPTY_MESSAGE,
       fontSize: tdFont,
@@ -100,7 +76,7 @@ export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
     };
   }
 
-  return { timeDelta, timeDeltaEmptyMessage };
+  return { timeDeltaLine, timeDeltaEmptyMessage };
 }
 
 /**
@@ -117,32 +93,49 @@ export function buildTimeDeltaDiagramFromSpec(spec, refRadius) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
 
-  const tdX = o.x;
-  const tdY = o.y;
+  const tdLeft = o.leftOfOrigin;
+  const tdBelow = o.belowOrigin;
   const tdFh = o.fontHeight;
+  const tdTown = requireString(o.town, "spec.timeDelta.town");
+  const tdTidePhasePair = requireString(
+    o.tidePhasePair,
+    "spec.timeDelta.tidePhasePair",
+  );
+  if (tdTidePhasePair !== "out-low" && tdTidePhasePair !== "in-high") {
+    throw new Error(
+      'spec.timeDelta.tidePhasePair must be "out-low" or "in-high"',
+    );
+  }
   if (
-    typeof tdX !== "number" ||
-    typeof tdY !== "number" ||
+    typeof tdLeft !== "number" ||
+    typeof tdBelow !== "number" ||
     typeof tdFh !== "number" ||
-    !Number.isFinite(tdX) ||
-    !Number.isFinite(tdY) ||
+    !Number.isFinite(tdLeft) ||
+    !Number.isFinite(tdBelow) ||
     !Number.isFinite(tdFh)
   ) {
     throw new Error(
-      "spec.timeDelta requires finite numbers x, y, and fontHeight (RefRadius multiples)",
+      "spec.timeDelta requires finite numbers leftOfOrigin, belowOrigin, and fontHeight (RefRadius multiples)",
     );
   }
 
   const nextEvent = computeNextTideEventFromSpec(spec, parsedNow);
   const timeDeltaLayout =
     nextEvent == null
-      ? { kind: "empty", x: tdX, y: tdY, fontHeight: tdFh }
+      ? {
+          kind: "empty",
+          leftOfOrigin: tdLeft,
+          belowOrigin: tdBelow,
+          fontHeight: tdFh,
+        }
       : {
           kind: "countdown",
-          eventKind: nextEvent.kind,
+          town: tdTown,
+          tidePhasePair: tdTidePhasePair,
+          nextEventTimeHhmm: `${String(Math.floor(nextEvent.seconds / 3600)).padStart(2, "0")}:${String(Math.floor((nextEvent.seconds % 3600) / 60)).padStart(2, "0")}`,
           interval: nextEvent.intervalText,
-          x: tdX,
-          y: tdY,
+          leftOfOrigin: tdLeft,
+          belowOrigin: tdBelow,
           fontHeight: tdFh,
         };
 

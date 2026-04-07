@@ -75,7 +75,7 @@ export function formatIntervalHoursMinutes(seconds) {
  *
  * @param {Record<string, unknown>} spec full diagram spec including timeNow and tideMarks.markers
  * @param {{ canonical: string, seconds: number, hours: number, isRightEndpoint: boolean }} parsedNow
- * @returns {{ kind: string, intervalText: string } | null}
+ * @returns {{ seconds: number, kind: string, intervalText: string } | null}
  */
 export function computeNextTideEventFromSpec(spec, parsedNow) {
   const core = computeNextTideEventCore(spec, parsedNow);
@@ -83,12 +83,14 @@ export function computeNextTideEventFromSpec(spec, parsedNow) {
   const injected = readOptionalInjectedNextTide(spec);
   if (injected !== undefined && injected !== null) {
     return {
+      seconds: core.seconds,
       kind: core.kind,
       intervalText: injected.timeDeltaIntervalText,
     };
   }
   const forwardSeconds = core.seconds - parsedNow.seconds;
   return {
+    seconds: core.seconds,
     kind: core.kind,
     intervalText: formatIntervalHoursMinutes(forwardSeconds),
   };

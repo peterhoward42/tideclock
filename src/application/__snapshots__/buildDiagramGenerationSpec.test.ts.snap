@@ -666,36 +666,16 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     },
   ],
   "timeDeltaDiagram": {
-    "timeDelta": [
-      {
-        "anchor": {
-          "x": -118,
-          "y": -11.8,
-        },
-        "content": "High",
-        "fontSize": 5.9,
-        "hAlign": "left",
-      },
-      {
-        "anchor": {
-          "x": -100.3,
-          "y": -11.8,
-        },
-        "content": "water in",
-        "fontSize": 5.9,
-        "hAlign": "left",
-      },
-      {
-        "anchor": {
-          "x": -68.43999999999998,
-          "y": -11.8,
-        },
-        "content": "3h 45m",
-        "fontSize": 5.9,
-        "hAlign": "left",
-      },
-    ],
     "timeDeltaEmptyMessage": null,
+    "timeDeltaLine": {
+      "anchor": {
+        "x": -118,
+        "y": -11.8,
+      },
+      "content": "Lymington · Tide going out · Low tide in 3h 45m (23:06)",
+      "fontSize": 5.9,
+      "hAlign": "left",
+    },
   },
   "timeNowLabel": {
     "hhmm": {
@@ -1552,48 +1532,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   "y": 148.2,
                 },
                 "angleRad": 0,
-                "content": "High",
+                "content": "Lymington · Tide going out · Low tide in 3h 45m (23:06)",
                 "hAlign": "left",
                 "kind": "text",
                 "size": 5.9,
               },
             ],
             "kind": "group",
-            "name": "EventKind",
-          },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 109.7,
-                  "y": 148.2,
-                },
-                "angleRad": 0,
-                "content": "water in",
-                "hAlign": "left",
-                "kind": "text",
-                "size": 5.9,
-              },
-            ],
-            "kind": "group",
-            "name": "DeltaGlue",
-          },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 141.56,
-                  "y": 148.2,
-                },
-                "angleRad": 0,
-                "content": "3h 45m",
-                "hAlign": "left",
-                "kind": "text",
-                "size": 5.9,
-              },
-            ],
-            "kind": "group",
-            "name": "DeltaInterval",
+            "name": "TimeDeltaLine",
           },
         ],
         "kind": "group",

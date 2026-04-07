@@ -239,7 +239,11 @@
 
   <section class="content" class:content--home={$route === "home"}>
     {#if $route === "home"}
-      <Home tideLoadState={tideLoadState} tideExtremes={lastSuccessfulTideExtremes} />
+      <Home
+        tideLoadState={tideLoadState}
+        tideExtremes={lastSuccessfulTideExtremes}
+        townName={currentTown?.name ?? "Unknown"}
+      />
     {:else if $route === "location"}
       <Location setCurrentLocation={setCurrentLocation} />
     {:else if $route === "settings"}

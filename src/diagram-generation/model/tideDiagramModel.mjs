@@ -59,13 +59,12 @@
  *   end: DiagramPoint,
  * }} DiagramLineSeg
  *
- * TimeDeltaDiagram: **timeDelta** holds three left-justified fragments when counting down to the next tide;
- * **timeDeltaEmptyMessage** is set (and **timeDelta** empty) when there is no next tide today (**NoMoreTidesToday** in the spec).
- * Each **DiagramTextInst** includes **hAlign** `'left'`; anchors follow **timeDelta.x** / **timeDelta.y** on the spec (**k·R**),
- * with one monospace space-width inserted in **X** between countdown fragments (not part of fragment **Text**).
+ * TimeDeltaDiagram: **timeDeltaLine** holds a single left-justified sentence when counting down to the next tide;
+ * **timeDeltaEmptyMessage** is set (and **timeDeltaLine** null) when there is no next tide today (**NoMoreTidesToday** in the spec).
+ * Anchors follow **timeDelta.leftOfOrigin** / **timeDelta.belowOrigin** on the spec (**k·R**), interpreted as distances from the origin toward negative axes.
  *
  * @typedef {{
- *   timeDelta: DiagramTextInst[],
+ *   timeDeltaLine: DiagramTextInst | null,
  *   timeDeltaEmptyMessage: DiagramTextInst | null,
  * }} TimeDeltaDiagram
  *

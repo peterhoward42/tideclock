@@ -331,8 +331,8 @@ export function centreFrameDiagramToGroup(cf, cx, cy) {
 export function timeDeltaDiagramToGroup(td, cx, cy) {
   /** @type {import('../model/sceneModel.mjs').GroupNode[]} */
   const timeDeltaChildren = [];
-  for (let idx = 0; idx < td.timeDelta.length; idx += 1) {
-    const seg = td.timeDelta[idx];
+  if (td.timeDeltaLine != null) {
+    const seg = td.timeDeltaLine;
     const node = text({
       content: seg.content,
       size: seg.fontSize,
@@ -340,9 +340,7 @@ export function timeDeltaDiagramToGroup(td, cx, cy) {
       angleRad: 0,
       anchor: mapPoint(seg.anchor, cx, cy),
     });
-    if (idx === 0) timeDeltaChildren.push(group("EventKind", [node]));
-    else if (idx === 1) timeDeltaChildren.push(group("DeltaGlue", [node]));
-    else timeDeltaChildren.push(group("DeltaInterval", [node]));
+    timeDeltaChildren.push(group("TimeDeltaLine", [node]));
   }
   if (td.timeDeltaEmptyMessage != null) {
     const m = td.timeDeltaEmptyMessage;
