@@ -27,12 +27,6 @@ type SemanticInjectionTideMark = {
 type SemanticInjectionDiagramSpec = {
   readonly title: string;
   readonly canvas: { readonly width: number; readonly height: number };
-  readonly contentBounds: {
-    readonly left: number;
-    readonly right: number;
-    readonly above: number;
-    readonly below: number;
-  };
   readonly refRadius: number;
   readonly sweepRad: number;
   readonly tickLen: number;
@@ -87,7 +81,6 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
   return {
     title: 'semantic-injection',
     canvas: { width: 420, height: 320 },
-    contentBounds: { left: 1.45, right: 1.15, above: 0.1, below: 1.5 },
     refRadius: 118,
     sweepRad: 2.75,
     tickLen: 0.07,

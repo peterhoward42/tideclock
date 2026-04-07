@@ -14,8 +14,8 @@ that binding are **not in scope** yet.
 
 Where this specification mentions text or numeric inputs “from outside” or
 “from the host,” supply and policy for those values are host responsibilities.
-How **content bounds** map into a canvas, viewport, or layout is also **not**
-fixed here (see **Content bounds**).
+How the final rendered bounds map into a canvas, viewport, or layout is also
+**not** fixed here.
 
 ## Strict diagram input (generator)
 
@@ -27,7 +27,6 @@ and layout submodules).
 - `**title**` — string (diagram meta).
 - `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid.
-- `**contentBounds`** — **{ left, right, above, below }** as in **Content bounds**.
 - `**waitArc`** — object with finite `**radius**` (**k·R**). If **max(0, radius)·RefRadius** is **0**, the wait arc is omitted without evaluating next-tide logic. Otherwise `**arrow`** is required: finite `**lengthK**`, `**widthK**`, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a **boolean**.
 - `**tideMarks`** — if absent, or `**markers**` missing or empty, there are no tide marks. If `**markers**` is non-empty, these finite numbers are required on `**tideMarks**`: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. At least one marker row must yield a usable time after parsing (otherwise generation throws).
 - `**nowPointer**` / `**nextPointer**` — if present, use nested objects with the finite fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks): **now** — `**radialLine**`, `**label**`, `**triangle**`; **next** — `**radialLine**` only. On `**nowPointer.triangle**`, `**subtendedAngleRad**` is **required**: a **literal** angle in **radians** (not a **k·R** length); see **§NowPointer**. **R_frame** from `**centreFrame.frameArcRadius**` supplies the Now radial **inner** radius; the Next filled-circle radius is **σ·R_frame** for fixed **σ** in **§NextPointer** (see **CentreFrame**, **NowPointer**, **NextPointer**).
@@ -138,22 +137,6 @@ otherwise.
 - Any element that is “tied to the current time now” is defined **in terms of
 `t_now` and `θ_now`**; the specification does **not** introduce a second,
 independent notion of “now.”
-
-## Content bounds (box of interest)
-
-- Required inputs define an axis-aligned **rectangle of interest** around **O** in
-**diagram model space** (**§Origin**, **§Axes**).
-- Each side is a non-negative proportion **k** interpreted as **k·R**
-(**§Sizing**):
-  - **left** — extent in **−X** from **O**; **X** runs from **−left·R** to **O**.
-  - **right** — extent in **+X** from **O**; from **O** to **+right·R**.
-  - **above** — extent in **+Y** from **O**; from **O** to **+above·R**.
-  - **below** — extent in **−Y** from **O**; from **−below·R** to **O**.
-- Together:
-**X ∈ [ −left·R, +right·R ],  Y ∈ [ −below·R, +above·R ].**
-- This rectangle models **which region counts as content** (e.g. tuning by eye).
-Mapping it into a canvas, scene graph, or viewport is **not** fixed here (see
-**Host responsibilities**).
 
 ## Radial lines and radial segments
 

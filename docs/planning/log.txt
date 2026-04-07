@@ -93,21 +93,20 @@ o  new data fetch paradigm
 				*  ditch centre cluster retaining msg standalone and position it
 				*  fix diagram centering
 
-				o  ref arc filled
-					*  make the time now triangle filled - homogenuous colour
-					*  move it radially inward on top of tick marks
-					*  experiment with making a cheese segment
-					*  have corrupted length of time now radial line
-					*  filled or not filled?
-					*  maybe subtle shimmer
-					o  rough improvements to colours and sizes for arc etc.
-						o  o
+				*  ref arc filled
 
 				o  does contentBounds have any active role?
+				o  rationalise header and messages
+				o  improve change location UX
 fart
-
+				o  say the date and day eg Wednesday
+				o  put opacity throb on some time now artefacts
 				o  now label "now" should be positioned to be justified just
 				   inside the wait arc radius
+				o  other screens
+				o  optimise svg for mobile/table/desktop
+				o  branding
+				o  deploy
 
 
 				o  say next hight water at foo in bar interval
@@ -115,12 +114,6 @@ fart
 
 				o  assemble location and hight water message into one?
 				o  put change location inside diag bottom left
-				o  try ref arc being a filled shape 
-					o  model it with param for thickness and fill style
-					o  render tick marks on top of it
-					o  move time pointer inside the filled crescent 
-					   occluding the tick marks
-				o  give now triangle a shimmer effect
 				o  tune geom of boss
 				o  change header on home only to dark grey with appropriate changes
 				   to menu colour on home route only

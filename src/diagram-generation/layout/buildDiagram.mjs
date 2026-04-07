@@ -6,7 +6,6 @@
  * See docs/specs/tide-diagram.md; spec keys mirror the open object passed from the app (diagramGenerationCollaborator.ts).
  *
  * Policies for {@link buildDiagram}:
- * - Throws if `spec.contentBounds` is missing or not `{ left, right, above, below }` with finite values ≥ 0.
  * - Throws if `spec.canvas`, `spec.title`, ref arc, tick sizing, tick label sizing, or `spec.waitArc` omit
  *   required fields or supply non-finite numbers (no silent defaults).
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
@@ -32,7 +31,6 @@ import {
   shouldOmitNowWaitVisualsForNextPointerClearance,
 } from "../model/tideEvents.mjs";
 import {
-  diagramBoxFromExtents,
   polar,
   refArcAngles,
   timeToTheta,
@@ -163,16 +161,6 @@ export function buildDiagram(spec) {
     });
   }
 
-  const extents = requireContentBoundsExtents(spec);
-  const rect = diagramBoxFromExtents(
-    extents.left,
-    extents.right,
-    extents.above,
-    extents.below,
-    refRadius,
-  );
-  const contentBounds = { extents, rect };
-
   const timeDeltaDiagram = buildTimeDeltaDiagramFromSpec(spec, refRadius);
   const centreFrameDiagram = buildCentreFrameDiagramFromSpec(
     spec,
@@ -229,40 +217,6 @@ export function buildDiagram(spec) {
     timeDeltaDiagram,
     centreFrameDiagram,
     timeNowLabel,
-    contentBounds,
-  };
-}
-
-/**
- * @param {Record<string, unknown>} spec
- * @returns {import('../model/tideDiagramModel.mjs').ContentBoundsExtents}
- */
-function requireContentBoundsExtents(spec) {
-  const raw = spec.contentBounds;
-  if (raw == null || typeof raw !== "object") {
-    throw new Error(
-      "spec.contentBounds is required: object { left, right, above, below } (non-negative RefRadius multiples)",
-    );
-  }
-  const o = /** @type {Record<string, unknown>} */ (raw);
-  const left = o.left;
-  const right = o.right;
-  const above = o.above;
-  const below = o.below;
-  if (
-    ![left, right, above, below].every(
-      (v) => typeof v === "number" && Number.isFinite(v) && v >= 0,
-    )
-  ) {
-    throw new Error(
-      "spec.contentBounds must set left, right, above, below to finite numbers >= 0",
-    );
-  }
-  return {
-    left: /** @type {number} */ (left),
-    right: /** @type {number} */ (right),
-    above: /** @type {number} */ (above),
-    below: /** @type {number} */ (below),
   };
 }
 

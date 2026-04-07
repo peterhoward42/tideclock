@@ -62,12 +62,6 @@ type HomeTideDiagramLayoutBase = {
   readonly tickLabelHours: readonly number[];
   readonly tickLabelSize: number;
   readonly tickLabelClearance: number;
-  readonly contentBounds: {
-    readonly left: number;
-    readonly right: number;
-    readonly above: number;
-    readonly below: number;
-  };
   readonly nowPointer: {
     readonly radialLine: { readonly outerRadius: number };
     readonly label: { readonly size: number; readonly normalOffset: number };
@@ -105,7 +99,6 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
   tickLabelSize: 0.04,
   tickLabelClearance: 0.07,
-  contentBounds: { left: 1.45, right: 1.15, above: 0.1, below: 1.5 },
   nowPointer: {
     radialLine: { outerRadius: 0.7 },
     label: { size: 0.03, normalOffset: 0.02 },

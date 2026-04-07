@@ -14,7 +14,6 @@ export {
 } from "./mapping/toScene.mjs";
 
 export {
-  diagramBoxFromExtents,
   polar,
   refArcAngles,
   timeToTheta,

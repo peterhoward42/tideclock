@@ -31,18 +31,6 @@
  * }} TickLabelSpec
  *
  * @typedef {{
- *   left: number,
- *   right: number,
- *   above: number,
- *   below: number,
- * }} ContentBoundsExtents
- *
- * @typedef {{
- *   extents: ContentBoundsExtents,
- *   rect: { minX: number, maxX: number, minY: number, maxY: number },
- * }} DiagramContentBounds
- *
- * @typedef {{
  *   content: string,
  *   fontSize: number,
  *   anchor: DiagramPoint,
@@ -171,7 +159,6 @@
  *   timeDeltaDiagram: TimeDeltaDiagram,
  *   centreFrameDiagram: CentreFrameDiagram,
  *   timeNowLabel: DiagramTimeNowLabelInst | null,
- *   contentBounds: DiagramContentBounds,
  * }} TideDiagramDocument
  */
 
@@ -180,36 +167,6 @@ function assertFiniteNumber(label, value) {
   if (typeof value !== "number" || !Number.isFinite(value)) {
     throw new Error(`${label} must be a finite number`);
   }
-}
-
-/**
- * Axis-aligned box of interest in diagram space: origin at RefArc centre, each extent is a multiple of RefRadius.
- * Left/right/below/above are positive distances in -x, +x, -y, +y respectively.
- *
- * @param {number} left
- * @param {number} right
- * @param {number} above
- * @param {number} below
- * @param {number} refRadius
- * @returns {{ minX: number, maxX: number, minY: number, maxY: number }}
- * @throws {Error} any extent or `refRadius` is not a finite number, or `refRadius` is not positive
- */
-export function diagramBoxFromExtents(left, right, above, below, refRadius) {
-  assertFiniteNumber("left", left);
-  assertFiniteNumber("right", right);
-  assertFiniteNumber("above", above);
-  assertFiniteNumber("below", below);
-  assertFiniteNumber("refRadius", refRadius);
-  if (refRadius <= 0) {
-    throw new Error("refRadius must be positive");
-  }
-  const R = refRadius;
-  return {
-    minX: -left * R,
-    maxX: right * R,
-    minY: -below * R,
-    maxY: above * R,
-  };
 }
 
 /**

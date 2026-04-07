@@ -37,23 +37,6 @@ type TickLabelSpec = {
   readonly anchor: DiagramPoint;
 };
 
-type ContentBoundsExtents = {
-  readonly left: number;
-  readonly right: number;
-  readonly above: number;
-  readonly below: number;
-};
-
-type DiagramContentBounds = {
-  readonly extents: ContentBoundsExtents;
-  readonly rect: {
-    readonly minX: number;
-    readonly maxX: number;
-    readonly minY: number;
-    readonly maxY: number;
-  };
-};
-
 type DiagramTextInst = {
   readonly content: string;
   readonly fontSize: number;
@@ -179,7 +162,6 @@ export type TideDiagramDocument = {
   readonly timeDeltaDiagram: TimeDeltaDiagram;
   readonly centreFrameDiagram: CentreFrameDiagram;
   readonly timeNowLabel: DiagramTimeNowLabelInst | null;
-  readonly contentBounds: DiagramContentBounds;
 };
 
 type ScenePoint = { readonly x: number; readonly y: number };

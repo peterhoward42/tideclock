@@ -130,7 +130,7 @@ function computeViewBox(scene) {
   const pf = scene.meta?.previewFrame;
   if (!isValidPreviewFrame(pf)) {
     throw new Error(
-      "v2 scene.meta.previewFrame is required: { minX, maxX, minY, maxY } in scene space (from diagram contentBounds via toScene)",
+      "v2 scene.meta.previewFrame is required: { minX, maxX, minY, maxY } in scene space (computed from scene primitives in toScene)",
     );
   }
   const vbX = pf.minX - VIEW_BOX_PAD;

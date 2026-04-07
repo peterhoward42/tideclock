@@ -24,20 +24,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "thetaRight": 6.08738898038469,
     },
   },
-  "contentBounds": {
-    "extents": {
-      "above": 0.1,
-      "below": 1.5,
-      "left": 1.45,
-      "right": 1.15,
-    },
-    "rect": {
-      "maxX": 135.7,
-      "maxY": 11.8,
-      "minX": -171.1,
-      "minY": -177,
-    },
-  },
   "meta": {
     "height": 320,
     "title": "semantic-injection",
