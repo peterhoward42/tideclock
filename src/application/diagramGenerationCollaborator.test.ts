@@ -9,6 +9,7 @@ function minimalExtremesForCollaboratorTest(): TideExtremesAtLocation {
     new TideExtreme('low', '2026-03-23T12:00:00.000Z', 1.0),
   ]);
 }
+const FIXTURE_DATE_PREFIX = 'Mon 23 Mar';
 
 describe('createDiagramGenerationCollaborator', () => {
   it('generates diagram and scene from app runtime code', () => {
@@ -16,6 +17,7 @@ describe('createDiagramGenerationCollaborator', () => {
     const spec = buildDiagramGenerationSpec({
       extremesAtLocation: minimalExtremesForCollaboratorTest(),
       timeNow: '12:00:00',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     });
     const output = collaborator.generate(spec);
@@ -31,6 +33,7 @@ describe('createDiagramGenerationCollaborator', () => {
     const spec = buildDiagramGenerationSpec({
       extremesAtLocation: minimalExtremesForCollaboratorTest(),
       timeNow: '12:00:00',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     });
     const { diagram, scene } = collaborator.generate(spec);
@@ -49,6 +52,7 @@ describe('createDiagramGenerationCollaborator', () => {
     const base = buildDiagramGenerationSpec({
       extremesAtLocation: minimalExtremesForCollaboratorTest(),
       timeNow: '12:00:00',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     });
     const { annularBand: _omit, ...rest } = base;
@@ -60,6 +64,7 @@ describe('createDiagramGenerationCollaborator', () => {
     const base = buildDiagramGenerationSpec({
       extremesAtLocation: minimalExtremesForCollaboratorTest(),
       timeNow: '12:00:00',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     });
     const spec = { ...base, annularBand: { annularBandWidth: 0 } };
@@ -71,6 +76,7 @@ describe('createDiagramGenerationCollaborator', () => {
     const base = buildDiagramGenerationSpec({
       extremesAtLocation: minimalExtremesForCollaboratorTest(),
       timeNow: '12:00:00',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     });
     const spec = { ...base, annularBand: {} };

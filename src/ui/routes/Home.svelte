@@ -111,6 +111,14 @@
     return `${hh}:${mm}:${ss}`;
   }
 
+  function localTimeNowDatePrefixFromMs(ms: number): string {
+    const d = new Date(ms);
+    const weekday = d.toLocaleDateString(undefined, { weekday: "short" });
+    const day = String(d.getDate()).padStart(2, "0");
+    const month = d.toLocaleDateString(undefined, { month: "short" });
+    return `${weekday} ${day} ${month}`;
+  }
+
   $effect(() => {
     const _semanticMinute = semanticMinuteEpoch;
     const extremes = tideExtremes;
@@ -123,16 +131,20 @@
     }
 
     try {
-      const timeNow = localCanonicalTimeNowFromMs(Date.now());
+      const nowMs = Date.now();
+      const timeNow = localCanonicalTimeNowFromMs(nowMs);
+      const timeNowDatePrefix = localTimeNowDatePrefixFromMs(nowMs);
       const baseSpec = buildDiagramGenerationSpec({
         extremesAtLocation: extremes,
         timeNow,
+        timeNowDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
       });
       const derived = deriveNextTideSemantics(baseSpec);
       const spec = buildDiagramGenerationSpec({
         extremesAtLocation: extremes,
         timeNow,
+        timeNowDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
         derivedSemantics: { nextTide: derived.nextTide },
       });
@@ -183,6 +195,7 @@
     if (host == null || svg === "") return;
     const unsub = nowMs.subscribe((ms) => {
       const canonical = localCanonicalTimeNowFromMs(ms);
+      const datePrefix = localTimeNowDatePrefixFromMs(ms);
       const hhmmEl = host.querySelector(
         'svg g[data-name="TimeNowLabelHms"] text'
       ) as SVGTextElement | null;
@@ -192,7 +205,7 @@
       const secEl = host.querySelector(
         'svg g[data-name="TimeNowLabelSeconds"] text'
       ) as SVGTextElement | null;
-      if (hhmmEl !== null) hhmmEl.textContent = canonical.slice(0, 5);
+      if (hhmmEl !== null) hhmmEl.textContent = `${datePrefix} - ${canonical.slice(0, 5)}`;
       if (colonEl !== null) colonEl.textContent = canonical.slice(5, 6);
       if (secEl !== null) secEl.textContent = canonical.slice(6);
     });

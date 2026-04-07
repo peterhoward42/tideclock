@@ -34,6 +34,7 @@ type SemanticInjectionDiagramSpec = {
   readonly tickLabelSize: number;
   readonly tickLabelClearance: number;
   readonly timeNow: string;
+  readonly timeNowDatePrefix: string;
   readonly nowPointer: {
     readonly radialLine: { readonly outerRadius: number };
     readonly label: { readonly size: number; readonly normalOffset: number };
@@ -88,6 +89,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     tickLabelSize: 0.04,
     tickLabelClearance: 0.07,
     timeNow: '19:20:03',
+    timeNowDatePrefix: 'Mon 23 Mar',
     nowPointer: {
       radialLine: { outerRadius: 0.7 },
       label: { size: 0.04, normalOffset: 0.02 },
@@ -162,7 +164,7 @@ describe('spec.semantic.nextTide injection', () => {
       anchor: { x: -118, y: -11.8 },
       hAlign: 'left',
     });
-    expect(diagram.timeNowLabel?.hhmm.content).toBe('23:59');
+    expect(diagram.timeNowLabel?.hhmm.content).toBe('Mon 23 Mar - 23:59');
     expect(diagram.timeNowLabel?.secondsColon.content).toBe(':');
     expect(diagram.timeNowLabel?.seconds.content).toBe('00');
     expect(diagram.nextPointer).toBeNull();

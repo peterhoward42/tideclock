@@ -26,6 +26,7 @@ const expectedFixtureMarkers = [
   { time: '16:59:24', heightText: '0.89 m', highOrLow: 'Low' },
   { time: '23:06:00', heightText: '4.8 m', highOrLow: 'High' },
 ];
+const FIXTURE_DATE_PREFIX = 'Mon 23 Mar';
 
 describe('formatTideHeightMetresForDiagram', () => {
   it('formats like existing diagram examples', () => {
@@ -40,6 +41,7 @@ describe('buildDiagramGenerationSpec', () => {
     const spec = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     });
     const markers = (spec.tideMarks as HomeDiagramTideMarks).markers;
@@ -53,6 +55,7 @@ describe('buildDiagramGenerationSpec', () => {
       buildDiagramGenerationSpec({
         extremesAtLocation: new TideExtremesAtLocation(1, 2, []),
         timeNow: '12:00:00',
+        timeNowDatePrefix: FIXTURE_DATE_PREFIX,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       }),
     ).toThrow(/at least one tide extreme/);
@@ -62,12 +65,14 @@ describe('buildDiagramGenerationSpec', () => {
     const base = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     });
     const { nextTide } = deriveNextTideSemantics(base);
     const withSemantic = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       derivedSemantics: { nextTide },
     });
@@ -81,6 +86,7 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
     const baseSpec = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     });
     const baseline = collaborator.generate(baseSpec);
@@ -88,6 +94,7 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
     const injected = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       derivedSemantics: { nextTide },
     });
@@ -99,11 +106,13 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
     const baseSpec = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     });
     const spec = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       derivedSemantics: deriveNextTideSemantics(baseSpec),
     });
@@ -115,6 +124,7 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
     const spec = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     });
     expect(collaborator.generate(spec).scene).toMatchSnapshot();

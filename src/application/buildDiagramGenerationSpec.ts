@@ -21,6 +21,8 @@ export type UtcIsoToLocalCanonicalTime = (timeUtcIso: string) => string;
  */
 export type BuildDiagramGenerationSpecTimeInput = {
   readonly timeNow: string;
+  /** Local civil-day prefix shown before HH:MM in TimeNowLabel (e.g. "Wed 21 Jun"). */
+  readonly timeNowDatePrefix: string;
   readonly utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime;
 };
 
@@ -174,7 +176,7 @@ export function utcIsoToLocalCanonicalTimeUtc(iso: string): string {
 export function buildDiagramGenerationSpec(
   params: BuildDiagramGenerationSpecParams,
 ): DiagramGenerationSpec {
-  const { extremesAtLocation, timeNow, utcIsoToLocalCanonicalTime, derivedSemantics } = params;
+  const { extremesAtLocation, timeNow, timeNowDatePrefix, utcIsoToLocalCanonicalTime, derivedSemantics } = params;
   if (extremesAtLocation.extremes.length === 0) {
     throw new Error('buildDiagramGenerationSpec requires at least one tide extreme');
   }
@@ -192,6 +194,7 @@ export function buildDiagramGenerationSpec(
   const spec: DiagramGenerationSpec = {
     ...HOME_TIDE_DIAGRAM_LAYOUT_BASE,
     timeNow,
+    timeNowDatePrefix,
     tideMarks,
   };
 

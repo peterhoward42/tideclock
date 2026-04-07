@@ -387,14 +387,16 @@ in `**buildDiagramGenerationSpec`**):
   - `**fontHeight**` — proportion **k** as **k·R** (**§Sizing**).
   - `**x`** — proportion **k** as **k·R** for anchor **X** (typically toward **+X** in the content region).
   - `**y`** — proportion **k** as **k·R** (**§Sizing**): a **positive** host value is interpreted as **k·R** **subtracted** from **Y = 0** (**§Origin**) to place the shared text **baseline** at **Y = 0 − k·R** (toward **−Y** / **below** the arc centre when **k > 0**). **Not** the same convention as **`timeDelta.y`** (which is a signed offset to the baseline).
+- Diagram input `**timeNowDatePrefix`** — required string prefix for the left fragment
+  (customary short form such as `**Wed 21 Jun`**).
 
 ### Text and placement
 
-- Three **TextElement**s that read as one `**HH:MM:SS`** line (same **FontHeight** and baseline):
-  - **HH:MM fragment** — canonical `**HH:MM`** (five characters; includes the colon between hours and minutes only).
+- Three **TextElement**s that read as one `**Wed 21 Jun - HH:MM:SS`** line (same **FontHeight** and baseline):
+  - **Date+HH:MM fragment** — `**timeNowDatePrefix + " - " + HH:MM`**.
   - **Seconds-colon fragment** — a single literal `**:`** (the colon immediately before `**SS**`).
   - **Seconds fragment** — canonical `**SS`** (two digits).
-  - **No** literal prefix such as “Time now”; **no** separate host string beyond parsed `**timeNow`**.
+  - **No** literal prefix such as “Time now”.
   - **FontHeight** — **k_font·R** with **k_font** from `**fontHeight`**.
   - **Horizontal justification** — **right** for all three; the seconds fragment’s anchor sits at the
   readout’s trailing edge in **+X**, and the seconds-colon and HMS anchors are offset left by fixed
@@ -406,7 +408,7 @@ in `**buildDiagramGenerationSpec`**):
 ### Scene model
 
 - Emitted as a named group **TimeNowLabel** containing three child groups:
-  - **TimeNowLabelHms** — one **TextElement** for the **HH:MM** fragment (style name `**time-now-label`**).
+  - **TimeNowLabelHms** — one **TextElement** for the **Date+HH:MM** fragment (style name `**time-now-label`**).
   - **TimeNowLabelSecondsColon** — one **TextElement** (style name `**time-now-label-seconds-colon`**).
   - **TimeNowLabelSeconds** — one **TextElement** (style name `**time-now-label-seconds`**).
 

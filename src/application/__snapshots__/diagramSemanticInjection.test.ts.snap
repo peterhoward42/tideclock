@@ -703,7 +703,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "x": 83.78,
         "y": -112.1,
       },
-      "content": "19:20",
+      "content": "Mon 23 Mar - 19:20",
       "fontSize": 5.9,
       "hAlign": "right",
     },
