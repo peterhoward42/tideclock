@@ -7,6 +7,7 @@
 import {
   annularSector,
   arc,
+  arcSegment,
   circle,
   group,
   line,
@@ -240,6 +241,9 @@ function expandBoundsByNode(b, node) {
     case "arc":
       expandBoundsByArc(b, node);
       return;
+    case "arcSegment":
+      expandBoundsByArc(b, node);
+      return;
     case "annularSector":
       expandBoundsByAnnularSector(b, node);
       return;
@@ -319,7 +323,9 @@ export function centreFrameDiagramToGroup(cf, cx, cy) {
     cy,
   );
   const frameArcCenter = mapPoint(fc, cx, cy);
-  return group("CentreFrame", [arc(frameArcCenter, frameArcStart, fa.sweepRad)]);
+  return group("CentreFrame", [
+    arcSegment(frameArcCenter, frameArcStart, fa.sweepRad),
+  ]);
 }
 
 /**

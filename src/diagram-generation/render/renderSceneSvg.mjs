@@ -17,7 +17,7 @@ const RENDER_DEFAULTS = {
 };
 
 /**
- * @typedef {{ color?: string, lineStyle?: string }} SceneRenderStyleProps
+ * @typedef {{ color?: string, strokeColor?: string, fillColor?: string, lineStyle?: string }} SceneRenderStyleProps
  *
  * @typedef {{
  *   stylesByName: Map<string, SceneRenderStyleProps>,
@@ -211,7 +211,7 @@ function renderNode(node, styleRuntime, leafName) {
     case "line": {
       assertLeafScoped(node.kind, leafName);
       const { start: a, end: b } = node;
-      const stroke = requireLeafColor(
+      const stroke = requireLeafStrokeColor(
         styleRuntime,
         leafName,
         RENDER_DEFAULTS.lineStroke,
@@ -226,7 +226,7 @@ function renderNode(node, styleRuntime, leafName) {
     }
     case "arc": {
       assertLeafScoped(node.kind, leafName);
-      const stroke = requireLeafColor(
+      const stroke = requireLeafStrokeColor(
         styleRuntime,
         leafName,
         RENDER_DEFAULTS.curveStroke,
@@ -250,15 +250,38 @@ function renderNode(node, styleRuntime, leafName) {
       const d = circularArcToPathD(node.center, node.start, node.sweepRad);
       return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${dash}${arrowAttr} />`;
     }
-    case "annularSector": {
+    case "arcSegment": {
       assertLeafScoped(node.kind, leafName);
-      const stroke = requireLeafColor(
+      const stroke = requireLeafStrokeColor(
         styleRuntime,
         leafName,
         RENDER_DEFAULTS.curveStroke,
         node.kind,
       );
-      const fill = requireLeafColor(
+      const fill = requireLeafFillColor(
+        styleRuntime,
+        leafName,
+        RENDER_DEFAULTS.shapeFill,
+        node.kind,
+      );
+      const dash = strokeDashAttrFragmentFromLeaf(
+        styleRuntime,
+        leafName,
+        node.kind,
+      );
+      const d = circularSegmentToPathD(node.center, node.start, node.sweepRad);
+      if (d === "") return "";
+      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
+    }
+    case "annularSector": {
+      assertLeafScoped(node.kind, leafName);
+      const stroke = requireLeafStrokeColor(
+        styleRuntime,
+        leafName,
+        RENDER_DEFAULTS.curveStroke,
+        node.kind,
+      );
+      const fill = requireLeafFillColor(
         styleRuntime,
         leafName,
         RENDER_DEFAULTS.shapeFill,
@@ -275,13 +298,13 @@ function renderNode(node, styleRuntime, leafName) {
     }
     case "nowWedgeOutline": {
       assertLeafScoped(node.kind, leafName);
-      const stroke = requireLeafColor(
+      const stroke = requireLeafStrokeColor(
         styleRuntime,
         leafName,
         RENDER_DEFAULTS.curveStroke,
         node.kind,
       );
-      const fill = requireLeafColor(
+      const fill = requireLeafFillColor(
         styleRuntime,
         leafName,
         RENDER_DEFAULTS.shapeFill,
@@ -304,7 +327,7 @@ function renderNode(node, styleRuntime, leafName) {
       assertLeafScoped(node.kind, leafName);
       const { a, b, c } = node;
       const pts = `${a.x},${a.y} ${b.x},${b.y} ${c.x},${c.y}`;
-      const stroke = requireLeafColor(
+      const stroke = requireLeafStrokeColor(
         styleRuntime,
         leafName,
         RENDER_DEFAULTS.curveStroke,
@@ -317,7 +340,7 @@ function renderNode(node, styleRuntime, leafName) {
       );
       const fillAttr = node.outline
         ? "none"
-        : requireLeafColor(
+          : requireLeafFillColor(
             styleRuntime,
             leafName,
             RENDER_DEFAULTS.shapeFill,
@@ -328,7 +351,7 @@ function renderNode(node, styleRuntime, leafName) {
     case "circle": {
       assertLeafScoped(node.kind, leafName);
       const { center, radius } = node;
-      const stroke = requireLeafColor(
+      const stroke = requireLeafStrokeColor(
         styleRuntime,
         leafName,
         RENDER_DEFAULTS.curveStroke,
@@ -339,7 +362,7 @@ function renderNode(node, styleRuntime, leafName) {
         leafName,
         node.kind,
       );
-      const fill = requireLeafColor(
+      const fill = requireLeafFillColor(
         styleRuntime,
         leafName,
         RENDER_DEFAULTS.shapeFill,
@@ -349,7 +372,7 @@ function renderNode(node, styleRuntime, leafName) {
     }
     case "text": {
       assertLeafScoped(node.kind, leafName);
-      const fill = requireLeafColor(
+      const fill = requireLeafFillColor(
         styleRuntime,
         leafName,
         RENDER_DEFAULTS.textFill,
@@ -471,6 +494,20 @@ function annularSectorToPathD(node) {
 }
 
 /**
+ * Closed circular segment: arc + straight chord between arc endpoints.
+ *
+ * @param {{ x: number, y: number }} center
+ * @param {{ x: number, y: number }} start
+ * @param {number} sweepRad
+ * @returns {string}
+ */
+function circularSegmentToPathD(center, start, sweepRad) {
+  const arcPath = circularArcToPathD(center, start, sweepRad);
+  if (arcPath === "") return "";
+  return `${arcPath} Z`;
+}
+
+/**
  * Now “triangle”: segment vertex→outer start, minor outer arc, close to vertex.
  *
  * @param {import('../model/sceneModel.mjs').NowWedgeOutlinePrimitive} node
@@ -504,7 +541,7 @@ function collectArcArrowMarkers(root, styleRuntime) {
     if (node.kind !== "arc" || node.arrow == null) return;
     const spec = normalizeArcArrow(node.arrow);
     if (spec.at !== "end") return;
-    const stroke = requireLeafColor(
+    const stroke = requireLeafStrokeColor(
       styleRuntime,
       leafName,
       RENDER_DEFAULTS.curveStroke,
@@ -529,7 +566,7 @@ function markerAttrForArc(arcNode, leafName, styleRuntime) {
   if (arcNode.arrow == null) return "";
   const spec = normalizeArcArrow(arcNode.arrow);
   if (spec.at !== "end") return "";
-  const stroke = requireLeafColor(
+  const stroke = requireLeafStrokeColor(
     styleRuntime,
     leafName,
     RENDER_DEFAULTS.curveStroke,
@@ -641,14 +678,36 @@ function resolveLeafNamedStyleProps(styleRuntime, leafName, primitiveKind) {
  * @param {string} fallback
  * @param {string} primitiveKind
  */
-function requireLeafColor(styleRuntime, leafName, fallback, primitiveKind) {
+function requireLeafStrokeColor(styleRuntime, leafName, fallback, primitiveKind) {
   const styleProps = resolveLeafNamedStyleProps(
     styleRuntime,
     leafName,
     primitiveKind,
   );
-  if (!styleProps || typeof styleProps.color !== "string") return fallback;
-  return styleProps.color;
+  if (!styleProps) return fallback;
+  if (typeof styleProps.strokeColor === "string") return styleProps.strokeColor;
+  if (typeof styleProps.color === "string") return styleProps.color;
+  return fallback;
+}
+
+/**
+ * Leaf-level fill color: prefers `fillColor`; falls back to `color`; then to primitive fallback.
+ *
+ * @param {SceneRenderStyleRuntime | undefined} styleRuntime
+ * @param {string | null} leafName
+ * @param {string} fallback
+ * @param {string} primitiveKind
+ */
+function requireLeafFillColor(styleRuntime, leafName, fallback, primitiveKind) {
+  const styleProps = resolveLeafNamedStyleProps(
+    styleRuntime,
+    leafName,
+    primitiveKind,
+  );
+  if (!styleProps) return fallback;
+  if (typeof styleProps.fillColor === "string") return styleProps.fillColor;
+  if (typeof styleProps.color === "string") return styleProps.color;
+  return fallback;
 }
 
 /**

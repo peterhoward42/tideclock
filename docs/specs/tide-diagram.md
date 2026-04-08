@@ -150,7 +150,8 @@ of travel.”
 ## Scene graph primitives (current scope)
 
 - The scene graph at this stage consists of:
-  - Arc segments (for **RefArc** and for **CentreFrame**)
+  - Arc primitives (for **RefArc** and **TideMarks.TimePointer** head arcs)
+  - One closed circular segment path (for **CentreFrame**: circular arc + straight chord closure)
   - Line segments (for radial segments and tick marks)
   - Text elements
   - Filled closed paths for the Now **triangle** (annular wedge: two straight segments and a minor arc on the annulus outer circle; **NowPointer**); **fill** and **stroke** use **NowTriangle** leaf styles (product default: **stroke**/**fill** colour aligned with **TideMarks.TimePointer** outline colour)
@@ -163,9 +164,10 @@ of travel.”
 
 - **Line** and **arc** primitives are **one-dimensional** curves in the logical
 model. They are **stroked** along the curve and, for now, **never** treated as
-**filled** regions. **Fill** of areas bounded by curves is **out of scope** for
-those primitives **except** for the dedicated **AnnularBand** closed region
-(**AnnularBand**).
+**filled** regions.
+- Area fills are represented by dedicated closed-region primitives (currently:
+**CentreFrame** closed circular segment, **AnnularBand** annular sector, **NowPointer**
+triangle wedge, and **NextPointer** filled circle).
 - Where multiple curve primitives are **independent**, they are **topologically**
 independent: **not** joined into one path, **not** merged into one composite
 path, and **do not** form a closed region by composition in the logical scene
@@ -455,13 +457,13 @@ three-fragment sentence above):
 
 ## CentreFrame
 
-**CentreFrame** is a named element whose output is **one** arc (**Independent
-stroked curves**). It is not defined relative to **TimeDelta**; geometry follows
+**CentreFrame** is a named element whose output is **one closed circular segment**
+(arc boundary plus straight chord closure). It is not defined relative to **TimeDelta**; geometry follows
 **§Polar** and the inputs below.
 
 ### Scene model
 
-- Emitted as a named group **CentreFrame** ( **`centreFrame`** input is required). The group contains that single arc primitive subject to **Independent stroked curves**.
+- Emitted as a named group **CentreFrame** ( **`centreFrame`** input is required). The group contains one closed circular-segment primitive.
 
 **Radius and endpoints**
 
@@ -472,9 +474,12 @@ from the **RefArc** is the circle radius (**R_frame** vs **RefRadius**).
 - **θ_left** and **θ_right** are the polar angles of the leftmost and rightmost
 endpoints of **this** arc at radius **R_frame** (same angular span as the **RefArc**).
 
-**Arc segment**
+**Closed segment boundary**
 
-- One arc at radius **R_frame** as above (**Independent stroked curves**).
+- The curved boundary is one arc at radius **R_frame**, with **θ_left** and **θ_right** as above.
+- The arc endpoints are joined by one straight chord, yielding a closed region.
+- Presentation applies both **fill** and **stroke** to this closed boundary.
+- Product style uses the same fill tone as **AnnularBand** by default, while keeping the **CentreFrame** outline stroke independently configurable.
 
 ## AnnularBand
 

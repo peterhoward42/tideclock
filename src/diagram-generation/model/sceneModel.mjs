@@ -34,6 +34,13 @@
  * }} ArcPrimitive
  *
  * @typedef {{
+ *   kind: 'arcSegment',
+ *   center: Point,
+ *   start: Point,
+ *   sweepRad: number,
+ * }} ArcSegmentPrimitive
+ *
+ * @typedef {{
  *   kind: 'triangle',
  *   a: Point,
  *   b: Point,
@@ -86,7 +93,7 @@
  *   children: SceneNode[],
  * }} GroupNode
  *
- * @typedef { LinePrimitive | ArcPrimitive | TrianglePrimitive | NowWedgeOutlinePrimitive | CirclePrimitive | AnnularSectorPrimitive | TextPrimitive | GroupNode } SceneNode
+ * @typedef { LinePrimitive | ArcPrimitive | ArcSegmentPrimitive | TrianglePrimitive | NowWedgeOutlinePrimitive | CirclePrimitive | AnnularSectorPrimitive | TextPrimitive | GroupNode } SceneNode
  *
  * @typedef {{
  *   title: string,
@@ -183,6 +190,26 @@ export function arc(center, start, sweepRad, opts) {
   if (opts?.facetedPreview === true) o.facetedPreview = true;
   if (opts?.arrow != null) o.arrow = opts.arrow;
   return o;
+}
+
+/**
+ * Closed circular segment: an arc and the straight chord joining arc endpoints.
+ *
+ * @param {Point} center
+ * @param {Point} start
+ * @param {number} sweepRad
+ * @returns {ArcSegmentPrimitive}
+ */
+export function arcSegment(center, start, sweepRad) {
+  assertPoint("center", center);
+  assertPoint("start", start);
+  assertFiniteNumber("sweepRad", sweepRad);
+  return {
+    kind: "arcSegment",
+    center,
+    start,
+    sweepRad,
+  };
 }
 
 /**

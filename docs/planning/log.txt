@@ -99,8 +99,9 @@ o  new data fetch paradigm
 				*  improve change location UX
 				*  standardise header strip colours
 
-				o  might not need the word "now"
+				o  filled boss
 				o  fat arrow
+				o  might not need the word "now"
 				o  outline time now triangle
 				o  then can leave the arrow for longer
 				o  time now all one colour?

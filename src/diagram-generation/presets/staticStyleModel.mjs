@@ -38,6 +38,10 @@ export const STATIC_STYLE_MODEL = {
       style: { color: "#888", lineStyle: "dashed" },
     },
     {
+      name: "centre-frame",
+      style: { strokeColor: "#555", fillColor: "#222" },
+    },
+    {
       name: "white",
       style: { color: "white" },
     },
@@ -53,7 +57,7 @@ export const STATIC_STYLE_MODEL = {
     { name: "TimePointer", styleName: "emph" },
     { name: "TimeLabel", styleName: "grey6" },
     { name: "TickLabel", styleName: "grey6" },
-    { name: "CentreFrame", styleName: "grey8" },
+    { name: "CentreFrame", styleName: "centre-frame" },
     { name: "TimeNowLabelHms", styleName: "grey5" },
     { name: "TimeNowLabelSecondsColon", styleName: "greyA" },
     { name: "TimeNowLabelSeconds", styleName: "greyA" },

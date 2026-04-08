@@ -17,7 +17,7 @@
 
 import { assertKnownLineStyleToken } from "./lineStyleRendering.mjs";
 
-/** @typedef {{ color?: string, lineStyle?: string }} StyleProps */
+/** @typedef {{ color?: string, strokeColor?: string, fillColor?: string, lineStyle?: string }} StyleProps */
 
 /** @typedef {{ name: string, style: StyleProps }} NamedStyle */
 
@@ -179,6 +179,28 @@ function normalizeStyleProps(raw, context) {
       );
     }
     out.color = raw.color;
+  }
+  if (raw.strokeColor !== undefined) {
+    if (typeof raw.strokeColor !== "string") {
+      throw new Error(`${context}.strokeColor must be a string`);
+    }
+    if (!isAllowedColor(raw.strokeColor)) {
+      throw new Error(
+        `${context}.strokeColor must be a CSS named color or 3-digit hex like "#333"`,
+      );
+    }
+    out.strokeColor = raw.strokeColor;
+  }
+  if (raw.fillColor !== undefined) {
+    if (typeof raw.fillColor !== "string") {
+      throw new Error(`${context}.fillColor must be a string`);
+    }
+    if (!isAllowedColor(raw.fillColor)) {
+      throw new Error(
+        `${context}.fillColor must be a CSS named color or 3-digit hex like "#333"`,
+      );
+    }
+    out.fillColor = raw.fillColor;
   }
   if (raw.lineStyle !== undefined) {
     if (typeof raw.lineStyle !== "string" || raw.lineStyle.trim() === "") {
