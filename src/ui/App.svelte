@@ -16,6 +16,7 @@
   import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import { getCurrentTideClockCivilDayDisplayWindowFromSystemClock } from "../time-services/getCurrentTideClockCivilDayDisplayWindow";
+  import AppHeader, { type HeaderCenter, type HeaderTone } from "./components/AppHeader.svelte";
   import Home from "./routes/Home.svelte";
   import Location from "./routes/Location.svelte";
   import Settings from "./routes/Settings.svelte";
@@ -50,7 +51,6 @@
   let civilDayWindowStartMsAtLastSuccessfulLoad = $state<number | undefined>(undefined);
   /** After a failed rollover fetch, suppress re-entry for the same civil day (see `shouldTriggerCivilDayRolloverRefresh`). */
   let lastRolloverAttemptCivilDayStartMs = $state<number | undefined>(undefined);
-  let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
   let currentTown = $state<Town | undefined>(undefined);
 
   function appDiag(...args: unknown[]) {
@@ -160,10 +160,6 @@
     refreshTideExtremesForTown(town);
   }
 
-  function closeMenu(): void {
-    menuDetails?.removeAttribute("open");
-  }
-
   function headerPlaceholderForRoute(routeId: AppRouteId): string {
     switch (routeId) {
       case "location":
@@ -201,41 +197,11 @@
 </script>
 
 <div class="app-frame">
-  <header class="top-bar">
-    <div class="header-left">
-      {#if $route === "home"}
-        {#if currentTown}
-          <span class="header-location">
-            Tides in <strong>{currentTown.name}</strong> today
-          </span>
-        {:else}
-          <span class="header-location">Tides today</span>
-        {/if}
-        <a
-          class="location-change"
-          href="#/location"
-          onclick={closeMenu}
-          aria-label="Change location"
-        >
-          &gt;&gt;
-        </a>
-      {:else}
-        <span class="header-route-placeholder">{headerPlaceholderForRoute($route)}</span>
-      {/if}
-    </div>
-    <details class="menu" bind:this={menuDetails}>
-      <summary class="menu-toggle" aria-label="Menu">Menu</summary>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#/home" onclick={closeMenu}>Home</a>
-        <a href="#/location" onclick={closeMenu}>Location</a>
-        <a href="#/settings" onclick={closeMenu}>Settings</a>
-        <a href="#/about" onclick={closeMenu}>About</a>
-        <a href="#/acknowledgements" onclick={closeMenu}>Acknowledgements</a>
-        <a href="#/support" onclick={closeMenu}>Support</a>
-        <a href="#/cookies" onclick={closeMenu}>Cookies</a>
-      </nav>
-    </details>
-  </header>
+  {#if $route === "home"}
+    <AppHeader tone={"dark"} center={{ kind: "location", town: currentTown }} />
+  {:else}
+    <AppHeader tone={"light"} center={{ kind: "title", title: headerPlaceholderForRoute($route) }} />
+  {/if}
 
   <section class="content" class:content--home={$route === "home"}>
     {#if $route === "home"}

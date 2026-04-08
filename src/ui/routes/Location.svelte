@@ -3,6 +3,7 @@
    * Location.svelte — Search and pick a town; calls back into the shell to persist selection.
    * Kind: Presentation. Does not write storage directly.
    */
+  import { navigate } from "../../infrastructure/router.js";
   import { type Town, bakedTowns } from "../../data/bakedTowns";
 
   interface Props {
@@ -14,7 +15,6 @@
 
   let { setCurrentLocation }: Props = $props();
   let searchText = $state("");
-  let selectedTown = $state<Town | undefined>(undefined);
 
   function scoreTownName(name: string, query: string): number {
     const lowerName = name.toLowerCase();
@@ -62,8 +62,8 @@
         townName: town.name
       });
     }
-    selectedTown = town;
     setCurrentLocation(town);
+    navigate("home");
   }
 </script>
 
@@ -96,31 +96,28 @@
       <div class="single-result">
         <p>
           1 town found:
-          <strong>{visibleTowns[0].name}</strong>
+          <button type="button" class="town-name-button" onclick={() => chooseTown(visibleTowns[0])}>
+            {visibleTowns[0].name}
+          </button>
           ({visibleTowns[0].county}, {visibleTowns[0].country})
         </p>
-        <button type="button" onclick={() => chooseTown(visibleTowns[0])}>Use this town</button>
       </div>
     {:else}
       <p class="muted">Pick one of these towns:</p>
       <ul class="results">
         {#each visibleTowns as town (town.id)}
           <li>
-            <button type="button" class="result-button" onclick={() => chooseTown(town)}>
-              <span class="name">{town.name}</span>
-              <span class="meta">{town.county}, {town.country}</span>
-            </button>
+            <p class="result-row">
+              <button type="button" class="town-name-button" onclick={() => chooseTown(town)}>
+                {town.name}
+              </button>
+              <span class="meta">({town.county}, {town.country})</span>
+            </p>
           </li>
         {/each}
       </ul>
     {/if}
   </section>
-
-  {#if selectedTown}
-    <p class="selected-message">
-      Selected <strong>{selectedTown.name}</strong>. <a href="#/home">View tide clock</a>
-    </p>
-  {/if}
 </main>
 
 <style>
@@ -158,16 +155,6 @@
     gap: 0.6rem;
   }
 
-  .single-result button,
-  .result-button {
-    border: 1px solid #d1d5db;
-    border-radius: 0.5rem;
-    background: #ffffff;
-    padding: 0.65rem 0.8rem;
-    text-align: left;
-    font: inherit;
-  }
-
   .results {
     list-style: none;
     margin: 0.3rem 0 0;
@@ -176,25 +163,23 @@
     gap: 0.45rem;
   }
 
-  .result-button {
-    width: 100%;
-    display: grid;
-    gap: 0.1rem;
+  .result-row {
+    margin: 0;
   }
 
-  .name {
+  .town-name-button {
+    border: none;
+    background: none;
+    padding: 0;
+    font: inherit;
+    color: #1d4ed8;
+    text-decoration: underline;
+    cursor: pointer;
     font-weight: 600;
   }
 
   .meta {
     color: #4b5563;
     font-size: 0.93rem;
-  }
-
-  .selected-message {
-    margin-top: 0.2rem;
-    padding: 0.65rem 0.8rem;
-    border-radius: 0.5rem;
-    background: #f0f9ff;
   }
 </style>
