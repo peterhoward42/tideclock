@@ -329,7 +329,7 @@
   @keyframes home-now-triangle-pulse {
     0%,
     100% {
-      opacity: 0.5;
+      opacity: 0.45;
     }
     60% {
       opacity: 1;

@@ -98,14 +98,11 @@ o  new data fetch paradigm
 				*  rationalise header and messages
 				*  improve change location UX
 				*  standardise header strip colours
+				*  filled boss
 
-				o  filled boss
-				o  fat arrow
+				o  now colours and animation
 				o  might not need the word "now"
-				o  outline time now triangle
-				o  then can leave the arrow for longer
-				o  time now all one colour?
-				o  shimmer?
+
 				o  loop back to fix no more times today
 fart
 				o  say the date and day eg Wednesday

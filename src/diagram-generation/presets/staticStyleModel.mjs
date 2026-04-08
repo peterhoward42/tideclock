@@ -10,9 +10,18 @@
 export const STATIC_STYLE_MODEL = {
   styles: [
     {
-      name: "emph",
+      name: "emphtide",
       style: { color: "orchid" },
     },
+    {
+      name: "emphnow",
+      style: { color: "lawngreen" },
+    },
+    {
+      name: "emphnow-dashed",
+      style: { color: "lawngreen", lineStyle: "dashed" },
+    },
+   
     {
       name: "grey2",
       style: { color: "#222" },
@@ -50,20 +59,20 @@ export const STATIC_STYLE_MODEL = {
     { name: "AnnularBand", styleName: "grey2" },
     { name: "RefArc", styleName: "grey8" },
     { name: "TickMark", styleName: "grey8" },
-    { name: "HeightLabel", styleName: "emph" },
+    { name: "HeightLabel", styleName: "emphtide" },
     { name: "TimeDeltaLine", styleName: "greyA" },
-    { name: "NextPointer", styleName: "emph" },
-    { name: "WaitArc", styleName: "grey8" },
-    { name: "TimePointer", styleName: "emph" },
+    { name: "NextPointer", styleName: "emphtide" },
+    { name: "WaitArc", styleName: "emphnow" },
+    { name: "TimePointer", styleName: "emphtide" },
     { name: "TimeLabel", styleName: "grey6" },
     { name: "TickLabel", styleName: "grey6" },
     { name: "CentreFrame", styleName: "centre-frame" },
     { name: "TimeNowLabelHms", styleName: "grey5" },
-    { name: "TimeNowLabelSecondsColon", styleName: "greyA" },
-    { name: "TimeNowLabelSeconds", styleName: "greyA" },
+    { name: "TimeNowLabelSecondsColon", styleName: "emphnow" },
+    { name: "TimeNowLabelSeconds", styleName: "emphnow" },
     { name: "NoMoreTidesToday", styleName: "grey6" },
-    { name: "NowTriangle", styleName: "greyA" },
-    { name: "NowRadialLine", styleName: "grey8-dashed" },
-    { name: "NowLabel", styleName: "grey8" },
+    { name: "NowTriangle", styleName: "emphnow" },
+    { name: "NowRadialLine", styleName: "emphnow-dashed" },
+    { name: "NowLabel", styleName: "emphnow" },
   ],
 };
