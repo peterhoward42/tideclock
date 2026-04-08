@@ -29,6 +29,21 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(output.styleRuntime.stylesByName.size).toBeGreaterThan(0);
   });
 
+  it('InsideTrack is concentric with RefArc at insideTrackRadius·RefRadius', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const spec = buildDiagramGenerationSpec({
+      extremesAtLocation: minimalExtremesForCollaboratorTest(),
+      timeNow: '12:00:00',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+      townName: 'Lymington',
+    });
+    const { diagram } = collaborator.generate(spec);
+    expect(diagram.insideTrack.sweepRad).toBe(diagram.refArc.sweepRad);
+    expect(diagram.insideTrack.thetaLeft).toBe(diagram.refArc.thetaLeft);
+    expect(diagram.insideTrack.radius).toBeCloseTo(0.75 * diagram.refArc.refRadius);
+  });
+
   it('includes AnnularBand from home layout (annularBand.annularBandWidth)', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const spec = buildDiagramGenerationSpec({

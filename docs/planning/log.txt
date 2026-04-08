@@ -99,9 +99,9 @@ o  new data fetch paradigm
 				*  improve change location UX
 				*  standardise header strip colours
 				*  filled boss
-
-				o  now colours and animation
-				o  might not need the word "now"
+				*  now colours and animation
+				*  might not need the word "now"
+				o  another annular arc just inside markers 0.75
 
 				o  loop back to fix no more times today
 fart

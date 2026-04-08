@@ -68,6 +68,7 @@ type SemanticInjectionDiagramSpec = {
     readonly y: number;
   };
   readonly centreFrame: { readonly frameArcRadius: number };
+  readonly insideTrackRadius: number;
   readonly timeDelta: {
     readonly leftOfOrigin: number;
     readonly belowOrigin: number;
@@ -130,6 +131,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     },
     timeNowLabel: { x: 0.8, fontHeight: 0.05, y: 0.95 },
     centreFrame: { frameArcRadius: 0.35 },
+    insideTrackRadius: 0.75,
     timeDelta: {
       leftOfOrigin: 1,
       belowOrigin: 0.1,
@@ -239,6 +241,13 @@ describe('spec.semantic.nextTide injection', () => {
     const { annularBand: _omit, ...rest } = sampleTideDiagramSpec();
     expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
       /spec\.annularBand/,
+    );
+  });
+
+  it('throws when spec omits insideTrackRadius', () => {
+    const { insideTrackRadius: _omit, ...rest } = sampleTideDiagramSpec();
+    expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
+      /insideTrackRadius/,
     );
   });
 

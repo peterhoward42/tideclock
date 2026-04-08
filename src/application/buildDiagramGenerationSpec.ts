@@ -90,6 +90,8 @@ type HomeTideDiagramLayoutBase = {
     readonly y: number;
   };
   readonly centreFrame: { readonly frameArcRadius: number };
+  /** k·RefRadius; concentric arc inside RefArc, same angular span as RefArc. */
+  readonly insideTrackRadius: number;
   readonly timeDelta: {
     readonly leftOfOrigin: number;
     readonly belowOrigin: number;
@@ -129,6 +131,7 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   },
   timeNowLabel: { x: 1.0, fontHeight: 0.04, y: 1.2 },
   centreFrame: { frameArcRadius: 0.30 },
+  insideTrackRadius: 0.77,
   timeDelta: {
     leftOfOrigin: 1.1,
     belowOrigin: -0.03,

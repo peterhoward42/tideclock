@@ -144,6 +144,13 @@ type AnnularBandDiagram = {
   readonly sweepRad: number;
 };
 
+type InsideTrackDiagram = {
+  readonly center: DiagramPoint;
+  readonly radius: number;
+  readonly thetaLeft: number;
+  readonly sweepRad: number;
+};
+
 /**
  * Shape returned by {@link buildDiagram} in `buildDiagram.mjs` (see JSDoc on `TideDiagramDocument`
  * in `tideDiagramModel.mjs`). App code treats this as the diagram-generation boundary contract.
@@ -152,6 +159,7 @@ export type TideDiagramDocument = {
   readonly version: number;
   readonly meta: { readonly title: string; readonly width: number; readonly height: number };
   readonly refArc: RefArcSpec;
+  readonly insideTrack: InsideTrackDiagram;
   readonly tickMarks: TickMarkSpec[];
   readonly tickLabels: TickLabelSpec[];
   readonly tideMarks: TideMarkDiagram[];

@@ -144,10 +144,20 @@
  *   sweepRad: number,
  * }} AnnularBandDiagram
  *
+ * Circular arc concentric with RefArc; radius **InsideTrackRadius·RefRadius**; same **θ_left** and CCW sweep as RefArc.
+ *
+ * @typedef {{
+ *   center: DiagramPoint,
+ *   radius: number,
+ *   thetaLeft: number,
+ *   sweepRad: number,
+ * }} InsideTrackDiagram
+ *
  * @typedef {{
  *   version: number,
  *   meta: { title: string, width: number, height: number },
  *   refArc: RefArcSpec,
+ *   insideTrack: InsideTrackDiagram,
  *   tickMarks: TickMarkSpec[],
  *   tickLabels: TickLabelSpec[],
  *   tideMarks: TideMarkDiagram[],

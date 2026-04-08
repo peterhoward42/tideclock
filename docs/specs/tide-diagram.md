@@ -26,6 +26,7 @@ and layout submodules).
 - `**canvas`** — object with finite `**width**` and `**height**` (px).
 - `**title**` — string (diagram meta).
 - `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
+- `**insideTrackRadius**` — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid.
 - `**waitArc`** — object with finite `**radius**` (**k·R**). If **max(0, radius)·RefRadius** is **0**, the wait arc is omitted without evaluating next-tide logic. Otherwise `**arrow`** is required: finite `**lengthK**`, `**widthK**`, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a **boolean**.
 - `**tideMarks`** — if absent, or `**markers**` missing or empty, there are no tide marks. If `**markers**` is non-empty, these finite numbers are required on `**tideMarks**`: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. At least one marker row must yield a usable time after parsing (otherwise generation throws).
@@ -48,6 +49,8 @@ and layout submodules).
   - NoMoreTidesToday
   - CentreFrame
   - AnnularBand
+  - InsideTrack
+  - RefArc
 
 When there is **no** tide marker at or after `timeNow` on the same civil day
 (same “next marker” notion as **WaitArc**), **NextPointer** and **WaitArc** are
@@ -104,6 +107,10 @@ axis; the RefArc spans **symmetrically about the negative Y** axis.
 - Let **θ_left** and **θ_right** be the polar angles of the leftmost and
 rightmost endpoints of the RefArc. The remainder of the diagram geometry is a
 function of the RefArc.
+- **InsideTrack** is a separate stroked **circular arc** concentric with the
+**RefArc** (centre **O**), with radius **InsideTrackRadius × RefRadius** (**k·R**;
+see strict inputs). It uses the same **θ_left** and the same CCW **swept angle**
+as the **RefArc** (from **θ_left** to **θ_right**).
 
 ### §Time and θ(t)
 

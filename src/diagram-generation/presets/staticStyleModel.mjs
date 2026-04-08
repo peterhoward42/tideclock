@@ -57,6 +57,7 @@ export const STATIC_STYLE_MODEL = {
   ],
   bindings: [
     { name: "AnnularBand", styleName: "grey2" },
+    { name: "InsideTrack", styleName: "grey5" },
     { name: "RefArc", styleName: "grey8" },
     { name: "TickMark", styleName: "grey8" },
     { name: "HeightLabel", styleName: "emphtide" },

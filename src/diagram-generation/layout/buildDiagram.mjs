@@ -11,6 +11,7 @@
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
  * - Sub-builders (`buildTideMarksFromSpec`, pointers, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0** (defines the Now **triangle** outer radius together with **RefRadius**).
+ * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
  * - When `**nowPointer**` is present, `**nowPointer.triangle.subtendedAngleRad**` is required: literal radians, strictly between **0** and **π** (see spec).
  */
 import { buildCentreFrameDiagramFromSpec } from "./centreFrame.mjs";
@@ -203,6 +204,12 @@ export function buildDiagram(spec) {
     thetaLeft,
     sweepRad,
   );
+  const insideTrack = buildInsideTrackFromSpec(
+    spec,
+    refRadius,
+    thetaLeft,
+    sweepRad,
+  );
 
   return {
     version: 1,
@@ -214,6 +221,7 @@ export function buildDiagram(spec) {
       thetaLeft,
       thetaRight,
     },
+    insideTrack,
     tickMarks,
     tickLabels,
     tideMarks,
@@ -264,6 +272,31 @@ function formatHourDigits(h) {
  * @param {number} sweepRad same subtended angle as RefArc (radians)
  * @returns {import('../model/tideDiagramModel.mjs').AnnularBandDiagram}
  */
+/**
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @param {number} thetaLeft
+ * @param {number} sweepRad same subtended angle as RefArc (radians)
+ * @returns {import('../model/tideDiagramModel.mjs').InsideTrackDiagram}
+ */
+function buildInsideTrackFromSpec(spec, refRadius, thetaLeft, sweepRad) {
+  const k = requireFiniteNumber(
+    spec.insideTrackRadius,
+    "spec.insideTrackRadius",
+  );
+  if (k <= 0) {
+    throw new Error(
+      "spec.insideTrackRadius must be a finite number greater than 0",
+    );
+  }
+  return {
+    center: { x: 0, y: 0 },
+    radius: k * refRadius,
+    thetaLeft,
+    sweepRad,
+  };
+}
+
 function buildAnnularBandFromSpec(spec, refRadius, thetaLeft, sweepRad) {
   const o = requirePlainObject(spec.annularBand, "spec.annularBand");
   const wK = requireFiniteNumber(

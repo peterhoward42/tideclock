@@ -24,6 +24,15 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "thetaRight": 6.08738898038469,
     },
   },
+  "insideTrack": {
+    "center": {
+      "x": 0,
+      "y": 0,
+    },
+    "radius": 88.5,
+    "sweepRad": 2.75,
+    "thetaLeft": 3.3373889803846897,
+  },
   "meta": {
     "height": 320,
     "title": "home-tide-diagram",
@@ -680,7 +689,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "timeNowLabel": {
     "hhmm": {
       "anchor": {
-        "x": 115.40400000000001,
+        "x": 109.504,
         "y": -141.6,
       },
       "content": "Mon 23 Mar - 19:20",
@@ -689,7 +698,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     },
     "seconds": {
       "anchor": {
-        "x": 123.9,
+        "x": 118,
         "y": -141.6,
       },
       "content": "03",
@@ -698,7 +707,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     },
     "secondsColon": {
       "anchor": {
-        "x": 118.236,
+        "x": 112.336,
         "y": -141.6,
       },
       "content": ":",
@@ -711,10 +720,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "arrow": {
       "at": "end",
       "insetK": 0,
-      "lengthK": 20,
+      "lengthK": 24,
       "scaleWithStroke": true,
       "style": "filled",
-      "widthK": 8,
+      "widthK": 10,
     },
     "center": {
       "x": 0,
@@ -732,7 +741,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "meta": {
     "height": 320,
     "previewFrame": {
-      "maxX": 334.9,
+      "maxX": 332.532649765169,
       "maxY": 168.316,
       "minX": 79.19999999999999,
       "minY": 16.456000000000007,
@@ -768,6 +777,24 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             },
             "kind": "arc",
             "start": {
+              "x": 123.19096445345072,
+              "y": 142.78252784297464,
+            },
+            "sweepRad": 2.75,
+          },
+        ],
+        "kind": "group",
+        "name": "InsideTrack",
+      },
+      {
+        "children": [
+          {
+            "center": {
+              "x": 210,
+              "y": 160,
+            },
+            "kind": "arc",
+            "start": {
               "x": 94.25461927126761,
               "y": 137.04337045729955,
             },
@@ -783,10 +810,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "arrow": {
               "at": "end",
               "insetK": 0,
-              "lengthK": 20,
+              "lengthK": 24,
               "scaleWithStroke": true,
               "style": "filled",
-              "widthK": 8,
+              "widthK": 10,
             },
             "center": {
               "x": 210,
@@ -1511,7 +1538,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               "x": 210,
               "y": 160,
             },
-            "kind": "arc",
+            "kind": "arcSegment",
             "start": {
               "x": 175.27638578138027,
               "y": 153.11301113718986,
@@ -1551,7 +1578,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 325.404,
+                  "x": 319.504,
                   "y": 18.400000000000006,
                 },
                 "angleRad": 0,
@@ -1568,7 +1595,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 328.236,
+                  "x": 322.336,
                   "y": 18.400000000000006,
                 },
                 "angleRad": 0,
@@ -1585,7 +1612,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 333.9,
+                  "x": 328,
                   "y": 18.400000000000006,
                 },
                 "angleRad": 0,
