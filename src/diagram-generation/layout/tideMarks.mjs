@@ -5,10 +5,11 @@
  * See docs/specs/tide-diagram.md (TideMarks).
  *
  * Policies for {@link buildTideMarksFromSpec}:
- * - Returns `[]` when `tideMarks` is missing, not a plain object, or `markers` is missing or empty.
- * - When `markers` is non-empty, numeric layout keys on `tideMarks` are required (finite numbers; see spec).
- * - Throws if no marker row yields a usable layout time after filtering (invalid rows are skipped until none remain).
- * - Throws from {@link parseCanonicalTimeOrThrow} on invalid marker times, and on duplicate canonical times after filtering.
+ * - `spec.tideMarks` is required (plain object); `markers` must be a non-empty array.
+ * - Each marker row must be an object with string `heightText`, `highOrLow` ∈ {`High`,`Low`}, and `time` in strict
+ *   canonical `HH:MM:SS` other than `24:00:00` (that sentinel is invalid for tide markers).
+ * - Numeric layout keys on `tideMarks` are required (finite numbers; see spec).
+ * - Duplicate canonical marker times throw.
  */
 
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
@@ -16,7 +17,7 @@ import {
   formatCanonicalHHMM,
   parseCanonicalTimeOrThrow,
 } from "../model/timeCanonical.mjs";
-import { requireFiniteNumber } from "./specRequire.mjs";
+import { requireFiniteNumber, requirePlainObject, requireString } from "./specRequire.mjs";
 
 /**
  * One marker after spec parsing: fractional hour on the dial, display strings, canonical time key.
@@ -47,7 +48,7 @@ import { requireFiniteNumber } from "./specRequire.mjs";
 /**
  * Pure layout: maps each marker to diagram-space labels and time pointer geometry.
  *
- * @param {LayoutTideMarksParams} params — `markers` is typically non-empty; an empty array returns `[]`.
+ * @param {LayoutTideMarksParams} params — `markers` must be non-empty (callers validate via {@link parseTideMarksMarkerRowsOrThrow}).
  * @returns {import('../model/tideDiagramModel.mjs').TideMarkDiagram[]}
  */
 export function layoutTideMarks(params) {
@@ -147,6 +148,72 @@ function normalLineIntersection(v1, v2, v3) {
 }
 
 /**
+ * Parse and validate `spec.tideMarks.markers` for layout and next-tide logic (shared rules).
+ *
+ * @param {unknown} markersRaw
+ * @returns {Array<{ seconds: number, hours: number, canonicalTime: string, heightText: string, kind: string }>}
+ */
+export function parseTideMarksMarkerRowsOrThrow(markersRaw) {
+  if (!Array.isArray(markersRaw)) {
+    throw new Error("spec.tideMarks.markers must be an array");
+  }
+  if (markersRaw.length === 0) {
+    throw new Error("spec.tideMarks.markers must be non-empty");
+  }
+
+  /** @type {Array<{ seconds: number, hours: number, canonicalTime: string, heightText: string, kind: string }>} */
+  const out = [];
+  for (let i = 0; i < markersRaw.length; i += 1) {
+    const row = markersRaw[i];
+    if (row == null || typeof row !== "object") {
+      throw new Error(`spec.tideMarks.markers[${i}] must be an object`);
+    }
+    const r = /** @type {Record<string, unknown>} */ (row);
+    const heightText = requireString(
+      r.heightText,
+      `spec.tideMarks.markers[${i}].heightText`,
+    );
+    const kind = requireString(
+      r.highOrLow,
+      `spec.tideMarks.markers[${i}].highOrLow`,
+    );
+    if (kind !== "High" && kind !== "Low") {
+      throw new Error(
+        `spec.tideMarks.markers[${i}].highOrLow must be "High" or "Low"`,
+      );
+    }
+    const parsed = parseCanonicalTimeOrThrow(
+      r.time,
+      `spec.tideMarks.markers[${i}].time`,
+    );
+    if (parsed.isRightEndpoint) {
+      throw new Error(
+        `spec.tideMarks.markers[${i}].time must not be "24:00:00" (tide markers use 00:00:00–23:59:59 only)`,
+      );
+    }
+    out.push({
+      seconds: parsed.seconds,
+      hours: parsed.hours,
+      canonicalTime: parsed.canonical,
+      heightText,
+      kind,
+    });
+  }
+
+  const seen = new Set();
+  for (const marker of out) {
+    if (seen.has(marker.canonicalTime)) {
+      throw new Error(
+        `duplicate tideMarks marker time "${marker.canonicalTime}"`,
+      );
+    }
+    seen.add(marker.canonicalTime);
+  }
+
+  return out;
+}
+
+/**
  * Read `spec.tideMarks` and lay out tide marks for the given ref arc angles.
  *
  * @param {Record<string, unknown>} spec
@@ -154,14 +221,11 @@ function normalLineIntersection(v1, v2, v3) {
  * @param {number} thetaLeft
  * @param {number} thetaRight
  * @returns {import('../model/tideDiagramModel.mjs').TideMarkDiagram[]}
- * @throws {Error} invalid marker time (via {@link parseCanonicalTimeOrThrow}), duplicate canonical time, missing layout keys, or no valid markers
+ * @throws {Error} invalid marker rows, duplicate times, or missing layout keys
  */
 export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
-  const raw = spec.tideMarks;
-  if (raw == null || typeof raw !== "object") return [];
-  const o = /** @type {Record<string, unknown>} */ (raw);
-  const markersRaw = o.markers;
-  if (!Array.isArray(markersRaw) || markersRaw.length === 0) return [];
+  const o = requirePlainObject(spec.tideMarks, "spec.tideMarks");
+  const parsedRows = parseTideMarksMarkerRowsOrThrow(o.markers);
 
   const tideHeightLabelRadius = requireFiniteNumber(
     o.tideHeightLabelRadius,
@@ -195,41 +259,12 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   );
 
   /** @type {LayoutTideMarkInput[]} */
-  const markers = [];
-  for (const row of markersRaw) {
-    if (row == null || typeof row !== "object") continue;
-    const r = /** @type {Record<string, unknown>} */ (row);
-    const heightText = r.heightText;
-    const canonicalTime = r.time;
-    if (typeof heightText !== "string") continue;
-    const parsed = parseCanonicalTimeOrThrow(
-      canonicalTime,
-      "tideMarks.markers[].time",
-    );
-    if (parsed.isRightEndpoint) continue;
-    markers.push({
-      t: parsed.hours,
-      canonicalTime: parsed.canonical,
-      heightText,
-      timeText: formatCanonicalHHMM(parsed.canonical),
-    });
-  }
-
-  if (markers.length === 0) {
-    throw new Error(
-      "spec.tideMarks.markers is non-empty but no row produced a valid tide time (check times and heightText)",
-    );
-  }
-
-  const seen = new Set();
-  for (const marker of markers) {
-    if (seen.has(marker.canonicalTime)) {
-      throw new Error(
-        `duplicate tideMarks marker time "${marker.canonicalTime}"`,
-      );
-    }
-    seen.add(marker.canonicalTime);
-  }
+  const markers = parsedRows.map((row) => ({
+    t: row.hours,
+    canonicalTime: row.canonicalTime,
+    heightText: row.heightText,
+    timeText: formatCanonicalHHMM(row.canonicalTime),
+  }));
 
   return layoutTideMarks({
     refRadius,

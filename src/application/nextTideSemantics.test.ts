@@ -21,13 +21,9 @@ function specWithMarkers(
 }
 
 describe('deriveNextTideSemantics', () => {
-  it('returns null nextTide when there are no markers', () => {
+  it('throws when markers array is empty', () => {
     const spec = specWithMarkers('12:00:00', []);
-    const out = deriveNextTideSemantics(spec);
-    expect(out.nextTide).toBeNull();
-    expect(out.timeNow.canonical).toBe('12:00:00');
-    expect(out.timeNow.seconds).toBe(12 * 3600);
-    expect(out.timeNow.isRightEndpoint).toBe(false);
+    expect(() => deriveNextTideSemantics(spec)).toThrow(/non-empty/);
   });
 
   it('returns null nextTide when every marker is strictly before timeNow', () => {
@@ -66,8 +62,16 @@ describe('deriveNextTideSemantics', () => {
   });
 
   it('uses custom timeNow label in parse errors', () => {
-    expect(() => deriveNextTideSemantics({ timeNow: '99:00:00', tideMarks: { markers: [] } }, { timeNowLabel: 'clock.now' })).toThrow(
-      /clock\.now/,
-    );
+    expect(() =>
+      deriveNextTideSemantics(
+        {
+          timeNow: '99:00:00',
+          tideMarks: {
+            markers: [{ time: '12:00:00', heightText: '0 m', highOrLow: 'High' }],
+          },
+        },
+        { timeNowLabel: 'clock.now' },
+      ),
+    ).toThrow(/clock\.now/);
   });
 });

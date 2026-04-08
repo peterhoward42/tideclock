@@ -101,18 +101,18 @@ o  new data fetch paradigm
 				*  filled boss
 				*  now colours and animation
 				*  might not need the word "now"
-				o  another annular arc just inside markers 0.75
-
-				o  loop back to fix no more times today
+				*  another annular arc just inside markers 0.75
+				*  loop back to fix no more times today
 fart
-				o  say the date and day eg Wednesday
 				o  scrape diag spec for optional / if present errors
 					o  fix spec
 					o  clean implementation
+				o  sweep code for optional behaviour / fallbacks / defaults
+
 				o  put opacity throb on some time now artefacts
 				o  now label "now" should be positioned to be justified just
 				   inside the wait arc radius
-				o  try making the boss match the annular arc 
+				o  better list of towns - south wales very sparse
 				o  come back to alternating in/out edge cases 
 				o  come back to the Bournemouth dilemma
 				o  tune line thicknesses and font for platforms
@@ -120,98 +120,25 @@ fart
 				o  optimise svg for mobile/table/desktop
 				o  branding
 				o  deploy
-
-
-				o  say next hight water at foo in bar interval
-					o  maybe in header strip
-
-				o  assemble location and hight water message into one?
-				o  put change location inside diag bottom left
-				o  tune geom of boss
-				o  change header on home only to dark grey with appropriate changes
-				   to menu colour on home route only
-				o  improve town picker and redirect to clock
-				o  improve visuals incl hierarchy
-
-
-
-
-
 				o  try on phone
 				o  line thicknesses knobs
-				o  improve now triangle graphics - perhaps inside tick zone
-
 				o  leave it running to spot errors / null in log
-				o  change location ui not great
-				o  change location take you to clock route
 				o  say suggest use landscape
 				o  fit for purpose graphics design styling
-				o  not keen on optional code idiom- debate
-					o  params
-					o  state
-					o  loose types such as spec: Record<string, unknown>,
-					o  as skill
-					o  try it?
-
 				o  network hits observability
+				o  say hello
+				o  give feedback
+				o  donate
+				o  buy my software
+				o  learn about tides
+				o  acks
 				o  how hide browser apparatus at top?
 				o  test on tablet and phone
 				o  how encourage keep screen on if charging
-				o  is it a tide smile?
-
-				o  question merit of keeping iter.sh on gen scene - has
-					served its purpose
-
-				o  big comb / housekeep
-				o  read the code
-
-
-				o  Refinements
-					o  Say high water in 4 hours, 8 minutes (singular plural)
-					o  what if no more tides today?
-
-
-			o  remove unused junk in generators
-			o  inspect the generated code
-				o  auto qual checks various
-
-
-			o  ditch legacy docs
-			o  when DRY up the generators for in-app workflow will the
-			   .mjs thing still work?
-
-
-fart
-
-
-
-			o  todo
-				o  consider baseline angle for now pointer at high
-				   TIME values
 				o  facilitate user reporting errors
-			o  exceptions
-				o  no more high waters or low water today
-				o  collisions
-				o  truncations
 				
 
-		o  move on to changing location and firing the refetch, then
-		   later can reuse that with the default location
-		   	o  start by name -> town -> lat and long
-
-		o  change proxy to fetch earlier start window
-
-
-Read /docs/planning/new-tidal-data-flow.md for context.
-
-	o  ask cursor to put in getDataForNow as per spec
-	
-
-       
 o  don't forget
-	o  big docco clearout
-	o  come back to expiry policy buffer time
-	o  prevent locking into system cache miss due to a bug
 	o  proxy api should come from envar?
 	o  policy for excections
 	o  price cap control on worldtimes costs

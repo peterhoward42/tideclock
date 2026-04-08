@@ -41,7 +41,7 @@ describe('createDiagramGenerationCollaborator', () => {
     const { diagram } = collaborator.generate(spec);
     expect(diagram.insideTrack.sweepRad).toBe(diagram.refArc.sweepRad);
     expect(diagram.insideTrack.thetaLeft).toBe(diagram.refArc.thetaLeft);
-    expect(diagram.insideTrack.radius).toBeCloseTo(0.75 * diagram.refArc.refRadius);
+    expect(diagram.insideTrack.radius).toBeCloseTo(0.77 * diagram.refArc.refRadius);
   });
 
   it('includes AnnularBand from home layout (annularBand.annularBandWidth)', () => {
@@ -101,5 +101,21 @@ describe('createDiagramGenerationCollaborator', () => {
     });
     const spec = { ...base, annularBand: {} };
     expect(() => collaborator.generate(spec)).toThrow(/annularBandWidth/);
+  });
+
+  it('throws when waitArc.radius is zero', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = buildDiagramGenerationSpec({
+      extremesAtLocation: minimalExtremesForCollaboratorTest(),
+      timeNow: '12:00:00',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+      townName: 'Lymington',
+    });
+    const spec = {
+      ...base,
+      waitArc: { ...base.waitArc, radius: 0 },
+    };
+    expect(() => collaborator.generate(spec)).toThrow(/waitArc\.radius/);
   });
 });

@@ -5,11 +5,11 @@
  * See docs/specs/tide-diagram.md (NextPointer). Emits a NextPointerDiagram or `null` when layout cannot proceed.
  *
  * Policies for {@link buildNextPointerFromSpec}:
- * - Returns `null` when `nextPointer` is missing or not a plain object.
- * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
- * - Returns `null` when {@link buildNowPointerFromSpec} is `null`, when
- *   outer ≤ inner along the next radial, or when {@link computeNextTideEventCore} has no next event.
- * - When `nextPointer` is present, `radialLine.outerRadius` is required (finite number). Circle radius is **σ·R_frame** (fixed **σ** in spec).
+ * - `spec.nextPointer` is required (plain object) with nested `radialLine.outerRadius` finite **> 0** (**k·R**).
+ * - Throws when **r_outer ≤ r_inner** (line end not outside **R_frame**).
+ * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid or `24:00:00`.
+ * - Returns `null` only when {@link computeNextTideEventCore} has no next tide at or after `timeNow` on the civil day.
+ * - Circle radius is **σ·R_frame** (fixed **σ** in spec).
  */
 
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
@@ -36,9 +36,7 @@ export function buildNextPointerFromSpec(
   thetaLeft,
   thetaRight,
 ) {
-  const raw = spec.nextPointer;
-  if (raw == null || typeof raw !== "object") return null;
-  const o = /** @type {Record<string, unknown>} */ (raw);
+  const o = requirePlainObject(spec.nextPointer, "spec.nextPointer");
 
   const radialLineSpec = requirePlainObject(
     o.radialLine,
@@ -56,7 +54,6 @@ export function buildNextPointerFromSpec(
     thetaLeft,
     thetaRight,
   );
-  if (nowPointer == null) return null;
 
   let rInner;
   if (nowPointer.radialLine != null) {
@@ -72,8 +69,17 @@ export function buildNextPointerFromSpec(
     radialLineSpec.outerRadius,
     "spec.nextPointer.radialLine.outerRadius",
   );
-  const rOuter = Math.max(0, lineOuterK) * refRadius;
-  if (rOuter <= rInner) return null;
+  if (!(lineOuterK > 0)) {
+    throw new Error(
+      "spec.nextPointer.radialLine.outerRadius must be a finite number greater than 0 (RefRadius multiple)",
+    );
+  }
+  const rOuter = lineOuterK * refRadius;
+  if (rOuter <= rInner) {
+    throw new Error(
+      "spec.nextPointer.radialLine.outerRadius must place the line end outside centreFrame.frameArcRadius (outer radius must exceed R_frame)",
+    );
+  }
 
   const core = computeNextTideEventCore(spec, parsedNow);
   if (core == null) {

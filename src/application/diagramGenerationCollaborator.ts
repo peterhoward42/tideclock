@@ -163,13 +163,13 @@ export type TideDiagramDocument = {
   readonly tickMarks: TickMarkSpec[];
   readonly tickLabels: TickLabelSpec[];
   readonly tideMarks: TideMarkDiagram[];
-  readonly nowPointer: NowPointerDiagram | null;
+  readonly nowPointer: NowPointerDiagram;
   readonly nextPointer: NextPointerDiagram | null;
   readonly waitArc: WaitArcDiagram | null;
   readonly annularBand: AnnularBandDiagram;
   readonly timeDeltaDiagram: TimeDeltaDiagram;
   readonly centreFrameDiagram: CentreFrameDiagram;
-  readonly timeNowLabel: DiagramTimeNowLabelInst | null;
+  readonly timeNowLabel: DiagramTimeNowLabelInst;
 };
 
 type ScenePoint = { readonly x: number; readonly y: number };

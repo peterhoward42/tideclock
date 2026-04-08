@@ -12,7 +12,10 @@
  * - Sub-builders (`buildTideMarksFromSpec`, pointers, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0** (defines the Now **triangle** outer radius together with **RefRadius**).
  * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
- * - When `**nowPointer**` is present, `**nowPointer.triangle.subtendedAngleRad**` is required: literal radians, strictly between **0** and **π** (see spec).
+ * - `**timeNowLabel**` is required (plain object with finite **x**, **fontHeight**, **y** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
+ * - `**waitArc.radius**` must be a finite **k·R** multiplier **> 0** (zero or negative throws).
+ * - `**nowPointer**` and `**nextPointer**` are required plain objects with the nested fields in docs/specs/tide-diagram.md; degenerate radial geometry (outer ≤ inner) throws.
+ * - `**nowPointer.triangle.subtendedAngleRad**` is required: literal radians, strictly between **0** and **π** (see spec).
  */
 import { buildCentreFrameDiagramFromSpec } from "./centreFrame.mjs";
 import { buildTimeDeltaDiagramFromSpec } from "./timeDeltaDiagram.mjs";
@@ -42,20 +45,17 @@ const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
 
 /**
  * Root-level clock readout from `spec.timeNow` (canonical `HH:MM:SS`) and required
- * `spec.timeNowDatePrefix` (e.g. `Wed 21 Jun`) when `spec.timeNowLabel` is present.
- * Optional `spec.timeNowLabel`:
- * `{ x, fontHeight, y }` as RefRadius multiples (all required when the object is present);
+ * `spec.timeNowDatePrefix` (e.g. `Wed 21 Jun`).
+ * Required `spec.timeNowLabel`: `{ x, fontHeight, y }` as RefRadius multiples;
  * **y** is proportion **k**; baseline **Y = −k·R** (subtract **k·R** from **Y = 0**), unlike signed `timeDelta.y`.
  * Date+HH:MM, the colon before seconds, and SS are separate {@link DiagramTextInst}s so each can bind a distinct scene style name.
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
- * @returns {import('../model/tideDiagramModel.mjs').DiagramTimeNowLabelInst | null}
+ * @returns {import('../model/tideDiagramModel.mjs').DiagramTimeNowLabelInst}
  */
 function buildTimeNowLabelFromSpec(spec, refRadius) {
-  const raw = spec.timeNowLabel;
-  if (raw == null || typeof raw !== "object") return null;
-  const o = /** @type {Record<string, unknown>} */ (raw);
+  const o = requirePlainObject(spec.timeNowLabel, "spec.timeNowLabel");
   const xK = o.x;
   const fontHeightK = o.fontHeight;
   const yK = o.y;
@@ -328,8 +328,12 @@ function buildAnnularBandFromSpec(spec, refRadius, thetaLeft, sweepRad) {
 function buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const raw = requirePlainObject(spec.waitArc, "spec.waitArc");
   const radiusK = requireFiniteNumber(raw.radius, "spec.waitArc.radius");
-  const radius = Math.max(0, radiusK) * refRadius;
-  if (radius <= 0) return null;
+  if (!(radiusK > 0)) {
+    throw new Error(
+      "spec.waitArc.radius must be a finite number greater than 0 (RefRadius multiple)",
+    );
+  }
+  const radius = radiusK * refRadius;
 
   const arrowRaw = requirePlainObject(raw.arrow, "spec.waitArc.arrow");
   const lengthK = requireFiniteNumber(arrowRaw.lengthK, "spec.waitArc.arrow.lengthK");

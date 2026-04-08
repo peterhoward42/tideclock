@@ -178,9 +178,9 @@ describe('spec.semantic.nextTide injection', () => {
       anchor: { x: -118, y: -11.8 },
       hAlign: 'left',
     });
-    expect(diagram.timeNowLabel?.hhmm.content).toBe('Mon 23 Mar - 23:59');
-    expect(diagram.timeNowLabel?.secondsColon.content).toBe(':');
-    expect(diagram.timeNowLabel?.seconds.content).toBe('00');
+    expect(diagram.timeNowLabel.hhmm.content).toBe('Mon 23 Mar - 23:59');
+    expect(diagram.timeNowLabel.secondsColon.content).toBe(':');
+    expect(diagram.timeNowLabel.seconds.content).toBe('00');
     expect(diagram.nextPointer).toBeNull();
     expect(diagram.waitArc).toBeNull();
     expect(diagram.nowPointer?.triangle).toBeDefined();

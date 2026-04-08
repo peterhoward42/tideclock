@@ -161,13 +161,13 @@
  *   tickMarks: TickMarkSpec[],
  *   tickLabels: TickLabelSpec[],
  *   tideMarks: TideMarkDiagram[],
- *   nowPointer: NowPointerDiagram | null,
+ *   nowPointer: NowPointerDiagram,
  *   nextPointer: NextPointerDiagram | null,
  *   waitArc: WaitArcDiagram | null,
  *   annularBand: AnnularBandDiagram,
  *   timeDeltaDiagram: TimeDeltaDiagram,
  *   centreFrameDiagram: CentreFrameDiagram,
- *   timeNowLabel: DiagramTimeNowLabelInst | null,
+ *   timeNowLabel: DiagramTimeNowLabelInst,
  * }} TideDiagramDocument
  */
 

@@ -5,6 +5,8 @@
  * Tide event utilities shared across diagram elements.
  */
 
+import { parseTideMarksMarkerRowsOrThrow } from "../layout/tideMarks.mjs";
+import { requirePlainObject } from "../layout/specRequire.mjs";
 import { parseCanonicalTimeOrThrow } from "./timeCanonical.mjs";
 
 /** Omit Now radial line, Now label, and WaitArc when the gap to the next tide is under this many seconds. */
@@ -17,7 +19,7 @@ const NEXT_POINTER_OCCLUSION_CLEARANCE_SECONDS = 60 * 60;
  *
  * Return policy:
  * - `undefined` — `semantic` missing / not an object, or `nextTide` key absent (fall through to markers).
- * - `null` — explicit `nextTide: null` (no next event; same as empty marker list).
+ * - `null` — explicit `nextTide: null` (no next event; layout does not scan markers for this path).
  * - object — use injected fields; malformed shape throws (fail fast; do not guess).
  *
  * @param {Record<string, unknown>} spec
@@ -70,8 +72,8 @@ export function formatIntervalHoursMinutes(seconds) {
 /**
  * Compute the next tide event at or after `timeNow` within the current civil day.
  *
- * Returns `null` when there is no qualifying next event (injected `null`, empty markers, or
- * no marker at/after `timeNow`). Marker times that fail {@link parseCanonicalTimeOrThrow} throw.
+ * Returns `null` when there is no qualifying next event (injected `null`, or no marker at/after
+ * `timeNow`). Missing or invalid `tideMarks` / `markers` throw (see {@link parseTideMarksMarkerRowsOrThrow}).
  *
  * @param {Record<string, unknown>} spec full diagram spec including timeNow and tideMarks.markers
  * @param {{ canonical: string, seconds: number, hours: number, isRightEndpoint: boolean }} parsedNow
@@ -118,9 +120,9 @@ export function shouldOmitNowWaitVisualsForNextPointerClearance(parsedNow, nextC
  * seconds-since-midnight and kind. Shared core for consumers that need the
  * raw timing rather than just the formatted interval.
  *
- * Returns `null` when injection is `null`, or when `tideMarks.markers` is missing, not a
- * non-empty array, or no marker falls at or after `parsedNow`. Invalid marker times throw
- * via {@link parseCanonicalTimeOrThrow}.
+ * Returns `null` when injection is `null`, or when no marker falls at or after `parsedNow`.
+ * When injection is absent, `spec.tideMarks` and a valid non-empty `markers` array are required;
+ * invalid rows throw (same rules as tide layout).
  *
  * @param {Record<string, unknown>} spec
  * @param {{ canonical: string, seconds: number, hours: number, isRightEndpoint: boolean }} parsedNow
@@ -135,33 +137,11 @@ export function computeNextTideEventCore(spec, parsedNow) {
       kind: injected.kind,
     };
   }
-  const tideMarksUnknown = spec.tideMarks;
-  if (tideMarksUnknown == null || typeof tideMarksUnknown !== "object") {
-    return null;
-  }
-  const tideMarks = /** @type {Record<string, unknown>} */ (tideMarksUnknown);
-  const markersRaw = tideMarks.markers;
-  if (!Array.isArray(markersRaw) || markersRaw.length === 0) {
-    return null;
-  }
+  const tideMarksObj = requirePlainObject(spec.tideMarks, "spec.tideMarks");
+  const rows = parseTideMarksMarkerRowsOrThrow(tideMarksObj.markers);
 
-  /** @type<{ seconds: number, kind: string }[]> */
-  const events = [];
-  for (const row of markersRaw) {
-    if (row == null || typeof row !== "object") continue;
-    const r = /** @type {Record<string, unknown>} */ (row);
-    const time = r.time;
-    const kind = r.highOrLow;
-    if (typeof time !== "string" || typeof kind !== "string") continue;
-    const parsed = parseCanonicalTimeOrThrow(time, "tideMarks.markers[].time");
-    if (parsed.isRightEndpoint) continue;
-    events.push({ seconds: parsed.seconds, kind });
-  }
-
-  if (events.length === 0) {
-    return null;
-  }
-
+  /** @type{{ seconds: number, kind: string }[]} */
+  const events = rows.map((r) => ({ seconds: r.seconds, kind: r.kind }));
   events.sort((a, b) => a.seconds - b.seconds);
 
   const nowSeconds = parsedNow.seconds;

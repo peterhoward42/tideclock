@@ -5,11 +5,11 @@
  * See docs/specs/tide-diagram.md (NowPointer).
  *
  * Policies for {@link buildNowPointerFromSpec}:
- * - Returns `null` when `nowPointer` is missing, not a plain object, or inner/outer radii give `r_outer ≤ r_inner`.
- * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid.
- * - Throws when `spec.timeNow` parses to the civil-day right endpoint (`24:00:00`).
- * - When `nowPointer` is present, `radialLine`, `label`, and `triangle` objects and their numeric fields are required (finite numbers; see spec). Radial **inner** radius is **R_frame** from `spec.centreFrame.frameArcRadius` (not on `radialLine`).
- * - The Now **triangle** uses `spec.annularBand.annularBandWidth` (same rules as **AnnularBand**): required finite **> 0** so the wedge can reach the annulus outer radius.
+ * - `spec.nowPointer` is required (plain object). `radialLine`, `label`, and `triangle` and their numeric fields are required (finite numbers; see spec).
+ * - Throws when `spec.nowPointer.radialLine.outerRadius` is not **> 0** (**k·R**) or when **r_outer ≤ r_inner** (outer line end not outside **R_frame**).
+ * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid or `24:00:00`.
+ * - Radial **inner** radius is **R_frame** from `spec.centreFrame.frameArcRadius` (not on `radialLine`).
+ * - The Now **triangle** uses `spec.annularBand.annularBandWidth` (same rules as **AnnularBand**): required finite **> 0**.
  */
 
 import {
@@ -69,8 +69,8 @@ function minorArcSweepRadCCW(center, pFrom, pTo) {
  * @param {number} refRadius
  * @param {number} thetaLeft — dial arc start (radians)
  * @param {number} thetaRight — dial arc end (radians)
- * @returns {import('../model/tideDiagramModel.mjs').NowPointerDiagram | null}
- * @throws {Error} invalid `spec.timeNow`, or `24:00:00` (right endpoint)
+ * @returns {import('../model/tideDiagramModel.mjs').NowPointerDiagram}
+ * @throws {Error} invalid `spec.timeNow`, `24:00:00`, missing `nowPointer`, or degenerate radii
  */
 export function buildNowPointerFromSpec(
   spec,
@@ -78,9 +78,7 @@ export function buildNowPointerFromSpec(
   thetaLeft,
   thetaRight,
 ) {
-  const raw = spec.nowPointer;
-  if (raw == null || typeof raw !== "object") return null;
-  const o = /** @type {Record<string, unknown>} */ (raw);
+  const o = requirePlainObject(spec.nowPointer, "spec.nowPointer");
 
   const radialLineSpec = requirePlainObject(
     o.radialLine,
@@ -106,8 +104,17 @@ export function buildNowPointerFromSpec(
     radialLineSpec.outerRadius,
     "spec.nowPointer.radialLine.outerRadius",
   );
-  const rOuter = Math.max(0, lineOuterK) * refRadius;
-  if (rOuter <= rInner) return null;
+  if (!(lineOuterK > 0)) {
+    throw new Error(
+      "spec.nowPointer.radialLine.outerRadius must be a finite number greater than 0 (RefRadius multiple)",
+    );
+  }
+  const rOuter = lineOuterK * refRadius;
+  if (rOuter <= rInner) {
+    throw new Error(
+      "spec.nowPointer.radialLine.outerRadius must place the line end outside centreFrame.frameArcRadius (outer radius must exceed R_frame)",
+    );
+  }
 
   const theta = timeToTheta(t, thetaLeft, thetaRight);
   const start = polar(rInner, theta);

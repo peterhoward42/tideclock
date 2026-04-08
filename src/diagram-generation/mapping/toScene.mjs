@@ -529,81 +529,75 @@ export function tideDiagramToScene(diagram) {
     cy,
   );
 
-  const timeNowLabelGroup =
-    timeNowLabel != null
-      ? group("TimeNowLabel", [
-          group("TimeNowLabelHms", [
-            text({
-              content: timeNowLabel.hhmm.content,
-              size: timeNowLabel.hhmm.fontSize,
-              hAlign: timeNowLabel.hhmm.hAlign ?? "center",
-              angleRad: 0,
-              anchor: mapPoint(timeNowLabel.hhmm.anchor, cx, cy),
-            }),
-          ]),
-          group("TimeNowLabelSecondsColon", [
-            text({
-              content: timeNowLabel.secondsColon.content,
-              size: timeNowLabel.secondsColon.fontSize,
-              hAlign: timeNowLabel.secondsColon.hAlign ?? "center",
-              angleRad: 0,
-              anchor: mapPoint(timeNowLabel.secondsColon.anchor, cx, cy),
-            }),
-          ]),
-          group("TimeNowLabelSeconds", [
-            text({
-              content: timeNowLabel.seconds.content,
-              size: timeNowLabel.seconds.fontSize,
-              hAlign: timeNowLabel.seconds.hAlign ?? "center",
-              angleRad: 0,
-              anchor: mapPoint(timeNowLabel.seconds.anchor, cx, cy),
-            }),
-          ]),
-        ])
-      : null;
+  const timeNowLabelGroup = group("TimeNowLabel", [
+    group("TimeNowLabelHms", [
+      text({
+        content: timeNowLabel.hhmm.content,
+        size: timeNowLabel.hhmm.fontSize,
+        hAlign: timeNowLabel.hhmm.hAlign ?? "center",
+        angleRad: 0,
+        anchor: mapPoint(timeNowLabel.hhmm.anchor, cx, cy),
+      }),
+    ]),
+    group("TimeNowLabelSecondsColon", [
+      text({
+        content: timeNowLabel.secondsColon.content,
+        size: timeNowLabel.secondsColon.fontSize,
+        hAlign: timeNowLabel.secondsColon.hAlign ?? "center",
+        angleRad: 0,
+        anchor: mapPoint(timeNowLabel.secondsColon.anchor, cx, cy),
+      }),
+    ]),
+    group("TimeNowLabelSeconds", [
+      text({
+        content: timeNowLabel.seconds.content,
+        size: timeNowLabel.seconds.fontSize,
+        hAlign: timeNowLabel.seconds.hAlign ?? "center",
+        angleRad: 0,
+        anchor: mapPoint(timeNowLabel.seconds.anchor, cx, cy),
+      }),
+    ]),
+  ]);
 
   // NowRadialLine, NowLabel, and WaitArc share omission when they would occlude NextPointer;
   // NowTriangle stays in the model (see shouldOmitNowWaitVisualsForNextPointerClearance).
-  const nowPointerGroup =
-    nowPointer != null
-      ? group("NowPointer", [
-          ...(nowPointer.triangle
-            ? [
-                group("NowTriangle", [
-                  nowWedgeOutline(
-                    mapPoint(nowPointer.triangle.center, cx, cy),
-                    mapPoint(nowPointer.triangle.vertex, cx, cy),
-                    mapPoint(nowPointer.triangle.outerArcStart, cx, cy),
-                    nowPointer.triangle.outerArcSweepRad,
-                  ),
-                ]),
-              ]
-            : []),
-          ...(nowPointer.radialLine != null
-            ? [
-                group("NowRadialLine", [
-                  line(
-                    mapPoint(nowPointer.radialLine.start, cx, cy),
-                    mapPoint(nowPointer.radialLine.end, cx, cy),
-                  ),
-                ]),
-              ]
-            : []),
-          ...(nowPointer.nowLabel != null
-            ? [
-                group("NowLabel", [
-                  text({
-                    content: nowPointer.nowLabel.content,
-                    size: nowPointer.nowLabel.fontSize,
-                    hAlign: "center",
-                    angleRad: nowPointer.nowLabel.angleRad,
-                    anchor: mapPoint(nowPointer.nowLabel.anchor, cx, cy),
-                  }),
-                ]),
-              ]
-            : []),
-        ])
-      : null;
+  const nowPointerGroup = group("NowPointer", [
+    ...(nowPointer.triangle
+      ? [
+          group("NowTriangle", [
+            nowWedgeOutline(
+              mapPoint(nowPointer.triangle.center, cx, cy),
+              mapPoint(nowPointer.triangle.vertex, cx, cy),
+              mapPoint(nowPointer.triangle.outerArcStart, cx, cy),
+              nowPointer.triangle.outerArcSweepRad,
+            ),
+          ]),
+        ]
+      : []),
+    ...(nowPointer.radialLine != null
+      ? [
+          group("NowRadialLine", [
+            line(
+              mapPoint(nowPointer.radialLine.start, cx, cy),
+              mapPoint(nowPointer.radialLine.end, cx, cy),
+            ),
+          ]),
+        ]
+      : []),
+    ...(nowPointer.nowLabel != null
+      ? [
+          group("NowLabel", [
+            text({
+              content: nowPointer.nowLabel.content,
+              size: nowPointer.nowLabel.fontSize,
+              hAlign: "center",
+              angleRad: nowPointer.nowLabel.angleRad,
+              anchor: mapPoint(nowPointer.nowLabel.anchor, cx, cy),
+            }),
+          ]),
+        ]
+      : []),
+  ]);
 
   const nextPointerGroup =
     nextPointer != null
@@ -637,8 +631,8 @@ export function tideDiagramToScene(diagram) {
     tickLabelsGroup,
     centreFrameGroup,
     timeDeltaGroup,
-    ...(timeNowLabelGroup != null ? [timeNowLabelGroup] : []),
-    ...(nowPointerGroup != null ? [nowPointerGroup] : []),
+    timeNowLabelGroup,
+    nowPointerGroup,
     ...(nextPointerGroup != null ? [nextPointerGroup] : []),
   ]);
   meta.previewFrame = computeScenePreviewFrame(root);
