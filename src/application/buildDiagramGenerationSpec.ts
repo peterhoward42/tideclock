@@ -120,8 +120,8 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   waitArc: {
     radius: 0.68,
     arrow: {
-      lengthK: 20,
-      widthK: 8,
+      lengthK: 24,
+      widthK: 10,
       insetK: 0,
       style: 'filled',
       scaleWithStroke: true,
