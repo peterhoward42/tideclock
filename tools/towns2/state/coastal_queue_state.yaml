@@ -9,7 +9,7 @@ artefacts:
   directory_relative_to_towns2: coastal
 
 done:
-  england: [Cornwall, Devon, Dorset, Hampshire, West Sussex, East Sussex, Kent]
+  england: [Cornwall, Devon, Dorset, Hampshire, West Sussex, East Sussex, Kent, Essex]
   wales: []
   scotland: []
   ireland_republic: []
