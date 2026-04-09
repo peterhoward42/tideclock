@@ -1,0 +1,380 @@
+Onich
+North Ballachulish
+South Ballachulish
+Glencoe
+Ballachulish
+Corpach
+Caol
+Fort William
+Ft William
+Banavie
+Locheilside
+Fassfern
+Glenfinnan
+Lochailort
+Roshven
+Glenuig
+Borrodale
+Arisaig
+Traigh
+Back of Keppoch
+Portnaluchaig
+Morar
+Morar Bay
+Camusdarrach
+Silver Sands Morar
+Bracorina
+Mallaig
+Mallaig Harbour
+Arivegaig
+Ormsaigbeg
+Ormsaigmore
+Kilchoan
+Portuairk
+Sanna
+Grigadale
+Ockle
+Achateny
+Fascadale
+Bourblaige
+Ardnamurchan Point
+The Singing Sands
+Kentra Bay
+Ardnamurchan
+Eigg
+Isle of Eigg
+Galmisdale
+Rum
+Isle of Rum
+Kinloch Rum
+Canna
+Isle of Canna
+Sanday Isle Canna
+Muck
+Isle of Muck
+Port Mor Muck
+Armadale
+Armadale Bay
+Point of Sleat
+Aird of Sleat
+Isleornsay
+Sleat
+Tokavaig
+Tarskavaig
+Isle of Skye
+Kyleakin
+Kyle of Lochalsh
+Kyleakin Ferry
+Kylerhea
+Glenelg
+Balmacara
+Erbusaig
+Duirinish
+Plockton
+Drumbuie
+Dunan
+Lower Drumbuie
+Ardintigh
+Breakish
+Broadford
+Lower Breakish
+Heaste
+Elgol
+Camasunary
+Torrin
+Isle of Pabay
+Raasay
+Inverarish
+Hallin
+Brochel
+North Fearns
+Rona
+Fladda
+Portree
+Penifiler
+Kingsburgh
+Skeabost
+Branahuie
+Lonmore
+Carbost
+Talisker Bay
+Glenbrittle
+Loch Brittle
+Portnalong
+Fiskavaig
+Orbost
+Colbost
+Glendale
+Milovaig
+Waterstein
+Lorgill
+Neist Point
+Husabost
+Dunvegan
+Harlosh
+Roag
+Cliff
+Vaternish
+Huishnish
+Geary
+Husabost More
+Hornish
+Totaig
+Husinish
+Ardmore
+Borreraig
+Staffin
+Flodigarry
+Hungladder
+Kilmuir
+Kilmuir Bay
+Garafad
+Skinidin
+Peinlich
+Balmaqueen
+Kilmaluag
+Huria
+Staffin Bay
+Stenscholl
+Garros
+Brogaig
+Penifiler Bay
+Ellishadder
+Portree Bay
+Bharcasaig
+Idrigill
+Uig
+Rhu Vaig
+Loch Snizort
+Loch Greshornish
+Loch Bay
+Stein
+Holmfield
+Kensaleyre
+Eyre
+Stenshaw
+Timsgearraidh
+Loch Dunvegan
+Kilmuir Uig
+Suardal
+Aird Uig
+Vatisker
+Peinachorrain
+Ardvasar
+Knoydart
+Inverie
+Airor
+Corran Ferry
+Ardelve
+Dornie
+Eilean Donan
+Inverinate
+Letterfearn
+Ratagan
+Ardnarff
+Stromeferry
+Kishorn
+Attadale
+Torridon
+Inveralligin
+Diabaig
+Redpoint
+Kenmore
+Applecross
+Camustiel
+Cuaig
+Perch
+Toscaig
+Shieldaig
+Shieldaig Applecross
+Shieldaig Bay
+Shieldaig Torridon
+Badachro
+Charlestown
+Gairloch
+Gairloch Sands
+Big Sand
+Little Sand Gairloch
+Strath
+Melvaig
+Redpoint Melvaig
+Opinan
+Laide
+Rubha Reidh
+Gruinard Bay
+Gruinard Island
+Achgarve
+Pearlwort Bay
+Camas a Chara
+Achduart
+Polglass
+Badentarbet
+Achnahaird Bay
+Polbain
+Rechullin
+Old Dornie
+Altandhu
+Achnacarin
+Coigach
+Achiltibuie
+Polldubh
+Summer Isles
+Isle Ristol
+North Ristol
+Tanera
+Tanera Mhor
+Isle Martin
+Oldany Island
+Achnacarin Bay
+Ullapool
+Harbour Ullapool
+Rhue
+Ardmair
+Strathkanaird
+Blarnalearoch
+Achmelvich
+Achnalerig
+Clachtoll
+Stoer Bay
+Stoer Head
+Stoerhead
+Drumbeg
+Clashnessie Bay
+Clashnessie
+Nedd
+Elphin
+Inverkirkaig
+Achins
+Achmelvich Bay
+Lochinver
+Lochinver Harbour
+Badnaban
+Port Leathad
+Badcall Bay
+Tarbet
+Scourie
+Scourie Bay
+Handa Island
+Blairmore
+Kylesku
+Unapool
+Achfary
+Rhiconich
+Achiemore
+Balnahard
+Aultrib
+Keoldale
+Kirtomy
+Skerray
+Melness
+Midfield Tongue
+Achuvoldrach
+Talmine
+Kyle of Tongue
+Tongue Bay
+Sandside Bay
+Strathy Point
+Strathy Bay
+Farr
+Armadale Strathy
+Portvasgo
+Bettyhill
+Torrisdale Bay
+Torrisdale
+Reay
+Sandend
+Melvich
+Portskerra
+Poll na h-Airigh
+Kinlochbervie
+Oldshoremore
+Oldshoremore Beach
+Old Shore More
+Sandwood Bay
+Cape Wrath
+Balnakeil
+Balnakeil Bay
+Durness
+Smoo Cave
+Sangobeg
+Ceannabeinne
+Sango Sands
+Durine
+Hope
+Kyle of Durness
+Foindle
+Dunnet Head
+Brough
+Dunnet Bay
+Castletown Thurso
+Thurso
+Scrabster
+Holburn Head
+Keiss
+Sinclairs Bay
+Reiss
+Wick
+Wick Harbour
+Wick River Mouth
+Papigoe
+Yarrows
+Ulbster
+Thrumster
+Whaligoe
+Lybster
+Dunbeath
+Latheronwheel
+Latheron
+Berriedale
+Helmsdale
+Navidale
+Portgower
+West Helmsdale
+Brora
+Brora Harbour
+Golspie
+Loch Fleet
+Little Ferry
+Embo
+Dornoch
+Dornoch Beach
+Dornoch Firth Shore
+Cambusmore
+Shandwick
+Balintore
+Hilton of Cadboll
+Inver Hill
+Portmahomack
+Nigg Ferry
+Ardersier
+Fort George
+Rosemarkie
+Fortrose
+Chanonry Point
+Avoch
+Killen
+Munlochy
+North Kessock
+South Kessock
+Clachnaharry
+Inverness Harbour
+Merkinch
+Longman
+Bunchrew
+Clachnaharry Ferry
+Redcastle
+Cromarty
+Cromarty Firth Shore
+Jemimaville
+Balblair
+Saltburn
+Invergordon
+Ankerville
+Ardross
+South Fearn
+Barbaraville
+Alcaig
+Nigg Old Hall
+Shandwick Bay
+Inver Bay
+Tain Shore

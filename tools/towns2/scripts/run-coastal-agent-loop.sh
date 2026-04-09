@@ -55,7 +55,14 @@ while true; do
     # Word-split on IFS; use default branch if you need spaces inside a single argument.
     # shellcheck disable=SC2086
     $COASTAL_AGENT_CMD -- "$SHORT_PROMPT" || exit $?
-  else
+  elif command -v cursor >/dev/null 2>&1; then
+    # Editor-installed CLI: Shell Command "Install 'cursor' command in PATH".
     cursor agent -p --force -- "$SHORT_PROMPT" || exit $?
+  elif command -v agent >/dev/null 2>&1; then
+    # Standalone agent binary (e.g. ~/.local/bin/agent from Cursor CLI install).
+    agent -p --force -- "$SHORT_PROMPT" || exit $?
+  else
+    echo "run-coastal-agent-loop: neither 'cursor' nor 'agent' on PATH. Install Cursor CLI, add the shell command from the app, or set COASTAL_AGENT_CMD." >&2
+    exit 127
   fi
 done

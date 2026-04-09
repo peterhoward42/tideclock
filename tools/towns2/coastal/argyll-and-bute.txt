@@ -1,0 +1,313 @@
+Helensburgh
+Rhu
+Ardencaple
+Craigendoran
+Cardross
+Geilston
+Rosneath
+Blairmore
+Strone
+Clynder
+Kilmun
+Garelochhead
+Cove
+Kilcreggan
+Peaton
+Ardpeaton
+Dunoon
+Kirn
+Sandbank
+Hunters Quay
+Holy Loch
+Innellan
+Toward
+Toward Point
+Bullwood
+Castle Toward
+Ardenslate
+Inverchaolain
+Strachur
+Strathlachlan
+St Catherines
+Otter Ferry
+Kilfinan
+Portavadie
+Ardlamont Point
+Ellary
+Tighnabruaich
+Stonefield
+Kilbride
+Glendaruel
+Ormidale
+Millhouse
+Port Bannatyne
+Rothesay
+Kingarth
+Ettrick Bay
+Kilchattan Bay
+Ascog
+St Ninians
+Straad
+Scoulag
+Kerry Bute
+Ardbeg Bute
+Colintraive
+Rhubodach
+Kyles of Bute
+Lochgilphead
+Ardrishaig
+Crinan
+Bellanoch
+Ardfern
+Kilmelford
+Craobh Haven
+Achahoish
+Tayvallich
+Carsaig Bay
+Keills Knapdale
+Achnamara
+Minard
+Lochgair
+Ardpatrick
+Tarbert Loch Fyne
+East Loch Tarbert
+West Loch Tarbert
+Claonaig
+Grogport
+Skipness
+Carradale
+Saddell
+Torrisdale
+Peninver
+Waterfoot
+Campbeltown
+Campbeltown Loch
+Dalintober
+Machrihanish
+Machrihanish Bay
+The Glen
+Keil
+Southend
+Mull of Kintyre
+Mull of Kintyre Lighthouse
+Ballochroy
+Bellochantuy
+Muasdale
+Glenbarr
+Whitehouse
+Kilkenzie
+Clachan Kintyre
+Tayinloan
+Glenlussa
+Kennacraig
+Tarbert Gigha
+Ardminish
+Ardailly
+Gigalum
+Gigha
+North Park
+South Park
+Port Askaig
+Feolin
+Bridgend Islay
+Bowmore
+Bridgend Lochgilphead
+Carraig Fhada
+Port Ellen
+Laphroaig
+Lagavulin
+Ardbeg
+Laggan Point
+The Oa
+Kintra Islay
+Uig Islay
+Caol Ila
+Bunahabhain
+Port Mor Islay
+Kildalton
+Kilnaughton Bay
+Ardnave
+Ardnave Point
+Sanaigmore
+Ballinaby
+Kilmeny
+Nerabus
+Port Charlotte
+Portnahaven
+Bruichladdich
+Lochindaal
+Foreland Point
+Rhinns Point
+Keils Islay
+Claggain Bay
+Lossit Bay
+Craighouse
+Small Isles Bay
+Inver Jura
+Lagg
+Tarbert Jura
+Ardlussa
+Glengarrisdale
+Ruantallain
+Lowlandmans Bay
+Scalasaig
+Kilchattan Colonsay
+Upper Kilchattan
+Balnahard
+Kiloran
+Ardskenish
+Oronsay
+Colonsay
+Tobermory
+Calve
+Rubha nan Gall
+Aros
+Ardnacross
+Glengorm
+Quinish Point
+Calgary Mull
+Calgary Bay
+Dervaig
+Langamull
+Torloisk
+Kilninian
+Ballygown
+Salen Mull
+Fishnish
+Craignure
+Duart
+Grass Point
+Lochdon
+Spelve
+Ulvinish
+Croggan
+Kinlochspelve
+Pennyghael
+Bunessan
+Ardtun
+Fionnphort
+Kintra Mull
+Uisken
+Ross of Mull
+Carsaig Mull
+Loch Buie
+Kilvickeon
+Ardlanish
+Inivea
+Knockvologan Mull
+Ulva Ferry
+Ulva
+Gometra
+Little Colonsay
+Staffa
+Treshnish Isles
+Lunga
+Fladda
+Erraid
+Iona
+Baile Mor
+Martyr Bay
+St Columbas Bay
+Balliemore Kerrera
+Horseshoe Bay Kerrera
+Slatrach Bay
+Gallanach
+Oban
+Oban Bay
+Ganavan
+Dunollie
+Glencruitten
+Lerags
+Dunbeg
+Connel
+Falls of Lora
+North Connel
+South Shian
+Benderloch
+Barcaldine
+Tralee
+Appin
+Port Appin
+Kentallen
+Duror
+Cuil Bay
+Shuna
+Seil
+Ellenabeich
+Balvicar
+Clachan Seil
+Cuan
+Easdale
+Toberonochy
+Cullipool
+Blackmill Bay
+Torsa
+Coll
+Arinagour
+Sorisdale
+Feall
+Feall Bay
+Arnabost
+Breachacha
+Cliad
+Knockvologan
+Bousd
+Crossapol Coll
+Tiree
+Scarinish
+Hynish
+Heylipol
+Balemartine
+Balephetrish
+Balevullin
+Crossapol Tiree
+Soroby
+Gott
+Vaul
+Salum
+Mannal
+West Hynish
+Caolas Tiree
+Kennavara
+Barrapol
+Ruaig
+Balephuil
+Sandaig Tiree
+Lismore
+Achnacroish
+Clachan Lismore
+Isle of Mull
+Isle of Iona
+Isle of Islay
+Isle of Jura
+Isle of Colonsay
+Isle of Gigha
+Isle of Tiree
+Isle of Coll
+Isle of Bute
+Isle of Ulva
+Isle of Kerrera
+Isle of Seil
+Isle of Lismore
+Oban Harbour
+Campbeltown Harbour
+Port Ellen Harbour
+Port Askaig Ferry
+Feolin Ferry
+Fishnish Ferry
+Fionnphort Iona Ferry
+Craignure Ferry
+Colonsay Ferry Port
+Gott Bay
+Crossapol Bay Tiree
+Bagh Mor
+Port nan Gael
+Arinagour Bay
+Scarinish Bay
+Balvicar Bay
+Ettrick Bay Pier
+Rothesay Pier
+Helensburgh Pier
+Dunoon Pier
+Kames Pier
+Tighnabruaich Pier

@@ -8,15 +8,15 @@
 # re-orchestrate later, reset this to false and align done / coastal/*.txt yourself so the
 # run looks like a fresh start (see coastal_batch_automation_spec.md).
 
-queue_exhausted: false
+queue_exhausted: true
 
 artefacts:
   # One plain-text list per completed county (lowercase county stem, .txt).
   directory_relative_to_towns2: coastal
 
 done:
-  england: [Cornwall, Devon, Dorset, Hampshire, West Sussex, East Sussex, Kent, Essex]
-  wales: []
-  scotland: []
-  ireland_republic: []
-  northern_ireland: []
+  england: [Cornwall, Devon, Dorset, Hampshire, West Sussex, East Sussex, Kent, Essex, Suffolk, Norfolk, Lincolnshire, East Yorkshire, North Yorkshire, Durham, Northumberland]
+  wales: [Pembrokeshire, Ceredigion, Gwynedd, Anglesey]
+  scotland: [Highland, Argyll and Bute, Fife, Aberdeenshire, Moray]
+  ireland_republic: [Donegal, Mayo, Galway, Clare, Kerry, Cork, Waterford, Wexford]
+  northern_ireland: [Antrim, Down]
