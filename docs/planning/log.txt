@@ -103,16 +103,14 @@ o  new data fetch paradigm
 				*  might not need the word "now"
 				*  another annular arc just inside markers 0.75
 				*  loop back to fix no more times today
+				*  scrape diag spec for optional / if present errors
 fart
-				o  scrape diag spec for optional / if present errors
-					o  fix spec
-					o  clean implementation
-				o  sweep code for optional behaviour / fallbacks / defaults
-
-				o  put opacity throb on some time now artefacts
-				o  now label "now" should be positioned to be justified just
-				   inside the wait arc radius
 				o  better list of towns - south wales very sparse
+					o  towns2 dir
+					o  prompt eng
+						o  counties
+						o  query methodology
+
 				o  come back to alternating in/out edge cases 
 				o  come back to the Bournemouth dilemma
 				o  tune line thicknesses and font for platforms
@@ -124,6 +122,7 @@ fart
 				o  line thicknesses knobs
 				o  leave it running to spot errors / null in log
 				o  say suggest use landscape
+				o  older browsers
 				o  fit for purpose graphics design styling
 				o  network hits observability
 				o  say hello
@@ -136,6 +135,7 @@ fart
 				o  test on tablet and phone
 				o  how encourage keep screen on if charging
 				o  facilitate user reporting errors
+				o  sweep code for optional behaviour / fallbacks / defaults
 				
 
 o  don't forget
