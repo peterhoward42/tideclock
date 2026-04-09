@@ -1,7 +1,9 @@
 # UK & Ireland Coastal Counties Queue (Cleaned)
 
 England:
-Cornwall, Devon, Dorset, Hampshire, West Sussex, East Sussex, Kent, Essex, Suffolk, Norfolk, Lincolnshire, East Yorkshire, North Yorkshire, Durham, Northumberland
+Done: Cornwall
+Next: Devon
+Queue: Dorset, Hampshire, West Sussex, East Sussex, Kent, Essex, Suffolk, Norfolk, Lincolnshire, East Yorkshire, North Yorkshire, Durham, Northumberland
 
 Wales:
 Pembrokeshire, Ceredigion, Gwynedd, Anglesey

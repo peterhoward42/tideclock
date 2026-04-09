@@ -110,13 +110,24 @@ fart
 					*  prompt eng
 					o  try the universal prompt:
 						o  attempt to fix quality errors with new specs
-							*  get new files made
-							o  clean repo
-								o  git stash
-								o  remove unstaged
-							o  copy in new ones
-							o  read them
-							o  commit them
+						o  why no looe or millendreath for example
+							o  update specs as follows:
+
+							## Pass 0: Coastline Segmentation (Required) // don't use compass
+							points
+
+
+							don't use county anchor manifests
+
+							final county output
+								o  one list concat
+								o  remove county name from any entry
+								o  exact case insensitive dupes removed
+								o  no other dedupe
+
+						o  notes, clear ask to fix notes
+							o  don't include cornwall (county) in output names)
+							o  make output pure concatenated lists no sections
 						o  run first and nth batches
 						o  consider .gitignore
 
