@@ -106,10 +106,11 @@ o  new data fetch paradigm
 				*  scrape diag spec for optional / if present errors
 fart
 				o  better list of towns - south wales very sparse
-					o  towns2 dir
-					o  prompt eng
-						o  counties
-						o  query methodology
+					*  towns2 dir
+					*  prompt eng
+					o  try the universal prompt:
+
+Proceed according to  /tools//towns2/@tools/towns2/prompt-colateral/coastal_universal_prompt.md 
 
 				o  come back to alternating in/out edge cases 
 				o  come back to the Bournemouth dilemma
