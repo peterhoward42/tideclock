@@ -26,3 +26,15 @@ Do **not** use external per-county manifest files or fixed anchor lists. Coverag
 ## Persistence
 
 Persist results and append the completed county to the appropriate **`done`** list in **`tools/towns2/state/coastal_queue_state.yaml`** (single source of truth for progress; queue spec stays read-only).
+
+## Headless / one iteration (orchestrated runs)
+
+Each invocation must do **at most one** county end-to-end (or **zero** if the queue is already finished).
+
+1. Read **`done`** and **`coastal_county_queue.md`**; derive the next county the same way as for interactive runs.
+2. **If there is no next county:** set **`queue_exhausted: true`** in **`tools/towns2/state/coastal_queue_state.yaml`** (top-level key; preserve YAML structure and comments). Do **not** invent work. Stop.
+3. **If there is a next county:** run Pass 0–3 for that county only, write **`tools/towns2/coastal/<lowercase-stem>.txt`**, append that county to the correct regional **`done`** list, then:
+   - If that county was the **last** in the canonical queue, set **`queue_exhausted: true`** in the same file.
+   - Otherwise set **`queue_exhausted: false`** (keep the key explicit whenever you edit this file).
+
+The shell orchestrator reads **`queue_exhausted`** before each iteration and stops when it is **`true`**. It does **not** re-derive the queue list itself. A non-zero **Cursor agent** exit code aborts the whole loop (inspect stderr / terminal output).
