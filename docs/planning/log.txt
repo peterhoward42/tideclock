@@ -117,10 +117,12 @@ fart
 
 Proceed according to  /tools//towns2/@tools/towns2/prompt-colateral/coastal_universal_prompt.md 
 
+				o  centre the banner
 				o  come back to alternating in/out edge cases 
 				o  come back to the Bournemouth dilemma
 				o  tune line thicknesses and font for platforms
 				o  other screens
+				o  marketing route?
 				o  optimise svg for mobile/table/desktop
 				o  branding
 				o  deploy
