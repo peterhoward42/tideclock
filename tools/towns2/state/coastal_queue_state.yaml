@@ -1,0 +1,16 @@
+# Runtime progression for the coastal county batch. Replace or edit to restart.
+#
+# Canonical order lives only in tools/towns2/prompt-colateral/coastal_county_queue.md.
+# Next county: walk regions in that file (England, Wales, Scotland, Ireland, NI); within
+# the first region whose list is not fully covered below, take the first county not in done.
+
+artefacts:
+  # One plain-text list per completed county (lowercase county stem, .txt).
+  directory_relative_to_towns2: coastal
+
+done:
+  england: []
+  wales: []
+  scotland: []
+  ireland_republic: []
+  northern_ireland: []

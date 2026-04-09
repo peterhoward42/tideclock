@@ -1,6 +1,6 @@
 # Universal Session Prompt (Enhanced Coastal Batch Runs)
 
-Follow process files, read state, select next county.
+Follow process files: read **`done`** in `tools/towns2/state/coastal_queue_state.yaml` and **`coastal_county_queue.md`**; the next county is the first in canonical region order not yet in `done`.
 
 ## Coverage-first (mandatory)
 
@@ -25,4 +25,4 @@ Do **not** use external per-county manifest files or fixed anchor lists. Coverag
 
 ## Persistence
 
-Persist results and update state according to the batch spec.
+Persist results and append the completed county to the appropriate **`done`** list in **`tools/towns2/state/coastal_queue_state.yaml`** (single source of truth for progress; queue spec stays read-only).

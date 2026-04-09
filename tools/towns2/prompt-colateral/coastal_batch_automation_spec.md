@@ -26,5 +26,7 @@
 
 ## State and handoff
 
-- Persist outputs and update batch state so the next session can read **which county is next** and where files live.
+- **Canonical county order** (read-only): `tools/towns2/prompt-colateral/coastal_county_queue.md`.
+- **Runtime progression** (`done` per region + artefact hints only): `tools/towns2/state/coastal_queue_state.yaml` — append the finished county to the right `done` list when finishing a county (do **not** mirror `next` or `remaining` here; those follow from the canonical spec + `done`).
+- Persist per-county outputs under `tools/towns2/coastal/` (see `artefacts` in the state file).
 - Internal working notes (segment names, gap-audit notes) may exist **outside** the final per-county list file; the **saved county file** must match the output rules above.
