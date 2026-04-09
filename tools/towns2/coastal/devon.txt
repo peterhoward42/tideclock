@@ -1,0 +1,686 @@
+Welcombe Mouth
+Marsland Mouth
+Hartland Quay
+Spekes Mill Mouth
+Mouth Mill
+Blackchurch Rock
+Hartland Point
+Shipload Bay
+Clovelly
+Clovelly Beach
+Mouthmill Beach
+Bucks Mills
+Peppercombe
+Greencliff
+Westward Ho
+Westward Ho Beach
+Northam Burrows
+Appledore
+Instow
+Fremington Quay
+Crow Point
+Braunton Burrows
+Saunton Sands
+Saunton
+Croyde
+Croyde Bay
+Putsborough
+Putsborough Sands
+Woolacombe
+Woolacombe Sand
+Barricane Beach
+Combe Martin
+Broad Sands Combe Martin
+Wild Pear Beach
+Watermouth Cove
+Watermouth
+Hele Bay
+Ilfracombe
+Ilfracombe Harbour
+Rapparee Cove
+Tunnels Beaches
+Lee Bay
+Lee
+Mortehoe
+Rockham Beach
+Bull Point
+Lynton
+Lynmouth
+Lynmouth Bay
+Wringcliff Bay
+Castle Rock Lynmouth
+Countisbury
+Foreland Point
+Woody Bay
+Heddons Mouth
+Hunters Inn
+Welcombe
+Stoke
+Hartland
+Abbotsham
+Northam
+Bideford
+Barnstaple
+Chivenor
+Georgeham
+Putsborough Beach
+Putsborough Bay
+Baggy Point
+Croyde Reef
+Downend
+Croyde Village
+Pickwell
+Mullacott
+Sterridge Valley
+Berrynarbor
+Hele
+Chambercombe
+Rillage Point
+Sandy Cove Ilfracombe
+Tunnels Ilfracombe
+Capstone Hill
+Chelfham
+Bratton Fleming
+Kentisbury
+Berry Down
+Hagginton Hill
+Coombe Martin
+Sandy Bay Ilfracombe
+Grunta Beach
+Sillery Sands
+Broad Sands Beach
+Sandy Mouth
+Coombe Martin Beach
+Start Point
+Hallsands
+Beesands
+Slapton Sands
+Slapton
+Torcross
+Strete Gate
+Strete
+Blackpool Sands
+Stoke Fleming
+Castle Cove Dartmouth
+Dartmouth
+Dartmouth Castle
+Kingswear
+Brownstone
+Man Sands
+Little Dartmouth
+Sugary Cove
+Compass Cove
+Scabbacombe Sands
+Mewstone
+Salcombe
+Salcombe North Sands
+Salcombe South Sands
+Sunny Cove Salcombe
+Soar Mill Cove
+Hope Cove
+Thurlestone
+Thurlestone Sands
+Thurlestone Rock
+Bigbury-on-Sea
+Bigbury Beach
+Burgh Island
+Challaborough
+Challaborough Bay
+Bantham
+Bantham Beach
+Mouthwell Sand
+Leas Foot Sand
+Mothecombe
+Mothecombe Beach
+Noss Mayo
+Newton Ferrers
+Wembury
+Wembury Beach
+Heybrook Bay
+Jennycliff
+Bovisand
+Bovisand Beach
+Mountbatten
+Firestone Bay
+Devils Point
+Plymouth Hoe
+West Hoe
+Jennycliff Bay
+Brixham
+Brixham Harbour
+Berry Head
+Fishcombe Cove
+Churston Ferrers
+Churston Cove
+Goodrington Sands
+Goodrington
+Paignton
+Paignton Beach
+Preston Sands
+Hollicombe Beach
+Broad Sands Paignton
+Elberry Cove
+Torquay
+Torquay Harbour
+Meadfoot Beach
+Oddicombe Beach
+Babbacombe
+Babbacombe Beach
+Livermead
+Livermead Cove
+Corbyn Head
+Daddyhole Plain
+Hopes Nose
+Thatcher Point
+Ansteys Cove
+Torre Abbey Sands
+Corbyn Sands
+Hollicombe
+Cockington
+Maidencombe
+Maidencombe Beach
+Teignmouth
+Teignmouth Beach
+Shaldon
+Shaldon Beach
+Ringmore
+Holcombe
+Holcombe Beach
+Dawlish
+Dawlish Beach
+Dawlish Warren
+Dawlish Warren Beach
+Starcross
+Powderham
+Exmouth
+Exmouth Beach
+Sandy Bay Exmouth
+Orcombe Point
+Budleigh Salterton
+Budleigh Salterton Beach
+Sidmouth
+Sidmouth Beach
+Jacobs Ladder Beach
+Ladram Bay
+Beer
+Beer Beach
+Seaton
+Seaton Beach
+Axmouth
+Axmouth Harbour
+Seaton Hole
+Branscombe
+Branscombe Mouth
+Weston Mouth
+Salcombe Regis
+Lyme Bay
+Straight Point
+Straight Point Beach
+Otterton
+Otter Mouth
+Budleigh
+Littleham
+Exton
+Lympstone
+Topsham
+Starcross Ferry
+Cockwood
+Coryton Cove
+Langstone Rock
+Warren Point
+Powderham Castle Shore
+River Teign Mouth
+River Exe Mouth
+River Otter Mouth
+River Axe Mouth
+River Sid Mouth
+River Erme Mouth
+River Yealm Mouth
+River Plym Mouth
+River Tamar Mouth
+Teigngrace
+Kingsteignton
+Bishopsteignton
+Combeinteignhead
+Stoke Gabriel
+Stoke Gabriel Creek
+Dittisham
+Dittisham Quay
+Stoke Fleming Beach
+Blackpool Sands Beach
+Slapton Ley Shore
+Beeson
+Beeson Beach
+East Prawle
+Prawle Point
+Great Mattiscombe Sand
+Lannacombe Beach
+East Portlemouth
+South Pool Creek
+North Pool
+Batson Creek
+Salcombe Estuary
+South Milton Sands
+Thurlestone Village Beach
+Hope Cove Beach
+Inner Hope
+Outer Hope
+Malborough
+South Huish
+West Charleton
+East Charleton
+Kingsbridge Estuary
+Frogmore Creek
+Sherford
+Stoke Fleur
+Collaton St Mary
+Churston Ferrers Golf Coast
+Broadsands Brixham
+Shoalstone Pool
+Brixham Breakwater
+Oxen Cove
+Freshwater Quarry
+Churston Cove Beach
+Elberry Cove Beach
+Saltern Cove
+Occombe Cove
+Maidencombe Cliff
+Teignmouth Pier
+The Ness Shaldon
+Ness Cove
+Labrador Bay
+Maidencombe Ness
+Shaldon Ness
+Teignmouth Back Beach
+Dawlish Sea Wall
+Langstone Rock Beach
+Coryton Cove Dawlish
+Red Rock Dawlish
+Little Haldon
+Starcross Yacht Club
+Powderham Exe Trail Shore
+Exmouth Marina
+Exmouth Dock
+Maer Rocks
+Sandy Bay Caravan
+Orcombe Point Geoneedle
+Littleham Cove
+Sandy Bay Cliffs
+Sidmouth Esplanade
+Chit Rocks Sidmouth
+River Sid Estuary
+Peak Hill Sidmouth
+Salcombe Hill Sidmouth
+Ladram Bay Caravan
+Hooken Undercliff
+Beer Head
+Seaton Hole Beach
+Axe Cliff
+Axmouth Lyme Undercliff
+Seaton Jurassic
+Branscombe Beach
+Branscombe Mouth Beach
+Weston Beach
+Weston Mouth Beach
+Salcombe Regis Beach
+Straight Point NCI
+Otterton Ledge
+Budleigh Granary Beach
+Otter Estuary
+Exmouth Lifeboat Beach
+Shelly Beach Exmouth
+Georgian Town Beach Exmouth
+Warren Golf Club Shore
+Starcross Pier
+Cockwood Steps
+Topsham Ferry Landing
+Lympstone Beach
+Exton Beach
+Powderham Church Shore
+River Clyst Mouth
+Starcross Canal Basin
+Teign Estuary
+Salcombe Town Beach
+South Sands Salcombe
+North Sands Salcombe
+East Portlemouth Ferry
+Mill Bay Salcombe
+Snapes Point
+Batson Creek Moorings
+South Pool
+Frogmore
+Avon Estuary Mouth
+Bantham River Mouth
+Thurlestone Golf Coast
+Hope Cove Harbour
+Inner Hope Beach
+Soar Cove
+Mothecombe Point
+Wembury Point
+Heybrook Bay Beach
+Jennycliff Bay Beach
+Bovisand Fort Beach
+Mountbatten Pier
+Jennycliff Beach
+Firestone Bay Beach
+West Hoe Beach
+Devils Point Beach
+Stonehouse Beach
+Brixham Marina
+Berry Head Fort
+Fishcombe
+Churston
+Goodrington North
+Goodrington South
+Splashdown Quaywest
+Preston Paignton
+Roundham Head
+Paignton Harbour
+Elberry
+Broadsands Torbay
+Churston Golf
+Babbacombe Downs
+Babbacombe Cliff Railway
+Oddicombe
+Meadfoot
+Hope Cove Torquay
+Corbyn Head Beach
+Daddyhole
+Thatcher Rock
+Ansteys
+Beacon Cove Torquay
+Hopes Nose Rock
+Torre Abbey Beach
+Corbyn Sands Torquay
+Hollicombe Paignton
+Cockington Village Coast
+Maidencombe Cliff Path
+Teignmouth River Beach
+Shaldon Bridge Beach
+Ringmore Beach
+Holcombe Den
+Dawlish Town Beach
+Dawlish Warren Nature Reserve
+Starcross Beach
+Powderham Castle Beach
+Exmouth Seafront
+Maer Beach
+Orcombe
+Budleigh Beach Huts
+Sidmouth Town Beach
+Jacobs Ladder
+Connaught Gardens Sidmouth
+Ladram Bay Pebble Beach
+Beer Quarry Caves Shore
+Seaton Tramway Coast
+Axe Mouth
+Branscombe Mouth Landslip
+Weston Cliff
+Salcombe Regis Undercliff
+Otterton Mill Weir
+Straight Point Orcombe
+Littleham Warren
+Topsham Goat Walk
+Lympstone Marine Camp
+Exton Duck Pond Shore
+Coryton Cove Beach
+Red Rock Beach Dawlish
+Labrador Bay Beach
+Ness Shaldon Beach
+Teignmouth Den
+Shaldon Smugglers Tunnel
+Dawlish Warren Spit
+Exe Estuary Trail Coast
+River Kenn Mouth
+River Teign Estuary
+River Dart Mouth
+Kingswear Castle Beach
+Dartmouth Embankment
+Dartmouth Higher Ferry
+Dartmouth Lower Ferry
+Blackpool Sands Stoke Fleming
+Slapton Line Beach
+Torcross Tank Beach
+Beesands Beach
+Hallsands Ruins Beach
+Start Point Lighthouse
+Prawle Point Coastguard
+Great Mattiscombe
+Lannacombe
+Gara Rock
+East Prawle Beach
+South Pool Harbour
+North Sands Mill Bay
+South Sands Mill Bay
+Snapes Point Salcombe
+Soar Mill Cove Hotel Beach
+Hope Thatch Thurlestone
+Bigbury Beach Huts
+Burgh Island Hotel Beach
+Challaborough Surf Beach
+Bantham Surf Beach
+Mouthwell Sands
+Leas Foot Beach
+Mothecombe House Beach
+Newton Creek Newton Ferrers
+Noss Mayo Quay
+Wembury Marine Centre
+Hey Tor Wembury
+Bovisand Fort
+Jennycliff Plymouth
+Mountbatten Tower
+West Hoe Pier
+Tinside Lido
+Hoe Foreshore
+Devils Point Battery
+Stonehouse Royal William Yard
+Brixham Breakwater Beach
+Berry Head Nature Reserve
+Brixham Outer Harbour
+Churston Cove Path
+Goodrington Splash
+Paignton Green
+Preston Green
+Hollicombe Red Cliff
+Broad Sands Goodrington
+Elberry Cove Nudist
+Torquay Marina
+Meadfoot Sea Road
+Babbacombe Oddicombe Cliff Railway
+Livermead Head
+Corbyn Head Car Park
+Daddyhole Plain Rock
+Hopes Nose Parking
+Thatcher Point Walk
+Ansteys Cove Beach
+Torre Abbey Meadow
+Hollicombe Red Sands
+Cockington Sea Mills
+Maidencombe Beach Access
+Teignmouth Back River Beach
+Shaldon Beach Huts
+Holcombe Mouth
+Dawlish Coryton
+Dawlish Warren Dunes
+Starcross Sailing Club
+Powderham Estuary
+Exmouth Duck Pond
+Sandy Bay Cliffs Holiday
+Orcombe Point Walk
+Budleigh Otter Estuary
+Sidmouth Alma Bridge
+Ladram Bay Otter
+Beer Seaton Footpath
+Seaton Hole Steps
+Axmouth Lyme Regis Undercliff Walk
+Branscombe Mouth Path
+Weston Mouth Landslip
+Salcombe Regis Church Cove
+Otterton Ledge Beach
+Straight Point Nudist
+Littleham Budleigh
+Topsham Strand
+Lympstone Strand
+Exton Duck Pond
+Starcross Ferry Steps
+Teign Estuary Sailing
+Salcombe Estuary Moorings
+Kingsbridge Salcombe Ferry
+Hope Cove Inner Outer
+Thurlestone Main Beach
+Bigbury-on-Sea Car Park
+Burgh Island Tractor
+Challaborough Valley
+Bantham River
+South Milton Thurlestone
+Wembury Beach NT
+Heybrook Wembury
+Bovisand Diving
+Mountbatten Water Sports
+Jennycliff Battery
+Firestone Bay Steps
+West Hoe Park Beach
+Brixham Shoalstone
+Berry Head Brixham
+Churston Golf Club View
+Goodrington Quaywest
+Paignton Preston
+Hollicombe Head
+Elberry Nudist
+Torquay Princess Pier
+Meadfoot Kayak
+Babbacombe Downs Walk
+Oddicombe Cliff
+Livermead Sands
+Corbyn Head Oddicombe
+Daddyhole Caves
+Thatcher Point NT
+Ansteys Cove NT
+Torre Abbey Sands Front
+Hollicombe Paignton Front
+Cockington Valley Sea
+Maidencombe Hole
+Teignmouth Den Beach
+Shaldon Ness Tunnel
+Holcombe Beach NT
+Dawlish Town Sea Wall
+Dawlish Warren Spit End
+Starcross Powderham
+Exmouth Lifeboat Station Beach
+Maer Rocks Low Tide
+Sandy Bay Orcombe
+Budleigh Salterton River Otter
+Sidmouth Chit Rocks
+Ladram Bay Otter Estuary
+Beer Head Quarry
+Seaton Hole Car Park
+Axmouth Harbour Mouth
+Branscombe Mouth NT
+Weston Mouth NT
+Salcombe Regis Ladram
+Otterton Straight Point
+Littleham Cove Budleigh
+Topsham Goat Walk Ferry
+Lympstone Commandos Beach
+Exton Powderham
+Coryton Red Rock
+Labrador Bay NT
+Ness Cove Shaldon
+Teignmouth Pier Beach
+Dawlish Warren Bird Hide
+Exe Mouth
+Teignmouth River
+Dart Estuary
+Yealm Estuary
+Erme Estuary
+Avon Estuary
+Tamar Estuary
+Taw Estuary
+Torridge Estuary
+Exe Trail Coast
+South West Coast Path
+Jurassic Coast Start
+East Devon AONB Coast
+South Devon AONB Coast
+North Devon Coast AONB
+Torbay English Riviera
+Plymouth Sound Foreshore
+River Dart Estuary Beaches
+Kingswear Ferry Beach
+Dartmouth Blackpool Sands Access
+Salcombe Town Quay
+Kingsbridge Estuary Mouth
+Bigbury Beach Access
+Wembury Mewstone View
+Plymouth Breakwater Beach
+Brixham Breakwater End
+Torquay Living Coasts Shore
+Paignton Geoplay Beach
+Goodrington Youngs Park Beach
+Hollicombe Sands
+Elberry Paignton
+Berry Head South
+Brixham Shoalstone Seawater Pool
+Churston Ferrers Coast Path
+Dartmouth Castle Cove
+Kingswear Castle Cove
+Compass Cove NT
+Scabbacombe Head NT
+Start Bay NT
+Slapton Sands NT
+Prawle Point NT
+East Portlemouth Ferry Beach
+North Sands Hotel Salcombe
+South Sands Hotel Salcombe
+Mill Bay Salcombe Ferry
+Soar Mill Cove NT
+Hope Cove NT
+Thurlestone Beach NT
+Bigbury NT
+Burgh Island NT
+Challaborough NT
+Bantham NT
+Mothecombe NT
+Noss Mayo NT
+Newton Ferrers NT
+Wembury NT
+Heybrook NT
+Jennycliff NT
+Bovisand NT
+Mountbatten NT
+Brixham Berry Head NT
+Goodrington NT
+Paignton Preston Sands NT
+Torquay Oddicombe NT
+Babbacombe NT
+Teignmouth NT
+Shaldon NT
+Holcombe NT
+Dawlish NT
+Dawlish Warren NT
+Exmouth NT
+Budleigh NT
+Sidmouth NT
+Ladram NT
+Beer NT
+Seaton NT
+Axmouth NT
+Branscombe NT
+Ilfracombe Tunnels NT
+Mortehoe NT
+Woolacombe NT
+Baggy Point NT
+Hartland Quay NT
+Spekes Mill Mouth NT
+Hartland Point NT
+Clovelly NT
+Westward Ho NT
+Appledore NT
+Instow NT
+Saunton Sands NT
+Croyde NT
+Combe Martin NT
+Lee Bay NT
+Lynmouth NT
+Countisbury NT
+Foreland Point NT
