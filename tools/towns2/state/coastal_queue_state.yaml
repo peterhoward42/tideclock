@@ -9,7 +9,7 @@ artefacts:
   directory_relative_to_towns2: coastal
 
 done:
-  england: []
+  england: [Cornwall]
   wales: []
   scotland: []
   ireland_republic: []
