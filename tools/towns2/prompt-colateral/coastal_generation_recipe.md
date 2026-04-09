@@ -1,68 +1,50 @@
-# Coastal Place Name Generation Recipe
+# Coastal Place Name Generation Recipe (Enhanced)
 
 ## Purpose
-Generate a human-style list of coastal place names for a given county.  
-The goal is to support search-based location input, not strict geographic accuracy.
+Generate a human-style, high-density list of coastal place names for a given county.
+The goal is to support search-based location input, prioritising recall, redundancy, and human-like exploration over correctness.
 
----
+## Core Behavioural Rules
+- Simulate how a human explores and recalls a coastline
+- Prefer density over cleanliness
+- Prefer redundancy over efficiency
+- Prefer local saturation over broad sampling
 
 ## Prompt Template
-
 Generate a human-style list of coastal place names in [COUNTY].
 
 Include:
-- towns
-- villages
-- hamlets
-- beaches
-- coves
-- bays
-- headlands
-
-The goal is to help users searching for locations, so include both well-known and lesser-known names.
+- towns, villages, hamlets
+- beaches, coves, bays
+- headlands, harbours, local features
 
 Guidelines:
-- Redundancy and overlap are fine
-- Do not deduplicate
-- Do not worry about strict accuracy
+- Redundancy is desirable
+- Do NOT deduplicate
+- Do NOT optimise or summarise
 - Prefer names people might realistically type
-- Include nearby or related places that users might try if their first search fails
+- Include obscure and micro-locations
 
-Structure:
-- Sweep the coastline in a loose clockwise direction OR group by sub-regions
-
----
+## Local Saturation Rule
+When you enter a coastal region:
+- stay in that area and expand it
+- list nearby beaches, coves, and small places
+- do not move on quickly
+- exhaust the cluster before progressing
 
 ## Multi-Pass Strategy
+Pass 1: Main Sweep
+Pass 2: Density Expansion (aggressively add more names, even redundant)
+Pass 3: Search Expansion (fallback names, partial names, nearby features)
 
-### Pass 1: Main Sweep
-Generate a broad list covering the full coastline.
+## Anti-Summarisation Rule
+- Do NOT merge similar places
+- Do NOT replace clusters with umbrella names
+- Do NOT clean or optimise the list
 
-### Pass 2: Add Depth
-Add smaller places, beaches, coves, and less prominent names not already included.
-
-### Pass 3 (Optional): Search Expansion
-Add:
-- alternative names
-- nearby places
-- related geographic features
-
----
+## Density Expectation
+80–200+ names per county
 
 ## Post-Processing
-
-- Combine all passes into one list
+- Combine all passes
 - Keep duplicates
-
-Avoid heavy filtering or strict validation.
-
----
-
-## Notes
-
-This process prioritizes:
-- search usefulness over accuracy
-- redundancy over completeness
-- human recall over database structure
-
-The resulting dataset should feel like a mental map, not a gazetteer.

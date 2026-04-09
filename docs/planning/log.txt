@@ -109,6 +109,16 @@ fart
 					*  towns2 dir
 					*  prompt eng
 					o  try the universal prompt:
+						o  attempt to fix quality errors with new specs
+							*  get new files made
+							o  clean repo
+								o  git stash
+								o  remove unstaged
+							o  copy in new ones
+							o  read them
+							o  commit them
+						o  run first and nth batches
+						o  consider .gitignore
 
 Proceed according to  /tools//towns2/@tools/towns2/prompt-colateral/coastal_universal_prompt.md 
 
