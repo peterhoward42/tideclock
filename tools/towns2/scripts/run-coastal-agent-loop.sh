@@ -5,6 +5,10 @@
 
 set -euo pipefail
 
+log() {
+  printf '%s [coastal-loop] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*" >&2
+}
+
 REPO_ROOT="${TIDECLOCK_REPO_ROOT:-}"
 if [[ -z "$REPO_ROOT" ]]; then
   REPO_ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")/../../.." rev-parse --show-toplevel 2>/dev/null || true)"
@@ -45,11 +49,42 @@ if [[ ! -f "$REPO_ROOT/$UNIVERSAL_REL" ]]; then
   exit 1
 fi
 
+# Resolved once so each iteration can say what the long wait is bound to.
+COASTAL_AGENT_SUMMARY=""
+if [[ -n "${COASTAL_AGENT_CMD:-}" ]]; then
+  COASTAL_AGENT_SUMMARY="COASTAL_AGENT_CMD (IFS word-split): ${COASTAL_AGENT_CMD}"
+elif command -v cursor >/dev/null 2>&1; then
+  COASTAL_AGENT_SUMMARY="cursor agent -p --force ($(command -v cursor))"
+elif command -v agent >/dev/null 2>&1; then
+  COASTAL_AGENT_SUMMARY="agent -p --force ($(command -v agent))"
+else
+  echo "run-coastal-agent-loop: neither 'cursor' nor 'agent' on PATH. Install Cursor CLI, add the shell command from the app, or set COASTAL_AGENT_CMD." >&2
+  exit 127
+fi
+
+log "starting coastal batch loop"
+log "repo root: $REPO_ROOT"
+log "state file: $STATE_FILE"
+log "universal prompt: $REPO_ROOT/$UNIVERSAL_REL"
+log "agent subprocess: $COASTAL_AGENT_SUMMARY"
+log "flow: each iteration checks queue_exhausted, then runs one headless agent (often silent for several minutes until that process exits)"
+
+iteration=0
 while true; do
+  iteration=$((iteration + 1))
+  log "— iteration $iteration —"
+  log "control: checking queue_exhausted in $STATE_FILE"
+
   if queue_exhausted; then
+    log "control: queue_exhausted is true; stopping loop"
     echo "run-coastal-agent-loop: queue exhausted (queue_exhausted: true in coastal_queue_state.yaml). Exit 0."
     exit 0
   fi
+
+  qe_line="$(grep -E '^queue_exhausted:' "$STATE_FILE" 2>/dev/null | head -n 1 || true)"
+  log "control: queue not exhausted ($qe_line)"
+  log "action: invoking headless agent ($COASTAL_AGENT_SUMMARY)"
+  log "wait: blocked until the agent subprocess finishes (no further [coastal-loop] lines until then; repo changes may appear mid-run depending on the agent)"
 
   if [[ -n "${COASTAL_AGENT_CMD:-}" ]]; then
     # Word-split on IFS; use default branch if you need spaces inside a single argument.
@@ -62,7 +97,9 @@ while true; do
     # Standalone agent binary (e.g. ~/.local/bin/agent from Cursor CLI install).
     agent -p --force -- "$SHORT_PROMPT" || exit $?
   else
-    echo "run-coastal-agent-loop: neither 'cursor' nor 'agent' on PATH. Install Cursor CLI, add the shell command from the app, or set COASTAL_AGENT_CMD." >&2
+    log "error: no agent backend inside loop (unexpected after startup check)"
     exit 127
   fi
+
+  log "control: agent subprocess exited 0; looping (next: re-check queue_exhausted)"
 done
