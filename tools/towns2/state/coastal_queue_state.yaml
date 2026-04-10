@@ -8,7 +8,7 @@
 # re-orchestrate later, reset this to false and align done / coastal/*.txt yourself so the
 # run looks like a fresh start (see coastal_batch_automation_spec.md).
 
-queue_exhausted: true
+queue_exhausted: false
 
 artefacts:
   # One plain-text list per completed county (lowercase county stem, .txt).

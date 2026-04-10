@@ -108,16 +108,27 @@ fart
 				o  better list of towns - south wales very sparse
 					*  towns2 dir
 					*  prompt eng
-					o  try the universal prompt:
-						o  attempt to fix quality errors with new specs
-						o  why no looe or millendreath for example
+					o  get all towns in per all counties
+						*  basics
+						o  sample a few areas
+							o  east of looe
+							o  around liverpool
+								o  blackpool north and south lousy
+							o  around salcombe
+							o  NI and Eire
+								blackpool dublin belfast donegal bundoram 
 
-						o  run first and nth batches
-						o  consider .gitignore
+								o  tenby
+					o  better choice ux
+						o  docco objectives and rationale
+						o  docco data avail
+						o  introduce brute force algo concept
+						o  dev and test std alone including pre-built mappings
+						   based on real data samples
+						o  try replacing location chooser in branch
+						o  merge branch
 
-Proceed according to  /tools//towns2/@tools/towns2/prompt-colateral/coastal_universal_prompt.md 
-
-				o  centre the banner
+				o  centre the home banner - maybe prettyfy it too
 				o  come back to alternating in/out edge cases 
 				o  come back to the Bournemouth dilemma
 				o  tune line thicknesses and font for platforms
