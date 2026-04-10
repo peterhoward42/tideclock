@@ -1,0 +1,305 @@
+Storth
+Carr Bank
+Sandside
+Arnside
+Arnside Knott
+Arnside Point
+Arnside Marsh
+Arnside Promenade
+Arnside Tower
+Arnside Viaduct
+Grange-over-Sands
+Grange-over-Sands Promenade
+Grange-over-Sands Beach
+Kents Bank
+Meathop
+Meathop Marsh
+Allithwaite
+Allithwaite Marsh
+Lindale
+Cartmel
+Cartmel Priory
+Cartmel Racecourse
+Holker Hall
+Staveley-in-Cartmel
+Field Broughton
+Cark
+Cark-in-Cartmel
+Cark Moss
+Flookburgh
+Flookburgh Marsh
+Ravenstown
+Ravenstown Marsh
+Baycliff
+Humphrey Head
+Aldingham
+Aldingham Moors
+Aldingham Castle
+Dendron
+Leece
+Roosebeck
+Roosebeck Marsh
+Bardsea
+Bardsea Beach
+Birkrigg Common
+Birkrigg Stone Circle
+Pennington
+Pennington Marsh
+Ulverston
+Ulverston Canal
+Canal Foot
+Greenodd
+Plumpton
+Swarthmoor
+Swarthmoor Hall
+Conishead Priory
+Dragley Beck
+Great Urswick
+Little Urswick
+Scales
+Sunbrick
+Heaning
+Newton-in-Furness
+Dalton-in-Furness
+Lindal-in-Furness
+Broughton-in-Furness
+Yarlside
+Roose
+Roose Marsh
+Roosecote
+Roosecote Marsh
+Askam-in-Furness
+Askam Beach
+Askam
+Ireleth
+Ireleth Marsh
+Kirkby-in-Furness
+Soutergate
+Gleaston
+Gleaston Castle
+Gleaston Marsh
+Dunnerholme
+Dunnerholme Point
+Rampside
+Rampside Marsh
+Roa Island
+Piel Island
+Piel Castle
+Piel
+Ship Inn Piel
+Chapel Island
+Foulney Island
+Sheep Island
+Barrow Island
+Barrow-in-Furness
+Barrow Port
+Barrow Harbour
+Barrow Docks
+Barrow Waterfront
+Barrow Promenade
+Ramsden Dock
+Devonshire Dock
+Devonshire Dock Hall
+Buccleuch Dock
+Cavendish Dock
+Michaelson Dock
+Ocean Road
+Michaelson Road
+Holker Street
+Hawcoat
+Newbarns
+Ormsgill
+Stank
+Cowpen
+Risedale
+Old Barrow
+Newland
+Hindpool
+Vickerstown
+Walney Island
+Walney
+Walney Channel
+North Walney
+South Walney
+Biggar Bank
+Biggar
+Earnse Bay
+Earnse Point
+North Scale
+Sandy Gap
+Jubilee Bridge
+Sandscale Haws
+Sandscale Haws National Nature Reserve
+North Walney National Nature Reserve
+South Walney Nature Reserve
+Walney Bird Observatory
+Walney Lighthouse
+South Walney Old Lighthouse
+West Shore Walney
+East Shore Walney
+North End Walney
+South End Walney
+North Walney Beach
+South Walney Beach
+Earnse Bay Beach
+Biggar Bank Beach
+Sandy Gap Beach
+North Scale Beach
+Vickerstown Beach
+Walney Beach
+West Shore Beach
+Walney Sands
+Morecambe Bay
+Duddon Estuary
+Duddon Sands
+Duddon Channel
+River Leven
+Leven Estuary
+Leven Viaduct
+River Kent
+Kent Estuary
+Kent Viaduct
+Grange Sands
+Cartmel Sands
+Ulverston Sands
+Furness Peninsula
+Cartmel Peninsula
+Furness Abbey
+Furness Islands
+Angerton Marsh
+Crosslands
+Marsh Grange
+Lowsy Point
+Castle Head
+Rampside Point
+Roosegate
+Stainton with Adgarley
+Holker Moss
+Lower Holker
+Upper Holker
+Heald Brow
+Hazelslack
+Bowling Green
+Goadsbarrow
+Lee Green
+Strawberry Bank
+Strawberry Bank Holiday Park
+Ocean Edge Holiday Park
+Scales Moor
+Sunbrick Marsh
+Heaning Wood
+Yarlside Hill
+Ireleth Hill
+Kirkby Moor
+Soutergate Marsh
+Dunnerholme Wood
+Rampside Lane
+Askam Slag Bank
+Port of Barrow
+Royal Port of Barrow
+BAE Systems Barrow
+Barrow Gas Terminal
+Roosecote Works
+Barrow Lifeboat Station
+Dock Museum
+Piel Ferry
+Roa Island Jetty
+Sandscale Beach
+North Walney Dunes
+South Walney Lagoon
+Duddon Estuary SSSI
+Leven Estuary SSSI
+Morecambe Bay SSSI
+Cumbria Coastal Way
+King Charles III England Coast Path
+Jubilee Bridge Footpath
+Walney Offshore Wind Farm
+Walney Extension Offshore Wind Farm
+West of Duddon Sands
+Ormonde Wind Farm
+Barrow Offshore Wind
+North Walney Extension
+Grange
+Barrow
+Foulney
+Roa
+Chapel
+Sheep
+Irish Sea off Barrow
+Irish Sea off Walney
+Morecambe Bay Sands
+Kent Sands
+Leven Sands
+Duddon Mouth
+Leven Mouth
+Kent Channel Mouth
+South Lakeland Coast
+Furness Coast
+Grange Jetty
+Flookburgh Jetty
+Ulverston Canal Basin
+Canal Foot Slipway
+Newton Marsh
+Dalton Marsh
+Lindal Marsh
+Storth Marsh
+Sandside Marsh
+Carr Bank Marsh
+Kents Bank Marsh
+Grange Marsh
+Arnside Beach
+Askam Shore
+Ireleth Shore
+Flookburgh Shore
+Roose Bay
+Roosecote Bay
+Barrow Island Shipyard
+Submarine Building Hall
+Chapel Island Spit
+Foulney Island Spit
+Sheep Island Rocks
+Arnside Tidal Bore
+Ayside
+Woodland
+Bouth
+Haverthwaite
+Backbarrow
+Spark Bridge
+Bandrake Head
+Boarbank
+Hycemoor
+Lane Ends
+Loppergarth
+Mountbarrow
+Rosside
+Beacon Hill
+Quarry Hill
+Millionaires Walk
+Arnside Marsh Walk
+Roose Marsh Walk
+Sandscale Marsh
+North Scale Marsh
+Sandy Gap Slacks
+Foxfield
+Ulverston Bay
+Ramsden Square
+Devonshire Buildings
+Earnse Sandbank
+Walney Channel Sands
+South Walney Spit
+North Walney Spit
+Rating Lane
+North Road
+Park Drive
+Greengate
+Island Road
+Walney Promenade
+Earnse Bay Sands
+North Scale Sands
+Sandy Gap Sands
+Biggar Sands
+Vickerstown Sands
+Kent Estuary Mudflats
+Leven Estuary Mudflats
+Duddon Estuary Mudflats
+Morecambe Bay Mudflats

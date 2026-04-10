@@ -109,6 +109,8 @@ fart
 					*  towns2 dir
 					*  prompt eng
 					o  get all towns in per all counties
+						o  next up should be lancs
+
 						*  basics
 						o  sample a few areas
 							o  east of looe

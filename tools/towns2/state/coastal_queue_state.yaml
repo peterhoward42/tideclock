@@ -15,8 +15,8 @@ artefacts:
   directory_relative_to_towns2: coastal
 
 done:
-  england: [Cornwall, Devon, Dorset, Hampshire, West Sussex, East Sussex, Kent, Essex, Suffolk, Norfolk, Lincolnshire, East Yorkshire, North Yorkshire, Durham, Northumberland]
-  wales: [Pembrokeshire, Ceredigion, Gwynedd, Anglesey]
-  scotland: [Highland, Argyll and Bute, Fife, Aberdeenshire, Moray]
+  england: [Cornwall, Devon, Dorset, Hampshire, West Sussex, East Sussex, Kent, Essex, Suffolk, Norfolk, Lincolnshire, East Yorkshire, North Yorkshire, Durham, Northumberland, Tyne and Wear, Cumberland, Westmorland and Furness, Lancashire, Merseyside, Cheshire, Somerset, Gloucestershire, Bristol, Isle of Wight, Greater London, Cambridgeshire]
+  wales: [Pembrokeshire, Ceredigion, Gwynedd, Anglesey, Conwy, Denbighshire, Flintshire, Carmarthenshire, Swansea, Neath Port Talbot, Bridgend, Vale of Glamorgan, Cardiff, Newport, Monmouthshire]
+  scotland: [Highland, Argyll and Bute, Fife, Aberdeenshire, Moray, Dumfries and Galloway, South Ayrshire, North Ayrshire, Inverclyde, Renfrewshire, West Dunbartonshire, Edinburgh, East Lothian, Falkirk, Stirling]
   ireland_republic: [Donegal, Mayo, Galway, Clare, Kerry, Cork, Waterford, Wexford]
   northern_ireland: [Antrim, Down]

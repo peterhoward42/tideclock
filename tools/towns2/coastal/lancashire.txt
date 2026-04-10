@@ -1,0 +1,347 @@
+Hesketh Bank
+Banks
+Tarleton
+Mere Brow
+Much Hoole
+Longton
+Freckleton
+Warton
+Clifton
+Becconsall
+Holmes
+Lytham
+Lytham Green
+St Annes
+St Annes-on-the-Sea
+Lytham St Annes
+Fairhaven
+Fairhaven Lake
+Granny's Bay
+Ansdell
+Kilgrimol
+Staining
+Squires Gate
+Blackpool
+Bispham
+Norbreck
+Layton
+Marton Mere
+Marton Mere Local Nature Reserve
+South Shore
+North Shore
+Revoe
+Bloomfield
+Happy Mount
+Happy Mount Park
+Gynn Square
+Talbot Gateway
+Hounds Hill
+Little Bispham
+Great Marton
+Starr Gate
+Blackpool Pleasure Beach
+Blackpool Tower
+Blackpool North Pier
+Blackpool Central Pier
+Blackpool South Pier
+North Pier
+Central Pier
+South Pier
+Blackpool Promenade
+North Promenade
+South Promenade
+Central Promenade
+Thornton
+Cleveleys
+Thornton-Cleveleys
+Thornton Cleveleys
+Cleveleys Promenade
+Anchorsholme
+Anchorsholme Park
+Rossall
+Rossall Point
+Rossall Beach
+Rossall School
+Carleton
+Fleetwood
+The Esplanade
+Marine Hall
+North Euston Hotel
+Fleetwood Promenade
+Fleetwood Marsh
+Fleetwood Marsh Nature Reserve
+Fleetwood Docks
+Fleetwood Ferry
+Fleetwood Harbour
+Marine Beach
+Burn Naze
+Wyre Light
+Wyre Dock
+Preesall
+Preesall Hill
+Knott End-on-the-Sea
+Knott End
+Knott End Ferry
+Knott End on Sea
+Knott End Harbour
+Pilling
+Pilling Sands
+Pilling Lane Ends
+Pilling Marsh
+Hambleton
+Hambleton Moss
+Skippool
+Skippool Creek
+Stanah
+Hackinsall
+Hackinsall Quay
+Stalmine
+Stalmine-with-Staynall
+Staynall
+Scronkey
+Churchtown
+Churchtown Marsh
+Wardleys
+Wardley's Channel
+Broadfleet
+Burn Naze Marsh
+Preesall Marsh
+Knott End Marsh
+Cockerham
+Cocker Sands
+Cockerham Marsh
+Sand Side
+Sand Villa
+Hillam
+Bolton-le-Sands
+Crag Bank
+Carnforth
+Carnforth Marsh
+Slyne-with-Hest
+Hest Bank
+Silverdale
+Silverdale Moss
+Silverdale Cove
+Eaves Wood
+Jack Scout
+Jack Scout Wood
+Jenny Brown's Point
+Jenny Brown's Wood
+Yealand Conyers
+Yealand Redmayne
+Warton Crag
+Leighton Beck
+Potts Corner
+Glasson Wetlands
+Bare
+Morecambe
+Morecambe Promenade
+Morecambe Stone Jetty
+Morecambe Bay
+Stone Jetty
+Torrisholme
+West End
+Sandylands
+Middleton
+Middleton Sands
+Poulton-le-Sands
+Heysham
+Heysham Port
+Heysham Moss
+Heysham Harbour
+Half Moon Bay
+Battery Heysham
+Heysham Nuclear Power Station
+Barrows Lane Heysham
+Sunderland Point
+Sunderland
+Sunderland Point Marsh
+Overton
+Glasson Dock
+Glasson
+Glasson Marina
+Glasson Harbour
+Aldcliffe
+Aldcliffe Marsh
+Heaton-with-Oxcliffe
+Heaton Marsh
+Oxcliffe Marsh
+Oxcliffe Hill
+Snatchems
+Cockersand
+Cockersand Abbey
+Cockersand Priory
+Cockersand Spit
+Plover Scar
+Plover Scar Lighthouse
+Abbey Lighthouse Cockersand
+Condor Green
+Crag Foot
+Red Bank Farm
+Thurnham Hall
+Singleton
+Great Singleton
+Little Singleton
+Elswick
+Medlar
+Wesham
+Medlar-with-Wesham
+Treales
+Weeton
+Great Eccleston
+Little Eccleston
+Out Rawcliffe
+Nateby
+Winmarleigh
+Thistleton
+Greenhalgh
+Esprick
+Kirkham
+Poulton-le-Fylde
+Hardhorn-with-Newton
+Carleton-in-Fylde
+St Michael's-on-Wyre
+St Michaels on Wyre
+Lea Town
+Woodplumpton
+Barton
+Catforth
+Broughton
+Inskip
+Garstang
+Cabus
+Norcross
+Queenstown
+Heathfield
+Catterall
+Bilsborrow
+Cold Row
+Lane Ends
+St Cuthbert's Church Lytham
+Lytham Windmill
+St Annes Pier
+St Annes Beach
+Lytham Beach
+Fairhaven Beach
+Granny's Bay Beach
+Bispham Beach
+Norbreck Beach
+Cleveleys Beach
+Fleetwood Beach
+Knott End Beach
+Morecambe Beach
+Heysham Beach
+Half Moon Bay Beach
+Glasson Beach
+St Annes Promenade
+Lytham Promenade
+Fairhaven Promenade
+Fairhaven Marsh
+Ansdell Beach Road
+Lytham Green Drive
+St Annes North Promenade
+St Annes South Promenade
+Fairhaven Drive
+Royal Lytham
+Royal Lytham & St Annes
+Royal Lytham Golf Club
+Fairhaven Golf Club
+St Annes Old Links
+Eric Morecambe Statue
+Midland Hotel
+Maritime Museum Morecambe
+Maritime Museum Fleetwood
+Stanley Park
+George Bancroft Park
+Kincraig
+Kincraig Lake
+Kincraig Marsh
+Kincraig Point
+Marton Sands
+Ribble Estuary
+Wyre Estuary
+River Wyre mouth
+River Ribble mouth
+River Lune mouth
+River Cocker mouth
+River Keer mouth
+Keer Estuary
+Lune Estuary
+Keer Mouth
+Lancaster Canal
+Glasson Branch Canal
+Isle of Man Ferry Heysham
+Barrow Ferry Fleetwood
+ICI Hillhouse
+Hillhouse Pool
+Blackpool Harbour
+Harbour Blackpool
+Morecambe Harbour
+Pharos Lighthouse Fleetwood
+Lower Lighthouse Fleetwood
+Upper Lighthouse Fleetwood
+Blackpool Lifeboat Station
+Fleetwood Lifeboat Station
+Knott End Lifeboat Station
+Lytham Lifeboat Station
+St Annes Lifeboat Station
+Morecambe Lifeboat Station
+Morecambe RNLI
+Fleetwood RNLI
+Blackpool RNLI
+Lytham St Annes RNLI
+National Coastwatch Rossall Point
+Rossall Point Observatory
+Over Wyre
+Over Wyre Marsh
+Fylde Coast
+Dolphinholme
+Anchorsholme Golf
+Fleetwood Golf Club
+Rossall Golf Club
+Blackpool North Shore Golf
+Stanley Park Golf
+Knott End Golf Club
+Squires Gate Lane
+Blackpool Airport
+Squires Gate Airport
+Marine Road Central
+Marine Road
+Regent Road Morecambe
+Marine Drive Morecambe
+Heysham Road
+Glasson Road
+St Peter's Church Heysham
+St Patrick's Chapel Heysham
+St Thomas Church St Annes
+St Leonard's Church Lytham
+St Nicholas Church Fleetwood
+Skippool Boatyard
+Glasson Dock Chandlery
+Sunderland Point Chapel
+Sunderland Point House
+Overton St Helen's Church
+Heaton St Wilfrid's Church
+Aldcliffe St John's Church
+England Coast Path Lancashire
+Lancashire Coastal Way
+Wyre Way
+Morecambe Bay Cycleway
+Blackpool Tramway
+Blackpool North Station
+Blackpool South Station
+Blackpool Pleasure Beach Station
+Squires Gate Station
+St Annes-on-the-Sea Station
+Ansdell and Fairhaven Station
+Lytham Station
+Kirkham and Wesham Station
+Poulton-le-Fylde Station
+Layton Station
+Morecambe Station
+Heysham Port Station
+Bare Lane Station
+Carnforth Station
+Silverdale Station
+Silverdale Tunnel
+Shore Road Silverdale

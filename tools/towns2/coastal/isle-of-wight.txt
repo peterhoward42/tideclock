@@ -1,0 +1,397 @@
+The Needles
+Needles Lighthouse
+Needles Old Battery
+Scratchell's Bay
+Alum Bay
+Alum Bay Chine
+Headon Warren
+Totland Bay
+Totland
+Colwell Bay
+Colwell
+Fort Victoria
+Freshwater Bay
+Freshwater
+Afton
+Compton Bay
+Compton
+Compton Chine
+Hanover Point
+Brook
+Brook Bay
+Brook Chine
+Churchill Chine
+Brighstone Bay
+Barnes Chine
+Brambles Chine
+Shippards Chine
+Grange Chine
+Marsh Chine
+Chilton Chine
+Chale
+Chale Bay
+Blackgang
+Blackgang Chine
+Rocken End
+Whale Chine
+Ladder Chine
+Walpen Chine
+Old Walpen Chine
+New Walpen Chine
+Shepherd's Chine
+Cowleaze Chine
+Widdick Chine
+Small Hope Chine
+Watershoot Bay
+Atherfield
+Orchard Bay
+St Catherine's Point
+St Catherine's Lighthouse
+Niton
+Niton Undercliff
+Reeth Bay
+Castle Cove
+Castlehaven
+Ventnor Undercliff
+Ventnor
+Ventnor Bay
+Ventnor Beach
+Steephill Cove
+Wheelers Bay
+Monks Bay
+Mount Bay
+Watcombe Bay
+Bonchurch
+Bonchurch Landslip
+Horseshoe Bay
+St Lawrence
+Luccombe
+Luccombe Chine
+Luccombe Bay
+Linstone Chine
+New Chine
+Woody Bay
+Steel Bay
+Woodside Beach
+Dunnose
+Shanklin
+Shanklin Chine
+Lake
+Sandown
+Sandown Bay
+Yaverland
+Yaverland Beach
+Culver Down
+Culver Cliff
+Whitecliff Bay
+Bembridge Down
+Foreland
+Bembridge
+Bembridge Harbour
+Bembridge Beach
+Brading Haven
+St Helens
+St Helens Duver
+Seagrove Bay
+Binnel Bay
+Nodes Point
+Priory Bay
+Seaview
+Nettlestone
+Spring Vale
+Ryde
+Ryde Beach
+Ryde Esplanade
+Appley
+Appley Beach
+Puckpool
+Fishbourne
+Wootton
+Wootton Creek
+East Cowes
+East Cowes Esplanade
+Osborne Bay
+Osborne
+Whippingham
+Cowes
+Cowes Harbour
+West Cowes
+Egypt Point
+Medina Estuary
+Gurnard
+Gurnard Bay
+Gurnard Luck
+Thorness Bay
+Thorness
+Newtown
+Newtown Bay
+Newtown Creek
+Shalfleet
+Hamstead
+Hampstead Point
+Yarmouth
+Yarmouth Harbour
+Yarmouth Pier
+Bouldnor
+Bouldnor Beach
+Bouldnor Point
+Fort Albert
+Cowes Parade
+Sandown Esplanade
+Ventnor Esplanade
+Bembridge Lifeboat Station
+Freshwater Independent Lifeboat
+Priory Bay beach
+Whitecliff Bay beach
+Totland Bay beach
+Colwell Bay beach
+Compton Bay beach
+Brook Bay beach
+Gurnard seafront
+Ryde sands
+East Cowes Marina
+Cowes Harbour mouth
+Western Yar mouth
+Yarmouth Castle
+The Duver
+Spring Vale beach
+Appley sands
+Puckpool Point
+Thorness Point
+Newtown National Nature Reserve
+Hamstead Ledge
+Alum Bay beach
+Freshwater Bay beach
+Niton Bay
+St Lawrence Bay
+Sandown Pier
+Bembridge Ledges
+Forelands Beach
+Yaverland Battery
+Culver Battery
+Needles viewpoint
+Military Road
+Undercliff Road
+Steephill Cove beach
+Yarmouth ferry
+Cowes Floating Bridge
+East Cowes ferry terminal
+Fishbourne ferry terminal
+Wootton Bridge
+Quarr Abbey shore
+Kingston Wharf
+Shepards Wharf
+Prince's Green
+West Cowes seafront
+Gurnard Marsh
+Newtown Harbour
+Cockleton Creek
+King's Quay
+Norris Castle
+Osborne Jetty
+Foreland Fields
+Nettlestone Point
+Ryde Pier
+Appley Tower
+Puckpool Battery
+Fishbourne Creek
+Medina River mouth
+River Medina entrance
+Western Yar estuary
+Yarmouth estuary
+Newtown estuary
+Wootton Creek mouth
+Cowes Yacht Haven
+East Cowes Marina Village
+Thorness Bay sands
+Salt Mead
+Fort Victoria country park
+Totland Pier
+Colwell Common
+Afton Down
+Mottistone Down
+Rocken End Undercliff
+Blackgang Viewpoint
+Hatherwood Point
+Brook Green
+Chilton Green
+Atherfield Green
+Gateworth
+Shepherd's Chine beach
+Walpen Chine beach
+Whale Chine beach
+Grange Chine beach
+Marsh Chine beach
+Shipyard Creek
+Kingston Shute
+Sconce Point
+Hurst View
+Yarmouth Sailing Club
+Bembridge Sailing Club
+Seaview Yacht Club
+Ventnor Cove
+Shanklin Esplanade
+Lake Parade
+Sandown Culver Parade
+Yaverland Esplanade
+Bembridge Harbour entrance
+Brading Marshes
+St Helens Duver beach
+Puckpool promenade
+East Cowes promenade
+Osborne Esplanade
+Fort Albert beach
+Culver Down cliff path
+Bembridge Down footpath
+Steephill Cove path
+Luccombe Shute
+Yaverland long beach
+Whitecliff pebble beach
+Bembridge limestone ledge
+Foreland tidal pool
+Medina Walk
+Thorness Bay footpath
+Newtown footpath
+Hamstead Lane
+Yarmouth Common
+Pondwell
+Nodes Point Battery
+Whitecliff Bay access
+Yaverland car park beach
+Lake Cliff lift
+Shanklin Cliff Lift
+Ventnor cliff path
+Wheelers Bay access
+Palmer's Brook
+Cowes Parade Green
+East Cowes Victoria Road seafront
+Fishbourne lane end
+Nettlestone seafront
+Seaview seafront
+Spring Vale seafront
+Appley Park
+Ryde Eastern Gardens
+Hamstead Point rocks
+Freshwater Lifeboat
+Yarmouth town quay
+Shalfleet Quay
+Newtown Town Hall quay
+Colwell promenade
+Totland sea defences
+Compton Chine beach
+Brook Chine beach
+Chilton Chine beach
+Churchill Chine beach
+Barnes Chine beach
+Brambles Chine beach
+Linstone Chine beach
+Luccombe Chine beach
+New Chine beach
+Compton Farm coast
+Brook village shore
+Norton Grange
+Nodes Point caravan site
+Whitecliff Bay holiday park foreshore
+Fort Victoria pier
+Thorness Creek
+Hamstead Creek
+Seaview Pier
+Luccombe village path
+Niton village lane
+Chale village coast
+Brighstone coast
+Mottistone coast
+Afton coast
+Freshwater Bay access
+Totland Bay access
+Colwell Bay access
+Alum Bay access
+Needles Old Battery yard
+Scratchell's Bay access
+Watershoot Bay rocks
+Binnel Bay rocks
+Foreland Point
+Culver Cliff base
+St Catherine's Down
+Niton lighthouse
+West Cowes Parade
+East Cowes Esplanade Gardens
+Wootton Creek bridge
+Osborne House beach
+Prince's Green sands
+Gurnard Sailing Club
+Royal Victoria Yacht Club Cowes
+Island Sailing Club
+Ventnor paddling pool
+Sandown Geo
+Chale Wealden cliffs
+Blackgang landslip
+Colwell Chine
+Shippards Chine beach
+Cowleaze Chine beach
+Old Walpen beach
+New Walpen beach
+Alum Bay chairlift
+Needles Landmark viewpoint
+Blackgang Chine gorge
+Shanklin Chine gorge
+Bembridge Airport
+Bembridge Forelands
+Culver Parade
+Sandown Bay sands
+Shanklin sands
+West Cowes Egypt Point
+Gurnard Bay rocks
+Osborne Bay beach
+Priory Bay sands
+Wootton shore
+Quarr shore
+Compton Bay fossils
+Brook Bay fossils
+Atherfield Bay
+Rocken End Bay
+Castlehaven Bay
+Orchard Bay beach
+Reeth Bay beach
+Castle Cove beach
+Chale Bay beach
+Monks Bay beach
+Mount Bay beach
+Watcombe Bay beach
+Horseshoe Bay beach
+Steel Bay beach
+Woodside Beach access
+Woody Bay beach
+Luccombe Bay beach
+Wheelers Bay beach
+Steephill Cove sands
+Ventnor Bay sands
+Bonchurch Cove
+St Lawrence Cove
+Sandown Pier Beach
+Shanklin Old Village
+Ventnor Cascade
+Shanklin Chine waterfall
+Yaverland SSSI foreshore
+Totland sailing club shore
+Bembridge RNLI
+Sandown lifeboat shore
+Yarmouth Harbour entrance
+Cowes Medina entrance
+Gurnard Luck entrance
+Thorness Bay entrance
+Newtown Creek entrance
+Wootton Creek entrance
+Fishbourne Wightlink
+East Cowes Red Funnel
+Lymington ferry Yarmouth
+Yarmouth Lymington ferry
+East Cowes harbour
+Ryde harbour
+Ventnor harbour
+Freshwater Bay rocks
+Freshwater Bay lifeboat slip
+Compton Bay slipway
+Brook Chine slipway
+Colwell Bay slipway
+Totland Bay slipway
