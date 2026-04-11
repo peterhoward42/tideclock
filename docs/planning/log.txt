@@ -108,19 +108,18 @@ fart
 				o  better list of towns - south wales very sparse
 					*  towns2 dir
 					*  prompt eng
-					o  get all towns in per all counties
-						o  next up should be lancs
+					o  finish the fetch + assembly when fat broadband
+					o  prep ux helper tools
+						o  construct with list of search index terms
+						o  and mapper to display for each
+						o  given full string a query fn
+							o  clean and space delimit
+							o  which lines from given search space match
+								o  first 30 lines that contain all terms
+								o  return also how many being returned incl 0
+							o  naive impl to start with, don't yet anticipate smarter impl
+						o  suitable test suite for given scope
 
-						*  basics
-						o  sample a few areas
-							o  east of looe
-							o  around liverpool
-								o  blackpool north and south lousy
-							o  around salcombe
-							o  NI and Eire
-								blackpool dublin belfast donegal bundoram 
-
-								o  tenby
 					o  better choice ux
 						o  docco objectives and rationale
 						o  docco data avail
