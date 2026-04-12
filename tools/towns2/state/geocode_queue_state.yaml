@@ -1,0 +1,19 @@
+# Runtime progression for coastal place-name geocoding (lat/lon → TSV).
+# Edit this file to resume or constrain runs; see geocode_batch_automation_spec.md.
+#
+# Orchestrator: tools/towns2/scripts/run-geocode-agent-loop.sh
+# Agent instructions: tools/towns2/prompt-colateral/geocode_universal_prompt.md
+
+queue_exhausted: false
+
+# Number of source lines (1-based, inclusive range) per headless agent invocation.
+lines_per_batch: 30
+
+# Ordered stems (no .txt) matching tools/towns2/coastal/<stem>.txt
+# Empty [] means: every stem that has a coastal list, sorted lexicographically.
+stems: []
+
+# Work pointer. If current_stem is empty, the first iteration picks the first stem
+# in order that still has lines to process (normally stem 1 at line 1).
+current_stem: ""
+next_line_start: 1

@@ -1,0 +1,31 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	cornwall.txt	Bude	resolved	50.8244	-4.5413	town	WGS84; town centre / harbour area
+2	cornwall.txt	Summerleaze	resolved	50.8312	-4.552	beach	Summerleaze Beach, Bude; approximate beach mid-point
+3	cornwall.txt	Crooklets	resolved	50.8358	-4.554	beach	Crooklets Beach, Bude
+4	cornwall.txt	Widemouth Bay	resolved	50.7899	-4.5546	beach	Bay / village area on north coast
+5	cornwall.txt	Millook	resolved	50.7713	-4.5759	beach	Millook Haven / beach at valley mouth
+6	cornwall.txt	Crackington Haven	resolved	50.7445	-4.6377	village	Coastal village at head of cove
+7	cornwall.txt	Boscastle	resolved	50.6838	-4.6938	village	Harbour village
+8	cornwall.txt	Forrabury	resolved	50.6865	-4.6971	church	St Symphorian (Forrabury), historic Forrabury focus above Boscastle
+9	cornwall.txt	Trevalga	resolved	50.6782	-4.7173	hamlet	St Petroc’s church / clifftop hamlet
+10	cornwall.txt	Bossiney	resolved	50.6664	-4.7400	village	Tintagel parish; inland village centre
+11	cornwall.txt	Bossiney Cove	resolved	50.6710	-4.7350	cove	Bossiney Haven / cove below Bossiney
+12	cornwall.txt	Tintagel	resolved	50.6630	-4.7500	village	Trevena / Tintagel village
+13	cornwall.txt	Trebarwith Strand	resolved	50.6447	-4.7618	beach	Main sandy beach at Trebarwith Strand
+14	cornwall.txt	Port Isaac	resolved	50.5933	-4.8314	village	Fishing village / harbour
+15	cornwall.txt	Port Gaverne	resolved	50.5926	-4.8227	hamlet	Cove east of Port Isaac
+16	cornwall.txt	Port Quin	resolved	50.5888	-4.8678	cove	Sheltered inlet / hamlet
+17	cornwall.txt	Treligga	resolved	50.6375	-4.7663	hamlet	Inland hamlet / Treligga Common area (distinct from Tregardock beach)
+18	cornwall.txt	Tregardock Beach	resolved	50.6220	-4.7730	beach	Secluded beach below Tregardock
+19	cornwall.txt	Polzeath	resolved	50.5724	-4.9148	beach	Resort village beach
+20	cornwall.txt	Daymer Bay	resolved	50.5604	-4.9268	beach	Camel estuary east shore
+21	cornwall.txt	Trebetherick	resolved	50.5669	-4.9187	village	Village west of Daymer Bay
+22	cornwall.txt	Rock	resolved	50.5444	-4.9188	village	Camel estuary; ferry side settlement
+23	cornwall.txt	Porthilly	resolved	50.5416	-4.9131	settlement	Porthilly Cove / St Michael’s area south of Rock
+24	cornwall.txt	Padstow	resolved	50.5380	-4.9380	town	Fishing port / town on Camel west bank
+25	cornwall.txt	Trevone	resolved	50.5421	-4.9751	village	Seaside village and bay near Padstow
+26	cornwall.txt	Harlyn Bay	resolved	50.5394	-4.9948	beach	Main bay beach (Seven Bays area)
+27	cornwall.txt	Mother Iveys Bay	resolved	50.5467	-5.0165	beach	Same feature as Mother Ivey’s Bay; Wikipedia beach coord
+28	cornwall.txt	Boobys Bay	resolved	50.5392	-5.0268	beach	Booby’s Bay west of Trevose Head
+29	cornwall.txt	Constantine Bay	resolved	50.5318	-5.0261	beach	Sandy beach / bay (surf-beach centroid)
+30	cornwall.txt	Treyarnon Bay	resolved	50.5241	-5.0271	beach	South of Constantine; family bay
