@@ -106,7 +106,7 @@ fart
 					*  towns2 dir
 					*  prompt eng
 					*  prepare query function service
-					o  finish the fetch + assembly when fat broadband
+					*  finish the fetch + assembly when fat broadband
 
 					o  better choice ux
 						o  collab cursor on acquiring lat/lon
