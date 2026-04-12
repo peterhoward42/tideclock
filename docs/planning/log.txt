@@ -1,6 +1,4 @@
 
-fart-----
-
 
 *  main display requirements
 *  main display design
@@ -44,7 +42,6 @@ o  new data fetch paradigm
 		*  sort out view modelling
 		*  introduce at least one civic day tide into the model
 		o  new display concept
-			*  fart
 			*  drawexact it
 			*  define the geometry in words alone (some scope)
 			*  work up iteration workflow process to get right as go along
@@ -108,19 +105,24 @@ fart
 				o  better list of towns - south wales very sparse
 					*  towns2 dir
 					*  prompt eng
+					*  prepare query function service
 					o  finish the fetch + assembly when fat broadband
-					o  prep ux helper tools
-						o  construct with list of search index terms
-						o  and mapper to display for each
-						o  given full string a query fn
-							o  clean and space delimit
-							o  which lines from given search space match
-								o  first 30 lines that contain all terms
-								o  return also how many being returned incl 0
-							o  naive impl to start with, don't yet anticipate smarter impl
-						o  suitable test suite for given scope
 
 					o  better choice ux
+						o  collab cursor on acquiring lat/lon
+						o  collab cursor on better UX
+							o  planning remodel ux for search location
+							o  context is search engine and impl and existing old
+							   search
+							o  say similar spirit of user convenience as now, but
+							   to exploit new search idiom
+							o  search space will be raw town data in XXXX
+							   combined with county
+							o  task is discuss and agree desirable UX
+							o  like idea of per keystroke feedback loop
+							o  realise may be performance - but headroom later
+							   to omptimise search perf
+
 						o  docco objectives and rationale
 						o  docco data avail
 						o  introduce brute force algo concept

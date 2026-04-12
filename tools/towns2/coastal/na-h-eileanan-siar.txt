@@ -1,0 +1,304 @@
+Castlebay
+Vatersay
+Vatersay Bay
+Mingulay
+Sandray
+Hellisay
+Gighay
+Flodaigh Barra
+Eriskay
+Eriskay Ferry
+Eriskay Harbour
+Haun
+Ardveenish
+Craigston
+Eoligarry
+Northbay
+Borve Barra
+Brevig
+Tangasdale
+Ludag
+Allasdale
+Grean
+Traigh Mhor Barra
+Barra Airport Beach
+Coilleag a Phrionnsa
+Bagh Halaman
+Cuier
+Iochdar
+Askernish
+Daliburgh
+Lochboisdale
+Lochboisdale Pier
+Stoneybridge
+Howmore
+Snishival
+West Gerinish
+Ormacleit
+Stilgarry
+Garrynamonie
+Kildonan
+Peninerine
+Smerclate
+Grogarry
+Balgarva
+Caolas
+Stilligarry
+Machair South Uist
+Rubha Ardvule
+Bagh Ban
+Bagh Chaluim Chille
+Balivanich
+Benbecula
+Creagorry
+Nunton
+Uachdar
+Torlum
+Liniclate
+Culla Bay
+Ruabhal Benbecula
+North Ford Causeway
+South Ford Causeway
+Lochmaddy
+Lochmaddy Ferry
+Carinish
+Hosta North Uist
+Sollas
+Malacleit
+Hougharry
+Bayhead North Uist
+Tigharry
+Clachan North Uist
+Paible
+Knockintorran
+Sidinish
+Grenitote
+Newtonferry
+Port nan Long
+Grimsay
+Kallin
+Baleshare
+Berneray
+Borve Berneray
+West Beach Berneray
+Berneray Causeway
+Kyles Flodda
+Loch Euphort
+Loch nam Madadh
+Leverburgh
+An t-Ob
+Northton
+Scarista
+Seilebost
+Traigh Seilebost
+Luskentyre
+Losgaintir
+Horgabost
+Strond
+Manish
+Geocrab
+Drinishader
+Rodel
+Flodabay
+Finsbay
+Direcleit
+Meavaig
+Miabhaig
+Huisinish
+Hushinish
+Tarbert Harris
+East Loch Tarbert
+West Loch Tarbert
+Scalpay
+Kyles Scalpay
+Scarp
+Pabbay Harris
+Ensay Harris
+Shiant Islands
+Amhuinnsuidhe
+Loch Resort
+Stornoway
+Stornoway Harbour
+Stornoway Bay
+Arnish Point
+Sandwick Lewis
+Melbost
+Guershader
+Garrabost
+Sheshader
+Swordale
+Newvalley Lewis
+Lower Sandwick
+Tong Lewis
+Back Lewis
+Coll Lewis
+Vatisker
+Gress
+Aignish
+Tiumpan Head
+Portvoller
+Portnaguran
+Shulishader
+Bayble
+Sheildinish
+Knock Lewis
+Branahuie
+Aird Lewis
+Newmarket Lewis
+Swainbost
+Barvas
+South Shawbost
+Shawbost
+Dalbeag
+Dalmore Lewis
+Carloway
+Breaclete
+Great Bernera
+Great Bernera Bridge
+Kirkibost Great Bernera
+Bosta
+Tobson Great Bernera
+Croir
+Valtos Great Bernera
+Reef Beach Great Bernera
+Cliff Beach Great Bernera
+Uig Lewis
+Uig Sands
+Ardroil
+Timsgarry
+Kneep
+Mangurstadh
+Mangersta
+Islivig
+Brenish
+Crowlista
+Dail Beag
+Traigh Dhail Beag
+Traigh Dhail Mhor
+Traigh Shanndaigh
+Traigh Tamat
+Port Ghlas
+Cliobber
+North Tolsta
+Tolsta
+Garry Beach
+Traigh Mhor Tolsta
+Port of Ness
+Lionel
+Skigersta
+Fivepenny Ness
+Eoropie
+Port Nis
+Cross Skigersta
+Habost
+Knockaird
+South Dell
+Garyvard
+Broad Bay Lewis
+Gress Beach
+Coll Beach
+Braighe
+Leurbost
+Airidhantuim
+Keose
+Croir Harbour
+Kyles Langavat
+Bagh Steinigidh
+Scaladale
+Hushinish Beach
+Scarista Beach
+Luskentyre Beach
+Northton Beach
+Berneray West Beach
+Hosta Beach
+Sollas Beach
+West Beach North Uist
+Udal Beaches
+Pollachar
+Howbeg
+Gramsdale
+Balranald
+RSPB Balranald
+Carinish Bay
+Loch Bee
+Loch Druidibeag
+Bagh a Deas Loch Eynort
+Rubh Aird na Monadh
+Ardvule
+Flodday Sound of Barra
+Castlebay Pier
+Vatersay Causeway
+Eriskay Causeway
+Cleitreabhal
+Ormiclate
+Iochdar Mor
+Stilligarry Beach
+Askernish Beach
+Lochboisdale Bay
+Kyles Lochboisdale
+Bagh Mhartainn
+Cille Bharra
+Bagh Siar
+Oban Barra
+Bagh Hartabhagh
+Beinn Ruigh
+Rubha Na H-Earba
+Bagh A Chaisteil
+Traigh Eais
+Frobost
+Orasaigh
+Cearnabhagh
+Liniclate Beach
+Nunton Beach
+Culla Bay Beach
+Griminish Benbecula
+Benbecula Causeway
+Torlum Beach
+Aird Uig
+Cliff Uig
+Mangersta Sea Stacks
+Dalmore Beach
+Dalbeg Beach
+Shawbost Beach
+Bragar
+Arnol
+South Bragar
+Dail Mor Carloway
+Traigh na Beirigh
+Bhaltos
+Reef Uig
+Campail
+Kneep Beach
+Traigh na Clibhe
+Valtos Uig
+Timsgarry Beach
+Traigh na Berie
+Bunavoneadar
+Horgabost Beach
+Seilebost Sands
+Luskentyre Sands
+Scarista Mor
+Toe Head Harris
+Ceann Hurnavay
+Rodel Harbour
+Flodabay Harbour
+Drinishader Pier
+Scalpay Harbour
+Kyles Stockinish
+Bunamhainneadar
+Harris Scarista
+Harris Northton
+Harris Tarbert
+Lewis Stornoway
+Lewis Uig
+Lewis Ness
+Lewis Tolsta
+Lewis Carloway
+Lewis Shawbost
+Barra Eriskay Ferry
+Obbe
+Kallin Harbour
+Lochmaddy Bay
+Port Eynort
+Bagh Mor
+West Loch Tarbert Pier

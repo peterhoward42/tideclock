@@ -8,7 +8,7 @@
 # re-orchestrate later, reset this to false and align done / coastal/*.txt yourself so the
 # run looks like a fresh start (see coastal_batch_automation_spec.md).
 
-queue_exhausted: false
+queue_exhausted: true
 
 artefacts:
   # One plain-text list per completed county (lowercase county stem, .txt).
@@ -17,6 +17,6 @@ artefacts:
 done:
   england: [Cornwall, Devon, Dorset, Hampshire, West Sussex, East Sussex, Kent, Essex, Suffolk, Norfolk, Lincolnshire, East Yorkshire, North Yorkshire, Durham, Northumberland, Tyne and Wear, Cumberland, Westmorland and Furness, Lancashire, Merseyside, Cheshire, Somerset, Gloucestershire, Bristol, Isle of Wight, Greater London, Cambridgeshire]
   wales: [Pembrokeshire, Ceredigion, Gwynedd, Anglesey, Conwy, Denbighshire, Flintshire, Carmarthenshire, Swansea, Neath Port Talbot, Bridgend, Vale of Glamorgan, Cardiff, Newport, Monmouthshire]
-  scotland: [Highland, Argyll and Bute, Fife, Aberdeenshire, Moray, Dumfries and Galloway, South Ayrshire, North Ayrshire, Inverclyde, Renfrewshire, West Dunbartonshire, Edinburgh, East Lothian, Falkirk, Stirling]
-  ireland_republic: [Donegal, Mayo, Galway, Clare, Kerry, Cork, Waterford, Wexford]
-  northern_ireland: [Antrim, Down]
+  scotland: [Highland, Argyll and Bute, Fife, Aberdeenshire, Moray, Dumfries and Galloway, South Ayrshire, North Ayrshire, Inverclyde, Renfrewshire, West Dunbartonshire, Edinburgh, East Lothian, Falkirk, Stirling, Clackmannanshire, Angus, Dundee City, Perth and Kinross, Aberdeen City, Scottish Borders, Shetland Islands, Orkney Islands, Na h-Eileanan Siar]
+  ireland_republic: [Donegal, Mayo, Galway, Clare, Kerry, Cork, Waterford, Wexford, Sligo, Dublin, Louth, Wicklow, Limerick, Kilkenny, Meath, Leitrim]
+  northern_ireland: [Antrim, Down, Londonderry]
