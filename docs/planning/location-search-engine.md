@@ -1,6 +1,7 @@
 # This specifies an interface and implementation logic for a query function.
 
-- The queryer hold state and must be constructed with the following mandatory arguments
+- The queryers hold state and must be constructed with the following mandatory arguments
+  to initialise that state:
     -  Search space // a list of strings
     -  Display space // another list of strings the same length as the search space
 
@@ -16,8 +17,8 @@
 query(query_fragments, maxResults)
 
 - It should return N rows from the search space that contain all of the query fragments not exceeding maxResults
-- It MUST short-circuit return early to reduce the performance overhead of trivial matches - like the only search fragment being the letter "A" for example.
-- The return value should be an object that offers also:
+- It MUST short-circuit return as soon as it finds maxResults matches
+- The return value should be an object that provides the results, and also:
     -  How many results were returned
     -  A list of sibling display names for the matched lines (same list index)
 
