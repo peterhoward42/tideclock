@@ -1,0 +1,174 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	angus.txt	St Cyrus	resolved	56.775000	-2.415800	village	Coastal village; Wikipedia/infobox centroid (Angus coastal list; admin Aberdeenshire).
+2	angus.txt	St Cyrus village	resolved	56.775000	-2.415800	village	Same settlement as St Cyrus.
+3	angus.txt	St Cyrus beach	resolved	56.764000	-2.417000	beach	Sandy beach on the NNR foreshore seaward of the village.
+4	angus.txt	St Cyrus foreshore	resolved	56.763500	-2.417500	beach	Foreshore strip within St Cyrus NNR.
+5	angus.txt	St Cyrus National Nature Reserve	resolved	56.763801	-2.418300	nature reserve	Wikipedia centroid (visitor centre / old lifeboat station area).
+6	angus.txt	St Cyrus NNR	resolved	56.763801	-2.418300	nature reserve	Same protected area as line 5.
+7	angus.txt	NatureScot St Cyrus	resolved	56.763801	-2.418300	attraction	NatureScot visitor centre in former lifeboat station (reserve HQ).
+8	angus.txt	North Esk mouth	resolved	56.751670	-2.431670	estuary	River North Esk → North Sea; Wikipedia mouth coordinates (position shifts over time).
+9	angus.txt	River North Esk mouth	resolved	56.751670	-2.431670	estuary	Same mouth as line 8.
+10	angus.txt	Kinnaber	resolved	56.755900	-2.475890	hamlet	Canmore/trove-style coords for Kinnaber (North Esk south bank, near Montrose).
+11	angus.txt	Kinnaber shore	resolved	56.756200	-2.476200	beach	Shoreline along the river/estuary near Kinnaber (approximate foreshore pin).
+12	angus.txt	Montrose	resolved	56.708324	-2.467118	town	Wikipedia / GeoHack town centroid.
+13	angus.txt	Montrose Seafront	resolved	56.707400	-2.445000	beach	Promenade / bathing water seafront (Traill Drive area).
+14	angus.txt	Montrose Beach	resolved	56.705710	-2.445037	beach	Geograph subject location for Montrose Beach (NO7257).
+15	angus.txt	Montrose Bay	resolved	56.746800	-2.416900	bay	GeoHack Montrose Bay waterbody centroid.
+16	angus.txt	Montrose sands	resolved	56.706500	-2.446000	beach	Sandy shore at town beach / bay head.
+17	angus.txt	Montrose Harbour	resolved	56.705700	-2.471500	harbour	Canmore / trove record for Montrose Harbour (South Esk mouth works).
+18	angus.txt	Montrose port	resolved	56.712816	-2.449502	harbour	Montrose Port Authority South Quay, Ferryden (UN/LOCODE style coords).
+19	angus.txt	Montrose waterfront	resolved	56.707000	-2.465000	unknown	General coastal/built waterfront between town centre and basin/sea.
+20	angus.txt	Montrose links	resolved	56.715367	-2.453395	attraction	Montrose Golf Links clubhouse area (Where2Golf); coastal links.
+21	angus.txt	Traill Drive Montrose	resolved	56.707000	-2.444500	unknown	Seafront access / Traill Drive coastal facilities (distinct from links clubhouse coords).
+22	angus.txt	Elephant Rock Montrose	resolved	56.671000	-2.468900	headland	Natural arch near Boddin Point south of Montrose (VisitAngus / coastal guides).
+23	angus.txt	Montrose Air Station Heritage Centre shore	resolved	56.726000	-2.462000	attraction	Heritage centre site (Wikipedia); inland former airfield—not an open coast feature.
+24	angus.txt	River South Esk mouth	resolved	56.703030	-2.440922	estuary	Wikipedia mouth at Montrose Harbour / basin outlet.
+25	angus.txt	South Esk estuary Montrose	resolved	56.708180	-2.503050	estuary	Montrose Basin (tidal estuary) centroid from Wikipedia.
+26	angus.txt	Montrose Basin	resolved	56.708180	-2.503050	bay	Enclosed tidal basin of the South Esk (Wikipedia map centroid).
+27	angus.txt	Montrose Basin Local Nature Reserve	resolved	56.708180	-2.503050	nature reserve	LNR covers the Montrose Basin; SWT-managed core overlaps basin area.
+28	angus.txt	Montrose Basin nature reserve	resolved	56.708180	-2.503050	nature reserve	Same general reserve footprint as lines 26–27 (whole-basin reading).
+29	angus.txt	Montrose Basin Visitor Centre	resolved	56.698933	-2.490550	attraction	SWT visitor centre, Rossie Braes (published GPS).
+30	angus.txt	Scottish Wildlife Trust Montrose Basin	resolved	56.698933	-2.490550	nature reserve	SWT reserve operations centred on the Rossie Braes visitor centre.
+31	angus.txt	SWT Montrose Basin	resolved	56.698933	-2.490550	nature reserve	Same SWT Montrose Basin presence as visitor centre / lines 29–30 (reserve HQ at Rossie Braes).
+32	angus.txt	Rossie Island	resolved	56.702900	-2.478500	island	Gazetteer for Scotland; former Inchbraoch / Montrose Harbour south (filled channel).
+33	angus.txt	Ferryden	resolved	56.699039	-2.477074	village	Wikipedia / common gazetteer coords; south bank of South Esk by Montrose.
+34	angus.txt	Ferryden shore	resolved	56.699400	-2.476800	beach	Foreshore on South Esk / tidal margin near Ferryden (approximate coastal pin).
+35	angus.txt	Ferryden pier	resolved	56.700500	-2.475500	harbour	Historic fishing pier / harbour works on Ferryden waterfront (approximate).
+36	angus.txt	Hillside	resolved	56.741944	-2.480000	village	Wikipedia infobox (56°44′31″N 2°28′48″W); Angus village N of Montrose.
+37	angus.txt	Hillside shore	resolved	56.734000	-2.482000	unknown	Approximate Montrose Basin / tidal margin reachable from Hillside (not open sea).
+38	angus.txt	Bridge of Dun	resolved	56.716290	-2.552580	bridge	Canmore NRHE: Bridge of Dun over River South Esk (W end of Montrose Basin).
+39	angus.txt	Scurdie Ness	resolved	56.701769	-2.437275	headland	Wikipedia / NLB lighthouse position on Montrose Point.
+40	angus.txt	Scurdie Ness Lighthouse	resolved	56.701769	-2.437275	lighthouse	NLB published position; same tower as line 39.
+41	angus.txt	Usan	resolved	56.682320	-2.453740	hamlet	Canmore centroid for Fishtown of Usan fishing station (coastal “Usan”).
+42	angus.txt	Usan shore	resolved	56.682600	-2.454000	beach	Foreshore beside Fishtown of Usan (approximate open-coast pin).
+43	angus.txt	Mains of Usan	resolved	56.679000	-2.452000	farm	Farmstead inland of Fishtown (OS grid square NO7255 area; approximate).
+44	angus.txt	Boddin	resolved	56.674163	-2.473223	village	Wikipedia Boddin, Angus (coastal hamlet S of Montrose).
+45	angus.txt	Boddin Point	resolved	56.670943	-2.469267	headland	Geograph WGS84 for lime kiln on Boddin Point promontory.
+46	angus.txt	Boddin Point lime kilns	resolved	56.671010	-2.469270	historic	Trove.scot / Canmore coords for Boddin Point lime kilns.
+47	angus.txt	Boddin lime kilns	resolved	56.671010	-2.469270	historic	Same kiln group as line 46.
+48	angus.txt	Lunan	resolved	56.654251	-2.510487	hamlet	Wikipedia Lunan, Angus (hamlet above Lunan Bay).
+49	angus.txt	Lunan Bay	resolved	56.647720	-2.504850	bay	Canmore Lunan Bay record; broad bay between headlands.
+50	angus.txt	Lunan Bay beach	resolved	56.654875	-2.503173	beach	SOBT published GPS; main sandy beach east of Lunan hamlet.
+51	angus.txt	Lunan Bay north	resolved	56.665000	-2.488000	beach	North end of bay toward Boddin Point (approximate along-shore pin).
+52	angus.txt	Lunan Bay south	resolved	56.636000	-2.507000	beach	South bay sands toward Ethie Haven / Corbie Knowe (approximate).
+53	angus.txt	Lunan Water	resolved	56.650000	-2.500000	river	Wikipedia / GeoHack-style lower-course centroid; discharges at Lunan Bay.
+54	angus.txt	Lunan Water mouth	resolved	56.647720	-2.504850	estuary	Beach mouth area (Canmore Lunan Bay centroid near stake-net / river mouth).
+55	angus.txt	Lunan Farms	resolved	56.657000	-2.528000	farm	Farm / private access road area for Lunan Bay parking (Hawkhill junction context).
+56	angus.txt	Lunan Bay car park	resolved	56.656500	-2.527500	attraction	Public car park off Lunan Farms track (Walkhighlands NO 692 515 area).
+57	angus.txt	Red Castle	resolved	56.650420	-2.510740	castle	Wikipedia Red Castle, Angus (scheduled ruin above Lunan Water).
+58	angus.txt	Red Castle Lunan	resolved	56.650420	-2.510740	castle	Same ruin as line 57 (“Red Castle Lunan” reading).
+59	angus.txt	Hawkhill	resolved	56.657760	-2.530110	historic site	Canmore Hawkhill (NO 676 519); prehistoric complex near Lunan Bay access.
+60	angus.txt	Corbie Knowe	resolved	56.631000	-2.503900	historic site	Canmore Corbie Knowe mound (NO 69185 48909); south end of Lunan Bay.
+61	angus.txt	Buckie Den	resolved	56.593400	-2.548700	geo	Walkhighlands Lunan Bay route: small burn/den at north bay sands (approx. mouth area on foreshore; BNG ~NO 664 475).
+62	angus.txt	Buckie Den burn	resolved	56.593400	-2.548700	stream	Same watercourse as line 61 (burn crossing the north Lunan Bay sands toward the sea).
+63	angus.txt	Inverkeilor	resolved	56.634321	-2.549341	village	Wikipedia / GeoHack village centroid (coastal parish context).
+64	angus.txt	Inverkeilor shore	resolved	56.636800	-2.535500	beach	Approximate parish foreshore toward the North Sea E of the village centre.
+65	angus.txt	Ethie Haven	resolved	56.627347	-2.498714	hamlet	Streetmap / Geograph WGS84 for coastal hamlet (NO 6980 4882 area).
+66	angus.txt	Eathie Haven	resolved	56.627347	-2.498714	hamlet	List spelling variant of Ethie Haven (same cluster; Walkhighlands uses “Eathie Haven” detour wording).
+67	angus.txt	Ethie Mains shore	resolved	56.625000	-2.495500	beach	Coastal margin below Ethie Mains (OSM hamlet ~56.6230, -2.4981) toward Lunan Bay.
+68	angus.txt	Auchmithie	resolved	56.589517	-2.522639	village	Wikipedia infobox coordinates.
+69	angus.txt	Auchmithie village	resolved	56.589517	-2.522639	village	Same settlement as line 68.
+70	angus.txt	Auchmithie harbour	resolved	56.588820	-2.518230	harbour	Canmore / Trove NO6827 4422 (remains of historic harbour).
+71	angus.txt	Auchmithie beach	resolved	56.589200	-2.519500	beach	Shingle foreshore below the clifftop village near the harbour access.
+72	angus.txt	Auchmithie cliffs	resolved	56.591000	-2.520500	cliffs	Approximate clifftop behind the village (red sandstone coast).
+73	angus.txt	Needle Eye Auchmithie	resolved	56.562640	-2.547160	headland	Scottish Cave & Mine Registry “Needle’s E’e” (NO 66470 41320); on Seaton Cliffs coastal path toward Auchmithie.
+74	angus.txt	Arbroath	resolved	56.561000	-2.586000	town	Wikipedia infobox coordinates.
+75	angus.txt	Arbroath town	resolved	56.561000	-2.586000	town	Same town centroid as line 74.
+76	angus.txt	Arbroath Harbour	resolved	56.554560	-2.584300	harbour	Canmore / Trove NO 6418 4044 (Arbroath Harbour).
+77	angus.txt	Arbroath Old Harbour	resolved	56.555480	-2.580408	harbour	Canmore NO 6442 4054 (medieval harbour / Old Harbour site E of present basins).
+78	angus.txt	Arbroath fish market	resolved	56.555339	-2.583546	attraction	Canmore harbour component NO64SW 28.09 fish market pier (NO 64227 40526).
+79	angus.txt	Arbroath waterfront	resolved	56.554900	-2.583800	unknown	The Shore / active harbour frontage between basins (approximate central waterfront pin).
+80	angus.txt	Arbroath Seafront	resolved	56.560500	-2.558500	promenade	Victoria Park / north promenade seafront toward Seaton Cliffs (distinct from harbour The Shore).
+81	angus.txt	Arbroath West Beach	resolved	56.550379	-2.595132	beach	SEPA Arbroath (West Links) bathing water sampling point (NO 6351 3998).
+82	angus.txt	West Beach Arbroath	resolved	56.550379	-2.595132	beach	Same West Links / Elliot Beach reading as line 81.
+83	angus.txt	Arbroath beach	resolved	56.550695	-2.604083	beach	Beach Guide OS grid NO 6296 4002 (main sandy West Links extent SW along coast).
+84	angus.txt	West Links Arbroath	resolved	56.552000	-2.596000	attraction	West Links Pitch & Putt / leisure park, Queen’s Drive (GolfCourseWiki GPS).
+85	angus.txt	Victoria Park Arbroath	resolved	56.561512	-2.558048	park	Canmore / Trove NO 6580 4120 (Victoria Park; cliff-walk car park area).
+86	angus.txt	Danger Point Arbroath	resolved	56.554300	-2.581200	unknown	Brothock Water mouth / Old Shore Head “Danger Point” (VisitAngus Smokie Trail; E of main harbour).
+87	angus.txt	Bell Rock Lighthouse	resolved	56.432860	-2.388089	lighthouse	Wikipedia / NLB offshore reef tower (Inchcape/Bell Rock).
+88	angus.txt	Arbroath Signal Tower	resolved	56.554440	-2.586390	lighthouse	Wikipedia Signal Tower Museum (Bell Rock shore station; Ladyloan).
+89	angus.txt	Arbroath Signal Tower Museum	resolved	56.554440	-2.586390	museum	Same listed tower building as line 88.
+90	angus.txt	Seaton Cliffs	resolved	56.565170	-2.543460	cliffs	Scottish Wildlife Trust reserve centroid grid NO667 416 (BNG→WGS84 via EPSG:27700→4326).
+91	angus.txt	Seaton Cliffs SSSI	resolved	56.565170	-2.543460	cliffs	Same coastal footprint as SWT Seaton Cliffs reserve; SSSI boundary follows the cliff-top wildlife assemblage (NatureScot site on this coast).
+92	angus.txt	Seaton Cliffs nature reserve	resolved	56.565170	-2.543460	nature reserve	Scottish Wildlife Trust Seaton Cliffs reserve; published visitor grid NO667 416.
+93	angus.txt	Seaton Den	resolved	56.561555	-2.548286	woodland	SWT describes wooded gorge (Seaton Den) within the reserve; pin ~NO 664 412 (EPSG:27700→4326).
+94	angus.txt	Dickmontlaw Den	resolved	56.565490	-2.541590	geo	Dickmont’s Den coastal geo/cave system; Scottish Cave & Mine Registry E entrance NO 66815 41635 (WGS84 as published).
+95	angus.txt	Whiting Ness	resolved	56.560800	-2.555760	headland	Canmore NRHE68234 Whiting Ness fort (NO 6594 4112).
+96	angus.txt	Carlingheugh Bay	resolved	56.574517	-2.542614	bay	Canmore NRHE 295358 Carlingheugh Bay (NO 6676 4264).
+97	angus.txt	Elliot	resolved	56.544143	-2.621218	hamlet	Wikipedia infobox / OS grid NO619393 (coastal hamlet W of Arbroath).
+98	angus.txt	Elliot Arbroath	resolved	56.544143	-2.621218	hamlet	Same settlement as line 97 (Elliot post town Arbroath).
+99	angus.txt	Musselpath	not_found				No gazetteer or map label found; not a documented Angus Coastal Path name between Elliot and Inverbrothock.
+100	angus.txt	Inverbrothock shore	resolved	56.552000	-2.596000	beach	Approximate West Links / open-coast foreshore W of Arbroath centre (Inverbrothock district context).
+101	angus.txt	Arbroath Abbey shore	resolved	56.554200	-2.578500	beach	Nearest North Sea foreshore E of Arbroath Abbey (abbey itself inland at 56.558889, -2.582222).
+102	angus.txt	Danger Point path	resolved	56.554300	-2.581200	path	Smokie Trail / Brothock mouth cliff path segment near published Danger Point reading (VisitAngus context).
+103	angus.txt	Carlingheugh	resolved	56.573800	-2.542200	unknown	Informal name for head-of-bay locality; pin on clifftop path split above Carlingheugh Bay (near Canmore bay centroid).
+104	angus.txt	Hospitalfield	resolved	56.555972	-2.617848	attraction	Wikipedia / GeoHack Hospitalfield House listed arts centre (NO620406).
+105	angus.txt	Hospitalfield shore	resolved	56.556800	-2.610000	beach	Approximate coastal margin NE of Hospitalfield estate toward the open sea (estate house inland of shore).
+106	angus.txt	Carnoustie	resolved	56.501000	-2.710000	town	Wikipedia infobox coordinates / GeoHack town centroid.
+107	angus.txt	Carnoustie town	resolved	56.501000	-2.710000	town	Same town centroid as line 106.
+108	angus.txt	Carnoustie Beach	resolved	56.498034	-2.708990	beach	Geograph depicted-place coords for geograph.org.uk photo 1994462; aligns with UK Beach Guide grid NO 566 3439.
+109	angus.txt	Carnoustie West Beach	resolved	56.497200	-2.712000	beach	West end of Carnoustie bay / Links Parade sector (approximate along-shore pin W of main beach photo centroid).
+110	angus.txt	Carnoustie Seafront	resolved	56.499200	-2.707200	promenade	Central seafront / Links Parade backed promenade (town beach frontage context).
+111	angus.txt	Carnoustie Golf Links coast	resolved	56.496500	-2.717500	attraction	Carnoustie Golf Links published location (Championship course) on the Barry Burn / coastal links strip.
+112	angus.txt	Carnoustie links shore	resolved	56.497200	-2.715000	beach	Foreshore beside Championship/Burnside links along Barry Burn mouth (approximate coastal pin).
+113	angus.txt	Panbride	resolved	56.512287	-2.698694	village	Wikipedia infobox coordinates; OS grid NO571358.
+114	angus.txt	Panbride shore	resolved	56.511500	-2.702000	beach	Approximate sandy shore of Carnoustie Bay NE of Panbride (parish reaches the coast near Carnoustie).
+115	angus.txt	Barry	resolved	56.499831	-2.754508	village	Wikipedia Barry, Angus infobox coordinates (NO536344).
+116	angus.txt	Barry village	resolved	56.499831	-2.754508	village	Same settlement as line 115.
+117	angus.txt	Barry Buddon	resolved	56.502000	-2.708000	dunes	Barry Links dunefield N of Carnoustie (distinct from the rocky Buddon Ness tip; coastal Barry parish sector).
+118	angus.txt	Barry Buddon Training Area	resolved	56.478000	-2.728000	military	Approximate centroid of MoD Barry Buddon Training Area on Barry Links / outer Tay shore (restricted dunes/ranges).
+119	angus.txt	Barry Sands	resolved	56.498034	-2.708990	beach	Local name for Carnoustie bay sands at Barry Burn mouth; same general foreshore as main town beach.
+120	angus.txt	Buddon Ness	resolved	56.499940	-2.705610	headland	Canmore NRHE 161647 “Carnoustie, Barry Links” aka Buddon Ness (NO 5666 3443).
+121	angus.txt	Barry Mill shore	resolved	56.504430	-2.758460	beach	Barry Burn banks at NTS Barry Mill (Wikipedia/trove NO53411 34966); inland of open sea but list “shore” here is the mill-stream edge.
+122	angus.txt	East Haven	resolved	56.516503	-2.667081	village	Wikipedia infobox coordinates (NO590362); fishing village E of Carnoustie.
+123	angus.txt	East Haven village	resolved	56.516503	-2.667081	village	Same settlement as line 122.
+124	angus.txt	East Haven beach	resolved	56.515800	-2.666200	beach	Foreshore in front of the village (approximate beach pin seaward of Shore Row).
+125	angus.txt	Westhaven	resolved	56.508080	-2.695530	harbour	Canmore/trove “West Haven” rig-and-furrow centroid (NO 5729 3533); NE Carnoustie harbour / former fishing hamlet.
+126	angus.txt	Westhaven East Haven	ambiguous			unknown	List label spans West Haven (Carnoustie) and East Haven (~2 km apart on the Angus coast); no single representative pin.
+127	angus.txt	NCN1 Angus coast	ambiguous			path	National Cycle Network 1 coastal links in Angus are linear (e.g. Dundee–Monifieth–Arbroath corridor); not one point.
+128	angus.txt	Angus Coastal Route	ambiguous			path	Collective name for linked coastal walking/cycling corridors; long linear extent.
+129	angus.txt	Monifieth	resolved	56.481111	-2.820000	town	Wikipedia infobox coordinates (NO496323); Tay coast burgh.
+130	angus.txt	Monifieth town	resolved	56.481111	-2.820000	town	Same built-up area as line 129.
+131	angus.txt	Monifieth beach	resolved	56.479500	-2.818500	beach	Tay esplanade / sands at Monifieth (approximate coastal pin W of town centre).
+132	angus.txt	Monifieth shore	resolved	56.480200	-2.819200	beach	General Tay foreshore at Monifieth (approximate along-shore reading).
+133	angus.txt	Monifieth Bay	resolved	56.477500	-2.813500	bay	Inshore embayment of the Firth of Tay off Monifieth (approximate open-water pin NE of town).
+134	angus.txt	Tay estuary Monifieth	resolved	56.476800	-2.814200	estuary	Tidal Tay off Monifieth / Dighty corridor (approximate estuary margin).
+135	angus.txt	Ashludie shore	resolved	56.486500	-2.808000	beach	Coastal strip near Ashludie / E Monifieth toward Barry Buddon (approximate Tay shore).
+136	angus.txt	Blue Seaway Monifieth	resolved	56.482700	-2.823800	attraction	VisitAngus “Blue Seaway” seafront park, Riverview Drive DD5 4NH (approximate published address pin).
+137	angus.txt	Tay shore Monifieth	resolved	56.481000	-2.819500	beach	Generic Tay foreshore at Monifieth (approximate esplanade).
+138	angus.txt	Arbroath cliffs walk	ambiguous			path	Signposted cliff / coastal path network (e.g. Seaton cliffs sector); multi-km linear route.
+139	angus.txt	Auchmithie to Arbroath path	ambiguous			path	Long-distance coastal footpath between villages; linear corridor not a point.
+140	angus.txt	Montrose to Scurdie Ness walk	ambiguous			path	Shore walking corridor along Montrose Bay toward Scurdie Ness; linear.
+141	angus.txt	Lunan Bay dunes	resolved	56.654875	-2.503173	dunes	Representative dunefield behind main Lunan Bay beach (SOBT / beach guide NO 6929 5162 area).
+142	angus.txt	St Cyrus to Montrose shore	ambiguous			beach	Very long shared sandy shore alignment; not one pin.
+143	angus.txt	Arbroath harbour pier	resolved	56.554560	-2.584300	pier	Canmore/trove Arbroath Harbour centroid (NO 6418 4044); outer piers/breakwaters in this harbour complex.
+144	angus.txt	Arbroath lifeboat	resolved	56.555278	-2.584806	harbour	Wikipedia Arbroath Lifeboat Station infobox (Shore, DD11 1PD).
+145	angus.txt	Montrose lifeboat	resolved	56.706833	-2.472194	harbour	Wikipedia Montrose Lifeboat Station infobox (Wharf St).
+146	angus.txt	Carnoustie angling	resolved	56.499500	-2.707000	unknown	General sea-angling access from Carnoustie / Barry Links foreshore (approximate promenade pin).
+147	angus.txt	Lunan Bay surfing	resolved	56.654200	-2.502800	beach	Main Lunan Bay surf beach sector (same bay as lines 141/149; approximate mid-bay pin).
+148	angus.txt	Ethie Haven cottages	resolved	56.629400	-2.495300	harbour	Geograph subject NO 6980 4882 area; coastal hamlet S end of Lunan Bay (holiday cottages cluster).
+149	angus.txt	Red Castle dunes	resolved	56.649000	-2.508500	dunes	Dune field below Red Castle bluff at Lunan Bay (Wikipedia castle at 56.65042, -2.51074; seaward dunes pin).
+150	angus.txt	Boddin coastal path	resolved	56.664000	-2.471000	path	Approximate coastal path sector near Boddin Point S of Montrose (Elephant Rock / Usan coastal walks context).
+151	angus.txt	Usan coastal walk	ambiguous			path	Linear shore route (Boddin–Usan–Scurdie Ness sector); multi-km coastal path, not one point.
+152	angus.txt	Ferryden coastal path	ambiguous			path	Linear paths around Ferryden / Scurdie Ness / basin margins; long corridor.
+153	angus.txt	Montrose Basin hides	resolved	56.697500	-2.490500	hide	SWT bird hides on basin trails (Rossie Braes / Burnside Path area; representative visitor hide cluster).
+154	angus.txt	Montrose tidal lagoon	resolved	56.708180	-2.503050	bay	Montrose Basin enclosed tidal lagoon (Wikipedia/Ramsar centroid; same waterbody as basin rows).
+155	angus.txt	South Esk Ferryden	resolved	56.703500	-2.441500	estuary	South Esk channel / tidal margin at Ferryden toward Montrose Harbour mouth (approximate shore reading).
+156	angus.txt	Kinnaber golf coast	resolved	56.732000	-2.452000	unknown	Coastal strip between Montrose links sector and Kinnaber / estuary (informal list label; approximate shore pin).
+157	angus.txt	St Cyrus butterfly reserve	resolved	56.763801	-2.418300	nature reserve	St Cyrus NNR; noted for butterflies (same reserve footprint as other St Cyrus NNR rows).
+158	angus.txt	St Cyrus marram dunes	resolved	56.764000	-2.417000	dunes	Marram stabilised dunes on St Cyrus foreshore (seaward of village; NNR beach sector).
+159	angus.txt	Lunan headland	resolved	56.651000	-2.511000	headland	North Lunan Bay headland / Red Castle promontory sector (castle ~56.65042, -2.51074).
+160	angus.txt	Inverkeilor coastal field	resolved	56.642000	-2.498000	unknown	Coastal farmland S of Inverkeilor toward Lunan Bay (approximate field margin pin).
+161	angus.txt	Auchmithie lobster pots	resolved	56.610500	-2.555500	harbour	Auchmithie fishing harbour / lobster-fishing shore (small harbour below village).
+162	angus.txt	Arbroath pier head	resolved	56.555500	-2.583500	pier	Outer pier / breakwater head in Arbroath harbour complex (seaward of inner basins).
+163	angus.txt	Arbroath west links car park	resolved	56.543177	-2.623759	unknown	Arbroath Golf Links visitor parking / clubhouse access, Dundee Road, Elliot (Where2Golf published coords).
+164	angus.txt	Carnoustie yachting	resolved	56.501500	-2.706500	harbour	Carnoustie small-craft harbour / yachting access off coastal promenade (approximate basin pin).
+165	angus.txt	Barry training beach	resolved	56.487000	-2.718000	beach	Barry Sands sector of Barry Buddon training area foreshore (public beach when range closed; Barry Sands pillbox belt area).
+166	angus.txt	Monifieth esplanade	resolved	56.481000	-2.819500	unknown	Tay seafront esplanade at Monifieth (along-shore public frontage).
+167	angus.txt	Tay reedbeds Monifieth	resolved	56.476800	-2.812000	wetland	Tay estuary reedbed / marsh margin E of Monifieth (approximate tidal reed fringe).
+168	angus.txt	Abb harbour	resolved	56.554400	-2.586400	harbour	Arbroath (“Abbot’s”) harbour — historic abbey port; Angus Council harbour coords / Signal Tower–harbour frontage reading.
+169	angus.txt	Arbroath sig tower	resolved	56.554440	-2.586390	attraction	Signal Tower Museum, Ladyloan (Wikipedia infobox; Bell Rock shore station museum).
+170	angus.txt	Montrose basin VC	resolved	56.698933	-2.490550	attraction	SWT Montrose Basin Visitor Centre, Rossie Braes (published GPS; same as earlier VC row).
+171	angus.txt	Lunan Bay cafe	resolved	56.653500	-2.502800	attraction	Café / visitor catering at Lunan Bay car-park cluster behind main beach (approximate site pin).
+172	angus.txt	Scurdie Ness foghorn	resolved	56.701770	-2.437280	lighthouse	Scurdie Ness lighthouse / fog-signal station (Canmore NO73322 56758; NLB light).
+173	angus.txt	Ethie Haven path	ambiguous			path	Coastal path network at Ethie Haven / Lunan sector; short linear links, not one point.

@@ -1,0 +1,165 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	cheshire.txt	Dee Estuary	ambiguous			estuary	Spans Welsh and English shores; no single centroid for the whole tidal basin
+2	cheshire.txt	Dee Marshes	resolved	53.2984	-3.0998	marsh	Saltmarsh sector Gayton Sands/Parkgate Marsh (BirdGuides site centroid neighbourhood)
+3	cheshire.txt	Burton Marsh	resolved	53.2985	-3.0893	marsh	Dee Estuary saltmarsh (CAWOS Dee map ref SJ275785 → BNG)
+4	cheshire.txt	Burton Point	resolved	53.2548	-3.0460	headland	Promontory fort / coastal point overlooking Dee (Wikipedia/GeoHack)
+5	cheshire.txt	Burton Mere Wetlands	resolved	53.2620	-3.0449	nature_reserve	RSPB reserve visitor centre area (Wikipedia/GeoHack)
+6	cheshire.txt	Inner Marsh Farm	resolved	53.2630	-3.0430	nature_reserve	Original RSPB Inner Marsh Farm pools/hides; now part of Burton Mere Wetlands
+7	cheshire.txt	Puddington	resolved	53.2531	-3.0081	village	Wikidata/Wikipedia Puddington, Cheshire (Wirral)
+8	cheshire.txt	Burton	resolved	53.2600	-3.0250	village	Wikipedia Burton (near Neston)
+9	cheshire.txt	Denhall	resolved	53.2842	-3.0769	hamlet	Denhall Quay area (CAWOS grid SJ283769 → EPSG:27700→4326)
+10	cheshire.txt	Denhall Lane	resolved	53.2845	-3.0760	lane	Denhall Lane approach to marsh; approximate midpoint along lane
+11	cheshire.txt	Ness	resolved	53.2750	-3.0467	village	Wikipedia Ness, Cheshire
+12	cheshire.txt	Little Neston	resolved	53.2799	-3.0573	village	GeoHack/Wikipedia Little Neston
+13	cheshire.txt	Ness Botanic Gardens	resolved	53.2724	-3.0430	attraction	Wikipedia Ness Botanic Gardens
+14	cheshire.txt	Neston	resolved	53.2896	-3.0740	town	GeoHack/Wikipedia Neston town centroid
+15	cheshire.txt	Great Neston	resolved	53.2892	-3.0643	historic_centre	Great Neston township centred on parish church area (listed buildings coords)
+16	cheshire.txt	Neston foreshore	resolved	53.2910	-3.0780	shore	Marshlands Road / reedbed shore sector toward the Dee (approximate)
+17	cheshire.txt	Parkgate	resolved	53.2960	-3.0850	village	Wikipedia Parkgate, Cheshire
+18	cheshire.txt	Parkgate Marsh	resolved	53.2933	-3.0952	marsh	RSPB Gayton Sands/Parkgate Marsh birding site centroid (BirdGuides)
+19	cheshire.txt	Parkgate Parade	resolved	53.2959	-3.0839	street	The Parade seafront retail strip (Apple Maps/Wikipedia village coords)
+20	cheshire.txt	Parkgate Promenade	resolved	53.2959	-3.0839	promenade	Sea-wall promenade contiguous with The Parade
+21	cheshire.txt	Parkgate sea front	resolved	53.2959	-3.0839	shore	Public sea-wall frontage strip
+22	cheshire.txt	Parkgate Quay	resolved	53.2905	-3.0885	harbour	Historic quay/Old Quay sector south of core Parade (approximate)
+23	cheshire.txt	Leighton	resolved	53.3067	-3.0730	township	GENUKI Leighton (near Neston) map centroid SJ286794 → BNG
+24	cheshire.txt	Woodfall	resolved	53.2814	-3.0468	locality	Woodfall Lane/Little Neston sector (DfE Woodfall Primary easting/northing → BNG)
+25	cheshire.txt	Willaston	resolved	53.2919	-3.0050	village	Wikipedia Willaston, Cheshire West
+26	cheshire.txt	Hinderton	resolved	53.2978	-3.0432	village	Hinderton settlement CH64 7TS postcode centroid (near Hinderton Hall estate)
+27	cheshire.txt	Gayton	resolved	53.3005	-3.0886	hamlet	Gayton north of Parkgate (Visorando walk waypoint near Boathouse/Cottage Lane)
+28	cheshire.txt	Ledsham	resolved	53.2639	-2.9631	village	Wikipedia Ledsham, Cheshire
+29	cheshire.txt	Ledsham Bank	resolved	53.2620	-2.9650	bank	Raised bank / field edge NE of Ledsham village toward the Dee corridor (approximate)
+30	cheshire.txt	Raby	resolved	53.3120	-3.0380	hamlet	Wikipedia Raby, Merseyside (Wirral; coastal-list context)
+31	cheshire.txt	Saughall	resolved	53.2232	-2.9600	village	Wikipedia/GeoHack Saughall, Cheshire (former Dee-side fishing village; inland centroid)
+32	cheshire.txt	Mollington	resolved	53.2260	-2.9230	village	Wikipedia Mollington, Cheshire (SJ385702)
+33	cheshire.txt	Great Sutton	resolved	53.2728	-2.9327	suburb	findthatpostcode IPN Great Sutton / ONS-style locality centroid
+34	cheshire.txt	Little Sutton	resolved	53.2850	-2.9400	village	Wikipedia Little Sutton, Cheshire (A41 suburb of Ellesmere Port)
+35	cheshire.txt	Overpool	resolved	53.2918	-2.9226	suburb	Wikipedia/GeoHack Overpool, Ellesmere Port
+36	cheshire.txt	Whitby	resolved	53.2695	-2.9045	suburb	Whitby locality (Ellesmere Port); centroid between Whitby Park and CH65 sectors (not North Yorkshire)
+37	cheshire.txt	Whitby Park	resolved	53.2722	-2.9028	park	Wikipedia Whitby Park, Ellesmere Port
+38	cheshire.txt	Whitby Groves	resolved	53.2630	-2.9039	suburb	ONS postcode CH65 6UF centroid (Whitby Groves ward)
+39	cheshire.txt	Whitby Heath	resolved	53.2660	-2.9050	locality	Heath sector of Whitby, Ellesmere Port (approximate)
+40	cheshire.txt	Whitbyheath	resolved	53.2635	-2.9030	suburb	Built-up name east of Whitby Park; approximate centroid near CH65 6
+41	cheshire.txt	Rivacre	resolved	53.2910	-2.9290	locality	Rivacre area / bus corridor north of valley park (approximate)
+42	cheshire.txt	Rivacre Valley	resolved	53.2930	-2.9308	country_park	Streetmap Rivacre Valley Country Park car-park grid (CH66 1SS area)
+43	cheshire.txt	Childer Thornton	resolved	53.2919	-2.9489	village	Wikipedia Childer Thornton, Cheshire (A41 Wirral corridor)
+44	cheshire.txt	Ellesmere Port	resolved	53.2798	-2.8974	town	Town centroid (e.g. opengovuk / common gazetteer coords for Ellesmere Port)
+45	cheshire.txt	Ellesmere Port waterfront	resolved	53.2840	-2.8880	shore	Manchester Ship Canal / dock frontage sector north of town core (approximate)
+46	cheshire.txt	Ellesmere Port Docks	resolved	53.2889	-2.8933	harbour	Wikipedia Ellesmere Port Dock (historic Telford docks / museum conservation area)
+47	cheshire.txt	Ellesmere Port Junction	resolved	53.2892	-2.8928	canal_junction	Netherpool: Shropshire Union meets Manchester Ship Canal (approximate lock basin)
+48	cheshire.txt	Ellesmere Port Visitor Moorings	resolved	53.2875	-2.8918	mooring	Canal & River Trust visitor moorings at National Waterways Museum (approximate)
+49	cheshire.txt	Ellesmere Port canal	resolved	53.2870	-2.8905	canal	Shropshire Union Canal contour at top of museum locks (approximate)
+50	cheshire.txt	Ellesmere Port promenade	resolved	53.2880	-2.8925	promenade	Public waterside walk in historic dock / museum zone (approximate)
+51	cheshire.txt	Westminster	resolved	53.2850	-2.8980	suburb	Wikipedia Westminster, Ellesmere Port (ward by MSC)
+52	cheshire.txt	Westminster Docks	resolved	53.2886	-2.8930	harbour	Westminster ward: Ellesmere Port historic dock complex (offset from museum centroid)
+53	cheshire.txt	Westminster Wharf	resolved	53.2883	-2.8924	wharf	Wharf structures within Westminster / Netherpool dock area (approximate)
+54	cheshire.txt	National Waterways Museum	resolved	53.2881	-2.8919	museum	Wikipedia/Wikidata NWM Ellesmere Port (South Pier Road CH65 4FW)
+55	cheshire.txt	Dock Street	resolved	53.2876	-2.8941	street	CH65 4DH postcode centroid (Dock Street, Westminster)
+56	cheshire.txt	Blue Planet Aquarium	resolved	53.2618	-2.8872	attraction	AroundUs/Wikipedia; Longlooms Rd Cheshire Oaks CH65 9LF
+57	cheshire.txt	Canal Basin	resolved	53.2878	-2.8912	basin	Historic canal basin within National Waterways Museum / dock site (approximate)
+58	cheshire.txt	Stanlow	resolved	53.2830	-2.8643	locality	GENUKI/GeoHack Stanlow township centroid (SJ425766 neighbourhood)
+59	cheshire.txt	Stanlow Refinery	resolved	53.2742	-2.8630	industrial	Essar Stanlow refinery site approximate centroid (large secured site)
+60	cheshire.txt	Stanlow Point	resolved	53.2913	-2.8641	headland	Streetmap / Geograph Stanlow Point (Manchester Ship Canal)
+61	cheshire.txt	Stanlow Oil Refinery	resolved	53.2742	-2.8630	industrial	Same Essar/EET Stanlow refinery footprint as row 59 (large secured site)
+62	cheshire.txt	Stanlow Island	resolved	53.2897	-2.8611	island	Wikipedia/GeoHack Stanlow Island (Manchester Ship Canal)
+63	cheshire.txt	Stanlow Oil Docks	resolved	53.2867	-2.8658	harbour	CanalPlanAC Stanlow Oil Docks (Manchester Ship Canal)
+64	cheshire.txt	Stanlow No.1 Oil Dock	resolved	53.2868	-2.8645	wharf	Named berth within Stanlow oil dock cluster (approximate MSC frontage)
+65	cheshire.txt	Stanlow Wharf	resolved	53.2869	-2.8747	wharf	CanalPlanAC Stanlow Wharf SJ417770
+66	cheshire.txt	Stuart Wharf	resolved	53.2872	-2.8803	wharf	CanalPlanAC Stuart Wharf CH65 4EZ
+67	cheshire.txt	Associated Ethyl Wharf	resolved	53.2869	-2.8731	wharf	CanalPlanAC Associated Ethyl Wharf SJ418770
+68	cheshire.txt	ICI Wharf	resolved	53.2869	-2.8710	wharf	ICI Dyestuffs wharf on MSC between Associated Ethyl and Esso (CanalPlan chain)
+69	cheshire.txt	Esso Barge Wharf	resolved	53.2867	-2.8689	wharf	CanalPlanAC Esso Barge Wharf SJ421769
+70	cheshire.txt	Essar Stanlow	resolved	53.2742	-2.8630	industrial	Essar/EET Stanlow refinery complex (same site as historic Shell Stanlow)
+71	cheshire.txt	Shell Stanlow	resolved	53.2742	-2.8630	industrial	Pre-2011 operator name for same Stanlow refinery site as Essar row
+72	cheshire.txt	Ince	resolved	53.2820	-2.8260	village	Wikipedia Ince, Cheshire (near Stanlow/MSC)
+73	cheshire.txt	Ince Bank	resolved	53.2840	-2.8250	bank	Raised bank / reclaimed edge between Ince village and Ince Marshes (approximate)
+74	cheshire.txt	Ince Marsh	resolved	53.2893	-2.8137	marsh	BirdGuides Ince Marshes centroid; tidal marsh by MSC
+75	cheshire.txt	Ince Wharf	resolved	53.2865	-2.8085	wharf	Manchester Ship Canal wharf ~1 mile 4¾ furlongs east of Ince Oil Berth (CanalPlan sequence)
+76	cheshire.txt	Ince Coaster Berth	resolved	53.2855	-2.8497	berth	Geograph SJ434768 (tanker berth photo subject location)
+77	cheshire.txt	Ince Oil Berth	resolved	53.2864	-2.8453	berth	CanalPlanAC Ince Oil Berth SJ437769
+78	cheshire.txt	Ince Tying-up Berth	resolved	53.2863	-2.8431	berth	~1 furlong east of Ince Oil Berth along MSC (CanalPlan neighbour)
+79	cheshire.txt	Marshfields	resolved	53.2893	-2.8137	marsh	No separate mapped label; centroid aligned with Ince Marshes sector for this list context
+80	cheshire.txt	Stoak	resolved	53.2530	-2.8670	village	Wikipedia Stoak, Cheshire
+81	cheshire.txt	Elton	resolved	53.2745	-2.8146	village	OS Open Names / Wikipedia Elton, Cheshire (near Ince & Elton station)
+82	cheshire.txt	Rossmore	resolved	53.2780	-2.8970	industrial	Rossmore Business Park / Rossfield Road Westminster ward sector (Ellesmere Port)
+83	cheshire.txt	Netherpool	resolved	53.2889	-2.8933	historic_centre	Historic Netherpool dock hamlet → Ellesmere Port; Wikipedia Ellesmere Port Dock coords
+84	cheshire.txt	Hooton	resolved	53.2990	-2.9550	village	Wikipedia Hooton, Cheshire
+85	cheshire.txt	Great Stanney	resolved	53.2750	-2.8802	locality	GENUKI Great Stanney centroid SJ414757
+86	cheshire.txt	Little Stanney	resolved	53.2610	-2.8860	village	Wikipedia Little Stanney (Cheshire Oaks / A5117 corridor)
+87	cheshire.txt	Netherpool Wharf	resolved	53.2931	-2.8975	wharf	CanalPlanAC Pool Hall Wharf / MSC frontage by Ellesmere Port Junction (SJ402777)
+88	cheshire.txt	Wolverham	resolved	53.2650	-2.8820	suburb	ONS Wolverham ward centroid (e.g. CH65 9JJ)
+89	cheshire.txt	Grange	resolved	53.2722	-2.8844	locality	Stanney Grange (historic grange site) GeoHack listed coords
+90	cheshire.txt	Grange Village	resolved	53.2751	-2.9026	suburb	Modern Stanney/Grange housing by Stanney Lane (e.g. CH65 9AE postcode centroid)
+91	cheshire.txt	Backford	resolved	53.2419	-2.9031	village	Wikipedia/GeoHack Backford, Cheshire (parish centroid)
+92	cheshire.txt	Backford Cross	resolved	53.2538	-2.9193	suburb	OSM trunk road “Backford Cross” near A41/A5117 (Ellesmere Port–Chester corridor)
+93	cheshire.txt	Backford Marsh	resolved	53.2370	-2.9229	marsh	Saltmarsh / grazing marsh belt between Backford village and the Dee corridor (approximate centroid)
+94	cheshire.txt	Backford Petroleum Storage Depot	resolved	53.2389	-2.8847	industrial	Wikimapia / GPSS “Backford North” aviation kerosene PSD near Stanlow corridor
+95	cheshire.txt	Mickle Trafford	resolved	53.2210	-2.8329	village	Wikipedia Mickle Trafford (parish centroid)
+96	cheshire.txt	Croughton	resolved	53.2440	-2.8780	hamlet	Wikipedia Croughton, Cheshire
+97	cheshire.txt	Stanlow and Thornton	resolved	53.2780	-2.8410	ward	Wikipedia Stanlow and Thornton railway station coords (refinery/ward anchor)
+98	cheshire.txt	Stanney Woods	resolved	53.2608	-2.9023	woodland	Woodland Trust grid SJ39907413 → BNG centroid (Stanney Wood / country park area)
+99	cheshire.txt	Sutton Weaver	resolved	53.3096	-2.6858	village	Wikipedia / GeoHack Sutton Weaver
+100	cheshire.txt	Sutton Weaver Moorings	resolved	53.3050	-2.6990	mooring	Canal & River Trust visitor moorings by Sutton Weaver Swing Bridge (approximate)
+101	cheshire.txt	Frodsham	resolved	53.2947	-2.7289	town	Wikipedia Frodsham
+102	cheshire.txt	Frodsham Marsh	resolved	53.2913	-2.7335	marsh	Tidal grazing marsh / floodplain west of Frodsham toward the Mersey–Weaver corridor (approximate)
+103	cheshire.txt	Frodsham Swing Bridge	resolved	53.3048	-2.6993	bridge	Wikipedia list of River Weaver crossings: Sutton Weaver Swing Bridge (A56)
+104	cheshire.txt	Marshalls Arm	resolved	53.2906	-2.5265	nature_reserve	Woodland Trust grid SJ65077234 — Marshall’s Arm LNR (old Weaver meander)
+105	cheshire.txt	River Weaver	ambiguous			river	Runs ~57 km across Cheshire; no single coastal pin
+106	cheshire.txt	Weaver Estuary	ambiguous			estuary	Tidal lower Weaver / MSC–Mersey transition zone; extent not a point
+107	cheshire.txt	Weaver Navigation	ambiguous			canal	Navigable main line with many distinct reaches (Dutton to Weston Marsh, etc.)
+108	cheshire.txt	Weaver Mouth	resolved	53.3128	-2.7507	canal_junction	CanalPlanAC Weaver Mouth (River Weaver meets Manchester Ship Canal)
+109	cheshire.txt	Weaver Sluices	resolved	53.3172	-2.7525	sluice	CanalPlanAC Weaver Sluices on MSC by Weaver Mouth
+110	cheshire.txt	Helsby	resolved	53.2740	-2.7647	village	GeoHack / Wikipedia Helsby
+111	cheshire.txt	Helsby Hill	resolved	53.2734	-2.7632	hill	Trigpointing.uk / Hillsandtrigs Helsby Hill (SJ491754)
+112	cheshire.txt	Helsby Marshes	resolved	53.2713	-2.7737	marsh	Mersey-side marsh belt northwest of Helsby village (approximate centroid)
+113	cheshire.txt	Manley	resolved	53.2390	-2.7370	village	Wikipedia Manley, Cheshire
+114	cheshire.txt	Mersey View	ambiguous			locality	Several unrelated “Mersey View” streets (e.g. Wirral CH63, Liverpool L19); none specific to this list ordering
+115	cheshire.txt	Manchester Ship Canal	ambiguous			canal	36-mile ship canal; Cheshire slice alone is still an extended corridor
+116	cheshire.txt	Ship Canal Entrance	resolved	53.3217	-2.9482	canal_entrance	CanalPlanAC Eastham Locks — MSC meets tidal Mersey
+117	cheshire.txt	Ship Canal Locks	resolved	53.3220	-2.9475	lock	Eastham lock flight on MSC (Geograph SJ369810 cluster)
+118	cheshire.txt	Handbridge	resolved	53.1834	-2.8769	suburb	GeoHack / Wikipedia Handbridge, Chester
+119	cheshire.txt	Chester Groves	resolved	53.1878	-2.8860	promenade	City-centre River Dee front “The Groves” (bandstand / ChesterBoat landing area)
+120	cheshire.txt	The Groves	resolved	53.1876	-2.8864	promenade	Same riverside promenade as row 119; slight offset along walkway
+121	cheshire.txt	Chester Meadows	resolved	53.1883	-2.8791	meadow	RSPB / CWaC visitor coords for The Meadows (Lower Park Road sector)
+122	cheshire.txt	Chester Riverfront	resolved	53.1876	-2.8864	shore	City-centre Dee walkway (“The Groves” / bandstand frontage strip)
+123	cheshire.txt	Chester City Walls	resolved	53.1923	-2.8891	fortification	Scheduled monument centroid (GeoHack: Chester city walls)
+124	cheshire.txt	Chester waterfront	resolved	53.1876	-2.8864	shore	Riverside frontage contiguous with The Groves / Chester Groves batch
+125	cheshire.txt	Chester Weir	resolved	53.1860	-2.8889	weir	GeoHack / Wikipedia Chester Weir (Dee; upstream of Old Dee Bridge)
+126	cheshire.txt	Dee Banks	resolved	53.1824	-2.8704	residential	“Dee Banks” street cluster Great Boughton (CH3 5UX postcode centroid)
+127	cheshire.txt	Saltney Ferry	resolved	53.1805	-2.9460	suburb	OSM suburb node / former LNWR station coords (Flintshire; Chester list context)
+128	cheshire.txt	Eccleston Ferry	resolved	53.1535	-2.8764	ferry_site	Historic Dee ferry landing / CH4 9JE car-park access (paddle guides)
+129	cheshire.txt	Huntington	resolved	53.1731	-2.8631	village	Wikidata / Wikipedia Huntington, Cheshire
+130	cheshire.txt	Farndon	resolved	53.0850	-2.8780	village	Wikipedia / Wikidata Farndon, Cheshire
+131	cheshire.txt	Farndon Bridge	resolved	53.0834	-2.8798	bridge	Wikipedia Farndon (Holt) Bridge over the Dee
+132	cheshire.txt	Lower Bridge Street	resolved	53.1868	-2.8920	street	Lower Bridge Street approach to Bridgegate / Old Dee Bridge (approximate mid)
+133	cheshire.txt	Queen's Park Suspension Bridge	resolved	53.1880	-2.8842	footbridge	Bridgemeister inventory coords (Queens Park footbridge, Dee)
+134	cheshire.txt	Old Dee Bridge	resolved	53.1855	-2.8887	bridge	Wikipedia / GeoHack Old Dee Bridge
+135	cheshire.txt	Chester Dee Bridge	resolved	53.1855	-2.8887	bridge	Local / heritage alias for the Old Dee Bridge crossing (same structure)
+136	cheshire.txt	Boathouse Lane	resolved	53.3019	-3.0832	lane	Parkgate Boathouse Lane (Geograph object location; access to Old Baths / frontage)
+137	cheshire.txt	Neston Sailing Club	not_found			sailing_club	No verified public POI/geocode located this batch; likely small Dee-shore club
+138	cheshire.txt	Frodsham Boat Club	resolved	53.3043	-2.7095	sailing_club	Weaver Sailing Club (River Weaver, Frodsham) — principal local dinghy club / moorings
+139	cheshire.txt	Parkgate Baths	resolved	53.3012	-3.0893	historic_lido	Former open-air baths site (Parkgate Society); SJ275788 → WGS84 picnic/car-park area
+140	cheshire.txt	Little Neston foreshore	resolved	53.2795	-3.0580	shore	Marshlands Road / reedbed foreshore sector (approximate; Little Neston)
+141	cheshire.txt	Burton foreshore	resolved	53.2620	-3.0380	shore	Dee marsh frontage near Burton / Denhall corridor (approximate)
+142	cheshire.txt	Great Sutton Marsh	resolved	53.2680	-2.9280	marsh	Tidal grazing marsh belt south of Great Sutton toward the estuary (approximate centroid)
+143	cheshire.txt	Little Sutton Marsh	resolved	53.2880	-2.9380	marsh	Estuary-side marsh fringe north of Little Sutton / A41 corridor (approximate)
+144	cheshire.txt	Great Sutton Shore	resolved	53.2680	-2.9050	shore	Mersey estuary / MSC shoreline sector off Great Sutton & Whitby (approximate)
+145	cheshire.txt	Ellesmere Port Moorings	resolved	53.2875	-2.8918	mooring	Canal & River Trust visitor moorings cluster by National Waterways Museum (cf. batch rows 47–49)
+146	cheshire.txt	Strawberry Fields	resolved	53.2576	-2.9091	neighbourhood	Whitby “Strawberry Fields” estate sector (CH66 2TX postcode centroid)
+147	cheshire.txt	Hope Farm	resolved	53.2623	-2.9285	neighbourhood	Great Sutton Hope Farm area (CH66 2NP postcode centroid)
+148	cheshire.txt	Moorside	ambiguous			locality	“Moorside” matches multiple unrelated streets (e.g. Parkgate/Neston CH64 vs wider region); no list disambiguator
+149	cheshire.txt	West Road	resolved	53.2725	-2.8975	street	West Road, Ellesmere Port CH65 9 (street centroid from postcode listings)
+150	cheshire.txt	Neston Quay	resolved	53.2911	-3.0727	historic_quay	“Old Quay” sandstone remains on Dee marshes (Geograph SJ285977668 → WGS84)
+151	cheshire.txt	Neston Dee front	resolved	53.2830	-3.0705	shore	Dee marsh / Old Quay shoreline band from Neston (Marshlands–Old Quay front; approximate)
+152	cheshire.txt	Parkgate Dee front	resolved	53.2960	-3.0855	shore	Parkgate sea-wall Dee frontage (cf. Parkgate Parade / seafront rows)
+153	cheshire.txt	Ellesmere Port estuary	ambiguous			estuary	Broad Mersey–MSC–inner estuary frontage around EP; kilometres of shore, no single centroid
+154	cheshire.txt	Dee shoreline	ambiguous			shore	Cheshire/Wirral bank of the Dee is a long coast; not one mappable pin for the whole label
+155	cheshire.txt	Mersey Estuary	ambiguous			estuary	Entire estuary system (Liverpool Bay to upper narrows); intentionally non-local
+156	cheshire.txt	Tidal Dee	ambiguous			river	Tidal reach spans both banks and many miles upstream; vague without a named crossing or town anchor
+157	cheshire.txt	Tidal Weaver	resolved	53.3292	-2.7609	river_mouth	Weston Point docks: Weaver Navigation tidal outlet to MSC/Mersey (Wikipedia River Weaver / GeoHack)
+158	cheshire.txt	Promenade Walk	ambiguous			walk	Generic footpath name; no authoritative “Promenade Walk” pin for this coastal list
+159	cheshire.txt	Riverfront Walk	ambiguous			walk	Generic waterfront path label; multiple plausible trails (EP docks, Dee, Mersey)
+160	cheshire.txt	Estuary Walk	ambiguous			walk	Generic signed route name; no single trailhead tied to this label alone
+161	cheshire.txt	Dee View	ambiguous			locality	“Dee View” is a common street/estate name; cannot pick one without address context
+162	cheshire.txt	Marshlands	resolved	53.2908	-3.0775	marsh_read	Neston Marshlands Road / reedbed shore access sector toward the Dee (cf. Neston foreshore rows)
+163	cheshire.txt	Canal Fields	ambiguous			greenspace	No single canonical “Canal Fields” in gazetteers; likely informal canal-side open space in EP/Neston corridor
+164	cheshire.txt	Port Ince	resolved	53.2640	-2.8115	industrial_port	Manchester Ship Canal / Ince Marshes industrial berths belt east of Ellesmere Port (approximate centroid)

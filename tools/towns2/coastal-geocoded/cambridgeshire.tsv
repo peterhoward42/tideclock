@@ -1,0 +1,139 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	cambridgeshire.txt	Sutton St Edmund	resolved	52.6983	0.0230	village	Wikipedia/GeoHack centroid; Lincolnshire parish on Cambs coastal list margin
+2	cambridgeshire.txt	Sutton Corner	resolved	52.8259	0.1283	hamlet	Streetmap/OS place near Long Sutton (PE12); fen edge north-east of Wisbech
+3	cambridgeshire.txt	Tydd St Giles	resolved	52.7270	0.1080	village	Wikipedia parish centre
+4	cambridgeshire.txt	Four Gotes	resolved	52.7271	0.1465	hamlet	OS open-names style centroid (Find that Postcode/IPN)
+5	cambridgeshire.txt	Tydd Gote	resolved	52.7392	0.1523	hamlet	GeoHack/Wikipedia; straddles Lincs/Cambs
+6	cambridgeshire.txt	Foul Anchor	resolved	52.7380	0.1663	hamlet	Find that Postcode locality centroid
+7	cambridgeshire.txt	Foul Anchor Sluice	resolved	52.7355	0.1684	sluice	Lincolnshire HER grid TF 46771 18155 (bridge/sluice structure)
+8	cambridgeshire.txt	Eau Dyke	resolved	52.7300	0.1010	drain	Natural watercourse forming north side of Tydd St Giles per Wikipedia; approximate mid-reach
+9	cambridgeshire.txt	Tydd Fen	resolved	52.7102	0.0635	marsh	Streetmap "Tydd St Giles Fen" label centroid
+10	cambridgeshire.txt	Shire Drain	resolved	52.7180	0.0550	drain	Shire Drain on Tydd St Giles north/west boundary (VCH); point along reach
+11	cambridgeshire.txt	North Level Main Drain	resolved	52.7350	0.1745	drain	Representative point near Nene outfall/Foul Anchor end of main drain (long linear)
+12	cambridgeshire.txt	Lady Nunn's Old Eau	resolved	52.7120	0.0480	drain	Upper Shire Drain reach (VCH naming); approximate western Tydd corridor
+13	cambridgeshire.txt	Guyhirn	resolved	52.6120	0.0659	village	Streetmap village centroid; A141/A47 and River Nene
+14	cambridgeshire.txt	Guyhirn Wash	resolved	52.6020	0.0545	washland	Nene Washes flood meadow sector named for Guyhirn (EA wash naming); near Morton's Leam
+15	cambridgeshire.txt	Guyhirn Chapel	resolved	52.6158	0.0710	chapel	Guyhirn Chapel of Ease (Grade II*); Wikipedia coords
+16	cambridgeshire.txt	Rings End	ambiguous			hamlet	Orthography matches Ring's End hamlet (line 17); not given separate pin in pass 1
+17	cambridgeshire.txt	Ring's End	resolved	52.6050	0.0636	hamlet	Wikipedia hamlet centroid; same cluster as line 16
+18	cambridgeshire.txt	Mortons Leam	resolved	52.6023	0.0560	drain	Ancient leam through Nene Washes; Geograph photo location near Ring's End
+19	cambridgeshire.txt	Morton's Leam	resolved	52.6035	0.0575	drain	Same historic leam; point a short distance along channel from line 18
+20	cambridgeshire.txt	Murrow	resolved	52.6330	0.0330	village	Wikipedia OS grid TF376059
+21	cambridgeshire.txt	Murrow Bank	resolved	52.6345	0.0345	road	B1187 ridge through Murrow; centred slightly N of village nucleus
+22	cambridgeshire.txt	Gull Drove	resolved	52.6185	0.0580	drove	Road from Guyhirn archaeology notes (historic "gull"/breach alignment)
+23	cambridgeshire.txt	Selwyn Corner	resolved	52.6085	0.0690	locality	Named area Guyhirn PE13 4EG (StreetCheck); approximate postcode hub
+24	cambridgeshire.txt	Great Gull	resolved	52.6195	0.0570	historic_feature	Historic "gull"/breach locale linked to Gull Drove (OS "Horse Shoe Gull"); approximate
+25	cambridgeshire.txt	Wisbech St Mary	resolved	52.6331	0.0983	parish	GeoHack parish settlement centroid
+26	cambridgeshire.txt	Thorney Toll	resolved	52.6169	-0.0211	hamlet	Wikipedia/GeoHack; A47 Guyhirn–Peterborough corridor
+27	cambridgeshire.txt	Walnut Tree	ambiguous			unknown	Several Walnut Tree farms and newer school sites near Wisbech/Leverington; no single mappable settlement
+28	cambridgeshire.txt	Wisbech	resolved	52.6591	0.1572	town	GeoHack/Wikipedia town centroid
+29	cambridgeshire.txt	Wisbech St Peter	resolved	52.6640	0.1619	parish_church	St Peter and St Paul's (Wisbech St Peter parish church)
+30	cambridgeshire.txt	Walsoken	resolved	52.6719	0.1894	village	Wikipedia centroid; Norfolk parish conjoined to Wisbech
+31	cambridgeshire.txt	North Brink	resolved	52.6644	0.1540	street	Geograph/Wikimedia camera location on riverside terrace (PE13)
+32	cambridgeshire.txt	South Brink	resolved	52.6639	0.1531	street	Geograph TF4509 subject location (paired with North Brink)
+33	cambridgeshire.txt	Staithe Road	resolved	52.6672	0.1781	road	OSM way PE13 3TF (east Wisbech staithe area)
+34	cambridgeshire.txt	The Crescent	resolved	52.6639	0.1602	street	OSM residential circus around Wisbech Castle (PE13 1EH segment)
+35	cambridgeshire.txt	Hill Street	resolved	52.6656	0.1602	road	OSM way centroid (PE13 1BA segment)
+36	cambridgeshire.txt	Horse Fair	resolved	52.6658	0.1615	road	OSM Horsefair pedestrian way (PE13 1AR); list spelling variant
+37	cambridgeshire.txt	Market Place	resolved	52.6652	0.1610	square	OSM pedestrian Market Place (PE13 1DL)
+38	cambridgeshire.txt	Octagon Theatre	ambiguous			theatre	No venue with this name in Wisbech; Angles Theatre is the town theatre; historic Octagon Church was demolished
+39	cambridgeshire.txt	Clarkson Memorial	resolved	52.6647	0.1584	monument	GeoHack/Wikipedia Grade II* (Bridge Street / South Brink)
+40	cambridgeshire.txt	West End	resolved	52.6600	0.1648	locality	OSM West Street nucleus PE13; informal west-of-centre label
+41	cambridgeshire.txt	Wisbech Castle	resolved	52.6642	0.1601	castle	GeoHack/Wikipedia (Regency The Castle, Museum Square)
+42	cambridgeshire.txt	Wisbech & Fenland Museum	resolved	52.6639	0.1610	museum	GeoHack/Wikipedia (Museum Square PE13 1ES)
+43	cambridgeshire.txt	Clarkson Avenue	resolved	52.6673	0.1714	road	OSM Clarkson Avenue centroid PE13 2EG
+44	cambridgeshire.txt	Freedom Bridge	resolved	52.6674	0.1591	bridge	OSM Freedom Bridge trunk road bridge (River Nene A1101)
+45	cambridgeshire.txt	Crescent Bridge	ambiguous			bridge	No distinct Crescent Bridge in OSM/Nominatim; likely local name for another Nene crossing or confusion with The Crescent
+46	cambridgeshire.txt	Wisbech Port	resolved	52.6746	0.1541	port	OSM landuse industrial Port of Wisbech polygon centroid
+47	cambridgeshire.txt	Wisbech Docks	resolved	52.6735	0.1538	harbour	Representative point within Port of Wisbech dock estate (OSM context)
+48	cambridgeshire.txt	Wisbech Basin	resolved	52.6728	0.1545	harbour	Inner harbour area within Wisbech port complex (approximate centroid)
+49	cambridgeshire.txt	Wisbech Marina	ambiguous			marina	No single named marina hit in Nominatim; several small moorings along Nene/ port
+50	cambridgeshire.txt	Wisbech Quay	resolved	52.6657	0.1589	quay	OSM Nene Quay reach centroid (tidal quayside)
+51	cambridgeshire.txt	Wharf Road	resolved	52.6631	0.1539	road	List likely means riverside wharf access; mapped to OSM Coalwharf Road PE13 2FP
+52	cambridgeshire.txt	Wisbech Town Bridge	resolved	52.6649	0.1578	bridge	OSM man_made bridge Town Bridge (Nene Quay / PE13 1AF)
+53	cambridgeshire.txt	Wisbech River Nene	resolved	52.6660	0.1585	river	Representative point on tidal Nene through Wisbech town centre (between bridges)
+54	cambridgeshire.txt	Wisbech waterfront	resolved	52.6691	0.1598	development	OSM Nene Waterfront Regeneration Project landuse centroid
+55	cambridgeshire.txt	Wisbech promenade	resolved	52.6645	0.1560	waterfront	Approximate riverside walk between North/South Brink and quay (human-map pin)
+56	cambridgeshire.txt	River Nene	resolved	52.6660	0.1585	river	Whole river; pin on Wisbech tidal reach for this county coastal list context
+57	cambridgeshire.txt	Old Nene	resolved	52.6017	0.2192	river	OSM River Nene (old course) waterway label near Upwell/Norfolk
+58	cambridgeshire.txt	Roman Bank	resolved	52.6780	0.1417	sea_defence	Historic England scheduled monument centroid (Leverington/Wisbech corridor)
+59	cambridgeshire.txt	Bevis Cross	resolved	52.6377	0.1207	river_reach	Geograph/CanalPlan context as Bevis Hall reach on tidal Nene (list name variant)
+60	cambridgeshire.txt	The Wash	resolved	52.9677	0.3076	bay	Latitude.to article centroid; very large estuary — illustrative centre only
+61	cambridgeshire.txt	Wash saltmarsh	resolved	52.9266	0.0263	saltmarsh	RSPB Frampton Marsh sea-bank area; illustrative Wash saltmarsh (Lincolnshire Wash coast)
+62	cambridgeshire.txt	Wash mudflats	resolved	52.7762	0.2579	mudflats	Terrington Marsh (Sutton Bridge) locality; illustrative Wash intertidal margin
+63	cambridgeshire.txt	Wash foreshore	resolved	52.8524	0.2260	foreshore	River Nene mouth / Wash foreshore (Wikipedia mouth coords; broad feature)
+64	cambridgeshire.txt	Silt Fen	resolved	52.7092	0.1124	fen	Newton-in-the-Isle sits on Silt Fen (also called Townland) per Wikipedia/VCH
+65	cambridgeshire.txt	Townland	resolved	52.7092	0.1124	fen	Alternative name for the Silt Fen ridge under Newton-in-the-Isle (parish website/VCH)
+66	cambridgeshire.txt	Tydd Gote Sea Bank	resolved	52.7390	0.1490	sea_defence	Roman Bank (medieval sea wall) earthworks west of Tydd Gote Main Road; Wikipedia geography
+67	cambridgeshire.txt	Well Stream	resolved	52.7040	0.1280	stream	VCH: former eastern Newton parish boundary watercourse; approximate mid-reach toward Nene
+68	cambridgeshire.txt	Newton-in-the-Isle	resolved	52.7092	0.1124	village	OS Open Names centroid (getthedata) / Wikipedia 52.709°N 0.125°E cluster
+69	cambridgeshire.txt	Newton in the Isle	resolved	52.7092	0.1124	village	Historic spelling variant of Newton-in-the-Isle (parish website)
+70	cambridgeshire.txt	Newton	resolved	52.7113	0.1332	village	Nominatim Newton (Fenland) post office cluster; settlement nucleus in same parish
+71	cambridgeshire.txt	Mary-in-the-Marsh	not_found		unknown	No Cambridgeshire coastal feature; geocoder hits are Kent (St Mary in the Marsh)
+72	cambridgeshire.txt	Fitton End	resolved	52.6947	0.1129	hamlet	Nominatim Fitton End, Newton
+73	cambridgeshire.txt	Leverington	resolved	52.6802	0.1341	village	Nominatim village centroid
+74	cambridgeshire.txt	Leverington Common	resolved	52.6740	0.1211	common	Nominatim Leverington Common (Leverington sector)
+75	cambridgeshire.txt	Gorefield	resolved	52.6858	0.0998	village	Nominatim Gorefield centroid
+76	cambridgeshire.txt	Crown End	not_found			unknown	No gazetteer or OSM hit for Crown End near Gorefield on this coastal list
+77	cambridgeshire.txt	Elm	resolved	52.6356	0.1721	village	Nominatim Elm (Fenland) village facilities cluster
+78	cambridgeshire.txt	Friday Bridge	resolved	52.6206	0.1648	village	Nominatim Friday Bridge centroid
+79	cambridgeshire.txt	Coldham	resolved	52.6050	0.1171	hamlet	Nominatim Coldham, Elm
+80	cambridgeshire.txt	Elm High Road	resolved	52.6544	0.1694	road	Nominatim Elm High Road (Wisbech) way centroid
+81	cambridgeshire.txt	Parson Drove	resolved	52.6570	0.0260	village	Nominatim Parson Drove centroid
+82	cambridgeshire.txt	Dog-in-a-Doublet	resolved	52.5765	-0.1244	sluice	Nominatim Dog in a Doublet Sluice (Nene Washes)
+83	cambridgeshire.txt	Walton Dam	resolved	52.6995	0.1555	locality	Find that Postcode IPN Walton Dam (Newton-in-the-Isle environs)
+84	cambridgeshire.txt	Nene Outfall	resolved	52.7024	0.1560	cut	Norfolk HER NHER 38121 grid TF 45775 13818 → WGS84 (Telford outfall channel)
+85	cambridgeshire.txt	Bevills Leam	resolved	52.5224	-0.1172	drain	Nominatim Bevills Leam (Pondersbridge reach)
+86	cambridgeshire.txt	Bevill's Leam	resolved	52.5054	-0.1645	drain	Nominatim Bevills Leam (Farcet reach); orthographic variant of same leam
+87	cambridgeshire.txt	Hereward Way	resolved	52.5301	0.0044	trail	Nominatim Hereward Way through March (Fenland LDP)
+88	cambridgeshire.txt	Peakirk Drain	resolved	52.6106	0.0303	drain	Nominatim Peakirk Drain (Wisbech St Mary)
+89	cambridgeshire.txt	Guyhirn Bank	resolved	52.6228	0.0459	sea_defence	Nominatim Gull Bank, Guyhirn (local sea-bank feature; name variant)
+90	cambridgeshire.txt	Wisbech sea bank	resolved	52.6680	0.1520	sea_defence	Representative Wash/Nene flood-bank reach north-east of Wisbech (human-map pin)
+91	cambridgeshire.txt	Nene Wash	resolved	52.8050	0.2100	estuary_margin	Illustrative Nene–Wash intertidal corridor near river mouth (very large feature)
+92	cambridgeshire.txt	North Level Outfall	resolved	52.7415	0.1734	outfall	North Level Main Drain junction with tidal River Nene (CanalPlan AC; OS TF468182)
+93	cambridgeshire.txt	Marshland	ambiguous			fen	Historic Marshland region around The Wash margin; not one point
+94	cambridgeshire.txt	Northside	ambiguous			locality	No single coastal feature; likely informal bank or parish side label
+95	cambridgeshire.txt	Southside	ambiguous			locality	No single coastal feature; likely informal bank or parish side label
+96	cambridgeshire.txt	Tydd St Giles Marsh	resolved	52.7080	0.0920	marsh	Open fen/marsh tract on Nene margin south-east of Tydd St Giles (approximate centroid)
+97	cambridgeshire.txt	Guyhirn Junction	resolved	52.6069	0.0635	junction	A47/A141 Guyhirn roundabout (Geograph WGS84 at OS TF398303)
+98	cambridgeshire.txt	Rings End Bank	resolved	52.6020	0.0550	sea_defence	Whittlesey Washes South Barrier Bank sector at Ring's End / Guyhirn (EA scheme context)
+99	cambridgeshire.txt	Leverington Road	resolved	52.6710	0.1556	road	Nominatim highway centroid (Wisbech)
+100	cambridgeshire.txt	Lynn Road	resolved	52.6745	0.1756	road	Nominatim highway centroid (Wisbech)
+101	cambridgeshire.txt	Spalding Road	resolved	52.6720	0.1480	road	Principal Wisbech corridor toward Long Sutton / Spalding (A1101-style stem; approximate)
+102	cambridgeshire.txt	Crowland Road	resolved	52.6150	0.0450	road	B1169 sector from Guyhirn toward Crowland (approximate mid-reach)
+103	cambridgeshire.txt	Wisbech St Mary Marsh	resolved	52.6280	0.0950	marsh	Low marsh/fen tract north-west of Wisbech St Mary (approximate)
+104	cambridgeshire.txt	Murrow Common	resolved	52.6450	0.0220	common	Open margin west of Murrow village (approximate; not a named polygon)
+105	cambridgeshire.txt	Fitton Drove	resolved	52.6920	0.1150	drove	Fen drove in Fitton End / Newton corridor (linear; approximate)
+106	cambridgeshire.txt	Begdale	resolved	52.6353	0.1501	hamlet	Gazetteer.org.uk centroid; Wikipedia/OS TF4506 cluster
+107	cambridgeshire.txt	Seadyke	resolved	52.6507	0.0574	locality	Seadyke / Seadyke Bank cluster (Nominatim; fisheries grid TF~392788)
+108	cambridgeshire.txt	Seadyke Bank	resolved	52.6508	0.0572	sea_defence	Nominatim Seadyke Bank (Wisbech St Mary / Parson Drove sector)
+109	cambridgeshire.txt	Seadyke Road	resolved	52.6506	0.0573	road	Approximate centroid within Seadyke ribbon (between Seadyke and Seadyke Bank hits)
+110	cambridgeshire.txt	Seadyke Caravan Park	ambiguous			caravan_site	No named caravan park in OSM/Nominatim; matches Seadyke locality only
+111	cambridgeshire.txt	Cross Guns Drove	resolved	52.6072	-0.0179	drove	Cross Guns Road sector Thorney Toll (PE13 4AZ postcode centroid; list says Drove)
+112	cambridgeshire.txt	Hospital Drove	resolved	52.7608	0.1540	drove	OSM Hospital Drove Sutton Bridge/Long Sutton reach (Wash margin; Lincolnshire side of list)
+113	cambridgeshire.txt	Peacock Bridge	ambiguous			bridge	No Peacock Bridge in Wisbech/Fenland mapping; Peckover House is different name
+114	cambridgeshire.txt	Freedom Quay	ambiguous			quay	No Freedom Quay in regeneration/port docs; likely Freedom Bridge / Nene quay confusion
+115	cambridgeshire.txt	Wisbech Harbour	resolved	52.6680	0.1666	harbour	Nominatim Harbour Line / riverside harbour frontage cluster
+116	cambridgeshire.txt	Wisbech Cut	resolved	52.6560	0.1690	canal_cut	Infilled Wisbech Canal prism; approximate mid-alignment Wisbech lock–Elm (Wikipedia points)
+117	cambridgeshire.txt	Freedom Fields	not_found			unknown	No geocodable Freedom Fields at this name in Wisbech/OSM
+118	cambridgeshire.txt	Redmoor Bank	resolved	52.6284	0.1493	sea_defence	Nominatim Redmoor Bank (Elm / Friday Bridge sector)
+119	cambridgeshire.txt	Belt Drove	resolved	52.6332	0.1362	drove	Nominatim Belt Drove, Elm
+120	cambridgeshire.txt	Begdale Road	resolved	52.6380	0.1619	road	Centroid of Nominatim Begdale Road ways (Elm parish)
+121	cambridgeshire.txt	Collett's Bridge	resolved	52.6349	0.1910	hamlet	Wikipedia/GeoHack hamlet centroid (Elm parish; former canal/tramway locale)
+122	cambridgeshire.txt	Elm Low Road	resolved	52.6505	0.1696	road	Nominatim highway centroid (Elm–Wisbech corridor)
+123	cambridgeshire.txt	Elmbridge	resolved	52.6451	0.1836	former_station	Wikipedia coords for former Wisbech & Upwell Tramway stop (Emneth projection SE of Wisbech)
+124	cambridgeshire.txt	The Leam	resolved	52.6244	0.1655	road	Nominatim "The Leam" (Elm/Friday Bridge sector; local leam/canal ribbon)
+125	cambridgeshire.txt	Wisbech Canal	resolved	52.6670	0.1620	canal	Representative point at former Wisbech lock (Wikipedia); long infilled prism—lock end chosen
+126	cambridgeshire.txt	Newton St James	resolved	52.7118	0.1307	parish_church	Nominatim St James (Newton Parish Church), Newton, Fenland
+127	cambridgeshire.txt	St Leonard Leverington	resolved	52.6811	0.1360	parish_church	Nominatim St Leonard (Leverington Parish Church), Gorefield Road
+128	cambridgeshire.txt	Castle Square	resolved	52.6645	0.1595	square	Nominatim Castle Square, Wisbech (PE13)
+129	cambridgeshire.txt	Museum Square	resolved	52.6640	0.1611	square	Nominatim Museum Square, Wisbech
+130	cambridgeshire.txt	Bridge Street	resolved	52.6646	0.1583	street	Nominatim Bridge Street, Wisbech
+131	cambridgeshire.txt	Old Market	resolved	52.6659	0.1578	street	Nominatim Old Market, Wisbech
+132	cambridgeshire.txt	Somers Road	resolved	52.6639	0.1565	road	Nominatim Somers Road, Wisbech
+133	cambridgeshire.txt	Black Horse Drove	ambiguous			drove	Well-known hamlet is Black Horse Drove (Littleport/East Cambs, Great Ouse); no Fenland coastal match in OSM/Nominatim for this list position
+134	cambridgeshire.txt	St Peter's Church	resolved	52.6640	0.1619	parish_church	Same parish church as line 29/135 (St Peter & St Paul), Wisbech St Peter
+135	cambridgeshire.txt	Church of St Peter and St Paul	resolved	52.6640	0.1619	parish_church	Market Hill parish church (paired with line 134); coordinates aligned with existing batch row 29
+136	cambridgeshire.txt	All Saints Elm	resolved	52.6398	0.1709	parish_church	Nominatim All Saints (Elm Parish Church), Main Road
+137	cambridgeshire.txt	Wisbech North Bank	resolved	52.6710	0.1655	embankment	Approximate north-side Nene bank / higher ground near town-centre reach (linear feature)
+138	cambridgeshire.txt	Wisbech South Bank	resolved	52.6630	0.1635	embankment	Approximate south-side Nene bank opposite north bank pin (linear feature)

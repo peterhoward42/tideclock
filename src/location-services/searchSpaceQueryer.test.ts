@@ -8,6 +8,12 @@ describe('SearchSpaceQueryer', () => {
     ).toThrowError(RangeError);
   });
 
+  it('rejects keySpace when its length does not match searchSpace', () => {
+    expect(
+      () => new SearchSpaceQueryer(['a', 'b'], ['A', 'B'], ['k1']),
+    ).toThrowError(RangeError);
+  });
+
   it('rejects negative maxResults', () => {
     const q = new SearchSpaceQueryer(['a'], ['A']);
     expect(() => q.query('a', -1)).toThrowError(RangeError);
@@ -20,6 +26,7 @@ describe('SearchSpaceQueryer', () => {
         results: ['row0', 'row1'],
         count: 2,
         displayNames: ['d0', 'd1'],
+        resultKeys: [],
       });
     }
   });
@@ -33,6 +40,7 @@ describe('SearchSpaceQueryer', () => {
       results: ['Inner Harbour'],
       count: 1,
       displayNames: ['ih'],
+      resultKeys: [],
     });
   });
 
@@ -42,6 +50,7 @@ describe('SearchSpaceQueryer', () => {
       results: ['MixedCase Place'],
       count: 1,
       displayNames: ['disp'],
+      resultKeys: [],
     });
   });
 
@@ -54,6 +63,7 @@ describe('SearchSpaceQueryer', () => {
       results: ['alpha one', 'alpha two'],
       count: 2,
       displayNames: ['a1', 'a2'],
+      resultKeys: [],
     });
   });
 
@@ -63,6 +73,7 @@ describe('SearchSpaceQueryer', () => {
       results: [],
       count: 0,
       displayNames: [],
+      resultKeys: [],
     });
   });
 
@@ -72,6 +83,50 @@ describe('SearchSpaceQueryer', () => {
       results: ['x y z'],
       count: 1,
       displayNames: ['A'],
+      resultKeys: [],
     });
+  });
+
+  it('returns resultKeys aligned with results when keySpace was provided', () => {
+    const q = new SearchSpaceQueryer(['alpha', 'beta'], ['A', 'B'], ['k0', 'k1']);
+    expect(q.query('beta', 5)).toEqual({
+      results: ['beta'],
+      count: 1,
+      displayNames: ['B'],
+      resultKeys: ['k1'],
+    });
+  });
+
+  it('rejects matchCountCeiling below maxResults', () => {
+    const q = new SearchSpaceQueryer(['a', 'b'], ['A', 'B']);
+    expect(() => q.queryWithResultCapAndMatchCeiling('a', 2, 1)).toThrowError(RangeError);
+  });
+
+  it('reports exact total when matches stay under the match ceiling', () => {
+    const q = new SearchSpaceQueryer(
+      ['alpha one', 'alpha two', 'beta one'],
+      ['a1', 'a2', 'b1'],
+    );
+    expect(q.queryWithResultCapAndMatchCeiling('alpha', 2, 10)).toEqual({
+      results: ['alpha one', 'alpha two'],
+      count: 2,
+      displayNames: ['a1', 'a2'],
+      resultKeys: [],
+      totalMatchingRows: 2,
+      totalHitCountCeiling: false,
+    });
+  });
+
+  it('stops counting at matchCountCeiling and sets totalHitCountCeiling', () => {
+    const search = ['a', 'a', 'a', 'a', 'a'];
+    const display = ['1', '2', '3', '4', '5'];
+    const q = new SearchSpaceQueryer(search, display);
+    const r = q.queryWithResultCapAndMatchCeiling('a', 2, 4);
+    expect(r.results).toEqual(['a', 'a']);
+    expect(r.count).toBe(2);
+    expect(r.displayNames).toEqual(['1', '2']);
+    expect(r.totalMatchingRows).toBe(4);
+    expect(r.totalHitCountCeiling).toBe(true);
+    expect(r.resultKeys).toEqual([]);
   });
 });

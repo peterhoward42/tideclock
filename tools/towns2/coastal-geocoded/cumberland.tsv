@@ -1,0 +1,271 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	cumberland.txt	Bowness-on-Solway	resolved	54.9518959	-3.2150939	village	OpenStreetMap/Nominatim
+2	cumberland.txt	Glasson	resolved	54.9340425	-3.1700125	village	OpenStreetMap/Nominatim
+3	cumberland.txt	Drumburgh	resolved	54.9264080	-3.1491328	village	OpenStreetMap/Nominatim
+4	cumberland.txt	Port Carlisle	resolved	54.9479443	-3.1880451	village	OpenStreetMap/Nominatim
+5	cumberland.txt	Burgh by Sands	resolved	54.9199994	-3.0611055	village	Used village node (relation hit also returned)
+6	cumberland.txt	Burgh Marsh	resolved	54.9343943	-3.0720539	wetland	OpenStreetMap wetland polygon centroid
+7	cumberland.txt	Beaumont	resolved	54.9244276	-3.0180588	village	Used village node (admin boundary also returned)
+8	cumberland.txt	Monkhill	resolved	54.9179237	-3.0256397	hamlet	OpenStreetMap/Nominatim
+9	cumberland.txt	Kirkandrews-on-Eden	resolved	54.9161513	-3.0101994	village	OpenStreetMap/Nominatim
+10	cumberland.txt	Rockcliffe	resolved	54.9461728	-3.0022625	village	Administrative boundary centroid (village)
+11	cumberland.txt	Rockcliffe Marsh	resolved	54.9644588	-3.0533865	wetland	OpenStreetMap/Nominatim
+12	cumberland.txt	Cargo	resolved	54.9256733	-2.9869672	village	OpenStreetMap/Nominatim
+13	cumberland.txt	Portling	not_found		unknown	No OpenStreetMap hit with Cumberland context; principal Portling is across the Solway in Dumfries and Galloway
+14	cumberland.txt	Cardurnock	resolved	54.9179280	-3.2934669	hamlet	OpenStreetMap/Nominatim
+15	cumberland.txt	Skinburness	resolved	54.8906676	-3.3611833	village	OpenStreetMap/Nominatim
+16	cumberland.txt	Skinburness Marsh	resolved	54.8861639	-3.3286354	locality	OpenStreetMap/Nominatim
+17	cumberland.txt	Causewayhead	resolved	54.8644147	-3.3625386	hamlet	Nominatim returned East Causewayhead (Holme Low, Silloth area)
+18	cumberland.txt	Abbeytown	resolved	54.8445862	-3.2864576	village	OpenStreetMap/Nominatim
+19	cumberland.txt	Blitterlees	resolved	54.8574579	-3.3887452	hamlet	Coastal Silloth-on-Solway hit (inland duplicate exists in OSM)
+20	cumberland.txt	Pelutho	resolved	54.8289099	-3.3712899	hamlet	OpenStreetMap/Nominatim
+21	cumberland.txt	Silloth	resolved	54.8692401	-3.3869124	town	OpenStreetMap/Nominatim
+22	cumberland.txt	Silloth-on-Solway	resolved	54.8791042	-3.3718656	suburb	Used administrative area centroid (town node also matches Silloth)
+23	cumberland.txt	Silloth Beach	resolved	54.8731	-3.399	beach	Approximate seafront pin; no dedicated OSM POI in search
+24	cumberland.txt	Silloth Promenade	resolved	54.8720	-3.393	attraction	Approximate main seafront promenade; no dedicated OSM POI in search
+25	cumberland.txt	Wolsty	resolved	54.8390347	-3.3959232	locality	OpenStreetMap/Nominatim
+26	cumberland.txt	Wolsty Hall	resolved	54.8451716	-3.3943597	locality	OpenStreetMap/Nominatim
+27	cumberland.txt	Beckfoot	resolved	54.8323169	-3.4130746	village	Solway Beckfoot (Holme St Cuthbert); not Eskdale Beckfoot
+28	cumberland.txt	Anthorn	resolved	54.9112027	-3.2613519	village	OpenStreetMap/Nominatim
+29	cumberland.txt	Anthorn Point	resolved	54.9118922	-3.2815697	headland	Used Anthorn Radio Station / coastal facility centroid (no name=Anthorn Point in OSM search)
+30	cumberland.txt	Campfield Marsh	resolved	54.9473471	-3.2372342	wetland	OpenStreetMap/Nominatim
+31	cumberland.txt	Mealrigg	resolved	54.8024465	-3.3508777	locality	Photon (komoot.io); Cumberland county match
+32	cumberland.txt	Yearngill	resolved	54.7833877	-3.3371613	hamlet	Photon (komoot.io); Cumberland county match
+33	cumberland.txt	Tarns	resolved	54.8182057	-3.3768178	locality	OSM name Low Tarns (Holme St Cuthbert); list label Tarns
+34	cumberland.txt	Westnewton	resolved	54.7893543	-3.3389498	village	Photon administrative boundary (Westnewton, Cumberland)
+35	cumberland.txt	Allonby	resolved	54.7729585	-3.4285665	village	Photon (komoot.io); Cumberland county match
+36	cumberland.txt	Allonby Bay	resolved	54.7670	-3.4500	bay	Approximate bay centre (Wikipedia Allonby Bay); broad marine feature
+37	cumberland.txt	Allonby Beach	resolved	54.7745	-3.4292	beach	Approximate main beach by UK Beach Guide grid NY079426
+38	cumberland.txt	Allonby Marsh	resolved	54.7710	-3.4170	wetland	Approximate coastal marsh by Allonby; no single OSM named marsh
+39	cumberland.txt	Horseshoe Point	ambiguous			headland	No Photon/OSM name match; informal coastal point on Allonby Bay — not pinned
+40	cumberland.txt	Mawbray	resolved	54.8071625	-3.4282701	village	Photon (komoot.io); Cumberland county match
+41	cumberland.txt	Dubmill	resolved	54.7986973	-3.437949	headland	Photon: OSM Dubmill Point locality (north Allonby Bay)
+42	cumberland.txt	Crosscanonby	resolved	54.7378772	-3.4449441	village	Photon (komoot.io); Cumberland county match
+43	cumberland.txt	Crosscanonby Salt Pans	resolved	54.7466622	-3.4504817	historic	Historic salt pans beside Roman milefortlet; OSM Swarthy Hill Roman Mile Fortlet 21 centroid
+44	cumberland.txt	Gilcrux	resolved	54.7301538	-3.3744317	village	Photon (komoot.io); Cumberland county match
+45	cumberland.txt	Crosby	resolved	54.9277835	-2.8588882	locality	Photon: Crosby-on-Eden (Solway, Cumberland)
+46	cumberland.txt	Dearham	resolved	54.7094672	-3.4444571	village	Photon (komoot.io); Cumberland county match
+47	cumberland.txt	Great Broughton	resolved	54.6681079	-3.4371583	village	Photon (komoot.io); Cumberland county match
+48	cumberland.txt	Maryport	resolved	54.7142025	-3.4982669	town	Photon OSM place=town (skipped spurious POI ranks)
+49	cumberland.txt	Maryport Harbour	resolved	54.7145	-3.5050	harbour	Approximate harbour basin near river mouth/marina (no dedicated OSM harbour area in search)
+50	cumberland.txt	Maryport Marina	resolved	54.7141156	-3.5076535	marina	Photon (komoot.io); Cumberland county match
+51	cumberland.txt	Maryport Beach	resolved	54.7135	-3.4970	beach	Approximate seafront; no dedicated OSM beach POI in search
+52	cumberland.txt	Maryport Docks	resolved	54.7075	-3.5080	dock	Approximate dock/industrial waterfront (west of town centre)
+53	cumberland.txt	Maryport Promenade	resolved	54.7195295	-3.4968188	promenade	Photon: The Promenade (residential along seafront)
+54	cumberland.txt	Maryport Senhouse Museum	resolved	54.7212244	-3.4956897	museum	Photon: Senhouse Roman Museum
+55	cumberland.txt	Ellenborough	resolved	54.7078295	-3.4853975	suburb	Photon: Ellenborough (Maryport)
+56	cumberland.txt	Flimby	resolved	54.6874925	-3.5166175	village	Photon Flimby village (skipped spurious industrial first hit)
+57	cumberland.txt	Flimby Beach	resolved	54.6835	-3.5255	beach	Approximate seafront south of village; no dedicated OSM beach POI
+58	cumberland.txt	Flimby Marsh	resolved	54.6810	-3.5140	wetland	Approximate marsh east of coastal strip
+59	cumberland.txt	Flimby Shore	resolved	54.6840	-3.5280	beach	Approximate shoreline south of village centre
+60	cumberland.txt	Parton	resolved	54.5696004	-3.5802748	village	Photon administrative centroid (Parton, Cumberland)
+61	cumberland.txt	Parton Beach	resolved	54.5700	-3.5845	beach	Approximate shoreline W of Parton; no dedicated OSM beach name in search
+62	cumberland.txt	Lowca	resolved	54.5811981	-3.5710892	village	OpenStreetMap administrative boundary (Lowca, Cumberland)
+63	cumberland.txt	Lowca Bay	resolved	54.5850	-3.5780	bay	Approximate Solway bay W/NW of Lowca; no named OSM bay
+64	cumberland.txt	Salter and Brook	resolved	54.6218194	-3.5630007	locality	Judged as Salterbeck coastal area; no OSM hit for exact list string (brook/settlement context)
+65	cumberland.txt	Harrington	resolved	54.6142104	-3.5633466	village	OpenStreetMap/Nominatim (Harrington, Workington)
+66	cumberland.txt	High Harrington	resolved	54.6140603	-3.5456000	village	OpenStreetMap/Nominatim
+67	cumberland.txt	Harrington Harbour	resolved	54.6150	-3.5660	harbour	Approximate small harbour by Harrington; no named OSM harbour area in search
+68	cumberland.txt	Harrington Bay	resolved	54.6180	-3.5700	bay	Approximate inshore bay S of Moss Bay along Harrington coast; broad marine feature
+69	cumberland.txt	Moss Bay	resolved	54.6270145	-3.5718969	bay	OpenStreetMap natural=bay (Moss Bay)
+70	cumberland.txt	Moss Bay Beach	resolved	54.6280	-3.5730	beach	Approximate shingle shore along Moss Bay; no OSM beach POI
+71	cumberland.txt	Workington	resolved	54.6439006	-3.5450756	town	OpenStreetMap administrative boundary
+72	cumberland.txt	Workington Northside	resolved	54.6513559	-3.5504090	suburb	OpenStreetMap place=suburb North Side, Workington (list label Northside)
+73	cumberland.txt	Northside	resolved	54.6513559	-3.5504090	suburb	Same North Side suburb as line 72; duplicate list label
+74	cumberland.txt	Northside Beach	resolved	54.6525	-3.5520	beach	Approximate beach by North Side; no dedicated OSM beach
+75	cumberland.txt	Workington Beach	resolved	54.6400	-3.5480	beach	Approximate main town seafront; no single OSM beach
+76	cumberland.txt	Workington Harbour	resolved	54.6497186	-3.5647888	harbour	Prince of Wales Dock water polygon (inner harbour) from OpenStreetMap
+77	cumberland.txt	Workington Dock	resolved	54.6497186	-3.5647888	dock	OpenStreetMap Prince of Wales Dock (natural=water)
+78	cumberland.txt	Workington Port	resolved	54.6486398	-3.5640818	harbour	Port of Workington Harbourmaster building (Town Quay); proxy pin for port estate
+79	cumberland.txt	Workington Promenade	resolved	54.6512	-3.5690	promenade	Approximate seafront near Workington Pier; no named promenade POI
+80	cumberland.txt	Barepot	resolved	54.6501247	-3.5296426	suburb	OpenStreetMap/Nominatim
+81	cumberland.txt	Barepot Marsh	resolved	54.6520	-3.5340	wetland	Approximate coastal marsh W of Barepot; no named OSM marsh
+82	cumberland.txt	Siddick	resolved	54.6656144	-3.5511233	village	OpenStreetMap/Nominatim
+83	cumberland.txt	Siddick Pond	resolved	54.6626138	-3.5521481	bird_hide	OpenStreetMap Siddick pond bird hide (pond feature)
+84	cumberland.txt	Seaton	resolved	54.6621437	-3.5254473	village	Seaton Post Office (High Seaton); no place=village node in Nominatim for Seaton alone
+85	cumberland.txt	Seaton Marsh	resolved	54.6485	-3.5285	wetland	Approximate marsh by coastal strip near former ironworks; no named OSM marsh
+86	cumberland.txt	Stainburn	resolved	54.6458432	-3.5189474	village	OpenStreetMap/Nominatim
+87	cumberland.txt	Stainburn Bay	ambiguous			bay	No reliable named feature; informal bay label near Stainburn — not pinned
+88	cumberland.txt	Camerton	resolved	54.6640734	-3.4946968	village	OpenStreetMap administrative boundary (Camerton, Cumberland)
+89	cumberland.txt	Camerton Marsh	resolved	54.6655	-3.4970	wetland	Approximate marshland E of Camerton toward Derwent corridor; no named OSM marsh
+90	cumberland.txt	Great Clifton	resolved	54.6440662	-3.4890719	village	OpenStreetMap administrative boundary
+91	cumberland.txt	Little Clifton	resolved	54.6443417	-3.4641799	village	OpenStreetMap/Nominatim
+92	cumberland.txt	Clifton Marsh	resolved	54.6425	-3.4575	wetland	Approximate marsh/coastal strip E of Little Clifton; no named OSM marsh
+93	cumberland.txt	Bridgefoot	resolved	54.6490121	-3.4646146	village	OpenStreetMap/Nominatim (Bridgefoot, Little Clifton)
+94	cumberland.txt	Bridgefoot Marsh	resolved	54.6500	-3.4635	wetland	Approximate marsh by Bridgefoot; no named OSM marsh
+95	cumberland.txt	Howgate	resolved	54.5766703	-3.5608134	locality	OpenStreetMap/Nominatim (Howgate, Low Moresby); coastal list order between Bridgefoot and Kells
+96	cumberland.txt	Howgate Marsh	resolved	54.5758	-3.5612	wetland	Approximate marsh by Howgate (Moresby); no named OSM marsh
+97	cumberland.txt	Kells	resolved	54.5381039	-3.5960262	suburb	OpenStreetMap/Nominatim
+98	cumberland.txt	Kells Beach	resolved	54.5370	-3.5970	beach	Approximate seafront by Kells; no dedicated OSM beach POI in search
+99	cumberland.txt	Greenbank	resolved	54.5286914	-3.5860698	suburb	OpenStreetMap/Nominatim (Greenbank, Sandwith)
+100	cumberland.txt	Greenbank Marsh	resolved	54.5285	-3.5855	wetland	Approximate marsh by Greenbank; no named OSM marsh
+101	cumberland.txt	Bransty	resolved	54.5574831	-3.5831968	suburb	OpenStreetMap/Nominatim
+102	cumberland.txt	Bransty Point	resolved	54.5532	-3.5878	headland	Approximate harbour north headland / Bransty cliff area; no name=Bransty Point in OSM search
+103	cumberland.txt	Whitehaven	resolved	54.5475312	-3.5908432	town	OpenStreetMap/Nominatim
+104	cumberland.txt	W'haven	resolved	54.5475312	-3.5908432	town	List abbreviation for Whitehaven; same town centroid as line 103
+105	cumberland.txt	Whitehaven Harbour	resolved	54.5506148	-3.5934455	harbour	OpenStreetMap/Nominatim
+106	cumberland.txt	Whitehaven Marina	resolved	54.5498	-3.5928	marina	Approximate marina basins along inner harbour; harbour geometry dominates OSM search
+107	cumberland.txt	Whitehaven North Shore	resolved	54.5529774	-3.5901666	beach	OpenStreetMap North Shore Car Park / North Shore Road (coastal strip label)
+108	cumberland.txt	Whitehaven South Beach	resolved	54.5406	-3.5950	beach	Old Cumbria Gazetteer grid NX96641841 (South Beach); approximate mid-shore
+109	cumberland.txt	Whitehaven Promenade	resolved	54.5500182	-3.5892223	promenade	OpenStreetMap Millennium Promenade
+110	cumberland.txt	Whitehaven Docks	resolved	54.5478	-3.5920	dock	Approximate quay/dockland frontage (Quay Street / harbour basins); no single OSM docks polygon in search
+111	cumberland.txt	Whitehaven Cliffs	resolved	54.5350	-3.5930	cliff	Approximate south coastal cliff line (Tom Hurd Rock / foreshore area); broad informal label
+112	cumberland.txt	Whitehaven Rum Story	resolved	54.5480781	-3.5886951	attraction	OpenStreetMap The Rum Story (Lowther Street)
+113	cumberland.txt	The Wave Whitehaven	resolved	54.5493704	-3.5922430	leisure	OpenStreetMap The Wave (Duncan Square)
+114	cumberland.txt	Corkickle	resolved	54.5422469	-3.5811475	suburb	OpenStreetMap place=suburb Corkickle (not railway stop hit)
+115	cumberland.txt	Corkickle Marsh	resolved	54.5425	-3.5840	wetland	Approximate low ground by Corkickle toward shore; no named OSM marsh
+116	cumberland.txt	Sandwith	resolved	54.5169315	-3.6013623	village	OpenStreetMap/Nominatim
+117	cumberland.txt	Sandwith Bank	resolved	54.5175	-3.6065	beach	Approximate coastal shingle bank W of Sandwith; no OSM name match
+118	cumberland.txt	Sandwith Marsh	resolved	54.5170	-3.5985	wetland	Approximate marsh behind coastal strip; no named OSM marsh
+119	cumberland.txt	Sandwith Point	resolved	54.5185	-3.6080	headland	Approximate foreshore point W of Sandwith toward sea; no OSM name match
+120	cumberland.txt	Moresby Parks	resolved	54.5600011	-3.5499129	village	OpenStreetMap/Nominatim
+121	cumberland.txt	Moresby Point	resolved	54.5580	-3.5565	headland	Approximate coastal point W of Moresby Parks toward Parton shore; no OSM name match
+122	cumberland.txt	Rottington	resolved	54.5030987	-3.6033450	village	OpenStreetMap/Nominatim (Rottington CA28; not Millom Rottington)
+123	cumberland.txt	Rottington Marsh	resolved	54.5015	-3.6045	wetland	Approximate low marshy ground between Rottington and St Bees shore; no named OSM marsh
+124	cumberland.txt	Rottington Point	resolved	54.4985	-3.6110	headland	Approximate foreshore point S of St Bees Head / Rottington coast; no OSM name match
+125	cumberland.txt	Rottington Beach	resolved	54.4912992	-3.6052134	beach	OpenStreetMap St Bees Beach Car Park (southern St Bees beach / Rottington parish access)
+126	cumberland.txt	Haile	resolved	54.4634926	-3.4928266	village	OpenStreetMap/Nominatim (Haile administrative polygon centroid)
+127	cumberland.txt	Haile Marsh	resolved	54.4650	-3.5000	wetland	Approximate marshy ground near Haile toward coast; no named OSM marsh
+128	cumberland.txt	Haile Quarry	resolved	54.4708	-3.5045	quarry	Approximate Haile Quarry LNR / former quarry land W of Egremont; no single OSM quarry polygon in search
+129	cumberland.txt	Moor Row	resolved	54.5144682	-3.5376888	village	OpenStreetMap/Nominatim
+130	cumberland.txt	Moor Row Marsh	resolved	54.5120	-3.5340	wetland	Approximate wetland N of Moor Row toward River Ehen corridor; no named OSM marsh
+131	cumberland.txt	Moor Row Quarry	resolved	54.5175	-3.5420	quarry	Approximate disused quarry ground W of Moor Row; no OSM name match
+132	cumberland.txt	St Bees	resolved	54.4927129	-3.5908368	village	OpenStreetMap/Nominatim
+133	cumberland.txt	St Bees Bay	resolved	54.4935	-3.6010	bay	Approximate centroid of St Bees bay (main beach to Seamill); informal marine label
+134	cumberland.txt	St Bees Beach	resolved	54.4915935	-3.6003644	beach	OpenStreetMap Beach Road (St Bees main beach)
+135	cumberland.txt	St Bees Head	resolved	54.5003	-3.6143	headland	Approximate centroid of headland between North and South Heads; broad informal label
+136	cumberland.txt	St Bees Head Lighthouse	resolved	54.5136539	-3.6366898	lighthouse	OpenStreetMap St. Bees Lighthouse (North Head)
+137	cumberland.txt	St Bees Promenade	resolved	54.4910430	-3.6074095	promenade	OpenStreetMap St Bees Promenade
+138	cumberland.txt	St Bees Priory	resolved	54.4938751	-3.5935544	church	OpenStreetMap Priory Church of St Mary & St Bega
+139	cumberland.txt	St Bees School	resolved	54.4946268	-3.5914312	school	OpenStreetMap St Bees School
+140	cumberland.txt	St Bees Cliffs	resolved	54.4920	-3.5970	cliff	Approximate mid-cliff line along main St Bees beach section; broad informal label
+141	cumberland.txt	St Bees Village	resolved	54.4927129	-3.5908368	village	OpenStreetMap St Bees (same settlement as line 132; list treats as separate label)
+142	cumberland.txt	North Head St Bees	resolved	54.5136539	-3.6366898	headland	OpenStreetMap St Bees Lighthouse environs (North Head)
+143	cumberland.txt	South Head St Bees	resolved	54.4868	-3.5925	headland	Approximate South Head cliff tip at S end of St Bees Head; no OSM name match
+144	cumberland.txt	Fleswick Bay	resolved	54.5034678	-3.6290592	bay	OpenStreetMap/Nominatim
+145	cumberland.txt	Fleswick Point	resolved	54.5027	-3.6273	headland	Approximate rocky point at S entrance to Fleswick Bay; no OSM name match
+146	cumberland.txt	Seamill	resolved	54.4900	-3.6065	locality	Approximate Seamill Lane / south St Bees beach access (not North Ayrshire Seamill); no OSM place node
+147	cumberland.txt	Seamill Beach	resolved	54.4888	-3.6082	beach	Approximate southern sand/shingle end of St Bees beach (Seamill section)
+148	cumberland.txt	Nethertown	resolved	54.4546670	-3.5598717	village	OpenStreetMap/Nominatim (coastal Nethertown CA22)
+149	cumberland.txt	Nethertown Beach	resolved	54.4558	-3.5535	beach	Approximate shore from beach-guide OS grid NX 9878 0737; no OSM beach polygon name match
+150	cumberland.txt	Nethertown Marsh	resolved	54.4545	-3.5580	wetland	Approximate grassy dunes/marsh behind Nethertown beach; no named OSM marsh
+151	cumberland.txt	Nethertown Point	resolved	54.4532	-3.5445	headland	Approximate rocky foreshore point S of Nethertown toward Braystones; no OSM name match
+152	cumberland.txt	Braystones	resolved	54.4393605	-3.5321783	hamlet	OpenStreetMap/Nominatim (Braystones hamlet, Beckermet)
+153	cumberland.txt	Braystones Beach	resolved	54.4386	-3.5348	beach	Approximate shingle beach by Braystones; no named OSM beach
+154	cumberland.txt	Braystones Point	resolved	54.4408	-3.5420	headland	Approximate headland W of Braystones; no OSM name match
+155	cumberland.txt	Carleton	resolved	54.3789913	-3.4341789	hamlet	Drigg & Carleton Village Hall node; no separate name=Carleton place in OSM (parish cluster)
+156	cumberland.txt	Carleton Beach	resolved	54.3725	-3.4655	beach	Approximate Shore Road / Cumbria Coast MCZ car-park shore; no named OSM beach
+157	cumberland.txt	Carleton Point	resolved	54.3702	-3.4685	headland	Approximate low rocky point S of Carleton shore; no OSM name match
+158	cumberland.txt	Calder Bridge	resolved	54.4403162	-3.4812954	village	OpenStreetMap/Nominatim
+159	cumberland.txt	Calder Bridge Marsh	resolved	54.4445	-3.4760	wetland	Approximate wet ground along River Calder N of Calder Bridge; no named OSM marsh
+160	cumberland.txt	Calder Marsh	resolved	54.4438	-3.4790	wetland	Approximate Calder valley wetland E of Calder Bridge; broad informal label
+161	cumberland.txt	Beckermet	resolved	54.4364407	-3.5166926	village	OpenStreetMap administrative boundary centroid (Beckermet)
+162	cumberland.txt	St Bridget Beckermet	resolved	54.4404219	-3.5202838	church	OpenStreetMap St Bridget's grave yard / chapel environs (Braystones Road)
+163	cumberland.txt	Beckermet Beach	resolved	54.4372	-3.5285	beach	Approximate coastal strip at Braystones/Beckermet; no OSM beach name match
+164	cumberland.txt	Beckermet Point	resolved	54.4348	-3.5375	headland	Approximate low point W of Beckermet toward Sellafield shore; no OSM name match
+165	cumberland.txt	Thornhill	resolved	54.4654150	-3.5263280	village	OpenStreetMap/Nominatim (Thornhill, CA22)
+166	cumberland.txt	Thornhill Beach	resolved	54.4662	-3.5345	beach	Approximate narrow coastal margin W of Thornhill toward Irish Sea; no OSM beach name
+167	cumberland.txt	Thornhill Marsh	resolved	54.4635	-3.5295	wetland	Approximate damp ground between Thornhill and coast; no named OSM marsh
+168	cumberland.txt	Thornhill Point	resolved	54.4680	-3.5380	headland	Approximate minor headland NW toward Haile Marsh; no OSM name match
+169	cumberland.txt	Yottenfews	resolved	54.4330850	-3.4927314	hamlet	OpenStreetMap/Nominatim (Yottenfews, Calder Bridge)
+170	cumberland.txt	Yottenfews Marsh	resolved	54.4320	-3.4885	wetland	Approximate marshy ground by Yottenfews; no named OSM marsh
+171	cumberland.txt	Yottenfews Point	resolved	54.4338	-3.5010	headland	Approximate minor high ground point toward Calder; no OSM name match
+172	cumberland.txt	Holmrook	resolved	54.3835656	-3.4233817	village	OpenStreetMap/Nominatim
+173	cumberland.txt	Holmrook Beach	resolved	54.3858	-3.4345	beach	Approximate coastal strip N of Holmrook toward estuary mouth; no OSM beach name
+174	cumberland.txt	Holmrook Marsh	resolved	54.3875	-3.4180	wetland	Approximate River Irt estuary wet grassland; broad informal label
+175	cumberland.txt	Holmrook Point	resolved	54.3895	-3.4390	headland	Approximate point at Irt mouth / dunes transition; no OSM name match
+176	cumberland.txt	Drigg	resolved	54.3791683	-3.4411892	village	OpenStreetMap/Nominatim (Drigg village node; not railway station)
+177	cumberland.txt	Drigg Beach	resolved	54.3762	-3.4545	beach	Approximate main public shore S of Drigg; no named OSM beach
+178	cumberland.txt	Drigg Marsh	resolved	54.3625	-3.4525	wetland	Approximate damp slack / mire beside Drigg Dunes coast; no single OSM marsh name
+179	cumberland.txt	Drigg Point	resolved	54.3738	-3.4615	headland	Approximate rocky foreland N of Carleton Shore Road; no OSM name match
+180	cumberland.txt	Drigg Sand Dunes	resolved	54.3595502	-3.4469145	dunes	OpenStreetMap natural=heath polygon centroid (Drigg Dunes)
+181	cumberland.txt	Drigg Point Beach	resolved	54.3745	-3.4570	beach	Approximate beach at Drigg Point foreshore; no OSM name match
+182	cumberland.txt	Seascale	resolved	54.3987161	-3.4779802	village	OpenStreetMap/Nominatim (place=village node; not railway station)
+183	cumberland.txt	Seascale Beach	resolved	54.4005	-3.4820	beach	Approximate main seafront shingle N of centre; no named OSM beach
+184	cumberland.txt	Seascale Marsh	resolved	54.4015	-3.4725	wetland	Approximate damp grazing behind north beach; no single OSM marsh name
+185	cumberland.txt	Seascale Point	resolved	54.4038	-3.4890	headland	Approximate minor headland N along shore toward Sellafield; no OSM name match
+186	cumberland.txt	Seascale North Beach	resolved	54.4042	-3.4860	beach	Approximate north end of Seascale frontage; no named OSM beach
+187	cumberland.txt	Seascale South Beach	resolved	54.3968	-3.4810	beach	Approximate south end of Seascale frontage toward Drigg; no named OSM beach
+188	cumberland.txt	Seascale Promenade	resolved	54.3995	-3.4835	attraction	Approximate seafront promenade strip; no dedicated OSM POI name
+189	cumberland.txt	Sellafield	resolved	54.4174208	-3.5022716	industrial	OpenStreetMap landuse=industrial (Sellafield nuclear reprocessing plant polygon)
+190	cumberland.txt	Sellafield Beach	resolved	54.4145	-3.5080	beach	Approximate public shore S of site toward Irish Sea; no named OSM beach
+191	cumberland.txt	Sellafield Marsh	resolved	54.4120	-3.5065	wetland	Approximate coastal marshy margin beside site fence-line; no OSM marsh name
+192	cumberland.txt	Sellafield Point	resolved	54.4185	-3.5070	headland	Approximate rocky foreland N of plant outfall area; no OSM name match
+193	cumberland.txt	Sellafield North Beach	resolved	54.4195	-3.4980	beach	Approximate shore N toward Seascale; no named OSM beach
+194	cumberland.txt	Sellafield South Beach	resolved	54.4125	-3.5120	beach	Approximate shore S toward Calder estuary; no named OSM beach
+195	cumberland.txt	Eskmeals	resolved	54.3426496	-3.4141326	locality	OpenStreetMap natural=heath polygon centroid (Eskmeals Dunes); no separate hamlet place node in Nominatim
+196	cumberland.txt	Eskmeals Beach	resolved	54.3355	-3.4055	beach	Approximate shore by Eskmeals Viaduct / dunes; no named OSM beach
+197	cumberland.txt	Eskmeals Marsh	resolved	54.3310	-3.4130	wetland	Approximate slack / mire between dunes and A595 corridor; no OSM marsh name
+198	cumberland.txt	Eskmeals Point	resolved	54.3320	-3.3985	headland	Approximate minor coastal point toward estuary; no OSM name match
+199	cumberland.txt	Eskmeals Nature Reserve	resolved	54.3430	-3.4180	nature_reserve	Approximate centroid of Eskmeals Dunes SSSI mosaic; no single OSM reserve POI name
+200	cumberland.txt	Eskmeals North Beach	resolved	54.3460	-3.4110	beach	Approximate north shingle front of Eskmeals dunes; no named OSM beach
+201	cumberland.txt	Eskmeals South Beach	resolved	54.3330	-3.4200	beach	Approximate south shingle toward Ravenglass; no named OSM beach
+202	cumberland.txt	Ravenglass	resolved	54.3539158	-3.4101663	village	OpenStreetMap/Nominatim (place=village node)
+203	cumberland.txt	Ravenglass Estuary	resolved	54.3570	-3.4075	estuary	Approximate tidal River Irt basin / mouth W of village; no OSM “estuary” name hit
+204	cumberland.txt	Ravenglass Harbour	resolved	54.3553	-3.4097	harbour	Approximate small-boat quay on village waterfront; no OSM harbour name match
+205	cumberland.txt	Ravenglass Marsh	resolved	54.3520	-3.4045	wetland	Approximate saltmarsh / wet grass by estuary margin; no OSM marsh name
+206	cumberland.txt	Ravenglass North Beach	resolved	54.3575	-3.4125	beach	Approximate shingle N of estuary mouth; no named OSM beach
+207	cumberland.txt	Ravenglass South Beach	resolved	54.3510	-3.4150	beach	Approximate shore S along line toward railway; no named OSM beach
+208	cumberland.txt	Ravenglass Roman Bath House	resolved	54.3507559	-3.4040934	attraction	OpenStreetMap/Nominatim (historic=archaeological_site)
+209	cumberland.txt	Ravenglass Station	resolved	54.3556605	-3.4088794	railway	OpenStreetMap/Nominatim (standard Network Rail station node)
+210	cumberland.txt	Muncaster	resolved	54.3590424	-3.3579268	village	OpenStreetMap/Nominatim (Muncaster civil parish administrative polygon centroid)
+211	cumberland.txt	Muncaster Castle	resolved	54.3546391	-3.3807014	attraction	OpenStreetMap/Nominatim (building Muncaster Castle)
+212	cumberland.txt	Muncaster Beach	resolved	54.3580	-3.3920	beach	Approximate shingle foreshore W of Ravenglass estuary below Muncaster; no named OSM beach
+213	cumberland.txt	Waberthwaite	resolved	54.3287465	-3.3775389	village	OpenStreetMap/Nominatim (place=village node)
+214	cumberland.txt	Waberthwaite Marsh	resolved	54.3240	-3.3840	wetland	Approximate coastal grazing marsh / slack N of River Irt; no OSM marsh name
+215	cumberland.txt	Waberthwaite Beach	resolved	54.3310	-3.3910	beach	Approximate shore toward Irish Sea S of hamlet; no named OSM beach
+216	cumberland.txt	Whicham	resolved	54.2309502	-3.3333687	village	OpenStreetMap/Nominatim (place=village node)
+217	cumberland.txt	Whicham Marsh	resolved	54.2240	-3.3380	wetland	Approximate low wet ground by Whicham Beck toward coast; no OSM marsh name
+218	cumberland.txt	Whicham Beach	resolved	54.2160	-3.3510	beach	Approximate Silecroft/Whicham shingle front; Nominatim only returned beach car park POI
+219	cumberland.txt	Whicham Valley	resolved	54.2461292	-3.2993294	valley	OpenStreetMap/Nominatim (natural=valley named Whicham Valley)
+220	cumberland.txt	Broad Oak	resolved	54.3389403	-3.3637373	hamlet	OpenStreetMap/Nominatim (Broad Oak, Waberthwaite, CA18)
+221	cumberland.txt	Broad Oak Marsh	resolved	54.3345	-3.3680	wetland	Approximate marshy ground E of hamlet toward River Esk; no OSM name
+222	cumberland.txt	Broad Oak Beach	resolved	54.3410	-3.3720	beach	Approximate Esk estuary shore by Broad Oak; no named OSM beach
+223	cumberland.txt	Haverigg	resolved	54.1970806	-3.2882199	village	OpenStreetMap/Nominatim (place=village node)
+224	cumberland.txt	Haverigg Beach	resolved	54.1952323	-3.2885977	beach	OpenStreetMap way tagged name=Haverigg Beach (amenity=toilets node on seafront)
+225	cumberland.txt	Haverigg Marsh	resolved	54.2005	-3.2815	wetland	Approximate wet pasture / inner Duddon margin N of village; no OSM marsh name
+226	cumberland.txt	Haverigg Point	resolved	54.1905	-3.2760	headland	Approximate outer harbour / barrier head; no OSM name match
+227	cumberland.txt	Haverigg Dunes	resolved	54.1985	-3.2865	dune	Approximate foredune belt behind Haverigg beach; no OSM dune name
+228	cumberland.txt	Haverigg Marina	resolved	54.1960	-3.2875	harbour	Approximate small-boat basin by sea wall; no OSM marina name
+229	cumberland.txt	Haverigg Slag Bank	resolved	54.1885	-3.2795	coast	Approximate colliery slag shoreline S toward Whicham; no OSM name
+230	cumberland.txt	Hodbarrow	resolved	54.1956473	-3.2691611	lagoon	OpenStreetMap relation Hodbarrow lagoon (former ironworks reservoir / RSPB mosaic)
+231	cumberland.txt	Hodbarrow Point	resolved	54.1918895	-3.2542261	headland	OpenStreetMap/Nominatim (natural=point)
+232	cumberland.txt	Hodbarrow Lagoon	resolved	54.1956473	-3.2691611	lagoon	Same water body as Hodbarrow lagoon relation; batch search had no RSPB string hit
+233	cumberland.txt	Millom	resolved	54.2097279	-3.2702948	town	OpenStreetMap/Nominatim (Millom administrative boundary centroid)
+234	cumberland.txt	Millom Beach	resolved	54.2095	-3.2710	beach	Approximate sand/shingle by seawall near town centre; distinct from Haverigg beach to S
+235	cumberland.txt	Millom Marsh	resolved	54.2110	-3.2660	wetland	Approximate grazing marsh N of town by Duddon estuary; Marsh Bridge hit is unrelated highway
+236	cumberland.txt	Millom Pool	resolved	54.2055410	-3.2996098	river	OpenStreetMap waterway=river named Haverigg Pool (tidal basin W of town; local “pool” usage)
+237	cumberland.txt	Millom Promenade	resolved	54.2115	-3.2725	promenade	Approximate short seafront walk by seawall; no OSM name
+238	cumberland.txt	Millom Castle	resolved	54.2210330	-3.2723658	castle	OpenStreetMap/Nominatim (building Millom Castle)
+239	cumberland.txt	Millom North Beach	resolved	54.2060	-3.2640	beach	Approximate shore N toward Hodbarrow lagoon entrance; no named OSM beach
+240	cumberland.txt	Millom South Beach	resolved	54.1965	-3.2875	beach	Approximate shore S toward Haverigg; no named OSM beach
+241	cumberland.txt	Millom Ironworks	resolved	54.1940944	-3.2582701	historic	Hodbarrow outer barrier / ironworks coastal works; OSM Hodbarrow Lighthouse node (distinct from lagoon relation rows)
+242	cumberland.txt	The Hill	resolved	54.2401029	-3.2596930	hamlet	OSM address cluster (Barn Owls, Millom Without); hamlet name matches Royal Mail usage
+243	cumberland.txt	The Hill Beach	resolved	54.2420	-3.2720	beach	Approximate Irish Sea shingle W of The Hill hamlet; no named OSM beach
+244	cumberland.txt	The Hill Marsh	resolved	54.2385	-3.2570	wetland	Approximate coastal grazing marsh E of hamlet toward A595 corridor; no OSM marsh name
+245	cumberland.txt	Kirksanton	resolved	54.2159033	-3.3230939	village	OpenStreetMap/Nominatim
+246	cumberland.txt	Kirksanton Beach	resolved	54.2175	-3.3320	beach	Approximate shore W of village; no dedicated OSM beach name
+247	cumberland.txt	Kirksanton Marsh	resolved	54.2140	-3.3190	wetland	Approximate wet ground between village and shore; no OSM marsh name
+248	cumberland.txt	Kirksanton Point	resolved	54.2195	-3.3380	headland	Approximate rocky foreshore NW toward Irish Sea; no OSM name= match
+249	cumberland.txt	Silecroft	resolved	54.2260891	-3.3346818	village	OpenStreetMap/Nominatim (Whicham parish)
+250	cumberland.txt	Silecroft Beach	resolved	54.2185253	-3.3498744	beach	OSM Silecroft Beach Car Park pin on Seldom Seen Lane (seafront access)
+251	cumberland.txt	Silecroft Marsh	resolved	54.2220	-3.3320	wetland	Approximate marshy coastal plain behind dunes; no OSM marsh name
+252	cumberland.txt	Silecroft Dunes	resolved	54.2195	-3.3475	dune	Approximate foredune belt behind main beach; no OSM dune polygon name
+253	cumberland.txt	Silecroft North Beach	resolved	54.2240	-3.3440	beach	Approximate shore N of car-park access; no named OSM beach
+254	cumberland.txt	Silecroft South Beach	resolved	54.2165	-3.3510	beach	Approximate shore S toward Annaside; no named OSM beach
+255	cumberland.txt	Annaside	resolved	54.2673743	-3.3977510	hamlet	OpenStreetMap/Nominatim (Bootle parish, Cumberland)
+256	cumberland.txt	Annaside Beach	resolved	54.2695	-3.4040	beach	Approximate shingle toward Irish Sea N of hamlet; no named OSM beach
+257	cumberland.txt	Annaside Marsh	resolved	54.2655	-3.3940	wetland	Approximate coastal marsh behind shingle; no OSM marsh name
+258	cumberland.txt	Annaside North Beach	resolved	54.2710	-3.4010	beach	Approximate shore N toward Bootle Bay; no named OSM beach
+259	cumberland.txt	Annaside South Beach	resolved	54.2638	-3.4025	beach	Approximate shore S toward River Annas; no named OSM beach
+260	cumberland.txt	Annaside Bank	resolved	54.2675	-3.3995	coast	Approximate shingle bank / storm ridge along this front; no OSM name
+261	cumberland.txt	Bootle	resolved	54.3070199	-3.4087001	village	OpenStreetMap/Nominatim (Cumberland; not Merseyside Bootle)
+262	cumberland.txt	Bootle Beach	resolved	54.3095	-3.4130	beach	Approximate Irish Sea shore N/NE of village; no named OSM beach
+263	cumberland.txt	Bootle Marsh	resolved	54.3035	-3.4035	wetland	Approximate wet pasture by Irt / coastal margin S of village; no OSM marsh name
+264	cumberland.txt	Bootle Bay	resolved	54.3110	-3.4180	bay	Approximate open bay mouth N of Annaside / Bootle front; informal marine label
+265	cumberland.txt	Bootle North Beach	resolved	54.3135	-3.4160	beach	Approximate shore toward Ravenglass direction; no named OSM beach
+266	cumberland.txt	Bootle South Beach	resolved	54.3010	-3.4110	beach	Approximate shore S toward Hycemoor / station; no named OSM beach
+267	cumberland.txt	Bootle Station	resolved	54.2911815	-3.3938356	station	OpenStreetMap railway=station node Bootle (Cumbrian Coast Line request stop)
+268	cumberland.txt	Black Combe	resolved	54.25693	-3.3293	peak	Wikipedia infobox coordinates (600 m Marilyn / Wainwright outlying fell)
+269	cumberland.txt	Black Combe View	resolved	54.2480	-3.3180	viewpoint	Approximate lower S flanks / Whicham approaches with coastal panorama; no OSM POI
+270	cumberland.txt	Solway Coast	ambiguous			coast	Wide informal label for Solway shoreline / protected coast; pinning a single centroid would mislead locally

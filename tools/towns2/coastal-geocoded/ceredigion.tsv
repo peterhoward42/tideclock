@@ -1,0 +1,116 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	ceredigion.txt	Poppit Sands	resolved	52.107	-4.696	beach	Sandy beach at Teifi estuary (Pembrokeshire side); usual visitor pin.
+2	ceredigion.txt	Gwbert	resolved	52.086642	-4.665108	village	Coastal hamlet on east shore of Teifi estuary.
+3	ceredigion.txt	Gwbert-on-Sea	resolved	52.086642	-4.665108	village	Common English label for the same Gwbert settlement.
+4	ceredigion.txt	Patch	resolved	52.0921	-4.6683	beach	“The Patch” estuary beach at Gwbert (coast path); OS grid ~SN16364856.
+5	ceredigion.txt	Patch Beach	resolved	52.0921	-4.6683	beach	Same Patch foreshore as line 4.
+6	ceredigion.txt	Cardigan	resolved	52.08417	-4.65792	town	Town centre (Aberteifi).
+7	ceredigion.txt	Aberteifi	resolved	52.08417	-4.65792	town	Welsh name for Cardigan; same community centroid.
+8	ceredigion.txt	Cardigan Harbour	resolved	52.0812	-4.6595	harbour	Tidal harbour / river mouth area south of town centre.
+9	ceredigion.txt	Cardigan Quay	resolved	52.0825	-4.6608	quay	Quayside on Afon Teifi in Cardigan.
+10	ceredigion.txt	Cardigan Island	resolved	52.133331	-4.683333	island	Ynys Aberteifi in Teifi estuary.
+11	ceredigion.txt	Cemaes Head	resolved	52.11477	-4.72947	headland	Pen Cemaes; Pembrokeshire headland at Teifi mouth (coastal context).
+12	ceredigion.txt	Mwnt	resolved	52.13834	-4.63434	village	Coastal parish / NT beach car park area.
+13	ceredigion.txt	Traeth y Mwnt	resolved	52.13834	-4.63434	beach	Sheltered bay beach below Foel y Mwnt.
+14	ceredigion.txt	Foel y Mwnt	resolved	52.1372	-4.6338	headland	Conical hill above Traeth y Mwnt (summit ~SN193520).
+15	ceredigion.txt	Aberporth	resolved	52.133398	-4.543686	village	Seaside village centroid.
+16	ceredigion.txt	Aberporth West Beach	resolved	52.132	-4.556	beach	Western sandy beach of Aberporth bay.
+17	ceredigion.txt	Aberporth East Beach	resolved	52.1345	-4.531	beach	Eastern sandy beach of Aberporth bay.
+18	ceredigion.txt	Dolwen Beach	resolved	52.131	-4.539	beach	Traeth Dolwen (southern bay beach).
+19	ceredigion.txt	Dyffryn Beach	resolved	52.1348	-4.545	beach	Traeth y Dyffryn (“Dyffryn” / ships beach area).
+20	ceredigion.txt	Tan-y-groes	resolved	52.115945	-4.505632	hamlet	On A487 in Penbryn community; inland of coast but listed for tide context.
+21	ceredigion.txt	Tresaith	resolved	52.13406	-4.5145	village	Coastal village centroid.
+22	ceredigion.txt	Tresaith Beach	resolved	52.1345	-4.515	beach	Main sandy bay beach.
+23	ceredigion.txt	Tresaith Waterfall	resolved	52.136577	-4.515661	waterfall	Afon Saith falls onto beach (Gwalia Falls).
+24	ceredigion.txt	Gilfach yr Halen	resolved	52.22806	-4.29194	beach	Named shingle cove by Afon Cwinten (SN435613); list order differs from map order.
+25	ceredigion.txt	Penbryn	resolved	52.13988	-4.49436	village	Community village near Hoffnant mouth.
+26	ceredigion.txt	Traeth Penbryn	resolved	52.140841	-4.491494	beach	Long sandy NT beach; car park access ~SN296521.
+27	ceredigion.txt	National Trust Penbryn	resolved	52.140841	-4.491494	beach	NT-managed Traeth Penbryn.
+28	ceredigion.txt	Llangrannog	resolved	52.1587	-4.4631	village	Standard spelling; village centroid.
+29	ceredigion.txt	Llangranog	resolved	52.1587	-4.4631	village	Common alternate spelling of Llangrannog (same place).
+30	ceredigion.txt	Llangrannog Beach	resolved	52.1596	-4.4712	beach	Main village beach SN310542 area.
+31	ceredigion.txt	Cilborth	resolved	52.161	-4.471	cove	Hidden cove N of Llangrannog; aligns with Visit Wales / beach-guide pins for Cilborth.
+32	ceredigion.txt	Cilborth Beach	resolved	52.161	-4.471	beach	Same foreshore as Cilborth (steps or low-tide walk from main beach).
+33	ceredigion.txt	Church Cove	ambiguous			beach	Informal label; several small north-of-Llangrannog coves lack one standard mapped name.
+34	ceredigion.txt	Carreg Bica	resolved	52.1614	-4.4717	rock stack	Geograph SN310543; iconic stack between Llangrannog and Cilborth beaches.
+35	ceredigion.txt	Ynys Lochtyn	resolved	52.1731	-4.4661	tidal island	Wikidata/Wikipedia; tidal islet off Lochtyn peninsula N of Llangrannog.
+36	ceredigion.txt	Sarnau	resolved	52.1303	-4.4667	hamlet	Wikidata hamlet SN312508; inland of coast path but list coastal context.
+37	ceredigion.txt	Cwmtydu	resolved	52.1913	-4.4066	village	Secluded cove settlement; listwales / coast path references.
+38	ceredigion.txt	Cwmtydu Cove	resolved	52.1913	-4.4066	cove	Same smugglers cove beach as Cwmtydu village.
+39	ceredigion.txt	Horeb	ambiguous			hamlet	Only clear Ceredigion Horeb in directories is inland (SA44 near Llandysul); list order is coastal.
+40	ceredigion.txt	New Quay	resolved	52.214	-4.36	town	Wikipedia centroid; Ceinewydd harbour resort.
+41	ceredigion.txt	Ceinewydd	resolved	52.214	-4.36	town	Standardised Welsh name for New Quay; same settlement.
+42	ceredigion.txt	New Quay Harbour	resolved	52.2153	-4.358	harbour	Harbour basin and quays in town centre.
+43	ceredigion.txt	New Quay Harbour Beach	resolved	52.2132	-4.3572	beach	Visit Wales third-party pin; sandy harbour beach inside walls.
+44	ceredigion.txt	Harbour Beach	resolved	52.2132	-4.3572	beach	Local synonym for New Quay harbour beach (same shore as line 43).
+45	ceredigion.txt	Traethgwyn	resolved	52.2102	-4.3471	beach	Traeth Gwyn eastern bay beach (Beaches On The Air / beach guide).
+46	ceredigion.txt	Dolau Beach	resolved	52.216	-4.3585	beach	Geograph Traeth y Dolau subject SN38976015 WGS84.
+47	ceredigion.txt	Llanina	resolved	52.2167	-4.3583	beach	Llanina bay beach near New Quay (UK Beach Guide grid SN40645992).
+48	ceredigion.txt	Nanternis	resolved	52.191	-4.356	locality	Locality in New Quay hinterland near Cross Inn cluster; approximate centroid.
+49	ceredigion.txt	Bird Rock	resolved	52.2146	-4.3772	headland	Craig yr Adar clifftop/coast path viewpoint; waymark N52 12.876 W004 22.633.
+50	ceredigion.txt	Carreg Prydain	not_found			rock	No unambiguous coastal feature by this name found for New Quay area in sources used.
+51	ceredigion.txt	Cross Inn	resolved	52.1888	-4.3575	village	OS Open Names style centre; A487 south of New Quay.
+52	ceredigion.txt	Llwyncelyn	resolved	52.2126	-4.2831	village	Wikipedia Llwyncelyn; A487 village NE of Aberaeron (Gilfach yr Halen coast nearby).
+53	ceredigion.txt	Ciliau Aeron	resolved	52.2069	-4.1966	village	GeoHack/Wikipedia; Afon Aeron valley village inland of Aberaeron.
+54	ceredigion.txt	Aberaeron	resolved	52.242	-4.2592	town	Wikipedia town centroid; Regency harbour town.
+55	ceredigion.txt	Aberaeron Harbour	resolved	52.2412	-4.2588	harbour	Tidal harbour and quays at Afon Aeron mouth.
+56	ceredigion.txt	Aberaeron South Beach	resolved	52.24	-4.258	beach	Shingle beach immediately S of harbour (Blue Flag history).
+57	ceredigion.txt	Aberaeron North Beach	resolved	52.2464	-4.2611	beach	UK Beach Guide SN46326358; N of harbour groynes.
+58	ceredigion.txt	Llanon	resolved	52.2825	-4.179	village	Wikipedia; coastal village adjoining Llansantffraed on Cardigan Bay.
+59	ceredigion.txt	Llansantffraed	resolved	52.283	-4.177	parish	Adjoins Llanon on coast; parish strip / foreshore context (approximate shared bay area).
+60	ceredigion.txt	Pennant	resolved	52.252	-4.208	village	Village E of Aberarth in Dyffryn Arth community; approximate centre (no WP coords).
+61	ceredigion.txt	Aberarth	resolved	52.248468	-4.23528	village	Wikipedia/GeoHack village centroid at Afon Arth mouth.
+62	ceredigion.txt	Aberarth Beach	resolved	52.2483	-4.2355	beach	Main shingle/sand beach at Aberarth (same settlement foreshore as village).
+63	ceredigion.txt	Llanrhystud	resolved	52.305883	-4.145757	village	Wikipedia/GeoHack seaside village centroid on A487.
+64	ceredigion.txt	Llanrhystud Beach	resolved	52.3061	-4.1448	beach	Main village beach on Cardigan Bay (Cofiwch Dryweryn stretch nearby on A487).
+65	ceredigion.txt	Morfa Llanrhystud	resolved	52.312	-4.138	marsh	Intertidal saltmarsh / coastal grazing morfa N of the village beach; approximate mid-morfa pin.
+66	ceredigion.txt	Tan-y-bwlch	resolved	52.40417	-4.08972	beach	Hyphenated spelling of Tanybwlch; shingle beach S of town by Penparcau (British Beaches midpoint).
+67	ceredigion.txt	Penparcau	resolved	52.400862	-4.071998	village	Wikipedia ward/village centroid S of Aberystwyth.
+68	ceredigion.txt	Aberystwyth	resolved	52.413611	-4.081111	town	Wikipedia town centroid (52°24′49″N 4°04′52″W); Regency/university seaside town.
+69	ceredigion.txt	Aberystwyth South Beach	resolved	52.4132	-4.0888	beach	Wide sand/shingle South Beach S of castle headland (RNLI summer patrol area).
+70	ceredigion.txt	Aberystwyth North Beach	resolved	52.417	-4.0823	beach	Traeth y Gogledd; UK Beach Guide SN58318202 centroid area.
+71	ceredigion.txt	Aberystwyth Harbour	resolved	52.4068	-4.0885	harbour	Tidal harbour entrance / basin between piers (Geograph SN5881/SN5780 cluster).
+72	ceredigion.txt	Aberystwyth Pier	resolved	52.4159	-4.0878	pier	Royal Pier seaward end / pavilion area (Wikipedia coords).
+73	ceredigion.txt	South Marine Terrace Beach	resolved	52.4141	-4.0886	beach	South prom section opposite South Marine Terrace (south bay foreshore).
+74	ceredigion.txt	Tanybwlch	resolved	52.40417	-4.08972	beach	Same shingle bank/lagoon as line 66; British Beaches midpoint SY23 1BU area.
+75	ceredigion.txt	Tanybwlch Beach	resolved	52.40417	-4.08972	beach	Same foreshore as Tanybwlch (Penparcau side of nature reserve).
+76	ceredigion.txt	Constitution Hill	resolved	52.425	-4.083	hill	Summit / pleasure grounds (Wikipedia Craig-glais); cliff railway top.
+77	ceredigion.txt	Craig-y-Don	ambiguous			headland	Name in gazetteers is Llandudno suburb / Little Orme crag; no clear separate Aberystwyth feature with this label in sources used.
+78	ceredigion.txt	Castle Point	resolved	52.41324	-4.08968	headland	Promontory at SW seafront by Aberystwyth Castle (Wikipedia castle coords; coast path steps area).
+79	ceredigion.txt	Pen Dinas	resolved	52.4016	-4.0822	hillfort	Wellington Monument / Iron Age fort summit area (Wikipedia Pen Dinas).
+80	ceredigion.txt	Ynys Bîch	not_found			island	No indexed coastal islet/rock by this exact name near Aberystwyth in sources used (cf. Ynys y Bîg is Anglesey).
+81	ceredigion.txt	Clarach	resolved	52.436	-4.079	village	Coastal settlement at Clarach Bay (Wikipedia bay coords; holiday village mouth).
+82	ceredigion.txt	Clarach Bay	resolved	52.436	-4.079	bay	Afon Clarach mouth bay N of Aberystwyth (Wikipedia).
+83	ceredigion.txt	Clarach Beach	resolved	52.4366	-4.0789	beach	UK Beach Guide SN58688366 main bay beach.
+84	ceredigion.txt	Wallog	resolved	52.455	-4.074	beach	Remote shingle beach N of Clarach; Wikipedia place coords (Sarn Cynfelyn).
+85	ceredigion.txt	Wallog Beach	resolved	52.4552	-4.074	beach	UK Beach Guide SN58938573 midpoint (same shore as Wallog).
+86	ceredigion.txt	Wallog Bay	resolved	52.455	-4.074	bay	Sheltered bay containing Wallog beach and Sarn Cynfelyn spit.
+87	ceredigion.txt	Bow Street	resolved	52.441944	-4.028611	village	Wikipedia Tirymynach community village on A487 (inland of coast; list context).
+88	ceredigion.txt	Borth	resolved	52.488889	-4.050278	town	Wikipedia coastal town centroid at Dyfi mouth.
+89	ceredigion.txt	Y Borth	resolved	52.488889	-4.050278	town	Welsh name for Borth; same settlement centroid.
+90	ceredigion.txt	Borth Beach	resolved	52.4892	-4.0505	beach	Main sandy beach along Borth frontage (town seafront).
+91	ceredigion.txt	Borth Sands	resolved	52.492	-4.051	beach	Southern sandy foreshore toward Morfa Borth (OS Maps / visitor pin along main bay).
+92	ceredigion.txt	Borth Sand Dunes	resolved	52.502	-4.052	dunes	Coastal dune strip along the Borth–Ynyslas neck (Dyfi NNR edge).
+93	ceredigion.txt	Morfa Borth	resolved	52.49306	-4.05139	village	Morfa Borth settlement / reclaimed shore (Wikipedia coords).
+94	ceredigion.txt	Ynyslas	resolved	52.53	-4.055	village	Ynyslas village area (Wikipedia OS grid SN608894 centroid).
+95	ceredigion.txt	Ynyslas Beach	resolved	52.525	-4.057	beach	Estuary-side beach / foreshore by the dunes (NRW visitor access area).
+96	ceredigion.txt	Ynyslas Dunes	resolved	52.525	-4.057	dunes	Ynyslas sand-dune system (GeoHack / latitude.to dune landmark).
+97	ceredigion.txt	Ynyslas National Nature Reserve	resolved	52.52638	-4.05476	nature_reserve	Ynyslas visitor hub / car park (NRW; part of Dyfi NNR).
+98	ceredigion.txt	Dyfi National Nature Reserve	resolved	52.5269	-4.0514	nature_reserve	Whole-reserve infobox coords (Ynyslas dunes + estuary + Cors Fochno unit).
+99	ceredigion.txt	Cors Fochno	resolved	52.503	-4.015	bog	Raised mire core of Dyfi NNR (Wikipedia Cors Fochno coords).
+100	ceredigion.txt	Morfa Dyfi	resolved	52.515	-4.035	saltmarsh	Representative mid-estuary saltmarsh / intertidal morfa (Dyfi mudflats belt).
+101	ceredigion.txt	Afon Leri	resolved	52.5199	-4.040404	river	Lowermost indexed point on river article (Cwm Eleri; context: tidal cut toward Ynyslas).
+102	ceredigion.txt	River Leri Mouth	resolved	52.518	-4.039	estuary	Approximate tidal mouth into Dyfi by Ynyslas (Pont Aber Leri / cut area).
+103	ceredigion.txt	Glandyfi	resolved	52.5605	-3.92422	hamlet	Hamlet on north shore of Dyfi (Wikipedia coords).
+104	ceredigion.txt	Derwenlas	resolved	52.57517	-3.88493	hamlet	Historic Dyfi quayside hamlet on A487 (Powys bank; list uses Dyfi coastal context).
+105	ceredigion.txt	Ynys-hir	resolved	52.54672	-3.94516	nature_reserve	RSPB reserve / Ynys-hir estate area (Wikipedia coords).
+106	ceredigion.txt	RSPB Ynys-hir	resolved	52.54672	-3.94516	nature_reserve	Same visitor focal area as Ynys-hir reserve (Wikipedia).
+107	ceredigion.txt	Pisgah	resolved	52.381213	-3.946741	hamlet	Pisgah hamlet, Melindwr community (Wikipedia; list not strictly ordered N–S).
+108	ceredigion.txt	Teifi Estuary	ambiguous			estuary	Very large tidal system (Cardigan–hinterland); no single shoreline centroid.
+109	ceredigion.txt	Traeth Aberporth	resolved	52.1335	-4.5437	beach	Main Aberporth bay beach (village seafront; aligns with Aberporth rows).
+110	ceredigion.txt	Traeth Llangrannog	resolved	52.1587	-4.4631	beach	Main Llangrannog sandy beach (village bay).
+111	ceredigion.txt	Aberaeron Beach	resolved	52.242	-4.259	beach	Town beaches/harbour foreshore (often used collectively; Aberaeron centroid area).
+112	ceredigion.txt	New Quay Beach	resolved	52.214	-4.36	beach	Main resort bay beaches by New Quay harbour (town wiki coords).
+113	ceredigion.txt	Cardigan Harbor	resolved	52.0812	-4.6595	harbour	US spelling; same tidal harbour as “Cardigan Harbour” (prior row context).
+114	ceredigion.txt	Clarach Cove	resolved	52.4366	-4.0789	cove	Small cove in Clarach Bay by Aberystwyth (same bay system as Clarach rows).
+115	ceredigion.txt	Borth harbour	resolved	52.484697	-4.051355	harbour	Tidal harbour / RNLI frontage area (GeoHack Borth article coords).

@@ -1,0 +1,184 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	bridgend.txt	Kenfig	resolved	51.5153	-3.7272	village	
+2	bridgend.txt	Kenfig Burrows	resolved	51.5225	-3.7335	dunes	Kenfig NNR dune system inland of beach
+3	bridgend.txt	Kenfig National Nature Reserve	resolved	51.5194	-3.7362	nature_reserve	Centred on Kenfig Pool / NNR core
+4	bridgend.txt	Kenfig NNR	resolved	51.5194	-3.7362	nature_reserve	Same site as Kenfig National Nature Reserve
+5	bridgend.txt	Kenfig Sands	resolved	51.4980	-3.7450	beach	Sandy shore south of dunes toward Sker
+6	bridgend.txt	Kenfig Sands Beach	resolved	51.4975	-3.7455	beach	
+7	bridgend.txt	Kenfig beach	resolved	51.5010	-3.7480	beach	Burrows/naturist beach sector of Kenfig Sands
+8	bridgend.txt	Kenfig dune coast	resolved	51.5205	-3.7340	dunes	Coastal dune front NNR
+9	bridgend.txt	Kenfig dunes shore	resolved	51.5065	-3.7465	shore	Dune foot meeting shore toward Sker
+10	bridgend.txt	Candleston	resolved	51.4829	-3.6269	settlement	Candleston Castle / hamlet, Merthyr Mawr Warren edge
+11	bridgend.txt	Candleston Burrows	resolved	51.4813	-3.6386	dunes	Merthyr Mawr Warren dunes
+12	bridgend.txt	Sker	resolved	51.5074	-3.7177	locality	Sker House historic area
+13	bridgend.txt	Sker Beach	resolved	51.5005	-3.7475	beach	Sandy sector north of Sker Point
+14	bridgend.txt	Sker Point	resolved	51.50225	-3.750446	headland	
+15	bridgend.txt	Sker House	resolved	51.5074	-3.7177	house	Grade I listed manor
+16	bridgend.txt	Sker rocks	resolved	51.5020	-3.7495	rocks	Conglomerate foreshore near Sker Point
+17	bridgend.txt	Maudlam	resolved	51.52317	-3.71996	village	St Mary Magdalene church area
+18	bridgend.txt	Boatside	not_found				No published map feature under this name in Bridgend gazetteers
+19	bridgend.txt	North Kenfig	resolved	51.5205	-3.7220	locality	Informal north Kenfig ribbon toward Maudlam
+20	bridgend.txt	Kenfig coast path shore	resolved	51.5080	-3.7470	coastal_path	Wales Coast Path along Kenfig dunes shore
+21	bridgend.txt	Pink Bay	resolved	51.498901	-3.737626	beach	
+22	bridgend.txt	Pink Bay Porthcawl	resolved	51.498901	-3.737626	beach	
+23	bridgend.txt	Pink Bay sands	resolved	51.4985	-3.7378	beach	
+24	bridgend.txt	Hutchwns Point	resolved	51.4897	-3.7184	headland	Rocky point Mallard Way / Coney Beach end; CF36 3HS area
+25	bridgend.txt	Rest Bay	resolved	51.4890	-3.7280	bay	
+26	bridgend.txt	Rest Bay beach	resolved	51.48766	-3.72604	beach	Visit Wales centre sample point
+27	bridgend.txt	Rest Bay Porthcawl	resolved	51.4890	-3.7280	bay	
+28	bridgend.txt	Rest Bay sands	resolved	51.4885	-3.7275	beach	
+29	bridgend.txt	Rest Bay surf	resolved	51.4880	-3.7270	beach	Surfing zone on Rest Bay
+30	bridgend.txt	Rest Bay surfing	resolved	51.4880	-3.7270	beach	
+31	bridgend.txt	Rest Bay kitesurfing	resolved	51.4880	-3.7270	beach	Kitesurfing zone on Rest Bay
+32	bridgend.txt	Rest Bay promenade	resolved	51.4885	-3.7255	promenade	Promenade and car-park strip behind Rest Bay
+33	bridgend.txt	Rest Bay seafront	resolved	51.4882	-3.7265	seafront	
+34	bridgend.txt	Royal Porthcawl Golf Club coast	resolved	51.4917	-3.7258	golf_links	Seaside links on Bristol Channel north of Rest Bay
+35	bridgend.txt	Royal Porthcawl Golf Club shore	resolved	51.4917	-3.7258	golf_links	
+36	bridgend.txt	Rest Bay Watersports Centre	resolved	51.48766	-3.72604	watersports_centre	CF36 3UP; Visit Wales / Rest Bay beach locator
+37	bridgend.txt	Rest Bay Watersports	resolved	51.48766	-3.72604	watersports	Same site as watersports centre
+38	bridgend.txt	Blue Flag Rest Bay	resolved	51.4877	-3.7260	beach	Blue Flag sector Rest Bay
+39	bridgend.txt	Wales Coast Path Kenfig	resolved	51.5080	-3.7470	coastal_path	WCP along Kenfig dunes foreshore
+40	bridgend.txt	Wales Coast Path Sker	resolved	51.5005	-3.7475	coastal_path	WCP Sker beach sector
+41	bridgend.txt	Wales Coast Path Rest Bay	resolved	51.4885	-3.7265	coastal_path	WCP behind Rest Bay
+42	bridgend.txt	Wales Coast Path Pink Bay	resolved	51.4989	-3.7376	coastal_path	WCP Pink Bay section
+43	bridgend.txt	Porthcawl	resolved	51.47903	-3.70362	town	Community/town centroid
+44	bridgend.txt	Porthcawl seafront	resolved	51.4775	-3.7025	seafront	Bristol Channel frontage
+45	bridgend.txt	Porthcawl Esplanade	resolved	51.4768	-3.7022	esplanade	Esplanade sea wall by Town Beach
+46	bridgend.txt	Porthcawl promenade	resolved	51.4765	-3.7018	promenade	Central promenade strip
+47	bridgend.txt	Porthcawl town centre seafront	resolved	51.4785	-3.7030	seafront	Town centre approaching Grand Pavilion strip
+48	bridgend.txt	Town Beach	resolved	51.47537	-3.70385	beach	Visit Wales Town Beach locator
+49	bridgend.txt	Town Beach Porthcawl	resolved	51.47537	-3.70385	beach	
+50	bridgend.txt	Seafront Beach	resolved	51.47537	-3.70385	beach	Local synonym for Town Beach (central rocky shore)
+51	bridgend.txt	Porthcawl town beach	resolved	51.47537	-3.70385	beach	
+52	bridgend.txt	Mackworth	resolved	51.4794	-3.6965	locality	Mackworth Road seafront area by Sandy Bay/Coney Beach
+53	bridgend.txt	Mackworth Road	resolved	51.4796	-3.6967	road	Seafront access road behind Sandy Bay
+54	bridgend.txt	Mackworth seafront	resolved	51.4795	-3.6966	seafront	
+55	bridgend.txt	Coney Beach	resolved	51.4797	-3.6967	beach	Sandy Bay / Coney Beach pleasure beach
+56	bridgend.txt	Sandy Bay	resolved	51.4796	-3.6966	beach	Sandy Bay (Coney Beach)
+57	bridgend.txt	Sandy Bay Coney Beach	resolved	51.4797	-3.6967	beach	
+58	bridgend.txt	Coney Beach funfair front	resolved	51.4797	-3.6967	attraction	Coney Beach Pleasure Park seafront
+59	bridgend.txt	Trecco Bay	resolved	51.47534	-3.6848	beach	Visit Wales Trecco Bay Beach locator
+60	bridgend.txt	Bae Trecco	resolved	51.47534	-3.6848	beach	Welsh name for Trecco Bay
+61	bridgend.txt	Trecco Bay beach	resolved	51.47534	-3.6848	beach	Visit Wales Trecco Bay Beach sample point
+62	bridgend.txt	Trecco Bay Holiday Park beach	resolved	51.4754	-3.685	beach	Beach frontage by Trecco Bay Holiday Park (CF36 5DB area)
+63	bridgend.txt	Trecco beach	resolved	51.47534	-3.6848	beach	Local shorthand for Trecco Bay beach
+64	bridgend.txt	Blue Flag Trecco Bay	resolved	51.47534	-3.6848	beach	Blue Flag sector Trecco Bay
+65	bridgend.txt	Blue Flag Trecco	resolved	51.47534	-3.6848	beach	Blue Flag sector Trecco Bay
+66	bridgend.txt	Locks Common	resolved	51.478	-3.705	nature_reserve	Bridgend CBC Locks Common LNR; CF36 3HU access
+67	bridgend.txt	Locks Common shore	resolved	51.4773	-3.7042	shore	Coastal edge of Locks Common toward Bristol Channel
+68	bridgend.txt	Salt Lake	resolved	51.4748	-3.6985	carpark	Local name for former inner harbour site east of harbour
+69	bridgend.txt	Porthcawl Wilderness Lake	resolved	51.484	-3.692	lake	Bridgend CBC Wilderness Lake park; CF36 5ND / Ger-y-Llyn area
+70	bridgend.txt	Wilderness Lake Porthcawl	resolved	51.484	-3.692	lake	Same site as Porthcawl Wilderness Lake
+71	bridgend.txt	Seabank	resolved	51.4765515	-3.7084167	hotel	Seabank Hotel Esplanade (Seabank seafront block)
+72	bridgend.txt	Seabank Porthcawl	resolved	51.4765515	-3.7084167	hotel	Same building as Seabank Hotel
+73	bridgend.txt	Eastern Promenade Porthcawl	resolved	51.47565	-3.7009	promenade	Geotagged Eastern Promenade SS8176 seafront
+74	bridgend.txt	Porthcawl Harbour	resolved	51.4722	-3.7	harbour	VisitMyHarbour Porthcawl approach waypoint / harbour basin
+75	bridgend.txt	Porthcawl Marina	resolved	51.4725	-3.7005	marina	Inner marina basin off Porthcawl Harbour (CF36 3BY office)
+76	bridgend.txt	Porthcawl docks	resolved	51.472	-3.6998	docks	Historic dock basins and quays Porthcawl Harbourside
+77	bridgend.txt	Porthcawl dock	resolved	51.472	-3.6998	dock	Same harbour/dock complex
+78	bridgend.txt	Porthcawl breakwater	resolved	51.4731	-3.6997	breakwater	Breakwater head / low lighthouse line
+79	bridgend.txt	Porthcawl slipway	resolved	51.4737	-3.7012	slipway	Lifeboat/harbour slip sector Esplanade
+80	bridgend.txt	Porthcawl lifeboat	resolved	51.47389	-3.70167	lifeboat_station	RNLI Porthcawl station Esplanade
+81	bridgend.txt	RNLI Porthcawl	resolved	51.47389	-3.70167	lifeboat_station	Same as Porthcawl lifeboat station
+82	bridgend.txt	RNLI Porthcawl Lifeboat Station	resolved	51.47389	-3.70167	lifeboat_station	Wikipedia/RNLI coordinates
+83	bridgend.txt	Porthcawl RNLI station	resolved	51.47389	-3.70167	lifeboat_station	Same station building
+84	bridgend.txt	Grand Pavilion seafront	resolved	51.47665	-3.70585	seafront	Sea-facing front of Grand Pavilion Esplanade
+85	bridgend.txt	Grand Pavilion Porthcawl front	resolved	51.4766	-3.7059	attraction	Grand Pavilion theatre Esplanade CF36 3YW
+86	bridgend.txt	Coney seafront	resolved	51.4795	-3.6968	seafront	Coney Beach / Sandy Bay seafront strip
+87	bridgend.txt	Trecco seafront	resolved	51.47525	-3.6845	seafront	Trecco Bay eastern seafront
+88	bridgend.txt	Porthcawl lighthouse	resolved	51.47307	-3.69975	lighthouse	Wikidata breakwater lighthouse Porthcawl Harbour
+89	bridgend.txt	Porthcawl low lighthouse	resolved	51.4731	-3.6997	lighthouse	Lighthouses of Wales coords; low light on breakwater
+90	bridgend.txt	Porthcawl west beach walk	resolved	51.4875	-3.7265	coastal_path	Promenade / WCP sector behind Rest Bay (west town beach)
+91	bridgend.txt	Porthcawl east seafront	resolved	51.4762	-3.6985	seafront	Eastern seafront strip toward Trecco Bay / Eastern Promenade sector
+92	bridgend.txt	Bristol Channel Porthcawl	resolved	51.4740	-3.7080	channel	Open-water label; representative point seaward of central Esplanade frontage
+93	bridgend.txt	Wales Coast Path Porthcawl	resolved	51.4765	-3.7020	coastal_path	WCP through Porthcawl seafront / harbour sector
+94	bridgend.txt	Wales Coast Path Trecco	resolved	51.4754	-3.6845	coastal_path	WCP behind Trecco Bay beach / holiday park front
+95	bridgend.txt	Wales Coast Path Coney	resolved	51.4797	-3.6967	coastal_path	WCP behind Coney Beach / Sandy Bay strip
+96	bridgend.txt	Wales Coast Path town beach	resolved	51.47537	-3.70385	coastal_path	WCP by Town Beach / Esplanade
+97	bridgend.txt	Coastal Porthcawl	resolved	51.4790	-3.7036	coast	General coastal Porthcawl town frontage (town centroid toward sea)
+98	bridgend.txt	South Wales seafront Porthcawl	resolved	51.4770	-3.7020	seafront	Generic Glamorgan coast seafront at Porthcawl
+99	bridgend.txt	Newton	resolved	51.4842	-3.6781	village	Newton village by village green / church (Drenewydd)
+100	bridgend.txt	Newton Nottage	resolved	51.4865	-3.6930	community	Newton and Nottage community area; between Newton village and Nottage ward
+101	bridgend.txt	Newton Beach	resolved	51.47844	-3.67407	beach	Visit Wales Newton Beach locator; sand/rock shore east of Porthcawl
+102	bridgend.txt	Newton Bay	resolved	51.4786	-3.6738	bay	Newton Bay (Black Rock) per UK Beach Guide SS 8393 7699
+103	bridgend.txt	Black Rock Beach	resolved	51.47844	-3.67407	beach	Synonym for Newton Bay / Newton Beach (Black Rock) shore
+104	bridgend.txt	Newton Point	resolved	51.4736	-3.6792	headland	Geograph SS 8347 7630 subject location west end of Newton Bay
+105	bridgend.txt	Newton Burrows	resolved	51.4768	-3.6705	dunes	Newton Burrows dune front backing Newton Beach (SSSI sector)
+106	bridgend.txt	Newton Burrows dunes	resolved	51.4765	-3.6700	dunes	Same dune system as Newton Burrows; foredune strip
+107	bridgend.txt	Newton dunes	resolved	51.4765	-3.6700	dunes	Informal label for Newton Burrows / Merthyr Mawr dune fringe by beach
+108	bridgend.txt	Nottage	resolved	51.490222	-3.712534	village	GeoHack / Wikipedia Nottage village centroid
+109	bridgend.txt	Nottage shore	resolved	51.4895	-3.7110	shore	Coastal edge of Nottage toward Rest Bay / Bristol Channel
+110	bridgend.txt	Beach Road Newton	resolved	51.4825	-3.6775	road	Beach Road access to Newton Beach from Newton village
+111	bridgend.txt	Newton seafront	resolved	51.4775	-3.6755	seafront	Sea-facing strip along Newton Beach / Bay View area
+112	bridgend.txt	Blue Flag Newton Beach	resolved	51.47844	-3.67407	beach	Blue Flag sector on Newton Beach (Bridgend CBC listing)
+113	bridgend.txt	Newton Porthcawl	resolved	51.4842	-3.6781	village	Newton as eastern Porthcawl coastal village
+114	bridgend.txt	Newton Bay Porthcawl	resolved	51.4786	-3.6738	bay	Newton Bay east of Porthcawl town
+115	bridgend.txt	Wales Coast Path Newton	resolved	51.4769	-3.6765	coastal_path	WCP along Newton Beach / Ogmore approach (car-park sector SS 83733 76935)
+116	bridgend.txt	Merthyr Mawr	resolved	51.4800	-3.6425	village	Wikipedia / GeoHack Merthyr Mawr village coords
+117	bridgend.txt	Merthyr Mawr Warren	resolved	51.4800	-3.6425	nature_reserve	Merthyr Mawr Warren NNR / sand-dune SSSI (NNR core coords)
+118	bridgend.txt	Merthyr Mawr Sand Dunes	resolved	51.48000	-3.64250	dunes	Wikipedia Merthyr Mawr Sand Dunes coord
+119	bridgend.txt	Merthyr Mawr dunes	resolved	51.4800	-3.6425	dunes	Same warren system as Merthyr Mawr Sand Dunes
+120	bridgend.txt	Merthyr Mawr coast	resolved	51.4795	-3.6550	coast	Southern coastal edge of warren toward Newton Beach / Ogmore estuary
+121	bridgend.txt	Merthyr Mawr shore	resolved	51.4788	-3.6585	shore	Dune-foot shore toward Ogmore estuary (warren coastal edge)
+122	bridgend.txt	Merthyr Mawr beach edge	resolved	51.4780	-3.6650	beach	Junction of warren dunes with Newton Bay / Ogmore approach beach
+123	bridgend.txt	Ogmore-by-Sea	resolved	51.4640	-3.6350	village	Wikipedia / GeoHack village centroid
+124	bridgend.txt	Ogmore by Sea	resolved	51.4640	-3.6350	village	Alternate spacing; same settlement as Ogmore-by-Sea
+125	bridgend.txt	Ogmore Beach	resolved	51.4643	-3.6353	beach	UK Beach Guide grid SS 8621 7486; Traeth-yr-Afon sector
+126	bridgend.txt	Ogmore Bay	resolved	51.4635	-3.6360	bay	West-facing bay at Ogmore-by-Sea / river mouth
+127	bridgend.txt	Ogmore Deeps	resolved	51.4540	-3.6694	sea_area	Offshore deep water near Tusker Rock (local dive/fishing sector W of Ogmore)
+128	bridgend.txt	Ogmore shore	resolved	51.4642	-3.6355	shore	Shingle/sand foreshore at Ogmore-by-Sea
+129	bridgend.txt	Ogmore coast	resolved	51.4638	-3.6362	coast	Glamorgan Heritage Coast frontage at Ogmore
+130	bridgend.txt	Ogmore seafront	resolved	51.4645	-3.6348	seafront	Cliff-top / village seafront strip above Ogmore beach
+131	bridgend.txt	Ogmore surf	resolved	51.4640	-3.6358	beach	Main beach surf zone at Ogmore-by-Sea
+132	bridgend.txt	River Ogmore mouth	resolved	51.4697	-3.6383	river_mouth	Wikipedia River Ogmore mouth coordinates (Bristol Channel bar)
+133	bridgend.txt	River Ogmore estuary	resolved	51.4680	-3.6370	estuary	Intertidal estuary channel between Ogmore beach and Merthyr Mawr dunes
+134	bridgend.txt	Ogmore estuary	resolved	51.4680	-3.6370	estuary	Same tidal system as River Ogmore estuary
+135	bridgend.txt	Afon Ogwr mouth	resolved	51.4697	-3.6383	river_mouth	Welsh name; same mouth as River Ogmore
+136	bridgend.txt	Afon Ogwr estuary	resolved	51.4680	-3.6370	estuary	Welsh name; same estuary reach
+137	bridgend.txt	Ogwr estuary	resolved	51.4680	-3.6370	estuary	Short form; same estuary reach
+138	bridgend.txt	Ogmore Castle coast	resolved	51.4765	-3.6240	coast	Heritage-coast / WCP approach from Ogmore Castle toward the sea
+139	bridgend.txt	Ogmore Castle shore	resolved	51.4806	-3.6115	shore	Tidal riverbank at Ogmore Castle (Ewenny/Ogmore confluence)
+140	bridgend.txt	Glamorgan Heritage Coast Ogmore	resolved	51.4630	-3.6370	heritage_coast	Designated coast sector centred on Ogmore-by-Sea
+141	bridgend.txt	Glamorgan Heritage Coast Newton	resolved	51.4775	-3.6750	heritage_coast	Newton Beach / Porthcawl east sector of the designation
+142	bridgend.txt	SS Santampa memorial	resolved	51.5003	-3.7406	memorial	Sker Point plaque / wreck site (SS Samtampa, 1947); cemetery memorial also in Porthcawl
+143	bridgend.txt	Santampa memorial Sker	resolved	51.5003	-3.7406	memorial	Sker Point commemoration; Wikipedia wreck coords
+144	bridgend.txt	North Cornelly	resolved	51.5222	-3.7066	village	OS Open Names / Wikipedia centroid
+145	bridgend.txt	North Cornelly coast	resolved	51.5205	-3.7180	coast	Coastal margin toward Kenfig / Mawdlam (Kenfig National Nature Reserve approach)
+146	bridgend.txt	South Cornelly	resolved	51.5069	-3.7069	village	Wikipedia {{coord}} centroid
+147	bridgend.txt	South Cornelly coast	resolved	51.5055	-3.7085	coast	Southern built-up edge toward Pyle / coastal fringe
+148	bridgend.txt	Cornelly coastal fringe	resolved	51.5140	-3.7080	locality	Ribbon between North and South Cornelly toward the coast
+149	bridgend.txt	Wales Coast Path Ogmore	resolved	51.4650	-3.6360	coastal_path	WCP along Ogmore beach / estuary (Ogmore-by-Sea sector)
+150	bridgend.txt	Wales Coast Path Merthyr Mawr	resolved	51.4785	-3.6620	coastal_path	WCP dune–beach sector at Merthyr Mawr Warren / Newton Bay approach
+151	bridgend.txt	Wales Coast Path Bridgend coast	resolved	51.4850	-3.7150	coastal_path	Representative mid-coast point along Bridgend CBC WCP (Kenfig–Porthcawl–Ogmore span)
+152	bridgend.txt	Coast path Bridgend	resolved	51.4850	-3.7150	coastal_path	Same corridor as Wales Coast Path Bridgend coast
+153	bridgend.txt	Bridgend Bristol Channel shore	resolved	51.4820	-3.7080	shore	Representative Bristol Channel foreshore within Bridgend county borough
+154	bridgend.txt	Bristol Channel Ogmore	resolved	51.4640	-3.6355	shore	Ogmore-by-Sea frontage on Bristol Channel
+155	bridgend.txt	Ogmore tidal mouth	resolved	51.4635	-3.6360	estuary	River Ogmore tidal mouth at Ogmore Bay
+156	bridgend.txt	Ogmore river mouth beach	resolved	51.4640	-3.6358	beach	Shingle/sand at Ogmore estuary mouth (Ogmore-by-Sea)
+157	bridgend.txt	Newton to Ogmore shore walk	resolved	51.4712	-3.6545	coastal_path	Midpoint along shore walk Newton Beach–Ogmore sector
+158	bridgend.txt	Kenfig to Rest Bay shore	resolved	51.4928	-3.7355	shore	Mid-coast between Kenfig Sands and Rest Bay sectors
+159	bridgend.txt	Sker to Pink Bay shore	resolved	51.4997	-3.7425	shore	Adjacent foreshore Sker–Pink Bay
+160	bridgend.txt	Porthcawl seven bays	resolved	51.47903	-3.70362	locality	Marketing label for Porthcawl bay set; town centroid
+161	bridgend.txt	Seven bays Porthcawl	resolved	51.47903	-3.70362	locality	Same as Porthcawl seven bays
+162	bridgend.txt	Porthcawl Blue Flag beaches	resolved	51.47903	-3.70362	beach	Bridgend CBC Blue Flag sectors include Rest Bay, Trecco, Newton, Coney; town reference
+163	bridgend.txt	Trecco Bay surf	resolved	51.47534	-3.6848	beach	Surf zone on Trecco Bay beach
+164	bridgend.txt	Coney Beach surf	resolved	51.4797	-3.6967	beach	Surf off Sandy Bay / Coney Beach
+165	bridgend.txt	Ogmore kayaking	resolved	51.4650	-3.6360	estuary	Kayaking in Ogmore River estuary / bay
+166	bridgend.txt	Rest Bay rock pools	resolved	51.4880	-3.7260	intertidal	Rest Bay foreshore rock pools
+167	bridgend.txt	Pink Bay rock pools	resolved	51.4989	-3.7376	intertidal	Pink Bay foreshore pools
+168	bridgend.txt	Newton rock pools	resolved	51.47844	-3.67407	intertidal	Newton Beach / Black Rock intertidal
+169	bridgend.txt	Sker tide pools	resolved	51.5005	-3.7475	intertidal	Sker foreshore pools
+170	bridgend.txt	Kenfig Sands wild beach	resolved	51.4980	-3.7450	beach	Kenfig Sands sector
+171	bridgend.txt	Sker quiet beach	resolved	51.5005	-3.7475	beach	Sker Beach sector
+172	bridgend.txt	Pink Bay quiet beach	resolved	51.498901	-3.737626	beach	Pink Bay sector
+173	bridgend.txt	Porthcawl harbour front	resolved	51.4768	-3.6995	harbour	Porthcawl Harbour / marina approach (Harbour area CF36)
+174	bridgend.txt	Porthcawl marina walk	resolved	51.4765	-3.6990	marina	Marina & harbour walk; office The Harbour CF36 3BY area
+175	bridgend.txt	Porthcawl sea defences	resolved	51.4768	-3.7022	sea_defence	Esplanade / sea wall works frontage
+176	bridgend.txt	Porthcawl sea wall	resolved	51.4768	-3.7022	sea_wall	Town sea wall with esplanade
+177	bridgend.txt	Porthcawl waterfront	resolved	51.4775	-3.7025	waterfront	Central Porthcawl seafront strip
+178	bridgend.txt	Newton waterfront	resolved	51.4775	-3.6755	seafront	Newton seafront by Newton Beach
+179	bridgend.txt	Ogmore waterfront	resolved	51.4642	-3.6355	seafront	Ogmore-by-Sea shore front
+180	bridgend.txt	Coastal Kenfig	resolved	51.5120	-3.7320	coast	Kenfig ribbon: village toward dunes / NNR coast
+181	bridgend.txt	Coastal Sker	resolved	51.5012	-3.7465	coast	Open coast / dunes shore at Sker (Kenfig–Sker front)
+182	bridgend.txt	Coastal Newton	resolved	51.4775	-3.6755	coast	Newton (Porthcawl) seafront strip
+183	bridgend.txt	Coastal Ogmore	resolved	51.4642	-3.6355	coast	Ogmore-by-Sea shore front

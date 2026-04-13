@@ -1,0 +1,362 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	cork.txt	Garnish Island	resolved	51.736389	-9.541111	island	Garinish / Ilnacullin; Glengarriff Bay.
+2	cork.txt	Illnacullin	resolved	51.736389	-9.541111	attraction	Irish name for Garnish Island gardens.
+3	cork.txt	Garinish	resolved	51.736389	-9.541111	island	Alternate spelling of Garnish Island.
+4	cork.txt	Glengarriff	resolved	51.750	-9.552	village	Village head of Glengarriff Bay.
+5	cork.txt	Glengarriff Harbour	resolved	51.748	-9.555	harbour	Sheltered harbour at village.
+6	cork.txt	Glengarriff Bay	resolved	51.742	-9.528	bay	Inlet of Bantry Bay; centroid approximate.
+7	cork.txt	Derryclancy	resolved	51.759	-9.935	peak	Caha summit (Doire Clainsi); inland but on Beara spine.
+8	cork.txt	Adrigole	resolved	51.69278	-9.72583	village	Northwest shore Bantry Bay.
+9	cork.txt	Ardgroom	resolved	51.7343	-9.8969	village	Kenmare River side of peninsula.
+10	cork.txt	Ardgroom Outward	resolved	51.73598	-9.87003	attraction	Canfea stone circle E of village.
+11	cork.txt	Milleens Bay	resolved	51.694	-9.958	bay	Small bay/inlet near Milleens farm NW of Eyeries.
+12	cork.txt	Eyeries	resolved	51.69361	-9.95806	village	Above Coulagh Bay.
+13	cork.txt	Kilcatherine	resolved	51.71556	-9.96917	attraction	Medieval Kilcatherine Church (Gortgarriff).
+14	cork.txt	Kilmacabea	ambiguous			unknown	Name matches civil parish near Leap/Glandore (Carbery), far from this Beara sequence; likely list error or homonym.
+15	cork.txt	Allihies	resolved	51.633	-10.033	village	West Beara.
+16	cork.txt	Allihies Beach	resolved	51.631	-10.038	beach	Ballydonegan strand area W of village (approx).
+17	cork.txt	Cod's Head	resolved	51.6683	-10.1061	headland	Cape NW of Allihies (Wikidata/GNS).
+18	cork.txt	Dursey Island	resolved	51.600	-10.200	island	Wikipedia centroid.
+19	cork.txt	Dursey Sound	resolved	51.5992	-10.157	strait	Mid-channel waypoint (eOceanic).
+20	cork.txt	Ballaghbeama Gap Coast	ambiguous			unknown	Standard Ballaghbeama Gap is in Co. Kerry (Iveragh); not a clear Cork/Beara coastal feature.
+21	cork.txt	Castletownbere	resolved	51.652	-9.909	town	Berehaven fishing port.
+22	cork.txt	Castletownbere Haven	resolved	51.651	-9.907	harbour	Berehaven harbour by town (approx).
+23	cork.txt	Bearhaven	resolved	51.648	-9.912	bay	Berehaven / Bear Haven anchorage (approx centroid).
+24	cork.txt	Bear Island	resolved	51.633	-9.883	island	Bere Island (Wikipedia).
+25	cork.txt	Beara Peninsula Coast	ambiguous			unknown	Non-specific; peninsula has a long indented coastline.
+26	cork.txt	Rerrin	resolved	51.63417	-9.81861	village	Main village E Bere Island.
+27	cork.txt	Lonehort Harbour	resolved	51.634445	-9.801774	harbour	Archaeological report coords; Viking-period harbour SE Bere Island.
+28	cork.txt	Lawrence Cove	resolved	51.633	-9.817	harbour	N shore Bere Island; marina/ferry.
+29	cork.txt	West Cove	resolved	51.618	-9.935	cove	Small south-coast inlet Bere Island (approx).
+30	cork.txt	Bere Island North Shore	ambiguous			unknown	North shore extends most of island length; no single tide pin.
+31	cork.txt	Shore Road Berehaven	resolved	51.653	-9.908	road	Coastal road along N side of Berehaven near Castletownbere (approx).
+32	cork.txt	Kilcaskan	resolved	51.721349	-9.649389	parish	Kilcaskan civil parish centroid along Bantry Bay shore (GENUKI/GeoHack).
+33	cork.txt	Bantry Bay West Reach	ambiguous			bay	Informal name for a long stretch of Bantry Bay; no single chart point.
+34	cork.txt	Ballylickey	resolved	51.725	-9.436944	village	Wikipedia/GeoHack village on N71 at head of bay.
+35	cork.txt	Coorycusheen	ambiguous			unknown	No verified townland/placename match near this Bantry sequence; likely typo or hyper-local label.
+36	cork.txt	Bantry	resolved	51.680998	-9.45037	town	Town centroid (standard gazetteer).
+37	cork.txt	Bantry Harbour	resolved	51.682	-9.449	harbour	Main harbour basin at head of Bantry Bay (approx).
+38	cork.txt	Wolfe Tone Square Quay	resolved	51.6809	-9.453	quay	Town quay fronting Wolfe Tone Square / Bantry waterfront.
+39	cork.txt	Snave Pier	resolved	51.7422	-9.4672	pier	Cé Snave, Ballylickey area (fallingrain/Evendo).
+40	cork.txt	Whiddy Island	resolved	51.689411	-9.500297	island	Wikipedia/Wikidata centroid.
+41	cork.txt	Whiddy Bay	ambiguous			bay	Name used for different shoreline segments around Whiddy; not one centroid.
+42	cork.txt	Oil Jetty Bantry	resolved	51.674	-9.483	jetty	Gulf/strategic oil terminal jetty on Whiddy Island (Bantry Bay).
+43	cork.txt	Church Cross Bantry Shore	resolved	51.68092	-9.45307	shore	Bantry waterfront by St Brendan’s / Wolfe Tone Square facing the bay (no separate “Church Cross” placename found).
+44	cork.txt	Durrus	resolved	51.621158	-9.526927	village	Wikipedia/GeoHack.
+45	cork.txt	Durrus Pier	resolved	51.6175	-9.527	pier	Main pier, Dunmanus Bay head (approx).
+46	cork.txt	Ahakista	resolved	51.600853	-9.633053	village	Wikipedia/GeoHack harbour village.
+47	cork.txt	Kilcrohane	resolved	51.58111	-9.70333	village	Wikipedia/GeoHack; Dunmanus Bay shore.
+48	cork.txt	Sheep's Head	resolved	51.54293	-9.84847	headland	Sheep’s Head (Muntervary) lighthouse at peninsula tip (Irish Lights/Wikipedia).
+49	cork.txt	Sheep's Head Drive Coast	ambiguous			unknown	Scenic route length; not a single coastal point.
+50	cork.txt	Toormore	resolved	51.508	-9.638	bay	Toormore Bay / settlement area W of Schull on Mizen (approx centroid).
+51	cork.txt	Rosskerrig Strand	resolved	51.5911	-9.6536	beach	Coastal townland Ros Caorach; townlands.ie map coords as strand locality.
+52	cork.txt	Gortnakilly	resolved	51.582	-9.668	townland	Gortnakilly townland, Kilcrohane/Seefin ED (inland of Dunmanus shore; centroid approx).
+53	cork.txt	Goleen	resolved	51.495	-9.711389	village	Wikipedia/GeoHack.
+54	cork.txt	Barley Cove	resolved	51.4665	-9.7768	beach	Barleycove Blue Flag beach (Beaches On The Air / Wikipedia).
+55	cork.txt	Crookhaven	resolved	51.463	-9.7202	village	Wikipedia village by harbour.
+56	cork.txt	Crookhaven Harbour	resolved	51.46912	-9.7261	harbour	eOceanic pierhead waypoint.
+57	cork.txt	Mizen Head	resolved	51.45028	-9.81944	headland	Wikipedia Irish Lights signal station area.
+58	cork.txt	Mizen Signal Station	resolved	51.44985	-9.82042	signal_station	Mizen Head fog-signal / visitor complex (CIL position 51°26.991′N 09°49.225′W).
+59	cork.txt	Three Castle Head	resolved	51.48278	-9.82944	attraction	Dunlough Castle / Three Castles Head (Wikipedia).
+60	cork.txt	Crookhaven River Mouths	ambiguous			estuary	Several small river mouths around Crookhaven; not one pin.
+61	cork.txt	Mullins Cove	not_found			unknown	No verified coastal feature of this name on charts or gazetteers in this Mizen sequence (cf. Mill Cove near Rosscarbery is a different coast).
+62	cork.txt	Dunlough Bay	resolved	51.484	-9.828	bay	Small Atlantic-facing inlet at Three Castle Head / Dun Lough relative to Dunmanus Bay (approx. chart reading).
+63	cork.txt	Dunmanus Bay	resolved	51.552	-9.72	bay	Wikipedia / Wikidata centroid for the bay.
+64	cork.txt	Schull	resolved	51.5266	-9.5481	village	Wikipedia village coordinates.
+65	cork.txt	Schull Harbour	resolved	51.524733	-9.542333	harbour	eOceanic haven position (pierhead).
+66	cork.txt	Long Island Sound	ambiguous			strait	Roaringwater Bay channel between Long Island and mainland; informal extent, no single tide pin.
+67	cork.txt	Heir Island Harbour	resolved	51.499667	-9.420083	harbour	eOceanic East Pier haven position (Heir Island).
+68	cork.txt	Sherkin Island	resolved	51.467	-9.417	island	Wikipedia centroid.
+69	cork.txt	Sherkin Island Fastnet View	ambiguous			viewpoint	Fastnet is visible from several points on Sherkin; no one official viewpoint.
+70	cork.txt	Cape Clear Island	resolved	51.433	-9.5	island	Wikipedia / GeoHack centroid (Clear Island / Cléire).
+71	cork.txt	Clear Island	resolved	51.433	-9.5	island	Alternate English name for Cape Clear Island; same centroid.
+72	cork.txt	Tragumna	resolved	51.50083	-9.26667	hamlet	Wikipedia / logainm.ie coordinates.
+73	cork.txt	Tragumna Beach	resolved	51.5015	-9.2659	beach	Beaches On The Air / beach centroid by strand.
+74	cork.txt	Colla Pier	resolved	51.50635	-9.56067	pier	eOceanic Colla Harbour pier head (ferry to Long Island).
+75	cork.txt	Baltimore	resolved	51.482917	-9.374567	village	eOceanic Baltimore town pier haven position.
+76	cork.txt	Baltimore Bay	resolved	51.478	-9.395	bay	Approx. open harbour basin centroid (large natural harbour behind Sherkin).
+77	cork.txt	Baltimore Beacon	resolved	51.4736	-9.38779	beacon	Wikipedia coordinates (Lot's Wife).
+78	cork.txt	Lisselan	resolved	51.591	-8.874	attraction	Lisselan estate / gardens on River Argideen near N71; inland of Clonakilty Bay (approx. visitor centroid).
+79	cork.txt	Rath Beach	resolved	51.503	-9.299	beach	Small strand on Lough Hyne shores near Barloge (approx.; Rath Beach local usage).
+80	cork.txt	Barlogue Beach	resolved	51.49367	-9.29383	beach	Barloge Creek / Lough Hyne sea entrance; eOceanic haven position at creek pier.
+81	cork.txt	Spanish Armada Haven	resolved	51.53556	-9.19833	historic_anchorage	Castlehaven used as secondary Spanish objective (1601); parish centroid as representative harbour anchorage.
+82	cork.txt	Castledonovan Pier Shore	resolved	51.53583	-9.16361	shore	Raheen Castle (O'Donovan coastal seat) and quays on E side of Castlehaven Harbour (megalithicireland.com coords).
+83	cork.txt	Carrigillihy	resolved	51.508	-9.172	cove	Carrigillihy Cove E of Castle Haven entrance (cruising pilot description; approx. mouth).
+84	cork.txt	Kilbrittain Bay Mouth	resolved	51.6456	-8.6661	estuary	Approx. seaward side of Courtmacsherry Bay / Kilbrittain parish coast (Coolmain Beach area).
+85	cork.txt	Glandore	resolved	51.56444	-9.12583	village	Wikipedia coordinates.
+86	cork.txt	Glandore Harbour	resolved	51.560833	-9.126667	harbour	eOceanic haven midpoint (Glandore-Union Hall).
+87	cork.txt	Union Hall	resolved	51.55801	-9.1385	village	Wikipedia coordinates.
+88	cork.txt	Union Hall Pier	resolved	51.558	-9.138	pier	Main fishing harbour pier, Union Hall (approx. waterfront centroid).
+89	cork.txt	Castlehaven	resolved	51.533	-9.183	village	Castletownshend on Castlehaven Harbour (Wikipedia village coords; Castlehaven parish focal settlement).
+90	cork.txt	Castlehaven Bay	resolved	51.5083	-9.17	bay	VisitMyHarbour Castle Haven approach waypoint; open bay S of Castletownshend.
+91	cork.txt	Myross Wood Pier	resolved	51.56225	-9.01137	pier	Rosscarbery Inlet / Creggane pier haven area (eOceanic); Myross Wood on head of bay.
+92	cork.txt	Reenascreena South Cove	resolved	51.615	-9.058	cove	Reenascreena townland coast S of Rosscarbery (approx. cove mouth; Maptons centroid nearby).
+93	cork.txt	Rosscarbery	resolved	51.578	-9.0317	town	Wikipedia / Wikidata village coordinates.
+94	cork.txt	Rosscarbery Bay	resolved	51.535	-9.015	bay	Approx. open bay centroid; large inlet (Galley Head–Glandore sector).
+95	cork.txt	Coppinger's Court Coast Proximity	resolved	51.57111	-9.06722	attraction	Wikipedia ruin coords; Ballyvireen ~1 km inland of coast.
+96	cork.txt	Owenahincha	resolved	51.5666	-8.999	beach	Wikipedia coordinates (Blue Flag beach E of Rosscarbery).
+97	cork.txt	Owenahincha Beach	resolved	51.5666	-8.999	beach	Same feature as Owenahincha; main strand centroid.
+98	cork.txt	Long Strand	resolved	51.54167	-8.94083	beach	Castlefreke / Dirk Bay west anchorage (eOceanic); Long Strand W of Galley Head.
+99	cork.txt	Inchydoney	resolved	51.60194	-8.87611	beach	Wikipedia island / Clonakilty Bay beaches.
+100	cork.txt	Inchydoney Beach	resolved	51.60194	-8.87611	beach	Main Blue Flag strand on Inchydoney (E/W split; headland centroid).
+101	cork.txt	Clonakilty Bay	resolved	51.58	-8.88	bay	Broad tidal bay between Seven Heads and Galley Head; approximate mid-bay pin.
+102	cork.txt	Clonakilty Piers Proximity	resolved	51.604067	-8.848683	harbour	Ring / Clonakilty Harbour haven position (eOceanic).
+103	cork.txt	Ring	resolved	51.604067	-8.848683	village	Coastal settlement at head of Clonakilty Harbour (Ring).
+104	cork.txt	Ring Village Harbour	resolved	51.604067	-8.848683	harbour	Same haven as Clonakilty Harbour (Ring) — inner anchorage chart point.
+105	cork.txt	Monkstown Cork Harbour Approach	resolved	51.84444	-8.3325	channel	Monkstown Bay / Cork Harbour Marina coords; lower harbour approach sector.
+106	cork.txt	Coolmain Beach	resolved	51.64563	-8.66607	beach	Maplogs POI; Kilbrittain / Courtmacsherry Bay mouth.
+107	cork.txt	Courtmacsherry	resolved	51.63472	-8.70917	village	Wikipedia village on Argideen estuary.
+108	cork.txt	Courtmacsherry Bay	resolved	51.63	-8.68	bay	Large estuarine bay; approximate centroid for tide context.
+109	cork.txt	Barry's Point	resolved	51.585	-8.708	headland	Seven Heads coast S of Courtmacsherry; historic lifeboat slip area (~5.6 km S of village).
+110	cork.txt	Butler's Strand	resolved	51.61833	-8.69333	beach	Broadstrand Bay haven midpoint (eOceanic); Butlerstown/Broadstrand coastal sector.
+111	cork.txt	Old Head of Kinsale Surrounds	ambiguous			headland	Private golf headland and cliffs; “surrounds” not one navigation point.
+112	cork.txt	Garretstown	resolved	51.64346	-8.58015	beach	OSM Garretstown Strand centroid; hamlet by R604.
+113	cork.txt	Garretstown Beach	resolved	51.64346	-8.58015	beach	Same as Garretstown strand (Blue Flag).
+114	cork.txt	Ballinspittle	resolved	51.667	-8.6	village	Wikipedia coordinates; R600 SW of Kinsale.
+115	cork.txt	De Courcy Castle Shore	resolved	51.6478	-8.66333	castle	Coolmain Castle (de Courcy); Wikimapia coords on Courtmacsherry Bay shore estate.
+116	cork.txt	Oysterhaven	resolved	51.69533	-8.453	harbour	eOceanic Oyster Haven anchorage midpoint.
+117	cork.txt	Oysterhaven Bay	resolved	51.707	-8.45722	bay	logainm.ie Cuan Oisrí / Oysterhaven townland centrepoint.
+118	cork.txt	Ballinadee Shore	ambiguous			unknown	Ballinadee village is inland on River Pound; no single named coastal “Ballinadee Shore” found.
+119	cork.txt	Summercove	resolved	51.698736	-8.499641	village	Wikipedia / GeoHack; Kinsale Harbour W shore (Charles Fort area).
+120	cork.txt	Scilly Walk Kinsale	resolved	51.70646	-8.52329	path	Outdooractive route coords; coastal walk Spaniard / Lower Road sector toward Charles Fort.
+121	cork.txt	Kinsale	resolved	51.7072	-8.5231	town	Wikipedia / infobox decimal; historic port at River Bandon mouth.
+122	cork.txt	Kinsale Harbour	resolved	51.704	-8.518	harbour	Inner harbour / town waterfront sector (approx centroid).
+123	cork.txt	Kinsale Outer Harbour	resolved	51.693	-8.502	harbour	Seaward approaches W of harbour mouth; chart/general centroid (approx).
+124	cork.txt	Charles Fort Kinsale	resolved	51.6965	-8.499	attraction	Wikipedia / Wikidata OPW star fort SW of Summercove.
+125	cork.txt	James Fort Kinsale	resolved	51.6986	-8.5122	attraction	Wikipedia coords; Castlepark peninsula “old fort” E of town.
+126	cork.txt	World's End Kinsale	resolved	51.7075	-8.5282	attraction	Waterfront pub / head-of-pier sector on tourist street map reading.
+127	cork.txt	Compass Hill Marine	resolved	51.706	-8.524	marina	Compass Hill / inner harbour marina sector Kinsale (approx chart reading).
+128	cork.txt	The Dock Beach Kinsale	resolved	51.7055	-8.52	beach	Small town beach at “The Dock” inner harbour (approx).
+129	cork.txt	Sandycove Kinsale	resolved	51.704	-8.512	beach	Sandycove strand E of town (OSM / local map sector).
+130	cork.txt	Sandy Cove Beach Kinsale	resolved	51.704	-8.512	beach	Same cove as Sandycove Kinsale; adjacent beach naming.
+131	cork.txt	Ringabella Bay	resolved	51.77025	-8.30292	bay	eOceanic haven position 51°46.215′N 8°18.175′W; W of Cork Harbour entrance.
+132	cork.txt	Lough Beg Mouth	resolved	51.8192	-8.319	estuary	Lough Beg / Ringaskiddy lagoon connection to harbour (BirdGuides centroid sector).
+133	cork.txt	Hopkins Strand	not_found			beach	No reliable chart or public placename match between Lough Beg and Raffeen in this sequence.
+134	cork.txt	Lisheen	ambiguous			unknown	Several Lisheen townlands in Co. Cork; unclear which coastal feature this label denotes here.
+135	cork.txt	Raffeen Creek Mouth	resolved	51.876	-8.339	estuary	Owenabue / Raffeen estuary entering lower harbour (approx mouth).
+136	cork.txt	Cuskinny	resolved	51.8539	-8.2667	bay	eOceanic Cuskinny haven 51°51.235′N 8°16.004′W; Great Island S shore.
+137	cork.txt	Marino Point	resolved	51.8783	-8.3314	jetty	Industrial jetty / port sector NE lower harbour (topographic-map aggregate).
+138	cork.txt	Cobh	resolved	51.851	-8.2967	town	Wikipedia / Wikidata Queenstown; lower harbour Great Island.
+139	cork.txt	Cobh Promenade	resolved	51.8505	-8.2945	promenade	Seafront east of Kennedy Pier / town centre waterfront (approx).
+140	cork.txt	Cork Harbour Queenstown	resolved	51.851	-8.2967	town	Historic name for Cobh; same civic centroid reading.
+141	cork.txt	Spike Island Cove Landing	resolved	51.8378	-8.2908	ferry	eOceanic Spike Island pier head 51°50.270′N 8°17.450′W.
+142	cork.txt	Haulbowline Island Shore	resolved	51.8417	-8.301	island	Wikipedia centroid; Irish Naval Service island — generic shore reading.
+143	cork.txt	Monkey Island Cork Harbour	not_found			island	No standard island feature named “Monkey Island” in Cork Harbour references checked.
+144	cork.txt	Harper's Island	resolved	51.908	-8.318	wetland	Glounthaune / Slatty Water island reserve centroid (approx; Harper’s Island Wetlands).
+145	cork.txt	Great Island North Point	resolved	51.88	-8.203	headland	NE corner sector off East Ferry; eOceanic “Northeast of Great Island” haven neighbourhood.
+146	cork.txt	Aghada Bay	resolved	51.904	-8.215	bay	East Cork harbour shore bay by Aghada / Power Head approaches (approx mid-bay).
+147	cork.txt	Whitegate Bay	resolved	51.822	-8.238	bay	Harbour entrance bay by Whitegate village (approx).
+148	cork.txt	Whitegate Refinery Jetty Shore	resolved	51.826	-8.229	jetty	Whitegate energy-site jetty shoreline sector (approx).
+149	cork.txt	East Beach Whitegate	resolved	51.829	-8.228	beach	East-facing strand sector by Whitegate / Inch approaches (approx).
+150	cork.txt	Rocky Bay Crosshaven	resolved	51.8015	-8.296	bay	Rocky Bay S of Crosshaven on Owenabue approaches (OSM sector).
+151	cork.txt	Crosshaven	resolved	51.801944	-8.295278	village	Wikipedia / GeoHack village centroid; Owenabue mouth.
+152	cork.txt	Crosshaven Boatyard Quay	resolved	51.8035	-8.2985	quay	Approx. boatyard quay on Owenabue W of village core (harbour chart sector).
+153	cork.txt	Crosshaven Point	resolved	51.8045	-8.286	headland	Local harbour-mouth headland reading W of village toward Camden (approx).
+154	cork.txt	Camden Fort Meagher Shore	resolved	51.808	-8.279	shore	Fort waterfront / Rams Head sector (Wikipedia fort coords).
+155	cork.txt	Currabinny Pier	resolved	51.811	-8.305	pier	Currabinny / Curraghbinny pier foot (townland centroid; pier end nearby).
+156	cork.txt	Myrtleville	resolved	51.7828	-8.2961	village	Logainm / Wikipedia reading; harbour-mouth village.
+157	cork.txt	Myrtleville Beach	resolved	51.7828	-8.2961	beach	Main strand (same centroid as village/beach sector).
+158	cork.txt	Fountainstown	resolved	51.775833	-8.311389	village	Wikipedia / GeoHack village.
+159	cork.txt	Fountainstown Beach	resolved	51.775833	-8.311389	beach	Blue Flag front (village coords; beach along shore).
+160	cork.txt	Robert's Cove	resolved	51.74444	-8.31306	village	Wikipedia / GeoHack Cuainín Riobaird.
+161	cork.txt	Robert's Cove Beach	resolved	51.742167	-8.3105	beach	eOceanic haven midpoint in inlet (51°44.530′N 008°18.630′W).
+162	cork.txt	Rabbit Island Cork Lower Harbour	not_found			island	Logainm Rabbit Island (Oileán Bhríde) is West Cork near Glandore; no charted “Rabbit Island” in lower harbour.
+163	cork.txt	Roches Point	resolved	51.793	-8.2546	headland	Irish Lights lighthouse position (51°47.586′N 08°15.287′W).
+164	cork.txt	Weavers Point	ambiguous			headland	No reliable chart/local match in this Crosshaven sequence.
+165	cork.txt	Gypsy's Point	ambiguous			headland	No reliable chart/local match; likely micro-feature.
+166	cork.txt	Harper's Island Strand	resolved	51.908	-8.318	strand	Slatty Water / Harper’s Island wetlands shore (aligns with Harper’s Island row).
+167	cork.txt	Trabolgan Bay	resolved	51.799	-8.245	bay	Logainm Trabolgan centrepoint; holiday-village bay sector.
+168	cork.txt	Power Head	resolved	51.75992	-8.11132	headland	Poer/Power Head fog-signal site coords (51°45.595′N 008°06.679′W).
+169	cork.txt	Ballybrannigan Beach	resolved	51.781	-8.105	beach	East Cork pocket strand near Inch / Power Head approaches (approx centroid).
+170	cork.txt	East Ferry Glenbrook	resolved	51.875	-8.212	ferry	Great Island East Ferry landing sector opposite Glenbrook (approx).
+171	cork.txt	Glenbrook Ferry Slip	resolved	51.85953	-8.33168	ferry	eOceanic Glenbrook haven at ferry slip (51°51.572′N 008°19.901′W).
+172	cork.txt	Monkstown Cork	resolved	51.850141	-8.333967	village	Wikipedia Monkstown, County Cork.
+173	cork.txt	Monkstown Bay	resolved	51.851	-8.335	bay	Estuary bay in front of Monkstown village (approx mid-water).
+174	cork.txt	Passage West	resolved	51.8713	-8.3352	town	Wikipedia / GeoHack centroid.
+175	cork.txt	Passage West Marina	resolved	51.873	-8.336	marina	Town waterfront marina basin (approx; multiple pontoons).
+176	cork.txt	Great Island Passage	ambiguous			channel	Long Carrigaloe–Glenbrook channel; not a single chart point.
+177	cork.txt	Little Island East Shore	resolved	51.904	-8.338	shore	Eastern Lough Mahon shore toward Fota (approx industrial foreshore).
+178	cork.txt	Lotamore Quay	ambiguous			quay	No distinct “Lotamore Quay” toponym; Lotamore House overlooks Lee (51.90589, -8.40689).
+179	cork.txt	Blackrock Castle Walk Shore	resolved	51.9	-8.4025	promenade	Riverside walk at Blackrock Castle (Wikipedia coords).
+180	cork.txt	Blackrock Cork Coast	ambiguous			shore	Long urban Lee shore from Blackrock village; no single tide pin.
+181	cork.txt	Mahon Estuary Mouth	resolved	51.875	-8.355	estuary	Approx. seaward transition from Lough Mahon into upper Cork Harbour (not a charted point).
+182	cork.txt	Lough Mahon Banks	ambiguous			mudflat	Extensive intertidal mudflats across Lough Mahon; no single centroid.
+183	cork.txt	Marina Cork City Tidal Reach	resolved	51.899	-8.463	marina	Cork City Marina pontoon sector / upper tidal Lee (eOceanic haven position neighbourhood).
+184	cork.txt	River Lee Tidal Docklands	resolved	51.897	-8.455	urban_waterfront	South docks / city quays tidal front (approx. mid-waterfront).
+185	cork.txt	Blackrock Pier	resolved	51.8995	-8.403	pier	Blackrock waterfront pier by castle reach (approx.).
+186	cork.txt	Carrigaline Tidal Front	resolved	51.81333	-8.39528	estuary	Owenabue estuary mouth at Carrigaline (Wikipedia river mouth coords).
+187	cork.txt	Shannonvale Oyster Beds Shore	ambiguous			shore	List sits between Carrigaline and Youghal; well-known Shannonvale is inland near Clonakilty—no matching East Cork oyster shore found.
+188	cork.txt	Youghal West	resolved	51.934	-7.86	locality	Western Youghal bay shore / Claycastle–town approach (approx.).
+189	cork.txt	Claycastle Beach	resolved	51.9341	-7.8599	beach	EirGrid survey waypoint; Blue Flag beach NW Youghal Bay.
+190	cork.txt	Youghal	resolved	51.95167	-7.84562	town	Wikipedia town centroid.
+191	cork.txt	Youghal Bay	ambiguous			bay	Large estuarine bay; no single tide pin.
+192	cork.txt	Youghal Boardwalk	resolved	51.932	-7.865	promenade	Eco boardwalk linking Claycastle / Front Strand sector (approx. mid).
+193	cork.txt	Youghal Front Strand	resolved	51.949	-7.848	strand	Town front beach S of centre (approx.).
+194	cork.txt	Redbarn Beach	resolved	51.92449	-7.87209	beach	EirGrid landing coordinates; long open strand SW of town.
+195	cork.txt	Pillmore Strand	resolved	51.915	-7.91	strand	Pilmore / Pillmore beach E of Redbarn toward Ring (approx. centroid).
+196	cork.txt	Ballymacoda Foreshore	resolved	51.9056	-7.8989	foreshore	Ballymacoda Bay intertidal / Ramsar site centroid neighbourhood.
+197	cork.txt	Ballybrannigan Strand	resolved	51.781	-8.105	strand	Same shore as Ballybrannigan Beach (East Cork pocket strand).
+198	cork.txt	Garryvoe Beach	resolved	51.8577	-8.0023	beach	Beaches On The Air / council-listed bathing water coords.
+199	cork.txt	Garryvoe	resolved	51.8595	-8.0033	village	GeoHack Garryvoe centrepoint (village by beach).
+200	cork.txt	Ladys Island Strand	ambiguous			strand	No verified “Lady’s Island” strand here; Wexford Lady’s Island Lake is different region—likely mislabel or obscure local name.
+201	cork.txt	Ladys Island Lake Bar	ambiguous			bar	Barrier beach / shingle bar not identified for Cork; see prior row.
+202	cork.txt	Ballycotton	resolved	51.83056	-7.99306	village	Wikipedia centroid.
+203	cork.txt	Ballycotton Bay	resolved	51.832	-7.985	bay	Open bay W of village toward island (approx. mid-water).
+204	cork.txt	Ballycotton Lighthouse Shore	resolved	51.828	-7.99	shore	Mainland shore/pier sector facing Ballycotton Island light (approx.).
+205	cork.txt	Ballycotton Island Boat Landings	resolved	51.8257	-7.9842	quay	Small island landing quay by lighthouse (Wikipedia/CIL).
+206	cork.txt	Shanagarry Beach	resolved	51.851	-8.042	beach	Ardnahinch (Shanagarry) beach on Ballycotton Bay (approx. foreshore).
+207	cork.txt	Inch Beach East Cork	resolved	51.772	-8.108	beach	Inch Strand at Power Head / Powerhead Bay (distinct from Kerry Inch).
+208	cork.txt	Knockadoon Head	resolved	51.88	-7.861	headland	NPWS / Wikipedia nature reserve coords.
+209	cork.txt	Capel Island View Shore	resolved	51.8858	-7.8692	shore	Capel Way trail picnic / Knockadoon shore with island views (Sport Ireland start point).
+210	cork.txt	Knockadoon Pier	resolved	51.8868	-7.8658	pier	Knockadoon Slip haven position (eOceanic) off breakwater/slip.
+211	cork.txt	Saleen Creek Mouth	resolved	51.861	-8.172	estuary	Mouth of Saleen Creek into Cork Harbour SW of Saleen village (Wikipedia/logainm village ~51.8636, -8.1637).
+212	cork.txt	Whitebay Knockadoon	resolved	51.884	-7.868	cove	Small white-sand cove on Knockadoon peninsula W of Youghal Bay (distinct from Cork Harbour “White Bay”).
+213	cork.txt	Youghal Clock Strand	resolved	51.949	-7.848	strand	Youghal Front Strand by the Clock Gate / town centre beach sector (council beach description).
+214	cork.txt	Knockanore Shore	resolved	52.054	-7.892	shore	Blackwater estuary shore at Knockanore, Co. Waterford (village centroid neighbourhood; list is East Cork sequence).
+215	cork.txt	Ring Curran Point	resolved	51.908	-7.895	promontory	Coastal point on the Ring peninsula E of Youghal (not Kinsale civil parish Ringcurran).
+216	cork.txt	Knockanore Beach	resolved	52.053	-7.889	beach	Estuary beach/mudshore sector near Knockanore on the Blackwater (approx. foreshore).
+217	cork.txt	The Pilmore Rinn	resolved	51.916	-7.908	headland	Rinn/point at Pilmore / Pillmore E of Youghal (coastal road sector).
+218	cork.txt	Rinnashigue Strand	ambiguous			strand	Name not matched in gazetteers; possibly local Ring/Pillmore strand label—no verified map pin.
+219	cork.txt	East Ferry Ballinacurra	resolved	51.86	-8.2	ferry_shore	East Ferry channel shore (Wikipedia centroid); historic ferry link toward Great Island / Ballinacurra harbour area.
+220	cork.txt	Ballinacorra	resolved	51.9	-8.167	village	Standard name Ballinacurra; Owenacurra/Cork Harbour head (Wikipedia).
+221	cork.txt	Whiting Bay Youghal	ambiguous			bay	No distinct “Whiting Bay” on charts here; likely informal Youghal Bay sector or obsolete local name.
+222	cork.txt	Shepherd's Cove East Cork	ambiguous			cove	Several West/East Cork coves share the label; no single authoritative match.
+223	cork.txt	Perks Bay	ambiguous			bay	No clear published feature with this name in the Schull/Roaringwater sequence.
+224	cork.txt	Ardfield Strand	resolved	51.564	-8.925	beach	Coastal strand near Ardfield (Red Strand / Long Strand sector; village Wikipedia 51.567, -8.917).
+225	cork.txt	Coolmore Beach	resolved	51.628	-8.698	beach	Treated as Coolmain(e) Beach S of Kilbrittain / Courtmacsherry Bay (common “Coolmore” spelling variant in lists).
+226	cork.txt	Duneen Beach	resolved	51.587	-8.805	beach	Small strand W of Clonakilty by Duneen / Dunmore House (Clonakilty Bay shore).
+227	cork.txt	Barry's Cove Schull Harbour	resolved	51.525	-9.546	cove	Small inner-harbour cove by Schull (Schull Wikipedia ~51.5266, -9.5481).
+228	cork.txt	Cubbins Inlet	not_found			inlet	No charted or named “Cubbins Inlet” found near Schull.
+229	cork.txt	Reen Pier Skibbereen Estuary	resolved	51.535	-9.163	pier	Reen Pier, Castlehaven Bay (Wikimapia 51°32′6″N 9°9′47″W); tidal Ilen/estuary access.
+230	cork.txt	Inishbeg Island	resolved	51.5197	-9.3537	island	Inis Beag (Inishbeg) townland/island W of Baltimore; bridge to mainland (logainm centrepoint).
+231	cork.txt	Heir Island	resolved	51.5	-9.433	island	Carbery’s Hundred Isles; Wikipedia centroid 51°30′N 9°26′W.
+232	cork.txt	Carbery's Hundred Isles Shore	ambiguous			shore	Non-specific label for a vast island archipelago / SAC shoreline.
+233	cork.txt	Rabbit Islands Roaringwater	ambiguous			island_group	Well-known Rabbit Island (Oileán Bhríde) lies off Glandore Harbour; label’s “Roaringwater” does not match that chart position.
+234	cork.txt	Schull Calendar Islands	resolved	51.4848	-9.4828	island_group	Interpreted as the Calves/Calf Islands cluster in Roaringwater Bay (Calf Island East haven ~51°29.09′N 9°28.97′W).
+235	cork.txt	Long Island Cape Clear	resolved	51.495	-9.54	island	Long Island in Long Island Bay S of Schull (ferry/archipelago context to Cape Clear; approximate mid-island).
+236	cork.txt	Fastnet Rock Boat Routes Cork	ambiguous			route	Seasonal tour corridor from Baltimore/Schull; not a single coastal fix.
+237	cork.txt	Ard na Caillí Pier	not_found			pier	No verified pier name match in Schull/Baltimore charts or OSM.
+238	cork.txt	Kilmacsimon Quay	resolved	51.7328	-8.6344	quay	River Bandon quay at Kilmacsimon village (Wikipedia centroid).
+239	cork.txt	Black Valley Quay Bantry	ambiguous			quay	Kerry’s Black Valley is inland with no quay; no standard Bantry Bay feature with this name found.
+240	cork.txt	Letterlicky Mid Bay	ambiguous			bay	Letterlicky is mostly upland townland; “mid Bantry Bay” is a broad sector without one tide pin.
+241	cork.txt	Coillekeagh	resolved	51.7498	-9.36429	village	Interpreted as Kealkill (An Chaolchoill), Bantry barony; spelling variant plausible in this list sequence.
+242	cork.txt	Newtown Bantry Shore	resolved	51.682	-9.449	shore	Bantry Newtown / waterfront sector at head of bay (approx).
+243	cork.txt	Scarborough Bantry	ambiguous			unknown	No standard “Scarborough” placename at Bantry in gazetteers.
+244	cork.txt	Killerisk Strand Bantry Bay	not_found			strand	No verified Killerisk strand; name may garble a local townland.
+245	cork.txt	Lettercallow Pier	not_found			pier	Lettercallow is well-attested elsewhere (e.g. Galway); no Bantry Bay pier found under this name.
+246	cork.txt	Ardrigole	resolved	51.692778	-9.725833	village	Same place as Adrigole (Eadargóil); source spelling variant.
+247	cork.txt	Meeshal Point	ambiguous			headland	Gazetteer Meeshal is inland East Muskerry; no Beara coastal “Meeshal Point” matched.
+248	cork.txt	Illaunmaistir	ambiguous			island	Illanmaster (Illaunmaistir) is Co. Mayo; no Cork/Bantry island confirmed for this spelling.
+249	cork.txt	Cod's Head Lighthouse Vicinity	resolved	51.6683	-10.1061	headland	Vicinity of Cod’s Head (Rinn Troisc) promontory W of Allihies.
+250	cork.txt	Crow Head Beara	resolved	51.596	-10.165	headland	Rinn Chró promontory W of Dursey Sound; approximate cliff tip (Beara Way).
+251	cork.txt	Greenane Point	resolved	51.6202	-9.86487	point	Greenane townland Bere Island (logainm); coastal complex includes Dun Beag sector.
+252	cork.txt	Copper Mine Museum Allihies Shore	resolved	51.633	-10.033	shore	Allihies village / ACMM shore toward Ballydonegan Bay.
+253	cork.txt	Illaunboy	not_found			island	No Illaunboy in Bantry Bay island lists; Kerry townland of similar name is elsewhere.
+254	cork.txt	Shark Point Castletownbere	not_found			point	No charted “Shark Point” tied to Castletownbere harbour in references checked.
+255	cork.txt	Blackball Head	resolved	51.639	-9.985	headland	Black Ball Head promontory (Beara) near Blackball Harbour W of Castletownbere (approx).
+256	cork.txt	Rossmacowlish Strand	resolved	51.6749	-9.81551	strand	Rossmackowen Commons townland centroid; “strand” label not separately verified.
+257	cork.txt	Urhin Beach	resolved	51.67146	-10.00291	beach	Urhan/Urhin townland on Coulagh Bay (Wikipedia centroid); local foreshore bathing sector.
+258	cork.txt	Illaunmore Bantry Bay	resolved	51.48972	-9.41083	island	Illaunmore townland (Cape Clear ED, townlands.ie); geographically Roaringwater/Cape sector, not Bantry Bay proper.
+259	cork.txt	Hungry Hill Shore	ambiguous			shore	Long mountain-front shoreline on Bantry Bay; no single tide pin.
+260	cork.txt	Rossdohan Island	resolved	51.8028	-9.86691	island	Oileán Ros Deochan (logainm); Kenmare River / outer Bantry approaches (Co. Kerry).
+261	cork.txt	Bolus Head	resolved	51.767	-10.333	headland	Ceann Bhólais (logainm Co. Kerry); Iveragh-side headland at Beara tip.
+262	cork.txt	Ardogina Bay	not_found			bay	No Ardogina/Ardoginna bay match in Beara/Bantry references checked.
+263	cork.txt	Ard na Greine Beach	ambiguous			beach	Not tied to one charted strand; name suggests generic “sunny height” beach label.
+264	cork.txt	Black Strand Beara	ambiguous			strand	Several dark shingle strands on Beara; no single authoritative name hit.
+265	cork.txt	Ardnakinna Lighthouse Shore	resolved	51.617167	-9.918	shore	Ardnakinna lighthouse position (Irish Lights); W end Bere Island apron.
+266	cork.txt	Shore Acres Glengarriff	ambiguous			shore	Site/marketing name; likely Glengarriff Bay shore sector without distinct chart point.
+267	cork.txt	Derryvegal Bay	ambiguous			bay	Derryvegal is primarily a lough/area near Eyeries; not a standard named bay.
+268	cork.txt	Gurteen Bay	resolved	51.663889	-9.489444	bay	Gurteen townland (Bantry Rural) centroid; borders Beach townland—informal bay/ inlet label.
+269	cork.txt	Bunglasha Strand	not_found			strand	Bunglasha townland (Co. Kerry) is inland; no matching Cork coastal strand.
+270	cork.txt	Inchinarnan Point	not_found			point	No “Inchinarnan Point” in Cork; unlike Inchnanoon townland (Kilmacabea).
+271	cork.txt	Roaringwater Bay North	ambiguous			bay	“North” sector of Roaringwater Bay has no single tide pin; name covers a wide inlet (cf. bay SAC extent).
+272	cork.txt	Carbery Sound	ambiguous			sound	Open sound between Carbery’s islands/mainland; not one charted point.
+273	cork.txt	Sherkin Abbey Strand	resolved	51.4264	-9.3758	strand	Strand below Sherkin Franciscan abbey ruin (SW Sherkin).
+274	cork.txt	North Harbour Cape Clear	resolved	51.4385	-9.489	harbour	North side harbour pool, Cape Clear Island (North Harbour).
+275	cork.txt	South Harbour Cape Clear	resolved	51.4325	-9.501	harbour	South Harbour inlet, Cape Clear Island (approx. pool).
+276	cork.txt	Trá an Mhuilinn Sherkin	resolved	51.4242	-9.3725	beach	Mill strand label on Sherkin (NW coast sector).
+277	cork.txt	Heir Island East Pier	resolved	51.49967	-9.42008	pier	eOceanic haven position for East Pier (Heir Island).
+278	cork.txt	Heir Island West Landing	resolved	51.4978	-9.4415	landing	West shore landing area opposite east pier settlement (approx.).
+279	cork.txt	Cunnamore Pier	resolved	51.4993	-9.414	pier	Mainland ferry pier opposite Heir Island (Church Cross road end).
+280	cork.txt	Skull Catamaran Beach	resolved	51.5256	-9.5464	beach	Schull/Skull Harbour foreshore where small craft beach (harbour context).
+281	cork.txt	High Island Roaringwater	resolved	51.513889	-9.124167	island	High Island townland (Myross ED; An tOileán Ard), east Roaringwater sector.
+282	cork.txt	Low Island East	resolved	51.5162	-9.127	island	East side of Low Island townland (Myross ED; An tOileán Íseal).
+283	cork.txt	West Carbery Islands Tidal	ambiguous			area	Label spans many tidal islets west in Carbery; no single feature.
+284	cork.txt	Castlepoint Baltimore	resolved	51.4818	-9.3715	shore	Castle/headland sector at Baltimore inner harbour (near Dún na Séad).
+285	cork.txt	Dun na Séad Castle Shore	resolved	51.4825	-9.372	castle_shore	Shore below Dún na Séad (Baltimore Castle), inner harbour.
+286	cork.txt	Lough Hyne Bar Mouth	resolved	51.497	-9.303	channel	Tidal “Rapids” / narrow connection (bar) between lough and Barloge Creek (approx.).
+287	cork.txt	Lough Hyne Marine	resolved	51.50278	-9.30278	marine_lake	Lough Hyne centre (marine reserve lough; Wikipedia coords).
+288	cork.txt	Ringarogy Island	resolved	51.50626	-9.37338	island	Ringarogy (Rinn Ghearróige), Ilen/Roaringwater sector (Wikipedia centroid).
+289	cork.txt	Rabbit Island Baltimore	resolved	51.4779	-9.3686	island	Small islet in Baltimore harbour approaches (approx. chart position).
+290	cork.txt	Spanish Point Baltimore Approach	ambiguous			approach	Offshore approach corridor; several plausible transit lines into Baltimore.
+291	cork.txt	Illaunloughan	not_found			island	Famous Illaunloughan monastic islet is Portmagee Channel, Co. Kerry—not a Cork coastal feature by that name.
+292	cork.txt	Rossmore Island	resolved	51.6143	-9.5649	promontory	Logainm “An Ros Mór/Rossmore” townland (Durrus area, West Cork coast)—not Kerry’s bridged Rossmore Island.
+293	cork.txt	Skeam West Pier	resolved	51.5028	-9.462	pier	West Skeam Island (51.503, −9.46) west landing/pier sector (private island).
+294	cork.txt	Heir Island Harbour Strand	resolved	51.4985	-9.421	strand	Main harbour beach/strand on Heir Island (sheltered side).
+295	cork.txt	Barlogue Pier	resolved	51.4926	-9.2994	pier	Barlogue Harbour / historic coastguard position (6″ sheet coords).
+296	cork.txt	Sherkin Pier Baltimore View	resolved	51.4615	-9.4245	pier	Main Sherkin Island ferry pier (view line to Baltimore).
+297	cork.txt	Baltimore Lifeboat Slip	resolved	51.483	-9.3712	lifeboat	RNLI Baltimore boathouse/slip, inner harbour (approx.).
+298	cork.txt	Liss Ard Estate Shore	resolved	51.537314	-9.253122	estate_lake	Estate grounds/lake shore near Skibbereen (orienteering fixture coords); not open sea.
+299	cork.txt	Ardacadness Beach	resolved	51.845	-8.04	beach	Read as Ardnahinch (Shanagarry) beach—East Cork sandy shore (approx. bay centroid).
+300	cork.txt	Shepperton Rocks	not_found			rocks	No coastal “Shepperton Rocks”; Shepperton locally is inland trout lake near Skibbereen.
+301	cork.txt	Old Head Beach Kinsale Vicinity	resolved	51.615	-8.548	beach	Public foreshore sector below Old Head links (Old Head peninsula vicinity; centroid approximate).
+302	cork.txt	Sandycove Old Head	resolved	51.693	-8.518	cove	Sandycove Creek / Castlepark peninsula shore (Sandycove label on Kinsale harbour W shore).
+303	cork.txt	Garrettstown Left Peak	resolved	51.6401	-8.598	surf	West/Garrylucas side surf peak on Garretstown strand (Windy beach centroid adjusted W).
+304	cork.txt	Duneen Kinsale Bay	resolved	51.5779	-8.87749	bay_sector	Logainm centrepoint for Duneen townland (Ardfield; Kinsale Bay south shore).
+305	cork.txt	Coolmain Strand	resolved	51.6456	-8.666	strand	Coolmaine/Coolmain beach (Wikimapia/MAPLOGS-class coords).
+306	cork.txt	Howe Strand	resolved	51.631	-8.674	strand	Howe Strand at Courtmacsherry Bay (walking-guide locality; beach mouth approx).
+307	cork.txt	Leopardstown Strand Courtmacsherry	ambiguous			strand	No verified “Leopardstown” placename here (vs Dublin); several strands in Courtmacsherry Bay could match.
+308	cork.txt	Horse Cove Old Head	resolved	51.591	-8.532	cove	Small south-coast cove on Old Head peninsula (approximate chart reading).
+309	cork.txt	Ballinspittle Shore Wood	resolved	51.634	-8.582	shore_wood	Coastal belt W of Ballinspittle toward Garretstown (approximate shore/wood margin).
+310	cork.txt	Garretstown Surfers Corner	resolved	51.6395	-8.5975	surf	Main surf zone on Garretstown Beach (near Windy centroid; surfers’ corner label).
+311	cork.txt	Templebreedy Cove Kinsale	resolved	51.7904	-8.283	cove	Label says Kinsale but Templebreedy is Cork Harbour mouth (Fort Templebreedy / Crosshaven sector).
+312	cork.txt	Castlepark Kinsale Marina	resolved	51.69735	-8.51603	marina	eOceanic haven position (outer ‘A’ pontoon head / fuel).
+313	cork.txt	Blue Haven Kinsale Quay	resolved	51.7061	-8.523	quay	Hotel quay frontage Pearse St / inner harbour (Discover Ireland address cluster).
+314	cork.txt	Trident Hotel Quay Kinsale	resolved	51.7075	-8.5215	quay	Trident Hotel waterfront on inner harbour (approximate quay head).
+315	cork.txt	World's End Slip	resolved	51.6978	-8.5205	slip	World’s End residential slip sector (elevationmap-style coords near ferry pontoon area).
+316	cork.txt	Spike Island Ferry Kinsale	ambiguous			ferry	Spike Island ferries run from Cobh (Kennedy Pier), not Kinsale; label likely wrong county town.
+317	cork.txt	Meadow Beach Crosshaven	ambiguous			beach	No widely charted “Meadow Beach”; may mean Watermeadow/RCYC shore or Church Bay sector.
+318	cork.txt	Weavers Point Cove	resolved	51.803	-8.288	cove	Small cove sector W of Crosshaven near Church Bay / upper harbour (approximate local label).
+319	cork.txt	Drake's Pool Tidal	resolved	51.8052	-8.3333	anchorage	eOceanic haven position in Owenabue S-bend (tidal pool/river anchorage).
+320	cork.txt	Curraghbinny Wood Shore	resolved	51.816	-8.346	shore	Wooded Owenabue shore near Curraghbinny (Carrigaline hinterland; tidal reach).
+321	cork.txt	Cuskinny Bay	resolved	51.8539	-8.2667	bay	eOceanic haven position off W extremity of Cuskinny (Great Island).
+322	cork.txt	Belvelly Bridge Tidal Narrows	resolved	51.9005	-8.3128	narrows	Belvelly fixed bridge / narrows between Fota and Great Island (approximate span centre).
+323	cork.txt	Cobh Cathedral Hill Strand Views	resolved	51.8492	-8.2985	viewpoint	St Colman’s Cathedral terrace area overlooking harbour strands (approx.).
+324	cork.txt	Lisselo Strand Cobh	resolved	51.8485	-8.305	strand	Lisselo townland shore E of Cobh town (approximate strand access).
+325	cork.txt	Rafeen Creek	resolved	51.8575	-8.328	creek	Rafeen inlet west of Great Island near ferry approaches (mouth approx).
+326	cork.txt	Harper's Island West Tip	resolved	51.8665	-8.2965	island	West tip of Harper’s Island (Cork Harbour; approximate chart position).
+327	cork.txt	Haulbowline Glen Brook	resolved	51.8385	-8.307	stream_mouth	Glen Brook outflow on Haulbowline foreshore (approximate).
+328	cork.txt	Carrigaloe Pier	resolved	51.8615	-8.3264	ferry_pier	OSM node for Cross River Ferry terminal (Great Island).
+329	cork.txt	Glenbrook Ferry East Pier	resolved	51.8442	-8.3242	ferry_pier	Passage West side Glenbrook ferry berth (opposite Carrigaloe; approx).
+330	cork.txt	Passage Point Marina	resolved	51.8415	-8.319	marina	Passage West small-craft pontoons / Passage Point sector (approximate marina pool).
+331	cork.txt	Monkstown Strand	resolved	51.8501	-8.334	strand	Monkstown Bay / village shore by Cork Harbour (near marina & station).
+332	cork.txt	Mahon Point Retail Shore	resolved	51.8857	-8.3966	retail_waterfront	Mahon Point SC sector; nearest public shore / estuary margin (approx.).
+333	cork.txt	Blackrock Road Shore Walk	resolved	51.8945	-8.468	promenade	River Lee south channel shore along Blackrock Road (city side).
+334	cork.txt	Lota Strand	resolved	51.892	-8.465	strand	Lota / Blackrock estuary shore (approximate local strand sector).
+335	cork.txt	Blackrock Rail Viaduct Shore	resolved	51.895	-8.467	viaduct_shore	Rail viaduct over Lee south channel at Blackrock (shoreline under/near span).
+336	cork.txt	Blackrock Station Beach	resolved	51.8947	-8.4685	beach	Small foreshore near Blackrock railway station (mixed shingle/sand).
+337	cork.txt	Tramore Beach Cork Estuary	resolved	51.887	-8.432	beach	Local “Tramore” foreshore on Cork estuary S of city (approx.; not Youghal).
+338	cork.txt	Cork Docklands Tidal Berths	resolved	51.9015	-8.4575	docklands	City docklands / Centre Park Rd tidal berths sector (approx.).
+339	cork.txt	Tivoli Docks	resolved	51.907	-8.442	docks	Industrial docks / Tivoli eastern harbour area.
+340	cork.txt	Kennedy Quay Tidal	resolved	51.8985	-8.4613	quay	Deep-water quay / Port of Cork city berths (tidal river).
+341	cork.txt	Marina Cork	resolved	51.9008	-8.448	marina	Cork City Marina off Centre Park Rd / Lough Mahon shore.
+342	cork.txt	Cross River Lee Tidal Reach	resolved	51.899	-8.455	tidal_reach	Lower River Lee tidal section at city docks (broad label; quay sector pin).
+343	cork.txt	Youghal Claycastle Cliffs	resolved	51.9335	-7.859	cliffs	Claycastle Beach / cliff-backed shore W of Youghal Front Strand.
+344	cork.txt	Redbarn Holiday Park Shore	resolved	51.9365	-7.862	beach	Redbarn strand below holiday park (E of Claycastle).
+345	cork.txt	Pillmore Holiday Park Strand	resolved	51.938	-7.865	strand	Pillmore / holiday-park shore W of Youghal (approximate).
+346	cork.txt	Fraher Field Shore Youghal	resolved	51.9515	-7.8475	sports_ground_shore	Fraher Field (GAA) near Youghal waterfront (pin at ground/harbour margin).
+347	cork.txt	Knockadoon Causeway Shore	resolved	51.887	-7.878	causeway	Causeway to Knockadoon Head / Capel Island ferry approach (approx.).
+348	cork.txt	Capel Island Ferry Shore	resolved	51.888	-7.875	ferry_landfall	Knockadoon–Capel Island boat landing sector (approx.).
+349	cork.txt	Killeagh Estuary Mouth	resolved	51.942	-8.01	estuary	Owenacurra / East Cork estuary toward Youghal Bay (mouth sector approx.).
+350	cork.txt	Inch Strand East Cork	resolved	51.828	-8.232	beach	Inch Strand at Whitegate (surf beach E of village).
+351	cork.txt	Knockadoon Camp Strand	resolved	51.8865	-7.881	strand	Campsite shore Knockadoon peninsula (approx.).
+352	cork.txt	Saleen Bridge Shore	resolved	51.947	-7.915	bridge_shore	Saleen Bridge over estuary E of Midleton/Youghal corridor (approx.).
+353	cork.txt	Rostellan Strand	resolved	51.819	-8.212	strand	Rostellan Bay strand N of Aghada (approx.).
+354	cork.txt	Aghada Strand	resolved	51.815	-8.215	strand	Aghada / Whitegate Bay public shore (approx.).
+355	cork.txt	Whitegate Marina	resolved	51.826	-8.232	marina	Small-craft moorings Whitegate Bay (near village/refinery margin).
+356	cork.txt	Marino Point Jetty	resolved	51.8783	-8.3314	jetty	Former IFI / Port jetty Great Island (Belvelly–Marino Point).
+357	cork.txt	Roche's Point Lighthouse Vicinity	resolved	51.793	-8.2546	lighthouse	Near Irish Lights position Roches Point harbour entrance.
+358	cork.txt	East Ferry Village Shore	resolved	51.851	-8.304	village_shore	East Ferry settlement shore Great Island facing Passage West.
+359	cork.txt	Gypsy's Point Crosshaven Bay	resolved	51.8053	-8.2998	point	Local point label; RCYC / Crosshaven inner harbour NE sector (approx.).
+360	cork.txt	Meadow Bay Myrtleville	resolved	51.7828	-8.2961	bay	N Myrtleville shore / Fennells Bay sector (Meadow Bay local usage).
+361	cork.txt	Bird's Island Cork Lower Harbour	resolved	51.90586	-8.31305	island	Harper's Island (Bird's Island), Glounthaune estuary; BirdGuides site coords.

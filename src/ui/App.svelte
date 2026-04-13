@@ -19,6 +19,7 @@
   import AppHeader, { type HeaderCenter, type HeaderTone } from "./components/AppHeader.svelte";
   import Home from "./routes/Home.svelte";
   import Location from "./routes/Location.svelte";
+  import LocationTowns2 from "./routes/LocationTowns2.svelte";
   import Settings from "./routes/Settings.svelte";
   import About from "./routes/About.svelte";
   import Acknowledgements from "./routes/Acknowledgements.svelte";
@@ -29,6 +30,7 @@
   type AppRouteId =
     | "home"
     | "location"
+    | "location2"
     | "settings"
     | "about"
     | "acknowledgements"
@@ -164,6 +166,8 @@
     switch (routeId) {
       case "location":
         return "Location";
+      case "location2":
+        return "Location (new search)";
       case "settings":
         return "Settings";
       case "about":
@@ -212,6 +216,8 @@
       />
     {:else if $route === "location"}
       <Location setCurrentLocation={setCurrentLocation} />
+    {:else if $route === "location2"}
+      <LocationTowns2 setCurrentLocation={setCurrentLocation} />
     {:else if $route === "settings"}
       <Settings />
     {:else if $route === "about"}

@@ -9,7 +9,7 @@
 import { writable } from 'svelte/store'
 
 /**
- * @typedef {'home' | 'location' | 'settings' | 'about' | 'acknowledgements' | 'support' | 'cookies'} RouteId
+ * @typedef {'home' | 'location' | 'location2' | 'settings' | 'about' | 'acknowledgements' | 'support' | 'cookies'} RouteId
  */
 
 /** @type {import('svelte/store').Writable<RouteId>} */
@@ -29,6 +29,8 @@ function parseHash(hash) {
       return 'settings'
     case 'location':
       return 'location'
+    case 'location2':
+      return 'location2'
     case 'about':
       return 'about'
     case 'acknowledgements':

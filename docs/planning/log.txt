@@ -112,9 +112,13 @@ fart
 						o  collab cursor on acquiring lat/lon
 							*  design a process and prompt
 							*  smoke test it
-							o  ask cursor to scale it using same paradigm as
+							*  ask cursor to scale it using same paradigm as
 							   run-coastal-agent-loop for batched breakdown using
 							   repo as statemanagement
+							o  try the script out
+								o  first run
+									o  looking encouraging but very slow
+
 						o  collab cursor on better UX
 							o  planning remodel ux for search location
 							o  context is search engine and impl and existing old

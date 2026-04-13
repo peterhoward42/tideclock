@@ -54,6 +54,7 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="#/home" onclick={closeMenu}>Home</a>
         <a href="#/location" onclick={closeMenu}>Location</a>
+        <a href="#/location2" onclick={closeMenu}>Location (new search)</a>
         <a href="#/settings" onclick={closeMenu}>Settings</a>
         <a href="#/about" onclick={closeMenu}>About</a>
         <a href="#/acknowledgements" onclick={closeMenu}>Acknowledgements</a>

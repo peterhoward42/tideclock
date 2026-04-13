@@ -1,0 +1,132 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	aberdeenshire.txt	Portsoy	resolved	57.68155	-2.69074	town	OSM place=town (Nominatim).
+2	aberdeenshire.txt	Portsoy Harbour	resolved	57.68578	-2.68749	harbour	OSM “Portsoy New Harbour” polygon centroid (Nominatim).
+3	aberdeenshire.txt	Old Portsoy	resolved	57.68504	-2.69082	harbour	OSM “Portsoy Old Harbour” marina (Nominatim).
+4	aberdeenshire.txt	Tillynaught	resolved	57.64329	-2.67782	hamlet	OSM named farmyard/hamlet (Nominatim); slightly inland of the immediate foreshore.
+5	aberdeenshire.txt	Whitehills	resolved	57.67736	-2.57979	village	OSM place=village (Nominatim).
+6	aberdeenshire.txt	Boyndie	resolved	57.66288	-2.60440	hamlet	OSM place=hamlet (Nominatim).
+7	aberdeenshire.txt	Inverboyndie	resolved	57.66850	-2.56017	village	OSM place=village (Nominatim).
+8	aberdeenshire.txt	Banff	resolved	57.66455	-2.52175	town	OSM place=town (Nominatim).
+9	aberdeenshire.txt	Banff Bay	resolved	57.67047	-2.51351	bay	OSM named bay (Nominatim).
+10	aberdeenshire.txt	Banff Bridge	resolved	57.66285	-2.51327	bridge	OSM “Bridge of Banff” (Nominatim).
+11	aberdeenshire.txt	Macduff	resolved	57.67021	-2.49444	town	OSM place=town (Nominatim).
+12	aberdeenshire.txt	Macduff Harbour	resolved	57.67239	-2.49802	harbour	OSM “Princess Royal Basin” centroid (no direct “Macduff Harbour” hit in Nominatim).
+13	aberdeenshire.txt	West Beach Macduff	resolved	57.67065	-2.47107	beach	OSM Tarlair lido on the west/Moray Firth foreshore used as west-beach anchor (Nominatim).
+14	aberdeenshire.txt	Doune	resolved	57.65989	-2.51142	historic_place	Historic settlement name for Macduff; Canmore/trove “Doune, Fairs Cottage” (NJ 69583 63448).
+15	aberdeenshire.txt	Gardenstown	resolved	57.67156	-2.33853	village	OSM place=village (Nominatim).
+16	aberdeenshire.txt	Gardenstown Harbour	resolved	57.67307	-2.33791	harbour	OSM Gardenstown Harbour marina (Nominatim).
+17	aberdeenshire.txt	Gamrie	resolved	57.67156	-2.33853	parish	OSM resolves parish label to Gardenstown (main settlement of the parish of Gamrie).
+18	aberdeenshire.txt	Gamrie Bay	resolved	57.67860	-2.34045	bay	OSM named “Gamrie Bay” (Nominatim); not the nearby apartment block hit.
+19	aberdeenshire.txt	Crovie	resolved	57.67897	-2.32406	village	OSM place=village (Nominatim).
+20	aberdeenshire.txt	Crovie Harbour	resolved	57.67910	-2.32390	harbour	No OSM harbour object; pin placed on Crovie shore/harbour frontage just seaward of the village node.
+21	aberdeenshire.txt	Pennan	resolved	57.67881	-2.26053	village	OSM place=village (Nominatim).
+22	aberdeenshire.txt	Pennan Harbour	resolved	57.67942	-2.25868	dock	OSM waterway=dock “Pennan Harbour” (Nominatim).
+23	aberdeenshire.txt	Rosehearty	resolved	57.69677	-2.11435	village	OSM place=village (Nominatim).
+24	aberdeenshire.txt	Rosehearty Harbour	resolved	57.69984	-2.11677	harbour	OSM Rosehearty Harbour marina (Nominatim).
+25	aberdeenshire.txt	Pitsligo	resolved	57.59227	-2.19721	village	OSM resolves to “New Pitsligo” (Nominatim); list label is Pitsligo.
+26	aberdeenshire.txt	Cairnbulg	resolved	57.67707	-1.93372	village	OSM place=village (Nominatim).
+27	aberdeenshire.txt	Cairnbulg Harbour	resolved	57.67750	-1.93480	harbour	No OSM harbour name hit; pin on Shore Street / harbour pocket at Cairnbulg (street geometry from Nominatim).
+28	aberdeenshire.txt	Inverallochy	resolved	57.67482	-1.92936	village	OSM place=village (Nominatim).
+29	aberdeenshire.txt	St Combs	resolved	57.65707	-1.91105	village	OSM place=village (Nominatim).
+30	aberdeenshire.txt	St Combs Point	resolved	57.65000	-1.90500	headland	No named OSM feature; approximate southern foreshore/point toward Loch of Strathbeg from St Combs (human-map pin).
+31	aberdeenshire.txt	Broadsea	resolved	57.6948184	-2.0176652	neighbourhood	OSM Broadsea, Fraserburgh (Nominatim).
+32	aberdeenshire.txt	Sandhaven	resolved	57.6972588	-2.0636460	village	OSM place context Sandhaven (Nominatim).
+33	aberdeenshire.txt	Philorth	resolved	57.6846062	-1.9999945	beach	OSM stop “Fraserburgh (Tiger Hill)” on Harbour Road; Philorth Burn / west beach sector of Fraserburgh (Nominatim).
+34	aberdeenshire.txt	Fraserburgh	resolved	57.6935974	-2.0051497	town	OSM place=town (Nominatim).
+35	aberdeenshire.txt	Fraserburgh Harbour	resolved	57.6946365	-2.0011669	harbour	OSM “Balaclava Harbour”, Port of Fraserburgh (Nominatim).
+36	aberdeenshire.txt	Fraserburgh Beach	resolved	57.68850	-2.01950	beach	No named OSM beach; approximate sandy foreshore west of town (Tiger Hill / Coral Beach sector; human-map pin).
+37	aberdeenshire.txt	Faithlie	resolved	57.6907632	-1.9994645	harbour	Faithlie is historic name for Fraserburgh harbour; OSM “Faithlie Harbour”, Port of Fraserburgh (Nominatim).
+38	aberdeenshire.txt	Memsie	resolved	57.6500434	-2.0504590	village	OSM Memsie (Nominatim).
+39	aberdeenshire.txt	Rattray	resolved	57.6100450	-1.8552301	hamlet	OSM building name “Old Rattray”, St Fergus — coastal Buchan hamlet S of Rattray Head (Nominatim).
+40	aberdeenshire.txt	Rattray Head	resolved	57.6100591	-1.8162928	headland	OSM Rattray Head, St Fergus (Nominatim).
+41	aberdeenshire.txt	Lonmay	resolved	57.6317102	-1.9374868	village	No place=village node; OSM “Lonmay Parish Church”, Fiddler’s Green used as village centre proxy (Nominatim).
+42	aberdeenshire.txt	Crimond	resolved	57.6005059	-1.9153548	village	OSM Crimond (Nominatim).
+43	aberdeenshire.txt	Longhaven	resolved	57.4467301	-1.8201802	hamlet	OSM Longhaven (Nominatim).
+44	aberdeenshire.txt	Invernettie	resolved	57.4901485	-1.7972914	neighbourhood	OSM Invernettie, Peterhead (Nominatim).
+45	aberdeenshire.txt	Burnhaven	resolved	57.48680	-1.78850	harbour	No named harbour object; pin on Burnhaven shore S of Peterhead near the fishing harbour pocket (human-map; area per OSM Burnhaven School locale).
+46	aberdeenshire.txt	Rora	resolved	57.5450899	-1.9010457	village	OSM Rora (Nominatim).
+47	aberdeenshire.txt	Boddam	resolved	57.4721372	-1.7805417	village	OSM Boddam (Nominatim).
+48	aberdeenshire.txt	Boddam Harbour	resolved	57.4743419	-1.7770644	harbour	OSM “Boddam Harbour”, Stirling Village (Nominatim).
+49	aberdeenshire.txt	Peterhead	resolved	57.5052909	-1.7813194	town	OSM Peterhead (Nominatim).
+50	aberdeenshire.txt	Peterhead Harbour	resolved	57.5063938	-1.7735110	harbour	OSM “Port Henry Harbour”, Port of Peterhead (Nominatim).
+51	aberdeenshire.txt	Peterhead Bay	resolved	57.4956306	-1.7908187	bay	OSM “Peterhead Bay Marina”, southern bay area (Nominatim).
+52	aberdeenshire.txt	Buchanhaven	resolved	57.5145656	-1.7904883	neighbourhood	OSM Buchanhaven, Peterhead (Nominatim).
+53	aberdeenshire.txt	Peathill	resolved	57.68403	-2.11245	hamlet	Hamlet S of Rosehearty / Pitsligo coast; no direct Nominatim hamlet hit — approximate published map centre (e.g. ukcitymap/wikipedia class listings).
+54	aberdeenshire.txt	Rathen	resolved	57.6369495	-2.0012823	village	OSM Rathen (Nominatim).
+55	aberdeenshire.txt	Roanheads	resolved	57.5095510	-1.7778068	neighbourhood	OSM Roanheads, Peterhead (Nominatim).
+56	aberdeenshire.txt	Hatton	resolved	57.4077275	-1.9062357	village	OSM Hatton (Kiplaw Road), Aberdeenshire — Hatton on coastal route S toward Cruden Bay (Nominatim).
+57	aberdeenshire.txt	Cruden Bay	resolved	57.4163733	-1.8529312	village	OSM Cruden Bay (Nominatim).
+58	aberdeenshire.txt	Cruden Bay Beach	resolved	57.41350	-1.85480	beach	No named OSM beach hit; main bay beach seaward of village centre (human-map pin).
+59	aberdeenshire.txt	Port Erroll	resolved	57.4142846	-1.8460132	harbour	OSM Port Erroll, Cruden Bay (Nominatim).
+60	aberdeenshire.txt	Slains	resolved	57.4154724	-1.8321874	attraction	OSM “New Slains Castle”, Buchan Coastal Path — coastal focal for name “Slains” here (Nominatim).
+61	aberdeenshire.txt	Slains Castle	resolved	57.4154724	-1.8321874	attraction	OSM “New Slains Castle” (Photon/Nominatim-class); same ruin as line 60 list label variant.
+62	aberdeenshire.txt	Collie Ness	not_found			unknown	No OSM/Photon hit on this Buchan coast segment; not matched in quick gazetteers—needs local map verification.
+63	aberdeenshire.txt	Bullers of Buchan	resolved	57.4326056	-1.8199295	attraction	OSM tourism=attraction on Buchan Coastal Footpath at Bullers of Buchan (Photon; Nominatim-class).
+64	aberdeenshire.txt	Whinnyfold	resolved	57.3893314	-1.8668315	hamlet	OSM place=hamlet (Photon; Nominatim-class).
+65	aberdeenshire.txt	Auchmacoy	resolved	57.36798	-2.01453	country_house	Canmore/trove centroid for Auchmacoy House (NJ 99225 30835); estate inland of Ythan in Logie Buchan coastal list context.
+66	aberdeenshire.txt	Kirkton of Slains	resolved	57.35148	-1.93351	settlement	Kirktown of Slains; Slains Kirkyard coords (Find a Grave) — church hamlet N of Collieston.
+67	aberdeenshire.txt	Forvie	resolved	57.3319640	-1.9707191	protected_area	OSM boundary protected_area “Forvie National Nature Reserve” centroid (Photon; Nominatim-class).
+68	aberdeenshire.txt	Forvie National Nature Reserve	resolved	57.3319640	-1.9707191	protected_area	Same NNR boundary centroid as “Forvie” (Photon; Nominatim-class).
+69	aberdeenshire.txt	Forvie Sands	resolved	57.3163732	-1.9832178	sand	OSM natural=sand “Sands of Forvie” (Photon; Nominatim-class).
+70	aberdeenshire.txt	Hackley Bay	resolved	57.3337785	-1.9555143	beach	OSM natural=beach “Hackley Bay” polygon centroid (Photon).
+71	aberdeenshire.txt	Rockend	resolved	57.3275309	-1.9672628	locality	OSM named locality Rockend near Collieston/Forvie (Photon).
+72	aberdeenshire.txt	Collieston	resolved	57.3495892	-1.9355467	village	OSM place=village (Photon).
+73	aberdeenshire.txt	Collieston Harbour	resolved	57.34807	-1.93668	harbour	Trove/HES listing “Collieston, High Town, Marine Cottage” NGR centroid — harbour shorefront sector (no separate OSM harbour hit in Photon).
+74	aberdeenshire.txt	Cottie	not_found			unknown	No gazetteer match for this exact spelling in the Collieston–Slains coastal strip.
+75	aberdeenshire.txt	Newburgh	resolved	57.3194088	-2.0036775	village	OSM place=village Newburgh-on-Ythan (Photon with Ellon-area bias).
+76	aberdeenshire.txt	Newburgh-on-Ythan	resolved	57.3194088	-2.0036775	village	Same settlement as “Newburgh”; common fuller name (OSM primary label is “Newburgh”).
+77	aberdeenshire.txt	Ythan Estuary	resolved	57.3188269	-1.976992	estuary	OSM “Newburgh Seal Beach” natural=beach polygon centroid used as Ythan mouth foreshore/mudflat anchor (Photon).
+78	aberdeenshire.txt	Balmedie	resolved	57.246473	-2.0571418	village	OSM place=village (Photon).
+79	aberdeenshire.txt	Balmedie Beach	resolved	57.2545319	-2.0326316	beach	OSM leisure=bathing_place “Balmedie” on North Beach Road — main visitor beach sector (Photon).
+80	aberdeenshire.txt	Potterton	resolved	57.2303589	-2.101596	village	OSM place=village (Photon).
+81	aberdeenshire.txt	Blackdog	resolved	57.2180827	-2.068487	village	OSM place=village (Photon).
+82	aberdeenshire.txt	Findon	resolved	57.0686746	-2.1048863	hamlet	OSM place context Findon, Aberdeenshire between Blackdog and Portlethen (Photon).
+83	aberdeenshire.txt	Findon Ness	resolved	57.06925	-2.09150	headland	No named OSM ness polygon; approximate coastal headland E of Findon hamlet (human-map; not the unrelated “Findon Ness” street in Cove).
+84	aberdeenshire.txt	Rickarton	resolved	56.9924844	-2.3039962	hamlet	OSM place=hamlet “Rickarton” (Photon).
+85	aberdeenshire.txt	Cookney	resolved	57.0305012	-2.2138064	village	OSM place=village (Photon).
+86	aberdeenshire.txt	Portlethen	resolved	57.061466	-2.129707	town	OSM place=town (Photon).
+87	aberdeenshire.txt	Portlethen Beach	resolved	57.06240	-2.11780	beach	No named OSM beach hit; approximate main sandy foreshore E/NE of Portlethen centre (human-map pin).
+88	aberdeenshire.txt	Downies	resolved	57.046574	-2.126153	village	OSM place=village (Photon).
+89	aberdeenshire.txt	Newtonhill	resolved	57.0321018	-2.1503377	town	OSM place=town (Photon).
+90	aberdeenshire.txt	Skateraw	resolved	57.03085	-2.14090	bay	No OSM place node; approximate Skateraw coastal bay/foreshore S of Newtonhill (human-map pin; Photon only returned Skateraw Road).
+91	aberdeenshire.txt	Newtonhill Beach	resolved	57.0335	-2.1240	beach	No named OSM beach hit; approximate main sandy foreshore NE of Newtonhill toward the open coast (human-map pin; analogous to Portlethen Beach handling).
+92	aberdeenshire.txt	Doonie Point	resolved	57.0108	-2.1636	headland	Wikipedia/Gazetteer for Scotland coords for Doonie Point (rocky headland S of Muchalls).
+93	aberdeenshire.txt	Muchalls	resolved	57.0211625	-2.1619971	village	OSM place context “Muchalls” (Nominatim; first batch).
+94	aberdeenshire.txt	Muchalls Castle	resolved	57.0175199	-2.1799046	historic	OSM “Muchalls Castle” (Nominatim; first batch).
+95	aberdeenshire.txt	Berrymuir Head	resolved	57.0324	-2.1469	headland	UKC logbook gives OS grid NO 92754 94817 (coastal crag/headland S of Downies); converted to WGS84 approximate.
+96	aberdeenshire.txt	Clashfarquhar Bay	resolved	57.04136	-2.1232	bay	GeoHack / Gazetteer for Scotland centroid for named bay (N of Newtonhill).
+97	aberdeenshire.txt	Glasslaw	resolved	56.9478404	-2.2354805	hamlet	OSM “Glasslaw, Stonehaven” place context (Nominatim; first batch).
+98	aberdeenshire.txt	Cammie	not_found			unknown	No clear coastal match between Glasslaw and Catterline; OS/search returns unrelated “Hill of Cammie” / inland Mill of Cammie features.
+99	aberdeenshire.txt	Catterline	resolved	56.8979509	-2.2178874	village	OSM place=village “Catterline” (Nominatim; first batch).
+100	aberdeenshire.txt	Catterline Bay	resolved	56.8960	-2.2145	bay	Human-map centroid of the pier/cove below Catterline village (no single OSM bay polygon hit in searches).
+101	aberdeenshire.txt	Dunnottar	ambiguous			unknown	Label applies to parish/district, Mains of Dunnottar, and the castle headland; several valid coastal anchors—no single pin without over-precision.
+102	aberdeenshire.txt	Dunnottar Castle	resolved	56.946111	-2.196944	castle	Wikipedia coord infobox (ruined fortress headland S of Stonehaven).
+103	aberdeenshire.txt	Kinneff	resolved	56.8648744	-2.2379517	village	OSM place context Kinneff (Photon).
+104	aberdeenshire.txt	Kinneff Church	resolved	56.8652839	-2.2387388	church	OSM “Kinneff Old Parish Church” (Photon).
+105	aberdeenshire.txt	Cowie	resolved	56.9714413	-2.2020045	village	OSM place “Cowie” (historic fishing village, now part of Stonehaven) (Photon).
+106	aberdeenshire.txt	Stonehaven	resolved	56.9640234	-2.2087993	town	OSM place=town (Photon).
+107	aberdeenshire.txt	Stonehaven Harbour	resolved	56.9595667	-2.2022833	harbour	OSM “Stonehaven Harbour” (Photon).
+108	aberdeenshire.txt	Stonehaven Beach	resolved	56.9609	-2.2045	beach	Human-map pin on main town beach / Esplanade sector (Photon global hits unusable).
+109	aberdeenshire.txt	East Beach Stonehaven	resolved	56.9628	-2.1980	beach	Human-map pin on eastern sector of Stonehaven Bay toward Garron Point (no named OSM beach split).
+110	aberdeenshire.txt	Carron	resolved	56.95845	-2.20580	river_mouth	Interpreted as Carron Water at its Stonehaven Bay mouth / foreshore (between generic river centroid and residential “Carron Gardens”).
+111	aberdeenshire.txt	Dewars	not_found			unknown	No gazetteer or OSM feature for this label in the Stonehaven coastal strip (not the whisky brand).
+112	aberdeenshire.txt	Urie	resolved	56.9670348	-2.2145536	neighbourhood	Photon returns “Urie Crescent”, Stonehaven — used as local street-centroid proxy for the name in town.
+113	aberdeenshire.txt	Barras	resolved	56.91535	-2.23832	locality	Canmore/trove centroid for Barras (remains near Mains of Barras / Barras Castle) — rural Dunnottar parish locality SW of Stonehaven.
+114	aberdeenshire.txt	Marywell	resolved	57.08016	-2.11051	farmstead	Canmore NRHE “Marywell” farmstead (NO 934 988) on Stonehaven Road — used in preference to unrelated Aberdeen “Marywell” street hits.
+115	aberdeenshire.txt	White Wife	resolved	57.0285	-2.1365	rock	Wikipedia “Newtonhill” notes “The White Wife” sea-angling rock on Newtonhill foreshore; approximate coastal pin (human-map).
+116	aberdeenshire.txt	Johnshaven	resolved	56.7948936	-2.3357887	village	OSM place “Johnshaven” (Photon).
+117	aberdeenshire.txt	Johnshaven Harbour	resolved	56.7936529	-2.3362232	harbour	OSM “Johnshaven Harbour” (Photon).
+118	aberdeenshire.txt	Gourdon	resolved	56.8296151	-2.2866153	village	OSM place “Gourdon” (Photon).
+119	aberdeenshire.txt	Gourdon Harbour	resolved	56.8271506	-2.2872254	harbour	OSM “Gourdon Harbour” (Photon).
+120	aberdeenshire.txt	Inverbervie	resolved	56.844524	-2.2806005	town	OSM place “Inverbervie”, Scotland (Photon; rejected duplicate hit in Northern Ireland).
+121	aberdeenshire.txt	Inverbervie Harbour	resolved	56.8439	-2.2795	harbour	Bervie Bay / Bervie Water mouth sector (historic harbour; largely silted per local sources).
+122	aberdeenshire.txt	Benholm	resolved	56.81472	-2.3225	village	Wikipedia / OSM-class Benholm settlement centroid (Kincardineshire Mearns coast).
+123	aberdeenshire.txt	Haughs of Benholm	resolved	56.81017	-2.30762	locality	Photon “Haughs of Benholm” district (Komoot).
+124	aberdeenshire.txt	Charlottetown	not_found			unknown	No OSM/Photon/gazetteer match for this exact name on the Benholm–St Cyrus coastal strip (DD10 context).
+125	aberdeenshire.txt	Tangleha	resolved	56.77614	-2.37699	locality	Photon “Tangleha” district near the A92 coast (Komoot).
+126	aberdeenshire.txt	Bowdun	not_found			unknown	No local OSM/Overpass feature between Tangleha and St Cyrus; not mapped to distant Bowdun Head (Stonehaven area).
+127	aberdeenshire.txt	St Cyrus	resolved	56.775	-2.4158	village	Wikipedia infobox coordinates (Ecclesgreig / St Cyrus).
+128	aberdeenshire.txt	St Cyrus Beach	resolved	56.7723	-2.4098	beach	Main sandy foreshore seaward of the village (human-map pin between village and NNR strip).
+129	aberdeenshire.txt	St Cyrus National Nature Reserve	resolved	56.763801	-2.4183	protected_area	Wikipedia NNR coordinate infobox (NatureScot reserve).
+130	aberdeenshire.txt	Kinnebar	resolved	56.75167	-2.43167	sand_bar	North Esk mouth / Kinnebar sands sector (Wikidata coordinate for river mouth at sea).
+131	aberdeenshire.txt	Kinnaber	resolved	56.7559	-2.47589	locality	Canmore NRHE “Kinnaber” (NO 710 628); North Esk south bank near Montrose.

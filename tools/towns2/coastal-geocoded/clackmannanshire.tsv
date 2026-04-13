@@ -1,0 +1,94 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	clackmannanshire.txt	Cambus	resolved	56.123685	-3.844224	village	Wikipedia infobox / Wikidata (Cambus, Clackmannanshire).
+2	clackmannanshire.txt	Cambus village	resolved	56.123685	-3.844224	village	Same settlement as Cambus (line 1).
+3	clackmannanshire.txt	Cambus shore	resolved	56.121800	-3.841500	beach	Foreshore / estuary margin at Cambus toward inner Forth (approximate coastal pin).
+4	clackmannanshire.txt	Cambus riverside	resolved	56.122500	-3.843000	river	River Devon / Cambus waterfront (approximate riverside).
+5	clackmannanshire.txt	Cambus Iron Bridge	resolved	56.122800	-3.845500	bridge	Category A listed bridge over River Devon at Cambus (approximate structure pin).
+6	clackmannanshire.txt	Cambus weir	resolved	56.123000	-3.844800	river	Weir on River Devon in Cambus area (approximate).
+7	clackmannanshire.txt	Cambus pier	resolved	56.121200	-3.840800	pier	Historic / local pier on estuary side near Cambus (approximate).
+8	clackmannanshire.txt	Cambus piers	resolved	56.121200	-3.840800	pier	Same general pier locality as line 7.
+9	clackmannanshire.txt	River Devon mouth	resolved	56.120670	-3.853120	estuary	Wikipedia mouth coordinates (Devon → Forth at Cambus).
+10	clackmannanshire.txt	Devon confluence Forth	resolved	56.120670	-3.853120	estuary	Same confluence as line 9.
+11	clackmannanshire.txt	Devon–Forth confluence	resolved	56.120670	-3.853120	estuary	Same confluence as line 9.
+12	clackmannanshire.txt	Cambus cooperage	resolved	56.124200	-3.844800	attraction	Historic brewery/cooperage site in Cambus (approximate industrial heritage pin).
+13	clackmannanshire.txt	Cambus distillery	resolved	56.124500	-3.845200	attraction	Former Cambus distillery site (Wikipedia; approximate site pin).
+14	clackmannanshire.txt	Cambus bonded warehouses	resolved	56.124300	-3.845000	warehouse	Distillery bonded warehouses locality (approximate).
+15	clackmannanshire.txt	Cambus bonded warehouse	resolved	56.124300	-3.845000	warehouse	Same locality as line 14.
+16	clackmannanshire.txt	Cambus passing loop	resolved	56.122000	-3.842500	rail	Rail passing loop on Stirling–Alloa line at Cambus (approximate).
+17	clackmannanshire.txt	Cambus level crossing	resolved	56.122200	-3.842800	rail	Level crossing on approach to Cambus (approximate).
+18	clackmannanshire.txt	NCN 764 Cambus	resolved	56.123500	-3.843500	path	National Cycle Network route through Cambus (approximate along-route pin).
+19	clackmannanshire.txt	Inner Forth Cambus	resolved	56.121500	-3.841000	estuary	Inner Forth estuary at Cambus (approximate tidal Forth margin).
+20	clackmannanshire.txt	Stirling–Alloa railway Cambus	resolved	56.122000	-3.842500	rail	Stirling–Alloa–Kincardine railway corridor at Cambus (approximate).
+21	clackmannanshire.txt	Tullibody	resolved	56.135400	-3.836405	town	Wikipedia infobox coordinates.
+22	clackmannanshire.txt	Tullibody foreshore	resolved	56.128500	-3.834500	beach	Foreshore toward River Forth south of Tullibody (approximate).
+23	clackmannanshire.txt	Tullibody north	resolved	56.138000	-3.836000	suburb	Northern built-up extent of Tullibody (approximate).
+24	clackmannanshire.txt	Tullibody Inch	resolved	56.111210	-3.830150	island	Wikipedia coordinates (islet in inner Forth).
+25	clackmannanshire.txt	Tullibody Inch nature reserve	resolved	56.111210	-3.830150	nature reserve	SWT-managed reserve on Tullibody Inch (same islet as line 24).
+26	clackmannanshire.txt	Scottish Wildlife Trust Tullibody Inch	resolved	56.111210	-3.830150	nature reserve	SWT reserve = Tullibody Inch (lines 24–25).
+27	clackmannanshire.txt	SWT Tullibody Inch	resolved	56.111210	-3.830150	nature reserve	Abbreviated SWT label for same reserve (lines 24–26).
+28	clackmannanshire.txt	Alloa Inch	resolved	56.105830	-3.814440	island	Wikipedia coordinates (tidal Forth islet near Alloa).
+29	clackmannanshire.txt	Alloa Inch nature reserve	resolved	56.105830	-3.814440	nature reserve	SWT reserve on Alloa Inch (same islet as line 28).
+30	clackmannanshire.txt	Alloa Inches SSSI	resolved	56.108520	-3.822300	sssi	Alloa Inches SSSI spans Tullibody Inch and Alloa Inch; pin between published island centroids.
+31	clackmannanshire.txt	Firth of Forth SSSI Tullibody Inch	resolved	56.111210	-3.830150	sssi	SSSI unit on Tullibody Inch; pin matches Tullibody Inch (lines 24–27).
+32	clackmannanshire.txt	Firth of Forth SSSI Alloa Inch	resolved	56.105830	-3.814440	sssi	SSSI unit on Alloa Inch; pin matches Alloa Inch (lines 28–30).
+33	clackmannanshire.txt	Scottish Wildlife Trust Alloa Inch	resolved	56.105830	-3.814440	nature reserve	SWT reserve on Alloa Inch (same islet as lines 28–30).
+34	clackmannanshire.txt	Alloa	resolved	56.116000	-3.793000	town	Wikipedia infobox / GeoHack (Alloa, Clackmannanshire).
+35	clackmannanshire.txt	South Alloa	resolved	56.105700	-3.805000	hamlet	Wikipedia coordinates (South Alloa; south bank / former station area).
+36	clackmannanshire.txt	Alloa Quayside	resolved	56.109600	-3.798300	quay	Inner harbour / wet dock quay frontage (approximate; Canmore harbour centroid nearby).
+37	clackmannanshire.txt	The Walk Alloa	resolved	56.108580	-3.796060	street	Canmore NS89SE 46 (The Walk; historic tree walk to shore).
+38	clackmannanshire.txt	Lime Tree Walk Alloa	resolved	56.110270	-3.794690	street	Canmore NRHE 220553 (Lime Tree Walk / Sailor's Walk general view).
+39	clackmannanshire.txt	The Shore Alloa	resolved	56.108460	-3.796340	street	Foreshore street locality (same zone as Mar Inn / historic Shore).
+40	clackmannanshire.txt	Mar Inn Alloa	resolved	56.108460	-3.796340	inn	Canmore 47197 (The Shore, Mar Inn; site largely demolished, historic pin).
+41	clackmannanshire.txt	7 and 8 The Shore Alloa	resolved	56.108590	-3.796540	historic site	Canmore 47199 (demolished Category C houses; historic site pin).
+42	clackmannanshire.txt	Alloa Harbour	resolved	56.109510	-3.797780	harbour	Canmore 47217 (Alloa Harbour / Alloa Docks).
+43	clackmannanshire.txt	Alloa Docks	resolved	56.109510	-3.797780	docks	Canmore: also known as Alloa Docks; same harbour centroid as line 42.
+44	clackmannanshire.txt	Alloa dock	resolved	56.109600	-3.797900	dock	Same disused wet dock / harbour basin as lines 42–43 (approximate).
+45	clackmannanshire.txt	Alloa waterfront	resolved	56.109200	-3.797500	waterfront	River Forth / harbour margin at southern Alloa (approximate coastal strip).
+46	clackmannanshire.txt	Alloa foreshore	resolved	56.108200	-3.796800	foreshore	Tidal Forth foreshore below The Shore / harbour approaches (approximate).
+47	clackmannanshire.txt	Alloa pier	resolved	56.109490	-3.801250	pier	Canmore 47224 (Alloa piers / Forth ferry; NS8808 9221).
+48	clackmannanshire.txt	Alloa old pier	resolved	56.109300	-3.800800	pier	Historic ferry / stone pier locality beside glassworks reach (approximate; same pier complex as line 47).
+49	clackmannanshire.txt	Alloa Swing Bridge	resolved	56.101000	-3.831000	bridge	Wikipedia / GeoHack (dismantled rail swing bridge; surviving piers in Forth).
+50	clackmannanshire.txt	Alloa Tower	resolved	56.112450	-3.788310	tower	Canmore 47167 / HES listing NGR NS 88893 92518.
+51	clackmannanshire.txt	Alloa Tower shore	resolved	56.111800	-3.789500	foreshore	Riverside terrace below Alloa Tower toward Forth (approximate).
+52	clackmannanshire.txt	Alloa shore path	resolved	56.110500	-3.792000	path	Coastal/riverside path between tower and harbour front (approximate).
+53	clackmannanshire.txt	Alloa Waggonway	resolved	56.113390	-3.795090	rail	Canmore NS89SE 71 (Bedford Place Waggonway Bridge; cycleway alignment).
+54	clackmannanshire.txt	Custom House Alloa	resolved	56.107800	-3.798200	historic site	Site of 19th c. Custom House on Forth Street (historic port); building not extant; approximate street pin.
+55	clackmannanshire.txt	Harbour View Alloa	resolved	56.109800	-3.797500	street	Harbour-view locality near wet dock (approximate; several streets use the name).
+56	clackmannanshire.txt	Kelliebank	resolved	56.112080	-3.808450	suburb	Kelliebank / southern industrial-riverside area (Canmore Kelliebank Industrial Estate centroid).
+57	clackmannanshire.txt	Kelliebank waterfront	resolved	56.111000	-3.810000	foreshore	Forth margin at Kelliebank / gasworks reach (approximate).
+58	clackmannanshire.txt	Riverbank Industrial Estate Alloa	resolved	56.121224	-3.810316	industrial estate	Postcode centroid FK10 2EB (Alloa West industrial area beside river corridor).
+59	clackmannanshire.txt	Alloa Glass Works	resolved	56.111290	-3.802570	industrial heritage	Canmore 47211 / Wikipedia (Northern Glass Cone, Glasshouse Loan).
+60	clackmannanshire.txt	Alloa Glassworks	resolved	56.111290	-3.802570	industrial heritage	Same site and cone as line 59 (alternate spelling).
+61	clackmannanshire.txt	Greenfield Park Alloa	resolved	56.120530	-3.796040	park	Canmore NS89SE 245 / NGR NS 88436 93430 (Greenfield / Inglewood area, central Alloa).
+62	clackmannanshire.txt	West End Park Alloa	resolved	56.116710	-3.805610	park	Canmore NS89SE 65 West End Park gates / NGR NS 8783 9302.
+63	clackmannanshire.txt	Inner Forth Alloa	resolved	56.108000	-3.798000	estuary	Inner Firth of Forth tidal margin off southern Alloa (approximate coastal reading).
+64	clackmannanshire.txt	NCN 764 Alloa	resolved	56.111500	-3.794000	path	National Cycle Network764 corridor through Alloa (approximate along-route pin).
+65	clackmannanshire.txt	Carsebridge Distillery Alloa	resolved	56.121880	-3.776060	attraction	Canmore NS89SE 70 Carsebridge Distillery Offices / NGR NS 89682 93548.
+66	clackmannanshire.txt	Black Devon Wetlands	resolved	56.101495	-3.782521	nature reserve	RSPB / visitor coords for Black Devon Wetlands (FK10 1SH area).
+67	clackmannanshire.txt	RSPB Black Devon Wetlands	resolved	56.101495	-3.782521	nature reserve	Same reserve as line 66; RSPB-published lat/lon.
+68	clackmannanshire.txt	Black Devon Wetlands nature reserve	resolved	56.101495	-3.782521	nature reserve	Same RSPB Black Devon Wetlands site as lines 66–67.
+69	clackmannanshire.txt	Inner Forth Black Devon Wetlands	resolved	56.101495	-3.782521	nature reserve	Inner Forth project reserve; pin matches published visitor coordinates.
+70	clackmannanshire.txt	River Black Devon mouth	resolved	56.048900	-3.728100	estuary	Wikipedia / historic mapping: confluence with Forth near NS 89590 90388 (WGS84 approximate).
+71	clackmannanshire.txt	Clackmannan	resolved	56.107000	-3.749000	town	Wikipedia infobox / OS grid NS 911919 (settlement centroid).
+72	clackmannanshire.txt	Clackmannan foreshore	resolved	56.091500	-3.775000	foreshore	Tidal Forth / carse margin below Clackmannan toward Pow mouth (approximate).
+73	clackmannanshire.txt	Clackmannan shore	resolved	56.092000	-3.774500	shore	Same general reclaimed-coast locality as line 72 (approximate).
+74	clackmannanshire.txt	Clackmannan Pow	resolved	56.098885	-3.766123	river	SCAPE Trust / Powside survey coordinates (lower Black Devon / Pow corridor).
+75	clackmannanshire.txt	Clackmannan Pow harbour	resolved	56.092910	-3.776960	harbour	Canmore NS89SE 56 Clackmannan Pow Harbour / NGR NS 89543 90325.
+76	clackmannanshire.txt	Clackmannan harbour	resolved	56.092910	-3.776960	harbour	Same harbour mouth site as line 75 (east bank of Black Devon at Forth).
+77	clackmannanshire.txt	Clackmannan pier	resolved	56.092910	-3.776960	pier	Canmore: wooden piles / pier remains at Clackmannan Pow harbour (same locale as lines 75–76).
+78	clackmannanshire.txt	Clackmannan Tower	resolved	56.107830	-3.759710	tower	Canmore NS99SW 1 / NGR NS 90658 91958 (King’s Seat Hill tower house).
+79	clackmannanshire.txt	Clackmannan Stone	resolved	56.107310	-3.752340	monument	Canmore NS99SW 6 King Robert’s Stone / Clackmannan Stone (Main Street group).
+80	clackmannanshire.txt	Stone of Mannan	resolved	56.107310	-3.752340	monument	Same standing stone as line 79 (Stone of Mannan / Clach Manau).
+81	clackmannanshire.txt	Kennet	resolved	56.100000	-3.728000	village	Wikipedia infobox 56°06′00″N 3°43′41″W / OS grid NS925910.
+82	clackmannanshire.txt	Kennetpans	resolved	56.081050	-3.747280	hamlet	Canmore NS98NW 51 designed landscape centroid / Kennetpans locality NGR NS 91356 88959.
+83	clackmannanshire.txt	Kennet Pans	resolved	56.080070	-3.748340	industrial heritage	Canmore NS98NW 368 Kennet Pans warehouse / NGR NS 91287 88851.
+84	clackmannanshire.txt	Kennetpans Distillery	resolved	56.080150	-3.747500	attraction	HES SM5012 scheduled area centroid NGR NS 91351 88854 (ruinous distillery).
+85	clackmannanshire.txt	Kennetpans distillery ruins	resolved	56.080150	-3.747500	attraction	Same scheduled monument site as line 84.
+86	clackmannanshire.txt	Kennetpans harbour	resolved	56.079930	-3.747880	harbour	Canmore NS98NW 63 Kennetpans harbour / NGR NS 91315 88835.
+87	clackmannanshire.txt	Kennetpans creek	resolved	56.080000	-3.748000	creek	Silted inlet at Kennetpans (same creek system as line 86; approximate mouth).
+88	clackmannanshire.txt	Kennetpans pier	resolved	56.079980	-3.747810	pier	Canmore NS98NW 57.01 Kennetpans Pier / NGR NS 9132 8884.
+89	clackmannanshire.txt	Kennetpans cottages harbour	resolved	56.080300	-3.747600	harbour	Historic small harbour by Kennetpans cottages (RCAHMS coastal survey; approximate harbour mouth).
+90	clackmannanshire.txt	Kilbagie	resolved	56.090811	-3.723142	hamlet	Saintsplaces / NS928 900 settlement centroid (east of Clackmannan).
+91	clackmannanshire.txt	Kilbagie distillery	resolved	56.089280	-3.725240	attraction	Canmore 48118 (Kilbagie Mill): distillery / later mill complex; NGR NS 92750 89840.
+92	clackmannanshire.txt	Kilbagie chemical works	resolved	56.089280	-3.725240	industrial heritage	Same Kilbagie Mill site as line 91; Kilbagie Chemical Manure Co. used the former distillery grounds (Canmore / historic accounts).
+93	clackmannanshire.txt	Clackmannanshire Bridge	resolved	56.072850	-3.736725	bridge	Wikipedia / GeoHack / Wikidata (A876 upper Forth crossing; WGS84).

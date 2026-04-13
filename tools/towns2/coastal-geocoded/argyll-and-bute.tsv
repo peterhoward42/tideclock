@@ -1,0 +1,314 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	argyll-and-bute.txt	Helensburgh	resolved	56.00600	-4.72900	town	Firth of Clyde / Gare Loch entrance; town centroid (Wikipedia).
+2	argyll-and-bute.txt	Rhu	resolved	56.01785	-4.77851	village	Gare Loch east shore (OS Open Names via getthedata).
+3	argyll-and-bute.txt	Ardencaple	resolved	56.00913	-4.75697	landmark	Ardencaple Castle tower / Ardencaple area above Clyde shore (Wikipedia).
+4	argyll-and-bute.txt	Craigendoran	resolved	55.99700	-4.70800	area	Helensburgh–Craigendoran waterfront locality (GeoHack).
+5	argyll-and-bute.txt	Cardross	resolved	55.96250	-4.65278	village	North Clyde coast between Dumbarton and Helensburgh (Wikipedia).
+6	argyll-and-bute.txt	Geilston	resolved	55.96873	-4.66108	attraction	Geilston House / NTS Geilston Garden (Canmore NGR).
+7	argyll-and-bute.txt	Rosneath	resolved	56.00995	-4.80139	village	West shore Gare Loch (Wikipedia).
+8	argyll-and-bute.txt	Blairmore	resolved	56.00126	-4.90098	village	Loch Long west shore north of Strone (Wikipedia).
+9	argyll-and-bute.txt	Strone	resolved	55.98515	-4.89817	village	Holy Loch north shore / Clyde transition (Wikipedia).
+10	argyll-and-bute.txt	Clynder	resolved	56.01860	-4.81400	village	Rosneath Peninsula west shore Gare Loch (Gazetteer for Scotland).
+11	argyll-and-bute.txt	Kilmun	resolved	55.99413	-4.93386	village	Holy Loch north shore linear settlement (Wikipedia).
+12	argyll-and-bute.txt	Garelochhead	resolved	56.08111	-4.83028	town	Head of Gare Loch (Wikipedia).
+13	argyll-and-bute.txt	Cove	resolved	55.99800	-4.85200	village	Cove on Rosneath Peninsula, Loch Long (Wikipedia).
+14	argyll-and-bute.txt	Kilcreggan	resolved	55.98463	-4.82132	village	South Rosneath on Clyde (OS Open Names).
+15	argyll-and-bute.txt	Peaton	resolved	56.03196	-4.85673	area	Peaton Hill / Peaton Road locality near Cove (Canmore NS22108580).
+16	argyll-and-bute.txt	Ardpeaton	resolved	56.02811	-4.86565	settlement	East shore Loch Long north of Kilcreggan (Wikipedia).
+17	argyll-and-bute.txt	Dunoon	resolved	55.95090	-4.92620	town	Main Cowal town; upper Clyde shore (Wikipedia / GeoHack).
+18	argyll-and-bute.txt	Kirn	resolved	55.96226	-4.91569	village	West Clyde shore west of Dunoon (Wikipedia).
+19	argyll-and-bute.txt	Sandbank	resolved	55.97900	-4.94600	village	South Holy Loch shore (Wikipedia).
+20	argyll-and-bute.txt	Hunters Quay	resolved	55.97013	-4.91051	suburb	West Clyde at Holy Loch entrance (GeoHack / Canmore).
+21	argyll-and-bute.txt	Holy Loch	resolved	55.98500	-4.93000	sea_loch	Representative mid-loch point for tidal sea loch (Kilmun–Sandbank axis).
+22	argyll-and-bute.txt	Innellan	resolved	55.88904	-4.96778	village	South of Dunoon on Clyde west shore (GeoHack).
+23	argyll-and-bute.txt	Toward	resolved	55.86445	-4.98348	village	South Cowal near Toward Point (Wikipedia).
+24	argyll-and-bute.txt	Toward Point	resolved	55.86028	-4.97806	headland	Toward Point Lighthouse position (Wikipedia).
+25	argyll-and-bute.txt	Bullwood	resolved	55.93336	-4.94026	hamlet	Hillside settlement south of Dunoon (Canmore township).
+26	argyll-and-bute.txt	Castle Toward	resolved	55.86955	-5.01401	attraction	19th-century country house estate (Wikipedia); distinct from medieval Toward Castle ruin.
+27	argyll-and-bute.txt	Ardenslate	resolved	55.96204	-4.92434	area	Kirn / Ardenslate Road coastal fringe (Streetmap centroid).
+28	argyll-and-bute.txt	Inverchaolain	resolved	55.96520	-5.08900	hamlet	East shore Loch Striven; parish centroid (Gazetteer for Scotland parish).
+29	argyll-and-bute.txt	Strachur	resolved	56.16705	-5.06815	village	Loch Fyne east shore Cowal (GeoHack / Wikipedia).
+30	argyll-and-bute.txt	Strathlachlan	resolved	56.10850	-5.20945	village	Strathlachlan / Old Castle Lachlan on Loch Fyne shore (Canmore).
+31	argyll-and-bute.txt	St Catherines	resolved	56.22108	-5.03052	village	Loch Fyne east shore opposite Inveraray (Wikipedia).
+32	argyll-and-bute.txt	Otter Ferry	resolved	56.00588	-5.31871	village	Former Loch Fyne ferry; OS Open Names centre (getthedata).
+33	argyll-and-bute.txt	Kilfinan	resolved	55.95757	-5.31116	hamlet	Loch Fyne east shore hamlet / parish church area (GeoHack / Wikidata).
+34	argyll-and-bute.txt	Portavadie	resolved	55.87394	-5.31453	marina	Portavadie Marina / ferry; operator “getting here” coordinates.
+35	argyll-and-bute.txt	Ardlamont Point	resolved	55.82595	-5.20727	headland	Southern tip of Cowal; Wikipedia headland coordinates.
+36	argyll-and-bute.txt	Ellary	resolved	55.92285	-5.62129	estate	Ellary House; Loch Caolisport / South Knapdale coast (Canmore NGR).
+37	argyll-and-bute.txt	Tighnabruaich	resolved	55.90669	-5.23319	village	Kyles of Bute west shore; Wikipedia / OS grid NR980729.
+38	argyll-and-bute.txt	Stonefield	resolved	55.89139	-5.41611	attraction	Stonefield Castle (Loch Fyne); coastal estate north of Tarbert (Wikipedia).
+39	argyll-and-bute.txt	Kilbride	resolved	55.84806	-5.26000	bay	Kilbride Bay / Ostel Bay sandy shore south Cowal (Wikipedia).
+40	argyll-and-bute.txt	Glendaruel	resolved	56.00851	-5.21740	village	Clachan of Glendaruel; Kilmodan Church coords (Wikipedia / listed building).
+41	argyll-and-bute.txt	Ormidale	resolved	55.95343	-5.19986	area	Ormidale Lodge / head of Loch Riddon, Kyles coast (Canmore).
+42	argyll-and-bute.txt	Millhouse	resolved	55.88283	-5.26847	village	B8000 village Kilfinan parish; Canmore township centroid.
+43	argyll-and-bute.txt	Port Bannatyne	resolved	55.85960	-5.06940	village	Kames Bay north Bute; Gazetteer for Scotland coords.
+44	argyll-and-bute.txt	Rothesay	resolved	55.83648	-5.05508	town	Bute county town; seafront centroid (common gazetteer).
+45	argyll-and-bute.txt	Kingarth	resolved	55.76255	-5.03489	parish	South Bute parish / Kingarth village area (listed buildings grid).
+46	argyll-and-bute.txt	Ettrick Bay	resolved	55.84433	-5.14250	bay	West Bute sandy bay; Wikipedia waterbody coordinates.
+47	argyll-and-bute.txt	Kilchattan Bay	resolved	55.75106	-5.02354	village	South Bute village; quay coords from listed buildings list.
+48	argyll-and-bute.txt	Ascog	resolved	55.82594	-5.02448	village	Ascog southeast of Rothesay; The Old Manse listed building coords.
+49	argyll-and-bute.txt	St Ninians	resolved	55.80926	-5.13410	bay	Interpreted as St Ninian's Bay head; standing stones site (Canmore).
+50	argyll-and-bute.txt	Straad	resolved	55.81220	-5.12532	farmstead	West Bute settlement; Canmore NS042662080.
+51	argyll-and-bute.txt	Scoulag	resolved	55.79154	-5.02417	area	Scoulag / Mount Stuart west approach; Streetmap centroid.
+52	argyll-and-bute.txt	Kerry Bute	resolved	55.80718	-5.02391	village	Kerrycroy model village east Bute; GENUKI grid centre.
+53	argyll-and-bute.txt	Ardbeg Bute	resolved	55.85674	-5.06674	hamlet	Ardbeg north of Rothesay; Canmore Ardbeg Road terrace block NGR.
+54	argyll-and-bute.txt	Colintraive	resolved	55.92361	-5.15250	village	Kyles ferry Cowal side; Wikipedia.
+55	argyll-and-bute.txt	Rhubodach	resolved	55.92143	-5.15848	ferry_terminal	Rhubodach slip WGS84 (CMAL notice to mariners).
+56	argyll-and-bute.txt	Kyles of Bute	resolved	55.87800	-5.15200	sea_loch	Representative mid-narrows point East Kyle (tidal channel).
+57	argyll-and-bute.txt	Lochgilphead	resolved	56.03829	-5.43235	town	Head of Loch Gilp / Crinan Canal; Wikipedia.
+58	argyll-and-bute.txt	Ardrishaig	resolved	56.01092	-5.45004	village	Loch Gilp south; Crinan Canal sea lock; Wikipedia.
+59	argyll-and-bute.txt	Crinan	resolved	56.09077	-5.55838	village	Canal basin / Loch Crinan; Wikipedia Crinan Argyll.
+60	argyll-and-bute.txt	Bellanoch	resolved	56.07300	-5.52800	hamlet	Crinan Canal southwest Loch Crinan; BBC Scotland’s Landscape coords.
+61	argyll-and-bute.txt	Ardfern	resolved	56.18111	-5.53667	village	Loch Craignish / Craignish Peninsula; Wikipedia coord.
+62	argyll-and-bute.txt	Kilmelford	resolved	56.25586	-5.48064	village	Head of Loch Melfort; GeoHack / OS-style centre.
+63	argyll-and-bute.txt	Craobh Haven	resolved	56.20881	-5.55381	village	Marina village Loch Craignish; GeoHack.
+64	argyll-and-bute.txt	Achahoish	resolved	55.93944	-5.54722	village	Head of Loch Killisport; Wikipedia.
+65	argyll-and-bute.txt	Tayvallich	resolved	56.02750	-5.62827	village	Loch Sween inlet; OS Open Names centre (getthedata).
+66	argyll-and-bute.txt	Carsaig Bay	resolved	56.03300	-5.64240	bay	West of Tayvallich isthmus; GeoHack waterbody (Knapdale).
+67	argyll-and-bute.txt	Keills Knapdale	resolved	55.96189	-5.70208	attraction	Keills Chapel & cross; Wikipedia / HES coord.
+68	argyll-and-bute.txt	Achnamara	resolved	56.02569	-5.56559	village	Head of Loch Sween; Wikipedia.
+69	argyll-and-bute.txt	Minard	resolved	56.11646	-5.25199	village	Loch Fyne west shore Achagoyle Bay; Wikipedia.
+70	argyll-and-bute.txt	Lochgair	resolved	56.06208	-5.33939	village	Loch Gair inlet; Canmore village centroid.
+71	argyll-and-bute.txt	Ardpatrick	resolved	55.77500	-5.58389	village	West Loch Tarbert north shore; Wikipedia Ardpatrick House coord.
+72	argyll-and-bute.txt	Tarbert Loch Fyne	resolved	55.86325	-5.41561	town	Tarbert (Loch Fyne) isthmus; Wikipedia.
+73	argyll-and-bute.txt	East Loch Tarbert	resolved	55.86720	-5.39250	sea_loch	Inlet of Loch Fyne; latitude.to / Wikipedia context.
+74	argyll-and-bute.txt	West Loch Tarbert	resolved	55.80000	-5.50833	sea_loch	Long west Kintyre sea loch; Wikipedia centroid.
+75	argyll-and-bute.txt	Claonaig	resolved	55.75720	-5.39320	ferry_terminal	Arran ferry slip east Kintyre; Wikipedia.
+76	argyll-and-bute.txt	Grogport	resolved	55.64072	-5.48366	hamlet	Kilbrannan Sound east Kintyre; Wikipedia.
+77	argyll-and-bute.txt	Skipness	resolved	55.76671	-5.34708	village	Kilbrannan shore; Canmore village centroid.
+78	argyll-and-bute.txt	Carradale	resolved	55.58902	-5.47053	village	East Kintyre; GeoHack.
+79	argyll-and-bute.txt	Saddell	resolved	55.53139	-5.51111	hamlet	Saddell Abbey / estate coast; Wikipedia abbey coord.
+80	argyll-and-bute.txt	Torrisdale	resolved	55.57139	-5.49583	village	Torrisdale Bay west shore; Wikishire NR797364.
+81	argyll-and-bute.txt	Peninver	resolved	55.46634	-5.54678	village	Ardnacross Bay north of Campbeltown; GeoHack.
+82	argyll-and-bute.txt	Waterfoot	resolved	55.58333	-5.48333	hamlet	Mouth of Carradale Water / Carradale Bay; St Andrews collection coords.
+83	argyll-and-bute.txt	Campbeltown	resolved	55.42300	-5.60800	town	Head of Campbeltown Loch; Wikipedia.
+84	argyll-and-bute.txt	Campbeltown Loch	resolved	55.42638	-5.56502	sea_loch	Sea loch east of town; Wikipedia waterbody coord.
+85	argyll-and-bute.txt	Dalintober	resolved	55.42948	-5.60440	suburb	West Campbeltown shore / distillery quarter; Canmore Glen Scotia.
+86	argyll-and-bute.txt	Machrihanish	resolved	55.42300	-5.73600	village	South end Machrihanish Bay; Wikipedia.
+87	argyll-and-bute.txt	Machrihanish Bay	resolved	55.43554	-5.73365	bay	West Kintyre sandy bay; Wikipedia waterbody.
+88	argyll-and-bute.txt	The Glen	resolved	55.36400	-5.66450	glen	Interpreted as Glen Breackerie (B842 glen S of Machrihanish); Woodland Trust wood grid NR647143 centroid.
+89	argyll-and-bute.txt	Keil	resolved	55.30840	-5.67065	coast	Keil Point / Keil Cave coastal strip; HES SM3747 grid.
+90	argyll-and-bute.txt	Southend	resolved	55.31500	-5.64100	village	South Kintyre / Dunaverty Bay; Wikipedia.
+91	argyll-and-bute.txt	Mull of Kintyre	resolved	55.31060	-5.80390	headland	Southwestern tip Kintyre; Wikipedia coord.
+92	argyll-and-bute.txt	Mull of Kintyre Lighthouse	resolved	55.31042	-5.80325	lighthouse	NLB / Wikipedia; adjacent to Mull tip.
+93	argyll-and-bute.txt	Ballochroy	resolved	55.70966	-5.61978	locality	NW Kintyre coast / standing stones locale; GeoHack settlement coord.
+94	argyll-and-bute.txt	Bellochantuy	resolved	55.52889	-5.70500	hamlet	A83 west Kintyre; Wikipedia coord.
+95	argyll-and-bute.txt	Muasdale	resolved	55.59928	-5.68460	hamlet	West Kintyre coast; OS Open Names centre (getthedata).
+96	argyll-and-bute.txt	Glenbarr	resolved	55.56650	-5.68910	village	Sound of Gigha shore; Gazetteer for Scotland.
+97	argyll-and-bute.txt	Whitehouse	resolved	55.79722	-5.48639	hamlet	West Loch Tarbert / A83; Wikipedia coord.
+98	argyll-and-bute.txt	Kilkenzie	resolved	55.46160	-5.67920	settlement	Kilchenzie parish hamlet S Kintyre; Gazetteer for Scotland (also sp. Kilchenzie).
+99	argyll-and-bute.txt	Clachan Kintyre	resolved	55.74800	-5.56300	village	North Kintyre near West Loch Tarbert; Wikipedia Clachan, Kintyre.
+100	argyll-and-bute.txt	Tayinloan	resolved	55.65141	-5.66393	village	Gigha ferry; OS Open Names centre (getthedata).
+101	argyll-and-bute.txt	Glenlussa	resolved	55.47610	-5.58460	glen	Glen Lussa / Lussa hydro scheme area near Peninver; Wikipedia scheme coord.
+102	argyll-and-bute.txt	Kennacraig	resolved	55.80330	-5.47362	ferry_terminal	Islay ferry pier (Ceann na Creige); Wikipedia coord.
+103	argyll-and-bute.txt	Tarbert Gigha	resolved	55.70031	-5.73514	settlement	North Gigha isthmus locale; Canmore “Gigha, Tarbert” NR 6540 5153.
+104	argyll-and-bute.txt	Ardminish	resolved	55.67460	-5.74130	village	Main Gigha settlement / pier; Canmore Gigha Hotel NGR.
+105	argyll-and-bute.txt	Ardailly	resolved	55.67737	-5.74301	settlement	West Gigha (Port an Duin mill area); GENUKI centroid NR648490.
+106	argyll-and-bute.txt	Gigalum	resolved	55.64953	-5.74165	islet	Gigalum Island off SE Gigha; Wikipedia coord.
+107	argyll-and-bute.txt	Gigha	resolved	55.68333	-5.75000	island	Isle of Gigha centroid; Wikipedia / GeoHack.
+108	argyll-and-bute.txt	North Park	ambiguous				No separate coastal gazetteer hit; likely informal Gigha locality (cf. North Druimachro E of Ardminish).
+109	argyll-and-bute.txt	South Park	ambiguous				No separate coastal gazetteer hit; likely informal Gigha locality (cf. South Druimachro / fish farm).
+110	argyll-and-bute.txt	Port Askaig	resolved	55.84800	-6.10600	village	Islay ferry port Sound of Islay; Wikipedia coord.
+111	argyll-and-bute.txt	Feolin	resolved	55.84685	-6.09037	ferry_terminal	Jura slip opposite Port Askaig; Canmore Feolin Ferry House NGR.
+112	argyll-and-bute.txt	Bridgend Islay	resolved	55.78000	-6.25000	village	Loch Indaal head / A846–A847 junction; Wikipedia Bridgend, Islay.
+113	argyll-and-bute.txt	Bowmore	resolved	55.75700	-6.28700	town	Islay admin centre Loch Indaal; Wikipedia coord.
+114	argyll-and-bute.txt	Bridgend Lochgilphead	resolved	56.08050	-5.45190	settlement	River Add valley NNW of Lochgilphead (not Islay); Gazetteer for Scotland.
+115	argyll-and-bute.txt	Carraig Fhada	resolved	55.62023	-6.21176	lighthouse	Port Ellen / Kilnaughton Bay tower; Canmore NR34929 44344.
+116	argyll-and-bute.txt	Port Ellen	resolved	55.63333	-6.18333	town	Leòdamais harbour Islay; Wikipedia coord (55°38′N 6°11′W).
+117	argyll-and-bute.txt	Laphroaig	resolved	55.62945	-6.15199	distillery	Loch Laphroaig shore; Canmore Laphroaig Distillery NGR.
+118	argyll-and-bute.txt	Lagavulin	resolved	55.63550	-6.12619	distillery	South Islay coast; GeoHack / Wikipedia distillery coord.
+119	argyll-and-bute.txt	Ardbeg	resolved	55.64061	-6.10850	distillery	South Islay (distinct from Ardbeg Bute); Canmore Ardbeg Distillery NGR.
+120	argyll-and-bute.txt	Laggan Point	resolved	55.71966	-6.31535	headland	North end Laggan Bay / Big Strand; Canmore NR 2910 5580 (Laggan findspot).
+121	argyll-and-bute.txt	The Oa	resolved	55.61700	-6.28300	peninsula	Wikipedia centroid for The Oa / RSPB reserve (southwest Islay).
+122	argyll-and-bute.txt	Kintra Islay	resolved	55.65455	-6.26124	beach	Kintra / Kintra Farm area; Canmore place 283104 (NR 3205 4835).
+123	argyll-and-bute.txt	Uig Islay	ambiguous				No distinct Islay settlement named Uig in major gazetteers (unlike Lewis/Skye); likely informal bay/cove label—needs local map pick.
+124	argyll-and-bute.txt	Caol Ila	resolved	55.85448	-6.10934	distillery	Port Askaig shore; Wikipedia / GeoHack distillery coordinates.
+125	argyll-and-bute.txt	Bunahabhain	resolved	55.88323	-6.12626	distillery	List spelling; matches Bunnahabhain distillery & village (Wikipedia / GeoHack).
+126	argyll-and-bute.txt	Port Mor Islay	resolved	55.73367	-6.38604	harbour	Port Mòr Centre / small boat harbour near Port Charlotte; campsite POI coords.
+127	argyll-and-bute.txt	Kildalton	resolved	55.68405	-6.04562	chapel	Kildalton chapel & cross; Canmore NR45797 50818.
+128	argyll-and-bute.txt	Kilnaughton Bay	resolved	55.63047	-6.21618	bay	Canmore Kilnaughton Bay NR 34720 45500.
+129	argyll-and-bute.txt	Ardnave	resolved	55.87334	-6.34579	settlement	Ardnave by Ardnave Loch; Saintsplaces NR 282 730 (cf. Ardnave House Canmore).
+130	argyll-and-bute.txt	Ardnave Point	resolved	55.89000	-6.32890	headland	Wikipedia stub coordinates (northwest Islay / Loch Gruinart entrance).
+131	argyll-and-bute.txt	Sanaigmore	resolved	55.85010	-6.41450	settlement	Sanaigmore farm / bay road end; Gazetteer for Scotland NR 238 707.
+132	argyll-and-bute.txt	Ballinaby	resolved	55.81782	-6.43971	attraction	Ballinaby standing stones; Canmore NR 21997 67206 (near Loch Gorm coast).
+133	argyll-and-bute.txt	Kilmeny	resolved	55.81030	-6.16623	village	Saintsplaces / Kilmeny House NR 390 653 (east Islay).
+134	argyll-and-bute.txt	Nerabus	resolved	55.70786	-6.41935	hamlet	Nereabolls chapel & burial ground; Canmore NR 2249 5490.
+135	argyll-and-bute.txt	Port Charlotte	resolved	55.75528	-6.37833	village	Wikipedia infobox (Rhinns of Islay).
+136	argyll-and-bute.txt	Portnahaven	resolved	55.68139	-6.50500	village	Wikipedia infobox (southwest Rhinns).
+137	argyll-and-bute.txt	Bruichladdich	resolved	55.76556	-6.36389	village	Distillery/village centroid; Wikipedia coordinates.
+138	argyll-and-bute.txt	Lochindaal	resolved	55.77600	-6.28800	sea_loch	Representative mid-loch point for Loch Indaal (list spelling Lochindaal).
+139	argyll-and-bute.txt	Foreland Point	ambiguous				Several Foreland/Rubha features on the Rhinns; no single authoritative pin for this exact name.
+140	argyll-and-bute.txt	Rhinns Point	ambiguous				Southern tip of Rhinns vs Rhinns of Islay lighthouse on Orsay—both label the same corner; pick land vs offshore in a later pass if needed.
+141	argyll-and-bute.txt	Keils Islay	resolved	55.84173	-6.12715	village	Keills township; OS Open Names / Canmore village centroid (northeast Islay).
+142	argyll-and-bute.txt	Claggain Bay	resolved	55.70690	-6.03610	bay	Wikipedia / Wikidata centroid (southeast Islay).
+143	argyll-and-bute.txt	Lossit Bay	resolved	55.71190	-6.49622	bay	GeoHack list of bays (west Rhinns).
+144	argyll-and-bute.txt	Craighouse	resolved	55.83400	-5.94900	village	Main settlement Jura; Wikipedia infobox.
+145	argyll-and-bute.txt	Small Isles Bay	resolved	55.86020	-5.92952	bay	Bay of Small Isles (GeoHack); east coast Jura.
+146	argyll-and-bute.txt	Inver Jura	resolved	55.86784	-6.09075	estate	Inver Cottage / Inver Estate; Canmore NR 4417 7142 (Whitefarland Bay).
+147	argyll-and-bute.txt	Lagg	resolved	55.93719	-5.85401	hamlet	Lagg Bay hamlet; Wikipedia coordinates.
+148	argyll-and-bute.txt	Tarbert Jura	resolved	55.97080	-5.82779	hamlet	Tarbert Bay; Wikipedia coordinates.
+149	argyll-and-bute.txt	Ardlussa	resolved	56.02586	-5.77442	hamlet	Ardlussa estate; Wikipedia coordinates.
+150	argyll-and-bute.txt	Glengarrisdale	resolved	56.09565	-5.78641	settlement	Former township / bothy area above bay; Canmore NR6459 9567 (cf. Glengarrisdale Bay to NW).
+151	argyll-and-bute.txt	Ruantallain	resolved	55.97726	-6.00053	estate	Farmstead / Ruantallain (Ruantallan) east Jura; Canmore / trove.scot NR 50516 83258.
+152	argyll-and-bute.txt	Lowlandmans Bay	resolved	55.88480	-5.89120	bay	Lowlandman’s Bay east Jura; GeoHack / Walkhighlands (inner bay centroid).
+153	argyll-and-bute.txt	Scalasaig	resolved	56.06941	-6.18881	village	Main settlement Colonsay; Canmore NR 394 942 (Scalasaig).
+154	argyll-and-bute.txt	Kilchattan Colonsay	resolved	56.07511	-6.23944	settlement	Kilchattan / St Cathan’s chapel area Colonsay; Canmore NR 36290 95026.
+155	argyll-and-bute.txt	Upper Kilchattan	resolved	56.07806	-6.22730	settlement	Upper Kilchattan Colonsay; Saintsplaces NR 370 953.
+156	argyll-and-bute.txt	Balnahard	resolved	56.11713	-6.16068	farm	Balnahard Farm north Colonsay; Canmore NR 4147 9940 (near Balnahard Bay).
+157	argyll-and-bute.txt	Kiloran	resolved	56.10732	-6.18705	bay	Kiloran Bay / Kiloran area Colonsay; Gazetteer for Scotland / Saintsplaces NR 397 984.
+158	argyll-and-bute.txt	Ardskenish	resolved	56.04182	-6.26476	hamlet	Ardskenish Colonsay; Wikipedia / OS grid NR3491.
+159	argyll-and-bute.txt	Oronsay	resolved	56.01556	-6.24361	island	Oronsay tidal island south Colonsay; Wikipedia / Wikidata centroid.
+160	argyll-and-bute.txt	Colonsay	resolved	56.06700	-6.21700	island	Isle of Colonsay centroid; Wikidata / Wikishire (human-map centre; not Scalasaig alone).
+161	argyll-and-bute.txt	Tobermory	resolved	56.62190	-6.07040	town	Main town Mull; Gazetteer for Scotland (NM 504 552).
+162	argyll-and-bute.txt	Calve	resolved	56.61806	-6.04056	island	Calve Island Tobermory Bay; Wikipedia coordinates.
+163	argyll-and-bute.txt	Rubha nan Gall	resolved	56.63867	-6.06624	lighthouse	Tobermory north shore light; Wikipedia / Canmore NM 50772 57045.
+164	argyll-and-bute.txt	Aros	resolved	56.53222	-5.96500	castle	Aros Castle mouth of Aros Water / Salen Bay; Wikipedia / Wikidata.
+165	argyll-and-bute.txt	Ardnacross	resolved	56.57162	-5.99468	farm	Ardnacross House & farm east Mull; Canmore NM 54720 49330.
+166	argyll-and-bute.txt	Glengorm	resolved	56.63649	-6.17738	attraction	Glengorm Castle Mishnish; Canmore NM 43945 57212.
+167	argyll-and-bute.txt	Quinish Point	resolved	56.63300	-6.33400	headland	Quinish peninsula north-west Mull; Walkhighlands route to point (grid area NM 430519 / open coast).
+168	argyll-and-bute.txt	Calgary Mull	resolved	56.58300	-6.27200	hamlet	Calgary settlement Mull; Wikipedia infobox.
+169	argyll-and-bute.txt	Calgary Bay	resolved	56.57858	-6.28031	beach	Calgary Bay shell-sand beach; SOBT / BGA car-park reference (NM 372512).
+170	argyll-and-bute.txt	Dervaig	resolved	56.58800	-6.18300	village	Dervaig Mull; Wikipedia / Gazetteer (Loch a’ Chumhainn).
+171	argyll-and-bute.txt	Langamull	resolved	56.60490	-6.26790	beach	Langamull Beach north-west Mull; UK Beach Guide OS NM 3821 5395.
+172	argyll-and-bute.txt	Torloisk	resolved	56.53250	-6.21287	settlement	Torloisk House / estate north-west Mull; Canmore NM 41059 45782.
+173	argyll-and-bute.txt	Kilninian	resolved	56.53131	-6.23401	church	Kilninian parish church west Mull; Canmore NM 39752 45730.
+174	argyll-and-bute.txt	Ballygown	resolved	56.51250	-6.17400	hamlet	Ballygown B8073 near Ulva Ferry; OS Open Names centre vs Canmore township NM 431 435 (blended).
+175	argyll-and-bute.txt	Salen Mull	resolved	56.51700	-5.94800	village	Salen on Sound of Mull; Wikipedia (NM5743).
+176	argyll-and-bute.txt	Fishnish	resolved	56.51472	-5.81056	ferry	Fishnish ferry slip east Mull; Wikipedia.
+177	argyll-and-bute.txt	Craignure	resolved	56.47100	-5.70700	village	Main Oban ferry port Mull; Wikipedia.
+178	argyll-and-bute.txt	Duart	resolved	56.45616	-5.65494	castle	Duart Castle Sound of Mull; Canmore NM 74893 35325.
+179	argyll-and-bute.txt	Grass Point	resolved	56.41653	-5.65423	point	Grasspoint / old ferry house south shore Loch Don; Canmore NM 74702 30915.
+180	argyll-and-bute.txt	Lochdon	resolved	56.43100	-5.67200	hamlet	Community at head of Loch Don east Mull; Loch Don Wikipedia centroid (tidal sea loch).
+181	argyll-and-bute.txt	Spelve	resolved	56.38800	-5.73000	sea_loch	Interpreted as Loch Spelve / Spelve coast context; Wikipedia centroid for tidal sea loch (not a distinct named hamlet).
+182	argyll-and-bute.txt	Ulvinish	not_found				No OS/Nominatim match for this spelling on Mull; not Skye Ullinish on Skye (Highland). Coastal list context only.
+183	argyll-and-bute.txt	Croggan	resolved	56.36700	-5.70000	village	Loch Spelve mouth; Wikipedia / OS grid NM705272.
+184	argyll-and-bute.txt	Kinlochspelve	resolved	56.36809	-5.79543	hamlet	Head of Loch Spelve; Canmore/HES centroid NM 657 260 (Kinlochspelve).
+185	argyll-and-bute.txt	Pennyghael	resolved	56.36270	-6.02330	village	Loch Scridain shore Ross of Mull; Gazetteer for Scotland / Wikipedia.
+186	argyll-and-bute.txt	Bunessan	resolved	56.34277	-6.27286	village	Largest Ross of Mull village; GeoHack / Wikipedia (NM382217).
+187	argyll-and-bute.txt	Ardtun	resolved	56.32813	-6.21717	settlement	Ross of Mull coast north of Bunessan; GeoHack.
+188	argyll-and-bute.txt	Fionnphort	resolved	56.32500	-6.36500	village	Iona ferry port; Wikipedia / GeoHack (NM301232).
+189	argyll-and-bute.txt	Kintra Mull	resolved	56.34410	-6.34730	hamlet	Kintra Ross of Mull; Gazetteer for Scotland (NM 314 253).
+190	argyll-and-bute.txt	Uisken	resolved	56.29050	-6.21940	hamlet	Sandy bay south Ross of Mull; Gazetteer for Scotland (NM 390 189).
+191	argyll-and-bute.txt	Ross of Mull	resolved	56.30694	-6.28556	peninsula	Wikipedia / Wikidata centroid for the peninsula (An Ros Mhuileach).
+192	argyll-and-bute.txt	Carsaig Mull	resolved	56.32450	-5.98040	settlement	Carsaig pier area / settlement; Gazetteer for Scotland (distinct from Carsaig Bay waterbody centroid).
+193	argyll-and-bute.txt	Loch Buie	resolved	56.33333	-5.88333	sea_loch	Tidal sea loch south-east Mull; Wikipedia/GeoHack waterbody centroid (settlement is Lochbuie at head).
+194	argyll-and-bute.txt	Kilvickeon	resolved	56.29819	-6.18478	chapel	Scheduled monument centroid Kilvickeon Old Parish Church; beach access nearby NM 410 187.
+195	argyll-and-bute.txt	Ardlanish	resolved	56.29036	-6.25018	farm	Ardalanish (spelling on list); weaving farm / mill Ross of Mull; OS grid NM3719 centre.
+196	argyll-and-bute.txt	Inivea	resolved	56.59348	-6.28828	ruins	Deserted township above Calgary Bay; approximate NM 368528 from Mull Historical Society description.
+197	argyll-and-bute.txt	Knockvologan Mull	resolved	56.29393	-6.35409	beach	Knockvologan Beach; OS grid NM 307 198 (UK Beach Guide / island website).
+198	argyll-and-bute.txt	Ulva Ferry	resolved	56.48400	-6.14100	ferry_terminal	Mull slip to Ulva; Wikipedia Ulva Ferry (NM445398).
+199	argyll-and-bute.txt	Ulva	resolved	56.48028	-6.20500	island	Island west of Mull; Wikipedia centroid.
+200	argyll-and-bute.txt	Gometra	resolved	56.49111	-6.28694	island	West of Ulva; Wikipedia precise coord.
+201	argyll-and-bute.txt	Little Colonsay	resolved	56.44737	-6.26122	island	Uninhabited island west of Mull; Wikipedia / GeoHack.
+202	argyll-and-bute.txt	Staffa	resolved	56.43611	-6.34028	island	Columnar basalt island; Wikipedia / GeoHack.
+203	argyll-and-bute.txt	Treshnish Isles	resolved	56.49700	-6.41800	archipelago	Wikipedia infobox coord for island group (spread ~7 km; pin is documented centroid near Lunga).
+204	argyll-and-bute.txt	Lunga	resolved	56.49083	-6.42167	island	Largest Treshnish isle; Wikipedia.
+205	argyll-and-bute.txt	Fladda	resolved	56.50833	-6.39306	island	Northern Treshnish isle; Wikipedia (Fladda, Treshnish Isles).
+206	argyll-and-bute.txt	Erraid	resolved	56.29306	-6.36667	island	Tidal island off Ross of Mull; Wikipedia.
+207	argyll-and-bute.txt	Iona	resolved	56.33000	-6.41000	island	Inner Hebrides Iona; GeoHack / Wikipedia isle coord.
+208	argyll-and-bute.txt	Baile Mor	resolved	56.33170	-6.39265	village	Main Iona settlement; Canmore centroid Baile Mòr NM 28584 24150.
+209	argyll-and-bute.txt	Martyr Bay	resolved	56.32954	-6.39401	bay	Port nam Mairtir / Martyrs Bay east Iona; Canmore NM 28485 23916.
+210	argyll-and-bute.txt	St Columbas Bay	resolved	56.30870	-6.42600	bay	South Iona landing beaches; Geograph camera position NM 263 217 (~100 m).
+211	argyll-and-bute.txt	Balliemore Kerrera	resolved	56.40167	-5.52889	hamlet	Main Kerrera settlement; Wikidata coord.
+212	argyll-and-bute.txt	Horseshoe Bay Kerrera	resolved	56.38770	-5.53503	bay	Little Horse Shoe / Horseshoe Bay south Kerrera; GeoHack list coords.
+213	argyll-and-bute.txt	Slatrach Bay	resolved	56.41167	-5.53450	bay	Canmore NM 82056 29988.
+214	argyll-and-bute.txt	Gallanach	resolved	56.37602	-5.52730	area	Kerrera ferry promontory / Gallanach dun Canmore NM 82296 26000.
+215	argyll-and-bute.txt	Oban	resolved	56.41200	-5.47200	town	Wikipedia infobox / GeoHack town centroid.
+216	argyll-and-bute.txt	Oban Bay	resolved	56.40500	-5.45500	bay	Representative open water of bay NE of Kerrera toward Firth of Lorn.
+217	argyll-and-bute.txt	Ganavan	resolved	56.42610	-5.48360	beach	Ganavan Sands N of Oban (OS leisure centroid).
+218	argyll-and-bute.txt	Dunollie	resolved	56.41970	-5.48690	attraction	Dunollie Castle / MacDougall seat N of harbour.
+219	argyll-and-bute.txt	Glencruitten	resolved	56.40400	-5.47100	area	Oban southern fringe Glencruitten (A816 corridor).
+220	argyll-and-bute.txt	Lerags	resolved	56.36374	-5.49405	village	Scattered community N of Loch Feochan; Canmore Lerags House NGR.
+221	argyll-and-bute.txt	Dunbeg	resolved	56.45400	-5.42800	village	Coastal village NW of Oban on A828 corridor.
+222	argyll-and-bute.txt	Connel	resolved	56.45140	-5.38580	village	Loch Etive narrows / Connel Bridge approach.
+223	argyll-and-bute.txt	Falls of Lora	resolved	56.45450	-5.39200	tidal_rapid	Tidal rapids under Connel Bridge (visitor focal point).
+224	argyll-and-bute.txt	North Connel	resolved	56.46200	-5.39500	area	Settlement N of bridge; Oban Airport (North Connel) locality.
+225	argyll-and-bute.txt	South Shian	resolved	56.52150	-5.40410	hamlet	Loch Creran shore W Benderloch; Canmore NM 907 418.
+226	argyll-and-bute.txt	Benderloch	resolved	56.49222	-5.40361	village	Wikipedia A828 village centroid.
+227	argyll-and-bute.txt	Barcaldine	resolved	56.52278	-5.31556	village	Loch Creran shore; Wikipedia Barcaldine Argyll.
+228	argyll-and-bute.txt	Tralee	resolved	56.49100	-5.41000	beach	Tralee Bay sandy shore SW of Benderloch (holiday-park coast).
+229	argyll-and-bute.txt	Appin	resolved	56.56111	-5.35889	village	Loch Linnhe Appin; coord from ~56°33′40″N 5°21′32″W sources.
+230	argyll-and-bute.txt	Port Appin	resolved	56.56080	-5.35920	village	Ferry pier settlement W of Appin village.
+231	argyll-and-bute.txt	Kentallen	resolved	56.66840	-5.25173	hamlet	Kentallen Bay head; list-of-bays centroid (Loch Linnhe E shore).
+232	argyll-and-bute.txt	Duror	resolved	56.64367	-5.27681	village	Wikipedia / GeoHack village centroid (Appin district).
+233	argyll-and-bute.txt	Cuil Bay	resolved	56.64470	-5.30210	bay	GeoHack Cuil Bay; SW Loch Linnhe by Duror (modern admin Highland).
+234	argyll-and-bute.txt	Shuna	resolved	56.58722	-5.42167	island	Shuna Loch Linnhe; Wikipedia class coord 56°35′14″N 5°25′18″W.
+235	argyll-and-bute.txt	Seil	resolved	56.28333	-5.60000	island	Isle of Seil; Wikipedia infobox approx.
+236	argyll-and-bute.txt	Ellenabeich	resolved	56.24800	-5.60600	village	Slate Islands quarry village; OS-style centroid.
+237	argyll-and-bute.txt	Balvicar	resolved	56.26800	-5.62600	hamlet	Mid-Seil settlement (Balvicar Bay area).
+238	argyll-and-bute.txt	Clachan Seil	resolved	56.24300	-5.65600	village	Clachan of Seil by Clachan Bridge (Atlantic bridge).
+239	argyll-and-bute.txt	Cuan	resolved	56.27600	-5.64000	sound	Cuan Sound between Seil and mainland; mid-channel representative point.
+240	argyll-and-bute.txt	Easdale	resolved	56.29400	-5.65800	island	Easdale Slate Islands; village isle centroid.
+241	argyll-and-bute.txt	Toberonochy	resolved	56.21562	-5.63078	village	Hamlet E shore Isle of Luing; Canmore NM7496808493 cluster.
+242	argyll-and-bute.txt	Cullipool	resolved	56.25592	-5.65104	village	Largest village NW Luing; Geograph camera WGS84 NM73951304.
+243	argyll-and-bute.txt	Blackmill Bay	resolved	56.21370	-5.65791	bay	Black Mill Bay W coast Luing; GeoHack list of Inner Hebrides bays.
+244	argyll-and-bute.txt	Torsa	resolved	56.25722	-5.61667	island	Tidal Slate Island E of Luing; Wikipedia/Wikidata coord.
+245	argyll-and-bute.txt	Coll	resolved	56.64000	-6.55000	island	Isle of Coll; Wikipedia infobox centroid (largest settlement Arinagour).
+246	argyll-and-bute.txt	Arinagour	resolved	56.62140	-6.52550	village	Main settlement E Coll ferry pier; Gazetteer for Scotland.
+247	argyll-and-bute.txt	Sorisdale	resolved	56.68641	-6.45640	settlement	N Coll sandhills area; Canmore NM27216384.
+248	argyll-and-bute.txt	Feall	resolved	56.63500	-6.60000	beach	Tràigh Feall W Coll; machair/beach centroid W of RSPB road end.
+249	argyll-and-bute.txt	Feall Bay	resolved	56.63300	-6.59800	bay	Feall Bay isthmus W Coll; coastal centroid adjacent Tràigh Feall.
+250	argyll-and-bute.txt	Arnabost	resolved	56.64830	-6.55490	locality	Road junction NW of Arinagour; Gazetteer for Scotland.
+251	argyll-and-bute.txt	Breachacha	resolved	56.59080	-6.62800	castle	Old Breachacha Castle Loch Breachacha; Wikipedia GeoHack landmark.
+252	argyll-and-bute.txt	Cliad	resolved	56.65340	-6.57476	bay	Cliad Bay NW Coll coast; GeoHack list of Inner Hebrides bays.
+253	argyll-and-bute.txt	Knockvologan	resolved	56.31670	-6.32800	beach	Knockvologan beaches Ross of Mull; grid NM307198 → BNG-derived WGS84.
+254	argyll-and-bute.txt	Bousd	resolved	56.68140	-6.48530	settlement	Scattered N coast Coll; Gazetteer for Scotland.
+255	argyll-and-bute.txt	Crossapol Coll	resolved	56.58126	-6.67903	settlement	SW Coll Crossapol; Canmore NM12795306 (disambiguated from Tiree Crossapol).
+256	argyll-and-bute.txt	Tiree	resolved	56.50000	-6.88000	island	Isle of Tiree; Wikipedia infobox centroid.
+257	argyll-and-bute.txt	Scarinish	resolved	56.50120	-6.80720	village	Main village S Tiree ferry pier; Wikipedia coord.
+258	argyll-and-bute.txt	Hynish	resolved	56.45393	-6.93960	hamlet	S Tiree Hynish Bay signal station area; Nominatim verification.
+259	argyll-and-bute.txt	Heylipol	resolved	56.48285	-6.93157	township	Central W Tiree crofting scatter; Nominatim.
+260	argyll-and-bute.txt	Balemartine	resolved	56.49836	-6.89449	township	S Tiree Hynish Bay shore; Nominatim.
+261	argyll-and-bute.txt	Balephetrish	resolved	56.51607	-6.90024	township	NW Tiree machair; Nominatim / Ringing Stone locale.
+262	argyll-and-bute.txt	Balevullin	resolved	56.50997	-6.94694	township	W Tiree machair; Canmore 7 Balevullin NL9578346292.
+263	argyll-and-bute.txt	Crossapol Tiree	resolved	56.48930	-6.88050	hamlet	Crossapoll Hynish Bay S Tiree; Gazetteer for Scotland (disambiguated from Coll).
+264	argyll-and-bute.txt	Soroby	resolved	56.46959	-6.90076	settlement	Cladh Soroby SE Tiree; Canmore NL983416 parish church site.
+265	argyll-and-bute.txt	Gott	resolved	56.52282	-6.80857	village	Gott Bay NE Scarinish; Nominatim Gott Tiree.
+266	argyll-and-bute.txt	Vaul	resolved	56.54178	-6.80829	township	N Tiree Vaul/Dun Beag area; Canmore Tiree Vaul NM0455249221.
+267	argyll-and-bute.txt	Salum	resolved	56.53756	-6.77278	township	NE Tiree Salum Bay machair; Canmore Tiree Salum township NM067486.
+268	argyll-and-bute.txt	Mannal	resolved	56.46204	-6.89408	hamlet	SW Hynish Bay; Canmore Mannal Cottage NL9865140731.
+269	argyll-and-bute.txt	West Hynish	resolved	56.45120	-6.94150	area	W shore Hynish Bay S Tiree; centroid W of Hynish hamlet.
+270	argyll-and-bute.txt	Caolas Tiree	resolved	56.54040	-6.74540	settlement	E Tiree Caolas scatter; Gazetteer for Scotland (Caolas).
+271	argyll-and-bute.txt	Kennavara	resolved	56.45903	-6.96827	headland	Ceann a' Mhara / Kenavara SW Tiree; Canmore NL9406240725 (Balephuil Bay end).
+272	argyll-and-bute.txt	Barrapol	resolved	56.47980	-6.96078	township	Barrapoll township W Tiree; Canmore standing stone NL94694300.
+273	argyll-and-bute.txt	Ruaig	resolved	56.52755	-6.77214	settlement	E Tiree Ruaig machair; Canmore NM0666247484 (5b Brock centroid).
+274	argyll-and-bute.txt	Balephuil	resolved	56.45561	-6.94008	township	Baile Phuill shore settlement; Canmore NL9576940220.
+275	argyll-and-bute.txt	Sandaig Tiree	resolved	56.48137	-6.97178	village	Sandaig (Saundaig) W Tiree machair coast; Canmore NL9402643224 (Terrace cottage).
+276	argyll-and-bute.txt	Lismore	resolved	56.52000	-5.50000	island	Isle of Lismore centroid; Wikipedia / OS infobox-style coord (Loch Linnhe).
+277	argyll-and-bute.txt	Achnacroish	resolved	56.51081	-5.49424	hamlet	Lismore ferry pier settlement; GeoHack / Wikipedia.
+278	argyll-and-bute.txt	Clachan Lismore	resolved	56.53414	-5.48060	village	Clachan / St Moluag's Cathedral area; Canmore NM86074344.
+279	argyll-and-bute.txt	Isle of Mull	resolved	56.45000	-6.05000	island	Inner Hebrides; Wikipedia-class representative centroid (not a single point).
+280	argyll-and-bute.txt	Isle of Iona	resolved	56.33000	-6.39667	island	Sound of Iona; Wikipedia {{coord}}-style centre.
+281	argyll-and-bute.txt	Isle of Islay	resolved	55.76700	-6.28300	island	Inner Hebrides; Wikipedia-class centroid.
+282	argyll-and-bute.txt	Isle of Jura	resolved	55.93300	-6.08300	island	Inner Hebrides; Wikipedia-class centroid.
+283	argyll-and-bute.txt	Isle of Colonsay	resolved	56.08300	-6.20000	island	Inner Hebrides; Wikipedia-class centroid.
+284	argyll-and-bute.txt	Isle of Gigha	resolved	55.68300	-5.73300	island	Southern Hebrides; Wikipedia-class centroid.
+285	argyll-and-bute.txt	Isle of Tiree	resolved	56.50000	-6.88000	island	Inner Hebrides; representative centroid (matches island-scale row).
+286	argyll-and-bute.txt	Isle of Coll	resolved	56.61700	-6.61700	island	Inner Hebrides; Wikipedia-class centroid.
+287	argyll-and-bute.txt	Isle of Bute	resolved	55.80000	-5.05000	island	Firth of Clyde; Wikipedia-class centroid.
+288	argyll-and-bute.txt	Isle of Ulva	resolved	56.46700	-6.38300	island	W of Mull; Wikipedia-class centroid.
+289	argyll-and-bute.txt	Isle of Kerrera	resolved	56.40000	-5.56700	island	S of Oban; Wikipedia-class centroid.
+290	argyll-and-bute.txt	Isle of Seil	resolved	56.26700	-5.60000	island	Atlantic bridge / Slate Islands group; Wikipedia-class centroid.
+291	argyll-and-bute.txt	Isle of Lismore	resolved	56.52000	-5.50000	island	Same island as line 276; duplicate label in source list.
+292	argyll-and-bute.txt	Oban Harbour	resolved	56.41222	-5.47639	harbour	Railway Pier / ferry hub representative; published HRO-style coord (Oban Bay).
+293	argyll-and-bute.txt	Campbeltown Harbour	resolved	55.41817	-5.53450	harbour	Harbour entrance 55°25.09′N 5°32.07′W; Argyll & Bute Council pilot info.
+294	argyll-and-bute.txt	Port Ellen Harbour	resolved	55.62667	-6.19000	harbour	CalMac harbour position 55°37.6′N 6°11.4′W; Loch Leòdamais.
+295	argyll-and-bute.txt	Port Askaig Ferry	resolved	55.84711	-6.10730	ferry_terminal	Sound of Islay CalMac terminal; GeoHack Port Askaig.
+296	argyll-and-bute.txt	Feolin Ferry	resolved	55.84830	-6.09071	ferry_terminal	Jura slipway; Canmore NR4404469248 (Feolin jetty).
+297	argyll-and-bute.txt	Fishnish Ferry	resolved	56.51472	-5.81056	ferry_terminal	Lochaline–Fishnish slipway; Wikipedia Fishnish coords.
+298	argyll-and-bute.txt	Fionnphort Iona Ferry	resolved	56.32600	-6.37100	ferry_terminal	Mull–Iona pier; Wikivoyage Fionnphort pier marker.
+299	argyll-and-bute.txt	Craignure Ferry	resolved	56.47133	-5.70333	ferry_terminal	Oban–Mull berth; Craignure Pier harbour entrance 56°28.280′N 5°42.200′W.
+300	argyll-and-bute.txt	Colonsay Ferry Port	resolved	56.06861	-6.18753	ferry_terminal	Scalasaig pier; CalMac Colonsay harbour 56°04′07″N 6°11′15″W.
+301	argyll-and-bute.txt	Gott Bay	resolved	56.52405	-6.80188	bay	Sheltered bay E Tiree; BirdGuides / published site marker (centre of bay; ferry pier is SE in bay).
+302	argyll-and-bute.txt	Crossapol Bay Tiree	resolved	56.57580	-6.68025	bay	S Tiree Hynish Bay sector; GeoHack List of bays (waterbody coords).
+303	argyll-and-bute.txt	Bagh Mor	resolved	56.51750	-6.81200	beach	Traigh Mhòr / Gott Bay sand arc (Tiree); generic 'big bay' label placed mid-beach NE of Scarinish ferry berth.
+304	argyll-and-bute.txt	Port nan Gael	resolved	56.36642	-6.01711	shore	Pennyghael Loch Scridain shore (Isle of Mull); Pitchup-published campsite GPS for named coastal site.
+305	argyll-and-bute.txt	Arinagour Bay	resolved	56.61670	-6.53330	bay	Bay at Arinagour (Isle of Coll ferry harbour); Wikipedia-class village/harbour coords for the bay mouth.
+306	argyll-and-bute.txt	Scarinish Bay	resolved	56.50500	-6.80200	bay	Gott Bay sector around Scarinish / CalMac Tiree harbour (56.508475°N 6.798933°W) — bay-scale pin.
+307	argyll-and-bute.txt	Balvicar Bay	resolved	56.29320	-5.60200	bay	E Seil in Seil Sound; GeoHack waterbody coords.
+308	argyll-and-bute.txt	Ettrick Bay Pier	resolved	55.84811	-5.13523	pier	No dedicated ferry pier; mapped to main beach access / foreshore (NS 038661) per visitor guides — tide use at bay head.
+309	argyll-and-bute.txt	Rothesay Pier	resolved	55.83923	-5.05118	pier	W Clyde steamer/ferry pier head; Cruiserswiki published GPS.
+310	argyll-and-bute.txt	Helensburgh Pier	resolved	56.00097	-4.73720	pier	Listed pier NGR NS 29380 82030 → WGS84 (HES listing); maritime use restricted but structure location.
+311	argyll-and-bute.txt	Dunoon Pier	resolved	55.94666	-4.92163	pier	Wikipedia / GeoHack landmark coords (Category A listed pier).
+312	argyll-and-bute.txt	Kames Pier	resolved	55.89020	-5.24461	pier	Kames village pier W Kyle of Bute; Wikipedia coords (NR97200 71100).
+313	argyll-and-bute.txt	Tighnabruaich Pier	resolved	55.91037	-5.22389	pier	Canmore NR 98600 73283 (HES listed steamer pier).

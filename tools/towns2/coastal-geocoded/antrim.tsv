@@ -1,0 +1,169 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	antrim.txt	Jordanstown	resolved	54.67991	-5.88867	village	Townland / ward on Belfast Lough (Wikipedia centroid).
+2	antrim.txt	Jordanstown Shore	resolved	54.67650	-5.89020	foreshore	Seaward / Loughshore Park sector of Jordanstown frontage.
+3	antrim.txt	Greenisland	resolved	54.69500	-5.85700	town	Coastal town on Belfast Lough (Wikipedia centroid).
+4	antrim.txt	Whiteabbey	resolved	54.67778	-5.90694	village	Whiteabbey settlement centroid (Wikipedia coords).
+5	antrim.txt	Newtownabbey Shore	resolved	54.68400	-5.87550	foreshore	Representative Belfast Lough shore within Antrim & Newtownabbey (Monkstown / coastal strip).
+6	antrim.txt	Carrickfergus	resolved	54.71580	-5.80980	town	Town centroid (standard mapping).
+7	antrim.txt	Carrickfergus Castle	resolved	54.71360	-5.80550	castle	Harbour head Norman castle pin.
+8	antrim.txt	Carrickfergus Harbour	resolved	54.71550	-5.80500	harbour	Main harbour / marina area.
+9	antrim.txt	Eden	resolved	54.72895	-5.77451	village	Eastern Carrickfergus coastal settlement (Wikipedia coords).
+10	antrim.txt	Kilroot	resolved	54.72000	-5.76000	village	Kilroot east of Carrickfergus (coastal plain).
+11	antrim.txt	Ballycarry	resolved	54.71500	-5.70800	village	Village toward Island Magee neck.
+12	antrim.txt	Whitehead	resolved	54.76200	-5.70900	town	Coastal town east of Carrickfergus.
+13	antrim.txt	Whitehead Promenade	resolved	54.76250	-5.71000	promenade	Seafront promenade at Whitehead.
+14	antrim.txt	Blackhead Lighthouse	resolved	54.72639	-5.71833	lighthouse	Black Head / Island Magee lighthouse feature.
+15	antrim.txt	Blackhead	resolved	54.72650	-5.71800	headland	Black Head headland (Island Magee); same coastal feature as lighthouse.
+16	antrim.txt	Island Magee	resolved	54.78000	-5.72000	peninsula	Approximate centroid of the peninsula (long linear extent).
+17	antrim.txt	Ballystrudder	resolved	54.83900	-5.73100	townland	North Island Magee settlement area.
+18	antrim.txt	Mill Bay	resolved	54.82150	-5.72750	bay	Small bay on Island Magee north coast.
+19	antrim.txt	Portmuck	resolved	54.82850	-5.72300	harbour	Small harbour / cove on Island Magee.
+20	antrim.txt	Skernaghan Point	resolved	54.80300	-5.71200	headland	Point on Island Magee east coast.
+21	antrim.txt	Browns Bay	resolved	54.79100	-5.71600	bay	Browns Bay north-east Island Magee.
+22	antrim.txt	Browns Bay Beach	resolved	54.79120	-5.71620	beach	Sandy beach at Browns Bay.
+23	antrim.txt	Brown's Bay Island Magee	resolved	54.79100	-5.71600	bay	Same named bay as Browns Bay (source spelling).
+24	antrim.txt	Drains Bay	resolved	54.83100	-5.73500	bay	Bay north Island Magee toward Larne.
+25	antrim.txt	Drumnagreagh Bay	resolved	54.84000	-5.72800	bay	North coast bay on Island Magee.
+26	antrim.txt	Carnfunnock	resolved	54.89080	-5.84660	park	Carnfunnock Country Park visitor centroid (Wikipedia).
+27	antrim.txt	Larne Lough	ambiguous			lough	Large sea lough / estuary system; no single representative coastal pin without over-precision.
+28	antrim.txt	Larne	resolved	54.84589	-5.80572	town	Town centroid (GeoHack / Wikipedia).
+29	antrim.txt	Larne Harbour	resolved	54.84806	-5.79861	harbour	Ferry port / harbour area (near Larne Harbour station coords).
+30	antrim.txt	Inver	resolved	54.84983	-5.82694	area	Inver district of Larne (Inver Park / Inver Rd sector centroid).
+31	antrim.txt	Glynn	resolved	54.81700	-5.81700	village	Wikipedia coords; Larne Lough shore south of Larne.
+32	antrim.txt	Magheramorne	resolved	54.71670	-5.76780	townland	Coastal townland / former cement works area east of Larne (mapping centroid).
+33	antrim.txt	Ballylumford	resolved	54.81900	-5.76700	industrial	Ballylumford power station / foreshore sector on Island Magee (mapping pin).
+34	antrim.txt	Ballygally	resolved	54.86670	-5.86670	village	Ballygally on Antrim coast (Wikipedia-class centroid).
+35	antrim.txt	Ballygalley	resolved	54.86670	-5.86670	village	Alternate spelling / same coastal settlement as Ballygally (same pin).
+36	antrim.txt	Ballygally Castle	resolved	54.86750	-5.86700	castle	Ballygally Castle Hotel headland pin on Ballygally Bay.
+37	antrim.txt	The Gobbins	resolved	54.75600	-5.70300	attraction	The Gobbins cliff walk / visitor access (Island Magee coast).
+38	antrim.txt	Gobbins Cliff Path	resolved	54.75650	-5.70250	walk	Same coastal cliff-path feature as The Gobbins; path sector pin.
+39	antrim.txt	Curran Point Larne	resolved	54.84050	-5.80600	point	Curran Point on Larne Lough south of Larne (coastal point).
+40	antrim.txt	Chaine Memorial Tower	resolved	54.85454	-5.79798	lighthouse	Wikipedia coords; memorial lighthouse at Larne Lough harbour mouth.
+41	antrim.txt	Sandy Bay Larne	resolved	54.85100	-5.81300	beach	Sandy Bay / Chaine Park foreshore near the memorial tower.
+42	antrim.txt	Town Bay Larne	resolved	54.84700	-5.80200	bay	Open bay / foreshore sector of Larne town fronting the lough.
+43	antrim.txt	Swan Island Larne Lough	resolved	54.82412	-5.78497	island	Wikipedia coords; small island SPA in Larne Lough near Glynn.
+44	antrim.txt	Glenarm	resolved	54.93300	-5.95700	village	Glenarm village on Antrim coast (standard map centroid).
+45	antrim.txt	Glenarm Bay	resolved	54.93450	-5.95550	bay	Bay in front of Glenarm on the North Channel.
+46	antrim.txt	Glenarm Castle	resolved	54.93200	-5.95600	castle	Glenarm Castle estate / demesne coastal sector.
+47	antrim.txt	Glenarm Harbour	resolved	54.93500	-5.95800	harbour	Stone harbour / marina at Glenarm mouth of river.
+48	antrim.txt	Carnlough	resolved	54.98670	-5.98900	village	Carnlough village on Antrim coast (Wikipedia-class centroid).
+49	antrim.txt	Carnlough Harbour	resolved	54.98800	-5.99000	harbour	Harbour basin at Carnlough (limestone harbour).
+50	antrim.txt	Carnlough Pier	resolved	54.98820	-5.99100	pier	Pier head at Carnlough harbour entrance.
+51	antrim.txt	Red Bay	resolved	55.01000	-6.02000	bay	Red Bay between Carnlough and Cushendall (coastal embayment).
+52	antrim.txt	Red Bay Beach	resolved	55.01020	-6.02020	beach	Shingle/sand beach at Red Bay.
+53	antrim.txt	Red Bay Pier	resolved	55.00980	-6.01980	pier	Small pier / slip at Red Bay.
+54	antrim.txt	Waterfoot	resolved	55.00600	-6.03500	village	Waterfoot at foot of Glenariff on Red Bay coast.
+55	antrim.txt	Cushendall	resolved	55.08800	-6.06600	village	Cushendall village centroid near coast (OSM/Wikipedia class).
+56	antrim.txt	Cushendall Beach	resolved	55.08700	-6.06500	beach	Foreshore beach in front of Cushendall.
+57	antrim.txt	Cushendun	resolved	55.12200	-6.05800	village	Cushendun village on Antrim coast (mapping centroid).
+58	antrim.txt	Cushendun Bay	resolved	55.12300	-6.05500	bay	Bay south of Cushendun village.
+59	antrim.txt	Cushendun Caves	resolved	55.12400	-6.05000	caves	Sea caves on Cushendun Bay west shore.
+60	antrim.txt	Cushendun Beach	resolved	55.12000	-6.05500	beach	Main sandy beach at Cushendun fronting the bay.
+61	antrim.txt	Torr Head	resolved	55.19740	-6.06270	headland	Wikipedia coord; Straits of Moyle headland E of Cushendun.
+62	antrim.txt	Murlough Bay	resolved	55.21300	-6.12100	bay	Wikipedia coord; bay between Fair Head and Torr Head.
+63	antrim.txt	Garron Point	resolved	55.04429	-5.96450	headland	Coastal headland N of Carnlough (Causeway Coast AONB); source list not strictly E→W order.
+64	antrim.txt	Ballycastle	resolved	55.20500	-6.25800	town	Wikipedia-class town centroid.
+65	antrim.txt	Ballycastle Strand	resolved	55.20700	-6.25450	beach	Main seafront / strand west of harbour mouth.
+66	antrim.txt	Ballycastle Marina	resolved	55.20630	-6.25300	marina	Marina basin beside town harbour.
+67	antrim.txt	Ballycastle Harbour	resolved	55.20550	-6.25180	harbour	Ferry / working harbour (Rathlin) sector.
+68	antrim.txt	Ballycastle Beach	resolved	55.20750	-6.25600	beach	Town beach strip (includes Pans Rock end).
+69	antrim.txt	Fair Head	resolved	55.22711	-6.14630	headland	GeoHack / Wikipedia-class cliff headland NE of Ballycastle.
+70	antrim.txt	Pans Rock	resolved	55.20750	-6.21990	rock	Published photo coords (footbridge to Pans Rock, Ballycastle Beach).
+71	antrim.txt	Glenshesk	resolved	55.17167	-6.21611	glen	Wikipedia centroid for the glen (inland valley; drains to Ballycastle).
+72	antrim.txt	Bonamargy Friary	resolved	55.20204	-6.23084	abbey	Wikipedia coord; Franciscan ruins S of Ballycastle.
+73	antrim.txt	Kinbane Castle	resolved	55.22917	-6.29139	castle	Wikipedia coord; ruin on Kinbane Head promontory.
+74	antrim.txt	Kinbane Head	resolved	55.22950	-6.29200	headland	Limestone headland tip (castle sector; same coastal feature).
+75	antrim.txt	Kinbane Beach	resolved	55.22750	-6.28800	beach	Shingle beach at NW foot of Kinbane Head.
+76	antrim.txt	Carrick-a-Rede	resolved	55.24004	-6.33104	island	Small island / sea stack linked by rope bridge; bridge Wikipedia coord used.
+77	antrim.txt	Carrick a Rede	resolved	55.24004	-6.33104	island	Alternate spacing for same island feature as line 76.
+78	antrim.txt	Carrick-a-Rede Rope Bridge	resolved	55.24004	-6.33104	bridge	Wikipedia coord for the National Trust suspension bridge.
+79	antrim.txt	Larrybane Bay	resolved	55.23950	-6.33050	bay	Embayment / Larrybane quarry coast below Carrick-a-Rede car-park area.
+80	antrim.txt	Larrybane	resolved	55.23970	-6.33020	quarry	Disused quarry / NT access plateau above Carrick-a-Rede.
+81	antrim.txt	Ballintoy	resolved	55.23636	-6.35752	village	Wikidata / Wikipedia-class village centroid.
+82	antrim.txt	Ballintoy Harbour	resolved	55.24558	-6.36758	harbour	eOceanic haven waypoint (harbour entrance midpoint).
+83	antrim.txt	Ballintoy Beach	resolved	55.24420	-6.36850	beach	Small cove beach beside Ballintoy Harbour.
+84	antrim.txt	Portbraddon	resolved	55.24850	-6.37500	hamlet	Tiny coastal hamlet NW of Ballintoy Harbour (mapping centroid).
+85	antrim.txt	White Park Bay	resolved	55.23200	-6.36400	bay	National Trust bay / beach (Whitepark Road sector).
+86	antrim.txt	Whitepark Bay	resolved	55.23200	-6.36400	bay	Alternate spelling; same bay as line 85.
+87	antrim.txt	Rathlin Island	resolved	55.29500	-6.19750	island	Wikipedia centroid for inhabited island.
+88	antrim.txt	Rathlin	resolved	55.29500	-6.19750	island	Common short name; same island centroid as line 87.
+89	antrim.txt	Church Bay Rathlin	resolved	55.29172	-6.19430	harbour	Church Bay ferry harbour pontoon sector (nautical waypoint).
+90	antrim.txt	Rue Point Rathlin	resolved	55.25888	-6.19123	lighthouse	Irish Lights published position (Rue Point lighthouse, S tip).
+91	antrim.txt	East Lighthouse Rathlin	resolved	55.30185	-6.17188	lighthouse	Irish Lights position (Rathlin East / Altacarry Head).
+92	antrim.txt	West Lighthouse Rathlin	resolved	55.30087	-6.28025	lighthouse	Irish Lights position (Rathlin West).
+93	antrim.txt	Mill Bay Rathlin	resolved	55.29000	-6.19000	bay	East-coast bay on Rathlin near Church Bay / Mill Bay sector (mapping centroid).
+94	antrim.txt	Brockley Bay Rathlin	resolved	55.25200	-6.21500	bay	Small west-island embayment near Brockley / Ballygill Middle (approximate coastal pin).
+95	antrim.txt	Kinramer Bay Rathlin	resolved	55.28550	-6.20800	bay	South-coast bay in Kinramer area west of Church Bay (Kinramer trail sector).
+96	antrim.txt	Kebble Rathlin	resolved	55.29476	-6.26789	nature_reserve	Kebble Nature Reserve / Kebble Cliff Walk start near Kebble Cottage (visorando start coords).
+97	antrim.txt	Altacarry Rathlin	resolved	55.30185	-6.17188	headland	Altacarry Head (Rathlin East lighthouse headland; same coastal feature as East Light).
+98	antrim.txt	Ushet Rathlin	resolved	55.26700	-6.17800	point	South-east Rathlin promontory sector (Ushet / Kinkeel coast; low headland).
+99	antrim.txt	Dunseverick	resolved	55.23600	-6.45600	hamlet	Wikipedia / GeoHack centroid for Dunseverick (Feigh townland).
+100	antrim.txt	Dunseverick Castle	resolved	55.23837	-6.44823	castle	Wikipedia coordinates; promontory fort ruins on coast path.
+101	antrim.txt	Dunseverick Harbour	resolved	55.23757	-6.42788	harbour	DAERA marine licence coords; small fishing harbour east of castle.
+102	antrim.txt	Dunseverick Falls	resolved	55.23750	-6.44700	waterfall	Small seafall on Causeway Coast Way between harbour and castle (approximate coastal pin).
+103	antrim.txt	Bushmills	resolved	55.20370	-6.52320	village	Wikipedia centroid; inland service centre for Causeway coast.
+104	antrim.txt	Bushfoot Strand	resolved	55.21883	-6.53930	beach	Runkerry Strand / Bushfoot Strand ASSI centroid (Irish Grid C935427 literature values).
+105	antrim.txt	Bushfoot Beach	resolved	55.21883	-6.53930	beach	Same sandy foreshore as Bushfoot Strand (local naming).
+106	antrim.txt	Bush River Mouth	resolved	55.21700	-6.53800	estuary	River Bush outlet at west end of Runkerry Bay (approximate mouth pin).
+107	antrim.txt	Runkerry Beach	resolved	55.21883	-6.53930	beach	Council / ASSI naming; main Runkerry sandy beach sector.
+108	antrim.txt	Runkerry Strand	resolved	55.21883	-6.53930	beach	Alternate local name for same Runkerry / Bushfoot beach system.
+109	antrim.txt	Runkerry Point	resolved	55.24700	-6.49800	headland	Runkerry headland toward Giant's Causeway (east end of bay; approximate).
+110	antrim.txt	Portballintrae	resolved	55.21403	-6.54579	village	Wikipedia / GeoHack village centroid.
+111	antrim.txt	Portballintrae Harbour	resolved	55.21420	-6.54620	harbour	Horseshoe harbour basin in Ballintrae Bay (mapping pin near village coords).
+112	antrim.txt	Portballintrae Beach	resolved	55.22000	-6.53500	beach	Village front / bay beach sector west of main Runkerry dune beach.
+113	antrim.txt	Dunluce Castle	resolved	55.21139	-6.57917	castle	Wikipedia coordinates; sea-stack promontory ruin.
+114	antrim.txt	Dunluce	resolved	55.21139	-6.57917	area	Townland / settlement name tied to the castle promontory (same pin as castle ruin).
+115	antrim.txt	Dunluce Strand	resolved	55.21000	-6.57800	beach	Strand below the castle cliffs (approximate coastal foreshore).
+116	antrim.txt	Giants Causeway	resolved	55.24083	-6.51167	geology	Wikipedia WHS centroid (source spelling without apostrophe).
+117	antrim.txt	Giant's Causeway	resolved	55.24083	-6.51167	geology	Same UNESCO site centroid; standard spelling with apostrophe.
+118	antrim.txt	Hamilton's Seat	resolved	55.24888	-6.48653	viewpoint	CUCAP aerial metadata coords for Hamilton's Seat clifftop viewpoint.
+119	antrim.txt	Shepherd's Steps	resolved	55.24380	-6.50700	steps	Red Trail clifftop / 162-step sector above The Organ (approximate; WalkNI area C944439).
+120	antrim.txt	Amphitheatre Bay	resolved	55.24650	-6.49400	bay	Port Reostan / Amphitheatre embayment on clifftop walk east of main Grand Causeway.
+121	antrim.txt	Port Noffer	resolved	55.24200	-6.50920	bay	Small embayment on the cliff walk east of the Grand Causeway (approximate bay mouth).
+122	antrim.txt	Great Stookan	resolved	55.24380	-6.50480	headland	Seaward headland on the standard Causeway cliff loop (approximate tip past Port Noffer).
+123	antrim.txt	The Organ	resolved	55.24150	-6.50678	geology	Tall basalt “organ pipes” on the cliff; Geograph C9544 geotagged WGS84.
+124	antrim.txt	The Giants Boot	resolved	55.24010	-6.51100	geology	Named boot-shaped basalt feature on the main foreshore cluster (approximate; WHS reserve).
+125	antrim.txt	The Camel	resolved	55.23970	-6.51200	geology	Named ridge / hump on the column field (approximate local pin).
+126	antrim.txt	The Wishing Well	resolved	55.24040	-6.51120	geology	Small trail-side feature in the reserve (often confused with the Wishing Chair; approximate).
+127	antrim.txt	Pleaskin Head	resolved	55.24450	-6.49750	headland	Eastern promontory on the cliff walk toward Benbane (approximate coastal tip).
+128	antrim.txt	Benbane Head	resolved	55.24700	-6.48500	headland	Wikipedia / GeoHack coords (northern mainland extremity of NI).
+129	antrim.txt	Salmon Rock Beach	resolved	55.22049	-6.54423	beach	OpenStreetMap “Salmon Rock” beach near Portballintrae.
+130	antrim.txt	Causeway Coast	ambiguous			coast	Regional / marketing name for a long coastal strip; no single representative pin.
+131	antrim.txt	Straid	resolved	55.20150	-6.51100	settlement	Townland S of Bushmills toward the Causeway (approximate rural centroid).
+132	antrim.txt	Galboly	resolved	55.05373	-5.98111	village	Atlas Obscura map pin for the deserted clachan above Garron Point (private land).
+133	antrim.txt	Ballyvoy	resolved	55.19979	-6.18608	village	OpenStreetMap “Ballyvoy” relation centroid.
+134	antrim.txt	Ballypatrick	resolved	55.16738	-6.13803	area	OpenStreetMap settlement centroid (Ballypatrick forest / village area inland of Ballycastle).
+135	antrim.txt	Ballymagorry	resolved	55.20090	-6.59593	townland	No Antrim “Ballymagorry” hit; interpreted as Ballymagarry (Dunluce) hinterland near Portrush / Leeke Road sector.
+136	antrim.txt	Magheracross	resolved	55.20120	-6.60380	viewpoint	Magheracross viewing platform / car park on Dunluce Road (approximate; tourism POI).
+137	antrim.txt	Magheracross Strand	resolved	55.20585	-6.61236	beach	Whiterocks foreshore below the Magheracross–Dunluce cliffs (OSM White Rocks beach pin).
+138	antrim.txt	Tievebulliagh	resolved	55.07435	-6.13244	mountain	OpenStreetMap “Tievebulliagh” locality centroid (Antrim Hills / Cushendall area).
+139	antrim.txt	Knocklayde	resolved	55.16209	-6.25109	mountain	Wikipedia summit coords for Knocklayd (spelling variant).
+140	antrim.txt	Glendun Mouth	resolved	55.12180	-6.04150	estuary	Glendun River entering Cushendun Bay (approximate river mouth / shore).
+141	antrim.txt	Glenshesk Bay	resolved	55.19350	-6.22000	bay	Bay sector at Ballycastle associated with Glenshesk River entering the sea (approximate).
+142	antrim.txt	White Rocks Ballintoy	resolved	55.23511	-6.38995	beach	List ties to Ballintoy; mapped to OpenStreetMap White Park Bay beach (nearest major “white cliffs” beach W of Ballintoy).
+143	antrim.txt	Elephant Rock Ballintoy	resolved	55.24136	-6.38059	rock	Photo-spot / tourism coords for the Ballintoy sea-stack (PIXEO centre).
+144	antrim.txt	Carrickmannon Rock	resolved	55.23450	-6.28055	rock	DiveNI published coordinates (~500 m NE off Kinbane Head; offshore tidal rock).
+145	antrim.txt	Ballycastle Pier	resolved	55.20763	-6.24135	harbour	OpenStreetMap “Ballycastle Harbour” information node (pier / marina sector).
+146	antrim.txt	Skernaghan Bay	resolved	54.80600	-5.71400	bay	Small inlet along the Island Magee shore path N from Browns Bay toward Skernaghan Point (approximate).
+147	antrim.txt	Scaw Rocks	not_found			rock	No confident public geocode for this name (likely minor skerries; not in OSM/Nominatim).
+148	antrim.txt	Feystown Bay	resolved	54.94600	-5.93500	bay	Small embayment on the coast near Feystown / Glenarm (approximate seaward centroid).
+149	antrim.txt	Ballygally Head	resolved	54.89927	-5.84424	headland	Nominatim “Ballygalley Head” (standard alternate spelling at Ballygally).
+150	antrim.txt	Corkey Rocks Larne	not_found			rock	No confident match in public gazetteers / OSM for this skerry name off Larne.
+151	antrim.txt	Cloghfin Island Magee	resolved	54.77390	-5.70190	townland	Cloghfin / Cloughfin townland centroid (townlands.ie); foreshore context includes Cloghfin Port ASSI (Island Magee east coast).
+152	antrim.txt	Drumkeep Bay Island Magee	not_found			bay	No public gazetteer / map label match for “Drumkeep Bay”; likely minor inlet—uncertain vs Drumgurland area.
+153	antrim.txt	Portmore Larne	not_found			harbour	No coastal feature confidently named “Portmore Larne”; well-known Antrim “Portmore” is inland (Ballinderry / Lough Neagh), not this coast.
+154	antrim.txt	Island Magee Coast Road	ambiguous			road	Long A2 coastal highway around the peninsula; no single representative pin without over-precision.
+155	antrim.txt	Glencloy Carnlough	resolved	54.06444	-5.99194	glenmouth	Carnlough at the seaward end of Glencloy (Wikipedia / GeoHack centroid for Carnlough).
+156	antrim.txt	Glenariff Waterfoot	resolved	55.06040	-6.06110	village	Waterfoot village at the foot of Glenariff on Red Bay (Wikipedia coordinates).
+157	antrim.txt	Glendun Cushendun	resolved	55.12180	-6.04150	glenmouth	Glendun river mouth at Cushendun Bay (aligned with “Glendun Mouth” row earlier in this file).
+158	antrim.txt	Glencorp Cushendall	resolved	55.08000	-6.07000	glenmouth	Glencorp River entering the sea at Cushendall (approximate harbour / mouth sector).
+159	antrim.txt	Quay Street Cushendall	resolved	55.08020	-6.06950	harbour	Quay / harbour frontage in Cushendall (approximate).
+160	antrim.txt	Harbour Road Ballintoy	resolved	55.23970	-6.36310	harbour	Ballintoy Harbour access road / small harbour cluster (OpenStreetMap harbour area).
+161	antrim.txt	Rathlin West Light	resolved	55.30087	-6.28025	lighthouse	Commissioners of Irish Lights published position (Rathlin West Lighthouse).
+162	antrim.txt	Rathlin Rue Lighthouse	resolved	55.25888	-6.19123	lighthouse	Irish Lights Rue Point light (south / “Rue” lighthouse on Rathlin).
+163	antrim.txt	Ballynagard Rathlin	resolved	55.19260	-6.18623	townland	Logainm.ie centrepoint for Ballynagard townland (Rathlin Island).
+164	antrim.txt	Church Bay Harbour Rathlin	resolved	55.25080	-6.19320	harbour	Rathlin main ferry harbour / Church Bay quay area (approximate).
+165	antrim.txt	Kinramer Strand Rathlin	resolved	55.27100	-6.24700	beach	Sandy strand on Rathlin’s west coast in the Kinramer area (approximate; walking-trail / coast context).
+166	antrim.txt	Weaver's Cave	not_found			cave	No published match for this exact name among the many small sea caves on Rathlin / north Antrim coast.
+167	antrim.txt	Nanny's Rock	resolved	55.24080	-6.50900	rock	Local “Granny’s Rock” folklore silhouette near the Great Stookan above Giant’s Causeway foreshore (approximate).
+168	antrim.txt	Stookan	resolved	55.24120	-6.50850	headland	Great Stookan / Stookans—basalt headland viewpoint above Giant’s Causeway (approximate clifftop pin).

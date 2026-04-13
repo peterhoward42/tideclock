@@ -1,0 +1,295 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	aberdeen-city.txt	Donmouth	resolved	57.16300	-2.08430	sand_spit	River Don mouth / dune coast (Donmouth).
+2	aberdeen-city.txt	Donmouth Local Nature Reserve	resolved	57.16250	-2.08380	nature_reserve	SSSI dunes at Donmouth.
+3	aberdeen-city.txt	Donmouth Beach	resolved	57.16200	-2.08330	beach	Sandy beach at Donmouth.
+4	aberdeen-city.txt	River Don mouth Aberdeen	resolved	57.16283	-2.08430	estuary	OS/Canmore centroid for Don mouth area (NJ c. 9508).
+5	aberdeen-city.txt	Don Estuary	resolved	57.16700	-2.08100	estuary	Tidal lower River Don approaching the sea.
+6	aberdeen-city.txt	Bridge of Don foreshore	resolved	57.17450	-2.08480	foreshore	Foreshore south of Bridge of Don toward the sea.
+7	aberdeen-city.txt	Seaton	resolved	57.16950	-2.08650	area	Seaton coastal fringe north of Donmouth.
+8	aberdeen-city.txt	Seaton foreshore	resolved	57.17020	-2.08720	foreshore	Seaward edge / park foreshore.
+9	aberdeen-city.txt	King Street Links	resolved	57.16582	-2.08494	links	King’s Links golf course (Golf Road area).
+10	aberdeen-city.txt	Queens Links	resolved	57.16150	-2.08650	links	Queen’s Links open space beside the coastal links belt.
+11	aberdeen-city.txt	Queens Links foreshore	resolved	57.16200	-2.08600	foreshore	Dune / shore edge near Queen’s Links.
+12	aberdeen-city.txt	Aberdeen Beach	resolved	57.15200	-2.08200	beach	Main city beach strip.
+13	aberdeen-city.txt	Aberdeen Beach Esplanade	resolved	57.15100	-2.08100	promenade	Esplanade along Aberdeen Beach.
+14	aberdeen-city.txt	Beach Esplanade	resolved	57.15050	-2.08080	promenade	Esplanade section (beach front).
+15	aberdeen-city.txt	Beach Boulevard Aberdeen	resolved	57.14980	-2.08020	promenade	Beach Boulevard seafront road.
+16	aberdeen-city.txt	The Beach Aberdeen	resolved	57.15150	-2.08150	beach	Informal name for the city beach front.
+17	aberdeen-city.txt	Beach Ballroom seafront	resolved	57.14900	-2.07920	attraction	Beach Ballroom on the esplanade.
+18	aberdeen-city.txt	Aberdeen seafront	resolved	57.15000	-2.08000	promenade	General seafront along the main beach.
+19	aberdeen-city.txt	James Young Walk esplanade	resolved	57.14950	-2.07900	promenade	Named esplanade walk on the beach front.
+20	aberdeen-city.txt	Beach promenade Aberdeen	resolved	57.15100	-2.08100	promenade	Promenade along Aberdeen Beach.
+21	aberdeen-city.txt	Beach groynes Aberdeen	resolved	57.15250	-2.08250	beach	Groyne line along the main beach.
+22	aberdeen-city.txt	Donmouth boardwalk	resolved	57.16180	-2.08350	boardwalk	Dunes / NNR boardwalk at Donmouth.
+23	aberdeen-city.txt	Donmouth bird hide shore	resolved	57.16150	-2.08300	hide	Bird hide / shore viewpoint at Donmouth.
+24	aberdeen-city.txt	Queens Links dunes shore	resolved	57.16300	-2.08700	dunes	Coastal dune front near Queen’s Links.
+25	aberdeen-city.txt	Diamond Bridge Don approach shore	resolved	57.17050	-2.09800	foreshore	Tidal River Don bank downstream of Diamond Bridge toward the sea.
+26	aberdeen-city.txt	Footdee	resolved	57.14380	-2.07110	village	Footdee (harbour fishing village).
+27	aberdeen-city.txt	Fittie	resolved	57.14360	-2.07130	village	Local name for Footdee.
+28	aberdeen-city.txt	Foot dee	resolved	57.14350	-2.07100	village	Variant spacing for Footdee.
+29	aberdeen-city.txt	Futty	resolved	57.14370	-2.07120	village	Historic spelling (Footdee / Fittie).
+30	aberdeen-city.txt	Fish Town	resolved	57.14390	-2.07090	locality	Historic label for the planned Footdee settlement.
+31	aberdeen-city.txt	Footdee North Square	resolved	57.14390	-2.07230	square	Centroid of North Square (planned Footdee grid; Canmore cites ~NJ 957 059).
+32	aberdeen-city.txt	Footdee South Square	resolved	57.14344	-2.07124	square	Centroid of South Square fisher cottages (e.g. Canmore 4–7 South Sq).
+33	aberdeen-city.txt	Sandness	resolved	57.13588	-2.08424	historic_fort	Historic harbour blockhouse area at Sandness (Canmore NJ 95 05); not Shetland Sandness.
+34	aberdeen-city.txt	Pocra Quay	resolved	57.14307	-2.07401	quay	Lower Basin / Pocra Quay frontage (Canmore NJ 9562 0580).
+35	aberdeen-city.txt	Pocra Base	resolved	57.14290	-2.07380	support_base	Port support / laydown area beside Pocra (approximate quayside centroid).
+36	aberdeen-city.txt	North Pier Aberdeen	resolved	57.14273	-2.06862	pier	North Pier root / landward section (Canmore NJ 95946 05762).
+37	aberdeen-city.txt	South Pier Aberdeen	resolved	57.14236	-2.06162	pier	Inner (old) south breakwater / south entrance works (Canmore NJ 9637 0572).
+38	aberdeen-city.txt	North Breakwater Aberdeen	resolved	57.14568	-2.06129	breakwater	North pier head / North Breakwater lighthouse (Canmore NJ 9639 0609).
+39	aberdeen-city.txt	South Breakwater Aberdeen	resolved	57.14218	-2.05550	breakwater	Outer South Breakwater (Canmore NJ 9674 0570).
+40	aberdeen-city.txt	Aberdeen Harbour	resolved	57.14140	-2.07027	harbour	Overall harbour complex centroid (Canmore NJ90NE 7).
+41	aberdeen-city.txt	Port of Aberdeen	resolved	57.14333	-2.08417	harbour	Modern trust-port branding; Wikipedia/infobox centroid for Port of Aberdeen.
+42	aberdeen-city.txt	Aberdeen Port	resolved	57.14333	-2.08417	harbour	Same operational area as Port of Aberdeen (rebranded harbour).
+43	aberdeen-city.txt	Aberdeen Harbour entrance	resolved	57.14395	-2.06400	channel	Seaward approach between North Pier and South Breakwater (approx. channel centroid).
+44	aberdeen-city.txt	Aberdeen harbour mouth	resolved	57.14350	-2.06550	channel	Harbour mouth / entrance channel (approximate mid-channel).
+45	aberdeen-city.txt	North Harbour Aberdeen	resolved	57.14580	-2.08650	harbour_basin	Northern dock cluster (Victoria Dock / north shore basins; approximate centroid).
+46	aberdeen-city.txt	Aberdeen North Harbour	resolved	57.14570	-2.08700	harbour_basin	Same north-basin complex as North Harbour (slight offset along quay).
+47	aberdeen-city.txt	Tidal Harbour Aberdeen	resolved	57.14140	-2.07027	tidal_harbour	Tidal harbour extent per main harbour record (Canmore NJ90NE 7).
+48	aberdeen-city.txt	Upper Dock Aberdeen	resolved	57.14522	-2.09335	dock	Upper Dock / Trinity basin (Canmore NJ 9445 0604).
+49	aberdeen-city.txt	Upper Quay Aberdeen	resolved	57.14520	-2.09350	quay	Quay along Upper Dock (approximate waterside frontage).
+50	aberdeen-city.txt	Trinity Quay	resolved	57.14522	-2.09335	quay	Also known as Upper Dock frontage (Canmore alias).
+51	aberdeen-city.txt	Regent Quay	resolved	57.14600	-2.09280	quay	Regent Quay range (between Upper Dock and offices; OS/Canmore corridor).
+52	aberdeen-city.txt	Regent Quay West	resolved	57.14590	-2.09400	quay	Western Regent Quay / weigh-house side (approximate).
+53	aberdeen-city.txt	Regent Quay East	resolved	57.14610	-2.09160	quay	Eastern Regent Quay toward Victoria Dock (approximate).
+54	aberdeen-city.txt	Jamieson's Quay	resolved	57.14505	-2.09141	quay	NorthLink ferry quay (map/geocoder centroid; apostrophe spelling).
+55	aberdeen-city.txt	Jamiesons Quay	resolved	57.14505	-2.09135	quay	Same quay as Jamieson's (variant spelling).
+56	aberdeen-city.txt	Victoria Dock Aberdeen	resolved	57.14531	-2.08592	dock	Victoria Dock (Canmore NJ 94900 06050).
+57	aberdeen-city.txt	Waterloo Quay	resolved	57.14549	-2.08459	quay	Waterloo Quay / Victoria Dock entrance frontage (Canmore NJ 9498 0607).
+58	aberdeen-city.txt	Waterloo Quay West	resolved	57.14555	-2.08520	quay	Western Waterloo Quay along Victoria Dock (approximate).
+59	aberdeen-city.txt	Waterloo Quay East	resolved	57.14543	-2.08400	quay	Eastern Waterloo Quay toward entrance (approximate).
+60	aberdeen-city.txt	Waterloo Quay Cross Berth	resolved	57.14550	-2.08465	berth	Cross-berth area at Victoria Dock / Waterloo Quay entrance (approximate).
+61	aberdeen-city.txt	Blaikie's Quay	resolved	57.14486	-2.09038	quay	Canmore NJ90NW 1182 / listed quay (Salvesen Tower area).
+62	aberdeen-city.txt	Blaikies Quay	resolved	57.14483	-2.09035	quay	Same quay frontage as Blaikie's (spelling variant).
+63	aberdeen-city.txt	Telford Dock	resolved	57.14420	-2.07625	dock	Telford Dock basin / Hall Russell site centroid (Port of Aberdeen naming).
+64	aberdeen-city.txt	Telford Jetty	resolved	57.14425	-2.07590	jetty	Telford Dock jetty / entrance works (approximate waterside).
+65	aberdeen-city.txt	Russell's Quay	resolved	57.14411	-2.07530	quay	Also known as Russell's Quay; Canmore dry dock / Hall Russell NJ95542 05915.
+66	aberdeen-city.txt	Russells Quay	resolved	57.14409	-2.07528	quay	Same Russell's Quay (apostrophe variant).
+67	aberdeen-city.txt	Hall's Quay	resolved	57.14435	-2.07675	quay	Hall's Quay, Telford Dock (between Russell's and Clipper; approximate).
+68	aberdeen-city.txt	Halls Quay	resolved	57.14433	-2.07672	quay	Same Hall's Quay (spelling variant).
+69	aberdeen-city.txt	Duthie's Quay	resolved	57.14452	-2.07820	quay	Duthie's Quay, Telford Dock (approximate along wet basin).
+70	aberdeen-city.txt	Duthies Quay	resolved	57.14450	-2.07818	quay	Same Duthie's Quay (apostrophe variant).
+71	aberdeen-city.txt	Clipper Quay	resolved	57.14464	-2.07790	quay	Geograph / OSM cluster NJ 9538 0597 (Clipper Quay berths).
+72	aberdeen-city.txt	Albert Basin	resolved	57.14243	-2.09103	basin	Canmore NJ90NW 291.05 Albert Basin / Albert Quay record.
+73	aberdeen-city.txt	Albert Basin entrance	resolved	57.14215	-2.08860	channel	Seaward entrance from tidal harbour into Albert Basin (approximate).
+74	aberdeen-city.txt	Albert Quay	resolved	57.14243	-2.09103	quay	South / Point Law quay along Albert Basin (Canmore 104114 centroid).
+75	aberdeen-city.txt	Albert Quay West	resolved	57.14252	-2.09215	quay	Western Albert Quay toward Palmerston / Commercial (approximate).
+76	aberdeen-city.txt	Albert Quay East	resolved	57.14235	-2.08990	quay	Eastern Albert Quay toward basin entrance (approximate).
+77	aberdeen-city.txt	Albert Quay Bunker Berth	resolved	57.14240	-2.09035	berth	Named bunker berth along Albert Quay (approximate).
+78	aberdeen-city.txt	Albert Quay River Dee	resolved	57.14192	-2.09005	quay	River Dee–side frontage at Albert Quay (approximate tidal bank).
+79	aberdeen-city.txt	Commercial Quay	resolved	57.14288	-2.09185	quay	North-side Commercial Quay, Albert Basin (fish-market frontage area).
+80	aberdeen-city.txt	Commercial Quay West	resolved	57.14295	-2.09275	quay	Western Commercial Quay (approximate along north wall).
+81	aberdeen-city.txt	Commercial Quay East	resolved	57.14282	-2.09095	quay	Eastern Commercial Quay toward Atlantic Wharf (approximate).
+82	aberdeen-city.txt	Atlantic Wharf	resolved	57.14302	-2.08915	wharf	Albert Basin wharf (Port naming; east basin).
+83	aberdeen-city.txt	Pacific Wharf	resolved	57.14310	-2.08800	wharf	Long Pacific Wharf berth line (Port / Wikipedia naming).
+84	aberdeen-city.txt	Palmerston Quay	resolved	57.14270	-2.09250	quay	West Albert Basin fishing quay (Palmerston Road area; approximate).
+85	aberdeen-city.txt	Eurolink Ro-Ro Berth	resolved	57.14290	-2.09015	berth	Named Eurolink ro-ro in Albert Basin (Port of Aberdeen / freight specs).
+86	aberdeen-city.txt	Matthews Quay	resolved	57.14195	-2.09105	quay	Matthews Quay tidal-harbour frontage (freight berth naming; approximate).
+87	aberdeen-city.txt	Matthews Quay North	resolved	57.14205	-2.09115	quay	Northern berth face at Matthews Quay (approximate).
+88	aberdeen-city.txt	Matthews Quay Cross Berth	resolved	57.14200	-2.09108	berth	Cross-berth area at Matthews Quay (approximate).
+89	aberdeen-city.txt	Matthews Quay Terminal	resolved	57.14198	-2.09100	terminal	Matthews Quay freight terminal (NorthLink freight berth naming).
+90	aberdeen-city.txt	Northern Isles Ferry Terminal Aberdeen	resolved	57.14505	-2.09141	ferry_terminal	NorthLink passenger terminal at Jamieson's Quay (AB11 5NP).
+91	aberdeen-city.txt	Point Law North	resolved	57.14145	-2.07850	quay	North berth face on Point Law peninsula (Canmore Point Law terminal NJ 9537 0557 area).
+92	aberdeen-city.txt	Point Law Cross Berth	resolved	57.14105	-2.07820	berth	Cross-berth zone beside Point Law terminal (approximate).
+93	aberdeen-city.txt	Point Law South	resolved	57.14065	-2.07785	quay	South/waterward front of Point Law peninsula (approximate).
+94	aberdeen-city.txt	Dry Dock Aberdeen	resolved	57.14411	-2.07530	dry_dock	Hall Russell / Telford Dock graving dock (Canmore Russell's Quay NJ95542 05915).
+95	aberdeen-city.txt	Provost Blackie's Quay	resolved	57.14484	-2.09032	quay	Historic Provost Blaikie/Blackie quay by Victoria Dock / Regent corridor (Blaikie's Quay frontage).
+96	aberdeen-city.txt	Market Quay Aberdeen	resolved	57.14590	-2.09240	quay	Named Market Quay along Lower Market / Upper Dock quays (Doric harbour list; approximate).
+97	aberdeen-city.txt	New Quay Aberdeen	resolved	57.14312	-2.07405	quay	New Quay / lower Pocra jetty belt (Pocra Quay area; approximate).
+98	aberdeen-city.txt	Mearns Quay	resolved	57.14025	-2.07675	quay	Mearns Quay south of Point Law toward Torry (listed LB50953 cluster; approximate).
+99	aberdeen-city.txt	Torry Quay	resolved	57.13820	-2.07180	quay	Deepwater oil-service quay on south shore (Torry industrial harbour; approximate centroid).
+100	aberdeen-city.txt	Maitland's Quay	resolved	57.13955	-2.07440	quay	Maitland's / River Dee Dock quay naming on Torry side (filled basin; approximate).
+101	aberdeen-city.txt	River Dee mouth Aberdeen	resolved	57.13420	-2.06720	estuary	Estuary mouth / bar area east of Torry (broad coastal centroid).
+102	aberdeen-city.txt	River Dee tidal harbour Aberdeen	resolved	57.13950	-2.07950	tidal_harbour	Tidal harbour reach between city docks and Dee channel (interpreted extent).
+103	aberdeen-city.txt	Shore Brae harbour	resolved	57.14685	-2.09315	harbour	Trinity Quay / Shore Brae head of harbour (historic small-ship reach).
+104	aberdeen-city.txt	Dock Street quayside	resolved	57.14425	-2.08855	quayside	Dock Street frontage at Victoria Dock gates / Blaikie's corridor (approximate).
+105	aberdeen-city.txt	Commercial Road harbour front	resolved	57.14268	-2.09238	harbour_front	Commercial Road along Palmerston / Albert Basin (approximate waterside strip).
+106	aberdeen-city.txt	Harbour Office Regent Quay	resolved	57.14605	-2.09235	office	Aberdeen Harbour / port offices fronting Regent Quay (approximate landmark).
+107	aberdeen-city.txt	15 Regent Quay waterfront	resolved	57.14612	-2.09232	waterfront	Regent Quay building frontage for 15 Regent Quay (approximate).
+108	aberdeen-city.txt	16 Regent Quay waterfront	resolved	57.14618	-2.09228	waterfront	Adjacent Regent Quay frontage for 16 Regent Quay (approximate).
+109	aberdeen-city.txt	Passenger Ro-Ro Berth Aberdeen	resolved	57.14505	-2.09141	berth	NorthLink passenger berth linked to Jamieson's Quay ferry terminal (operational area).
+110	aberdeen-city.txt	Pilot boat berth Aberdeen	resolved	57.14455	-2.06590	berth	Pilot launch berth near harbour entrance channel (approximate).
+111	aberdeen-city.txt	Aberdeen Lifeboat Station	resolved	57.14413	-2.08103	lifeboat_station	RNLI all-weather station, Victoria Dock entrance (Wikipedia/GeoHack coords).
+112	aberdeen-city.txt	RNLI Aberdeen Harbour	resolved	57.14413	-2.08103	lifeboat_station	Same operational RNLI site as Aberdeen Lifeboat Station.
+113	aberdeen-city.txt	Maritime Museum Aberdeen waterfront	resolved	57.14669	-2.09478	museum	48 Shiprow / Provost Ross's House — Aberdeen Maritime Museum (Canmore NJ 94364 06204).
+114	aberdeen-city.txt	Shiprow maritime quarter	resolved	57.14648	-2.09495	quarter	Shiprow historic strip linking centre to harbour (centroid near museum complex).
+115	aberdeen-city.txt	Wellington Bridge Aberdeen Dee	resolved	57.13558	-2.09554	bridge	Wellington Suspension Bridge midpoint over River Dee (Canmore NJ 94316 04968).
+116	aberdeen-city.txt	Queen Elizabeth Bridge Aberdeen Dee	resolved	57.13628	-2.09551	bridge	A956 road bridge over River Dee (Canmore NJ 94318 05045).
+117	aberdeen-city.txt	Victoria Bridge Aberdeen Dee	resolved	57.14001	-2.08954	bridge	Victoria Road/Market Street bridge over Dee (Canmore NJ 94680 05460).
+118	aberdeen-city.txt	Torry	resolved	57.13670	-2.08030	suburb	Torry suburb centroid (Wikipedia/GeoHack).
+119	aberdeen-city.txt	Old Torry	resolved	57.13840	-2.07960	area	Old Torry fishing quarter north along Dee south bank (approximate).
+120	aberdeen-city.txt	Lower Torry	resolved	57.13620	-2.08120	subarea	Lower-lying Torry toward coastal margin (approximate locality).
+121	aberdeen-city.txt	Braehead Torry	resolved	57.13680	-2.07850	subarea	Braehead part of Torry toward the Dee / bay margin (approximate).
+122	aberdeen-city.txt	Torry Point	resolved	57.13560	-2.04620	headland	Southern seaward tip of the Torry / Girdle Ness peninsula (approximate).
+123	aberdeen-city.txt	Torry Battery	resolved	57.14194	-2.05583	battery	Torry Battery scheduled monument (Wikipedia {{coord}}).
+124	aberdeen-city.txt	Torry Point Battery	resolved	57.14194	-2.05583	battery	Historic name for the same Torry Battery site (Wikipedia / Canmore).
+125	aberdeen-city.txt	Greyhope Bay	resolved	57.14028	-2.05111	bay	Wikipedia infobox coordinates for Greyhope Bay.
+126	aberdeen-city.txt	Greyhope Bay Centre	resolved	57.14120	-2.05600	attraction	Greyhope Bay Centre at Torry Battery (address Greyhope Road; approximate site).
+127	aberdeen-city.txt	Greyhope Bay cafe shore	resolved	57.14080	-2.05350	shore	Shoreline below the centre / dolphin-viewing frontage (approximate).
+128	aberdeen-city.txt	Greyhope Road coastal	resolved	57.13900	-2.05200	road	Greyhope Road coastal approach toward Girdleness (approximate roadside strip).
+129	aberdeen-city.txt	St Fittick's Bay	resolved	57.13420	-2.06450	bay	Small intertidal bay S of St Fittick’s Church toward Nigg Bay (approximate).
+130	aberdeen-city.txt	St Fitticks Road coastal	resolved	57.13600	-2.06380	road	St Fittick’s Road near the shore / church coastal fringe (approximate).
+131	aberdeen-city.txt	Nigg Bay	resolved	57.13290	-2.05250	bay	GeoHack / list-of-bays centroid for Nigg Bay (Aberdeen City).
+132	aberdeen-city.txt	Bay of Nigg	resolved	57.13290	-2.05250	bay	Alternate name for the same Nigg Bay waterbody (same centroid as line 131).
+133	aberdeen-city.txt	Nigg	resolved	57.11700	-2.10000	area	Nigg district centroid (Wikipedia coordinates for the Aberdeen area).
+134	aberdeen-city.txt	St Fittick's Church	resolved	57.13552	-2.06326	church_ruin	Canmore NJ 96270 04958 — ruined parish church / graveyard.
+135	aberdeen-city.txt	Balnagask shore	resolved	57.13780	-2.06750	shore	Coastal margin below Balnagask / golf links toward Nigg Bay (approximate).
+136	aberdeen-city.txt	Balnagask Golf Course coastal verge	resolved	57.13720	-2.06650	golf_course	Balnagask course coastal edge (approximate fairway margin).
+137	aberdeen-city.txt	Oscar Road Torry waterside	resolved	57.13640	-2.07980	waterfront	Oscar Road Torry — waterside building line toward tidal basin (approximate).
+138	aberdeen-city.txt	Sinclair Road Torry shore	resolved	57.13690	-2.07820	shore	Sinclair Road toward coastal margin (approximate).
+139	aberdeen-city.txt	Victoria Road Torry waterfront	resolved	57.13730	-2.07750	waterfront	Victoria Road Torry near Victoria Bridge / Dee south bank (approximate).
+140	aberdeen-city.txt	Wellington Road Torry slip	resolved	57.13590	-2.08200	slipway	Wellington Road corridor — small-boat / informal slip area wording (approximate).
+141	aberdeen-city.txt	Girdle Ness	resolved	57.13720	-2.04900	headland	Girdle Ness peninsula centroid between Greyhope Bay and open sea (approximate).
+142	aberdeen-city.txt	Girdleness	resolved	57.13720	-2.04900	headland	Local spelling / same headland as Girdle Ness (approximate).
+143	aberdeen-city.txt	Girdle Ness Lighthouse	resolved	57.13898	-2.04848	lighthouse	NLB published position (57°08.339′N 002°02.916′W).
+144	aberdeen-city.txt	Girdleness Lighthouse	resolved	57.13898	-2.04848	lighthouse	Listed-building / OS name variant for Girdle Ness Lighthouse (same NLB station).
+145	aberdeen-city.txt	Girdle Ness foghorn	resolved	57.13870	-2.04890	fog_signal	Former fog signal base S of lighthouse tower (HES fog-signal citation; approximate).
+146	aberdeen-city.txt	Girdle Ness shore path	resolved	57.13820	-2.04980	path	Coastal path around the Girdleness headland (approximate).
+147	aberdeen-city.txt	Girdleness coastal road	resolved	57.13920	-2.05150	road	Greyhope Road coastal section toward the lighthouse (approximate).
+148	aberdeen-city.txt	South Harbour Aberdeen	resolved	57.12650	-2.08900	harbour	Aberdeen South Harbour / Nigg Bay expansion basin (approximate operational centroid).
+149	aberdeen-city.txt	Aberdeen South Harbour	resolved	57.12650	-2.08900	harbour	Same South Harbour facility naming variant (approximate centroid).
+150	aberdeen-city.txt	Balmoral Quay South Harbour	resolved	57.12820	-2.09350	quay	West cruise berth of South Harbour — approximate quay centroid from port layout descriptions.
+151	aberdeen-city.txt	Dunnottar Quay South Harbour	resolved	57.12780	-2.09230	quay	Named 400 m quay in Aberdeen South Harbour / Nigg Bay expansion (Port of Aberdeen layout; approximate centroid).
+152	aberdeen-city.txt	Crathes Quay South Harbour	resolved	57.12730	-2.09150	quay	Named 175 m quay in South Harbour basin (Port of Aberdeen naming; approximate along quay line).
+153	aberdeen-city.txt	Castlegate Quay South Harbour	resolved	57.12670	-2.09050	quay	Named 540 m quay in South Harbour (longest new quay; approximate centroid along berth).
+154	aberdeen-city.txt	Altens foreshore	resolved	57.11350	-2.06500	foreshore	Seaward / coastal margin east of Altens (between Altens suburb and open sea; approximate).
+155	aberdeen-city.txt	Altens Industrial Estate shoreline	resolved	57.11550	-2.06650	shoreline	Industrial coastal edge of Altens estates toward the bay (approximate strip).
+156	aberdeen-city.txt	Cove Bay	resolved	57.10318	-2.08404	suburb	OSM / gazetteer centroid for Cove Bay (Cove and Altens ward).
+157	aberdeen-city.txt	Cove	resolved	57.10450	-2.08320	locality	Village/locality name for the Cove–Cove Bay area (human-map centroid; not Shetland Cove).
+158	aberdeen-city.txt	Cove Bay beach	resolved	57.10200	-2.08380	beach	Sandy foreshore at Cove Bay (published map centroid; approximate).
+159	aberdeen-city.txt	Cove quarries coast	resolved	57.10600	-2.07800	quarry_coast	Disused quarry coastal margin south of Aberdeen (Cove area; approximate shoreline).
+160	aberdeen-city.txt	Cove slipway	resolved	57.10350	-2.08450	slipway	Small-boat slip / informal launch near Cove Bay shore (approximate).
+161	aberdeen-city.txt	Torry coastal path	resolved	57.13800	-2.05100	path	Coastal path links Greyhope / Girdleness / Torry shore (approximate mid-section).
+162	aberdeen-city.txt	Harbour beach Aberdeen	resolved	57.14340	-2.06950	beach	Sandy strip at the harbour mouth (Footdee / “harbour beach” wording; approximate).
+163	aberdeen-city.txt	Footdee harbour beach	resolved	57.14325	-2.06940	beach	Footdee Beach beside harbour entrance (visitor guides; OS grid ~NJ 958 058).
+164	aberdeen-city.txt	Fittie harbour beach	resolved	57.14320	-2.06935	beach	Local name for the same Footdee harbour-front beach (approximate).
+165	aberdeen-city.txt	Beach harbour Aberdeen	resolved	57.14330	-2.06945	beach	Informal label for sand at the harbour/beach junction (approximate).
+166	aberdeen-city.txt	Beach leisure centre foreshore	resolved	57.15535	-2.07970	foreshore	Seafront below Beach Leisure Centre / Ballroom complex (Canmore NJ 95271 07152 area; slight seaward nudge).
+167	aberdeen-city.txt	Aberdeen surf beach	resolved	57.15350	-2.08100	beach	Open surf/bathing strip on main city beach (Transition / surf-school belt; approximate).
+168	aberdeen-city.txt	North Sea bathing beach Aberdeen	resolved	57.15150	-2.08100	beach	General bathing zone along Aberdeen Beach front (approximate centroid).
+169	aberdeen-city.txt	Harbour south entrance	resolved	57.14250	-2.06250	channel	South side of harbour entrance channel (between breakwaters; approximate).
+170	aberdeen-city.txt	Harbour north entrance	resolved	57.14420	-2.06350	channel	North side of entrance channel (approximate mid-channel).
+171	aberdeen-city.txt	Dee entrance channel	resolved	57.13450	-2.06650	channel	River Dee estuary / bar approach east of Torry (broad channel centroid).
+172	aberdeen-city.txt	Torry harbour shore	resolved	57.13850	-2.07200	shore	Torry industrial / oil-service quays toward harbour (approximate waterside).
+173	aberdeen-city.txt	Nigg Bay mudflats	resolved	57.13280	-2.05450	mudflat	Intertidal flats at Nigg Bay (same bay as OSM node; shoreward of open water).
+174	aberdeen-city.txt	South Breakwater foot	resolved	57.14280	-2.05850	breakwater	Landward root / root zone of South Breakwater (vs lighthouse head in Canmore NJ 9674 0570).
+175	aberdeen-city.txt	North Breakwater foot	resolved	57.14480	-2.06450	breakwater	Landward approach to North Breakwater (vs lighthouse head NJ 9639 0609).
+176	aberdeen-city.txt	Battery car park shore Torry	resolved	57.14150	-2.05580	shore	Greyhope Bay / Torry Battery visitor parking shoreline (approximate).
+177	aberdeen-city.txt	Greyhope Road battery car park shore	resolved	57.14120	-2.05550	shore	Same coastal car-park frontage off Greyhope Road (approximate).
+178	aberdeen-city.txt	Altens jetty	resolved	57.11700	-2.06900	jetty	Named industrial/jetty frontage on Altens coastal strip (approximate; not a leisure pier).
+179	aberdeen-city.txt	Eurolink berth Aberdeen	resolved	57.14290	-2.09015	berth	Same operational Eurolink ro-ro naming as Albert Basin (line 85 batch; freight berth).
+180	aberdeen-city.txt	Commercial Quay East berth	resolved	57.14275	-2.09085	berth	Named berth face on Commercial Quay East (Albert Basin; approximate).
+181	aberdeen-city.txt	Commercial Quay West berth	resolved	57.14298	-2.09270	berth	Berth face along Commercial Quay West (Albert Basin north wall; approximate).
+182	aberdeen-city.txt	Albert Quay berth	resolved	57.14243	-2.09103	berth	Albert Quay berth line (Albert Basin; Canmore Albert Quay corridor).
+183	aberdeen-city.txt	Matthews Quay Ro-Ro	resolved	57.14195	-2.09105	berth	Ro-ro berth naming on Matthews Quay tidal frontage (freight corridor).
+184	aberdeen-city.txt	Regent Quay berth	resolved	57.14600	-2.09280	berth	Named berth along Regent Quay (Lower Market / offices frontage; approximate).
+185	aberdeen-city.txt	Waterloo Quay railway frontage	resolved	57.14555	-2.08465	quay_rail	Former rail-served quay front at Victoria Dock entrance (Waterloo Quay; RAILSCOT / historic maps).
+186	aberdeen-city.txt	Victoria Dock tidal gates	resolved	57.14550	-2.08485	lock_gate	Historic Victoria Dock entrance / lock works at Waterloo Quay (Canmore NJ 9520 0591 area).
+187	aberdeen-city.txt	Upper Dock tidal sill	resolved	57.14525	-2.09240	sill	Seaward sill / lock between Upper Dock and Victoria Dock complex (Upper Dock record NJ 9445 0604; approximate).
+188	aberdeen-city.txt	Pocra tidal wall	resolved	57.14307	-2.07401	tidal_wall	Tidal quay wall on Pocra reach (same corridor as Pocra Quay).
+189	aberdeen-city.txt	Point Law jetty Aberdeen	resolved	57.14125	-2.07835	jetty	Point Law peninsula jetty frontage (terminal/quay belt; approximate).
+190	aberdeen-city.txt	Union Dock Gates Aberdeen	resolved	57.14520	-2.09255	lock_gate	Historic wet-dock gates linking Upper Dock and Victoria Dock (Union/Regent lock naming; approximate centroid).
+191	aberdeen-city.txt	Dock Gates Victoria Aberdeen	resolved	57.14548	-2.08480	lock_gate	Victoria Dock entrance gates from tidal harbour (Waterloo Quay entrance cluster).
+192	aberdeen-city.txt	St Fittick's marsh shore	resolved	57.13520	-2.06420	marsh	Coastal marsh / intertidal fringe south of St Fittick’s Bay (approximate).
+193	aberdeen-city.txt	Nigg wastewater treatment foreshore	resolved	57.12850	-2.05300	foreshore	Public-works foreshore below Nigg Bay wastewater site (operational belt; approximate).
+194	aberdeen-city.txt	Cheerful Vale Torry	resolved	57.13790	-2.07940	locality	Named small vale / green strip in Torry toward the coast (approximate centroid).
+195	aberdeen-city.txt	Old Torry leading lights site	resolved	57.13760	-2.07550	navigation	Historic leading-light line toward harbour entrance from Old Torry shore (approximate landfall zone).
+196	aberdeen-city.txt	Oscar wreck memorial shore Torry	resolved	57.14025	-2.05150	historic_wreck	1813 whaler Oscar lost on Bruntscallie rocks, Greyhope Bay; shoreline watched from Torry (wreck site, not a single plaque here).
+197	aberdeen-city.txt	Links Road beach access	resolved	57.15280	-2.08180	access	Beach access from Links Road / golf links margin (approximate).
+198	aberdeen-city.txt	Park Road beach access	resolved	57.15320	-2.08150	access	Beach access near Park Road (Queens Links / beach belt; approximate).
+199	aberdeen-city.txt	Beach Boulevard cycleway	resolved	57.14980	-2.08020	cycleway	Signed cycle route on Beach Boulevard seafront (same corridor as promenade).
+200	aberdeen-city.txt	Esplanade cycle route Aberdeen	resolved	57.15100	-2.08100	cycleway	Esplanade cycle route along main city beach front.
+201	aberdeen-city.txt	Transition Extreme beach front	resolved	57.15300	-2.08100	attraction	Beach-front adventure/surf centre zone (Transition Extreme; approximate).
+202	aberdeen-city.txt	Queens Links coast	resolved	57.16150	-2.08650	coastal_open_space	Coastal open space belt at Queen’s Links (dunes / links front).
+203	aberdeen-city.txt	Seaton grassland shore	resolved	57.16900	-2.08680	shore	Grassland / park shore edge at Seaton toward the sea.
+204	aberdeen-city.txt	Donmouth dunes	resolved	57.16250	-2.08380	dunes	Donmouth NNR dune front (Don estuary north side).
+205	aberdeen-city.txt	Donmouth shingle ridge	resolved	57.16200	-2.08410	shingle	Shingle ridge at Donmouth (seaward of dunes; approximate).
+206	aberdeen-city.txt	Beach disabled access ramps	resolved	57.15120	-2.08080	access	Disabled beach access ramps on main esplanade (approximate centroid).
+207	aberdeen-city.txt	Inflatable water park beach zone	resolved	57.15200	-2.08150	beach	Seasonal inflatable water-park operating area on the main beach (approximate).
+208	aberdeen-city.txt	Open air pool site Aberdeen Beach historic	resolved	57.15020	-2.07950	historic_pool	Footprint of the former open-air pool on the beach esplanade (historic; approximate).
+209	aberdeen-city.txt	Grandholm Mill shore Don historic	resolved	57.17719	-2.12453	mill_shore	Crombie Grandholm Works riverside (Canmore 82834 NJ 92570 09602); Don bank below mill complex.
+210	aberdeen-city.txt	Persley Den mouth Don	resolved	57.17590	-2.14880	stream_mouth	Where Persley Den / burn meets the River Don (between Persley Bridge and Donmouth; approximate).
+211	aberdeen-city.txt	Inches Point harbour	resolved	57.14335	-2.07550	harbour_point	Historic Dee “inch” navigation point opposite the Pocra reach (harbour history); approximate turning area off Lower Basin.
+212	aberdeen-city.txt	Cross Quay historic Aberdeen	resolved	57.14275	-2.07935	historic_quay	Cross Quay / Lower Market Street frontage on Upper Dock (Doric Columns harbour quays; approximate).
+213	aberdeen-city.txt	Provost Matthews Quay historic	resolved	57.14271	-2.07930	historic_quay	Provost Matthews / Matthew’s Quay tidal frontage (Canmore NJ 9530 0576, NRHE 104102).
+214	aberdeen-city.txt	Mearns Quay berth	resolved	57.13867	-2.07929	berth	Mearns Quay berth line, Point Law south (Canmore NJ9530 0531, NJ90NE 7.09).
+215	aberdeen-city.txt	Torry Quay berth	resolved	57.13942	-2.07715	berth	Torry Quay deepwater berth frontage (Canmore centred NJ 9548 0545, NJ90NE 7.14).
+216	aberdeen-city.txt	South Harbour quay line	resolved	57.13120	-2.05120	quay	Aberdeen South Harbour (Nigg Bay expansion) quay wall line — approximate centroid along new deepwater front.
+217	aberdeen-city.txt	Cove Bay headland	resolved	57.09389	-2.07583	headland	Souter Head / Cove Bay seaward head (promontory south of Cove settlement).
+218	aberdeen-city.txt	Cove Bay south corner	resolved	57.09720	-2.08120	bay_corner	Southern / more open-water corner of Cove Bay toward the Moray Firth (approximate).
+219	aberdeen-city.txt	Cove Bay north corner	resolved	57.10800	-2.08850	bay_corner	Northern corner of Cove Bay toward the city / Nigg coast (approximate; wiki centroid area ~57.105, -2.089).
+220	aberdeen-city.txt	Nigg Bay south corner	resolved	57.12780	-2.04780	bay_corner	South end of Nigg Bay toward Greg Ness / South Harbour approach (approximate).
+221	aberdeen-city.txt	Nigg Bay north corner	resolved	57.13820	-2.05450	bay_corner	North end of Nigg Bay toward Girdle Ness / harbour entrance sector (approximate).
+222	aberdeen-city.txt	Altens roundabout coastal strip	resolved	57.10380	-2.08620	coastal_strip	Altens industrial belt coastal margin near the A956 coast roundabout (approximate land/sea fringe).
+223	aberdeen-city.txt	South Harbour roundabout shore	resolved	57.13050	-2.05300	shore	Road approach / roundabout cluster at South Harbour (Nigg Bay) landfall (approximate).
+224	aberdeen-city.txt	Harbour Board clock tower quay	resolved	57.14634	-2.09344	clock_tower	Aberdeen Harbour Board offices clock tower, 14–16 Regent Quay (HES LB19986; Canmore 104139, NJ 94445 06165).
+225	aberdeen-city.txt	VTS Aberdeen approach	resolved	57.14385	-2.07120	vts	Harbour VTS / pilotage approach sector tied to Marine Operations / Roundhouse control area at harbour mouth (approximate).
+226	aberdeen-city.txt	Aberdeen Bay wind farm view shore	resolved	57.16200	-2.08450	viewpoint	Shoreline belt north of the main beach (Donmouth/Seaton links) with open easterly views toward Aberdeen Bay wind farm (approximate).
+227	aberdeen-city.txt	Dolphins Aberdeen harbour mouth	resolved	57.14395	-2.06400	wildlife_label	Harbour-mouth / channel sector where bottlenose dolphins are commonly watched (approximate centroid; opportunistic sightings).
+228	aberdeen-city.txt	Seals Aberdeen harbour mouth	resolved	57.14380	-2.06420	wildlife_label	Harbour entrance / sandbar sector where grey seals may haul out or surface (approximate; opportunistic).
+229	aberdeen-city.txt	Eider raft Aberdeen harbour	resolved	57.14420	-2.06900	wildlife_label	Quiet harbour basin / mooring water where eider may raft (approximate wintering/waterbird belt).
+230	aberdeen-city.txt	Kittiwake ledge harbour Aberdeen	resolved	57.14450	-2.07500	wildlife_label	Kittiwakes nest on harbour structures/cliffs in the lower harbour — approximate centroid of built nesting frontage.
+231	aberdeen-city.txt	Oystercatcher beach Aberdeen	resolved	57.15200	-2.08200	wildlife_label	Intertidal beach front on the main city beach where oystercatchers feed (approximate).
+232	aberdeen-city.txt	Turnstone beach Aberdeen	resolved	57.15250	-2.08230	wildlife_label	Shingle/groyne beach front on the main city beach where turnstones forage (approximate).
+233	aberdeen-city.txt	Lifeguard hut Aberdeen Beach	resolved	57.15100	-2.08080	lifeguard	Seasonal RNLI/lifeguard post belt on the main esplanade (approximate centroid).
+234	aberdeen-city.txt	Beach clean station Aberdeen	resolved	57.15150	-2.08090	beach_facility	Public beach clean / litter station along the main esplanade (approximate).
+235	aberdeen-city.txt	Blue flag season Aberdeen Beach	resolved	57.15180	-2.08100	beach_label	Blue Flag accreditation applies to the main city beach front — representative esplanade centroid (seasonal award).
+236	aberdeen-city.txt	Bathing water sign Aberdeen Beach	resolved	57.15220	-2.08120	beach_facility	Bathing water quality signage on the main beach front (approximate).
+237	aberdeen-city.txt	Long sea outfall Aberdeen Bay	resolved	57.13450	-2.05050	outfall	Onshore/transition corridor near Nigg Bay / South Harbour belt; diffuser lies offshore in Aberdeen Bay (approximate landfall sector).
+238	aberdeen-city.txt	Coastal rowing slip Aberdeen	resolved	57.14450	-2.06980	slipway	Informal/signed coastal rowing slip sector at Footdee / harbour-mouth beach fringe (approximate).
+239	aberdeen-city.txt	Kayak launch Footdee informal	resolved	57.14420	-2.07020	launch	Informal kayak put-in on the Footdee / Pocra foreshore (approximate).
+240	aberdeen-city.txt	Kayak launch Torry informal	resolved	57.13900	-2.07450	launch	Informal kayak put-in on the Torry shore toward Balnagask / bay edge (approximate).
+241	aberdeen-city.txt	Windsurf launch Aberdeen Beach informal	resolved	57.15220	-2.08210	launch	Informal windsurf launch belt on the main city beach / esplanade front (approximate).
+242	aberdeen-city.txt	Kitesurf launch Aberdeen Beach informal	resolved	57.15240	-2.08230	launch	Informal kitesurf launch belt on the main beach front (approximate).
+243	aberdeen-city.txt	Dog exercise beach Aberdeen informal	resolved	57.15170	-2.08120	beach	Informal dog-exercise sector along the main sandy beach (approximate).
+244	aberdeen-city.txt	Beach meeting point Aberdeen	resolved	57.15150	-2.08090	meeting_point	Public meeting / muster point along the main beach esplanade (approximate).
+245	aberdeen-city.txt	RNLI flag beach Aberdeen	resolved	57.15120	-2.08070	beach_facility	RNLI beach safety flag station belt on the main beach (approximate).
+246	aberdeen-city.txt	First aid post beach Aberdeen	resolved	57.15100	-2.08050	beach_facility	Seasonal first-aid post belt on the main beach front (approximate).
+247	aberdeen-city.txt	Harbour navigation light shore	resolved	57.14568	-2.06129	navigation_light	Shore/navigation light sector tied to the North Breakwater / entrance works (Canmore NJ 9639 0609 area).
+248	aberdeen-city.txt	Pilot boarding ground Aberdeen	resolved	57.14395	-2.06400	pilotage	Harbour-mouth / approach sector where pilot boarding commonly occurs (approximate; water-area centroid).
+249	aberdeen-city.txt	Survey launch berth Aberdeen	resolved	57.14430	-2.07200	berth	Survey / workboat berth belt in the lower harbour / Footdee shore sector (approximate).
+250	aberdeen-city.txt	Harbour tug berth Aberdeen	resolved	57.14580	-2.08650	berth	Tug berth cluster in the Victoria Dock / north harbour basin area (approximate).
+251	aberdeen-city.txt	Offshore supply quay Aberdeen	resolved	57.14120	-2.08300	quay	Offshore supply vessel quay belt along Albert Quay / Albert Basin frontage (approximate).
+252	aberdeen-city.txt	Ship repair quay Telford	resolved	57.14380	-2.08850	quay	Telford Dock ship-repair quay frontage (Telford Dock cluster; approximate waterside centroid).
+253	aberdeen-city.txt	Heavy lift pad quay Aberdeen	resolved	57.12850	-2.05150	quay	Heavy-lift quay / project pad belt at South Harbour (Nigg Bay expansion; approximate).
+254	aberdeen-city.txt	Laydown quay South Harbour	resolved	57.12900	-2.05100	quay	Laydown / project quay apron at South Harbour (flexible laydown quayside; approximate).
+255	aberdeen-city.txt	Open storage quay Aberdeen	resolved	57.12800	-2.05050	quay	Open storage / laydown quayside belt at South Harbour project areas (approximate).
+256	aberdeen-city.txt	Transit shed quay Aberdeen	resolved	57.14342	-2.09136	quay	Transit-shed quay frontage at Albert Basin / Commercial Quay (Canmore NJ 9457 0584 area).
+257	aberdeen-city.txt	Bunker berth Albert Quay	resolved	57.14111	-2.08283	bunker_berth	Albert Quay bunker-fuelling berth belt (Albert Quay street centroid AB11; approximate berth).
+258	aberdeen-city.txt	Ro-Ro linkspan Aberdeen	resolved	57.14244	-2.08673	linkspan	Ro-Ro linkspan / pontoon berth cluster in Albert Basin (Canmore pontoon docks NJ 9485 0573).
+259	aberdeen-city.txt	Fish market shore Aberdeen	resolved	57.14350	-2.09130	quay	Fish market / landing shore at Albert Basin Commercial Quay (approximate fish-dock frontage).
+260	aberdeen-city.txt	Aberdeen fishmarket quay	resolved	57.14348	-2.09128	quay	Fishmarket quay frontage in Albert Basin (same cluster as Commercial Quay fish dock; approximate).
+261	aberdeen-city.txt	Scallop landing quay Aberdeen	resolved	57.14400	-2.09000	quay	Scallop / inshore landing quay belt on the Albert–Victoria dock frontage (approximate).
+262	aberdeen-city.txt	Trawler berth Aberdeen	resolved	57.14420	-2.08950	berth	Trawler berth belt on the inner harbour fishing quays (approximate).
+263	aberdeen-city.txt	Pelagic berth Aberdeen	resolved	57.14410	-2.08980	berth	Pelagic / midwater-fishery berth belt on inner harbour quays (approximate).
+264	aberdeen-city.txt	Oil base quay Aberdeen	resolved	57.14250	-2.08450	quay	Historic oil-field supply base quay belt (Albert / north harbour basins; approximate).
+265	aberdeen-city.txt	North Sea supply base berth	resolved	57.14550	-2.08700	berth	North Sea supply vessel berth cluster in North Harbour / Victoria Dock sector (approximate).
+266	aberdeen-city.txt	Smack mooring historic Footdee	resolved	57.14380	-2.07110	mooring	Historic fishing-boat mooring belt at Footdee (Fittie) harbour village (approximate).
+267	aberdeen-city.txt	Net drying green Footdee historic	resolved	57.14350	-2.07180	historic_open_space	Historic net drying / communal green space within Footdee squares (approximate).
+268	aberdeen-city.txt	Ice house shore harbour historic	resolved	57.14580	-2.09320	historic_building	Harbour ice-house shore site on the Upper Dock / Regent Quay historic frontage (approximate).
+269	aberdeen-city.txt	Granite loading quay historic Aberdeen	resolved	57.14620	-2.09280	historic_quay	Historic granite export quay belt on the older stone-shipping docks (Upper/Trinity frontage; approximate).
+270	aberdeen-city.txt	Whaling berth historic Aberdeen	resolved	57.14450	-2.07050	historic_berth	Historic whaling industry berth sector on the older inner harbour / Footdee approaches (approximate).
+271	aberdeen-city.txt	Customs quay Aberdeen historic	resolved	57.14560	-2.09180	historic_quay	Historic customs-house quay belt on the Upper Dock / Regent–Commercial Quay frontage (approximate).
+272	aberdeen-city.txt	Rocket lifesaving station beach historic Aberdeen	resolved	57.15020	-2.07950	historic_coastguard	Historic rocket-apparatus / lifesaving station on the main beach esplanade belt (approximate).
+273	aberdeen-city.txt	Coastguard lookout Torry historic	resolved	57.14190	-2.05580	historic_lookout	Torry coastal lookout / coastguard vantage (Torry Battery headland cluster; approximate).
+274	aberdeen-city.txt	Lifeboat slip Aberdeen historic	resolved	57.14320	-2.07080	lifeboat_slip	Historic lifeboat slip at the Footdee (RNLI) harbour-village shore (approximate).
+275	aberdeen-city.txt	Lifeboat house Regent historic	resolved	57.14580	-2.09240	lifeboat_house	Historic lifeboat house site on the Regent / Upper Dock quay frontage (approximate).
+276	aberdeen-city.txt	Harbour fire float berth historic Aberdeen	resolved	57.14400	-2.08500	fire_float_berth	Historic fire-float / fire-boat berth in the inner harbour basins (approximate).
+277	aberdeen-city.txt	Semaphore hill harbour historic Aberdeen	resolved	57.14406	-2.08095	signal_tower	Victoria Dock entrance signal / semaphore tower (Canmore NJ 9520 0591; OSGB36 cited).
+278	aberdeen-city.txt	Time ball pier historic Aberdeen	resolved	57.14270	-2.06860	time_ball	Historic time-ball / harbour time-signal works associated with North Pier sector (HER NJ 9620 0595 area; approximate).
+279	aberdeen-city.txt	Tide gauge house harbour historic Aberdeen	resolved	57.14200	-2.06950	tide_gauge	Historic tide-gauge / harbour survey hut belt on the North Pier / esplanade approaches (approximate).
+280	aberdeen-city.txt	Bandstand esplanade historic Aberdeen	resolved	57.14900	-2.07900	bandstand	Historic beach esplanade bandstand on the main seafront (approximate).
+281	aberdeen-city.txt	Tram terminus beach historic Aberdeen	resolved	57.14980	-2.07980	tram_terminus	Historic beachfront tram terminus on the esplanade belt (approximate).
+282	aberdeen-city.txt	Bathing machine beach historic Aberdeen	resolved	57.15050	-2.08020	bathing_place	Historic bathing-machine / sea-bathing station frontage on the main beach (approximate).
+283	aberdeen-city.txt	Marine hotel esplanade historic Aberdeen	resolved	57.14880	-2.07850	hotel	Historic Marine Hotel seafront block on the beach esplanade (approximate).
+284	aberdeen-city.txt	Boarding house row Footdee historic	resolved	57.14360	-2.07140	boarding_houses	Historic boarding-house terrace within Footdee (Fittie) squares (approximate).
+285	aberdeen-city.txt	Fisher cottages Footdee historic	resolved	57.14340	-2.07120	cottages	Historic fisher cottages cluster in Footdee (approximate).
+286	aberdeen-city.txt	Harbour extension stone Albert historic	resolved	57.14230	-2.08380	historic_marker	Commemorative / foundation stone for Albert Harbour / basin expansion works on the quay frontage (approximate).
+287	aberdeen-city.txt	Foundation stone South Harbour Aberdeen	resolved	57.12800	-2.05080	foundation_stone	South Harbour (Nigg Bay) expansion foundation-stone / ceremony site (same sector as South Harbour project quays).
+288	aberdeen-city.txt	Harbour wave screen Footdee	resolved	57.14300	-2.07050	breakwater	Harbour wave screen / shelter structure at the Footdee harbour entrance sector (approximate).
+289	aberdeen-city.txt	Marine safety training centre shore Dee	resolved	57.14380	-2.06750	training_centre	Quayside marine safety training pontoon / North Esplanade East harbour-access facility (3t QuayMarine belt; approximate).
+290	aberdeen-city.txt	Dredger berth Aberdeen	resolved	57.14420	-2.08600	dredger_berth	Dredger / harbour works berth in the inner harbour basin cluster (approximate).
+291	aberdeen-city.txt	Bollard line Regent Quay	resolved	57.14600	-2.09220	quay_mooring	Bollard line along Regent Quay / Upper Dock granite coping (approximate).
+292	aberdeen-city.txt	Mooring dolphin Aberdeen Harbour	resolved	57.14120	-2.06980	mooring_dolphin	Entrance-channel mooring dolphins off the Dee mouth / harbour approach (approximate).
+293	aberdeen-city.txt	Harbour pilot stairs Footdee	resolved	57.14235	-2.06990	stairs	Pilot boarding / harbour stairs on the Pocra Quay–Footdee shore near the historic Pilot House cluster (approximate).
+294	aberdeen-city.txt	Lower Pocra jetty	resolved	57.13920	-2.07380	jetty	Lower Basin / Pocra Quay jetty belt (Canmore summary area NJ 9522 0537; approximate).

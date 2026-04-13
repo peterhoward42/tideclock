@@ -1,0 +1,156 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	anglesey.txt	Holyhead	resolved	53.309	-4.633	town	Largest settlement on Holy Island; port town (Caergybi).
+2	anglesey.txt	Holyhead Harbour	resolved	53.316	-4.624	harbour	Ferry port / Salt Island terminal area (Stena & Irish Ferries).
+3	anglesey.txt	Kingsland	resolved	53.301109	-4.629258	suburb	Holyhead ward (Penllechnêst); south of town centre.
+4	anglesey.txt	Penrhos	resolved	53.2976	-4.5974	area	Penrhos coastal country park / Holyhead suburb (SH2781 area).
+5	anglesey.txt	Penrhos Beach	resolved	53.301209	-4.614646	beach	Sandy bay east of Holyhead (OS SH 2640 8154).
+6	anglesey.txt	Newry Beach	resolved	53.316865	-4.634864	beach	Promenade beach by inner harbour (Traeth Newry).
+7	anglesey.txt	Holy Island	resolved	53.283	-4.617	island	West Anglesey island (Holyhead Island); Wikipedia centroid.
+8	anglesey.txt	Ynys Gybi	resolved	53.283	-4.617	island	Welsh name for Holy Island; same landmass as line 7.
+9	anglesey.txt	Holyhead Mountain	resolved	53.31341	-4.675573	hill	Mynydd Twr; county top (trig/DBIH).
+10	anglesey.txt	South Stack	resolved	53.306667	-4.699444	headland	Ynys Lawd / South Stack lighthouse islet off Holy Island.
+11	anglesey.txt	North Stack	resolved	53.333332	-4.683333	stack	Ynys Arw; fog-signal islet/headland north of Holyhead Mountain.
+12	anglesey.txt	Porth Dafarch	resolved	53.2867	-4.6521	beach	Sheltered west-coast cove west of Holyhead.
+13	anglesey.txt	Trearddur Bay	resolved	53.28215	-4.61724	bay	Main bay/beach of the Trearddur community.
+14	anglesey.txt	Trearddur	resolved	53.283	-4.617	village	Coastal village (Bae Trearddur) south-west of Holyhead.
+15	anglesey.txt	Rhoscolyn	resolved	53.250	-4.600	village	Southerly Holy Island village (community centre coords).
+16	anglesey.txt	Rhoscolyn Bay	resolved	53.244147	-4.588428	bay	Borthwen/Borth Wen crescent (Geograph SH 2738 7503).
+17	anglesey.txt	Silver Bay	resolved	53.2459	-4.5605	beach	Traeth Llydan; Rhoscolyn holiday-park bay (BOTA/Streetmap).
+18	anglesey.txt	Four Mile Bridge	resolved	53.27316	-4.58357	village	Pontrhydybont over Cymyran Strait (OS Open Names centre).
+19	anglesey.txt	Cymyran	resolved	53.242458	-4.541562	beach	Traeth Cymyran by Cymyran Strait / RAF Valley (Geograph).
+20	anglesey.txt	Valley	resolved	53.28401	-4.56203	village	Y Fali village (not the airfield centroid).
+21	anglesey.txt	Rhosneigr	resolved	53.228203	-4.521239	village	West Anglesey coastal village (Wikipedia/GeoHack).
+22	anglesey.txt	Traeth Crigyll	resolved	53.2282	-4.521	beach	Main town beach (Traeth Crigyll) at Rhosneigr.
+23	anglesey.txt	Rhosneigr Broad Beach	resolved	53.2235	-4.510	beach	Broad sandy beach south-east of the village centre.
+24	anglesey.txt	Cable Bay	resolved	53.2069	-4.4986	bay	English name for Porth Trecastell (Geograph SH 332706).
+25	anglesey.txt	Porth Trecastell	resolved	53.20686	-4.49857	bay	Welsh name; same bay as Cable Bay (Geograph).
+26	anglesey.txt	Aberffraw	resolved	53.188	-4.463	village	South-west coast by Afon Ffraw (Wikipedia coords).
+27	anglesey.txt	Llangwyfan	resolved	53.1855	-4.4919	church	St Cwyfan's / 'church in the sea' locality (Cribinau).
+28	anglesey.txt	Porth Cwyfan	resolved	53.1862	-4.4925	bay	Bay beside St Cwyfan's tidal islet.
+29	anglesey.txt	Soar	resolved	53.221178	-4.419235	hamlet	Soar, Aberffraw community (Wikipedia stub coords).
+30	anglesey.txt	Newborough	resolved	53.16479	-4.359	village	Niwbwrch; access to Warren/Llanddwyn (Wikipedia coords).
+31	anglesey.txt	Newborough Warren	resolved	53.15223	-4.35608	nature_reserve	Tywyn Niwbwrch NNR; Wikipedia centroid (dune system / Llanddwyn bay).
+32	anglesey.txt	Newborough Forest	resolved	53.155	-4.368	forest	Forestry plantation on east side of Warren; approximate visitor-forest centroid.
+33	anglesey.txt	Ynys Llanddwyn	resolved	53.1375	-4.4125	island	Tidal island / NNR; Wikipedia coords (Twr Mawr lighthouse area).
+34	anglesey.txt	Llanddwyn Island	resolved	53.1375	-4.4125	island	English name for Ynys Llanddwyn; same island as line 33.
+35	anglesey.txt	Traeth Llanddwyn	resolved	53.148	-4.401	beach	Main sandy beach from forest to island; approximate mid-beach (coastal path).
+36	anglesey.txt	Malltraeth	resolved	53.1931	-4.3868	village	Village at head of Malltraeth Bay (Wikipedia coords).
+37	anglesey.txt	Malltraeth Cob	resolved	53.198	-4.384	embankment	Cob carrying road/rail across Afon Cefni estuary; approximate centre of causeway.
+38	anglesey.txt	Dwyran	resolved	53.1644	-4.3169	village	Inland of west Menai shore; Wikipedia/GeoHack centroid.
+39	anglesey.txt	Brynsiencyn	resolved	53.181	-4.267	village	Community west of Menai Strait (Wikipedia-class coords).
+40	anglesey.txt	Britannia Bridge	resolved	53.1825	-4.209	bridge	A55 Britannia Bridge over Menai Strait (OS/widely published centroid).
+41	anglesey.txt	Menai Bridge	resolved	53.221	-4.163	town	Porthaethwy town on Menai Strait (Wikipedia-class centroid).
+42	anglesey.txt	Porthaethwy	resolved	53.221	-4.163	town	Welsh name for Menai Bridge settlement; same as line 41.
+43	anglesey.txt	Belgian Promenade	resolved	53.224	-4.161	promenade	Seafront path at Menai Bridge built by Belgian refugees (WWI); strait-side.
+44	anglesey.txt	Garth	resolved	53.224	-4.158	area	Garth / Penrhos Garth locality by Menai shore near promenade (approximate).
+45	anglesey.txt	Llanfairpwll	resolved	53.221	-4.198	village	Llanfairpwllgwyngyll (short form); strait-side village (Wikipedia-class).
+46	anglesey.txt	Llanfairpwllgwyngyllgogerychwyrndrobwyllllantysiliogogogoch	resolved	53.221	-4.198	village	Official long name; same settlement as Llanfairpwll (line 45).
+47	anglesey.txt	Llanfair PG	resolved	53.221	-4.198	village	Common abbreviation; same settlement as lines 45-46.
+48	anglesey.txt	Llandegfan	resolved	53.238	-4.207	village	Across strait from Bangor; Wikipedia-class coords.
+49	anglesey.txt	Beaumaris	resolved	53.276	-4.092	town	Historic town and castle on Menai Strait (Wikipedia centroid).
+50	anglesey.txt	Beaumaris Pier	resolved	53.277	-4.088	pier	Town pier on Strait (approximate pier head).
+51	anglesey.txt	Beaumaris Castle	resolved	53.277778	-4.090278	castle	Edward I-era castle; Wikipedia/GeoHack coords.
+52	anglesey.txt	Gallows Point	resolved	53.278	-4.086	headland	East of Beaumaris; approximate coastal tip (map reading).
+53	anglesey.txt	Penmon	resolved	53.298	-4.035	village	Penmon peninsula settlement (Wikipedia-class).
+54	anglesey.txt	Penmon Priory	resolved	53.298611	-4.0325	priory	St Seiriol's Priory; listed-building centroid area.
+55	anglesey.txt	Penmon Point	resolved	53.304	-4.042	headland	Tip of Penmon peninsula toward Trwyn Du (approximate).
+56	anglesey.txt	Trwyn Du	resolved	53.312994	-4.04063	lighthouse	Trwyn Du / Penmon lighthouse; Wikipedia coords.
+57	anglesey.txt	Puffin Island	resolved	53.31854	-4.02958	island	Ynys Seiriol; uninhabited island east of Penmon (Wikipedia coords).
+58	anglesey.txt	Ynys Seiriol	resolved	53.31854	-4.02958	island	Welsh name for Puffin Island; same landmass as line 57.
+59	anglesey.txt	Black Point	resolved	53.3129	-4.0407	headland	English name for Trwyn Du lighthouse locality; Cadw/listing centroid.
+60	anglesey.txt	Llangoed	resolved	53.283	-4.067	village	Inland east of Beaumaris toward Penmon (Wikipedia-class).
+61	anglesey.txt	Llanddona	resolved	53.288601	-4.14669	village	Sandy east-coast village; Wikipedia/GeoHack coords (SH5779 area).
+62	anglesey.txt	Red Wharf Bay	resolved	53.304	-4.19	bay	Traeth Coch / Red Wharf Bay; Wikipedia centroid (large intertidal bay).
+63	anglesey.txt	Traeth Coch	resolved	53.304	-4.19	beach	Welsh name for Red Wharf Bay; same coastal feature as line 62.
+64	anglesey.txt	Pentraeth	resolved	53.283716	-4.216954	village	Village at head of Red Wharf Bay (Wikipedia/GeoHack).
+65	anglesey.txt	Marian-glas	resolved	53.3346	-4.2478	village	Small village between Benllech and Moelfre (Wikipedia coords).
+66	anglesey.txt	Benllech	resolved	53.3216	-4.2257	village	Large east-coast seaside village (Wikipedia/GeoHack).
+67	anglesey.txt	Benllech Beach	resolved	53.321	-4.226	beach	Main resort beach at Benllech; approximate mid-beach (shore A5025).
+68	anglesey.txt	Traeth Lligwy	resolved	53.36204	-4.2601	beach	Lligwy Bay sandy beach N of Moelfre (Lligwy Bay Wikipedia beach coords).
+69	anglesey.txt	Lligwy Bay	resolved	53.36204	-4.2601	bay	Bay / Traeth Lligwy; same centroid as beach (Wikipedia).
+70	anglesey.txt	Moelfre	resolved	53.35351	-4.2356	village	Northeast-coast harbour village (Moelfre, Anglesey Wikipedia).
+71	anglesey.txt	Moelfre Beach	resolved	53.354	-4.232	beach	Sandy shore by Moelfre harbour / seawall; approximate visitor beach centroid.
+72	anglesey.txt	Dinmor Point	resolved	53.3167	-4.05	headland	Trwyn Dinmor; east-coast headland between Moelfre and Penmon (published chart-style coords).
+73	anglesey.txt	Dulas	resolved	53.363947	-4.301532	village	City Dulas on A5025 near Dulas Bay (Dulas, Anglesey Wikipedia).
+74	anglesey.txt	Dulas Bay	resolved	53.37531	-4.27132	bay	Bae Dulas NE coast; Wikipedia location map coords (several beaches).
+75	anglesey.txt	Llys Dulas	resolved	53.403	-4.292	estate	Historic Llys Dulas manor area / Llysdulas locality N of Dulas Bay (community-map reading).
+76	anglesey.txt	Traeth yr Ora	resolved	53.37305	-4.27235	beach	Sandy beach in Dulas Bay (Geograph SH489886 camera/subject area).
+77	anglesey.txt	Amlwch	resolved	53.406	-4.341	town	North-coast port town (Wikipedia/GeoHack centroid).
+78	anglesey.txt	Amlwch Port	resolved	53.415323	-4.332973	harbour	Harbour / outer pier area (Amlwch Lighthouse Wikipedia coords).
+79	anglesey.txt	Gadlys	resolved	53.4005	-4.348	area	Gadlys suburb W of Amlwch centre (approximate built-up centroid).
+80	anglesey.txt	Bull Bay	resolved	53.417	-4.35	village	Porth Llechog / Bull Bay hamlet and bay N of Amlwch (Wikipedia coords).
+81	anglesey.txt	Porthllechog	resolved	53.417	-4.35	bay	Welsh form for Bull Bay; same harbour/village centroid as line 80.
+82	anglesey.txt	Point Lynas	resolved	53.416287	-4.289198	headland	NE Anglesey headland; lighthouse coords used as point (Wikipedia).
+83	anglesey.txt	Porth Eilian	resolved	53.4145	-4.287	harbour	Sheltered harbour E of Llaneilian under Point Lynas (approximate harbour mouth).
+84	anglesey.txt	Llaneilian	resolved	53.407	-4.296	village	Coastal community village near Porth Eilian (Wikipedia/infobox coords).
+85	anglesey.txt	Cemaes	resolved	53.411	-4.453	village	North-coast fishing village by River Wygyr (Wikipedia coords).
+86	anglesey.txt	Cemaes Bay	resolved	53.418	-4.465	bay	Bay inlet W of Llanbadrig Point; approximate mid-bay (Traeth Mawr / harbour area).
+87	anglesey.txt	Porth Padrig	resolved	53.421	-4.446	cove	St Patrick’s cove (White Lady Bay); UK Beach Guide SH375944 midpoint.
+88	anglesey.txt	Middle Mouse	resolved	53.435028	-4.437167	island	Ynys Badrig; northernmost Wales rock (Wikipedia coords).
+89	anglesey.txt	Ynys Badrig	resolved	53.435028	-4.437167	island	Welsh name for Middle Mouse; same island as line 88.
+90	anglesey.txt	Llanbadrig	resolved	53.422	-4.447	village	Llanbadrig community / coastal hamlet near St Padrig’s church (Wikipedia community centroid).
+91	anglesey.txt	Wylfa	resolved	53.417	-4.483	power_station	Wylfa Magnox site on north coast W of Cemaes (Wikipedia/GeoHack landmark).
+92	anglesey.txt	Cemlyn	resolved	53.40891	-4.50968	locality	Cemlyn Bay lagoon / NWWT reserve access area (Bird Guides / reserve centroid).
+93	anglesey.txt	Cemlyn Bay	resolved	53.40944	-4.51083	bay	Bay and brackish lagoon; Wikipedia infobox coords.
+94	anglesey.txt	Church Bay	resolved	53.37184	-4.55481	bay	Porth Swtan settlement bay NW Anglesey (Wikipedia / Visit Wales beach pin).
+95	anglesey.txt	Porth Swtan	resolved	53.37184	-4.55481	beach	Sandy cove; Welsh name for Church Bay beach (same shore as line 94).
+96	anglesey.txt	Carmel Head	resolved	53.4033	-4.5736	headland	Trwyn y Gadair NW tip of Anglesey (Wikipedia coords).
+97	anglesey.txt	Ynys y Fydlyn	resolved	53.39486	-4.57055	promontory	Tidal promontory W of Carmel Head (Atlas of Hillforts / LiDAR point).
+98	anglesey.txt	West Mouse	resolved	53.417528	-4.554639	islet	Maen y Bugail; beacon islet N of Carmel Head (Wikipedia coords).
+99	anglesey.txt	Llanfachraeth	resolved	53.313	-4.531	village	Community village at head of Afon Alaw (Wikipedia infobox).
+100	anglesey.txt	Llanynghenedl	resolved	53.299	-4.53	village	A5025 hamlet NE of Valley (Wikipedia coords).
+101	anglesey.txt	Llanfaethlu	resolved	53.3534	-4.537	village	NW coast village; includes Borthwen access (Wikipedia infobox).
+102	anglesey.txt	Porth Trwyn	resolved	53.35867	-4.5605	beach	Quiet bay W of Llanfaethlu; Geograph WGS84 at SH 297 877.
+103	anglesey.txt	Penysarn	resolved	53.387	-4.315	village	Llaneilian community village NE Anglesey (Wikipedia infobox).
+104	anglesey.txt	Brynteg	resolved	53.31889	-4.26028	village	B5108 crossroads W of Benllech (Brynteg, Anglesey Wikipedia).
+105	anglesey.txt	Rhosneigr Harbour	resolved	53.231	-4.522	harbour	Working slip / boat harbour area at Rhosneigr (approx. harbour mouth).
+106	anglesey.txt	Aberffraw Beach	resolved	53.191	-4.468	beach	Sandy shore W of Aberffraw on Traeth Mawr bay (map reading W of village).
+107	anglesey.txt	Trearddur Beach	resolved	53.282	-4.617	beach	Main sandy beach of Trearddur Bay (cf. Trearddur Bay row).
+108	anglesey.txt	Moelfre Harbour	resolved	53.354	-4.233	harbour	Sheltered fishing harbour Moelfre (approx. quay centroid).
+109	anglesey.txt	Beaumaris Harbour	resolved	53.2765	-4.091	harbour	Town quay / Strait frontage S of castle (map reading).
+110	anglesey.txt	Amlwch Harbour	resolved	53.409	-4.338	harbour	Inner port basin N of town centre (distinct from outer Amlwch Port pier).
+111	anglesey.txt	Cemaes Harbour	resolved	53.412	-4.454	harbour	River Wygyr harbour beach / pontoons (Cemaes village harbour).
+112	anglesey.txt	Penmon Lighthouse	resolved	53.312994	-4.04063	lighthouse	Trwyn Du lighthouse; same aid as Trwyn Du row (Wikipedia-class).
+113	anglesey.txt	South Stack Lighthouse	resolved	53.30685	-4.6993	lighthouse	Ynys Lawd lighthouse islet off South Stack (Trinity House / Wikipedia-class).
+114	anglesey.txt	Traeth Cymyran	resolved	53.242458	-4.541562	beach	Sandy shore by Cymyran Strait (same coastal feature as Cymyran row).
+115	anglesey.txt	Parc Gwledig Penrhos	resolved	53.2976	-4.5974	country_park	Penrhos coastal country park W of Holyhead (cf. Penrhos rows).
+116	anglesey.txt	Abraham's Bosom	resolved	53.294263	-4.6800009	bay	Inlet on Holy Island W coast (Gazetteer of British Place Names).
+117	anglesey.txt	Soldier's Point	resolved	53.320051	-4.648793	hamlet	Breakwater landfall area N of Holyhead; Holy Island (gazetteer).
+118	anglesey.txt	Llanbedr-goch	resolved	53.3	-4.2367	village	Llanbedrgoch hamlet W of Red Wharf Bay (Wikipedia infobox).
+119	anglesey.txt	Lleiniog	resolved	53.29044	-4.07098	castle	Promontory fort / foreshore motte mouth of Afon Lleiniog E of Penmon (Castlefacts/Coflein).
+120	anglesey.txt	Traeth Bychan	resolved	53.33241	-4.25368	beach	Sheltered east-coast bay between Benllech and Moelfre (Wikipedia coords).
+121	anglesey.txt	Porth Diana	resolved	53.2723	-4.6191	beach	Small sandy cove S side Trearddur Bay / Holy Island (UK Beach Guide SH254782; Geograph SH25437840).
+122	anglesey.txt	Gallows Point Beach	resolved	53.2775	-4.087	beach	Shingle Menai foreshore at Gallows Point spit E of Beaumaris (tourist/beach guides; cf. Gallows Point headland row).
+123	anglesey.txt	Ynys Dulas	resolved	53.383333	-4.25	island	Small island in Dulas Bay NE coast (Wikipedia/GeoHack centroid).
+124	anglesey.txt	The Skerries	resolved	53.421221	-4.608142	island	Rock islets NW of Carmel Head; pin at Skerries Lighthouse (Wikipedia/Trinity House coords).
+125	anglesey.txt	Carmel Bay	resolved	53.4033	-4.5736	bay	Informal bay/foreshore at NW Anglesey by Carmel Head (Trwyn y Gadair; Wikipedia Carmel Head coords).
+126	anglesey.txt	Porth Cemlyn	resolved	53.40944	-4.51083	cove	Shingle-bar shore of Cemlyn Bay / lagoon (Wikipedia Cemlyn Bay and lagoon; cf. Cemlyn rows).
+127	anglesey.txt	Porth Amlwch	resolved	53.415469	-4.333659	harbour	Amlwch Port / Porth Amlwch harbour area (Wikipedia Amlwch Port).
+128	anglesey.txt	Traeth Lavan	resolved	53.253066	-4.05312	sandbank	Menai Strait intertidal sands (Traeth Lafan / Lavan Sands; Wikipedia centroid; best Anglesey-side reading).
+129	anglesey.txt	Porth Nobla	resolved	53.2321	-4.5628	beach	Sandy cove between Rhosneigr and Aberffraw (UK Beach Guide SH33007113).
+130	anglesey.txt	Silver Bay Beach	resolved	53.2465	-4.5626	beach	Traeth Llydan / Silver Bay horseshoe (UK Beach Guide SH29047526).
+131	anglesey.txt	Borth Wen	resolved	53.244147	-4.588428	beach	Borthwen crescent Rhoscolyn (Geograph SH27387503; cf. Rhoscolyn Bay row).
+132	anglesey.txt	Porth yr Aber	resolved	53.1892	-4.4685	estuary	Mouth of Afon Ffraw at Aberffraw Bay / Traeth Mawr (map reading by UK Beach Guide SH35436778).
+133	anglesey.txt	Aberffraw Bay	resolved	53.1892	-4.4685	beach	Traeth Mawr / Aberffraw Bay main sands (UK Beach Guide SH35436778).
+134	anglesey.txt	Newborough Sands	resolved	53.15223	-4.35608	beach	Main Warren / Newborough beach sands (cf. Newborough Warren row).
+135	anglesey.txt	Four Mile Bridge Beach	resolved	53.2728	-4.5832	beach	Sandy shore by Cymyran Strait near Four Mile Bridge (bridge centroid OS; coastal-path reading).
+136	anglesey.txt	Cymyran Beach	resolved	53.242458	-4.541562	beach	Same Cymyran Strait foreshore as Cymyran row (Geograph).
+137	anglesey.txt	Traeth Coch Beach	resolved	53.304	-4.19	beach	Sandy Red Wharf Bay shore (Wikipedia Red Wharf Bay / Traeth Coch centroid).
+138	anglesey.txt	Red Wharf	resolved	53.304	-4.19	hamlet	Red Wharf Bay village on W shore of bay (Wikipedia coords).
+139	anglesey.txt	Moelfre Bay	resolved	53.3535	-4.232	bay	Sheltered harbour bay at Moelfre (village/harbour centroid area).
+140	anglesey.txt	Point Lynas Lighthouse	resolved	53.416287	-4.289198	lighthouse	Same aid as Point Lynas row (Wikipedia).
+141	anglesey.txt	Bull Bay Beach	resolved	53.417	-4.35	beach	Sandy shore at Porth Llechog / Bull Bay (Wikipedia Bull Bay village).
+142	anglesey.txt	Wylfa Head	resolved	53.418	-4.486	headland	NW coast headland W of Cemaes; seaward edge of Wylfa site (Wikishire / map reading; cf. Wylfa row).
+143	anglesey.txt	Cemlyn Lagoon	resolved	53.40891	-4.50968	lagoon	Brackish lagoon behind Cemlyn shingle ridge (NWWT reserve / prior Cemlyn rows).
+144	anglesey.txt	St Cybi's	resolved	53.3118	-4.6328	church	St Cybi's Church Holyhead within Caer Gybi (Wikipedia).
+145	anglesey.txt	Plas Newydd foreshore	resolved	53.2026	-4.216	foreshore	Menai Strait shoreline below Plas Newydd estate (Wikipedia house coords / jetty area).
+146	anglesey.txt	St Tysilio	resolved	53.2224	-4.1713	church	St Tysilio's on Church Island Menai Strait (Wikipedia).
+147	anglesey.txt	Ynys Lawd	resolved	53.30685	-4.6993	island	Welsh name for South Stack islet; lighthouse islet (cf. South Stack / South Stack Lighthouse rows).
+148	anglesey.txt	Traeth Llanddona	resolved	53.3053	-4.1525	beach	Llanddona main beach E Red Wharf Bay (British Beaches SH566808).
+149	anglesey.txt	Porth Wen	resolved	53.424	-4.406	cove	Porth Wen (White Bay) N coast; brickworks scheduled-monument coords (Wikipedia Porth Wen Brickworks).
+150	anglesey.txt	Porth Twr Llwyd	resolved	53.247	-4.563	beach	No single authoritative listing; mapped to Traeth Tywyn Mawr / Trwyn Llwyd NW coast (UK Beach Guide SH28768500 area).
+151	anglesey.txt	Porth China	resolved	53.18746	-4.49340	cove	Small cove W of Aberffraw; Geograph SH 336 682 / Streetmap WGS84 (near St Cwyfan's church).
+152	anglesey.txt	St Cwyfan	resolved	53.185	-4.493	church	St Cwyfan's on tidal Cribinau ('church in the sea'); Wikipedia Cribinau coords (distinct row from Llangwyfan hamlet).
+153	anglesey.txt	Amlwch Bay	resolved	53.412	-4.340	bay	Harbour / bay at Amlwch on N coast; approximate water-centre E of town (not town centroid).
+154	anglesey.txt	Penmon Slip	resolved	53.3058	-4.0567	slipway	Penmon Point area slip / launching site; ~Priory-promontory shore (GeoHack Penmon cluster).
+155	anglesey.txt	Trearddur Pier	resolved	53.2802	-4.6185	pier	No single named gazetteer hit; mapped to small jetty / trip-boat area on main beach W of lifeboat (approx.).

@@ -1,0 +1,369 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	cardiff.txt	Grangetown	resolved	51.4675	-3.1853	suburb	Wikipedia / GeoHack ward centroid (Grangetown, Cardiff)
+2	cardiff.txt	Grangetown foreshore	resolved	51.4620	-3.1765	foreshore	Taff / Cardiff Bay margin off Grangetown (approx. open-water line)
+3	cardiff.txt	Grangemoor Park	resolved	51.4566	-3.1900	park	Wikipedia coordinates; park on former Penarth Moors landfill between Ely and bay retail park
+4	cardiff.txt	St Mary's Bay	ambiguous			bay	Informal shoreline label in this corpus; no clear separate mapped bay in Grangetown (distinct from St Marys Well Bay, VoG)
+5	cardiff.txt	St Marys Bay	ambiguous			bay	Variant spelling of line 4; same disambiguation issue
+6	cardiff.txt	Cardiff West Moors	resolved	51.4540	-3.1880	wetland_reclamation	Western bay moor / reclamation belt (Penarth Moors–Grangemoor–CSI corridor); not a single named centroid
+7	cardiff.txt	Channel View	resolved	51.4580	-3.1808	neighbourhood	Centred on Channel View Road spine (Channel View estate, Grangetown)
+8	cardiff.txt	Channel View Centre	resolved	51.4580	-3.1805	community_hub	No dedicated OSM name match; pinned with Channel View estate spine (regeneration masterplan area)
+9	cardiff.txt	Clarence Embankment	resolved	51.4636	-3.1741	street	OSM residential highway centroid (Butetown / Tiger Bay)
+10	cardiff.txt	Hamadryad Park	resolved	51.4608	-3.1757	park	OSM park polygon label (Windsor Quay / Cardiff Bay)
+11	cardiff.txt	Taff Embankment	resolved	51.4662	-3.1754	street	OSM road along River Taff (Grangetown)
+12	cardiff.txt	River Taff mouth	resolved	51.4632	-3.1771	river_mouth	Wikidata mouth coordinate (Taff into Cardiff Bay; barrage-era impoundment)
+13	cardiff.txt	Ely River mouth	resolved	51.4560	-3.1740	river_mouth	Wikipedia mouth coordinate (Ely into Cardiff Bay near Penarth Marina area)
+14	cardiff.txt	River Ely mouth	resolved	51.4560	-3.1740	river_mouth	Same mouth as line 13 (duplicate wording in source list)
+15	cardiff.txt	Cardiff Bay	resolved	51.4640	-3.1641	bay	OSM place=suburb node “Cardiff Bay”
+16	cardiff.txt	Bae Caerdydd	resolved	51.4640	-3.1641	bay	Welsh name for Cardiff Bay; same OSM bay area as line 15
+17	cardiff.txt	Butetown	resolved	51.4698	-3.1702	suburb	OSM place node (historic docks community)
+18	cardiff.txt	Tiger Bay	resolved	51.4659	-3.1673	neighbourhood	OSM neighbourhood (waterfront Butetown)
+19	cardiff.txt	Roald Dahl Plass	resolved	51.4639	-3.1642	plaza	Wikipedia coordinate; former West Bute Dock basin
+20	cardiff.txt	The Flourish	resolved	51.4656	-3.1644	water	OSM named dock basin feature (“The Flourish”)
+21	cardiff.txt	Mermaid Quay	resolved	51.4634	-3.1652	retail_waterfront	OSM retail landuse (Cardiff Bay shops/dining)
+22	cardiff.txt	Mount Stuart Square	resolved	51.4659	-3.1684	square	OSM square / highway loop in Tiger Bay conservation area
+23	cardiff.txt	Bute Street waterfront	resolved	51.4652	-3.1668	street_waterfront	South Bute Street approach to the bay (not the northern OSM highway sample point)
+24	cardiff.txt	Atlantic Wharf	resolved	51.4764	-3.1665	street	OSM Atlantic Wharf (Newtown / Butetown) — note set back from main bay docks
+25	cardiff.txt	Roath Basin	resolved	51.4631	-3.1587	dock	OSM dock polygon centroid (marina basin)
+26	cardiff.txt	Roath Dock	resolved	51.4673	-3.1502	dock	OSM dock extent centroid
+27	cardiff.txt	Bute East Dock	resolved	51.4730	-3.1635	dock	OSM dock polygon centroid (northern dock arm)
+28	cardiff.txt	Bute West Dock	resolved	51.4639	-3.1642	dock	Redeveloped as Roald Dahl Plass; same focal coordinate as line 19
+29	cardiff.txt	Porth Teigr	resolved	51.4619	-3.1574	quarter	OSM highway / redevelopment frontage (east Cardiff Bay)
+30	cardiff.txt	Lloyd George Avenue waterfront	resolved	51.4634	-3.1630	street_waterfront	Southern bay-linked section (not the northern primary-road OSM samples)
+31	cardiff.txt	James Street waterfront	resolved	51.4642	-3.1718	street_waterfront	James Street (Grangetown–bay link); bay-side segment between Clarence Bridge and Roald Dahl Plass
+32	cardiff.txt	Schooner Way waterfront	resolved	51.4669	-3.1634	street_waterfront	Schooner Way (Atlantic Wharf / leisure quarter); waterfront-facing office spine
+33	cardiff.txt	Havannah Street waterfront	resolved	51.4738	-3.1486	street_waterfront	Havannah Street corridor (East Moors / Pengam edge); approximate street centroid to water
+34	cardiff.txt	Wales Millennium Centre	resolved	51.46504	-3.16353	attraction	Wikipedia / GeoHack landmark coordinate
+35	cardiff.txt	Pierhead Building	resolved	51.46353	-3.16341	building	Wikipedia coordinate; Grade I Pierhead (Adeilad y Pierhead)
+36	cardiff.txt	Pierhead	resolved	51.46353	-3.16341	building	Short form of Pierhead Building; same building as line 35
+37	cardiff.txt	Senedd	resolved	51.463889	-3.162111	building	Wikidata coordinate; Welsh Parliament building
+38	cardiff.txt	Senedd Cymru	resolved	51.463889	-3.162111	building	Welsh name for Senedd building; same coordinate as line 37
+39	cardiff.txt	Norwegian Church Arts Centre	resolved	51.46143	-3.16192	attraction	Wikipedia coordinate; rebuilt church on Harbour Drive / Roath Basin margin
+40	cardiff.txt	Techniquest	resolved	51.4628	-3.1680	museum	Wikidata / English Wikipedia coordinate; Stuart Street discovery centre
+41	cardiff.txt	Custom House Cardiff Bay	resolved	51.4624	-3.1616	building	Former HM Customs and Excise (The Waterguard pub site) on Cardiff Bay front; not the canal-era Old Custom House
+42	cardiff.txt	Craft in the Bay	resolved	51.4658	-3.16487	gallery	Wikipedia coordinate; Makers Guild at The Flourish / D Shed
+43	cardiff.txt	Red Dragon Centre	resolved	51.4667	-3.1641	leisure_complex	Wikipedia coordinate; Hemingway Road / Atlantic Wharf leisure hub
+44	cardiff.txt	Britannia Park	ambiguous			park	No park with this name found; corpus label may mean Britannia Quay / Atlantic Wharf green strips—left unset
+45	cardiff.txt	Queen Alexandra Dock	resolved	51.45748	-3.15571	dock	Wikidata coordinate; operational dock east of barrage (East Moors)
+46	cardiff.txt	Queen Alexandra Basin	resolved	51.4572	-3.1553	dock_basin	Inner basin of Queen Alexandra Dock complex; approximate basin centroid
+47	cardiff.txt	Ocean Way waterfront	resolved	51.4755	-3.1415	street_waterfront	Ocean Way (East Moors industrial spine) toward reclaimed foreshore
+48	cardiff.txt	East Moors	resolved	51.4725	-3.1480	industrial_area	Broad reclaimed docklands / steelworks belt east of inner bay; area centroid
+49	cardiff.txt	Rover Way waterfront	resolved	51.4770	-3.1435	street_waterfront	Rover Way parallel to Rhymney–bay margin (East Moors logistics belt)
+50	cardiff.txt	Celsa steelworks foreshore	resolved	51.4788	-3.1405	industrial_foreshore	CELSA UK Cardiff plant on East Moors tidal margin (approx. site frontage)
+51	cardiff.txt	Splott	resolved	51.48357	-3.15349	suburb	Wikipedia / GeoHack ward centroid
+52	cardiff.txt	Splott Park	resolved	51.4834	-3.1441	park	OSM-derived recreation ground centroid (Splott)
+53	cardiff.txt	East Tyndall Street waterfront	resolved	51.4710	-3.1580	street_waterfront	Tyndall Street approaches (city–docks corridor) toward bay-facing industrial frontage
+54	cardiff.txt	Tremorfa	resolved	51.4900	-3.1400	district	Wikipedia infobox coordinate (community centroid)
+55	cardiff.txt	Tremorfa Park	resolved	51.4897	-3.1347	park	Streetmap / OSM recreation ground centroid (Whitaker Road area)
+56	cardiff.txt	Pengam Green	resolved	51.4856	-3.1322	neighbourhood	Wikipedia RAF Pengam Moors coordinate; core of Pengam Green redevelopment
+57	cardiff.txt	Pengam	resolved	51.4833	-3.1333	locality	Commonly used locality name on former Pengam Moors (approximate centre)
+58	cardiff.txt	Pengam Moors	resolved	51.4845	-3.1290	marsh_redevelopment	Former airfield / intertidal moor; now mixed industry and Pengam Green (area pin)
+59	cardiff.txt	Ffordd Pengam	resolved	51.4850	-3.1315	road_spine	Main distributor (A4232 link / Pengam corridor) east of inner bay
+60	cardiff.txt	Alexandra Gate	resolved	51.4863	-3.1328	business_park	Alexandra Gate Business Centre, Ffordd Pengam CF24 2SA (serviced-office hub)
+61	cardiff.txt	Ferry Court	resolved	51.454405	-3.179478	residential_waterfront	Open Postcode Geo centroid (Ferry Court, Grangetown; CF11 corridor toward bay)
+62	cardiff.txt	Cardiff International Sports Village	resolved	51.451389	-3.183056	sports_campus	Wikipedia / GeoHack landmark coordinate (ISV masterplan area)
+63	cardiff.txt	International Sports Village	resolved	51.451389	-3.183056	sports_campus	Short form of line 62; same ISV site
+64	cardiff.txt	Cardiff International White Water	resolved	51.448	-3.183	whitewater_venue	Wikipedia / Wikidata coordinate (CIWW at ISV)
+65	cardiff.txt	Ice Arena Wales	resolved	51.4505	-3.1817	arena	Wikipedia coordinate (Vindico Arena / Olympian Drive, ISV)
+66	cardiff.txt	Cardiff Bay Yacht Club	resolved	51.448265	-3.175035	yacht_club	LatLong.net / club address (Ely Harbour, Ferry Road, CF11 0JL)
+67	cardiff.txt	Pont y Werin	resolved	51.4477	-3.1864	bridge	Wikipedia coordinate (Ely crossing / ISV–Penarth link; distinct from Porth Teigr quarter)
+68	cardiff.txt	Heron Road waterfront	resolved	51.507479	-3.118755	street_waterfront	OSM highway centroid (Heron Road, Heron Road Industrial Estate, Rumney; estuary-side industrial belt)
+69	cardiff.txt	Cardiff Bay Barrage	resolved	51.44812	-3.1647	barrage	Wikipedia / Wikidata coordinate (Cardiff Bay Barrage)
+70	cardiff.txt	The Barrage	resolved	51.44812	-3.1647	barrage	Colloquial name for Cardiff Bay Barrage; same engineering feature as line 69
+71	cardiff.txt	Cardiff Bay Barrage locks	resolved	51.4479	-3.1645	locks	Approximate lock-flight cluster (CHA three-lock system; pinned just seaward of main barrage axis)
+72	cardiff.txt	Cardiff Bay outer harbour	resolved	51.452	-3.158	harbour_pool	Interpreted as tidal outer harbour / seaward dock pool (Queen Alexandra Dock approaches); area pin
+73	cardiff.txt	Cardiff Bay inner harbour	resolved	51.4635	-3.1635	harbour_pool	Interpreted as impounded inner bay / central docklands water (Roath Basin–bay core); area pin
+74	cardiff.txt	Cardiff Sailing Centre	resolved	51.45474	-3.16266	sailing_centre	Visit Wales listing coordinate; CBWAC sailing (Queen Alexandra House / barrage north end)
+75	cardiff.txt	Cardiff Rowing Centre	resolved	51.4629	-3.1799	rowing_centre	CBWAC rowing at Channel View Leisure Centre; Jim Driscoll Way slipway spine (OSM-derived centroid)
+76	cardiff.txt	Cardiff Waterbus	ambiguous			waterbus	Service with multiple landings (Mermaid Quay, barrage, Channel View, etc.); no single canonical stop
+77	cardiff.txt	Cardiff Bay Wetlands Reserve	resolved	51.459839	-3.170186	nature_reserve	Wikipedia coordinate (St David’s Hotel shore)
+78	cardiff.txt	Cardiff Bay wetlands	resolved	51.459839	-3.170186	nature_reserve	Informal label for the same wetlands reserve as line 77
+79	cardiff.txt	Barrage playground	resolved	51.449	-3.1645	playground	Approximate Barrage public-realm play area (CHA family facilities along embankment)
+80	cardiff.txt	Barrage skate park	resolved	51.4488	-3.1647	skate_park	Approximate skate facility on Barrage linear park (adjacent public space)
+81	cardiff.txt	Rumney	resolved	51.50895	-3.13251	suburb	Wikipedia / Wikidata community centroid
+82	cardiff.txt	Rumney Foreshore	resolved	51.5102	-3.127	foreshore	Tidal margin east of Rumney toward Severn Estuary (approximate open-shore pin)
+83	cardiff.txt	Rumney Great Wharf	resolved	51.5088	-3.1265	wharf	Historic Great Wharf zone on Rhymney east shore; no single POI—industrial foreshore centroid
+84	cardiff.txt	Rumney River mouth	resolved	51.4885	-3.1223	river_mouth	Geograph-tagged mouth reach (ST2277 / Newton–Rumney foreshore); Rhymney into Severn
+85	cardiff.txt	River Rhymney mouth	resolved	51.4885	-3.1223	river_mouth	Formal river name for line 84 (Afon Rhymni mouth)
+86	cardiff.txt	Rhymney estuary foreshore	resolved	51.4875	-3.1215	foreshore	Broad intertidal belt at Rhymney–Severn confluence; area pin
+87	cardiff.txt	Newton	resolved	51.49983	-3.09616	suburb	OS Open Names centroid (Newton, Cardiff CF3)
+88	cardiff.txt	Trowbridge	resolved	51.51366	-3.11101	suburb	Wikipedia coordinate (Trowbridge community / east Cardiff)
+89	cardiff.txt	Lamby Way foreshore	resolved	51.4972	-3.1226	foreshore	Lamby Way corridor toward Severn (OSM/nearby HWRC coordinate; tidal margin)
+90	cardiff.txt	Lamby	resolved	51.497	-3.1225	locality	Local name for Lamby Way / Lamby foreshore belt east Cardiff; same coastal corridor as line 89
+91	cardiff.txt	Severn foreshore Rumney	resolved	51.5098	-3.1278	foreshore	Tidal margin east of Rumney toward Severn Estuary (Rhymney–Severn belt; distinct pin from Bristol Channel wording)
+92	cardiff.txt	Bristol Channel foreshore Rumney	resolved	51.5105	-3.1265	foreshore	Same open coast as line 91; label emphasises Bristol Channel (estuary) frontage east of Rumney
+93	cardiff.txt	Parc Tredelerch	resolved	51.4987	-3.1292	park	Brachdy Lane lake park (Pacer/OSM-derived centroid; former Rhymney loop)
+94	cardiff.txt	Llanrumney	resolved	51.51	-3.12	suburb	Wikipedia gazetteer / list coordinate (Llanrumney ward centroid approximation)
+95	cardiff.txt	St Mellons	resolved	51.52721	-3.10414	suburb	Wikipedia / GeoHack coordinate (eastern Cardiff)
+96	cardiff.txt	Wales Coast Path Cardiff Bay	resolved	51.463	-3.162	coastal_path	Representative pin on Cardiff Bay loop (trail is linear; centred on central bay/docklands link)
+97	cardiff.txt	Wales Coast Path Tremorfa	resolved	51.4905	-3.139	coastal_path	Tremorfa–estuary edge alignment (ward-coast reading; path is a corridor)
+98	cardiff.txt	Wales Coast Path Splott	resolved	51.4838	-3.1515	coastal_path	Splott–docks margin segment toward seaward side (corridor pin)
+99	cardiff.txt	Wales Coast Path Rumney	resolved	51.5095	-3.128	coastal_path	Rumney–Rhymney foreshore WCP alignment (corridor pin)
+100	cardiff.txt	Wales Coast Path Pengam Moors	resolved	51.4845	-3.129	coastal_path	Pengam Moors / east-bay industrial margin segment (corridor pin)
+101	cardiff.txt	Cardiff Bay Trail	resolved	51.4634	-3.1652	circular_trail	Cardiff Bay perimeter trail; pinned at Mermaid Quay / central bay public realm
+102	cardiff.txt	Glamorgan Coast Path Cardiff	ambiguous			coastal_path	Marketing/legacy coastal route label; overlaps Wales Coast Path segments—no single Cardiff centroid
+103	cardiff.txt	Cardiff Docks	resolved	51.468	-3.169	docklands	Historic “Cardiff Docks” = Butetown / lower docklands belt (area pin)
+104	cardiff.txt	Bute Dock	resolved	51.4645	-3.165	dock	Historic Bute Dock complex (central bay docks); not mapped to one modern basin name
+105	cardiff.txt	East Dock	resolved	51.4730	-3.1635	dock	Interpreted as Bute East Dock (OSM dock polygon centroid; matches prior batch naming)
+106	cardiff.txt	West Dock	resolved	51.4639	-3.1642	dock	Interpreted as Bute West Dock / Roald Dahl Plass basin (same engineering footprint as earlier “Bute West Dock” row)
+107	cardiff.txt	Docklands	resolved	51.4655	-3.166	docklands	General Cardiff Bay docklands water’s-edge belt (area pin)
+108	cardiff.txt	Cardiff tidal harbour	resolved	51.452	-3.158	harbour_pool	Outer tidal harbour / seaward dock approaches (Queen Alexandra Dock belt; area pin)
+109	cardiff.txt	Cardiff sea locks	resolved	51.4479	-3.1645	locks	Cardiff Bay Barrage three-lock cluster (CHA sea locks; seaward side of barrage axis)
+110	cardiff.txt	WCP Cardiff	ambiguous			coastal_path	Wales Coast Path spans many kilometres across Cardiff; no single representative coordinate
+111	cardiff.txt	Cardiff barrage	resolved	51.44812	-3.1647	barrage	Same engineering feature as “Cardiff Bay Barrage” (Wikipedia / Wikidata coordinate)
+112	cardiff.txt	Cardiff Bay harbour	resolved	51.4635	-3.1635	harbour_pool	Impounded inner bay / central docklands pool (area pin; distinct from outer tidal harbour)
+113	cardiff.txt	Cardiff Bay locks	resolved	51.4480	-3.1646	locks	Barrage lock flight on bay–severn transition (same facility as line 109; landward sampling point)
+114	cardiff.txt	The Bay	resolved	51.4640	-3.1641	bay	Colloquial “the Bay” = Cardiff Bay public-realm centroid (OSM place=suburb node area)
+115	cardiff.txt	Morfa Pengam	resolved	51.4840	-3.1320	marsh	Morfa (marsh/reclaimed belt) at Pengam / east bay margin (area pin)
+116	cardiff.txt	Pengam foreshore	resolved	51.4855	-3.1280	foreshore	Tidal frontage at Pengam / Pengam Green corridor (approximate shore pin)
+117	cardiff.txt	East Moors waterfront	resolved	51.4725	-3.148	street_waterfront	East Moors reclaimed docklands frontage (parallel to prior “East Moors” area centroid)
+118	cardiff.txt	Channel View waterfront	resolved	51.4580	-3.1805	street_waterfront	Channel View estate shoreward side toward bay (matches Channel View spine batch)
+119	cardiff.txt	Grangetown waterfront	resolved	51.4620	-3.1765	street_waterfront	Grangetown bay margin (Taff–bay transition; aligns with Grangetown foreshore reading)
+120	cardiff.txt	Butetown waterfront	resolved	51.4652	-3.1668	street_waterfront	Bute Street / Tiger Bay conservation waterfront (matches prior Bute Street waterfront segment)
+121	cardiff.txt	Cardiff east foreshore	resolved	51.4575	-3.148	foreshore	Eastern impounded bay / Queen Alexandra margin (open-water line east of central Mermaid Quay)
+122	cardiff.txt	Cardiff estuary shore	resolved	51.455	-3.135	foreshore	Outer tidal Severn approaches east of barrage (saltmarsh–mudflat belt; broad estuary pin)
+123	cardiff.txt	Queen Alexandra waterfront	resolved	51.45748	-3.15571	street_waterfront	Waterfront along Queen Alexandra Dock complex (same dock footprint as prior QA rows)
+124	cardiff.txt	Roath Basin waterfront	resolved	51.4631	-3.1587	street_waterfront	Marina basin public frontage (OSM Roath Basin dock polygon reading)
+125	cardiff.txt	Wetlands boardwalk Cardiff Bay	resolved	51.45984	-3.17019	boardwalk	Wikipedia coordinate; viewing boardwalk at Cardiff Bay Wetlands Reserve (St David’s–Yacht Club path)
+126	cardiff.txt	Cardiff sailing school	resolved	51.4490	-3.1638	training_centre	Cardiff Sailing Centre (CBWAC) at northern barrage / locks cluster (CHA directions; approximate site pin)
+127	cardiff.txt	Cardiff rowing club water	resolved	51.4568	-3.1813	rowing_water	Cardiff Rowing Centre slipway belt at Channel View Leisure Centre (River Taff bay margin; CF11 7HB area)
+128	cardiff.txt	Cardiff Yacht Club	resolved	51.448265	-3.175035	yacht_club	Ely Harbour, Ferry Road (latlong.net / CAMRA sat-nav cross-check)
+129	cardiff.txt	Cardiff Bay boat trips	resolved	51.4635	-3.1652	ferry_pier	Mermaid Quay / central bay trip pick-up belt (public-realm pin)
+130	cardiff.txt	Cardiff Bay pier	ambiguous			pier	Several pontoons and historic “pier” labels; no single official Cardiff Bay pier centroid
+131	cardiff.txt	Cardiff Bay ferry	resolved	51.4637	-3.1645	ferry	Water-bus / bay ferry berths at Pierhead–Mermaid Quay front (approximate terminal pin)
+132	cardiff.txt	Cardiff Bay mudflats	resolved	51.4525	-3.148	mudflat	Outer (seaward) intertidal flats east of barrage / harbour approaches (area pin)
+133	cardiff.txt	Cardiff Bay freshwater lake	resolved	51.452	-3.162	freshwater_lake	Post-barrage impounded bay pool (200 ha freshwater body; broad bay-centre reading)
+134	cardiff.txt	Cardiff Bay regeneration waterfront	resolved	51.4645	-3.1645	waterfront	Harbour Drive / central bay regenerated public waterfront spine
+135	cardiff.txt	Tiger Bay docks	resolved	51.4658	-3.169	docklands	Historic Tiger Bay graving-dock belt (Mount Stuart / Butetown dockscape)
+136	cardiff.txt	Mount Stuart waterfront	resolved	51.4659	-3.1684	street_waterfront	Mount Stuart Square conservation-area water’s-edge (matches prior square row context)
+137	cardiff.txt	Mermaid harbour front	resolved	51.4634	-3.1652	retail_waterfront	Mermaid Quay harbour-facing frontage (same OSM retail landuse reading as prior Mermaid Quay)
+138	cardiff.txt	Porth Teigr waterfront	resolved	51.4619	-3.1574	street_waterfront	Porth Teigr BBC Studios frontage (matches prior Porth Teigr centroid)
+139	cardiff.txt	Bute docks	resolved	51.4685	-3.161	dock_complex	Bute East and West dock arms collectively (mid-docklands pin)
+140	cardiff.txt	West Bute Dock	resolved	51.4639	-3.1642	dock	Redeveloped western arm / Roald Dahl Plass basin (same reading as prior West Dock rows)
+141	cardiff.txt	East Bute Dock	resolved	51.4730	-3.1635	dock	OSM Bute East Dock polygon centroid (matches prior East Dock row)
+142	cardiff.txt	Roath Basin docks	resolved	51.4631	-3.1587	dock	Roath Basin dock polygon (matches prior Roath Basin row)
+143	cardiff.txt	Cardiff docklands waterfront	resolved	51.4655	-3.166	street_waterfront	General Butetown / inner-bay docklands water margin (area pin)
+144	cardiff.txt	Splott waterfront	resolved	51.4720	-3.154	street_waterfront	Splott–estuary industrial / Lamby margin toward Rhymney (corridor pin)
+145	cardiff.txt	Tremorfa waterfront	resolved	51.4810	-3.138	street_waterfront	Tremorfa–Pengam reclaimed foreshore belt (east bay margin)
+146	cardiff.txt	Rumney beach	resolved	51.4825	-3.116	beach	Sandy foreshore at Rhymney mouth (mouth coordinate neighbourhood from Wikipedia Rhymney article)
+147	cardiff.txt	Rumney shingle	resolved	51.4833	-3.1155	shingle	Shingle ridge / upper foreshore same mouth reach as line 146
+148	cardiff.txt	Great Wharf	resolved	51.4958	-3.1008	saltmarsh	GeoHack scheduled monument coordinate: Rumney Great Wharf relict seawall belt
+149	cardiff.txt	Rumney estuary shore	resolved	51.483	-3.117	estuary_shore	Rhymney tidal estuary margin (Wikipedia mouth coordinate belt)
+150	cardiff.txt	Newton shore	resolved	51.4975	-3.099	foreshore	Eastern Wentlooge Levels seawall foreshore toward Newport (local coastal-list reading east of Great Wharf)
+151	cardiff.txt	Lamby shore	resolved	51.4970	-3.1225	foreshore	Lamby Way / Lamby tidal margin (same coastal corridor as Lamby Way foreshore)
+152	cardiff.txt	Pengam Moors foreshore	resolved	51.4845	-3.1290	foreshore	Tidal frontage at Pengam Moors / east bay reclaimed belt
+153	cardiff.txt	Pengam Green waterfront	resolved	51.4856	-3.1322	street_waterfront	Pengam Green redevelopment shoreward side (matches Pengam Green centroid reading)
+154	cardiff.txt	Ferry Court shore	resolved	51.4542	-3.1792	foreshore	Ferry Court (CF11) shore toward Ely harbour / inner bay margin
+155	cardiff.txt	Sports Village waterfront	resolved	51.451389	-3.183056	street_waterfront	Cardiff International Sports Village masterplan waterfront (ISV coordinate)
+156	cardiff.txt	Barrage walk	resolved	51.44812	-3.1647	coastal_walk	Cardiff Bay Barrage public promenade (Wikipedia / Wikidata barrage coordinate; linear feature)
+157	cardiff.txt	Barrage cycle path	resolved	51.44812	-3.1647	cycle_route	Shared cycle route on barrage deck (WCP / NCN links; same engineering line as barrage walk)
+158	cardiff.txt	Cardiff Bay circular walk	resolved	51.4634	-3.1652	circular_trail	Cardiff Bay Trail perimeter (representative pin at central bay public realm / Mermaid Quay belt)
+159	cardiff.txt	Cardiff coastal path	ambiguous			coastal_path	Corpus label; could mean Wales Coast Path legs or Cardiff Bay Trail—no single line centroid
+160	cardiff.txt	Bristol Channel Cardiff shore	resolved	51.5100	-3.1265	foreshore	Representative open-coast pin east of Rumney (Bristol Channel / outer estuary frontage)
+161	cardiff.txt	Severn Estuary Cardiff foreshore	resolved	51.4885	-3.1223	estuary_shore	Rhymney–Severn intertidal belt (mouth reach; aligns with Rhymney mouth rows)
+162	cardiff.txt	Rhymney riverside Cardiff	resolved	51.4920	-3.1250	riverside	Afon Rhymni corridor through eastern Cardiff (area pin)
+163	cardiff.txt	Rumney riverside	resolved	51.5085	-3.1320	riverside	Rumney community margin along Rhymney (ward-coast reading)
+164	cardiff.txt	Grangetown coastal path	resolved	51.4620	-3.1765	coastal_path	Wales Coast Path / bay margin segment off Grangetown (corridor pin)
+165	cardiff.txt	Butetown coastal path	resolved	51.4652	-3.1668	coastal_path	Docklands waterfront trail segment (Tiger Bay / Bute Street belt)
+166	cardiff.txt	Cardiff Bay Wales Coast Path link	resolved	51.44812	-3.1647	trail_link	Barrage crossing linking bay WCP legs (CHA locks / promenade axis)
+167	cardiff.txt	Penarth view Cardiff Bay Barrage	resolved	51.4478	-3.1645	viewpoint	Seaward barrage vista toward Penarth headlands (outer bay / locks end)
+168	cardiff.txt	Flat Holm view Cardiff	resolved	51.4481	-3.1647	viewpoint	Flat Holm island views from barrage promenade (WCP itinerary reading)
+169	cardiff.txt	Steep Holm view Cardiff	resolved	51.4481	-3.1647	viewpoint	Steep Holm vistas from barrage / outer bay (same vantage family as line 168)
+170	cardiff.txt	Channel View Centre waterfront	resolved	51.4580	-3.1805	street_waterfront	Channel View regeneration spine shoreward (matches prior Channel View Centre rows)
+171	cardiff.txt	Hamadryad riverside	resolved	51.4608	-3.1757	riverside	Hamadryad Park / Windsor Quay Taff–bay margin
+172	cardiff.txt	Clarence riverside	resolved	51.4636	-3.1741	riverside	Clarence Embankment River Taff shore (Butetown / Grangetown link)
+173	cardiff.txt	Taff riverside mouth	resolved	51.4632	-3.1771	river_mouth	River Taff impounded mouth into Cardiff Bay (Wikidata mouth reading)
+174	cardiff.txt	Ely riverside mouth	resolved	51.4560	-3.1740	river_mouth	River Ely impounded mouth near Penarth Marina belt (Wikipedia mouth reading)
+175	cardiff.txt	Roath Dock entrance	resolved	51.4635	-3.1588	dock_entrance	Roath Basin / Roath Dock public marina entrance belt (OSM dock polygon reading)
+176	cardiff.txt	Queen Alexandra Dock entrance	resolved	51.45748	-3.15571	dock_entrance	QA Dock sea entrance / locks cluster (Wikidata dock coordinate)
+177	cardiff.txt	Cardiff outer docks	resolved	51.452	-3.158	docklands	Outer tidal harbour / seaward dock approaches (Queen Alexandra belt; area pin)
+178	cardiff.txt	Cardiff inner docks	resolved	51.4635	-3.1635	docklands	Impounded inner bay / central dock basins (Roath–Bute belt; area pin)
+179	cardiff.txt	Cardiff Bay development waterfront	resolved	51.4645	-3.1645	waterfront	Regenerated Harbour Drive / central bay public waterfront spine
+180	cardiff.txt	St Mellons roundabout Rumney foreshore	resolved	51.5270	-3.1045	roundabout	St Mellons A48 / Newport Road corridor junction toward B4487–B4239 Rumney foreshore (fishing-access directions)
+181	cardiff.txt	B4239 Rumney foreshore	resolved	51.5065	-3.1125	road_foreshore	B4239 / Wentlooge–Rumney foreshore access belt toward Rhymney estuary (corridor pin; not a single named POI)
+182	cardiff.txt	Rumney fishing marks	resolved	51.5082	-3.1185	fishing_foreshore	Intertidal fishing marks belt off Rumney Great Wharf / Wentlooge Level (area pin)
+183	cardiff.txt	Rumney Great Wharf shore	resolved	51.5078	-3.1172	foreshore	Cadw-scheduled relict seawall belt on Rumney Great Wharf (Wentlooge Level; representative shore pin)
+184	cardiff.txt	Cardiff steelworks coast path	resolved	51.4742	-3.1409	coastal_path	Wales Coast Path / flood-defence embankment beside Celsa–East Moors steel belt (Rover Way corridor; Geograph/Wikimapia reading)
+185	cardiff.txt	Celsa coast path	resolved	51.4742	-3.1409	coastal_path	Coastal path segment past Celsa Tremorfa works (same WCP embankment spine as line 184)
+186	cardiff.txt	Rover Way Pengam	resolved	51.4831	-3.1292	street_waterfront	Rover Way through Pengam Green toward Rhymney foreshore (OSM highway centroid)
+187	cardiff.txt	Ffordd Pengam coast path	resolved	51.4891	-3.1288	coastal_path	Ffordd Pengam eastern leg toward coastal embankment / WCP (OSM centroid)
+188	cardiff.txt	Tremorfa Park coast path	resolved	51.4898	-3.1315	coastal_path	WCP / embankment approach east of Tremorfa Park (park edge toward foreshore)
+189	cardiff.txt	Splott Park coast path	resolved	51.4839	-3.1443	coastal_path	Coastal-path link from Splott parkland belt (OSM “Splott Football Park” is nearest named open space)
+190	cardiff.txt	Walker Road Cardiff Bay approach	resolved	51.4811	-3.1498	street_waterfront	Walker Road (Pengam Green) approach toward port / Roath Dock belt (OSM centroid)
+191	cardiff.txt	Colomer Way waterfront	not_found			waterfront	No OSM/Nominatim street match for “Colomer Way” in Cardiff; likely typo or hyper-local label
+192	cardiff.txt	East Moors industrial waterfront	resolved	51.4712	-3.1572	industrial_waterfront	East Moors Road / former dock-industrial margin toward Roath Basin (OSM industrial corridor)
+193	cardiff.txt	Cardiff Bay heritage waterfront	resolved	51.4640	-3.1638	waterfront	Central Cardiff Bay heritage waterfront (Harbour Drive / Pierhead–Senedd civic frontage; area pin)
+194	cardiff.txt	Norwegian Church waterfront	resolved	51.46143	-3.16192	waterfront	Wikipedia coordinate; public quay in front of Norwegian Church Arts Centre
+195	cardiff.txt	Pierhead steps	resolved	51.46356	-3.16342	steps	OSM Pierhead building; waterfront steps on Harbour Drive frontage
+196	cardiff.txt	Senedd steps	resolved	51.46365	-3.16248	steps	OSM Senedd; public steps on Senedd estate waterfront
+197	cardiff.txt	Millennium Centre waterfront	resolved	51.46504	-3.16353	waterfront	Wikipedia/GeoHack Wales Millennium Centre; Bute Place waterfront frontage
+198	cardiff.txt	Roald Dahl Plass waterfront	resolved	51.4639	-3.1642	plaza_waterfront	Plass basin waterfront (matches prior Roald Dahl Plass rows in this TSV)
+199	cardiff.txt	Mermaid Quay boardwalk	resolved	51.4634	-3.1652	boardwalk	Mermaid Quay retail waterfront (matches prior Mermaid Quay row)
+200	cardiff.txt	Cardiff Bay visitor pontoon	resolved	51.4623	-3.1632	pontoon	Public visitor pontoon / small-craft berth belt off Harbour Drive (no single OSM name; bay berthage corridor)
+201	cardiff.txt	Cardiff Bay lock gates	resolved	51.4466	-3.1659	lock	OSM “Cardiff Bay Barrage Lock 1” centroid (navigation locks cluster)
+202	cardiff.txt	Cardiff Bay sluices	resolved	51.4469	-3.1656	sluice	Barrage sluice structure adjoining lock complex (same barrage engineering belt as line 201)
+203	cardiff.txt	Cardiff Bay freshwater edge	resolved	51.4550	-3.1600	impoundment_margin	Representative inner impounded bay margin (freshwater pool behind barrage; not one continuous named line)
+204	cardiff.txt	Cardiff Bay saltwater edge	resolved	51.4425	-3.1665	tidal_margin	Seaward / tidal margin of barrage–outer harbour (contrasts impounded bay; representative pin)
+205	cardiff.txt	Barrage fishing	resolved	51.4478	-3.1645	foreshore	Barrage promenade / outer embankment fishing access (CHA barrage public route)
+206	cardiff.txt	Rumney low water	ambiguous			intertidal	Tide-state label for same Rumney foreshore extent as high water; not a separate fixed pin
+207	cardiff.txt	Rumney high water	ambiguous			intertidal	Tide-state label for same Rumney foreshore extent as low water; not a separate fixed pin
+208	cardiff.txt	Cardiff shingle shore	resolved	51.5105	-3.1195	shingle_beach	Open-coast shingle patches east of Rumney along Wentlooge / Severn foreshore (representative substrate pin)
+209	cardiff.txt	Cardiff mud shore	resolved	51.5092	-3.1215	mudflat	Rhymney–Wentlooge intertidal mud belt (representative pin)
+210	cardiff.txt	Cardiff pebble shore	resolved	51.5080	-3.1235	pebble_beach	Mixed shingle–pebble foreshore off Rumney Great Wharf belt (representative pin)
+211	cardiff.txt	Cardiff foreshore fishing	ambiguous			fishing	Label covers many stretches (barrage, Rumney, Wentlooge, inner bay); no single representative pin
+212	cardiff.txt	Cardiff coast path completist	ambiguous			coastal_path	Corpus humour / checklist label, not a mapped place on the coast
+213	cardiff.txt	Wales Coast Path Newton Rumney	resolved	51.5040	-3.1140	coastal_path	WCP corridor between Newton (east Cardiff) and Rumney estuary belt (mid-route pin)
+214	cardiff.txt	Wales Coast Path Lamby Way	resolved	51.4972	-3.1226	coastal_path	Lamby Way–Lamby foreshore WCP alignment (matches Lamby Way foreshore belt in this TSV)
+215	cardiff.txt	Cardiff Rhymney mouth	resolved	51.4885	-3.1223	river_mouth	Afon Rhymni–Severn mouth reach (same coastal reading as Rhymney mouth rows)
+216	cardiff.txt	Rhymney foreshore	resolved	51.4875	-3.1215	foreshore	Intertidal belt at Rhymney–Severn confluence (area pin)
+217	cardiff.txt	Rumney Pill	resolved	51.4880	-3.1220	tidal_inlet	Interpreted as Pwll Mawr / historic “Great Pill” tidal inlet at Rhymney mouth (Wentlooge Level reading)
+218	cardiff.txt	Rumney mudflats	resolved	51.4890	-3.1210	mudflat	Rhymney–Wentlooge intertidal mud belt off Rumney (representative pin)
+219	cardiff.txt	Lamby Way beach	resolved	51.4970	-3.1225	beach	Open foreshore at Lamby Way–Severn margin (same corridor as Lamby Way foreshore)
+220	cardiff.txt	Lamby Way car park shore	resolved	51.4962	-3.1228	foreshore	Lamby Way HWRC / coastal-access parking belt toward tidal margin (approximate shore pin)
+221	cardiff.txt	Rumney car park shore	resolved	51.5075	-3.1270	foreshore	Foreshore access / parking belt off Rumney–Heron Road industrial margin (area pin)
+222	cardiff.txt	Cardiff Bay south dock	resolved	51.4639	-3.1642	dock	Interpreted as Bute West Dock / western impounded basin (Roald Dahl Plass belt; matches prior West Dock rows)
+223	cardiff.txt	Cardiff Bay north dock	resolved	51.4730	-3.1635	dock	Interpreted as Bute East Dock (OSM dock polygon centroid; matches prior East Dock rows)
+224	cardiff.txt	Cardiff Bay east waterfront	resolved	51.4619	-3.1574	street_waterfront	Eastern redeveloped bay frontage (Porth Teigr / BBC Studios belt)
+225	cardiff.txt	Cardiff Bay west waterfront	resolved	51.4620	-3.1765	street_waterfront	Western bay margin off Grangetown (Taff–bay transition belt)
+226	cardiff.txt	Grangetown St Marys	ambiguous			neighbourhood	No St Mary's parish church in Grangetown proper; label may mean St Mary's Bay / Butetown St Mary legacy—left unset
+227	cardiff.txt	Grangemoor lakeside	resolved	51.4566	-3.1900	lakeside	Lake margin in Grangemoor Park (matches Grangemoor Park centroid in this TSV)
+228	cardiff.txt	Cardiff Bay urban waterfront	resolved	51.4645	-3.1645	waterfront	Central regenerated Harbour Drive / civic waterfront spine (area pin)
+229	cardiff.txt	Capital city waterfront Wales	resolved	51.4640	-3.1641	waterfront	Marketing label for Cardiff Bay capital waterfront (same focal area as “The Bay” rows)
+230	cardiff.txt	Cardiff capital bay	resolved	51.4640	-3.1641	bay	Informal label for Cardiff Bay impoundment (OSM Cardiff Bay area reading)
+231	cardiff.txt	Caerdydd bay waterfront	resolved	51.4645	-3.1645	waterfront	Welsh exonym for Cardiff Bay regenerated waterfront belt
+232	cardiff.txt	Caerdydd dociau	resolved	51.4655	-3.1660	docklands	Welsh “Cardiff docks” = Butetown / inner docklands water margin (area pin)
+233	cardiff.txt	Bae dociau	resolved	51.4655	-3.1660	docklands	Welsh “bay docks” label for central docklands pool (same belt as line 232)
+234	cardiff.txt	Cardiff docks shore	resolved	51.4655	-3.1660	shoreline	General docklands water’s-edge belt (Butetown / inner basins)
+235	cardiff.txt	Cardiff harbour arm	ambiguous			breakwater	Several seawalls/moles (outer harbour, dock arms); no single named “harbour arm” centroid
+236	cardiff.txt	Cardiff lock mouth	resolved	51.4479	-3.1645	lock	Barrage navigation lock cluster seaward throat (CHA locks belt)
+237	cardiff.txt	Cardiff barrage mouth	resolved	51.4470	-3.1645	barrage	Seaward end of Cardiff Bay Barrage engineering line (outer pool transition)
+238	cardiff.txt	Cardiff sea entrance	resolved	51.4440	-3.1650	channel	Seaward approach channel into Cardiff’s outer tidal harbour (broad entrance pin)
+239	cardiff.txt	Cardiff Bay sea entrance	resolved	51.4440	-3.1650	channel	Same seaward approach as line 238; label emphasises bay/outer harbour mouth
+240	cardiff.txt	Outer sea lock	resolved	51.4466	-3.1659	lock	OSM Cardiff Bay Barrage Lock 1 / outer lock structure (matches lock-gates row in this TSV)
+241	cardiff.txt	Inner sea lock	resolved	51.4472	-3.1654	lock	Landward / inner chamber of the CHA barrage navigation lock flight (paired reading with outer sea lock row)
+242	cardiff.txt	Cardiff Bay three locks	resolved	51.4467	-3.1657	lock	CHA three-lock navigation cluster at the barrage (area centroid; matches prior lock-gates / sluice belt)
+243	cardiff.txt	Cardiff sailing lake	resolved	51.4547	-3.1627	flat_water	Cardiff Sailing Centre dinghy water off the barrage (VisitWales listing coordinate; relocated from Llanishen)
+244	cardiff.txt	Cardiff rowing lake	resolved	51.4514	-3.1831	rowing_lake	Olympic-standard rowing lake at Cardiff International Sports Village (Wikipedia / GeoHack ISV coordinate)
+245	cardiff.txt	Wetlands bird hide Cardiff Bay	resolved	51.4598	-3.1702	viewing_platform	No standalone named hide; pinned on public wetlands boardwalk viewing line (Wikipedia reserve coordinate belt)
+246	cardiff.txt	Cardiff Bay nature reserve	resolved	51.4598	-3.1702	nature_reserve	Cardiff Bay Wetlands Reserve centroid (Wikipedia coord)
+247	cardiff.txt	Cardiff Bay boardwalk	resolved	51.4596	-3.1701	boardwalk	Public wetlands boardwalk into the impounded bay (same reserve corridor as nature reserve rows)
+248	cardiff.txt	Cardiff Bay reedbeds	resolved	51.4599	-3.1698	reedbed	Reedbed habitat within the wetlands reserve (representative habitat pin in public corridor)
+249	cardiff.txt	Hamadryad Bay approach	resolved	51.4612	-3.1745	water_margin	Taff–wetlands margin off Hamadryad Park / Windsor Quay belt (informal “bay approach” reading)
+250	cardiff.txt	Taff Bae junction	resolved	51.4638	-3.1725	cycle_junction	Active-travel junction where Taff-side links meet the Cardiff Bay circular route (Clarence / Taff mouth belt)
+251	cardiff.txt	Ely Bae junction	resolved	51.4555	-3.1850	cycle_junction	Western bay margin where Ely Trail links meet the bay circuit (Grangemoor / Ely corridor)
+252	cardiff.txt	Roath Basin marina approach	resolved	51.4633	-3.1590	marina_entrance	Seaward approach to Roath Basin marina from the inner bay (off prior Roath Basin dock rows)
+253	cardiff.txt	Porth Teigr marina	resolved	51.4620	-3.1575	marina	Porth Teigr yacht berthing belt east of Roath Dock (same redevelopment frontage as prior Porth Teigr rows)
+254	cardiff.txt	Cardiff Bay OCR	resolved	51.4639	-3.1642	event_route	Legacy urban obstacle-race hub (e.g. Survival of the Fittest) centred on Roald Dahl Plass / civic waterfront
+255	cardiff.txt	White Water Cardiff coast	resolved	51.4480	-3.1830	whitewater	Cardiff International White Water (Wikipedia coord); seaward/active margin of CIWW toward Ely / outer bay belt
+256	cardiff.txt	Ice Arena waterfront	resolved	51.4502	-3.1822	arena_waterfront	Ice Arena Wales / Viola Arena frontage on the ISV pool (approximate waterfront pin)
+257	cardiff.txt	International Sports Village shore	resolved	51.4523	-3.1845	shoreline	Representative Ely-side shore of the ISV impounded pool (sports village coastal reading)
+258	cardiff.txt	Pont y Werin bridge	resolved	51.4477	-3.1864	bridge	Wikipedia coordinate; pedestrian/cycle bascule over the Ely (bay circular route link)
+259	cardiff.txt	Werin bridge Cardiff Bay	resolved	51.4477	-3.1864	bridge	Same structure as Pont y Werin (Welsh/English naming in source list)
+260	cardiff.txt	Cardiff Bay cycle bridge	resolved	51.4477	-3.1864	bridge	Interpreted as Pont y Werin completing the bay active-travel circuit (no other distinct “bay cycle bridge”)
+261	cardiff.txt	Grangetown cycle route bay	resolved	51.4620	-3.1765	cycle_route	Western bay margin cycle corridor off Grangetown (matches Grangetown foreshore belt in this TSV)
+262	cardiff.txt	Butetown cycle route bay	resolved	51.4652	-3.1668	cycle_route	Central docklands / Tiger Bay waterfront cycle links to the bay
+263	cardiff.txt	Cardiff Bay active travel	resolved	51.4645	-3.1645	active_travel	Representative spine of bay-wide walking/cycling network (Harbour Drive / civic waterfront belt)
+264	cardiff.txt	Cardiff waterfront walk	resolved	51.4645	-3.1645	promenade	Representative central regenerated waterfront promenade (many named segments share this belt)
+265	cardiff.txt	Cardiff shore walk	ambiguous			coastal_walk	Generic label spanning multiple unrelated shore segments (barrage, Rumney, inner bay); no single pin
+266	cardiff.txt	Cardiff coastal walk	ambiguous			coastal_walk	Corpus umbrella for many Wales Coast Path / bay loops segments; not one continuous named walk
+267	cardiff.txt	Cardiff estuary walk	ambiguous			coastal_walk	Post-barrage informal label; former estuary now impounded—route network too broad for one centroid
+268	cardiff.txt	Cardiff docks walk	resolved	51.4655	-3.1660	walk	Butetown / inner docklands waterside promenade belt (matches prior docks-shore reading)
+269	cardiff.txt	Cardiff barrage walk	resolved	51.4478	-3.1645	promenade	CHA barrage pedestrian/cycle embankment (same engineering belt as barrage fishing / locks rows)
+270	cardiff.txt	Cardiff Rumney walk	ambiguous			coastal_walk	“Rumney walk” could mean many Rumney foreshore or estuary paths; earlier Rumney rows cover separate features
+271	cardiff.txt	Cardiff Pengam walk	resolved	51.4845	-3.1290	coastal_walk	Wales Coast Path / Pengam Moors margin corridor (matches WCP Pengam Moors row in this TSV)
+272	cardiff.txt	Cardiff Tremorfa walk	resolved	51.4905	-3.1390	coastal_walk	Tremorfa–estuary WCP alignment (matches Wales Coast Path Tremorfa row)
+273	cardiff.txt	Cardiff Splott walk	resolved	51.4838	-3.1515	coastal_walk	Splott–docks margin WCP segment (matches Wales Coast Path Splott row)
+274	cardiff.txt	Cardiff Newton walk	resolved	51.5040	-3.1140	coastal_walk	WCP corridor between Newton (east Cardiff) and Rumney estuary belt (matches WCP Newton Rumney row)
+275	cardiff.txt	Cardiff Lamby walk	resolved	51.4972	-3.1226	coastal_walk	Lamby Way–Lamby foreshore WCP alignment (matches WCP Lamby Way row)
+276	cardiff.txt	Cardiff East Moors walk	resolved	51.4742	-3.1409	coastal_walk	WCP embankment beside East Moors / Celsa steel belt (matches steelworks coast path rows)
+277	cardiff.txt	Cardiff West Moors walk	resolved	51.4540	-3.1880	coastal_walk	Western bay moor / Ely–Grangemoor reclaimed margin (matches Cardiff West Moors area)
+278	cardiff.txt	Cardiff Channel View walk	resolved	51.4580	-3.1808	coastal_walk	Channel View estate active-travel links toward bay (matches Channel View spine)
+279	cardiff.txt	Cardiff Grangemoor walk	resolved	51.4566	-3.1900	coastal_walk	Park paths / Taff Trail links around Grangemoor Park (matches Grangemoor Park centroid)
+280	cardiff.txt	Cardiff St Marys walk	ambiguous			coastal_walk	St Marys coastal labels ambiguous in this corpus; walk name does not pick a single alignment
+281	cardiff.txt	Cardiff foreshore path	ambiguous			coastal_path	Umbrella label across barrage, Rumney, inner-bay paths; no single path centroid
+282	cardiff.txt	Cardiff tidal path	ambiguous			coastal_path	Generic tidal-margin path wording spanning many separate routes
+283	cardiff.txt	Cardiff mud path	resolved	51.5092	-3.1215	mudflat_path	Representative Rhymney–Wentlooge intertidal belt (matches Cardiff mud shore row)
+284	cardiff.txt	Cardiff shingle path	resolved	51.5105	-3.1195	shingle_path	Representative open-coast shingle margin east of Rumney (matches Cardiff shingle shore row)
+285	cardiff.txt	Cardiff industrial coast	resolved	51.4725	-3.1480	industrial_coast	East Moors–Queen Alexandra reclaimed industrial foreshore belt
+286	cardiff.txt	Cardiff regenerated coast	resolved	51.4645	-3.1645	waterfront	Regenerated Cardiff Bay civic/docklands frontage (matches central waterfront walk belt)
+287	cardiff.txt	Cardiff historic docks coast	resolved	51.4655	-3.1660	docklands_coast	Butetown / Tiger Bay listed docklands waterfront (matches Cardiff docks walk)
+288	cardiff.txt	Cardiff coal dock coast	resolved	51.45748	-3.15571	dock_coast	Historical coal-handling belt centred on Queen Alexandra Dock complex
+289	cardiff.txt	Cardiff export dock coast	resolved	51.4520	-3.1580	dock_coast	Outer tidal harbour / export dock approaches (matches outer harbour / tidal harbour rows)
+290	cardiff.txt	Queen Alexandra coal dock	resolved	51.45748	-3.15571	dock_coal	Historic coal berth cluster within Queen Alexandra Dock footprint (same belt as QA Dock rows)
+291	cardiff.txt	East Moors steel coast	resolved	51.4788	-3.1405	industrial_foreshore	CELSA / former East Moors steelworks tidal margin (matches Celsa steelworks foreshore)
+292	cardiff.txt	Pengam marsh coast	resolved	51.4840	-3.1320	marsh_coast	Morfa Pengam / east bay reclaimed marsh margin
+293	cardiff.txt	Pengam Moors marsh	resolved	51.4845	-3.1290	marsh	Pengam Moors intertidal and reclaimed moor belt (matches Pengam Moors centroid)
+294	cardiff.txt	Tremorfa marsh coast	resolved	51.4810	-3.1380	marsh_coast	Tremorfa reclaimed foreshore / east bay margin (matches Tremorfa waterfront)
+295	cardiff.txt	Morfa Tremorfa	resolved	51.4900	-3.1400	marsh	Welsh morfa (marsh) belt at Tremorfa–Rhymney margin (ward coastal reading)
+296	cardiff.txt	Splott marsh approach	resolved	51.4720	-3.1540	marsh_margin	Splott–Rhymney industrial margin toward Wentloog Levels (matches Splott waterfront)
+297	cardiff.txt	Rumney marsh mouth	resolved	51.4885	-3.1223	river_mouth_marsh	Rhymney tidal mouth reach with fringing marsh (matches Rumney River mouth row)
+298	cardiff.txt	Wentloog Levels threshold Rumney	resolved	51.5078	-3.1172	levels_junction	Representative seawall / level belt where Wentlooge meets Rumney Great Wharf corridor (matches Rumney Great Wharf shore)
+299	cardiff.txt	Cardiff Levels edge	resolved	51.5050	-3.1120	levels_edge	Eastern Cardiff margin on Wentloog/Gwent Levels seawall belt toward Rumney
+300	cardiff.txt	Rhymney tidal mud	resolved	51.4890	-3.1210	mudflat	Intertidal mud off Rhymney estuary (matches Rumney mudflats row)
+301	cardiff.txt	Severn mud Cardiff	resolved	51.5050	-3.1180	mudflat	Open Severn estuary mud belt off eastern Cardiff (Wentloog–Rhymney corridor; aligns with Levels-edge rows)
+302	cardiff.txt	Bristol mud Cardiff	resolved	51.4525	-3.1480	mudflat	Bristol Channel intertidal approaches east of barrage (matches Cardiff Bay mudflats row)
+303	cardiff.txt	Channel silt Cardiff	resolved	51.4550	-3.1350	silt_flat	Bristol Channel / outer bay silt–mud transition belt (estuary-shore reading in this corpus)
+304	cardiff.txt	Estuary silt Cardiff	resolved	51.4525	-3.1480	silt_flat	Outer tidal harbour / estuary silt margin (paired mudflat belt east of barrage)
+305	cardiff.txt	Cardiff wading shore	ambiguous			foreshore	Label spans inner-bay wetlands, mudflats east, and barrage margins; no single wading belt
+306	cardiff.txt	Cardiff birding shore	resolved	51.4598	-3.1702	foreshore	Centred on Cardiff Bay Wetlands Reserve / public boardwalk birding belt (matches reserve rows)
+307	cardiff.txt	Cardiff angling shore	ambiguous			foreshore	Angling access spread across barrage, Rumney, Wentlooge, and inner-bay margins
+308	cardiff.txt	Cardiff sea fishing shore	ambiguous			foreshore	Shore fishing vs charter/launch sites not pinned by this generic label
+309	cardiff.txt	Cardiff rock armour	resolved	51.4478	-3.1645	sea_defence	Representative rock-armour line on Cardiff Bay Barrage / outer embankment engineering belt
+310	cardiff.txt	Cardiff sea wall	ambiguous			sea_defence	Many seawalls (barrage, docks, Wentloog levels); generic label does not pick one structure
+311	cardiff.txt	Cardiff flood wall	ambiguous			flood_defence	City has multiple flood-defence schemes and lengths; not one named “flood wall” centroid
+312	cardiff.txt	Cardiff barrage embankment	resolved	51.44812	-3.1647	barrage	Cardiff Bay Barrage main embankment (Wikipedia / Wikidata engineering coordinate)
+313	cardiff.txt	Cardiff Bay embankment	resolved	51.4480	-3.1645	embankment	Impounding embankment belt of Cardiff Bay (barrage axis; matches prior barrage rows)
+314	cardiff.txt	Taff flood barrier mouth	resolved	51.4632	-3.1771	flood_barrier	River Taff mouth reach into impounded bay; flood-management reading paired with Taff mouth rows (approximate mouth pin)
+315	cardiff.txt	Ely flood barrier mouth	resolved	51.4560	-3.1740	flood_barrier	River Ely mouth reach into bay; flood-management reading paired with Ely mouth rows
+316	cardiff.txt	Cardiff coastal defence	ambiguous			sea_defence	Umbrella for barrage, seawalls, and level defences—too broad for one representative pin
+317	cardiff.txt	Cardiff shoreline	ambiguous			shoreline	Entire city coastline from Ely to Wentloog; not one feature
+318	cardiff.txt	Cardiff seafront urban	resolved	51.4645	-3.1645	waterfront	Regenerated central bay / docklands seafront belt (matches Cardiff regenerated coast row)
+319	cardiff.txt	Cardiff promenade Barrage	resolved	51.4478	-3.1645	promenade	Public promenade on Cardiff Bay Barrage (matches barrage walk row)
+320	cardiff.txt	Cardiff esplanade Barrage	resolved	51.4478	-3.1645	promenade	Barrage public esplanade / open space (same engineering frontage as promenade row)
+321	cardiff.txt	Cardiff quayside Mermaid	resolved	51.4634	-3.1652	quayside	Mermaid Quay retail waterfront (matches Mermaid Quay row)
+322	cardiff.txt	Cardiff quayside Teigr	resolved	51.4619	-3.1574	quayside	Porth Teigr redevelopment quay frontage (matches Porth Teigr rows)
+323	cardiff.txt	Cardiff quayside Atlantic	resolved	51.4764	-3.1665	quayside	Atlantic Wharf quarter waterfront (OSM Atlantic Wharf; set back from main docks)
+324	cardiff.txt	Cardiff quayside Roath	resolved	51.4631	-3.1587	quayside	Roath Basin / Roath Dock quayside belt (matches Roath Basin dock row)
+325	cardiff.txt	Cardiff quayside Bute	resolved	51.4639	-3.1642	quayside	Inner Bute docklands quay frontage (Roald Dahl Plass / inner bay reading)
+326	cardiff.txt	Cardiff quayside Custom House	resolved	51.4624	-3.1616	quayside	Custom House Cardiff Bay waterfront (matches Custom House Cardiff Bay row)
+327	cardiff.txt	Cardiff landing stage	resolved	51.4635	-3.1652	landing	Representative trip-boat / ferry pick-up belt at Mermaid Quay–Pierhead (matches Cardiff Bay boat trips row)
+328	cardiff.txt	Cardiff passenger pontoon	resolved	51.4635	-3.1652	pontoon	Public passenger pontoon belt central bay (same commercial waterfront as landing stage row)
+329	cardiff.txt	Cardiff trip boat dock	resolved	51.4635	-3.1652	dock	Mermaid Quay / central bay excursion pick-up belt (matches Cardiff Bay boat trips row)
+330	cardiff.txt	Cardiff water taxi stop	ambiguous			transit_stop	Water-bus serves multiple stops (Mermaid, barrage, Channel View, etc.); no single canonical stop
+331	cardiff.txt	Cardiff Bay bus Baycar	resolved	51.4671	-3.1665	transit_corridor	Cardiff Bus Baycar (service 6) hubbed on Cardiff Bay station / Lloyd George Avenue corridor; station coordinate (Wikipedia/Wikidata)
+332	cardiff.txt	Cardiff Bay station shore	resolved	51.4656	-3.1648	foreshore	Inner impounded bay margin south/west of Cardiff Bay railway station toward Roald Dahl Plass frontage (approximate shore pin from station reading)
+333	cardiff.txt	Cardiff Bay train station walk	resolved	51.4664	-3.1657	pedestrian_link	Midpoint along typical walk from Cardiff Bay station (51.4671,-3.1665) to central bay waterfront
+334	cardiff.txt	Grangetown station bay walk	resolved	51.4658	-3.1778	pedestrian_link	Midpoint from Grangetown station (51.4675,-3.1897) toward inner Cardiff Bay shore (Grangetown–bay link reading)
+335	cardiff.txt	Cardiff Bay Docks station heritage	resolved	51.4671	-3.1665	heritage_station	Grade II* former Bute Road / Cardiff Bay docks terminus building & platform area (Wikipedia coordinate)
+336	cardiff.txt	Cardiff waterfront cafés Mermaid	resolved	51.4634	-3.1652	cafe_waterfront	Mermaid Quay food court belt; matches prior Mermaid Quay / quayside Mermaid pins
+337	cardiff.txt	Cardiff waterfront bars Mermaid	resolved	51.4634	-3.1652	bar_waterfront	Same Mermaid Quay hospitality frontage as line 336 (distinct row per source list)
+338	cardiff.txt	Cardiff waterfront restaurants Mermaid	resolved	51.4634	-3.1652	restaurant_waterfront	Same Mermaid Quay dining frontage as lines 336–337
+339	cardiff.txt	Cardiff Norwegian Church garden	resolved	51.4615	-3.1619	garden	Harbour Drive church grounds margin (Norwegian Church Arts Centre Wikipedia coordinate neighbourhood)
+340	cardiff.txt	Cardiff Pierhead lawn	resolved	51.46353	-3.16341	open_space	Pierhead Building public lawn / Roald Dahl Plass margin (Pierhead Wikipedia coordinate)
+341	cardiff.txt	Cardiff Senedd frontage	resolved	51.463889	-3.162111	building_frontage	Senedd building public waterfront frontage (Wikidata coordinate)
+342	cardiff.txt	Cardiff Millennium forecourt	resolved	51.46504	-3.16353	plaza	Wales Millennium Centre forecourt / public realm (Wikipedia coordinate)
+343	cardiff.txt	Cardiff Roald Dahl basin	resolved	51.4639	-3.1642	plaza_basin	Roald Dahl Plass dock basin (matches Roald Dahl Plass / inner Bute quay rows)
+344	cardiff.txt	Cardiff The Flourish steps	resolved	51.4656	-3.1644	steps	The Flourish dock basin access steps (OSM Flourish coordinate)
+345	cardiff.txt	Cardiff Mount Stuart cobbles	resolved	51.4659	-3.1684	square	Mount Stuart Square conservation-area cobbles (OSM square centroid)
+346	cardiff.txt	Cardiff James Street harbour	resolved	51.4642	-3.1718	street_harbour	James Street Grangetown–bay harbour link (matches James Street waterfront row)
+347	cardiff.txt	Cardiff Bute Street harbour	resolved	51.4652	-3.1668	street_harbour	South Bute Street approach to inner docks (matches Bute Street waterfront row)
+348	cardiff.txt	Cardiff Lloyd George vista	resolved	51.4634	-3.1630	street_vista	Lloyd George Avenue bay-linked southern section (matches Lloyd George Avenue waterfront row)
+349	cardiff.txt	Cardiff Schooner vista	resolved	51.4669	-3.1634	street_vista	Schooner Way Atlantic Wharf / leisure quarter spine (matches Schooner Way waterfront row)
+350	cardiff.txt	Cardiff Havannah vista	resolved	51.4738	-3.1486	street_vista	Havannah Street East Moors / Pengam edge corridor (matches Havannah Street waterfront row)
+351	cardiff.txt	Cardiff Ocean Way vista	resolved	51.4723	-3.1441	street_vista	Ocean Way interchange / Eastern Bay Link roundabout belt (Wikipedia A4232 coordinate)
+352	cardiff.txt	Cardiff Rover vista	resolved	51.4770	-3.1435	street_vista	Rover Way East Moors logistics belt toward Rhymney–bay margin (matches Rover Way waterfront row)
+353	cardiff.txt	Cardiff Ferry vista	resolved	51.4577	-3.1847	street_vista	Ferry Road Grangetown / Windsor Quay retail park corridor (MapQuest street centroid; coastal-list “Ferry” reading)
+354	cardiff.txt	Cardiff Lamby vista	resolved	51.4931	-3.1338	street_vista	Lamby Way / Rover Way–Lamby Way roundabout belt toward estuary (Wikipedia A4232 coordinate)
+355	cardiff.txt	Cardiff Rumney vista	resolved	51.50895	-3.13251	street_vista	Rumney community centroid toward Rhymney–estuary belt (Wikipedia/Wikidata; matches Rumney ward rows)
+356	cardiff.txt	Cardiff Newton vista	resolved	51.49983	-3.09616	street_vista	Newton (Cardiff) eastern suburb toward Wentlooge Levels coast (OS Open Names centroid)
+357	cardiff.txt	Cardiff Pengam vista	resolved	51.4833	-3.1333	street_vista	Pengam / Pengam Moors locality centre (matches Pengam row)
+358	cardiff.txt	Cardiff Tremorfa vista	resolved	51.4900	-3.1400	street_vista	Tremorfa district centroid toward east-bay industrial margin (Wikipedia infobox coordinate)
+359	cardiff.txt	Cardiff Splott vista	resolved	51.4838	-3.1515	street_vista	Splott–docks margin Wales Coast Path corridor (matches WCP Splott row)
+360	cardiff.txt	Cardiff East Moors vista	resolved	51.4725	-3.1480	street_vista	East Moors reclaimed docklands belt (matches East Moors / industrial coast rows)
+361	cardiff.txt	Cardiff West Moors vista	resolved	51.4540	-3.1880	street_vista	Western bay moor / reclaimed belt (matches Cardiff West Moors and West Moors walk rows)
+362	cardiff.txt	Cardiff Grangetown vista	resolved	51.4675	-3.1853	street_vista	Grangetown ward centroid toward bay margin (matches Grangetown row)
+363	cardiff.txt	Cardiff Channel vista	resolved	51.4580	-3.1808	street_vista	Channel View estate spine toward bay (matches Channel View row)
+364	cardiff.txt	Cardiff Taff vista	resolved	51.4662	-3.1754	street_vista	River Taff western embankment corridor (matches Taff Embankment row)
+365	cardiff.txt	Cardiff Ely vista	resolved	51.4560	-3.1740	street_vista	Ely River mouth reach into Cardiff Bay (matches Ely mouth rows)
+366	cardiff.txt	Cardiff Rhymney vista	resolved	51.4885	-3.1223	street_vista	Afon Rhymni–Severn mouth reach (matches Cardiff Rhymney mouth / Rhymney foreshore rows)
+367	cardiff.txt	Cardiff Severn vista	resolved	51.5050	-3.1180	street_vista	Open Severn estuary mudflat belt off eastern Cardiff (matches Severn mud Cardiff row)
+368	cardiff.txt	Cardiff Bristol Channel vista	resolved	51.5100	-3.1265	street_vista	Outer Bristol Channel / estuary frontage east of Rumney (matches Bristol Channel Cardiff shore row)

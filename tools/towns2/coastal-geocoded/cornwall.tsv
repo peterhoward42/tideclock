@@ -1,31 +1,452 @@
 line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
-1	cornwall.txt	Bude	resolved	50.8244	-4.5413	town	WGS84; town centre / harbour area
-2	cornwall.txt	Summerleaze	resolved	50.8312	-4.552	beach	Summerleaze Beach, Bude; approximate beach mid-point
-3	cornwall.txt	Crooklets	resolved	50.8358	-4.554	beach	Crooklets Beach, Bude
-4	cornwall.txt	Widemouth Bay	resolved	50.7899	-4.5546	beach	Bay / village area on north coast
-5	cornwall.txt	Millook	resolved	50.7713	-4.5759	beach	Millook Haven / beach at valley mouth
-6	cornwall.txt	Crackington Haven	resolved	50.7445	-4.6377	village	Coastal village at head of cove
-7	cornwall.txt	Boscastle	resolved	50.6838	-4.6938	village	Harbour village
-8	cornwall.txt	Forrabury	resolved	50.6865	-4.6971	church	St Symphorian (Forrabury), historic Forrabury focus above Boscastle
-9	cornwall.txt	Trevalga	resolved	50.6782	-4.7173	hamlet	St Petroc’s church / clifftop hamlet
-10	cornwall.txt	Bossiney	resolved	50.6664	-4.7400	village	Tintagel parish; inland village centre
-11	cornwall.txt	Bossiney Cove	resolved	50.6710	-4.7350	cove	Bossiney Haven / cove below Bossiney
-12	cornwall.txt	Tintagel	resolved	50.6630	-4.7500	village	Trevena / Tintagel village
-13	cornwall.txt	Trebarwith Strand	resolved	50.6447	-4.7618	beach	Main sandy beach at Trebarwith Strand
-14	cornwall.txt	Port Isaac	resolved	50.5933	-4.8314	village	Fishing village / harbour
-15	cornwall.txt	Port Gaverne	resolved	50.5926	-4.8227	hamlet	Cove east of Port Isaac
-16	cornwall.txt	Port Quin	resolved	50.5888	-4.8678	cove	Sheltered inlet / hamlet
-17	cornwall.txt	Treligga	resolved	50.6375	-4.7663	hamlet	Inland hamlet / Treligga Common area (distinct from Tregardock beach)
-18	cornwall.txt	Tregardock Beach	resolved	50.6220	-4.7730	beach	Secluded beach below Tregardock
-19	cornwall.txt	Polzeath	resolved	50.5724	-4.9148	beach	Resort village beach
-20	cornwall.txt	Daymer Bay	resolved	50.5604	-4.9268	beach	Camel estuary east shore
-21	cornwall.txt	Trebetherick	resolved	50.5669	-4.9187	village	Village west of Daymer Bay
-22	cornwall.txt	Rock	resolved	50.5444	-4.9188	village	Camel estuary; ferry side settlement
-23	cornwall.txt	Porthilly	resolved	50.5416	-4.9131	settlement	Porthilly Cove / St Michael’s area south of Rock
-24	cornwall.txt	Padstow	resolved	50.5380	-4.9380	town	Fishing port / town on Camel west bank
-25	cornwall.txt	Trevone	resolved	50.5421	-4.9751	village	Seaside village and bay near Padstow
-26	cornwall.txt	Harlyn Bay	resolved	50.5394	-4.9948	beach	Main bay beach (Seven Bays area)
-27	cornwall.txt	Mother Iveys Bay	resolved	50.5467	-5.0165	beach	Same feature as Mother Ivey’s Bay; Wikipedia beach coord
-28	cornwall.txt	Boobys Bay	resolved	50.5392	-5.0268	beach	Booby’s Bay west of Trevose Head
-29	cornwall.txt	Constantine Bay	resolved	50.5318	-5.0261	beach	Sandy beach / bay (surf-beach centroid)
-30	cornwall.txt	Treyarnon Bay	resolved	50.5241	-5.0271	beach	South of Constantine; family bay
+1	cornwall.txt	Bude	resolved	50.8285252	-4.5469361	town	Nominatim (town).
+2	cornwall.txt	Summerleaze	resolved	50.8309395	-4.5528062	beach	Nominatim (natural=beach; Summerleaze Beach, Bude).
+3	cornwall.txt	Crooklets	resolved	50.8357333	-4.5548794	beach	Nominatim query “Crooklets Beach, Bude” (coastal pin; avoids highway centroid).
+4	cornwall.txt	Widemouth Bay	resolved	50.7919391	-4.5537043	village	Nominatim (village at the bay).
+5	cornwall.txt	Millook	resolved	50.7710435	-4.5756142	hamlet	Nominatim.
+6	cornwall.txt	Crackington Haven	resolved	50.7403071	-4.6319668	village	Nominatim.
+7	cornwall.txt	Boscastle	resolved	50.6895365	-4.6923690	village	Nominatim.
+8	cornwall.txt	Forrabury	resolved	50.6848	-4.6996	hamlet	Approximate hamlet centre near Boscastle; no clean single OSM place node.
+9	cornwall.txt	Trevalga	resolved	50.6781982	-4.7174073	church	Nominatim (St Petroc, Trevalga).
+10	cornwall.txt	Bossiney	resolved	50.6672371	-4.7399913	hamlet	Nominatim.
+11	cornwall.txt	Bossiney Cove	resolved	50.6710	-4.7350	bay	Wikipedia coords for Bossiney Haven (same cove); Nominatim only had car-park POI.
+12	cornwall.txt	Tintagel	resolved	50.660833	-4.753611	village	Wikipedia coordinate centre; Nominatim only returned parish boundary.
+13	cornwall.txt	Trebarwith Strand	resolved	50.6447288	-4.7603626	village	Nominatim.
+14	cornwall.txt	Port Isaac	resolved	50.5938787	-4.8299895	village	Nominatim.
+15	cornwall.txt	Port Gaverne	resolved	50.5926575	-4.8226899	hamlet	Nominatim.
+16	cornwall.txt	Port Quin	resolved	50.5887764	-4.8672073	hamlet	Nominatim.
+17	cornwall.txt	Treligga	resolved	50.6268399	-4.7576376	village	Nominatim.
+18	cornwall.txt	Tregardock Beach	resolved	50.6240515	-4.7705950	beach	Nominatim.
+19	cornwall.txt	Polzeath	resolved	50.5728393	-4.9149007	village	Nominatim.
+20	cornwall.txt	Daymer Bay	resolved	50.5601897	-4.9293705	beach	Nominatim.
+21	cornwall.txt	Trebetherick	resolved	50.5662308	-4.9221963	village	Nominatim.
+22	cornwall.txt	Rock	resolved	50.5446768	-4.9118108	village	Nominatim (“Rock Cornwall” → village).
+23	cornwall.txt	Porthilly	resolved	50.5416120	-4.9131266	church	St Michael’s Church, Porthilly (OSM); small coastal hamlet by Rock.
+24	cornwall.txt	Padstow	resolved	50.5398384	-4.9371885	harbour	Padstow Harbour Hotel / harbour front (Nominatim tourism POI).
+25	cornwall.txt	Trevone	resolved	50.5410489	-4.9746684	village	Nominatim.
+26	cornwall.txt	Harlyn Bay	resolved	50.5420769	-4.9990655	beach	Nominatim.
+27	cornwall.txt	Mother Iveys Bay	resolved	50.5467	-5.0165	beach	Wikipedia coordinate centre; OSM lacked a clear beach hit.
+28	cornwall.txt	Boobys Bay	resolved	50.5379995	-5.0271844	beach	Nominatim (Booby’s Bay, Treyarnon).
+29	cornwall.txt	Constantine Bay	resolved	50.5300794	-5.0118451	village	Nominatim (village at the bay).
+30	cornwall.txt	Treyarnon Bay	resolved	50.5286356	-5.0177396	bay	Nominatim tourism POI on bay (no separate beach polygon hit).
+31	cornwall.txt	Porthcothan	resolved	50.5086080	-5.0223532	hamlet	Nominatim.
+32	cornwall.txt	Mawgan Porth	resolved	50.4648653	-5.0319277	village	Nominatim.
+33	cornwall.txt	Bedruthan Steps	resolved	50.4861929	-5.0341412	attraction	Nominatim (tourism attraction node).
+34	cornwall.txt	Trevose Head	resolved	50.5492212	-5.0352132	headland	Nominatim (lighthouse / head feature on Trevose Head).
+35	cornwall.txt	Stepper Point	resolved	50.5690504	-4.9451437	headland	Nominatim (natural=cape near Padstow).
+36	cornwall.txt	Hawkers Cove	resolved	50.5604	-4.9491	cove	Wikipedia coordinate centre (Hawker’s Cove, Padstow); no Nominatim hit for this spelling.
+37	cornwall.txt	Greenaway Beach	resolved	50.5676803	-4.9272606	beach	Nominatim.
+38	cornwall.txt	Watergate Bay	resolved	50.4451496	-5.0559785	bay	Nominatim (bay relation centroid).
+39	cornwall.txt	Whipsiderry	resolved	50.4307621	-5.0552703	beach	Nominatim (Whipsiderry Beach, Newquay).
+40	cornwall.txt	Newquay	resolved	50.4136251	-5.0843364	town	Nominatim (admin boundary centroid).
+41	cornwall.txt	Fistral Beach	resolved	50.4182891	-5.1003122	beach	Nominatim.
+42	cornwall.txt	Tolcarne Beach	resolved	50.4185314	-5.0751544	beach	Nominatim.
+43	cornwall.txt	Great Western Beach	resolved	50.4168654	-5.0796288	beach	Nominatim.
+44	cornwall.txt	Towan Beach	resolved	50.4167752	-5.0846229	beach	Nominatim.
+45	cornwall.txt	Lusty Glaze	resolved	50.4232378	-5.0676224	beach	Nominatim (Lusty Glaze Beach).
+46	cornwall.txt	Crantock Beach	resolved	50.4072773	-5.1223413	beach	Nominatim.
+47	cornwall.txt	Crantock	resolved	50.4016152	-5.1101229	village	Nominatim (village node).
+48	cornwall.txt	Porth Joke	resolved	50.4031410	-5.1383213	beach	Nominatim.
+49	cornwall.txt	Holywell Bay	resolved	50.3945005	-5.1505116	bay	Nominatim (bay relation centroid).
+50	cornwall.txt	Penhale Sands	ambiguous			beach	Nominatim only surfaced a military site on the dunes; no clean public beach polygon; left unset rather than pin the base.
+51	cornwall.txt	Perranporth	resolved	50.3444208	-5.1538440	village	Nominatim.
+52	cornwall.txt	Perran Sands	resolved	50.3583460	-5.1431307	beach	Nominatim (Perran Sands Holiday Camp on the dunes; nearest named coastal POI).
+53	cornwall.txt	Perranzabuloe	resolved	50.3264405	-5.1330165	village	Nominatim (civil parish centroid).
+54	cornwall.txt	Cligga Head	resolved	50.338056	-5.180556	headland	Literature coords for Cligga Head (Perranporth–St Agnes coast); no Nominatim hit.
+55	cornwall.txt	St Agnes	resolved	50.2951351	-5.2009211	village	Nominatim (St. Agnes parish boundary centroid).
+56	cornwall.txt	Chapel Porth	resolved	50.3002683	-5.2346450	beach	Nominatim “Chapel Porth Beach, St Agnes” (avoids distant Porth Chapel hit).
+57	cornwall.txt	Trevaunance Cove	resolved	50.3206730	-5.2017612	beach	Nominatim.
+58	cornwall.txt	Wheal Coates	resolved	50.3054094	-5.2319006	attraction	Nominatim (Wheal Coates Tin Mine ruins).
+59	cornwall.txt	Porthtowan	resolved	50.2849880	-5.2393102	village	Nominatim.
+60	cornwall.txt	Dead Mans Cove	resolved	50.2438134	-5.3269306	beach	WGS84 from OSGB grid ref SW 6289 4350 as 162890 E / 43500 N (North Cliffs / Deadmans Cove, beach guide); no Nominatim hit.
+61	cornwall.txt	Gwithian Towans	resolved	50.2214	-5.3865	beach	Wikipedia coords for Gwithian (village); backs the Gwithian Towans dune beach; Nominatim only surfaced a bus stop name collision.
+62	cornwall.txt	Gwithian	resolved	50.2208769	-5.3857959	hamlet	Nominatim (hamlet node).
+63	cornwall.txt	Godrevy	resolved	50.2424441	-5.4002723	lighthouse	Nominatim (Godrevy Lighthouse); bus stop ranked first for bare “Godrevy”.
+64	cornwall.txt	Godrevy Towans	resolved	50.2321922	-5.3850185	locality	Nominatim (place=locality).
+65	cornwall.txt	Three Mile Beach	resolved	50.221771	-5.394587	beach	Listing/address coords for Three Mile House, Gwithian Towans TR27 5GE; informal name on the Gwithian strand; no OSM feature.
+66	cornwall.txt	Mexico Towans	resolved	50.1950745	-5.4264498	locality	Nominatim has no “Mexico Towans”; used Riviere Towans hamlet (Mexico Lane / Riviere Towans area).
+67	cornwall.txt	Hayle	resolved	50.1871402	-5.4178169	town	Nominatim (town administrative boundary).
+68	cornwall.txt	Copperhouse	resolved	50.1881447	-5.4089326	suburb	Nominatim (suburb).
+69	cornwall.txt	Phillack	resolved	50.1951113	-5.4108411	village	Nominatim (village node).
+70	cornwall.txt	Lelant	resolved	50.1840569	-5.4370229	village	Nominatim returns “Uny Lelant” (same settlement).
+71	cornwall.txt	Carbis Bay	resolved	50.1967914	-5.4646327	village	Nominatim (village node).
+72	cornwall.txt	Porth Kidney Sands	resolved	50.1949938	-5.4439635	beach	Nominatim (natural=beach polygon centroid).
+73	cornwall.txt	St Ives	resolved	50.2149064	-5.4795083	town	Nominatim (town administrative boundary).
+74	cornwall.txt	Porthmeor Beach	resolved	50.2162759	-5.4828783	beach	Nominatim (natural=beach).
+75	cornwall.txt	Porthgwidden Beach	resolved	50.2171918	-5.4761330	beach	Nominatim (natural=beach).
+76	cornwall.txt	Porthminster Beach	resolved	50.2090262	-5.4760535	beach	Nominatim (natural=beach).
+77	cornwall.txt	Bamaluz Beach	resolved	50.2157676	-5.4760138	beach	Nominatim (natural=beach).
+78	cornwall.txt	The Island	resolved	50.216311	-5.478849	island	Streetmap WGS84 for “The Island”, St Ives TR26; Nominatim’s top hit was the wrong “The Island” (Newquay).
+79	cornwall.txt	Zennor	resolved	50.1876896	-5.5732808	village	Nominatim (parish boundary centroid; village node also returned).
+80	cornwall.txt	Zennor Cove	resolved	50.1986351	-5.5715337	cove	Nominatim as Porthzennor Cove (local name Zennor Cove).
+81	cornwall.txt	Gurnards Head	resolved	50.1926738	-5.5990914	headland	Nominatim (Gurnard’s Head natural=cape); avoids bus stop / hotel POI.
+82	cornwall.txt	Nanjizal	resolved	50.0536436	-5.6927663	beach	Nominatim beach “Nanjizal or Mill Bay”; top hit was an unrelated Penzance building.
+83	cornwall.txt	Mill Bay	resolved	50.0536436	-5.6927663	beach	Nominatim beach “Nanjizal or Mill Bay” (OSM uses joint name for cove/beach).
+84	cornwall.txt	Sennen Cove	resolved	50.0776297	-5.7021570	village	Nominatim (village node).
+85	cornwall.txt	Sennen	resolved	50.0705894	-5.6950433	village	Nominatim (parish boundary centroid).
+86	cornwall.txt	Whitesand Bay	ambiguous			bay	Nominatim only returned a mis-anchored house name; no clean beach/bay polygon for the open bay.
+87	cornwall.txt	Land's End	resolved	50.0662633	-5.7148222	locality	Nominatim (locality node).
+88	cornwall.txt	Longships	resolved	50.0668684	-5.7468597	lighthouse	Nominatim (Longships lighthouse on the reef).
+89	cornwall.txt	Porthcurno	resolved	50.0476461	-5.6569816	village	Nominatim (village node).
+90	cornwall.txt	Pednvounder	resolved	50.0433620	-5.6411335	beach	Nominatim query “Pedn Vounder” (spelling variant).
+91	cornwall.txt	Logan Rock	resolved	50.0409091	-5.6368912	headland	Nominatim (locality node; Logan Rock near Treen).
+92	cornwall.txt	Porth Chapel	resolved	50.0392806	-5.6580448	beach	Nominatim (natural=beach).
+93	cornwall.txt	Porthgwarra	resolved	50.0377508	-5.6722109	hamlet	Nominatim (hamlet node).
+94	cornwall.txt	Mousehole	resolved	50.0839943	-5.5389614	village	Nominatim (village node).
+95	cornwall.txt	Penlee Point	resolved	50.0880000	-5.5320000	headland	Wikipedia coordinate centre (promontory SW of Mousehole); Nominatim conflates this name with Penlee Point, Rame.
+96	cornwall.txt	Newlyn	resolved	50.1062596	-5.5500155	village	Nominatim (village node).
+97	cornwall.txt	Wherrytown	resolved	50.1120720	-5.5422357	suburb	Nominatim (suburb of Penzance).
+98	cornwall.txt	Longrock	resolved	50.1286345	-5.5016989	village	Nominatim (village node).
+99	cornwall.txt	Penzance	resolved	50.1194794	-5.5352463	town	Nominatim (administrative boundary centroid).
+100	cornwall.txt	Marazion	resolved	50.1239321	-5.4727698	town	Nominatim (place=town node).
+101	cornwall.txt	St Michaels Mount	resolved	50.1175645	-5.4776149	island	Nominatim (place=island; Saint Michael’s Mount).
+102	cornwall.txt	Prussia Cove	resolved	50.1015133	-5.4182846	hamlet	Nominatim (hamlet).
+103	cornwall.txt	Perranuthnoe	resolved	50.1157120	-5.4364592	village	Nominatim (administrative boundary centroid).
+104	cornwall.txt	Eastern Green	ambiguous			locality	Nominatim only returns road segments named Eastern Green; coastal strip along Mount’s Bay is not a single POI.
+105	cornwall.txt	Praa Sands	resolved	50.1050101	-5.3854187	village	Nominatim (village node).
+106	cornwall.txt	Rinsey Cove	resolved	50.0931917	-5.3666382	beach	Nominatim (natural=beach named Rinsey beside Rinsey hamlet).
+107	cornwall.txt	Trewavas Head	resolved	50.0900000	-5.3600000	headland	Wikipedia gazetteer coords (List of UK locations: ~50.09°N 5.36°W; OS grid SW596267); no direct Nominatim coastal feature.
+108	cornwall.txt	Porthleven	resolved	50.0886863	-5.3048236	town	Nominatim (administrative boundary centroid).
+109	cornwall.txt	Loe Bar	resolved	50.0698740	-5.2945454	beach	Nominatim (natural=beach).
+110	cornwall.txt	Gunwalloe Fishing Cove	resolved	50.0557346	-5.2744097	beach	Nominatim postcode centroid TR12 7QB (Halzephron Beach / Gunwalloe Fishing Cove area).
+111	cornwall.txt	Gunwalloe	resolved	50.0537671	-5.2711170	parish	Nominatim (administrative boundary centroid).
+112	cornwall.txt	Church Cove Gunwalloe	resolved	50.0380549	-5.2676736	beach	Nominatim (Church Cove, Gunwalloe).
+113	cornwall.txt	Mullion Cove	resolved	50.0152524	-5.2583646	harbour	Nominatim hamlet Porth Mellin (inlet / harbour of Mullion Cove).
+114	cornwall.txt	Kynance Cove	resolved	49.9745312	-5.2278060	cove	Nominatim (tourism=viewpoint named Kynance Cove; avoids car-park centroid).
+115	cornwall.txt	Lizard Point	resolved	49.9588849	-5.2063788	headland	Nominatim (locality node).
+116	cornwall.txt	Cadgwith	resolved	49.9879391	-5.1803766	village	Nominatim (village node).
+117	cornwall.txt	Coverack	resolved	50.0224895	-5.0971985	village	Nominatim (village node).
+118	cornwall.txt	Kennack Sands	resolved	50.0061348	-5.1590050	beach	Nominatim (natural=beach).
+119	cornwall.txt	Downas Cove	resolved	50.0087113	-5.1217847	beach	Nominatim (natural=beach).
+120	cornwall.txt	Church Cove The Lizard	resolved	49.9711784	-5.1874871	bay	Nominatim (natural=bay Church Cove, Landewednack).
+121	cornwall.txt	Porthoustock	resolved	50.0562982	-5.0661298	village	Nominatim (village node).
+122	cornwall.txt	Porthallow	resolved	50.0678647	-5.0796265	hamlet	Nominatim (hamlet node).
+123	cornwall.txt	Helford	resolved	50.0931362	-5.1369699	village	Nominatim (village node).
+124	cornwall.txt	Helford Passage	resolved	50.1001724	-5.1290754	hamlet	Nominatim (hamlet node).
+125	cornwall.txt	Frenchmans Creek	resolved	50.0901649	-5.1496722	inlet	Nominatim (waterway=stream; tidal creek on Helford River).
+126	cornwall.txt	Durgan	resolved	50.1041012	-5.1159144	hamlet	Nominatim (hamlet node).
+127	cornwall.txt	Trebah	resolved	50.1061446	-5.1248802	hamlet	Nominatim (hamlet node; Trebah Garden nearby).
+128	cornwall.txt	Glendurgan	resolved	50.1077399	-5.1188194	locality	Nominatim (locality; Glendurgan Garden nearby).
+129	cornwall.txt	Bosahan	resolved	50.1394136	-5.0955758	house	Nominatim (named house “Bosahan”; estate landmark above Helford).
+130	cornwall.txt	Port Navas	resolved	50.1075580	-5.1444233	village	Nominatim (village “Porth Navas” / Port Navas).
+131	cornwall.txt	Mawnan	resolved	50.1168631	-5.1094584	village	Nominatim (village node Mawnan Smith; parish of Mawnan).
+132	cornwall.txt	Maenporth	resolved	50.1231257	-5.0938036	village	Nominatim (village node).
+133	cornwall.txt	Falmouth	resolved	50.1551905	-5.0723909	town	Nominatim (administrative boundary; town centroid).
+134	cornwall.txt	Gyllyngvase Beach	resolved	50.1440770	-5.0683649	beach	Nominatim (natural=beach).
+135	cornwall.txt	Swanpool Beach	resolved	50.1405171	-5.0764517	beach	Nominatim (natural=beach).
+136	cornwall.txt	Pendennis Point	resolved	50.1436111	-5.0427144	headland	Nominatim (locality node).
+137	cornwall.txt	Castle Beach	resolved	50.1472222	-5.0527778	beach	Published DMS 50.1472 N, 5.0528 W (360cornwall.uk); Nominatim only had bus stop.
+138	cornwall.txt	St Mawes	resolved	50.1586134	-5.0148258	village	Nominatim (village node “St. Mawes”).
+139	cornwall.txt	Place	ambiguous			hamlet	Generic name; Roseland shoreline hamlet not cleanly separated from road POIs in Nominatim.
+140	cornwall.txt	St Just in Roseland	resolved	50.1832292	-5.0074825	parish	Nominatim (administrative boundary; civil parish).
+141	cornwall.txt	St Anthony Head	resolved	50.1417096	-5.0144777	headland	Nominatim (natural=cape).
+142	cornwall.txt	Porthluney Cove	resolved	50.2369944	-4.8425395	cove	Nominatim (natural=beach “Porthluney Beach”; same cove).
+143	cornwall.txt	Tolverne	resolved	50.2190138	-5.0168432	locality	Nominatim (locality node).
+144	cornwall.txt	Veryan	resolved	50.2275177	-4.9045149	village	Nominatim (administrative boundary; parish village).
+145	cornwall.txt	Carne Beach	resolved	50.2060658	-4.9433421	beach	Nominatim (natural=beach “Carne and Pendower Beach”).
+146	cornwall.txt	Gorran Haven	resolved	50.2412337	-4.7927555	village	Nominatim (village node).
+147	cornwall.txt	Portmellon	resolved	50.2627349	-4.7867517	village	Nominatim (village node).
+148	cornwall.txt	Colona Beach	resolved	50.2554949	-4.7706502	beach	Nominatim (natural=beach).
+149	cornwall.txt	Mevagissey	resolved	50.2696687	-4.7872174	town	Nominatim (administrative boundary; town area).
+150	cornwall.txt	Pentewan	resolved	50.2921821	-4.7818900	village	Nominatim (village node).
+151	cornwall.txt	Porthpean	resolved	50.3215338	-4.7702712	hamlet	Nominatim (hamlet node “Higher Porthpean”; avoids wrong building hit for Hayle-area Porthpean).
+152	cornwall.txt	Charlestown	resolved	50.3329873	-4.7577601	village	Nominatim (village node).
+153	cornwall.txt	Duporth	resolved	50.3276077	-4.7614866	beach	Nominatim (natural=beach “Duporth Beach”).
+154	cornwall.txt	Par Sands	resolved	50.3428589	-4.6946786	beach	Nominatim (natural=beach).
+155	cornwall.txt	Par	resolved	50.3494152	-4.7050945	village	Nominatim (village node “Par”).
+156	cornwall.txt	Polkerris	resolved	50.3381927	-4.6810647	hamlet	Nominatim (hamlet node).
+157	cornwall.txt	Fowey	resolved	50.3351575	-4.6344292	town	Nominatim (administrative boundary; town area).
+158	cornwall.txt	Polruan	resolved	50.3286019	-4.6345762	village	Nominatim (village node).
+159	cornwall.txt	Readymoney Cove	resolved	50.3293883	-4.6453704	beach	Nominatim (natural=beach “Readymoney Cove Beach”).
+160	cornwall.txt	Lantic Bay	resolved	50.3283243	-4.6045252	beach	Nominatim (beach node).
+161	cornwall.txt	Lantivet Bay	ambiguous			bay	No Nominatim beach/bay hit; coastal bay east of Lantic toward Polperro—pin not chosen.
+162	cornwall.txt	Polperro	resolved	50.3315086	-4.5190177	village	Nominatim (village node).
+163	cornwall.txt	Talland Bay	resolved	50.3379958	-4.4973881	hamlet	Nominatim (hamlet node).
+164	cornwall.txt	East Looe	resolved	50.3545669	-4.4517948	village	Nominatim (village node).
+165	cornwall.txt	West Looe	resolved	50.3531094	-4.4583049	village	Nominatim (village node).
+166	cornwall.txt	Looe	resolved	50.3518739	-4.4527880	town	Nominatim (administrative boundary; town area).
+167	cornwall.txt	Millendreath	resolved	50.3618041	-4.4363952	locality	Nominatim (locality node).
+168	cornwall.txt	Seaton	resolved	50.3644515	-4.3862008	beach	Nominatim (natural=beach “Seaton Beach”; not the River Seaton waterway hit).
+169	cornwall.txt	Downderry	resolved	50.3619837	-4.3706938	village	Nominatim (village node).
+170	cornwall.txt	Freathy	resolved	50.3474539	-4.2515965	village	Nominatim (village node).
+171	cornwall.txt	Tregantle	resolved	50.3599619	-4.2708613	fort	Nominatim (highway=bus_stop named “Tregantle Fort”; coastal fort sector above Whitsand).
+172	cornwall.txt	Whitsand Bay	resolved	50.3612221	-4.3072070	beach	Nominatim (natural=beach “Finnygook Beach”; bay-sector pin—named office POI avoided).
+173	cornwall.txt	Tregonhawke	resolved	50.3399440	-4.2360340	hamlet	FindThatPostcode/IPN locality centroid; absent from Nominatim as a named place.
+174	cornwall.txt	Portwrinkle	resolved	50.3616293	-4.3112264	hamlet	Nominatim (hamlet node).
+175	cornwall.txt	Cremyll	resolved	50.3603996	-4.1758689	hamlet	Nominatim (hamlet node).
+176	cornwall.txt	Kingsand	resolved	50.3342449	-4.2006531	village	Nominatim (village node).
+177	cornwall.txt	Cawsand	resolved	50.3323268	-4.2027534	village	Nominatim (village node).
+178	cornwall.txt	Rame Head	resolved	50.3120850	-4.2230415	headland	Nominatim (locality node “Rame Head”).
+179	cornwall.txt	Treganhawke	ambiguous			hamlet	Likely alternate spelling for the Tregonhawke strip; no separate Nominatim hit—pass-1 not duplicating sibling coordinates.
+180	cornwall.txt	Whitsand	resolved	50.3617601	-4.3153259	cove	Nominatim (natural “Hoodny Cove”; coastal pin for generic “Whitsand” between Portwrinkle pins).
+181	cornwall.txt	Newquay harbour	resolved	50.4168044	-5.0873470	harbour	Nominatim (Newquay Harbour Slipway, South Quay Hill).
+182	cornwall.txt	Penzance harbour	resolved	50.1196266	-5.5303806	harbour	Nominatim (Albert Pier).
+183	cornwall.txt	Falmouth harbour	resolved	50.1568080	-5.0693611	harbour	Nominatim (Prince of Wales Pier).
+184	cornwall.txt	Fowey harbour	resolved	50.3327122	-4.6336168	harbour	Nominatim (Fowey Harbour, Town Quay).
+185	cornwall.txt	Looe harbour	resolved	50.3516855	-4.4527713	harbour	Nominatim (East Looe Harbour Walk seafront; waterfront proxy).
+186	cornwall.txt	Padstow harbour	resolved	50.5398384	-4.9371885	harbour	Nominatim (Padstow Harbour Hotel / harbour front).
+187	cornwall.txt	Hayle harbour	resolved	50.1901858	-5.4266371	harbour	Nominatim (North Quay, Hayle).
+188	cornwall.txt	St Ives harbour	resolved	50.2143356	-5.4766924	harbour	Nominatim (Smeaton’s Pier, St Ives).
+189	cornwall.txt	Mousehole harbour	resolved	50.0835141	-5.5390137	harbour	Nominatim (The Harbour, Mousehole).
+190	cornwall.txt	St Mawes harbour	resolved	50.1579738	-5.0149930	harbour	Nominatim (The Quay, St Mawes seafront).
+191	cornwall.txt	Mevagissey harbour	resolved	50.2693478	-4.7870779	harbour	Nominatim (West Wharf / harbour car park area).
+192	cornwall.txt	Boscastle harbour	resolved	50.6906648	-4.6954207	harbour	Nominatim (The Harbour Light, harbour front).
+193	cornwall.txt	Port Isaac harbour	resolved	50.5923258	-4.8317627	harbour	Nominatim (The Golden Lion, Fore Street—quay/harbour pool area).
+194	cornwall.txt	Fistral	resolved	50.4182891	-5.1003122	beach	Nominatim (Fistral Beach).
+195	cornwall.txt	Perranporth beach	resolved	50.3471122	-5.1540792	beach	Nominatim (Perranporth Surf School / beach road front).
+196	cornwall.txt	Watergate beach	resolved	50.4451496	-5.0559785	beach	Nominatim (Watergate Bay).
+197	cornwall.txt	Bude beach	resolved	50.8309395	-4.5528062	beach	Nominatim (Summerleaze Beach—main Bude beach).
+198	cornwall.txt	Sandymouth	resolved	50.8616227	-4.5544754	beach	Nominatim (Sandymouth Beach Cafe; beach access area).
+199	cornwall.txt	Northcott Mouth	resolved	50.8473545	-4.5526121	beach	Nominatim (Northcott Mouth access).
+200	cornwall.txt	Duckpool	resolved	50.8751472	-4.5591033	cove	Nominatim (Duckpool locality; coastal inlet).
+201	cornwall.txt	Tregardock	resolved	50.6240515	-4.7705950	cove	Nominatim (Tregardock hamlet; same coastal sector as Tregardock Beach).
+202	cornwall.txt	St Merryn	resolved	50.5266006	-4.9911880	village	Nominatim (St Merryn village).
+203	cornwall.txt	Harlyn	resolved	50.5420769	-4.9990655	beach	Nominatim (Harlyn Bay).
+204	cornwall.txt	Constantine	resolved	50.5300794	-5.0118451	beach	Nominatim (Constantine Bay settlement/beach sector).
+205	cornwall.txt	Treyarnon	resolved	50.5270133	-5.0252560	beach	Nominatim (Treyarnon Beach).
+206	cornwall.txt	Porth	resolved	50.4236994	-5.0560832	village	Nominatim (Porth, Newquay).
+207	cornwall.txt	Porthminster	resolved	50.2090262	-5.4760535	beach	Nominatim (Porthminster Beach).
+208	cornwall.txt	Porthmeor	resolved	50.2162759	-5.4828783	beach	Nominatim (Porthmeor Beach).
+209	cornwall.txt	Porthgwidden	resolved	50.2171918	-5.4761330	beach	Nominatim (Porthgwidden Beach).
+210	cornwall.txt	Mount's Bay	resolved	50.0436780	-5.4271625	bay	Nominatim (Mount’s Bay regional place).
+211	cornwall.txt	Carrick Roads	resolved	50.1720505	-5.0337981	bay	Nominatim (Carrick Roads).
+212	cornwall.txt	Helford River	resolved	50.0900415	-5.1789762	waterway	Nominatim (Helford River tidal channel).
+213	cornwall.txt	Camel Estuary	resolved	50.5398384	-4.9371885	estuary	Padstow harbour mouth; River Camel estuary (no single OSM place named Camel Estuary).
+214	cornwall.txt	Hayle Estuary	resolved	50.1908458	-5.4163947	estuary	Nominatim (Copperhouse Pool / Hayle tidal basin).
+215	cornwall.txt	Fal Estuary	resolved	50.2045419	-5.0382362	estuary	Nominatim (River Fal, Feock; upper Fal / Carrick Roads system).
+216	cornwall.txt	Fowey River	resolved	50.4587897	-4.5947689	waterway	Nominatim (River Fowey).
+217	cornwall.txt	Looe River	ambiguous			multiple_waterways	West Looe River vs East Looe River in OSM; no single combined hit for list name.
+218	cornwall.txt	Seaton Beach	resolved	50.3644515	-4.3862008	beach	Nominatim.
+219	cornwall.txt	Freathy Beach	resolved	50.3474539	-4.2515965	beach	Freathy village above Whitsand Bay; no dedicated OSM beach name.
+220	cornwall.txt	Downderry Beach	resolved	50.3605042	-4.3680738	beach	Nominatim.
+221	cornwall.txt	Millendreath Beach	resolved	50.3609330	-4.4369055	beach	Nominatim.
+222	cornwall.txt	Looe Beach	resolved	50.3520645	-4.4513512	beach	Nominatim (East Looe Beach).
+223	cornwall.txt	Polperro Harbour	resolved	50.3311765	-4.5177627	harbour	Nominatim (Polperro quay / harbour-front).
+224	cornwall.txt	Par Beach	resolved	50.3428589	-4.6946786	beach	Nominatim (Par Sands).
+225	cornwall.txt	Charlestown Beach	resolved	50.3310090	-4.7560601	harbour	Charlestown harbour front; no separate OSM beach name.
+226	cornwall.txt	Mevagissey Beach	resolved	50.2644571	-4.7838004	beach	Nominatim (Polkirt Beach, Mevagissey).
+227	cornwall.txt	Gorran Haven Beach	resolved	50.2412337	-4.7927555	beach	Gorran Haven village by shore; no distinct OSM beach name in results.
+228	cornwall.txt	Portloe	resolved	50.2184625	-4.8928681	village	Nominatim.
+229	cornwall.txt	Portloe Cove	ambiguous			cove	No clean Nominatim hit for the cove name (only Portloe village).
+230	cornwall.txt	Portholland	ambiguous			hamlet_pair	East Portholland vs West Portholland (Nominatim).
+231	cornwall.txt	Porthluney	resolved	50.2369944	-4.8425395	beach	Nominatim (Porthluney Beach).
+232	cornwall.txt	Porthallow Beach	resolved	50.0679877	-5.0795017	beach	Nominatim (Porthallow Beach access / parking).
+233	cornwall.txt	Coverack Beach	resolved	50.0224895	-5.0971985	beach	Coverack village by bay; no separate OSM beach name.
+234	cornwall.txt	Cadgwith Cove	resolved	49.9879391	-5.1803766	cove	Nominatim (Cadgwith village; cove at village).
+235	cornwall.txt	Kynance	resolved	49.9745312	-5.2278060	cove	Nominatim (Kynance Cove viewpoint).
+236	cornwall.txt	Lizard Village	resolved	49.9687683	-5.2039246	village	Nominatim (Lizard village).
+237	cornwall.txt	Mullion	resolved	50.0270603	-5.2427114	village	Nominatim (Mullion village).
+238	cornwall.txt	Porthleven Harbour	resolved	50.0850166	-5.3178482	harbour	Nominatim (harbour market / waterfront).
+239	cornwall.txt	Praa Sands Beach	resolved	50.1005580	-5.3827262	beach	Nominatim (Praa Sands).
+240	cornwall.txt	Marazion Beach	resolved	50.1239321	-5.4727698	beach	Marazion town by Mount’s Bay shore; no distinct OSM “Marazion Beach”.
+241	cornwall.txt	Longrock Beach	resolved	50.12891	-5.50067	beach	Wikipedia coords for Long Rock (Mounts Bay beach); Nominatim had no beach-named hit.
+242	cornwall.txt	Newlyn Harbour	resolved	50.1045	-5.5460	harbour	Judged harbour centroid from Nominatim pier / harbour-master POIs (Newlyn).
+243	cornwall.txt	Sennen Beach	resolved	50.0773807	-5.7018036	beach	Nominatim.
+244	cornwall.txt	Porthcurno Beach	resolved	50.0428437	-5.6504333	beach	Nominatim (beach).
+245	cornwall.txt	St Levan	resolved	50.0421534	-5.6607410	village	Nominatim (parish / place).
+246	cornwall.txt	Treen	resolved	50.0511063	-5.6417501	hamlet	Nominatim (Treen, TR19 — Logan Rock area; disambiguated from Zennor Treen).
+247	cornwall.txt	Pedn Vounder	resolved	50.0433620	-5.6411335	beach	Nominatim.
+248	cornwall.txt	Nanquidno	resolved	50.102	-5.689	hamlet	Wikipedia / valley sources; no clean Nominatim place hit.
+249	cornwall.txt	Cot Valley	resolved	50.1167800	-5.6912531	valley	Nominatim (locality).
+250	cornwall.txt	Aire Point	resolved	50.094859	-5.693472	headland	Ancient Penwith / Geograph SW358281; north of Sennen.
+251	cornwall.txt	Cape	resolved	50.1271554	-5.7098362	headland	Source “Cape” in west Penwith list → Cape Cornwall (Nominatim natural=cape).
+252	cornwall.txt	Priests Cove	resolved	50.1259905	-5.7060212	cove	Nominatim (“Priest’s Cove”, Cape Cornwall).
+253	cornwall.txt	Pendeen	resolved	50.1513312	-5.6652773	village	Nominatim (village; not lighthouse node).
+254	cornwall.txt	Portheras Cove	resolved	50.1642496	-5.6575232	beach	Nominatim.
+255	cornwall.txt	Morvah	resolved	50.1615256	-5.6385900	village	Nominatim (village node).
+256	cornwall.txt	Porthtowan Beach	resolved	50.2874638	-5.2417578	beach	Nominatim.
+257	cornwall.txt	Portreath	resolved	50.2608748	-5.2896777	village	Nominatim (administrative place).
+258	cornwall.txt	Portreath Beach	resolved	50.2619432	-5.2953249	beach	Nominatim.
+259	cornwall.txt	Western Cove	resolved	50.2607517	-5.303975	cove	Geograph SW6445 (Western Cove by Portreath); no Nominatim name hit.
+260	cornwall.txt	Ralphs Cupboard	resolved	50.2593533	-5.305702	cove	Geograph SW6445 WGS84 subject location; collapsed sea cave / zawn W of Portreath.
+261	cornwall.txt	Hell's Mouth	resolved	50.2374109	-5.3621049	bay	Nominatim.
+262	cornwall.txt	Navax Point	resolved	50.2379	-5.3918	headland	OS grid SW591434 / Godrevy Head literature; NE corner of Godrevy promontory.
+263	cornwall.txt	Trevellas Cove	resolved	50.323217	-5.196340	cove	Wikimedia / beach guides coords; Nominatim had no direct hit.
+264	cornwall.txt	Trevaunance	resolved	50.3206730	-5.2017612	cove	List name short for Trevaunance Cove (Nominatim beach).
+265	cornwall.txt	Blue Hills	resolved	50.3200692	-5.1923121	attraction	Nominatim “Blue Hills Tin Streams” (Trevellas area; cove also known as Blue Hills).
+266	cornwall.txt	Perran Bay	resolved	50.3624599	-5.1524330	bay	Nominatim “Perran Beach” (open shore of Perran Bay — avoids holiday-camp POI).
+267	cornwall.txt	Holywell	resolved	50.3867564	-5.1394866	hamlet	Nominatim (Holywell by Cubert / Holywell Bay).
+268	cornwall.txt	Crantock village	resolved	50.4016152	-5.1101229	village	Nominatim (village; “village” disambiguates from earlier Crantock rows).
+269	cornwall.txt	Penpol Creek	resolved	50.4030	-5.0965	stream	Judged confluence zone with River Gannel S of Crantock; Nominatim only had unrelated Penpol hits.
+270	cornwall.txt	Gannel Estuary	resolved	50.3988	-5.0842	estuary	Judged mid–tidal channel between Crantock and Newquay; river segments in Nominatim are upstream/downstream.
+271	cornwall.txt	Newquay Bay	resolved	50.4199398	-5.0792436	bay	Nominatim (natural=bay).
+272	cornwall.txt	Watergate	resolved	50.4451496	-5.0559785	bay	Nominatim Watergate Bay (list name “Watergate”).
+273	cornwall.txt	Bedruthan	resolved	50.4861929	-5.0341412	attraction	Nominatim tourism=attraction Bedruthan Steps.
+274	cornwall.txt	Treyarnon Bay Beach	resolved	50.5270133	-5.0252560	beach	Nominatim Treyarnon Beach (main sand of Treyarnon Bay).
+275	cornwall.txt	Constantine Bay Beach	resolved	50.5338141	-5.0248293	beach	Nominatim natural=beach Constantine Bay.
+276	cornwall.txt	Harlyn Bay Beach	resolved	50.5420769	-4.9990655	beach	Nominatim Harlyn Bay.
+277	cornwall.txt	Trevone Bay	resolved	50.5461078	-4.9789034	beach	Nominatim Trevone Beach (bay shoreline).
+278	cornwall.txt	Padstow Bay	resolved	50.5415000	-4.9620000	bay	Judged mid Camel Estuary / Padstow Bay; no OSM object with that name.
+279	cornwall.txt	Rock Beach	resolved	50.5432000	-4.9098000	beach	Judged sandy shore by Rock village / Camel ford; no OSM polygon named Rock Beach.
+280	cornwall.txt	Daymer Bay Beach	resolved	50.5601897	-4.9293705	beach	Nominatim Daymer Bay.
+281	cornwall.txt	Polzeath Beach	resolved	50.5730000	-4.9125000	beach	Approximate centre of main Polzeath sands; Nominatim top hit was a holiday park.
+282	cornwall.txt	Port Gaverne Beach	resolved	50.5931860	-4.8233789	beach	Nominatim Port Gaverne Beach.
+283	cornwall.txt	Port Isaac Beach	resolved	50.5925000	-4.8265000	beach	Judged harbour foreshore below Port Isaac (distinct from Port Gaverne to the north).
+284	cornwall.txt	Bossiney Haven	resolved	50.6716213	-4.7380091	beach	Nominatim Bossiney haven.
+285	cornwall.txt	Trebarwith	resolved	50.6447288	-4.7603626	village	Nominatim Trebarwith Strand.
+286	cornwall.txt	Tintagel Haven	resolved	50.6680000	-4.7580000	beach	Wikipedia / GeoHack Tintagel Haven (Castle Cove).
+287	cornwall.txt	Strangles Beach	resolved	50.7456000	-4.6167000	beach	Beach-guide OS grid SX13179542 converted to WGS84.
+288	cornwall.txt	Crackington	resolved	50.7403071	-4.6319668	village	Nominatim Crackington Haven (list shorthand “Crackington”).
+289	cornwall.txt	Henwick Cliff	not_found			cliff	No Cornwall gazetteer or Nominatim match; Dorset “Hen Cliff” is unrelated.
+290	cornwall.txt	Wanson Mouth	resolved	50.7803100	-4.5607800	beach	UK Fossils / SW coast photo location SS19260080.
+291	cornwall.txt	Black Rock Bude	resolved	50.8286000	-4.5417000	beach	Beach Guide OS grid SS19540121 (Black Rock end of Widemouth Bay).
+292	cornwall.txt	Upton	resolved	50.8151250	-4.5541377	hamlet	Nominatim Upton, Bude–Stratton.
+293	cornwall.txt	Flexbury	resolved	50.8345000	-4.5385000	suburb	Judged centroid of Flexbury (Bude); Nominatim only returned street-name hits.
+294	cornwall.txt	Marhamchurch	resolved	50.8052573	-4.5215489	village	Nominatim place=village Marhamchurch.
+295	cornwall.txt	Poundstock	resolved	50.7660776	-4.5513860	village	Nominatim place=village Poundstock.
+296	cornwall.txt	Widemouth	resolved	50.7919391	-4.5537043	village	Nominatim Widemouth Bay (list name “Widemouth”).
+297	cornwall.txt	Millook Haven	resolved	50.7710435	-4.5756142	cove	Millook hamlet centroid; OSM had no polygon named Millook Haven.
+298	cornwall.txt	Dizzard Point	resolved	50.7646000	-4.6027000	headland	Wikipedia / SSSI literature grid SX165993 (Dizzard Point).
+299	cornwall.txt	Higher Sharpnose Point	resolved	50.9042851	-4.5678316	headland	Nominatim natural=headland.
+300	cornwall.txt	Lower Sharpnose Point	resolved	50.8841100	-4.5604903	headland	Nominatim military ruin node at the point; no separate named headland polygon.
+301	cornwall.txt	Cambeak	resolved	50.7394899	-4.6532334	headland	Nominatim.
+302	cornwall.txt	Beeny Cliff	resolved	50.7034460	-4.6812167	cliff	Nominatim.
+303	cornwall.txt	Tregardock Point	resolved	50.6230560	-4.7713890	headland	British Beaches midpoint of Tregardock Beach (50°37′23″N 4°46′17″W); no Nominatim “point”.
+304	cornwall.txt	Tregardock Cliffs	resolved	50.6220644	-4.7633277	cliff	Cliffs above Tregardock; Nominatim hamlet centroid (no “Tregardock Cliffs” object).
+305	cornwall.txt	Port Quin Beach	resolved	50.5898000	-4.8665000	beach	Judged cove shoreline at Port Quin (NT); no OSM beach name hit.
+306	cornwall.txt	Lundy Bay	resolved	50.5823463	-4.8853297	bay	Nominatim tourism POI “Lundy Bay” (cove by coast path).
+307	cornwall.txt	Epphaven Cove	resolved	50.5890308	-4.9162919	cove	OS grid SW 9367 8065 (Cornwall Beaches) via EPSG:27700→4326; Nominatim had no hit.
+308	cornwall.txt	The Rumps	resolved	50.5920800	-4.9203000	headland	Wikipedia / GeoHack centre (SW934 810).
+309	cornwall.txt	Pentire Point East	resolved	50.5895000	-4.9270000	headland	Judged eastern knuckle of Pentire Head toward The Rumps; no separate Nominatim name.
+310	cornwall.txt	Pentire Point West	resolved	50.5840000	-4.9380000	headland	Judged western side of Pentire Head toward Polzeath; no separate Nominatim name.
+311	cornwall.txt	Polzeath Bay	resolved	50.5772471	-4.9196231	bay	Nominatim relation natural=beach “Hayle Bay” (bay at Polzeath); top “Polzeath Bay” hits were mismatched.
+312	cornwall.txt	Greenaway	resolved	50.5672041	-4.9257222	hamlet	Nominatim place=hamlet Greenaway.
+313	cornwall.txt	Trevone Beach	resolved	50.5461078	-4.9789034	beach	Nominatim.
+314	cornwall.txt	Mother Iveys	resolved	50.5467000	-5.0165000	beach	Same coastal feature as “Mother Iveys Bay” earlier in list; Wikipedia coordinate centre.
+315	cornwall.txt	Boobys	resolved	50.5379995	-5.0271844	beach	List shorthand for Booby’s Bay; Nominatim Booby’s Bay (Treyarnon).
+316	cornwall.txt	Porthcothan Bay	resolved	50.5104048	-5.0281688	bay	Nominatim Porthcothan Beach used as bay/sands centroid (nearby hits were shops/bus stops).
+317	cornwall.txt	Mawgan Porth Beach	resolved	50.4686759	-5.0361326	beach	Nominatim beach relation “Mawgan Porth”.
+318	cornwall.txt	Trescore Islands	resolved	50.5072940	-5.0466740	islands	ARCHI old-map index coords (grid SW 8472); rocky islets off Park Head–Porth Mear.
+319	cornwall.txt	Park Head	resolved	50.4966576	-5.0286322	headland	National Trust walk start SW 853 707 → BNG converted to WGS84.
+320	cornwall.txt	Porth Mear	resolved	50.5043728	-5.0350024	cove	Nominatim locality “Porth Mear Cove”.
+321	cornwall.txt	Bedruthan Beach	resolved	50.4851678	-5.0350075	beach	Nominatim named “Bedruthan Beach” node (place=house); sands below Bedruthan Steps.
+322	cornwall.txt	Trenance	resolved	50.4085947	-5.0777091	suburb	Nominatim suburb Trenance (Newquay).
+323	cornwall.txt	Tolcarne	resolved	50.4185314	-5.0751544	beach	Nominatim Tolcarne Beach (list shorthand in Newquay bay).
+324	cornwall.txt	Great Western	resolved	50.4168654	-5.0796288	beach	Nominatim Great Western Beach.
+325	cornwall.txt	Towan Head	resolved	50.4250000	-5.0990000	headland	Wikipedia coordinate (Towan Head).
+326	cornwall.txt	Lusty Glaze Beach	resolved	50.4232378	-5.0676224	beach	Nominatim.
+327	cornwall.txt	Porth Beach	resolved	50.4251341	-5.0606386	beach	Nominatim.
+328	cornwall.txt	Whipsiderry Beach	resolved	50.4307621	-5.0552703	beach	Nominatim.
+329	cornwall.txt	Porth Island	resolved	50.4269000	-5.0629000	headland	Wikipedia Trevelgue Head (Porth Island); grid SW 825630.
+330	cornwall.txt	Cribbar	resolved	50.4250000	-5.0990000	reef	Wikipedia coordinate; offshore reef off Towan Head (same published centre as headland; tide/swell dependent).
+331	cornwall.txt	East Pentire	resolved	50.4107748	-5.1192870	headland	Nominatim natural=grassland “East Pentire Headland Green” (Newquay).
+332	cornwall.txt	West Pentire	resolved	50.4034329	-5.1303827	hamlet	Nominatim place=hamlet West Pentire (Crantock).
+333	cornwall.txt	Crantock National Trust Beach	resolved	50.4072773	-5.1223413	beach	National Trust manages Vugga/Crantock sands; pinned to Crantock Beach (same OSM beach as main list entry).
+334	cornwall.txt	Polly Joke	resolved	50.4031410	-5.1383213	beach	Local name for Porth Joke; Nominatim beach “Porth Joke”.
+335	cornwall.txt	Holywell Bay Beach	resolved	50.3945005	-5.1505116	beach	No separate beach node; same coastal sands as Holywell Bay (Nominatim bay relation used earlier in file).
+336	cornwall.txt	Penhale	resolved	50.3850000	-5.1475000	beach	Judged Penhale Sands dune coast between Holywell and Perranporth (not inland Penhale village TR9).
+337	cornwall.txt	Perranporth town	resolved	50.3444208	-5.1538440	village	Nominatim village Perranporth.
+338	cornwall.txt	Cligga	resolved	50.3380560	-5.1805560	headland	Published centre for Cligga Head (geology/mining refs; SW 7386 5367); no clean Nominatim coastal hit.
+339	cornwall.txt	St Agnes Head	resolved	50.3182306	-5.2335000	headland	Ordnance Survey-linked coord via Wikidata (50°19′5.63″N 5°14′0.60″W).
+340	cornwall.txt	Tubbys Head	resolved	50.3093987	-5.2344412	headland	Pub/venue search centroid for Tubby’s Head, St Agnes (no Nominatim cape node).
+341	cornwall.txt	Chapel Porth Beach	resolved	50.3002683	-5.2346450	beach	Nominatim Chapel Porth Beach.
+342	cornwall.txt	Wheal Coates Engine House	resolved	50.3054094	-5.2319006	attraction	Nominatim Wheal Coates Tin Mine / engine house.
+343	cornwall.txt	Dead Mans	ambiguous			cove	Several “Dead Man(s)” coves on this coast; could not tie the list label to one OSM/Wikipedia feature.
+344	cornwall.txt	Ralphs Cupboard Cove	ambiguous			cove	Very local inlet name; no gazetteer hit and no safe single pin.
+345	cornwall.txt	Nancekuke	resolved	50.2713900	-5.2633300	military	Wikipedia coordinate for RAF/RRH Portreath on Nancekuke Common (former chemical weapons site; same MOD footprint).
+346	cornwall.txt	Gwithian Beach	resolved	50.2165000	-5.3915000	beach	Judged main sandy beach on Gwithian Towans/Godrevy bay (no dedicated “Gwithian Beach” Nominatim node).
+347	cornwall.txt	Godrevy Lighthouse	resolved	50.2424441	-5.4002723	lighthouse	Nominatim.
+348	cornwall.txt	Gwithian Green	resolved	50.2208769	-5.3857959	village	Nominatim hamlet/village Gwithian (avoided NNR information POI).
+349	cornwall.txt	Upton Towans	resolved	50.2118461	-5.3986782	grassland	Nominatim Upton Towans.
+350	cornwall.txt	Phillack Towans	resolved	50.1980000	-5.4120000	beach	Judged dune frontage W of Riviere Towans near Phillack (no Nominatim “towans” polygon).
+351	cornwall.txt	Riviere Towans	resolved	50.1950745	-5.4264498	hamlet	Nominatim hamlet Riviere Towans (on the towans).
+352	cornwall.txt	Copperhouse Creek	resolved	50.1908458	-5.4163947	water	Nominatim Copperhouse Pool (creek/inner harbour arm of Hayle estuary).
+353	cornwall.txt	Hayle Towans	resolved	50.2015000	-5.4080000	beach	Judged open sand/dune tract (Hayle Towans); Nominatim only returned a bus stop name collision.
+354	cornwall.txt	Lelant Saltings	resolved	50.1756685	-5.4339908	nature	Nominatim RSPB Hayle Estuary Nature Reserve (includes Lelant Saltings in address).
+355	cornwall.txt	Carbis Bay Beach	resolved	50.1993552	-5.4663615	beach	Nominatim.
+356	cornwall.txt	Porthminster Beach St Ives	resolved	50.2090262	-5.4760535	beach	Nominatim Porthminster Beach.
+357	cornwall.txt	Porthgwidden St Ives	resolved	50.2171918	-5.4761330	beach	Nominatim Porthgwidden Beach.
+358	cornwall.txt	Porthmeor St Ives	resolved	50.2162759	-5.4828783	beach	Nominatim Porthmeor Beach (not the inland building hit for “Porthmeor”).
+359	cornwall.txt	Bamaluz	resolved	50.2157676	-5.4760138	beach	Nominatim Bamaluz Beach.
+360	cornwall.txt	The Island St Ives	resolved	50.2184237	-5.4769937	headland	Nominatim St Ives Head (The Island promontory).
+361	cornwall.txt	Porthminster Cove	resolved	50.2090262	-5.4760535	cove	Nominatim Porthminster Beach (small cove at E end of beach).
+362	cornwall.txt	Porth Kidney	resolved	50.1949938	-5.4439635	beach	Nominatim Porth Kidney Sands.
+363	cornwall.txt	Hawkes Point	resolved	50.1947200	-5.4498929	headland	Gazetteer/Wikipedia Hawke(s) Point above Porth Kidney; no Nominatim name match.
+364	cornwall.txt	Porthgwidden Cove	resolved	50.2171918	-5.4761330	cove	Nominatim Porthgwidden Beach (cove alongside beach).
+365	cornwall.txt	Man's Head	resolved	50.2167811	-5.4886703	headland	Nominatim locality Man's Head (St Ives).
+366	cornwall.txt	Clodgy Point	resolved	50.2138000	-5.4836000	headland	Judged St Ives Head / Clodgy cliff top; no coastal Nominatim feature.
+367	cornwall.txt	Zennor Head	resolved	50.2011806	-5.5751194	headland	Wikidata/OS linked coords (50°12′4.25″N 5°34′30.43″W); no Nominatim hit.
+368	cornwall.txt	Veor Cove	resolved	50.1944816	-5.5814873	beach	Nominatim Veor Cove (natural=beach).
+369	cornwall.txt	Porthzennor Cove	resolved	50.1986351	-5.5715337	beach	Nominatim Porthzennor Cove.
+370	cornwall.txt	Treen Cliff	resolved	50.0420000	-5.6385000	cliff	Judged Treryn Dinas / Treen Cliff SSSI (south Treen, Porthcurno list order).
+371	cornwall.txt	Porth Chapel Beach	resolved	50.0392806	-5.6580448	beach	Nominatim Porth Chapel (beach).
+372	cornwall.txt	Porthgwarra Cove	resolved	50.0370866	-5.6722170	cove	Nominatim Porthgwarra beach polygon (cove).
+373	cornwall.txt	Nanjizal Beach	resolved	50.0536436	-5.6927663	beach	Nominatim Nanjizal or Mill Bay.
+374	cornwall.txt	Mill Bay Sennen	resolved	50.0536436	-5.6927663	beach	Same dual-named bay as Nanjizal (Nominatim).
+375	cornwall.txt	Sennen Cove Beach	resolved	50.0823703	-5.6937872	beach	Nominatim Sennen Cove beach.
+376	cornwall.txt	Whitesand Bay Sennen	resolved	50.0870000	-5.6970000	bay	Judged mid open sand north of Sennen Cove; Nominatim only returned a building name collision.
+377	cornwall.txt	Land's End Airport	resolved	50.1027274	-5.6719879	aerodrome	Nominatim Land's End Airport (aeroway=aerodrome).
+378	cornwall.txt	First and Last	resolved	50.0662633	-5.7148222	attraction	Nominatim place Land's End (visitor complex / “First and Last” in local usage).
+379	cornwall.txt	Dr Syntaxs Head	resolved	50.0686356	-5.7158953	headland	Nominatim Dr Syntax's Head (spelling variant in source).
+380	cornwall.txt	Enys Dodnan	resolved	50.0612414	-5.7123596	islet	Nominatim Enys Dodnan (rock arch islet off Land's End).
+381	cornwall.txt	Longships Lighthouse	resolved	50.0668684	-5.7468597	lighthouse	Nominatim Longships (offshore light; onshore mapper centroid).
+382	cornwall.txt	Armed Knight	resolved	50.0622374	-5.7158217	rock	National Archives photo metadata WGS84 from OS grid (sea stack off Land's End).
+383	cornwall.txt	Porth Loe	resolved	50.0372000	-5.6798000	cove	Wikipedia: boulder cove on N side of Gwennap Head near Porthgwarra; judged mouth.
+384	cornwall.txt	Porthgwarra Beach	resolved	50.0370866	-5.6722170	beach	Nominatim Porthgwarra beach.
+385	cornwall.txt	Pedn Vounder Beach	resolved	50.0433620	-5.6411335	beach	Nominatim Pedn Vounder.
+386	cornwall.txt	Logan Rock Cove	resolved	50.0410000	-5.6369000	cove	Judged seaward of Logan Rock headland (Cripp's/Crisp's Cove under Treryn Dinas).
+387	cornwall.txt	Porthcurno Telegraph Museum	resolved	50.0467444	-5.6549574	museum	Nominatim Porthcurno Telegraph Museum.
+388	cornwall.txt	Treen Cove	resolved	50.0415000	-5.6354000	cove	SW Treen (Porthcurno sequence); E side of Logan headland; Nominatim “Treen Cove” is Zennor-area.
+389	cornwall.txt	Porth Chapel Cove	resolved	50.0392806	-5.6580448	cove	Small cove at Porth Chapel; same beach polygon as Porth Chapel Beach (Nominatim).
+390	cornwall.txt	Mousehole Harbour Beach	resolved	50.0835141	-5.5390137	harbour	Nominatim The Harbour, Mousehole (harbour beach frontage).
+391	cornwall.txt	Newlyn Green	resolved	50.1042000	-5.5478000	open_space	Judged Newlyn seafront green west of the harbour; no dedicated Nominatim object.
+392	cornwall.txt	Jubilee Pool Penzance	resolved	50.1147578	-5.5314902	swimming_pool	Nominatim Jubilee Pool (sea lido, Battery Road, Penzance).
+393	cornwall.txt	Battery Rocks	resolved	50.1148500	-5.5326000	rock_pool	Judged tidal bathing rocks immediately west of Jubilee Pool on Penzance promenade (no Nominatim name hit).
+394	cornwall.txt	Longrock Sands	resolved	50.1278000	-5.4935000	beach	Judged sand/shingle foreshore between Long Rock and Marazion (Mount's Bay); no beach polygon name in Nominatim.
+395	cornwall.txt	Eastern Green Beach	resolved	50.1252000	-5.5245000	beach	Judged Mount's Bay foreshore below Eastern Green (Penzance); local informal beach name.
+396	cornwall.txt	Marazion Causeway	resolved	50.1206754	-5.4753381	causeway	Nominatim Tidal Causeway (track) to St Michael's Mount.
+397	cornwall.txt	St Michaels Mount Causeway	resolved	50.1206754	-5.4753381	causeway	Same tidal causeway as line 396; Nominatim Tidal Causeway.
+398	cornwall.txt	Prussia Cove Beach	resolved	50.1025000	-5.4185000	beach	Judged sandy beach of Prussia Cove west of hamlet; Nominatim only returns settlement polygon.
+399	cornwall.txt	Bessys Cove	resolved	50.1009817	-5.4177169	cove	Nominatim Bessy's Cove.
+400	cornwall.txt	Kenneggy Sands	resolved	50.1036907	-5.4100027	beach	Nominatim Kenneggy Cove (same cove as Kenneggy Sands).
+401	cornwall.txt	Rinsey	resolved	50.0931917	-5.3666382	beach	Nominatim Rinsey beach.
+402	cornwall.txt	Trewavas Mine	resolved	50.0902800	-5.3577800	historic_mine	Wikipedia infobox WGS84 for Wheal Trewavas engine houses (Scheduled Monument).
+403	cornwall.txt	Porthcew	resolved	50.0931917	-5.3666382	beach	Same cove as Rinsey (Cornish name Porthcew); Nominatim Rinsey beach.
+404	cornwall.txt	Porthleven Beach	resolved	50.0760913	-5.3056024	beach	Nominatim Porthleven Sands.
+405	cornwall.txt	Loe Pool	resolved	50.0778575	-5.2893302	lagoon	Nominatim The Loe (freshwater pool behind Loe Bar).
+406	cornwall.txt	Gunwalloe Church Cove	resolved	50.0380549	-5.2676736	cove	Nominatim Church Cove (Gunwalloe).
+407	cornwall.txt	Dollar Cove	resolved	50.0401488	-5.2710667	cove	Nominatim Dollar Cove.
+408	cornwall.txt	Church Cove The Lizard Beach	resolved	49.9711784	-5.1874871	beach	Nominatim Church Cove, Landewednack (The Lizard).
+409	cornwall.txt	Poldhu Cove	resolved	50.0333782	-5.2627354	cove	Nominatim Poldhu Cove beach.
+410	cornwall.txt	Mullion Harbour	resolved	50.0164500	-5.2553500	harbour	Judged Mullion Cove working harbour (no Nominatim harbour object).
+411	cornwall.txt	Kynance Beach	resolved	49.9737987	-5.2301373	beach	Nominatim Kynance Cove (Lizard).
+412	cornwall.txt	Cadgwith Beach	resolved	49.9872116	-5.1792389	beach	Nominatim Fishing Beach (Cadgwith).
+413	cornwall.txt	Kennack Sands Beach	resolved	50.0061348	-5.1590050	beach	Nominatim Kennack Sands.
+414	cornwall.txt	Downas Cove Beach	resolved	50.0087113	-5.1217847	cove	Nominatim Downas Cove.
+415	cornwall.txt	Porthoustock Beach	resolved	50.0564000	-5.0648000	beach	Judged shingle beach in Porthoustock bay (Nominatim only village centroid nearby).
+416	cornwall.txt	Frenchmans Creek Helford	resolved	50.0901649	-5.1496722	creek	Nominatim Frenchmans Creek (mapped waterway reach off Helford River).
+417	cornwall.txt	Helford Village	resolved	50.0931362	-5.1369699	village	Nominatim Helford.
+418	cornwall.txt	Helford Passage Beach	resolved	50.0999041	-5.1289735	beach	Nominatim Passage Cove (sand & shingle), Helford Passage.
+419	cornwall.txt	Gillan Creek	resolved	50.0855000	-5.0958000	inlet	Judged Gillan tidal creek; clustered near Gillan hamlet (no creek name hit).
+420	cornwall.txt	St Anthony	resolved	50.1417096	-5.0144777	headland	Nominatim St Anthony Head (Roseland; short listing).
+421	cornwall.txt	Place Ferry	resolved	50.1519444	-5.0211111	ferry	Wikipedia Percuil River mouth / Place Ferry landing (mouth coords).
+422	cornwall.txt	Summers Beach	resolved	50.1585399	-5.0109901	beach	BeachAtlas coords; St Mawes main beach.
+423	cornwall.txt	Porthbeor Beach	resolved	50.1489324	-4.9944578	beach	Nominatim Porthbeor Beach.
+424	cornwall.txt	Porthluney Beach	resolved	50.2369944	-4.8425395	beach	Nominatim Porthluney Beach (Caerhays).
+425	cornwall.txt	Gorran Churchtown	resolved	50.2465873	-4.8076667	village	Nominatim Gorran Churchtown.
+426	cornwall.txt	Colona	resolved	50.2554949	-4.7706502	beach	Nominatim Colona Beach (St Goran); line label is local name for that cove.
+427	cornwall.txt	Portmellon Beach	resolved	50.2644571	-4.7838004	beach	Nominatim Polkirt Beach (beach by Portmellon; no separate Portmellon Beach hit).
+428	cornwall.txt	Pentewan Beach	resolved	50.2876098	-4.7814969	beach	Nominatim Pentewan Beach.
+429	cornwall.txt	Porthpean Beach	resolved	50.3234930	-4.7657901	beach	Nominatim Porthpean Beach.
+430	cornwall.txt	Charlestown Harbour	resolved	50.3313000	-4.7562000	harbour	Judged Charlestown quay cluster (Nominatim only returned harbour-adjacent POIs).
+431	cornwall.txt	Par Harbour	resolved	50.3448250	-4.7023015	harbour	Nominatim Par Docks.
+432	cornwall.txt	Polkerris Beach	resolved	50.3409552	-4.6870499	beach	Nominatim Booley Beach (Polkerris bay).
+433	cornwall.txt	Readymoney	resolved	50.3293883	-4.6453704	beach	Nominatim Readymoney Cove Beach.
+434	cornwall.txt	Polruan Ferry	resolved	50.3295032	-4.6347183	ferry	Nominatim Polruan Quay (Fowey–Polruan passenger ferry).
+435	cornwall.txt	Fowey Estuary	resolved	50.3327122	-4.6336168	estuary	Nominatim Fowey Harbour marina; representative lower-estuary pinch (whole estuary is River Fowey extent).
+436	cornwall.txt	Lantic Cove	resolved	50.3283243	-4.6045252	cove	Nominatim Lantic Bay (beach/cove).
+437	cornwall.txt	Lantivet Cove	resolved	50.3257924	-4.5793465	cove	Cornwall Beaches OS grid SX 1665 5115 / streetmap WGS84 (Lantivet Bay).
+438	cornwall.txt	Polperro Harbour Beach	resolved	50.3307371	-4.5165961	beach	Nominatim Polpero Beach (harbour-front beach).
+439	cornwall.txt	Talland Bay Beach	resolved	50.3372242	-4.4974966	beach	Nominatim Talland Sand.
+440	cornwall.txt	Millendreath Bay	resolved	50.3609330	-4.4369055	beach	Nominatim Millendreath Beach.
+441	cornwall.txt	Freathy Whitsand	resolved	50.3474539	-4.2515965	village	Freathy settlement on Whitsand terraces (steep paths to beach below).
+442	cornwall.txt	Tregonhawke Cliff	resolved	50.3406277	-4.2419893	cliff	Nominatim Tregonhawk Beach RNLI sector (foot of Tregonhawke cliff line).
+443	cornwall.txt	Portwrinkle Beach	resolved	50.3612221	-4.3072070	beach	Nominatim Finnygook Beach (Portwrinkle bay).
+444	cornwall.txt	Whitsand Bay Beach	resolved	50.3330000	-4.2830000	beach	Wikipedia infobox centroid for Whitsand Bay waterbody.
+445	cornwall.txt	Kingsand Beach	resolved	50.3342449	-4.2006531	beach	Nominatim Kingsand village; judged beachfront (no separate OSM beach name).
+446	cornwall.txt	Cawsand Bay	resolved	50.3323268	-4.2027534	bay	Nominatim Cawsand village; judged bay shoreline.
+447	cornwall.txt	Rame Chapel	resolved	50.3120850	-4.2230415	chapel	Nominatim Rame Head (St Michael chapel ruins on headland).
+448	cornwall.txt	Whitsand Bay East	resolved	50.3280000	-4.2480000	beach	Judged eastern Whitsand sector toward Rame (informal coastal label).
+449	cornwall.txt	Whitsand Bay West	resolved	50.3520000	-4.2980000	beach	Judged western Whitsand sector toward Portwrinkle/Tregantle (informal coastal label).
+450	cornwall.txt	Tregantle Cliff	resolved	50.3585000	-4.2720000	cliff	Judged cliff-top above MOD range west of Tregantle Fort (OSM lacks named cliff node).
+451	cornwall.txt	Tregantle Beach	resolved	50.3577790	-4.2699690	beach	OS grid SX 3848 5278 / Tregantle Fort locality (Whitsand Bay sand; MOD range may restrict access).

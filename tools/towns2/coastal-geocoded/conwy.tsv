@@ -1,0 +1,112 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	conwy.txt	Penmaenmawr	resolved	53.2698	-3.9298	village	Wikipedia/GeoHack town centroid (SH713876)
+2	conwy.txt	Penmaenmawr Beach	resolved	53.2715	-3.9350	beach	Shingle foreshore west of town centre along North Wales coast
+3	conwy.txt	Penmaenmawr Promenade	resolved	53.2705	-3.9310	promenade	Seafront promenade strip (town coastal frontage)
+4	conwy.txt	Dwygyfylchi	resolved	53.2770	-3.8960	village	Wikipedia/GeoHack; Penmaenmawr community (SH735772)
+5	conwy.txt	Capelulo	resolved	53.2713	-3.8852	hamlet	Hamlet at foot of Sychnant Pass; OS-style centroid near Ysgol Capelulo/postcode area
+6	conwy.txt	Llanfairfechan	resolved	53.2529	-3.9755	town	GeoHack/Wikipedia (SH682197)
+7	conwy.txt	Llanfairfechan Beach	resolved	53.2545	-3.9770	beach	Town foreshore on Traeth Llanfairfechan
+8	conwy.txt	Llanfairfechan Promenade	resolved	53.2535	-3.9760	promenade	Seafront promenade by beach
+9	conwy.txt	Morfa Madryn	resolved	53.2454	-4.0082	nature_reserve	Conwy CC grid SH 664 740; BirdGuides lat/lon for NR car-park area
+10	conwy.txt	Traeth Lafan	resolved	53.2552	-4.0422	mudflat	KBA/SPA centroid for Traeth Lafan intertidal (Welsh name; Lavan Sands complex)
+11	conwy.txt	Lavan Sands	resolved	53.2552	-4.0422	mudflat	English name for same Traeth Lafan mudflat system; representative central point
+12	conwy.txt	Gyffin	resolved	53.2757	-3.8343	village	Gazetteer of British Place Names (SH 777 769); suburb south of Conwy
+13	conwy.txt	Conwy	resolved	53.2803	-3.8388	town	GeoHack settlement centroid (SH774187)
+14	conwy.txt	Conway	resolved	53.2803	-3.8388	town	Historic English spelling; same coastal town as Conwy
+15	conwy.txt	Conwy Quay	resolved	53.2822	-3.8262	harbour	River Conwy quays by lower town/castle frontage
+16	conwy.txt	Conwy Harbour	resolved	53.2820	-3.8256	harbour	Inner harbour mouth area (adjacent Cadw Conwy Castle coords)
+17	conwy.txt	Conwy Morfa	resolved	53.2778	-3.8315	marsh	Saltmarsh/coastal strip west of walled town (OS coastal Morfa Conwy)
+18	conwy.txt	Morfa Conwy	resolved	53.2778	-3.8315	marsh	Same coastal morfa as line 17; separate list label
+19	conwy.txt	Conwy Morfa Beach	resolved	53.2765	-3.8340	beach	Sandy strip on Morfa Conwy toward Blue Bridge (approximate foreshore access)
+20	conwy.txt	Conwy Estuary	resolved	53.2685	-3.8120	estuary	Representative mid-channel point of tidal Afon Conwy below Conwy–Deganwy crossing
+21	conwy.txt	Conwy Mountain	resolved	53.2831	-3.8624	hill	Mynydd y Dref summit (Wikipedia; SH759778)
+22	conwy.txt	Deganwy	resolved	53.2980	-3.8310	town	GeoHack (SH779867)
+23	conwy.txt	Deganwy Marina	resolved	53.2955	-3.8305	marina	Marina basin at Deganwy Quay/hotel waterfront
+24	conwy.txt	Deganwy Quay	resolved	53.2965	-3.8295	harbour	Quay Hotel / waterfront quay area
+25	conwy.txt	Deganwy Beach	resolved	53.3035	-3.8285	beach	North Deganwy shingle foreshore toward Great Orme view
+26	conwy.txt	Deganwy Castle	resolved	53.2978	-3.8285	castle	Scheduled monument coords on Y Vardre (Cadw/Wikipedia)
+27	conwy.txt	Vardre	resolved	53.2975	-3.8290	hill	Y Vardre; twin-summit hill bearing Deganwy Castle earthworks (Wikipedia)
+28	conwy.txt	Maesdu	resolved	53.3090	-3.8324	locality	Maesdu Avenue coastal locality west Llandudno (Streetmap centroid LL30)
+29	conwy.txt	Maesdu Sands	resolved	53.3100	-3.8330	beach	West-shore beach/sands near Maesdu links coast (approximate foreshore)
+30	conwy.txt	Llansanffraid Glan Conwy	resolved	53.2682	-3.7962	village	Glan Conwy; OS Open Names-style centroid (getthedata.com LL28)
+31	conwy.txt	Llansanffraid Glan Conwy	resolved	53.2680	-3.7960	village	Same community as Glan Conwy; Wikipedia/GeoHack settlement centroid (SH8075)
+32	conwy.txt	Glan Conwy	resolved	53.2680	-3.7960	village	Wikipedia/GeoHack; Llansanffraid Glan Conwy shortened name
+33	conwy.txt	Llandudno	resolved	53.3250	-3.8250	town	GeoHack/Wikipedia town centroid (SH784628)
+34	conwy.txt	Llandudno Junction	resolved	53.283402	-3.810399	town	GeoHack settlement/station centroid (SH793177)
+35	conwy.txt	Craig-y-Don	resolved	53.3100	-3.7900	suburb	Wikipedia ward centroid (SH807518)
+36	conwy.txt	Craig y Don	resolved	53.3100	-3.7900	suburb	Alternate spelling; same Craig-y-Don area
+37	conwy.txt	West Shore	resolved	53.313889	-3.838889	beach	Wikipedia West Shore, Llandudno (Conwy Bay foreshore)
+38	conwy.txt	West Shore Beach	resolved	53.3140	-3.8390	beach	Sand/shingle foreshore on West Shore (approx. shoreline access)
+39	conwy.txt	West Shore Llandudno	resolved	53.313889	-3.838889	beach	Same coastal quarter as West Shore
+40	conwy.txt	North Shore	resolved	53.328333	-3.819444	beach	Wikipedia North Shore, Llandudno (Irish Sea frontage)
+41	conwy.txt	North Shore Beach	resolved	53.3285	-3.8195	beach	Main sandy beach strip along North Shore
+42	conwy.txt	North Shore Llandudno	resolved	53.328333	-3.819444	beach	Same North Shore seafront as lines 40–41
+43	conwy.txt	Llandudno Bay	resolved	53.3210	-3.8200	bay	Representative open-water centroid between Great and Little Ormes
+44	conwy.txt	Bae Llandudno	resolved	53.3210	-3.8200	bay	Welsh name for Llandudno Bay; same bay centroid
+45	conwy.txt	Llandudno Pier	resolved	53.331667	-3.823056	pier	Wikipedia/GeoHack pier headland end (SH786118)
+46	conwy.txt	Llandudno Promenade	resolved	53.3280	-3.8210	promenade	North Shore seafront promenade near pier/beach
+47	conwy.txt	Happy Valley Llandudno	resolved	53.3300	-3.8400	park	Wikipedia Happy Valley, Llandudno (Great Orme foot)
+48	conwy.txt	Great Orme	resolved	53.33333	-3.85556	headland	Wikipedia infobox summit area (Y Gogarth; SH767833)
+49	conwy.txt	Great Orme Country Park	resolved	53.3333	-3.8556	nature_reserve	Summit/country park area on Great Orme (same broad headland centroid)
+50	conwy.txt	Great Orme Lighthouse	resolved	53.3422	-3.8689	lighthouse	Wikidata/Coflein Great Ormes Head lighthouse (Marine Drive cliffs)
+51	conwy.txt	Great Orme Marine Drive	resolved	53.3320	-3.8620	scenic_road	Representative point on coastal Marine Drive circuit (west cliffs)
+52	conwy.txt	Little Orme	resolved	53.32472	-3.77861	headland	Wikipedia/GeoHack Little Orme (Rhiwledyn; SH815518)
+53	conwy.txt	Rhiwledyn	resolved	53.32472	-3.77861	headland	Welsh name for Little Orme; NWWT reserve on same headland
+54	conwy.txt	Angel Bay	resolved	53.331944	-3.773611	cove	English name for seal-watching cove (Porth Dyniewaid) on Little Orme
+55	conwy.txt	Nant-y-Gamar	resolved	53.3380	-3.8515	valley	Named dry valley on Great Orme limestone (approx. SH767814 climbing/topo refs)
+56	conwy.txt	Porth Dyniewaid	resolved	53.331944	-3.773611	cove	Wikipedia/GeoHack cove on Little Orme (Angel Bay)
+57	conwy.txt	Penrhyn Bay	resolved	53.31458	-3.769685	town	Wikipedia/GeoHack Penrhyn Bay centroid (SH821178)
+58	conwy.txt	Penrhyn Bay Beach	resolved	53.3165	-3.7660	beach	Foreshore east of town centre toward Little Orme
+59	conwy.txt	Bae Penrhyn	resolved	53.31458	-3.769685	bay	Welsh Bae Penrhyn; same settlement/bay centroid as Penrhyn Bay
+60	conwy.txt	Craigside	resolved	53.331944	-3.834722	locality	Wikipedia Craigside, Llandudno (Great Orme lower slopes)
+61	conwy.txt	Llandudno Gogarth	resolved	53.3180	-3.8257	locality	LL30 Llandudno Town & Gogarth ward-style centroid (postcode LL30 1EB); coastal list label for built-up Gogarth vs Open Names hamlet west
+62	conwy.txt	Tudno	resolved	53.33703	-3.84912	church	St Tudno's Church, Great Orme (National Churches Trust / Cadw SH768838); list uses short Tudno label
+63	conwy.txt	Llanrhos	resolved	53.3030	-3.8150	village	Wikipedia/GeoHack Llanrhos (SH790800)
+64	conwy.txt	Llysfaen	resolved	53.2790	-3.6680	village	Wikipedia Llysfaen community centroid (SH887771); inland above coast
+65	conwy.txt	Pabo Hill	resolved	53.2859	-3.7865	hill	Pabo Lane / Mochdre & Pabo area; Caravan Club Newry Grange CL coords (LL31) on elevated lane above Conwy valley
+66	conwy.txt	Bryn Pydew	resolved	53.2960	-3.7900	village	Wikipedia Bryn Pydew (east of Llandudno Junction)
+67	conwy.txt	Mynydd Pydew	resolved	53.2945	-3.7854	hill	Bryn Pydew limestone hill summit (The Mountain Guide SH810789 / WalkLakes)
+68	conwy.txt	Rhos-on-Sea	resolved	53.3087	-3.7394	town	Wikipedia Rhos-on-Sea / Llandrillo-yn-Rhos (SH842805)
+69	conwy.txt	Rhos on Sea	resolved	53.3087	-3.7394	town	Alternate spelling; same settlement centroid as Rhos-on-Sea
+70	conwy.txt	Rhos-on-Sea Beach	resolved	53.3100	-3.7370	beach	Main sandy foreshore strip along Rhos frontage (approx. shoreline east of centre)
+71	conwy.txt	Rhos-on-Sea Promenade	resolved	53.3085	-3.7385	promenade	Seafront promenade behind Rhos beaches
+72	conwy.txt	Rhos Point	resolved	53.3128	-3.7390	headland	Geograph/Wikimedia sea-wall at Rhos Point (promontory east of Rhos centre)
+73	conwy.txt	Rhos-on-Sea Harbour	resolved	53.3088	-3.7352	harbour	Small boat harbour SH8480 (Geograph low-tide harbour images)
+74	conwy.txt	Colwyn Bay	resolved	53.2900	-3.7000	town	Wikipedia Colwyn Bay / GeoHack town coords (SH865785)
+75	conwy.txt	Colwyn	resolved	53.2948	-3.7267	locality	Informal short name for Colwyn Bay built-up centre (latitude.to centroid near station frontage)
+76	conwy.txt	Bae Colwyn	resolved	53.2900	-3.7000	bay	Welsh name for Colwyn Bay; town/bay centroid as for Colwyn Bay
+77	conwy.txt	Colwyn Bay Beach	resolved	53.2960	-3.7130	beach	Representative mid-bay sandy frontage toward Porth Eirias / restored beach
+78	conwy.txt	Colwyn Bay Promenade	resolved	53.2950	-3.7150	promenade	Main seafront promenade behind central bay beaches
+79	conwy.txt	Porth Eirias	resolved	53.2956	-3.7131	beach	British Beaches midpoint Porth Eirias (SH859790)
+80	conwy.txt	Eirias	resolved	53.2911	-3.7127	park	Parc Eirias / Eirias Park–stadium complex (Wikipedia Eirias Stadium coords)
+81	conwy.txt	Old Colwyn	resolved	53.2903	-3.7057	suburb	GeoHack Old Colwyn (SH863784)
+82	conwy.txt	Old Colwyn Beach	resolved	53.2903	-3.7060	beach	UK Beach Guide OS SH86707872; eastern Colwyn Bay sandy frontage
+83	conwy.txt	Sandy Cove	resolved	53.3052	-3.5209	beach	Sandy Cove, Kinmel Bay (Visit Conwy / UK Beach Guide; also known Kinmel Bay beach; LL18 area)
+84	conwy.txt	Bryn Euryn	resolved	53.30269	-3.75344	hill	Wikipedia Bryn Euryn SSSI summit trig (SH832798)
+85	conwy.txt	Llandrillo-yn-Rhos	resolved	53.3087	-3.7394	town	Welsh parish name for Rhos-on-Sea; same community centroid
+86	conwy.txt	Llandrillo yn Rhos	resolved	53.3087	-3.7394	town	Alternate punctuation; same as Llandrillo-yn-Rhos
+87	conwy.txt	Mochdre	resolved	53.2900	-3.7600	village	Wikipedia Mochdre, Conwy (SH826786)
+88	conwy.txt	Pentre Mawr	resolved	53.2922	-3.5840	park	Pentre Mawr Park / Pensarn (Abergele) coastal ward focus; Geograph SH945784
+89	conwy.txt	Llanddulas	resolved	53.2890	-3.6410	village	Wikipedia Llanddulas (SH906781)
+90	conwy.txt	Llanddulas Beach	resolved	53.2885	-3.6350	beach	Shingle/sand foreshore below village along Liverpool Bay (approx. shoreline east of A55)
+91	conwy.txt	Tan-y-Lan	resolved	53.2820	-3.6365	hamlet	Coastal cluster/A547 strip between Llanddulas and Rhyd-y-Foel; approximate centroid (no single WP/GeoHack pin)
+92	conwy.txt	Rhyd-y-Foel	resolved	53.2760	-3.6320	village	Wikipedia/GeoHack Rhyd y Foel (SH911767)
+93	conwy.txt	River Dulas	resolved	53.2880	-3.6360	river	Representative point at Afon Dulas tidal reach meeting Llanddulas foreshore/Liverpool Bay
+94	conwy.txt	Abergele	resolved	53.283933	-3.583908	town	GeoHack/Wikipedia town centroid (SH944775)
+95	conwy.txt	Pensarn	resolved	53.2930	-3.5770	suburb	Wikipedia Pensarn (Abergele); 53°17′35″N 3°34′37″W
+96	conwy.txt	Pensarn Beach	resolved	53.2945	-3.5740	beach	Shingle/sand Irish Sea foreshore at Pensarn (approx. mid-beach)
+97	conwy.txt	Towyn	resolved	53.300738	-3.542173	village	OSM place node Towyn, Conwy (LL22)
+98	conwy.txt	Towyn Beach	resolved	53.3040	-3.5290	beach	Sandy foreshore west of Towyn centre toward open coast (approx. shoreline)
+99	conwy.txt	Towyn Sands	resolved	53.3030	-3.5280	beach	Sandier strand west Towyn holiday frontage (approximate)
+100	conwy.txt	Kinmel Bay	resolved	53.311982	-3.516917	town	OSM place node Kinmel Bay, Conwy (LL18)
+101	conwy.txt	Kinmel Bay Beach	resolved	53.313056	-3.527500	beach	British Beaches midpoint Kinmel Bay (SH983806); urban sandy beach
+102	conwy.txt	Kinmel Bay and Towyn	resolved	53.3020	-3.5400	community	Wikipedia/Wikidata community centroid Kinmel Bay and Towyn (Bae Cinmel a Thywyn)
+103	conwy.txt	Belgrano	resolved	53.2972	-3.5676	locality	Residential area LL22 near Abergele/Pensarn; postcodebyaddress centroid
+104	conwy.txt	St George	resolved	53.2670	-3.5380	village	Wikipedia St George (Llansansiôr), Abergele community (SH9775)
+105	conwy.txt	Gwrych Castle	resolved	53.2833	-3.6087	attraction	Wikipedia/GeoHack Castell Gwrych (Grade I listed)
+106	conwy.txt	Abergele and Pensarn	resolved	53.2950	-3.5830	locality	Combined label; Abergele & Pensarn rail station area centroid (National Rail SH946787)
+107	conwy.txt	Gele	resolved	53.2995	-3.5360	river	Lower Afon Gele (River Gele) near Kinmel Bay before confluence with Clwyd; approximate channel
+108	conwy.txt	Marl Hall	resolved	53.2922	-3.8039	estate	Wikipedia/British Listed Buildings Marle (Marl) Hall, Llandudno Junction (SH798787)
+109	conwy.txt	Llanddulas Quarry	resolved	53.2892	-3.6523	quarry	Coflein Llanddulas Quarry NPRN414241; OS grid SH8995778184 → EPSG:27700 centroid
+110	conwy.txt	Pentre Du	resolved	53.2755	-3.6487	farm	Pentre Du Camping Club / farm, Trawscoed Rd Llysfaen (Pitchup listing GPS)
+111	conwy.txt	Tir Prince	resolved	53.3031	-3.5308	attraction	Tir Prince Raceway & market, Towyn Rd LL22 9NW (directory/map centroid)

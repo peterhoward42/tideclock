@@ -1,0 +1,192 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	bristol.txt	Severnside	resolved	51.5220	-2.6820	industrial_area	Informal Severnside enterprise belt along A403 / estuary margin N of Avonmouth
+2	bristol.txt	Severnside Industrial Estate	resolved	51.5290	-2.6750	industrial_estate	Chittening / Severnside industrial zone by A403
+3	bristol.txt	Smoke Lane	resolved	51.5140	-2.6945	street	Smoke Lane industrial access near St Andrews Road area
+4	bristol.txt	Chittening	resolved	51.5290	-2.6750	industrial_hamlet	Wikipedia centroid; industrial estate by River Severn
+5	bristol.txt	Chittening Industrial Estate	resolved	51.5285	-2.6745	industrial_estate	Same wider Chittening industrial complex as line 4
+6	bristol.txt	Severnside Works	resolved	51.5160	-2.6920	works	Generic industrial works label in Avonmouth / St Andrews Road corridor
+7	bristol.txt	Avonmouth Pier	resolved	51.5045	-2.7025	pier	Avonmouth dock / harbour pier frontage
+8	bristol.txt	Avonmouth	resolved	51.50335	-2.69871	suburb	GeoHack / Wikipedia settlement centroid
+9	bristol.txt	Avonmouth Village	resolved	51.5080	-2.6995	residential	West-of-docks residential part of Avonmouth
+10	bristol.txt	Avonmouth Docks	resolved	51.5065	-2.7035	docks	Avonmouth dock system (Royal Edward etc.)
+11	bristol.txt	Avonmouth Dock	resolved	51.5063	-2.7033	dock	Same dock complex as line 10
+12	bristol.txt	Royal Edward Dock	resolved	51.50696	-2.70416	dock	OSM dock polygon centroid
+13	bristol.txt	Port of Avonmouth	resolved	51.5055	-2.7020	port	Port of Bristol Avonmouth facilities (dock cluster)
+14	bristol.txt	St Andrew's Road	resolved	51.5132	-2.6962	street	Centred near St Andrews Road railway station
+15	bristol.txt	Merebank Road	resolved	51.5048	-2.7035	street	Quayside road in Avonmouth docks
+16	bristol.txt	Avonmouth Industrial Estate	resolved	51.5120	-2.6920	industrial_estate	Broad Avonmouth industrial zone E of M5
+17	bristol.txt	Avonmouth Bridge	resolved	51.4887	-2.6928	bridge	M5 River Avon crossing (Avonmouth Bridge)
+18	bristol.txt	M5 Avonmouth Bridge	resolved	51.4890	-2.6928	bridge	Same M5 crossing; GeoHack titles both names
+19	bristol.txt	Central Park Avonmouth	resolved	51.5310	-2.6360	distribution_park	Central Park logistics scheme by M49 (BS35 4GG area)
+20	bristol.txt	Avonmouth Sewage Works Nature Reserve	resolved	51.5232	-2.6944	nature_reserve	Wessex Water lagoons at Avonmouth WRC; EA grid ST 51922 80709
+21	bristol.txt	Kings Weston	resolved	51.4944	-2.6615	parkland	Kings Weston historic landscape (estate prior)
+22	bristol.txt	Kings Weston Estate	resolved	51.4942	-2.6618	parkland	Registered park & garden around Kings Weston House
+23	bristol.txt	Kings Weston House	resolved	51.494382	-2.661541	house	Grade I listed Vanbrugh house
+24	bristol.txt	Kings Weston Hill	resolved	51.4930	-2.6650	hill	Limestone ridge / Kings Weston Down west of house
+25	bristol.txt	Penpole	resolved	51.49245	-2.67702	locality	Penpole Lane / woodland fringe of Kings Weston Estate
+26	bristol.txt	Penpole Point	resolved	51.4920	-2.6780	viewpoint	Ridge viewpoint / dial site at W end of Penpole Wood
+27	bristol.txt	Lawrence Weston	resolved	51.5020	-2.6590	suburb	Wikipedia OS-grid-derived housing estate centroid
+28	bristol.txt	Shirehampton	resolved	51.4945	-2.6712	suburb	Wikipedia / GeoHack settlement
+29	bristol.txt	Shirehampton Park	resolved	51.4910	-2.6750	park	NT Shirehampton Park / golf course portion of Kings Weston landscape
+30	bristol.txt	Shirehampton Village	resolved	51.4952	-2.6708	village	High Street / church core slightly E of ward centroid
+31	bristol.txt	Shirehampton Station	resolved	51.4844	-2.6792	railway_station	Wikipedia / GeoHack (Severn Beach line)
+32	bristol.txt	Sea Mills	resolved	51.4856	-2.6422	suburb	Wikipedia settlement centroid (Trym / Avon)
+33	bristol.txt	Sea Mills Station	resolved	51.4799	-2.6498	railway_station	Wikipedia / GeoHack (Severn Beach line)
+34	bristol.txt	Old Sea Mills Harbour	resolved	51.4815	-2.644	harbour	Small historic harbour basin at Trym mouth / Sea Mills frontage
+35	bristol.txt	Sea Mills Square	resolved	51.4860	-2.6405	local_square	Local square / crossroads core in Sea Mills (approx.)
+36	bristol.txt	Abona	resolved	51.4856	-2.6422	roman_site	Roman port name associated with Sea Mills / Trym mouth area; pinned at Sea Mills
+37	bristol.txt	River Trym mouth	resolved	51.4805	-2.645	river_mouth	Confluence with Avon at Sea Mills (approx. open water line)
+38	bristol.txt	The Dingle	resolved	51.4940	-2.6455	valley	Historic wooded road / gorge lane in Coombe Dingle (Wikipedia: The Dingle)
+39	bristol.txt	Coombe Dingle	resolved	51.4952	-2.6460	suburb	Wikipedia centroid (Hazel Brook / Trym confluence area)
+40	bristol.txt	Sneyd Park	resolved	51.4766	-2.6421	suburb	Wikipedia / GeoHack (Stoke Bishop fringe by gorge)
+41	bristol.txt	Stoke Bishop	resolved	51.4804	-2.6307	suburb	GeoHack / Wikipedia OS-grid area
+42	bristol.txt	The Downs	resolved	51.4734	-2.6181	open_space	Durdham Down centroid (shared “The Downs” with Clifton Down)
+43	bristol.txt	Clifton Down	resolved	51.4646	-2.6109	railway_station	Clifton Down station (name matches Severn Beach stop on The Downs)
+44	bristol.txt	Clifton	resolved	51.4600	-2.6200	suburb	Wikidata / Wikipedia ward centroid
+45	bristol.txt	Clifton Village	resolved	51.4545	-2.6190	shopping_street	Princess Victoria Street / village core (approx.)
+46	bristol.txt	Clifton Observatory	resolved	51.4566	-2.6264	landmark	Wikipedia / GeoHack
+47	bristol.txt	Clifton Rocks	resolved	51.4550	-2.6260	cliff_face	St Vincent’s Rocks / observatory tunnel cliff (Avon Gorge)
+48	bristol.txt	Clifton Suspension Bridge	resolved	51.4549	-2.6279	bridge	Wikipedia / GeoHack (deck landmark)
+49	bristol.txt	Avon Gorge	resolved	51.4535	-2.6270	gorge	Mid-gorge representative point near suspension bridge
+50	bristol.txt	Burwalls	resolved	51.4512	-2.6248	house	Gorge-edge mansion overlooking Avon Gorge (Clifton / Leigh Woods rim)
+51	bristol.txt	Hotwells	resolved	51.4517	-2.6173	neighbourhood	GeoHack / Wikipedia grid ST572727
+52	bristol.txt	Hotwells Pontoons	resolved	51.4502	-2.6125	marina	Floating Harbour pontoons off Hotwells (approx.)
+53	bristol.txt	Hotwells and Harbourside	resolved	51.4510	-2.6080	ward	Council ward label; centroid toward city centre harbourside
+54	bristol.txt	Harbourside	resolved	51.4500	-2.5980	waterfront	Bristol city-centre docks / Canon’s Marsh–Millennium Square frontage
+55	bristol.txt	Spike Island	resolved	51.4470	-2.6175	island	Floating Harbour island (Underfall / Cumberland Basin zone)
+56	bristol.txt	Cumberland Basin	resolved	51.4469	-2.6230	dock_basin	Entrance dock / lock pool W of floating harbour
+57	bristol.txt	Junction Lock	resolved	51.4473	-2.6178	lock	Main junction lock into floating harbour (historic name)
+58	bristol.txt	Brunel Locks	resolved	51.4465	-2.6235	lock	Brunel’s paired locks in Cumberland Basin system
+59	bristol.txt	Underfall Yard	resolved	51.4468	-2.6174	boatyard	Wikipedia / GeoHack (Spike Island)
+60	bristol.txt	Nova Scotia Place	resolved	51.4472	-2.6183	street	BS1 6XJ terrace / Nova Scotia pub frontage (postcode centroid)
+61	bristol.txt	Rownham Ferry	resolved	51.4480	-2.6248	ferry_crossing	Historic Avon crossing at gorge mouth; Wikipedia / GeoHack slipway area
+62	bristol.txt	Welsh Back	resolved	51.4518	-2.5924	wharf	Welsh Back wharf & street; Wikipedia centroid
+63	bristol.txt	Redcliffe Quay	resolved	51.4492	-2.5925	quay	Redcliffe waterfront quays near Redcliffe Way / floating harbour edge
+64	bristol.txt	Redcliffe	resolved	51.4478	-2.5895	district	Redcliffe area centroid; Wikipedia
+65	bristol.txt	Redcliffe Bascule Bridge	resolved	51.4495	-2.5920	bascule_bridge	Redcliffe Bridge over floating harbour; Structurae / common name
+66	bristol.txt	Temple Quay	resolved	51.4510	-2.5830	waterfront	Temple Quay development; Wikipedia / GeoHack
+67	bristol.txt	Floating Harbour	resolved	51.4500	-2.6000	harbour	Bristol Harbour / impounded floating harbour; Wikipedia representative centroid
+68	bristol.txt	St Augustine's Reach	resolved	51.4503	-2.5979	waterway	Named Frome diversion reach; OSM waterway centroid
+69	bristol.txt	Narrow Quay	resolved	51.4502	-2.5974	quay	Harbourside quay; BS1 4QA address centroid (OpenGovUK)
+70	bristol.txt	Queen Square	resolved	51.4505	-2.5950	public_square	Georgian square; Wikipedia
+71	bristol.txt	Bristol City Docks	resolved	51.4500	-2.6000	docks	Informal label for city-centre floating harbour docks system
+72	bristol.txt	Bristol docks	resolved	51.4500	-2.6000	docks	Same floating harbour / city docks cluster as line 71
+73	bristol.txt	Bristol harbour	resolved	51.4500	-2.6000	harbour	Bristol Harbour (Floating Harbour); Wikipedia centroid
+74	bristol.txt	Old harbour	resolved	51.4520	-2.5935	historic_docks	Informal “old harbour” read pinned along Welsh Back / Bristol Bridge reach
+75	bristol.txt	City docks	resolved	51.4500	-2.6000	docks	Generic city docks label; same harbour system centroid
+76	bristol.txt	Pero's Bridge	resolved	51.4501	-2.5979	footbridge	Pedestrian bascule; Wikipedia
+77	bristol.txt	Prince Street Bridge	resolved	51.4487	-2.5968	swing_bridge	Grade II swing bridge; Wikipedia
+78	bristol.txt	Bristol Bridge	resolved	51.4536	-2.5913	bridge	Grade II bridge at downstream navigation limit; Wikipedia
+79	bristol.txt	Bathurst Basin	resolved	51.4469	-2.5948	dock_basin	Triangular side basin; Wikipedia
+80	bristol.txt	Baltic Wharf	resolved	51.4477	-2.6134	marina	Spike Island / harbour neighbourhood; OSM neighbourhood centroid
+81	bristol.txt	Canon's Marsh	resolved	51.4497	-2.6020	regeneration_area	Harbourside Canon’s Marsh; centroid toward Canons Way / waterfront
+82	bristol.txt	Anchor Road	resolved	51.4508	-2.6011	street	Harbourside Anchor Road segment; OSM highway centroid (BS1 5UE)
+83	bristol.txt	Millennium Square	resolved	51.4498	-2.6004	public_square	Canon’s Marsh square; Wikipedia
+84	bristol.txt	Princes Wharf	resolved	51.4477	-2.5988	wharf	Princes Wharf footway / museum frontage; OSM way centroid
+85	bristol.txt	M Shed	resolved	51.4473	-2.5986	museum	Dockside museum Princes Wharf; Wikipedia
+86	bristol.txt	Lloyds Amphitheatre	resolved	51.4481	-2.5989	amphitheatre	Outdoor events bowl Explore Lane; CanalPlan gazetteer coords
+87	bristol.txt	Brunel Quay	resolved	51.4480	-2.5995	quay	Small named quay in Lloyd’s Amphitheatre / Explore Lane waterfront (approx.)
+88	bristol.txt	Wapping Wharf	resolved	51.4467	-2.5992	neighbourhood	Gaol Ferry side food & retail wharf; OSM neighbourhood
+89	bristol.txt	Gaol Ferry Bridge	resolved	51.4459	-2.5994	footbridge	New Cut suspension footbridge; Wikipedia
+90	bristol.txt	Gaol Ferry Steps	resolved	51.4458	-2.5993	steps	Riverside access steps at Gaol Ferry Bridge south bank (approx.)
+91	bristol.txt	Greville Smyth Park	resolved	51.4427	-2.6208	park	Wikipedia / council; Victorian park beside Avon at Ashton Gate
+92	bristol.txt	Ashton Meadows	resolved	51.4433	-2.6240	parkland	Cumberland Basin south / Sylvia Crowe landscape linked to Greville Smyth (approx. centroid)
+93	bristol.txt	Coronation Road	resolved	51.4445	-2.5935	street	Southville Coronation Road along New Cut (approx. mid-reach)
+94	bristol.txt	Southville Riverside	resolved	51.4408	-2.6035	waterfront	Riverside housing / walkway strip along New Cut in Southville (approx.)
+95	bristol.txt	Bedminster Bridge	resolved	51.445731	-2.591675	bridge	Wikipedia / GeoHack; A38 pair over New Cut
+96	bristol.txt	Vauxhall Bridge	resolved	51.44639	-2.61167	footbridge	Wikipedia; Grade II swing footbridge over New Cut
+97	bristol.txt	Beeses	resolved	51.44417	-2.53556	riverside_venue	Wikimapia; Beese’s / Conham Ferry landing on Avon (Wyndham Crescent area)
+98	bristol.txt	Beeses Tea Gardens	resolved	51.44417	-2.53556	tea_garden	Same riverside site as line 97 (Beese’s Bar & Tea Gardens)
+99	bristol.txt	Beeses Ferry	resolved	51.4441	-2.5356	ferry	Conham / Beese’s passenger ferry boarding zone (same stretch of bank)
+100	bristol.txt	Netham	resolved	51.4515	-2.5545	locality	East Bristol pocket by Avon / Feeder junction upstream of floating harbour
+101	bristol.txt	Netham Weir	resolved	51.4519	-2.5542	weir	Adjacent to Netham Lock; Avon–New Cut weir (Wikipedia / listed lock complex)
+102	bristol.txt	Netham Lock	resolved	51.4520	-2.5542	lock	Wikipedia; entrance lock from tidal Avon to Feeder / floating harbour
+103	bristol.txt	Feeder Canal	resolved	51.4512	-2.5642	canal	Wikipedia infobox centroid; Netham–Totterdown feeder waterway
+104	bristol.txt	Totterdown Basin	resolved	51.4510	-2.5645	dock_basin	Western end of Feeder at Temple Meads / floating harbour connection (approx.)
+105	bristol.txt	Conham	resolved	51.4400	-2.5333	hamlet	Wikipedia OS-grid area; north bank Avon loop E of Bristol
+106	bristol.txt	Conham River Park	resolved	51.44693	-2.53489	park	BS15 3AW car-park coords (Running Out of Time / guides); Avon Valley Woodlands
+107	bristol.txt	Crew's Hole	resolved	51.4592	-2.5411	industrial_area	Wikipedia centroid; east Bristol riverside (historic tar works / Quayside Village)
+108	bristol.txt	Bower Ashton	resolved	51.4433	-2.6322	suburb	Wikimapia UWE Bower Ashton campus (Kennel Lodge Rd); district by Avon / Ashton Court
+109	bristol.txt	Troopers Hill	resolved	51.455364	-2.534741	nature_reserve	Wikipedia; St George LNR summit / chimney viewpoint
+110	bristol.txt	St Anne's	resolved	51.4493	-2.546	suburb	BS4 St Anne’s by Avon; centroid between core housing and St Anne’s Park reach
+111	bristol.txt	Brislington	resolved	51.4316	-2.5439	suburb	Wikipedia / GeoHack ward-area centroid
+112	bristol.txt	Portway	ambiguous			major_road	A4/A370 Portway is tens of km; no single coastal pin without arbitrary choice
+113	bristol.txt	SS Great Britain	resolved	51.4484	-2.6086	museum_ship	Wikipedia / GeoHack; Great Western Dockyard museum ship
+114	bristol.txt	Great Western Dockyard	resolved	51.44833	-2.60828	dry_dock	Same protected dock complex as SS Great Britain (Historic England / OSM zone)
+115	bristol.txt	Mud Dock	resolved	51.44925	-2.59539	marina	The Grove / BS1 4RB harbourside (Mud Dock café & cycleworks)
+116	bristol.txt	Bennett's Patch and White's Paddock	resolved	51.47374	-2.64670	nature_reserve	RSPB / Avon Wildlife Trust; BS9 1RQ gorge-edge reserve
+117	bristol.txt	Feeder Bridge	resolved	51.45056	-2.56861	footbridge	CanalPlan Feeder Road Footbridge over Feeder Canal (Silverthorne Lane link)
+118	bristol.txt	Victoria Wharf	resolved	51.4486	-2.6070	wharf	Named wharf on floating harbour W of SS Great Britain (approx. quay centroid)
+119	bristol.txt	Redcliffe Wharf	resolved	51.44844	-2.59329	wharf	OpenGovUK listed-structure point; Redcliffe floating-harbour quay (hand crane)
+120	bristol.txt	Mardyke Wharf	resolved	51.44962	-2.61169	wharf	Geograph ST57597247; Hotwell Road Mardyke quay by Grain Barge
+121	bristol.txt	Orchard Wharf	not_found			wharf	No clear Bristol harbourside feature by this name in sources; Orchard Wharf is a well-known London site
+122	bristol.txt	Junction Pontoons	resolved	51.4475	-2.6085	marina_pontoons	Council pontoons at Capricorn Quay / floating harbour junction reach (news: opposite SS Great Britain; Hotwells side)
+123	bristol.txt	Merchants Landing	resolved	51.4470	-2.5960	housing_estate	1980s quayside estate on Spike Island by Bathurst Basin / Merchants Quay (MLRA; Bathurst Wharf history)
+124	bristol.txt	Hope Quay	resolved	51.4463	-2.5998	housing	Wapping Wharf development on Rope Walk BS1 6ZH (letting / sales listings)
+125	bristol.txt	Bristol Floating Harbour	resolved	51.4500	-2.6000	harbour	Same impounded harbour system as “Floating Harbour” batch rows; representative city-centre centroid
+126	bristol.txt	Avonmouth Wharf	resolved	51.5060	-2.7030	wharf	Generic dockside wharf label; pinned in Royal Edward / Avonmouth dock frontage cluster
+127	bristol.txt	Merchants Quay	resolved	51.4470	-2.5955	quay	Quay name in Merchants Landing / Bathurst Basin zone (historic Merchants Quay pedestrianisation per MLRA)
+128	bristol.txt	Prince Street Wharf	resolved	51.4485	-2.5972	wharf	Named wharf on floating harbour by Prince Street Bridge / Princes Wharf area
+129	bristol.txt	Queen Quay	resolved	51.4500	-2.5945	office_quay	Interpreted as Queens Quay offices (33–35 Queen Square) on south side of Queen Square facing harbour
+130	bristol.txt	Cumberland Road	ambiguous			street	Cumberland Road runs much of Spike Island; no single coastal pin without arbitrary choice along ~2 km
+131	bristol.txt	Hannover Quay	resolved	51.44831	-2.60396	quay	Geograph at Hannover Quay BS1 5JP/5JR harbourside (spelling Hanover/Hannover both used)
+132	bristol.txt	Valentine Bridge	resolved	51.4518	-2.5816	footbridge	Temple Quay footbridge; Structurae coords (aka Valentine Bridge)
+133	bristol.txt	Pero's Bridge Harbourside	resolved	51.4501	-2.5979	promenade	Named harbourside around Pero’s Bridge / St Augustine’s Reach
+134	bristol.txt	Brunel Way	ambiguous			major_road	Dual carriageway / flyover system from Cumberland Basin; long linear corridor
+135	bristol.txt	Plimsoll Bridge	resolved	51.448452	-2.622556	swing_bridge	Structurae; Cumberland Basin road swing bridge
+136	bristol.txt	Ashton Avenue Bridge	resolved	51.4461	-2.6219	swing_bridge	Wikipedia / GeoHack; former harbour railway swing bridge over New Cut
+137	bristol.txt	Greville Smyth	resolved	51.4427	-2.6208	park	Interpreted as Greville Smyth Park (batch line 91); same riverside park by New Cut
+138	bristol.txt	Coronation Park	not_found			park	No distinct “Coronation Park” on Bristol coastal strip in sources; name chiefly used inland (e.g. Cadbury Heath BS30)
+139	bristol.txt	Gordon Road Cottages	resolved	51.4580	-2.6165	housing	Clifton Gordon Road (BS8) Georgian building / cottages context per listings
+140	bristol.txt	Avonmouth Station	resolved	51.5001	-2.6992	railway_station	Wikipedia; Severn Beach line AVN (not historic BPR&P terminus)
+141	bristol.txt	Shirehampton Road	ambiguous			major_road	B4054 / estate distributor; long road from Sea Mills to Shirehampton—no single pin
+142	bristol.txt	Portway Park and Ride	resolved	51.4908	-2.6891	park_and_ride	Wikidata / Wikipedia; A4 Portway site BS11 9QE (by M5 J18)
+143	bristol.txt	Sylvan Way	resolved	51.489974	-2.649641	street	Streetlist centroid; Sea Mills garden suburb (BS9 2), main estate road from Portway
+144	bristol.txt	Kings Weston Lane	resolved	51.4935	-2.6620	lane	Access road into Kings Weston Estate from Lawrence Weston / Shirehampton corridor (approx. mid-reach)
+145	bristol.txt	Nightingale Valley	resolved	51.44306	-2.54556	woodland	Wikimapia / walk guides; Brislington Brook nature reserve BS4 (not Stoke Bishop)
+146	bristol.txt	Trym Valley	resolved	51.4815	-2.6385	valley	River Trym valley corridor centred upstream of Sea Mills / Trym mouth
+147	bristol.txt	Sea Mills Gardens	resolved	51.4860	-2.6450	housing	Informal label for inter-war Sea Mills garden suburb conservation area (Addison Act estate)
+148	bristol.txt	The Crescent Sea Mills	resolved	51.4848	-2.6420	street	Named crescent in Sea Mills BS9 near Trym / station (approx. estate core)
+149	bristol.txt	Abona Roman port	resolved	51.4856	-2.6422	roman_site	Same Roman port association as line 36 “Abona”; Sea Mills / Trym mouth
+150	bristol.txt	Clifton Camp	resolved	51.45647	-2.62615	hillfort	Clifton Down Camp scheduled monument; TMA / Geograph Iron Age fort above Avon Gorge (ST565733 area)
+151	bristol.txt	Observatory Hill	resolved	51.4567	-2.6260	hill	Promontory on Clifton Down around Clifton Observatory (Wikipedia / listed building coords nearby)
+152	bristol.txt	Bridge Valley Road	resolved	51.4542	-2.6275	street	Main gorge section linking Observatory to Suspension Bridge (mid-reach centroid)
+153	bristol.txt	Sion Hill	resolved	51.4565	-2.6190	street	Sion Hill / Cliftonwood rise toward Suspension Bridge (approx. upper reach)
+154	bristol.txt	Hotwell Road	resolved	51.4479	-2.6124	street	Hotwells principal road along gorge foot (A4 corridor)
+155	bristol.txt	Lower Clifton Hill	resolved	51.4525	-2.6205	street	Lower Clifton Hill residential link Clifton / Hotwells
+156	bristol.txt	Campbells Landing	resolved	51.44806	-2.61944	landing	Cumberland Basin slip / quay context (Wikipedia basin coords)
+157	bristol.txt	Ostrich Inn	resolved	51.44975	-2.59715	pub	Ostrich Inn Lower Guinea Street harbourside (Grain Barge / Baltic Wharf)
+158	bristol.txt	Grain Barge	resolved	51.44938	-2.59762	attraction	Museum / bar boat Prince’s Wharf by M Shed
+159	bristol.txt	Pyronaut	resolved	51.44925	-2.59755	vessel	Historic steam fireboat exhibit Prince’s Wharf
+160	bristol.txt	John Sebastian Lightship	resolved	51.44917	-2.59730	vessel	LV55 lightship exhibit Prince’s Wharf cluster
+161	bristol.txt	Underfall Yard visitor centre	resolved	51.4475	-2.6148	visitor_centre	Underfall Yard Hotwells (floating harbour maintenance yard)
+162	bristol.txt	Create Centre	resolved	51.4479	-2.6100	visitor_centre	Smeaton Road CREATE environmental centre by Cumberland Basin
+163	bristol.txt	Arnolfini Wharf	resolved	51.45125	-2.59790	wharf	Arnolfini contemporary arts quay Narrow Quay / harbourside
+164	bristol.txt	Centre Promenade	ambiguous			promenade	Long harbourside walk; multiple segments—no single centroid
+165	bristol.txt	College Green Cut	resolved	51.4520	-2.5995	canal_cut	Floating harbour cut by College Green / Cathedral waterside
+166	bristol.txt	Castle Park Cut	resolved	51.4547	-2.5908	canal_cut	Floating harbour cut along Castle Park eastern margin
+167	bristol.txt	Temple Bridge	resolved	51.4541	-2.5935	bridge	Temple Quay foot/cycle bridge over harbour
+168	bristol.txt	Finzels Reach	resolved	51.4544	-2.5923	waterside	Harbourside redevelopment / bridges east of Castle Bridge
+169	bristol.txt	Castle Bridge	resolved	51.45485	-2.59128	bridge	Pedestrian/cycle bridge Castle Park to Finzels Reach (opened 2017)
+170	bristol.txt	Vauxhall Settlement	resolved	51.4475	-2.6115	historic_area	Historic “Vauxhall” naming of Hotwells / gorge foot (human-map label)
+171	bristol.txt	Malago mouth	resolved	51.4456	-2.5982	river_mouth	Wikipedia mouth coords; storm-drain outfall into New Cut
+172	bristol.txt	Malago confluence	resolved	51.4456	-2.5982	confluence	Same Wikipedia mouth point: Malago meets New Cut opposite Bathurst Basin lock
+173	bristol.txt	Bedminster Parade	resolved	51.4408	-2.5972	high_street	Bedminster shopping parade (A38 East Street area)
+174	bristol.txt	Ashton Vale	resolved	51.4280	-2.6270	suburb	Ward / housing area SW Bristol by Avonmouth railway corridor
+175	bristol.txt	Gores Marsh	resolved	51.4310	-2.6250	marsh	Ashton Vale / Gores Marsh local nature space (approx. open land centroid)
+176	bristol.txt	Bristol Ferry Landing	resolved	51.4511	-2.5933	ferry_landing	City-centre Bristol Ferry Boats boarding (Narrow Quay / Rownham context)
+177	bristol.txt	Harbourside ferry	ambiguous			ferry	Multiple stops along harbourside; no single landing name match
+178	bristol.txt	Cumberland Basin pontoons	resolved	51.4485	-2.6185	marina_pontoons	Pontoon moorings within Cumberland Basin (basin centroid offset W)
+179	bristol.txt	Junction Lock cottage	resolved	51.4492	-2.6110	building	Lock-keeper context at Junction Lock (basin–floating harbour interface)
+180	bristol.txt	Nova Scotia Quay	resolved	51.4489	-2.5915	quay	Baltic Wharf / Nova Scotia residential quay (floating harbour Redcliffe reach)
+181	bristol.txt	Welsh Back Landing	resolved	51.452775	-2.592299	ferry_landing	Naptan Welsh Back Ferry Landing bus stop (9300BRW1) quay-side point
+182	bristol.txt	Redcliffe Caves entrance	resolved	51.44837	-2.59223	cave_entrance	MCRA registry WGS84 for Redcliffe Caves (public entrance on Redcliffe wharf frontage)
+183	bristol.txt	Ostrich Quay	resolved	51.4479161	-2.5938905	quay	OSM The Ostrich Inn (Lower Guinea St) — quay label aligned to pub’s harbourside frontage
+184	bristol.txt	Phoenix Wharf	resolved	51.4483694	-2.5935212	wharf	OSM Phoenix Wharf road centre, Wapping Wharf / Redcliffe
+185	bristol.txt	Wapping Road	resolved	51.446897	-2.596466	street	Listed building point 1 Wapping Road (planning.data.gov.uk) — harbourside segment
+186	bristol.txt	Commercial Road Harbourside	resolved	51.4463422	-2.5936383	street	OSM Commercial Road centroid, Wapping Wharf / floating harbour edge
+187	bristol.txt	Steamer Point	not_found			unknown	No Steamer Point on Bristol floating harbour in OSM or clear local sources; name elsewhere (e.g. Dorset)
+188	bristol.txt	Avon Street	resolved	51.451583	-2.579257	street	Streetlist road centroid; St Philips / Temple Quarter corridor by floating harbour margin
+189	bristol.txt	Gas Ferry Road	resolved	51.448234	-2.607667	street	Streetlist road centroid; Hotwells link to Cumberland Road / Gaol Ferry Bridge area
+190	bristol.txt	Cumberland Piazza	resolved	51.44946	-2.62207	public_square	Photo GPS for Cumberland Piazza fountain area (Hotwells / Cumberland Basin public realm)
+191	bristol.txt	Canon's Marsh House	resolved	51.4486063	-2.6007537	building	OSM Canon's House office, Canons Way (Canon's Marsh harbourside regeneration)

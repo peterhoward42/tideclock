@@ -1,0 +1,107 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	carmarthenshire.txt	Laugharne	resolved	51.7694	-4.4631	town	Wikipedia / GeoHack town centroid on Tâf estuary
+2	carmarthenshire.txt	Laugharne Beach	resolved	51.7710	-4.4700	beach	Sandy foreshore along estuary W of town centre
+3	carmarthenshire.txt	Laugharne Castle	resolved	51.7685	-4.4572	castle	Latitude.to / Wikipedia landmark pin
+4	carmarthenshire.txt	Laugharne Estuary	resolved	51.7665	-4.4720	estuary	Tâf estuary at Laugharne; mouth area for coastal context
+5	carmarthenshire.txt	Laugharne Harbour	resolved	51.7715	-4.4635	harbour	Historic harbour inlet by castle / Grist area
+6	carmarthenshire.txt	Laugharne Sands	resolved	51.7700	-4.4750	beach	Intertidal sands along Tâf east of Pendine Sands stretch
+7	carmarthenshire.txt	Talacharn	resolved	51.7694	-4.4631	town	Welsh name for Laugharne; same settlement centroid
+8	carmarthenshire.txt	Dylan Thomas Boathouse	resolved	51.7722	-4.4562	attraction	Wikipedia museum / cliff road frontage on estuary
+9	carmarthenshire.txt	Grist	resolved	51.7695	-4.4625	settlement	Historic Grist Square / town centre cluster by castle
+10	carmarthenshire.txt	Llansaint	resolved	51.7483	-4.3409	village	Wikipedia village centroid; Carmarthen Bay hinterland
+11	carmarthenshire.txt	Brook	resolved	51.7578	-4.5122	hamlet	Postcodebyaddress / Geograph SN2609; A4066 coastal corridor hamlet
+12	carmarthenshire.txt	Marros	resolved	51.7500	-4.5989	village	GENUKI parish centre SN207089
+13	carmarthenshire.txt	Marros Beach	resolved	51.7380	-4.6000	beach	Sandy shore along Marros parish coast W of Pendine
+14	carmarthenshire.txt	Marros Sands	resolved	51.7372	-4.6000	beach	GeoHack Marros Sands landmark
+15	carmarthenshire.txt	Pendine	resolved	51.7472	-4.5639	village	Wikipedia / GeoHack community centroid
+16	carmarthenshire.txt	Pendine Beach	resolved	51.7428	-4.5550	beach	Seafront below village by promenade / museum
+17	carmarthenshire.txt	Pendine Morfa Bay	resolved	51.7400	-4.5700	bay	Bay W of Pendine toward Morfa Bychan / Gilman Point
+18	carmarthenshire.txt	Pendine Sands	resolved	51.7427	-4.5347	beach	Wikipedia midpoint of long sand beach (Traeth Pentywyn)
+19	carmarthenshire.txt	Morfa Bychan	resolved	51.7377	-4.5691	cove	Climbing wiki WGS84 for Morfa Bychan tidal cove (Pendine)
+20	carmarthenshire.txt	Morfa Bychan Beach	resolved	51.7415	-4.5683	beach	UK Beach Guide OS grid SN22520753 beach access
+21	carmarthenshire.txt	Morfa Bay	resolved	51.7390	-4.5680	bay	Same secluded bay as Morfa Bychan (Pendine)
+22	carmarthenshire.txt	Gilman Point	resolved	51.7325	-4.4975	headland	Wikipedia Pendine Sands W end / Wales Coast Path
+23	carmarthenshire.txt	Graig Ddu	ambiguous			headland	Several unrelated Graig Ddu labels; list position suggests Pendine–Morfa headland cliff but no single pin
+24	carmarthenshire.txt	Ragwen Point	resolved	51.7386	-4.5718	headland	D-Day Story / Normandy War Guide Atlantic Wall trial site
+25	carmarthenshire.txt	Red Roses	resolved	51.7756	-4.6040	village	Streetmap OS centroid; A477 crossroads village in coastal list
+26	carmarthenshire.txt	Museum of Speed	resolved	51.7425	-4.5562	museum	Wikipedia Pendine Museum of Speed / Museum of Land Speed site
+27	carmarthenshire.txt	Llansteffan	resolved	51.7721	-4.3910	village	Wikipedia community centroid on Tywi estuary
+28	carmarthenshire.txt	Llansteffan Beach	resolved	51.7735	-4.3925	beach	Sandy shore below village by Tywi mouth
+29	carmarthenshire.txt	Llansteffan Castle	resolved	51.7655	-4.3908	castle	Wikipedia / GeoHack Cadw headland fort
+30	carmarthenshire.txt	Llanstephan Beach	resolved	51.7735	-4.3925	beach	Alternate spelling of Llansteffan; same beach frontage
+31	carmarthenshire.txt	Traeth Mawr	resolved	51.7735	-4.3925	beach	Welsh big-beach name for main Llansteffan foreshore on Tywi estuary (UK Beach Guide SN355106 area)
+32	carmarthenshire.txt	Wharley Point	resolved	51.7581	-4.4072	headland	Gazetteer.org.uk / NT headland on Wales Coast Path S of Llansteffan
+33	carmarthenshire.txt	Scott's Bay	resolved	51.7637	-4.3946	beach	Geograph WGS84 SN34850992; secluded cove S of main Llansteffan beach
+34	carmarthenshire.txt	St Anthony's Well	resolved	51.7636	-4.3981	well	Wikidata Q29503938; Cadw-listed holy well near Scott's Bay / WCP
+35	carmarthenshire.txt	Ferryside	resolved	51.7678	-4.3693	village	Wikipedia community centroid on E shore of Tywi
+36	carmarthenshire.txt	Ferryside Beach	resolved	51.7682	-4.3715	beach	Tidal foreshore below village along estuary (WCP / coastal strip)
+37	carmarthenshire.txt	Glansteffan	resolved	51.7725	-4.3890	ferry	Carmarthen Bay Ferries landing context; pin at Llansteffan slip / The Green estuary front
+38	carmarthenshire.txt	Kidwelly	resolved	51.7361	-4.3069	town	Wikipedia / Wikidata town centroid on Gwendraeth
+39	carmarthenshire.txt	Cydweli	resolved	51.7361	-4.3069	town	Standardised Welsh name for Kidwelly; same settlement centroid
+40	carmarthenshire.txt	Kidwelly Beach	resolved	51.7370	-4.3175	beach	Sandy/mud estuary shore below town toward Gwendraeth Fach mouth
+41	carmarthenshire.txt	Kidwelly Castle	resolved	51.7398	-4.3055	castle	GeoHack / Cadw site above Gwendraeth Fach
+42	carmarthenshire.txt	Kidwelly Quay	resolved	51.7333	-4.3223	quay	British Listed Buildings / GeoHack Kymer's tidal dock on Gwendraeth Fach
+43	carmarthenshire.txt	Tywyn Point	resolved	51.6895	-4.2620	headland	E end of Cefn Sidan / Pembrey dunes (UK Beach Guide / Islandeering SN402000 area)
+44	carmarthenshire.txt	St Ishmael	resolved	51.7502	-4.3740	hamlet	Geograph WGS84 at parish church SN362083 (coastal lane above Tywi)
+45	carmarthenshire.txt	St Ishmael Beach	resolved	51.7485	-4.3765	beach	Foreshore below St Ishmael church / Ferryside–Kidwelly coast road
+46	carmarthenshire.txt	St Ishmaels	resolved	51.7493	-4.3733	hamlet	Local plural spelling for St Ishmael parish hamlet near church
+47	carmarthenshire.txt	St Ishmaels Beach	resolved	51.7478	-4.3770	beach	Same parish foreshore WCP strip (distinct access from line 45)
+48	carmarthenshire.txt	Trimsaran	resolved	51.7178	-4.2379	village	Wikipedia community centroid
+49	carmarthenshire.txt	Llandyry	resolved	51.7260	-4.2555	hamlet	Coflein Llandyry Church SN4335005000 centroid (B4317 strip)
+50	carmarthenshire.txt	Gwendraeth Estuary	resolved	51.7310	-4.3080	estuary	Representative mouth reach between Kidwelly and Carmarthen Bay (tidal channel)
+51	carmarthenshire.txt	Tywi Estuary	resolved	51.7680	-4.3750	estuary	Mid-estuary between Ferryside and Llansteffan (confluence zone into bay)
+52	carmarthenshire.txt	Tâf Estuary	resolved	51.7665	-4.4650	estuary	Mouth reach at Laugharne / Pendine side of Carmarthen Bay (context from list order)
+53	carmarthenshire.txt	Carmarthen Bay	resolved	51.6780	-4.3250	bay	Open bay centroid seaward of Gwendraeth/Tywi mouths
+54	carmarthenshire.txt	Burry Inlet	resolved	51.6650	-4.2350	inlet	Loughor-Burry channel / eastern Carmarthen Bay sands (tide app context)
+55	carmarthenshire.txt	Pembrey	resolved	51.6830	-4.2830	village	Wikipedia Pembrey village SN4201 area
+56	carmarthenshire.txt	Pembrey Beach	resolved	51.6930	-4.2780	beach	Cefn Sidan foreshore accessed from Pembrey Country Park
+57	carmarthenshire.txt	Pembrey Burrows	resolved	51.6880	-4.2880	dunes	Dune ridge W of beach along Cefn Sidan (country park coastal strip)
+58	carmarthenshire.txt	Pembrey Country Park	resolved	51.6812	-4.3051	park	Wikipedia / GeoHack visitor-centre area; Cefn Sidan southern edge
+59	carmarthenshire.txt	Pembrey Forest	resolved	51.6845	-4.2980	forest	Forestry blocks within Pembrey Country Park (WWII ROF / FC legacy)
+60	carmarthenshire.txt	Pembrey Circuit	resolved	51.7056	-4.3206	racetrack	Wikipedia Pembrey Circuit full-course coords
+61	carmarthenshire.txt	Pinged	resolved	51.7117	-4.2885	hamlet	Wikipedia Pinged railway station; Pembrey and Burry Port Town Council lists Pinged settlement
+62	carmarthenshire.txt	Pinged Marsh	resolved	51.7152	-4.2827	marsh	Heneb HLC centroid OS grid SN424043 → WGS84
+63	carmarthenshire.txt	Cefn Sidan	resolved	51.7024	-4.3746	beach	Wikidata / Wikipedia beach head coordinates
+64	carmarthenshire.txt	Cefn Sidan Beach	resolved	51.7024	-4.3746	beach	Same foreshore as Cefn Sidan; Pembrey Country Park access strip
+65	carmarthenshire.txt	Tywyn Sand	resolved	51.6940	-4.2700	beach	Sandy reach of Cefn Sidan east toward Burry Port / Tywyn Point coast
+66	carmarthenshire.txt	Burry Port	resolved	51.6900	-4.2500	town	Wikipedia / GeoHack community centroid
+67	carmarthenshire.txt	Burry Port Beach	resolved	51.6775	-4.2481	beach	British Beaches midpoint SN446000; long sandy frontage
+68	carmarthenshire.txt	Burry Port Beach East	resolved	51.6786	-4.2479	beach	UK Beach Guide OS grid SN44680015 → WGS84
+69	carmarthenshire.txt	Burry Port Beach West	resolved	51.6774	-4.2606	beach	W of marina toward dunes; OS grid ~SN438200 → WGS84
+70	carmarthenshire.txt	Burry Port Harbour	resolved	51.6785	-4.2495	harbour	Floating dock / outer harbour basin near town seafront
+71	carmarthenshire.txt	Burry Port Lighthouse	resolved	51.6775	-4.2512	lighthouse	Wikipedia harbour light on west breakwater
+72	carmarthenshire.txt	Burry Port Marina	resolved	51.6778	-4.2505	marina	Inner harbour pontoons adjacent lighthouse / yacht berths
+73	carmarthenshire.txt	Johnstown	ambiguous			suburb	List order suggests coast Burry Port–Pwll but gazetteers only show Johnstown SA31 near Carmarthen; no separate coastal pin
+74	carmarthenshire.txt	Pwll	resolved	51.6876	-4.2091	village	Wikipedia / GeoHack village centroid above Burry estuary
+75	carmarthenshire.txt	Pwll Beach	resolved	51.6865	-4.2110	beach	Tidal foreshore below village on Millennium Coastal Path
+76	carmarthenshire.txt	Llanelli	resolved	51.6820	-4.1619	town	GeoNames / Wikipedia town coordinates
+77	carmarthenshire.txt	Llanelli Beach	resolved	51.6750	-4.1737	beach	St Elli’s Bay / North Dock lake foreshore (GeoHack North Dock lake)
+78	carmarthenshire.txt	North Dock	resolved	51.6752	-4.1732	dock	Wikipedia North Dock Llanelli (also known locally as Llanelli Beach area)
+79	carmarthenshire.txt	Llanelli North Dock	resolved	51.6752	-4.1732	dock	Same dock basin as North Dock
+80	carmarthenshire.txt	South Dock	resolved	51.6677	-4.1555	dock	Coflein New Dock (Great Western Dock) grid SS5103298748 → WGS84; historic South Dock complex
+81	carmarthenshire.txt	Machynys	resolved	51.6620	-4.1590	suburb	Wikipedia Machynys peninsula community centroid
+82	carmarthenshire.txt	Machynys Beach	resolved	51.6605	-4.1530	beach	Estuary-front sands S of Machynys toward Loughor
+83	carmarthenshire.txt	Millennium Coastal Park	resolved	51.6776	-4.1729	park	Discovery Centre North Dock SA15 2LF (park hub; linear site)
+84	carmarthenshire.txt	Millennium Coastal Path	resolved	51.6776	-4.1729	path	NCN4 / WCP; representative pin at North Dock Discovery Centre on traffic-free corridor
+85	carmarthenshire.txt	National Wetland Centre Wales	resolved	51.6650	-4.1250	nature_reserve	Wikipedia WWT Llanelli Wetland Centre coordinates
+86	carmarthenshire.txt	Welsh Wetland Centre	resolved	51.6650	-4.1250	nature_reserve	Same WWT Llanelli site (Welsh branding)
+87	carmarthenshire.txt	Sandy Water Park	resolved	51.6819	-4.1782	park	Millennium Coastal Park lake; 2markers / visitor address Sandy Rd
+88	carmarthenshire.txt	Dafen	resolved	51.6928	-4.1356	village	Wikipedia Dafen ward centroid east of Llanelli
+89	carmarthenshire.txt	Stradey	resolved	51.6919	-4.1789	suburb	Wikipedia Stradey area Llanelli
+90	carmarthenshire.txt	Felinfoel	resolved	51.6980	-4.1470	village	Wikipedia Felinfoel north of Llanelli
+91	carmarthenshire.txt	Bynea	resolved	51.6740	-4.1030	village	Wikipedia / GeoHack village centroid by River Loughor
+92	carmarthenshire.txt	Halfway	resolved	51.6828	-4.1345	suburb	Geograph Halfway Hotel SN52530038; Halfway area Llanelli (Llwynhendy ward)
+93	carmarthenshire.txt	Llannon	resolved	51.7551	-4.1175	village	Wikipedia community / village centroid on A476
+94	carmarthenshire.txt	Grovesend	resolved	51.6878	-4.0381	village	Wikipedia Grovesend (Swansea); Loughor–Gorseinon coastal corridor in list order
+95	carmarthenshire.txt	Loughor Estuary	resolved	51.6640	-4.0780	estuary	Representative mid-reach by Loughor Bridge / Afon Llwchwr mouth zone
+96	carmarthenshire.txt	Loughor Bridge	resolved	51.6628	-4.0822	bridge	Wikipedia A484 road bridge over River Loughor
+97	carmarthenshire.txt	Morfa	resolved	51.6860	-4.2540	suburb	Glanymor ward Morfa area south Llanelli (Wikipedia Glanymor coords)
+98	carmarthenshire.txt	Morfa Bychan Pendine	resolved	51.7377	-4.5691	cove	Compound label: same Morfa Bychan tidal cove W of Pendine as earlier list entry
+99	carmarthenshire.txt	Pendine village	resolved	51.7472	-4.5639	village	Same settlement as Pendine row; Wikipedia community centroid
+100	carmarthenshire.txt	Burry Port docks	resolved	51.6809	-4.2531	harbour	Coflein / Wikipedia Burry Port Harbour & dock basins (coal-era docks)
+101	carmarthenshire.txt	Kidwelly docks	resolved	51.7333	-4.3223	quay	Kymer’s tidal dock / Kidwelly Quay area on Gwendraeth Fach (Coflein context)
+102	carmarthenshire.txt	Cefn Sidan Pembrey	resolved	51.7024	-4.3746	beach	Compound beach label; same Cefn Sidan foreshore as Pembrey Country Park strip
+103	carmarthenshire.txt	Pembrey dunes	resolved	51.6880	-4.2880	dunes	Pembrey Burrows dune ridge W of Cefn Sidan beach (country park coast)
+104	carmarthenshire.txt	Laugharne Marsh	resolved	51.7703	-4.3517	marsh	Heneb Laugharne Saltmarsh HCLA centroid SN305103; Tâf-side saltmarsh E of town
+105	carmarthenshire.txt	East Beach Burry Port	resolved	51.6786	-4.2479	beach	UK Beach Guide OS grid SN44680015 → WGS84; eastern sector of town frontage
+106	carmarthenshire.txt	West Beach Burry Port	resolved	51.6774	-4.2606	beach	W of marina toward dunes; OS grid ~SN438200 → WGS84 (earlier batch beach row)
