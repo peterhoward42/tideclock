@@ -142,6 +142,7 @@ Do phase 2 from /docs/planning/@docs/planning/location-route-redundancy-removal-
 				o  tune line thicknesses and font for platforms
 				o  other screens
 				o  make your own colour schemes / submit one for namecheck
+				o  see the source
 				o  see a funny tide
 				o  learn about tides
 				o  stories about tides:w

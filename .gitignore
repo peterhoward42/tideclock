@@ -71,9 +71,6 @@ dist-ssr/
 coverage/
 .nyc_output/
 
-# OS Open Names raw CSV tiles (large; download locally)
-tools/os-open-names/incoming/
-
 # Logs and temp
 logs/
 *.log

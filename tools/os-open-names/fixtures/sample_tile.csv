@@ -1,4 +1,0 @@
-Id,names_uri,name1,name2,type,local_type,GEOMETRY_X,GEOMETRY_Y,county_unitary,postcode_district,region,country
-toid:1,http://example/1,Sampletown,,populatedPlace,Town,351000,380000,Sampleshire,AB1,South West,England
-toid:2,http://example/2,Samplecity,,populatedPlace,City,530000,180000,Sampleshire,EC1,London,England
-toid:3,http://example/3,Hamletville,,populatedPlace,Hamlet,351100,380100,Sampleshire,AB2,South West,England
