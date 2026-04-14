@@ -102,26 +102,15 @@ o  new data fetch paradigm
 				*  loop back to fix no more times today
 				*  scrape diag spec for optional / if present errors
 fart
-				o  better list of towns - south wales very sparse
-					*  towns2 dir
-					*  prompt eng
-					*  prepare query function service
-					*  finish the fetch + assembly when fat broadband
+				*  better UX for locations
+				o  hone UI incl mobile and verbosity
+					o  exploit aspect ratio for internal diagram layout
 
-					o  better choice ux
-						*  get new ui and full data working
-						o  explore gaps
-						o  improve ui incl on mobile
-
-				*  Make the new location picker the master
-				o  Planned orphaned reduction outside of towns2
-
-
-Do phase 2 from /docs/planning/@docs/planning/location-route-redundancy-removal-plan.md
-
-
-				o  Planned orphaned reduction inside of towns2
-				o  Remove planning and unused docs
+					o  kiosk mode and the following
+					o  encourage landscape
+					o  encourage hide browser bar
+					o  how to use real estate better - partic on phone
+						o  aspect ratio sensitivity in diagram and outer?
 
 				o  falmouth estuary and south west extents poor coverage
 
