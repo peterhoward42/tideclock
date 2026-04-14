@@ -210,6 +210,11 @@ a {
   padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
 }
 
+/* Home + landscape: header hidden; keep diagram clear of notch / status inset. */
+.content--home.content--home-no-top-bar {
+  padding-top: max(0px, env(safe-area-inset-top, 0px));
+}
+
 .route {
   width: 100%;
 }

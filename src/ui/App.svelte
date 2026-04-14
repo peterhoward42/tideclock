@@ -16,7 +16,8 @@
   import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import { getCurrentTideClockCivilDayDisplayWindowFromSystemClock } from "../time-services/getCurrentTideClockCivilDayDisplayWindow";
-  import AppHeader, { type HeaderCenter, type HeaderTone } from "./components/AppHeader.svelte";
+  import { displayOptimisation } from "./displayOptimisation";
+  import AppHeader from "./components/AppHeader.svelte";
   import Home from "./routes/Home.svelte";
   import LocationTowns2 from "./routes/LocationTowns2.svelte";
   import Settings from "./routes/Settings.svelte";
@@ -160,6 +161,14 @@
     refreshTideExtremesForTown(town);
   }
 
+  /**
+   * Home ambient / wall mode: drop the top bar in landscape so the dial uses full viewport height.
+   * Location and menu return in a later iteration (planning: home-landscape-header-space).
+   */
+  const showHomeTopBar = $derived(
+    $route !== "home" || $displayOptimisation.aspectClass !== "landscape"
+  );
+
   function headerPlaceholderForRoute(routeId: AppRouteId): string {
     switch (routeId) {
       case "location2":
@@ -198,7 +207,9 @@
 
 <div class="app-frame">
   {#if $route === "home"}
-    <AppHeader tone={"dark"} center={{ kind: "location", town: currentTown }} />
+    {#if showHomeTopBar}
+      <AppHeader tone={"dark"} center={{ kind: "location", town: currentTown }} />
+    {/if}
   {:else}
     <AppHeader
       tone={"light"}
@@ -206,7 +217,11 @@
     />
   {/if}
 
-  <section class="content" class:content--home={$route === "home"}>
+  <section
+    class="content"
+    class:content--home={$route === "home"}
+    class:content--home-no-top-bar={$route === "home" && !showHomeTopBar}
+  >
     {#if $route === "home"}
       <Home
         tideLoadState={tideLoadState}

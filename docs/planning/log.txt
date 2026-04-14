@@ -105,6 +105,14 @@ fart
 				*  better UX for locations
 				o  hone UI incl mobile and verbosity
 					o  exploit aspect ratio for internal diagram layout
+						*  header padding
+						o  try omitting header
+							o  what it looks like
+							o  one what devices and aspects?
+							o  how reinstate menu and location?
+
+
+Implement ###6 in /docs/planning/home-landscape-header-space.md
 
 					o  kiosk mode and the following
 					o  encourage landscape
