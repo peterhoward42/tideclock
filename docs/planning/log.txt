@@ -132,12 +132,14 @@ fart
 
 				o  wait time mods
 					*  show arc but drop arrow head when too close
-					o  omit "now" when ???
-					o  get it working right
-					o  clean up spec to suit
+					*  omit "now" when ???
+					*  get it working right
+					*  clean up spec to suit
 					o  await tides for testing
 
 				o  come back to alternating in/out edge cases 
+				o  report bugs and suggestions
+				o  donate?
 				o  come back to the Bournemouth dilemma
 				o  tune line thicknesses and font for platforms
 				o  other screens
