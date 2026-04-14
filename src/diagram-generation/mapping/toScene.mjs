@@ -337,16 +337,29 @@ export function centreFrameDiagramToGroup(cf, cx, cy) {
 export function timeDeltaDiagramToGroup(td, cx, cy) {
   /** @type {import('../model/sceneModel.mjs').GroupNode[]} */
   const timeDeltaChildren = [];
-  if (td.timeDeltaLine != null) {
-    const seg = td.timeDeltaLine;
-    const node = text({
-      content: seg.content,
-      size: seg.fontSize,
-      hAlign: seg.hAlign,
-      angleRad: 0,
-      anchor: mapPoint(seg.anchor, cx, cy),
-    });
-    timeDeltaChildren.push(group("TimeDeltaLine", [node]));
+  if (td.countdownStripes != null) {
+    const stripeNames = [
+      "TimeDeltaLocation",
+      "TimeDeltaPhase",
+      "TimeDeltaNext",
+    ];
+    if (td.countdownStripes.length !== stripeNames.length) {
+      throw new Error(
+        `timeDeltaDiagram.countdownStripes must have length ${stripeNames.length}`,
+      );
+    }
+    for (let i = 0; i < td.countdownStripes.length; i += 1) {
+      const seg = td.countdownStripes[i];
+      const leaf = stripeNames[i];
+      const node = text({
+        content: seg.content,
+        size: seg.fontSize,
+        hAlign: seg.hAlign,
+        angleRad: 0,
+        anchor: mapPoint(seg.anchor, cx, cy),
+      });
+      timeDeltaChildren.push(group(leaf, [node]));
+    }
   }
   if (td.timeDeltaEmptyMessage != null) {
     const m = td.timeDeltaEmptyMessage;

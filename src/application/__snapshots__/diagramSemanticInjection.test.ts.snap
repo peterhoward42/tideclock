@@ -675,16 +675,36 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
   ],
   "timeDeltaDiagram": {
-    "timeDeltaEmptyMessage": null,
-    "timeDeltaLine": {
-      "anchor": {
-        "x": 0,
-        "y": -11.8,
+    "countdownStripes": [
+      {
+        "anchor": {
+          "x": 0,
+          "y": -4.72,
+        },
+        "content": "Lymington",
+        "fontSize": 5.9,
+        "hAlign": "center",
       },
-      "content": "Lymington · Tide going out · Low tide in 3h 45m (23:06)",
-      "fontSize": 5.9,
-      "hAlign": "center",
-    },
+      {
+        "anchor": {
+          "x": 0,
+          "y": -8.260000000000002,
+        },
+        "content": "Tide going out",
+        "fontSize": 5.9,
+        "hAlign": "center",
+      },
+      {
+        "anchor": {
+          "x": 0,
+          "y": -11.8,
+        },
+        "content": "Low tide in 3h 45m (23:06)",
+        "fontSize": 5.9,
+        "hAlign": "center",
+      },
+    ],
+    "timeDeltaEmptyMessage": null,
   },
   "timeNowLabel": {
     "hhmm": {

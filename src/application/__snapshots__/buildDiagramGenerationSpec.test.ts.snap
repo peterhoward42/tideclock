@@ -675,16 +675,36 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     },
   ],
   "timeDeltaDiagram": {
-    "timeDeltaEmptyMessage": null,
-    "timeDeltaLine": {
-      "anchor": {
-        "x": 0,
-        "y": 3.54,
+    "countdownStripes": [
+      {
+        "anchor": {
+          "x": 0,
+          "y": -2.95,
+        },
+        "content": "Lymington",
+        "fontSize": 4.72,
+        "hAlign": "center",
       },
-      "content": "Lymington · Tide coming in · High tide in 3h 45m (23:06)",
-      "fontSize": 4.72,
-      "hAlign": "center",
-    },
+      {
+        "anchor": {
+          "x": 0,
+          "y": -6.49,
+        },
+        "content": "Tide coming in",
+        "fontSize": 4.0120000000000005,
+        "hAlign": "center",
+      },
+      {
+        "anchor": {
+          "x": 0,
+          "y": -10.383999999999999,
+        },
+        "content": "High tide in 3h 45m (23:06)",
+        "fontSize": 3.7760000000000002,
+        "hAlign": "center",
+      },
+    ],
+    "timeDeltaEmptyMessage": null,
   },
   "timeNowLabel": {
     "hhmm": {
@@ -742,7 +762,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "height": 320,
     "previewFrame": {
       "maxX": 332.532649765169,
-      "maxY": 168.316,
+      "maxY": 161.82600000000002,
       "minX": 80.00553500568172,
       "minY": 16.456000000000007,
     },
@@ -1556,17 +1576,51 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 210,
-                  "y": 163.54,
+                  "y": 157.05,
                 },
                 "angleRad": 0,
-                "content": "Lymington · Tide coming in · High tide in 3h 45m (23:06)",
+                "content": "Lymington",
                 "hAlign": "center",
                 "kind": "text",
                 "size": 4.72,
               },
             ],
             "kind": "group",
-            "name": "TimeDeltaLine",
+            "name": "TimeDeltaLocation",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 210,
+                  "y": 153.51,
+                },
+                "angleRad": 0,
+                "content": "Tide coming in",
+                "hAlign": "center",
+                "kind": "text",
+                "size": 4.0120000000000005,
+              },
+            ],
+            "kind": "group",
+            "name": "TimeDeltaPhase",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 210,
+                  "y": 149.616,
+                },
+                "angleRad": 0,
+                "content": "High tide in 3h 45m (23:06)",
+                "hAlign": "center",
+                "kind": "text",
+                "size": 3.7760000000000002,
+              },
+            ],
+            "kind": "group",
+            "name": "TimeDeltaNext",
           },
         ],
         "kind": "group",

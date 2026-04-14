@@ -60,7 +60,7 @@ arrowhead would dominate the rendered arc segment.
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** in `**HH:MM:SS`** **other than** `**24:00:00`** (that sentinel is for the RefArc right endpoint only, not for tide events). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
 - `**nowPointer**` / `**nextPointer**` — **required** plain objects with the nested fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks): **now** — `**radialLine`**, `**label`**, `**triangle**`; next — `**radialLine**` only. `**radialLine.outerRadius`** must be a finite **k·R** multiplier **> 0** and must place the line end **outside** **R_frame** (outer **>** inner). On `**nowPointer.triangle`**, `**subtendedAngleRad`** is required: a literal angle in radians (not a k·R length); see §NowPointer. R_frame from `**centreFrame.frameArcRadius**` supplies the Now radial **inner** radius; the Next filled-circle radius is **σ·R_frame** for fixed **σ** in **§NextPointer** (see **CentreFrame**, **NowPointer**, **NextPointer**). **NextPointer** is omitted from the scene only when there is no qualifying next tide (derived), not when `**nextPointer`** is missing.
 - `**timeNowLabel`** — **required** plain object; finite `**x`**, `**fontHeight`**, and `**y**` (k·R multiples; see TimeNowLabel). Together with required string `**timeNowDatePrefix**`, drives the **TimeNowLabel** group.
-- `**timeDelta`** — **required** plain object; finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**), plus string `**town`** and enum `**tidePhasePair ∈ {"out-low","in-high"}`. `**belowOrigin`** is the distance from **Y = 0** toward **−Y** for the shared baseline; **X** is fixed at **0**. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
+- `**timeDelta`** — **required** plain object; string `**town**`; enum `**tidePhasePair ∈ {"out-low","in-high"}**`; **`countdownLines`** — array of **exactly three** plain objects (location, phase, next-event stripes), each with finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**); **`emptyMessage`** — plain object with finite `**belowOrigin`** and `**fontHeight`** for the **NoMoreTidesToday** case. Per stripe, `**belowOrigin`** is the distance from **Y = 0** toward **−Y** to that stripe’s baseline; **X** is fixed at **0** for all. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc and the **NowPointer** radial inner endpoint (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
 - `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
 
@@ -74,7 +74,7 @@ arrowhead would dominate the rendered arc segment.
   - NextPointer
   - WaitArc
   - TimeNowLabel (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds**)
-  - TimeDelta
+  - TimeDelta (countdown style-bound leaves: **TimeDeltaLocation**, **TimeDeltaPhase**, **TimeDeltaNext**)
   - NoMoreTidesToday
   - CentreFrame
   - AnnularBand
@@ -85,7 +85,7 @@ When there is **no** tide marker at or after `timeNow` on the same civil day
 (same “next marker” notion as **WaitArc**), **NextPointer** and **WaitArc** are
 **omitted**. **TimeDelta** then carries a **single** replacement **TextElement**
 (see **TimeDelta**, empty-day case) under the stable leaf name **NoMoreTidesToday**
-instead of **EventKind**, **DeltaGlue**, and **DeltaInterval**. **TimeDelta** and
+instead of the three countdown stripes. **TimeDelta** and
 **CentreFrame** are independent named elements (no grouping or parent/child link
 between them in the logical model).
 
@@ -440,7 +440,7 @@ shows the current civil clock time derived from global `**timeNow`**.
 in `**buildDiagramGenerationSpec`**):
   - `**fontHeight`** — proportion **k** as **k·R** (**§Sizing**).
   - `**x`** — proportion **k** as **k·R** for anchor **X** (typically toward **+X** in the content region).
-  - `**y`** — proportion **k** as **k·R** (**§Sizing**): a **positive** host value is interpreted as **k·R** **subtracted** from **Y = 0** (**§Origin**) to place the shared text **baseline** at **Y = 0 − k·R** (toward **−Y** / **below** the arc centre when **k > 0**). **Not** the same convention as `**timeDelta.y`** (which is a signed offset to the baseline).
+  - `**y`** — proportion **k** as **k·R** (**§Sizing**): a **positive** host value is interpreted as **k·R** **subtracted** from **Y = 0** (**§Origin**) to place the shared text **baseline** at **Y = 0 − k·R** (toward **−Y** / **below** the arc centre when **k > 0**).
 - Diagram input `**timeNowDatePrefix`** — required string prefix for the left fragment
 (customary short form such as `**Wed 21 Jun`**).
 
@@ -470,42 +470,32 @@ in `**buildDiagramGenerationSpec`**):
 
 ### TimeDelta placement
 
-- `**timeDelta.belowOrigin`** (**k·R**) — distance from **Y = 0** toward **−Y** to the shared text baseline.
-- **Anchor X** for both countdown and empty-message cases is fixed at **0**.
+- **Countdown** — three stripes; stripe *i* uses `**timeDelta.countdownLines[i].belowOrigin`** and `**timeDelta.countdownLines[i].fontHeight`** (**k·R** each). **Anchor X** is **0** for every stripe.
+- **Empty day** — `**timeDelta.emptyMessage.belowOrigin`** and `**timeDelta.emptyMessage.fontHeight`** (**k·R**) for **NoMoreTidesToday**; **Anchor X** is **0**.
 
 ### Scene model
 
-- Emitted as a named group **TimeDelta** ( `**timeDelta`** input is required). When there is no next tide today, that group contains only **NoMoreTidesToday** (not **EventKind** / **DeltaGlue** / **DeltaInterval**).
+- Emitted as a named group **TimeDelta** (`**timeDelta`** input is required). When there is no next tide today, that group contains only **NoMoreTidesToday** (not the three countdown leaves).
 
 ### Copy and layout
 
-- When a **next** marker exists on the civil day — one logical sentence, emitted as **one**
-**TextElement** with **centre** justification at anchor **(0, 0 − belowOrigin·R)** from `**timeDelta.belowOrigin`**.
-  - Copy format: `**<town> · Tide <going out|coming in> · <Low tide|High tide> in <Hh Mm> (<HH:MM>)`**
-  - `**town`** comes from `**timeDelta.town`**.
-  - Direction/event pair comes from `**timeDelta.tidePhasePair**` (`"out-low"` → `going out` + `Low tide`; `"in-high"` → `coming in` + `High tide`).
+- When a **next** marker exists on the civil day — **three** centre-justified **TextElement**s at distinct baselines (no interpuncts between stripes; vertical rhythm is intentional typography):
+  1. **TimeDeltaLocation** — `**town**` from `**timeDelta.town**`; **FontHeight** **k·R** from `**countdownLines[0].fontHeight**`; **Anchor Y** **0 − countdownLines[0].belowOrigin·R**; **Horizontal justification** **centre**; **Baseline polar angle** **0**.
+  2. **TimeDeltaPhase** — `**Tide <going out|coming in>**` from `**timeDelta.tidePhasePair**` (`"out-low"` → `going out`; `"in-high"` → `coming in`); geometry from `**countdownLines[1]**`.
+  3. **TimeDeltaNext** — `**<Low tide|High tide> in <Hh Mm> (<HH:MM>)**` where the low/high label matches the pair (`"out-low"` → `Low tide`; `"in-high"` → `High tide`); `<Hh Mm>` and `<HH:MM>` are derived from the next marker at or after `**timeNow`** on the same civil day; geometry from `**countdownLines[2]**`.
   - Host derivation policy for `**timeDelta.tidePhasePair**`:
     - Use adjacent retained tide extrema as ordered in civil-day time.
     - For a fully defined segment `**[event_i, event_{i+1})`**, compare heights:
       - if `**height_{i+1} > height_i`**, use `**"in-high"`**;
       - if `**height_{i+1} < height_i`**, use `**"out-low"`**.
     - For `**timeNow`** before the first retained event or after the last retained event, treat those as half-defined edge segments and resolve by alternating opposite to the nearest fully defined segment.
-  - `<Hh Mm>` and `<HH:MM>` are derived from the next marker at or after `**timeNow`** on the same civil day.
-- **No next marker at or after `timeNow` on the civil day** (e.g. after the last tide; includes the case where every marker is strictly before `**timeNow`**) — one **TextElement** only (not the
-three-fragment sentence above):
+- **No next marker at or after `timeNow` on the civil day** (e.g. after the last tide; includes the case where every marker is strictly before `**timeNow`**) — one **TextElement** only:
   - **Text** — fixed synthesis: exactly `**No further tides today`** (not a host
   override).
-  - **FontHeight**, **Horizontal justification** (**centre**), **Baseline polar
-  angle** (**0**), **Anchor X** (**0**), and **Anchor Y** (**0 − belowOrigin·R**) —
-  same placement rule as the countdown line below.
+  - **FontHeight** — **k·R** from `**emptyMessage.fontHeight**`; **Horizontal justification** (**centre**); **Baseline polar
+  angle** (**0**); **Anchor X** (**0**); **Anchor Y** (**0 − emptyMessage.belowOrigin·R**).
   - Allocated leaf name for styling/host binding (exact match): **NoMoreTidesToday**.
-  - Do **not** emit **EventKind**, **DeltaGlue**, or **DeltaInterval** in this case.
-- **Allocated leaf name** for the countdown case (exact match): `TimeDeltaLine`.
-- **Shared** for countdown line **and** for **NoMoreTidesToday**:
-  - **FontHeight** — one input **k** as **k·R** for the whole line (**§Sizing**).
-  - **Horizontal justification** — **centre**.
-  - **Baseline polar angle** — **0** (**TextElement defaults**).
-  - **Anchor X** — **0**; **Anchor Y** — **0 − belowOrigin·R**.
+- **Layout guidance:** choose each `**countdownLines[i].belowOrigin`** so baselines sit comfortably inside the chord region implied by **`centreFrame.frameArcRadius`** and the ref arc; **CentreFrame** and **TimeDelta** remain independent inputs (no automatic coupling in the generator).
 
 ## CentreFrame
 

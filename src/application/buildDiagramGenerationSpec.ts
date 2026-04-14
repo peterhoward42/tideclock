@@ -34,7 +34,7 @@ export type BuildDiagramGenerationSpecParams = BuildDiagramGenerationSpecTimeInp
    * same conceptual spec). When omitted, layout derives next tide from `tideMarks` as usual.
    */
   readonly derivedSemantics?: Pick<DerivedNextTideSemantics, 'nextTide'>;
-  /** Display town name for TimeDelta sentence. */
+  /** Display town name for the TimeDelta location stripe. */
   readonly townName: string;
 };
 
@@ -93,8 +93,13 @@ type HomeTideDiagramLayoutBase = {
   /** k·RefRadius; concentric arc inside RefArc, same angular span as RefArc. */
   readonly insideTrackRadius: number;
   readonly timeDelta: {
-    readonly belowOrigin: number;
-    readonly fontHeight: number;
+    /** Three stripes: location name, tide phase line, next-event line (see tide-diagram §TimeDelta). */
+    readonly countdownLines: readonly {
+      readonly belowOrigin: number;
+      readonly fontHeight: number;
+    }[];
+    /** Baseline and font for **NoMoreTidesToday** when there is no next tide on the civil day. */
+    readonly emptyMessage: { readonly belowOrigin: number; readonly fontHeight: number };
     readonly town: string;
     readonly tidePhasePair: 'out-low' | 'in-high';
   };
@@ -132,8 +137,12 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   centreFrame: { frameArcRadius: 0.45 },
   insideTrackRadius: 0.77,
   timeDelta: {
-    belowOrigin: -0.03,
-    fontHeight: 0.04,
+    countdownLines: [
+      { belowOrigin: 0.025, fontHeight: 0.04 },
+      { belowOrigin: 0.055, fontHeight: 0.034 },
+      { belowOrigin: 0.088, fontHeight: 0.032 },
+    ],
+    emptyMessage: { belowOrigin: 0.08, fontHeight: 0.038 },
     town: 'Unset',
     tidePhasePair: 'out-low',
   },

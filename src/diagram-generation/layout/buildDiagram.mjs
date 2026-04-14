@@ -46,7 +46,7 @@ const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
  * Root-level clock readout from `spec.timeNow` (canonical `HH:MM:SS`) and required
  * `spec.timeNowDatePrefix` (e.g. `Wed 21 Jun`).
  * Required `spec.timeNowLabel`: `{ x, fontHeight, y }` as RefRadius multiples;
- * **y** is proportion **k**; baseline **Y = −k·R** (subtract **k·R** from **Y = 0**), unlike signed `timeDelta.y`.
+ * **y** is proportion **k**; baseline **Y = −k·R** (subtract **k·R** from **Y = 0**).
  * Date+HH:MM, the colon before seconds, and SS are separate {@link DiagramTextInst}s so each can bind a distinct scene style name.
  *
  * @param {Record<string, unknown>} spec

@@ -70,8 +70,8 @@ type SemanticInjectionDiagramSpec = {
   readonly centreFrame: { readonly frameArcRadius: number };
   readonly insideTrackRadius: number;
   readonly timeDelta: {
-    readonly belowOrigin: number;
-    readonly fontHeight: number;
+    readonly countdownLines: readonly { readonly belowOrigin: number; readonly fontHeight: number }[];
+    readonly emptyMessage: { readonly belowOrigin: number; readonly fontHeight: number };
     readonly town: string;
     readonly tidePhasePair: 'out-low' | 'in-high';
   };
@@ -132,8 +132,12 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     centreFrame: { frameArcRadius: 0.35 },
     insideTrackRadius: 0.75,
     timeDelta: {
-      belowOrigin: 0.1,
-      fontHeight: 0.05,
+      countdownLines: [
+        { belowOrigin: 0.04, fontHeight: 0.05 },
+        { belowOrigin: 0.07, fontHeight: 0.05 },
+        { belowOrigin: 0.1, fontHeight: 0.05 },
+      ],
+      emptyMessage: { belowOrigin: 0.1, fontHeight: 0.05 },
       town: 'Lymington',
       tidePhasePair: 'out-low',
     },
@@ -169,7 +173,7 @@ describe('spec.semantic.nextTide injection', () => {
   it('after last tide of the day shows NoMoreTidesToday and omits NextPointer and WaitArc', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.timeDeltaDiagram.timeDeltaLine).toBeNull();
+    expect(diagram.timeDeltaDiagram.countdownStripes).toBeNull();
     expect(diagram.timeDeltaDiagram.timeDeltaEmptyMessage).toEqual({
       content: TIME_DELTA_EMPTY_MESSAGE,
       fontSize: 5.9,
