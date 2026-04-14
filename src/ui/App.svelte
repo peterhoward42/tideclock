@@ -18,7 +18,6 @@
   import { getCurrentTideClockCivilDayDisplayWindowFromSystemClock } from "../time-services/getCurrentTideClockCivilDayDisplayWindow";
   import AppHeader, { type HeaderCenter, type HeaderTone } from "./components/AppHeader.svelte";
   import Home from "./routes/Home.svelte";
-  import Location from "./routes/Location.svelte";
   import LocationTowns2 from "./routes/LocationTowns2.svelte";
   import Settings from "./routes/Settings.svelte";
   import About from "./routes/About.svelte";
@@ -29,7 +28,6 @@
   /** Mirrors {@link RouteId} in `router.js` for header copy without importing JS typedefs. */
   type AppRouteId =
     | "home"
-    | "location"
     | "location2"
     | "settings"
     | "about"
@@ -164,8 +162,6 @@
 
   function headerPlaceholderForRoute(routeId: AppRouteId): string {
     switch (routeId) {
-      case "location":
-        return "Location";
       case "location2":
         return "Location";
       case "settings":
@@ -204,7 +200,10 @@
   {#if $route === "home"}
     <AppHeader tone={"dark"} center={{ kind: "location", town: currentTown }} />
   {:else}
-    <AppHeader tone={"light"} center={{ kind: "title", title: headerPlaceholderForRoute($route) }} />
+    <AppHeader
+      tone={"light"}
+      center={{ kind: "title", title: headerPlaceholderForRoute($route) }}
+    />
   {/if}
 
   <section class="content" class:content--home={$route === "home"}>
@@ -214,8 +213,6 @@
         tideExtremes={lastSuccessfulTideExtremes}
         townName={currentTown?.name ?? "Unknown"}
       />
-    {:else if $route === "location"}
-      <Location setCurrentLocation={setCurrentLocation} />
     {:else if $route === "location2"}
       <LocationTowns2 setCurrentLocation={setCurrentLocation} />
     {:else if $route === "settings"}

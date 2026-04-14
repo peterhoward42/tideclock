@@ -9,7 +9,7 @@
 import { writable } from 'svelte/store'
 
 /**
- * @typedef {'home' | 'location' | 'location2' | 'settings' | 'about' | 'acknowledgements' | 'support' | 'cookies'} RouteId
+ * @typedef {'home' | 'location2' | 'settings' | 'about' | 'acknowledgements' | 'support' | 'cookies'} RouteId
  */
 
 /** @type {import('svelte/store').Writable<RouteId>} */

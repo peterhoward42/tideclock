@@ -115,6 +115,11 @@ fart
 
 				*  Make the new location picker the master
 				o  Planned orphaned reduction outside of towns2
+
+
+Do phase 2 from /docs/planning/@docs/planning/location-route-redundancy-removal-plan.md
+
+
 				o  Planned orphaned reduction inside of towns2
 				o  Remove planning and unused docs
 
