@@ -331,7 +331,9 @@ function buildAnnularBandFromSpec(spec, refRadius, thetaLeft, sweepRad) {
 function shouldOmitWaitArcArrowForSweepFit(params) {
   const arcLength = Math.abs(params.sweepRad) * params.radius;
   const arrowLengthSceneUnits = params.scaleWithStroke ? params.lengthK : params.lengthK;
-  return arcLength < arrowLengthSceneUnits;
+  // Arrowheads can still read well when somewhat longer than the arc span.
+  // Omit only when the arc is very short relative to the configured arrow length.
+  return arcLength < 0.5 * arrowLengthSceneUnits;
 }
 
 /**

@@ -243,6 +243,23 @@ describe('spec.semantic.nextTide injection', () => {
     expect(diagram.waitArc?.arrow).toBeDefined();
   });
 
+  it('keeps WaitArc arrow for medium waits even with large arrow config', () => {
+    const spec = {
+      ...sampleTideDiagramSpec(),
+      timeNow: '21:02:00',
+      waitArc: {
+        ...sampleTideDiagramSpec().waitArc,
+        arrow: {
+          ...sampleTideDiagramSpec().waitArc.arrow,
+          lengthK: 24,
+        },
+      },
+    };
+    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
+    expect(diagram.waitArc).not.toBeNull();
+    expect(diagram.waitArc?.arrow).toBeDefined();
+  });
+
   it('rejects malformed injected nextTide', () => {
     const spec = sampleTideDiagramSpec();
     expect(() =>

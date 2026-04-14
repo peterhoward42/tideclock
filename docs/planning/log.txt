@@ -126,7 +126,8 @@ fart
 					*  get it working right
 					*  clean up spec to suit
 					o  await tides for testing
-						o  see screen shots
+						*  see screen shots (1)
+						o  see screen shots (2)
 
 				o  come back to alternating in/out edge cases 
 				o  report bugs and suggestions
