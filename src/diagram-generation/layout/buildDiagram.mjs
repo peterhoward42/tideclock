@@ -32,7 +32,6 @@ import {
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import {
   computeNextTideEventCore,
-  shouldOmitNowWaitVisualsForNextPointerClearance,
 } from "../model/tideEvents.mjs";
 import {
   polar,
@@ -319,6 +318,23 @@ function buildAnnularBandFromSpec(spec, refRadius, thetaLeft, sweepRad) {
 }
 
 /**
+ * Omit WaitArc arrow metadata when the configured marker length would dominate
+ * the rendered arc segment.
+ *
+ * Renderer note: `scaleWithStroke: true` uses marker units in stroke-widths.
+ * The current renderer uses a scene stroke width of 1, so `lengthK` maps 1:1
+ * to scene units for this fit check.
+ *
+ * @param {{ radius: number, sweepRad: number, lengthK: number, scaleWithStroke: boolean }} params
+ * @returns {boolean}
+ */
+function shouldOmitWaitArcArrowForSweepFit(params) {
+  const arcLength = Math.abs(params.sweepRad) * params.radius;
+  const arrowLengthSceneUnits = params.scaleWithStroke ? params.lengthK : params.lengthK;
+  return arcLength < arrowLengthSceneUnits;
+}
+
+/**
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
  * @param {number} thetaLeft
@@ -356,20 +372,22 @@ function buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   if (core == null) {
     return null;
   }
-  const omitArrowForShortWait = shouldOmitNowWaitVisualsForNextPointerClearance(
-    parsedNow,
-    core,
-  );
-
   const nowTheta = timeToTheta(parsedNow.hours, thetaLeft, thetaRight);
   const nextTheta = timeToTheta(core.seconds / 3600, thetaLeft, thetaRight);
+  const sweepRad = Math.max(0, nextTheta - nowTheta);
+  const omitArrowForSweepFit = shouldOmitWaitArcArrowForSweepFit({
+    radius,
+    sweepRad,
+    lengthK,
+    scaleWithStroke,
+  });
 
   return {
     center: { x: 0, y: 0 },
     radius,
     thetaStart: nowTheta,
-    sweepRad: Math.max(0, nextTheta - nowTheta),
-    ...(omitArrowForShortWait
+    sweepRad,
+    ...(omitArrowForSweepFit
       ? {}
       : {
           arrow: {

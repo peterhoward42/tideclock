@@ -559,8 +559,9 @@ export function tideDiagramToScene(diagram) {
     ]),
   ]);
 
-  // NowRadialLine, NowLabel, and WaitArc share omission when they would occlude NextPointer;
-  // NowTriangle stays in the model (see shouldOmitNowWaitVisualsForNextPointerClearance).
+  // NowLabel and NowRadialLine have distinct clearance gates:
+  // label hides earlier (nuisance reduction), radial line hides only when near-superimposed.
+  // NowTriangle always stays in the model.
   const nowPointerGroup = group("NowPointer", [
     ...(nowPointer.triangle
       ? [

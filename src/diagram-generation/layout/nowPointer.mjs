@@ -14,7 +14,8 @@
 
 import {
   computeNextTideEventCore,
-  shouldOmitNowWaitVisualsForNextPointerClearance,
+  shouldOmitNowLabelForNextPointerClearance,
+  shouldOmitNowRadialLineForNextPointerClearance,
 } from "../model/tideEvents.mjs";
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
@@ -159,15 +160,19 @@ export function buildNowPointerFromSpec(
   });
 
   const nextCore = computeNextTideEventCore(spec, parsedNow);
-  const omitLineAndLabel =
-    shouldOmitNowWaitVisualsForNextPointerClearance(parsedNow, nextCore);
+  const omitNowLabel =
+    shouldOmitNowLabelForNextPointerClearance(parsedNow, nextCore);
+  const omitNowLine = shouldOmitNowRadialLineForNextPointerClearance(
+    parsedNow,
+    nextCore,
+  );
 
   return {
     timeHours: t,
     theta,
     nowLabelBranch,
-    radialLine: omitLineAndLabel ? null : { start, end },
-    nowLabel: omitLineAndLabel
+    radialLine: omitNowLine ? null : { start, end },
+    nowLabel: omitNowLabel
       ? null
       : {
           content: "now",

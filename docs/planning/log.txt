@@ -109,19 +109,9 @@ fart
 					*  finish the fetch + assembly when fat broadband
 
 					o  better choice ux
-						o  collab cursor on acquiring lat/lon
-							*  design a process and prompt
-							*  smoke test it
-							*  ask cursor to scale it using same paradigm as
-							   run-coastal-agent-loop for batched breakdown using
-							   repo as statemanagement
-							o  try the script out
-								o  first run
-									o  looking encouraging but very slow
-
-						o  collab cursor on better UX
-							o  put in first stab at better UX
-							o  tune it once we have the full input data set
+						*  get new ui and full data working
+						o  explore gaps
+						o  improve ui incl on mobile
 
 				o  Make the new location picker the master
 				o  Wean off non geoencoded data set and files
@@ -136,6 +126,7 @@ fart
 					*  get it working right
 					*  clean up spec to suit
 					o  await tides for testing
+						o  see screen shots
 
 				o  come back to alternating in/out edge cases 
 				o  report bugs and suggestions

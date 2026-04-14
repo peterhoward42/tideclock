@@ -186,7 +186,17 @@ describe('spec.semantic.nextTide injection', () => {
     expect(diagram.nowPointer?.nowLabel).not.toBeNull();
   });
 
-  it('omits Now radial line and Now label, but keeps WaitArc without arrow, when next tide is under 5 minutes away', () => {
+  it('omits Now label (but keeps Now radial line) when next tide is under 60 minutes and not near-superimposed', () => {
+    const spec = { ...sampleTideDiagramSpec(), timeNow: '22:07:00' };
+    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
+    expect(diagram.nextPointer).not.toBeNull();
+    expect(diagram.nowPointer?.triangle).toBeDefined();
+    expect(diagram.nowPointer?.radialLine).not.toBeNull();
+    expect(diagram.nowPointer?.nowLabel).toBeNull();
+    expect(diagram.waitArc).not.toBeNull();
+  });
+
+  it('omits both Now radial line and Now label when next tide is under 5 minutes away', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:03:00' };
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
     expect(diagram.nextPointer).not.toBeNull();
@@ -194,11 +204,37 @@ describe('spec.semantic.nextTide injection', () => {
     expect(diagram.nowPointer?.radialLine).toBeNull();
     expect(diagram.nowPointer?.nowLabel).toBeNull();
     expect(diagram.waitArc).not.toBeNull();
+  });
+
+  it('keeps Now radial line and Now label at exactly 60 minutes', () => {
+    const spec = { ...sampleTideDiagramSpec(), timeNow: '22:06:00' };
+    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
+    expect(diagram.nextPointer).not.toBeNull();
+    expect(diagram.nowPointer?.radialLine).not.toBeNull();
+    expect(diagram.nowPointer?.nowLabel).not.toBeNull();
+    expect(diagram.waitArc).not.toBeNull();
+    expect(diagram.waitArc?.arrow).toBeDefined();
+  });
+
+  it('omits WaitArc arrow when configured arrowhead is too long for the arc span', () => {
+    const spec = {
+      ...sampleTideDiagramSpec(),
+      timeNow: '22:06:00',
+      waitArc: {
+        ...sampleTideDiagramSpec().waitArc,
+        arrow: {
+          ...sampleTideDiagramSpec().waitArc.arrow,
+          lengthK: 24,
+        },
+      },
+    };
+    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
+    expect(diagram.waitArc).not.toBeNull();
     expect(diagram.waitArc?.arrow).toBeUndefined();
   });
 
-  it('keeps Now radial line, Now label, and WaitArc when next tide is exactly 5 minutes away', () => {
-    const spec = { ...sampleTideDiagramSpec(), timeNow: '23:01:00' };
+  it('keeps WaitArc arrow when there is enough arc length for the configured marker', () => {
+    const spec = { ...sampleTideDiagramSpec(), timeNow: '20:30:00' };
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
     expect(diagram.nextPointer).not.toBeNull();
     expect(diagram.nowPointer?.radialLine).not.toBeNull();
