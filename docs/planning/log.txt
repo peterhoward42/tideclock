@@ -109,7 +109,12 @@ fart
 						o  try omitting header
 							o  what it looks like
 							o  one what devices and aspects?
-							o  how reinstate menu and location?
+							o  reinstate menu 
+
+						o  move menu to overlay diagram
+
+						o  come back to UX branch when no location has been
+						   stored yet.
 
 
 Implement ###6 in /docs/planning/home-landscape-header-space.md

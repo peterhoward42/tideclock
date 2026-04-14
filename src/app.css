@@ -189,6 +189,40 @@ a {
   background: rgb(148 163 184 / 0.12);
 }
 
+/* Home (and similar): primary nav pinned bottom-left; flyout opens upward. */
+.menu--home-overlay {
+  position: absolute;
+  z-index: 30;
+  bottom: max(0.35rem, env(safe-area-inset-bottom, 0px));
+  left: max(0.35rem, env(safe-area-inset-left, 0px));
+}
+
+.menu--home-overlay .menu-toggle {
+  color: rgb(241 245 249 / 0.88);
+}
+
+.menu--home-overlay.menu[open] .menu-toggle {
+  background: rgb(2 6 23 / 0.22);
+}
+
+.menu--home-overlay .nav-links {
+  top: auto;
+  right: auto;
+  bottom: calc(100% + 0.25rem);
+  left: 0;
+  background: rgb(2 6 23 / 0.92);
+  border-color: rgb(148 163 184 / 0.2);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.45);
+}
+
+.menu--home-overlay .nav-links a {
+  color: rgb(241 245 249 / 0.92);
+}
+
+.menu--home-overlay .nav-links a:hover {
+  background: rgb(148 163 184 / 0.12);
+}
+
 .content {
   flex: 1;
   display: flex;

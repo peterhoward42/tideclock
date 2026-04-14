@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Town } from "../../data/townSchema";
+  import PrimaryNavMenu from "./PrimaryNavMenu.svelte";
 
   export type HeaderTone = "light" | "dark";
   export type HeaderCenter =
@@ -10,14 +11,16 @@
   interface Props {
     readonly tone: HeaderTone;
     readonly center: HeaderCenter;
+    /** When false, primary nav is omitted (home route renders it on the diagram instead). */
+    readonly includeMenu?: boolean;
   }
 
-  let { tone, center }: Props = $props();
+  let { tone, center, includeMenu = true }: Props = $props();
 
-  let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
+  let primaryNav = $state<{ closeMenu: () => void } | undefined>(undefined);
 
-  function closeMenu(): void {
-    menuDetails?.removeAttribute("open");
+  function closeHeaderNav(): void {
+    primaryNav?.closeMenu();
   }
 
   function locationLabel(town?: Town): string {
@@ -27,7 +30,7 @@
 
 <header class="top-bar" class:top-bar--dark={tone === "dark"} class:top-bar--light={tone === "light"}>
   <div class="top-bar__left">
-    <a class="brand" href="#/home" onclick={closeMenu} aria-label="Tide Dial home">Tide Dial</a>
+    <a class="brand" href="#/home" onclick={closeHeaderNav} aria-label="Tide Dial home">Tide Dial</a>
   </div>
 
   <div class="top-bar__center">
@@ -35,7 +38,7 @@
       <a
         class="center-control center-control--location"
         href="#/location2"
-        onclick={closeMenu}
+        onclick={closeHeaderNav}
         aria-label="Change location"
       >
         <span class="center-control__text">{locationLabel(center.town)}</span>
@@ -49,18 +52,9 @@
   </div>
 
   <div class="top-bar__right">
-    <details class="menu" bind:this={menuDetails}>
-      <summary class="menu-toggle" aria-label="Menu">Menu</summary>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#/home" onclick={closeMenu}>Home</a>
-        <a href="#/location2" onclick={closeMenu}>Location</a>
-        <a href="#/settings" onclick={closeMenu}>Settings</a>
-        <a href="#/about" onclick={closeMenu}>About</a>
-        <a href="#/acknowledgements" onclick={closeMenu}>Acknowledgements</a>
-        <a href="#/support" onclick={closeMenu}>Support</a>
-        <a href="#/cookies" onclick={closeMenu}>Cookies</a>
-      </nav>
-    </details>
+    {#if includeMenu}
+      <PrimaryNavMenu bind:this={primaryNav} variant="header" />
+    {/if}
   </div>
 </header>
 

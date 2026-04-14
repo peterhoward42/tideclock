@@ -208,7 +208,7 @@
 <div class="app-frame">
   {#if $route === "home"}
     {#if showHomeTopBar}
-      <AppHeader tone={"dark"} center={{ kind: "location", town: currentTown }} />
+      <AppHeader tone={"dark"} center={{ kind: "location", town: currentTown }} includeMenu={false} />
     {/if}
   {:else}
     <AppHeader

@@ -18,6 +18,7 @@
   import { deriveNextTideSemantics } from "../../application/nextTideSemantics";
   import { subscribeSemanticMinuteCadence } from "../../application/semanticMinuteCadence";
   import { renderSceneSvg } from "../../diagram-generation/render/renderSceneSvg.mjs";
+  import PrimaryNavMenu from "../components/PrimaryNavMenu.svelte";
 
   type TidePredictionsLoadState = { readonly status: "loading" | "ready" | "error" };
 
@@ -28,6 +29,12 @@
   }
 
   let { tideLoadState, tideExtremes, townName }: Props = $props();
+
+  /**
+   * TEMP: when false, skip the "Choose a location…" branch when extremes are undefined (no stored
+   * town yet). Restore true when revisiting empty-state UX and home chrome.
+   */
+  const showHomeChooseLocationWhenNoExtremes = false;
 
   const collaborator: DiagramGenerationCollaborator = createDiagramGenerationCollaborator();
 
@@ -235,8 +242,11 @@
       <p class="muted" role="alert">Tides could not be loaded. Check the connection and try again.</p>
     </div>
   {:else if tideExtremes === undefined}
-    <div class="home-panel">
-      <p class="muted">Choose a location to see today’s tide diagram.</p>
+    <div class="home-panel home-panel--corner-nav-host">
+      {#if showHomeChooseLocationWhenNoExtremes}
+        <p class="muted">Choose a location to see today’s tide diagram.</p>
+      {/if}
+      <PrimaryNavMenu variant="home-overlay" />
     </div>
   {:else if tideExtremes.extremes.length === 0}
     <div class="home-panel" aria-live="polite">
@@ -251,6 +261,7 @@
       <figure class="home-instrument" aria-label="Tide diagram for the current civil day">
         <!-- Trusted: SVG from diagram-generation scene graph (renderSceneSvg). -->
         {@html diagramSvg}
+        <PrimaryNavMenu variant="home-overlay" />
       </figure>
     </div>
   {/if}
@@ -281,6 +292,19 @@
     justify-content: stretch;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+  }
+
+  .home-panel--corner-nav-host {
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home-panel--corner-nav-host > .muted {
+    max-width: 100%;
+    padding: 0 0.5rem;
     box-sizing: border-box;
   }
 
