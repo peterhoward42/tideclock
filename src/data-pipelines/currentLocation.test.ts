@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { Town } from '../data/bakedTowns';
+import type { Town } from '../data/townSchema';
 import { loadCurrentLocation, storeCurrentLocation } from './currentLocation';
 import {
   CURRENT_LOCATION_KEY,

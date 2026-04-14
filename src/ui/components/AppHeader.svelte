@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Town } from "../../data/bakedTowns";
+  import type { Town } from "../../data/townSchema";
 
   export type HeaderTone = "light" | "dark";
   export type HeaderCenter =

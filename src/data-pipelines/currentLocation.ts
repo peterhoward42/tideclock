@@ -3,7 +3,7 @@
  * Used by the shell for picker state and persistence. Kind: Service. Does not search the baked town list.
  */
 
-import type { Town } from '../data/bakedTowns';
+import type { Town } from '../data/townSchema';
 import {
   CURRENT_LOCATION_KEY,
   deserializeCurrentLocation,

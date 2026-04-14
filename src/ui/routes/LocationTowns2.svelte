@@ -4,7 +4,7 @@
    * ({@link SearchSpaceQueryer}) over the towns2 baked dataset. Calls the shell to persist selection.
    */
   import { navigate } from "../../infrastructure/router.js";
-  import type { Town } from "../../data/bakedTowns";
+  import type { Town } from "../../data/townSchema";
   import {
     towns2SearchSpaceQueryer,
     towns2ByTownId

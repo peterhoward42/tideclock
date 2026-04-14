@@ -3,7 +3,7 @@
  * Consumed by `currentLocation.ts`. Kind: Adapter / boundary (persistence shape). Does not pick towns.
  */
 
-import type { Town } from '../data/bakedTowns';
+import type { Town } from '../data/townSchema';
 
 /** Canonical `localStorage` key for a JSON snapshot of the user-selected {@link Town}. */
 export const CURRENT_LOCATION_KEY = 'current-location';

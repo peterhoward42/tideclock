@@ -6,7 +6,7 @@
  */
 
 import { SearchSpaceQueryer } from '../location-services/searchSpaceQueryer';
-import { hydrateTownsCompact, type Town } from './bakedTowns';
+import { hydrateTownsCompact, type Town } from './townSchema';
 import towns2CompactJson from './towns2.compact.json';
 import towns2SearchLinesJson from './towns2-search-lines.json';
 
