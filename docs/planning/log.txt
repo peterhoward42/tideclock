@@ -113,9 +113,9 @@ fart
 						o  explore gaps
 						o  improve ui incl on mobile
 
-				o  Make the new location picker the master
-				o  Wean off non geoencoded data set and files
-				o  Wean off orphaned old towns dir 
+				*  Make the new location picker the master
+				o  Planned orphaned reduction outside of towns2
+				o  Planned orphaned reduction inside of towns2
 				o  Remove planning and unused docs
 
 				o  falmouth estuary and south west extents poor coverage
@@ -127,7 +127,8 @@ fart
 					*  clean up spec to suit
 					o  await tides for testing
 						*  see screen shots (1)
-						o  see screen shots (2)
+						*  see screen shots (2)
+						o  ?
 
 				o  come back to alternating in/out edge cases 
 				o  report bugs and suggestions
