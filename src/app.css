@@ -198,9 +198,16 @@ a {
   padding: 1.5rem 1rem 2rem;
 }
 
-/* Home: same horizontal padding as other routes, but paint the gutter bands black so the instrument reads framed. */
+/*
+ * Home: keep horizontal gutters (1rem) so side bands read framed; trim vertical padding so more
+ * viewport height goes to the diagram (pairs with header/chrome work in planning notes).
+ */
 .content--home {
   background: #000;
+  padding-top: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
 }
 
 .route {
