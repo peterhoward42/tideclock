@@ -34,7 +34,7 @@
     {#if center.kind === "location"}
       <a
         class="center-control center-control--location"
-        href="#/location"
+        href="#/location2"
         onclick={closeMenu}
         aria-label="Change location"
       >
@@ -53,8 +53,7 @@
       <summary class="menu-toggle" aria-label="Menu">Menu</summary>
       <nav class="nav-links" aria-label="Primary">
         <a href="#/home" onclick={closeMenu}>Home</a>
-        <a href="#/location" onclick={closeMenu}>Location</a>
-        <a href="#/location2" onclick={closeMenu}>Location (new search)</a>
+        <a href="#/location2" onclick={closeMenu}>Location</a>
         <a href="#/settings" onclick={closeMenu}>Settings</a>
         <a href="#/about" onclick={closeMenu}>About</a>
         <a href="#/acknowledgements" onclick={closeMenu}>Acknowledgements</a>

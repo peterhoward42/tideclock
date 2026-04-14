@@ -28,7 +28,7 @@ function parseHash(hash) {
     case 'settings':
       return 'settings'
     case 'location':
-      return 'location'
+      return 'location2'
     case 'location2':
       return 'location2'
     case 'about':

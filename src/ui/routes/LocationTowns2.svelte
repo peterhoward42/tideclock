@@ -19,7 +19,7 @@
   /** Stop counting matches here so we can say “more than {MATCH_COUNT_CEILING - 1}”. */
   const MATCH_COUNT_CEILING = 51;
 
-  const title = "Location (new search)";
+  const title = "Location";
 
   let { setCurrentLocation }: Props = $props();
   let searchText = $state("");

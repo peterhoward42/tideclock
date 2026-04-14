@@ -167,7 +167,7 @@
       case "location":
         return "Location";
       case "location2":
-        return "Location (new search)";
+        return "Location";
       case "settings":
         return "Settings";
       case "about":
