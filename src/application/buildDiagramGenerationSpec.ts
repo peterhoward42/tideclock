@@ -129,7 +129,7 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
     },
   },
   timeNowLabel: { x: 1.0, fontHeight: 0.04, y: 1.2 },
-  centreFrame: { frameArcRadius: 0.30 },
+  centreFrame: { frameArcRadius: 0.45 },
   insideTrackRadius: 0.77,
   timeDelta: {
     belowOrigin: -0.03,

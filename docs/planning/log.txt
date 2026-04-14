@@ -106,12 +106,10 @@ fart
 				o  hone UI incl mobile and verbosity
 					o  exploit aspect ratio for internal diagram layout
 						*  header padding
-						o  try omitting header
-							o  what it looks like
-							o  one what devices and aspects?
-							o  reinstate menu 
+						*  omit header
+						*  reinstate menu 
+					o  give centre frame more room in anticipation
 
-						o  move menu to overlay diagram
 
 						o  come back to UX branch when no location has been
 						   stored yet.

@@ -24,7 +24,7 @@ it does **not** substitute silent numeric defaults for layout keys (`buildDiagra
 and layout submodules). Invalid marker rows (including `**24:00:00`** as a marker
 time), degenerate geometry used as configuration (e.g. wait-arc radius **≤ 0**,
 pointer outer radius **≤ R_frame**), or missing objects such as `**timeNowLabel`**
-or `**annularBand**`, are **errors** — not “omit this element” fallbacks.
+or `**annularBand`**, are **errors** — not “omit this element” fallbacks.
 
 ### Derived behaviour (civil day vs `timeNow`)
 
@@ -37,32 +37,31 @@ omission follows from `**timeNow`** and the marker schedule; it is **not** trigg
 missing spec fields.
 
 When `**spec.semantic.nextTide`** is injected, layout may use it for next-tide timing
-instead of scanning markers; `**tideMarks**` remains **required** for drawing **TideMarks**.
+instead of scanning markers; `**tideMarks`** remains **required** for drawing **TideMarks**.
 
 For **NextPointer** occlusion clearance, a separate derived rule applies only when
 a next marker exists on the same civil day:
 
 - If the forward interval from `**timeNow`** to that marker is **strictly less
-  than 1 hour**, generation omits **NowPointer**’s **Now label**.
+than 1 hour**, generation omits **NowPointer**’s **Now label**.
 - If that same interval is **strictly less than 5 minutes**, generation also
-  omits **NowPointer**’s **Now radial line**.
+omits **NowPointer**’s **Now radial line**.
 - **WaitArc** uses a separate fit rule: geometry is kept whenever a qualifying
-  next marker exists, and arrow metadata is omitted whenever the configured
-  arrowhead would dominate the rendered arc segment.
+next marker exists, and arrow metadata is omitted whenever the configured
+arrowhead would dominate the rendered arc segment.
 - At **exactly 1 hour**, the Now-label omission does not apply.
 - At **exactly 5 minutes**, the Now-radial-line omission does not apply.
-
-- `**canvas`** — object with finite `**width`** and `**height**` (px).
+- `**canvas`** — object with finite `**width`** and `**height`** (px).
 - `**title**` — string (diagram meta).
 - `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
 - `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
-- `**waitArc`** — **required** plain object. `**radius`** must be a finite **k·R** multiplier **> 0** (**R_wait = WaitArcRadius·RefRadius**). `**arrow`** is **required**: finite `**lengthK`**, `**widthK**`, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a **boolean**. (Derived behaviour still applies: with no next marker at/after `**timeNow`**, **WaitArc** is omitted; with a qualifying next marker, **WaitArc** geometry remains and arrow metadata is emitted only when the configured arrowhead fits the rendered arc span.)
-- `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText**`, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** in `**HH:MM:SS`** **other than** `**24:00:00`** (that sentinel is for the RefArc right endpoint only, not for tide events). These finite numbers are required on `**tideMarks**`: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
-- `**nowPointer**` / `**nextPointer**` — **required** plain objects with the nested fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks): **now** — `**radialLine`**, `**label**`, `**triangle**`; **next** — `**radialLine`** only. `**radialLine.outerRadius`** must be a finite **k·R** multiplier **> 0** and must place the line end **outside** **R_frame** (outer **>** inner). On `**nowPointer.triangle`**, `**subtendedAngleRad**` is **required**: a **literal** angle in **radians** (not a **k·R** length); see **§NowPointer**. **R_frame** from `**centreFrame.frameArcRadius`** supplies the Now radial **inner** radius; the Next filled-circle radius is **σ·R_frame** for fixed **σ** in **§NextPointer** (see **CentreFrame**, **NowPointer**, **NextPointer**). **NextPointer** is omitted from the scene only when there is no qualifying next tide (derived), not when `**nextPointer`** is missing.
-- `**timeNowLabel**` — **required** plain object; finite `**x`**, `**fontHeight**`, and `**y**` (**k·R** multiples; see **TimeNowLabel**). Together with required string `**timeNowDatePrefix`**, drives the **TimeNowLabel** group.
-- `**timeDelta`** — **required** plain object; finite `**belowOrigin`** and `**fontHeight**` (**k·R** per **§Sizing**), plus string `**town`** and enum `**tidePhasePair ∈ {"out-low","in-high"}`. `**belowOrigin**` is the distance from **Y = 0** toward **−Y** for the shared baseline; **X** is fixed at **0**. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
-- `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc and the **NowPointer** radial inner endpoint (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad**` (required above).
+- `**waitArc`** — **required** plain object. `**radius`** must be a finite **k·R** multiplier **> 0** (**R_wait = WaitArcRadius·RefRadius**). `**arrow`** is **required**: finite `**lengthK`**, `**widthK`**, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a boolean. (Derived behaviour still applies: with no next marker at/after `**timeNow**`, **WaitArc** is omitted; with a qualifying next marker, **WaitArc** geometry remains and arrow metadata is emitted only when the configured arrowhead fits the rendered arc span.)
+- `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** in `**HH:MM:SS`** **other than** `**24:00:00`** (that sentinel is for the RefArc right endpoint only, not for tide events). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
+- `**nowPointer**` / `**nextPointer**` — **required** plain objects with the nested fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks): **now** — `**radialLine`**, `**label`**, `**triangle**`; next — `**radialLine**` only. `**radialLine.outerRadius`** must be a finite **k·R** multiplier **> 0** and must place the line end **outside** **R_frame** (outer **>** inner). On `**nowPointer.triangle`**, `**subtendedAngleRad`** is required: a literal angle in radians (not a k·R length); see §NowPointer. R_frame from `**centreFrame.frameArcRadius**` supplies the Now radial **inner** radius; the Next filled-circle radius is **σ·R_frame** for fixed **σ** in **§NextPointer** (see **CentreFrame**, **NowPointer**, **NextPointer**). **NextPointer** is omitted from the scene only when there is no qualifying next tide (derived), not when `**nextPointer`** is missing.
+- `**timeNowLabel`** — **required** plain object; finite `**x`**, `**fontHeight`**, and `**y**` (k·R multiples; see TimeNowLabel). Together with required string `**timeNowDatePrefix**`, drives the **TimeNowLabel** group.
+- `**timeDelta`** — **required** plain object; finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**), plus string `**town`** and enum `**tidePhasePair ∈ {"out-low","in-high"}`. `**belowOrigin`** is the distance from **Y = 0** toward **−Y** for the shared baseline; **X** is fixed at **0**. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
+- `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc and the **NowPointer** radial inner endpoint (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
 - `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
 
 ## Diagram elements
@@ -326,7 +325,7 @@ from rotating **û_rad** by **+π/2** CCW (**§Polar**).
 - **Now triangle (filled)** is still named “triangle” in the input and scene grouping, but its geometry is the **annular wedge** above.
   - It is tied to **θ_now** and emitted as a **single closed path** with **fill** and **stroke** (see **Scene graph primitives**; **NowTriangle** vs **TimePointer**).
   - **Required** diagram input on `**nowPointer.triangle`**:
-    - `**subtendedAngleRad**` — **literal** angle in **radians** between the two straight sides at the vertex (**not** a **k·R** value). Must satisfy **0 < subtendedAngleRad < π**.
+    - `**subtendedAngleRad`** — **literal** angle in **radians** between the two straight sides at the vertex (**not** a **k·R** value). Must satisfy **0 < subtendedAngleRad < π**.
   - **Radii** (model units):
     - **r_ref = RefRadius** — vertex **V = polar(r_ref, θ_now)** lies on the RefArc.
     - **r_ann_outer = RefRadius + AnnularBandWidth·RefRadius** with **AnnularBandWidth** from `**annularBand.annularBandWidth`** (**§AnnularBand**, **§Sizing**). The straight sides end where they meet the circle of radius **r_ann_outer** about **O**.
@@ -483,7 +482,7 @@ in `**buildDiagramGenerationSpec`**):
 - When a **next** marker exists on the civil day — one logical sentence, emitted as **one**
 **TextElement** with **centre** justification at anchor **(0, 0 − belowOrigin·R)** from `**timeDelta.belowOrigin`**.
   - Copy format: `**<town> · Tide <going out|coming in> · <Low tide|High tide> in <Hh Mm> (<HH:MM>)`**
-  - `**town`** comes from `**timeDelta.town**`.
+  - `**town`** comes from `**timeDelta.town`**.
   - Direction/event pair comes from `**timeDelta.tidePhasePair**` (`"out-low"` → `going out` + `Low tide`; `"in-high"` → `coming in` + `High tide`).
   - Host derivation policy for `**timeDelta.tidePhasePair**`:
     - Use adjacent retained tide extrema as ordered in civil-day time.
@@ -658,7 +657,7 @@ For **both** labels:
 **Construction** (unchanged; used for vertex positions and the head circle):
 
 - Define input `**tideMarkArrowDivergence`** — a non-negative angle in radians (host field on `**tideMarks`**).
-- Define input `**tideMarkArrowLineLen**` — a non-negative float (**k·R** scale; host field on `**tideMarks`**).
+- Define input `**tideMarkArrowLineLen`** — a non-negative float (**k·R** scale; host field on `**tideMarks`**).
 - **Vertex1** is the point on the RefArc corresponding to time **t**.
 - **halfAngle** is **0.5 × tideMarkArrowDivergence**
 - **Vertex2** is located with a polar offset from Vertex1:

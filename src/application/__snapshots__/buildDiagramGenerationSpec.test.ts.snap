@@ -18,7 +18,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "x": 0,
         "y": 0,
       },
-      "radius": 35.4,
+      "radius": 53.1,
       "sweepRad": 2.75,
       "thetaLeft": 3.3373889803846897,
       "thetaRight": 6.08738898038469,
@@ -44,7 +44,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "x": 82.32009611712569,
         "y": -25.367328895001695,
       },
-      "radius": 1.0114285714285713,
+      "radius": 1.5171428571428571,
     },
     "radialLine": {
       "end": {
@@ -52,8 +52,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "y": -25.367328895001695,
       },
       "start": {
-        "x": 33.830176486490004,
-        "y": -10.424929682877409,
+        "x": 50.745264729735005,
+        "y": -15.637394524316111,
       },
     },
     "theta": 5.984263980384689,
@@ -62,8 +62,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "nowPointer": {
     "nowLabel": {
       "anchor": {
-        "x": 45.523196464878176,
-        "y": -37.60595941629602,
+        "x": 52.11549250444882,
+        "y": -43.51054517032324,
       },
       "angleRad": 11.835947551453165,
       "content": "now",
@@ -76,8 +76,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "y": -55.10946703758746,
       },
       "start": {
-        "x": 26.36918415828255,
-        "y": -23.61834301610891,
+        "x": 39.553776237423826,
+        "y": -35.427514524163364,
       },
     },
     "theta": 5.552762244273579,
@@ -1540,8 +1540,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             },
             "kind": "arcSegment",
             "start": {
-              "x": 175.27638578138027,
-              "y": 153.11301113718986,
+              "x": 157.91457867207043,
+              "y": 149.6695167057848,
             },
             "sweepRad": 2.75,
           },
@@ -1662,8 +1662,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 },
                 "kind": "line",
                 "start": {
-                  "x": 236.36918415828256,
-                  "y": 136.3816569838911,
+                  "x": 249.55377623742382,
+                  "y": 124.57248547583663,
                 },
               },
             ],
@@ -1674,8 +1674,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 255.52319646487817,
-                  "y": 122.39404058370398,
+                  "x": 262.1154925044488,
+                  "y": 116.48945482967676,
                 },
                 "angleRad": 11.835947551453165,
                 "content": "now",
@@ -1700,8 +1700,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             },
             "kind": "line",
             "start": {
-              "x": 243.83017648649002,
-              "y": 149.5750703171226,
+              "x": 260.745264729735,
+              "y": 144.3626054756839,
             },
           },
           {
@@ -1710,7 +1710,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               "y": 134.6326711049983,
             },
             "kind": "circle",
-            "radius": 1.0114285714285713,
+            "radius": 1.5171428571428571,
           },
         ],
         "kind": "group",
