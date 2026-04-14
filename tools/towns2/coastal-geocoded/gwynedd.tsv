@@ -1,0 +1,133 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	gwynedd.txt	Tywyn	resolved	52.5861123	-4.0855906	town	Nominatim (town).
+2	gwynedd.txt	Morfa Tywyn	resolved	52.5903908	-4.0979323	locality	Nominatim returned Morfa Camp, Tywyn (within Morfa Tywyn area).
+3	gwynedd.txt	Aberdyfi	resolved	52.5451248	-4.0533624	town	Nominatim (Aberdyfi).
+4	gwynedd.txt	Penhelig	resolved	52.5456566	-4.0352142	hamlet	Nominatim (Penhelyg station/hamlet, Aberdyfi).
+5	gwynedd.txt	Rhoslefain	resolved	52.6306213	-4.1042754	hamlet	Nominatim.
+6	gwynedd.txt	Bryn-y-mor	ambiguous			unknown	Nominatim’s top hit is Bryn y Môr at Y Felinheli (N coast); list order implies a small coastal feature between Rhoslefain and Llwyngwril—no clean single OSM match.
+7	gwynedd.txt	Llwyngwril	resolved	52.6654327	-4.0825253	village	Nominatim.
+8	gwynedd.txt	Friog	resolved	52.6950309	-4.0435571	hamlet	Nominatim (Ysgol Bro Idris (Friog), Y Friog near Fairbourne).
+9	gwynedd.txt	Fairbourne	resolved	52.6970513	-4.0511181	village	Nominatim.
+10	gwynedd.txt	Arthog	resolved	52.7116535	-4.0077788	village	Nominatim.
+11	gwynedd.txt	Tonfanau	resolved	52.6136247	-4.1234912	hamlet	Nominatim (Tonfanau on A493).
+12	gwynedd.txt	Tal-y-bont	resolved	52.6144082	-4.0752863	hamlet	Nominatim (Tal-y-bont, Llanegryn, Bryncrug — matches coast order S of Llanbedr; not Barmouth Tal-y-bont).
+13	gwynedd.txt	Llanbedr	resolved	52.8203770	-4.0998962	village	Nominatim (village node; near Shell Island / Mochras coast).
+14	gwynedd.txt	Dyffryn Ardudwy	resolved	52.7773417	-4.0720847	village	Nominatim.
+15	gwynedd.txt	Llanfair	resolved	52.8531950	-4.0739361	hamlet	Nominatim (Llanfair, Harlech).
+16	gwynedd.txt	Llandanwg	resolved	52.8336467	-4.1246034	village	Nominatim.
+17	gwynedd.txt	Harlech	resolved	52.8587665	-4.1074500	village	Nominatim.
+18	gwynedd.txt	Morfa Harlech	resolved	52.8929656	-4.1397273	beach	Nominatim (Morfa Harlech NNR / dune coast).
+19	gwynedd.txt	Talsarnau	resolved	52.9028694	-4.0646824	village	Nominatim.
+20	gwynedd.txt	Ynys Gifftan	resolved	52.9123498	-4.0822067	island	Nominatim (island in Dwyryd estuary).
+21	gwynedd.txt	Portmeirion	resolved	52.9134555	-4.0993672	attraction	Nominatim.
+22	gwynedd.txt	Penrhyndeudraeth	resolved	52.9287529	-4.0644936	town	Nominatim (centroid on A487; town centre nearby).
+23	gwynedd.txt	Minffordd	resolved	52.9262402	-4.0832022	hamlet	Nominatim (Minffordd, Penrhyndeudraeth).
+24	gwynedd.txt	Porthmadog	resolved	52.9256029	-4.1296940	town	Nominatim.
+25	gwynedd.txt	Borth-y-Gest	resolved	52.9157061	-4.1377203	village	Nominatim (Borth-y-Gêst).
+26	gwynedd.txt	Morfa Bychan	resolved	52.9136181	-4.1684651	village	Nominatim.
+27	gwynedd.txt	Black Rock Sands	resolved	52.9089027	-4.1822837	beach	Nominatim (Traeth Morfa Bychan / Black Rock Sands).
+28	gwynedd.txt	Y Traeth Mawr	resolved	52.9554150	-4.0775598	beach	Nominatim (Traeth Mawr, Llanfrothen / Garreg area E of estuary; matches Criccieth-ward coast list order).
+29	gwynedd.txt	Criccieth	resolved	52.9206106	-4.2332414	town	Nominatim.
+30	gwynedd.txt	Criccieth Beach	resolved	52.9184009	-4.2299554	beach	Nominatim (Traeth Criccieth Beach).
+31	gwynedd.txt	Llanystumdwy	resolved	52.9226370	-4.2712578	village	Nominatim (village node; not admin polygon).
+32	gwynedd.txt	Pentrefelin	resolved	52.9344509	-4.1978506	hamlet	Nominatim.
+33	gwynedd.txt	Nantmor	resolved	52.9934847	-4.0888503	village	Nominatim (village node; stream also named Nantmor).
+34	gwynedd.txt	Garreg	resolved	52.9540930	-4.0633083	locality	Ysgol Y Garreg node (addressed in Garreg, Llanfrothen); OSM has no dedicated Garreg place node.
+35	gwynedd.txt	Pwllheli	resolved	52.8879082	-4.4187565	town	Nominatim.
+36	gwynedd.txt	Glanypwll	ambiguous			unknown	List order is between Pwllheli and Penrhos; bare name hits unrelated Glanypwll (Blaenau Ffestiniog) and no Pwllheli-south feature in Nominatim.
+37	gwynedd.txt	Penrhos	ambiguous			unknown	Pwllheli suburb; Nominatim returns bus stops on Ffordd Penrhos only (no place centroid).
+38	gwynedd.txt	Penychain	resolved	52.9028961	-4.3383510	station	Nominatim (Penychain railway station; named settlement feature).
+39	gwynedd.txt	Edern	resolved	52.9276362	-4.5646160	hamlet	Nominatim.
+40	gwynedd.txt	Chwilog	resolved	52.9194526	-4.3296818	village	Nominatim.
+41	gwynedd.txt	Fferam	not_found			unknown	No Gwynedd coastal match in Nominatim near Chwilog–Abersoch; only distant Anglesey farmland hits for similar names.
+42	gwynedd.txt	Abersoch	resolved	52.8226822	-4.5075491	village	Nominatim.
+43	gwynedd.txt	Abersoch Beach	resolved	52.8152209	-4.4996746	beach	Nominatim (Traeth Abersoch Beach).
+44	gwynedd.txt	The Warren Abersoch	resolved	52.8377088	-4.4950917	beach	Nominatim (natural beach “The Warren”, Llanengan).
+45	gwynedd.txt	Llanengan	resolved	52.8131711	-4.5335682	village	Nominatim (village node).
+46	gwynedd.txt	Llanbedrog	resolved	52.8587079	-4.4869757	village	Nominatim (village node).
+47	gwynedd.txt	Llanbedrog Beach	resolved	52.8584173	-4.4720918	beach	Overpass: unnamed natural=beach polygon E of village (centroid); Nominatim has no beach object.
+48	gwynedd.txt	Mynytho	resolved	52.8476971	-4.5230986	village	Nominatim.
+49	gwynedd.txt	Rhoshirwaun	resolved	52.8300717	-4.6812078	hamlet	Nominatim.
+50	gwynedd.txt	Llannor	resolved	52.9077229	-4.4498499	village	Nominatim (village node).
+51	gwynedd.txt	Nefyn	resolved	52.9356211	-4.5191695	village	Nominatim (village node).
+52	gwynedd.txt	Nefyn Beach	resolved	52.9384065	-4.5337255	beach	Overpass: unnamed natural=beach centroid by Nefyn; Nominatim returns streets only.
+53	gwynedd.txt	Morfa Nefyn	resolved	52.9328651	-4.5505577	village	Nominatim.
+54	gwynedd.txt	Pistyll	resolved	52.9487800	-4.4928987	hamlet	Nominatim (admin boundary relation centroid for Pistyll).
+55	gwynedd.txt	Tudweiliog	resolved	52.8984708	-4.6198138	village	Nominatim (village node).
+56	gwynedd.txt	Porthdinllaen	resolved	52.9438343	-4.5677556	hamlet	Nominatim (place=hamlet “Porth Dinllaen”; harbour settlement).
+57	gwynedd.txt	Penllech	resolved	52.8773777	-4.6717264	beach	Nominatim (Traeth Penllech).
+58	gwynedd.txt	Llangwnnadl	resolved	52.8624725	-4.6596641	hamlet	Nominatim.
+59	gwynedd.txt	Aberdaron	resolved	52.8050969	-4.7126197	village	Nominatim (village node).
+60	gwynedd.txt	Aberdaron Beach	resolved	52.8006325	-4.6977858	beach	Nominatim (Traeth Aberdaron).
+61	gwynedd.txt	Uwchmynydd	resolved	52.8031773	-4.7382820	hamlet	Nominatim.
+62	gwynedd.txt	Porth Meudwy	resolved	52.7961035	-4.7256134	beach	Nominatim (natural=beach).
+63	gwynedd.txt	Bardsey Sound	resolved	52.7781000	-4.7709257	sound	Nominatim (Swnt Enlli / Bardsey Sound).
+64	gwynedd.txt	Porthor	resolved	52.8359914	-4.7224978	beach	Nominatim (Porthor beach; first hit—not Tywyn-area farm).
+65	gwynedd.txt	Porth Neigwl	resolved	52.8122305	-4.5600298	beach	Nominatim (Porth Neigwl / Hell's Mouth beach polygon).
+66	gwynedd.txt	Llithfaen	resolved	52.9598694	-4.4500586	village	Nominatim (village node).
+67	gwynedd.txt	Trefor	resolved	52.9930452	-4.4265353	village	Nominatim.
+68	gwynedd.txt	Trefor Pier	resolved	53.0002840	-4.4222120	pier	No OSM pier hit in Nominatim; coords from public dive/fishing site listings (breakwater end).
+69	gwynedd.txt	Clynnog Fawr	resolved	53.0214680	-4.3650081	village	Nominatim (admin boundary “Clynnog”; Clynnog Fawr settlement).
+70	gwynedd.txt	Llanaelhaearn	resolved	52.9767742	-4.4028708	village	Nominatim (admin boundary).
+71	gwynedd.txt	Aberdesach	resolved	53.0363744	-4.3501143	hamlet	Nominatim.
+72	gwynedd.txt	Pontllyfni	resolved	53.0472488	-4.3366411	hamlet	Nominatim.
+73	gwynedd.txt	Gyrn Goch	resolved	53.0077340	-4.3850925	hamlet	Nominatim (hamlet node; peak node also named Gyrn Goch ignored).
+74	gwynedd.txt	Dinas Dinlle	resolved	53.0845173	-4.3340739	village	Nominatim.
+75	gwynedd.txt	Dinas Dinlle Beach	resolved	53.0853920	-4.3381560	beach	No beach object in Nominatim; coords from GeoHack/Wikipedia beach centroid (Morfa Dinlle).
+76	gwynedd.txt	Bontnewydd	resolved	53.1141055	-4.2668097	village	Nominatim (admin boundary; Bontnewydd near Caernarfon).
+77	gwynedd.txt	Caernarfon	resolved	53.1394364	-4.2769751	town	Nominatim (town node).
+78	gwynedd.txt	Caernarfon Harbour	resolved	53.1417859	-4.2780771	harbour	Nominatim (named harbour information board on waterfront).
+79	gwynedd.txt	Victoria Dock	resolved	53.1425190	-4.2772600	harbour	Wikimedia Commons / Geograph depicted-place coords for Victoria Dock marina (Nominatim returned unrelated hotel).
+80	gwynedd.txt	Peblig	resolved	53.1379600	-4.2629550	suburb	Nominatim returns Cil Peblig residential road centroid (Peblig area, Caernarfon).
+81	gwynedd.txt	Port Dinorwic	resolved	53.1850692	-4.2057931	harbour	Nominatim maps query to Y Felinheli (historic slate port / Port Dinorwic).
+82	gwynedd.txt	Y Felinheli	resolved	53.1850692	-4.2057931	village	Nominatim.
+83	gwynedd.txt	Faenol	resolved	53.2019598	-4.1912684	estate	Nominatim (Vaynol Hall / Faenol estate near Menai Strait).
+84	gwynedd.txt	Bangor	resolved	53.2277163	-4.1268822	city	Nominatim (structured city search; free-text hit highways only).
+85	gwynedd.txt	Hirael	resolved	53.2314740	-4.1197680	locality	Nominatim.
+86	gwynedd.txt	Garth	resolved	53.2354765	-4.1224970	suburb	Nominatim (Garth suburb).
+87	gwynedd.txt	Belgium Promenade	resolved	53.2203000	-4.1694000	promenade	Common name Belgian Promenade (Menai Bridge, Anglesey shore); Church Island / causeway area—list groups with Bangor Strait.
+88	gwynedd.txt	Port Penrhyn	resolved	53.2347000	-4.1113000	harbour	Wikipedia/Wikidata coords; no useful Nominatim harbour object.
+89	gwynedd.txt	Traeth Harlech	resolved	52.8777975	-4.1427793	beach	Nominatim (main Traeth Harlech polygon N of Harlech; OSM also has a southern segment with the same name).
+90	gwynedd.txt	Mochras	resolved	52.8185526	-4.1434253	locality	Nominatim (Mochras (Shell Island)).
+91	gwynedd.txt	Shell Island	resolved	52.8176892	-4.1444503	island	Nominatim (Shell Island campsite/label; tidal island / Mochras).
+92	gwynedd.txt	Barmouth	resolved	52.7210389	-4.0535692	town	Nominatim (Barmouth).
+93	gwynedd.txt	Abermaw	resolved	52.7210389	-4.0535692	town	Welsh name for Barmouth; same centroid as Nominatim town hit.
+94	gwynedd.txt	Barmouth Harbour	resolved	52.7189451	-4.0511550	harbour	Nominatim (Barmouth Harbour).
+95	gwynedd.txt	Morfa Mawddach	resolved	52.7077447	-4.0316284	station	Nominatim (Morfa Mawddach station on spit; iconic label for this coast).
+96	gwynedd.txt	Tan-y-bwlch	resolved	52.7830871	-4.1146584	beach	Nominatim (Bennar Beach Campsite); matches Morfa Dyffryn coast between Morfa Mawddach and Fairbourne (not Maentwrog Tan y Bwlch).
+97	gwynedd.txt	Fairbourne Spit	resolved	52.7100000	-4.0550000	spit	Wikipedia / GeoHack coords for Fairbourne Spit (Penrhyn Point); no useful single OSM object in Nominatim.
+98	gwynedd.txt	Moel-y-gest	resolved	52.9279265	-4.1591407	hill	Nominatim (Moel-y-Gest, Porthmadog).
+99	gwynedd.txt	Fort Belan	resolved	53.1223900	-4.3326900	fort	Wikipedia coordinate (also listed as Caer Belan); Nominatim label “Caer y Belan” is the same headland fort.
+100	gwynedd.txt	Ynys Enlli	resolved	52.7568920	-4.7886019	island	Nominatim (Ynys Enlli / Bardsey Island).
+101	gwynedd.txt	St Tudwal's Islands	resolved	52.8020601	-4.4664960	islands	Centroid of Nominatim hits for Ynys Tudwal Fawr and Ynys Tudwal Fach (Abersoch).
+102	gwynedd.txt	Porth Colmon	resolved	52.8751914	-4.6841290	cove	Nominatim (Porth Colmon, Tudweiliog area).
+103	gwynedd.txt	Porth Ysgaden	resolved	52.9048140	-4.6491507	cove	Nominatim (Porth Ysgaden).
+104	gwynedd.txt	Porth Towyn	resolved	52.9065392	-4.6331145	cove	Nominatim (Porth Towyn, Tudweiliog).
+105	gwynedd.txt	Porth Oer	resolved	52.8347300	-4.7261450	beach	Whistling Sands / Porth Oer; coords from Wikimedia Geograph SH16663011 area (no beach object in Nominatim).
+106	gwynedd.txt	Porth y Swnt	resolved	52.8045967	-4.7125246	cove	Nominatim (Porth Y Swnt, Aberdaron).
+107	gwynedd.txt	Traeth Aberdyfi	resolved	52.5446894	-4.0392801	beach	Nominatim returns Traeth Dyfi (Aberdyfi beach).
+108	gwynedd.txt	Porth Iago	resolved	52.8508230	-4.7229627	cove	Nominatim (Porth Iago).
+109	gwynedd.txt	Rhoslan	resolved	52.9453104	-4.2598049	hamlet	Nominatim (Rhoslan, Llanystumdwy — several Rhoslans in Gwynedd; chosen for coastal-list progression after the western Llyn segment).
+110	gwynedd.txt	Llanaber	resolved	52.7413979	-4.0771655	village	Nominatim (Llanaber, Barmouth).
+111	gwynedd.txt	Pentref Gwynfryn	resolved	52.8241586	-4.0784138	village	Nominatim (Pentre Gwynfryn, Llanbedr); common spelling variant Pentref/Pentre.
+112	gwynedd.txt	Rhiw	resolved	52.8188954	-4.6329698	village	Nominatim (Rhiw, Aberdaron).
+113	gwynedd.txt	Cwm-y-glo	ambiguous			unknown	Only Nominatim “Cwm-y-glo” settlement in Gwynedd is inland near Llanberis; list sits between Rhiw (Llyn) and Porthmadog Cob—no confident coastal pin.
+114	gwynedd.txt	Porthmadog Cob	resolved	52.9214717	-4.1150830	embankment	Nominatim (The Cob, Porthmadog).
+115	gwynedd.txt	Afon Glaslyn	resolved	52.9474096	-4.0904168	river	Nominatim waterway association (lower Glaslyn corridor near Morfa Gwyllt / Llanfrothen).
+116	gwynedd.txt	Afon Dwyryd	resolved	52.9305000	-4.0560000	river	Approx. tidal reach S of Penrhyndeudraeth; long estuary with scattered OSM hits—point chosen for lower estuary after The Cob in list order.
+117	gwynedd.txt	Morfa Bychan Bay	resolved	52.9089027	-4.1822837	bay	Same centroid as Nominatim Traeth Morfa Bychan / Black Rock Sands (bay facet of that coast).
+118	gwynedd.txt	Penmaenpool	resolved	52.7478274	-3.9349616	hamlet	Nominatim (Penmaenpool).
+119	gwynedd.txt	Bontddu	resolved	52.7507205	-3.9682392	village	Nominatim (Bontddu).
+120	gwynedd.txt	Llanelltyd	resolved	52.7590277	-3.9033418	village	Nominatim (Llanelltyd).
+121	gwynedd.txt	Llaniestyn	resolved	52.8750200	-4.5766400	village	OS-style centroid (OS Open Names / getthedata.com); no Llyn place node in Nominatim (Anglesey street hits only).
+122	gwynedd.txt	Boduan	resolved	52.9108657	-4.4949585	hamlet	Nominatim (Boduan, Buan).
+123	gwynedd.txt	Llangybi	resolved	52.9444797	-4.3386378	village	Nominatim (Llangybi, Gwynedd).
+124	gwynedd.txt	Penrhos Beach	ambiguous			beach	Nominatim has no Llyn Penrhos Beach; Traeth Penrhos hits are Anglesey; list follows Llangybi on Llyn; no confident single pin.
+125	gwynedd.txt	Carreg y Defaid	resolved	52.8619833	-4.4769781	beach	Centroid Crugan Holiday Park / Traeth Crugan coast (Carreg y Defaid); no named OSM beach; Overpass.
+126	gwynedd.txt	Traeth Penllech	resolved	52.8773777	-4.6717264	beach	Nominatim (Traeth Penllech, Tudweiliog).
+127	gwynedd.txt	Whistling Sands	resolved	52.8359914	-4.7224978	beach	Nominatim returns Porthor (Porth Oer / Whistling Sands).
+128	gwynedd.txt	Porth Dynllaen	resolved	52.9438343	-4.5677556	hamlet	Welsh spelling variant of Porth Dinllaen; Nominatim (hamlet).
+129	gwynedd.txt	Carnarvon	resolved	53.1394364	-4.2769751	town	Anglicised Caernarfon; Nominatim (Caernarfon town).
+130	gwynedd.txt	Portmadoc	resolved	52.9256029	-4.1296940	town	Historic spelling of Porthmadog; Nominatim place=town (not station hit).
+131	gwynedd.txt	Cricieth	resolved	52.9206106	-4.2332414	town	Anglicised Criccieth; Nominatim (Criccieth town).
+132	gwynedd.txt	Bangor Pier	resolved	53.2385802	-4.1240375	pier	Nominatim highway named Bangor Pier (Garth Pier, Menai Strait); display_name lists odd admin text.

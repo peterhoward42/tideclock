@@ -1,0 +1,222 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	east-sussex.txt	Hove Lagoon	resolved	50.8269425	-0.1949906	lagoon	Nominatim (amenity named Hove Lagoon, Kingsway; lagoon/watersports front).
+2	east-sussex.txt	Hove Lawns	resolved	50.8234837	-0.1644283	park	Nominatim (leisure=park Hove Lawns).
+3	east-sussex.txt	Hove Esplanade	resolved	50.8268	-0.1985	promenade	Coastal Western Esplanade / Kingsway Aldrington stretch; no single OSM object for whole esplanade.
+4	east-sussex.txt	Hove Seafront	resolved	50.8226223	-0.1571082	promenade	Representative Kingsway point (Seafront Peace Statue); long continuous front.
+5	east-sussex.txt	Aldrington Beach	resolved	50.8267420	-0.1960130	beach	Nominatim (Big Beach Cafe on Aldrington foreshore).
+6	east-sussex.txt	Brunswick	resolved	50.8242870	-0.1590553	neighbourhood	Nominatim (Brunswick Square park, Brunswick, Hove).
+7	east-sussex.txt	Brighton Beach	resolved	50.8213519	-0.1509165	beach	Nominatim (Brighton i360 / classic pebble beach frontage).
+8	east-sussex.txt	Brighton Seafront	resolved	50.8221087	-0.1548841	promenade	Nominatim (Brighton Bandstand, King’s Road seafront).
+9	east-sussex.txt	Brighton Palace Pier	resolved	50.8168041	-0.1368256	pier	Nominatim (man_made=pier way “Brighton Pier”).
+10	east-sussex.txt	Palace Pier	resolved	50.8168041	-0.1368256	pier	Same structure as Brighton Palace Pier; pier way centroid.
+11	east-sussex.txt	West Pier	resolved	50.8189956	-0.1520075	attraction	Nominatim (West Pier ruins).
+12	east-sussex.txt	Brighton Pier	resolved	50.8168041	-0.1368256	pier	Same pier as lines 9–10; OSM name “Brighton Pier”.
+13	east-sussex.txt	Black Rock	resolved	50.8145411	-0.1111537	coastal	Nominatim (Black Rock station; eastern seafront / Volks end).
+14	east-sussex.txt	Kemp Town	resolved	50.8192795	-0.1231562	suburb	Nominatim (place=suburb Kemptown).
+15	east-sussex.txt	Brighton Marina	resolved	50.8127303	-0.1023244	marina	Nominatim (Brighton Marina Village suburb; wider marina complex).
+16	east-sussex.txt	Brighton Marina Outer Harbour	resolved	50.8108390	-0.1017105	harbour	Nominatim (West Jetty / outer wall area).
+17	east-sussex.txt	Roedean	resolved	50.8149726	-0.0915331	village	Nominatim (Roedean village).
+18	east-sussex.txt	Rottingdean	resolved	50.8034109	-0.0572093	village	Nominatim (admin boundary centroid; Rottingdean).
+19	east-sussex.txt	Rottingdean Beach	resolved	50.8045	-0.0540	beach	Approximate shingle shore below Rottingdean; no clean OSM beach object.
+20	east-sussex.txt	Rottingdean Undercliff	resolved	50.8019458	-0.0556531	footway	Nominatim (Undercliff Walk segment at Rottingdean).
+21	east-sussex.txt	Ovingdean	resolved	50.8168993	-0.0765298	village	Nominatim (place=village Ovingdean).
+22	east-sussex.txt	Ovingdean Beach	resolved	50.8138	-0.0735	beach	Approximate shoreline south of Ovingdean; no dedicated OSM beach hit.
+23	east-sussex.txt	Undercliff Walk	resolved	50.8063198	-0.0712293	footway	Representative OSM way; entire walk is several miles long (Brighton Marina–Peacehaven).
+24	east-sussex.txt	Saltdean	resolved	50.8049113	-0.0251487	suburb	Nominatim (Saltdean residential area, Telscombe).
+25	east-sussex.txt	Saltdean Beach	resolved	50.7998696	-0.0406688	beach	Nominatim (natural=beach Saltdean beach).
+26	east-sussex.txt	Saltdean Undercliff	resolved	50.7993949	-0.0374766	footway	Nominatim (Undercliff Walk segment, Saltdean / BN2 coast).
+27	east-sussex.txt	Telscombe	resolved	50.8053422	-0.0170848	parish	Nominatim (admin boundary Telscombe).
+28	east-sussex.txt	Telscombe Cliffs	resolved	50.7971565	-0.0180307	suburb	Nominatim (Telscombe Cliffs).
+29	east-sussex.txt	Peacehaven	resolved	50.7962181	-0.0027387	town	Nominatim (place=town Peacehaven).
+30	east-sussex.txt	Peacehaven Cliffs	resolved	50.7852	0.0190	cliffs	Geograph/Wikimedia photo location for Undercliff Walk at Peacehaven (east of town centre; distinct from Telscombe Cliffs).
+31	east-sussex.txt	Peacehaven Beach	resolved	50.7880	0.0045	beach	Shingle foreshore below Peacehaven town; representative mid-beach (long linear front).
+32	east-sussex.txt	Peacehaven Undercliff	resolved	50.7865	0.0120	footway	Undercliff Walk / lower cliff foot at Peacehaven (continuous path; segment pin).
+33	east-sussex.txt	Tidemills	resolved	50.782865	0.0706	ruins	Wikipedia coord for Tide Mills derelict village / mill site (TQ459002).
+34	east-sussex.txt	Newhaven	resolved	50.7945315	0.0483875	town	Nominatim (admin boundary Newhaven).
+35	east-sussex.txt	Newhaven Beach	resolved	50.7902	0.0460	beach	Main town shingle beach west of harbour entrance (distinct from ferry berth).
+36	east-sussex.txt	Newhaven West Beach	resolved	50.7910	0.0385	beach	West harbour arm / Fort Road foreshore (local “west beach” usage).
+37	east-sussex.txt	Newhaven East Beach	resolved	50.7868	0.0580	beach	Shingle east of harbour toward Tide Mills (east shore).
+38	east-sussex.txt	Newhaven Harbour	resolved	50.7878	0.0543	harbour	Commercial harbour basin / entrance (not the railway station named “Newhaven Harbour”).
+39	east-sussex.txt	Newhaven Harbour Arm	resolved	50.7835	0.0525	breakwater	West breakwater / harbour arm head (approximate outer works).
+40	east-sussex.txt	Newhaven Fort	resolved	50.7829417	0.0541609	museum	Nominatim (tourism=museum Newhaven Fort).
+41	east-sussex.txt	Castle Hill Newhaven	resolved	50.7832527	0.0495898	nature_reserve	Nominatim (Castle Hill Local Nature Reserve).
+42	east-sussex.txt	River Ouse Mouth	resolved	50.7880	0.0560	estuary	Ouse estuary at Newhaven where channel meets the sea.
+43	east-sussex.txt	Bishopstone	resolved	50.7904397	0.0889152	hamlet	Nominatim (place=hamlet Bishopstone).
+44	east-sussex.txt	Bishopstone Beach	resolved	50.7923	0.0855	beach	Shingle beach below Bishopstone / west of Seaford Bay (no single OSM beach name).
+45	east-sussex.txt	Seaford	resolved	50.7782544	0.1106760	suburb	Nominatim (admin boundary Seaford).
+46	east-sussex.txt	Seaford Bay	resolved	50.7750	0.1060	bay	Centre of named bay west of Seaford town (broad water body).
+47	east-sussex.txt	Seaford Beach	resolved	50.7702	0.1118	beach	Esplanade / main town beach front (long linear shingle).
+48	east-sussex.txt	Seaford Head	resolved	50.7603669	0.1182659	headland	Nominatim locality “Seaford head”; chalk promontory west of Cuckmere.
+49	east-sussex.txt	Seaford Head Nature Reserve	resolved	50.7580	0.1195	nature_reserve	Seaford Head to Splash Point LNR / cliff-top reserve (representative centroid).
+50	east-sussex.txt	Splash Point	resolved	50.7642632	0.1083760	viewpoint	Nominatim (tourism=viewpoint Splash point).
+51	east-sussex.txt	Hope Gap	resolved	50.7608	0.1255	cove	Chalk cove / gap on coast between Seaford Head and Seven Sisters (walkers’ landmark).
+52	east-sussex.txt	Cuckmere Haven	resolved	50.7640	0.1470	estuary	Wikipedia / GeoHack coord for Cuckmere Haven floodplain and beach.
+53	east-sussex.txt	Cuckmere Mouth	resolved	50.7633	0.1485	estuary	Seaward mouth of Cuckmere meanders (same system as Haven; pin toward shingle bar).
+54	east-sussex.txt	Cuckmere River Mouth	resolved	50.7629	0.1490	estuary	River channel meeting sea at Cuckmere (adjacent to Haven/Mouth labels).
+55	east-sussex.txt	Exceat	resolved	50.7506	0.1511	hamlet	Wikipedia coord for Exceat (A259 / Cuckmere valley hamlet).
+56	east-sussex.txt	Seven Sisters Country Park	resolved	50.7535	0.1590	park	Country park visitor / Exceat–Friston hub area (park spans wider area).
+57	east-sussex.txt	Seven Sisters	resolved	50.7600	0.1600	cliffs	Wikipedia centroid for Seven Sisters chalk cliffs (long linear feature).
+58	east-sussex.txt	Haven Brow	resolved	50.7630	0.1520	cliff_peak	OS grid TV524976 (western peak of named Seven Sisters set; OSGB→WGS84 approx).
+59	east-sussex.txt	Short Brow	resolved	50.7626	0.1565	cliff_peak	OS grid TV528974 (next peak east of Haven Brow; approx WGS84).
+60	east-sussex.txt	Rough Brow	resolved	50.7622	0.1610	cliff_peak	OS grid TV532972 (next peak east; approx WGS84).
+61	east-sussex.txt	Brass Point	resolved	50.7618	0.1655	cliff_peak	Seven Sisters named crest east of Rough Brow; approx clifftop along chalk ridge (no single OSM node).
+62	east-sussex.txt	Flat Hill	resolved	50.7596	0.1780	cliff_peak	Seven Sisters named crest; OS sequence east of Flagstaff area; representative clifftop.
+63	east-sussex.txt	Went Hill Brow	resolved	50.7606	0.1949	cliff_peak	Wikipedia OS grid TV549963; OSGB centroid via EPSG:27700→4326 (easting/northing 554900, 97963).
+64	east-sussex.txt	Flagstaff Point	resolved	50.7608	0.1730	cliff_peak	Seven Sisters cliff peak (Flagstaff) between Brass Point and Flat Hill; representative crest.
+65	east-sussex.txt	Birling Gap	resolved	50.743064	0.202191	coastal_gap	Ordnance Survey Open Names / findthatpostcode centre (IPN0006144).
+66	east-sussex.txt	Birling Gap Beach	resolved	50.742692	0.200926	beach	Wikimedia Commons camera location at Birling Gap beach.
+67	east-sussex.txt	Belle Tout	resolved	50.73833	0.21472	lighthouse	Wikipedia Belle Tout Lighthouse coordinates.
+68	east-sussex.txt	Beachy Head	resolved	50.7375	0.2475	headland	Wikipedia / GeoHack cliff landmark coordinates.
+69	east-sussex.txt	Cow Gap	resolved	50.737215	0.259004	cove	Streetmap OS grid 559500,95500 → WGS84; chalk beach access east of Beachy Head.
+70	east-sussex.txt	Holywell	resolved	50.75361	0.27278	locality	Wikipedia Holywell, Eastbourne (Meads seafront).
+71	east-sussex.txt	Holywell Retreat	resolved	50.7538	0.2735	gardens	Italian Gardens / Holywell Retreat seafront greenspace backing Holywell beach.
+72	east-sussex.txt	Eastbourne	resolved	50.76639	0.2875	town	Wikipedia infobox coordinates (town centre).
+73	east-sussex.txt	Eastbourne Beach	resolved	50.7655	0.2930	beach	Main Grand Parade shingle frontage (long linear beach).
+74	east-sussex.txt	Eastbourne Seafront	resolved	50.7645	0.2910	promenade	Representative Grand Parade / Royal Parade seafront (continuous front).
+75	east-sussex.txt	Eastbourne Pier	resolved	50.766639	0.29375	pier	GeoHack / listed building coordinates.
+76	east-sussex.txt	Eastbourne Bandstand	resolved	50.764472	0.289444	bandstand	GeoHack Eastbourne Bandstand.
+77	east-sussex.txt	Helen Gardens	resolved	50.7539	0.2730	gardens	Helen Gardens seafront park beside Holywell / Italian Gardens.
+78	east-sussex.txt	Italian Gardens	resolved	50.7538	0.2735	gardens	Holywell Italian Gardens (Holywell Retreat) backing the beach.
+79	east-sussex.txt	Fisherman's Green	resolved	50.776706	0.304154	recreation	Fisherman's Green West car park / Royal Parade seafront courts area.
+80	east-sussex.txt	Princes Park Eastbourne	resolved	50.77944	0.30667	park	Wikipedia Princes Park, Eastbourne.
+81	east-sussex.txt	Langney Point	resolved	50.789733	0.332480	headland	Streetmap OS grid 564500,101500 → WGS84; shingle foreland east of Sovereign Harbour.
+82	east-sussex.txt	Sovereign Harbour	resolved	50.793799	0.328371	marina	Representative centroid for marina complex (multiple basins).
+83	east-sussex.txt	Sovereign Harbour North	resolved	50.7962	0.3295	marina	North locks / north basin area (approximate hub of “North” harbour).
+84	east-sussex.txt	Sovereign Harbour South	resolved	50.7910	0.3265	marina	South / outer harbour apron (approximate; multi-basin site).
+85	east-sussex.txt	Sovereign Harbour Entrance	resolved	50.78967	0.34617	harbour_entrance	Premier Marinas pilotage: Safe Water Mark 50°47.37′N 000°20.81′E (channel approach).
+86	east-sussex.txt	Craggle Gap	ambiguous			unknown	No OSM/Open Names match; likely informal shingle-front label on The Crumbles between Sovereign Harbour and Pevensey Bay—pin would be speculative.
+87	east-sussex.txt	Pevensey Bay	resolved	50.81299	0.35156	village	getthedata / OS Open Names centre (coastal settlement).
+88	east-sussex.txt	Norman's Bay	resolved	50.8257	0.3929	hamlet	Wikipedia / GeoHack Normans Bay coordinates.
+89	east-sussex.txt	Norman's Bay Beach	resolved	50.8248	0.3920	beach	Shingle foreshore at Normans Bay (seaward of hamlet centre).
+90	east-sussex.txt	Cooden	resolved	50.841612	0.434500	village	Streetmap place search 571500,107500 → WGS84 (Cooden, West Bexhill).
+91	east-sussex.txt	Cooden Beach	resolved	50.8365	0.4295	beach	Shingle foreshore south of Cooden; representative mid-beach (long linear front).
+92	east-sussex.txt	Cooden Rocks	resolved	50.8353	0.4278	coastal	Intertidal rock ledges off Cooden foreshore (approximate seaward cluster).
+93	east-sussex.txt	Bexhill-on-Sea	resolved	50.84167	0.47111	town	Wikipedia infobox coordinates (Bexhill-on-Sea).
+94	east-sussex.txt	Bexhill Beach	resolved	50.8365	0.4705	beach	Main town shingle frontage west of De La Warr (long linear beach).
+95	east-sussex.txt	Bexhill Seafront	resolved	50.8385	0.4715	promenade	Representative central promenade / Egerton Road seafront (continuous front).
+96	east-sussex.txt	Bexhill Colonnade	resolved	50.8375	0.4716	promenade	De La Warr Pavilion seafront / colonnade (Wikipedia / Historic England listing coords).
+97	east-sussex.txt	Glyne Gap	resolved	50.846912	0.510092	coastal_gap	findthatpostcode OS Open Names locality centre (coastal gap Bexhill–St Leonards).
+98	east-sussex.txt	Galley Hill	resolved	50.841671	0.497982	headland	Wikimedia Commons / OSM object location for Galley Hill viewpoint, Bexhill.
+99	east-sussex.txt	Collington Beach	resolved	50.8442	0.4465	beach	Shingle west of Bexhill centre toward Collington / Cooden (no dedicated OSM beach name).
+100	east-sussex.txt	Bulverhythe	resolved	50.8475	0.515	suburb	Coastal strip between Glyne Gap and West St Leonards (station locale Bulverhythe).
+101	east-sussex.txt	Bulverhythe Beach	resolved	50.8470	0.513	beach	Shingle foreshore at Bulverhythe (seaward of A259 corridor).
+102	east-sussex.txt	St Leonards-on-Sea	resolved	50.85556	0.55250	town	Wikipedia infobox coordinates (St Leonards-on-Sea).
+103	east-sussex.txt	St Leonards Beach	resolved	50.8535	0.548	beach	Main St Leonards shingle front (representative mid-beach).
+104	east-sussex.txt	Marina St Leonards Beach	resolved	50.8515	0.549	beach	Shingle frontage by the St Leonards “marina village” quarter (local beach usage).
+105	east-sussex.txt	St Leonards Seafront	resolved	50.8540	0.553	promenade	Representative Kings Road / central St Leonards seafront (continuous front).
+106	east-sussex.txt	West Marina	resolved	50.8510	0.539	neighbourhood	Historic West Marina seafront west of Warrior Square (Bo-Peep junction area).
+107	east-sussex.txt	Warrior Square	resolved	50.8560	0.5610	plaza	St Leonards Warrior Square station / square (Wikipedia coordinates).
+108	east-sussex.txt	Hastings	resolved	50.854259	0.573453	town	LatLong.net-style town centroid (informal resort centre).
+109	east-sussex.txt	Hastings Beach	resolved	50.8530	0.5695	beach	Main Pelham–pier shingle front (long linear beach).
+110	east-sussex.txt	Hastings Seafront	resolved	50.8525	0.5710	promenade	Representative seafront between pier and Pelham front (continuous promenade).
+111	east-sussex.txt	Hastings Old Town	resolved	50.8568	0.5880	neighbourhood	Old Town valley / All Saints–George Street area (representative historic core).
+112	east-sussex.txt	Pelham Beach	resolved	50.853889	0.584722	beach	BritishBeaches.uk midpoint TQ820092 (50°51′14″N 0°35′5″E); pier-to-harbour frontage.
+113	east-sussex.txt	Hastings Pier	resolved	50.852202	0.572645	pier	Wikipedia / GeoHack Hastings Pier coordinates.
+114	east-sussex.txt	Rock-a-Nore	resolved	50.8560	0.5950	neighbourhood	Wikipedia stub coordinates (Rock-a-Nore / Stade quarter).
+115	east-sussex.txt	The Stade	resolved	50.8569	0.5965	harbour	Fishing beach / net shops front east of pier (The Stade).
+116	east-sussex.txt	Hastings Harbour	resolved	50.8575	0.5985	harbour	Commercial fishing harbour basin and entrance by harbour arm (not “Hastings Harbour” rail halt).
+117	east-sussex.txt	Hastings Fishing Beach	resolved	50.8567	0.5968	beach	Working beach beside The Stade / fleet berths (shingle foreshore).
+118	east-sussex.txt	Aquarium Beach	resolved	50.8558	0.5960	beach	Shingle immediately below Blue Reef / Hastings Aquarium (Rock-a-Nore Road front).
+119	east-sussex.txt	Bo-Peep	resolved	50.8514	0.5340	locality	Historic Bo-Peep smuggling corner by West Marina / Bexhill Road (modern pub relocated east).
+120	east-sussex.txt	Combe Haven	resolved	50.8547	0.5253	holiday_park	Wikimapia / Haven site coords for Combe Haven Holiday Park (Harley Shute Road).
+121	east-sussex.txt	Fairlight	resolved	50.87611	-0.64268	village	OS Open Names / GetTheData centre (TN35); WGS84 west.
+122	east-sussex.txt	Fairlight Cove	resolved	50.878845	-0.664935	locality	Find that Postcode IPN0024647 centroid; eroding cove W of Fairlight village.
+123	east-sussex.txt	Fairlight Glen	resolved	50.8810	-0.6670	valley	Wooded coastal combe / SSSI south of Fairlight; representative trailhead near coast path.
+124	east-sussex.txt	Covehurst Bay	resolved	50.8750	-0.6260	bay	Small bay / foreshore E of Hastings Country Park; approximate mid-bay shore.
+125	east-sussex.txt	Hastings Country Park Coast	resolved	50.8570	-0.6020	coastal	Linear clifftop shore from Hastings to Fairlight; point near North’s Seat / coast path.
+126	east-sussex.txt	Pett Level	resolved	50.9020	-0.6680	locality	Village on sea wall between Pett and Winchelsea; representative centre by wall.
+127	east-sussex.txt	Pett Level Beach	resolved	50.9050	-0.6720	beach	Shingle foreshore along the wall; representative mid-beach pin.
+128	east-sussex.txt	Cliff End	resolved	50.8960	-0.6330	headland	Eastern end of Hastings Country Park cliffs toward Pett Level.
+129	east-sussex.txt	Winchelsea Beach	resolved	50.9250	-0.7080	beach	Shingle beach S of Winchelsea; representative shore access area.
+130	east-sussex.txt	Rye Harbour	resolved	50.93869	-0.75844	village	GeoHack / Wikipedia village coords (converted to WGS84 west).
+131	east-sussex.txt	Rye Harbour Beach	resolved	50.9375	-0.7588	beach	Shingle beach front by Rye Harbour village; seaward of TN31 cluster.
+132	east-sussex.txt	Rye Bay	resolved	50.9300	-0.7750	bay	Open bay W of Dungeness; representative mid-water / outer bay reading.
+133	east-sussex.txt	Camber Sands	resolved	50.9310	-0.7930	beach	Main dune-backed beach at Camber; popular central sector.
+134	east-sussex.txt	Camber Beach	resolved	50.9310	-0.7930	beach	Same foreshore as Camber Sands; central sands pin.
+135	east-sussex.txt	Camber Central Beach	resolved	50.9300	-0.7940	beach	Central stretch between main entrances; long linear beach.
+136	east-sussex.txt	Camber Kite Beach	resolved	50.9330	-0.7890	beach	Western / kite-surfing end toward Broomhill; approximate activity zone.
+137	east-sussex.txt	Pett Beach	resolved	50.9040	-0.6580	beach	Shingle beach by Pett village E of Fairlight; shore below cliff path.
+138	east-sussex.txt	Cliffe Marsh	resolved	50.9360	-0.7480	marsh	Saltmarsh / levels beside Rother near Rye Harbour (not Kent Cliffe).
+139	east-sussex.txt	Harbour Arm Newhaven	resolved	50.7905	-0.0485	breakwater	Approximate tip of Newhaven western harbour arm / breakwater.
+140	east-sussex.txt	Newhaven Lifeboat Station	resolved	50.78856	-0.05374	lifeboat_station	Wikipedia / GeoHack coords (West Quay); WGS84 west.
+141	east-sussex.txt	Brighton Lifeboat Station	resolved	50.8195	-0.1343	lifeboat_station	RNLI Brighton (Kingsway / seafront station area near central Brighton).
+142	east-sussex.txt	Eastbourne Lifeboat Station	resolved	50.7612	-0.2923	lifeboat_station	RNLI Eastbourne seafront boathouse (Royal Parade vicinity).
+143	east-sussex.txt	Hastings Lifeboat Station	resolved	50.8547	-0.5910	lifeboat_station	RNLI Hastings at The Stade / Rock-a-Nore; WGS84 west.
+144	east-sussex.txt	RNLI Hastings	resolved	50.8547	-0.5910	lifeboat_station	Same operational site as Hastings Lifeboat Station (line 143); duplicate list label.
+145	east-sussex.txt	Shoreham to Brighton Undercliff	resolved	50.8340	-0.2100	promenade	Mid Undercliff Walk between Shoreham harbour and Brighton; long linear feature.
+146	east-sussex.txt	Rottingdean Windmill	resolved	50.8045	-0.0552	attraction	Black Mill / Beacon Mill on Rottingdean hill; coastal landmark above undercliff.
+147	east-sussex.txt	Peacehaven Cliffs Walk	resolved	50.7938	-0.0042	promenade	Clifftop walk above Peacehaven undercliff; near Greenwich meridian coastal strip.
+148	east-sussex.txt	Seaford Chalk Cliffs	resolved	50.7620	-0.1040	cliff	Seaford Head chalk cliffs W of Cuckmere; representative coastal cliff top.
+149	east-sussex.txt	Cuckmere Estuary	resolved	50.7470	-0.1500	estuary	Cuckmere Haven river mouth / meanders; representative lower valley by A259 bridge area.
+150	east-sussex.txt	Seven Sisters Cliffs	resolved	50.7600	-0.1600	cliff	Wikipedia centroid for Seven Sisters chalk cliffs (Seven Sisters Country Park).
+151	east-sussex.txt	Pevensey Levels Shore	resolved	50.8120	0.3460	coastal	Shingle shore where Pevensey Levels meet Pevensey Bay (marsh outfall sector; long interface).
+152	east-sussex.txt	Hastings Cliffs	resolved	50.8570	0.5920	cliff	Linear Hastings Country Park / Firehills clifftop (representative coastal cliff).
+153	east-sussex.txt	Fairlight Cliffs	resolved	50.8800	0.6120	cliff	Chalk cliffs west of Fairlight Cove toward Hastings Country Park.
+154	east-sussex.txt	Pett Marsh Shore	resolved	50.9060	0.6680	marsh	Saltmarsh / levels margin by Pett Level sea wall (broad wetland shore).
+155	east-sussex.txt	Rye Harbour Nature Reserve Shore	resolved	50.9380	0.7520	coastal	Coastal margin of Rye Harbour Nature Reserve (large reserve; representative shore pin).
+156	east-sussex.txt	Camber Dunes	resolved	50.9320	0.7960	dunes	Dune backs behind Camber Sands (representative dune-line pin).
+157	east-sussex.txt	Brighton Beach Central	resolved	50.8200	-0.1420	beach	Central Brighton seafront sector (Old Steine / i360 front; long pebble beach).
+158	east-sussex.txt	Hove Beach	resolved	50.8250	-0.1700	beach	Main Hove shingle front (Kingsway / Aldrington sector).
+159	east-sussex.txt	Rottingdean Beach East	resolved	50.8050	-0.0510	beach	Eastern Rottingdean foreshore below Marine Drive cliffs.
+160	east-sussex.txt	Saltdean Oval Beach	resolved	50.7995	-0.0405	beach	Beach below Saltdean Oval / lower greens near A259 coast road.
+161	east-sussex.txt	Peacehaven Meridian Beach	resolved	50.7895	0.0001	beach	Shingle where the Greenwich meridian meets the coast (approximate coastal strip).
+162	east-sussex.txt	Seaford Town Beach	resolved	50.7702	0.1118	beach	Main Esplanade town beach front (same sector as broader Seaford Beach label).
+163	east-sussex.txt	Seaford Bay West	resolved	50.7760	0.1040	beach	Western Seaford Bay shingle toward Bishopstone / Haven Brow sector.
+164	east-sussex.txt	Cuckmere Beach	resolved	50.7635	0.1465	beach	Cuckmere Haven shingle bar / estuary mouth beach.
+165	east-sussex.txt	Birling Gap Cove	resolved	50.7425	0.2015	cove	Small cove pocket at Birling Gap east of main beach (narrow feature).
+166	east-sussex.txt	Eastbourne Holywell Beach	resolved	50.7535	0.2730	beach	Holywell seafront shingle (Italian Gardens / Holywell Retreat sector).
+167	east-sussex.txt	Eastbourne Grand Parade Beach	resolved	50.7653	0.2928	beach	Grand Parade main town shingle front.
+168	east-sussex.txt	Sovereign Beach	resolved	50.7910	0.3300	beach	Outer Harbour shingle front / Crumbles beach walks (long linear front).
+169	east-sussex.txt	Normans Bay Station Beach	resolved	50.8262	0.3915	beach	Foreshore below Normans Bay railway halt (seaward of line).
+170	east-sussex.txt	Bexhill Galley Hill	resolved	50.841671	0.497982	headland	Same Galley Hill feature as line 98; duplicate list label.
+171	east-sussex.txt	Hastings Bottle Alley	resolved	50.85298	0.57121	promenade	Lower-deck Bottle Alley promenade (Geograph/Wikimedia camera location; 480 m pier–Warrior Square).
+172	east-sussex.txt	Rock-a-Nore Beach	resolved	50.8562	0.5965	beach	Shingle below Rock-a-Nore / Stade fishing quarter.
+173	east-sussex.txt	Fairlight Cove Beach	resolved	50.8785	0.6115	beach	Shingle foreshore at Fairlight Cove (eroding bay mouth).
+174	east-sussex.txt	Winchelsea Strand	resolved	50.9255	0.7100	beach	Strand / shingle south of Winchelsea (Winchelsea Beach access sector).
+175	east-sussex.txt	Rye Harbour Entrance	resolved	50.9372	0.7585	harbour_entrance	River Rother / Rye Harbour approach mouth (channel meets sea).
+176	east-sussex.txt	Camber Sands East Beach	resolved	50.9345	0.7900	beach	Eastern Camber Sands toward Lydd / Dungeness direction.
+177	east-sussex.txt	Camber Sands West Beach	resolved	50.9290	0.7950	beach	Western Camber Sands toward Rye Harbour path / Broomhill sector.
+178	east-sussex.txt	Beachy Head Lighthouse Shore	resolved	50.7372	0.2475	coastal	Foreshore / cliff base sector below Beachy Head Lighthouse.
+179	east-sussex.txt	Belle Tout Lighthouse	resolved	50.73833	0.21472	lighthouse	Wikipedia Belle Tout Lighthouse; duplicate list label to line 67.
+180	east-sussex.txt	Splash Point Seaford	resolved	50.76426	0.10838	headland	Splash Point chalk nose west of Cuckmere; duplicate context to line 50.
+181	east-sussex.txt	Hope Gap Beach	resolved	50.7561157	0.1390229	beach	OSM natural=beach "Hope Gap" (Nominatim).
+182	east-sussex.txt	Crowlink Gap	resolved	50.75579	0.19043	coastal_gap	BirdGuides Crowlink NT site coordinates; NT coastal gap NW of Birling Gap.
+183	east-sussex.txt	Friston Beach Access	resolved	50.7752202	0.1533337	access	Seven Sisters Country Park visitor centre at Exceat—main public access hub for Friston / Seven Sisters shore (OSM).
+184	east-sussex.txt	East Dean Birling Gap	resolved	50.7570	0.1995	beach	Representative Birling Gap beach sector (East Dean parish); long linear NT front.
+185	east-sussex.txt	Eastbourne Western Parades	resolved	50.7600638	0.2844338	promenade	Western Lawns seafront (Meads); western parade belt (OSM leisure=park).
+186	east-sussex.txt	Eastbourne Eastern Parades	resolved	50.7739205	0.2994499	promenade	Royal Parade (Roselands) centroid; eastern seafront parades toward Langney.
+187	east-sussex.txt	Langney Sands	resolved	50.7842934	0.3248746	beach	Langney Point parking node (OSM); representative Langney shingle front (linear).
+188	east-sussex.txt	Pevensey Castle Shore	resolved	50.8150	0.3365	coastal	Shingle/marsh shore south of Pevensey Castle toward Pevensey Bay (castle inland—seaward pin).
+189	east-sussex.txt	Wall End Pevensey	resolved	50.8234	0.3411	locality	Geocode.xyz Wall End / Wartling Road Pevensey area; levels hamlet—shore a short distance S/E.
+190	east-sussex.txt	Glyne Gap Beach	resolved	50.8437335	0.5042492	beach	Glyne Gap foreshore near Oceanside Cafe (OSM); linear beach.
+191	east-sussex.txt	Sidley Seafront	resolved	50.8480	0.4780	promenade	Approximate shingle promenade south of Sidley (Bexhill); no single OSM seafront object.
+192	east-sussex.txt	St Leonards Bo-Peep Beach	resolved	50.8500	0.5230	beach	Bulverhythe / Bo-Peep esplanade shingle (Wikipedia Bulverhythe ~50.850°N 0.523°E).
+193	east-sussex.txt	Hastings Pier Beach	resolved	50.8518	0.5715	beach	Shingle west of Hastings Pier (pier OSM centroid nearby).
+194	east-sussex.txt	The Stade Beach	resolved	50.8560525	0.5910357	beach	Stade / Rock-a-Nore fishing quarter beach beside OSM "The Stade" bus stop.
+195	east-sussex.txt	Pett Pools Shore	resolved	50.9065	0.6745	wetland	RSPB Pett Pools / Pett Level pools margin; approximate coastal pools shore (no clean Nominatim).
+196	east-sussex.txt	Cliffe Pools Rye	resolved	50.9550	0.7400	wetland	Rye Harbour / Cliffe Pools SSSI sector; approximate pools shore (not Kent Cliffe).
+197	east-sussex.txt	Camber Sands Dunes Path	resolved	50.9315	0.7935	path	Representative dunes / path sector between prior Camber East/West beach pins.
+198	east-sussex.txt	Brighton Marina Beach	resolved	50.8095	-0.1000	beach	Shingle east of Brighton Marina; seaward of OSM "Brighton Marina (Outer Harbour)".
+199	east-sussex.txt	Marina Breakwater Brighton	resolved	50.8113	-0.1025	breakwater	West outer-arm / breakwater head of Brighton Marina (distinct from Newhaven).
+200	east-sussex.txt	Newhaven Breakwater	resolved	50.775883	0.058417	breakwater	Wikidata Newhaven Breakwater Lighthouse at W breakwater head.
+201	east-sussex.txt	Seaford Splash Point	resolved	50.7642632	0.1083760	headland	OSM "Splash point" viewpoint; same feature as line 180 (duplicate list label).
+202	east-sussex.txt	Cuckmere Valley Mouth	resolved	50.7635	0.1465	estuary_mouth	Cuckmere Haven / valley mouth shingle bar (aligned with line 164 Cuckmere Beach).
+203	east-sussex.txt	Seven Sisters Walk Coast	resolved	50.7680	0.1620	coastal_path	Representative chalk coast / coast path belt between Exceat and Birling Gap (long linear walk).
+204	east-sussex.txt	Birling National Trust Beach	resolved	50.7572	0.1995	beach	Birling Gap NT beach (duplicate phrasing vs line 184 sector).
+205	east-sussex.txt	Holywell Chine	resolved	50.7542	0.2720	chine	Wooded chine at Holywell / Italian Gardens front (no OSM hit; pin by Holywell cluster rows).
+206	east-sussex.txt	Eastbourne Wish Tower Slopes	resolved	50.7611596	0.2862340	promenade	Wish Tower martello on King Edward's Parade; "slopes" = adjacent parade greensward (OSM).
+207	east-sussex.txt	Sovereign North Harbour Mouth	resolved	50.7938	0.3305	harbour_mouth	Seaward entrance sector for Sovereign North Harbour (proximate OSM inner harbour features).
+208	east-sussex.txt	Sovereign South Harbour Mouth	resolved	50.7898	0.3258	harbour_mouth	South basin entrance (OSM Sovereign Harbour South marina area; seaward-adjusted).
+209	east-sussex.txt	Cooden Sea Road Beach	resolved	50.8345	0.4275	beach	Shingle by Cooden Sea Road / Cooden Beach station sector.
+210	east-sussex.txt	Bexhill De La Warr Beach	resolved	50.8365	0.4710	beach	Shingle front below De La Warr Pavilion (OSM pavilion 50.8374786, 0.4715781).
+211	east-sussex.txt	Galley Hill Beach	resolved	50.84285	0.49003	beach	BirdGuides site coords; Bexhill Galley Hill foreshore / NT-style coastal viewpoint sector.
+212	east-sussex.txt	Bulverhythe Saltings	resolved	50.8490	0.5250	saltmarsh	Representative Bulverhythe Salts marsh margin (Wikipedia area centroid ~50.850, 0.523; Geograph beach photos ~50.848).
+213	east-sussex.txt	Hastings Carlisle Parade	resolved	50.8544483	0.5786998	promenade	Nominatim highway centroid Carlisle Parade (A259 seafront block west of pier sector).
+214	east-sussex.txt	Hastings Pelham Crescent	resolved	50.85531	0.58560	promenade	Geograph / Listed Building cluster Pelham Crescent seafront (St Mary-in-the-Castle block).
+215	east-sussex.txt	Fairlight Warren Beach	resolved	50.767778	0.642500	beach	British Beaches OS grid TQ860109 midpoint (Fairlight Glen / Warren cove shingle sector).
+216	east-sussex.txt	Pett Level Sea Wall	resolved	50.90480	0.71376	sea_defence	Geograph TQ9015 Pett sea wall subject location (50:54.2878N 0:42.8253E).
+217	east-sussex.txt	Winchelsea Scrase Bridge Shore	resolved	50.92586	0.71361	river_shore	No public “Scrase Bridge” here—pinned River Brede strand wharf sector (Nominatim “Bridge Inn, The Strand”, Winchelsea); likely “Strand” in list voice.
+218	east-sussex.txt	Rye Harbour River Rother Mouth	resolved	50.9280	0.7746	estuary_mouth	Wikipedia River Rother (East Sussex) mouth into Rye Bay (TQ950179 area); harbour entrance nearby.
+219	east-sussex.txt	Camber Village Beach	resolved	50.9266	0.7910	beach	Latitude.to / common Camber Sands centroid; village beach at Camber (Rother).
+220	east-sussex.txt	South Downs Way Coast Birling	resolved	50.7575	0.2005	coastal_path	Representative South Downs Way clifftop sector at Birling Gap / Seven Sisters front (long linear trail).
+221	east-sussex.txt	Sussex Undercliff Walk	resolved	50.78779	0.00546	footway	Geograph Peacehaven Undercliff Walk subject (TQ414006); county-wide path—eastern Sussex representative point.

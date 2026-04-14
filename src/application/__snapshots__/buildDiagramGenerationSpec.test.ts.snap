@@ -678,12 +678,12 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "timeDeltaEmptyMessage": null,
     "timeDeltaLine": {
       "anchor": {
-        "x": -129.8,
+        "x": 0,
         "y": 3.54,
       },
       "content": "Lymington · Tide coming in · High tide in 3h 45m (23:06)",
       "fontSize": 4.72,
-      "hAlign": "left",
+      "hAlign": "center",
     },
   },
   "timeNowLabel": {
@@ -743,7 +743,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "previewFrame": {
       "maxX": 332.532649765169,
       "maxY": 168.316,
-      "minX": 79.19999999999999,
+      "minX": 80.00553500568172,
       "minY": 16.456000000000007,
     },
     "title": "home-tide-diagram",
@@ -1555,12 +1555,12 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 80.19999999999999,
+                  "x": 210,
                   "y": 163.54,
                 },
                 "angleRad": 0,
                 "content": "Lymington · Tide coming in · High tide in 3h 45m (23:06)",
-                "hAlign": "left",
+                "hAlign": "center",
                 "kind": "text",
                 "size": 4.72,
               },

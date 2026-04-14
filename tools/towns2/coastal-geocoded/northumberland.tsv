@@ -1,0 +1,129 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	northumberland.txt	Berwick-upon-Tweed	resolved	55.7692442	-2.0026472	town	OpenStreetMap/Nominatim (administrative boundary)
+2	northumberland.txt	Berwick	resolved	55.7745555	-2.0105423	locality	OpenStreetMap/Nominatim (Castlegate, Tweedmouth — colloquial "Berwick" pin distinct from town relation centroid)
+3	northumberland.txt	Tweedmouth	resolved	55.7639579	-2.0107587	suburb	OpenStreetMap/Nominatim
+4	northumberland.txt	Spittal	resolved	55.7576477	-1.9936290	suburb	OpenStreetMap/Nominatim
+5	northumberland.txt	Scremerston	resolved	55.7380502	-1.9915993	village	OpenStreetMap/Nominatim
+6	northumberland.txt	West Ord	resolved	55.7587571	-2.0749311	hamlet	OpenStreetMap/Nominatim (West Ord, Ord)
+7	northumberland.txt	East Ord	resolved	55.7569863	-2.0340621	hamlet	OpenStreetMap/Nominatim
+8	northumberland.txt	Marshall Meadows	resolved	55.8044079	-2.0387185	hamlet	OpenStreetMap/Nominatim
+9	northumberland.txt	Marshall Meadows Bay	resolved	55.8054290	-2.0273624	bay	OpenStreetMap/Nominatim
+10	northumberland.txt	Goswick	resolved	55.7006935	-1.9093810	hamlet	OpenStreetMap/Nominatim
+11	northumberland.txt	Goswick Sands	resolved	55.6974323	-1.8686995	beach	OpenStreetMap/Nominatim
+12	northumberland.txt	Cocklawburn	resolved	55.7306884	-1.9531410	beach	OpenStreetMap/Nominatim returns Cocklawburn Beach as nearest named feature
+13	northumberland.txt	Cocklawburn Beach	resolved	55.7296846	-1.9560448	beach	OpenStreetMap/Nominatim (second beach access point along same shore)
+14	northumberland.txt	Lamberton	resolved	55.8093716	-2.0511097	hamlet	OpenStreetMap/Nominatim (Lamberton, Scottish Borders — Anglo-Scottish border coast)
+15	northumberland.txt	Holy Island	resolved	55.6785261	-1.7936781	island	OpenStreetMap/Nominatim (Holy Island of Lindisfarne relation)
+16	northumberland.txt	Lindisfarne	resolved	55.6691319	-1.8008977	attraction	OpenStreetMap/Nominatim (Lindisfarne Priory — distinct pin from island boundary)
+17	northumberland.txt	The Snook	resolved	55.6846054	-1.8432671	cape	OpenStreetMap/Nominatim
+18	northumberland.txt	Snook Point	resolved	55.6866504	-1.8536547	cape	OpenStreetMap/Nominatim
+19	northumberland.txt	Guile Point	resolved	55.6595476	-1.7966110	cape	OpenStreetMap/Nominatim
+20	northumberland.txt	Emmanuel Head	resolved	55.6851213	-1.7809859	cape	OpenStreetMap/Nominatim
+21	northumberland.txt	Castle Point	resolved	55.6674424	-1.7777782	cape	OpenStreetMap/Nominatim
+22	northumberland.txt	Coves Haven	resolved	55.6891150	-1.7964214	bay	OpenStreetMap/Nominatim
+23	northumberland.txt	Fenham	resolved	55.6606030	-1.8692661	hamlet	OpenStreetMap/Nominatim (Fenham, Kyloe — mainland near Fenham Flats / causeway)
+24	northumberland.txt	Ross Links	resolved	55.6320	-1.7535	dunes	Judged centroid for coastal dune system E of Ross (Co-Curate NU132370 area; no exact OSM hit)
+25	northumberland.txt	Ross Bay	resolved	55.6255	-1.7775	bay	Judged coastal bay indentation W of Ross toward Budle (no OSM object with this exact name)
+26	northumberland.txt	Ross	resolved	55.6268811	-1.7912003	hamlet	OpenStreetMap/Nominatim (Ross, Middleton)
+27	northumberland.txt	Bamburgh	resolved	55.6074722	-1.7141346	village	OpenStreetMap/Nominatim
+28	northumberland.txt	Bamburgh Castle	resolved	55.6094439	-1.7112671	castle	OpenStreetMap/Nominatim
+29	northumberland.txt	Budle Bay	resolved	55.6165819	-1.7627329	bay	OpenStreetMap/Nominatim
+30	northumberland.txt	Waren Mill	resolved	55.6020705	-1.7702411	hamlet	OpenStreetMap/Nominatim
+31	northumberland.txt	Bradford Kaims	resolved	55.582893	-1.743836	archaeological_site	Wikipedia/GeoHack Bradford Kames SSSI centre (local spelling “Kaims”; wetland archaeology near Lucker)
+32	northumberland.txt	Monks House	resolved	55.5830	-1.6500	locality	Historic Monks' House bird observatory, Seahouses — approximate harbour area (no dedicated OSM POI)
+33	northumberland.txt	Beadnell	resolved	55.5568858	-1.6368580	village	OpenStreetMap/Nominatim
+34	northumberland.txt	Beadnell Bay	resolved	55.5608113	-1.6368516	bay	OpenStreetMap/Nominatim
+35	northumberland.txt	Beadnell Harbour	resolved	55.5545	-1.6323	harbour	Judged small-craft inlet at SW end of Beadnell Bay (first Nominatim “harbour” hits were unrelated businesses)
+36	northumberland.txt	North Sunderland	resolved	55.5784071	-1.6611320	village	OpenStreetMap/Nominatim (parish/village name for Seahouses area)
+37	northumberland.txt	Seahouses	resolved	55.5817163	-1.6536511	village	OpenStreetMap/Nominatim
+38	northumberland.txt	Seahouses Harbour	resolved	55.5841857	-1.6489841	harbour	OpenStreetMap/Nominatim (North Sunderland Harbour, Seahouses)
+39	northumberland.txt	Seahouses Beach	resolved	55.5808	-1.6380	beach	Judged main sandy beach S of Seahouses harbour (no OSM object with this exact name)
+40	northumberland.txt	Farne Islands	resolved	55.6220	-1.6280	archipelago	Wikipedia Farne Islands infobox centroid (whole group; distinct from Inner Farne row)
+41	northumberland.txt	Inner Farne	resolved	55.6166651	-1.6557996	island	OpenStreetMap/Nominatim (Inner Farne island relation)
+42	northumberland.txt	East Wideopen	resolved	55.6165038	-1.6434690	island	OpenStreetMap/Nominatim
+43	northumberland.txt	West Wideopen	resolved	55.6169810	-1.6487121	island	OpenStreetMap/Nominatim
+44	northumberland.txt	Staple Island	resolved	55.6306300	-1.6237089	island	OpenStreetMap/Nominatim
+45	northumberland.txt	Brownsman	resolved	55.6337934	-1.6244057	island	OpenStreetMap/Nominatim
+46	northumberland.txt	Longstone	resolved	55.6439242	-1.6082877	islet	OpenStreetMap/Nominatim (Longstone islet; distinct from lighthouse)
+47	northumberland.txt	Longstone Lighthouse	resolved	55.6437740	-1.6108055	lighthouse	OpenStreetMap/Nominatim
+48	northumberland.txt	Wideopens	resolved	55.6167424	-1.6460906	island	Judged centroid of East Wideopen and West Wideopen (informal collective name)
+49	northumberland.txt	Knivestone	resolved	55.64833	-1.6020	reef	Chart/wreck literature position 55°38.9′N 1°36.12′W (Knivestone reef; no OSM name hit)
+50	northumberland.txt	Megstone	resolved	55.6295474	-1.6750214	islet	OpenStreetMap/Nominatim
+51	northumberland.txt	Knoxes Reef	resolved	55.61658	-1.64963	reef	Judged midpoint between Inner Farne and East Wideopen (low-tide reef link; no OSM object)
+52	northumberland.txt	Big Harcar	resolved	55.6394603	-1.6207049	island	OpenStreetMap/Nominatim
+53	northumberland.txt	Little Harcar	resolved	55.6402106	-1.6173658	islet	OpenStreetMap/Nominatim
+54	northumberland.txt	Wamses	ambiguous			island	Collective local name; North Wamses and South Wamses are separate features in following rows
+55	northumberland.txt	North Wamses	resolved	55.6393951	-1.6297363	island	OpenStreetMap/Nominatim
+56	northumberland.txt	South Wamses	resolved	55.6374214	-1.6280874	island	OpenStreetMap/Nominatim
+57	northumberland.txt	Gun Rocks	resolved	55.63025	-1.62917	reef	Gun Rocks dive-trail marker buoy position 55°37.815′N 1°37.750′W (gunrocks.co.uk)
+58	northumberland.txt	High Newton-by-the-Sea	resolved	55.5196785	-1.6290506	hamlet	OpenStreetMap/Nominatim
+59	northumberland.txt	Low Newton-by-the-Sea	resolved	55.5145470	-1.6204845	hamlet	OpenStreetMap/Nominatim
+60	northumberland.txt	Newton-by-the-Sea	resolved	55.5149060	-1.6568132	village	OpenStreetMap/Nominatim (parish centroid)
+61	northumberland.txt	Football Hole	resolved	55.5235483	-1.6180900	bay	Geograph Britain and Ireland photo subject NU 242 256 (WGS84 55°31.4129′N 1°37.0854′W); small bay N of Low Newton
+62	northumberland.txt	Dunstanburgh	resolved	55.4948000	-1.6015000	headland	Judged coastal headland / path area (informal name for wider site N of castle; pin distinct from Dunstanburgh Castle row)
+63	northumberland.txt	Dunstanburgh Castle	resolved	55.4903837	-1.5946003	castle	OpenStreetMap/Nominatim
+64	northumberland.txt	Embleton	resolved	55.4964205	-1.6351491	village	OpenStreetMap/Nominatim
+65	northumberland.txt	Embleton Bay	resolved	55.5001426	-1.6066679	bay	OpenStreetMap/Nominatim
+66	northumberland.txt	Rumbling Kern	resolved	55.4479211	-1.5850000	cove	OpenStreetMap/Nominatim (Rumbling Kern, Howick)
+67	northumberland.txt	Craster	resolved	55.4720768	-1.5928363	village	OpenStreetMap/Nominatim
+68	northumberland.txt	Craster Harbour	resolved	55.4728017	-1.5945384	harbour	OpenStreetMap/Nominatim (node named “Craster, Harbour” — bus stop at harbour front; nearest named hit)
+69	northumberland.txt	Craster Tower	resolved	55.4694738	-1.6044185	historic	OpenStreetMap/Nominatim (named landuse polygon “Craster Tower”)
+70	northumberland.txt	Cullernose Point	resolved	55.4618391	-1.5869006	cape	OpenStreetMap/Nominatim
+71	northumberland.txt	Sugar Sands	resolved	55.4370167	-1.5896867	beach	UK Beach Guide / Geograph grid ~NU 260 159 (Howick–Boulmer coast); no OSM name match
+72	northumberland.txt	Howick	resolved	55.4532910	-1.5958846	hamlet	OpenStreetMap/Nominatim
+73	northumberland.txt	Howick Haven	resolved	55.4441436	-1.5862245	bay	OpenStreetMap/Nominatim
+74	northumberland.txt	Howick Hall	resolved	55.4509490	-1.6089212	attraction	OpenStreetMap/Nominatim
+75	northumberland.txt	Boulmer	resolved	55.4211614	-1.5813144	village	OpenStreetMap/Nominatim
+76	northumberland.txt	South Boulmer	resolved	55.4172000	-1.5798000	hamlet	Judged southern end of Boulmer village; Nominatim “South Boulmer” hits RAF ops site inland
+77	northumberland.txt	Birling Carrs	resolved	55.3638221	-1.6007270	locality	OpenStreetMap/Nominatim
+78	northumberland.txt	Foxton	resolved	55.4009067	-1.5933767	beach	Judged Foxton Beach / coast path NU 258 119 (Geograph); Nominatim “Foxton” was unrelated Berwick restaurant
+79	northumberland.txt	Alnmouth	resolved	55.3883231	-1.6126304	village	OpenStreetMap/Nominatim
+80	northumberland.txt	Alnmouth Beach	resolved	55.3889664	-1.6065712	beach	OpenStreetMap/Nominatim (“Beach Car Park” — main beach access at Marine Road)
+81	northumberland.txt	Hipsburn	resolved	55.3925465	-1.6319836	village	OpenStreetMap/Nominatim
+82	northumberland.txt	Lesbury	resolved	55.3984014	-1.6292279	village	OpenStreetMap/Nominatim
+83	northumberland.txt	Warkworth	resolved	55.3477629	-1.6103256	village	OpenStreetMap/Nominatim
+84	northumberland.txt	Warkworth Harbour	resolved	55.3452000	-1.6055000	harbour	Judged River Coquet harbour/mouth S of village centre; no OSM object with this exact name
+85	northumberland.txt	Amble	resolved	55.3337748	-1.5839378	town	OpenStreetMap/Nominatim
+86	northumberland.txt	Amble Harbour	resolved	55.3350000	-1.5805000	harbour	Judged working harbour; first Nominatim hit was retail “Amble Harbour Village”
+87	northumberland.txt	Amble Pier	resolved	55.3341500	-1.5782000	pier	Judged pier head E of town centre; no OSM name match
+88	northumberland.txt	Hauxley	resolved	55.3214642	-1.5618435	hamlet	OpenStreetMap/Nominatim
+89	northumberland.txt	High Hauxley	resolved	55.3285000	-1.5585000	locality	Judged northern/higher part of Hauxley; no dedicated OSM feature
+90	northumberland.txt	Hadston	resolved	55.2938879	-1.6026646	village	OpenStreetMap/Nominatim
+91	northumberland.txt	Birling	resolved	55.3530542	-1.6086978	hamlet	OpenStreetMap/Nominatim (Birling, Warkworth — coastal hamlet N of River Coquet)
+92	northumberland.txt	Coquet Island	resolved	55.3349794	-1.5385719	island	OpenStreetMap/Nominatim (Coquet Island nature reserve polygon centroid — offshore RSPB island)
+93	northumberland.txt	Coquet Mouth	resolved	55.3308	-1.5555	estuary	Judged River Coquet estuary / tidal mouth at Amble–Warkworth coast (no Nominatim object with this exact label)
+94	northumberland.txt	Druridge Bay	resolved	55.2915696	-1.5741577	bay	OpenStreetMap/Nominatim
+95	northumberland.txt	Druridge Bay Country Park	resolved	55.2904110	-1.5762747	country_park	OpenStreetMap/Nominatim
+96	northumberland.txt	Druridge Pools	resolved	55.2649226	-1.5723715	nature_reserve	OpenStreetMap/Nominatim
+97	northumberland.txt	Linton Mill	resolved	55.2195	-1.5795	locality	Judged Linton settlement area (Ellington and Linton parish); historic “mill” label — no dedicated OSM POI
+98	northumberland.txt	Cresswell	resolved	55.2352886	-1.5398744	village	OpenStreetMap/Nominatim
+99	northumberland.txt	Cresswell Pond	resolved	55.2426181	-1.5568155	nature_reserve	OpenStreetMap/Nominatim
+100	northumberland.txt	Annstead	resolved	55.5685824	-1.6450005	locality	OpenStreetMap/Nominatim (Annstead, Beadnell — primary Northumberland coastal usage; Annstead Dunes/Links between Seahouses and Beadnell)
+101	northumberland.txt	Annstead Bay	resolved	55.5692	-1.6365	bay	Judged small bay / foreshore at Annstead Rocks (Beadnell coast; no exact OSM name)
+102	northumberland.txt	Snab Point	resolved	55.2270681	-1.5256995	cape	OpenStreetMap/Nominatim
+103	northumberland.txt	Blakemoor Sands	resolved	55.2407	-1.5473	beach	Geograph NZ 2894 / Blakemoor Links foreshore (Croft Letch → sands); no OSM name match
+104	northumberland.txt	Lynemouth	resolved	55.2108098	-1.5383365	village	OpenStreetMap/Nominatim
+105	northumberland.txt	Lynemouth Bay	resolved	55.2080	-1.5340	bay	Judged bay indentation S of Lynemouth village (no Nominatim object with this exact name)
+106	northumberland.txt	Cambois	resolved	55.1452661	-1.5309410	village	OpenStreetMap/Nominatim
+107	northumberland.txt	Cambois Beach	resolved	55.1470	-1.5250	beach	Judged sandy foreshore E of Cambois (village centroid inland; no OSM name match)
+108	northumberland.txt	North Blyth	resolved	55.1357028	-1.5113180	locality	OpenStreetMap/Nominatim
+109	northumberland.txt	South Blyth	resolved	55.1203670	-1.4965699	harbour	OpenStreetMap/Nominatim (Blyth South Harbour — representative of South Blyth harbour district)
+110	northumberland.txt	Port of Blyth	resolved	55.1329845	-1.5138698	harbour	OpenStreetMap/Nominatim
+111	northumberland.txt	Blyth	resolved	55.1270903	-1.5099726	town	OpenStreetMap/Nominatim (Blyth administrative boundary)
+112	northumberland.txt	Blyth Beach	resolved	55.1126932	-1.4988790	beach	OpenStreetMap/Nominatim (Blyth PWC slipway / main sandy beach access)
+113	northumberland.txt	Newbiggin-by-the-Sea	resolved	55.1853665	-1.5109345	town	OpenStreetMap/Nominatim
+114	northumberland.txt	Newbiggin Bay	resolved	55.1805536	-1.5078223	bay	OpenStreetMap/Nominatim
+115	northumberland.txt	Newbiggin Beach	resolved	55.1820310	-1.5124640	beach	OpenStreetMap/Nominatim
+116	northumberland.txt	Church Point	resolved	55.1859183	-1.5041623	promenade	OpenStreetMap/Nominatim (Church Point car park — named coastal corner on Newbiggin promenade)
+117	northumberland.txt	Spital	resolved	55.1800	-1.5200	locality	Judged south Newbiggin / Spital Burn coastal margin; no Nominatim “Spital, Blyth” hit (conflicts with Notts. / Hadrian’s Wall names)
+118	northumberland.txt	Woodhorn	resolved	55.1941066	-1.5347790	village	OpenStreetMap/Nominatim
+119	northumberland.txt	Woodhorn Bay	resolved	55.1945	-1.5280	bay	Judged small coastal inlet E of Woodhorn / Cambois corner (no OSM name match)
+120	northumberland.txt	Queen Elizabeth II Country Park	resolved	55.1928468	-1.5542504	country_park	OpenStreetMap/Nominatim
+121	northumberland.txt	Beacon Point	resolved	55.1974638	-1.5041709	headland	OpenStreetMap/Nominatim (Beacon Point locality, Newbiggin-by-the-Sea — list order follows QEII Country Park; distinct from Seaton Sluice area)
+122	northumberland.txt	Seaton Sluice	resolved	55.0840248	-1.4731802	village	OpenStreetMap/Nominatim
+123	northumberland.txt	Seaton Sluice Beach	resolved	55.0832	-1.4758	beach	Judged sandy foreshore and dunes N of Seaton Sluice harbour toward Blyth Sands (no Nominatim object with this exact name)
+124	northumberland.txt	Hartley	resolved	55.07567	-1.46155	locality	Judged coastal Hartley S of Seaton Sluice (UK Fossils foreshore reference; no single OSM place named “Hartley” for this coast)
+125	northumberland.txt	Old Hartley	resolved	55.0771317	-1.4680176	suburb	OpenStreetMap/Nominatim
+126	northumberland.txt	Hartley Bay	resolved	55.0803	-1.4685	bay	Judged Collywell Bay indentation at Hartley / Old Hartley (no OSM name match for exact “Hartley Bay”)
+127	northumberland.txt	Rocky Island	resolved	55.08494	-1.47079	island	Geograph NZ 3388 7685 subject WGS84 (Watch House / Rocky Island, Seaton Sluice)
+128	northumberland.txt	Stag Rock	ambiguous			rock	No OSM/Nominatim “Stag Rock” here; well-known namesake is at Bamburgh; local stack is Charlie’s Garden (Collywell Bay)—uncertain this row’s intent

@@ -1,0 +1,324 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	greater-london.txt	Rainham	resolved	51.5167284	0.1996559	town	Nominatim (Rainham, Havering).
+2	greater-london.txt	Rainham Marshes	resolved	51.498192	0.204226	nature_reserve	Centroid from GeoHack/Wikipedia (Rainham Marshes Nature Reserve); no direct Nominatim hit.
+3	greater-london.txt	Coldharbour Point	resolved	51.4879873	0.1878413	headland	Nominatim (Coldharbour Point Lighthouse, Thames path).
+4	greater-london.txt	Wennington	resolved	51.5065473	0.2171623	village	Nominatim (settlement on east London/Essex margin).
+5	greater-london.txt	Erith	resolved	51.4808190	0.1792322	town	Nominatim.
+6	greater-london.txt	Erith Reach	resolved	51.4940879	0.1769276	water	Nominatim (named reach of Thames near Erith).
+7	greater-london.txt	Belvedere	resolved	51.4921789	0.1519450	suburb	Nominatim (Lower Belvedere / station area).
+8	greater-london.txt	Crossness	resolved	51.5090919	0.1384466	attraction	Nominatim (Crossness Pumping Station); avoids unrelated Crossness Road hit.
+9	greater-london.txt	Crossness Nature Reserve	resolved	51.5019152	0.1513533	nature_reserve	Nominatim.
+10	greater-london.txt	Slade Green	resolved	51.4719195	0.1925451	suburb	Nominatim.
+11	greater-london.txt	Thamesmead	resolved	51.4989335	0.1148486	estate	Nominatim (Greenwich side).
+12	greater-london.txt	Creekmouth	resolved	51.5163939	0.0975341	park	Nominatim (Creekmouth Open Space); POI noise avoided.
+13	greater-london.txt	Barking Riverside	resolved	51.5205472	0.1081363	development	Nominatim.
+14	greater-london.txt	Thames View	resolved	51.5286041	0.1043626	district	Nominatim (Barking and Dagenham).
+15	greater-london.txt	River Road	resolved	51.5186623	0.1137308	road	Nominatim (River Road, Barking Riverside); road centreline.
+16	greater-london.txt	Beckton	resolved	51.5160797	0.0594257	suburb	Nominatim.
+17	greater-london.txt	Royal Albert Dock	resolved	51.5061399	0.0580330	dock	Nominatim (dock water polygon area).
+18	greater-london.txt	Royal Victoria Dock	resolved	51.5066201	0.0284200	dock	Nominatim.
+19	greater-london.txt	King George V Dock	resolved	51.5034190	0.0644833	dock	Nominatim (waterway=dock); first hit was an unrelated vessel POI.
+20	greater-london.txt	ExCeL London	resolved	51.5081127	0.0297071	conference_centre	Nominatim (ExCeL, Western Gateway).
+21	greater-london.txt	London City Airport	resolved	51.5042655	0.0549024	airport	Nominatim.
+22	greater-london.txt	Silvertown	resolved	51.5013626	0.0385185	suburb	Nominatim.
+23	greater-london.txt	North Woolwich	resolved	51.5004071	0.0641540	suburb	Nominatim.
+24	greater-london.txt	Custom House	resolved	51.5112619	0.0254356	area	Nominatim (Custom House, Newham).
+25	greater-london.txt	Canning Town	resolved	51.5181741	0.0134976	town_centre	Nominatim.
+26	greater-london.txt	Bow Creek	resolved	51.5126170	0.0035783	creek	Nominatim (Bow Creek Ecology Park; lower Lea mouth).
+27	greater-london.txt	Leamouth	resolved	51.5099148	0.0051312	peninsula	Nominatim (Leamouth / Orchard Place stop; Leamouth redevelopment area).
+28	greater-london.txt	Three Mills	resolved	51.5274276	-0.0078501	historic_mill	Nominatim (House Mill, Three Mills).
+29	greater-london.txt	Three Mills Lock	resolved	51.5282111	-0.0043113	lock	Nominatim.
+30	greater-london.txt	Cody Dock	resolved	51.518056	-0.002222	harbour	CanalPlan gazetteer (51°31′05″N 0°00′08″W); Bow Creek / South Crescent.
+31	greater-london.txt	Trinity Buoy Wharf	resolved	51.5080511	0.0082075	commercial	Nominatim (Trinity Buoy Wharf, Blackwall).
+32	greater-london.txt	Goodluck Hope	resolved	51.5097594	0.0056297	development	Nominatim (Goodluck Hope tourism POI, Leamouth / E14).
+33	greater-london.txt	East India Dock Basin	resolved	51.5092936	0.0028166	dock	Nominatim (waterway=dock relation; featuretype=water).
+34	greater-london.txt	Blackwall	resolved	51.5079378	-0.0071843	station	Nominatim (Blackwall DLR; area anchor on Aspen Way).
+35	greater-london.txt	Blackwall Point	resolved	51.5048343	0.0019506	cape	Nominatim (natural=cape, Greenwich Peninsula).
+36	greater-london.txt	Poplar	resolved	51.5110713	-0.0144629	suburb	Nominatim.
+37	greater-london.txt	Canary Wharf	resolved	51.5048954	-0.0190006	suburb	Nominatim.
+38	greater-london.txt	West India Docks	resolved	51.5018271	-0.0181511	dock	Nominatim (South Dock polygon; West India Docks complex).
+39	greater-london.txt	Millwall Dock	resolved	51.4980799	-0.0166647	dock	Nominatim (Millwall Inner Dock).
+40	greater-london.txt	Isle of Dogs	resolved	51.4978447	-0.0168854	suburb	Nominatim.
+41	greater-london.txt	Millwall	resolved	51.4933423	-0.0212187	quarter	Nominatim (Millwall, Isle of Dogs).
+42	greater-london.txt	Cubitt Town	resolved	51.4936677	-0.0082433	quarter	Nominatim.
+43	greater-london.txt	Masthouse Terrace	resolved	51.4874629	-0.0222767	pier	Nominatim (Masthouse Terrace Pier).
+44	greater-london.txt	North Greenwich	resolved	51.5005740	0.0043201	station	Nominatim (North Greenwich station, Jubilee).
+45	greater-london.txt	Greenwich Peninsula	resolved	51.4979844	0.0039054	suburb	Nominatim.
+46	greater-london.txt	Millennium Village	resolved	51.4935104	0.0148311	neighbourhood	Nominatim (Greenwich Millennium Village).
+47	greater-london.txt	The O2	resolved	51.5029367	0.0032029	stadium	Nominatim (The O2, leisure=stadium).
+48	greater-london.txt	Thames Barrier	resolved	51.4968875	0.0372873	locality	Nominatim.
+49	greater-london.txt	Charlton	resolved	51.4826053	0.0365359	suburb	Nominatim.
+50	greater-london.txt	Charlton Riverside	resolved	51.4919673	0.0376536	suburb	Nominatim.
+51	greater-london.txt	Woolwich	resolved	51.4826696	0.0623335	town	Nominatim (place=town Woolwich).
+52	greater-london.txt	Woolwich Arsenal	resolved	51.4950370	0.0708794	attraction	Nominatim (Royal Arsenal visitor information; historic arsenal site).
+53	greater-london.txt	Woolwich Ferry	resolved	51.4941077	0.0605921	ferry	Nominatim (Woolwich Free Ferry queuing area).
+54	greater-london.txt	Woolwich Reach	resolved	51.4988470	0.0640744	neighbourhood	Nominatim (Woolwich Reach locality, North Woolwich / Thames margin).
+55	greater-london.txt	Gallions Reach	resolved	51.5071710	0.0749771	suburb	Nominatim (Gallions Reach suburb; avoids DLR station pin).
+56	greater-london.txt	Greenwich	resolved	51.4820845	-0.0045417	town	Nominatim (Greenwich place=town).
+57	greater-london.txt	Greenwich Pier	resolved	51.4840425	-0.0093576	pier	Nominatim.
+58	greater-london.txt	Cutty Sark	resolved	51.4829330	-0.0096145	museum	Nominatim (Cutty Sark museum).
+59	greater-london.txt	Old Royal Naval College	resolved	51.4817844	-0.0066319	attraction	Nominatim.
+60	greater-london.txt	Greenwich Foot Tunnel	resolved	51.4849398	-0.0097426	tunnel	Nominatim (man_made=tunnel, Isle of Dogs side).
+61	greater-london.txt	Greenwich Reach	resolved	51.4842572	-0.0146327	water	Nominatim (Greenwich Reach, SE10; named road/reach margin on Thames at Greenwich).
+62	greater-london.txt	Maze Hill	resolved	51.4826479	0.0037500	suburb	Nominatim (Maze Hill area / station environs, East Greenwich).
+63	greater-london.txt	Deptford	resolved	51.4758453	-0.0215164	town	Nominatim (Deptford town centre, Lewisham).
+64	greater-london.txt	Deptford Creek	resolved	51.4793697	-0.0188102	creek	Nominatim (Deptford Creek waterway mouth area).
+65	greater-london.txt	Deptford Strand	resolved	51.4889858	-0.0302197	waterfront	Nominatim (Deptford Strand street/riverside, SE8).
+66	greater-london.txt	Convoys Wharf	resolved	51.4860832	-0.0284851	development	Nominatim (Convoys Wharf redevelopment site, Deptford).
+67	greater-london.txt	Surrey Quays	resolved	51.4923500	-0.0444608	district	Nominatim (Surrey Quays, Rotherhithe).
+68	greater-london.txt	Surrey Docks	resolved	51.5004670	-0.0357306	dock	Nominatim (Surrey Docks / Canada Water dock complex area).
+69	greater-london.txt	Canada Water	resolved	51.4972278	-0.0505388	district	Nominatim (Canada Water station and town centre area).
+70	greater-london.txt	Rotherhithe	resolved	51.5002908	-0.0436321	district	Nominatim (Rotherhithe peninsula).
+71	greater-london.txt	Bermondsey	resolved	51.4970125	-0.0632680	district	Nominatim (Bermondsey, Southwark).
+72	greater-london.txt	Shad Thames	resolved	51.5022585	-0.0720164	street	Nominatim (Shad Thames, Butler's Wharf quarter).
+73	greater-london.txt	Butler's Wharf	resolved	51.5036914	-0.0739092	wharf	Nominatim (Butler's Wharf, Bermondsey).
+74	greater-london.txt	Hay's Galleria	resolved	51.5058950	-0.0837873	attraction	Nominatim (Hay's Galleria, Tooley Street / Southwark).
+75	greater-london.txt	Tower Bridge	resolved	51.5055158	-0.0753665	bridge	Nominatim (Tower Bridge crossing).
+76	greater-london.txt	St Katharine Docks	resolved	51.5065406	-0.0716502	dock	Nominatim (St. Katharine Docks marina).
+77	greater-london.txt	Tower Pier	resolved	51.5075160	-0.0796854	pier	Nominatim (Tower Millennium Pier; Thames Clippers Tower Pier).
+78	greater-london.txt	Wapping	resolved	51.5071316	-0.0620152	district	Nominatim (Wapping riverside, Tower Hamlets).
+79	greater-london.txt	Limehouse	resolved	51.5133074	-0.0351492	district	Nominatim (Limehouse, Tower Hamlets).
+80	greater-london.txt	Shadwell	resolved	51.5112500	-0.0569241	district	Nominatim (Shadwell / St George in the East).
+81	greater-london.txt	Ratcliff	resolved	51.5115396	-0.0442364	district	Nominatim (Ratcliffe, Stepney — historic Ratcliff riverside).
+82	greater-london.txt	Isle of Dogs Pier	ambiguous			pier	No distinct Nominatim/OSM name match; several Thames piers on Isle of Dogs (e.g. Masthouse Terrace, Canary Wharf) listed separately in source.
+83	greater-london.txt	Canary Wharf Pier	resolved	51.5053188	-0.0287503	pier	Nominatim (Canary Wharf Pier, river bus).
+84	greater-london.txt	Bankside	resolved	51.5081760	-0.0991338	district	Nominatim (Bankside, Southwark).
+85	greater-london.txt	Shakespeare's Globe	resolved	51.5081214	-0.0971864	theatre	Nominatim (Shakespeare's Globe, New Globe Walk).
+86	greater-london.txt	Gabriel's Wharf	resolved	51.5078326	-0.1101610	wharf	Nominatim (Gabriel's Wharf, South Bank).
+87	greater-london.txt	OXO Tower Wharf	resolved	51.5083796	-0.1082960	wharf	Nominatim (OXO Tower Wharf, Barge House Street).
+88	greater-london.txt	Blackfriars Pier	resolved	51.5107267	-0.1018793	pier	Nominatim (Blackfriars Millennium Pier / Blackfriars Pier).
+89	greater-london.txt	Festival Pier	resolved	51.5068839	-0.1175562	pier	Nominatim (Festival Pier, Queen's Walk).
+90	greater-london.txt	Waterloo Millennium Pier	resolved	51.5034484	-0.1204713	pier	Nominatim (London Eye — Waterloo Pier; opened as Waterloo Millennium Pier).
+91	greater-london.txt	Embankment Pier	resolved	51.5072895	-0.1211700	pier	Nominatim.
+92	greater-london.txt	Victoria Embankment	resolved	51.5102125	-0.1171562	road	Nominatim (Victoria Embankment highway segment).
+93	greater-london.txt	Temple	resolved	51.5111	-0.1144	station	Wikipedia/GeoHack (Temple tube station, Victoria Embankment); list label between river piers; Nominatim first hit was Temple Avenue bus stop.
+94	greater-london.txt	Millbank	resolved	51.4915636	-0.1256043	road	Nominatim.
+95	greater-london.txt	Millbank Pier	resolved	51.4916879	-0.1248174	pier	Nominatim (Millbank Millennium Pier).
+96	greater-london.txt	Westminster Bridge	resolved	51.5008537	-0.1217847	bridge	Nominatim.
+97	greater-london.txt	Westminster Pier	resolved	51.5022545	-0.1231736	pier	Nominatim.
+98	greater-london.txt	Lambeth	resolved	51.4952111	-0.1163354	suburb	Nominatim.
+99	greater-london.txt	Albert Embankment	resolved	51.4933784	-0.1213849	road	Nominatim.
+100	greater-london.txt	Vauxhall	resolved	51.4874834	-0.1229297	suburb	Nominatim.
+101	greater-london.txt	Vauxhall Cross	resolved	51.4874524	-0.1230695	junction	Nominatim (Vauxhall Cross bus stop, Albert Embankment — riverside gyratory area).
+102	greater-london.txt	Nine Elms	resolved	51.4787433	-0.1362629	quarter	Nominatim.
+103	greater-london.txt	Nine Elms Pier	resolved	51.482728	-0.137146	pier	Wikimedia Commons/Geograph depicted-object coordinates (Nine Elms Pier); no Nominatim hit for name.
+104	greater-london.txt	Battersea Power Station	resolved	51.4817738	-0.1445821	attraction	Nominatim (Battersea Power Station redevelopment POI).
+105	greater-london.txt	Battersea	resolved	51.4707933	-0.1722140	suburb	Nominatim.
+106	greater-london.txt	Battersea Park	resolved	51.4792126	-0.1570583	park	Nominatim.
+107	greater-london.txt	Battersea Bridge	resolved	51.4810987	-0.1724957	bridge	Nominatim (man_made=bridge); first hit was bus stop.
+108	greater-london.txt	Chelsea Embankment	resolved	51.4852184	-0.1532533	road	Nominatim.
+109	greater-london.txt	Chelsea Physic Garden	resolved	51.4845701	-0.1622617	garden	Nominatim.
+110	greater-london.txt	Cadogan Pier	resolved	51.4830836	-0.1664417	pier	Nominatim (Cadogan Pier footway).
+111	greater-london.txt	Albert Bridge	resolved	51.4823324	-0.1667339	bridge	Nominatim.
+112	greater-london.txt	Grosvenor Road	resolved	51.4866701	-0.1310492	road	Nominatim (Grosvenor Road trunk segment, Pimlico/Millbank).
+113	greater-london.txt	Sands End	resolved	51.4725454	-0.1871122	neighbourhood	Nominatim.
+114	greater-london.txt	Wandsworth Bridge	resolved	51.46500	-0.18806	bridge	Wikipedia/GeoHack (Thames crossing centroid); Nominatim top hits were bus stops / approaches.
+115	greater-london.txt	Hurlingham	resolved	51.4700286	-0.2040366	neighbourhood	Nominatim.
+116	greater-london.txt	Fulham	resolved	51.4744080	-0.2068090	suburb	Nominatim.
+117	greater-london.txt	All Saints Fulham	resolved	51.4686252	-0.2117976	church	Nominatim (All Saints Church, Putney Bridge Approach).
+118	greater-london.txt	Putney Bridge	resolved	51.4668824	-0.2129873	bridge	Nominatim.
+119	greater-london.txt	Putney	resolved	51.4625314	-0.2163018	suburb	Nominatim.
+120	greater-london.txt	Putney Embankment	resolved	51.4696761	-0.2199831	embankment	Nominatim (Putney Embankment slipway node).
+121	greater-london.txt	Putney Pier	resolved	51.4671357	-0.2156745	pier	Nominatim (Putney Pier, Thames).
+122	greater-london.txt	East Putney	resolved	51.4586138	-0.2112429	station	Nominatim (East Putney station; list label for the area).
+123	greater-london.txt	Wandsworth	resolved	51.4570271	-0.1932607	suburb	Nominatim (Wandsworth suburb centroid).
+124	greater-london.txt	Wandsworth Park	resolved	51.4623065	-0.2041783	park	Nominatim.
+125	greater-london.txt	Bishop's Park	resolved	51.4711667	-0.2179831	park	Nominatim (Bishop's Park, Fulham).
+126	greater-london.txt	Craven Cottage	resolved	51.4749218	-0.2217448	stadium	Nominatim (Fulham FC ground).
+127	greater-london.txt	Barnes	resolved	51.4737383	-0.2492849	town	Nominatim (Barnes place=town).
+128	greater-london.txt	Barnes Bridge	resolved	51.4727364	-0.2537852	bridge	Nominatim (Thames railway bridge way; avoids station POI).
+129	greater-london.txt	Barnes Pier	not_found				No Nominatim hit for a Thames pier named Barnes Pier (Drawdock slipway nearby is a different feature).
+130	greater-london.txt	Dukes Meadows	resolved	51.4773951	-0.2519156	park	Nominatim.
+131	greater-london.txt	Chiswick Mall	resolved	51.4881084	-0.2463238	street	Nominatim (Chiswick Mall residential).
+132	greater-london.txt	Chiswick Eyot	resolved	51.4873739	-0.2461452	island	Nominatim (Chiswick Eyot; mapped as natural=scrub polygon centroid).
+133	greater-london.txt	Chiswick Pier	resolved	51.4824660	-0.2507183	pier	Nominatim (Chiswick Pier marina/leisure=pier).
+134	greater-london.txt	Strand on the Green	resolved	51.4864240	-0.2798847	quarter	Nominatim (Strand-on-the-Green neighbourhood).
+135	greater-london.txt	Grove Park	resolved	51.4861734	-0.2711251	neighbourhood	Nominatim (Grove Park, Strand-on-the-Green; avoids SE12 Grove Park).
+136	greater-london.txt	Kew Railway Bridge	resolved	51.4840498	-0.2793353	bridge	Nominatim.
+137	greater-london.txt	Kew Bridge	resolved	51.4869444	-0.2875	bridge	Wikipedia API coord for Kew Bridge (road bridge); Nominatim top hits were bus stops/station.
+138	greater-london.txt	Kew Gardens riverside	resolved	51.4865810	-0.2864849	pier	Nominatim (Kew Gardens Pier; Thames-side access by the gardens).
+139	greater-london.txt	Kew Riverside	resolved	51.4741477	-0.2763859	neighbourhood	Nominatim (Kew Riverside Primary School; Mortlake / North Sheen estate name on Thames corridor).
+140	greater-london.txt	Richmond Lock	resolved	51.4625802	-0.3168717	lock	Nominatim (Richmond Lock waterway).
+141	greater-london.txt	Richmond Lock and Footbridge	resolved	51.4626364	-0.3167144	bridge	Nominatim (Richmond Lock Footbridge way).
+142	greater-london.txt	Orleans House	resolved	51.4472676	-0.3192584	gallery	Nominatim (Orleans House Gallery, Twickenham).
+143	greater-london.txt	Richmond Riverside	resolved	51.4582926	-0.3069655	park	Nominatim (Richmond Riverside open space).
+144	greater-london.txt	Richmond	resolved	51.4613531	-0.3032767	town	Nominatim (Richmond place=town; avoids borough boundary relation hit).
+145	greater-london.txt	Petersham	resolved	51.4436913	-0.3052934	suburb	Nominatim.
+146	greater-london.txt	Petersham Meadows	resolved	51.4495793	-0.3024775	meadow	Nominatim (landuse=meadow).
+147	greater-london.txt	Ham	resolved	51.4347641	-0.3092987	suburb	Nominatim.
+148	greater-london.txt	Ham Lands	resolved	51.4347913	-0.3236242	heath	Nominatim (Ham Lands nature area).
+149	greater-london.txt	Teddington Lock	resolved	51.4314302	-0.3237116	lock	Nominatim (Teddington Lock locality).
+150	greater-london.txt	Teddington Riverside	resolved	51.4291789	-0.3212639	neighbourhood	Nominatim (Teddington Riverside residential landuse).
+151	greater-london.txt	Hampton Wick	resolved	51.4144519	-0.3126743	suburb	Nominatim (Hampton Wick).
+152	greater-london.txt	Kingston riverside	resolved	51.4101464	-0.3083739	footway	Nominatim (Kingston Riverside path along Thames; disambiguates from Surbiton bank).
+153	greater-london.txt	Kingston Bridge	resolved	51.4111966	-0.3090134	bridge	Nominatim.
+154	greater-london.txt	Surbiton riverside	resolved	51.4043903	-0.2986492	path	Nominatim (Three Bridges Path / Thames Path corridor at Surbiton).
+155	greater-london.txt	Surbiton Ait	resolved	51.3986363	-0.3111747	island	Nominatim (Raven's Ait); no separate Wikipedia/OS feature named Surbiton Ait — this is the mapped Thames island off Surbiton.
+156	greater-london.txt	Thames Path	ambiguous				National trail spans many segments across Greater London; no single authoritative point for the bare name.
+157	greater-london.txt	Thames Path Woolwich	resolved	51.4943571	0.0639888	path	Nominatim (England Coast Path — Thames Path marker, Bell Water Gate / Royal Arsenal Riverside).
+158	greater-london.txt	Thames Path Greenwich	resolved	51.4829330	-0.0096145	path	Nominatim (Cutty Sark) as Greenwich riverfront Thames Path anchor.
+159	greater-london.txt	Thames Path South Bank	resolved	51.5078326	-0.1101610	path	Gabriel's Wharf / South Bank Thames Path anchor (Nominatim).
+160	greater-london.txt	Thames Path Richmond	resolved	51.4826390	-0.2272434	path	Nominatim (Thames towpath, Richmond borough reach).
+161	greater-london.txt	Bugsby's Reach	resolved	51.5004963	0.0134139	reach	Nominatim (locality place).
+162	greater-london.txt	Barking Creek	resolved	51.5155473	0.0969728	barrier	Nominatim (Barking Creek Barrier, creek mouth — query disambiguated from US street hits).
+163	greater-london.txt	Cuckold's Point	resolved	51.5055026	-0.0328429	locality	Nominatim (Rotherhithe; rejected distant name collisions).
+164	greater-london.txt	Execution Dock	resolved	51.5034178	-0.0572005	historic	Nominatim (Execution Dock, Wapping).
+165	greater-london.txt	Execution Dock Stairs	resolved	51.5034178	-0.0572005	stairs	Nominatim historic feature shares Execution Dock locality (King Henry's Stairs area).
+166	greater-london.txt	King Henry's Stairs	resolved	51.5035659	-0.0573660	stairs	Nominatim (footway).
+167	greater-london.txt	Wapping Old Stairs	resolved	51.5033709	-0.0621164	stairs	Nominatim (footway).
+168	greater-london.txt	Eagle Wharf	resolved	51.5101406	-0.0400309	wharf	Nominatim (Eagle Wharf East, Narrow Street, Limehouse); nearest named Eagle Wharf on this Thames reach east of Wapping.
+169	greater-london.txt	Hermitage Riverside	resolved	51.5045105	-0.0675359	park	Nominatim (Hermitage Riverside Memorial Garden).
+170	greater-london.txt	Hermitage Moorings	resolved	51.5038016	-0.0670972	moorings	Nominatim (pier/man_made moorings).
+171	greater-london.txt	Dolphin Pier	not_found				No Nominatim hit for a Thames pier under this name in Greater London (North Greenwich Pier is a different feature).
+172	greater-london.txt	Greenwich Yacht Club	resolved	51.4947210	0.0183669	marina	Nominatim.
+173	greater-london.txt	Royal Arsenal Pier	resolved	51.4956062	0.0708298	pier	Nominatim (Royal Arsenal Woolwich Pier).
+174	greater-london.txt	Barrier Gardens Pier	resolved	51.4957011	0.0417714	pier	Nominatim.
+175	greater-london.txt	Barrier Point	resolved	51.5005987	0.0318341	neighbourhood	Nominatim (Silvertown / Newham).
+176	greater-london.txt	Charlton Hornfair	resolved	51.4755951	0.0442064	park	Hornfair Park (Nominatim); historic fair site associated with Charlton.
+177	greater-london.txt	Maryon Park riverside	resolved	51.4893014	0.0425366	park	Nominatim (Maryon Park, Charlton Riverside).
+178	greater-london.txt	Thames Barrier Park	resolved	51.5006764	0.0341701	park	Nominatim.
+179	greater-london.txt	Royal Victoria Gardens	resolved	51.4996819	0.0663795	park	Nominatim (North Woolwich).
+180	greater-london.txt	Royal Victoria Footbridge	resolved	51.5062484	0.0261613	bridge	Nominatim (Royal Victoria Dock Bridge; common name for pedestrian link across the dock).
+181	greater-london.txt	Emirates Air Line	resolved	51.5037144	0.0131320	aerialway	Nominatim (IFS Cloud Cable Car; former Emirates Air Line).
+182	greater-london.txt	Silvertown Way	resolved	51.5074665	0.0150431	road	Nominatim (Silvertown Way, Newham).
+183	greater-london.txt	Pontoon Dock	resolved	51.5022501	0.0332232	railway_station	Nominatim (Pontoon Dock DLR station).
+184	greater-london.txt	Royal Albert Basin	resolved	51.5053278	0.0723989	dock	Nominatim (Royal Albert Basin, Gallions Reach).
+185	greater-london.txt	Gallions Point Marina	resolved	51.5053519	0.0729315	marina	Nominatim.
+186	greater-london.txt	Thamesmead Central	resolved	51.5059520	0.1066195	town_centre	Nominatim bus stop Central Way / Thamesmead Town Centre used as town-centre pin.
+187	greater-london.txt	Lesnes Abbey Woods riverside	resolved	51.4859646	0.1341078	wood	Nominatim (Lesnes Abbey Woods); pin is wood centroid toward Thames-side Bexley margin.
+188	greater-london.txt	Crossness Pumping Station	resolved	51.5090919	0.1384466	museum	Nominatim.
+189	greater-london.txt	Erith Pier	resolved	51.4817830	0.1866325	pier	Nominatim (Erith Deep Wharf; main Thames wharf infrastructure at Erith).
+190	greater-london.txt	Rainham Ferry	resolved	51.5106050	0.1916558	locality	Nominatim (Ferry Lane, Rainham RM13); historic ferry/riverside margin context, not a named pier object.
+191	greater-london.txt	Coldharbour Lane	resolved	51.5058030	0.1816600	road	Nominatim (Coldharbour Lane, Rainham industrial belt); avoids unrelated Coldharbour Lane elsewhere in London.
+192	greater-london.txt	Beckton Gasworks	resolved	51.5138822	0.0752614	brownfield	Nominatim (former Beckton Gas Works site).
+193	greater-london.txt	Beckton Alps	resolved	51.5192994	0.0613515	hill	Nominatim (natural=peak; former slag heap), not the nearby motorway junction nodes.
+194	greater-london.txt	Cypress Wharf	resolved	51.508527	0.063841	wharf	No OSM name Cypress Wharf; pin at Cyprus DLR area (Royal Albert Dock north quay) as plausible Royal Docks wharf locality; possible Cyprus/Cypress spelling variant.
+195	greater-london.txt	Orchard Place	resolved	51.5107605	0.0053445	road	Nominatim (Orchard Place, Leamouth / City Island).
+196	greater-london.txt	Wood Wharf	resolved	51.5026042	-0.0122758	neighbourhood	Nominatim (Wood Wharf, Isle of Dogs).
+197	greater-london.txt	South Dock	resolved	51.4935916	-0.0357870	dock	Nominatim (South Dock, Surrey Quays).
+198	greater-london.txt	Middle Dock	not_found				Historic Surrey Commercial Docks basin, largely infilled; no current OSM feature with this name to pin safely.
+199	greater-london.txt	North Dock	not_found				Historic Surrey Commercial Docks basin, largely infilled; no current OSM feature with this name to pin safely.
+200	greater-london.txt	South Quay	resolved	51.5009972	-0.0173585	plaza	Nominatim (South Quay Plaza landuse); Canary Wharf South Quay district; no separate South Quay DLR station object in Nominatim.
+201	greater-london.txt	Heron Quays	resolved	51.5029301	-0.0215033	railway_station	Nominatim (Heron Quays DLR station).
+202	greater-london.txt	Westferry Circus	resolved	51.5055511	-0.0272621	road	Nominatim (Westferry Circus, Canary Wharf).
+203	greater-london.txt	Cubitt Town Pier	resolved	51.4863123	-0.0101470	slipway	Nominatim (Johnson's Drawdock); nearest named Thames-side small-craft facility in Cubitt Town; no separate Cubitt Town Pier hit.
+204	greater-london.txt	Nelson Dock Pier	resolved	51.5040241	-0.0341021	pier	Nominatim bus stop at Nelson Dock Pier / DoubleTree Docklands riverside.
+205	greater-london.txt	Sayes Court Park	resolved	51.4847523	-0.0309930	park	Nominatim.
+206	greater-london.txt	Russia Dock Woodland	resolved	51.5007555	-0.0389329	park	Nominatim.
+207	greater-london.txt	Stave Hill	resolved	51.5010897	-0.0404578	viewpoint	Nominatim.
+208	greater-london.txt	Brunel Museum	resolved	51.5016428	-0.0528638	museum	Nominatim.
+209	greater-london.txt	Doubletree Docklands	resolved	51.504651	-0.033568	hotel	Published address coordinates for DoubleTree by Hilton London Docklands Riverside (265A Rotherhithe Street); no direct Nominatim building hit.
+210	greater-london.txt	Millwall Outer Dock	resolved	51.4945524	-0.0173025	dock	Nominatim.
+211	greater-london.txt	West India South Dock	resolved	51.50347	-0.01722	dock	GeoHack/Wikipedia centroid for West India Docks complex (South Dock area); Nominatim conflates with unrelated South Dock (Surrey Quays).
+212	greater-london.txt	East India Dock	resolved	51.508111	0.000972	dock	Wikipedia/GeoHack (East India Docks; surviving basin area; longitude just east of prime meridian per infobox).
+213	greater-london.txt	Limehouse Basin	resolved	51.5112788	-0.0363944	water	Nominatim.
+214	greater-london.txt	Limehouse Cut mouth	resolved	51.5100921	-0.0366723	lock	Limehouse Basin Lock; Thames connection of Limehouse Cut (no distinct named mouth feature).
+215	greater-london.txt	Tobacco Dock	resolved	51.5083074	-0.0594729	attraction	Nominatim.
+216	greater-london.txt	St Katharine Yacht Haven	resolved	51.5065406	-0.0716502	marina	Nominatim (St. Katharine Docks); yacht marina within dock estate.
+217	greater-london.txt	Butlers Wharf Pier	resolved	51.5040633	-0.0735993	pier	Nominatim.
+218	greater-london.txt	Design Museum riverside	resolved	51.5013888	-0.0727418	riverside	Nominatim (Shad Thames); former Thames-side Design Museum site (museum relocated to Kensington 2016).
+219	greater-london.txt	Potters Fields Park	resolved	51.5041782	-0.0784078	park	Nominatim.
+220	greater-london.txt	More London	resolved	51.5047251	-0.0816521	development	Nominatim.
+221	greater-london.txt	London Bridge City	resolved	51.5067344	-0.0846880	pier	London Bridge Quarter riverside; OSM object is London Bridge City Pier.
+222	greater-london.txt	London Bridge Pier	resolved	51.5067344	-0.0846880	pier	Nominatim (London Bridge City Pier).
+223	greater-london.txt	Bankside Pier	resolved	51.5087709	-0.0967972	pier	Nominatim.
+224	greater-london.txt	Blackfriars Millennium Pier	resolved	51.5106366	-0.1009430	pier	Nominatim (Blackfriars Pier ferry_terminal); TfL branding uses Millennium Pier.
+225	greater-london.txt	Savoy Pier	resolved	51.50875	-0.119403	pier	Wikipedia/GeoHack; pier removed 2019 (historic site).
+226	greater-london.txt	Waterloo Bridge	resolved	51.5082645	-0.1165949	bridge	Nominatim (man_made=bridge).
+227	greater-london.txt	Hungerford Bridge	resolved	51.5060970	-0.1199915	bridge	Nominatim.
+228	greater-london.txt	Golden Jubilee Bridges	resolved	51.5066873	-0.1227176	bridge	Nominatim.
+229	greater-london.txt	Victoria Tower Gardens riverside	resolved	51.4965036	-0.1249259	park	Nominatim (Victoria Tower Gardens); Thames path along park margin.
+230	greater-london.txt	Lambeth Bridge	resolved	51.4945430	-0.1228847	bridge	Nominatim.
+231	greater-london.txt	St George Wharf	resolved	51.4863147	-0.1272602	wharf	Nominatim.
+232	greater-london.txt	Battersea Reach	resolved	51.4642408	-0.1847048	water	Nominatim (named Thames reach).
+233	greater-london.txt	Chelsea Harbour	resolved	51.4753698	-0.1810467	harbour	Nominatim.
+234	greater-london.txt	Lots Road Power Station	resolved	51.47785	-0.18127	power_station	Wikipedia coordinates (listed building / redevelopment site).
+235	greater-london.txt	Fulham Reach	resolved	51.4869879	-0.2258402	water	Nominatim.
+236	greater-london.txt	Putney Lower Common	resolved	51.4705622	-0.2307756	common	Nominatim.
+237	greater-london.txt	Putney Wharf	resolved	51.4653952	-0.2131633	wharf	Nominatim (Putney Wharf Tower / Brewhouse Lane area).
+238	greater-london.txt	Wandsworth Riverside Quarter	resolved	51.4616556	-0.1978376	development	Nominatim.
+239	greater-london.txt	Putney Vale	resolved	51.4380193	-0.2459701	suburb	Nominatim.
+240	greater-london.txt	Roehampton riverside	resolved	51.4565	-0.241	riverbank	Approximate south-bank Thames reach at Roehampton; no single OSM name match.
+241	greater-london.txt	Richmond Hill view	resolved	51.4424527	-0.2944921	viewpoint	Pembroke Lodge / Terrace Walk area; classic Thames view from Richmond Hill.
+242	greater-london.txt	Terrace Gardens	resolved	51.4540651	-0.3010407	park	Nominatim (Petersham, Richmond).
+243	greater-london.txt	Buccleuch Gardens	resolved	51.4523754	-0.3022683	park	Nominatim.
+244	greater-london.txt	Glover's Island	resolved	51.4497588	-0.3057825	islet	Nominatim (wood/islet in Thames at Petersham).
+245	greater-london.txt	Eel Pie Island	resolved	51.4451265	-0.3254076	islet	Nominatim.
+246	greater-london.txt	Twickenham riverside	resolved	51.4468180	-0.3223048	riverbank	Twickenham Yacht Club / Embankment; Nominatim riverside POI.
+247	greater-london.txt	Twickenham Bridge	resolved	51.4604945	-0.3142135	bridge	Nominatim.
+248	greater-london.txt	Teddington Barge Lock	resolved	51.4318985	-0.3243813	lock	Nominatim.
+249	greater-london.txt	Teddington Footbridge	resolved	51.4302306	-0.3219393	bridge	Nominatim (Teddington Lock Footbridge).
+250	greater-london.txt	Ham House	resolved	51.4442353	-0.3140405	historic_house	Nominatim.
+251	greater-london.txt	Orleans House Gardens	resolved	51.4472676	-0.3192584	gallery	Nominatim (Orleans House Gallery and gardens, Twickenham).
+252	greater-london.txt	Marble Hill House	resolved	51.4494770	-0.3133176	historic_house	Nominatim.
+253	greater-london.txt	Isleworth Ait	resolved	51.4682794	-0.3206604	islet	Nominatim.
+254	greater-london.txt	Chiswick Ait	resolved	51.4873739	-0.2461452	islet	Nominatim as Chiswick Eyot (local name for the ait).
+255	greater-london.txt	Oliver's Island	resolved	51.4849931	-0.2811457	islet	Nominatim (Strand-on-the-Green).
+256	greater-london.txt	Barn Elms	resolved	51.4737294	-0.2285192	park	Barn Elms Sports Centre / former reservoir site, Barnes SW13; Nominatim admin label noisy.
+257	greater-london.txt	The Wetlands Centre	resolved	51.4788985	-0.2318218	nature_reserve	Same venue as London Wetland Centre (common short name); Nominatim.
+258	greater-london.txt	London Wetland Centre	resolved	51.4788985	-0.2318218	nature_reserve	Nominatim.
+259	greater-london.txt	Duke's Hollow	resolved	51.4730	-0.2560	nature_reserve	Wikipedia/GeoHack centroid; Nominatim had no direct hit.
+260	greater-london.txt	Corney Reach	resolved	51.4797198	-0.2500599	water	Nominatim (named Thames reach, Mortlake).
+261	greater-london.txt	Coronation Stone	resolved	51.4084034	-0.3067469	monument	Nominatim (Kingston Coronation Stone).
+262	greater-london.txt	Kingston upon Thames riverside	resolved	51.4111842	-0.3089120	riverbank	Kingston Bridge / central Thames crossing as riverside anchor; Nominatim.
+263	greater-london.txt	Canbury Gardens	resolved	51.4172501	-0.3056306	park	Nominatim.
+264	greater-london.txt	Trowlock Island	resolved	51.4253767	-0.3097437	islet	Nominatim.
+265	greater-london.txt	St Helen's Pier	resolved	51.4587900	-0.3086474	pier	Nominatim (Turk Launches St. Helena Pier, Richmond); spelling variant of source name.
+266	greater-london.txt	Hampton Court Bridge	resolved	51.4038382	-0.3423722	bridge	Nominatim.
+267	greater-london.txt	Hampton Court riverside	resolved	51.4036839	-0.3376964	palace	Nominatim (Hampton Court Palace Thames frontage).
+268	greater-london.txt	Hampton Wick riverside	resolved	51.4137082	-0.3127201	riverbank	Shaw's Path / Hampton Wick Thames margin; Nominatim.
+269	greater-london.txt	Strawberry Hill	resolved	51.4385925	-0.3399367	suburb	Nominatim (Strawberry Hill district).
+270	greater-london.txt	Twickenham Stadium riverside	resolved	51.4560052	-0.3415047	stadium	Nominatim (Allianz Stadium / Twickenham Stadium); short walk to Thames towpath.
+271	greater-london.txt	Richmond Bridge	resolved	51.4573629	-0.3070862	bridge	Nominatim (Richmond Bridge over Thames).
+272	greater-london.txt	Richmond Ferry	resolved	51.4588106	-0.3086877	ferry_terminal	Nominatim (Richmond St. Helena Pier); likely landing for Richmond river ferries; no exact “Richmond Ferry” POI.
+273	greater-london.txt	Hammerton's Ferry	resolved	51.4470985	-0.3145437	ferry	Nominatim (Hammerton’s Ferry, Orleans Road, Twickenham).
+274	greater-london.txt	Tide Tables Café	resolved	51.4577868	-0.3062458	cafe	Nominatim (Tide Tables, Richmond Riverside).
+275	greater-london.txt	Peggy Jean Riverside	resolved	51.4579276	-0.3070078	restaurant	Nominatim (Peggy Jean at Riverside Green).
+276	greater-london.txt	Battersea Dogs Home riverside	resolved	51.4786190	-0.1447612	attraction	Nominatim (Battersea Dogs and Cats Home, Battersea Park Road).
+277	greater-london.txt	Battersea Park Pier	resolved	51.4810894	-0.1516202	pier	Nominatim had no pier POI; Thames-side anchor at Battersea Park Millennium Arena.
+278	greater-london.txt	Chelsea Bridge	resolved	51.4845207	-0.1498067	bridge	Nominatim.
+279	greater-london.txt	Grosvenor Railway Bridge	resolved	51.4843486	-0.1473541	bridge	Nominatim as Grosvenor Bridge (Thames rail crossing near Chelsea / Pimlico).
+280	greater-london.txt	Chelsea Bridge Wharf	resolved	51.4820507	-0.1485123	neighbourhood	Nominatim.
+281	greater-london.txt	Imperial Wharf	resolved	51.4730387	-0.1823008	neighbourhood	Nominatim.
+282	greater-london.txt	Chelsea Creek	resolved	51.4755390	-0.1847542	neighbourhood	Nominatim.
+283	greater-london.txt	Lots Road	resolved	51.4786621	-0.1845123	road	Nominatim bus-stop anchor on Lots Road, Chelsea (long street).
+284	greater-london.txt	Cremorne Riverside	resolved	51.4796195	-0.1784915	park	Cremorne Gardens (riverside greenspace by Thames Path); Nominatim.
+285	greater-london.txt	Thames Tideway	ambiguous				Name overlaps Thames Tideway tunnel works and informal use for the river; no single coastal POI.
+286	greater-london.txt	St Paul's riverside	resolved	51.513611	-0.098056	cathedral	GeoHack / Wikipedia (St Paul’s Cathedral); Nominatim queries conflated with unrelated St Paul’s.
+287	greater-london.txt	City Pier	resolved	51.5107267	-0.1018793	pier	Nominatim (Blackfriars Pier, City of London) as plausible “City” Thames pier.
+288	greater-london.txt	Puddle Dock	resolved	51.5120025	-0.1019990	street	Nominatim (Puddle Dock, City of London).
+289	greater-london.txt	Blackfriars Bridge	resolved	51.5097589	-0.1043910	bridge	Nominatim.
+290	greater-london.txt	Waterloo Green	resolved	51.5015771	-0.1098803	park	Nominatim (Waterloo Millennium Green).
+291	greater-london.txt	Jubilee Gardens	resolved	51.5039399	-0.1181769	park	Nominatim.
+292	greater-london.txt	County Hall	resolved	51.5019701	-0.1187389	commercial	Nominatim (County Hall, South Bank).
+293	greater-london.txt	St Thomas' Hospital riverside	resolved	51.4990645	-0.1186968	hospital	Nominatim (St Thomas’ Hospital, Westminster Bridge Road).
+294	greater-london.txt	Palace of Westminster riverside	resolved	51.4993871	-0.1244812	palace	Nominatim (Palace of Westminster).
+295	greater-london.txt	Millennium Bridge	resolved	51.5098292	-0.0985098	bridge	Nominatim (Millennium Bridge footway).
+296	greater-london.txt	Queen's Walk	resolved	51.5010926	-0.1198848	promenade	Nominatim (The Queen’s Walk, South Bank).
+297	greater-london.txt	Jubilee Walkway	resolved	51.5083094	-0.1119326	route	Nominatim (Jubilee Walkway map feature on Queen’s Walk).
+298	greater-london.txt	Victoria Tower Gardens	resolved	51.4965036	-0.1249259	park	Nominatim.
+299	greater-london.txt	Thames House riverside	resolved	51.4939346	-0.1255714	government	Nominatim (Thames House / Security Service, Millbank).
+300	greater-london.txt	MI5 riverside	resolved	51.4939346	-0.1255714	government	Same Millbank site as Thames House; Nominatim (MI5 / Security Service).
+301	greater-london.txt	Lambeth Palace riverside	resolved	51.4955481	-0.1200826	palace	Nominatim (Lambeth Palace, Lambeth Palace Road).
+302	greater-london.txt	Garden Museum riverside	resolved	51.4949273	-0.1199673	museum	Nominatim (Garden Museum, Lambeth Road).
+303	greater-london.txt	Vauxhall Pleasure Gardens riverside	resolved	51.4874494	-0.1208106	park	Nominatim (Vauxhall Pleasure Gardens).
+304	greater-london.txt	Nine Elms Park	resolved	51.4810389	-0.1368748	park	Nominatim (Nine Elms Park).
+305	greater-london.txt	US Embassy Nine Elms	resolved	51.4825798	-0.1322293	embassy	Nominatim (Embassy of the United States, Nine Elms Lane).
+306	greater-london.txt	Battersea Dogs and Cats Home	resolved	51.4799000	-0.1467893	attraction	Nominatim (Battersea Dogs & Cats Home, Electric Boulevard, Nine Elms); operator also lists Battersea Park Road site.
+307	greater-london.txt	New Covent Garden Market riverside	resolved	51.4776457	-0.1358631	market	Nominatim (New Covent Garden Market, Nine Elms).
+308	greater-london.txt	Wandsworth Common riverside	resolved	51.4623065	-0.2041783	park	Nominatim (Wandsworth Park; Thames-side park between common and river, Wandsworth).
+309	greater-london.txt	Wandsworth Town riverside	resolved	51.4631438	-0.1981491	pier	Nominatim (Wandsworth Riverside Quarter Pier).
+310	greater-london.txt	Southfields riverside	resolved	51.4697056	-0.2207923	riverside	Nominatim (Thames Rowing Club / Putney Embankment; riverside anchor near Southfields).
+311	greater-london.txt	East Sheen riverside	resolved	51.4708323	-0.2566215	path	Nominatim (Thames Tow Path, Mortlake / East Sheen).
+312	greater-london.txt	Mortlake riverside	resolved	51.4698873	-0.2685226	area	Nominatim (Mortlake locality).
+313	greater-london.txt	Mortlake Brewery	resolved	51.4704462	-0.2663614	brewery	Nominatim (Stag Brewery, Lower Richmond Road, Mortlake).
+314	greater-london.txt	Chiswick House riverside	resolved	51.4838225	-0.2585293	historic_house	Nominatim (Chiswick House); estate set back from Thames but batch label riverside.
+315	greater-london.txt	Gunnersbury riverside	resolved	51.4895024	-0.2872250	bridge	Nominatim (Kew Bridge; Thames crossing by Gunnersbury / Strand-on-the-Green).
+316	greater-london.txt	Kew Green	resolved	51.4842268	-0.2889190	green	Nominatim (Kew Green).
+317	greater-london.txt	Old Deer Park riverside	resolved	51.4670716	-0.3100054	park	Nominatim (Old Deer Park).
+318	greater-london.txt	Richmond Green	resolved	51.4616845	-0.3068612	green	Nominatim (Richmond Green).
+319	greater-london.txt	Ham Common	resolved	51.4326778	-0.2984493	common	Nominatim (Ham Common).
+320	greater-london.txt	Teddington School riverside	resolved	51.4231397	-0.3109295	school	Nominatim (Teddington School, Broom Road, Hampton Wick).
+321	greater-london.txt	Kingston Bridge north bank	resolved	51.4111966	-0.3090134	bridge	Nominatim (Kingston Bridge, Horse Fair approach).
+322	greater-london.txt	Surbiton Ferry	resolved	51.4054599	-0.3085163	pier	Nominatim (Kingston Town End Pier, Queens Promenade, Surbiton).
+323	greater-london.txt	Hampton riverside	resolved	51.4150272	-0.3691409	suburb	Nominatim (Hampton, Richmond upon Thames); Thames-adjacent town area.

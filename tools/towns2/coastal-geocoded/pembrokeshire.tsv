@@ -1,0 +1,159 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	pembrokeshire.txt	Amroth	resolved	51.7379	-4.6908	village	Coastal village at east end of Amroth Bay (Carmarthen Bay).
+2	pembrokeshire.txt	Amroth Castle	resolved	51.7381	-4.6842	attraction	Ruined castle at west end of Amroth Bay; coastal visitor pin.
+3	pembrokeshire.txt	Wiseman's Bridge	resolved	51.7398	-4.6988	cove	Small cove/hamlet between Saundersfoot and Amroth on the coast path.
+4	pembrokeshire.txt	Saundersfoot	resolved	51.7231	-4.6993	village	Main village centre on north shore of Saundersfoot Bay.
+5	pembrokeshire.txt	Saundersfoot Harbour	resolved	51.7238	-4.7025	harbour	Working harbour at inner north side of Saundersfoot Bay.
+6	pembrokeshire.txt	Coppet Hall	resolved	51.7318	-4.6945	beach	Sandy beach on coast path between Saundersfoot and Wiseman’s Bridge.
+7	pembrokeshire.txt	Telpyn Point	resolved	51.735	-4.629	headland	Headland west of Amroth; Wales Coast Path (OS/Wikipedia coords).
+8	pembrokeshire.txt	Monkstone Point	resolved	51.6975	-4.6812	headland	Clifftop point above Monkstone Beach (Geograph/WCP context).
+9	pembrokeshire.txt	Monkstone Beach	resolved	51.6973	-4.6804	beach	Secluded beach between Saundersfoot and Tenby (visitor-map pin).
+10	pembrokeshire.txt	Tenby	resolved	51.6728	-4.7036	town	Harbour town centre on north shore of Tenby’s bays.
+11	pembrokeshire.txt	Tenby North Beach	resolved	51.6756	-4.7039	beach	North of Castle Hill; main northern town beach.
+12	pembrokeshire.txt	Tenby Castle Beach	resolved	51.6721	-4.7007	beach	Sandy beach below Castle Hill and harbour approaches.
+13	pembrokeshire.txt	Tenby South Beach	resolved	51.6694	-4.6995	beach	South-facing beach toward St Catherine’s Island.
+14	pembrokeshire.txt	Tenby Harbour	resolved	51.6719	-4.7021	harbour	Tenby’s main tidal harbour by the town core.
+15	pembrokeshire.txt	Penally	resolved	51.6623	-4.7186	village	Inland edge of village toward coast path to Tenby.
+16	pembrokeshire.txt	Caldey Island	resolved	51.6303	-4.6865	island	Tidal island off Tenby; pin near priory/landing area.
+17	pembrokeshire.txt	Giltar Point	resolved	51.6549	-4.6964	headland	Headland east of Tenby toward Penally/Manorbier.
+18	pembrokeshire.txt	St Margaret's Island	resolved	51.6431	-4.71693	island	Tidal island NW of Caldey in Carmarthen Bay (Wikipedia coords).
+19	pembrokeshire.txt	Manorbier	resolved	51.6467	-4.7998	village	Village by Manorbier Bay and castle.
+20	pembrokeshire.txt	Jameston	resolved	51.6419	-4.8055	hamlet	Hamlet south-west of Manorbier near coast path.
+21	pembrokeshire.txt	Manorbier Bay	resolved	51.6455	-4.7945	bay	Sandy bay below Manorbier Castle and village.
+22	pembrokeshire.txt	Freshwater East	resolved	51.6477	-4.861	village	Bay and settlement east of Manorbier (visitor beach pin).
+23	pembrokeshire.txt	Swanlake Bay	resolved	51.6378	-4.825	small bay	Quiet bay west of Freshwater East on south coast.
+24	pembrokeshire.txt	Lydstep	resolved	51.6212	-4.7715	village	Coastal village north of Lydstep Haven cliffs.
+25	pembrokeshire.txt	Lydstep Beach	resolved	51.6195	-4.7735	beach	Beach/foreshore at Lydstep Haven (tidal access).
+26	pembrokeshire.txt	Skrinkle Haven	resolved	51.6047	-4.7633	beach	Eastern of the Skrinkle/Church Doors pair near YHA (coast-path pin).
+27	pembrokeshire.txt	Church Doors Cove	resolved	51.6031	-4.767	cove	Famous rock-arch cove adjacent west of Skrinkle Haven (OS grid SS079974 area).
+28	pembrokeshire.txt	Greenala Point	resolved	51.63272	-4.88264	headland	Promontory fort/headland south of Stackpole (Wikipedia coords).
+29	pembrokeshire.txt	Broad Haven South	resolved	51.6175	-4.9148	beach	National Trust beach at Stackpole/Bosherston south coast.
+30	pembrokeshire.txt	Bosherston	resolved	51.6069	-4.9265	village	Village by Bosherston ponds and Broad Haven South access.
+31	pembrokeshire.txt	Bosherston Lily Ponds	resolved	51.6147	-4.9283	lakes	NT Stackpole Estate lily ponds / Bosherston Lakes system (visitor centre of ponds).
+32	pembrokeshire.txt	Stackpole	resolved	51.6272	-4.9035	village	Small village on the Stackpole estate near Bosherston (coastal-walking hub).
+33	pembrokeshire.txt	Stackpole Quay	resolved	51.6225	-4.8979	harbour	Small NT harbour inlet on the Stackpole estate (limestone quay).
+34	pembrokeshire.txt	Stackpole Elidor	resolved	51.6384	-4.9101	hamlet	Hamlet of Cheriton / Stackpole Elidor; pin at St James & St Elidyr's church.
+35	pembrokeshire.txt	St Petrox	resolved	51.6401	-4.9341	church	St Petrox church beside the B4319 (parish church, scattered settlement).
+36	pembrokeshire.txt	Barafundle Bay	resolved	51.6111	-4.9172	beach	Sheltered NT beach on the Stackpole estate (south of Stackpole Quay).
+37	pembrokeshire.txt	Stack Rocks	resolved	51.6104	-4.9985	headland	Elegug Stacks / Stack Rocks beside the Green Bridge of Wales (Castlemartin range coast).
+38	pembrokeshire.txt	Freshwater West	resolved	51.6577	-5.06	beach	Major west-facing surf beach and dunes west of Castlemartin (Pembrokeshire Coast Path).
+39	pembrokeshire.txt	Castlemartin	resolved	51.65	-5.01	village	Castlemartin village on the B4319 sandstone ridge inland of the range coast.
+40	pembrokeshire.txt	Merrion	resolved	51.613	-5.008	hamlet	Merrion crossroads / range access area south of Castlemartin (coastal visitor approach).
+41	pembrokeshire.txt	St Govans Head	resolved	51.5998	-4.9385	headland	Southerly limestone headland west of St Govan's Chapel (range coast).
+42	pembrokeshire.txt	St Govans Chapel	resolved	51.5987	-4.9368	chapel	Grade I cliff chapel in the cleft at St Govan's Head (historic pilgrimage site).
+43	pembrokeshire.txt	Linney Head	resolved	51.6505	-5.074	headland	Headland / cliff section between Freshwater West and Frainslake (MOD coast).
+44	pembrokeshire.txt	Huntsman's Leap	resolved	51.5985	-4.9444	landmark	Deep narrow limestone chasm on the Castlemartin range coast (climbing/WCP landmark).
+45	pembrokeshire.txt	Flimston Bay	resolved	51.618	-5.022	bay	Small west-facing bay on the Castlemartin training area (access often range-dependent).
+46	pembrokeshire.txt	Chapel Bay	resolved	51.6901	-5.0984	bay	Chapel Bay north of Angle; pin at Chapel Bay Fort (Victorian battery above the bay).
+47	pembrokeshire.txt	West Bay Castlemartin	resolved	51.656	-5.048	bay	Informal coastal bay name on west Castlemartin coast; representative mid-bay pin west of the village.
+48	pembrokeshire.txt	Angle	resolved	51.6847	-5.0919	village	Angle village at the south side of the Milford Haven entrance (coastal community).
+49	pembrokeshire.txt	West Angle Bay	resolved	51.6883	-5.1101	beach	Sheltered sandy cove and SSSI west of Angle village (slipway access).
+50	pembrokeshire.txt	Thorne Island	resolved	51.6917	-5.1174	island	Rocky islet in the Haven mouth with Palmerston fort (defensive landmark).
+51	pembrokeshire.txt	Dale	resolved	51.7069	-5.1711	village	Dale village and haven on the north shore of the Haven entrance (sailing centre).
+52	pembrokeshire.txt	Dale Fort	resolved	51.7032	-5.152	fort	FSC residential centre in the Palmerston fort at Dale Head (clifftop above Haven).
+53	pembrokeshire.txt	Watwick Bay	resolved	51.7085	-5.176	bay	Small sandy bay on the Dale peninsula west of Dale village (WCP).
+54	pembrokeshire.txt	Mill Bay	resolved	51.697	-5.166	bay	Pebble cove west of St Ann's Head; traditional Henry Tudor landing beach.
+55	pembrokeshire.txt	Great Castle Head	resolved	51.7064	-5.1868	headland	Iron Age promontory fort promontory east of Dale (Coflein SM79920567 area).
+56	pembrokeshire.txt	West Blockhouse	resolved	51.6883	-5.158	fort	Landmark Trust Palmerston fort on West Blockhouse Point guarding the Haven mouth.
+57	pembrokeshire.txt	Blockhouse Point	resolved	51.6876	-5.1593	headland	Tip of West Blockhouse Point beside the fort (Haven entrance headland).
+58	pembrokeshire.txt	St Ann's Head	resolved	51.6812	-5.1737	headland	Headland with Trinity House lighthouse guiding ships into Milford Haven.
+59	pembrokeshire.txt	Hazelbeach	resolved	51.7046	-4.9734	hamlet	Riverside hamlet on the north shore of the Haven east of Neyland (Ferry House area).
+60	pembrokeshire.txt	Sandy Haven	resolved	51.7258	-5.111	inlet	Tidal creek and beach between Great Castle Head and South Hook (Milford Haven waterway).
+61	pembrokeshire.txt	Sandy Haven Mouth	resolved	51.7268	-5.105	inlet	Mouth of Sandy Haven creek where it opens into Milford Haven (seaward of inner beach).
+62	pembrokeshire.txt	Herbrandston	resolved	51.7264	-5.0857	village	North shore of Milford Haven waterway; Wikipedia/GeoHack parish centre.
+63	pembrokeshire.txt	Rosemarket	resolved	51.7356	-4.9992	village	Inland of Neyland/Milford Haven; Wikidata/Wikipedia coords for village centre.
+64	pembrokeshire.txt	Burton	resolved	51.7114	-4.919	village	Burton-on-Cleddau hill village overlooking the estuary (Wikipedia coords).
+65	pembrokeshire.txt	Burton Ferry	resolved	51.7082	-4.9252	hamlet	Ferry/hamlet on north shore near Burton; postcode-centre style coords.
+66	pembrokeshire.txt	Neyland	resolved	51.7113	-4.9452	town	Town on upper Milford Haven; Wikipedia coords.
+67	pembrokeshire.txt	Llanstadwell	resolved	51.7052	-4.9698	village	Parish/village north of waterway between Neyland and Milford Haven (GeoHack).
+68	pembrokeshire.txt	Pembroke Dock	resolved	51.693	-4.946	town	Port town on south shore of Cleddau; Wikipedia coords.
+69	pembrokeshire.txt	Pennar Point	resolved	51.6871	-4.9758	headland	South side of Pembroke Dock haven entrance (Geograph/Wikimedia camera coords).
+70	pembrokeshire.txt	Milford Docks	resolved	51.7138	-5.0435	harbour	Milford Haven non-tidal dock / fish dock basin (Port of Milford Haven area).
+71	pembrokeshire.txt	Hubberston	resolved	51.7153	-5.0557	village	West of Milford Haven beside Hubberston Pill; Wikipedia coords.
+72	pembrokeshire.txt	Milford Haven	resolved	51.7142	-5.0427	town	Town centre grid by waterway; Wikipedia/GeoHack coords.
+73	pembrokeshire.txt	Hakin	resolved	51.7123	-5.0473	village	Coastal quarter west of Milford town core; Wikipedia coords.
+74	pembrokeshire.txt	Gelliswick Bay	resolved	51.71	-5.0585	bay	Shingle bay west of Milford; Wikimedia Commons object location for coastal pin.
+75	pembrokeshire.txt	Blackbridge	resolved	51.7146	-5.0177	hamlet	Black Bridge / coast path pinch on north shore east of Milford (Geograph).
+76	pembrokeshire.txt	Waterston	resolved	51.7123	-4.9889	village	Llanstadwell parish; B4325 corridor (Streetmap OS conversion).
+77	pembrokeshire.txt	Lawrenny	resolved	51.727	-4.872	village	Cleddau peninsula village; St Caradoc church / Wikipedia coords.
+78	pembrokeshire.txt	Landshipping	resolved	51.7686	-4.883	hamlet	Hamlet by Cleddau east of Lawrenny (postcode-centre style coords).
+79	pembrokeshire.txt	Carew	resolved	51.6998	-4.8325	village	Coastal village on Carew inlet; representative centre between castle and mill area.
+80	pembrokeshire.txt	Carew Tidal Mill	resolved	51.6989	-4.8354	attraction	French/tidal mill on causeway west of castle; Wikipedia coords.
+81	pembrokeshire.txt	Carew Castle	resolved	51.6983	-4.8306	castle	Bluff above tidal inlet; Wikipedia coords.
+82	pembrokeshire.txt	Pembroke	resolved	51.676	-4.9158	town	County town on limestone peninsula; Wikipedia coords.
+83	pembrokeshire.txt	Monkton	resolved	51.6757	-4.9302	village	Adjoining Pembroke west; GeoNames/OS-style centroid.
+84	pembrokeshire.txt	Gupton	resolved	51.6486	-5.0245	farm	NT Gupton Farm / coast-path gateway by Freshwater West (Visit Wales listing coords).
+85	pembrokeshire.txt	St Brides	resolved	51.7531	-5.185	village	Small coastal village north of Marloes; Wikidata/Wikipedia coords.
+86	pembrokeshire.txt	Marloes	resolved	51.7243	-5.1901	village	Marloes peninsula village; latitude.to / Coflein area.
+87	pembrokeshire.txt	Marloes Sands	resolved	51.7212	-5.2089	beach	West-facing sand west of Marloes; Wikipedia coords.
+88	pembrokeshire.txt	Musslewick Sands	resolved	51.7345	-5.21	beach	Musselwick Sands north of Marloes (spelling per source line); Visit Pembrokeshire beach pin.
+89	pembrokeshire.txt	Gateholm	resolved	51.7181	-5.2314	island	Tidal islet at west end of Marloes Sands; Wikipedia coords.
+90	pembrokeshire.txt	The Neck	resolved	51.7392	-5.271	headland	Eastern Skomer (The Neck) seabird cliffs; Skomer Wikipedia access note; approximate centre of restricted eastern lobe.
+91	pembrokeshire.txt	Martin's Haven	resolved	51.736	-5.245	cove	Skomer ferry landing; Wikipedia/GeoHack coords for the haven on Dale Peninsula.
+92	pembrokeshire.txt	Wooltack Point	resolved	51.7367	-5.2472	headland	NCI lookout / Streetmap SM759092; clifftop on Deer Park peninsula.
+93	pembrokeshire.txt	Deer Park	resolved	51.7338	-5.2498	coastal heath	NT Marloes “Deer Park” headland; approximate centre SM757089 (park walk grid).
+94	pembrokeshire.txt	Jack Sound	resolved	51.735	-5.259	marine channel	Wikipedia coords for the sound between Skomer and mainland (Skomer MCZ).
+95	pembrokeshire.txt	Little Haven	resolved	51.769	-5.1065	village	St Brides Bay village/beach; OSM/Wikipedia-class centroid near harbour.
+96	pembrokeshire.txt	Broad Haven	resolved	51.7758	-5.1062	village	Adjacent north-coast bay settlement (Pembrokeshire Broad Haven, not Haverfordwest).
+97	pembrokeshire.txt	Druidston Haven	resolved	51.791	-5.128	beach	Sandy haven north of Broad Haven; visitor-map pin on inlet.
+98	pembrokeshire.txt	Nolton Haven	resolved	51.8925	-5.141	harbour	Small north-facing inlet hamlet on St Brides Bay.
+99	pembrokeshire.txt	Newgale	resolved	51.855	-5.123	coastal settlement	Linear village along the A487 behind Newgale beach.
+100	pembrokeshire.txt	Newgale Sands	resolved	51.8555	-5.124	beach	Main surf beach west of Newgale; tide/recreation pin on foreshore.
+101	pembrokeshire.txt	Abermawr	resolved	51.9575	-5.1125	bay	Small shingle/sand bay north of Newgale; NNR coast context.
+102	pembrokeshire.txt	Aberrhigian	resolved	52.0186	-4.8826	cove	Aber Rhigian / Aberrhigian cove near Newport; OSGB grid ~SN023395 via EPSG:27700→4326.
+103	pembrokeshire.txt	Penycwm	resolved	51.8748	-5.182	hamlet	Hamlet above Solva inlet; inland centroid near coast-path access.
+104	pembrokeshire.txt	Solva	resolved	51.8728	-5.1915	village	Solva harbour village at head of the inlet.
+105	pembrokeshire.txt	Solva Quay	resolved	51.8733	-5.193	harbour	Working quay/harbour wall at Solva (visitor pin on water’s edge).
+106	pembrokeshire.txt	Garn Isaf	resolved	51.8705	-5.206	rocky shore	Blue-rock foreshore west of Solva; approximate clifftop/shore access pin.
+107	pembrokeshire.txt	Porthclais	resolved	51.8681	-5.2797	harbour	Wikipedia coords for Porthclais tidal harbour west of St Davids.
+108	pembrokeshire.txt	Porthstinian	resolved	51.87778	-5.31	bay	Bay/harbour of St Justinian (Welsh Porth Stinan); Wikipedia coord for Porthstinian.
+109	pembrokeshire.txt	Caerfai Bay	resolved	51.8782	-5.2715	beach	Sandy bay immediately south-west of St Davids urban edge.
+110	pembrokeshire.txt	St Non's Bay	resolved	51.877	-5.264	bay	Coastal bay beside St Non’s chapel area; approximate mid-bay pin.
+111	pembrokeshire.txt	St Davids	resolved	51.8812	-5.2667	city	Cathedral city centre (Britain’s smallest city); OS-style centroid.
+112	pembrokeshire.txt	Whitesands Bay	resolved	51.885	-5.234	beach	Main National Trust surf beach north-west of St Davids.
+113	pembrokeshire.txt	Whitesands	resolved	51.8853	-5.2335	beach	Visitor parking/amenity side of Whitesands Bay (same bay as previous line).
+114	pembrokeshire.txt	St Justinians	resolved	51.8765	-5.312	coastal hamlet	Lifeboat station / trip-boat harbour at St Justinian (Porthstinian bay); pin by pontoon area.
+115	pembrokeshire.txt	Ramsey Island	resolved	51.86167	-5.34278	island	Wikipedia coords for Ynys Dewi (Ramsey) RSPB reserve island.
+116	pembrokeshire.txt	Ramsey Sound	resolved	51.8625	-5.327	marine channel	Mid-strait representative point between Ramsey Island and St Davids headlands.
+117	pembrokeshire.txt	The Bitches	resolved	51.864	-5.329	tidal race	Wikipedia alternate coords for reef/tidal rapid in Ramsey Sound (playspot pin).
+118	pembrokeshire.txt	North Haven	resolved	51.7385	-5.2885	harbour	Skomer North Haven visitor moorings/landing; north-coast inlet (distinct from island centroid).
+119	pembrokeshire.txt	South Haven	resolved	51.7265	-5.262	inlet	Skomer South Haven inlet on south coast; approximate anchorage/entrance pin.
+120	pembrokeshire.txt	Skomer Island	resolved	51.7375	-5.295	island	Wikipedia infobox coords for Skomer (whole-island representative point).
+121	pembrokeshire.txt	Skomer	resolved	51.736	-5.245	cove	Mainland Skomer ferry embarkation at Martin's Haven (distinct whole-island centroid on previous line).
+122	pembrokeshire.txt	Skokholm	resolved	51.69788	-5.28047	island	Wikipedia/GeoHack coords for Skokholm (Ynys Sgogwm).
+123	pembrokeshire.txt	Grassholm	resolved	51.7311	-5.4796	island	Wikipedia coords; RSPB gannet island west of Skomer.
+124	pembrokeshire.txt	Bishops and Clerks	resolved	51.87	-5.395	islets	Wikipedia centroid for the rock group west of Ramsey (wide scatter of islets).
+125	pembrokeshire.txt	Carn Llidi	resolved	51.90456	-5.28967	hill	Wikipedia summit coords; prominent hill east of St Davids Head above Whitesands.
+126	pembrokeshire.txt	St Davids Head	resolved	51.9058	-5.3185	headland	Western coastal head / Penmaen Dewi strip (WCP headland tip area).
+127	pembrokeshire.txt	Abereiddy	resolved	51.9367	-5.1705	village	Coastal village by the Blue Lagoon / Traeth Llyfn access.
+128	pembrokeshire.txt	Traeth Llyfn	resolved	51.9288	-5.188	beach	Sandy beach west of Porth Lisky / Abereiddy (coast-path pin).
+129	pembrokeshire.txt	Blue Lagoon	resolved	51.9365	-5.1725	lagoon	Flooded slate quarry pool at Abereiddy; visitor swim spot.
+130	pembrokeshire.txt	Porthgain	resolved	51.9489	-5.1177	village	Harbour village on the north coast west of St Davids.
+131	pembrokeshire.txt	Abercastle	resolved	51.9592	-5.123	harbour	Small west-facing cove and harbour north-east of Trefin.
+132	pembrokeshire.txt	Trefin	resolved	51.9939	-5.1361	village	Trefin village centre between Aberfelin and Porthgain.
+133	pembrokeshire.txt	Penclegyr	resolved	51.9767	-5.1504	headland	Penclegyr / Cyrn y Penclegyr clifftop north-west of Trefin (coastal path context).
+134	pembrokeshire.txt	Aberfelin	resolved	51.9783	-5.121	cove	Traeth Aberfelin / Aberfelin cove south of Trefin.
+135	pembrokeshire.txt	Fishguard	resolved	51.9944	-4.9797	town	Upper Fishguard / town centre away from ferry harbour.
+136	pembrokeshire.txt	Lower Town Fishguard	resolved	51.992	-4.9755	harbour	Historic lower harbour and quay at Fishguard.
+137	pembrokeshire.txt	Goodwick	resolved	51.9983	-4.9979	village	Goodwick settlement west of Fishguard around the bay.
+138	pembrokeshire.txt	Fishguard Bay	resolved	51.996	-4.988	bay	Representative mid-bay pin between Fishguard and Goodwick.
+139	pembrokeshire.txt	Fishguard Harbour	resolved	52.014	-4.9845	harbour	Stena ferry port and main commercial harbour (Goodwick side).
+140	pembrokeshire.txt	Strumble Head	resolved	52.0289	-5.0739	headland	Wikipedia coords; headland / lighthouse locale on Pen Caer.
+141	pembrokeshire.txt	Pwll Deri	resolved	52.00707	-5.07227	clifftop	YHA Pwll Deri / famous coast-path viewpoint south of Strumble.
+142	pembrokeshire.txt	Carreg Onnen	resolved	52.0283	-5.079	islet	Small island off Strumble Head (Wikipedia map centroid).
+143	pembrokeshire.txt	Garn Fawr	resolved	52.018	-5.055	hillfort	Iron Age hillfort above Strumble peninsula inland of the coast path.
+144	pembrokeshire.txt	Dinas Cross	resolved	52.0172	-4.9274	village	Dinas Cross village centre inland of Pwllgwaelod.
+145	pembrokeshire.txt	Pwllgwaelod	resolved	52.0265	-4.9085	beach	South-facing cove beach on Dinas Island (Dinas Cross area).
+146	pembrokeshire.txt	Cwm-yr-Eglwys	resolved	52.0565	-5.1045	village	Storm-damaged church beach / Cwm-yr-Eglwys on north Pembrokeshire coast.
+147	pembrokeshire.txt	Newport	resolved	52.0197	-4.835	village	Newport (Trefdraeth) town centre on the Nevern estuary.
+148	pembrokeshire.txt	Newport Sands	resolved	52.0269	-4.8245	beach	Traeth Mawr / Newport Sands at the estuary mouth.
+149	pembrokeshire.txt	Parrog	resolved	52.0209	-4.8348	harbour	Newport Parrog quay and slip on the west bank of the Nevern.
+150	pembrokeshire.txt	Ceibwr Bay	resolved	52.079	-4.785	bay	Narrow wooded inlet north of Moylegrove (WCP/National Trust coast).
+151	pembrokeshire.txt	Moylgrove	resolved	52.0685	-4.7469	village	Also spelled Moylegrove; village in Nant Ceibwr valley near Ceibwr Bay (OS Open Names–style centre).
+152	pembrokeshire.txt	Pen yr Afr	resolved	52.084	-4.757	cliff	National Trail literature names “Pen yr afr” as the path high point on Cemaes Head; on the ground walkers also use the name for the famous folded cliffs on the WCP between Ceibwr and Pwllgranant — pin on the coastal cliff section.
+153	pembrokeshire.txt	Cwm yr Esgyr	resolved	52.0893	-4.7485	valley	Inland valley feeding the Ceibwr–Pwllgranant corner; coast path leaves the cliffline here on circular walks (approx. SN118470).
+154	pembrokeshire.txt	Witches Cauldron	resolved	52.0712	-4.7705	landmark	Pwll-y-wrach collapsed sea cave / blowhole south of Ceibwr Bay (Wikimedia/Geograph object coords).
+155	pembrokeshire.txt	Pwllygranant	resolved	52.07535	-4.7666	cove	North Ceibwr coast; Pembrokeshire Coast NP walk start grid SN105455 (Welsh spelling variant; see line 156).
+156	pembrokeshire.txt	Pwllgranant	resolved	52.07535	-4.7666	cove	Same cove as line 155 (alternate spelling Pwllgranant).
+157	pembrokeshire.txt	Pen-y-cwm	ambiguous			unknown	Standardised settlement Pen-y-cwm (SM8523) is at Newgale/west Pembs, inconsistent with this file’s north Ceibwr–Cemaes sequence; no separate confident pin here.
+158	pembrokeshire.txt	Cemaes Head	resolved	52.11477	-4.72947	headland	Most northerly Pembs headland; Wikipedia/GeoHack coords (nature reserve / WCP).

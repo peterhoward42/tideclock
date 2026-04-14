@@ -1,0 +1,191 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	kilkenny.txt	Inistioge	resolved	52.483	-7.067	village	Wikipedia / OS-style centroid; River Nore at Inistioge.
+2	kilkenny.txt	Inistioge Bridge	resolved	52.4836	-7.0672	bridge	Main road bridge over the Nore in the village (approximate).
+3	kilkenny.txt	Inistioge Quay	resolved	52.4832	-7.0668	harbour	Riverside quay/landing in village centre (approximate).
+4	kilkenny.txt	Inistioge River Nore	resolved	52.483	-7.067	river	Nore channel at Inistioge.
+5	kilkenny.txt	River Nore Inistioge	resolved	52.4829	-7.0671	river	Same reach as line 4; wording variant.
+6	kilkenny.txt	Inistioge waterfront	resolved	52.4831	-7.0666	shore	Riverside frontage in village.
+7	kilkenny.txt	Inistioge weir	resolved	52.484	-7.068	weir	Weir on the Nore at Inistioge (approximate; several weirs in reach).
+8	kilkenny.txt	Inistioge shore	resolved	52.4828	-7.0668	shore	River bank at Inistioge.
+9	kilkenny.txt	Nore Valley Inistioge	resolved	52.476	-7.058	valley	Nore valley viewpoint/walk context near Woodstock (approximate).
+10	kilkenny.txt	Woodstock River Walk Inistioge	resolved	52.476	-7.059	path	Woodland/riverside walks in Woodstock Gardens estate.
+11	kilkenny.txt	Woodstock Gardens Nore view	resolved	52.47592	-7.059032	attraction	Woodstock House & Gardens; Wikipedia coord.
+12	kilkenny.txt	Jerpoint Abbey	resolved	52.51093	-7.15798	attraction	Cistercian abbey ruins SW of Thomastown; GeoHack/Wikipedia.
+13	kilkenny.txt	Jerpoint Abbey River Nore	resolved	52.51093	-7.15798	river	Abbey sits beside the Nore; same monument pin.
+14	kilkenny.txt	Nore tidal limit Inistioge	resolved	52.483	-7.067	river	Guidebooks cite Inistioge as head of tidal Nore; village reach.
+15	kilkenny.txt	Lower River Nore Kilkenny	resolved	52.417	-6.95	river	Lower Nore toward Barrow confluence; Wikipedia mouth approx.
+16	kilkenny.txt	River Nore tidal Kilkenny	ambiguous			river	Long tidal section Inistioge→confluence; not one authoritative pin.
+17	kilkenny.txt	Nore estuary Kilkenny	resolved	52.417	-6.95	estuary	Nore–Barrow mixing / Three Sisters system near New Ross (approximate).
+18	kilkenny.txt	Rosbercon	resolved	52.395611	-6.945076	village	GeoHack village centroid; W bank Barrow opposite New Ross.
+19	kilkenny.txt	Rosbercon shore	resolved	52.3952	-6.9445	shore	Riverside frontage (approximate).
+20	kilkenny.txt	Rosbercon River Barrow	resolved	52.396	-6.9442	river	Barrow at Rosbercon (approximate).
+21	kilkenny.txt	Rosbercon River Nore	resolved	52.393	-6.948	river	Parish lies between Nore and Barrow; Nore-side reach (approximate).
+22	kilkenny.txt	Rosbercon waterfront	resolved	52.3957	-6.945	waterfront	Main street river frontage (approximate).
+23	kilkenny.txt	Rosbercon Barrow bank	resolved	52.3962	-6.9438	bank	West bank of Barrow (approximate).
+24	kilkenny.txt	Rosbercon ferry approach	resolved	52.3965	-6.941	ferry	Barrow crossing zone toward New Ross; historic ferry/bridge approach (approximate).
+25	kilkenny.txt	Rosbercon Dominican Abbey	resolved	52.397508	-6.950332	attraction	Suppressed Dominican house; GeoHack coord (ruins not extant).
+26	kilkenny.txt	Rosbercon Castle site	resolved	52.395	-6.945	castle	Approximate; medieval castle gone; Wikipedia cites later development on site.
+27	kilkenny.txt	Annfield Rosbercon	resolved	52.398	-6.948	townland	Annfield townland by Rosbercon (approximate centroid).
+28	kilkenny.txt	Garranbehy	resolved	52.402	-6.955	townland	Garranbehy townlands in Rosbercon parish (approximate).
+29	kilkenny.txt	Millbanks Rosbercon	resolved	52.398	-6.944	townland	Millbanks townland near village (approximate).
+30	kilkenny.txt	Raheen Rosbercon	resolved	52.392	-6.948	townland	Raheen townland near Rosbercon (approximate).
+31	kilkenny.txt	Shanbogh	resolved	52.3852	-6.9878	civil_parish	Logainm.ie centrepoint; Shanbogh civil parish (Ida barony).
+32	kilkenny.txt	Ballyneale	resolved	52.4256	-7.0272	townland	Townlands.ie centroid; Dysartmoon ED, Ida.
+33	kilkenny.txt	Tullogher Barrow bank	resolved	52.428	-7.059	bank	Tullagher/Tullogher townland centroid adjusted toward River Barrow (approximate).
+34	kilkenny.txt	Nore Barrow confluence Kilkenny bank	resolved	52.417	-6.950	river	Wikipedia River Nore mouth / Barrow junction N of New Ross; Kilkenny-side reach (approximate).
+35	kilkenny.txt	Glenmore	resolved	52.3541	-7.0266	village	Wikipedia Glenmore village centroid.
+36	kilkenny.txt	Glenmore River Barrow	resolved	52.3559	-6.99562	river	Pink Point / Barrow at Glenmore (Logainm.ie); tidal reach.
+37	kilkenny.txt	Glenmore Barrow bank	resolved	52.3562	-6.9958	bank	West bank Barrow at Pink Rock / bridge vicinity (approximate).
+38	kilkenny.txt	Glenmore shore	resolved	52.356	-6.9962	shore	Riverside frontage Barrow at Glenmore/Pink Rock (approximate).
+39	kilkenny.txt	Pink Rock Glenmore	resolved	52.3559	-6.99562	headland	Logainm.ie “The Pink Point”; Kilkenny bank Barrow.
+40	kilkenny.txt	Butterbridge Glenmore	resolved	52.381	-6.988	bridge	Historic mail-coach crossing zone between Shanbogh and Rosbercon (approximate; not a single named POI).
+41	kilkenny.txt	Rose Fitzgerald Kennedy Bridge approach	resolved	52.356639	-6.993472	bridge	GeoHack / bridge list: N25 Barrow crossing Kilkenny side (approach pin).
+42	kilkenny.txt	Ballygurrim Glenmore	resolved	52.3694	-7.0153	civil_parish	Logainm.ie Ballygurrim civil parish centrepoint (Glenmore locality context).
+43	kilkenny.txt	Cappagh Glenmore	resolved	52.3525	-7.0235	townland	Cappagh townland in Glenmore parish; village-edge centroid (approximate).
+44	kilkenny.txt	Mile Post Slieverue	resolved	52.276	-7.072	landmark	Historic “Mile Post” on old Waterford–Slieverue road / N25 corridor (approximate).
+45	kilkenny.txt	Slieverue	resolved	52.28335	-7.068086	village	Wikipedia / GeoHack village centroid.
+46	kilkenny.txt	Slieverue shore	resolved	52.278	-7.062	shore	Riverside / estuary margin toward Suir from village (approximate).
+47	kilkenny.txt	Slieveroe	resolved	52.28335	-7.068086	village	Official spelling variant of Slieverue; same centroid.
+48	kilkenny.txt	Slieverue River Suir	resolved	52.275	-7.058	river	Suir channel below Slieverue toward Belview (approximate).
+49	kilkenny.txt	Slieverue estuary	resolved	52.268	-7.048	estuary	Suir–Waterford Harbour transition N of Belview (approximate).
+50	kilkenny.txt	Slieverue Suir bank	resolved	52.279	-7.064	bank	North bank Suir near Slieverue (approximate).
+51	kilkenny.txt	Slieverue Three Sisters	ambiguous			estuary	Applies to wide confluence/mouth; no single authoritative pin for this wording.
+52	kilkenny.txt	Ringville	resolved	52.309167	-7.013611	townland	Townlands.ie / Kilcolumb parish centroid.
+53	kilkenny.txt	Ringville River Suir	resolved	52.304	-7.02	river	Suir-side reach below Ringville toward confluence (approximate).
+54	kilkenny.txt	Belview	resolved	52.2714	-6.9971	area	Belview area north bank Suir (planning/aerial refs; residential/industrial mix).
+55	kilkenny.txt	Belview Port	resolved	52.2664	-7.03198	port	Logainm.ie Calafort Belview / Belview Port (Gorteens townland).
+56	kilkenny.txt	Belview Harbour	resolved	52.2655	-7.0325	harbour	Port of Waterford deep-water basin; approximate centroid.
+57	kilkenny.txt	Port of Waterford Belview	resolved	52.2641	-7.0368	port	Latitude.to / common POI for Port of Waterford at Belview.
+58	kilkenny.txt	Belview quay	resolved	52.2635	-7.0355	quay	Operational quay within Belview port (approximate).
+59	kilkenny.txt	Belview docks	resolved	52.2638	-7.0345	docks	Multiple berths; central port area pin (approximate).
+60	kilkenny.txt	Belview container terminal	resolved	52.2625	-7.0365	terminal	Lo-lo/container sector Belview (approximate; layout changes).
+61	kilkenny.txt	Belview marine terminal	resolved	52.262	-7.0355	terminal	Berth/marine cargo sector within Belview port (approximate).
+62	kilkenny.txt	Belview estuary	resolved	52.265	-7.028	estuary	Suir–Waterford Harbour transition at Belview (approximate).
+63	kilkenny.txt	River Suir Belview	resolved	52.268	-7.025	river	Main Suir channel off Belview port (approximate).
+64	kilkenny.txt	Belview shore	resolved	52.270	-7.018	shore	North-bank frontage opposite Waterford/Ferrybank reach (approximate).
+65	kilkenny.txt	Belview N29	resolved	52.264	-6.998	road	N29 port access corridor junction zone with N25 (approximate).
+66	kilkenny.txt	IDA Belview	resolved	52.268	-7.012	industrial	IDA lands east of Belview port / N29 (approximate).
+67	kilkenny.txt	Belview Port access road	resolved	52.265	-7.028	road	Port entrance spine from N29 (approximate).
+68	kilkenny.txt	Kilmurry Belview	resolved	52.2775	-7.0694	townland	Townlands.ie centroid; Kilmurry townland Rathpatrick (Belview hinterland).
+69	kilkenny.txt	Kilmurry River Suir	resolved	52.268	-7.045	river	Suir along Kilmurry–Gorteens margin (approximate).
+70	kilkenny.txt	Kilmurry shore Suir	resolved	52.267	-7.042	shore	Kilkenny bank Suir south of Kilmurry (approximate).
+71	kilkenny.txt	Drumdowney	resolved	52.2815	-7.034	townland	Between Drumdowney Upper/Lower centrepoints; Rathpatrick parish.
+72	kilkenny.txt	Drumdowney Lower	resolved	52.2789	-7.0439	townland	Townlands.ie centroid Drumdowney Lower.
+73	kilkenny.txt	Drumdowney River Suir	resolved	52.277	-7.042	river	Suir reach beside Drumdowney Lower (approximate).
+74	kilkenny.txt	Drumdowney shore	resolved	52.2785	-7.0435	shore	Riverside Drumdowney Lower (approximate).
+75	kilkenny.txt	Gorteens	resolved	52.2689	-7.0444	townland	Townlands.ie centroid; Belview Port lies in this townland.
+76	kilkenny.txt	Gorteens Belview	resolved	52.2664	-7.03198	area	Port/industrial belt in Gorteens (same locality as Belview Port).
+77	kilkenny.txt	Gorteens port warehouse	resolved	52.265	-7.033	warehouse	Storage sheds north of berths (approximate).
+78	kilkenny.txt	Coolfin Belview	ambiguous			unknown	No Kilkenny gazetteer match; likely informal/local label in Belview belt; pin not justified.
+79	kilkenny.txt	Waterford Estuary Kilkenny shore	resolved	52.265	-7.03	estuary	Kilkenny north shore of Waterford Harbour/Suir estuary at Belview (approximate).
+80	kilkenny.txt	Three Sisters estuary Kilkenny	ambiguous			estuary	Barrow–Nore–Suir mouth system; wording too broad for one pin.
+81	kilkenny.txt	Kilmacow	resolved	52.31417	-7.17667	village	Wikipedia / GeoHack village centroid.
+82	kilkenny.txt	Kilmacow River Suir	resolved	52.308	-7.14	river	Suir reach E of village toward Waterford (village itself on Blackwater).
+83	kilkenny.txt	Kilmacow shore	resolved	52.314	-7.176	shore	Riverside frontage at Kilmacow (Blackwater corridor; approximate).
+84	kilkenny.txt	Kilmacow Suir bank	resolved	52.307	-7.138	bank	North bank Suir closest to Kilmacow (approximate).
+85	kilkenny.txt	Dunkitt	resolved	52.3156	-7.13197	civil_parish	Logainm.ie Dunkitt civil parish centrepoint.
+86	kilkenny.txt	Dunkitt River Suir	resolved	52.295	-7.12	river	Suir through Dunkitt parish toward Waterford (approximate).
+87	kilkenny.txt	Dunkitt shore	resolved	52.2946	-7.1223	shore	Locality centroid-style pin; Suir-side low ground (approximate).
+88	kilkenny.txt	Fiddown	resolved	52.33038	-7.31415	village	Wikipedia village coordinates.
+89	kilkenny.txt	Fiddown Bridge	resolved	52.3304	-7.3142	bridge	NIAH Irish Grid→WGS84; multi-span N24 Suir crossing.
+90	kilkenny.txt	Fiddown Old Bridge	resolved	52.3303	-7.3141	bridge	Earlier crossing on same reach; superseded 1980s (approximate).
+91	kilkenny.txt	Fiddown River Suir	resolved	52.3302	-7.314	river	Suir channel at Fiddown bridge reach (approximate).
+92	kilkenny.txt	Fiddown weir	resolved	52.3297	-7.3135	weir	Weir on Suir near Fiddown crossing (approximate; OS reach).
+93	kilkenny.txt	Fiddown Suir bank	resolved	52.3305	-7.3138	bank	Riverside bank at Fiddown bridge (approximate).
+94	kilkenny.txt	Piltown	resolved	52.35	-7.333333	village	Wikipedia / GeoHack settlement coord (Irish Grid S456226).
+95	kilkenny.txt	Piltown River Suir	resolved	52.346	-7.322	river	Main Suir relative to Piltown/Pill corridor (approximate tidal reach).
+96	kilkenny.txt	Piltown shore	resolved	52.3492	-7.332	shore	Historic quay/waterfront by market-house (1837 accounts; approximate).
+97	kilkenny.txt	Piltown Suir bank	resolved	52.342	-7.318	bank	North bank Suir east of Piltown toward Carrick reach (approximate).
+98	kilkenny.txt	Owning River Suir	resolved	52.395	-7.34	river	Owning townland centroid (townlands.ie); Suir-side parish context (approximate).
+99	kilkenny.txt	Moorhill Suir bank	ambiguous			bank	"Moorhill" not matched to a Kilkenny townland; Suir bank in Mooncoin/Pollrone area uncertain.
+100	kilkenny.txt	Mooncoin	resolved	52.295556	-7.259444	village	GeoHack / English Wikipedia coord.
+101	kilkenny.txt	Mooncoin River Suir	resolved	52.296	-7.2585	river	Suir through linear village (approximate N24 corridor).
+102	kilkenny.txt	Mooncoin shore	resolved	52.2945	-7.2598	shore	Riverside frontage along village strip (approximate).
+103	kilkenny.txt	Mooncoin Suir bank	resolved	52.2952	-7.2575	bank	East bank Suir at Mooncoin (approximate).
+104	kilkenny.txt	Banks of the Suir Mooncoin	ambiguous			river	Generic wording; Suir has extensive banks near Mooncoin without one pin.
+105	kilkenny.txt	Rose of Mooncoin riverbank	resolved	52.295	-7.259	river	Ballad association; pinned to Mooncoin village Suir corridor (approximate).
+106	kilkenny.txt	Mooncoin angling	resolved	52.294	-7.261	angling	Public coarse-angling stretches on Suir near Mooncoin (approximate reach).
+107	kilkenny.txt	Mooncoin fishing stands	resolved	52.2935	-7.2615	angling	Club/stand fishing along local Suir (approximate; not one named stand).
+108	kilkenny.txt	Pollrone Mooncoin	resolved	52.3094	-7.25503	civil_parish	Logainm.ie Poll Ruáin/Pollrone parish centrepoint.
+109	kilkenny.txt	Portnascully	resolved	52.2653	-7.22206	civil_parish	Logainm.ie Port na Scoile/Portnascully parish centrepoint.
+110	kilkenny.txt	Rathkieran riverbank	resolved	52.2864	-7.234	river	Rathkieran townland on Suir (townlands.ie centroid); bank context (approximate).
+111	kilkenny.txt	Ballytarsney Suir	resolved	52.3076	-7.2465	river	An Baile Tarsna/Ballytarsney civil parish centrepoint (logainm.ie); Suir-side Iverk.
+112	kilkenny.txt	Broomfield Mooncoin Suir	resolved	52.292	-7.252	river	No separate Broomfield townland in Kilkenny; Suir reach between Mooncoin and Pollrone (approximate).
+113	kilkenny.txt	Carrigeen Mooncoin	resolved	52.271	-7.216	village	Wikipedia Carrigeen village SE of Mooncoin on Suir valley hillock.
+114	kilkenny.txt	Goresbridge	resolved	52.6297	-6.9942	village	Wikipedia settlement coord; Barrow bridge town.
+115	kilkenny.txt	Goresbridge Bridge	resolved	52.63003	-6.99266	bridge	NIAH Gore's Bridge Irish Grid 268437,153703 → WGS84 (Buildings of Ireland).
+116	kilkenny.txt	River Barrow Goresbridge	resolved	52.6298	-6.9935	river	Barrow at nine-arch crossing (approximate).
+117	kilkenny.txt	Barrow Goresbridge	resolved	52.6298	-6.9935	river	Same reach as line 116; wording variant.
+118	kilkenny.txt	Goresbridge Barrow bank	resolved	52.6301	-6.993	bank	Grass banks at Gore's Bridge (approximate).
+119	kilkenny.txt	Graiguenamanagh	resolved	52.5421	-6.95663	town	Logainm.ie Gráig na Manach centrepoint.
+120	kilkenny.txt	Graignamanagh	resolved	52.5421	-6.95663	town	Alternate anglicisation of Graiguenamanagh; same logainm centrepoint.
+121	kilkenny.txt	Graiguenamanagh Bridge	resolved	52.5394	-6.9542	bridge	Seven-arch Barrow crossing; CanalPlanAC / OS-style (cf. Wikipedia town coords nearby).
+122	kilkenny.txt	River Barrow Graiguenamanagh	resolved	52.54	-6.955	river	Main Barrow channel through Graiguenamanagh–Tinnahinch (approximate).
+123	kilkenny.txt	Barrow Graiguenamanagh	resolved	52.54	-6.955	river	Same reach as line 122; wording variant.
+124	kilkenny.txt	Graiguenamanagh quay	resolved	52.5402	-6.9545	harbour	Riverside moorings/quay zone in town (approximate).
+125	kilkenny.txt	Graiguenamanagh waterfront	resolved	52.5401	-6.9543	waterfront	River frontage in town centre (approximate).
+126	kilkenny.txt	Graiguenamanagh rowing	resolved	52.5405	-6.9542	rowing	Club/water access on Barrow in town (approximate; not one named POI).
+127	kilkenny.txt	Duiske Abbey	resolved	52.541153	-6.954664	attraction	Wikipedia/GeoHack national monument; Graiguenamanagh.
+128	kilkenny.txt	Duiske River mouth	resolved	52.5405	-6.9525	river	Duiske–Barrow confluence zone below abbey (approximate).
+129	kilkenny.txt	Barrow Way Graiguenamanagh	resolved	52.5401	-6.9546	path	Barrow Way riverside stage through Graiguenamanagh (representative pin).
+130	kilkenny.txt	South Leinster Way Barrow Kilkenny	ambiguous			path	South Leinster Way is a long multi-county route; no single Barrow pin for this wording.
+131	kilkenny.txt	Ferrymountgarret	resolved	52.42056	-6.93444	bridge	Ferrymountgarrett lift bridge locality (Mount Garrett Bridge); CanalPlanAC geodata.
+132	kilkenny.txt	Ferry Mountgarret	resolved	52.42056	-6.93444	bridge	Spelling variant; same lift-bridge crossing.
+133	kilkenny.txt	Ferry Mountgarret lifting bridge	resolved	52.42056	-6.93444	bridge	Bascule bridge on tidal Barrow Navigation; CanalPlanAC / NIAH context.
+134	kilkenny.txt	Mountgarret Barrow bridge	resolved	52.42056	-6.93444	bridge	Official name Mount Garrett Bridge; Buildings of Ireland IR grid 272552,130368.
+135	kilkenny.txt	Barrow Navigation Ferrymountgarret	resolved	52.42056	-6.93444	waterway	Navigation reach at lift bridge (same infrastructure as 131–134).
+136	kilkenny.txt	Listerlin Barrow	resolved	52.403	-7.015	river	Barrow reach east of Listerlin civil parish (Listerlin centroid 52.4018,-7.05729; adjusted toward river).
+137	kilkenny.txt	Templeorum Barrow bank	resolved	52.355	-7.018	bank	Parish extends toward lower Barrow corridor; Barrow bank near Graiguenakill/Kilmakevoge belt (approximate).
+138	kilkenny.txt	Graigue Ballyellen	resolved	52.626	-6.988	settlement	Human-map reading: Kilkenny-side Barrow locality opposite Ballyellen (Carlow); near Goresbridge reach (approximate).
+139	kilkenny.txt	Graigue Ballyellen Barrow bank	resolved	52.6262	-6.9876	bank	West bank Barrow at same locality as line 138 (approximate).
+140	kilkenny.txt	Barrow towpath Kilkenny	ambiguous			path	Barrow Way towpath runs most of the county river frontage; not one pin.
+141	kilkenny.txt	River Barrow tidal Kilkenny	ambiguous			river	Long tidal Barrow through Kilkenny; wording too broad for one coordinate.
+142	kilkenny.txt	Barrow estuary Kilkenny	resolved	52.417	-6.95	estuary	Lower Barrow / Three Sisters mixing toward New Ross and harbour mouths (approximate; cf. Nore mouth rows).
+143	kilkenny.txt	Cheekpoint opposite shore approach	resolved	52.255	-7.015	shore	Kilkenny north shore of Waterford Harbour opposite Cheekpoint (approach from estuary; approximate).
+144	kilkenny.txt	Barrow Suir meeting line Kilkenny	resolved	52.28146	-7.00138	river	Barrow–Suir confluence zone by Great Island / Barrow rail bridge (Wikipedia Barrow Bridge coords).
+145	kilkenny.txt	Suir railway bridge Mooncoin	ambiguous			bridge	No Suir rail crossing at Mooncoin; main Suir viaducts are downstream toward Waterford / other corridors.
+146	kilkenny.txt	Belview rail freight siding	resolved	52.263	-7.0345	rail	Port freight loops/siding belt beside Waterford–Rosslare line at Belview (approximate).
+147	kilkenny.txt	Slieverue bypass N25	resolved	52.292	-7.055	road	N25 Slieverue bypass corridor north of village (approximate junction zone).
+148	kilkenny.txt	N24 Suir bridge Mooncoin	resolved	52.33038	-7.31415	bridge	Fiddown N24 Suir crossing (Mooncoin–Fiddown reach; same as prior Fiddown bridge rows).
+149	kilkenny.txt	Barrow quay Rosbercon	resolved	52.3956	-6.945	harbour	Main riverside quay frontage at Rosbercon (approximate).
+150	kilkenny.txt	Rosbercon slip	resolved	52.3953	-6.9446	slip	Small craft slip/hard on Rosbercon shore (approximate).
+151	kilkenny.txt	Glenmore coastal road N25	resolved	52.356	-7.018	road	N25 corridor through Glenmore toward Waterford / Barrow crossing (approximate).
+152	kilkenny.txt	Waterford Greenway Belview link	resolved	52.268	-7.028	path	Planned greenway link zone at Belview north of working port (KCC/WIT corridor context; approximate).
+153	kilkenny.txt	Port of Waterford Kilkenny side	resolved	52.2641	-7.0368	port	Belview; Wikipedia Port of Waterford coordinates.
+154	kilkenny.txt	Suir salmon angling Kilkenny bank	ambiguous			activity	Long tidal Suir on Kilkenny bank; not one authoritative fishing pin.
+155	kilkenny.txt	Barrow salmon angling Kilkenny bank	ambiguous			activity	Wide tidal Barrow frontage in Kilkenny; not one pin.
+156	kilkenny.txt	Nore salmon angling Inistioge	resolved	52.483	-7.067	river	Tidal Nore reach at Inistioge; village pin as representative stretch.
+157	kilkenny.txt	Inistioge kayak put-in	resolved	52.4833	-7.0665	access	Riverside put-in zone in Inistioge (approximate).
+158	kilkenny.txt	Graiguenamanagh kayak	resolved	52.54	-6.955	village	Wikipedia / Logainm-style centroid; Barrow waterfront town.
+159	kilkenny.txt	Mooncoin punt fishing	resolved	52.2927	-7.25611	river	Suir access at Mooncoin (Logainm Mooncoin centrepoint).
+160	kilkenny.txt	Rosbercon tide road	resolved	52.3952	-6.9452	road	Flood-prone riverside roads at Rosbercon (approximate).
+161	kilkenny.txt	Belview deepwater berth	resolved	52.2638	-7.0375	berth	Port of Waterford deep-water berth pocket (approximate).
+162	kilkenny.txt	Belview bulk jetty	resolved	52.2632	-7.038	jetty	Bulk quay line at Belview (approximate).
+163	kilkenny.txt	Belview lo-lo terminal	resolved	52.2625	-7.0345	terminal	Container (lo-lo) terminal area Belview (approximate).
+164	kilkenny.txt	Drumdowney jetties	resolved	52.28146	-7.00138	harbour	Kilkenny bank Barrow by Nore confluence / Drumdowney–Snow Hill quay belt (approximate).
+165	kilkenny.txt	Kilmurry boat moorings	resolved	52.2895	-7.252	harbour	Suir mooring stretch Kilmurry townland near Mooncoin (approximate).
+166	kilkenny.txt	Slieverue parish shore walk	resolved	52.28335	-7.068086	path	Parish estuary-margin walks from Slieverue village centroid.
+167	kilkenny.txt	Ringville shore walk	resolved	52.274	-7.058	path	Ringville townland walks toward Suir estuary (approximate).
+168	kilkenny.txt	Fiddown harbour	resolved	52.33038	-7.31415	harbour	River Suir quay belt at Fiddown (Wikipedia village coordinates).
+169	kilkenny.txt	Piltown slip	resolved	52.351	-7.326	slip	Historic Pill/Suir quay frontage at Piltown (approximate; riverward of centroid).
+170	kilkenny.txt	Kilmacow river walk	resolved	52.31417	-7.17667	path	Kilmacow village; Suir/Blackwater blueway context (Wikipedia coords).
+171	kilkenny.txt	Dunkitt riverbank	resolved	52.308	-7.168	bank	Dunkitt townland river frontage near Kilmacow (approximate).
+172	kilkenny.txt	Gorteens shoreline	resolved	52.33	-7.278	shore	Gorteens townland Suir corridor S of Piltown (approximate).
+173	kilkenny.txt	Coolfin shore	resolved	52.318	-7.205	shore	Coolfin locality riverbank south Kilkenny (approximate).
+174	kilkenny.txt	Annfield shore Barrow	resolved	52.398	-6.948	shore	Annfield townland Barrow frontage by Rosbercon (approximate).
+175	kilkenny.txt	Millbanks shore Barrow	resolved	52.398	-6.944	shore	Millbanks townland Barrow bank (approximate).
+176	kilkenny.txt	Raheen shore Barrow	resolved	52.392	-6.948	shore	Raheen townland Barrow frontage (approximate).
+177	kilkenny.txt	Shanbogh Barrow bank	resolved	52.382	-6.972	bank	Shanbogh parish area toward tidal Barrow (approximate).
+178	kilkenny.txt	Ballyneale Barrow bank	resolved	52.42	-7.01	bank	Barrow-side reach from Ballyneale area toward Three Sisters flats (approximate).
+179	kilkenny.txt	Tullogher Nore Barrow flat	resolved	52.417	-6.95	flat	Nore–Barrow tidal flat / confluence zone (cf. Nore mouth references).
+180	kilkenny.txt	Glenmore ferry historic lane	resolved	52.356	-6.996	path	Historic Barrow ferry approaches near Pink Rock / Glenmore (approximate).
+181	kilkenny.txt	Rosbercon New Ross view	resolved	52.3965	-6.9425	viewpoint	Rosbercon bank looking across Barrow toward New Ross (approximate riverside vista).
+182	kilkenny.txt	Inistioge boat club water	resolved	52.4832	-7.067	water	Inistioge reach; boat-club mooring water on the Nore (approximate).
+183	kilkenny.txt	Nore Inistioge canoe	resolved	52.483	-7.067	river	Tidal/canoe reach on the Nore at Inistioge village (approximate).
+184	kilkenny.txt	Lower Nore Drumdowney reach	resolved	52.279	-7.044	river	Lower Nore toward Barrow confluence; Drumdowney townland belt (Logainm Drumdowney Lower–style centroid).
+185	kilkenny.txt	Suir tide Mooncoin	resolved	52.2927	-7.25611	river	Tidal Suir at Mooncoin; Logainm Mooncoin centrepoint.
+186	kilkenny.txt	Belview tide	resolved	52.2664	-7.03198	estuary	Tidal Suir / Waterford Harbour margin at Belview Port; Logainm Belview Port centrepoint.
+187	kilkenny.txt	Slieverue tide	resolved	52.28335	-7.068086	estuary	Tidal junction zone Barrow–Suir near Slieverue; Wikipedia village coordinates.
+188	kilkenny.txt	Barrow tide Rosbercon	resolved	52.396	-6.9442	river	Tidal Barrow channel at Rosbercon (approximate).
+189	kilkenny.txt	Barrow tide Glenmore	resolved	52.356	-6.996	river	Tidal Barrow reach by Glenmore / Pink Rock ferry belt (approximate).
+190	kilkenny.txt	Barrow tide Graiguenamanagh	resolved	52.5421	-6.95663	river	Tidal Barrow through Graiguenamanagh; Logainm town centrepoint.

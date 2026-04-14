@@ -1,0 +1,104 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	meath.txt	Mornington	resolved	53.72139	-6.28389	village	Wikipedia / Wikidata settlement centroid
+2	meath.txt	Mornington Beach	resolved	53.7185	-6.285	beach	Fine sand beach and dunes N along strand toward Boyne
+3	meath.txt	Mornington Bay	resolved	53.724	-6.279	bay	Open water of River Boyne estuary off Mornington
+4	meath.txt	Mornington Strand	resolved	53.719	-6.2855	strand	Dune-backed strand linking toward Bettystown
+5	meath.txt	Mornington shore	resolved	53.7195	-6.2845	shore	Coastal strip at Mornington
+6	meath.txt	Mornington coast	resolved	53.7202	-6.282	coast	East Meath soft coast at Mornington
+7	meath.txt	Mornington Irish Sea front	resolved	53.721	-6.262	shore	Sandy front toward Irish Sea E of main channel
+8	meath.txt	River Boyne mouth	resolved	53.72267	-6.25155	estuary	Training-wall entrance; Maiden Tower GPS (irishstones.org)
+9	meath.txt	Boyne estuary south shore	resolved	53.719	-6.275	shore	S bank of estuary at Mornington
+10	meath.txt	Boyne mouth sands	resolved	53.7218	-6.253	beach	Intertidal sand at river mouth
+11	meath.txt	Boyne estuary sands	resolved	53.7205	-6.267	beach	Shoreline sands along estuary S of channel
+12	meath.txt	Maiden Tower	resolved	53.72267	-6.25155	tower	Elizabethan navigational tower on beach
+13	meath.txt	Maiden Tower Boyne mouth	resolved	53.72267	-6.25155	landmark	Same tower; marks Boyne entrance
+14	meath.txt	Lady's Finger	resolved	53.72235	-6.2521	obelisk	Companion beacon obelisk beside Maiden Tower
+15	meath.txt	Ladies Finger obelisk	resolved	53.72235	-6.2521	obelisk	Same structure; alternate English label
+16	meath.txt	Donacarney	resolved	53.70944	-6.27833	village	Wikipedia settlement coordinates
+17	meath.txt	Donacarney Great	resolved	53.7068	-6.26808	townland	logainm.ie centrepoint Domhnach Cairnigh Mór
+18	meath.txt	Donacarney Little	resolved	53.7123	-6.27183	townland	logainm.ie centrepoint Domhnach Cairnigh Beag
+19	meath.txt	Donacarney Cross	resolved	53.7083	-6.277	crossroads	Crossroads area near published tower-house ruin
+20	meath.txt	Donacarney tower house shore	resolved	53.7105	-6.274	shore	Coast-ward from tower ruin toward strand
+21	meath.txt	Domhnach Cairnigh	resolved	53.70944	-6.27833	village	Irish name for Donacarney (same settlement centroid)
+22	meath.txt	The Burrows	resolved	53.7165	-6.2862	dunes	Local name for Mornington strand dune field
+23	meath.txt	Burrows dunes	resolved	53.7168	-6.2865	dunes	Sand dunes behind Mornington beach
+24	meath.txt	Mornington sand dunes	resolved	53.7172	-6.2861	dunes	Part of Boyne Coast dune SAC belt
+25	meath.txt	Colpe parish shore	resolved	53.7135	-6.289	shore	Colp parish coastal edge toward Mornington strand
+26	meath.txt	Colp West	resolved	53.7056	-6.30838	townland	logainm.ie centrepoint Colpa Thiar
+27	meath.txt	Colp East	resolved	53.70389	-6.2925	townland	townlands.ie map centroid Colp East
+28	meath.txt	Betaghstown	resolved	53.6986	-6.26432	townland	logainm.ie Baile an Bhiataigh (historic Bettystown townland)
+29	meath.txt	Baile Uí Mhornáin	resolved	53.72139	-6.28389	village	Official Irish name of Mornington
+30	meath.txt	Bettystown	resolved	53.7014	-6.2461	village	Wikipedia / GeoHack village centroid
+31	meath.txt	Bettystown Beach	resolved	53.69766	-6.25053	beach	GeoHack beach / Blue Flag strand centroid
+32	meath.txt	Bettystown Strand	resolved	53.6985	-6.249	strand	Long sandy strand toward Mornington / Boyne
+33	meath.txt	Bettystown shore	resolved	53.698	-6.2495	shore	Resort coastal strip along strand
+34	meath.txt	Bettystown sands	resolved	53.6975	-6.251	beach	Intertidal sand along Bettystown beach
+35	meath.txt	Bettystown Blue Flag beach	resolved	53.6977	-6.2505	beach	Blue Flag section; same sweep as main beach
+36	meath.txt	Beattystown	resolved	53.7014	-6.2461	village	Historic/alternate spelling of Bettystown (same settlement)
+37	meath.txt	Baile an Bhiataigh	resolved	53.7014	-6.2461	village	Official Irish name of Bettystown
+38	meath.txt	Bettystown Tara Brooch find site	resolved	53.698	-6.25	historic	1850 beach find; approximate dune/beach locality
+39	meath.txt	Bettystown dunes	resolved	53.708	-6.252	dunes	Dune belt behind strand / links landward margin
+40	meath.txt	Laytown and Bettystown Golf Club	resolved	53.71117	-6.25012	attraction	Links course/club GPS (Golf Links Rd, gogolfing.ie)
+41	meath.txt	Laytown & Bettystown Golf Club	resolved	53.71117	-6.25012	attraction	Same venue; ampersand variant
+42	meath.txt	Laytown and Bettystown Golf Club dunes	resolved	53.712	-6.248	dunes	Links dunes between fairways and sea
+43	meath.txt	Laytown Bettystown links shore	resolved	53.713	-6.247	shore	Irish Sea margin along the links
+44	meath.txt	Funtasia Bettystown near beach	resolved	53.69903	-6.24519	attraction	Main St FEC; short walk to strand (directory coords)
+45	meath.txt	Neptune Hotel Bettystown beach front	resolved	53.6985	-6.248	hotel	Seafront hotel on strand approach (approximate)
+46	meath.txt	Laytown	resolved	53.67957	-6.2422	village	GeoHack / Wikipedia settlement centroid
+47	meath.txt	Laytown Beach	resolved	53.6775	-6.238	beach	Sandy beach along strand toward River Nanny
+48	meath.txt	Laytown Strand	resolved	53.677	-6.239	strand	Main strand at Laytown
+49	meath.txt	Laytown shore	resolved	53.678	-6.24	shore	Coastal strip at Laytown
+50	meath.txt	Laytown sands	resolved	53.6765	-6.237	beach	Intertidal sands on Laytown beach
+51	meath.txt	An Inse	resolved	53.67957	-6.2422	village	Irish name for Laytown (same centroid)
+52	meath.txt	Laytown Strand Races	resolved	53.6768	-6.236	attraction	Historic beach racing; pin on racing beach section
+53	meath.txt	Laytown Races beach	resolved	53.6768	-6.236	beach	Same beach venue as strand races
+54	meath.txt	Laytown railway beach access	resolved	53.679	-6.2423	access	Station to shore (GeoHack Laytown railway station)
+55	meath.txt	River Nanny mouth	resolved	53.674	-6.234	estuary	Sea entrance S of village; seaside pin (Wikipedia infobox coords are inconsistent)
+56	meath.txt	River Nanny estuary	resolved	53.668	-6.242	estuary	Tidal estuary reach (SPA) between Julianstown and Laytown beach
+57	meath.txt	Nanny Water mouth	resolved	53.674	-6.234	estuary	English name for River Nanny at Laytown
+58	meath.txt	Nanny river beach	resolved	53.676	-6.238	beach	Strand at Nanny estuary near Laytown
+59	meath.txt	Julianstown Bradán mouth	resolved	53.662	-6.254	estuary	Bradan/Bradán tidal section below Julianstown toward Mosney
+60	meath.txt	Bradán river mouth Mosney	resolved	53.6575	-6.243	estuary	Discharge at Mosney strand (Julianstown article; near Mosney centroid)
+61	meath.txt	Laogh's Tomb Nanny north bank	resolved	53.67806	-6.25111	barrow	Laytown/Ninch tumulus; megalithicireland.com O 1554 7125 / published DMS
+62	meath.txt	Julianstown River Nanny downstream	resolved	53.666	-6.268	river	Tidal Nanny reach below Julianstown toward coast (linear feature; mid-estuary pin)
+63	meath.txt	Mosney	resolved	53.658	-6.246	village	Wikipedia / GeoHack Mosney centroid
+64	meath.txt	Mosney Beach	resolved	53.6595	-6.2445	beach	Strand at Mosney (seaward of village centroid)
+65	meath.txt	Mosney shore	resolved	53.6585	-6.2455	shore	Soft coast at Mosney
+66	meath.txt	Mosney sands	resolved	53.6578	-6.247	beach	Sandy foreshore at Mosney
+67	meath.txt	Mosney Irish Sea	resolved	53.6572	-6.2438	sea	Open water off Mosney strand
+68	meath.txt	Mosney former Butlin's shore	resolved	53.657	-6.2465	shore	Holiday-camp shoreline locality (site repurposed; approximate strand pin)
+69	meath.txt	Ben Head	resolved	53.65419	-6.22181	headland	BirdGuides site coords; coastal head on Gormanston–Laytown beach
+70	meath.txt	Ben Head sands	resolved	53.654	-6.222	beach	Sandy beach at Ben Head (same sweep as Gormanston strand)
+71	meath.txt	Seafields	resolved	53.672	-6.232	locality	Local name for southern Laytown strand (between Ben Head and Laytown)
+72	meath.txt	Seafields beach	resolved	53.6715	-6.2315	beach	Sandy section of Seafields/Laytown strand
+73	meath.txt	Seafields north Laytown	resolved	53.674	-6.234	shore	N end of Seafields toward Laytown village beach
+74	meath.txt	Gormanston	resolved	53.63694	-6.23417	village	Wikipedia Gormanston, County Meath centroid
+75	meath.txt	Gormanston Beach	resolved	53.633713	-6.213579	beach	Gormanston Bay bathing pin (wildswimmingtesting.co.uk); sandy shore near Delvin mouth
+76	meath.txt	Gormanston Strand	resolved	53.636	-6.218	strand	Long sandy strand N from Delvin toward Ben Head
+77	meath.txt	Gormanston shore	resolved	53.6365	-6.2175	shore	Coastal strip along Gormanston beach
+78	meath.txt	Gormanston sands	resolved	53.6355	-6.2185	beach	Intertidal sand on Gormanston strand
+79	meath.txt	Gormanston coast	resolved	53.6362	-6.218	coast	East Meath soft coast at Gormanston
+80	meath.txt	Baile Mhic Gormáin	resolved	53.63694	-6.23417	village	Official Irish name of Gormanston (same centroid)
+81	meath.txt	Gormanston railway station shore	resolved	53.6372	-6.2168	access	GeoHack station; Station Rd approach to strand
+82	meath.txt	Gormanston Camp beach access	resolved	53.632	-6.224	access	Army camp vicinity; beach access toward Knocknagin/Delvin mouth (approximate)
+83	meath.txt	River Delvin mouth	resolved	53.6335	-6.2145	estuary	Enters Irish Sea at Knocknagin S end Gormanston beach (Delvin River article)
+84	meath.txt	Delvin estuary mouth	resolved	53.6336	-6.214	estuary	Same tidal entrance as River Delvin mouth
+85	meath.txt	Delvin River Gormanston	resolved	53.636	-6.229	river	Delvin through Gormanston area (county-boundary reach)
+86	meath.txt	Gormanston Bridge Delvin	resolved	53.6371	-6.232	bridge	Historic road bridge over Delvin in village (approximate)
+87	meath.txt	Delvin railway bridge beach	resolved	53.6332	-6.2165	bridge	Belfast–Dublin line cast-iron bridge N of station at river mouth
+88	meath.txt	Bremore Gormanston passage tombs shore	resolved	53.629	-6.208	archaeology	Bremore/Gormanston passage-tomb group near Delvin mouth (ridge/coastal pin approximate)
+89	meath.txt	Gormanston logboat offshore find	resolved	53.635	-6.211	offshore	2002 pipeline find off Gormanston Strand (approximate marine locality)
+90	meath.txt	Gormanston Strand polo ground	resolved	53.637	-6.219	historic	1870 polo on strand (Wikipedia Gormanston); pin on strand near village
+91	meath.txt	Meath Gold Coast	resolved	53.69861	-6.24472	locality	Informal branding for Laytown–Bettystown–Mornington–Donacarney coastal strip (Wikipedia BUA coords)
+92	meath.txt	East Meath beach strip	resolved	53.695	-6.242	shore	Representative mid-strand along Meath's continuous sand beach (River Boyne to River Delvin)
+93	meath.txt	Tom Roe's Point	resolved	53.72361	-6.24222	harbour	Drogheda Port deep-water terminal; published pilotage position Tom Roe's Point (Drogheda Port Co.)
+94	meath.txt	Bremore Ireland Port Gormanston Beach proposal site	resolved	53.6337	-6.2136	proposed_port	Proposed Bremore Ireland Port / deep-water port focused on Gormanston Beach (approx. seaward of village beach pin)
+95	meath.txt	Mornington to Gormanston sand beach	resolved	53.678	-6.248	beach	Mid-strand along the continuous sand beach from Boyne estuary to Delvin mouth
+96	meath.txt	Laytown–Bettystown–Mornington–Donacarney shore	resolved	53.699	-6.243	shore	Irish Sea shoreline of the LBMM-D built-up area (seaward of Wikipedia centroid)
+97	meath.txt	Laytown-Bettystown-Mornington-Donacarney	resolved	53.69861	-6.24472	locality	CSO/Wikipedia built-up area; ASCII-hyphen variant of official name
+98	meath.txt	Sand yachting Bettystown beach	resolved	53.69766	-6.25053	beach	Land-yachting on Bettystown strand; same beach centroid as main strand
+99	meath.txt	European land sailing championships Bettystown beach	resolved	53.69766	-6.25053	beach	ELSA championship venue on Bettystown strand; same pin as sand yachting
+100	meath.txt	Boyne Coast and Estuary SAC shore	resolved	53.7289	-6.25819	protected_site	NPWS Boyne Coast and Estuary SAC (001957) listed coordinates
+101	meath.txt	Corballis coast approach	resolved	53.6737	-6.24888	access	Corballis townland (Julianstown ED) toward Nanny/Laytown foreshore (logainm.ie centrepoint)
+102	meath.txt	Ninch coast outlook	resolved	53.6792	-6.241	outlook	Historic Ninch placename for Laytown; coast outlook near village/strand
+103	meath.txt	Whitecross coast road approach	resolved	53.6642	-6.27379	road	R132 corridor at Whitecross townland SE of Julianstown toward Gormanston coast (logainm.ie centrepoint)

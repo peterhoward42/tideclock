@@ -1,0 +1,61 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	westmorland-and-furness.txt	Storth	resolved	54.2116648	-2.8038151	hamlet	OpenStreetMap/Nominatim
+2	westmorland-and-furness.txt	Carr Bank	resolved	54.2032060	-2.8090459	locality	Carr Bank Road centroid; named coastal cluster near Storth/Sandside (no separate hamlet node)
+3	westmorland-and-furness.txt	Sandside	resolved	54.2189411	-2.8006807	village	OpenStreetMap/Nominatim
+4	westmorland-and-furness.txt	Arnside	resolved	54.2013106	-2.8342988	village	OpenStreetMap/Nominatim
+5	westmorland-and-furness.txt	Arnside Knott	resolved	54.1902271	-2.8351902	peak	OpenStreetMap/Nominatim
+6	westmorland-and-furness.txt	Arnside Point	resolved	54.1848531	-2.8640284	cape	OpenStreetMap/Nominatim
+7	westmorland-and-furness.txt	Arnside Marsh	ambiguous			wetland	No single OSM object; tidal marsh/mudflat belt near Arnside and Morecambe Bay
+8	westmorland-and-furness.txt	Arnside Promenade	resolved	54.2030010	-2.8335910	promenade	Arnside Sailing Club on The Promenade (proxy for seafront promenade)
+9	westmorland-and-furness.txt	Arnside Tower	resolved	54.1844404	-2.8308935	historic	OpenStreetMap/Nominatim (ruins)
+10	westmorland-and-furness.txt	Arnside Viaduct	resolved	54.2054098	-2.8389636	bridge	OpenStreetMap/Nominatim
+11	westmorland-and-furness.txt	Grange-over-Sands	resolved	54.1929391	-2.9100401	town	OpenStreetMap/Nominatim
+12	westmorland-and-furness.txt	Grange-over-Sands Promenade	resolved	54.1956930	-2.9028039	promenade	Grange-over-Sands railway station on Promenade (seafront)
+13	westmorland-and-furness.txt	Grange-over-Sands Beach	resolved	54.1882766	-2.9119173	beach	Promenade foreshore viewpoint; Morecambe Bay mudflats/sands
+14	westmorland-and-furness.txt	Kents Bank	resolved	54.1728754	-2.9252051	village	Kents Bank station node; small settlement on bay
+15	westmorland-and-furness.txt	Meathop	resolved	54.2199250	-2.8625152	village	OpenStreetMap/Nominatim
+16	westmorland-and-furness.txt	Meathop Marsh	resolved	54.2087828	-2.8786170	wetland	OpenStreetMap locality node
+17	westmorland-and-furness.txt	Allithwaite	resolved	54.1821794	-2.9410796	village	OpenStreetMap/Nominatim
+18	westmorland-and-furness.txt	Allithwaite Marsh	not_found		wetland	No clear OpenStreetMap match for this marsh label
+19	westmorland-and-furness.txt	Lindale	resolved	54.2169291	-2.8949536	village	OpenStreetMap/Nominatim
+20	westmorland-and-furness.txt	Cartmel	resolved	54.2009158	-2.9529069	village	OpenStreetMap/Nominatim
+21	westmorland-and-furness.txt	Cartmel Priory	resolved	54.2011727	-2.9523506	church	OpenStreetMap/Nominatim
+22	westmorland-and-furness.txt	Cartmel Racecourse	resolved	54.2022094	-2.9571379	sports_centre	OpenStreetMap/Nominatim
+23	westmorland-and-furness.txt	Holker Hall	resolved	54.1883437	-2.9833385	historic	OpenStreetMap/Nominatim
+24	westmorland-and-furness.txt	Staveley-in-Cartmel	resolved	54.2612802	-2.9473098	village	OpenStreetMap administrative boundary centroid
+25	westmorland-and-furness.txt	Field Broughton	resolved	54.2240398	-2.9394109	village	OpenStreetMap/Nominatim
+26	westmorland-and-furness.txt	Cark	resolved	54.1807357	-2.9791005	village	OpenStreetMap/Nominatim
+27	westmorland-and-furness.txt	Cark-in-Cartmel	resolved	54.1807357	-2.9791005	village	Same settlement as Cark; OSM mis-hit for separate search
+28	westmorland-and-furness.txt	Cark Moss	not_found		wetland	No OpenStreetMap match; raised bog/mossland south of Cark
+29	westmorland-and-furness.txt	Flookburgh	resolved	54.1743800	-2.9737924	village	OpenStreetMap/Nominatim
+30	westmorland-and-furness.txt	Flookburgh Marsh	ambiguous			wetland	Broad coastal marshland near Flookburgh; no single named OSM feature
+31	westmorland-and-furness.txt	Ravenstown	resolved	54.1694152	-2.9794905	hamlet	OpenStreetMap/Nominatim
+32	westmorland-and-furness.txt	Ravenstown Marsh	ambiguous			wetland	Saltmarsh/marsh belt near Ravenstown; no single named OSM feature
+33	westmorland-and-furness.txt	Baycliff	resolved	54.1421236	-3.0916400	village	OpenStreetMap/Nominatim
+34	westmorland-and-furness.txt	Humphrey Head	resolved	54.1584227	-2.9352056	headland	OpenStreetMap/Nominatim (Lower Allithwaite / Wyke Farm node)
+35	westmorland-and-furness.txt	Aldingham	resolved	54.1300292	-3.0993558	village	OpenStreetMap/Nominatim
+36	westmorland-and-furness.txt	Aldingham Moors	ambiguous			moor	No single coastal moor object; broad upland/coastal fringe label
+37	westmorland-and-furness.txt	Aldingham Castle	resolved	54.1192709	-3.1063888	historic	Aldingham Motte (earthwork castle site); OpenStreetMap/Nominatim
+38	westmorland-and-furness.txt	Dendron	resolved	54.1260959	-3.1530779	village	OpenStreetMap/Nominatim (Westmorland and Furness; not US Virginia hit)
+39	westmorland-and-furness.txt	Leece	resolved	54.1151095	-3.1603209	village	OpenStreetMap/Nominatim
+40	westmorland-and-furness.txt	Roosebeck	resolved	54.1021523	-3.1365021	hamlet	OpenStreetMap/Nominatim
+41	westmorland-and-furness.txt	Roosebeck Marsh	ambiguous			wetland	Coastal marsh near Roosebeck; no single named OSM feature
+42	westmorland-and-furness.txt	Bardsea	resolved	54.1619119	-3.0733954	village	OpenStreetMap/Nominatim
+43	westmorland-and-furness.txt	Bardsea Beach	ambiguous			beach	Foreshore along Morecambe Bay; no dedicated named OSM beach place
+44	westmorland-and-furness.txt	Birkrigg Common	resolved	54.1590733	-3.0945063	common	OpenStreetMap/Nominatim
+45	westmorland-and-furness.txt	Birkrigg Stone Circle	resolved	54.1566114	-3.0850840	historic	OpenStreetMap/Nominatim
+46	westmorland-and-furness.txt	Pennington	resolved	54.1866064	-3.1346494	village	OpenStreetMap/Nominatim (village node)
+47	westmorland-and-furness.txt	Pennington Marsh	ambiguous			wetland	Marshland near Pennington; no single named OSM feature
+48	westmorland-and-furness.txt	Ulverston	resolved	54.1959381	-3.0962961	town	OpenStreetMap/Nominatim
+49	westmorland-and-furness.txt	Ulverston Canal	resolved	54.1938474	-3.0688438	canal	OpenStreetMap/Nominatim (canal way)
+50	westmorland-and-furness.txt	Canal Foot	resolved	54.1899933	-3.0541839	locality	OpenStreetMap/Nominatim
+51	westmorland-and-furness.txt	Greenodd	resolved	54.2338757	-3.0558746	village	OpenStreetMap/Nominatim
+52	westmorland-and-furness.txt	Plumpton	resolved	54.1993784	-3.0552691	village	OpenStreetMap/Nominatim (OSM spells Plumton; Egton with Newland)
+53	westmorland-and-furness.txt	Swarthmoor	resolved	54.1854403	-3.1147646	village	OpenStreetMap/Nominatim
+54	westmorland-and-furness.txt	Swarthmoor Hall	resolved	54.1863836	-3.1018832	historic	OpenStreetMap/Nominatim
+55	westmorland-and-furness.txt	Conishead Priory	resolved	54.1735751	-3.0676725	historic	OpenStreetMap/Nominatim
+56	westmorland-and-furness.txt	Dragley Beck	resolved	54.1895468	-3.0890639	suburb	OpenStreetMap/Nominatim (Ulverston neighbourhood)
+57	westmorland-and-furness.txt	Great Urswick	resolved	54.1621953	-3.1212331	village	OpenStreetMap/Nominatim
+58	westmorland-and-furness.txt	Little Urswick	resolved	54.1530278	-3.1299605	village	OpenStreetMap/Nominatim
+59	westmorland-and-furness.txt	Scales	resolved	54.1416678	-3.1163298	hamlet	OpenStreetMap/Nominatim (Scales, Aldingham)
+60	westmorland-and-furness.txt	Sunbrick	resolved	54.1436119	-3.0908762	hamlet	Nearest OSM named cluster: Sunbrick Lane (Baycliff); no separate Sunbrick place node

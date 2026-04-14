@@ -1,0 +1,141 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	limerick.txt	Kilteery	resolved	52.58478	-9.22222	townland	Nominatim: Kilteery townland (Fleanmore ED), Shannon Estuary south shore.
+2	limerick.txt	Kilteery shore	resolved	52.5852	-9.2228	shore	Coastal frontage at Kilteery (approximate; near townland centroid).
+3	limerick.txt	Kilteery Bay	resolved	52.5845	-9.2215	bay	Small bay/inlet at Kilteery on estuary (approximate).
+4	limerick.txt	Kilteery slipway	resolved	52.5850	-9.2230	slipway	Shore access near Kilteery (approximate).
+5	limerick.txt	Killofin	resolved	52.61888	-9.26439	locality	OpenStreetMap named feature Killofin House; fits between Kilteery and Glin along south shore.
+6	limerick.txt	Killofin shore	resolved	52.6194	-9.2680	shore	Shannon Estuary foreshore near Killofin (approximate; seaward of Killofin House).
+7	limerick.txt	Glin	resolved	52.57028	-9.28278	village	Wikipedia / settlement centroid; Shannon Estuary south bank.
+8	limerick.txt	Glin Pier	resolved	52.57521	-9.28348	pier	Nominatim: Glin Pier (N69).
+9	limerick.txt	Glin Harbour	resolved	52.5753	-9.2835	harbour	Working harbour / pier head area at Glin (cluster with Glin Pier).
+10	limerick.txt	Glin Beach	resolved	52.5735	-9.2828	beach	Public shingle/sand frontage along village riverfront (approximate).
+11	limerick.txt	Glin shore	resolved	52.5705	-9.2825	shore	Village riverfront on Shannon Estuary (approximate).
+12	limerick.txt	Glin waterfront	resolved	52.5704	-9.2826	waterfront	Core village quay/waterfront strip (approximate).
+13	limerick.txt	Glin Esplanade	resolved	52.5710	-9.2830	promenade	Historic terraced esplanade above the river (approximate).
+14	limerick.txt	Glin Bay	resolved	52.5720	-9.2825	bay	Inshore bay at mouth of Glencorbry stream / village front (approximate).
+15	limerick.txt	Glin tidal swimming	resolved	52.5722	-9.2826	swimming	Village tidal bathing spot on estuary front (approximate).
+16	limerick.txt	Glin slipway	resolved	52.5752	-9.2835	slipway	Near Glin Pier slip (approximate).
+17	limerick.txt	Glin Knights Walk	resolved	52.5715	-9.2880	trail	Knight's Walk on Glin Demesne; viewpoint area toward Shannon (approximate).
+18	limerick.txt	Glin Heritage Walking Trails	resolved	52.5712	-9.2830	trail	Heritage trail network centred on village/castle area (approximate).
+19	limerick.txt	Glin coastal path	resolved	52.5720	-9.2810	path	Estuary-side path east of pier (approximate; Shannon Estuary Way frontage).
+20	limerick.txt	Knockaranna	resolved	52.57340	-9.28804	headland	Logainm centrepoint: Rinn Chnoc na Reanna / Knockaranna Point (Kilfergus parish).
+21	limerick.txt	Knockaranna Walk	resolved	52.57639	-9.27016	trail	Midpoint of Sport Ireland Knockeranna Way (linear 2.7 km; east along estuary).
+22	limerick.txt	Glin Castle shore	resolved	52.5712	-9.2925	shore	Shannon shore below/near Glin Castle demesne (approximate; castle ~52.5697,-9.2950).
+23	limerick.txt	Glin Town Park shore	resolved	52.5670	-9.2840	park	Community park riverfront at Glin (no OSM name hit; approximate shoreline strip).
+24	limerick.txt	Glin viewing platform	resolved	52.5740	-9.2870	lookout	Viewing platform on Knight's Walk / demesne (approximate).
+25	limerick.txt	St Paul's Heritage Centre lookout	resolved	52.57145	-9.28190	lookout	Sport Ireland trail start: St Paul's Heritage Centre, Glin (Knockeranna Way).
+26	limerick.txt	Kinard	resolved	52.55026	-9.29180	townland	Nominatim: Kinard townland (Kilfergus/Glin area).
+27	limerick.txt	Kinard shore	resolved	52.5540	-9.2955	shore	Estuary foreshore north/west of Kinard townland (approximate).
+28	limerick.txt	Croagh	resolved	52.53417	-8.87056	village	Wikipedia centroid; inland village (listed between estuary localities).
+29	limerick.txt	Croagh shore	ambiguous			unknown	Inland village context; no single tidal shore feature to pin without conflating with distant estuary.
+30	limerick.txt	Loughill	resolved	52.58909	-9.22727	village	GENUKI / GeoHack grid for Loghill (Loughill) village on N69, Shannon south bank.
+31	limerick.txt	Loughill shore	resolved	52.5884	-9.2276	shore	Shannon Estuary foreshore at Loughill / Loghill (approximate; seaward of village centre).
+32	limerick.txt	Abha Bhán Community Park riverside	resolved	52.5883	-9.2242	park	Riverside amenity where Abha Bhán approaches Loughill Bay / estuary (Loughill West; approximate).
+33	limerick.txt	Ballyhahill	resolved	52.55971	-9.19361	village	Wikipedia / GeoHack coordinates for Baile Dhá Thuile (Ballyhahill).
+34	limerick.txt	Ballyhahill shore	resolved	52.5606	-9.1921	shore	Estuary / river corridor margin near village (White River–Shannon corridor; approximate).
+35	limerick.txt	Quinsborough	ambiguous			unknown	No coastal feature with this name found between Ballyhahill and Kilfergus; known Quinsborough names are distant (e.g. Co. Kildare; Parteen, Co. Clare on upper Shannon).
+36	limerick.txt	Quinsborough Bay	ambiguous			unknown	Same disambiguation as Quinsborough; no verified bay label on this west Limerick estuary segment.
+37	limerick.txt	Quinsborough shore	ambiguous			unknown	Same disambiguation as Quinsborough; cannot place a shore pin without inventing a distant namesake.
+38	limerick.txt	Kilfergus	resolved	52.5555	-9.27964	civil_parish	Logainm centrepoint for Cill Fhearghasa / Kilfergus civil parish (Glin hinterland).
+39	limerick.txt	Kilfergus shore	resolved	52.5564	-9.2758	shore	Shannon Estuary foreshore toward the Glin / Kilfergus coast (approximate).
+40	limerick.txt	Foynes	resolved	52.611	-9.107	town	Wikipedia coordinates; Shannon Estuary south bank.
+41	limerick.txt	Foynes Port	resolved	52.614	-9.103	port	Shannon Foynes Port Company HQ area / deep-water port cluster (Wikipedia infobox).
+42	limerick.txt	Foynes Harbour	resolved	52.6141	-9.10739	harbour	Logainm landing-place centrepoint for Foynes Harbour.
+43	limerick.txt	Foynes Pier	resolved	52.6140	-9.1075	pier	Working pier / harbour head near Logainm Foynes Harbour (approximate cluster).
+44	limerick.txt	Foynes shore	resolved	52.6115	-9.1082	shore	Town foreshore on Shannon Estuary (approximate).
+45	limerick.txt	Foynes waterfront	resolved	52.6112	-9.1076	waterfront	N69 quay / main street river frontage (approximate).
+46	limerick.txt	Foynes Island	resolved	52.6219	-9.11171	island	Logainm centrepoint for Oileán Fainge / Foynes Island townland.
+47	limerick.txt	Foynes Island shore	resolved	52.6226	-9.1124	shore	North / channel-side shore toward inner harbour approaches (approximate).
+48	limerick.txt	Foynes Estuary Walk	resolved	52.6125	-9.1092	trail	Marked estuary-side walk near Foynes waterfront (no Nominatim hit; approximate harbour strip).
+49	limerick.txt	Foynes Flying Boat Museum	resolved	52.61139	-9.10990	museum	Nominatim: Foynes Flying Boat & Maritime Museum (tourism node).
+50	limerick.txt	Foynes Flying Boat & Maritime Museum shore	resolved	52.61145	-9.11015	shore	Museum frontage toward estuary (approximate).
+51	limerick.txt	Knockpatrick	resolved	52.5943	-9.11153	townland	Logainm centrepoint Cnoc Pádraig / Knockpatrick (upland east of Foynes).
+52	limerick.txt	Knockpatrick Gardens estuary view	resolved	52.5956	-9.1119	garden	Viewing aspect from Knockpatrick Gardens (Knockpatrick, Foynes; hillside over Shannon; approximate).
+53	limerick.txt	Ballynacragga shore	resolved	52.6072	-9.1048	shore	Forest-foot foreshore above Foynes (Ballynacragga slopes; approximate).
+54	limerick.txt	Aughinish	resolved	52.62207	-9.06503	peninsula	Wikipedia infobox: Rusal alumina site (former island, Shannon Estuary).
+55	limerick.txt	Aughinish Island	resolved	52.6196	-9.06525	island	Logainm Aughinish Island centrepoint (same industrial landmass; administrative island feature).
+56	limerick.txt	Aughinish Island shore	resolved	52.6207	-9.0665	shore	Shannon-facing shore of Aughinish (approximate).
+57	limerick.txt	Aughinish jetty	resolved	52.6225	-9.0645	jetty	Deep-water jetty serving refinery (approximate; OSM not queried in batch).
+58	limerick.txt	Aughinish berth	resolved	52.6223	-9.0647	berth	Berth pocket near refinery jetties (approximate cluster).
+59	limerick.txt	Aughinish alumina jetty	resolved	52.6228	-9.0642	jetty	Bauxite / alumina terminal head (approximate; same industrial front).
+60	limerick.txt	Askeaton	resolved	52.6001	-8.9772	town	Wikipedia coordinates; River Deel town before Shannon confluence.
+61	limerick.txt	Askeaton shore	resolved	52.6005	-8.9780	shore	River Shannon / Deel frontage at Askeaton (approximate; seaward of town centre).
+62	limerick.txt	Askeaton Pier	resolved	52.6004	-8.9768	pier	Tidal Deel quay frontage at Askeaton; no separate OSM pier name (approximate waterfront).
+63	limerick.txt	Askeaton Harbour	resolved	52.6006	-8.9763	harbour	Small boat harbour / quay pool on Deel at Askeaton (approximate cluster with pier).
+64	limerick.txt	Askeaton waterfront	resolved	52.6003	-8.9770	waterfront	N69 / Main Street river frontage (approximate).
+65	limerick.txt	Askeaton Castle shore	resolved	52.6002	-8.9735	shore	Nominatim: Askeaton Castle; pin toward Deel/Shannon (approximate).
+66	limerick.txt	Askeaton Friary shore	resolved	52.6039	-8.9760	shore	Nominatim: Askeaton Franciscan Friary; pin toward river (approximate).
+67	limerick.txt	River Deel mouth	resolved	52.5910	-8.9730	confluence	Approximate Deel→Shannon confluence south of Askeaton (tidal mouth; OS river geometry).
+68	limerick.txt	Deel estuary	resolved	52.5940	-8.9750	estuary	Tidal lower Deel through Askeaton reach (approximate mid-reach centroid).
+69	limerick.txt	Ballysteen	resolved	52.6442746	-8.9742315	village	Nominatim: Ballysteen, Iveruss (coastal Kenry; chosen over namesake locality in Dunmoylan ED).
+70	limerick.txt	Ballysteen shore	resolved	52.6452	-8.9755	shore	Shannon Estuary foreshore at Ballysteen (approximate; north of village centre).
+71	limerick.txt	Beagh Castle	resolved	52.6470	-8.9540	castle	Promontory tower house on Shannon near Ballysteen (Wikipedia/Ballysteen environs; no Nominatim object).
+72	limerick.txt	Beagh Castle shore	resolved	52.6472	-8.9548	shore	Boulder foreshore below Beagh Castle / Ballysteen pier area (approximate).
+73	limerick.txt	Kilcornan	resolved	52.6261915	-8.8968129	village	Nominatim: Kilcornan settlement (first hit; Kenry parish).
+74	limerick.txt	Kilcornan shore	resolved	52.6248	-8.8978	shore	Estuary foreshore south/west of Kilcornan village (approximate).
+75	limerick.txt	Killeenagalloon shore	resolved	52.6155	-8.8520	shore	No verified townland name; interpreted as Cloon/Cloonnagalleen (Kilcornan): OSM relation R6110124 — north toward estuary (approximate).
+76	limerick.txt	Clonmoney shore	ambiguous			unknown	No Limerick townland found; principal Clonmoney townlands are Co. Clare (Bunratty). Cannot pin in-county without assuming another feature.
+77	limerick.txt	Drominbeg shore	resolved	52.6280	-8.9310	shore	No coastal townland Drominbeg found; interpreted as Drominycullane (Castletown ED): OSM R6142524 — estuary-facing shore (distinct from Limerick City suburb Drominbeg in OSM).
+78	limerick.txt	Pallaskenry	resolved	52.6487480	-8.8595334	village	Nominatim: Pallaskenry (primary settlement hit).
+79	limerick.txt	Pallaskenry shore	resolved	52.6470	-8.8610	shore	Shannon Estuary foreshore south of Pallaskenry (approximate).
+80	limerick.txt	Pallaskenry Pier	resolved	52.6462	-8.8622	pier	No OSM named pier; local quay/small-craft front toward estuary (approximate).
+81	limerick.txt	Ringmoylan	resolved	52.6642852	-8.8815993	locality	Nominatim: Ringmoylan, Castletown.
+82	limerick.txt	Ringmoylan Pier	resolved	52.6694983	-8.8785681	pier	Nominatim: Ringmoylan Pier (OSM man_made=pier); address in Clare/Shannon MD — feature is the historic estuary pier serving Pallaskenry area.
+83	limerick.txt	Ringmoylan Pier Head	resolved	52.66965	-8.87850	pier_head	Pier seaward end (approximate; cluster with Ringmoylan Pier OSM way).
+84	limerick.txt	Ringmoylan shore	resolved	52.6686	-8.8793	shore	Foreshore around Ringmoylan Pier (approximate).
+85	limerick.txt	Ringmoylan Bay	resolved	52.6689	-8.8798	bay	Small inshore bay beside pier head (approximate local usage).
+86	limerick.txt	Ringmoylan slipway	resolved	52.66925	-8.87885	slipway	Slip near pier (approximate; heritage quay infrastructure).
+87	limerick.txt	Shanpallas Castle shore	resolved	52.6430	-8.8405	shore	Nominatim: Shanpallas Castle; estuary-facing shore below ruin (approximate).
+88	limerick.txt	Kenry Castle shore	resolved	52.6427	-8.8409	shore	Kenry Castle is the historical name of Shanpallas Castle; estuary foreshore at that ruin (approximate).
+89	limerick.txt	Kildimo	resolved	52.6181226	-8.7840264	village	Nominatim: Kildimo (primary settlement hit).
+90	limerick.txt	Kildimo shore	resolved	52.6166	-8.7855	shore	Shannon Estuary foreshore south/west of Kildimo (approximate).
+91	limerick.txt	Kildimo Bay shore	resolved	52.6193	-8.7725	bay	Embayment on Shannon Estuary near Kildimo (approximate; seaward of village).
+92	limerick.txt	Clarina	resolved	52.6165412	-8.7399871	village	Nominatim: Clarina settlement (Metropolitan District of Limerick City).
+93	limerick.txt	Clarina shore	resolved	52.6142	-8.7355	shore	Estuary foreshore south of Clarina village (approximate).
+94	limerick.txt	River Maigue mouth	resolved	52.6500	-8.8000	river_mouth	Wikipedia / GeoHack mouth coords for River Maigue into Shannon Estuary (Ferry Bridge / Kildimo–Clarina reach; approximate).
+95	limerick.txt	Maigue Shannon confluence	resolved	52.6505	-8.7995	confluence	Same estuarine junction as Maigue mouth; Shannon Estuary water (approximate).
+96	limerick.txt	Shannon Estuary south shore Clarina	resolved	52.6125	-8.7335	shore	Linear south-bank estuary front opposite Clarina–Ballybrown reach (approximate midpoint).
+97	limerick.txt	Ballybrown Shannon shore	resolved	52.6408	-8.7278	shore	Shannon foreshore below Ballybrown (Nominatim settlement ~52.64383,-8.72939; shore toward river).
+98	limerick.txt	Loghill shore	resolved	52.5845	-9.2110	shore	Interpreted as Loughill (Leamhchoill) on Shannon Estuary south bank; estuary foreshore (Logainm parish centre ~52.5826,-9.2106 adjusted seaward).
+99	limerick.txt	Coonagh	resolved	52.6661870	-8.6844719	suburb	Nominatim: Coonagh (R527 / Limerick North Rural).
+100	limerick.txt	Coonagh wetlands	resolved	52.6658	-8.6885	wetlands	Coonagh estuary-side wetlands / flood fringe north of R527 corridor (approximate).
+101	limerick.txt	Coonagh Shannon shore	resolved	52.6672	-8.6865	shore	Shannon Estuary foreshore at Coonagh (approximate).
+102	limerick.txt	Dock Road waterfront	resolved	52.6573	-8.6425	waterfront	Dock Road / Dock D port frontage strip (cluster with Nominatim “Limerick Docks”).
+103	limerick.txt	Dock Road Shannon frontage	resolved	52.6565	-8.6410	waterfront	River/wet-dock frontage along Dock Road (approximate; seaward of Dock Road spine).
+104	limerick.txt	Bannatyne Mill waterfront	resolved	52.6590	-8.6443	waterfront	Protected Bannatyne corn-store on Dock Road facing wet dock / Shannon (Buildings of Ireland 21516002; approximate quay-side pin).
+105	limerick.txt	Ranks Silo Dock Road	resolved	52.6596	-8.6436	silo	Heritage Ranks silo cluster east of Bannatyne Mill on Dock Road (approximate industrial waterfront).
+106	limerick.txt	Corcanree Business Park shore	resolved	52.6542	-8.6595	shore	River-facing edge of Corcanree estate toward Shannon (Nominatim business park ~52.6538,-8.6577; approximate shore strip).
+107	limerick.txt	Former Limerick Gasworks waterfront	resolved	52.6588	-8.6385	waterfront	Former gasworks / Docklands brownfield waterfront near Clancy Strand–Dock Road (approximate; LDA redevelopment area).
+108	limerick.txt	Ted Russell Dock	resolved	52.6612	-8.6257	dock	Shannon Foynes Port / public POI cluster “Ted Russell Dock” (Maplogs elevation POI; Limerick Docklands terminal).
+109	limerick.txt	Shannon Dock	resolved	52.6618	-8.6342	dock	Wet dock / Shannon Bridge dock basin area (Nominatim: Shannon Bridge, Dock A cluster).
+110	limerick.txt	Limerick Docks	resolved	52.6582466	-8.6456236	docks	Nominatim: Limerick Docks, Dock D.
+111	limerick.txt	Limerick Docklands	resolved	52.6608	-8.6310	docklands	Wider SFPC Limerick Docklands / Ted Russell estate centroid (approximate).
+112	limerick.txt	Limerick City Docks	resolved	52.6588	-8.6442	docks	City dock cluster on Dock Road / Dock D (approximate; overlaps Limerick Docks).
+113	limerick.txt	Limerick Harbour	resolved	52.6602	-8.6355	harbour	General Limerick city harbour / Shannon working waterfront (approximate).
+114	limerick.txt	Limerick Port	resolved	52.6612	-8.6257	port	Port of Limerick operational focus at Ted Russell Dock (same pin as row 108).
+115	limerick.txt	Howley's Quay	resolved	52.6630483	-8.6309765	quay	Nominatim: Howley's Quay (street).
+116	limerick.txt	Howleys Quay	resolved	52.6630483	-8.6309765	quay	Same feature as Howley's Quay (variant spelling; OSM way).
+117	limerick.txt	Arthur's Quay	resolved	52.6656791	-8.6260908	quay	Nominatim: Arthur's Quay, Custom House.
+118	limerick.txt	Arthurs Quay	resolved	52.6656791	-8.6260908	quay	Variant spelling of Arthur's Quay (same OSM cluster).
+119	limerick.txt	Sarsfield Quay	resolved	52.6642	-8.6295	quay	Harvey's Quay / Sarsfield Bridge quay frontage (no separate OSM “Sarsfield Quay”; approximate).
+120	limerick.txt	Merchants Quay	resolved	52.6675530	-8.6242539	quay	Nominatim: Merchants Quay, John's B.
+121	limerick.txt	Nicholas Street quayfront	resolved	52.66960	-8.62455	waterfront	River/quay margin along Nicholas Street below King John's Castle (approximate; city-centre Shannon frontage).
+122	limerick.txt	Custom House Quay	resolved	52.6649201	-8.6235808	quay	Nominatim: Custom House; quay frontage on Custom House / Charlotte's Quay block (cluster).
+123	limerick.txt	Georges Quay	resolved	52.6668090	-8.6218770	quay	Nominatim: Georges Quay, John's C.
+124	limerick.txt	Georges Quay waterfront	resolved	52.66685	-8.62205	waterfront	Shannon-side frontage at Georges Quay (approximate; same block as row 123).
+125	limerick.txt	Hunt Museum riverfront	resolved	52.66638	-8.62465	waterfront	Riverside strip below Hunt Museum (Rutland St / Custom House; approximate from museum node).
+126	limerick.txt	King John's Castle riverfront	resolved	52.66975	-8.62535	waterfront	Shannon foreshore below King John's Castle (approximate; seaward of castle visitor entrance).
+127	limerick.txt	King Johns Castle riverfront	resolved	52.66975	-8.62535	waterfront	Variant spelling; same waterfront cluster as row 126.
+128	limerick.txt	Thomond Bridge riverfront	resolved	52.67008	-8.62775	waterfront	Shannon bank at Thomond Bridge approaches (approximate; bridge span cluster).
+129	limerick.txt	Sarsfield Bridge riverfront	resolved	52.66495	-8.62945	waterfront	South-bank estuary frontage at Sarsfield Bridge (approximate).
+130	limerick.txt	Clancy Strand	resolved	52.6673883	-8.6284189	promenade	Nominatim: Clancy's Strand, Castle B.
+131	limerick.txt	The Strand Limerick	resolved	52.6667838	-8.6298245	street	Nominatim: The Strand (continues Clancy's Strand corridor).
+132	limerick.txt	Curraghgour Boat Club	resolved	52.66740	-8.62435	boat_club	Club address Merchants Quay / Viking port slip (curraghgourboatclub.com); no Nominatim POI — pin at Merchants Quay / Potato Market river margin.
+133	limerick.txt	Shannon Rowing Club	resolved	52.6652892	-8.6293222	rowing_club	Nominatim: Shannon Rowing Club, Sarsfield Bridge.
+134	limerick.txt	St Michael Rowing Club	resolved	52.6630055	-8.6349493	rowing_club	Nominatim: St. Michaels Rowing Club, North Circular Road (spelling variant).
+135	limerick.txt	Limerick Boat Club shore	resolved	52.6645884	-8.6304549	shore	Riverfront at Limerick Boat Club (Poor Man's Kilkee; same Nominatim node as club buildings).
+136	limerick.txt	Westfields waterfront	resolved	52.6624527	-8.6438538	waterfront	Nominatim: Westfields Wetlands — nearest named Westfields-related Shannon margin in city.
+137	limerick.txt	Shannon Fields shore	resolved	52.6780	-8.6065	shore	Approximate estuary-facing margin from Shannon Fields suburb (Nominatim centroid Abbey A); no dedicated shore POI.
+138	limerick.txt	Shannon Estuary Way Limerick	ambiguous			trail	Long-distance Shannon Estuary Way — no single Limerick waypoint returned by Nominatim in this search.
+139	limerick.txt	Shannon Estuary south bank	resolved	52.6670	-8.6285	shore	Representative city-centre south-bank estuary frontage (Clancy Strand / Sarsfield corridor).
+140	limerick.txt	Wild Atlantic Way Shannon Estuary Limerick	ambiguous			route	Wild Atlantic Way is a national touring route; no specific “Shannon Estuary Limerick” POI in Nominatim.

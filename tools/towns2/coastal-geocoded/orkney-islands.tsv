@@ -1,0 +1,311 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	orkney-islands.txt	Burwick	resolved	58.7419393	-2.9716484	farmyard	OpenStreetMap/Nominatim
+2	orkney-islands.txt	Burwick Pier	resolved	58.7398378	-2.9727060	pier	OpenStreetMap/Nominatim
+3	orkney-islands.txt	Castle of Burwick	resolved	58.7421969	-2.9777055	historic	OpenStreetMap/Nominatim (promontory fort ruins)
+4	orkney-islands.txt	Barth Head	resolved	58.7541628	-2.9922915	headland	OpenStreetMap/Nominatim
+5	orkney-islands.txt	Hoxa Head	resolved	58.8184895	-3.0356561	headland	OpenStreetMap/Nominatim
+6	orkney-islands.txt	Hoxa Sound	resolved	58.8320000	-3.0180000	sound	Approximate mid-channel; no single OSM place — Orkney marine map reading
+7	orkney-islands.txt	Hoxa	resolved	58.8298228	-3.0118633	hamlet	OpenStreetMap/Nominatim
+8	orkney-islands.txt	The Witter	resolved	58.9220045	-3.3502386	bay	OpenStreetMap/Nominatim
+9	orkney-islands.txt	St Peter's Pool	resolved	58.9222394	-2.7907642	bay	OpenStreetMap/Nominatim
+10	orkney-islands.txt	Brough Ness	resolved	58.7311907	-2.9619275	ness	OpenStreetMap/Nominatim
+11	orkney-islands.txt	Windwick	resolved	58.7650109	-2.9379197	hamlet	OpenStreetMap/Nominatim
+12	orkney-islands.txt	Windwick Bay	resolved	58.7642000	-2.9360000	bay	Approximate bay mouth E of Windwick; not named separately in OSM
+13	orkney-islands.txt	Backaskaill	resolved	59.2390068	-2.6296798	hamlet	OpenStreetMap/Nominatim (Sanday — Orkney-wide list)
+14	orkney-islands.txt	Backaskaill Bay	resolved	59.2383571	-2.6115972	bay	OpenStreetMap/Nominatim (Sanday)
+15	orkney-islands.txt	Newark	resolved	58.9472236	-2.8687087	hamlet	OpenStreetMap/Nominatim (Tankerness area)
+16	orkney-islands.txt	Sandwick Bay	resolved	58.7865000	-2.9780000	bay	Approximate centre of inlet; OSM only indexed Sandwick Bay Road nearby
+17	orkney-islands.txt	Sand Wick	resolved	58.7880000	-2.9795000	inlet	Approximate coastal inlet NE shore Sandwick Bay; not separately geocoded in OSM
+18	orkney-islands.txt	Grimness	resolved	58.8274800	-2.9119600	village	Ordnance Survey Open Names centre (not Grimness Road segment)
+19	orkney-islands.txt	Grimsetter	resolved	58.8215000	-2.9235000	farm	Approximate steading E of Grimness; Kirkwall “Grimsetter” hits are unrelated
+20	orkney-islands.txt	Herston	resolved	58.8102484	-3.0051852	hamlet	OpenStreetMap/Nominatim
+21	orkney-islands.txt	Cleat	resolved	58.8101300	-2.9154900	coast	NCAP Cletts frame coords; distinct from Kirkwall “Cleat” in Nominatim
+22	orkney-islands.txt	Volta	not_found				No OSM/Nominatim hit; likely minor steading on South Ronaldsay
+23	orkney-islands.txt	Olad	resolved	58.7800733	-2.9592006	hamlet	OpenStreetMap/Nominatim
+24	orkney-islands.txt	Setter	ambiguous				Several Orcadian “Setter” features; none verified for this list position S. Ronaldsay/Olad–SMH stretch
+25	orkney-islands.txt	St Margaret's Hope	resolved	58.8258044	-2.9584699	village	OpenStreetMap/Nominatim
+26	orkney-islands.txt	St Margaret's Hope Pier	resolved	58.8265141	-2.9605278	pier	OpenStreetMap/Nominatim
+27	orkney-islands.txt	The Hope	resolved	58.8258044	-2.9584699	harbour	Local name for St Margaret’s Hope; same centroid as settlement
+28	orkney-islands.txt	The Hup	resolved	58.8258044	-2.9584699	harbour	Local alias for the Hope; same centroid as settlement
+29	orkney-islands.txt	Water Sound	resolved	58.8399982	-2.9460010	sound	OpenStreetMap/Nominatim
+30	orkney-islands.txt	Sands of Wright	resolved	58.8248181	-3.0003866	beach	OpenStreetMap/Nominatim
+31	orkney-islands.txt	Eastside	resolved	58.7994088	-2.9394066	hamlet	OpenStreetMap/Nominatim (South Ronaldsay; not Stronsay Eastside)
+32	orkney-islands.txt	Ayre of Cara	resolved	58.8388362	-2.9087543	locality	OpenStreetMap/Nominatim
+33	orkney-islands.txt	Churchill Barriers	resolved	58.8931110	-2.8964608	causeway	Representative: Churchill Barrier 1 (multi-part causeway chain; not memorial plaque hit)
+34	orkney-islands.txt	First Barrier Beach	resolved	58.8920000	-2.8955000	beach	Approximate sandy shore beside Barrier 1; not separately named in OSM
+35	orkney-islands.txt	Fourth Barrier Beach	resolved	58.8408000	-2.9052000	beach	Approximate shore beside Churchill Barrier 4; not separately named in OSM
+36	orkney-islands.txt	Glimps Holm	resolved	58.8760436	-2.9166292	island	OpenStreetMap/Nominatim (spelling Glims Holm)
+37	orkney-islands.txt	Lamb Holm	resolved	58.8875645	-2.8930539	island	OpenStreetMap/Nominatim
+38	orkney-islands.txt	Italian Chapel	resolved	58.8899222	-2.8894335	attraction	OpenStreetMap/Nominatim (The Italian Chapel)
+39	orkney-islands.txt	Burray	resolved	58.8578629	-2.9019640	island	OpenStreetMap/Nominatim
+40	orkney-islands.txt	Burray Village	resolved	58.8450321	-2.9150595	village	OpenStreetMap/Nominatim
+41	orkney-islands.txt	Burray Pier	resolved	58.8433380	-2.9163655	harbour	OpenStreetMap/Nominatim (public slipway, Pier Road — harbour access)
+42	orkney-islands.txt	East Loch Burray	resolved	58.8730000	-2.9088000	bay	Eastern coastal inlet Burray; approximate (Burray map / coast geometry; no OSM name match)
+43	orkney-islands.txt	Northfield Burray	resolved	58.8711064	-2.8916047	farm	OpenStreetMap/Nominatim (The Northfield, Northtown)
+44	orkney-islands.txt	Hunda	resolved	58.8545752	-2.9791941	island	OpenStreetMap/Nominatim
+45	orkney-islands.txt	St Mary's Holm	not_found			islet	No distinct OSM object; likely minor holm in Holm Sound
+46	orkney-islands.txt	Howquoy	resolved	58.8902900	-2.9299800	headland	Canmore/NGR HY465 007 (Howequoy Head, Holm Sound) — not Birsay Howquoy building
+47	orkney-islands.txt	Roseness	resolved	58.8748400	-2.8255000	headland	Canmore Rose Ness / Roseness Head (ND 525 989), Holm parish east mainland
+48	orkney-islands.txt	Grainbank	not_found			unknown	No coastal feature; Nominatim only Kirkwall street segment
+49	orkney-islands.txt	Copinsay	resolved	58.8966158	-2.6765767	island	OpenStreetMap/Nominatim
+50	orkney-islands.txt	Black Holm	resolved	58.9036159	-2.7058827	islet	OpenStreetMap/Nominatim
+51	orkney-islands.txt	Corn Holm	resolved	58.9009483	-2.6991967	island	OpenStreetMap/Nominatim
+52	orkney-islands.txt	Horse of Copinsay	resolved	58.9106639	-2.6580454	islet	OpenStreetMap/Nominatim
+53	orkney-islands.txt	Deerness	resolved	58.9516766	-2.7400327	village	OpenStreetMap/Nominatim
+54	orkney-islands.txt	Deerness Sound	resolved	58.9200000	-2.7200000	sound	Approximate centre Deer Sound (east of Deerness peninsula); not separately indexed in OSM
+55	orkney-islands.txt	Mull Head	resolved	58.9718647	-2.7101171	headland	OpenStreetMap/Nominatim
+56	orkney-islands.txt	Mull Head Nature Reserve	resolved	58.9539790	-2.7408670	reserve	Mull Head LNR visitor centre car park (Walkhighlands HY589078 / SOBT GPX)
+57	orkney-islands.txt	Newark Bay	resolved	58.7988000	-2.9207000	bay	Deerness bay (GeoHack / Walkhighlands HY567040); not South Ronaldsay Newark Bay info board
+58	orkney-islands.txt	Dingieshowe	resolved	58.9146200	-2.7830400	bay	Dingieshowe Bay centroid (HY550 033 literature / GeoHack); OSM not indexed under this spelling
+59	orkney-islands.txt	Dingieshowe Beach	resolved	58.9141000	-2.7846000	beach	UK Beach Guide / GeoHack Dingyshowe Bay (isthmus beach)
+60	orkney-islands.txt	The Ouse	resolved	58.9135000	-2.7820000	tidal_flat	Tidal water S of Dingieshowe isthmus (Deerness–mainland neck); distinct from Shapinsay “The Ouse”; OSM not indexed
+61	orkney-islands.txt	Deerness Point	resolved	58.9191700	-2.7097200	headland	East-facing Deerness coast toward Deer Sound / Copinsay; approximate point — OSM not indexed under this name
+62	orkney-islands.txt	Tankerness	resolved	58.9524722	-2.8539585	village	OpenStreetMap/Nominatim
+63	orkney-islands.txt	The Houb	ambiguous			bay	Orcadian ‘houb’ (sheltered inlet); Tankerness–Inganess shore has no matching gazetteer pin — not Shetland’s Houb loch
+64	orkney-islands.txt	Huip	ambiguous			unknown	Local coastal label on Mainland E of Kirkwall; not the St Margaret’s Hope ‘Hup’ centroid; no OSM/Nominatim match here
+65	orkney-islands.txt	Inganess	resolved	58.9671594	-2.9253437	hamlet	OpenStreetMap/Nominatim
+66	orkney-islands.txt	Inganess Bay	resolved	58.9755711	-2.8909155	bay	OpenStreetMap/Nominatim
+67	orkney-islands.txt	Kirkwall	resolved	58.9816049	-2.9603690	town	OpenStreetMap/Nominatim
+68	orkney-islands.txt	Kirkwall Harbour	resolved	58.9845307	-2.9601720	harbour	OpenStreetMap/Nominatim (Orkney Sailing Club / inner harbour frontage)
+69	orkney-islands.txt	Kirkwall Pier	resolved	58.9849401	-2.9581877	pier	OpenStreetMap/Nominatim (Kirkwall Ferry Terminal — main ferry berth)
+70	orkney-islands.txt	Kirkwall Airport	resolved	58.9576446	-2.9034357	airport	OpenStreetMap/Nominatim
+71	orkney-islands.txt	Hatston	resolved	58.9940528	-2.9715138	industrial	OpenStreetMap/Nominatim (Hatston Food Park — named object in Hatston area)
+72	orkney-islands.txt	Hatston Pier	resolved	59.0000400	-2.9756245	pier	OpenStreetMap/Nominatim
+73	orkney-islands.txt	Scapa	resolved	58.9662346	-2.9803716	hamlet	OpenStreetMap/Nominatim (Nether Scapa — coastal settlement strip)
+74	orkney-islands.txt	Scapa Bay	resolved	58.9517743	-2.9843494	bay	OpenStreetMap/Nominatim
+75	orkney-islands.txt	Scapa Flow	resolved	58.8950411	-3.0757770	sound	OpenStreetMap/Nominatim (body centroid)
+76	orkney-islands.txt	Head of Work	resolved	59.0083700	-2.9010900	headland	Historic Environment Scotland SM1274 listing coords (Head of Work long cairn / headland NE of Kirkwall)
+77	orkney-islands.txt	Orphir	resolved	58.9362373	-3.1450715	village	OpenStreetMap/Nominatim
+78	orkney-islands.txt	Orphir Bay	resolved	58.9224490	-3.1571478	bay	OpenStreetMap/Nominatim (Orkney Walks — Orphir Bay shore access)
+79	orkney-islands.txt	Gyre	resolved	58.9239688	-3.1472145	hamlet	OpenStreetMap/Nominatim
+80	orkney-islands.txt	Cuween	resolved	58.9973439	-3.1081438	historic	OpenStreetMap/Nominatim (Cuween Hill — chambered cairn; not Kirkwall ‘Cuween’ street)
+81	orkney-islands.txt	Waukmill Bay	resolved	58.9310000	-3.1650000	bay	Approximate south-Mainland bay W of Houton (Orphir coast); not separately indexed in OSM/Nominatim
+82	orkney-islands.txt	Houton	resolved	58.9171025	-3.1991126	village	OpenStreetMap/Nominatim
+83	orkney-islands.txt	Houton Pier	resolved	58.9168930	-3.1842960	ferry_terminal	OpenStreetMap/Nominatim (Houton Ferry Terminal)
+84	orkney-islands.txt	Holm of Houton	resolved	58.9106974	-3.1888446	island	OpenStreetMap/Nominatim
+85	orkney-islands.txt	Stenness	resolved	58.9860486	-3.2113294	village	OpenStreetMap/Nominatim
+86	orkney-islands.txt	Bridge of Brodgar	resolved	58.9956303	-3.2110814	bridge	OpenStreetMap/Nominatim
+87	orkney-islands.txt	Watchstone	resolved	58.9952058	-3.2103641	historic	OpenStreetMap/Nominatim (Watch Stone, Stenness)
+88	orkney-islands.txt	Unstan	resolved	58.9865661	-3.2493949	historic	OpenStreetMap/Nominatim (Unstan Chambered Cairn)
+89	orkney-islands.txt	Tingwall	resolved	59.0883412	-3.0456924	village	OpenStreetMap/Nominatim (Mainland Orkney)
+90	orkney-islands.txt	Tingwall Ferry	resolved	59.0886174	-3.0438301	ferry_terminal	OpenStreetMap/Nominatim (Tingwall Ferry Office)
+91	orkney-islands.txt	Rendall	resolved	59.0597072	-3.0705805	village	OpenStreetMap/Nominatim
+92	orkney-islands.txt	Evie	resolved	59.1047175	-3.0882896	village	OpenStreetMap/Nominatim
+93	orkney-islands.txt	Evie Bay	resolved	59.1080000	-3.0820000	bay	Approximate Evie coastal bay; no separate OSM feature
+94	orkney-islands.txt	Aikerness	resolved	59.1177635	-3.0745432	locality	OpenStreetMap named building Aikerness near Evie (Westray hamlet hit rejected for this list context)
+95	orkney-islands.txt	Aikerness Bay	resolved	59.1182000	-3.0748000	bay	Approximate inlet at Aikerness; not separately indexed in OSM
+96	orkney-islands.txt	Woodwick	resolved	59.0969547	-3.0734072	locality	OpenStreetMap/Nominatim
+97	orkney-islands.txt	Mill Bay Evie	resolved	59.1185000	-3.0790000	bay	Approximate Mill Bay W of Evie; not in OSM/Nominatim
+98	orkney-islands.txt	Costa Head	resolved	59.1501830	-3.1995655	headland	OpenStreetMap/Nominatim (typed peak; coastal headland)
+99	orkney-islands.txt	Birsay	resolved	59.1295359	-3.3133698	village	OpenStreetMap/Nominatim
+100	orkney-islands.txt	Birsay Bay	resolved	59.1310000	-3.3250000	bay	Approximate Birsay Bay open water; OSM hits were tearoom/parking only
+101	orkney-islands.txt	Birsay Pier	resolved	59.1305000	-3.3150000	harbour	Approximate Birsay harbour/landing; no separate pier node in OSM
+102	orkney-islands.txt	Point of Buckquoy	resolved	59.1352560	-3.3247340	headland	Scotland OTBT walk GPS for Point of Buckquoy car park / coastal access
+103	orkney-islands.txt	Brough of Birsay	resolved	59.1360781	-3.3353837	islet	OpenStreetMap/Nominatim
+104	orkney-islands.txt	Earl's Palace Birsay	resolved	59.1299875	-3.3151742	attraction	OpenStreetMap/Nominatim (Earl's Palace)
+105	orkney-islands.txt	Skiba Geo	resolved	59.1354167	-3.3116667	geo	OpenStreetMap/Nominatim (natural bay)
+106	orkney-islands.txt	Marwick	resolved	59.1029901	-3.3432767	locality	OpenStreetMap/Nominatim
+107	orkney-islands.txt	Marwick Head	resolved	59.1063690	-3.3519608	headland	OpenStreetMap/Nominatim (Kitchener Memorial, Marwick Head)
+108	orkney-islands.txt	Marwick Bay	resolved	59.0968370	-3.3468468	bay	OpenStreetMap/Nominatim (Marwick Bay parking / shore access)
+109	orkney-islands.txt	Crighton	not_found		unknown	No OSM/Nominatim hit near Marwick/Birsay; likely minor Orcadian name in this list
+110	orkney-islands.txt	Yesnaby	resolved	59.0230292	-3.3477718	locality	OpenStreetMap/Nominatim
+111	orkney-islands.txt	Yesnaby Bay	resolved	59.0215000	-3.3545000	bay	Approximate coastal inlet S of Yesnaby; not separately indexed in OSM
+112	orkney-islands.txt	Yesnaby Castle	resolved	59.0173400	-3.3606100	sea_stack	Geograph Britain & Ireland WGS84 for stack (grid HY 2197 1527)
+113	orkney-islands.txt	North Gaulton Castle	resolved	59.0005560	-3.3661110	sea_stack	Wikipedia/GeoHack coords for stack
+114	orkney-islands.txt	Ramna Geo	resolved	59.0280000	-3.3450000	geo	Approximate creek mouth from OS Name Book (W Sandwick coast); not in OSM
+115	orkney-islands.txt	Skaill	resolved	59.0479662	-3.3360650	house	OpenStreetMap building Skaill on B9056 (Bay of Skaill / Skara Brae area; not Deerness farmyard)
+116	orkney-islands.txt	Bay o' Skaill	resolved	59.0465000	-3.3385000	bay	Approximate Bay of Skaill open water W of Skara Brae (distinct from Westray OSM “Bay of Skaill” artefact)
+117	orkney-islands.txt	Skara Brae	resolved	59.0487237	-3.3418007	historic	OpenStreetMap/Nominatim (Skara Brae protected area boundary)
+118	orkney-islands.txt	Quoyloo	resolved	59.0709691	-3.3196399	hamlet	OpenStreetMap/Nominatim
+119	orkney-islands.txt	Sandwick	resolved	59.0555600	-3.2944400	parish	Wikipedia parish centroid (West Mainland); no single coastal village node in OSM for this name
+120	orkney-islands.txt	Breckness	resolved	58.9645834	-3.3524351	locality	OpenStreetMap/Nominatim
+121	orkney-islands.txt	Ness of Brodgar	resolved	58.9972633	-3.2156713	historic	OpenStreetMap/Nominatim (Ness of Brodgar protected area)
+122	orkney-islands.txt	Brinkie's Brae	resolved	58.9673790	-3.3029996	peak	OpenStreetMap/Nominatim (indexed as Brinkies Brae)
+123	orkney-islands.txt	Stromness	resolved	58.9614356	-3.2993767	town	OpenStreetMap/Nominatim
+124	orkney-islands.txt	Stromness Harbour	resolved	58.9662295	-3.2925081	harbour	Hamnavoe bay node — sheltered harbour water of Stromness
+125	orkney-islands.txt	Stromness Pier	resolved	58.9623967	-3.2968762	pier	OpenStreetMap/Nominatim (South Pier, Victoria Street frontage)
+126	orkney-islands.txt	Hamnavoe	resolved	58.9662295	-3.2925081	bay	OpenStreetMap/Nominatim (natural=bay Hamnavoe; same haven as harbour batch context)
+127	orkney-islands.txt	Point of Ness	resolved	58.9523766	-3.2942799	headland	OpenStreetMap/Nominatim (locality Point of Ness)
+128	orkney-islands.txt	Cairston	resolved	58.9818600	-3.2776925	locality	OpenStreetMap/Nominatim (Cairston W of Stromness; Kirkwall street hit rejected)
+129	orkney-islands.txt	Outer Ness	resolved	58.9560900	-3.3006200	islet	Wikimedia Commons camera location at Outer Holm from Ness Road; ‘Outer Ness’ not separately indexed in OSM
+130	orkney-islands.txt	Warebeth	resolved	58.9563229	-3.3278212	coast	OpenStreetMap Warebeth beach Road — approximate coastal strip W of Stromness
+131	orkney-islands.txt	Volage Geo	not_found			geo	No OSM/Nominatim match; minor coastal geo name not verified
+132	orkney-islands.txt	Billia Croo	resolved	58.9666553	-3.3278318	industrial	OpenStreetMap building Billia Croo (EMEC tidal test site area)
+133	orkney-islands.txt	Gallows Point	resolved	58.9522300	-3.3078100	headland	Canmore NRHE 81794 Ness Battery centroid — coastal battery headland S of Stromness; ‘Gallows Point’ not in OSM
+134	orkney-islands.txt	Walls	resolved	58.7878800	-3.2049000	island	Wikipedia coords for South Walls (commonly shortened to ‘Walls’); Mainland hamlet of same name not indexed in OSM
+135	orkney-islands.txt	Walls Pier	resolved	58.8008866	-3.2058124	pier	OpenStreetMap/Nominatim (Longhope Pier — main pier for South Walls/Longhope)
+136	orkney-islands.txt	Bay of Tuquoy	resolved	59.2788000	-2.9412900	bay	GeoHack / Gazetteer for Scotland — Bay of Tuquoy on Westray (distinct from ‘Tuquoy Westray’ line later in list)
+137	orkney-islands.txt	Groats Ness	not_found			headland	No OSM/Nominatim match; name not verified against Orcadian coastal gazetteers for this list position
+138	orkney-islands.txt	Brims Ness	resolved	58.7718000	-3.2362600	headland	Canmore wreck record ND28NE 8003 — Brims Ness W of Aith Hope, South Walls/Hoy (WGS84 from NRHE)
+139	orkney-islands.txt	Northside Birsay	resolved	59.1320000	-3.2980000	locality	Approximate N side of Birsay parish coast from Northside Road context; no single OSM place object
+140	orkney-islands.txt	Hoy	resolved	58.8520573	-3.2869398	island	OpenStreetMap/Nominatim (place=island relation)
+141	orkney-islands.txt	Ward Hill Hoy	resolved	58.9004250	-3.3405673	peak	OpenStreetMap/Nominatim (Ward Hill KW16 — highest hill Orkney; other Ward Hills rejected)
+142	orkney-islands.txt	Lyness	resolved	58.8328873	-3.2070679	village	OpenStreetMap/Nominatim
+143	orkney-islands.txt	Lyness Pier	resolved	58.8338591	-3.1969179	harbour	Approximate Lyness oil-quay frontage — Scapa Flow Visitor Centre & Museum (OSM); no separate ‘Lyness Pier’ name match
+144	orkney-islands.txt	Ore Bay	resolved	58.8287165	-3.1967211	bay	OpenStreetMap/Nominatim
+145	orkney-islands.txt	Mill Bay Hoy	resolved	58.8365046	-3.2098443	bay	OpenStreetMap Mill Bay Cottage — approximate Mill Bay inlet at Lyness; bay not separately named in OSM
+146	orkney-islands.txt	Moaness	resolved	58.9163499	-3.3126174	ferry_terminal	OpenStreetMap/Nominatim (Moaness Pier — Stromness passenger ferry terminus)
+147	orkney-islands.txt	North Ness	ambiguous			headland	Several ‘North Ness’ coastal labels (e.g. North Walls–Hoy); no single OSM object matches this list row
+148	orkney-islands.txt	Rackwick	resolved	58.8740543	-3.3922485	village	OpenStreetMap/Nominatim
+149	orkney-islands.txt	Rackwick Bay	resolved	58.8735000	-3.3980000	bay	Approximate Atlantic bay mouth W of Rackwick; not separately indexed in OSM
+150	orkney-islands.txt	Old Man of Hoy	resolved	58.8865172	-3.4308336	sea_stack	OpenStreetMap/Nominatim
+151	orkney-islands.txt	Dwarfie Stane	resolved	58.8844421	-3.3143175	bare_rock	OpenStreetMap/Nominatim
+152	orkney-islands.txt	Melsetter	resolved	58.7856496	-3.2638193	historic	Melsetter House (listed house, Hoy) — OpenStreetMap/Nominatim; coastal list uses estate name
+153	orkney-islands.txt	Sandy Bay Hoy	resolved	58.7920000	-3.2080000	beach	Approximate North Bay sandy shore E of Melsetter (Hoy walking-guide context); no separate OSM name
+154	orkney-islands.txt	Acrehope	ambiguous				inlet	Likely Aith Hope (S Hoy/South Walls inlet per Gazetteer for Scotland) but source spelling not verified; OSM unindexed
+155	orkney-islands.txt	Cantick Head	resolved	58.7871109	-3.1313133	lighthouse	OpenStreetMap/Nominatim
+156	orkney-islands.txt	Longhope	resolved	58.7987794	-3.2037988	village	OpenStreetMap/Nominatim
+157	orkney-islands.txt	Longhope Pier	resolved	58.8001975	-3.2067364	pier	OpenStreetMap/Nominatim (Longhope Pier — harbour frontage)
+158	orkney-islands.txt	Longhope Lifeboat Station	resolved	58.8005503	-3.2069230	emergency	OpenStreetMap/Nominatim (RNLI Longhope)
+159	orkney-islands.txt	Little Cantick	not_found			unknown	No OSM/Nominatim match; minor coastal name near Cantick not verified
+160	orkney-islands.txt	South Walls	resolved	58.7917564	-3.1829485	island	OpenStreetMap/Nominatim
+161	orkney-islands.txt	North Walls	not_found			locality	No OSM/Nominatim match; not assumed to be ‘North Ness, Longhope’ (different name)
+162	orkney-islands.txt	Gallow Tuag	resolved	58.7874224	-3.2057561	hill	WalkLakes UK grid ND304895 → WGS84 (EPSG:27700→4326); Tump on South Walls
+163	orkney-islands.txt	South Ness Hoy	not_found			headland	No OSM/Nominatim match; coastal ‘South Ness’ label on Hoy/South Walls not verified
+164	orkney-islands.txt	Saeva Ness	resolved	59.0227981	-2.9013631	headland	OpenStreetMap/Nominatim (Helliar Holm); Gazetteer for Scotland: Saeva Ness is S tip of Helliar Holm (Shapinsay Sound) — list order follows wider Orkney marine context
+165	orkney-islands.txt	Pentland Firth	resolved	58.7041391	-3.1124840	strait	OpenStreetMap/Nominatim (natural=strait; very wide feature — representative OSM label point)
+166	orkney-islands.txt	Graemsay	resolved	58.9302421	-3.2877480	island	OpenStreetMap/Nominatim
+167	orkney-islands.txt	Graemsay Pier	resolved	58.9312217	-3.2677485	ferry_terminal	OpenStreetMap/Nominatim (Graemsay Ferry Terminal)
+168	orkney-islands.txt	Hoy High Lighthouse	resolved	58.9356656	-3.2732917	lighthouse	OpenStreetMap/Nominatim
+169	orkney-islands.txt	Hoy Low Lighthouse	resolved	58.9403881	-3.3100615	lighthouse	OpenStreetMap/Nominatim (named ‘Hoy Low’)
+170	orkney-islands.txt	Glenelg	not_found			farm	No OSM/Canmore match for Orcadian ‘Glenelg’; would collide with Highland Glenelg if guessed
+171	orkney-islands.txt	Flotta	resolved	58.8313052	-3.1281138	island	OpenStreetMap/Nominatim
+172	orkney-islands.txt	Flotta Pier	resolved	58.8376944	-3.1307667	ferry_terminal	OpenStreetMap/Nominatim (Flotta Ferry Terminal — public ferry berth)
+173	orkney-islands.txt	Stanger Head	resolved	58.8154417	-3.0846632	headland	Canmore NRHE 104488 Flotta Stanger Head (ND 3745 9250) — WGS84 via BNG→EPSG:4326
+174	orkney-islands.txt	Pan Hope	resolved	58.8386618	-3.0781341	coast	OpenStreetMap/Nominatim (Whome/Flotta)
+175	orkney-islands.txt	Crosaig	not_found			unknown	No OSM/listed match on Flotta; not Crossaig (Argyll)
+176	orkney-islands.txt	Calf of Flotta	resolved	58.8533488	-3.0734992	islet	OpenStreetMap/Nominatim
+177	orkney-islands.txt	Rysa Little	resolved	58.8629144	-3.1998334	islet	OpenStreetMap/Nominatim
+178	orkney-islands.txt	Switha	resolved	58.7994732	-3.1042137	islet	OpenStreetMap/Nominatim
+179	orkney-islands.txt	Swona	resolved	58.7439060	-3.0574620	island	OpenStreetMap/Nominatim
+180	orkney-islands.txt	Cava	resolved	58.8796471	-3.1688798	island	OpenStreetMap/Nominatim
+181	orkney-islands.txt	Barrel of Butter	resolved	58.8904089	-3.1263851	skerry	OpenStreetMap/Nominatim (locality named for Scapa Flow skerry; human-map Scapa Flow)
+182	orkney-islands.txt	Fara	resolved	58.8448382	-3.1684922	island	OpenStreetMap/Nominatim
+183	orkney-islands.txt	Auskerry	resolved	59.0318624	-2.5686459	island	OpenStreetMap/Nominatim
+184	orkney-islands.txt	West Hill Auskerry	ambiguous				No named ‘West Hill’ in OSM; Auskerry lighthouse W of centre is only indexed subfeature
+185	orkney-islands.txt	Shapinsay	resolved	59.0524887	-2.8667998	island	OpenStreetMap/Nominatim
+186	orkney-islands.txt	Balfour	resolved	59.0317450	-2.9167329	village	OpenStreetMap/Nominatim (Balfour Castle — village anchor on Shapinsay)
+187	orkney-islands.txt	Balfour Pier	resolved	59.0315134	-2.9082711	ferry_terminal	OpenStreetMap/Nominatim (Shapinsay Ferry Terminal)
+188	orkney-islands.txt	Mill Bay Shapinsay	resolved	59.0540000	-2.8280000	bay	Approximate E/N coast Mill Bay / Mill Dam area; not separately named in OSM
+189	orkney-islands.txt	Saltness	resolved	59.0710000	-2.8080000	coast	Approximate Salt Ness / N coast Shapinsay (WWII battery area); distinct from Hoy-area Saltness in Nominatim
+190	orkney-islands.txt	Grass Holm Shapinsay	resolved	59.0609287	-2.9342071	islet	OpenStreetMap/Nominatim (Grass Holm)
+191	orkney-islands.txt	Gairsay	resolved	59.0819841	-2.9754679	island	OpenStreetMap/Nominatim
+192	orkney-islands.txt	Gairsay Pier	resolved	59.0828000	-2.9765000	pier	Approximate W-coast harbour; no named pier polygon in OSM
+193	orkney-islands.txt	Mill Bay Gairsay	resolved	59.0840000	-2.9710000	bay	Approximate small bay W Gairsay; not separately indexed in OSM
+194	orkney-islands.txt	Stronsay	resolved	59.1166182	-2.5628610	island	OpenStreetMap/Nominatim (Stronsay, Whitehall)
+195	orkney-islands.txt	Whitehall Stronsay	resolved	59.1166182	-2.5628610	village	OpenStreetMap/Nominatim (ferry port settlement)
+196	orkney-islands.txt	Rothiesholm	resolved	59.1020000	-2.6480000	peninsula	Approximate Rothiesholm isthmus/sands; OSM only inland farm/school names
+197	orkney-islands.txt	Mill Bay Stronsay	resolved	59.1260000	-2.5190000	bay	Approximate E coast Mill Bay (Island of Bays); no single OSM beach polygon
+198	orkney-islands.txt	Ventry Bay	ambiguous				No OSM ‘Ventry Bay’; Stronsay has many small bays — name not verified to one feature
+199	orkney-islands.txt	St Catherine's Bay Stronsay	resolved	59.1075000	-2.5780000	bay	Approximate W-coast beach bay (Walkhighlands / tourism; parking HY659284 area)
+200	orkney-islands.txt	Odness	resolved	59.1141928	-2.5523947	locality	OpenStreetMap/Nominatim (Odiness — spelling variant; coastal walk context)
+201	orkney-islands.txt	Holland Stronsay	resolved	59.0860000	-2.5820000	bay	Approximate Bay of Holland (S Stronsay); not Holland Road building hit
+202	orkney-islands.txt	Papa Stronsay	resolved	59.1519411	-2.5918733	island	OpenStreetMap/Nominatim
+203	orkney-islands.txt	Sanday	resolved	59.2484042	-2.5824319	island	OpenStreetMap/Nominatim
+204	orkney-islands.txt	Kettletoft	resolved	59.2320190	-2.5997478	village	OpenStreetMap/Nominatim (Kettletoft Hotel — settlement hub)
+205	orkney-islands.txt	Broughtown	resolved	59.2550000	-2.5980000	village	Wikipedia / OS grid HY659410; no separate OSM place node
+206	orkney-islands.txt	Beaquoy	not_found				No Sanday match in OSM/Nominatim; mainland Dounby ‘Beaquoy’ is wrong island
+207	orkney-islands.txt	Lopness	resolved	59.1635950	-2.9791197	hamlet	OpenStreetMap/Nominatim (Lopness building — Sanday S coast context)
+208	orkney-islands.txt	Scar	resolved	59.2680000	-2.5920000	village	Approximate N Sanday village (B9068 N of Broughtown); no OSM name match
+209	orkney-islands.txt	Tresness	resolved	59.2479776	-2.5209022	tombolo	OpenStreetMap/Nominatim (Tresness tourism — tied island / tombolo)
+210	orkney-islands.txt	Start Point Sanday	resolved	59.2774288	-2.3758892	headland	OpenStreetMap/Nominatim (Start Point Lighthouse — NE cape; line 211 is lighthouse name)
+211	orkney-islands.txt	Start Point Lighthouse	resolved	59.27730	-2.37628	lighthouse	Northern Lighthouse Board / Wikidata (same tower as Start Point Sanday)
+212	orkney-islands.txt	Otterswick	resolved	59.2853	-2.5235	bay	GeoHack Otters Wick (Sanday NE bay; list line is settlement name for bay)
+213	orkney-islands.txt	Bay of Lopness	resolved	59.2673	-2.483	bay	GeoHack List of bays of the Orkney Islands
+214	orkney-islands.txt	Spur Ness	resolved	59.1810	-2.583	peninsula	Canmore HY63NW 36 (Spur Ness/Spurness W Sanday); approximate peninsula centroid
+215	orkney-islands.txt	Eday	resolved	59.172	-2.783	island	Wikipedia Eday (island centroid)
+216	orkney-islands.txt	Eday Pier	resolved	59.1563	-2.7497	pier	Geograph/OSM object location Bay of Backaland ferry pier (Backaland)
+217	orkney-islands.txt	Calf of Eday	resolved	59.233	-2.733	island	Wikipedia Calf of Eday
+218	orkney-islands.txt	Calf Sound	resolved	59.236	-2.745	sound	Approximate strait centre between Eday and Calf of Eday (lighthouse/Calf coords)
+219	orkney-islands.txt	Mill Bay Eday	resolved	59.2076	-2.7496	bay	Wikipedia List of bays of the Orkney Islands (Mill Bay, Calfsound)
+220	orkney-islands.txt	Vincent Bay	not_found			No standard "Vincent Bay" on Eday in OS/Wikipedia bay lists; likely local or mistranscription
+221	orkney-islands.txt	London Bay	resolved	59.1916	-2.7577	bay	Wikipedia List of bays (Bay of London, Calfsound)
+222	orkney-islands.txt	Green Holm Eday	resolved	59.13000	-2.82889	island	Wikipedia Muckle Green Holm (“Green Holms” off Eday SW)
+223	orkney-islands.txt	Red Holm Eday	resolved	59.2345	-2.824	island	Approximate tiny Red Holm in Sound of Faray (E of Holm of Faray; OS Name Books / Wikipedia context)
+224	orkney-islands.txt	Rusk Holm	resolved	59.20778	-2.85389	island	Wikipedia Rusk Holm (Rapness Sound)
+225	orkney-islands.txt	North Ronaldsay	resolved	59.373386	-2.425826	island	GeoHack / Wikipedia North Ronaldsay
+226	orkney-islands.txt	Linklet	resolved	59.37667	-2.40950	locality	Canmore HY75NE 49 (Linklet Bay — township area N Ronaldsay)
+227	orkney-islands.txt	Nouster Pier	resolved	59.35762	-2.44067	pier	Canmore North Ronaldsay Nouster ferry pier
+228	orkney-islands.txt	Dennis Head	resolved	59.3843	-2.3714	headland	Wikipedia Dennis Head Old Beacon (NE headland)
+229	orkney-islands.txt	Bridesness	resolved	59.35597	-2.39752	promontory	Saints in Scottish Place-Names Bride's Ness (Bridesness)
+230	orkney-islands.txt	Twingness	resolved	59.35778	-2.44333	locality	Wikidata NRBO address (Twingness — observatory hamlet)
+231	orkney-islands.txt	South Ness North Ronaldsay	resolved	59.3539	-2.4337	coast	Wikipedia List of bays (South Bay — S coast N Ronaldsay)
+232	orkney-islands.txt	Westness North Ronaldsay	resolved	59.381	-2.404	farm	SOC Orkney (Westness ~HY767557); approximate crofting area centroid
+233	orkney-islands.txt	Bird Observatory North Ronaldsay	resolved	59.35778	-2.44333	bird_observatory	Wikidata Q42418388 (NRBO Twingness)
+234	orkney-islands.txt	Stanley Hill North Ronaldsay	not_found			No authoritative map feature for "Stanley Hill" on North Ronaldsay (not Stan Stane / Holland Hill)
+235	orkney-islands.txt	Westray	resolved	59.300	-3.000	island	Wikipedia Westray
+236	orkney-islands.txt	Pierowall	resolved	59.32003	-2.99001	village	Canmore Westray Pierowall
+237	orkney-islands.txt	Pierowall Bay	resolved	59.32136	-2.9696	bay	GeoHack Bay of Pierowall
+238	orkney-islands.txt	Gill Pier	resolved	59.32586	-2.96786	pier	Canmore Westray Gill Pier
+239	orkney-islands.txt	Rapness	resolved	59.255	-2.857	settlement	Wikipedia Rapness (ferry slip)
+240	orkney-islands.txt	Noltland	resolved	59.32441	-3.00507	archaeology	Canmore Westray Noltland (Links of Noltland environs)
+241	orkney-islands.txt	Noup Head	resolved	59.33109	-3.070298	headland	GeoHack/NLB point on NW cape Westray; same headland mass as lighthouse (line 242)
+242	orkney-islands.txt	Noup Head Lighthouse	resolved	59.3310747	-3.0701265	lighthouse	OpenStreetMap/Nominatim
+243	orkney-islands.txt	Knelsetter	resolved	59.27114	-2.97175	archaeology	Canmore Westray Kestro (HY44714315) — list spelling treated as local variant
+244	orkney-islands.txt	Linksness	ambiguous			coast	No OSM 'Linksness' on Westray; nearest indexed 'links' coast is Links of Noltland/Grobust (not assumed identical)
+245	orkney-islands.txt	Tuquoy Westray	resolved	59.2774815	-2.9607361	hamlet	OpenStreetMap building Tuquoy
+246	orkney-islands.txt	Holm of Aikerness	not_found			holm	No OSM/Canmore pin for this holm name in Westray/Papay context
+247	orkney-islands.txt	Papa Westray	resolved	59.3548383	-2.8974154	island	OpenStreetMap/Nominatim island polygon
+248	orkney-islands.txt	Holland Papay	resolved	59.3477319	-2.8898911	settlement	OpenStreetMap Papa Westray Community School in Holland
+249	orkney-islands.txt	Moclett	resolved	59.3268973	-2.8912641	pier	OpenStreetMap Moclett Pier
+250	orkney-islands.txt	North Hill Papa Westray	resolved	59.37788	-2.88442	hill	DoBIH / RSPB area grid HY498549 (North Hill / Errival maritime heath)
+251	orkney-islands.txt	Papa Westray Airport	resolved	59.3512139	-2.8986988	airport	OpenStreetMap/Nominatim
+252	orkney-islands.txt	Papa Sound	resolved	59.337	-2.945	sound	Approximate mid-channel Westray–Papa Westray; not separately indexed in OSM
+253	orkney-islands.txt	Rousay	resolved	59.1631078	-3.0466057	island	OpenStreetMap island relation
+254	orkney-islands.txt	Frotoft	resolved	59.1309213	-3.0359154	hamlet	OpenStreetMap Frotoft Schoolhouse as Frotoft settlement anchor
+255	orkney-islands.txt	Brinian	resolved	59.1319258	-2.9885445	village	OpenStreetMap place The Brinian (Rousay ferry settlement)
+256	orkney-islands.txt	Wasbister	resolved	59.1796669	-3.0602189	hamlet	OpenStreetMap Wasbister Schoolhouse
+257	orkney-islands.txt	Midhowe	resolved	59.1574952	-3.1002319	historic	OpenStreetMap Midhowe Broch
+258	orkney-islands.txt	Saviskaill	resolved	59.1841487	-3.0504959	locality	OpenStreetMap Saviskaill building
+259	orkney-islands.txt	Westness Rousay	resolved	59.1424304	-3.0797170	house	OpenStreetMap Westness House
+260	orkney-islands.txt	Quandale	resolved	59.16990	-3.09919	locality	Canmore Mid Quandale farmstead (HY37263198)
+261	orkney-islands.txt	Rackwick Rousay	ambiguous			bay	No Rousay-specific Rackwick in OSM or Wikipedia Rousay bay table; distinct from Hoy Rackwick and Westray Rack Wick
+262	orkney-islands.txt	Mill Bay Rousay	resolved	59.16320	-2.98017	bay	Canmore Rousay Nethermill (meal mill Sourin) — approximate tidal bay at mill shore
+263	orkney-islands.txt	Fa'doon	resolved	59.1710	-3.0065	croft	Rousay Remembered: croft Sourin below Kierfea Hill — approximate (not OSM)
+264	orkney-islands.txt	Veantro	ambiguous			bay	Veantro Bay in general references is Shapinsay NW; this list row sits in Rousay coastal sequence
+265	orkney-islands.txt	Egilsay	resolved	59.1474761	-2.9269459	island	OpenStreetMap island polygon
+266	orkney-islands.txt	Mill Bay Egilsay	resolved	59.1460	-2.9407	bay	Wikipedia List of bays of the Orkney Islands (Egilsay): Bay of Skaill
+267	orkney-islands.txt	Cottascarth	not_found			heath	RSPB Cottascarth pin is Mainland Evie; no Egilsay/Wyre OSM name match for this spelling here
+268	orkney-islands.txt	Kili Holm	resolved	59.1764603	-2.9188084	islet	OpenStreetMap/Nominatim
+269	orkney-islands.txt	Wyre	resolved	59.1193222	-2.9701566	island	OpenStreetMap island polygon
+270	orkney-islands.txt	Wyre Pier	resolved	59.1248477	-2.9733700	ferry_terminal	OpenStreetMap Wyre Ferry Terminal (public ferry slip)
+271	orkney-islands.txt	Eynhallow	resolved	59.1440976	-3.1200840	island	OpenStreetMap/Nominatim
+272	orkney-islands.txt	Sheep Skerry Eynhallow	not_found			skerry	No OSM/Nominatim hit for this skerry name off Eynhallow
+273	orkney-islands.txt	Faray	resolved	59.2145933	-2.8229667	island	OpenStreetMap/Nominatim
+274	orkney-islands.txt	Holm of Faray	resolved	59.2346151	-2.8297932	islet	OpenStreetMap/Nominatim
+275	orkney-islands.txt	Damsay	resolved	59.0080080	-3.0641331	islet	OpenStreetMap/Nominatim
+276	orkney-islands.txt	Helliar Holm	resolved	59.0227981	-2.9013631	islet	OpenStreetMap/Nominatim
+277	orkney-islands.txt	Holm of Grimbister	resolved	59.0039882	-3.0827488	islet	OpenStreetMap/Nominatim
+278	orkney-islands.txt	Inner Holm	resolved	58.9590361	-3.2892065	islet	OpenStreetMap/Nominatim (Stromness harbour islets)
+279	orkney-islands.txt	Thieves Holm	resolved	59.0171104	-2.9384934	islet	OpenStreetMap/Nominatim
+280	orkney-islands.txt	Muckle Green Holm	resolved	59.1287500	-2.8291709	islet	OpenStreetMap/Nominatim
+281	orkney-islands.txt	Holm of Huip	resolved	59.1662902	-2.6504583	islet	OpenStreetMap/Nominatim
+282	orkney-islands.txt	Holm of Papa	resolved	59.3502125	-2.8672753	islet	OpenStreetMap/Nominatim
+283	orkney-islands.txt	Holm of Scockness	resolved	59.1661889	-2.9503535	islet	OpenStreetMap/Nominatim
+284	orkney-islands.txt	Linga Holm	resolved	59.1342207	-2.6656293	island	OpenStreetMap/Nominatim
+285	orkney-islands.txt	Sweyn Holm	resolved	59.0890608	-2.9519153	islet	OpenStreetMap/Nominatim
+286	orkney-islands.txt	Muckle Skerry	resolved	58.6887796	-2.9258449	islet	OpenStreetMap/Nominatim (Pentland Skerries)
+287	orkney-islands.txt	Pentland Skerries	resolved	58.6887796	-2.9258449	archipelago	OpenStreetMap/Nominatim (group centroid matches Muckle Skerry hit)
+288	orkney-islands.txt	Little Skerry Muckle Skerry	not_found			skerry	Wikipedia lists Little Skerry off Muckle Skerry; no separate OSM object
+289	orkney-islands.txt	Sule Skerry	resolved	59.0851187	-4.4074835	island	OpenStreetMap/Nominatim
+290	orkney-islands.txt	Sule Stack	resolved	59.0239772	-4.5063023	island	OpenStreetMap/Nominatim
+291	orkney-islands.txt	Outer Holm	resolved	58.9560168	-3.2892844	islet	OpenStreetMap/Nominatim (Stromness harbour islets)
+292	orkney-islands.txt	Nevi Skerry	resolved	58.8447697	-3.0451315	rock	OpenStreetMap/Nominatim (natural rock off South Ronaldsay)
+293	orkney-islands.txt	Skerries of Clestrain	ambiguous			skerry	Offshore skerry group; no named OSM aggregate (Clestrain localities on land are not the reef)
+294	orkney-islands.txt	Skerries of Coubister	ambiguous			skerry	Offshore skerry group; no named OSM aggregate near Coubister
+295	orkney-islands.txt	Brough of Bigging	resolved	59.0214618	-3.3620577	historic	OpenStreetMap/Nominatim (Brough of Bigging promontory fort)
+296	orkney-islands.txt	Bo Skerry	not_found			skerry	Listed among Mainland skerries (e.g. Wikipedia) but no OSM/Nominatim point; not assuming Toab Skerry
+297	orkney-islands.txt	Seal Skerry Mainland	resolved	59.0668594	-2.9879297	islet	OpenStreetMap/Nominatim (Seal Skerry — Mainland context; distinct northern islets also named Seal Skerry)
+298	orkney-islands.txt	Skara Brae Beach	resolved	59.0487237	-3.3418007	beach	Approximate Bay of Skaill foreshore at Skara Brae; OSM returns site protected_area polygon centroid
+299	orkney-islands.txt	Stromness Ferry	resolved	58.9640509	-3.2955461	ferry_terminal	OpenStreetMap/Nominatim (Northlink Ferries office/terminal building, Ferry Road)
+300	orkney-islands.txt	Kirkwall Ferry Terminal	resolved	58.9865605	-2.9609154	ferry_terminal	OpenStreetMap/Nominatim (Northlink Kirkwall HGV/passenger ferry terminal node)
+301	orkney-islands.txt	John o' Groats Ferry Burwick	resolved	58.7398378	-2.9727060	pier	OpenStreetMap/Nominatim (Burwick Pier - Orkney landing for John o' Groats passenger ferry)
+302	orkney-islands.txt	Pentland Ferries St Margaret's Hope	resolved	58.8319881	-2.9622488	ferry_terminal	OpenStreetMap/Nominatim (Saint Margaret's Hope - Gills Bay Ferry Terminal; Pentland Ferries)
+303	orkney-islands.txt	Longhope Hoy	resolved	58.7987794	-3.2037988	village	OpenStreetMap/Nominatim (Longhope, Hoy)
+304	orkney-islands.txt	Hoy Sound	resolved	58.9449383	-3.3274950	strait	OpenStreetMap/Nominatim
+305	orkney-islands.txt	Wide Firth	resolved	59.0443511	-2.9689866	strait	OpenStreetMap/Nominatim
+306	orkney-islands.txt	Inganess Airport Beach	resolved	58.9628114	-2.9144499	beach	OpenStreetMap/Nominatim (Inganess beach beside Kirkwall Airport)
+307	orkney-islands.txt	Warebeth Cemetery	resolved	58.9541717	-3.3268662	historic	OpenStreetMap/Nominatim (Warebeth Cemetery Broch node — broch/burial-ground site at Warebeth)
+308	orkney-islands.txt	North Ronaldsay Sheep Dyke	ambiguous			attraction	Perimeter drystone wall around the island; no single named OSM point for the dyke as a whole
+309	orkney-islands.txt	Westray Airfield	resolved	59.3508284	-2.9490749	aerodrome	OpenStreetMap/Nominatim (Westray Airport)
+310	orkney-islands.txt	Papay	resolved	59.3548383	-2.8974154	island	OpenStreetMap/Nominatim (Papa Westray - local name Papay; island centroid)

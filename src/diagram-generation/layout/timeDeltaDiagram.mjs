@@ -5,7 +5,7 @@
  * Policies for {@link buildTimeDeltaDiagramFromSpec}:
  * - Throws when `spec.timeDelta` is missing or not a plain object.
  * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
- * - Throws when `timeDelta.leftOfOrigin`, `timeDelta.belowOrigin`, and `timeDelta.fontHeight` are not finite numbers.
+ * - Throws when `timeDelta.belowOrigin` and `timeDelta.fontHeight` are not finite numbers.
  *
  * {@link layoutTimeDeltaDiagram} is pure geometry + text placement from a resolved {@link TimeDeltaLayout}; it does not read the spec.
  */
@@ -18,7 +18,7 @@ import { requirePlainObject, requireString } from "./specRequire.mjs";
 export const TIME_DELTA_EMPTY_MESSAGE = "No further tides today";
 
 /**
- * Layout input for the TimeDelta strip (RefRadius-normalised `x`, `y`, and `fontHeight`).
+ * Layout input for the TimeDelta strip (RefRadius-normalised `belowOrigin` and `fontHeight`).
  *
  * @typedef {object} TimeDeltaLayoutCountdown
  * @property {'countdown'} kind
@@ -26,13 +26,11 @@ export const TIME_DELTA_EMPTY_MESSAGE = "No further tides today";
  * @property {'out-low' | 'in-high'} tidePhasePair
  * @property {string} nextEventTimeHhmm
  * @property {string} interval
- * @property {number} leftOfOrigin
  * @property {number} belowOrigin
  * @property {number} fontHeight
  *
  * @typedef {object} TimeDeltaLayoutEmpty
  * @property {'empty'} kind
- * @property {number} leftOfOrigin
  * @property {number} belowOrigin
  * @property {number} fontHeight
  *
@@ -54,25 +52,23 @@ export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
   if (timeDeltaLayout.kind === "countdown") {
     const tdFont = timeDeltaLayout.fontHeight * R;
     const tdY = 0 - timeDeltaLayout.belowOrigin * R;
-    const leftEdge = 0 - timeDeltaLayout.leftOfOrigin * R;
     const isOutLow = timeDeltaLayout.tidePhasePair === "out-low";
     const direction = isOutLow ? "going out" : "coming in";
     const eventLabel = isOutLow ? "Low tide" : "High tide";
     timeDeltaLine = {
       content: `${timeDeltaLayout.town} · Tide ${direction} · ${eventLabel} in ${timeDeltaLayout.interval} (${timeDeltaLayout.nextEventTimeHhmm})`,
       fontSize: tdFont,
-      anchor: { x: leftEdge, y: tdY },
-      hAlign: "left",
+      anchor: { x: 0, y: tdY },
+      hAlign: "center",
     };
   } else {
     const tdFont = timeDeltaLayout.fontHeight * R;
     const tdY = 0 - timeDeltaLayout.belowOrigin * R;
-    const leftEdge = 0 - timeDeltaLayout.leftOfOrigin * R;
     timeDeltaEmptyMessage = {
       content: TIME_DELTA_EMPTY_MESSAGE,
       fontSize: tdFont,
-      anchor: { x: leftEdge, y: tdY },
-      hAlign: "left",
+      anchor: { x: 0, y: tdY },
+      hAlign: "center",
     };
   }
 
@@ -93,7 +89,6 @@ export function buildTimeDeltaDiagramFromSpec(spec, refRadius) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
 
-  const tdLeft = o.leftOfOrigin;
   const tdBelow = o.belowOrigin;
   const tdFh = o.fontHeight;
   const tdTown = requireString(o.town, "spec.timeDelta.town");
@@ -107,15 +102,13 @@ export function buildTimeDeltaDiagramFromSpec(spec, refRadius) {
     );
   }
   if (
-    typeof tdLeft !== "number" ||
     typeof tdBelow !== "number" ||
     typeof tdFh !== "number" ||
-    !Number.isFinite(tdLeft) ||
     !Number.isFinite(tdBelow) ||
     !Number.isFinite(tdFh)
   ) {
     throw new Error(
-      "spec.timeDelta requires finite numbers leftOfOrigin, belowOrigin, and fontHeight (RefRadius multiples)",
+      "spec.timeDelta requires finite numbers belowOrigin and fontHeight (RefRadius multiples)",
     );
   }
 
@@ -124,7 +117,6 @@ export function buildTimeDeltaDiagramFromSpec(spec, refRadius) {
     nextEvent == null
       ? {
           kind: "empty",
-          leftOfOrigin: tdLeft,
           belowOrigin: tdBelow,
           fontHeight: tdFh,
         }
@@ -134,7 +126,6 @@ export function buildTimeDeltaDiagramFromSpec(spec, refRadius) {
           tidePhasePair: tdTidePhasePair,
           nextEventTimeHhmm: `${String(Math.floor(nextEvent.seconds / 3600)).padStart(2, "0")}:${String(Math.floor((nextEvent.seconds % 3600) / 60)).padStart(2, "0")}`,
           interval: nextEvent.intervalText,
-          leftOfOrigin: tdLeft,
           belowOrigin: tdBelow,
           fontHeight: tdFh,
         };

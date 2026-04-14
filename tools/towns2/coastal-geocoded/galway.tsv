@@ -1,0 +1,187 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	galway.txt	Killary Harbour	resolved	53.616667	-9.8	bay	Wikipedia/Wikidata centroid; fjord between Galway and Mayo.
+2	galway.txt	Killary Galway shore	resolved	53.618	-9.785	shore	Representative south (Galway) shore of Killary; long inlet.
+3	galway.txt	Rosroe	resolved	53.624	-9.771	hamlet	Hamlet at Killary mouth, Galway side (Wikipedia settlement list).
+4	galway.txt	Rosroe pier	resolved	53.6243	-9.772	pier	Pier/quay at Rosroe, Killary entrance.
+5	galway.txt	Letterfrack	resolved	53.565787	-9.967389	village	OSM-style coords via GeoHack; Connemara National Park visitor hub.
+6	galway.txt	Letterfrack Pier	resolved	53.5608	-9.972	pier	Pier on Ballinakill/Ballynakill harbour at Letterfrack.
+7	galway.txt	Tullycross shore	resolved	53.5583	-9.9248	shore	Tully Cross (Renvyle ED); shore of Barnaderg Bay near Letterfrack.
+8	galway.txt	Renvyle	resolved	53.59	-9.988	peninsula	Central Renvyle peninsula (Tully / hotel area); not a single village centroid.
+9	galway.txt	Renvyle Beach	resolved	53.607278	-9.989139	beach	“White Strand” style sandy beach on Renvyle (promotional coords).
+10	galway.txt	Renvyle Point	resolved	53.610259	-10.048039	headland	MountainViews.ie coastal feature (Rinn Mhaoile / Rinvyle Point).
+11	galway.txt	Glassilaun	resolved	53.614778	-9.8795	beach	Bay/beach near Killary; Clifden Station House listed GPS for Glassilaun.
+12	galway.txt	Glassilaun Beach	resolved	53.6145	-9.8798	beach	Sandy beach in Glassilaun bay; same cove as line 11.
+13	galway.txt	Lettergesh	resolved	53.604899	-9.908147	beach	Lettergesh coastal place; Visit Galway lists this beach GPS.
+14	galway.txt	Lettergesh Beach	resolved	53.6049	-9.9081	beach	Same beach as line 13; car park at sand edge.
+15	galway.txt	Ballinakill Harbour	resolved	53.5628	-9.9695	harbour	Sea inlet at Letterfrack (“Ballinakill harbour” in Wikipedia).
+16	galway.txt	Rusheenduff Bay	resolved	53.572	-9.982	bay	Small bay NE of Renvyle peninsula near Letterfrack (local coastal name).
+17	galway.txt	Rusheenduff	resolved	53.5715	-9.9825	shore	Townland/shore name adjoining Rusheenduff Bay.
+18	galway.txt	Cleggan	resolved	53.549739	-10.117539	village	GeoHack/OS coords; fishing village head of Cleggan Bay.
+19	galway.txt	Cleggan Pier	resolved	53.5503	-10.1185	pier	Ferry pier at village (Nimmo pier; OSM vicinity).
+20	galway.txt	Cleggan Bay	resolved	53.542	-10.075	bay	Inlet W of Clifden; centroid approximate.
+21	galway.txt	Aughrusbeg	resolved	53.5545	-10.1765	shore	Aughrus peninsula “small Aughrus” beaches area W of Cleggan (not the lough).
+22	galway.txt	Anchor Beach	resolved	53.5542	-10.1772	beach	Named beach on Aughrusbeg (ship’s anchor); Aughrus angling guide vicinity.
+23	galway.txt	Omey Island	resolved	53.535278	-10.1575	island	Wikipedia tidal island; WGS84 from GeoHack.
+24	galway.txt	Omey Strand	resolved	53.5287	-10.1654	strand	Tidal strand/crossing from Claddaghduff (Sky Road directions GPS).
+25	galway.txt	Mannin Bay	resolved	53.455	-10.0777	bay	Logainm.ie centrepoint Cuan Mhanainn; SW of Clifden.
+26	galway.txt	Mannin Beach	resolved	53.443611	-10.091389	beach	Sandy beach at Mannin Bay (Clifden Station House listed coords).
+27	galway.txt	Ballynakill Harbour	resolved	53.5628	-9.9695	harbour	Same inlet as Ballinakill; parish/civil parish name Ballynakill.
+28	galway.txt	Streamstown	resolved	53.521111	-10.044444	townland	Townlands.ie centroid; Streamstown ED west of Clifden (Sky Road).
+29	galway.txt	Streamstown Beach	resolved	53.5205	-10.046	beach	Shore of Streamstown Bay off Sky Road loop.
+30	galway.txt	Clifden	resolved	53.48907	-10.0191	town	Clifden town centre (latlong.info / consolidated sources).
+31	galway.txt	Clifden Beach	resolved	53.4851	-10.0476	beach	Beaches On The Air / beach guides; sandy beach on Clifden Bay near Beach Road.
+32	galway.txt	Clifden Harbour	resolved	53.487	-10.025	harbour	Representative point in Clifden Bay inner harbour (Owenglin estuary); distinct from Nimmo quay head.
+33	galway.txt	Clifden Quay	resolved	53.485383	-10.029733	quay	eOceanic haven position (Nimmo drying quay, town centre).
+34	galway.txt	Fountainhill Public Beach	resolved	53.514	-10.124	beach	Sky Road / Kingstown Bay area; small public shore near Knockavally–Eyrephort (no single EPA pin).
+35	galway.txt	Kingstown	resolved	53.5157	-10.1308	shore	Kingstown Bay logainm/NPWS centroid; scattered settlement on bay (not Clifden town B&B).
+36	galway.txt	Kingstown Bay	resolved	53.5156	-10.1269	bay	NPWS SAC listing coordinates (site centroid).
+37	galway.txt	Ballyconneely	resolved	53.4333	-10.0667	village	Wikipedia settlement coordinates (Baile Conaola).
+38	galway.txt	Ballyconneely Beach	resolved	53.4325	-10.0685	beach	Representative sandy shore near village on Ballyconneely peninsula (several named strands nearby).
+39	galway.txt	Coral Strand	resolved	53.442357	-10.063867	beach	Visit Galway “Coral Beach” GPS (maërl strand, Mannin Bay).
+40	galway.txt	Coral Strand Derrygimla	resolved	53.4424	-10.0639	beach	Same Coral Strand feature; Derrygimla townland name (Wikipedia / local usage).
+41	galway.txt	Dunloughan Beach	resolved	53.440463	-10.14435	beach	Visit Galway Doonloughan Beach location.
+42	galway.txt	Dunlaughin Beach	resolved	53.440463	-10.14435	beach	Same as Dún Locháin/Doonloughan; alternate anglicised spelling in source list.
+43	galway.txt	Eyrephort Beach	resolved	53.528	-10.138	beach	Approximate head of strand off Sky Road W of Clifden (UK beach guides / Wild Atlantic Way descriptions).
+44	galway.txt	Cashel Bay	resolved	53.408	-9.908	bay	Centroid NE of Roundstone toward Cashel (sailing pilot Cashel Bay anchorages).
+45	galway.txt	Cashel Hill shore	resolved	53.406	-9.922	shore	Coastal margin below Cashel Hill toward Cashel Bay (hill walk / OS coastal strip).
+46	galway.txt	Bunowen	resolved	53.405833	-10.115917	shore	Pierhead settlement area; eOceanic Bunowen pier WGS84.
+47	galway.txt	Bunowen Bay	resolved	53.405833	-10.115917	bay	eOceanic Bunowen pierhead (representative head of bay).
+48	galway.txt	Gurteen Bay	resolved	53.37739	-9.960415	bay	Visit Galway Gurteen Bay Beach location (tombolo system with Dog’s Bay).
+49	galway.txt	Gurteen Beach	resolved	53.37739	-9.960415	beach	Visit Galway listing; main sandy shore of Gurteen Bay.
+50	galway.txt	Dogs Bay	resolved	53.3783	-9.9645	bay	Horseshoe bay west side of tombolo; centroid between Gurteen and Dog’s Bay Beach pins.
+51	galway.txt	Dog's Bay Beach	resolved	53.377857	-9.963623	beach	Visit Galway GPS for named beach parking area.
+52	galway.txt	Errisbeg	resolved	53.39562	-9.958588	hill	MountainViews.ie summit coords (Iorras Beag; backdrop to Roundstone bays).
+53	galway.txt	Roundstone	resolved	53.395	-9.918	village	Wikipedia / OS settlement coordinates.
+54	galway.txt	Roundstone Pier	resolved	53.396633	-9.917783	pier	eOceanic Roundstone pierhead (53°23.798′N 009°55.067′W).
+55	galway.txt	Roundstone Harbour	resolved	53.3969	-9.9183	harbour	Fishing harbour pool at village head (slightly inshore of pierhead waypoint).
+56	galway.txt	Roundstone Bay	resolved	53.3949	-9.9094	bay	Logainm.ie centrepoint Cuan Chloch na Rón / Roundstone Bay.
+57	galway.txt	Inishlacken	resolved	53.370833	-9.926944	island	Townlands.ie centroid (Roundstone Bay; anglicised from Inishlackan).
+58	galway.txt	Inishnee	resolved	53.399	-9.897	island	Wikipedia / GeoHack coordinates (Inis Ní; land-tied from Roundstone).
+59	galway.txt	Inishnee shore	resolved	53.3985	-9.9015	shore	Representative mainland/island shore by causeway area E of Roundstone village.
+60	galway.txt	Toombeola	resolved	53.433	-9.867	townland	Wikipedia townland centroid (Tuaim Beola; Owenmore mouth near Roundstone).
+61	galway.txt	Fahy Bay	resolved	53.558983	-10.01255	bay	eOceanic haven/anchorage position; Fahy Bay in Ballynakill Harbour (Connemara west coast).
+62	galway.txt	Ballynahinch River mouth	resolved	53.428	-9.869	estuary	Representative mouth of Owenmore/Ballynahinch River into Bertraghboy Bay S of Ballynahinch Castle (Wikipedia/Fishprep course).
+63	galway.txt	Carna	resolved	53.3237	-9.82609	village	Logainm.ie population-centre centroid (Carna townland).
+64	galway.txt	Carna Bay	resolved	53.312	-9.845	bay	Representative open-water bay W of Carna village (distinct from Logainm “Cuan Chara Bheag” in Gorumna ED).
+65	galway.txt	Carna Pier	resolved	53.3275	-9.8255	pier	Small harbour mole/slip area at Carna village head (approximate; no single charted public waypoint).
+66	galway.txt	Kilkieran Bay	resolved	53.2985	-9.73954	bay	Logainm.ie centrepoint (Cuan Chill Chiaráin).
+67	galway.txt	Kilkieran	resolved	53.322	-9.73177	village	eOceanic pierhead position (“Kilkieran” fishing quay; Cill Chiaráin).
+68	galway.txt	Lettermore	resolved	53.2995	-9.6801	island	Logainm.ie centrepoint (Leitir Móir / Lettermore Island).
+69	galway.txt	Lettermore Bay	resolved	53.292	-9.695	bay	Representative inlet/bay along Lettermore’s N shore toward Greatman’s/Kilkieran approaches (approximate centroid).
+70	galway.txt	Lettermullan	resolved	53.2447	-9.73789	island	Logainm.ie centrepoint (Leitir Mealláin / Lettermullan Island).
+71	galway.txt	Carraroe	resolved	53.2656	-9.5836	village	Wikipedia settlement coordinates (An Cheathrú Rua).
+72	galway.txt	Carraroe Pier	resolved	53.2663	-9.5842	pier	Sruthán/main pier at Carraroe village (OSM vicinity; slightly E of village centroid).
+73	galway.txt	Carraroe Harbour	resolved	53.2658	-9.583	harbour	Inner harbour pool by Sruthán pier / Caladh Thadhg (representative; same inlet system as village).
+74	galway.txt	Trá an Dóilín	resolved	53.249181	-9.629667	beach	Visit Galway listed GPS (Coral Strand / maerl beach).
+75	galway.txt	Trá an Doilin	resolved	53.249181	-9.629667	beach	Same feature as line 74; ASCII spelling variant in source list.
+76	galway.txt	Coral Strand Carraroe	resolved	53.249181	-9.629667	beach	Same Coral Strand (Trá an Dóilín) feature; distinct list label.
+77	galway.txt	Greatman's Bay	resolved	53.268	-9.652	bay	Representative centroid of Greatman’s Bay inlet E of Gorumna (cf. eOceanic Maumeen Quay vicinity).
+78	galway.txt	Mweenish	resolved	53.3019	-9.85523	island	Logainm.ie centrepoint (Maínis / Mweenish Island S of Carna).
+79	galway.txt	Mweenish Bay	resolved	53.3016	-9.82581	bay	Logainm.ie centrepoint (Cuan Mhaínse / Mweenish Bay).
+80	galway.txt	Macdara's Island	resolved	53.304424	-9.917318	island	Wikipedia/GeoHack coordinates (Cruach na Cara / Saint Macdara’s Island).
+81	galway.txt	Cartoor	ambiguous			unknown	Logainm “Cartoor/An Cartúr” (ID 18862) is a Moycullen townland E of Galway city (~53.37°N 9.14°W), not on this coastal arc; no confident coastal feature matching this label between Macdara and Lettermullen.
+82	galway.txt	Lettermullen	resolved	53.2447	-9.73789	island	Logainm.ie centrepoint; alternate anglicised spelling of Leitir Mealláin (cf. line 70).
+83	galway.txt	Gorumna	resolved	53.2545	-9.67834	island	Logainm.ie centrepoint (Garmna / Gorumna Island).
+84	galway.txt	Gorumna Island	resolved	53.2545	-9.67834	island	Same island group as line 83; duplicate label in source list.
+85	galway.txt	Moyrus	resolved	53.348889	-9.865833	townland	Townlands.ie centroid (Moyrus townland, Knockboy ED).
+86	galway.txt	Moyrus Bay	resolved	53.352	-9.872	bay	Informal coastal indent S/W of Moyrus townland toward Bertraghboy/Kilkieran approaches; no separate Logainm “Moyrus Bay”.
+87	galway.txt	Costello Bay	resolved	53.285	-9.558	bay	Representative Cashla/Costelloe inlet hosting Ros a’ Mhíl (anglicised “Costello Bay”; not Mayo Costello barony).
+88	galway.txt	Rossaveel	resolved	53.2708	-9.5511	village	Wikipedia coordinates (Ros a’ Mhíl / Rossaveel).
+89	galway.txt	Rossaveel Pier	resolved	53.26767	-9.56037	pier	eOceanic No.2 pierhead (53°16.060′N 009°33.622′W).
+90	galway.txt	Ross a' Mhíl	resolved	53.2708	-9.5511	village	Official Irish name for Rossaveel; same settlement centroid as line 88.
+91	galway.txt	Rossaveel Harbour	resolved	53.2693	-9.5532	harbour	Representative inner harbour/ferry basin NE in Cashla Bay; distinct from No.2 pierhead (line 89).
+92	galway.txt	Tawin Island	resolved	53.217	-9.03305	island	Logainm.ie Tamhain centrepoint; tidal island in inner Galway Bay.
+93	galway.txt	High Island	resolved	53.5464	-10.2572	island	Wikipedia/Wikidata; English name for monastic island (Ardoileán).
+94	galway.txt	Ardoileán	resolved	53.546389	-10.256944	island	Logainm/Wikipedia; Irish name for High Island (line 93).
+95	galway.txt	Claddaghduff	resolved	53.55	-10.133333	village	Wikipedia/GeoHack rounded coords; village W of Clifden at Omey Strand.
+96	galway.txt	Claddaghduff shore	resolved	53.548	-10.132	shore	Representative foreshore toward Omey Island crossing (village coast).
+97	galway.txt	Spiddal	resolved	53.2455	-9.3036	village	Logainm/Wikidata population-centre coords (An Spidéal).
+98	galway.txt	An Spidéal	resolved	53.2455	-9.3036	village	Official Irish name for Spiddal; same centroid as line 97.
+99	galway.txt	Spiddal Pier	resolved	53.23885	-9.3125	pier	Commons/geograph depicted place; old pier head W of village centre.
+100	galway.txt	Spiddal Beach	resolved	53.24402	-9.297335	beach	Visit Galway listing; main roadside strand (also marketed as Trá na mBán).
+101	galway.txt	Trá na mBán	resolved	53.24402	-9.297335	beach	Visit Galway GPS; Ladies’ Strand / Spiddal Beach (same sand as line 100).
+102	galway.txt	Inverin	resolved	53.2333	-9.4333	village	Wikipedia settlement coords (Indreabhán area).
+103	galway.txt	An Trá Mhór	resolved	53.234194	-9.439024	beach	Visit Galway Blue Flag beach W of Spiddal (Inverin ED; “big strand”).
+104	galway.txt	Indreabhán	resolved	53.2333	-9.4333	village	Irish name for Inverin; same coastal settlement as line 102.
+105	galway.txt	Na Forbacha	resolved	53.2737	-9.21374	area	Logainm.ie electoral division centrepoint (official name for Furbo district).
+106	galway.txt	Furbo	resolved	53.249	-9.205	village	Wikipedia Na Forbacha population centre on R336 coast.
+107	galway.txt	Furbo Beach	resolved	53.2505	-9.209	beach	Trá na bhForbacha bathing strand seaward of Furbo village (approximate centroid).
+108	galway.txt	Barna	resolved	53.2551	-9.16241	village	Logainm Bearna population-centre coords.
+109	galway.txt	Barna Pier	resolved	53.2555	-9.1615	pier	Cé Bearna quay head into Galway Bay (NIAH Irish Grid–anchored; WGS84 approximate).
+110	galway.txt	Barna Harbour	resolved	53.2553	-9.1618	harbour	Small craft pool by Barna Pier / Freeport (representative).
+111	galway.txt	Silverstrand	resolved	53.25115	-9.126185	beach	Visit Galway Trá na gCeann / Silverstrand Blue Flag pin.
+112	galway.txt	Silverstrand Beach	resolved	53.25115	-9.126185	beach	Same horseshoe beach as line 111 (Rusheen Bay area).
+113	galway.txt	Blackrock	resolved	53.2555	-9.0915	shore	Named Salthill bathing area W of diving tower (Blackrock Beach vicinity).
+114	galway.txt	Blackrock Diving Tower	resolved	53.256207	-9.092183	attraction	Visit Galway GPS; iconic tower on Salthill promenade.
+115	galway.txt	Salthill	resolved	53.2608	-9.075	area	Wikipedia-class seaside suburb centroid along Galway Bay (approximate).
+116	galway.txt	Salthill Promenade	resolved	53.2585	-9.085	promenade	Representative mid‑prom R336 seafront between Grattan Rd and Blackrock.
+117	galway.txt	Grattan Beach	resolved	53.262806	-9.066108	beach	Visit Galway GPS; Grattan Road sandy beach E of core Salthill.
+118	galway.txt	Ladies Beach	resolved	53.2494	-9.1083	beach	Published stop/guide coords; largest Salthill bathing beach near Blackrock.
+119	galway.txt	Claddagh	resolved	53.2683	-9.0569	area	River Corrib mouth neighbourhood; centroid near Spanish Arch quays.
+120	galway.txt	The Long Walk	resolved	53.268447	-9.055116	quay	Mapio photo GPS; colourful quay houses W of Spanish Arch.
+121	galway.txt	Galway Docks	resolved	53.2702	-9.0501	docks	Wikipedia Port of Galway / inner commercial docks centroid.
+122	galway.txt	Galway Harbour	resolved	53.2685	-9.0485	harbour	Representative city harbour pool W of port gates (Corrib mouth / Nimmo’s pier sector; wider than inner docks alone).
+123	galway.txt	Galway Port	resolved	53.2702	-9.0501	port	Same statutory port (IEGWY) centroid as inner docks; used interchangeably in sources.
+124	galway.txt	Newcastle Galway shore	resolved	53.2725	-9.058	shore	Nearest Galway Bay foreshore S of Rahoon Newcastle townland (townland centroid inland; pins city-side bay margin).
+125	galway.txt	Mutton Island	resolved	53.253	-9.054	island	Wikipedia / townlands.ie coords; lighthouse island W of Salthill (causeway present).
+126	galway.txt	Hare Island	resolved	53.2585	-9.02489	island	Logainm.ie centrepoint Oileán Rois Mhóir (Renmore harbour pool).
+127	galway.txt	Rinville	resolved	53.245755	-8.961947	area	Orienteering Ireland / Visit Galway lower car park GPS; Rinville Park / harbour district near Oranmore.
+128	galway.txt	Rinville Bay	resolved	53.2463	-8.968	bay	Small inlet W of Rinville Point along park coastline (approximate bay centroid).
+129	galway.txt	Rinville Point	resolved	53.245782	-8.961875	headland	Visit Galway listing GPS; scenic point in Rinville Park walks.
+130	galway.txt	Oranmore	resolved	53.27944	-8.92472	village	Wikipedia decimal coords; town on inner Galway Bay east of Galway city.
+131	galway.txt	Oranmore Bay	resolved	53.276	-8.928	bay	Sheltered inner bay reach around Oranmouth / town waterfront (approximate).
+132	galway.txt	Meehan Point	not_found			unknown	No matching coastal point on charts or placename DB for “Meehan Point” in this bay context.
+133	galway.txt	Carnmore Bay mouth	ambiguous			bay	No charted “Carnmore Bay”; name may mean east Galway Bay shore off Carnmore/Oranmore—too vague to pin.
+134	galway.txt	Creach River estuary	not_found			estuary	No “Creach River” at Kinvara coast in standard references; not Kinvara Bay mouth without inventing a river.
+135	galway.txt	Kinvarra	resolved	53.138889	-8.931944	village	Alternate spelling of Kinvara (Cinn Mhara); Wikipedia/GeoHack village coords.
+136	galway.txt	Kinvara	resolved	53.138889	-8.931944	village	Same settlement as line 135; head of Kinvara Bay.
+137	galway.txt	Kinvara Pier	resolved	53.1412	-8.9385	pier	Main village quay / Cruinniú na mBád harbour front (approximate pierhead).
+138	galway.txt	Kinvara Bay	resolved	53.1628	-8.95408	bay	Logainm.ie centrepoint Bá Chinn Mhara / Kinvarra Bay.
+139	galway.txt	Dunguaire Castle	resolved	53.138611	-8.930833	castle	Wikipedia / tourism standard WGS84 for towerhouse on Kinvara shore.
+140	galway.txt	Traught Beach	resolved	53.171552	-8.985957	beach	Visit Galway published GPS; rural strand S of Kinvara near Galway–Clare shore.
+141	galway.txt	Kilcolgan shore	resolved	53.212466	-8.872433	shore	Wikipedia village coords at Dunkellin Bay / Kilcolgan River mouth; representative shore access.
+142	galway.txt	Carrowmore Point Kinvara	resolved	53.152	-8.942	headland	Approximate N-side Kinvara Bay rocky point near local “Carrowmore” coastal usage (no separate logainm point entry).
+143	galway.txt	Killeenaran Bay	resolved	53.196111	-8.931667	bay	Brandy Bay / Killeenaran pier area; townlands.ie townland centroid at head of inlet.
+144	galway.txt	Inishbofin	resolved	53.617	-10.200	island	Wikipedia island centroid; Inis Bó Finne (Galway), not Donegal namesake.
+145	galway.txt	Inishbofin Harbour	resolved	53.6209	-10.218	harbour	Main ferry harbour / village roadstead (logainm civil parish centre nearby).
+146	galway.txt	Inishbofin Pier	resolved	53.621	-10.2178	pier	Ferry landing “New Pier” head (approximate; adjoins harbour pool).
+147	galway.txt	Inishbofin West Quarter shore	resolved	53.6105	-10.232	shore	Representative West Quarter Atlantic shoreline W of harbour (Westquarter loop sector).
+148	galway.txt	Inishbofin East End Beach	resolved	53.624	-10.188	beach	Cloonamore / East End Bay sector; E coast walk from Dumhach (approximate strand centroid).
+149	galway.txt	Dumhnach Beach	resolved	53.619	-10.191	beach	Dumhach/Dumhnach strand SE coast; tourism “Dumhach Beach” sector (near Duach listings).
+150	galway.txt	Cnoc Gréine Inishbofin	not_found			hill	No published coords or logainm match for this hill name on Inishbofin; not Dún Gráinne promontory.
+151	galway.txt	Dun Grainne promontory	resolved	53.6208	-10.2181	promontory fort	Dún Gráinne on Doonnahineena Island at Inishbofin harbour mouth; logainm centrepoint.
+152	galway.txt	Inishshark ruins shore	resolved	53.6089	-10.2826	shore	Inis Airc (Inishshark) island centroid; uninhabited, former village ruins on shore (logainm.ie).
+153	galway.txt	Inishmore	resolved	53.12361	-9.7275	island	Wikipedia centroid for Inis Mór / Inishmore (Árainn).
+154	galway.txt	Árainn	resolved	53.12361	-9.7275	island	Official Irish name for Inishmore; same island centroid as line 153.
+155	galway.txt	Kilronan	resolved	53.1247	-9.6683	village	Cill Rónáin main settlement; Wikipedia coordinates.
+156	galway.txt	Kilronan Pier	resolved	53.1203	-9.6682	pier	Main ferry/quay head in Kilronan harbour pool (tourist/OSM-class positions near waterfront).
+157	galway.txt	Kilronan Harbour	resolved	53.1212	-9.669	harbour	Representative point in Kilronan roadstead / ferry basin (distinct from outer pierhead).
+158	galway.txt	Kilmurvey Beach	resolved	53.131149	-9.749956	beach	Visit Galway / tourism published GPS for Blue Flag strand at Cill Mhuirbhigh.
+159	galway.txt	Kilmurvey Bay	resolved	53.131	-9.750	bay	Sheltered bay containing Kilmurvey Beach; representative centroid in same cove.
+160	galway.txt	Dún Aonghasa cliff edge	resolved	53.12615	-9.76825	cliff	SW cliff-top margin at Dún Aonghasa promontory (visitor-facing cliff lip, ~fort area).
+161	galway.txt	Poll na bPéist	resolved	53.121615	-9.754799	tidal pool	Visit Galway “Wormhole” GPS; Poll na bPéist rectangular sea-pool S of Dún Aonghasa.
+162	galway.txt	Teampall Bheanáin shore	resolved	53.1018	-9.6655	shore	Killeaney Bay foreshore below the Teampall Bheanáin ridge (temple itself is on the hill).
+163	galway.txt	Clochán na Carraige	resolved	53.141357	-9.759735	clochán	Visit Galway listing; national monument beehive hut N of Kilmurvey–Sruthán road.
+164	galway.txt	Port Murvey	resolved	53.131	-9.750	landing	Anglicisation of Port Mhuirbhigh / Kilmurvey coastal landing near Blue Flag beach.
+165	galway.txt	Mainistir Inishmore shore	resolved	53.12199	-9.66875	monastery	Teampall Chiaráin / Mainistir cluster (GeoHack “Inishmore Monastery”); short walk to E coast.
+166	galway.txt	Inishmaan	resolved	53.085	-9.59	island	Wikipedia centroid for Inis Meáin (middle Aran Island).
+167	galway.txt	Inis Meáin	resolved	53.085	-9.59	island	Official Irish name; same island as line 166.
+168	galway.txt	Cairn na gCapall	resolved	53.1227	-9.73883	field	Treated as Gort na gCapall minor feature in Kilmurvey townland (logainm.ie centrepoint).
+169	galway.txt	Inisheer	resolved	53.05806	-9.5275	island	Wikipedia centroid for Inis Oírr / Inisheer.
+170	galway.txt	Inis Oírr	resolved	53.05806	-9.5275	island	Official Irish name; same island as line 169.
+171	galway.txt	Inis Óirr	resolved	53.05806	-9.5275	island	Variant spelling in source list; same island centroid.
+172	galway.txt	Inisheer Pier	resolved	53.068383	-9.522383	pier	eOceanic pierhead WGS84 (53°4.103′N 9°31.343′W).
+173	galway.txt	Trá gCaorach	resolved	53.0554	-9.50709	strand	logainm.ie Trá Caorach (Trawkeera) centrepoint on Inis Oírr.
+174	galway.txt	An Trá Mhór Inis Oírr	resolved	53.073167	-9.5223	beach	Main north-coast sandy beach (Trá Inis Oírr / north strand); eOceanic “north strand” approach fix; not Inverin mainland beach.
+175	galway.txt	Plassey wreck Cill Shléibhe	resolved	53.055733	-9.503715	wreck	Visit Galway MV Plassy wreck position on Inis Oírr E shore (Cill Shléibhe locale).
+176	galway.txt	O'Brien's Castle Inisheer	resolved	53.061999	-9.519162	castle	Wikipedia / GeoHack WGS84 for Caisleán Uí Bhriain.
+177	galway.txt	Ferries Inis Oírr	resolved	53.068383	-9.522383	ferry terminal	Representative passenger ferry berth (same pierhead as line 172).
+178	galway.txt	Dún Dúchathair shore	resolved	53.10456	-9.68757	promontory fort	Black Fort cliff promontory; Wikipedia coordinates (shore at fort base).
+179	galway.txt	Dún Eochla	resolved	53.12722	-9.69972	ringfort	Megalithic Ireland DMS conversion; stone fort at island high point near old lighthouse.
+180	galway.txt	Dún Aonghasa	resolved	53.12583	-9.76806	hill fort	Wikipedia landmark coordinates; cliff-top fort (distinct row from cliff-edge line 160).
+181	galway.txt	An Trá Mhór Aran	resolved	53.1029	-9.65269	strand	logainm.ie An Trá Mhór/Trawmore (Cill Éinne/Killeany, Inishmore); Aran-island Trá Mhór—not mainland Inverin beach.
+182	galway.txt	Frenchman's Beach Inis Mór	resolved	53.1249	-9.6621	beach	Trá na bhFrancach locale; PinCamp/Irish Lights–adjacent camping address coords (Frenchman’s Beach, Inis Mór).
+183	galway.txt	An Trá Poll	ambiguous			beach	logainm lists only three Inishmore strands (Trá Mhór, Trá na bhFrancach, Trá na mBuailte); no validated “Trá Poll”—could be informal label or Worm Hole (Poll na bPéist) area.
+184	galway.txt	Inishmore north shore	resolved	53.126	-9.658	shore	Representative N-facing coast near Cill Rónáin/Killeany bay opening (human-map pin for long north shore).
+185	galway.txt	Inishmore west coast	resolved	53.118	-9.765	shore	Representative cliff west coast between Dún Aonghasa and Poll na bPéist belt (not a single named place).
+186	galway.txt	Inisheer lighthouse shore	resolved	53.04636	-9.52644	lighthouse shore	Irish Lights/Wikipedia WGS84 for Inis Oírr lighthouse (Fardurris Point); seaward foot of tower area.

@@ -1,0 +1,165 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	stirling.txt	Drymen	resolved	56.06496	-4.45107	village	Wikipedia/GeoHack village centre (Stirling).
+2	stirling.txt	Drymen Loch Lomond	resolved	56.06496	-4.45107	village	List label for the Loch Lomond gateway village; same settlement as Drymen.
+3	stirling.txt	Milton of Buchanan	resolved	56.0807	-4.5032	village	Wikipedia coordinate line; Buchanan parish.
+4	stirling.txt	Cashel	resolved	56.1122	-4.5814	hamlet	East Loch Lomond settlement/camping locality near Strathcashel Point; deg coords from campsite listings (G63 0AW area).
+5	stirling.txt	Milarrochy	resolved	56.1000	-4.5618	hamlet	Centroid near Milarrochy Bay on east shore (approx. NS 407 926).
+6	stirling.txt	Milarrochy Bay	resolved	56.09972	-4.56056	bay	Wikipedia coordinate infobox.
+7	stirling.txt	Milarrochy Bay campsite	resolved	56.0996	-4.5604	campsite	Camping and Caravanning Club site beside the bay.
+8	stirling.txt	Strathcashel Point	resolved	56.10375	-4.58495	headland	Canmore NS39329 93120 (spelled Strathcashell in record); cashel promontory east shore.
+9	stirling.txt	Sallochy	resolved	56.12778	-4.60875	hamlet	Centre of NS 379 958 square (Sallochy car park/WHW access).
+10	stirling.txt	Sallochy Bay	resolved	56.1279	-4.6089	bay	Lochside bay at Sallochy (same shoreline strip as car park access).
+11	stirling.txt	Sallochy Bay campsite	resolved	56.1277	-4.6086	campsite	Forestry Scotland / park-managed lochside camping (G63 0AW vicinity).
+12	stirling.txt	Sallochy Oakwood	resolved	56.1278	-4.6088	woodland	Named oakwood strip in Sallochy Forest / WHW corridor.
+13	stirling.txt	Balmaha	resolved	56.08521	-4.53836	village	Walkhighlands start grid NS 421 909 (visitor hub/car park area).
+14	stirling.txt	Balmaha pier	resolved	56.083772	-4.548112	pier	Wikimedia Commons camera location metadata (Balmaha Pier).
+15	stirling.txt	Balmaha boatyard	resolved	56.08350	-4.54855	marina	Inchcailloch ferry boatyard on loch shore S of the pier.
+16	stirling.txt	Balmaha Visitor Centre	resolved	56.08521	-4.53836	information	Loch Lomond & The Trossachs NP visitor centre at Balmaha car park (NS 421 909).
+17	stirling.txt	Balmaha Bay	resolved	56.0842	-4.544	bay	Sandy bay at Balmaha (NS 4190 shore).
+18	stirling.txt	Balmaha beach	resolved	56.0840	-4.545	beach	Shingle beach beside Balmaha Bay.
+19	stirling.txt	Balmaha ferry	resolved	56.083772	-4.548112	ferry	Waterbus/ferry uses Balmaha Pier (same pin as pier).
+20	stirling.txt	Inchcailloch	resolved	56.08111	-4.55583	island	Wikipedia coordinate infobox (island centroid).
+21	stirling.txt	Inchcailloch ferry Balmaha	resolved	56.08345	-4.54840	ferry	Mainland boarding for island boats at Balmaha boatyard/loch shore (distinct from pier waterbus).
+22	stirling.txt	West Highland Way Balmaha	resolved	56.0850	-4.5375	trail	WHW corridor through Balmaha visitor centre / plantation edge.
+23	stirling.txt	Pass of Balmaha	resolved	56.0864	-4.5345	col	Bealach on Conic Hill route above Balmaha (Highland Boundary Fault crossing).
+24	stirling.txt	Conic Hill	resolved	56.09079	-4.52908	hill	Summit area ~NS 427 915 (sub-2000 Marilyn; WHW nearby).
+25	stirling.txt	Garadhban Forest	resolved	56.06609	-4.45093	forest	FLS Garadhban car park / WHW–Rob Roy Way junction (NS 475 886 area).
+26	stirling.txt	Rowardennan	resolved	56.15582	-4.64286	village	Centroid ~NS 359 990 east Loch Lomond settlement.
+27	stirling.txt	Rowardennan Hotel	resolved	56.14941	-4.64142	hotel	Canmore NS 36012 98333.
+28	stirling.txt	Rowardennan Hostel	resolved	56.15798	-4.64367	hostel	Listed building grid NS 35911 99293 / Hostelling Scotland lodge coords.
+29	stirling.txt	Rowardennan pier	resolved	56.15225	-4.64413	pier	Canmore NS 35856 98656.
+30	stirling.txt	Rowardennan jetty	resolved	56.15225	-4.64413	pier	Canmore records pier also as “The Jetty”; same structure as line 29.
+31	stirling.txt	Rowardennan ferry	resolved	56.15225	-4.64413	ferry	Seasonal Cruise Loch Lomond waterbus uses Rowardennan Pier (same structure as lines 29–30).
+32	stirling.txt	Rowardennan Memorial Park	resolved	56.1536	-4.6432	memorial	Ben Lomond National Memorial: Doug Cocker sculpture at lochside viewpoint (short Memorial Trail from FLS car park).
+33	stirling.txt	Rowardennan campsite	resolved	56.15798	-4.64367	campsite	Rowardennan SYHA tent pitches / WHW camping focus (Hostelling Scotland grid NS359993 area).
+34	stirling.txt	Ben Lomond path Rowardennan	resolved	56.15225	-4.64413	trailhead	Ben Lomond hill path starts at Rowardennan Pier car park (NS358986 / Walking Britain).
+35	stirling.txt	Loch Lomond east shore	ambiguous			shoreline	Label matches many miles of east loch in Stirling; no single tide pin without a milepost.
+36	stirling.txt	Loch Lomond WHW shore	ambiguous			trail	WHW east-loch section is a long corridor (Rowardennan–Inverarnan etc.); not one coordinate.
+37	stirling.txt	Rob Roy's Cave Loch Lomond	resolved	56.25316	-4.69421	cave	Scottish Cave & Mine Database / Geograph NN33185 10003 (east shore, N of Inversnaid).
+38	stirling.txt	Aberfoyle	resolved	56.175	-4.3797	village	Wikipedia infobox coordinates (Stirling).
+39	stirling.txt	Loch Ard	resolved	56.1830	-4.4712	loch	Wikipedia coordinate infobox (loch centroid).
+40	stirling.txt	Loch Ard north shore	resolved	56.1860	-4.4580	shore	Representative mid-point along north shore (distinct from Kinlochard at the loch head).
+41	stirling.txt	Loch Ard south shore	resolved	56.1613	-4.4178	shore	Representative: Milton (Milton Morenish) on south shore (OS settlement area).
+42	stirling.txt	Milton Morenish	resolved	56.1613	-4.4178	hamlet	Milton on the Morenish peninsula, Loch Ard (same cluster as south-shore Milton).
+43	stirling.txt	Kinloch Ard	resolved	56.188	-4.491	village	List label matches Kinlochard (“head of Loch Ard”); Wikipedia grid NN454022.
+44	stirling.txt	Ledard	resolved	56.1880	-4.4842	hamlet	Ledard Farm / Ledard Burn access NN459023 (WalkHighlands / SOBT Ben Venue walk).
+45	stirling.txt	Loch Ard Forest	resolved	56.163	-4.405	forest	Queen Elizabeth Forest Park Loch Ard hub: Milton car park off B829 (FLS FK8 3TF area).
+46	stirling.txt	Forest Holidays Loch Ard	not_found			holiday_park	No Forest Holidays-branded site at Loch Ard found; operator's Trossachs-adjacent site is Ardgartan (Loch Long).
+47	stirling.txt	MacGregor picnic site Loch Ard	not_found			picnic	No POI with this exact name in FLS/NP listings; not pinned to avoid guessing among forest picnic tables.
+48	stirling.txt	Loch Chon	resolved	56.2145	-4.548	loch	Wikipedia coordinate infobox.
+49	stirling.txt	Loch Chon north shore	resolved	56.222	-4.535	shore	Approximate mid-north shore (loch axis NN420053 CEH grid neighbourhood).
+50	stirling.txt	Loch Chon south shore	resolved	56.207	-4.540	shore	Approximate mid-south shore opposite north reference.
+51	stirling.txt	Loch Arklet	resolved	56.24611	-4.62167	loch	Wikipedia Loch Arklet coordinate line (pre-dam natural axis; loch body).
+52	stirling.txt	Loch Arklet dam	resolved	56.24859	-4.65474	dam	Canmore / HES LB50461 NN35610 09400 (dam structure).
+53	stirling.txt	Loch Katrine	resolved	56.25444	-4.51556	loch	Wikipedia coordinate infobox (reservoir centroid).
+54	stirling.txt	Trossachs Pier Loch Katrine	resolved	56.23426	-4.43012	pier	Canmore NN49468 07292 Trossachs Pier (listed pier complex).
+55	stirling.txt	Stronachlachar	resolved	56.25782	-4.57765	village	Settlement centred on west Loch Katrine pier / steamer terminus (Canmore pier coords).
+56	stirling.txt	Stronachlachar pier	resolved	56.25782	-4.57765	pier	Canmore listed Stronachlachar Pier NN40424 10245.
+57	stirling.txt	Royal Cottage Loch Katrine	resolved	56.24735	-4.54719	historic_building	Canmore / HES LB4149 NN42267 09010 (Queen Victoria visit cottage).
+58	stirling.txt	Glasahoile	resolved	56.256	-4.528	hamlet	South-shore road terminus locality west Loch Katrine (Wikipedia settlement list; approximate centroid).
+59	stirling.txt	Brenachoile Point	resolved	56.25738	-4.4603	headland	Geograph subject NN4769 0993 (Brenachoile promontory, north Loch Katrine).
+60	stirling.txt	Primrose Bay Loch Katrine	resolved	56.2415	-4.434	bay	Interpreted as north-shore pocket by Primrose Hill walk fork (~1 mi from Trossachs Pier); no separate OS "Primrose Bay".
+61	stirling.txt	Ellen's Isle	resolved	56.24370	-4.44094	island	Canmore NRHE 279959 (Eilean Molach / Ellen's Isle) NN 48835 08366.
+62	stirling.txt	Factor's Island	resolved	56.25764	-4.57760	island	Wikimedia Commons / Geograph camera & object location (Factor's Island, west Loch Katrine near Stronachlachar).
+63	stirling.txt	Silver Bay Loch Katrine	resolved	56.25528	-4.49861	bay	Historic "Silver Strand" catalogue coords (St Andrews IDJV-88-C); name matches Scott-era strand east loch (now raised water).
+64	stirling.txt	Steamship Sir Walter Scott	resolved	56.23426	-4.43012	attraction	Primary cruise berth Trossachs Pier (same structure as batch lines 54–55); vessel home port on Loch Katrine.
+65	stirling.txt	Sir Walter Scott steamship	resolved	56.23426	-4.43012	ferry	Same operational berth as line 64 (Trossachs Pier); separate list line per pass-1 rules.
+66	stirling.txt	Loch Katrine cruise pier	resolved	56.23426	-4.43012	pier	Trossachs Pier (Canmore NN49468 07292); main public cruise boarding east Loch Katrine.
+67	stirling.txt	Loch Achray	resolved	56.2267	-4.395	loch	Wikipedia / GeoHack waterbody coords (OpenStreetMap source).
+68	stirling.txt	Loch Achray pier	ambiguous			pier	No dedicated named pier in Canmore listings; several informal jetties/landings around the loch—not pinned to avoid wrong slip.
+69	stirling.txt	Loch Achray Holiday Park	resolved	56.2257	-4.3965	campsite	Loch Lomond & Trossachs NP Loch Achray campsite (south shore woodland strip off Three Lochs Forest Drive); approximate access hub.
+70	stirling.txt	Loch Achray Hotel	resolved	56.23094	-4.41158	hotel	SOBT Ben Venue walk: “Loch Achray Hotel” / car park hub NN 506068 on A821 north of the loch.
+71	stirling.txt	Trossachs Church Loch Achray	resolved	56.2292	-4.3967	church	HES LB4064 (Brig o'Turk Trossachs Parish Church) NN 51517 06652; on north shore Loch Achray.
+72	stirling.txt	Loch Venachar	resolved	56.22076	-4.30226	loch	Wikipedia coordinate infobox (freshwater loch / reservoir).
+73	stirling.txt	Loch Venachar north shore	resolved	56.2280	-4.2890	shore	Representative mid-north shore (Callander–Brig o'Turk A821 corridor) opposite south-forest shore.
+74	stirling.txt	Loch Venachar south shore	resolved	56.2135	-4.3120	shore	Representative mid-south shore (Invertrossachs woodland / NCN 7 private-road strip).
+75	stirling.txt	Venachar Lochside	resolved	56.2220	-4.3005	attraction	Named lochside wedding/restaurant venue beside Invertrossachs Road (FK17 area); approximate lochfront pin.
+76	stirling.txt	Invertrossachs	resolved	56.2192	-4.3025	hamlet	South Loch Venachar estate strip (Invertrossachs House historic locus); approximate lochside settlement centroid.
+77	stirling.txt	Invertrossachs pier	resolved	56.2210	-4.2992	pier	Loch Venachar Sailing Club / dinghy launch area near Walkhighlands Invertrossachs car park NN 592055.
+78	stirling.txt	Pass of Leny	resolved	56.25172	-4.27186	pass	Canmore NN50NE 22 (Pass of Leny natural feature) NN 5934 0890.
+79	stirling.txt	Leny Falls	resolved	56.24989	-4.27401	waterfall	Wikipedia Falls of Leny (Garbh Uisge / River Leny) beside the pass.
+80	stirling.txt	River Leny mouth	resolved	56.24132	-4.22443	river_mouth	Wikipedia River Teith / Garbh Uisge: confluence with Eas Gobhain west of Callander (forms Teith).
+81	stirling.txt	Loch Lubnaig	resolved	56.2913	-4.2918	loch	Wikipedia coordinate infobox.
+82	stirling.txt	Loch Lubnaig east shore	resolved	56.2910	-4.2780	shore	Representative mid-east shore (A84 Callander–Strathyre road corridor along the loch).
+83	stirling.txt	Loch Lubnaig west shore	resolved	56.2910	-4.3055	shore	Representative mid-west shore (NCN 7 / ex-railway cycleway strip).
+84	stirling.txt	Garbh Uisge mouth	resolved	56.24132	-4.22443	river_mouth	Same Teith confluence as line 80 per Wikipedia Garbh Uisge (outflow from Loch Lubnaig via Leny).
+85	stirling.txt	Stank Bridge Loch Lubnaig	resolved	56.2529	-4.2820	bridge	Walkhighlands Stank Glen start: parking over Garbh Uisge (Stank Burn) south of loch NN 587091.
+86	stirling.txt	Ardchullerie	resolved	56.2940	-4.2890	hamlet	Wikipedia Ardchullarie More (spelling variant) NN583136; east Loch Lubnaig / Glen Ample foot.
+87	stirling.txt	Ardchullerie Bay	resolved	56.2925	-4.2880	bay	Interpreted as loch constriction embayment at Ardchullarie Burn inflow (Wikipedia bathymetry note); approximate mid-bight.
+88	stirling.txt	Ben Shian Loch Lubnaig	resolved	56.3192	-4.3485	hill	Summit Beinn an t-Sìdhean (Ben Shian) NN 547 178 (Get Lost Mountaineering / Walkhighlands); overlooks Loch Lubnaig from west.
+89	stirling.txt	NCN 7 Loch Lubnaig	resolved	56.2910	-4.3055	trail	Representative pin on NCN 7 along west shore (ex Callander & Oban railway); long linear corridor—mid-loch segment.
+90	stirling.txt	Strathyre Loch Lubnaig	resolved	56.324	-4.329	village	Wikipedia Strathyre settlement coords; village at River Balvaig outfall into north end of Loch Lubnaig.
+91	stirling.txt	River Balvaig mouth	resolved	56.3387	-4.3298	river_mouth	Wikipedia River Balvaig infobox: outfall into northern Loch Lubnaig at Strathyre.
+92	stirling.txt	Immervoulin Caravan Park	resolved	56.31762	-4.32937	campsite	Campercontact GPS (FK18 8NJ); riverside park between River Balvaig and A84 S of Strathyre.
+93	stirling.txt	Balquhidder	resolved	56.357	-4.373	village	Wikipedia infobox 56°21′25″N 4°22′23″W; Kirkton at head of Loch Voil.
+94	stirling.txt	Loch Voil	resolved	56.348	-4.422	loch	Wikipedia waterbody centroid 56°20′53″N 4°25′19″W.
+95	stirling.txt	Loch Voil east shore	resolved	56.348	-4.410	shore	Representative mid-east shore (Balquhidder / outflow end of loch).
+96	stirling.txt	Loch Voil west shore	resolved	56.348	-4.434	shore	Representative mid-west shore toward Monachyle narrows / Loch Doine.
+97	stirling.txt	Loch Doine	resolved	56.340	-4.478	loch	Wikipedia Loch Doine centroid 56°20′24″N 4°28′41″W.
+98	stirling.txt	Loch Doine shore	resolved	56.340	-4.478	shore	Representative lochside pin (same waterbody hub as loch centroid; narrow loch).
+99	stirling.txt	Loch Earn	resolved	56.3873	-4.2025	loch	Wikipedia Loch Earn coordinate infobox.
+100	stirling.txt	Lochearnhead	resolved	56.383	-4.283	village	Wikipedia infobox 56°22′59″N 4°16′59″W; west end of Loch Earn.
+101	stirling.txt	Lochearnhead pier	resolved	56.3828	-4.2835	pier	Main public pier / lochfront at west end of Loch Earn (village lochhead; ~NN590234).
+102	stirling.txt	Lochearnhead Loch Earn shore	resolved	56.3832	-4.2828	shore	Representative village lochfront beside A84/A85 junction area.
+103	stirling.txt	Lochearnhead watersports	resolved	56.3827	-4.2838	attraction	Lochearnhead Watersports Centre cluster on west Loch Earn (same lochhead strip as pier).
+104	stirling.txt	Glen Ogle Loch Earn	resolved	56.3845	-4.278	trail	NCN 7 / Glen Ogle railway path along north Loch Earn above Lochearnhead (linear corridor—loch-adjacent segment).
+105	stirling.txt	North Loch Earn	resolved	56.395	-4.195	shore	Representative mid-north shore along NN63 corridor (long shoreline label).
+106	stirling.txt	South Loch Earn	resolved	56.375	-4.210	shore	Representative mid-south shore opposite mid-loch axis (long shoreline label).
+107	stirling.txt	Edinample	resolved	56.376	-4.266	hamlet	Named locality W of Lochearnhead on south Loch Earn road (Edinample Castle area).
+108	stirling.txt	Edinample Castle	resolved	56.37551	-4.26565	castle	Canmore NN 60178 22661 / HES LB4198 (Z-plan tower on south Loch Earn).
+109	stirling.txt	Edinample Falls	resolved	56.37401	-4.26540	waterfall	Canmore “Falls of Edinample” NN 60188 22494 (also Wikipedia Falls of Edinample).
+110	stirling.txt	Carstran Bay	resolved	56.3815	-4.2685	bay	W end of Loch Earn: interpret as Carstran Bay crannog locale (Canmore NN 5985 2306 area).
+111	stirling.txt	Ardvorlich	resolved	56.3785	-4.2185	hamlet	Stewart estate locality on south Loch Earn (centroid near Ardvorlich House).
+112	stirling.txt	Ardvorlich House	resolved	56.37913	-4.21805	house	Canmore / HES LB6211 NN 63130 22968.
+113	stirling.txt	Neish Island	resolved	56.39204	-4.12289	island	Canmore NN 6905 2422; crannog islet east end Loch Earn.
+114	stirling.txt	Lake of Menteith	resolved	56.1744	-4.2921	loch	Wikipedia Lake of Menteith coordinate infobox.
+115	stirling.txt	Port of Menteith	resolved	56.184	-4.285	village	Wikipedia infobox 56°11′02″N 4°17′06″W; NE shore settlement.
+116	stirling.txt	Inchmahome	resolved	56.17611	-4.29694	island	Wikipedia Inchmahome island coordinates (largest island in lake).
+117	stirling.txt	Inchmahome Priory	resolved	56.17611	-4.29778	priory	Wikipedia / HES SM90169 scheduled priory coords 56°10′34″N 4°17′52″W.
+118	stirling.txt	Lake Hotel Menteith	resolved	56.18220	-4.28525	hotel	Canmore “Port of Menteith, Hotel” NN 58254 01191 (Lake of Menteith Hotel FK8 3RA).
+119	stirling.txt	Lake of Menteith fishery	resolved	56.1735	-4.2910	attraction	Lake of Menteith Fisheries boat-fishing hub on lake (approx. reception/jetty near NN575004).
+120	stirling.txt	Loch Drunkie	resolved	56.209	-4.3514	loch	Wikipedia Loch Drunkie 56°12′32″N 4°21′05″W (Three Lochs Forest Drive).
+121	stirling.txt	Loch Drunkie shore	resolved	56.2072	-4.3522	shore	Representative lochshore / Three Lochs Forest Drive access margin SW of open water (same loch as line 120).
+122	stirling.txt	Loch Rusky	resolved	56.2025	-4.233611	loch	Wikipedia / GeoHack Loch Rusky 56°12′09″N 4°14′01″W.
+123	stirling.txt	Loch Rusky shore	resolved	56.2024	-4.2338	shore	General lochshore pin (small loch; shoreline wraps centroid).
+124	stirling.txt	Callander	resolved	56.24403	-4.21446	town	Wikipedia Callander on River Teith.
+125	stirling.txt	Callander River Teith	resolved	56.2432	-4.2158	river	Representative River Teith channel through Callander (town context).
+126	stirling.txt	River Teith Callander	resolved	56.2432	-4.2158	river	Same Teith reach as adjacent list label (Callander town stretch).
+127	stirling.txt	Deanston	resolved	56.1899	-4.0739	village	Wikipedia Deanston (south bank River Teith).
+128	stirling.txt	Deanston River Teith	resolved	56.19035	-4.07485	river	River Teith at Deanston village (mill/distillery corridor).
+129	stirling.txt	Doune	resolved	56.19	-4.053	village	Wikipedia Doune (Stirling council area).
+130	stirling.txt	Doune River Teith	resolved	56.1909	-4.0543	river	River Teith at Doune (Teith/Ardoch confluence zone south of burgh).
+131	stirling.txt	Stirling Riverside	resolved	56.1205	-3.9255	neighbourhood	Riverside district west bank of Forth opposite Cambuskenneth (footbridge approach area).
+132	stirling.txt	Riverside Stirling	resolved	56.1205	-3.9255	neighbourhood	Same Riverside locality as line 131 (alternate wording).
+133	stirling.txt	Cambuskenneth	resolved	56.1238	-3.9183	village	Cambuskenneth village by Forth meander (Ladysneuk Road axis; abbey vicinity).
+134	stirling.txt	Cambuskenneth Abbey	resolved	56.123216	-3.917747	priory	Wikipedia / HES Cambuskenneth Abbey coordinates.
+135	stirling.txt	Cambuskenneth Bridge	resolved	56.1216	-3.9215	bridge	Pedestrian bridge linking Riverside to Cambuskenneth (approx. river crossing centre).
+136	stirling.txt	River Forth Cambuskenneth	resolved	56.1224	-3.9185	river	Tidal River Forth reach beside Cambuskenneth meander (abbey/looped bank).
+137	stirling.txt	Springkerse waterfront	resolved	56.1138	-3.9172	shore	Representative east-city Springkerse area toward River Forth floodplain (retail park / A91 corridor).
+138	stirling.txt	Forthside	resolved	56.1189	-3.9351	waterfront	Forthside regeneration by River Forth; pin at Wikipedia Forthside Bridge (links station quarter to riverside).
+139	stirling.txt	Raploch Riverside	resolved	56.1283	-3.9415	shore	Raploch (south of Forth) riverside walkway corridor—representative bank pin W of old town.
+140	stirling.txt	Cornton Riverside	resolved	56.1315	-3.9395	shore	Cornton (north of Forth) river-facing bank—representative shore pin opposite Raploch reach.
+141	stirling.txt	Fallin	resolved	56.1037	-3.8762	village	Wikipedia Fallin, Stirling (River Forth bend; A905).
+142	stirling.txt	Fallin foreshore	resolved	56.1064	-3.8793	shore	River Forth bank margin N/NE of Fallin village centre.
+143	stirling.txt	Fallin Inner Forth path	resolved	56.1043	-3.8745	path	Inner Forth / village link path corridor (eastern villages; representative pin near Fallin–Throsk axis).
+144	stirling.txt	Throsk	resolved	56.0979	-3.8502	village	Wikipedia Throsk (A905; Bandeath/Forth meander).
+145	stirling.txt	Throsk shore	resolved	56.0983	-3.8491	shore	River Forth shore at Throsk (meander inside Bandeath).
+146	stirling.txt	Ladyneuk	resolved	56.1242	-3.9165	hamlet	Historic Ladyneuk / Ladysneuk locale N of Cambuskenneth (abbey road axis; approximate centroid).
+147	stirling.txt	Bandeath	resolved	56.1002	-3.855	industrial	Bandeath Industrial Estate (ex-RNAD site), Throsk meander—Gazetteer centroid estimate.
+148	stirling.txt	Bandeath waterfront	resolved	56.1010	-3.8582	shore	River-facing edge of Bandeath estate inside Forth meander.
+149	stirling.txt	Pow Burn mouth	resolved	56.1036	-3.8672	estuary	Approximate Pow Burn confluence with inner Forth mudflats E of Fallin (small burn mouth; map-derived).
+150	stirling.txt	Polmaise lagoons	resolved	56.1088	-3.8725	lagoon	Remediated lagoon / wetland complex N of Fallin near former Polmaise landfill axis (IFLI legacy sites; approximate).
+151	stirling.txt	Polmaise lagoons	resolved	56.1088	-3.8725	lagoon	Remediated lagoon / wetland complex N of Fallin near former Polmaise landfill axis (IFLI legacy sites; approximate).
+152	stirling.txt	Wester Moss Fallin	resolved	56.09819	-3.86945	bog	Butterfly Conservation Wester Moss reserve; grid NS836907 area (Fallin eastern edge).
+153	stirling.txt	Fallin Bing	resolved	56.0985	-3.8696	bing	Landscaped former Polmaise spoil heap NS8391; Geograph camera/subject ~NS838911.
+154	stirling.txt	WHW Rowardennan	resolved	56.1525	-4.643	trail	West Highland Way lochside sector at Rowardennan (representative pin near pier/foreshore junction).
+155	stirling.txt	LM east shore	ambiguous			loch	LM read as Loch Lomond; east shore is a long discontinuous strip - no single unambiguous pin without a named bay.
+156	stirling.txt	Loch Lomond Balmaha	resolved	56.08521	-4.53836	loch	Balmaha reach on east shore (same hub as Balmaha village rows).
+157	stirling.txt	Loch Lomond Rowardennan	resolved	56.15582	-4.64286	loch	Rowardennan settlement reach on east Loch Lomond.
+158	stirling.txt	LK Trossachs Pier	resolved	56.23426	-4.43012	pier	Canmore128278 Trossachs Pier (Loch Katrine); "LK" = Loch Katrine.
+159	stirling.txt	Loch Katrine Stronachlachar	resolved	56.25677	-4.58299	hamlet	Stronachlachar hamlet at west end of Loch Katrine (findthatpostcode centroid).
+160	stirling.txt	Loch Lubnaig Strathyre	resolved	56.324	-4.329	loch	Strathyre at south end of Loch Lubnaig (Wikipedia Strathyre coords; A84 shore).
+161	stirling.txt	Loch Earn Lochearnhead	resolved	56.383	-4.283	loch	Lochearnhead at west end of Loch Earn (Wikipedia village coords).
+162	stirling.txt	River Forth Throsk	resolved	56.0992	-3.8515	river	Tidal River Forth bend reach at Throsk/Bandeath meander (representative bank zone).
+163	stirling.txt	Forth bank Throsk	resolved	56.0983	-3.8491	shore	Inner Forth bank at Throsk (consistent with Throsk shore pin).
+164	stirling.txt	Forth bank Fallin	resolved	56.1064	-3.8793	shore	River Forth bank at Fallin (aligned with Fallin foreshore corridor).

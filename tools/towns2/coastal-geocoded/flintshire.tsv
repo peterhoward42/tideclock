@@ -1,0 +1,132 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	flintshire.txt	Point of Ayr	resolved	53.3570000	-3.3220000	headland	Northernmost point of mainland Wales at Dee estuary mouth (Wikipedia centroid)
+2	flintshire.txt	Point of Ayr Lighthouse	resolved	53.3563890	-3.3191670	lighthouse	Talacre beach / Dee entrance; inactive lighthouse associated with Point of Ayr
+3	flintshire.txt	Talacre	resolved	53.3511700	-3.3191100	village	Flintshire coastal village (Wikipedia/GeoHack)
+4	flintshire.txt	Talacre Beach	resolved	53.3520000	-3.3205000	beach	Sandy beach and foreshore by Talacre / Point of Ayr
+5	flintshire.txt	Talacre boardwalk	resolved	53.3525000	-3.3198000	walk	Dunes/coastal access boardwalk at Talacre
+6	flintshire.txt	Talacre Dunes	resolved	53.3535000	-3.3175000	dunes	Gronant–Talacre dune system (SSSI context)
+7	flintshire.txt	Talacre Sands	resolved	53.3528000	-3.3190000	beach	Sand flats at Talacre / lighthouse stretch
+8	flintshire.txt	Talacre Warren	resolved	53.3540000	-3.3165000	nature_reserve	Talacre Warren / dunes wildlife site (coastal belt)
+9	flintshire.txt	Talacre holiday park	resolved	53.3532000	-3.3185000	park	Holiday caravan park cluster by Talacre beach
+10	flintshire.txt	Presthaven Sands	resolved	53.3385000	-3.3125000	beach	Haven Presthaven resort beach at Gronant / Dee coast
+11	flintshire.txt	Presthaven	resolved	53.3385000	-3.3125000	park	Presthaven (Haven) holiday resort near Gronant
+12	flintshire.txt	Llanasa	resolved	53.3221770	-3.3428670	village	Community village inland of Talacre coast (GeoHack/Wikidata)
+13	flintshire.txt	Ffynnongroyw	resolved	53.3304990	-3.3018180	village	A548 Dee-coast ward village (GeoHack)
+14	flintshire.txt	Gwespyr	resolved	53.3355710	-3.3366870	village	Coastal-parish village overlooking Point of Ayr (Wikipedia)
+15	flintshire.txt	Trelogan	resolved	53.3100000	-3.3211110	village	Llanasa community; between Mostyn and Trelawnyd (Wikipedia DMS)
+16	flintshire.txt	Gorsedd	resolved	53.2800000	-3.2730560	village	Gorsedd, Whitford community near Holywell (Wikipedia)
+17	flintshire.txt	Rhewl-fawr	resolved	53.3116250	-3.2698740	hamlet	Rhewl-Mostyn locality spelling; near Mostyn (Open Names–style centroid)
+18	flintshire.txt	Rhewl fawr	resolved	53.3116250	-3.2698740	hamlet	Same Flintshire hamlet as line 17; hyphen vs space spelling in source
+19	flintshire.txt	Mostyn	resolved	53.3140000	-3.2690000	village	Mostyn on A548 toward Dee shore (settlements gazetteer centroid)
+20	flintshire.txt	Tre Mostyn	resolved	53.3110000	-3.2680000	locality	Tre Mostyn / Tre-Mostyn cluster south of Mostyn docks
+21	flintshire.txt	Mostyn Docks	resolved	53.3216670	-3.2633330	harbour	Port of Mostyn navigational position (port authority WGS84)
+22	flintshire.txt	Mostyn Dock	resolved	53.3216670	-3.2633330	harbour	Commercial dock basin; same harbour authority pin as line 21
+23	flintshire.txt	Mostyn Quay	resolved	53.3215000	-3.2635000	quay	Quay frontage within Mostyn port complex
+24	flintshire.txt	Dee at Mostyn	resolved	53.3200000	-3.2650000	estuary	River Dee estuary channel off Mostyn (coastal water pin)
+25	flintshire.txt	Greenfield	resolved	53.2890000	-3.2100000	village	Greenfield on Dee estuary edge, Holywell community (Wikipedia)
+26	flintshire.txt	Greenfield Dock	resolved	53.2865000	-3.2065000	dock	Historic/industrial dock area on Dee margin at Greenfield
+27	flintshire.txt	Greenfield Valley	resolved	53.2860000	-3.2090000	valley	Greenfield Brook valley corridor toward the coast
+28	flintshire.txt	Greenfield Valley Heritage Park	resolved	53.2875000	-3.2085000	park	Country park / museum cluster including Basingwerk setting
+29	flintshire.txt	Basingwerk Abbey	resolved	53.2880560	-3.2080560	abbey	Cistercian abbey ruins; Cadw site in Greenfield Valley (Wikipedia DMS)
+30	flintshire.txt	Basingwerk	resolved	53.2880560	-3.2080560	abbey	Common short label for Basingwerk Abbey ruins (same site as line 29)
+31	flintshire.txt	Holywell coast path	resolved	53.2791888	-3.2237670	walk	Wales Coast Path / estuary margin between Holywell community and Greenfield shore (coastal access)
+32	flintshire.txt	Berth-ddu	resolved	53.2178530	-3.1838570	hamlet	Berth-ddu / Berth Ddu locality on Halkyn Mountain side (Flintshire coastal-list context; not Conwy Berth-ddu)
+33	flintshire.txt	Pentre Cythrel	resolved	53.1800000	-3.1180000	village	Official Welsh form for New Brighton, Argoed (Wikipedia/Wikidata centroid); inland from Dee but list label
+34	flintshire.txt	New Brighton	resolved	53.1800000	-3.1180000	village	Village in Argoed community (Wikipedia 53°10′48″N 3°07′05″W); distinct from Merseyside seaside New Brighton
+35	flintshire.txt	Bagillt	resolved	53.2680470	-3.1694690	village	Community centre (GeoHack/Wikipedia)
+36	flintshire.txt	Y Fflint	resolved	53.2488890	-3.1347220	town	Welsh name for Flint; town centroid (Wikipedia DMS)
+37	flintshire.txt	Flint	resolved	53.2488890	-3.1347220	town	Flint town (Wikipedia)
+38	flintshire.txt	Flint Castle	resolved	53.2549432	-3.1301384	castle	Edwardian castle on estuary (OS grid SJ247737 → WGS84)
+39	flintshire.txt	Flint Marsh	resolved	53.2560000	-3.1260000	marsh	Saltmarsh / estuary edge E of castle toward River Dee
+40	flintshire.txt	Flint Dock	resolved	53.2518000	-3.1285000	harbour	Dock basin and marina area on Flint waterfront
+41	flintshire.txt	Flint foreshore	resolved	53.2535000	-3.1310000	shore	Estuary foreshore below castle / waterfront
+42	flintshire.txt	Flint seafront	resolved	53.2512000	-3.1305000	shore	Promenade / built seafront along Dee at Flint
+43	flintshire.txt	Flint saltmarsh	resolved	53.2545000	-3.1240000	marsh	Upper estuary saltmarsh mosaic near Flint
+44	flintshire.txt	Flint waterfront	resolved	53.2505000	-3.1320000	shore	General quay/waterfront strip (Flint docks frontage)
+45	flintshire.txt	Oakenholt	resolved	53.2333600	-3.1048500	village	Village SE of Flint near A548 (Ordnance Survey Open Names centroid)
+46	flintshire.txt	Coleshill	resolved	53.2676935	-3.1597132	hamlet	Coleshill Fawr historic township centre (Kain gazetteer SJ227731 → WGS84); Bagillt community
+47	flintshire.txt	Walwen	resolved	53.2790660	-3.1915173	hamlet	Walwen township centroid (Kain NGL SJ206764 → WGS84); Bagillt community
+48	flintshire.txt	Whelston	resolved	53.2784000	-3.1877000	village	Boot End / Whelston (Gazetteer of British Place Names); A548 corridor
+49	flintshire.txt	Bagillt Boot End	resolved	53.2784000	-3.1877000	locality	Boot End area (signposted; overlaps Whelston/Walwen belt)
+50	flintshire.txt	Bettisfield	resolved	53.2742610	-3.1775119	locality	Bettisfield colliery hill / WCP hub (Bagillt), not Bettisfield Maelor village
+51	flintshire.txt	Bettisfield Colliery	resolved	53.2742610	-3.1775119	colliery	Former pit head area SJ215759 (DMM / Welsh Coalmines); Dee-coast industrial heritage
+52	flintshire.txt	Bettisfield Natterjack Toad Reserve	resolved	53.2738000	-3.1785000	nature_reserve	Restored colliery tip ponds / Bettisfield Park natterjack site (NRW/FCC coastal project)
+53	flintshire.txt	Natterjack Toad Reserve Bettisfield	resolved	53.2738000	-3.1785000	nature_reserve	Same Bettisfield Park reserve as line 52; alternate list wording
+54	flintshire.txt	Bagillt Beacon	resolved	53.2755470	-3.1742660	attraction	Dragon beacon / Jubilee sculpture on spoil tip (Atlas Obscura; grid SJ21727609)
+55	flintshire.txt	Bagillt Stonehenge	resolved	53.2747318	-3.1753503	attraction	Modern stone circle on WCP below beacon (Wales Coast Path itinerary)
+56	flintshire.txt	Bagillt Heritage Trail	resolved	53.2691059	-3.1715523	trail	Signposted heritage route from village/WCP (Stag Inn loop start grid per WCP)
+57	flintshire.txt	Bagillt Industrial Trail	resolved	53.2675000	-3.1680000	trail	Industrial heritage trail toward historic quays and works (Bagillt centre–waterfront)
+58	flintshire.txt	Bagillt Heritage and Industrial Trail	resolved	53.2683000	-3.1698000	trail	Combined promoted circular; representative pin at village/WCP link
+59	flintshire.txt	Station Gutter	resolved	53.2678000	-3.1705000	stream	Drainage channel associated with former Bagillt railway station corridor
+60	flintshire.txt	Bagillt Gutter	resolved	53.2665000	-3.1715000	stream	Bagillt Gutter watercourse toward estuary (lower Bagillt)
+61	flintshire.txt	Bagillt Dock	resolved	53.2662000	-3.1712000	harbour	Historic inlet / Bagillt Gutter dock reach on Dee foreshore (Wales Coast Path signage)
+62	flintshire.txt	Bagillt Quay	resolved	53.2658000	-3.1705000	quay	Former industrial quays / waterfront belt below village centre toward estuary
+63	flintshire.txt	Bagillt saltmarsh	resolved	53.2645000	-3.1650000	marsh	Upper estuary saltmarsh mosaic off Bagillt Dee front (footbridge / WCP views)
+64	flintshire.txt	Bagillt Dee front	resolved	53.2638000	-3.1640000	shore	Dee estuary foreshore below Bagillt (coastal path margin)
+65	flintshire.txt	Dee Bank Quay	resolved	53.2670000	-3.1635000	quay	Historic Dee Bank / Gadlys–iron-works quay belt on Dee foreshore (industrial heritage context)
+66	flintshire.txt	Cambrian Brewery Bagillt	resolved	53.2652000	-3.1645000	attraction	Remaining brewery boundary wall along Station Road / WCP (1825–1893 Cambrian Brewery site)
+67	flintshire.txt	Stag Inn Bagillt	resolved	53.2692330	-3.1721860	pub	WCP circular walk start; High Street CH6 6ED centroid
+68	flintshire.txt	Connah's Quay	resolved	53.2180000	-3.0570000	town	Connah's Quay town centroid (Wikipedia / GeoHack)
+69	flintshire.txt	Connahs Quay	resolved	53.2180000	-3.0570000	town	Alternate spelling; same settlement as line 68
+70	flintshire.txt	Cei Connah	resolved	53.2180000	-3.0570000	town	Standard Welsh name for Connah's Quay (same centroid)
+71	flintshire.txt	The Quay Deeside	resolved	53.2190000	-3.0580000	shore	Local name for Connah's Quay waterfront / High Street quay frontage
+72	flintshire.txt	Wepre	resolved	53.2155000	-3.0560000	locality	Historic Wepre township area now within Connah's Quay (Wepre ward belt)
+73	flintshire.txt	Wepre Park	resolved	53.2036000	-3.0606000	park	Country park visitor centroid (Wikipedia coord)
+74	flintshire.txt	Wepre Country Park	resolved	53.2036000	-3.0606000	park	Same statutory country park as Wepre Park (bilingual naming)
+75	flintshire.txt	Wepre Woods	resolved	53.2045000	-3.0595000	woodland	Wooded blocks within Wepre Park / SSSI woodlands
+76	flintshire.txt	Wepre Brook	resolved	53.2025000	-3.0615000	stream	Brook corridor through Wepre Park (waterfall / Pont Aber reach)
+77	flintshire.txt	Castell Ewloe	resolved	53.2000000	-3.0670000	castle	Welsh name; Cadw ruin inside Wepre Park (Wikipedia coord)
+78	flintshire.txt	Ewloe Castle	resolved	53.1999300	-3.0668000	castle	Same masonry castle as line 77; Gatehouse/Coflein centroid
+79	flintshire.txt	Shotton	resolved	53.2090000	-3.0420000	town	Shotton town centroid (Wikipedia)
+80	flintshire.txt	Shotton High Level	resolved	53.2125410	-3.0384240	station	Shotton High Level platforms (Borderlands Line; National Rail ICS geolocation)
+81	flintshire.txt	Shotton dockside	resolved	53.2160000	-3.0305000	industrial	Tata Steel Shotton works / Dee jetty belt north of Hawarden Bridge
+82	flintshire.txt	Kelsterton	resolved	53.2274000	-3.0836000	locality	Kelsterton suburb / former Kelsterton College belt west of power station (monument coords nearby)
+83	flintshire.txt	Golftyn	resolved	53.2205000	-3.0633300	locality	Historic Golftyn hamlet ward centroid (GENUKI Connah's Quay map grid)
+84	flintshire.txt	Aston	resolved	53.1980000	-3.0400000	village	Aston (Aston Park) village centroid (Wikipedia)
+85	flintshire.txt	Aston Hall	resolved	53.1958600	-3.0354960	house	Grade II* manor house; Cadw listing centroid (distinct built heritage from village centroid)
+86	flintshire.txt	Garden City	resolved	53.2150000	-3.0090000	village	Garden City planned village centroid (Wikipedia OS ref SJ326691)
+87	flintshire.txt	Garden City Deeside	resolved	53.2138400	-3.0088700	village	Same settlement; OS Open Names centre (post town Deeside)
+88	flintshire.txt	Connah's Quay Power Station	resolved	53.2321620	-3.0813000	power_station	CCGT site south bank Dee (Wikipedia coord)
+89	flintshire.txt	Connah's Quay waterfront	resolved	53.2240000	-3.0650000	shore	Dee estuary quays / promenade frontage below town centre
+90	flintshire.txt	Deeside	resolved	53.2000000	-3.0333300	urban_area	Deeside conurbation centroid label (Wikipedia)
+91	flintshire.txt	Deeside Industrial Estate	resolved	53.2256670	-3.0225320	industrial_estate	Deeside Industrial Park centroid (OS locality / Welsh Rd belt)
+92	flintshire.txt	Tata Steel Shotton	resolved	53.2155000	-3.0310000	industrial	Tata steelworks / Dee jetty belt (same coastal belt as Shotton dockside)
+93	flintshire.txt	Flintshire Bridge	resolved	53.2287380	-3.0659510	bridge	Wikipedia/GeoHack cable-stayed Dee crossing
+94	flintshire.txt	Queensferry	resolved	53.2070000	-3.0260000	town	Wikipedia community centroid (Deeside)
+95	flintshire.txt	Queensferry waterfront	resolved	53.2080000	-3.0240000	shore	Dee quays / Jubilee (Blue) Bridge frontage in Queensferry
+96	flintshire.txt	Saltney	resolved	53.1790000	-2.9220000	town	Wikipedia centroid (Flintshire sector; border town)
+97	flintshire.txt	Saltney Ferry	resolved	53.1804500	-2.9459900	suburb	OSM Saltney Ferry node / former station belt
+98	flintshire.txt	Sandycroft	resolved	53.1950000	-2.9990000	village	Wikipedia centroid (south of canalised Dee)
+99	flintshire.txt	Bretton	resolved	53.1689100	-2.9806700	village	Wikipedia Bretton, Flintshire
+100	flintshire.txt	Brychdyn	resolved	53.1688890	-2.9850000	village	Welsh standard name for Broughton (Wikidata); adjacent to Bretton in community
+101	flintshire.txt	Mancot	resolved	53.1910000	-3.0110000	village	Wikipedia ward centroid
+102	flintshire.txt	Mancot Bank	resolved	53.1935000	-3.0140000	locality	Eastern Mancot bank toward Welsh–English border belt
+103	flintshire.txt	Sealand	resolved	53.2120000	-2.9700000	community	Wikipedia Sealand, Flintshire centroid
+104	flintshire.txt	Sealand Road	resolved	53.2050000	-2.9650000	road	A548 / Sealand Road corridor near Garden City–Sealand (Dee reclaimed belt)
+105	flintshire.txt	Flintshire Coast Park	resolved	53.2505000	-3.1320000	park	Council coastal branding; promoted central hub at Flint foreshore (25-mile corridor)
+106	flintshire.txt	Wales Coast Path	ambiguous			long_distance_path	National trail; Flintshire segment is one of many valid pins along 870-mile route
+107	flintshire.txt	Dee Estuary	ambiguous			estuary	Large shared estuary; no single shoreline centroid for this label
+108	flintshire.txt	Dee Estuary Way	ambiguous			trail	Promoted estuary walking network; multi-section without one point
+109	flintshire.txt	Estuaryside Bagillt	resolved	53.2638000	-3.1640000	shore	Bagillt Dee foreshore / WCP margin (same belt as Bagillt Dee front)
+110	flintshire.txt	Estuaryside Flint	resolved	53.2535000	-3.1310000	shore	Flint estuary foreshore below castle (WCP belt)
+111	flintshire.txt	Wooded shore Flint	resolved	53.2530000	-3.1290000	shore	WCP wooded shore loop east of Flint Dock (itinerary belt)
+112	flintshire.txt	Castle walk Flint	resolved	53.2549432	-3.1301384	walk	Castle Walk footpath; trailhead at Flint Castle (Cadw)
+113	flintshire.txt	North Wales Coast Path	ambiguous			long_distance_path	Regional LDP (e.g. Chester–Bangor); Flintshire is one segment
+114	flintshire.txt	Irish Sea at Talacre	resolved	53.3600000	-3.3300000	sea	Open-water label off Talacre / Point of Ayr (approx. offshore bearing)
+115	flintshire.txt	Liverpool Bay Talacre	resolved	53.3570000	-3.2800000	sea	Liverpool Bay waters off Gronant/Talacre beach
+116	flintshire.txt	Talacre lighthouse	resolved	53.3563890	-3.3191670	lighthouse	Same structure as Point of Ayr Lighthouse (line 2)
+117	flintshire.txt	Talacre dunes walk	resolved	53.3525000	-3.3198000	walk	Dune/boardwalk access at Talacre (WCP belt)
+118	flintshire.txt	Point of Ayr beach	resolved	53.3520000	-3.3205000	beach	Sandy foreshore at Point of Ayr / Talacre
+119	flintshire.txt	Point of Ayr sands	resolved	53.3528000	-3.3190000	beach	Intertidal sand flats off lighthouse beach
+120	flintshire.txt	Mostyn shoreline	resolved	53.3200000	-3.2650000	shore	Dee frontage at Mostyn port (extends Mostyn docks belt)
+121	flintshire.txt	Greenfield shore	resolved	53.2905000	-3.2120000	shore	Dee estuary foreshore at Greenfield (WCP / industrial coast belt)
+122	flintshire.txt	Bagillt Wales Coast Path	resolved	53.2650000	-3.1650000	walk	WCP estuary section through Bagillt (same corridor as Dee-front Bagillt)
+123	flintshire.txt	Flint Wales Coast Path	resolved	53.2545000	-3.1310000	walk	WCP along Flint Dee frontage below castle / docks belt
+124	flintshire.txt	Connah's Quay Wales Coast Path	resolved	53.2178570	-3.0572730	walk	WCP riverside through Connah's Quay (Wikidata town centroid)
+125	flintshire.txt	Saltney Wales Coast Path	resolved	53.1790000	-2.9220000	walk	WCP / Dee margin on Welsh Saltney (Wikipedia/Wikidata centroid)
+126	flintshire.txt	Queensferry Wales Coast Path	resolved	53.2070000	-3.0260000	walk	WCP through Queensferry on Dee (Wikipedia coord)
+127	flintshire.txt	Shotton shore	resolved	53.2090000	-3.0420000	shore	Dee estuary foreshore at Shotton (town on south bank)
+128	flintshire.txt	Saltney south bank Dee	resolved	53.1765000	-2.9380000	shore	Welsh-side Dee foreshore south of main Saltney built-up area
+129	flintshire.txt	Border Saltney Chester	resolved	53.1780000	-2.9250000	locality	England–Wales border strip through Saltney toward Chester (Dee corridor)
+130	flintshire.txt	Afon Chwiler mouth	resolved	53.2136300	-3.3789600	river_mouth	River Wheeler (Afon Chwiler) joins Afon Clwyd W of Aberwheeler (Wikipedia mouth coord)
+131	flintshire.txt	Chwiler	resolved	53.2340000	-3.3035000	river	Afon Chwiler (River Wheeler) at Afonwen on A541 corridor; inland Flintshire, not Dee mouth

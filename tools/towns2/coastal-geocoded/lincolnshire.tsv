@@ -1,0 +1,142 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	lincolnshire.txt	Barton-upon-Humber	resolved	53.6858065	-0.4395216	town	Nominatim/OSM town node; Humber south bank.
+2	lincolnshire.txt	Barton Waterside	resolved	53.6961801	-0.4428789	suburb	OSM suburb of Barton-upon-Humber; riverside area.
+3	lincolnshire.txt	Barrow-upon-Humber	resolved	53.6732961	-0.3809540	village	OSM administrative centroid; Humber-side settlement.
+4	lincolnshire.txt	Barrow Haven	resolved	53.6974548	-0.3928890	harbour	OSM railway station node named Barrow Haven; beside the haven/ferry area.
+5	lincolnshire.txt	New Holland	resolved	53.7019850	-0.3601529	village	OSM railway station node; historic Humber ferry point.
+6	lincolnshire.txt	South Ferriby	resolved	53.6762039	-0.5059531	village	OSM village boundary centroid; Humber cliff village.
+7	lincolnshire.txt	East Halton	resolved	53.6628828	-0.2792347	village	OSM village boundary centroid; near Humber bank.
+8	lincolnshire.txt	Goxhill	resolved	53.6766712	-0.3374071	village	OSM railway station node; settlement anchor (inland of Goxhill Haven).
+9	lincolnshire.txt	Goxhill Haven	resolved	53.7127958	-0.3049072	hamlet	OSM hamlet node; small Humber-side haven.
+10	lincolnshire.txt	Ulceby Skitter	resolved	53.6194996	-0.3038646	hamlet	OSM hamlet; Skitter / Humber mudflat locality.
+11	lincolnshire.txt	North Killingholme	resolved	53.6389632	-0.2695502	village	OSM village boundary centroid; near Immingham port.
+12	lincolnshire.txt	South Killingholme	resolved	53.6300423	-0.2642896	village	OSM village node.
+13	lincolnshire.txt	Stallingborough	resolved	53.5871667	-0.1834359	village	OSM railway station node; parish near Humber industry belt.
+14	lincolnshire.txt	Immingham	resolved	53.6160803	-0.2121827	town	OSM town boundary centroid.
+15	lincolnshire.txt	Immingham Docks	resolved	53.6280966	-0.1914829	dock	OSM waterway=dock “Immingham Dock”; matches port complex.
+16	lincolnshire.txt	Healing	resolved	53.5818378	-0.1606176	village	OSM railway station node; parish W of Grimsby.
+17	lincolnshire.txt	Great Coates	resolved	53.5757224	-0.1298327	village	OSM railway station node; W Grimsby settlement.
+18	lincolnshire.txt	Grimsby	resolved	53.5671407	-0.0788045	town	OSM town node; historic fishing port.
+19	lincolnshire.txt	Grimsby Docks	resolved	53.5741416	-0.0758325	dock	OSM railway station “Grimsby Docks”; dock district.
+20	lincolnshire.txt	The Port of Grimsby	resolved	53.5722639	-0.0826484	harbour	No direct Nominatim hit; OSM “Alexandra Dock” in West Marsh used as port pin.
+21	lincolnshire.txt	Pyewipe	resolved	53.5837331	-0.1072991	locality	OSM locality NW Grimsby toward Humber mudflats.
+22	lincolnshire.txt	Cleethorpes	resolved	53.5572068	-0.0289969	town	OSM town node; seaside resort.
+23	lincolnshire.txt	Cleethorpes Beach	resolved	53.5332015	0.0053889	beach	OSM building named Cleethorpes Beach; pin on coastal strip S of town centre.
+24	lincolnshire.txt	Cleethorpes Seafront	resolved	53.5568942	-0.0231695	promenade	No direct name hit; HM Coastguard Cleethorpes on Central Promenade used as seafront pin.
+25	lincolnshire.txt	Cleethorpes Promenade	resolved	53.5606547	-0.0274740	promenade	OSM tourism node “Cleethorpes Tourist Information Centre” on Central Promenade.
+26	lincolnshire.txt	Humberston	resolved	53.5339693	-0.0234751	village	OSM village boundary centroid; S of Cleethorpes.
+27	lincolnshire.txt	Humberston Fitties	resolved	53.5294829	0.0115696	residential	OSM landuse residential polygon name; chalet/coastal strip S of Cleethorpes.
+28	lincolnshire.txt	Tetney Lock	resolved	53.4994596	0.0210074	hamlet	OSM hamlet node; Louth navigation / coast edge.
+29	lincolnshire.txt	Tetney Haven	resolved	53.5136633	0.0424203	locality	OSM locality; creek/haven E of Tetney.
+30	lincolnshire.txt	Tetney Marsh	resolved	53.5278051	0.0267549	marsh	OSM locality “Tetney Marsh”; broad marsh — pin is representative node.
+31	lincolnshire.txt	Tetney Marshes	resolved	53.5278051	0.0267549	marsh	OSM names the locality “Tetney Marsh”; plural treated as the same marsh area.
+32	lincolnshire.txt	Grainthorpe	resolved	53.4533854	0.0806053	village	OSM village node (coastal parish).
+33	lincolnshire.txt	North Somercotes	resolved	53.4471931	0.1390434	village	OSM village node.
+34	lincolnshire.txt	Somercotes Haven	resolved	53.4841757	0.1208702	locality	OSM locality; small haven north of Somercotes.
+35	lincolnshire.txt	Donna Nook	resolved	53.4733156	0.1501702	locality	OSM coastal locality; seal-watching coast.
+36	lincolnshire.txt	Donna Nook Beach	resolved	53.4764341	0.1444230	beach	OSM tourism=viewpoint “Donna Nook” on Marsh Lane near the shore.
+37	lincolnshire.txt	Donna Nook National Nature Reserve	resolved	53.4733156	0.1501702	nature_reserve	No separate OSM name hit; pin co-located with Donna Nook coastal locality (managed coastal NNR).
+38	lincolnshire.txt	Marshchapel	resolved	53.4724221	0.0472038	village	OSM village node.
+39	lincolnshire.txt	North Coates	resolved	53.4847044	0.0324480	village	OSM village node near the coast.
+40	lincolnshire.txt	Saltfleet	resolved	53.4205583	0.1862115	village	OSM village node.
+41	lincolnshire.txt	Saltfleet Haven	resolved	53.4181710	0.1927051	harbour	OSM waterway named Saltfleet Haven (tidal creek/haven).
+42	lincolnshire.txt	Saltfleet Beach	resolved	53.4249363	0.1890515	beach	Sea Lane coastal strip centroid; no dedicated beach POI in OSM.
+43	lincolnshire.txt	Skidbrooke with Saltfleet Haven	resolved	53.4089686	0.1626068	civil_parish	Parish-level label; OSM hamlet Skidbrooke used as settlement anchor.
+44	lincolnshire.txt	Saltfleetby St Peter	resolved	53.4237958	0.1911731	village	OSM administrative centroid for the village area.
+45	lincolnshire.txt	Saltfleetby All Saints	resolved	53.3812611	0.1518902	village	OSM village node.
+46	lincolnshire.txt	Saltfleetby St Clement	resolved	53.4042386	0.1968777	hamlet	OSM hamlet node.
+47	lincolnshire.txt	Theddlethorpe St Helen	resolved	53.3732727	0.2220177	village	OSM village node.
+48	lincolnshire.txt	Saltfleetby-Theddlethorpe Dunes	resolved	53.4324511	0.1953818	dunes	Broad dune system; pin is centroid of Lincolnshire Coronation Coast NNR (OSM protected_area).
+49	lincolnshire.txt	Saltfleetby-Theddlethorpe Dunes National Nature Reserve	resolved	53.4324511	0.1953818	nature_reserve	Historic sub-site name; OSM groups under Lincolnshire Coronation Coast NNR relation.
+50	lincolnshire.txt	Lincolnshire Coronation Coast	resolved	53.4324511	0.1953818	coast	Branded Lincolnshire coast strip; OSM uses the Coronation Coast NNR protected_area centroid.
+51	lincolnshire.txt	Lincolnshire Coronation Coast National Nature Reserve	resolved	53.4324511	0.1953818	nature_reserve	OSM relation “Lincolnshire Coronation Coast National Nature Reserve”.
+52	lincolnshire.txt	Rimac	resolved	53.4003471	0.2043285	hamlet	OSM isolated_dwelling named Rimac near Saltfleetby St Clement.
+53	lincolnshire.txt	South Cockerington	resolved	53.3800101	0.0739265	village	OSM village node (parish with coastal frontage to the north).
+54	lincolnshire.txt	Three Bridges Saltfleetby	resolved	53.3716187	0.1607599	locality	OSM locality “Three Bridges” in Saltfleetby St Peter (Saltfleetby context).
+55	lincolnshire.txt	Mablethorpe	resolved	53.3408271	0.2606772	town	OSM town node.
+56	lincolnshire.txt	Mablethorpe Beach	resolved	53.3374200	0.2690007	beach	OSM Promenade (pedestrian) on the seafront strip (no named beach object).
+57	lincolnshire.txt	Mablethorpe North End	resolved	53.3582167	0.2460113	locality	OSM locality “North End” in Mablethorpe and Sutton.
+58	lincolnshire.txt	Trusthorpe	resolved	53.3267830	0.2714389	village	OSM village node south of Mablethorpe.
+59	lincolnshire.txt	Sutton-on-Sea	resolved	53.3134339	0.2809461	town	OSM town node.
+60	lincolnshire.txt	Sutton-on-Sea Beach	resolved	53.3155584	0.2829056	beach	OSM Bohemia Promenade / seafront pedestrian spine at Sutton-on-Sea.
+61	lincolnshire.txt	Sandilands	resolved	53.3017178	0.2926791	neighbourhood	OSM place=neighbourhood; Sandilands (Sutton-on-Sea) coastal strip.
+62	lincolnshire.txt	Sandilands Beach	resolved	53.2990300	0.2936792	beach	OSM named building “Long Beach” on Sea Lane; seafront pin.
+63	lincolnshire.txt	Huttoft	resolved	53.2636731	0.2662473	village	OSM village node.
+64	lincolnshire.txt	Huttoft Beach	resolved	53.2805389	0.3121072	beach	OSM “Huttoft Beach” parking node on Huttoft Bank.
+65	lincolnshire.txt	Mumby	resolved	53.2438028	0.2689523	village	OSM village node.
+66	lincolnshire.txt	Moggs Eye	resolved	53.2720491	0.3176233	beach	OSM parking “Marsh Yard/Moggs Eye” at Moggs Eye terrace.
+67	lincolnshire.txt	Anderby	resolved	53.2549873	0.2873984	village	OSM village node.
+68	lincolnshire.txt	Anderby Creek	resolved	53.2608679	0.3203241	hamlet	OSM hamlet node at the creek settlement.
+69	lincolnshire.txt	Anderby Marsh	resolved	53.2549000	0.3053000	marsh	Lincolnshire Wildlife Trust coastal grazing marsh (OS grid TF 550758); centroid approximated from reserve map.
+70	lincolnshire.txt	Anderby Beach	resolved	53.2593651	0.3239299	beach	OSM “Anderby Beach Cafe” on Sea Road as seafront anchor.
+71	lincolnshire.txt	Chapel St Leonards	resolved	53.2253833	0.3377771	town	OSM town node.
+72	lincolnshire.txt	Chapel St Leonards Beach	resolved	53.2333541	0.3398132	beach	OSM tourism node “North Sea Observatory” on the promenade seafront.
+73	lincolnshire.txt	Chapel Point	resolved	53.2330473	0.3403331	headland	OSM locality “Chapel Point” on the coast N of the town.
+74	lincolnshire.txt	Chapel Six Marsh	resolved	53.2422800	0.3341200	marsh	Published birding-site centroid for Chapel Six Marshes; broad coastal marsh N of Chapel St Leonards.
+75	lincolnshire.txt	Ingoldmells	resolved	53.1932406	0.3346566	village	OSM village node.
+76	lincolnshire.txt	Ingoldmells Beach	resolved	53.1927537	0.3525844	beach	OSM “Beach Walk Diner” on Sea Lane as Ingoldmells seafront pin.
+77	lincolnshire.txt	Addlethorpe	resolved	53.1953705	0.3177216	village	OSM village node.
+78	lincolnshire.txt	Skegness	resolved	53.1425470	0.3405228	town	OSM administrative boundary centroid for Skegness.
+79	lincolnshire.txt	Skeg	resolved	53.1425470	0.3405228	town	Colloquial for Skegness; same town-level pin as Skegness (intended equivalence).
+80	lincolnshire.txt	Skegness Beach	resolved	53.1436333	0.3445318	beach	OSM highway=secondary “Grand Parade” segment on the main seafront road.
+81	lincolnshire.txt	Skegness North Shore	resolved	53.1559981	0.3449775	locality	OSM residential “North Shore Road” centroid (North Shore holiday strip).
+82	lincolnshire.txt	Skegness Seafront	resolved	53.1419470	0.3437908	promenade	OSM tourism attraction “The Clock Tower” on Lumley Road seafront area.
+83	lincolnshire.txt	Skegness Pier	resolved	53.1447158	0.3480882	pier	OSM pier way/node on Prince Edward Walk.
+84	lincolnshire.txt	Skegness Foreshore	resolved	53.1440953	0.3462381	park	OSM park “Foreshore Gardens” beside the beach frontage.
+85	lincolnshire.txt	Roman Bank	resolved	53.1509484	0.3403705	road	OSM primary road “Roman Bank” segment through Skegness/Winthorpe strip.
+86	lincolnshire.txt	Winthorpe	resolved	53.1657623	0.3346971	village	OSM village node (Skegness northern parish).
+87	lincolnshire.txt	Seacroft	resolved	53.1286826	0.3386815	village	OSM village node S of Skegness.
+88	lincolnshire.txt	Gibraltar Point	resolved	53.0957994	0.3261359	locality	OSM locality name for the coastal point/NNR area.
+89	lincolnshire.txt	Gibraltar Point Beach	resolved	53.0957994	0.3261359	beach	No separate OSM beach object; pinned to Gibraltar Point coastal locality (sand spit beach).
+90	lincolnshire.txt	Gibraltar Point National Nature Reserve	resolved	53.1036317	0.3336820	nature_reserve	OSM place=nature_reserve “Gibraltar Point National Nature Reserve”.
+91	lincolnshire.txt	Mill Hill Skegness	resolved	53.1975368	0.3306626	caravan_site	OSM tourism=caravan_site “Mill Hill Caravan Park”, Anchor Lane, Ingoldmells (Skegness area).
+92	lincolnshire.txt	Wainfleet All Saints	resolved	53.1067737	0.2367031	town	OSM administrative boundary for Wainfleet All Saints (East Lindsey).
+93	lincolnshire.txt	Wainfleet St Mary	resolved	53.1030130	0.2275563	village	OSM village node Wainfleet St Mary (coastal settlement; not the wide parish/suburb relation).
+94	lincolnshire.txt	Eastville	resolved	53.0921027	0.0951104	hamlet	OSM hamlet boundary centroid Eastville (New Leake area).
+95	lincolnshire.txt	Croft	resolved	53.1307519	0.2533976	village	OSM village node Croft (coastal parish E of Skegness).
+96	lincolnshire.txt	Friskney	resolved	53.0754153	0.1795964	village	OSM village node Friskney.
+97	lincolnshire.txt	Friskney Eaudyke	resolved	53.0823273	0.1984252	hamlet	Source spells “Eaudyke”; OSM hamlet name “Friskney Eaudike”.
+98	lincolnshire.txt	Friskney Tofts	resolved	53.0730948	0.1980602	farm	OSM place=farm “Friskney Tofts”.
+99	lincolnshire.txt	Wrangle	resolved	53.0378725	0.1247633	village	OSM village node Wrangle.
+100	lincolnshire.txt	Wrangle Bank	resolved	53.0601569	0.1256883	hamlet	OSM hamlet node Wrangle Bank.
+101	lincolnshire.txt	Wrangle Marsh	resolved	53.0252778	0.1579471	marsh	OSM locality “Wrangle Marsh” (two nodes; used E marsh pin).
+102	lincolnshire.txt	Leverton	resolved	53.0069137	0.0840916	village	OSM village node Leverton (Boston area).
+103	lincolnshire.txt	Leverton Outgate	resolved	53.0141398	0.1176810	hamlet	OSM hamlet node Leverton Outgate.
+104	lincolnshire.txt	Old Leake	resolved	53.0311795	0.0969849	village	OSM village node Old Leake.
+105	lincolnshire.txt	Benington	resolved	52.9979391	0.0797326	village	OSM village node Benington.
+106	lincolnshire.txt	Benington Sea End	resolved	52.9926953	0.0986069	hamlet	OSM hamlet node Benington Sea End.
+107	lincolnshire.txt	Freiston	resolved	52.9756282	0.0484107	village	OSM village node Freiston.
+108	lincolnshire.txt	Freiston Shore	resolved	52.9614646	0.0786320	hamlet	OSM hamlet node Freiston Shore (coastal).
+109	lincolnshire.txt	Freiston Shore RSPB	resolved	52.9614646	0.0786320	nature_reserve	No dedicated OSM RSPB polygon hit; pinned to Freiston Shore coastal hamlet (RSPB shore reserve site).
+110	lincolnshire.txt	Butterwick	resolved	52.9841838	0.0684667	village	OSM village node Butterwick.
+111	lincolnshire.txt	Fishtoft	resolved	52.9618836	0.0269015	village	OSM village node Fishtoft.
+112	lincolnshire.txt	Boston	resolved	52.9775708	-0.0237923	town	OSM administrative boundary centroid for Boston (Lincolnshire).
+113	lincolnshire.txt	Boston Docks	resolved	52.9689077	-0.0182756	dock	OSM waterway=dock named “Port of Boston” (Skirbeck dock pocket).
+114	lincolnshire.txt	Port of Boston	resolved	52.9696365	-0.0200131	harbour	OSM landuse=industrial “Port of Boston” (Skirbeck Quarter).
+115	lincolnshire.txt	The Haven Boston	resolved	52.9677163	-0.0122203	river	OSM river way “The Haven” segment in Skirbeck (tidal reach through Boston).
+116	lincolnshire.txt	Skirbeck	resolved	52.9691289	-0.0084822	suburb	OSM suburb node Skirbeck.
+117	lincolnshire.txt	Wyberton	resolved	52.9544795	-0.0411564	village	OSM village node Wyberton.
+118	lincolnshire.txt	Fosdyke	resolved	52.8795977	-0.0440458	village	OSM village node Fosdyke.
+119	lincolnshire.txt	Fosdyke Bridge	resolved	52.8714516	-0.0423191	bridge	OSM bridge “Fosdyke Bridge” over Moulton Washway.
+120	lincolnshire.txt	River Welland Mouth	resolved	52.8983333	0.0308333	estuary	Wikipedia “River Welland” mouth at The Wash / Fosdyke Wash (no clean Nominatim feature).
+121	lincolnshire.txt	Guy's Head	resolved	52.8098371	0.2066423	hamlet	Nominatim place node Guy's Head, Sutton Bridge.
+122	lincolnshire.txt	Sutton Bridge	resolved	52.7683040	0.1915749	town	Nominatim village node Sutton Bridge (South Holland).
+123	lincolnshire.txt	Sutton Bridge Beach	resolved	52.7712000	0.2005000	beach	No named OSM beach; pin on The Wash / Nene east-bank foreshore E of Cross Keys Bridge (human-map coastal strip).
+124	lincolnshire.txt	Sutton Bridge Marina	resolved	52.7784559	0.1989044	marina	Nominatim locality “Port Sutton Bridge”; OSM has no leisure=marina but matches commercial dock/berth area.
+125	lincolnshire.txt	Cross Keys Bridge Sutton Bridge	resolved	52.7664121	0.1957067	bridge	Nominatim bridge “Cross Keys Bridge”.
+126	lincolnshire.txt	Gedney Drove End	resolved	52.8412629	0.1693200	hamlet	Nominatim hamlet node Gedney Drove End.
+127	lincolnshire.txt	Gedney Broadgate	resolved	52.7832204	0.0826309	hamlet	Nominatim Gedney Broadgate (Long Sutton area).
+128	lincolnshire.txt	Holbeach	resolved	52.8042100	0.0180043	town	Nominatim Holbeach CP administrative centroid.
+129	lincolnshire.txt	Holbeach Marsh	resolved	52.8550419	0.0018992	marsh	Nominatim locality Holbeach Marsh.
+130	lincolnshire.txt	Holbeach St Matthew	resolved	52.8675702	0.0951869	hamlet	Nominatim Holbeach St Matthew.
+131	lincolnshire.txt	Holbeach St Johns	resolved	52.7463575	-0.0031433	village	Nominatim Holbeach St Johns.
+132	lincolnshire.txt	Holbeach St Marks	resolved	52.8620048	0.0360492	hamlet	Nominatim Holbeach St Marks.
+133	lincolnshire.txt	Long Sutton	resolved	52.7767870	0.1193859	town	Nominatim Long Sutton.
+134	lincolnshire.txt	Tydd St Mary	resolved	52.7405971	0.1265631	village	Nominatim Tydd St Mary.
+135	lincolnshire.txt	Tydd St Giles	resolved	52.7153790	0.0756051	village	Nominatim Tydd St. Giles (Fenland, Cambs); fen-edge parish often grouped with South Holland coast context.
+136	lincolnshire.txt	Fleet Hargate	resolved	52.8033592	0.0660717	hamlet	Nominatim Fleet Hargate.
+137	lincolnshire.txt	Foul Anchor	resolved	52.7375663	0.1663416	village	Nominatim Foul Anchor (Fenland, Cambs); Nene/outwash fen hamlet on county list margin.
+138	lincolnshire.txt	Dawsmere	resolved	52.8495794	0.1423050	hamlet	Nominatim “Gedney Dawsmere” (matches Dawsmere on Gedney Wash).
+139	lincolnshire.txt	Surfleet Seas End	resolved	52.8420360	-0.1188160	hamlet	IPN/Streetmap-style centroid for Surfleet Seas End; Nominatim only returned “Seas End Road”.
+140	lincolnshire.txt	Whaplode St Catherine	resolved	52.7616380	-0.0142051	village	Nominatim Whaplode St Catherine.
+141	lincolnshire.txt	Weston Hills	resolved	52.7624338	-0.1110134	village	Nominatim Weston Hills.

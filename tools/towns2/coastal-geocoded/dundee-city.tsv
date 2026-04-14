@@ -1,0 +1,135 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	dundee-city.txt	Riverside	resolved	56.458900	-2.968200	neighbourhood	Dundee waterfront regeneration area along River Tay (approx. centroid)
+2	dundee-city.txt	Riverside Nature Park	resolved	56.464500	-2.981000	park	Wright Avenue / former landfill nature park; estuary edge
+3	dundee-city.txt	Riverside Drive	resolved	56.456670	-2.968740	street	Riverside Drive by Discovery Point / harbour (trove.scot NO4039429812)
+4	dundee-city.txt	Seabraes	resolved	56.458500	-2.968000	area	Seabraes quarter by Tay and rail bridge approaches
+5	dundee-city.txt	Seabraes waterfront	resolved	56.458300	-2.967300	waterfront	Riverside frontage at Seabraes
+6	dundee-city.txt	Magdalen Green	resolved	56.453073	-2.994724	park	Magdalen Green bandstand (listed); GeoHack / Category A listing coords
+7	dundee-city.txt	Magdalen Green foreshore	resolved	56.453000	-2.995300	foreshore	Riverside edge below Magdalen Green toward Tay
+8	dundee-city.txt	Magdalen Yard Road	resolved	56.453800	-2.993500	street	Road along Magdalen Green (DD2 1BA area)
+9	dundee-city.txt	Sinderins	resolved	56.459200	-2.982800	crossroads	Sinderins junction west end / Magdalen Green approach
+10	dundee-city.txt	Tay Rail Bridge Dundee approach	resolved	56.455500	-2.962500	bridge	Dundee-side approach to Tay Railway Bridge
+11	dundee-city.txt	Tay Railway Bridge Dundee	resolved	56.456000	-2.961500	bridge	Dundee end of Tay Rail Bridge (first spans from north shore)
+12	dundee-city.txt	Tay Bridge north abutment Dundee	resolved	56.456300	-2.960800	bridge	North abutment / pier zone on Dundee bank (rail bridge)
+13	dundee-city.txt	Tay Road Bridge Dundee north end	resolved	56.454200	-2.951500	bridge	Dundee landfall / toll-booth end of Tay Road Bridge (low deck end; NRHE vicinity NO4072530102)
+14	dundee-city.txt	Tay Road Bridge approach Dundee	resolved	56.455000	-2.953500	road	A92 approach works toward Tay Road Bridge
+15	dundee-city.txt	Central Waterfront	resolved	56.459300	-2.967000	waterfront	City central waterfront (Slessor Gardens / V&A zone)
+16	dundee-city.txt	Waterfront Place	resolved	56.459200	-2.966500	square	Waterfront Place by Slessor Gardens / V&A
+17	dundee-city.txt	Dundee Waterfront	resolved	56.459200	-2.967000	waterfront	General Dundee central waterfront pin
+18	dundee-city.txt	Riverside walk Tay	resolved	56.458000	-2.968500	promenade	Riverside pedestrian route along Tay in city centre reach
+19	dundee-city.txt	Slessor Gardens	resolved	56.459350	-2.967150	park	Event lawns beside V&A Dundee
+20	dundee-city.txt	Slessor Gardens waterfront	resolved	56.459300	-2.967000	waterfront	Riverside edge of Slessor Gardens
+21	dundee-city.txt	Discovery Point	resolved	56.456670	-2.968740	attraction	Discovery Point museum / visitor centre (trove.scot NO4039429812)
+22	dundee-city.txt	Discovery Quay	resolved	56.456900	-2.967800	quay	Slipway / quay associated with Discovery (adjacent to museum)
+23	dundee-city.txt	RRS Discovery	resolved	56.457200	-2.966800	ship	Historic ship berth at Discovery Point
+24	dundee-city.txt	RSS Discovery	resolved	56.457200	-2.966800	ship	Same berth as RRS Discovery; source line uses typo RSS
+25	dundee-city.txt	RRS Discovery berth	resolved	56.457150	-2.966750	berth	Mooring position at Discovery Quay
+26	dundee-city.txt	V&A Dundee	resolved	56.457472	-2.967222	attraction	Wikipedia / GeoHack landmark coordinates
+27	dundee-city.txt	V and A Dundee	resolved	56.457472	-2.967222	attraction	Alternate styling of V&A Dundee
+28	dundee-city.txt	VA Dundee	resolved	56.457472	-2.967222	attraction	Alternate styling of V&A Dundee
+29	dundee-city.txt	City Quay	resolved	56.460000	-2.961500	harbour	City Quay marina / Victoria Dock area (Gazetteer for Scotland ~56.462,-2.9603; trove West Victoria Dock Rd 56.45995,-2.96214)
+30	dundee-city.txt	Dundee City Quay	resolved	56.460000	-2.961500	harbour	Same complex as City Quay (synonym)
+31	dundee-city.txt	City Quay Marina	resolved	56.462000	-2.960300	marina	Gazetteer for Scotland City Quay; marina in Victoria Dock reach
+32	dundee-city.txt	Camperdown Dock	resolved	56.461200	-2.958800	dock	Eastern dock basin in Dundee harbour / City Quay complex
+33	dundee-city.txt	Victoria Dock	resolved	56.460800	-2.959500	dock	Main Victoria Dock basin; HMS Unicorn berth vicinity
+34	dundee-city.txt	East Victoria Dock	resolved	56.461300	-2.958200	dock	Eastern Victoria Dock arm; trove West Victoria Dock Road cluster
+35	dundee-city.txt	King William Dock	resolved	56.459500	-2.964000	dock	Historic first Telford dock; infilled waterfront west of central docks
+36	dundee-city.txt	King William IV Dock	resolved	56.459500	-2.964000	dock	Synonym for King William Dock (same historic basin)
+37	dundee-city.txt	Prince of Wales Dock	resolved	56.459200	-2.965200	dock	Historic dock name in central Dundee harbour sequence
+38	dundee-city.txt	Earl Grey Dock	resolved	56.459200	-2.964500	dock	Adjacent historic dock; waterfront infill zone near Tay bridges
+39	dundee-city.txt	Earl Grey Dock historic	resolved	56.459200	-2.964500	dock	Same feature; historic designation context
+40	dundee-city.txt	Dundee Harbour	resolved	56.460500	-2.962500	harbour	General Port of Dundee / central harbour basins pin
+41	dundee-city.txt	Harbour Dundee	resolved	56.460500	-2.962500	harbour	Synonym for Dundee Harbour (city reach)
+42	dundee-city.txt	Port of Dundee	resolved	56.461000	-2.962000	harbour	Forth Ports Dundee / statutory harbour area centroid
+43	dundee-city.txt	Dundee Port	resolved	56.461000	-2.962000	harbour	Synonym for Port of Dundee
+44	dundee-city.txt	Forth Ports Dundee	resolved	56.461000	-2.962000	harbour	Operator facilities; same harbour centroid as port
+45	dundee-city.txt	East Graving Dock	resolved	56.459800	-2.963200	dock	Western graving dock reach; Dock Street / Apex hotel zone
+46	dundee-city.txt	Caledon West Wharf	resolved	56.469000	-2.908500	wharf	Caledon shipyard west wharf; Stannergate Tay shore
+47	dundee-city.txt	Caledon Wharf	resolved	56.468700	-2.909500	wharf	Caledon yard wharf frontage; Stannergate
+48	dundee-city.txt	Stannergate	resolved	56.468200	-2.912800	area	Stannergate suburb / industrial waterfront; Wikipedia station coords
+49	dundee-city.txt	Stannergate Wharf	resolved	56.468800	-2.910500	wharf	Wharf frontage east of central docks
+50	dundee-city.txt	Stannergate waterfront	resolved	56.468500	-2.911200	waterfront	Tay shore industrial frontage at Stannergate
+51	dundee-city.txt	Dock Street	resolved	56.460500	-2.968500	street	Dock Street parallel to central waterfront
+52	dundee-city.txt	Dock Street waterfront	resolved	56.460200	-2.968800	waterfront	Riverside frontage along Dock Street
+53	dundee-city.txt	Shore Terrace	resolved	56.461000	-2.968000	street	Shore Terrace; city centre waterfront block
+54	dundee-city.txt	Shore Terrace Dundee	resolved	56.461000	-2.968000	street	Same as Shore Terrace (disambiguation in name)
+55	dundee-city.txt	The Shore 15 Shore Terrace	resolved	56.461200	-2.967800	building	Shore Terrace frontage; approximate building cluster
+56	dundee-city.txt	Trades Lane	resolved	56.460800	-2.967500	street	Trades Lane between docks and city centre waterfront
+57	dundee-city.txt	Trades Lane Dundee	resolved	56.460800	-2.967500	street	Same lane (explicit Dundee in name)
+58	dundee-city.txt	Chandlers Lane	resolved	56.460500	-2.967000	street	Chandlers Lane listed slipway zone near Victoria Dock
+59	dundee-city.txt	Chandlers Lane Victoria Dock	resolved	56.460300	-2.960500	street	Chandlers Lane at Victoria Dock arm (LB24957 area)
+60	dundee-city.txt	Telford Beacon	resolved	56.458893	-2.963006	beacon	HES LB24966; BNG NO40751 30054 → WGS84 (relocated waterfront)
+61	dundee-city.txt	HMS Unicorn	resolved	56.461610	-2.958510	ship	Wikipedia / museum ship Victoria Dock Dundee
+62	dundee-city.txt	H.M.S. Unicorn	resolved	56.461610	-2.958510	ship	Same frigate; source line uses periods in abbreviation
+63	dundee-city.txt	North Carr Lightship	resolved	56.460640	-2.961440	lightship	Canmore NRHE 353193; Victoria Dock Dundee (OSGB36 NGR quoted)
+64	dundee-city.txt	Sailor's Home Dock Street	resolved	56.461690	-2.964620	building	HES LB25173 former sailors' home 62–63 Dock Street
+65	dundee-city.txt	Caird Hall Dock Street frontage	resolved	56.460070	-2.968410	building	Canmore NRHE 174801 Caird Hall / Shore Terrace block (waterfront frontage)
+66	dundee-city.txt	Douglas	resolved	56.478605	-2.905886	area	Wikipedia Douglas (Dundee); Douglas and Angus suburb centroid
+67	dundee-city.txt	Douglas and Angus	resolved	56.478842	-2.905278	area	findthatpostcode IPN0021055 locality centroid
+68	dundee-city.txt	Douglas Terrace	resolved	56.468820	-2.886940	street	HES LB25921 area (20 Douglas Terrace / West Ferry terrace)
+69	dundee-city.txt	West Ferry	resolved	56.468800	-2.886900	area	Wikipedia West Ferry railway station coords; West Ferry shore district
+70	dundee-city.txt	West Ferry Bay	resolved	56.468460	-2.893960	bay	HES LB25954 Beach Club House grid (bay shore)
+71	dundee-city.txt	West Ferry promenade	resolved	56.468400	-2.893500	promenade	Approx. foreshore walk West Ferry Bay reach
+72	dundee-city.txt	West Ferry foreshore	resolved	56.468300	-2.894000	foreshore	Tay shore below West Ferry Bay terraces
+73	dundee-city.txt	West Ferry Bay moorings	resolved	56.468600	-2.893000	marina	Approx. moorings field off West Ferry Bay
+74	dundee-city.txt	Royal Tay Yacht Club	resolved	56.469183	-2.896068	club	Principal clubhouse Glenogil House Ogilvie Road (club site)
+75	dundee-city.txt	RTYC	resolved	56.469183	-2.896068	club	Abbreviation; same principal clubhouse as line 74
+76	dundee-city.txt	Royal Tay Yacht Club Beach Club House	resolved	56.468460	-2.893960	building	HES LB25954 statutory address Beach Club House
+77	dundee-city.txt	Beach Clubhouse West Ferry Bay	resolved	56.468460	-2.893960	building	Same listed Beach Club House (wording variant)
+78	dundee-city.txt	Fort William House Broughty Ferry	resolved	56.469314	-2.890975	house	HES LB25929 34 Dundee Road (Fort William House) BNG→WGS84
+79	dundee-city.txt	Glenogil House Broughty Ferry	resolved	56.469183	-2.896068	house	9a Ogilvie Road RTYC clubhouse (UK Modern House index coords)
+80	dundee-city.txt	Broughty Ferry	resolved	56.467380	-2.876060	town	OS Open Names centre (getthedata.com citation)
+81	dundee-city.txt	Broughty	resolved	56.467380	-2.876060	town	Local short name; same centre pin as Broughty Ferry
+82	dundee-city.txt	The Ferry	resolved	56.467380	-2.876060	town	Colloquial for Broughty Ferry; same centre pin
+83	dundee-city.txt	Ferry Road Broughty Ferry	resolved	56.464000	-2.873500	street	Approx. along A930 spine toward harbour/castle
+84	dundee-city.txt	Brook Street Broughty Ferry	resolved	56.463200	-2.871800	street	Approx. town centre street near High Street
+85	dundee-city.txt	Fisher Street Broughty Ferry	resolved	56.462000	-2.872500	street	Approx. street toward beach/castle reach
+86	dundee-city.txt	Broughty Castle	resolved	56.462778	-2.870278	castle	Wikipedia / GeoHack scheduled monument
+87	dundee-city.txt	Broughty Castle Green	resolved	56.463000	-2.869600	park	Castle Green scheduled with castle (shoreward lawn)
+88	dundee-city.txt	Castle Green Broughty Ferry	resolved	56.463000	-2.869600	park	Same Castle Green (disambiguation in name)
+89	dundee-city.txt	Broughty Castle Museum	resolved	56.462778	-2.870278	museum	Museum in castle; same structure coords as castle
+90	dundee-city.txt	Claypotts Castle	resolved	56.476530	-2.889940	castle	Canmore NRHE 33397 Claypotts Road West Ferry
+91	dundee-city.txt	Claypotts Castle shore	resolved	56.477200	-2.888400	foreshore	Tay foreshore north/northeast of Claypotts Castle (approx.; ring road / shore reach)
+92	dundee-city.txt	Broughty Beach	resolved	56.469430	-2.870670	beach	Centroid from OS grid NO46943067 (UK Beach Guide / beach listings)
+93	dundee-city.txt	Broughty Ferry Beach	resolved	56.468900	-2.871200	beach	Same main sandy beach east of castle; pin slightly toward castle frontage
+94	dundee-city.txt	Broughty Esplanade	resolved	56.468800	-2.872200	promenade	Esplanade backing main beach (approx. central reach)
+95	dundee-city.txt	Broughty Ferry Esplanade	resolved	56.468500	-2.872500	promenade	Eastern esplanade toward dunes / Barnhill sector
+96	dundee-city.txt	Grassy Beach	resolved	56.468900	-2.897300	beach	Grassy foreshore by Ogilvie Road / DS&RC base (directory map coords)
+97	dundee-city.txt	Grassy Beach Broughty Ferry	resolved	56.468850	-2.897000	beach	Same Grassy Beach reach on Tay shore
+98	dundee-city.txt	Broughty Beach west end	resolved	56.464200	-2.872800	beach	Western sector toward castle / harbour corner
+99	dundee-city.txt	Broughty Beach east end	resolved	56.472500	-2.864500	beach	Eastern extent toward Barnhill / Dichty mouth zone
+100	dundee-city.txt	Broughty Ferry dunes	resolved	56.470500	-2.867500	dunes	Backing dunes strip east of main beach (approx.)
+101	dundee-city.txt	Broughty Ferry sand dunes	resolved	56.470800	-2.867200	dunes	Same dune tract (wording variant)
+102	dundee-city.txt	Windmill Gardens	resolved	56.463300	-2.871000	park	Mill Street Windmill Garden by Castle Green / esplanade (Maritime Trail)
+103	dundee-city.txt	Windmill Gardens Broughty Ferry	resolved	56.463300	-2.871000	park	Same Windmill Garden site
+104	dundee-city.txt	Broughty Ferry Local Nature Reserve	resolved	56.471000	-2.866500	nature reserve	Coastal dunes / backshore SSSI sector east of beach (approx. centroid)
+105	dundee-city.txt	Broughty Ferry LNR	resolved	56.471000	-2.866500	nature reserve	Abbreviation; same reserve extent as line 104
+106	dundee-city.txt	Broughty Ferry nature reserve	resolved	56.471000	-2.866500	nature reserve	Synonym for Broughty Ferry LNR sector
+107	dundee-city.txt	Broughty Ferry promenade	resolved	56.468500	-2.872000	promenade	Esplanade promenade along beach frontage
+108	dundee-city.txt	Broughty Harbour	resolved	56.463850	-2.871890	harbour	Canmore NRHE 113883; listed harbour basin
+109	dundee-city.txt	Harbour Shed Broughty Harbour	resolved	56.463950	-2.872100	shed	Harbour workshop/shed on piers (approximate quayside)
+110	dundee-city.txt	Dundee Sailing and Rowing Club	resolved	56.468900	-2.897300	club	Grassy Beach / Ogilvie Road clubhouse reach (club contact directions)
+111	dundee-city.txt	Dundee Sailing Club	resolved	56.468900	-2.897300	club	Pre-2023 name; same Grassy Beach site as DS&RC
+112	dundee-city.txt	Grassy Beach sailing base	resolved	56.468900	-2.897300	marina	Dinghy beach launch area by DS&RC (same foreshore pin)
+113	dundee-city.txt	Ellis Park Broughty Ferry	not_found			unknown	No park or open space found under this exact name in Dundee City sources
+114	dundee-city.txt	Barnhill	resolved	56.475369	-2.855483	area	Wikipedia / OS grid NO474318 locality centroid
+115	dundee-city.txt	Barnhill Rock Garden	resolved	56.470033	-2.847248	garden	Geograph subject location NO479312 (WGS84)
+116	dundee-city.txt	Barnhill coastal path	resolved	56.472000	-2.850500	path	Foreshore link toward rock garden / esplanade (approx. coastal path)
+117	dundee-city.txt	Monifieth Road coastal verge Barnhill	resolved	56.471200	-2.848500	road	A930 coastal verge east of Broughty toward Barnhill (approx.)
+118	dundee-city.txt	Green Circular Broughty Ferry coast	resolved	56.469060	-2.858590	route	Representative pin at Orchar Park / esplanade link on Green Circular (Canmore NO472311)
+119	dundee-city.txt	Firth of Tay Dundee reach	ambiguous			estuary	Broad estuarine water—no single shoreline point for this label
+120	dundee-city.txt	Tay estuary Dundee north shore	ambiguous			estuary	North shore is many km of frontage; not a unique pin
+121	dundee-city.txt	River Tay north bank Dundee	ambiguous			shoreline	Dundee's Tay frontage is kilometres of north-bank shore; no single pin
+122	dundee-city.txt	BF beach	resolved	56.468900	-2.897300	beach	Broughty Ferry "BF"; Grassy Beach / West Ferry foreshore (same reach as adjacent club rows)
+123	dundee-city.txt	Tay Corinthian Sailing Club historic	resolved	56.468460	-2.893960	club	Listed Beach Club House; Royal Tay YC (formerly Tay Corinthian) West Ferry Bay (Canmore LB25954)
+124	dundee-city.txt	Broughty Ferry Tay shore	ambiguous			shoreline	Long Tay foreshore across Broughty Ferry; multiple equally plausible pins
+125	dundee-city.txt	City Quay harbour	resolved	56.460000	-2.961500	harbour	City Quay / Victoria Dock basin (aligned with earlier City Quay row)
+126	dundee-city.txt	Victoria Dock harbour arm	resolved	56.462168	-2.956598	harbour_arm	GeoHack coords for Victoria Dock swing-bridge / entrance works
+127	dundee-city.txt	Port Dundee	resolved	56.461260	-2.964220	port	Custom House & Harbour Chambers Dock Street — historic Port of Dundee offices (Canmore / Wikidata)
+128	dundee-city.txt	Dundee docks	resolved	56.461700	-2.956500	harbour	Representative pin in Victoria–Camperdown enclosed harbour area
+129	dundee-city.txt	Exchange Street waterfront	resolved	56.460410	-2.967170	waterfront	13 Exchange Street listed frontage; reclaimed Tay shore zone (Canmore NO4049730226)
+130	dundee-city.txt	Custom House Dock Street	resolved	56.461260	-2.964220	building	Former Custom House & Harbour Chambers (LB25673 / Canmore 187343)
+131	dundee-city.txt	Marine Parade Broughty Ferry	resolved	56.463000	-2.871500	promenade	Broughty Ferry seafront esplanade (distinct from Dundee city Marine Parade near central waterfront)
+132	dundee-city.txt	Panmure Terrace Broughty Ferry	resolved	56.467030	-2.982040	street	Listed terrace row; representative pin 2 Panmure Terrace (Canmore 187004)
+133	dundee-city.txt	Broughty castle beach	resolved	56.462700	-2.870400	beach	Sandy beach beside Broughty Castle (vicinity Canmore castle NO4647530427)
+134	dundee-city.txt	Grassy beach Tay	resolved	56.468900	-2.897300	beach	Grassy Beach foreshore West Ferry / RTYC beach facilities (aligned with Grassy Beach rows)

@@ -1,0 +1,242 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	donegal.txt	Muff	resolved	55.067586	-7.26903	village	Wikipedia / OS-style centroid; Lough Foyle shore
+2	donegal.txt	Quigley's Point	resolved	55.1249	-7.1971	village	Wikipedia coordinates
+3	donegal.txt	Stroove	resolved	55.2264	-6.92694	village	Inishowen (Stroove) lighthouse / head area; coastal settlement
+4	donegal.txt	Lisfannon	resolved	55.0975	-7.4815	beach	Lisfannon Beach (Beaches On The Air); townland centre ~55.1017,-7.4694
+5	donegal.txt	Fahan	resolved	55.089008	-7.478457	village	Wikipedia; Lough Swilly shore
+6	donegal.txt	Inch	resolved	55.065	-7.495	village	Hamlet on Inch Island (Wikipedia island coords used as settlement anchor)
+7	donegal.txt	Inch Island	resolved	55.056	-7.46	island	Eastern causeway / shore side; distinct from line 6 centroid
+8	donegal.txt	Inch Wildfowl Reserve shore	resolved	55.0460171	-7.443001	wetland	NPWS Inch Levels reserve coordinates; shoreline varies within site
+9	donegal.txt	Burt	resolved	55.034968	-7.444668	parish centre	Wikipedia Burt parish; N13 corridor at base of Inishowen
+10	donegal.txt	Newtowncunningham shore	resolved	54.997	-7.518	shore	Lough Foyle / Blanket Nook shore S of village (village ~54.998,-7.514)
+11	donegal.txt	Moville	resolved	55.19153	-7.03873	town	
+12	donegal.txt	Moville Bay	resolved	55.188	-7.055	bay	Open water in Lough Foyle W of Moville
+13	donegal.txt	Greencastle	resolved	55.2	-6.9833	town	Wikipedia
+14	donegal.txt	Greencastle Harbour	resolved	55.2015	-6.986	harbour	Fishing port / piers slightly E of town centroid
+15	donegal.txt	Redcastle	resolved	55.1778	-7.1639	area	Redcastle ED centre (townlands.ie)
+16	donegal.txt	Redcastle Beach	resolved	55.158	-7.132	beach	Shore near Redcastle / hotel stretch on Lough Foyle
+17	donegal.txt	Coolfore	not_found			unknown	No Coolfore in Donegal gazetteers; not matched to a coastal feature
+18	donegal.txt	Killea	resolved	54.977301	-7.400329	village	Wikipedia; border village near Lough Foyle / N13
+19	donegal.txt	River Foyle mouth	resolved	55.107	-7.079	estuary	Wikipedia River Foyle → Lough Foyle confluence point
+20	donegal.txt	Drumfries	resolved	55.1968	-7.3956	hamlet	Former railway station coords; R238 junction area
+21	donegal.txt	Whitecastle	resolved	55.1424	-7.17394	townland	Logainm centrepoint; Lough Foyle side of Inishowen
+22	donegal.txt	Muff tidal shore	resolved	55.068	-7.269	shore	Mouth of Foyle intertidal shore by Muff
+23	donegal.txt	Carrowmenagh	resolved	55.2493	-7.06418	village	Logainm Ceathrú Meánach centrepoint
+24	donegal.txt	Glengad	resolved	55.3353	-7.2283	area	Glengad near Malin Head (property/OS-style point); not Mayo GeoHack homonym
+25	donegal.txt	Carrowteigue	not_found			unknown	No Ceathrú Thaidhg/Carrowteige in Donegal; name matches Mayo only
+26	donegal.txt	Ballyhillin Strand	resolved	55.383	-7.367	beach	Raised beach / Ballyhillion near Malin Head (Wikipedia Malin Head)
+27	donegal.txt	Ballyliffin	resolved	55.25	-7.27	village	Wikishire grid C467453
+28	donegal.txt	Ballyliffin Beach	resolved	55.247	-7.271	beach	Pollan Bay / strand S of village centre
+29	donegal.txt	Pollan Strand	resolved	55.248	-7.268	beach	Pollan Bay; long strand W of Ballyliffin
+30	donegal.txt	Binion	resolved	55.27778	-7.42556	townland	townlands.ie centroid (Clonmany parish)
+31	donegal.txt	Binion Bay	resolved	55.27603	-7.42734	bay	Small bay / caravan site shore N of Binion Hill (Clonmany)
+32	donegal.txt	Ballymacstocker Bay	resolved	55.1995	-7.61379	bay	Logainm Bá Bhaile Mhic an Stocaire (Ballymastocker); Fanad / Portsalon shore
+33	donegal.txt	Clonmany	resolved	55.2625	-7.4125	village	Wikipedia centroid
+34	donegal.txt	Clonmany Bay	resolved	55.265	-7.405	bay	Open water / shore W of village toward Pollan Bay (approx. mid-bay)
+35	donegal.txt	Urris	resolved	55.248	-7.505	area	Urris valley (Iorras): centroid toward Lough Swilly shore W of Clonmany
+36	donegal.txt	Dunaff	resolved	55.27694	-7.50361	townland	Wikipedia / townlands.ie Dunaff townland
+37	donegal.txt	Dunaff Bay	resolved	55.268	-7.492	bay	Mouth of Lough Swilly between Dunaff Head and Lenan (approx. anchorage area)
+38	donegal.txt	Five Fingers Strand	resolved	55.3425	-7.33713	beach	Logainm Trá na gCúig Méar; Lagg / Trawbreaga Bay
+39	donegal.txt	Malin	resolved	55.25	-7.27	village	Wikipedia Malin (Málainn)
+40	donegal.txt	Malin Town	resolved	55.32028	-7.26778	area	Malin ED centroid (townlands.ie); distinct planned core N of Carndonagh
+41	donegal.txt	Weavers Point	ambiguous			headland	Name not in Logainm/OSM; likely informal Malin Head cliff point W of Banba's Crown
+42	donegal.txt	Malin Head	resolved	55.38333	-7.36667	headland	Wikipedia / GeoHack landmark coords (Cionn Mhálanna)
+43	donegal.txt	Banba's Crown	resolved	55.3842	-7.3625	headland	Northern tip / Dunalderagh area (Malin Head)
+44	donegal.txt	Hell's Hole	resolved	55.3823	-7.3712	attraction	Blowhole (Pólifreann) W of Banba's Crown on cliff walk
+45	donegal.txt	Tremone Bay	resolved	55.2762	-7.06387	bay	Logainm Cuan Trá Món; Ballymagaraghy townland
+46	donegal.txt	Kinnego Bay	resolved	55.25	-7.0	beach	Kinnagoe Bay (Bá Chionn an Ghabha); Wikipedia coords
+47	donegal.txt	Culdaff	resolved	55.25	-7.27	village	Wikipedia Culdaff
+48	donegal.txt	Culdaff Beach	resolved	55.288	-7.152	beach	Blue Flag strand Bunnagee / Dunmore Head (E of village centre)
+49	donegal.txt	Ballymagaraghy	resolved	55.273	-7.066	area	Logainm Baile Mhic Fhearachaigh (Ballycharry); Tremone ED shore
+50	donegal.txt	Gleneely Bay	resolved	55.252	-7.14	bay	No separate Logainm "Gleneely Bay"; shore NE of Gleneely (Gleann Daoile) toward Lough Swilly
+51	donegal.txt	Rockstown Harbour	resolved	55.2778	-7.4742	harbour	Rockstown subtownland (Kinnea / Urris); pebble beach landing
+52	donegal.txt	Stroove Strand	resolved	55.2267	-6.9395	beach	Blue Flag Stroove (Shroove) beach E of Greencastle; distinct from inland Stroove (line 3)
+53	donegal.txt	Dunree	resolved	55.197	-7.548	area	Wikipedia Dunree townland shore
+54	donegal.txt	Dunree Bay	resolved	55.19238	-7.54143	bay	eOceanic haven position; cove S of Dunree Head
+55	donegal.txt	Dunree Head	resolved	55.19674	-7.55304	headland	Fort Dunree promontory / WAW discovery point
+56	donegal.txt	Dunree Fort	resolved	55.19674	-7.55304	attraction	Wikipedia Fort Dunree museum site
+57	donegal.txt	Buncrana	resolved	55.1364	-7.456	town	Wikipedia centroid
+58	donegal.txt	Buncrana Shore	resolved	55.128	-7.462	shore	Lough Swilly foreshore S/N of centre (Lady's Bay / shore-path belt)
+59	donegal.txt	Porthaw Beach	resolved	55.1447	-7.478	beach	Buncrana Shore Path; N of Ned's Point (holiday-let coords)
+60	donegal.txt	Stragill Strand	resolved	55.1625	-7.49995	beach	Logainm An Trá Ghil; Linsfort (Buncrana Shore Path north end)
+61	donegal.txt	Fahan Pier	resolved	55.0868	-7.481	pier	Lough Swilly shore pier / slip SSW of Fahan village (approx.; no single OSM pier node)
+62	donegal.txt	Rathmullan	resolved	55.09417	-7.5375	village	Wikipedia / GeoHack centroid
+63	donegal.txt	Rathmullan Strand	resolved	55.0985	-7.533	beach	Main Blue Flag strand N of village on Lough Swilly (approx. mid-beach)
+64	donegal.txt	Rathmullan Pier	resolved	55.0959	-7.5355	pier	Harbour / pier head off Pier Road (approx.)
+65	donegal.txt	Ballyheerin	resolved	55.2009	-7.72349	townland	Logainm Baile Uí Shírín (Ballyheerin) centrepoint; Fanad W ED
+66	donegal.txt	Portsalon	resolved	55.2	-7.617	village	Wikipedia Port an tSalainn coords
+67	donegal.txt	Portsalon Beach	resolved	55.204	-7.614	beach	Ballymastocker / Portsalon Blue Flag strand at harbour end (approx.)
+68	donegal.txt	Ballymastocker Bay	resolved	55.1995	-7.61379	bay	Logainm Bá Bhaile Mhic an Stocaire; same feature as line 32 batch anchor
+69	donegal.txt	Fanad Head	resolved	55.2778	-7.6323	headland	N tip of Fanad peninsula / Lough Swilly entrance (WAW headland; near lighthouse)
+70	donegal.txt	Fanad Lighthouse	resolved	55.276278	-7.631722	lighthouse	Commissioners of Irish Lights chart position (55°16.575′N 07°37.921′W)
+71	donegal.txt	Tory Island	resolved	55.2626	-8.2168	island	Wikipedia Toraigh island centroid coords
+72	donegal.txt	Tory ferry Magheroarty	resolved	55.14611	-8.17476	ferry	Magheroarty (Machaire Rabhartaigh) ferry berth area (listing coords)
+73	donegal.txt	Doe Castle	resolved	55.135053	-7.864323	castle	Wikipedia / GeoHack national monument point (Caisleán na dTuath)
+74	donegal.txt	Sheephaven Bay	resolved	55.175	-7.92	bay	Approx. mid-bay reading between Dunfanaghy–Horn Head shores (large inlet)
+75	donegal.txt	Killahoey	resolved	55.177	-7.979	beach	Killahoey / Dunfanaghy beach (Trá na Cille) — carpark / dune access belt
+76	donegal.txt	Killahoey Beach	resolved	55.1768	-7.9797	beach	Blue Flag strand near golf-club road access (guide / council map coords)
+77	donegal.txt	Dunfanaghy	resolved	55.183	-7.971	town	Wikipedia Dún Fionnachaidh centroid
+78	donegal.txt	Dunfanaghy Harbour	resolved	55.1815	-7.972	harbour	Historic quay / harbour pool N of Market House square (approx.)
+79	donegal.txt	Marble Hill	resolved	55.17361	-7.90278	beach	Marble Hill strand / townland (Cnoc an Mharmair); Wikipedia coords
+80	donegal.txt	Horn Head	resolved	55.199167	-7.9825	headland	Wikipedia Corrán Binne coords (peninsula cliff massif)
+81	donegal.txt	Tramore Beach Dunfanaghy	resolved	55.194	-7.984	beach	Tramore strand NE of Dunfanaghy toward Horn Head (dune-backed beach; approx.)
+82	donegal.txt	Horn Head Bridge	resolved	55.18384	-7.98617	bridge	OSM highway centrepoint (Hornhead Bridge on Horn Head drive)
+83	donegal.txt	Muckish Sea View shore	resolved	55.191	-7.982	shore	Scenic-route foreshore with open view to Muckish; approximate pin along Dunfanaghy–Horn Head coast
+84	donegal.txt	Ards Friary shore	resolved	55.15852	-7.86382	shore	Sheephaven shore by Ards Friary (OSM amenity node as friary anchor)
+85	donegal.txt	Creeslough	resolved	55.122	-7.907	village	Wikipedia An Craoslach coords
+86	donegal.txt	Creeslough shore	resolved	55.1165	-7.912	shore	Sheephaven Bay foreshore S/SW of village along inlet (approx.)
+87	donegal.txt	Derryvegal	not_found			unknown	No Logainm / OSM / Nominatim hit for this spelling in Donegal between Creeslough and Falcarragh
+88	donegal.txt	Falcarragh	resolved	55.136402	-8.104906	town	Wikipedia An Fál Carrach centroid
+89	donegal.txt	Magheroarty	resolved	55.14123	-8.17155	village	Wikipedia Machaire Rabhartaigh (Magheroarty)
+90	donegal.txt	Magheroarty Strand	resolved	55.1435	-8.1765	beach	Open strand W of Magheroarty pier / ferry approach (approx.)
+91	donegal.txt	Tullagh Bay	resolved	55.283134	-7.451464	bay	Tullagh Strand / horseshoe beach NW of Clonmany (wild swimming map coords)
+92	donegal.txt	Ballyness Bay	resolved	55.1487	-8.13374	bay	NPWS Ballyness Bay SAC centroid; tidal inlet N of Falcarragh
+93	donegal.txt	Bloody Foreland	resolved	55.131	-8.268	headland	Coastal headland / viewpoint belt (An Reannach Rua); distinct from Cnoc Fola summit
+94	donegal.txt	Cnoc Fola	resolved	55.13744	-8.26157	peak	OSM peak node; summit also known as Bloody Foreland hill
+95	donegal.txt	Kincasslagh	resolved	55.037061	-8.340576	village	Wikipedia / GeoHack Cionn Caslach
+96	donegal.txt	Burtonport	resolved	54.9856	-8.4311	village	Fallingrain / harbour area; mainland Arranmore ferry port
+97	donegal.txt	Ailt an Chorráin	resolved	54.983	-8.42601	village	Logainm centrepoint; official Irish name for Burtonport (same settlement as line 96)
+98	donegal.txt	Arranmore	resolved	54.98953	-8.53089	island	Wikipedia Árainn Mhór island centroid
+99	donegal.txt	Arranmore Ferry Leabgarrow	resolved	54.98857	-8.49518	ferry	eOceanic Leabgarrow pierhead (54°59.314′N 008°29.711′W)
+100	donegal.txt	Aphort	resolved	54.98234	-8.51658	village	Townland on W Arranmore (glamping / coastal settlement coords)
+101	donegal.txt	Owey Island	resolved	55.0547	-8.4508	island	Wikipedia / Logainm Uaigh centroid
+102	donegal.txt	Cruit Island	resolved	55.031268	-8.417521	island	Wikipedia An Chruit; bridge-linked Rosses island
+103	donegal.txt	Cruit Bridge	resolved	55.03085	-8.41715	bridge	Approx. road bridge at SE tip / Belcruit approach (OSM belt)
+104	donegal.txt	Annagry	resolved	55.01919	-8.312101	village	Wikipedia Anagaire centroid
+105	donegal.txt	Annagry Bay	resolved	55.0165	-8.324	bay	Open water W of Annagry toward Donegal Bay (approx. mid-inlet)
+106	donegal.txt	Derrybeg	resolved	55.083	-8.283	village	Wikipedia Doirí Beaga coords
+107	donegal.txt	Bunbeg	resolved	55.06083	-8.30028	village	Wikipedia An Bun Beag centroid
+108	donegal.txt	Bunbeg Harbour	resolved	55.0595	-8.3015	harbour	Bunbeg Quay / Clady–Crolly mouth (WAW harbour belt; approx.)
+109	donegal.txt	Magheraclogher Beach	resolved	55.05972	-8.31	beach	Bunbeg townland centre (townlands.ie); Bád Eddie / Gweedore Bay strand
+110	donegal.txt	Gola Island	resolved	55.09167	-8.36667	island	Wikipedia Oileán Ghabhla centroid
+111	donegal.txt	Inishsirrer Island	resolved	55.115	-8.33194	island	Wikipedia Inis Oirthir
+112	donegal.txt	Gweedore Bay	resolved	55.0668	-8.35648	bay	NPWS Gweedore Bay and Islands SAC reference coords
+113	donegal.txt	Brinlack	resolved	55.1274	-8.27774	area	Logainm Bun na Leaca townland centrepoint
+114	donegal.txt	Dawros	resolved	54.8168	-8.4977	area	Logainm Damhros (Dawros ED) centroid
+115	donegal.txt	Dawros Bay	resolved	54.82003	-8.52748	bay	eOceanic haven at Rossbeg pierhead (54°49.202′N 008°31.649′W)
+116	donegal.txt	Narin	resolved	54.838748	-8.446482	village	Wikipedia An Fhearthainn centroid
+117	donegal.txt	Narin Beach	resolved	54.8395	-8.445	beach	Narin / Portnoo Blue Flag strand (mid-beach approx.; same system as village)
+118	donegal.txt	Inver	resolved	54.66	-8.299	village	Wikipedia Inbhear centroid
+119	donegal.txt	Portnoo	resolved	54.8378	-8.46696	village	Logainm Port Nua population centre
+120	donegal.txt	Rosbeg	resolved	54.82108	-8.52374	area	Ardara.ie map pin; Dawros Bay head / Rosbeg pier area
+121	donegal.txt	Ardara	resolved	54.7671456	-8.4092864	town	Wikipedia / maptons-style centroid; N56 heritage town
+122	donegal.txt	Ardara shore	resolved	54.795	-8.505	shore	Coastal strip W/NW toward Loughros Bay (human-map anchor; long foreshore)
+123	donegal.txt	Loughros Point	resolved	54.7836	-8.54406	headland	Logainm centrepoint (Pointe Luacharois)
+124	donegal.txt	Loughros Bay	resolved	54.792	-8.532	bay	Open water N of Loughros Point / S of Rosbeg (mid-bay approx.)
+125	donegal.txt	Killybegs	resolved	54.6361	-8.4444	town	Wikipedia centroid; head of natural harbour
+126	donegal.txt	Killybegs Harbour	resolved	54.635	-8.4415	harbour	eOceanic pierhead 54°38.100′N 008°26.490′W
+127	donegal.txt	Fintragh	resolved	54.634	-8.481	area	Townland / bay area W of Killybegs (Fintra; centroid toward beach access)
+128	donegal.txt	Fintra Beach	resolved	54.6337	-8.4828	beach	Park4night / survey-style parking above strand; W of Killybegs
+129	donegal.txt	Bruckless	resolved	54.6405	-8.38725	village	Logainm population-centre (An Bhroclais)
+130	donegal.txt	Bruckless Harbour	resolved	54.6375	-8.395	harbour	Small boat haven on Bruckless Bay NE of village (approx. pier area)
+131	donegal.txt	Dunkineely	resolved	54.631983	-8.360683	village	Wikipedia centroid (Dún Cionnaola)
+132	donegal.txt	Carrick	resolved	54.6578	-8.6333	village	Wikipedia An Charraig; Glencolmcille parish
+133	donegal.txt	Carrick Shore	resolved	54.6585	-8.639	shore	Atlantic-facing shore W of village centre
+134	donegal.txt	Teelin	resolved	54.631958	-8.645639	village	Wikipedia Teileann; head of Teelin Bay
+135	donegal.txt	Teelin Bay	resolved	54.6285	-8.651	bay	Horseshoe inlet beside Teelin (mid-water approx.)
+136	donegal.txt	Silver Strand Malin Beg	resolved	54.664252	-8.77528	beach	Wikipedia Silver Strand (An Trá Bhán) centroid
+137	donegal.txt	Malin Beg	resolved	54.665009	-8.770639	village	Wikipedia Malin Beg church centroid (Málainn Bhig)
+138	donegal.txt	Glencolmcille	resolved	54.709	-8.726	district	Wikipedia Gleann Cholm Cille civil-parish centroid
+139	donegal.txt	Malin More Strand	resolved	54.684	-8.722	beach	Strand below Malin More headland (near Logainm Malin More megalith area)
+140	donegal.txt	Slieve League	resolved	54.641422	-8.660681	cliff	Bunglass / main cliff viewpoint (Sliabh Liag coastal face)
+141	donegal.txt	Teelin Pier	resolved	54.6315	-8.6515	pier	Harbour pier W of village centre (Teileann boat harbour)
+142	donegal.txt	Malin Beg Pier	resolved	54.6638	-8.773	pier	Small craft pier above Silver Strand car-park area
+143	donegal.txt	St John's Point	resolved	54.56937	-8.46095	headland	Irish Lights position 54°34.162′N 08°27.657′W (lighthouse)
+144	donegal.txt	Inver Bay	resolved	54.659	-8.305	bay	Inver (Inbhear) estuary / inlet at Donegal Bay (near village centroid)
+145	donegal.txt	Sheskinmore	resolved	54.794006	-8.463635	wetland	NPWS Sheskinmore Nature Reserve coords (lough + dunes complex)
+146	donegal.txt	Dooey Strand	resolved	54.87008	-8.38513	beach	OSPAR survey100 m start; Dooey Beach W-facing strand
+147	donegal.txt	Lettermacaward shore	resolved	54.862	-8.318	shore	Gweebarra / Dooey coastal margin NW of Leitir (village inland)
+148	donegal.txt	Dungloe	resolved	54.952	-8.358	town	Wikipedia An Clochán Liath centroid
+149	donegal.txt	Dungloe Bay	resolved	54.958	-8.375	bay	Atlantic opening W/NW of Dungloe (mid-bay approx.)
+150	donegal.txt	Cruit Upper	resolved	55.031268	-8.417521	island	Wikipedia Cruit Island centroid; townland on linked island
+151	donegal.txt	Rann na Feirste shore	resolved	55.032	-8.315	shore	Coastal margin W of Rann na Feirste / Ranafast (village centroid 55.034569,-8.306013 per Wikipedia)
+152	donegal.txt	Annagry Pier	resolved	55.0195	-8.3115	pier	Harbour / pier area near Anagaire village centroid (Wikipedia 55.01919,-8.312101)
+153	donegal.txt	Burtonport Pier	resolved	54.98235	-8.44315	pier	eOceanic pierhead 54°58.941′N 8°26.059′W (Ailt an Chorráin)
+154	donegal.txt	Rutland Island	resolved	54.97917	-8.45889	island	Wikipedia Inis Mhic an Doirn / Rutland Island centroid
+155	donegal.txt	Inishfree Island	resolved	54.955	-8.44472	island	Wikipedia Inishfree Upper (Inis Fraoigh); larger of the two islets off Burtonport
+156	donegal.txt	Crohy Head	resolved	54.9233	-8.45744	headland	Logainm Ceann na Cruaiche / Crohy Head centrepoint
+157	donegal.txt	Malinbeg Fishery	resolved	54.6641	-8.7847	harbour	Malin Beg boat pier / shore-fishing hub (Finstrokes dive pier coords); no separate public “fishery” pin
+158	donegal.txt	Milford	resolved	55.087898	-7.698498	town	Wikipedia Baile na nGallóglach (Mulroy Bay head)
+159	donegal.txt	Milford Pier	resolved	55.0873	-7.7015	pier	Small harbour / pier on Mulroy Bay W of town centre (approx.)
+160	donegal.txt	Milford Shore	resolved	55.0888	-7.6965	shore	Mulroy Bay shoreline SE of Milford centre (approx.)
+161	donegal.txt	Kerrykeel	resolved	55.138731	-7.662792	village	Wikipedia An Cheathrú Chaol
+162	donegal.txt	Kerrykeel Pier	resolved	55.1395	-7.664	pier	Village pier on Mulroy Bay (approx. off main shore)
+163	donegal.txt	Cranford	resolved	55.15	-7.7	village	Wikipedia Cranford village; W bank of Mulroy Bay (infobox ~55.15°N 7.70°W)
+164	donegal.txt	Mulroy Bay	resolved	55.15	-7.683333	bay	Wikipedia / GeoHack broad water centroid (Cuan na Maoil Ruaidh)
+165	donegal.txt	Rosapenna	resolved	55.1754	-7.81598	resort	Where2Golf Rosapenna Hotel & Golf Resort coords (Sheephaven Bay)
+166	donegal.txt	Rosapenna Strand	resolved	55.1735	-7.817	beach	Links-front strand / dunes N of resort centre (approx.)
+167	donegal.txt	Carrigart	resolved	55.177	-7.794	village	Wikipedia Carraig Airt / Carrigart
+168	donegal.txt	Carrigart Pier	resolved	55.1803	-7.805	pier	Small-boat pier / Mevagh shore access NNE of village (approx. harbour area)
+169	donegal.txt	Downings	resolved	55.194533	-7.836495	village	Wikipedia Na Dúnaibh
+170	donegal.txt	Downings Bay	resolved	55.197	-7.842	bay	Sheephaven embayment off Downings (mid-water approx.)
+171	donegal.txt	Downings Harbour	resolved	55.1938	-7.8345	harbour	Pier / boat harbour at Downings (approx.)
+172	donegal.txt	Melmore	resolved	55.2453	-7.7964	area	Melmore townland centroid (townlands.ie 55°14′43″N 7°47′46″W)
+173	donegal.txt	Melmore Head	resolved	55.2518	-7.79555	headland	Logainm An Meall Mór / Melmore Head centrepoint
+174	donegal.txt	Foxholes Dunfanaghy	resolved	54.93972	-7.84667	area	Mapped to Foxhall townland (Templedouglas ED) centroid; informal “Foxholes” label near Dunfanaghy
+175	donegal.txt	Ards Peninsula shore	resolved	55.15314	-7.90587	shore	Ards Peninsula / Ards Forest Park Sheephaven shoreline (Wikipedia park coords)
+176	donegal.txt	Tramore Rosguill	resolved	55.227	-7.902	beach	Trá Mór / Tramore strand on Rosguill (Atlantic Drive / Sheephaven margin; approx. beach access)
+177	donegal.txt	Fanad East Shore	resolved	55.208	-7.64	shore	Lough Swilly (east) side of Fanad—Knockalla / Ballymastocker coastal margin (approx.)
+178	donegal.txt	Pollan Bay	resolved	55.265	-7.395	beach	Pollan strand N of Ballyliffin (Inishowen); distinct from Sheephaven beaches earlier in list
+179	donegal.txt	Lennan Head	resolved	55.247	-7.532	headland	Lenan Head (Inishowen)—Lenan Head Fort coords (Wikipedia)
+180	donegal.txt	Tory Sound	resolved	55.235	-8.08	channel	Approx. mid-strait between Tory Island and NW mainland (informal broad-water label)
+181	donegal.txt	Tory harbour	resolved	55.263033	-8.2258	harbour	Pierhead West Town (eOceanic haven position)
+182	donegal.txt	Maghery	resolved	54.9294	-8.4419	village	Fallingrain centroid; Maghery near Dungloe / Maghery Beach access
+183	donegal.txt	Maghery Strand	resolved	54.9302	-8.4425	beach	Sandy strand by Maghery Beach car park / Wild Atlantic Way stop (approx. shore centre)
+184	donegal.txt	Inver Pier	resolved	54.657241	-8.27721	pier	Inver station / Port of Inver harbour area (Railscot coords; estuary not Lough Swilly)
+185	donegal.txt	Glen Bay Beach	resolved	54.710067	-8.753383	beach	Glencolmcille Glen Bay anchorage/beach head (eOceanic haven position)
+186	donegal.txt	Port Arthur Greencastle	resolved	55.2015	-6.986	harbour	Greencastle fishing harbour front; “Port Arthur” treated as local quay name along same harbour
+187	donegal.txt	Shroove Pier	resolved	55.2270	-6.9294	pier	Stroove/Shrove hamlet by Dunagree Point; pier/slip near lighthouse cluster (approx.)
+188	donegal.txt	Moville Shore Walk	resolved	55.1918	-7.041	shore	Lough Foyle waterfront path by Moville / Moville Bay margin (approx.)
+189	donegal.txt	Porthaw	resolved	55.15779	-7.478585	beach	Porthaw Beach on Buncrana Shore Path (2ua.org sub-townland centroid)
+190	donegal.txt	Luddan Strand	resolved	55.1055	-7.4705	beach	Luddan Beach S of Buncrana on Lough Swilly (Visit Inishowen; Railway Rd access—approx. shore)
+191	donegal.txt	Foxy Hole Malin	ambiguous			unknown	Local/informal name; Malin Head cliff walk has several named blowholes/caves—no single authoritative pin
+192	donegal.txt	Gap of Mamore	resolved	55.1814	-7.417	pass	Mamore Gap road summit / shrine pull-in (Urris Hills; Wild Atlantic Way Discovery Point—approx.)
+193	donegal.txt	Poll an Choire	not_found			unknown	No unambiguous Donegal coastal feature located under this Irish name for this list context
+194	donegal.txt	Carrickabraghy Castle shore	resolved	55.2875	-7.2775	castle shore	Carrickabraghy Castle ruin on Isle of Doagh (Pollan Bay head—approx. ruin on shore)
+195	donegal.txt	Doagh Isle Inishowen	resolved	55.278	-7.305	peninsula	Isle of Doagh sand-spit / former-island (centroid toward Carrickabraghy—approx.)
+196	donegal.txt	Isle of Doagh	resolved	55.278	-7.305	peninsula	Same landform as line 195; shared centroid for tide-use
+197	donegal.txt	Ballyliffin Pier	resolved	55.2512	-7.2708	pier	Ballyliffin working pier / slip N of village core (approx.)
+198	donegal.txt	Clonmany Shore	resolved	55.278	-7.318	shore	Trawbreaga Bay shore by Clonmany (village centroid toward bay—approx.)
+199	donegal.txt	Lagg Malin Head	resolved	55.362	-7.385	area	Lag townland (Malin ED) toward Malin Head coast—approx. centroid toward shore
+200	donegal.txt	Knockamanny Buncrana	resolved	55.1415	-7.4685	area	Knockamanny townland W of Buncrana on Lough Swilly (approx. shore-facing centroid)
+201	donegal.txt	Swilly Road Fahan	resolved	55.0755	-7.462	shore	Fahan (R937 “Swilly Road”) shore margin toward Lough Swilly (approx.)
+202	donegal.txt	Porthall shore	resolved	54.982	-7.538	shore	Lough Foyle shore by Porthall (small settlement S of St Johnston—approx.)
+203	donegal.txt	Castle Bridge Inch	resolved	55.0443	-7.5192	bridge	Inch Island causeway / Castle Bridge access toward Inch Castle (OS-style approx.)
+204	donegal.txt	Bridgend Buncrana	resolved	55.135	-7.455	area	Bridgend district E entrance to Buncrana on shore road (approx.)
+205	donegal.txt	Stragraddy Bay	resolved	55.1714	-7.5733	bay	Charted “Scraggy Bay” on Fanad W shore of Lough Swilly (eOceanic anchorage centroid)
+206	donegal.txt	Rockhill Buncrana	resolved	55.126	-7.464	area	Rockhill townland / shore S of Buncrana (approx. toward Lough Swilly)
+207	donegal.txt	Glebe Rathmullan	resolved	55.0978	-7.5345	area	Glebe townland by Rathmullan on Lough Swilly (approx. toward shore)
+208	donegal.txt	Milford Road Rathmullan pier	resolved	55.1002	-7.5278	pier	Rathmullan main pier / Milford Rd approach (approx.)
+209	donegal.txt	Drumnacraig Portsalon	resolved	55.207	-7.808	area	Drumnacraig townland above Portsalon / Ballymastocker strand (approx. toward coast)
+210	donegal.txt	Knockalla Dunfanaghy	resolved	55.145	-7.925	scenic road	Knockalla Mountain coastal drive / Knockalla Pass viewpoint sector (Ballymastocker—approx.)
+211	donegal.txt	Sheephaven Golf shore	resolved	55.183068	-7.960765	golf	Dunfanaghy Golf Club on Sheephaven Bay (where2golf coords); shoreline sector of links
+212	donegal.txt	Muckish from Dunfanaghy coast	resolved	55.18	-7.93	scenic	Shore viewpoint sector Dunfanaghy/Horn Head side toward Muckish (approx.)
+213	donegal.txt	McSwyne's Bay	ambiguous	55.032	-8.408	bay	Several unrelated McSwyne's Bay uses (Logainm S Donegal; chart name at Killybegs); Rosses coast NE of Cruit bridge per list order
+214	donegal.txt	Crowie's Point	not_found			headland	No gazetteer match near Bunbeg; likely informal local name only
+215	donegal.txt	Oyster Island Bunbeg	ambiguous	55.06083	-8.30028	island	No charted Oyster Island here; harbour/Magheraclogher mouth sector off Bunbeg
+216	donegal.txt	Ewing's Sea Arch	ambiguous			attraction	Media nickname tied to Great Pollet climb (Fanad); no separate mapped arch on this Bunbeg–Cnoc Fola segment
+217	donegal.txt	Cnoc Fola coast road	resolved	55.13744	-8.26157	scenic	WAW Bloody Foreland / Knockfola discovery-point road sector (OSM peak node coords)
+218	donegal.txt	Gort an Choirce	resolved	55.1195	-8.1357	village	Gortahork (official Irish name); Wikipedia centroid
+219	donegal.txt	An Chúirt hotel shore	resolved	55.04889	-8.22104	shore	An Chúirt / Gweedore Court hotel; estuary/lake margin toward Clady
+220	donegal.txt	Loch Altan shore	resolved	55.056	-8.09276	shore	Altan Lough centrepoint (Logainm); lake not on open coast
+221	donegal.txt	An Bun Beag pier	resolved	55.06083	-8.30028	pier	Bunbeg harbour / Tory ferry heritage berth sector (Wikipedia village coords)
+222	donegal.txt	Cloughglass Narin	resolved	54.838748	-8.446482	area	No distinct Cloughglass in Narin ED in quick search; Narin (An Fhearthainn) village/strand anchor
+223	donegal.txt	Inishfree Point	resolved	54.958	-8.438	point	Inishfree Upper (Inis Fraoigh); N coastal sector of island (Wikipedia centroid adjusted toward N shore)
+224	donegal.txt	Carrickfad Teelin	resolved	54.632	-8.642	headland	Carrickfad reef name mainly tied to Rossnowlagh; Teelin Bay / Teelin-Carrick shore interpreted from line
+225	donegal.txt	Roosky Point Killybegs	not_found			headland	No coastal Roosky Point at Killybegs; Roosky townlands are Inishowen
+226	donegal.txt	Ranch Killybegs	not_found			unknown	No mapped feature or stable business label matched to "Ranch" at Killybegs waterfront
+227	donegal.txt	Killybegs Marina	resolved	54.635	-8.4415	marina	Visitor pontoon sector inner harbour (near eOceanic pierhead 54°38.100′N 8°26.490′W)
+228	donegal.txt	Naran Strand	resolved	54.838748	-8.446482	beach	Narin strand (An Fhearthainn); Wikipedia village coords at beach
+229	donegal.txt	White Strand Ardara	resolved	54.794006	-8.463635	beach	Sheskinmore / Ballinreavy machair strand NW of Ardara (NPWS reserve centroid)
+230	donegal.txt	Murvagh	resolved	54.612591	-8.158121	area	Murvagh peninsula; Donegal Golf Club centroid (where2golf)
+231	donegal.txt	Murvagh Beach	resolved	54.606	-8.145	beach	Blue Flag strand along peninsula S/Atlantic side of links (approx. mid-beach)
+232	donegal.txt	Rossnowlagh	resolved	54.567	-8.217	village	Wikipedia centroid
+233	donegal.txt	Rossnowlagh Beach	resolved	54.5536	-8.2153	beach	Beaches On The Air centroid (Belalt strand sector)
+234	donegal.txt	Creevy	resolved	54.53022	-8.25529	village	Creevy Pier coastal walk trailhead (Sport Ireland)
+235	donegal.txt	Creevy Pier	resolved	54.53022	-8.25529	pier	Same trailhead / pier sector as Sport Ireland Creevy Coastal Walk
+236	donegal.txt	Ballyshannon	resolved	54.5015	-8.1901	town	Wikipedia centroid
+237	donegal.txt	Ballyshannon Estuary	resolved	54.492	-8.205	estuary	River Erne tidal widening below town toward Donegal Bay (approx. mid-channel)
+238	donegal.txt	Abbey Bay Ballyshannon	resolved	54.506	-8.198	bay	Abbey Island / River Abbey mouth on Erne estuary W of centre (approx.)
+239	donegal.txt	Erne Mouth Ballyshannon pier	resolved	54.5035	-8.188	pier	Town river-mouth harbour / bridge sector (approx.)
+240	donegal.txt	Tawnylust Lower shore	not_found			shore	No Donegal Tawnylust in townlands/Logainm skim; lies between Creevy and Drumacrin Creevy in source order
+241	donegal.txt	Drumacrin Creevy	resolved	54.480344	-8.251896	townland	OSM/Nominatim Drumacrin locality (Bundoran Rural ED); Donegal Bay coast S of Ballyshannon — paired with Creevy in source label

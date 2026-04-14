@@ -1,0 +1,151 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	renfrewshire.txt	Langbank	resolved	55.9251500	-4.5863000	village	Village centre south bank Clyde (OS Open Names / Wikipedia)
+2	renfrewshire.txt	Langbank Shore	resolved	55.9255000	-4.5875000	shore	Lochside/shore strip at Langbank on Clyde
+3	renfrewshire.txt	Langbank waterfront	resolved	55.9258000	-4.5878000	waterfront	Clyde waterfront at Langbank
+4	renfrewshire.txt	Langbank railway station	resolved	55.9247000	-4.5864000	railway_station	Inverclyde line station (Wikipedia/OSM)
+5	renfrewshire.txt	Langbank East crannog	resolved	55.9262000	-4.5715000	crannog	Intertidal crannog off east Langbank at Westferry (Wikipedia)
+6	renfrewshire.txt	Langbank West crannog	resolved	55.9246000	-4.5948000	crannog	Intertidal crannog beside A8 opposite parish church (Wikipedia)
+7	renfrewshire.txt	Westferry	resolved	55.9260000	-4.5718000	locality	East Langbank area by M8 where East crannog lies
+8	renfrewshire.txt	Langbank timber ponds	resolved	55.9238000	-4.5735000	historic_feature	Shipbuilding timber ponds along Clyde shore west of Langbank
+9	renfrewshire.txt	Clyde timber ponds Langbank	resolved	55.9236000	-4.5732000	historic_feature	Same timber-pond line on Clyde at Langbank
+10	renfrewshire.txt	Finlaystone	resolved	55.9275000	-4.6213000	estate	Estate between Langbank and Port Glasgow (context of house/park)
+11	renfrewshire.txt	Finlaystone House	resolved	55.9287000	-4.6191000	country_house	Cliff-top mansion policies (GeoHack / HES grid)
+12	renfrewshire.txt	Finlaystone Country Park	resolved	55.9265000	-4.6180000	country_park	Woodland Trust / estate visitor woodlands north of house
+13	renfrewshire.txt	Finlaystone visitor centre	resolved	55.9278000	-4.6205000	visitor_centre	Cafe/shop area within estate near house
+14	renfrewshire.txt	Gleddoch	resolved	55.9183500	-4.5850700	estate	Gleddoch House hotel/golf estate Old Greenock Road
+15	renfrewshire.txt	Gleddoch House	resolved	55.9183500	-4.5850700	country_house	Category B listed mansion (HES listed-building coords)
+16	renfrewshire.txt	Gleddoch Hotel	resolved	55.9183500	-4.5850700	hotel	Same site as Gleddoch House resort
+17	renfrewshire.txt	Langbank Parish Church shore	resolved	55.9249000	-4.5945000	church	Parish church on A8 at Clyde shore Langbank
+18	renfrewshire.txt	St Vincent's College Langbank	resolved	55.9255400	-4.5933200	historic_site	Former seminary at Langbank House; chapel listing coords used
+19	renfrewshire.txt	Clyde Muirshiel Regional Park Bishopton shore	resolved	55.9115000	-4.4985000	park	Clyde foreshore belt within regional park near Bishopton
+20	renfrewshire.txt	Bishopton	resolved	55.9086200	-4.5045200	village	Village centre (Wikipedia)
+21	renfrewshire.txt	Bishoptoun	resolved	55.9086200	-4.5045200	village	Scots name for Bishopton; same settlement centre
+22	renfrewshire.txt	Bishopton Clyde shore	resolved	55.9128000	-4.5085000	shore	Clyde shoreline north of Bishopton village
+23	renfrewshire.txt	Bishopton Clyde walk	resolved	55.9130000	-4.5080000	walk	Clyde coastal path near Bishopton
+24	renfrewshire.txt	Bishopton Roman Fort	resolved	55.9158700	-4.5324600	Roman_fort	Antonine fort cropmarks Whitemoss (Canmore SM1652 area)
+25	renfrewshire.txt	Whitemoss Farm Roman Fort	resolved	55.9160400	-4.5325700	Roman_fort	Scheduled monument centre NS4182072115 (HES)
+26	renfrewshire.txt	Dumbuck	resolved	55.9305000	-4.5980000	hill	Ford/hill area on Clyde south bank west of Langbank (historic ford)
+27	renfrewshire.txt	Dumbuck Ford	resolved	55.9310000	-4.5985000	ford	Historic Clyde ford near Dumbuck
+28	renfrewshire.txt	HolmPark	resolved	55.9062000	-4.4978000	housing	HolmPark development south of Bishopton
+29	renfrewshire.txt	HolmPark Bishopton	resolved	55.9062000	-4.4978000	housing	Same HolmPark neighbourhood Bishopton
+30	renfrewshire.txt	Dargavel	resolved	55.9046000	-4.5161000	housing	Dargavel Village on former ROF site NS42807080 (Geograph)
+31	renfrewshire.txt	Dargavel Village	resolved	55.9039500	-4.5138000	housing	Named development core Barrangary Road area; PA7 5FW marketing centroid (Dundas/Stewart Milne)
+32	renfrewshire.txt	Dargavel Burn mouth	resolved	55.9032000	-4.5088000	stream_mouth	Dargavel Burn outfall toward Clyde south of Dargavel housing (OS context)
+33	renfrewshire.txt	Royal Ordnance Factory Bishopton	resolved	55.9055000	-4.5080000	industrial_site	Large former ROF campus centroid on former BAE Bishopton site (Wikipedia / Renfrewshire Council)
+34	renfrewshire.txt	ROF Bishopton	resolved	55.9055000	-4.5080000	industrial_site	Same Royal Ordnance Factory Bishopton site
+35	renfrewshire.txt	BAE Systems Bishopton	resolved	55.9055000	-4.5080000	industrial_site	Successor occupier of former ROF Bishopton brownfield campus
+36	renfrewshire.txt	Bishopton Central Park	resolved	55.9038000	-4.5140000	park	Dargavel Village Central Park on former ROF land (news / BAE regeneration)
+37	renfrewshire.txt	Bishopton Community Woodland	resolved	55.8995000	-4.5025000	woodland	Large community woodland blocks on Dargavel/ROF regeneration; centroid approximate
+38	renfrewshire.txt	Big Wood River Clyde	resolved	55.9108000	-4.5015000	woodland	Big Wood strip beside Clyde north of Bishopton village (OS name context)
+39	renfrewshire.txt	Bishopton Big Wood	resolved	55.9108000	-4.5015000	woodland	Same Big Wood on Clyde edge at Bishopton
+40	renfrewshire.txt	Bishopton railway station	resolved	55.9024000	-4.5009000	railway_station	Wikipedia / GeoHack coords
+41	renfrewshire.txt	Old Greenock Road Clyde	resolved	55.9098000	-4.4980000	road	Representative A8 Clyde-shore point at Bishopton (Old Greenock Road corridor)
+42	renfrewshire.txt	Erskine	resolved	55.9080000	-4.4640000	town	Wikipedia town centroid
+43	renfrewshire.txt	Erskine Bridge	resolved	55.9133000	-4.4721000	bridge	Wikipedia landmark coords
+44	renfrewshire.txt	Erskine Bridge south approach	resolved	55.9115000	-4.4710000	road	M898/A898 southern approach on Renfrewshire bank (approx)
+45	renfrewshire.txt	Erskine Bridge woodland	resolved	55.9125000	-4.4735000	woodland	Linear woodland beside bridge approaches (approx)
+46	renfrewshire.txt	Erskine Ferry historic	resolved	55.9160000	-4.4600000	historic_feature	Old ferry slip / Bodinbo training-wall area by Boden Boo (Wikipedia / Geograph context)
+47	renfrewshire.txt	Boden Boo	resolved	55.9158000	-4.4595000	woodland	Forestry and Land Scotland Boden Boo; Clyde shore plantation
+48	renfrewshire.txt	Boden Boo beach	resolved	55.9158500	-4.4594000	beach	Popular shingle beach below Boden Boo (Scot2Go / FLS visitor context)
+49	renfrewshire.txt	Boden Boo woodland	resolved	55.9161000	-4.4600000	woodland	Same Boden Boo plantation footprint (approx centre)
+50	renfrewshire.txt	Erskine foreshore	resolved	55.9105000	-4.4625000	shore	Clyde foreshore strip through Erskine south of bridge (approx)
+51	renfrewshire.txt	Erskine Riverside	resolved	55.9095000	-4.4635000	waterfront	Town-centre Clyde frontage (A726 corridor; Wikipedia context)
+52	renfrewshire.txt	Erskine beach	resolved	55.9158500	-4.4594000	beach	Same Boden Boo / Erskine Beach shingle (local usage)
+53	renfrewshire.txt	Bridgewater Erskine	resolved	55.9039000	-4.4483000	locality	Bridgewater retail/housing area by Bridgewater Place (PA8 7AA vicinity)
+54	renfrewshire.txt	Bridgewater Shopping Centre Erskine	resolved	55.9038830	-4.4486100	shopping_centre	ONS postcode centroid PA8 7AA Bridgewater Place (Doogal)
+55	renfrewshire.txt	Mar Hall	resolved	55.9209000	-4.4786000	hotel_estate	Former Erskine House / Mar Hall resort (Wikipedia coords)
+56	renfrewshire.txt	Mar Hall Hotel	resolved	55.9209000	-4.4786000	hotel	Same Category A listed mansion hotel (Mar Hall)
+57	renfrewshire.txt	Mar Hall Golf	resolved	55.9212130	-4.4780010	golf_course	Earl of Mar course at resort (Where2Golf listing coords)
+58	renfrewshire.txt	Erskine Golf Club	resolved	55.9165000	-4.5041000	golf_course	Golf Road Bishopton; Wikipedia / GeoHack clubhouse area
+59	renfrewshire.txt	Erskine Veterans Village	resolved	55.9171320	-4.4777900	care_estate	Erskine Veterans Charity Bishopton campus; PA7 5PU centroid (Doogal)
+60	renfrewshire.txt	Princess Louise Erskine	resolved	55.9171000	-4.4778000	charity_headquarters	Princess Louise Scottish Hospital legacy; Erskine Veterans Charity HQ same estate (Wikipedia / PA7 5PU)
+61	renfrewshire.txt	M898 Erskine	resolved	55.9090000	-4.4720000	motorway	Junction 1 (M898/A898 bridge approach); Wikipedia coordinate list
+62	renfrewshire.txt	NCN 75 Erskine	resolved	55.9108000	-4.4645000	cycle_route	Representative Clyde-side alignment of National Cycle Network 75 through Erskine (Sustrans / OS context)
+63	renfrewshire.txt	Clyde Walkway Langbank	resolved	55.9255000	-4.5872000	walk	Clyde Walkway / shore path at Langbank (same belt as Langbank waterfront)
+64	renfrewshire.txt	Clyde Walkway Erskine	resolved	55.9105000	-4.4625000	walk	Clyde coastal path through Erskine south of bridge (approx centre of foreshore strip)
+65	renfrewshire.txt	Clyde Walkway Renfrew	resolved	55.8842000	-4.4078000	walk	River Cart / Clyde walkway belt near Inchinnan Road and Cart mouth (OS visitor context)
+66	renfrewshire.txt	Inchinnan	resolved	55.8917000	-4.4386000	village	Wikipedia village centroid
+67	renfrewshire.txt	Inchinnan Clyde shore	resolved	55.8942000	-4.4340000	shore	North parish Clyde bank below Abbotsinch / opposite Yoker (approx river-edge reading)
+68	renfrewshire.txt	Inchinnan foreshore	resolved	55.8938000	-4.4348000	foreshore	Clyde foreshore haugh north of village core (approx)
+69	renfrewshire.txt	Inchinnan Bridge	resolved	55.8806590	-4.4116010	bridge	Inchinnan Bridge over Black Cart Water; HES / GeoHack listing coords (LB12732)
+70	renfrewshire.txt	Inchinnan ferry historic	resolved	55.8829200	-4.4071300	historic_feature	Historic Cart crossing belt near Black/White Cart confluence (Geograph NS4953 6815 context)
+71	renfrewshire.txt	Ferrycroft	resolved	55.8818000	-4.4131400	farmstead	Ferrycroft Farm; Canmore NS 49149 68038
+72	renfrewshire.txt	North Barr House	resolved	55.8925800	-4.4308100	country_house	Northbar House (House of Hill); HES LB12730 NS 48086 69276
+73	renfrewshire.txt	Black Cart Clyde confluence	resolved	55.8860000	-4.4098000	river_mouth	River Cart mouth into Clyde at Renfrew (Black Cart reaches Clyde via Cart; Cart-Clyde NS4969 belt)
+74	renfrewshire.txt	White Cart Clyde confluence	resolved	55.8799800	-4.4111900	bridge	White Cart Bridge / navigable White Cart at Inchinnan Road; HES LB40424 NS 49301 67851 (Cart system to Clyde)
+75	renfrewshire.txt	Gryffe Clyde confluence	resolved	55.8688000	-4.4611000	confluence	River Gryfe mouth into Black Cart near airport (Geograph NS 461 667); not a direct Clyde junction
+76	renfrewshire.txt	St Conval's Inchinnan	resolved	55.8816900	-4.4148800	church_site	Inchinnan old parish church / All Hallows site dedicated to St Conval; Canmore NS 4904 6803
+77	renfrewshire.txt	Renfrew	resolved	55.8780000	-4.3890000	town	GeoHack town centroid
+78	renfrewshire.txt	Renfrew Ferry	resolved	55.8856300	-4.3828100	ferry	Former Renfrew-Yoker foot ferry south slip; Canmore NS 51061 68399
+79	renfrewshire.txt	Renfrew Ferry slipway	resolved	55.8856300	-4.3828100	slipway	Same Renfrewshire-side graded slip (Canmore terminal record)
+80	renfrewshire.txt	Renfrew Riverside	resolved	55.8825000	-4.3905000	waterfront	Clyde frontage east of town centre (Fulbar / ferry belt; approx)
+81	renfrewshire.txt	Renfrew waterfront	resolved	55.8818000	-4.3920000	waterfront	Town Clyde edge toward Cart mouth (approx)
+82	renfrewshire.txt	Renfrew Wharf	resolved	55.8808000	-4.3940000	wharf	Historic quay belt by Cart/Clyde (Fulbar Street area context; approx)
+83	renfrewshire.txt	Blythswood House site	resolved	55.8872100	-4.4020400	historic_site	Demolished 1935; estate now Renfrew Golf Club (Wikipedia / local history, fairway centroid)
+84	renfrewshire.txt	Blythswood Renfrew	resolved	55.8853400	-4.3981600	estate	Ranfield / Blythswood estate; Renfield Mansion site Canmore NS 501 684
+85	renfrewshire.txt	Renfrew Golf Club	resolved	55.8872100	-4.4020400	golf_course	Wikipedia / GeoHack clubhouse course (Blythswood Estate)
+86	renfrewshire.txt	Ranfield	resolved	55.8853400	-4.3981600	estate	Historic Ranfield / Renfield Mansion locus before Blythswood House; Canmore NS 501 684
+87	renfrewshire.txt	King's Inch	resolved	55.8774700	-4.3778400	historic_island	Former Clyde island; Inch Castle site Canmore NS 5134 6748
+88	renfrewshire.txt	Sand Inch	resolved	55.8783000	-4.3788000	historic_island	Smaller paired Clyde inch off Renfrew (Wikipedia; approximate historic channel)
+89	renfrewshire.txt	Renfrew Castle	resolved	55.8808200	-4.3857200	castle_site	Castlehill Gardens medieval castle site; Canmore NS 5086 6787
+90	renfrewshire.txt	Castle Hill Renfrew	resolved	55.8808200	-4.3857200	hill	Same Castlehill / Renfrew Castle mound (Canmore)
+91	renfrewshire.txt	Pudzeoch Burn	resolved	55.8852000	-4.3832000	stream_mouth	Burn outfall into Clyde / former canal feeder at Renfrew Harbour–ferry belt (RAILSCOT Renfrew Canal Basin; Wikipedia King's Inch context)
+92	renfrewshire.txt	Marlin Ford	resolved	55.8753400	-4.3575700	ford	Ancient Clyde ford site NS 5260 6720 (Canmore 44199 / WoSAS)
+93	renfrewshire.txt	Renfrew Fulbar Street	resolved	55.8813000	-4.3907000	street	Fulbar Street / former Fulbar Street station area (GeoHack)
+94	renfrewshire.txt	Renfrew Porterfield	resolved	55.8730500	-4.4042500	railway_station	Former Porterfield terminus site NS 49671 67045 (Canmore 197680)
+95	renfrewshire.txt	South Renfrew	resolved	55.8729000	-4.4044000	railway_station	South Renfrew / Renfrew South station site NS 49661 67024 (Wikipedia / Canmore 249249)
+96	renfrewshire.txt	Erskine slipway	resolved	55.9108000	-4.4620000	slipway	Representative Erskine town Clyde slip/foreshore (south of bridge; OS visitor context)
+97	renfrewshire.txt	Langbank slipway	resolved	55.9255000	-4.5875000	slipway	Langbank Clyde shore slip context (same belt as Langbank Shore rows)
+98	renfrewshire.txt	Renfrew Yoker Ferry	resolved	55.8856300	-4.3828100	ferry	Renfrewshire south slip Renfrew–Yoker chain ferry (Canmore terminal)
+99	renfrewshire.txt	Erskine Bridgewater	resolved	55.9039000	-4.4483000	locality	Bridgewater retail/housing belt Erskine (same as Bridgewater Erskine row)
+100	renfrewshire.txt	Ferry Renfrew	resolved	55.8856300	-4.3828100	ferry	Renfrew Clyde ferry crossing (same terminal belt as Renfrew Ferry)
+101	renfrewshire.txt	ROF Dargavel	resolved	55.9055000	-4.5080000	industrial_site	Royal Ordnance / BAE Bishopton–Dargavel brownfield campus (same site as ROF Bishopton rows)
+102	renfrewshire.txt	Dargavel Clyde viewpoint	resolved	55.9018000	-4.4965000	viewpoint	Approx. Clyde outlook from Dargavel Village / former ROF southern edge toward estuary
+103	renfrewshire.txt	Bishopton MOD site	resolved	55.9050000	-4.5070000	industrial_site	Doosan Babcock / Westway Park defence engineering on former ROF Bishopton lands
+104	renfrewshire.txt	HolmPark playing fields	resolved	55.9062000	-4.4978000	playing_fields	Open space within HolmPark development south of Bishopton (same centroid as HolmPark rows)
+105	renfrewshire.txt	Langbank crannogs	resolved	55.9254000	-4.5830000	crannog	Intertidal crannog belt off Langbank (between east/west crannog pins; Wikipedia context)
+106	renfrewshire.txt	Erskine riverside path	resolved	55.9105000	-4.4625000	walk	Clyde Walkway / foreshore path through Erskine (Clyde Walkway Erskine row)
+107	renfrewshire.txt	Bishopton Clyde River trail	resolved	55.9130000	-4.5080000	walk	Bishopton Clyde coastal path (Bishopton Clyde walk row)
+108	renfrewshire.txt	Renfrew Clyde embankment	resolved	55.8825000	-4.3905000	embankment	Town Clyde flood embankment / raised waterfront belt Fulbar–town centre
+109	renfrewshire.txt	Inchinnan riverside walk	resolved	55.8942000	-4.4340000	walk	Inchinnan north-bank Clyde shore path (Inchinnan Clyde shore row)
+110	renfrewshire.txt	Renfrew Cart Clyde meeting	resolved	55.8860000	-4.4098000	river_mouth	River Cart system entering Clyde at Renfrew (Black Cart–Clyde belt; Black Cart Clyde confluence row)
+111	renfrewshire.txt	King's Inch historic ferry	resolved	55.8774700	-4.3778400	historic_ferry	Original King's Inch ferry locus before downstream move to Pudzeoch burn mouth (Wikipedia King's Inch)
+112	renfrewshire.txt	Erskine veterans waterfront	resolved	55.9095000	-4.4635000	waterfront	Clyde town frontage at Erskine (charity HQ is inland; pin is public Clyde edge)
+113	renfrewshire.txt	Langbank A8 shore	resolved	55.9249000	-4.5945000	shore	A8 Clyde frontage at Langbank (parish church / shore belt)
+114	renfrewshire.txt	Bishopton shore walk	resolved	55.9130000	-4.5080000	walk	Bishopton Clyde shore footpath (same belt as Bishopton Clyde walk)
+115	renfrewshire.txt	Erskine low tide shore	resolved	55.9158500	-4.4594000	foreshore	Intertidal shingle / mud at Boden Boo–Erskine Beach belt
+116	renfrewshire.txt	Renfrew historic wharf	resolved	55.8808000	-4.3940000	wharf	Historic quays Fulbar Street / Cart mouth belt (Renfrew Wharf row)
+117	renfrewshire.txt	Finlaystone estate shore	resolved	55.9265000	-4.6180000	shore	Clyde woodland shore below Finlaystone policies (Finlaystone Country Park row)
+118	renfrewshire.txt	Gleddoch estate Clyde	resolved	55.9183500	-4.5850700	shore	Clyde outlook from Gleddoch House policies above Langbank
+119	renfrewshire.txt	Whitemoss Roman Fort viewpoint	resolved	55.9160400	-4.5325700	viewpoint	Visitor viewpoint belt at Whitemoss Roman fort scheduled area (HES SM)
+120	renfrewshire.txt	Dumbuck Hill Clyde view	resolved	55.9305000	-4.5980000	viewpoint	Clyde outlook from Dumbuck hill area south bank west of Langbank (Dumbuck row)
+121	renfrewshire.txt	HolmPark shore	resolved	55.9112000	-4.5018000	shore	Clyde foreshore belt north of HolmPark (HolmPark housing centroid vs Bishopton Clyde shore context)
+122	renfrewshire.txt	Dargavel woodland Clyde gap	resolved	55.9008000	-4.4975000	woodland	Clearing / viewpoint strip in Dargavel–community woodland toward Clyde (Dargavel Clyde viewpoint / woodland rows)
+123	renfrewshire.txt	Erskine commuter foreshore	resolved	55.9102000	-4.4645000	foreshore	Clyde foreshore along Erskine reachable from M898/A898 commuter corridor (Erskine foreshore belt)
+124	renfrewshire.txt	Inchinnan parish Clyde edge	resolved	55.8942000	-4.4340000	shore	Parish north-bank Clyde margin (Inchinnan Clyde shore row)
+125	renfrewshire.txt	Renfrew burgh waterfront	resolved	55.8825000	-4.3905000	waterfront	Town centre Clyde / Cart mouth waterfront belt (Renfrew Clyde embankment context)
+126	renfrewshire.txt	Blythswood Clyde frontage	resolved	55.8868000	-4.3995000	waterfront	Clyde-ward policies strip from Blythswood / Ranfield toward river (Blythswood Renfrew / golf rows)
+127	renfrewshire.txt	Renfrew Golf Clyde view	resolved	55.8872100	-4.4020400	viewpoint	Clyde outlook from Blythswood Estate course (Renfrew Golf Club row)
+128	renfrewshire.txt	Castle Hill waterfront Renfrew	resolved	55.8808200	-4.3857200	waterfront	Castlehill mound belt at Cart/Clyde town edge (Castle Hill Renfrew row)
+129	renfrewshire.txt	Ferrycroft Inchinnan shore	resolved	55.8835000	-4.4280000	shore	Cart/Clyde shore belt between Ferrycroft farm and Inchinnan parish river (Ferrycroft vs Inchinnan Clyde shore)
+130	renfrewshire.txt	Inchinnan Bridge footpath	resolved	55.8806590	-4.4116010	walk	Pedestrian access on/near Inchinnan Bridge over Black Cart (Inchinnan Bridge listing coords)
+131	renfrewshire.txt	Black Cart mouth	resolved	55.8860000	-4.4098000	river_mouth	Black Cart system entering Clyde at Renfrew belt (Black Cart Clyde confluence row)
+132	renfrewshire.txt	White Cart mouth	resolved	55.8799800	-4.4111900	river_mouth	White Cart–Black Cart junction navigable reach by Inchinnan Road bridge (White Cart Clyde confluence row)
+133	renfrewshire.txt	Gryffe mouth	resolved	55.8688000	-4.4611000	river_mouth	River Gryfe into Black Cart near airport (Gryffe Clyde confluence row; not direct Clyde)
+134	renfrewshire.txt	Langbank station shore path	resolved	55.9247000	-4.5864000	walk	Shore path from Inverclyde line station to Clyde frontage (Langbank railway station + Langbank Shore belt)
+135	renfrewshire.txt	Bishopton station Clyde walk	resolved	55.9080000	-4.5045000	walk	Clyde Walkway link from Bishopton station area downslope to foreshore (station vs Bishopton Clyde walk)
+136	renfrewshire.txt	Erskine M898 underpass shore	resolved	55.9105000	-4.4712000	shore	Clyde-side belt beside M898/A898 approaches to Erskine Bridge (Erskine Bridge south approach / foreshore)
+137	renfrewshire.txt	Bridgewater retail park Erskine	resolved	55.9039000	-4.4483000	shopping_centre	Bridgewater Place retail park (Bridgewater Erskine row)
+138	renfrewshire.txt	Mar Hall estate Clyde	resolved	55.9209000	-4.4786000	shore	Clyde outlook from Earl of Mar / Mar Hall policies above Erskine (Mar Hall row)
+139	renfrewshire.txt	Erskine south bank shore	resolved	55.9098000	-4.4638000	shore	South-bank Clyde foreshore through Erskine below bridge (Erskine foreshore / Clyde Walkway Erskine)
+140	renfrewshire.txt	Langbank east timber pond	resolved	55.9248000	-4.5725000	historic_feature	Eastern timber-pond line off Langbank (Langbank timber ponds vs East crannog belt)
+141	renfrewshire.txt	Langbank west timber pond	resolved	55.9235000	-4.5935000	historic_feature	Western timber-pond / crannog shore at Langbank (Langbank West crannog / timber ponds rows)
+142	renfrewshire.txt	Westferry Langbank shore	resolved	55.9260000	-4.5718000	shore	Clyde shore at Westferry east Langbank (Westferry row)
+143	renfrewshire.txt	Finlaystone gardens Clyde	resolved	55.9265000	-4.6180000	shore	Woodland gardens shore below Finlaystone policies (Finlaystone Country Park row)
+144	renfrewshire.txt	St Vincent's Langbank shore	resolved	55.9255400	-4.5933200	shore	Former seminary / Langbank House chapel belt Clyde frontage (St Vincent's College Langbank row)
+145	renfrewshire.txt	Renfrew north riverside	resolved	55.8875000	-4.3965000	waterfront	Upriver/north town Clyde–Cart riverside (between Blythswood belt and town centre waterfront)
+146	renfrewshire.txt	Renfrew south ferry approach	resolved	55.8856300	-4.3828100	ferry_approach	Yoker ferry terminal approach belt (Ferry Renfrew row)
+147	renfrewshire.txt	Inchinnan Clyde path	resolved	55.8942000	-4.4340000	walk	Clyde coastal path through Inchinnan parish (Inchinnan riverside walk row)
+148	renfrewshire.txt	Erskine Boden Boo car park	resolved	55.9160000	-4.4592000	car_park	FLS Boden Boo visitor parking above beach (Boden Boo woodland row)
+149	renfrewshire.txt	Bishopton Clyde car park	resolved	55.9128000	-4.5082000	car_park	Informal / walkway access parking at Bishopton Clyde shore (Bishopton Clyde shore row)
+150	renfrewshire.txt	Langbank Clyde car park	resolved	55.9249000	-4.5945000	car_park	Shore visitor parking by A8 / parish church Clyde frontage (Langbank Parish Church shore belt)

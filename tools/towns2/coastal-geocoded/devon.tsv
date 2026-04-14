@@ -1,0 +1,687 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	devon.txt	Welcombe Mouth	resolved	50.9382	-4.5419	beach	Secluded beach north of Welcombe; SS212517 area.
+2	devon.txt	Marsland Mouth	resolved	50.927	-4.515	beach	Mouth of Marsland Water on Devon–Cornwall border; nature reserve coast.
+3	devon.txt	Hartland Quay	resolved	50.9949	-4.5345	harbour	Historic quay and slip south of Hartland Point.
+4	devon.txt	Spekes Mill Mouth	resolved	50.9835	-4.5302	waterfall	Coastal waterfall and cove on SWCP south of Hartland Quay.
+5	devon.txt	Mouth Mill	resolved	51.0131	-4.4273	ruin	Mouth Mill / lime kiln area above Mouthmill cove.
+6	devon.txt	Blackchurch Rock	resolved	51.0122	-4.4269	sea_stack	Stack and double arch at Mouthmill Beach.
+7	devon.txt	Hartland Point	resolved	51.02194	-4.52528	headland	NW tip of Devon; lighthouse vicinity.
+8	devon.txt	Shipload Bay	resolved	51.01915	-4.5022	bay	Small cove E of Hartland Point; beach closed below cliffs.
+9	devon.txt	Clovelly	resolved	50.9983	-4.3987	village	Harbour village under Torridge cliff coast.
+10	devon.txt	Clovelly Beach	resolved	50.996	-4.395	beach	Harbour beach and foreshore below the village.
+11	devon.txt	Mouthmill Beach	resolved	51.01308	-4.42755	beach	Pebble cove W of Clovelly; OS SS29812655 vicinity.
+12	devon.txt	Bucks Mills	resolved	50.9863	-4.3418	village	Small coast village; stream to beach and SWCP.
+13	devon.txt	Peppercombe	resolved	50.993	-4.309	valley	Coastal combe and beach between Bucks Mills and Westward Ho.
+14	devon.txt	Greencliff	resolved	51.0396	-4.2508	headland	Cliff section and lime kiln on SWCP toward Abbotsham.
+15	devon.txt	Westward Ho	resolved	51.040	-4.236	village	Seaside village; centre near pebble ridge (name without ! in source).
+16	devon.txt	Westward Ho Beach	resolved	51.03962	-4.2465	beach	Main sandy beach on Bideford Bay.
+17	devon.txt	Northam Burrows	resolved	51.056	-4.225	grassland	Country park, dunes and grass behind Westward Ho beach.
+18	devon.txt	Appledore	resolved	51.0525	-4.1945	village	River Torridge mouth; quay and shipyard town.
+19	devon.txt	Instow	resolved	51.050	-4.167	village	Taw–Torridge estuary frontage opposite Appledore.
+20	devon.txt	Fremington Quay	resolved	51.0791	-4.1205	quay	Tarka Trail / former railway quay on River Taw.
+21	devon.txt	Crow Point	resolved	51.0662	-4.1898	sand_spit	Tip of Braunton Burrows at Taw–Torridge mouth; lighthouse.
+22	devon.txt	Braunton Burrows	resolved	51.097	-4.213	dunes	Core of the Burrows dune system backing Saunton Sands.
+23	devon.txt	Saunton Sands	resolved	51.1000	-4.2258	beach	Long west-facing beach at Saunton.
+24	devon.txt	Saunton	resolved	51.117	-4.205	village	Linear village above Saunton Sands and Burrows.
+25	devon.txt	Croyde	resolved	51.1278	-4.2286	village	Surf village inland from the bay.
+26	devon.txt	Croyde Bay	resolved	51.1341	-4.2378	bay	Sandy bay W of Baggy Point.
+27	devon.txt	Putsborough	resolved	51.148	-4.221	hamlet	Hamlet above Putsborough Sands.
+28	devon.txt	Putsborough Sands	resolved	51.1458	-4.2209	beach	Southern section of Woolacombe Sand toward Baggy Point.
+29	devon.txt	Woolacombe	resolved	51.1725	-4.2086	beach	Main resort beach and village frontage.
+30	devon.txt	Woolacombe Sand	resolved	51.160	-4.212	beach	Broader Morte Bay sandy shore S of village centre toward Putsborough.
+31	devon.txt	Barricane Beach	resolved	51.177	-4.214	beach	Shell Beach cove at N end of Woolacombe; SSSI.
+32	devon.txt	Combe Martin	resolved	51.200	-4.025	village	Seaside village in narrow valley; harbour cove at NW Exmoor edge.
+33	devon.txt	Broad Sands Combe Martin	resolved	51.2121	-4.0585	beach	Broadsands cove E of Combe Martin; also known Watermouth area; cliff access may be restricted after 2025 slips.
+34	devon.txt	Wild Pear Beach	resolved	51.2152	-4.059	beach	Secluded cove E of Combe Martin below Great/Little Hangman; SWCP access.
+35	devon.txt	Watermouth Cove	resolved	51.2083	-4.1133	harbour	Sheltered inlet W of Ilfracombe; Watermouth Bay / harbour mouth.
+36	devon.txt	Watermouth	resolved	51.2098	-4.105	hamlet	Settlement and Watermouth Castle vicinity above the cove.
+37	devon.txt	Hele Bay	resolved	51.209	-4.099	beach	Village and bay E of Ilfracombe on SWCP.
+38	devon.txt	Ilfracombe	resolved	51.21111	-4.112898	town	Resort town; centre near High Street / harbour area.
+39	devon.txt	Ilfracombe Harbour	resolved	51.210	-4.1162	harbour	Main harbour and pier; lifeboat station vicinity.
+40	devon.txt	Rapparee Cove	resolved	51.2101	-4.108	cove	Sheltered cove E of town below Hillsborough; London wreck site.
+41	devon.txt	Tunnels Beaches	resolved	51.2110	-4.1259	beach	Victorian tunnel-access bathing beaches and tidal pool W of harbour.
+42	devon.txt	Lee Bay	resolved	51.1905	-4.171	beach	Sandy/shingle bay below Lee village W of Ilfracombe.
+43	devon.txt	Lee	resolved	51.1915	-4.175	village	Small coastal village inland from Lee Bay between Ilfracombe and Woolacombe.
+44	devon.txt	Mortehoe	resolved	51.18527	-4.20881	village	Village above Morte Point / Woolacombe N coast.
+45	devon.txt	Rockham Beach	resolved	51.1863	-4.2078	beach	Rockham Bay below cliffs W of Morte Point; SWCP from Mortehoe.
+46	devon.txt	Bull Point	resolved	51.199111	-4.201222	headland	Bull Point and Trinity House lighthouse N of Mortehoe.
+47	devon.txt	Lynton	resolved	51.228	-3.835	cliff_top_town	Twin town above Lynmouth on Exmoor edge.
+48	devon.txt	Lynmouth	resolved	51.2296	-3.8365	village	Harbour village at East Lyn and West Lyn confluence.
+49	devon.txt	Lynmouth Bay	resolved	51.231	-3.838	bay	Open bay E of Lynmouth toward Foreland Point.
+50	devon.txt	Wringcliff Bay	resolved	51.23111	-3.86083	bay	Secluded cove below Valley of Rocks W of Lynton.
+51	devon.txt	Castle Rock Lynmouth	resolved	51.2305	-3.8454	rock_formation	Prominent sea-facing outcrop in Valley of Rocks; SWCP landmark W of Lynmouth.
+52	devon.txt	Countisbury	resolved	51.232	-3.796	village	Hamlet on A39 E of Lynmouth below Countisbury Hill.
+53	devon.txt	Foreland Point	resolved	51.233333	-3.783333	headland	Northerly Exmoor/Devon foreland; Lynmouth Foreland lighthouse area.
+54	devon.txt	Woody Bay	resolved	51.227	-3.892	bay	Wooded combe and stony beach W of Lynton in Martinhoe parish.
+55	devon.txt	Heddons Mouth	resolved	51.22917	-3.92750	beach	River Heddon mouth; pebble cove below high cliffs (NT).
+56	devon.txt	Hunters Inn	resolved	51.183	-3.900	inn	National Trust Heddon Valley inn; ~1 mi inland from Heddon’s Mouth.
+57	devon.txt	Welcombe	resolved	50.933	-4.517	village	Scattered parish N of Bude; inland from Welcombe Mouth.
+58	devon.txt	Stoke	resolved	50.9903	-4.5098	hamlet	Stoke in Hartland parish; St Nectan’s church landmark W of Hartland.
+59	devon.txt	Hartland	resolved	50.993	-4.483	village	North-west Torridge village; parish centre away from Stoke/Quay.
+60	devon.txt	Abbotsham	resolved	51.017	-4.250	village	Coastal parish village S of Westward Ho! peninsula near Bideford Bay.
+61	devon.txt	Northam	resolved	51.0393	-4.2104	town	Market town N of Bideford; parish includes Westward Ho! and Appledore.
+62	devon.txt	Bideford	resolved	51.0167	-4.2057	town	River Torridge bridge town; historic quay toward estuary mouth.
+63	devon.txt	Barnstaple	resolved	51.0782	-4.0588	town	Regional centre on River Taw; town centre set back from Taw estuary foreshore.
+64	devon.txt	Chivenor	resolved	51.087	-4.148	military	Former RAF Chivenor site beside River Taw / estuary edge near Braunton.
+65	devon.txt	Georgeham	resolved	51.13714	-4.1956	village	Parish village inland from Croyde Bay and Baggy Point.
+66	devon.txt	Putsborough Beach	resolved	51.1458	-4.2209	beach	Southern Morte Bay shore at Putsborough (same stretch as Putsborough Sands).
+67	devon.txt	Putsborough Bay	resolved	51.137	-4.244	bay	Bay between Baggy Point and the Putsborough/Woolacombe sandy shore.
+68	devon.txt	Baggy Point	resolved	51.140252	-4.251363	headland	National Trust headland between Croyde Bay and Morte Bay.
+69	devon.txt	Croyde Reef	ambiguous			reef	Submerged reef / surf breaks off Croyde Bay; several patches, no single canonical point.
+70	devon.txt	Downend	resolved	51.126043	-4.236363	hamlet	Down End (Georgeham parish) above Croyde Bay; coastal access nearby.
+71	devon.txt	Croyde Village	resolved	51.1278	-4.2286	village	Croyde settlement above the bay (distinct from beach foreshore).
+72	devon.txt	Pickwell	resolved	51.144	-4.208	hamlet	Georgeham parish hamlet between Georgeham and Croyde.
+73	devon.txt	Mullacott	resolved	51.178	-4.131	hamlet	A361 crossroads settlement between Ilfracombe and Barnstaple.
+74	devon.txt	Sterridge Valley	resolved	51.1904	-4.0692	valley	Sterridge combe / Wood Park Lane climb S from Berrynarbor toward coast.
+75	devon.txt	Berrynarbor	resolved	51.2	-4.066667	village	Coastal parish village E of Ilfracombe; lanes to Watermouth and Broadsands.
+76	devon.txt	Hele	resolved	51.1565	-4.0829	hamlet	Small Hele locality between Ilfracombe and Berrynarbor (not Hele Bay).
+77	devon.txt	Chambercombe	resolved	51.2158	-4.1072	valley	Chambercombe Manor deep lane and valley N of Ilfracombe town.
+78	devon.txt	Rillage Point	resolved	51.21203	-4.10209	headland	Coastal knoll E of Hele Bay toward Combe Martin (SWCP).
+79	devon.txt	Sandy Cove Ilfracombe	resolved	51.19931	-4.1831	cove	Secluded cove W of Lee Bay; OS guide SS47574672 vicinity.
+80	devon.txt	Tunnels Ilfracombe	resolved	51.2110	-4.1259	beach	Tunnel-access bathing beaches W of harbour (same complex as Tunnels Beaches).
+81	devon.txt	Capstone Hill	resolved	51.2091	-4.1018	headland	Promontory and parade between harbour and Landmark Theatre.
+82	devon.txt	Chelfham	resolved	51.108	-4.025	village	Chelfham / mill hamlet in Bratton Fleming parish; list coastal-context place.
+83	devon.txt	Bratton Fleming	resolved	51.0637	-3.8316	village	Large inland parish village; access to North Devon coast via valleys.
+84	devon.txt	Kentisbury	resolved	51.1811	-3.9617	village	Exmoor-edge parish village N of Barnstaple; coastal list context.
+85	devon.txt	Berry Down	resolved	51.1792	-4.0399	hill	Berry Down / Berrydown Cross area rising above Berrynarbor toward the coast.
+86	devon.txt	Hagginton Hill	resolved	51.204	-4.075	hill	Ridge and lane W of Berrynarbor (Hagginton / East Hagginton historic area).
+87	devon.txt	Coombe Martin	resolved	51.200	-4.025	village	Source spelling; same settlement as Combe Martin (harbour village).
+88	devon.txt	Sandy Bay Ilfracombe	resolved	51.2065	-4.0446	beach	John Fowler Sandy Bay holiday park shore / Mermaid's Cove access near Berrynarbor.
+89	devon.txt	Grunta Beach	resolved	51.1818	-4.2157	beach	Small cove below Mortehoe cliffs W of Woolacombe (SS45254485 vicinity).
+90	devon.txt	Sillery Sands	resolved	51.23382	-3.80441	beach	Remote sand/shingle beach E of Lynmouth below Foreland cliffs; access often difficult.
+91	devon.txt	Broad Sands Beach	resolved	51.2121	-4.0585	beach	Broadsands cove E of Combe Martin / Watermouth; same feature as “Broad Sands Combe Martin”; cliff path access often affected by slips.
+92	devon.txt	Sandy Mouth	resolved	50.861	-4.555	beach	Sandymouth NT beach N of Bude; name on Cornwall coast but listed in Devon corpus—coastal SWCP context.
+93	devon.txt	Coombe Martin Beach	resolved	51.2073	-4.0382	beach	Main harbour beach and foreshore at Combe Martin (source spelling Coombe).
+94	devon.txt	Start Point	resolved	50.22244	-3.64228	headland	South Hams promontory W side of Start Bay; lighthouse vicinity.
+95	devon.txt	Hallsands	resolved	50.239	-3.656	village	Coastal hamlet/beach S Devon; village hit by sea losses; shingle foreshore.
+96	devon.txt	Beesands	resolved	50.2629	-3.6489	beach	Fishing village beach on Start Bay.
+97	devon.txt	Slapton Sands	resolved	50.291	-3.647	beach	Long shingle barrier beach along Slapton Ley; tidal strip varies.
+98	devon.txt	Slapton	resolved	50.311	-3.657	village	Inland of Slapton Sands; parish centre for the bay.
+99	devon.txt	Torcross	resolved	50.2912	-3.6242	village	Village at south end of Slapton Sands by Ley mouth.
+100	devon.txt	Strete Gate	resolved	50.304	-3.631	coastal_access	Coast-path / beach access point on Slapton Sands near Strete.
+101	devon.txt	Strete	resolved	50.351	-3.645	village	Inland village N of Slapton barrier beach.
+102	devon.txt	Blackpool Sands	resolved	50.304	-3.612	beach	Tree-fringed bay near Stoke Fleming (South Devon—not Lancashire).
+103	devon.txt	Stoke Fleming	resolved	50.3267	-3.5672	village	Coastal parish village above Blackpool Sands and Start Bay cliffs.
+104	devon.txt	Castle Cove Dartmouth	resolved	50.3417	-3.5675	cove	Shingle cove below Dartmouth Castle on the west bank mouth of the Dart.
+105	devon.txt	Dartmouth	resolved	50.3525	-3.5785	town	Estuary town; centre near Lower Ferry / embankment.
+106	devon.txt	Dartmouth Castle	resolved	50.34203	-3.56829	castle	Fort guarding river mouth; English Heritage / harbour mouth landmark.
+107	devon.txt	Kingswear	resolved	50.3489	-3.5716	village	Settlement opposite Dartmouth on east bank of Dart.
+108	devon.txt	Brownstone	resolved	50.336	-3.543	headland	NT Brownstone / Inner Froward Point area; WW2 battery and coast path.
+109	devon.txt	Man Sands	resolved	50.3371	-3.5598	beach	Secluded sand below cliffs E of Stoke Fleming toward Scabbacombe.
+110	devon.txt	Little Dartmouth	resolved	50.3485	-3.5825	hamlet	NT Little Dartmouth estate / car park area above castle cliffs.
+111	devon.txt	Sugary Cove	resolved	50.3421	-3.5655	cove	Pebble cove below Dartmouth Castle; SWCP access.
+112	devon.txt	Compass Cove	resolved	50.3347	-3.5678	cove	Small inlet E of Dartmouth Castle along coast path toward Scabbacombe.
+113	devon.txt	Scabbacombe Sands	resolved	50.3567	-3.52	beach	Remote pebble beach E of Kingswear; SWCP SX9151 area.
+114	devon.txt	Mewstone	resolved	50.3333	-3.5333	island	Offshore rock / islet E of Dart entrance (Mew Stone); not Wembury Great Mew Stone.
+115	devon.txt	Salcombe	resolved	50.2373	-3.7687	town	Kingsbridge Estuary resort town; centre near Fore Street quay.
+116	devon.txt	Salcombe North Sands	resolved	50.2392	-3.7705	beach	North-facing sandy beach E side of estuary mouth.
+117	devon.txt	Salcombe South Sands	resolved	50.2342	-3.7653	beach	Sandy beach S of town near mouth; ferry landing area.
+118	devon.txt	Sunny Cove Salcombe	resolved	50.2278	-3.7707	beach	Small cove opposite town near Mill Bay / East Portlemouth shore.
+119	devon.txt	Soar Mill Cove	resolved	50.2578	-3.865	cove	Sandy cove W of Salcombe under Bolt Head.
+120	devon.txt	Hope Cove	resolved	50.246	-3.862	village	Inland village above Hope/Mouthwell sand beaches W of Salcombe.
+121	devon.txt	Thurlestone	resolved	50.265763	-3.860449	village	Parish village South Hams; centre near church and coast road (GeoHack).
+122	devon.txt	Thurlestone Sands	resolved	50.2709	-3.8628	beach	Main Thurlestone / South Milton Sands foreshore; SWCP and car-park beach.
+123	devon.txt	Thurlestone Rock	resolved	50.2642	-3.8558	sea_stack	Thirled stone arch offshore in Thurlestone Bay; approximate formation centre.
+124	devon.txt	Bigbury-on-Sea	resolved	50.284037	-3.894722	village	Coastal village above Bigbury Bay; GeoHack centroid.
+125	devon.txt	Bigbury Beach	resolved	50.2835	-3.8945	beach	Main sandy beach below Bigbury-on-Sea toward Burgh Island.
+126	devon.txt	Burgh Island	resolved	50.279722	-3.900278	island	Tidal island with hotel; English Channel side of Bigbury Bay.
+127	devon.txt	Challaborough	resolved	50.29000	-3.89500	settlement	Coastal holiday/village strip above Challaborough Bay (Wikipedia coords).
+128	devon.txt	Challaborough Bay	resolved	50.2872	-3.9041	bay	Sheltered surf beach and horseshoe bay E of Bigbury; mid-beach Geograph tag.
+129	devon.txt	Bantham	resolved	50.279167	-3.870833	village	Hamlet at south side of River Avon mouth; GeoHack centroid.
+130	devon.txt	Bantham Beach	resolved	50.2768	-3.873	beach	Sandy beach at Avon estuary mouth; SW of village toward river bar.
+131	devon.txt	Mouthwell Sand	resolved	50.24635	-3.8597	beach	Mouthwell Sands cove Outer Hope; beach guide grid SX67554017.
+132	devon.txt	Leas Foot Sand	resolved	50.260967	-3.86385	beach	Leas Foot beach below Thurlestone golf course; SWCP SX67304219 area.
+133	devon.txt	Mothecombe	resolved	50.3112	-3.9508	hamlet	Access hamlet and estate lanes above River Erme west shore near beach.
+134	devon.txt	Mothecombe Beach	resolved	50.30972	-3.95278	beach	Meadowsfoot sand at Erme mouth; British Beaches listed midpoint.
+135	devon.txt	Noss Mayo	resolved	50.316667	-4.05	village	South bank Newton Creek arm of River Yealm estuary.
+136	devon.txt	Newton Ferrers	resolved	50.316667	-4.033333	village	North shore of Newton Creek opposite Noss Mayo.
+137	devon.txt	Wembury	resolved	50.316846	-4.082982	village	Coastal parish village; Wikipedia / GeoHack centroid.
+138	devon.txt	Wembury Beach	resolved	50.3174	-4.0792	beach	NT cove beach and Marine Centre; OS SX51684843 vicinity.
+139	devon.txt	Heybrook Bay	resolved	50.3375	-4.131	bay	Small inlet W of Bovisand along Plymouth eastern shore SWCP.
+140	devon.txt	Jennycliff	resolved	50.3339	-4.1186	viewpoint	Clifftop country park and SWCP above Plymouth Sound near Hooe.
+141	devon.txt	Bovisand	resolved	50.3357	-4.1408	village	Fort Bovisand settlement and bay S of Plymouth.
+142	devon.txt	Bovisand Beach	resolved	50.3349	-4.1415	beach	Sandy cove inside Fort Bovisand harbour arms.
+143	devon.txt	Mountbatten	resolved	50.35944	-4.12972	peninsula	Mount Batten peninsula and Cattewater east shore; source spelling Mountbatten.
+144	devon.txt	Firestone Bay	resolved	50.3611	-4.1735	bay	Stonehouse bay beside Devil's Point park; diving/snorkelling shore.
+145	devon.txt	Devils Point	resolved	50.3617	-4.1647	headland	Western King / Devil's Point park; Tamar meets Plymouth Sound.
+146	devon.txt	Plymouth Hoe	resolved	50.3647	-4.141	promenade	City seafront and Smeaton's Tower lawns west of Barbican.
+147	devon.txt	West Hoe	resolved	50.365	-4.143	waterfront	Millbay / West Hoe seafront immediately W of the Hoe.
+148	devon.txt	Jennycliff Bay	resolved	50.3345	-4.1165	cove	Small bay E of Jennycliff on east shore of Plymouth Sound.
+149	devon.txt	Brixham	resolved	50.3953	-3.5165	town	Torbay fishing town; centre near harbour and Strand.
+150	devon.txt	Brixham Harbour	resolved	50.3978	-3.5105	harbour	Inner harbour and fish quay behind breakwater.
+151	devon.txt	Berry Head	resolved	50.3989	-3.4889	headland	S tip of Tor Bay; NNR, fort and lighthouse on limestone headland.
+152	devon.txt	Fishcombe Cove	resolved	50.4022	-3.5216	beach	Shingle cove N of Brixham; SWCP; wooded cliffs.
+153	devon.txt	Churston Ferrers	resolved	50.4000	-3.5570	village	Torbay parish between Brixham and Paignton; church/Churston Court area.
+154	devon.txt	Churston Cove	resolved	50.4029	-3.5239	cove	Small sand/shingle cove near Fishcombe; SWCP.
+155	devon.txt	Goodrington Sands	resolved	50.4238	-3.5588	beach	Sandy Broadsands / Goodrington frontage on Tor Bay.
+156	devon.txt	Goodrington	resolved	50.4242	-3.5602	ward	Coastal suburb of Paignton above Goodrington Sands.
+157	devon.txt	Paignton	resolved	50.4359	-3.5647	town	English Riviera resort; centre near seafront and station.
+158	devon.txt	Paignton Beach	resolved	50.4345	-3.5650	beach	Main town-centre seafront beach on Tor Bay.
+159	devon.txt	Preston Sands	resolved	50.4309	-3.5555	beach	Sandy beach W of Paignton Green toward Hollicombe.
+160	devon.txt	Hollicombe Beach	resolved	50.4502	-3.5513	beach	Red-sand cove and foreshore between Preston and Livermead; cliffs and SWCP.
+161	devon.txt	Broad Sands Paignton	resolved	50.4232	-3.5582	beach	Broadsands bay same stretch as Goodrington Sands (local name).
+162	devon.txt	Elberry Cove	resolved	50.4025	-3.5456	beach	Shingle cove between Brixham and Paignton; bath-house ruins; SWCP.
+163	devon.txt	Torquay	resolved	50.4638	-3.5253	town	English Riviera; pin near harbourside / town centre coast.
+164	devon.txt	Torquay Harbour	resolved	50.4595	-3.5255	harbour	Inner docks, piers and Strand front on Tor Bay.
+165	devon.txt	Meadfoot Beach	resolved	50.4693	-3.5148	beach	Shingle/sand beach E of town below cliffs toward Hope's Nose.
+166	devon.txt	Oddicombe Beach	resolved	50.4779	-3.5080	beach	Babbacombe shingle beach; funicular access from cliff top.
+167	devon.txt	Babbacombe	resolved	50.4790	-3.5083	suburb	Clifftop area above Oddicombe; St Marychurch side of Torquay.
+168	devon.txt	Babbacombe Beach	resolved	50.4784	-3.5081	beach	Same Oddicombe foreshore; local synonym on maps/signs.
+169	devon.txt	Livermead	resolved	50.4555	-3.5319	suburb	Coastal strip S of Torre Abbey toward Hollicombe.
+170	devon.txt	Livermead Cove	resolved	50.4560	-3.5325	cove	Small inlet on Livermead foreshore S of Corbyn Head.
+171	devon.txt	Corbyn Head	resolved	50.4610	-3.5376	headland	Headland and park above Corbyn beach; Torbay Road frontage.
+172	devon.txt	Daddyhole Plain	resolved	50.4558	-3.5146	clifftop_open_space	Limestone plateau above Daddyhole Cove; SWCP and NCI Torbay.
+173	devon.txt	Hopes Nose	resolved	50.4619	-3.4841	headland	Source spelling; separates Tor Bay from Babbacombe Bay (Hope's Nose).
+174	devon.txt	Thatcher Point	resolved	50.4603	-3.4864	viewpoint	Limestone viewpoint toward Thatcher Rock off Meadfoot.
+175	devon.txt	Ansteys Cove	resolved	50.4745	-3.5011	cove	Source spelling; shingle cove between Torquay and Babbacombe (Anstey's Cove).
+176	devon.txt	Torre Abbey Sands	resolved	50.4640	-3.5305	beach	Town beach below Torre Abbey Meadows; Abbey Sands frontage.
+177	devon.txt	Corbyn Sands	resolved	50.4592	-3.5335	beach	Sand/shingle beach S of Torre Abbey Sands below Corbyn Head.
+178	devon.txt	Hollicombe	resolved	50.4493	-3.5549	urban_locality	Hamlet/valley NE of Preston Paignton toward the coast (not the beach row).
+179	devon.txt	Cockington	resolved	50.4735	-3.6010	village	Historic estate village W of Torquay; country park; listed for Torbay coast context.
+180	devon.txt	Maidencombe	resolved	50.5055	-3.5288	village	Small coastal village N of Torquay; cliffs and SWCP.
+181	devon.txt	Maidencombe Beach	resolved	50.5061	-3.5134	beach	Sandy cove N of Torquay; foreshore below cliffs (SWCP access).
+182	devon.txt	Teignmouth	resolved	50.5477	-3.4964	town	Town on N bank of Teign estuary; seafront and pier area.
+183	devon.txt	Teignmouth Beach	resolved	50.5458	-3.4972	beach	Main resort sand/shingle front below The Den and pier.
+184	devon.txt	Shaldon	resolved	50.5565	-3.4892	village	South bank of Teign opposite Teignmouth; bridge and ferry.
+185	devon.txt	Shaldon Beach	resolved	50.5582	-3.4918	beach	Estuary beaches around The Ness and village frontage.
+186	devon.txt	Ringmore	resolved	50.5398	-3.5071	hamlet	Historic estuary hamlet W of Shaldon (St Nicholas church); not South Hams Ringmore parish.
+187	devon.txt	Holcombe	resolved	50.5529	-3.4689	village	Coastal parish village between Teignmouth and Dawlish above railway.
+188	devon.txt	Holcombe Beach	resolved	50.5543	-3.4697	beach	Shingle beach below red cliffs at Holcombe / Smugglers Lane access.
+189	devon.txt	Dawlish	resolved	50.5808	-3.4647	town	Resort town; centre near Brook and seafront.
+190	devon.txt	Dawlish Beach	resolved	50.5795	-3.4635	beach	Town beach along Marine Parade and Coryton Cove direction.
+191	devon.txt	Dawlish Warren	resolved	50.6139	-3.4446	nature_reserve	Sand spit and SSSI at mouth of Exe estuary.
+192	devon.txt	Dawlish Warren Beach	resolved	50.6145	-3.4415	beach	Main sandy beach on Warren spit; dunes and lifeguard season.
+193	devon.txt	Starcross	resolved	50.6410	-3.4472	village	Exe estuary village; ferry steps and riverside frontage.
+194	devon.txt	Powderham	resolved	50.6193	-3.4599	locality	Exe shore below Powderham Castle; estuary trail frontage.
+195	devon.txt	Exmouth	resolved	50.6194	-3.4145	town	Exe estuary resort; town centre near Strand.
+196	devon.txt	Exmouth Beach	resolved	50.6156	-3.3994	beach	Long sand and shingle front along Queen’s Drive area.
+197	devon.txt	Sandy Bay Exmouth	resolved	50.6079	-3.3876	beach	Holiday-park bay W of Orcombe Point; cliff-backed sand.
+198	devon.txt	Orcombe Point	resolved	50.6139	-3.3927	headland	W end of Exmouth seafront; Geoneedle and SWCP.
+199	devon.txt	Budleigh Salterton	resolved	50.6292	-3.3216	town	Estuary-of-Otter mouth town; pebble beach frontage.
+200	devon.txt	Budleigh Salterton Beach	resolved	50.6284	-3.3232	beach	Main town beach along Marine Parade and river mouth.
+201	devon.txt	Sidmouth	resolved	50.6809	-3.2392	town	Jurassic Coast resort; centre near Esplanade.
+202	devon.txt	Sidmouth Beach	resolved	50.6785	-3.2358	beach	Town sand and shingle below Alma Bridge / Esplanade.
+203	devon.txt	Jacobs Ladder Beach	resolved	50.6782	-3.2315	beach	Small sand cove E of town; access via Jacob’s Ladder steps.
+204	devon.txt	Ladram Bay	resolved	50.6963	-3.2584	bay	Steep-sided pebble bay E of Budleigh / W of Sidmouth; holiday park vicinity.
+205	devon.txt	Beer	resolved	50.6995	-3.0885	village	Fishing village in small combe; shingle beach at mouth.
+206	devon.txt	Beer Beach	resolved	50.7002	-3.0901	beach	Main village shingle foreshore below cliffs.
+207	devon.txt	Seaton	resolved	50.7056	-3.0550	town	Axe mouth resort; town front on Lyme Bay.
+208	devon.txt	Seaton Beach	resolved	50.7062	-3.0558	beach	Town pebble beach along Esplanade.
+209	devon.txt	Axmouth	resolved	50.7057	-3.0430	village	Village at Axe inland margin of harbour; coastal list context.
+210	devon.txt	Axmouth Harbour	resolved	50.7068	-3.0385	harbour	Harbour basin and river mouth W of Seaton; yacht club area.
+211	devon.txt	Seaton Hole	resolved	50.7001	-3.0846	locality	Coastal hamlet / inlet W of Seaton on Lyme Bay; Streetmap centroid.
+212	devon.txt	Branscombe	resolved	50.6890	-3.1397	village	East Devon village; parish centre coords.
+213	devon.txt	Branscombe Mouth	resolved	50.6875	-3.1365	beach	Shingle beach at valley mouth below village; SWCP.
+214	devon.txt	Weston Mouth	resolved	50.6851	-3.1836	beach	Isolated shingle cove E of Branscombe / W of Sidmouth; SWCP access.
+215	devon.txt	Salcombe Regis	resolved	50.6936	-3.2071	village	Coastal village W of Sidmouth (not South Hams Salcombe).
+216	devon.txt	Lyme Bay	ambiguous			bay	Regional sea area (Dorset–East Devon); no single shoreline pin.
+217	devon.txt	Straight Point	resolved	50.6066	-3.3618	headland	Headland between Exmouth and Budleigh; military range / nav light area.
+218	devon.txt	Straight Point Beach	resolved	50.6085	-3.3545	beach	Pebble foreshore on E side of Straight Point toward Budleigh / Otter Cove.
+219	devon.txt	Otterton	resolved	50.6582	-3.3010	village	East Devon village on River Otter E bank; parish centre.
+220	devon.txt	Otter Mouth	resolved	50.6292	-3.3216	estuary	River Otter estuary mouth E of Budleigh Salterton; bar / nature reserve frontage.
+221	devon.txt	Budleigh	resolved	50.6292	-3.3216	town	Short form in list = Budleigh Salterton; town / beach front.
+222	devon.txt	Littleham	resolved	50.6222	-3.3733	locality	Historic Littleham, now part of Exmouth; S of Sandy Bay / Straight Point coast.
+223	devon.txt	Exton	resolved	50.6689	-3.4440	village	Village on E bank of River Exe estuary.
+224	devon.txt	Lympstone	resolved	50.6847	-3.3760	village	Exe estuary village opposite Exmouth; quay and foreshore.
+225	devon.txt	Topsham	resolved	50.6853	-3.4654	town	Exe estuary town; quay and marsh frontage.
+226	devon.txt	Starcross Ferry	resolved	50.6265	-3.4472	ferry	Exe lower ferry landing at Starcross; pier / slip area.
+227	devon.txt	Cockwood	resolved	50.6140	-3.4430	hamlet	Exe shore hamlet near Cockwood Steps; SWCP / ferry context.
+228	devon.txt	Coryton Cove	resolved	50.5753	-3.4684	cove	Sandy/shingle cove S of Dawlish town; backed by railway.
+229	devon.txt	Langstone Rock	resolved	50.6091	-3.4536	rock	Sea stack / outcrop on Dawlish sea wall railway frontage.
+230	devon.txt	Warren Point	resolved	50.6060	-3.3480	spit_tip	NE end of Dawlish Warren sand spit toward Exe mouth (Exe Estuary side).
+231	devon.txt	Powderham Castle Shore	resolved	50.6190	-3.4595	shore	Foreshore below Powderham Castle on W side of Exe estuary.
+232	devon.txt	River Teign Mouth	resolved	50.5495	-3.4960	estuary	Teign estuary entrance between Teignmouth and Shaldon / The Ness.
+233	devon.txt	River Exe Mouth	resolved	50.6130	-3.3920	estuary	Exe bar / entrance between Dawlish Warren and Exmouth / Orcombe Point.
+234	devon.txt	River Otter Mouth	resolved	50.6292	-3.3216	estuary	Same mouth as “Otter Mouth”; Budleigh Salterton coastal bar.
+235	devon.txt	River Axe Mouth	resolved	50.7065	-3.0385	estuary	Axe entrance at Axmouth / Seaton; harbour mouth vicinity.
+236	devon.txt	River Sid Mouth	resolved	50.6795	-3.2360	estuary	Sid at Sidmouth; Esplanade / beach mouth area.
+237	devon.txt	River Erme Mouth	resolved	50.3148	-3.9456	estuary	Erme meets sea at Mothecombe / Bigbury area; South Hams.
+238	devon.txt	River Yealm Mouth	resolved	50.3125	-3.9900	estuary	Yealm enters Wembury Bay; Newton Ferrers / Noss Mayo mouth vicinity.
+239	devon.txt	River Plym Mouth	resolved	50.3667	-4.1322	estuary	Cattewater / Plymouth Sound entrance; Plym meets tidal water.
+240	devon.txt	River Tamar Mouth	resolved	50.3690	-4.1850	estuary	Wide Hamoaze / Plymouth Sound entrance; representative central channel point.
+241	devon.txt	Teigngrace	resolved	50.5556	-3.6267	hamlet	Parish / village centre N of Newton Abbot; Teign valley context.
+242	devon.txt	Kingsteignton	resolved	50.5458	-3.5962	town	Head of Teign estuary; town centre reference.
+243	devon.txt	Bishopsteignton	resolved	50.5540	-3.5420	village	Village above Teign estuary between Newton Abbot and Teignmouth.
+244	devon.txt	Combeinteignhead	resolved	50.5338	-3.5507	village	Haccombe-with-Combe; inland from Teign estuary.
+245	devon.txt	Stoke Gabriel	resolved	50.4034	-3.6212	village	Creek-side village on tidal Dart arm; mill pond area.
+246	devon.txt	Stoke Gabriel Creek	resolved	50.4038	-3.6275	creek	Tidal inlet / creek arm below village toward Dart.
+247	devon.txt	Dittisham	resolved	50.3857	-3.6038	village	West bank of tidal Dart upstream of Dartmouth.
+248	devon.txt	Dittisham Quay	resolved	50.3856	-3.6063	quay	Main quay / landing on village waterfront.
+249	devon.txt	Stoke Fleming Beach	resolved	50.3165	-3.5995	beach	Start Bay shingle frontage below Stoke Fleming village.
+250	devon.txt	Blackpool Sands Beach	resolved	50.3194	-3.6094	beach	Shingle cove N of Start Point; Stoke Fleming parish.
+251	devon.txt	Slapton Ley Shore	resolved	50.2860	-3.6460	shore	Public shore / boardwalk zone beside Slapton Ley NNR (shingle-bar side).
+252	devon.txt	Beeson	resolved	50.2557	-3.6698	hamlet	Hamlet above Start Bay S of Slapton Sands.
+253	devon.txt	Beeson Beach	resolved	50.2525	-3.6720	beach	Coastal shingle strip reached from Beeson toward Beesands / SWCP.
+254	devon.txt	East Prawle	resolved	50.2151	-3.7097	village	Chivelstone parish; access toward Prawle Point.
+255	devon.txt	Prawle Point	resolved	50.2017	-3.7219	headland	Southernmost tip of Devon mainland; NCI lookout vicinity.
+256	devon.txt	Great Mattiscombe Sand	resolved	50.2303	-3.6547	beach	Sandy cove W of Start Point; SWCP access from Start Point.
+257	devon.txt	Lannacombe Beach	resolved	50.2164	-3.6763	beach	Small bay between Prawle Point and Start Point.
+258	devon.txt	East Portlemouth	resolved	50.2350	-3.7575	village	East shore of Salcombe ria; ferry / creeks context.
+259	devon.txt	South Pool Creek	resolved	50.2440	-3.7280	creek	Tidal creek from South Pool toward Kingsbridge Estuary.
+260	devon.txt	North Pool	resolved	50.2585	-3.7206	hamlet	Hamlet N of South Pool on same creek system.
+261	devon.txt	Batson Creek	resolved	50.2370	-3.7650	creek	Upper Salcombe ria inlet; fish quay / slip near mouth.
+262	devon.txt	Salcombe Estuary	resolved	50.2325	-3.7695	estuary	Representative mid-water point in Salcombe–Kingsbridge ria (large system).
+263	devon.txt	South Milton Sands	resolved	50.2596	-3.8581	beach	National Trust beach; Thurlestone Rock offshore.
+264	devon.txt	Thurlestone Village Beach	resolved	50.2615	-3.8640	beach	Leas Foot Sand / village-access shore in Thurlestone Bay.
+265	devon.txt	Hope Cove Beach	resolved	50.2458	-3.8581	beach	Main Hope Cove beaches (Bolt Tail shelter).
+266	devon.txt	Inner Hope	resolved	50.2470	-3.8556	hamlet	Southern harbour cove part of Hope Cove.
+267	devon.txt	Outer Hope	resolved	50.2465	-3.8583	hamlet	Northern part (Mouthwell Sands area) of Hope Cove.
+268	devon.txt	Malborough	resolved	50.2364	-3.8383	village	South Hams village on ridgeline between Kingsbridge and Salcombe.
+269	devon.txt	South Huish	resolved	50.2554	-3.8315	parish	Parish centre near ruined St Andrew’s; includes Hope Cove coastal area.
+270	devon.txt	West Charleton	resolved	50.2712	-3.7559	village	Larger Charleton settlement W of Kingsbridge ria.
+271	devon.txt	East Charleton	resolved	50.2703	-3.7419	hamlet	East Charleton hamlet in Charleton parish; E of West Charleton toward Kingsbridge ria.
+272	devon.txt	Kingsbridge Estuary	resolved	50.2528	-3.7597	estuary	Representative mid-ria point (Salcombe–Kingsbridge ria / Kingsbridge Estuary SSSI context).
+273	devon.txt	Frogmore Creek	resolved	50.2770	-3.7280	creek	Tidal arm of Kingsbridge Estuary at Frogmore; mouth/lower creek vicinity.
+274	devon.txt	Sherford	resolved	50.2853	-3.7153	village	Sherford near Kingsbridge (Frogmore and Sherford parish); not the Plymouth new town.
+275	devon.txt	Stoke Fleur	resolved	50.3170	-3.6000	village	No separate “Stoke Fleur” found; treated as Stoke Fleming on Start Bay (likely name corruption of Stoke Fleming).
+276	devon.txt	Collaton St Mary	resolved	50.4289	-3.6113	village	Parish village W of Paignton (Torbay); A385 corridor.
+277	devon.txt	Churston Ferrers Golf Coast	resolved	50.3940	-3.5530	golf_course	Churston Golf Club downland course on SWCP Brixham–Churston frontage (Dartmouth Rd, TQ5 0LA).
+278	devon.txt	Broadsands Brixham	resolved	50.4238	-3.5588	beach	Broadsands / Goodrington bay stretch on Tor Bay (English Riviera “Broadsands” facing toward Brixham).
+279	devon.txt	Shoalstone Pool	resolved	50.4012	-3.4988	lido	Seawater lido on Shoalstone Beach N Brixham promontory.
+280	devon.txt	Brixham Breakwater	resolved	50.3990	-3.5075	breakwater	Main harbour breakwater protecting Brixham inner harbour / fish quay.
+281	devon.txt	Oxen Cove	resolved	50.3996	-3.5144	cove	Inlet and slip beside Oxen Cove car park; inner Brixham harbour margin.
+282	devon.txt	Freshwater Quarry	resolved	50.3988	-3.5065	quarry	Breakwater Quarry / Freshwater Quarry area — limestone pit linked historically to Brixham breakwater stone.
+283	devon.txt	Churston Cove Beach	resolved	50.4029	-3.5239	beach	Sand/shingle cove SWCP N of Brixham (same feature as Churston Cove row earlier in file).
+284	devon.txt	Elberry Cove Beach	resolved	50.4025	-3.5456	beach	Shingle bathing cove between Paignton and Brixham; SWCP.
+285	devon.txt	Saltern Cove	resolved	50.4160	-3.5560	beach	SSSI cove between Goodrington Sands and Broadsands; SWCP access.
+286	devon.txt	Occombe Cove	resolved	50.4546	-3.5824	cove	Occombe Valley Woods / stream valley near Preston Paignton; informal “cove” as wooded combe above coast (Hollicombe/Broadsands nearby).
+287	devon.txt	Maidencombe Cliff	resolved	50.5065	-3.5320	cliff	Coastal cliff line N of Maidencombe village toward Watcombe/Petitor.
+288	devon.txt	Teignmouth Pier	resolved	50.5447	-3.4942	pier	Grand Pier (Teignmouth Pier) seaward end / landmark; The Den frontage.
+289	devon.txt	The Ness Shaldon	resolved	50.5572	-3.4885	headland	The Ness — headland S side of Teign estuary mouth opposite Teignmouth.
+290	devon.txt	Ness Cove	resolved	50.5570	-3.4912	beach	Smugglers / Ness Cove below The Ness cliffs; tunnel access from Shaldon.
+291	devon.txt	Labrador Bay	resolved	50.5476	-3.5140	bay	RSPB Labrador Bay viewpoint reserve; cliff-top bay vista between Shaldon and Maidencombe (A379).
+292	devon.txt	Maidencombe Ness	resolved	50.5093	-3.5370	headland	Coastal headland / cliff promontory N of Maidencombe (Petitor–Maidencombe stretch); local “Ness” usage.
+293	devon.txt	Shaldon Ness	resolved	50.5568	-3.4890	headland	Alternate local label for The Ness at Teignmouth entrance (S bank).
+294	devon.txt	Teignmouth Back Beach	resolved	50.5438	-3.4975	beach	River/estuary-facing shore on N side near ferry and lighthouse (behind main seafront).
+295	devon.txt	Dawlish Sea Wall	resolved	50.5798	-3.4635	sea_defence	Brunel railway sea wall / Marine Parade frontage (town centre reach).
+296	devon.txt	Langstone Rock Beach	resolved	50.6091	-3.4536	beach	Sandy shore at Langstone Rock between Dawlish and Dawlish Warren (also called Red Rock beach reach).
+297	devon.txt	Coryton Cove Dawlish	resolved	50.5753	-3.4684	beach	Coryton Cove S of Dawlish centre; railway-backed cove (same feature as Coryton Cove row).
+298	devon.txt	Red Rock Dawlish	resolved	50.6075	-3.4555	beach	Red Rock / Langstone Rock sandy beach reach N of Dawlish (Permian breccia landmark).
+299	devon.txt	Little Haldon	resolved	50.5642	-3.5418	heath	Little Haldon heath/summit ridge inland of Teignmouth–Dawlish; SSSI heath N of coast.
+300	devon.txt	Starcross Yacht Club	resolved	50.6470	-3.4512	marina	Starcross YC at Powderham Point W bank River Exe (club-published coordinates).
+301	devon.txt	Powderham Exe Trail Shore	resolved	50.6570	-3.4580	trail	Exe Estuary Trail / NCN2 shore reach beside estuary at Powderham (flood wall footpath; Geograph SY0179 vicinity).
+302	devon.txt	Exmouth Marina	resolved	50.6167	-3.4300	marina	Exmouth Marina pilotage position50°37′00″N 003°25′48″W.
+303	devon.txt	Exmouth Dock	resolved	50.6145	-3.4185	dock	Commercial docks / The Docks basin reach EX8 1DU; distinct from marina entrance channel.
+304	devon.txt	Maer Rocks	resolved	50.6095	-3.3990	rock_platform	Intertidal sandstone reef S of The Maer; Geograph WGS84 ~50°36.57′N 3°23.94′W.
+305	devon.txt	Sandy Bay Caravan	resolved	50.5938	-3.3370	caravan_park	Devon Cliffs / Sandy Bay large holiday park behind Sandy Bay beach.
+306	devon.txt	Orcombe Point Geoneedle	resolved	50.6073	-3.3852	landmark	Geoneedle at Orcombe Point; Jurassic Coast W terminus (published coords).
+307	devon.txt	Littleham Cove	resolved	50.6191	-3.3523	cove	Red-cliff embayment W of Budleigh Salterton on Jurassic Coast (wiki coords).
+308	devon.txt	Sandy Bay Cliffs	resolved	50.5970	-3.3410	cliff	Red sandstone cliff line backing Sandy Bay / Devon Cliffs reach E of Exmouth.
+309	devon.txt	Sidmouth Esplanade	resolved	50.6789	-3.2375	promenade	Town seafront Esplanade along Sidmouth beach.
+310	devon.txt	Chit Rocks Sidmouth	resolved	50.6782	-3.2358	reef	Chit Rocks reef and pools on town beach foreshore.
+311	devon.txt	River Sid Estuary	resolved	50.6762	-3.2335	estuary	Tidal mouth of River Sid at Sidmouth beach.
+312	devon.txt	Peak Hill Sidmouth	resolved	50.6816	-3.2472	headland	Peak Hill / High Peak cliff west of Sidmouth centre on SWCP.
+313	devon.txt	Salcombe Hill Sidmouth	resolved	50.6745	-3.2140	viewpoint	Salcombe Hill NT clifftop viewpoint E of Sidmouth over Salcombe Mouth.
+314	devon.txt	Ladram Bay Caravan	resolved	50.7080	-3.2780	caravan_park	Ladram Bay Holiday Park above Otter sandstone sea stacks bay.
+315	devon.txt	Hooken Undercliff	resolved	50.7115	-3.2745	undercliff	Hooken Undercliff landslip / SWCP between Beer and Branscombe.
+316	devon.txt	Beer Head	resolved	50.6964	-3.0878	headland	Chalk headland E of Beer village on Jurassic Coast.
+317	devon.txt	Seaton Hole Beach	resolved	50.7108	-3.0632	beach	Seaton Hole cove W of Seaton town front.
+318	devon.txt	Axe Cliff	resolved	50.7142	-3.0558	cliff	Axe Cliff / golf course clifftop W of Seaton toward Axmouth.
+319	devon.txt	Axmouth Lyme Undercliff	resolved	50.7120	-3.0380	undercliff	Axmouth to Lyme Regis Undercliffs NNR — long landslip terrace; pin near mid-reach.
+320	devon.txt	Seaton Jurassic	resolved	50.7058	-3.0768	attraction	Jurassic Discovery centre, The Underfleet EX12 2WD (gateway attraction; not the whole coast).
+321	devon.txt	Branscombe Beach	resolved	50.6838	-3.1325	beach	Main Branscombe village beach reach on Jurassic Coast.
+322	devon.txt	Branscombe Mouth Beach	resolved	50.6825	-3.1415	beach	Shingle beach at mouth of Branscombe Lea / valley mouth.
+323	devon.txt	Weston Beach	resolved	50.7378	-3.1018	beach	Weston village beach below Salcombe Hill (E Devon).
+324	devon.txt	Weston Mouth Beach	resolved	50.7383	-3.0975	beach	Shingle cove at Weston Mouth E of Sidmouth.
+325	devon.txt	Salcombe Regis Beach	resolved	50.7180	-3.2245	beach	Coastal beach reach below Salcombe Regis village W of Sidmouth.
+326	devon.txt	Straight Point NCI	resolved	50.6066	-3.3618	lookout	NCI remote CCTV/watch coverage from disused MOD tower on Straight Point headland (not staffed NCI hut).
+327	devon.txt	Otterton Ledge	resolved	50.6345	-3.2975	ledge	Intertidal ledge / foreshore off Otter estuary mouth near Budleigh Salterton.
+328	devon.txt	Budleigh Granary Beach	resolved	50.6285	-3.3170	beach	Pebble beach reach at Budleigh Salterton (“Granary Beach” local name W of centre).
+329	devon.txt	Otter Estuary	resolved	50.6325	-3.3045	estuary	Tidal River Otter estuary and mouth S of Budleigh Salterton.
+330	devon.txt	Exmouth Lifeboat Beach	resolved	50.6102	-3.3995	beach	Launch beach and foreshore below RNLI Exmouth boathouse ramp (seaward of Queens Drive station).
+331	devon.txt	Shelly Beach Exmouth	resolved	50.6178	-3.4261	beach	Exe estuary foreshore below Shelly Beach; Geograph WGS84 ~SX992807.
+332	devon.txt	Georgian Town Beach Exmouth	resolved	50.6195	-3.4105	beach	Main sandy town front below Georgian seafront terraces W of the pier (SY004800 area).
+333	devon.txt	Warren Golf Club Shore	resolved	50.6092	-3.4420	shore	Inner (estuary) shore of Dawlish Warren links course at Exe mouth (EX7 0NF).
+334	devon.txt	Starcross Pier	resolved	50.6278	-3.4478	pier	Passenger ferry pier by Starcross station; published Exmouth–Starcross ferry coords.
+335	devon.txt	Cockwood Steps	resolved	50.6185	-3.4485	steps	Foot crossing and harbour/estuary access at Cockwood between Starcross and Dawlish Warren.
+336	devon.txt	Topsham Ferry Landing	resolved	50.6827	-3.4664	ferry	Ferry Road jetty for rowing ferry to Exeter Canal towpath (Wikimedia geotag).
+337	devon.txt	Lympstone Beach	resolved	50.6458	-3.4302	beach	Harbour foreshore and beach passages below Peter’s Tower / village river frontage.
+338	devon.txt	Exton Beach	resolved	50.6685	-3.4405	beach	River Exe foreshore at Exton on the west bank.
+339	devon.txt	Powderham Church Shore	resolved	50.6391	-3.4558	shore	St Clement’s / Powderham reach beside estuary and Exeter Shipping Canal.
+340	devon.txt	River Clyst Mouth	resolved	50.7060	-3.4490	estuary	Tidal confluence of River Clyst with River Exe on the east bank N of Topsham (approximate mouth reach).
+341	devon.txt	Starcross Canal Basin	resolved	50.6270	-3.4482	basin	Exeter Ship Canal terminus basin at Starcross by the ferry pier.
+342	devon.txt	Teign Estuary	ambiguous			estuary	Long tidal system Newton Abbot–Teignmouth; no single shoreline centroid.
+343	devon.txt	Salcombe Town Beach	resolved	50.2368	-3.7715	beach	Central town sandy beach reach by the harbour/ferry front.
+344	devon.txt	South Sands Salcombe	resolved	50.2318	-3.7625	beach	South Sands opposite Salcombe mouth; ferry-linked beach.
+345	devon.txt	North Sands Salcombe	resolved	50.2435	-3.7785	beach	North-facing sandy bay W of Salcombe town.
+346	devon.txt	East Portlemouth Ferry	resolved	50.2338	-3.7552	ferry	Passenger ferry landing at East Portlemouth for Salcombe.
+347	devon.txt	Mill Bay Salcombe	resolved	50.2275	-3.7605	beach	National Trust Mill Bay cove S of Salcombe.
+348	devon.txt	Snapes Point	resolved	50.2378	-3.7733	headland	National Trust viewpoint/promontory NE of Salcombe (grid SX738403).
+349	devon.txt	Batson Creek Moorings	resolved	50.2340	-3.7705	moorings	Moorings reach on Batson Creek off Kingsbridge Estuary.
+350	devon.txt	South Pool	resolved	50.2550	-3.7450	village	Tidal creek village on east side of Kingsbridge Estuary.
+351	devon.txt	Frogmore	resolved	50.2655	-3.7315	creek	Frogmore creek hamlet on upper Kingsbridge Estuary.
+352	devon.txt	Avon Estuary Mouth	resolved	50.2790	-3.8680	estuary	Tidal mouth of River Avon (South Hams) at Bantham/Bigbury Bay.
+353	devon.txt	Bantham River Mouth	resolved	50.2810	-3.8640	river_mouth	Avon channel mouth and bar at Bantham.
+354	devon.txt	Thurlestone Golf Coast	resolved	50.2565	-3.8575	coast	Thurlestone Golf Club clifftop fairways above rocky shore W of Bantham.
+355	devon.txt	Hope Cove Harbour	resolved	50.2485	-3.8635	harbour	Small harbour between Inner and Outer Hope.
+356	devon.txt	Inner Hope Beach	resolved	50.2495	-3.8630	beach	Sheltered sandy cove in Inner Hope W of harbour mouth.
+357	devon.txt	Soar Cove	resolved	50.2231	-3.8307	cove	Soar Mill Cove E of Bolt Head; list uses shortened “Soar Cove”.
+358	devon.txt	Mothecombe Point	resolved	50.3098	-3.9535	headland	Headland at River Erme mouth W of Mothecombe Beach (SWCP reach).
+359	devon.txt	Wembury Point	resolved	50.3167	-4.1086	headland	Rocky promontory W of Heybrook Bay at Plymouth Sound approach.
+360	devon.txt	Heybrook Bay Beach	resolved	50.3195	-4.0915	beach	Small bay beach at Heybrook Bay E of Wembury Point.
+361	devon.txt	Jennycliff Bay Beach	resolved	50.3348	-4.1170	beach	Shingle foreshore of Jennycliff Bay E of Jennycliff (same inlet as “Jennycliff Bay”).
+362	devon.txt	Bovisand Fort Beach	resolved	50.3355	-4.1410	beach	Sandy beach inside Fort Bovisand harbour arms; same reach as “Bovisand Beach”.
+363	devon.txt	Mountbatten Pier	resolved	50.35944	-4.12972	pier	Mount Batten Breakwater / pier into Cattewater (Wikidata coords; local name “Mountbatten Pier”).
+364	devon.txt	Jennycliff Beach	resolved	50.3342	-4.1182	beach	Foreshore below Jennycliff Country Park on east shore of Plymouth Sound.
+365	devon.txt	Firestone Bay Beach	resolved	50.3611	-4.1735	beach	Pebble bathing beach in Firestone Bay beside Devil’s Point / Stonehouse shore.
+366	devon.txt	West Hoe Beach	resolved	50.3652	-4.1440	beach	Small Millbay/West Hoe foreshore W of Hoe centre (same frontage as “West Hoe”).
+367	devon.txt	Devils Point Beach	resolved	50.3617	-4.1647	beach	Tidal foreshore below Devil’s Point park and Western King.
+368	devon.txt	Stonehouse Beach	resolved	50.3694	-4.1579	beach	Stonehouse peninsula pebble shore toward Royal William Yard / Firestone reach (Streetmap centroid area).
+369	devon.txt	Brixham Marina	resolved	50.3965	-3.5115	marina	Inner marina and pontoons behind Brixham breakwater (fish quay side).
+370	devon.txt	Berry Head Fort	resolved	50.3985	-3.4892	fort	Historic fortifications on Berry Head NNR limestone plateau (S Tor Bay).
+371	devon.txt	Fishcombe	resolved	50.4022	-3.5216	cove	Local short name for Fishcombe Cove shingle beach N of Brixham.
+372	devon.txt	Churston	resolved	50.4005	-3.5565	village	Churston Ferrers/Churston village inland of Brixham–Paignton coast (parish centre).
+373	devon.txt	Goodrington North	resolved	50.4255	-3.5575	beach	North (Paignton) end of Goodrington Sands / Broadsands frontage.
+374	devon.txt	Goodrington South	resolved	50.4225	-3.5595	beach	South end of Goodrington Sands toward Saltern/Occombe reaches.
+375	devon.txt	Splashdown Quaywest	resolved	50.4233	-3.5597	attraction	Quaywest water park site on Goodrington seafront (English Riviera).
+376	devon.txt	Preston Paignton	resolved	50.4430	-3.5610	suburb	Preston village/suburb of Paignton above Preston Sands and Hollicombe.
+377	devon.txt	Roundham Head	resolved	50.4307	-3.5518	headland	Headland and SWCP between Paignton Harbour and Goodrington (Roundham area).
+378	devon.txt	Paignton Harbour	resolved	50.4342	-3.5485	harbour	Inner harbour and ferry landings central Paignton.
+379	devon.txt	Elberry	resolved	50.4025	-3.5456	beach	Elberry Cove shingle beach; list uses shortened “Elberry”.
+380	devon.txt	Broadsands Torbay	resolved	50.4238	-3.5588	beach	Broadsands bay on Tor Bay (same sandy frontage as Goodrington Sands).
+381	devon.txt	Churston Golf	resolved	50.3940	-3.5530	golf_course	Churston Golf Club clifftop course (Dartmouth Rd frontage; matches earlier “Churston Ferrers Golf Coast”).
+382	devon.txt	Babbacombe Downs	resolved	50.4798	-3.5078	clifftop_green	Clifftop lawns and walks above Oddicombe (St Marychurch/Babbacombe).
+383	devon.txt	Babbacombe Cliff Railway	resolved	50.4780	-3.5075	funicular	Babbacombe Cliff Railway linking Downs to Oddicombe Beach (lower approach).
+384	devon.txt	Oddicombe	resolved	50.4779	-3.5080	beach	Local short name for Oddicombe Beach shingle cove.
+385	devon.txt	Meadfoot	resolved	50.4693	-3.5148	beach	Meadfoot Beach; list uses single-word “Meadfoot”.
+386	devon.txt	Hope Cove Torquay	resolved	50.4630	-3.4845	cove	Secluded rocky cove reach below Hope’s Nose E side (Torbay; not South Hams Hope Cove).
+387	devon.txt	Corbyn Head Beach	resolved	50.4605	-3.5365	beach	Sand/shingle at foot of Corbyn Head between Corbyn Sands and Torre Abbey reach.
+388	devon.txt	Daddyhole	resolved	50.4555	-3.5155	cove	Daddyhole Cove below Daddyhole Plain limestone cliffs.
+389	devon.txt	Thatcher Rock	resolved	50.4640	-3.4985	sea_stack	Offshore limestone stack in Tor Bay off Meadfoot/Hope’s Nose (marine feature; pin is approximate).
+390	devon.txt	Ansteys	resolved	50.4745	-3.5011	cove	List abbreviation for Ansteys Cove between Torquay and Babbacombe.
+391	devon.txt	Beacon Cove Torquay	resolved	50.4579	-3.5241	beach	Small cove on Torquay seafront near Princess Theatre / harbour approaches.
+392	devon.txt	Hopes Nose Rock	resolved	50.4580	-3.4879	headland	List spelling “Hopes”; coastal limestone headland is Hope’s Nose, Tor Bay.
+393	devon.txt	Torre Abbey Beach	resolved	50.4656	-3.5286	beach	Sandy beach below Royal Terrace gardens by Torre Abbey Sands.
+394	devon.txt	Corbyn Sands Torquay	resolved	50.4608	-3.5383	beach	Main sandy bay W of Corbyn Head; town seafront reach.
+395	devon.txt	Hollicombe Paignton	resolved	50.4503	-3.5579	beach	Hollicombe Beach (naturist area); red-sand cove N of Goodrington.
+396	devon.txt	Cockington Village Coast	resolved	50.4558	-3.5475	coastal_reach	Nearest seafront to Cockington: Livermead / Occombe coast below the country park.
+397	devon.txt	Maidencombe Cliff Path	resolved	50.5158	-3.5036	clifftop_path	SWCP and cliffs above Maidencombe Beach cove.
+398	devon.txt	Teignmouth River Beach	resolved	50.5458	-3.4962	beach	Back Beach / river foreshore at Teignmouth by the estuary.
+399	devon.txt	Shaldon Bridge Beach	resolved	50.5395	-3.4995	beach	Foreshore near Shaldon Bridge on the Teign (not Ness Cove tunnel beach).
+400	devon.txt	Ringmore Beach	resolved	50.5362	-3.5082	beach	Small estuary foreshore by historic Ringmore by Shaldon (not South Hams Ringmore/Ayrmer Cove).
+401	devon.txt	Holcombe Den	resolved	50.5648	-3.4675	valley	Steep wooded “den” / Smugglers Lane access to Holcombe Beach below the railway.
+402	devon.txt	Dawlish Town Beach	resolved	50.5805	-3.4658	beach	Town seafront beach along Marine Parade.
+403	devon.txt	Dawlish Warren Nature Reserve	resolved	50.6272	-3.4438	nature_reserve	Dune and estuary reserve behind Dawlish Warren spit.
+404	devon.txt	Starcross Beach	resolved	50.6183	-3.4505	beach	Exe estuary foreshore at Starcross (mud/sand depending on tide).
+405	devon.txt	Powderham Castle Beach	resolved	50.6370	-3.4615	beach	Public foreshore below Powderham Castle by the Exe.
+406	devon.txt	Exmouth Seafront	resolved	50.6180	-3.4130	seafront	Main resort front along Queen’s Drive / Esplanade.
+407	devon.txt	Maer Beach	resolved	50.6138	-3.4085	beach	Sandy bay at S end of Exmouth front by Maer Rocks / Orcombe approach.
+408	devon.txt	Orcombe	resolved	50.6125	-3.3942	headland	Orcombe Point and Geoneedle; W end of Jurassic Coast.
+409	devon.txt	Budleigh Beach Huts	resolved	50.6288	-3.3183	beach	Huts on Budleigh Salterton pebble beach frontage.
+410	devon.txt	Sidmouth Town Beach	resolved	50.6788	-3.2408	beach	Town beach on Esplanade below Alma Bridge reach.
+411	devon.txt	Jacobs Ladder	resolved	50.6792	-3.2395	steps	Iconic cliff stairway from Esplanade to Connaught Gardens area.
+412	devon.txt	Connaught Gardens Sidmouth	resolved	50.6775	-3.2410	gardens	Formal clifftop gardens above Jacob’s Ladder / town beach.
+413	devon.txt	Ladram Bay Pebble Beach	resolved	50.6443	-3.2858	beach	Pebble shore below Ladram Bay holiday park sea stacks.
+414	devon.txt	Beer Quarry Caves Shore	resolved	50.6958	-3.0955	shore	Shingle foreshore below Beer Head by the quarry caves visitor coast.
+415	devon.txt	Seaton Tramway Coast	resolved	50.7058	-3.0665	tramway	Riverside tram corridor beside tidal Axe marshes at Seaton (coastal gateway town).
+416	devon.txt	Axe Mouth	resolved	50.7055	-3.0570	estuary_mouth	River Axe estuary at Seaton/Axmouth (tidal basin mouth).
+417	devon.txt	Branscombe Mouth Landslip	resolved	50.6920	-3.1180	landslip	Branscombe Mouth beach cliffs; major coastal landslip zone (pin approximate).
+418	devon.txt	Weston Cliff	resolved	50.6845	-3.2555	cliff	Weston undercliff / high chalk cliffs E of Sidmouth on SWCP.
+419	devon.txt	Salcombe Regis Undercliff	resolved	50.7088	-3.2655	undercliff	Steep undercliff and landslip belt below Salcombe Regis toward Salcombe Mouth.
+420	devon.txt	Otterton Mill Weir	resolved	50.6595	-3.3033	weir	River Otter weir and fish pass beside Otterton Mill (tidal reach upstream of estuary).
+421	devon.txt	Straight Point Orcombe	resolved	50.6037	-3.3880	headland	Straight Point sandstone headland between Sandy Bay and Littleham Cove (MoD range); W of Orcombe Point.
+422	devon.txt	Littleham Warren	resolved	50.6112	-3.3895	dunes	Coastal dunes/warren belt N of Sandy Bay and Straight Point near Littleham (Exe estuary side of the ridge).
+423	devon.txt	Topsham Goat Walk	resolved	50.6847	-3.5339	walk	Riverside Goat Walk along the Exe at Topsham (Exe Estuary Trail section).
+424	devon.txt	Lympstone Marine Camp	resolved	50.6506	-3.4312	military	CTCRM Lympstone; Royal Marines base on west shore of Exe estuary.
+425	devon.txt	Exton Duck Pond Shore	resolved	50.6684	-3.4395	shore	Exe estuary foreshore by Exton village and duck-pond lane reach (mud/sand flats).
+426	devon.txt	Coryton Cove Beach	resolved	50.5839	-3.4676	beach	Small sandy Coryton Cove on Dawlish seafront (SWCP).
+427	devon.txt	Red Rock Beach Dawlish	resolved	50.5872	-3.4598	beach	Red-rock foreshore and small beach W of Dawlish between Coryton Cove and Holcombe reach.
+428	devon.txt	Labrador Bay Beach	resolved	50.5521	-3.5182	beach	Sandy cove below Labrador Bay viewpoint between Shaldon and Teignmouth.
+429	devon.txt	Ness Shaldon Beach	resolved	50.5393	-3.4989	beach	Ness Cove / Ness foreshore by Shaldon (Smugglers Tunnel access).
+430	devon.txt	Teignmouth Den	resolved	50.5458	-3.4965	promenade	The Den: Teignmouth seafront lawns and promenade beside the beach.
+431	devon.txt	Shaldon Smugglers Tunnel	resolved	50.5389	-3.4993	tunnel	Foot tunnel from Ness car park area to Ness Cove beach.
+432	devon.txt	Dawlish Warren Spit	resolved	50.6285	-3.4425	sand_spit	Long sand spit at mouth of Exe (Dawlish Warren); pin toward exposed tip.
+433	devon.txt	Exe Estuary Trail Coast	ambiguous			trail	Long-distance cycle/walking route along Exe estuary; no single shoreline point.
+434	devon.txt	River Kenn Mouth	resolved	50.6196	-3.4472	estuary_mouth	River Kenn meets the tidal Exe near Cockwood/Exe estuary S shore.
+435	devon.txt	River Teign Estuary	ambiguous			estuary	Large tidal Teign system from Newton Abbot basin to Teignmouth–Shaldon mouth; no single pin.
+436	devon.txt	River Dart Mouth	resolved	50.3492	-3.5715	estuary_mouth	Tidal entrance between Dartmouth and Kingswear (Dart harbour mouth).
+437	devon.txt	Kingswear Castle Beach	resolved	50.3478	-3.5655	beach	Small shingle beach beside Dartmouth Castle / Kingswear Castle narrows.
+438	devon.txt	Dartmouth Embankment	resolved	50.3528	-3.5778	embankment	North Embankment riverside walk on west bank of Dart (town centre frontage).
+439	devon.txt	Dartmouth Higher Ferry	resolved	50.3580	-3.5750	ferry	Vehicle cable ferry crossing N of Dartmouth/Kingswear centres (A379 link).
+440	devon.txt	Dartmouth Lower Ferry	resolved	50.3486	-3.5752	ferry	Centre slips vehicle ferry Dartmouth–Kingswear (pontoon and tug).
+441	devon.txt	Blackpool Sands Stoke Fleming	resolved	50.3198	-3.6265	beach	Blackpool Sands cove near Stoke Fleming (South Hams).
+442	devon.txt	Slapton Line Beach	resolved	50.2715	-3.6555	beach	Shingle barrier beach along Slapton Line between sea and Slapton Ley.
+443	devon.txt	Torcross Tank Beach	resolved	50.2634	-3.6191	beach	Slapton Sands reach by Sherman tank memorial; WWII Exercise Tiger association.
+444	devon.txt	Beesands Beach	resolved	50.2396	-3.6508	beach	Sandy beach village frontage on Start Bay.
+445	devon.txt	Hallsands Ruins Beach	resolved	50.2392	-3.6369	beach	Shingle shore below lost Hallsands village ruins S of Beesands.
+446	devon.txt	Start Point Lighthouse	resolved	50.2186	-3.6406	lighthouse	Start Point light at tip of Start Point promontory.
+447	devon.txt	Prawle Point Coastguard	resolved	50.2049	-3.7184	lookout	Prawle Point coastwatch/former coastguard vicinity; Devon’s southernmost headland area.
+448	devon.txt	Great Mattiscombe	resolved	50.2135	-3.6369	beach	Great Mattiscombe Sands below Start Point (SWCP descent from lighthouse car park).
+449	devon.txt	Lannacombe	resolved	50.2225	-3.6810	beach	Lannacombe Bay beach between Start Point and Prawle Point (car park lane).
+450	devon.txt	Gara Rock	resolved	50.2209	-3.7504	headland	Clifftop Gara Rock / hotel above Gara Rock beach E of Salcombe (East Portlemouth).
+451	devon.txt	East Prawle Beach	resolved	50.2165	-3.7125	beach	Sandy/rocky shore W of Prawle Point toward East Prawle (Maceley Cove area; SWCP).
+452	devon.txt	South Pool Harbour	resolved	50.3858	-3.7595	harbour	Creek harbour in South Pool on Kingsbridge/Salcombe estuary E shore.
+453	devon.txt	North Sands Mill Bay	resolved	50.2292	-3.7803	beach	North Sands sandy beach S of Salcombe by Mill Bay (Fort Charles rocks).
+454	devon.txt	South Sands Mill Bay	resolved	50.2288	-3.7825	beach	South Sands cove at estuary mouth (Mill Bay reach); pin mid-beach OS SX729376 vicinity.
+455	devon.txt	Snapes Point Salcombe	resolved	50.2369	-3.6733	headland	Snapes Point NT viewpoint/car park (SX738403); estuary headland NE of Salcombe.
+456	devon.txt	Soar Mill Cove Hotel Beach	resolved	50.2805	-3.8670	beach	Soar Mill Cove sandy cove S of Malborough (hotel beach access).
+457	devon.txt	Hope Thatch Thurlestone	resolved	50.2620	-3.8580	attraction	Named let in Thurlestone; pin Thurlestone village centre near coast path/beaches.
+458	devon.txt	Bigbury Beach Huts	resolved	50.2795	-3.8655	beach	Bigbury-on-Sea beach huts on causeway shore toward Burgh Island.
+459	devon.txt	Burgh Island Hotel Beach	resolved	50.2792	-3.8725	beach	Shingle/sand by Art Deco hotel on Burgh Island (tidal access).
+460	devon.txt	Challaborough Surf Beach	resolved	50.2880	-3.8565	beach	Challaborough Bay sandy surf beach W of Bigbury.
+461	devon.txt	Bantham Surf Beach	resolved	50.2790	-3.9390	beach	River Avon mouth surf beach at Bantham (Bigbury Bay).
+462	devon.txt	Mouthwell Sands	resolved	50.3115	-3.9575	beach	Mothecombe/Bigbury Bay sandy reach (Mouthwell/Mothecombe foreshore).
+463	devon.txt	Leas Foot Beach	resolved	50.2590	-3.9480	beach	Small sandy cove S of Thurlestone (Leas Foot / SWCP).
+464	devon.txt	Mothecombe House Beach	resolved	50.3120	-3.9510	beach	Mothecombe private beach reach on Erme estuary mouth W shore.
+465	devon.txt	Newton Creek Newton Ferrers	resolved	50.3085	-4.0380	creek	Tidal Newton Creek off River Yealm at Newton Ferrers.
+466	devon.txt	Noss Mayo Quay	resolved	50.3075	-4.0325	quay	Village quay on Yealm opposite Newton Ferrers.
+467	devon.txt	Wembury Marine Centre	resolved	50.3225	-4.0765	attraction	Devon Wildlife Trust marine centre by Wembury beach (NT bay).
+468	devon.txt	Hey Tor Wembury	ambiguous			unknown	No verified distinct feature named Hey Tor on Wembury coast; could be informal SWCP rock name—needs local map check.
+469	devon.txt	Bovisand Fort	resolved	50.3360	-4.1250	fort	Fort Bovisand headland fort at entrance to Plymouth Sound E shore.
+470	devon.txt	Jennycliff Plymouth	resolved	50.3440	-4.1250	park_viewpoint	Jennycliff Bay park cliffs S of Plymouth (Plymouth Sound views).
+471	devon.txt	Mountbatten Tower	resolved	50.3597	-4.1292	tower	Mount Batten artillery tower on Mount Batten peninsula (Heritage List coords).
+472	devon.txt	West Hoe Pier	resolved	50.3625	-4.1495	pier	West Hoe Pier on Plymouth Hoe foreshore.
+473	devon.txt	Tinside Lido	resolved	50.3641	-4.1514	lido	Art Deco tidal pool on Plymouth Hoe.
+474	devon.txt	Hoe Foreshore	resolved	50.3640	-4.1520	foreshore	Public foreshore below Plymouth Hoe promenade.
+475	devon.txt	Devils Point Battery	resolved	50.3520	-4.1550	battery	Devil’s Point park/battery headland at mouth of Stonehouse Pool.
+476	devon.txt	Stonehouse Royal William Yard	resolved	50.3710	-4.1830	harbour	Historic yard and marina on Stonehouse waterfront (Plymouth).
+477	devon.txt	Brixham Breakwater Beach	resolved	50.3985	-3.5085	beach	Shingle/sand by Brixham breakwater and outer harbour.
+478	devon.txt	Berry Head Nature Reserve	resolved	50.3953	-3.4914	headland	Berry Head NNR / lighthouse headland S of Brixham.
+479	devon.txt	Brixham Outer Harbour	resolved	50.4010	-3.5120	harbour	Outer harbour and marina W of Brixham town centre.
+480	devon.txt	Churston Cove Path	resolved	50.4029	-3.5239	path	SWCP steep path to Churston Cove beach (Fishcombe area, Torbay).
+481	devon.txt	Goodrington Splash	resolved	50.4244	-3.5605	attraction	Splashdown Quaywest / Goodrington splash pools on Goodrington Sands.
+482	devon.txt	Paignton Green	resolved	50.4358	-3.5638	grassland	Seafront green and promenade area central Paignton.
+483	devon.txt	Preston Green	resolved	50.4315	-3.5570	grassland	Preston (Paignton) village green near the coast and SWCP.
+484	devon.txt	Hollicombe Red Cliff	resolved	50.4382	-3.5195	cliff	Red sandstone cliffs above Hollicombe / Goodrington foreshore.
+485	devon.txt	Broad Sands Goodrington	resolved	50.4168	-3.5488	beach	Broadsands (south Goodrington) sandy bay between headlands.
+486	devon.txt	Elberry Cove Nudist	resolved	50.4025	-3.5456	beach	Shingle cove on SWCP; informal naturist use; bath house ruins.
+487	devon.txt	Torquay Marina	resolved	50.4583	-3.5267	harbour	Inner harbour marina basin central Torquay waterfront.
+488	devon.txt	Meadfoot Sea Road	resolved	50.4602	-3.5148	road	Coastal road above Meadfoot Beach toward Hope's Nose.
+489	devon.txt	Babbacombe Oddicombe Cliff Railway	resolved	50.4830	-3.4935	attraction	Cliff railway linking Babbacombe Downs to Oddicombe Beach.
+490	devon.txt	Livermead Head	resolved	50.4515	-3.5075	headland	Coastal head east of Torquay harbour (Livermead Bay area).
+491	devon.txt	Corbyn Head Car Park	resolved	50.4465	-3.5310	parking	Corbyn's Head promontory; parking on headland roads.
+492	devon.txt	Daddyhole Plain Rock	resolved	50.4562	-3.4995	coast	Limestone pavement / Daddyhole Plain above Torquay harbour mouth.
+493	devon.txt	Hopes Nose Parking	resolved	50.4635	-3.4816	parking	Roadside parking off Ilsham Marine Drive above Hope's Nose path.
+494	devon.txt	Thatcher Point Walk	resolved	50.4125	-3.5365	path	Coastal walk / Thatcher Point headland near Thatcher Rock (Torbay).
+495	devon.txt	Ansteys Cove Beach	resolved	50.4728	-3.4985	beach	Shingle cove below cliffs between Torquay and Babbacombe.
+496	devon.txt	Torre Abbey Meadow	resolved	50.4592	-3.5415	grassland	Parkland and meadow in Torre Abbey Historic House grounds.
+497	devon.txt	Hollicombe Red Sands	resolved	50.4385	-3.5188	beach	Red-sand shingle beach reach at Hollicombe below red cliffs.
+498	devon.txt	Cockington Sea Mills	resolved	50.4808	-3.5952	mill	Historic mill site on Cockington stream toward the coast path.
+499	devon.txt	Maidencombe Beach Access	resolved	50.4930	-3.5045	path	Steep lane / SWCP access to Maidencombe Beach cove.
+500	devon.txt	Teignmouth Back River Beach	resolved	50.5440	-3.4988	beach	Back Beach on River Teign shore in Teignmouth harbour.
+501	devon.txt	Shaldon Beach Huts	resolved	50.5358	-3.4935	beach_huts	Colourful huts on Shaldon foreshore by the Teign estuary.
+502	devon.txt	Holcombe Mouth	resolved	50.5580	-3.4565	cove	Holcombe beach / mouth of small combe between Teignmouth and Dawlish.
+503	devon.txt	Dawlish Coryton	resolved	50.5755	-3.4685	cove	Coryton Cove (Dawlish) small sandy cove below red cliffs.
+504	devon.txt	Dawlish Warren Dunes	resolved	50.6280	-3.4455	dunes	Dawlish Warren NNR dune ridge and spit backing the beach.
+505	devon.txt	Starcross Sailing Club	resolved	50.6195	-3.4458	club	Clubhouse and moorings on west bank of River Exe estuary.
+506	devon.txt	Powderham Estuary	resolved	50.6408	-3.4620	estuary	Tidal Exe estuary reach by Powderham Castle and cycle path.
+507	devon.txt	Exmouth Duck Pond	resolved	50.6172	-3.4012	basin	Exe estuary shallow basin by Imperial Recreation Ground (windsurf/kite launch).
+508	devon.txt	Sandy Bay Cliffs Holiday	resolved	50.6149	-3.3666	cliffs	Clifftop Haven Devon Cliffs holiday park above Sandy Bay (EX8 5BT area).
+509	devon.txt	Orcombe Point Walk	resolved	50.6073	-3.3852	path	SWCP / Jurassic Coast start at Orcombe Point Geoneedle.
+510	devon.txt	Budleigh Otter Estuary	resolved	50.6368	-3.3985	estuary	River Otter tidal mouth and shingle bar at Budleigh Salterton.
+511	devon.txt	Sidmouth Alma Bridge	resolved	50.6786	-3.2371	bridge	Footbridge over River Sid at eastern Sidmouth seafront (SWCP).
+512	devon.txt	Ladram Bay Otter	resolved	50.6585	-3.2803	bay	Ladram Bay; name references Otter Sandstone cliffs / Otterton area context.
+513	devon.txt	Beer Seaton Footpath	resolved	50.7140	-3.0795	path	SWCP coastal section between Beer and Seaton (Hooken/foreshore).
+514	devon.txt	Seaton Hole Steps	resolved	50.7016	-3.0854	beach	Steps and access to Seaton Hole pebble beach (SWCP).
+515	devon.txt	Axmouth Lyme Regis Undercliff Walk	resolved	50.7025	-3.0197	path	Axmouth–Lyme Regis Undercliffs NNR / SWCP undercliff traverse (multi-parish).
+516	devon.txt	Branscombe Mouth Path	resolved	50.6872	-3.1230	path	SWCP access and paths at Branscombe Mouth shingle beach.
+517	devon.txt	Weston Mouth Landslip	resolved	50.6851	-3.1836	coast	Active cliff/landslip belt above Weston Mouth beach (SWCP).
+518	devon.txt	Salcombe Regis Church Cove	resolved	50.6955	-3.2185	cove	Small coastal cove / foreshore below Salcombe Regis combe toward Salcombe Hill.
+519	devon.txt	Otterton Ledge Beach	resolved	50.6702	-3.2946	beach	Shingle/ledge shore east of River Otter mouth by Otterton Ledge headland.
+520	devon.txt	Straight Point Nudist	resolved	50.6066	-3.3618	beach	Informal naturist use on westerly pocket beaches toward Sandy Bay; range on headland.
+521	devon.txt	Littleham Budleigh	resolved	50.6168	-3.3545	cove	Littleham / Littleham Cove foreshore between Budleigh Salterton and Exmouth.
+522	devon.txt	Topsham Strand	resolved	50.6835	-3.4655	foreshore	The Strand / Topsham Quay mudflat and estuary foreshore on the Exe.
+523	devon.txt	Lympstone Strand	resolved	50.6846	-3.4320	foreshore	Village strand and foreshore on west bank of Exe estuary.
+524	devon.txt	Exton Duck Pond	resolved	50.6192	-3.4015	basin	Exton (Exe estuary) duck pond / shallow pool near Imperial Recreation Ground cycle route.
+525	devon.txt	Starcross Ferry Steps	resolved	50.6278	-3.4478	ferry_steps	Starcross Pier side; steps from railway bridge to Exe–Exmouth passenger ferry.
+526	devon.txt	Teign Estuary Sailing	resolved	50.5455	-3.4985	estuary	Teign estuary reach used for dinghy/sailing activity (Teignmouth–Shaldon area).
+527	devon.txt	Salcombe Estuary Moorings	resolved	50.2338	-3.7632	harbour	Salcombe–Kingsbridge estuary visitor moorings and harbour pools.
+528	devon.txt	Kingsbridge Salcombe Ferry	resolved	50.2335	-3.7630	ferry	Salcombe town pontoon / estuary ferry link toward East Portlemouth (estuary crossing).
+529	devon.txt	Hope Cove Inner Outer	ambiguous			beach	List pairs Inner Hope and Outer Hope (Mouthwell Sands); two adjacent coves—single pin not appropriate.
+530	devon.txt	Thurlestone Main Beach	resolved	50.2658	-3.8604	beach	Thurlestone Sands / South Milton Sands main sandy beach (Thurlestone Rock offshore).
+531	devon.txt	Bigbury-on-Sea Car Park	resolved	50.2786	-3.8662	parking	Coastal pay parking serving Bigbury-on-Sea beach and Burgh Island access.
+532	devon.txt	Burgh Island Tractor	resolved	50.2792	-3.8683	ferry	Sea-tractor landing and run to Burgh Island from Bigbury-on-Sea.
+533	devon.txt	Challaborough Valley	resolved	50.2346	-3.8978	beach	Challaborough Bay / valley mouth surf beach and caravan park coast.
+534	devon.txt	Bantham River	resolved	50.2789	-3.8708	estuary	River Avon (South Devon) tidal mouth and dunes at Bantham.
+535	devon.txt	South Milton Thurlestone	resolved	50.2604	-3.8581	beach	South Milton Sands beach below Thurlestone village (SWCP).
+536	devon.txt	Wembury Beach NT	resolved	50.3168	-4.0830	beach	National Trust Wembury Beach and Mewstone views (PL9 0HP area).
+537	devon.txt	Heybrook Wembury	resolved	50.3078	-4.0715	bay	Heybrook Bay rocky shore W of Wembury on Plymouth Sound approach.
+538	devon.txt	Bovisand Diving	resolved	50.3342	-4.1415	diving	Bovisand Bay / Fort Bovisand area shore used for shore diving and training.
+539	devon.txt	Mountbatten Water Sports	resolved	50.3585	-4.1445	marina	Mount Batten pier and watersports base on Plymouth Sound (eastern shore).
+540	devon.txt	Jennycliff Battery	resolved	50.3520	-4.1222	battery	Lord Howard’s Battery remains above Jennycliff Bay (SWCP / Plymouth Sound).
+541	devon.txt	Firestone Bay Steps	resolved	50.3615	-4.1612	beach	Steps and shingle by Firestone Bay tidal pool / Royal William Yard side of Plymouth Sound (near listed tower coords).
+542	devon.txt	West Hoe Park Beach	resolved	50.3640	-4.1455	beach	Plymouth Hoe West / beach below West Hoe Park (shingle, Mount Batten views).
+543	devon.txt	Brixham Shoalstone	resolved	50.4012	-3.4988	beach	Shoalstone Beach and seawater pool, Berry Head Road, Brixham.
+544	devon.txt	Berry Head Brixham	resolved	50.3989	-3.4889	headland	Berry Head NNR / fort headland south of Brixham (lighthouse nearby).
+545	devon.txt	Churston Golf Club View	resolved	50.3972	-3.5433	viewpoint	Churston Golf Course on downland above Torbay (clubhouse/Dartmouth Rd area; coastal panorama).
+546	devon.txt	Goodrington Quaywest	resolved	50.4205	-3.5650	attraction	Goodrington Sands / Splashdown Quaywest waterpark frontage, Paignton.
+547	devon.txt	Paignton Preston	resolved	50.4270	-3.5655	beach	Preston Sands red-sand beach N of Paignton Pier.
+548	devon.txt	Hollicombe Head	resolved	50.4520	-3.5540	headland	Clifftop head above Hollicombe Bay between Paignton and Torquay (SWCP).
+549	devon.txt	Elberry Nudist	resolved	50.3980	-3.5280	beach	Elberry Cove shingle beach (informal naturist use); S of Churston/Paignton coast.
+550	devon.txt	Torquay Princess Pier	resolved	50.4570	-3.5255	pier	Princess Pier on Torquay seafront (English Riviera harbour).
+551	devon.txt	Meadfoot Kayak	resolved	50.4592	-3.5188	beach	Meadfoot Beach shingle bay E of Torquay (Thatcher Rock views); kayak launch area.
+552	devon.txt	Babbacombe Downs Walk	resolved	50.4670	-3.5145	promenade	Babbacombe Downs clifftop walk above Oddicombe.
+553	devon.txt	Oddicombe Cliff	resolved	50.4685	-3.5155	cliff	Cliffline above Oddicombe Beach / Babbacombe funicular top.
+554	devon.txt	Livermead Sands	resolved	50.4510	-3.5315	beach	Livermead Bay sandy shore S of Torre Abbey / Cockington coast approach.
+555	devon.txt	Corbyn Head Oddicombe	resolved	50.4530	-3.5270	headland	Corbyn’s Head limestone promontory between Livermead and Torre Abbey sands.
+556	devon.txt	Daddyhole Caves	resolved	50.4582	-3.5231	caves	Daddyhole Plain sea caves below SWCP S of Torquay harbour.
+557	devon.txt	Thatcher Point NT	resolved	50.4592	-3.4893	viewpoint	Thatcher Point viewpoint (Ilsham); English Riviera Geopark coast—listed as NT in source but run as public viewpoint.
+558	devon.txt	Ansteys Cove NT	resolved	50.4607	-3.5178	cove	National Trust Anstey’s Cove limestone inlet E of Torquay.
+559	devon.txt	Torre Abbey Sands Front	resolved	50.4554	-3.5302	beach	Torre Abbey Sands main seafront beach below the abbey grounds.
+560	devon.txt	Hollicombe Paignton Front	resolved	50.4503	-3.5523	beach	Hollicombe Beach seaward front below red-sandstone cliffs (Torbay Road).
+561	devon.txt	Cockington Valley Sea	resolved	50.4630	-3.5580	valley	Cockington valley / SWCP approach to coast near Livermead (stream mouth to bay).
+562	devon.txt	Maidencombe Hole	resolved	50.5075	-3.5275	cove	Small rocky inlet (“Hole”) at Maidencombe W of Teignmouth.
+563	devon.txt	Teignmouth Den Beach	resolved	50.5452	-3.4965	beach	The Den river-mouth shingle by Teignmouth back beach.
+564	devon.txt	Shaldon Ness Tunnel	resolved	50.5355	-3.5010	tunnel	Pedestrian Smugglers’ Tunnel through Ness to Ness Cove, Shaldon.
+565	devon.txt	Holcombe Beach NT	resolved	50.5610	-3.4850	beach	National Trust strip of shore between Teignmouth and Holcombe villages.
+566	devon.txt	Dawlish Town Sea Wall	resolved	50.5715	-3.4645	promenade	Dawlish sea wall and promenade beside main beach and railway.
+567	devon.txt	Dawlish Warren Spit End	resolved	50.6050	-3.4333	sandspit	Distal recurved end of Dawlish Warren (Warren Point / NNR spit tip into Exe mouth).
+568	devon.txt	Starcross Powderham	resolved	50.6205	-3.4510	estuary	Exe riverside between Starcross (Lower Ferry hard) and Powderham—tidal estuary front.
+569	devon.txt	Exmouth Lifeboat Station Beach	resolved	50.6111	-3.3989	beach	Launch beach and ramp below RNLI boathouse, E end of Queen’s Drive.
+570	devon.txt	Maer Rocks Low Tide	resolved	50.6095	-3.3989	rocks	Exposed sandstone reef S of Exmouth/The Maer (Geograph SY0179; low-water rock).
+571	devon.txt	Sandy Bay Orcombe	resolved	50.6099	-3.3647	beach	Sandy Bay E of Orcombe Point; Haven Devon Cliffs frontage (Wikipedia coords).
+572	devon.txt	Budleigh Salterton River Otter	resolved	50.6296	-3.3075	estuary	River Otter mouth and pebble beach at Budleigh Salterton (Geograph SY076819).
+573	devon.txt	Sidmouth Chit Rocks	resolved	50.6748	-3.2446	reef	Shallow reef offshore E Sidmouth esplanade (Geograph/Wikimedia object coords).
+574	devon.txt	Ladram Bay Otter Estuary	resolved	50.7033	-3.2556	bay	Ladram Bay sea stacks and cove (name also mentions Otter estuary—pinned to Ladram Bay stacks).
+575	devon.txt	Beer Head Quarry	resolved	50.7002	-3.0890	quarry	Beer Head / quarry workings on coastal plateau above Beer (SWCP).
+576	devon.txt	Seaton Hole Car Park	resolved	50.7055	-3.0545	parking	Seaton Hole lane car park above Hole cove W of Seaton.
+577	devon.txt	Axmouth Harbour Mouth	resolved	50.7058	-3.0535	harbour	Axe estuary harbour entrance at Axmouth (mouth of harbour channel).
+578	devon.txt	Branscombe Mouth NT	resolved	50.6920	-3.1405	beach	Branscombe Mouth beach under NT cliffs W of Beer.
+579	devon.txt	Weston Mouth NT	resolved	50.6985	-3.1280	cove	Weston Mouth secluded cove E of Branscombe (NT strip).
+580	devon.txt	Salcombe Regis Ladram	resolved	50.7139	-3.3088	village	Salcombe Regis parish village on high ground between Sidmouth and Otter estuary (Ladram area walks).
+581	devon.txt	Otterton Straight Point	resolved	50.6066	-3.3618	headland	Straight Point / firing-range headland E of Sandy Bay (same feature as Otterton coast batch).
+582	devon.txt	Littleham Cove Budleigh	resolved	50.6168	-3.3545	cove	Littleham Cove between Budleigh Salterton and Straight Point.
+583	devon.txt	Topsham Goat Walk Ferry	resolved	50.6848	-3.4655	ferry	Goat Walk / Ferry Road public slip and seasonal ferry hard on Exe at Topsham.
+584	devon.txt	Lympstone Commandos Beach	resolved	50.6842	-3.4315	beach	CTCRM / Lympstone foreshore on west Exe estuary (MoD vicinity; public strand sections).
+585	devon.txt	Exton Powderham	resolved	50.6685	-3.4385	estuary	Exe tidal frontage between Exton village and Powderham Castle reach.
+586	devon.txt	Coryton Red Rock	resolved	50.5682	-3.4955	beach	Coryton Cove (Dawlish) red-cliff cove; OS grid SX960975 vicinity.
+587	devon.txt	Labrador Bay NT	resolved	50.5183	-3.5145	viewpoint	RSPB Labrador Bay reserve car park / viewpoint (grid SX930570; SWCP).
+588	devon.txt	Ness Cove Shaldon	resolved	50.5355	-3.5010	cove	Ness Cove via Smugglers’ Tunnel from Shaldon Ness.
+589	devon.txt	Teignmouth Pier Beach	resolved	50.5442	-3.4968	beach	Grand Pier front and Den shingle (Teignmouth seafront).
+590	devon.txt	Dawlish Warren Bird Hide	resolved	50.5965	-3.4415	hide	RSPB Dawlish Warren lagoon / hide complex (approx. main hide cluster).
+591	devon.txt	Exe Mouth	resolved	50.6120	-3.4250	estuary	Representative point on Exe tidal bar between Exmouth and Dawlish Warren (broad feature).
+592	devon.txt	Teignmouth River	resolved	50.5460	-3.4980	estuary	River Teign at Teignmouth back beach / estuary front.
+593	devon.txt	Dart Estuary	resolved	50.3420	-3.5655	estuary	Lower Dart at Dartmouth / Kingswear narrows (representative tidal reach).
+594	devon.txt	Yealm Estuary	resolved	50.3120	-4.0350	estuary	Yealm tidal estuary toward Newton Ferrers / Noss Mayo (mouth region).
+595	devon.txt	Erme Estuary	resolved	50.3189	-3.9245	estuary	Erme mouth / Mothecombe foreshore (South Hams).
+596	devon.txt	Avon Estuary	resolved	50.2795	-3.8700	estuary	South Devon Avon (Kingsbridge–Bantham) tidal mouth at Bantham dunes.
+597	devon.txt	Tamar Estuary	resolved	50.3750	-4.1850	estuary	Devon side Plymouth Sound / Hamoaze approach (broad tidal system).
+598	devon.txt	Taw Estuary	resolved	51.0810	-4.0580	estuary	Taw at Barnstaple / Fremington reach (tidal river).
+599	devon.txt	Torridge Estuary	resolved	51.0530	-4.1830	estuary	Torridge at Bideford Bay / Instow–Appledore front (tidal reach).
+600	devon.txt	Exe Trail Coast	resolved	50.6847	-3.4655	trail	Exe Estuary Trail representative: Topsham Quay / Goat Walk cycle corridor.
+601	devon.txt	South West Coast Path	resolved	51.1700	-4.2080	trail	Representative SWCP cliff-top at Morte Point / Woolacombe (national trail is multi-region).
+602	devon.txt	Jurassic Coast Start	resolved	50.6073	-3.3852	landmark	Orcombe Point Geoneedle; western terminus of Jurassic Coast WHS near Exmouth.
+603	devon.txt	East Devon AONB Coast	resolved	50.6760	-3.2390	aonb	Representative East Devon AONB foreshore near Sidmouth / Salcombe Hill coast.
+604	devon.txt	South Devon AONB Coast	resolved	50.2800	-3.7800	aonb	Representative South Devon AONB coast toward Salcombe / South Hams shore.
+605	devon.txt	North Devon Coast AONB	resolved	51.0800	-4.2200	aonb	Representative North Devon AONB coast near Croyde / Saunton frontage.
+606	devon.txt	Torbay English Riviera	resolved	50.4610	-3.5250	bay	Representative Tor Bay / Torquay seafront (English Riviera branding).
+607	devon.txt	Plymouth Sound Foreshore	resolved	50.3640	-4.1420	estuary	Representative Plymouth Sound foreshore / Hoe–Drake’s Island front.
+608	devon.txt	River Dart Estuary Beaches	resolved	50.3400	-3.5650	beach	Representative shingle/sand beaches along lower Dart estuary (Dartmouth–Kingswear reach).
+609	devon.txt	Kingswear Ferry Beach	resolved	50.3484	-3.5726	beach	Ferry slip / foreshore near Lower Ferry, Kingswear side of Dart.
+610	devon.txt	Dartmouth Blackpool Sands Access	resolved	50.3040	-3.6170	beach	Blackpool Sands (South Hams) main bay access; NT-managed shore.
+611	devon.txt	Salcombe Town Quay	resolved	50.2368	-3.7724	harbour	Salcombe central quay / waterfront.
+612	devon.txt	Kingsbridge Estuary Mouth	resolved	50.2340	-3.7600	estuary	Salcombe–Kingsbridge ria mouth / bar vicinity (tidal).
+613	devon.txt	Bigbury Beach Access	resolved	50.2790	-3.8660	beach	Bigbury-on-Sea / Burgh Island causeway beach access.
+614	devon.txt	Wembury Mewstone View	resolved	50.3260	-4.0840	viewpoint	Wembury / Great Mewstone viewpoint on south Devon coast.
+615	devon.txt	Plymouth Breakwater Beach	resolved	50.3480	-4.1600	beach	Foreshore off Plymouth Breakwater (Jennycliff / Bovisand side).
+616	devon.txt	Brixham Breakwater End	resolved	50.3960	-3.5080	breakwater	Outer Brixham harbour breakwater head.
+617	devon.txt	Torquay Living Coasts Shore	resolved	50.4630	-3.5240	attraction	Beacon Quay shore; former Living Coasts site on Torquay harbour (attraction closed).
+618	devon.txt	Paignton Geoplay Beach	resolved	50.4350	-3.5610	beach	Geoplay / Preston Sands seafront Paignton.
+619	devon.txt	Goodrington Youngs Park Beach	resolved	50.4220	-3.5550	beach	Goodrington Sands / Youngs Park access.
+620	devon.txt	Hollicombe Sands	resolved	50.4450	-3.5380	beach	Hollicombe (Hollicombe Beach) between Paignton and Torquay.
+621	devon.txt	Elberry Paignton	resolved	50.4170	-3.5340	beach	Elberry Cove, Paignton side of Tor Bay.
+622	devon.txt	Berry Head South	resolved	50.3940	-3.4910	headland	South Berry Head / Brixham (lighthouse vicinity).
+623	devon.txt	Brixham Shoalstone Seawater Pool	resolved	50.4010	-3.5090	pool	Shoalstone outdoor seawater pool, Brixham.
+624	devon.txt	Churston Ferrers Coast Path	resolved	50.3960	-3.5560	trail	SWCP / coast near Galmpton and Churston Ferrers (path to Brixham).
+625	devon.txt	Dartmouth Castle Cove	resolved	50.3410	-3.5650	cove	Cove and beach below Dartmouth Castle at river mouth.
+626	devon.txt	Kingswear Castle Cove	resolved	50.3430	-3.5640	cove	Foreshore opposite Dartmouth Castle, Kingswear.
+627	devon.txt	Compass Cove NT	resolved	50.3347	-3.5678	cove	Compass Cove (Dartmouth); NT Compass Cottage / Little Dartmouth coast context.
+628	devon.txt	Scabbacombe Head NT	resolved	50.3559	-3.5107	headland	Scabbacombe Head on SWCP E of Brixham (NT coast).
+629	devon.txt	Start Bay NT	resolved	50.2830	-3.6530	bay	Representative Start Bay centre at Slapton Ley / Slapton Line (NT & partners coastal mosaic).
+630	devon.txt	Slapton Sands NT	resolved	50.2770	-3.6510	beach	Slapton Sands shingle barrier (Start Bay); NT-managed shore sections.
+631	devon.txt	Prawle Point NT	resolved	50.2017	-3.7219	headland	Southerly Devon headland; NT car park / SWCP context (wiki GeoHack).
+632	devon.txt	East Portlemouth Ferry Beach	resolved	50.2355	-3.7610	beach	Ferry-landing foreshore at East Portlemouth opposite Salcombe harbour.
+633	devon.txt	North Sands Hotel Salcombe	resolved	50.2370	-3.7755	beach	North Sands cove S of Salcombe; hotel names the beach access.
+634	devon.txt	South Sands Hotel Salcombe	resolved	50.2288	-3.7695	beach	South Sands bay E side of Salcombe entrance; hotel on shore.
+635	devon.txt	Mill Bay Salcombe Ferry	resolved	50.2300	-3.7666	beach	Mill Bay NT beach; passenger ferry from Salcombe (beach guide coords).
+636	devon.txt	Soar Mill Cove NT	resolved	50.2465	-3.8975	cove	Soar Mill Cove SW of Salcombe; NT coastal strip / SWCP.
+637	devon.txt	Hope Cove NT	resolved	50.2495	-3.8630	beach	Hope Cove village beaches; NT coast segments nearby.
+638	devon.txt	Thurlestone Beach NT	resolved	50.2560	-3.8645	beach	Thurlestone / South Milton Sands frontage; NT shore nearby.
+639	devon.txt	Bigbury NT	resolved	50.2805	-3.8708	beach	Bigbury-on-Sea; NT Burgh Island / coast path context.
+640	devon.txt	Burgh Island NT	resolved	50.2792	-3.8985	island	Tidal island and hotel; NT-owned / partnership coast.
+641	devon.txt	Challaborough NT	resolved	50.2835	-3.8565	beach	Challaborough Cove sandy beach; NT coast in Bigbury area.
+642	devon.txt	Bantham NT	resolved	50.2795	-3.8815	beach	River Avon mouth beach; NT dunes and shore.
+643	devon.txt	Mothecombe NT	resolved	50.3175	-3.9275	beach	Mothecombe / Mouthwell Sands; NT Flete Estate coast.
+644	devon.txt	Noss Mayo NT	resolved	50.3065	-4.0380	village	Yealm estuary village; NT Revelstoke / Warren Point walks context.
+645	devon.txt	Newton Ferrers NT	resolved	50.3515	-4.0390	village	Paired Yealm village; NT coastal access on estuary.
+646	devon.txt	Wembury NT	resolved	50.3250	-4.0775	beach	Wembury Beach NT car park and Marine Centre shore.
+647	devon.txt	Heybrook NT	resolved	50.3380	-4.1040	bay	Heybrook Bay W of Wembury; NT Wembury–Heybrook walk context.
+648	devon.txt	Jennycliff NT	resolved	50.3465	-4.1260	bay	Jennycliff Bay viewpoint and shore below Plymouth Hoe area.
+649	devon.txt	Bovisand NT	resolved	50.3355	-4.1320	beach	Bovisand Bay sandy beach; fort and NT partnership coast.
+650	devon.txt	Mountbatten NT	resolved	50.3610	-4.1245	peninsula	Mountbatten Pier and breakwater; Plymouth Sound east shore.
+651	devon.txt	Brixham Berry Head NT	resolved	50.3942	-3.4910	headland	Berry Head NT reserve and lighthouse plateau S of Brixham.
+652	devon.txt	Goodrington NT	resolved	50.4215	-3.5555	beach	Goodrington Sands / Youngs Park; NT coast nearby.
+653	devon.txt	Paignton Preston Sands NT	resolved	50.4345	-3.5620	beach	Preston Sands seafront Paignton; NT partnership strip.
+654	devon.txt	Torquay Oddicombe NT	resolved	50.4690	-3.5165	beach	Oddicombe Beach cliff railway beach; Babbacombe coast.
+655	devon.txt	Babbacombe NT	resolved	50.4670	-3.5065	beach	Babbacombe Downs / Oddicombe foreshore; NT Oddicombe.
+656	devon.txt	Teignmouth NT	resolved	50.5455	-3.4960	beach	Teignmouth town beach and pier; NT Holcombe–Teign stretch.
+657	devon.txt	Shaldon NT	resolved	50.5560	-3.4890	beach	Shaldon Ness beach and ferry; Teign estuary mouth.
+658	devon.txt	Holcombe NT	resolved	50.5585	-3.4805	beach	Holcombe beach between Teignmouth and Dawlish; NT strip.
+659	devon.txt	Dawlish NT	resolved	50.5795	-3.4655	beach	Dawlish town seafront and railway coast.
+660	devon.txt	Dawlish Warren NT	resolved	50.6280	-3.4430	spit	Dawlish Warren NNR sand spit and dunes at Exe mouth.
+661	devon.txt	Exmouth NT	resolved	50.6468	-3.2829	headland	Orcombe Point / Geoneedle; NT Jurassic Coast west end near Exmouth (grid SY016799).
+662	devon.txt	Budleigh NT	resolved	50.6290	-3.3210	beach	Budleigh Salterton foreshore and Otter estuary mouth; NT East Devon coast context.
+663	devon.txt	Sidmouth NT	resolved	50.6780	-3.2400	cliff	Sidmouth seafront and Salcombe Hill NT walk / Jacobs Ladder coast.
+664	devon.txt	Ladram NT	resolved	50.6585	-3.2803	coast	Jurassic Coast stacks and bay between Budleigh and Sidmouth; SWCP NT-managed sections nearby.
+665	devon.txt	Beer NT	resolved	50.6995	-3.0935	beach	Beer village beach and headland; East Devon NT partnership coast.
+666	devon.txt	Seaton NT	resolved	50.7050	-3.0770	beach	Seaton frontage; gateway to Axmouth–Lyme Regis Undercliffs NT reserve.
+667	devon.txt	Axmouth NT	resolved	50.7035	-3.0550	estuary	Axmouth on River Axe; NT undercliffs and estuary walks.
+668	devon.txt	Branscombe NT	resolved	50.6955	-3.1420	beach	Branscombe village and beach; NT-owned / partnership coast on SWCP.
+669	devon.txt	Ilfracombe Tunnels NT	resolved	51.2110	-4.1259	beach	Same feature as Tunnels Beaches; Victorian tunnel-access shore W of Ilfracombe harbour.
+670	devon.txt	Mortehoe NT	resolved	51.1853	-4.2088	headland	Mortehoe / Morte Point NT coastal strip and SWCP.
+671	devon.txt	Woolacombe NT	resolved	51.1700	-4.2120	beach	Woolacombe Sand and Morte Bay NT frontage.
+672	devon.txt	Baggy Point NT	resolved	51.1370	-4.2340	headland	Baggy Point headland N of Croyde; NT-owned promontory and SWCP.
+673	devon.txt	Hartland Quay NT	resolved	50.9949	-4.5345	harbour	Same named quay as non-NT row; NT partnership coast at Hartland.
+674	devon.txt	Spekes Mill Mouth NT	resolved	50.9835	-4.5302	cove	Spekes Mill Mouth waterfall cove; NT Hartland coast.
+675	devon.txt	Hartland Point NT	resolved	51.02194	-4.52528	headland	NW Devon tip and lighthouse; NT coastal ownership.
+676	devon.txt	Clovelly NT	resolved	50.9983	-4.3987	village	Clovelly harbour village; steep NT-managed access and estate coast.
+677	devon.txt	Westward Ho NT	resolved	51.0400	-4.2360	beach	Pebble ridge and dunes; NT Northam Burrows partnership context.
+678	devon.txt	Appledore NT	resolved	51.0525	-4.1945	village	Torridge estuary quayside; NT Instow–Appledore shore sections.
+679	devon.txt	Instow NT	resolved	51.0500	-4.1670	beach	Instow Sands and estuary frontage; NT strips on Taw–Torridge.
+680	devon.txt	Saunton Sands NT	resolved	51.1000	-4.2258	beach	Long beach below Braunton Burrows; NT dune and shore mosaic.
+681	devon.txt	Croyde NT	resolved	51.1278	-4.2286	village	Croyde village and bay access; NT Baggy Point estate vicinity.
+682	devon.txt	Combe Martin NT	resolved	51.2000	-4.0250	village	Harbour cove and Broad Sands; NT Little Hangman / coast path context.
+683	devon.txt	Lee Bay NT	resolved	51.1905	-4.1710	beach	Lee Bay below village; NT-owned shore and SWCP.
+684	devon.txt	Lynmouth NT	resolved	51.2296	-3.8365	village	Harbour and East/West Lyn confluence; NT Foreland and Countisbury coast.
+685	devon.txt	Countisbury NT	resolved	51.2240	-3.8140	village	Hillside village above Lynmouth; NT coastal estate and SWCP access.
+686	devon.txt	Foreland Point NT	resolved	51.2400	-3.8020	headland	Foreland Point east of Lynmouth; NT Exmoor cliff coast and lighthouse area.

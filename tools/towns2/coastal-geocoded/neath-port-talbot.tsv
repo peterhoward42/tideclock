@@ -1,0 +1,156 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	neath-port-talbot.txt	Crymlyn Burrows	resolved	51.621389	-3.890000	duneland	Sand-dune / coastal margin east of Swansea Bay; part in Neath Port Talbot
+2	neath-port-talbot.txt	Crymlyn Bog	resolved	51.636389	-3.888333	fen	SSSI / Ramsar lowland fen north of Crymlyn Burrows
+3	neath-port-talbot.txt	Jersey Marine	resolved	51.630220	-3.864500	village	Village east of Swansea on Fabian Way / Swansea Bay margin
+4	neath-port-talbot.txt	Baglan Moors	resolved	51.608500	-3.805500	marsh	Reedbed / moor strip between Baglan and Baglan Bay coast
+5	neath-port-talbot.txt	Baglan Bay	resolved	51.605500	-3.825000	bay	Bight of Swansea Bay at mouth of River Neath by Baglan
+6	neath-port-talbot.txt	Baglan Bay sands	resolved	51.604000	-3.826500	beach	Sandy shore sector of Baglan Bay
+7	neath-port-talbot.txt	Baglan	resolved	51.616600	-3.811500	village	Hillfoot village adjoining Port Talbot; moors and bay to SW
+8	neath-port-talbot.txt	Bae Baglan	resolved	51.605500	-3.825000	bay	Welsh name for Baglan Bay; same coastal bight as line 5
+9	neath-port-talbot.txt	Melincrythan	resolved	51.637500	-3.814500	suburb	Historic industrial suburb (Melin Crythan / Melincryddan) between Neath and Briton Ferry near river
+10	neath-port-talbot.txt	Cwrt Sart	resolved	51.643280	-3.815940	locality	Briton Ferry locality (Cwrt Sart school / ward name); near Neath estuary
+11	neath-port-talbot.txt	Aberavon	resolved	51.598567	-3.803241	coastal_ward	Coastal community name for west Port Talbot / Aberavon sands area
+12	neath-port-talbot.txt	Aberafan	resolved	51.598567	-3.803241	coastal_ward	Welsh form of Aberavon; same settled coast by Afan mouth
+13	neath-port-talbot.txt	Aberavon Beach	resolved	51.596389	-3.826389	beach	Main sandy beach (Traeth Aberafan) on Swansea Bay
+14	neath-port-talbot.txt	Aberavon Sands	resolved	51.596389	-3.826389	beach	Alternative name for Aberavon Beach sand strand
+15	neath-port-talbot.txt	Abervaron Sands	resolved	51.596389	-3.826389	beach	Likely misspelling of Aberavon Sands; pinned to same beach
+16	neath-port-talbot.txt	Traeth Aberafan	resolved	51.596389	-3.826389	beach	Welsh name for Aberavon Beach
+17	neath-port-talbot.txt	Traeth Hir	resolved	51.592000	-3.823500	beach	Local name for long southern sector of Aberavon sand beach
+18	neath-port-talbot.txt	Aberavon Burrows	resolved	51.595000	-3.828000	dunes	Historic dune belt behind the beach (much redeveloped)
+19	neath-port-talbot.txt	Aberavon Seafront	resolved	51.594500	-3.824500	promenade	Built seafront / Princess Margaret Way sector
+20	neath-port-talbot.txt	Aberavon promenade	resolved	51.594500	-3.824500	promenade	Promenade along Aberavon Beach seafront
+21	neath-port-talbot.txt	Aberavon Beach promenade	resolved	51.595500	-3.825500	promenade	Promenade fronting the main sandy beach
+22	neath-port-talbot.txt	Kitetail	resolved	51.596389	-3.826389	attraction	Kitetail beach sculpture on Aberavon Beach (Andrew Rowe, 2007)
+23	neath-port-talbot.txt	Kitetail sculpture	resolved	51.596389	-3.826389	sculpture	Same landmark as Kitetail on Aberavon Beach
+24	neath-port-talbot.txt	Afan Lido	resolved	51.591667	-3.809167	leisure	Afan Lido sports / seafront complex and adjacent Lido Ground area
+25	neath-port-talbot.txt	Sandfields	resolved	51.592500	-3.804000	suburb	Residential area behind Aberavon seafront
+26	neath-port-talbot.txt	Taibach	resolved	51.584000	-3.769000	suburb	Port Talbot suburb between Margam and Aberavon; inland of docks
+27	neath-port-talbot.txt	Tai Bach	resolved	51.584000	-3.769000	suburb	Alternative spelling of Taibach (little houses)
+28	neath-port-talbot.txt	Cwmafon	resolved	51.615511	-3.771745	village	Alternate spelling of Cwmafan (Cwmavon) in Afan valley toward the coast
+29	neath-port-talbot.txt	Cwmafan	resolved	51.615511	-3.771745	village	Large Afan valley village; lower valley ties to coastal Port Talbot
+30	neath-port-talbot.txt	Abercregan	resolved	51.656533	-3.662992	village	Upper Afan valley village in Afan Forest Park; inland but in county list
+31	neath-port-talbot.txt	Pontrhydyfen	resolved	51.633614	-3.745385	village	Afan valley village at confluence with Pelenna; SS7994 area
+32	neath-port-talbot.txt	River Afan	resolved	51.606000	-3.793000	river	Lower tidal Afan through industrial corridor toward estuary (whole river; coastal reach)
+33	neath-port-talbot.txt	Afon Afan	resolved	51.606000	-3.793000	river	Welsh name for River Afan; same watercourse in lower reach
+34	neath-port-talbot.txt	Afan estuary	resolved	51.589500	-3.796500	estuary	Tidal widening between docks and Swansea Bay at Port Talbot
+35	neath-port-talbot.txt	Afan mouth	resolved	51.583500	-3.802000	river_mouth	River Afan entering Swansea Bay by Aberavon / dock front
+36	neath-port-talbot.txt	Port Talbot	resolved	51.590550	-3.798590	town	Wikipedia settlement coordinate; merged town on east side of Swansea Bay
+37	neath-port-talbot.txt	Port Talbot seafront	resolved	51.593800	-3.818000	seafront	Aberavon / Princess Margaret Way coastal front (west of town centroid)
+38	neath-port-talbot.txt	Port Talbot sea front	resolved	51.593800	-3.818000	seafront	Spelling variant; same Aberavon seafront strip as line 37
+39	neath-port-talbot.txt	Morfa	resolved	51.575500	-3.785000	coastal_margin	Generic 'morfa' (marsh strand); pinned to Margam Moors / steelward coastal edge
+40	neath-port-talbot.txt	Morfa Port Talbot	resolved	51.571110	-3.758610	moors	Margam Moors community / moorland strip by coast and steelworks (Welsh Morfa Margam)
+41	neath-port-talbot.txt	Morfa Glas	resolved	51.743000	-3.633500	settlement	Standardised Morfa-glas (SN8706); Glynneath area; inland but listed in county file
+42	neath-port-talbot.txt	Velindre	resolved	51.596400	-3.776200	suburb	Velindre locality Taibach / Port Talbot (e.g. Reginald St / Villiers St area)
+43	neath-port-talbot.txt	Velindre Port Talbot	resolved	51.596400	-3.776200	suburb	Same Velindre built-up area; disambiguated with borough name
+44	neath-port-talbot.txt	Port Talbot Docks	resolved	51.586667	-3.786111	docks	ABP inner dock complex coord (Port of Port Talbot article)
+45	neath-port-talbot.txt	Port Talbot Dock	resolved	51.586667	-3.786111	docks	Singular form; same historic floating dock / harbour basin area
+46	neath-port-talbot.txt	Port Talbot Harbour	resolved	51.586667	-3.786111	harbour	Collective harbour / docks area on Afan estuary
+47	neath-port-talbot.txt	Harbour Way	resolved	51.578000	-3.792000	road	Harbour Way distributor seaward / docks link (long corridor; pin near dock access)
+48	neath-port-talbot.txt	Deep Water Harbour	resolved	51.568000	-3.805000	tidal_harbour	Port Talbot tidal (deep-water) outer basin; south of steel on seaward alignment
+49	neath-port-talbot.txt	Dock Beach	resolved	51.584500	-3.788500	beach	Small strand / foreshore by dock front (industrial margin)
+50	neath-port-talbot.txt	Aberavon Dock Beach	resolved	51.584000	-3.789000	beach	Beach name by Aberavon dock sector; same foreshore locale as line 49
+51	neath-port-talbot.txt	RNLI Port Talbot Lifeboat Station	resolved	51.593333	-3.816667	lifeboat_station	Princess Margaret Way, Aberavon (Wikipedia coord)
+52	neath-port-talbot.txt	RNLI Port Talbot	resolved	51.593333	-3.816667	lifeboat_station	Short form; same Aberavon RNLI station
+53	neath-port-talbot.txt	Margam	resolved	51.574444	-3.752778	suburb	Margam community centre SS803854 / Wikipedia coord
+54	neath-port-talbot.txt	Margam Sands	resolved	51.571040	-3.758620	beach	Long sand beach (Morfa Mawr); OS grid SS76418656 area
+55	neath-port-talbot.txt	Margam Sands Beach	resolved	51.570600	-3.759000	beach	Beach sector of Margam Sands toward Kenfig / dune margin
+56	neath-port-talbot.txt	Margam beach	resolved	51.571000	-3.758700	beach	Informal name for Margam Sands strand
+57	neath-port-talbot.txt	Morfa Mawr	resolved	51.570200	-3.757800	dunes	Large 'green morfa' / dune belt; also known as Margam Sands north part
+58	neath-port-talbot.txt	Morfa Mawr beach	resolved	51.569200	-3.760200	beach	Sandy foreshore sector of Morfa Mawr / Margam Sands
+59	neath-port-talbot.txt	Margam Moors	resolved	51.571110	-3.758610	moors	Margam Moors community centroid (Wikipedia); moor / steel margin
+60	neath-port-talbot.txt	Margam Burrows	resolved	51.566000	-3.754000	dunes	Coastal dune belt south of steelworks toward Kenfig (burrows sector)
+61	neath-port-talbot.txt	Margam dunes	resolved	51.566000	-3.754000	dunes	Coastal dune sector adjoining Margam Burrows / Kenfig direction (same belt as line 60)
+62	neath-port-talbot.txt	Margam Abbey	resolved	51.562694	-3.730768	abbey	Cistercian abbey ruins / St Mary's nave; Cadw / GeoHack coord in Margam Country Park
+63	neath-port-talbot.txt	Margam Country Park	resolved	51.562780	-3.725560	country_park	Visitor park centroid (Wikipedia coord); abbey, castle, orangery within site
+64	neath-port-talbot.txt	Margam Castle	resolved	51.562700	-3.725400	country_house	Grade I Tudor Revival mansion in Margam Country Park (Wikipedia coord)
+65	neath-port-talbot.txt	Margam coast	resolved	51.568000	-3.755000	coast	Informal label for Margam–Morfa coastal margin by Margam Sands / steelward shore
+66	neath-port-talbot.txt	Steelworks coast	resolved	51.570500	-3.792000	coast	Seaward / foreshore margin below Tata Steel Port Talbot works (Swansea Bay side)
+67	neath-port-talbot.txt	Port Talbot steelworks	resolved	51.555000	-3.787000	industrial	Tata Steel integrated iron and steel plant; plant-centroid style pin seaward of M4 corridor
+68	neath-port-talbot.txt	Tata steelworks	resolved	51.555000	-3.787000	industrial	Same integrated steelworks complex as line 67 (Tata Steel Port Talbot)
+69	neath-port-talbot.txt	Tata Port Talbot coast	resolved	51.567000	-3.802000	coast	Coastal strip off the steelworks / tidal harbour alignment toward Swansea Bay
+70	neath-port-talbot.txt	Swansea Bay	ambiguous			bay	Name spans Swansea–Port Talbot; no single shoreline point without a sector qualifier
+71	neath-port-talbot.txt	Swansea Bay Aberavon	resolved	51.593800	-3.818000	bay_sector	Aberavon / Princess Margaret Way sector of Swansea Bay (same sea area as town seafront)
+72	neath-port-talbot.txt	Brombil	resolved	51.571670	-3.746670	woodland_hill	Mynydd Brombil / Brombil Woods area near Margam (climbing wiki WGS84 for crag locale)
+73	neath-port-talbot.txt	Briton Ferry	resolved	51.637000	-3.821000	town	Town at Neath mouth (Wikipedia infobox coord)
+74	neath-port-talbot.txt	Briton Ferry docks	resolved	51.637000	-3.821000	docks	Brunel floating dock / tidal basin complex (Coflein grid SS7370093700 area)
+75	neath-port-talbot.txt	Briton Ferry Dock	resolved	51.637000	-3.821000	docks	Singular form; same historic Brunel dock site as line 74
+76	neath-port-talbot.txt	Briton Ferry Brunel Dock	resolved	51.637000	-3.821000	docks	Isambard Kingdom Brunel’s Briton Ferry floating dock (opened 1861)
+77	neath-port-talbot.txt	Brunel Dock	resolved	51.637000	-3.821000	docks	Short form; Briton Ferry floating dock unless elsewhere disambiguated
+78	neath-port-talbot.txt	Llansawel	resolved	51.637000	-3.821000	town	Welsh name for Briton Ferry (same community centroid as line 73)
+79	neath-port-talbot.txt	Briton Ferry West	resolved	51.634000	-3.828000	ward	Western electoral ward of Briton Ferry (pin W of town centre toward Neath Canal)
+80	neath-port-talbot.txt	Briton Ferry East	resolved	51.628000	-3.808000	ward	Eastern ward toward Baglan / river crossing (approximate built-up centroid)
+81	neath-port-talbot.txt	Neath estuary	resolved	51.638000	-3.830000	estuary	Tidal Neath below town; widens toward Swansea Bay near Briton Ferry
+82	neath-port-talbot.txt	River Neath estuary	resolved	51.638000	-3.830000	estuary	Same tidal funnel as line 81; river name on estuarine reach
+83	neath-port-talbot.txt	River Neath mouth	resolved	51.633000	-3.825000	river_mouth	River Neath entering Swansea Bay at Briton Ferry (mouth locale)
+84	neath-port-talbot.txt	River Neath	resolved	51.640000	-3.820000	river	Whole-river label; pin on lower tidal reach near estuary (not upper valley)
+85	neath-port-talbot.txt	Giant's Grave	resolved	51.638200	-3.828900	locality	Neath Canal roving bridge / Giant’s Grave wharf area (listed bridge coord)
+86	neath-port-talbot.txt	Neath Abbey	resolved	51.660900	-3.826500	abbey_ruins	Cadw Cistercian abbey ruins W of Neath (Wikipedia coord)
+87	neath-port-talbot.txt	Llandarcy	resolved	51.648000	-3.851000	village	Llandarcy oil refinery / settlement area S of Neath (industrial–residential margin)
+88	neath-port-talbot.txt	Skewen	resolved	51.663900	-3.844300	village	Large village N of Briton Ferry (approximate centre)
+89	neath-port-talbot.txt	Tonmawr	resolved	51.653333	-3.733333	village	Pelenna community village E of Neath (Wikipedia stub coord)
+90	neath-port-talbot.txt	Neath	resolved	51.660200	-3.804700	town	County town on River Neath (approximate centre pin)
+91	neath-port-talbot.txt	Briton Ferry Pill	resolved	51.630300	-3.830300	tidal_inlet	Tidal creek / canal basin margin at Briton Ferry (Neath estuary side; Tennant Canal terminus locale)
+92	neath-port-talbot.txt	Wales Coast Path Baglan	resolved	51.605500	-3.825000	coast_path	Representative coastal point on WCP Baglan Bay sector (same bight as Baglan Bay)
+93	neath-port-talbot.txt	Wales Coast Path Aberavon	resolved	51.594500	-3.824500	coast_path	Representative point on WCP along Aberavon / Princess Margaret Way seafront
+94	neath-port-talbot.txt	Wales Coast Path Port Talbot	resolved	51.593800	-3.818000	coast_path	Representative point on WCP through central Port Talbot seafront strip
+95	neath-port-talbot.txt	Wales Coast Path Margam	resolved	51.568000	-3.755000	coast_path	Representative point on WCP Margam–Morfa coastal margin by Margam Sands
+96	neath-port-talbot.txt	Wales Coast Path Briton Ferry	resolved	51.637000	-3.821000	coast_path	Representative point on WCP at Briton Ferry estuary front
+97	neath-port-talbot.txt	Port Talbot Parkway	resolved	51.592000	-3.781000	railway_station	Port Talbot Parkway (PTA); Wikipedia/GeoHack coord
+98	neath-port-talbot.txt	Baglan station	resolved	51.614444	-3.809444	railway_station	Baglan (BAJ); Wikipedia coord; access from Seaway Parade area
+99	neath-port-talbot.txt	NCN 4 Aberavon	resolved	51.595000	-3.825000	cycle_route	NCN4 seafront link through Aberavon; pin on promenade cycle corridor
+100	neath-port-talbot.txt	National Cycle Network 4 Aberavon	resolved	51.595000	-3.825000	cycle_route	Same NCN 4 Aberavon seafront sector as line 99
+101	neath-port-talbot.txt	Aquasplash Aberavon	resolved	51.593200	-3.822800	splash_pad	Aberavon Aqua Splash on Princess Margaret Way (seafront)
+102	neath-port-talbot.txt	Aberavon Aquasplash	resolved	51.593200	-3.822800	splash_pad	Spelling variant; same Princess Margaret Way splash pad as line 101
+103	neath-port-talbot.txt	Aberavon surfing beach	resolved	51.596389	-3.826389	beach	Surfing uses main Aberavon sandy beach strand
+104	neath-port-talbot.txt	Aberavon surf	resolved	51.596389	-3.826389	beach	Informal label; same Aberavon beach surf zone
+105	neath-port-talbot.txt	Aberavon surf spot	resolved	51.596389	-3.826389	beach	Generic surf locale on Aberavon sand beach
+106	neath-port-talbot.txt	Margam Sands surfing	resolved	51.571040	-3.758620	beach	Surf sector of Margam Sands / Morfa Mawr foreshore
+107	neath-port-talbot.txt	Margam kitesurfing	resolved	51.571040	-3.758620	beach	Kitesurf use of Margam Sands open beach
+108	neath-port-talbot.txt	Aberavon Blue Flag beach	resolved	51.596389	-3.826389	beach	Blue Flag sector = main Aberavon Beach
+109	neath-port-talbot.txt	Pen-y-cae	resolved	51.593807	-3.772243	suburb	Pen-y-Cae Port Talbot (bus-stop centroid on Pen-y-cae Road; not Bridgend Pen-y-cae)
+110	neath-port-talbot.txt	Ynysygwas	resolved	51.609180	-3.756000	suburb	Community N of Port Talbot; ukcitymap centroid
+111	neath-port-talbot.txt	Seaway Parade	resolved	51.613500	-3.808000	road	Seaway Parade / flyover access spine near Baglan station and coast road
+112	neath-port-talbot.txt	Harbour Way Port Talbot	resolved	51.578000	-3.792000	road	Harbour Way distributor by docks / tidal harbour (disambiguated with borough)
+113	neath-port-talbot.txt	Aberavon amphitheatre	resolved	51.594000	-3.823500	amphitheatre	Seafront events bowl on Princess Margaret Way regeneration strip
+114	neath-port-talbot.txt	Aberavon piazza	resolved	51.594000	-3.823500	public_square	Town-square style seafront space adjoining amphitheatre sector
+115	neath-port-talbot.txt	Aberavon skatepark	resolved	51.593800	-3.823200	skatepark	Seafront skate facility on Aberavon front (regeneration scheme)
+116	neath-port-talbot.txt	Aberavon sea defences	resolved	51.595500	-3.826000	sea_wall	Coastal defence line along Aberavon Beach frontage
+117	neath-port-talbot.txt	Margam steelworks front	resolved	51.570500	-3.792000	coast	Foreshore below Tata steelworks seaward of plant (Swansea Bay margin)
+118	neath-port-talbot.txt	Morfa beach	resolved	51.569500	-3.759500	beach	Beach sector of Morfa Mawr / Margam Sands (Morfa coastal strand)
+119	neath-port-talbot.txt	Dockside Port Talbot	resolved	51.585500	-3.787500	waterfront	Quayside margin of inner dock complex (ABP Port Talbot)
+120	neath-port-talbot.txt	Quayside Port Talbot	resolved	51.585000	-3.787000	waterfront	Adjacent quay front; same dock waterfront locale as line 119
+121	neath-port-talbot.txt	Aberafan harbour	resolved	51.586670	-3.786110	harbour	Port of Port Talbot / Aberafan Harbour (ABP docks and tidal basin)
+122	neath-port-talbot.txt	Aberafan docks	resolved	51.588000	-3.784500	dock	Historic inner floating docks NW of the modern tidal harbour
+123	neath-port-talbot.txt	Port Talbot waterfront	resolved	51.594000	-3.818000	waterfront	Generic label; Aberavon promenade / bay margin east of open sand
+124	neath-port-talbot.txt	Aberavon waterfront	resolved	51.594500	-3.824500	waterfront	Princess Margaret Way seafront strip (Aberavon)
+125	neath-port-talbot.txt	Briton Ferry waterfront	resolved	51.638000	-3.825000	waterfront	Neath estuary frontage at Briton Ferry (borough disambiguation)
+126	neath-port-talbot.txt	Neath tidal limit	resolved	51.664935	-3.808710	estuary	NRW Neath Tidal gauge (footbridge below rail bridge; upper tidal Neath)
+127	neath-port-talbot.txt	Swansea Bay north shore	resolved	51.615000	-3.835000	bay_shore	Broad arc label; pin on N Swansea Bay shore by Baglan Bay / Fabian Way margin
+128	neath-port-talbot.txt	Briton Ferry estuary walk	resolved	51.639000	-3.828000	coastal_path	Estuary-side path links at Briton Ferry (Wales Coast Path corridor)
+129	neath-port-talbot.txt	Afan Valley mouth	resolved	51.586500	-3.786000	estuary	River Afan meets docks and tidal harbour (Aberafan mouth)
+130	neath-port-talbot.txt	South Wales seafront Port Talbot	resolved	51.595000	-3.825000	beach_zone	Informal regional label; pinned to main Aberavon sandy frontage
+131	neath-port-talbot.txt	Traeth Margam	resolved	51.571040	-3.758620	beach	Welsh beach name; Margam Sands / Morfa Mawr sandy sector S of works
+132	neath-port-talbot.txt	Morfa Sands Aberafan	resolved	51.571040	-3.758620	beach	Morfa Mawr / Margam Sands foreshore (same strand as Margam kitesurfing rows)
+133	neath-port-talbot.txt	Aberavon sea wall	resolved	51.595500	-3.826000	sea_wall	Coastal defence line along Aberavon Beach (cf. sea defences row)
+134	neath-port-talbot.txt	Port Talbot breakwater	resolved	51.559000	-3.782000	breakwater	Seaward enclosing works of Port Talbot Tidal Harbour (approx outer head)
+135	neath-port-talbot.txt	Port Talbot jetty	resolved	51.568000	-3.788500	jetty	Deep-water bulk berth / ore jetty on tidal harbour (berth structure)
+136	neath-port-talbot.txt	Margam Abbey shore	resolved	51.561000	-3.730000	coast	Coastal margin below Margam Abbey estate toward Kenfig direction
+137	neath-port-talbot.txt	Margam Moors shore	resolved	51.568000	-3.755000	marsh_coast	Margam Moors SSSI fringe by dunes / steelworks (WCP sector)
+138	neath-port-talbot.txt	Jersey Marine shore	resolved	51.628500	-3.868000	beach	Swansea Bay foreshore at Jersey Marine (E of Fabian Way)
+139	neath-port-talbot.txt	Crymlyn shore	resolved	51.622000	-3.885000	bay_margin	Shore W of Crymlyn Burrows toward Swansea Bay
+140	neath-port-talbot.txt	Baglan shore	resolved	51.606000	-3.826000	bay_shore	Baglan Bay sandy / estuary margin by Afon Nedd mouth
+141	neath-port-talbot.txt	Briton Ferry shore	resolved	51.637500	-3.824000	estuary_shore	Neath estuary salt-marsh / foreshore at Briton Ferry
+142	neath-port-talbot.txt	Neath Abbey coast path	resolved	51.653000	-3.812000	coastal_path	Wales Coast Path near Neath Abbey and river/ canal corridor
+143	neath-port-talbot.txt	Llandarcy Bay	resolved	51.644000	-3.838000	bay_industrial	Small industrial bay / inlet by former Llandarcy refinery frontage
+144	neath-port-talbot.txt	Taibach seafront	resolved	51.587000	-3.775000	seafront	Taibach lower ground toward docks and bay (below main suburb)
+145	neath-port-talbot.txt	Sandfields seafront	resolved	51.593000	-3.808000	seafront	Sandfields access to Aberavon beach and promenade
+146	neath-port-talbot.txt	Morfa seafront	resolved	51.570000	-3.760000	seafront	Morfa / Margam Sands seafront below steelworks
+147	neath-port-talbot.txt	Velindre seafront	resolved	51.608000	-3.800000	seafront	Velindre (Baglan–coast margin) toward estuary and Fabian Way
+148	neath-port-talbot.txt	Aberavon ward beach	resolved	51.596389	-3.826389	beach	Ward label for main Aberavon sandy beach (Traeth Aberafan)
+149	neath-port-talbot.txt	Port Talbot lifeboat beach	resolved	51.593330	-3.816670	beach	Beach launch front for RNLI Port Talbot (Princess Margaret Way)
+150	neath-port-talbot.txt	Blue Flag Aberavon	resolved	51.596389	-3.826389	beach	Blue Flag sector equals main Aberavon Beach strand
+151	neath-port-talbot.txt	Wales Coast Path Neath estuary	resolved	51.638269	-3.819225	coast_path	WCP sector by Neath estuary at Briton Ferry (Ramblers start: Briton Ferry station on estuary route)
+152	neath-port-talbot.txt	Coastal Margam	resolved	51.568000	-3.755000	coast	Generic Margam coastal margin; same belt as Margam coast / WCP Margam sector
+153	neath-port-talbot.txt	Coastal Aberavon	resolved	51.593800	-3.818000	coast	Aberavon / Princess Margaret Way coastal front (Swansea Bay sector)
+154	neath-port-talbot.txt	Coastal Baglan	resolved	51.606000	-3.826000	coast	Baglan Bay / lower Neath–Afan coastal margin (same locale as Baglan shore)
+155	neath-port-talbot.txt	Coastal Briton Ferry	resolved	51.637500	-3.824000	coast	Neath estuary foreshore at Briton Ferry (same belt as Briton Ferry shore)

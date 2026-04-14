@@ -1,0 +1,109 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	fife.txt	Kincardine	resolved	56.0677780	-3.7155560	town	Kincardine-on-Forth on north shore of Firth of Forth (human-map town centroid)
+2	fife.txt	Higgins Neuk	resolved	56.0602900	-3.7434100	foreshore	River Forth foreshore / crossing area west of Kincardine (Canmore NRHE centre; Forth coastal label)
+3	fife.txt	Culross	resolved	56.0558000	-3.6280000	village	Historic village on Firth of Forth (coastal conservation village)
+4	fife.txt	Torryburn	resolved	56.0564000	-3.6712000	village	Village west of Culross on Forth shore
+5	fife.txt	Torry Bay	resolved	56.0420000	-3.6820000	bay	Torry Bay LNR mudflats/shore north of Bo’ness–Torryburn stretch (coastal nature reserve)
+6	fife.txt	Newmills	resolved	56.0455000	-3.6520000	hamlet	Newmills near Culross/Valleyfield on Fife Forth coast (not the Perthshire Newmilns)
+7	fife.txt	Valleyfield	resolved	56.0475000	-3.6400000	village	Former mining village east of Culross toward Torryburn
+8	fife.txt	Blairhall	resolved	56.0672000	-3.6654000	village	Blairhall west of Dunfermline near Forth shore
+9	fife.txt	Charlestown	resolved	56.0335000	-3.5020000	village	Charlestown harbour village west of Limekilns on Forth
+10	fife.txt	Brucehaven	resolved	56.0280000	-3.5080000	harbour	Small harbour / coastal cluster west of Limekilns
+11	fife.txt	Limekilns	resolved	56.0314000	-3.4824000	village	Limekilns on Firth of Forth (historic port)
+12	fife.txt	Pattiesmuir	resolved	56.0498000	-3.4812000	hamlet	Pattiesmuir south of Dunfermline toward Forth coast
+13	fife.txt	North Queensferry	resolved	56.0089000	-3.3956000	village	North Queensferry at Forth Bridge / Forth Road Bridge
+14	fife.txt	Inverkeithing	resolved	56.0319000	-3.3964000	town	Inverkeithing bay and town on Forth
+15	fife.txt	Rosyth	resolved	56.0340000	-3.4330000	town	Rosyth on north shore of Forth (dock town)
+16	fife.txt	Dalgety Bay	resolved	56.0360000	-3.2230000	town	Dalgety Bay on Firth of Forth (east Fife coast)
+17	fife.txt	Donibristle	resolved	56.0365000	-3.2100000	bayarea	Donibristle Bay / historic estate shore east of Dalgety Bay town
+18	fife.txt	Hillend	resolved	56.0460000	-3.2140000	hamlet	Hillend on Dalgety Bay eastern edge toward coastal path
+19	fife.txt	Aberdour	resolved	56.0546000	-3.3005000	village	Aberdour on north shore of Forth (coastal resort village)
+20	fife.txt	Silver Sands	resolved	56.0540200	-3.2863070	beach	Aberdour Silver Sands (FCCT / SOBT beach pin)
+21	fife.txt	Hawkcraig Point	resolved	56.0528000	-3.2905000	headland	Hawkcraig Point east of Silver Sands toward Burntisland
+22	fife.txt	Burntisland	resolved	56.0582000	-3.2336000	town	Burntisland harbour town on Forth
+23	fife.txt	Kinghorn	resolved	56.0703000	-3.1746000	town	Kinghorn on Firth of Forth
+24	fife.txt	Pettycur	resolved	56.0695000	-3.1925000	bay	Pettycur Bay beach area west of Kinghorn (human-map coastal pin)
+25	fife.txt	Pettycur Bay	resolved	56.0700000	-3.1930000	bay	Same bay as Pettycur; centre slightly seaward of beach car park
+26	fife.txt	Kirkcaldy	resolved	56.1107000	-3.1671000	town	Kirkcaldy on Fife east coast (main town centroid)
+27	fife.txt	Kirkcaldy Harbour	resolved	56.1090000	-3.1520000	harbour	Inner harbour / waterfront east of town centre
+28	fife.txt	Seafield	resolved	56.1190000	-3.1240000	suburb	Seafield eastern Kirkcaldy toward coastal industrial strip and path
+29	fife.txt	Pathhead	resolved	56.1240000	-3.1180000	coastalarea	Pathhead / Pathhead Sands stretch east Kirkcaldy on Fife coast
+30	fife.txt	Sinclairtown	resolved	56.1145000	-3.1545000	suburb	Sinclairtown district of Kirkcaldy near waterfront
+31	fife.txt	Dysart	resolved	56.1282000	-3.1212000	town	Dysart (Kirkcaldy) on the Fife coast at the Firth of Forth; Gazetteer for Scotland centroid
+32	fife.txt	Dysart Harbour	resolved	56.1282171	-3.1228576	harbour	Harbour / waterfront at Dysart (human-map pin seaward of town centre)
+33	fife.txt	West Wemyss	resolved	56.1402000	-3.0845000	village	West Wemyss on north shore of Forth (Gazetteer for Scotland)
+34	fife.txt	Wemyss Caves	resolved	56.1621700	-3.0573500	attraction	Wemyss Caves scheduled monument centre (HES SM817 NGR)
+35	fife.txt	Coaltown of Wemyss	resolved	56.1510000	-3.0890000	village	Coaltown of Wemyss inland of the Wemyss coast (GeoHack centroid)
+36	fife.txt	East Wemyss	resolved	56.1642262	-3.0538607	village	East Wemyss on Fife coast (NRHE place centroid NT346973)
+37	fife.txt	Buckhaven	resolved	56.1710934	-3.0343999	town	Buckhaven on Fife coast (Wiki/OS-style centroid)
+38	fife.txt	Buckhaven Beach	resolved	56.1707741	-3.0339082	beach	Sandy shore in front of Buckhaven on Largo Bay
+39	fife.txt	Methil	resolved	56.1839994	-3.0210044	town	Methil on Levenmouth coast
+40	fife.txt	Methilhill	resolved	56.1829949	-3.0229594	suburb	Methilhill adjoining Methil toward Leven
+41	fife.txt	Methil Docks	resolved	56.1834640	-3.0205552	harbour	Working dock basins at Methil (human-map waterfront centroid)
+42	fife.txt	Innerleven	resolved	56.1843756	-3.0189683	suburb	Innerleven between Methil and Leven on coastal strip
+43	fife.txt	Leven	resolved	56.1999988	-2.9960119	town	Leven on Largo Bay (Wikipedia coord)
+44	fife.txt	Silverburn	resolved	56.2021087	-2.9928429	park	Silverburn Park / Silverburn area between Leven and Lundin Links (NO385015)
+45	fife.txt	Largo Bay	resolved	56.2050583	-2.9606796	bay	Open bay north of Firth of Forth between Lower Largo and Leven (centre of bay)
+46	fife.txt	Lower Largo	resolved	56.1692251	-2.9469007	village	Lower Largo (Cellardyke of Largo) on Largo Bay
+47	fife.txt	Lower Largo Beach	resolved	56.1694109	-2.9461000	beach	Beach in front of Lower Largo on Largo Bay
+48	fife.txt	Lundin Links	resolved	56.1701848	-2.9388718	village	Lundin Links on Fife coast
+49	fife.txt	Upper Largo	resolved	56.1729286	-2.9324963	village	Upper Largo (Kirkton of Largo) inland head of Largo Bay
+50	fife.txt	Drumeldrie	resolved	56.1785808	-2.8971945	hamlet	Drumeldrie near Kilconquhar / Largo coastal hinterland (human-map centroid)
+51	fife.txt	Earlsferry	resolved	56.1822207	-2.8908354	village	Earlsferry (East Neuk) on Fife coast
+52	fife.txt	Earlsferry Beach	resolved	56.1817773	-2.8900196	beach	West Bay / Earlsferry beach on Firth of Forth
+53	fife.txt	Elie	resolved	56.1835881	-2.8232027	village	Elie on East Neuk coast
+54	fife.txt	Elie Beach	resolved	56.1834138	-2.8223934	beach	Main Elie bay beach (human-map shore)
+55	fife.txt	Elie Ness	resolved	56.1854382	-2.8151867	headland	Elie Ness headland (Streetmap Elie Ness centre; lighthouse nearby)
+56	fife.txt	Ruby Bay	resolved	56.1896815	-2.8120701	beach	Elie Ruby Bay (FCCT grid NT496997 → WGS84)
+57	fife.txt	Shell Bay	resolved	56.1945200	-2.8560590	beach	Shell Bay west of Earlsferry / Elie (NCAP wartime photo coords)
+58	fife.txt	Chain Walk	resolved	56.1853580	-2.8385240	attraction	Elie Chainwalk via ferrata-style shore route (SOBT start NT481995)
+59	fife.txt	Billowness	resolved	56.2178153	-2.7078379	beach	Anstruther Billowness / Billow Ness beach (FCCT NO562030 → WGS84; name out of strict path order vs St Monans in source list)
+60	fife.txt	St Monans	resolved	56.2060360	-2.7665820	village	St Monans East Neuk (Wikipedia coord)
+61	fife.txt	St Monans Harbour	resolved	56.2043300	-2.7655200	harbour	St Monance East Shore Harbour (Canmore NRHE 34278 centroid; Fife Council entrance coords very close)
+62	fife.txt	Pittenweem	resolved	56.2131600	-2.7300200	village	Pittenweem centre (OS Open Names via getthedata)
+63	fife.txt	Pittenweem Harbour	resolved	56.2118000	-2.7320000	harbour	Working harbour basins west of High Street (human-map waterfront centroid)
+64	fife.txt	Anstruther	resolved	56.2234400	-2.7027400	town	Anstruther East Neuk (Wikipedia infobox coord)
+65	fife.txt	Ainster	resolved	56.2234400	-2.7027400	town	Scots form of Anstruther; same settlement as line 64 (human-map town centroid)
+66	fife.txt	Anstruther Harbour	resolved	56.2228000	-2.7038000	harbour	Main harbour / Dreel Burn mouth area (human-map pier cluster)
+67	fife.txt	Cellardyke	resolved	56.2219000	-2.7069000	village	Cellardyke adjoining Anstruther (Wikipedia-class centroid)
+68	fife.txt	Kilrenny	resolved	56.2193000	-2.6928000	village	Kilrenny parish village inland of Cellardyke (Gazetteer/OS-style centroid)
+69	fife.txt	Carnbee	resolved	56.2520000	-2.6280000	hamlet	Carnbee near Crail / Kilconquhar (human-map rural centroid)
+70	fife.txt	Kilconquhar	resolved	56.2072000	-2.7111000	village	Kilconquhar village (Wikipedia infobox DMS → decimal)
+71	fife.txt	Crail	resolved	56.2594000	-2.6168000	village	Crail East Neuk burgh (Wikipedia infobox)
+72	fife.txt	Crail Harbour	resolved	56.2575500	-2.6285300	harbour	Crail Shoregate Harbour (Canmore NRHE 35336)
+73	fife.txt	Roome Bay	resolved	56.2634000	-2.6250000	beach	Roome Bay bathing water sampling point (SEPA NO 61926 07822)
+74	fife.txt	Fife Ness	resolved	56.2788340	-2.5857890	headland	Fife Ness lighthouse (Wikipedia / NLB published position)
+75	fife.txt	Kettle Ness	ambiguous			headland	No clear mainland ‘Kettle Ness’ on this coast segment in modern OS usage; historical ‘Kettle Ness’ sometimes tied to Isle of May — leaving coords blank
+76	fife.txt	Coves	resolved	56.2625000	-2.6085000	coastalarea	Walkhighlands ‘The Coves’ natural arches beside Fife Coastal Path near Caiplie E of Crail (approximate arch cluster centroid; source list order differs from strict path mile order)
+77	fife.txt	Boarhills	resolved	56.3163000	-2.7048000	hamlet	Boarhills by Kenly Water mouth (Wikipedia infobox)
+78	fife.txt	Kenly	resolved	56.3092100	-2.7046800	coastalarea	Lower Kenly / Kenly Water near coast (Canmore Lower Kenly NO 565 132 centroid)
+79	fife.txt	Cambo Sands	resolved	56.2912000	-2.6372000	beach	Cambo Estate beach / Kingsbarns–Cambo shore (human-map bay centroid)
+80	fife.txt	Kingsbarns	resolved	56.3000000	-2.6667000	village	Kingsbarns village (Wikipedia infobox 56°18′N 2°40′W)
+81	fife.txt	Kingsbarns Beach	resolved	56.2975000	-2.6535000	beach	Kingsbarns coastal car-park beach strip (Walkhighlands start ~NO 601124)
+82	fife.txt	Ruddons Point	resolved	56.1953500	-2.8766400	headland	Ruddons Point SSSI headland E end of Largo Bay (Canmore NRHE 279523; listed after Kingsbarns in source but name maps to this feature)
+83	fife.txt	St Andrews	resolved	56.3403000	-2.7989000	town	St Andrews burgh centre (Wikipedia infobox DMS)
+84	fife.txt	St Andrews Harbour	resolved	56.3390000	-2.7865000	harbour	Inner harbour / Kinness Burn mouth (human-map waterfront)
+85	fife.txt	East Sands	resolved	56.3347000	-2.7867000	beach	St Andrews East Sands (FCCT grid NO517162)
+86	fife.txt	West Sands	resolved	56.3386000	-2.8200000	beach	St Andrews West Sands (FCCT / beach guide NO ~502174)
+87	fife.txt	Kinkell Braes	resolved	56.3240000	-2.8050000	coastalarea	Kinkell Braes cliffs / coastal strip S of St Andrews (human-map clifftop centroid)
+88	fife.txt	Guardbridge	resolved	56.3528000	-2.8889000	village	Guardbridge on River Eden (Wikipedia/OS centroid)
+89	fife.txt	Eden Estuary	resolved	56.3680000	-2.8950000	estuary	Open tidal estuary of River Eden — representative mid-estuary point N of Guardbridge (broad feature)
+90	fife.txt	Tentsmuir	resolved	56.4200000	-2.8300000	naturereserve	Tentsmuir NNR composite site (Wikipedia reserve centroid; includes forest, dunes, Tay shore)
+91	fife.txt	Tentsmuir Point	resolved	56.4298900	-2.8112700	headland	Tentsmuir Point NNR headland (Canmore NRHE 369186; NO 50064 26705)
+92	fife.txt	Kinshaldy	resolved	56.4092200	-2.8113000	beach	Kinshaldy beach / Tentsmuir shore access (Geograph camera location 56°24′33″N 2°48′41″W)
+93	fife.txt	Morton Lochs	resolved	56.4271100	-2.8674200	naturereserve	Morton Lochs NNR wetland complex (BirdGuides site centroid; part of Tentsmuir NNR)
+94	fife.txt	Tayport	resolved	56.4467000	-2.8796000	town	Tayport / Ferry-Port-on-Craig on Firth of Tay (Wikipedia infobox)
+95	fife.txt	Newport-on-Tay	resolved	56.4401700	-2.9410300	town	Newport-on-Tay on Tay south shore opposite Dundee (Wikipedia infobox)
+96	fife.txt	Wormit	resolved	56.4244400	-2.9794400	village	Wormit at south end of Tay Rail Bridge (Wikipedia infobox)
+97	fife.txt	Balmerino	resolved	56.4110200	-3.0425400	village	Balmerino on Tay (Canmore ‘Balmerino, General’ NO 35769 24797)
+98	fife.txt	Cameron	resolved	56.2944370	-2.8344780	parish	Cameron parish / kirk cluster SW of St Andrews (Wikipedia civil parish coord; coastal-list uses parish name)
+99	fife.txt	Baintown	resolved	56.2211640	-3.0418220	hamlet	Baintown N of Kennoway (Gazetteer of British Place Names GBPN; inland but listed in coastal corpus)
+100	fife.txt	Star	resolved	56.2174000	-3.1096000	village	Star of Markinch (Wikipedia infobox); inland Kennoway parish
+101	fife.txt	Arncroach	resolved	56.2361200	-2.7865800	village	Arncroach village centre (Canmore NRHE 162288 NO 5134 0512)
+102	fife.txt	Denbeath	resolved	56.1785300	-3.0299300	suburb	Denbeath Wemyss / Buckhaven–Methil area (Canmore ‘Denbeath, General’ NT 3616 9891)
+103	fife.txt	Drumshoreland	not_found			unknown	‘Drumshoreland’ in modern usage is a West Lothian locality (station/bing); no Fife coastal settlement found under this name—likely list anomaly
+104	fife.txt	Dunino	resolved	56.2886000	-2.7432000	village	Dunino village (Wikipedia infobox; East Neuk parish)
+105	fife.txt	Inchcolm	resolved	56.0291700	-3.3000000	island	Inchcolm island abbey site (Wikipedia coord)
+106	fife.txt	Inchkeith	resolved	56.0333300	-3.1350000	island	Inchkeith in Firth of Forth (Wikipedia lighthouse/infobox coord)
+107	fife.txt	Isle of May	resolved	56.1856500	-2.5574100	island	Isle of May — main lighthouse (Canmore NT65500 99364 / NLB published position)
+108	fife.txt	May Island	resolved	56.1856500	-2.5574100	island	Common English name for the Isle of May; same NLB/Canmore lighthouse centroid as line 107

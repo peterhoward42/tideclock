@@ -1,0 +1,136 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	louth.txt	Drogheda	resolved	53.717900	-6.350300	town	County town on the Boyne; centre-ish node for the name
+2	louth.txt	Drogheda Port	resolved	53.721200	-6.344300	harbour	Commercial/port frontage on the Boyne near the estuary
+3	louth.txt	Boyne Estuary north shore	ambiguous			unknown	Long north-bank shoreline; no single pin without picking an arbitrary spot
+4	louth.txt	Termonfeckin	resolved	53.759700	-6.244200	village	Settlement inland of the Seapoint coast
+5	louth.txt	Termonfeckin coast	resolved	53.770000	-6.237000	shore	Representative Irish Sea front east of Termonfeckin toward Seapoint
+6	louth.txt	Seapoint	resolved	53.774900	-6.233400	locality	Coastal locality near Termonfeckin (Louth, not Dublin Seapoint)
+7	louth.txt	Seapoint Beach	resolved	53.775300	-6.232800	beach	Beach front at Seapoint
+8	louth.txt	Seapoint Golf Links shore	resolved	53.775000	-6.232000	shore	Coastal edge by Seapoint Golf Club
+9	louth.txt	Baltray	resolved	53.789200	-6.243300	village	Baltray village by the coast
+10	louth.txt	Baltray Beach	resolved	53.790500	-6.240500	beach	Sandy beach north of the village
+11	louth.txt	Baltray Strand	resolved	53.791000	-6.241000	beach	Strand continuation along the same front
+12	louth.txt	Clogherhead	resolved	53.794700	-6.223100	village	Fishing village; settlement centroid
+13	louth.txt	Clogherhead Beach	resolved	53.796200	-6.220500	beach	Beach south/east of the harbour front
+14	louth.txt	Clogherhead Harbour	resolved	53.795800	-6.221500	harbour	Port Oriel / harbour basin area
+15	louth.txt	Clogherhead Pier	resolved	53.795500	-6.221800	pier	Main pier within the harbour
+16	louth.txt	Port Oriel	resolved	53.795700	-6.221600	harbour	Official name for Clogherhead fishing harbour
+17	louth.txt	Port Oriel Harbour	resolved	53.795700	-6.221600	harbour	Same harbour footprint as Port Oriel
+18	louth.txt	Clogher Head	resolved	53.797500	-6.217800	headland	Headland south of Clogherhead (distinct spelling in source list)
+19	louth.txt	Clogherhead Peninsula shore	ambiguous			unknown	Applies to a long peninsula coastline; several equally valid segments
+20	louth.txt	Port Beach	resolved	53.796000	-6.219500	beach	Local beach name at Clogherhead (context from surrounding lines)
+21	louth.txt	Port Lurganboy Beach	resolved	53.788500	-6.227500	beach	Beach front associated with Lurganboy west of Clogherhead
+22	louth.txt	Lurganboy	resolved	53.787800	-6.228500	hamlet	Townland/settlement west of Clogherhead
+23	louth.txt	Annagassan	resolved	53.882800	-6.326500	village	Village at the Glyde estuary
+24	louth.txt	Annagassan Harbour	resolved	53.883500	-6.327000	harbour	Small harbour within the village frontage
+25	louth.txt	Annagassan Beach	resolved	53.884200	-6.329000	beach	Beach along the seaward side of the village
+26	louth.txt	Annagassan Point	resolved	53.886500	-6.331000	headland	Point north/east of the harbour mouth
+27	louth.txt	Linn Duchaill shore	resolved	53.888800	-6.357800	attraction	Viking longphort archaeological locale on the Glyde (Wikipedia/GeoHack coords)
+28	louth.txt	Dunany	resolved	53.912500	-6.248500	hamlet	Inland side of the Dunany Point area
+29	louth.txt	Dunany Point	resolved	53.917500	-6.239000	headland	Sand spit / point into Dundalk Bay
+30	louth.txt	Gyles Quay	resolved	53.986000	-6.234100	beach	Same place as Gyles’ Quay on the Cooley Peninsula (Wikipedia coords)
+31	louth.txt	Gyles' Quay	resolved	53.986000	-6.234083	beach	Alternate apostrophe spelling; same Cooley pier/beach (Wikipedia coords)
+32	louth.txt	Salterstown	resolved	53.868800	-6.308450	village	Logainm centrepoint; parish on Dundalk Bay
+33	louth.txt	Salterstown Strand	resolved	53.870000	-6.309200	beach	Strand front on the bay south of the Salterstown centre (approx. seaward)
+34	louth.txt	Stonetown	ambiguous			village	The well-attested Stonetown (Co. Louth) is inland (Wikipedia ~53.964°N 6.600°W); list order here is coastal between Salterstown and Rockmarshall—no clear single coastal settlement pin
+35	louth.txt	Stonetown Beach	ambiguous			beach	No verified coastal beach under this name matching the list position; inland Stonetown is not coastal
+36	louth.txt	Rockmarshall	resolved	54.016400	-6.289490	townland	Logainm townland centrepoint (Cooley/Dundalk hinterland)
+37	louth.txt	Rockmarshall shore	resolved	54.011500	-6.282000	shore	Coastal margin of the townland toward Carlingford Lough / Cooley shore (approx.)
+38	louth.txt	Dundalk Bay	resolved	53.950000	-6.250000	bay	Wikipedia/GeoHack centroid for the bay waterbody (large feature)
+39	louth.txt	Dundalk Bay shore	ambiguous			shore	Multi-sided intertidal shoreline; no single representative point without choosing one stretch
+40	louth.txt	Blackrock	resolved	53.964050	-6.365140	village	Seaside village south of Dundalk (Wikipedia coords)
+41	louth.txt	Blackrock Beach	resolved	53.964100	-6.365200	beach	Main sandy front by the promenade (same node as village seafront)
+42	louth.txt	Blackrock Promenade	resolved	53.964200	-6.365300	promenade	Seafront promenade / millennium sundial strip
+43	louth.txt	Ladies Beach Blackrock	resolved	53.963800	-6.364800	beach	Named segment along the Blackrock seafront (approx. local usage)
+44	louth.txt	Priests Beach Blackrock	resolved	53.963600	-6.364600	beach	Named cove/segment on the same front (approx.)
+45	louth.txt	Haggardstown	resolved	53.969200	-6.373760	townland	Logainm centrepoint; civil parish includes Blackrock
+46	louth.txt	Haggardstown shore	resolved	53.970500	-6.375500	shore	Dundalk Bay foreshore on the Haggardstown side (approx. coastal)
+47	louth.txt	Dundalk	resolved	54.004444	-6.400278	town	County town centroid (GeoHack/Wikipedia class coords)
+48	louth.txt	Dundalk Port	resolved	54.008520	-6.385750	harbour	Commercial port / docks (approx. UN/LOCODE IEDDK position)
+49	louth.txt	Dundalk Harbour	resolved	54.007800	-6.384500	harbour	Inner harbour / channel basin near the quays (approx.)
+50	louth.txt	Dundalk Marina	resolved	54.009200	-6.386500	marina	Leisure berths in the inner harbour area (approx.; verify on chart)
+51	louth.txt	Dundalk Ice House Quay	resolved	54.006200	-6.408500	quay	Quay Street / estuary front near Ice House Hill & historic quays (approx.)
+52	louth.txt	Dundalk waterfront	ambiguous			shore	Long port and estuary frontage; several non-equivalent segments
+53	louth.txt	Soldiers Point	resolved	54.007500	-6.347950	headland	Logainm point at harbour entrance (Soldiers’ Point)
+54	louth.txt	Sailors Gully	not_found			unknown	No clear gazetteer feature under this name found for Dundalk
+55	louth.txt	Point Road Dundalk shore	resolved	54.008000	-6.344000	shore	Residential shore by Navvy Bank / Castletown estuary (approx. mid Point Road front)
+56	louth.txt	Bellurgan	resolved	54.024000	-6.327000	townland	Wikipedia centroid for Bellurgan townland
+57	louth.txt	Bellurgan Point	resolved	54.013081	-6.344643	headland	Railway gazetteer coords for Bellurgan Point (industrial heritage site)
+58	louth.txt	Greenore	resolved	54.033000	-6.133000	village	Wikipedia coords; village and deep-water port on Carlingford Lough
+59	louth.txt	Greenore Harbour	resolved	54.033500	-6.132500	harbour	Harbour works at Greenore (approx. pierhead area)
+60	louth.txt	Greenore Port	resolved	54.034000	-6.133500	harbour	Commercial port berths (approx.; same harbour system as Greenore)
+61	louth.txt	Greenore Pier	resolved	54.034200	-6.131800	pier	Main pier structure at Greenore (approx. pierhead area)
+62	louth.txt	Greenore Point	resolved	54.033611	-6.132222	headland	NGA/US BGN Greenore Point (geographic.org) at harbour entrance
+63	louth.txt	Greenore Lighthouse	resolved	54.033700	-6.132200	lighthouse	Greenore Point lighthouse (GeoHack / list of Irish lighthouses)
+64	louth.txt	Greenore Old Lighthouse	resolved	54.033700	-6.132200	lighthouse	Same 1830 tower; now disused (posters.ie / Wikipedia context)
+65	louth.txt	Greenore Golf Club shore	resolved	54.030500	-6.127500	shore	Coastal margin of Greenore Golf Club toward Carlingford Lough (approx.)
+66	louth.txt	Carlingford Ferry Greenore	resolved	54.035000	-6.133500	ferry_terminal	Scenic Carlingford Ferry berth near Greenore port (approx.)
+67	louth.txt	Greer's Quay	resolved	54.073217	-6.233850	pier	Pierhead per sailing directions (54°4.393′N 6°14.031′W)
+68	louth.txt	Ballagan	resolved	54.004700	-6.121620	townland	Logainm centrepoint (Carlingford parish)
+69	louth.txt	Ballagan Point	resolved	53.997240	-6.109140	headland	BirdGuides site coords for Ballagan Point promontory
+70	louth.txt	Lordship	resolved	53.999900	-6.264600	village	Wikipedia census-town coords
+71	louth.txt	Lordship coast	ambiguous			shore	Long north-facing Dundalk Bay foreshore; no single representative pin
+72	louth.txt	Millgrange	resolved	54.018190	-6.147270	townland	WGS84 from Grange House Irish Grid (Buildings of Ireland), Greenore ED
+73	louth.txt	Millgrange shore	resolved	54.019500	-6.141000	shore	Lough-ward coastal margin of Millgrange townland (approx.)
+74	louth.txt	Omeath	resolved	54.090000	-6.258333	town	Wikipedia coords
+75	louth.txt	Omeath Pier	resolved	54.088800	-6.259800	pier	Main public pier on village front (approx.)
+76	louth.txt	Omeath Harbour	resolved	54.089200	-6.259500	harbour	Small boat harbour basin by the shore road (approx.)
+77	louth.txt	Omeath Beach	resolved	54.087500	-6.261000	beach	Sandy shore along the R173 seafront (approx.)
+78	louth.txt	Killowen	ambiguous			village	Listed settlement is Killowen (Co. Down) on the north-east shore of Carlingford Lough; not a Co. Louth locality
+79	louth.txt	Killowen shore	ambiguous			shore	Same cross-lough naming issue; no distinct Louth shoreline exclusively labelled this way
+80	louth.txt	Carlingford	resolved	54.042940	-6.186090	town	Wikipedia coords
+81	louth.txt	Carlingford Lough Louth shore	ambiguous			shore	Applies to the entire southern shoreline of the lough in Louth
+82	louth.txt	Carlingford Harbour	resolved	54.044800	-6.187200	harbour	Working fishing harbour basin at Carlingford (approx.)
+83	louth.txt	Carlingford Marina	resolved	54.046200	-6.188000	marina	Leisure marina north of the town centre (approx.)
+84	louth.txt	Carlingford Pier	resolved	54.045000	-6.186500	pier	Main public pier in the harbour (approx.)
+85	louth.txt	Carlingford Quay	resolved	54.043200	-6.185500	quay	Quay front by the narrow medieval streets / Tholsel area (approx.)
+86	louth.txt	Carlingford Castle shore	resolved	54.043177	-6.186830	castle	King John's / Carlingford Castle on the harbour (Wikipedia coords); seaward frontage
+87	louth.txt	Cornamucklagh	resolved	54.101400	-6.296580	townland	Logainm centrepoint (Corr na Muclach, Carlingford parish)
+88	louth.txt	Whitestown	resolved	53.997100	-6.126080	townland	Logainm centrepoint (Baile an Fhaoitigh)
+89	louth.txt	Whitestown Beach	resolved	53.996000	-6.124500	beach	Seaward sand front south/east of Whitestown townland centre (approx.)
+90	louth.txt	Templetown	resolved	53.982000	-6.147500	locality	Settlement cluster inland of Templetown Beach on Cooley (approx.)
+91	louth.txt	Templetown Beach	resolved	53.981970	-6.147410	beach	OSM beach-access parking node; same sand front as Shellinghill/Templetown
+92	louth.txt	Shellinghill	resolved	53.981100	-6.147300	locality	Beaches-on-the-Air listing coords; local name for the Templetown beach area
+93	louth.txt	Shellinghill Beach	resolved	53.981100	-6.147300	beach	Same continuous beach as Templetown Beach (synonyms per beach guides)
+94	louth.txt	Cooley Peninsula Irish Sea shore	ambiguous			shore	Applies along the whole Irish Sea side of the peninsula; no single pin
+95	louth.txt	Cooley Peninsula coast	ambiguous			shore	Coast wraps Carlingford Lough and the open sea; not one point
+96	louth.txt	Cooley Point	resolved	53.980960	-6.140520	headland	Published birding-site coordinates (BirdGuides)
+97	louth.txt	Drumbologe shore	resolved	54.092000	-6.252000	shore	Read as Drummullagh shoreline N of Omeath on Carlingford Lough (coastal-works area on charts)
+98	louth.txt	Woodstown Omeath shore	ambiguous			shore	No matching Omeath townland named Woodstown; likely informal greenway/local label
+99	louth.txt	Carlingford Greenway shore	ambiguous			path	Linear trail along the lough; many equally valid shoreline points
+100	louth.txt	Blackrock BH	resolved	53.964050	-6.365140	beach	Blackrock Beach (BH); village/beach front on Dundalk Bay (Wikipedia village coords)
+101	louth.txt	Greenore beach	resolved	54.033000	-6.133000	beach	Sandy front by Greenore village/port (Wikipedia Greenore coords neighbourhood)
+102	louth.txt	Carlingford beach	resolved	54.042500	-6.185500	beach	Small beach by Carlingford harbour front (approx.)
+103	louth.txt	Omeath strand	resolved	54.089000	-6.259000	beach	Strand at Omeath on Carlingford Lough (village waterfront)
+104	louth.txt	Templetown strand	resolved	53.981500	-6.147500	beach	Same strand system as Templetown Beach
+105	louth.txt	Dundalk bay mouth	ambiguous			bay	Wide bay entrance; no single authoritative “mouth” point
+106	louth.txt	Clogherhead RNLI shore	resolved	53.788330	-6.235280	shore	Seaward frontage at Clogherhead lifeboat station (Wikipedia coords)
+107	louth.txt	Baltray links shore	resolved	53.789500	-6.241000	shore	County Louth Golf Club links land meeting the shore by Baltray (approx.)
+108	louth.txt	Seapoint strand	resolved	53.775300	-6.232800	beach	Same front as Seapoint Beach (Louth Seapoint context from prior rows)
+109	louth.txt	Boyne mouth Louth	resolved	53.721633	-6.210500	estuary	River Boyne entrance neighbourhood (eOceanic initial-fix area)
+110	louth.txt	Drogheda marina	resolved	53.716083	-6.341083	marina	Town quays / leisure berth cluster (eOceanic haven position)
+111	louth.txt	Dundalk Harbour entrance	resolved	53.961550	-6.279217	channel	Castletown River approach initial-fix area (eOceanic)
+112	louth.txt	Fane Estuary mouth	resolved	53.962500	-6.364000	estuary	River Fane reaches Dundalk Bay S of Blackrock promenade (approx. mouth)
+113	louth.txt	Castletown River mouth	resolved	53.966700	-6.280000	estuary	Seaward training-wall entrance / pilot waypoint cluster for Dundalk
+114	louth.txt	Bellurgan strand	resolved	54.028000	-6.335000	beach	Sandy shore toward Bellurgan Point / Dundalk Bay (approx. coastal front)
+115	louth.txt	Greenore deepwater berth	resolved	54.033611	-6.132222	berth	Greenore Point deep-water quay footprint (NGA Greenore Point)
+116	louth.txt	Carlingford town waterfront	resolved	54.042940	-6.186090	harbour	Harbour/quay front with Carlingford settlement (Wikipedia town coords)
+117	louth.txt	Omeath lough shore	resolved	54.089000	-6.259000	shore	Carlingford Lough shoreline at Omeath (village waterfront)
+118	louth.txt	Whitestown strand	resolved	53.996000	-6.124500	beach	Same front as Whitestown Beach row
+119	louth.txt	Shellinghill strand	resolved	53.981100	-6.147300	beach	Same strand as Shellinghill/Templetown sand
+120	louth.txt	Blackrock sundial promenade	resolved	53.964050	-6.365140	promenade	Millennium Sundial centred on Blackrock promenade (village centroid proxy)
+121	louth.txt	Clogherhead fish pier	resolved	53.799450	-6.223400	pier	eOceanic haven position (head of Port Oriel pier)
+122	louth.txt	Annagassan quay	resolved	53.883800	-6.327200	quay	Quay front within Annagassan harbour (same cluster as harbour rows)
+123	louth.txt	Dunany strand	resolved	53.915000	-6.243000	beach	Sandy foreshore along Dunany sand spit / Dundalk Bay (between Dunany and Dunany Point)
+124	louth.txt	Gyles quay beach	resolved	53.986000	-6.234083	beach	Wikipedia coords for Gyles’ Quay beach
+125	louth.txt	Stonetown strand	not_found			beach	No coastal strand mapped under this name; Stonetown (Louth) is an inland community
+126	louth.txt	Rockmarshall beach	resolved	54.014000	-6.288000	beach	Dundalk Bay sandy margin near Rockmarshall townland (Cooley Peninsula south shore)
+127	louth.txt	Salterstown beach	resolved	53.877660	-6.301010	beach	Stony foreshore by Salterstown Pier (published birding GPS for the pier)
+128	louth.txt	Haggardstown beach	resolved	53.964100	-6.365100	beach	Blackrock seafront within Haggardstown townland (Blackrock village coords)
+129	louth.txt	Lordship bay shore	ambiguous			shore	Broad Dundalk Bay foreshore at Lordship; no discrete mapped 'Lordship Bay' point
+130	louth.txt	Millgrange beach	resolved	54.019500	-6.141000	beach	Same sheltered Carlingford Lough sand margin as Millgrange shore (Greenore ED)
+131	louth.txt	Killowen beach	resolved	54.075920	-6.189833	beach	eOceanic Killowen haven off yacht-club shore (Carlingford Lough NE shore)
+132	louth.txt	Cornamucklagh shore	resolved	54.102500	-6.297500	shore	Lough-ward margin from Cornamucklagh townland centroid (Corr na Muclach)
+133	louth.txt	Drumbologe beach	resolved	54.092000	-6.252000	beach	Same Drummullagh/Omeath coastal strip as Drumbologe shore row
+134	louth.txt	Port beach Clogherhead	resolved	53.796000	-6.219500	beach	Same Blue Flag front as Port Beach at Clogherhead (explicit spelling in source)
+135	louth.txt	Lurganboy strand	resolved	53.788500	-6.227500	beach	Same strand system as Port Lurganboy Beach west of Clogherhead

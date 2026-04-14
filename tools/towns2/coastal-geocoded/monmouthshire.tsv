@@ -1,0 +1,267 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	monmouthshire.txt	Chepstow	resolved	51.6409	-2.6768	town	Welsh name Cas-gwent; town centre on River Wye
+2	monmouthshire.txt	Cas-gwent	resolved	51.6409	-2.6768	town	Welsh name for Chepstow
+3	monmouthshire.txt	Chepstow Castle	resolved	51.643333	-2.676111	castle	Wikipedia/GeoHack coordinates
+4	monmouthshire.txt	Chepstow Castle cliffs	resolved	51.6422	-2.6754	cliff	Limestone cliffs below castle on Wye gorge
+5	monmouthshire.txt	Chepstow riverside	resolved	51.6414	-2.6754	waterfront	Town frontage on River Wye
+6	monmouthshire.txt	Chepstow waterfront	resolved	51.6416	-2.6752	waterfront	Marine Parade / quays area
+7	monmouthshire.txt	Lower Chepstow	resolved	51.6379	-2.6774	area	Southern riverside part of town
+8	monmouthshire.txt	Chepstow port	resolved	51.6428	-2.6742	harbour	Historic port and wharf reach on Wye
+9	monmouthshire.txt	Chepstow walled town	resolved	51.6407	-2.6762	area	Medieval street grid within town walls
+10	monmouthshire.txt	Port Wall Chepstow	resolved	51.6390	-2.6730	historic_wall	Scheduled Port Wall along river
+11	monmouthshire.txt	Chepstow Town Gate	resolved	51.639722	-2.672778	gate	Wikipedia/GeoHack (Town Gate)
+12	monmouthshire.txt	St Mary's Priory Church Chepstow	resolved	51.640278	-2.676389	church	Wikipedia/GeoHack
+13	monmouthshire.txt	Old Wye Bridge Chepstow	resolved	51.639722	-2.673611	bridge	Grade I listed bridge to Tutshill
+14	monmouthshire.txt	Old Wye Bridge	resolved	51.639722	-2.673611	bridge	Read as Chepstow Old Wye Bridge in this county list
+15	monmouthshire.txt	River Wye Chepstow	resolved	51.6410	-2.6755	river	Representative point on town reach of Wye
+16	monmouthshire.txt	Wye Crescent Chepstow	resolved	51.6348	-2.6640	street	Residential street in Bulwark area
+17	monmouthshire.txt	Craig yr Afon Chepstow	resolved	51.6440	-2.6710	rock	Local riverside limestone outcrop name
+18	monmouthshire.txt	Gloucester Hole Chepstow	resolved	51.6460	-2.6684	cave	Wikipedia: opening in Wye cliff opposite town
+19	monmouthshire.txt	Hardwick Cliff Chepstow	resolved	51.6325	-2.6678	cliff	Limestone cliff strip below Bulwark (incl. St Peter's Cave)
+20	monmouthshire.txt	Bulwark Chepstow	resolved	51.6332	-2.6638	suburb	Eastern suburb of Chepstow
+21	monmouthshire.txt	Bulwark Road Chepstow	resolved	51.6335	-2.6632	road	Main road through Bulwark
+22	monmouthshire.txt	Thornwell Chepstow	resolved	51.6365	-2.6780	area	Suburb south-west of centre
+23	monmouthshire.txt	St Peter's Cave Bulwark	resolved	51.6313	-2.6677	cave	Scheduled monument below Hardwick Cliff
+24	monmouthshire.txt	Garden City Chepstow	resolved	51.6345	-2.6645	estate	Housing estate in Bulwark
+25	monmouthshire.txt	Hardwick Chepstow	resolved	51.6360	-2.6685	area	Hardwick / riverside limestone belt
+26	monmouthshire.txt	National Shipyard Chepstow	resolved	51.6408	-2.6785	industrial	WWII National Shipyard site on Wye shore
+27	monmouthshire.txt	Chepstow shipyard site	resolved	51.6408	-2.6785	industrial	Historic shipyard footprint near Thornwell reach
+28	monmouthshire.txt	Chepstow Racecourse	resolved	51.656389	-2.688611	attraction	Wikipedia/GeoHack Welsh National course
+29	monmouthshire.txt	Wyesham	resolved	51.805447	-2.701775	village	Wyesham ward/village east of Monmouth on River Wye
+30	monmouthshire.txt	Wyesham waterfront	resolved	51.8035	-2.7035	waterfront	River Wye east-bank frontage at Wyesham
+31	monmouthshire.txt	Mount Pleasant Chepstow	resolved	51.6383	-2.6787	area	Electoral ward / street Mount Pleasant (NP16 5PT centroid)
+32	monmouthshire.txt	Chepstow railway station	resolved	51.6399	-2.6711	railway_station	Wikipedia/GeoHack
+33	monmouthshire.txt	Chepstow station	resolved	51.6399	-2.6711	railway_station	Same place as Chepstow railway station
+34	monmouthshire.txt	Chepstow riverside promenade	resolved	51.6408	-2.6755	promenade	Riverside walk on town reach of Wye
+35	monmouthshire.txt	Severn Bridge Welsh abutment Chepstow	resolved	51.6038	-2.6263	bridge	Welsh-side suspension bridge abutment (Beachley; Structurae coords)
+36	monmouthshire.txt	M48 Chepstow	resolved	51.6085	-2.6365	motorway	M48 Severn crossing approach on Welsh side near Chepstow
+37	monmouthshire.txt	Wye tidal bore Chepstow	resolved	51.6410	-2.6755	river	Phenomenon on tidal Wye reach at Chepstow; representative town reach
+38	monmouthshire.txt	Chepstow slipways	resolved	51.6425	-2.6740	slipway	Boat slip / wharf reach on Wye at Chepstow
+39	monmouthshire.txt	Chepstow limestone cliffs	resolved	51.6420	-2.6755	cliff	Wye gorge limestone above town waterfront
+40	monmouthshire.txt	Otter Hole Chepstow	resolved	51.66083	-2.68611	cave	Wikipedia: tidal cave entrance on Wye bank near St Arvans
+41	monmouthshire.txt	Mathern	resolved	51.61818	-2.6917	village	Wikipedia community centroid
+42	monmouthshire.txt	Mathern village	resolved	51.61818	-2.6917	village	Same settlement as Mathern
+43	monmouthshire.txt	St Pierre	resolved	51.611643	-2.702403	hamlet	Wikipedia St Pierre, Monmouthshire
+44	monmouthshire.txt	St Pierre-juxta-Mare	resolved	51.611643	-2.702403	hamlet	Historic coastal name for St Pierre by Severn shore
+45	monmouthshire.txt	St Pierre Pill	resolved	51.6018	-2.7085	harbour	Small boat anchorage / pill S of St Pierre; mouth of Mounton Brook
+46	monmouthshire.txt	Mounton Brook mouth	resolved	51.6023	-2.7082	river_mouth	Enters St Pierre Pill / Severn estuary margin (walk descriptions)
+47	monmouthshire.txt	Mathern Golf Club	resolved	51.612171	-2.703065	golf_course	Mathern Course at Delta/St Pierre Country Club (where2golf)
+48	monmouthshire.txt	St Mary's Church Mathern	resolved	51.6147	-2.6901	church	List name; building is Grade I Church of St Tewdric (British Listed Buildings)
+49	monmouthshire.txt	Portskewett	resolved	51.5900	-2.7251	village	Wikipedia community coordinates
+50	monmouthshire.txt	Porthsgiwed	resolved	51.5900	-2.7251	village	Standardised Welsh name for Portskewett
+51	monmouthshire.txt	Porthysgewin	resolved	51.5900	-2.7251	village	Alternate Welsh form for Portskewett (Wikipedia/LCNAF)
+52	monmouthshire.txt	St Mary's Church Portskewett	resolved	51.5896	-2.7248	church	Wikipedia St Mary's Church, Portskewett
+53	monmouthshire.txt	Church of St Mary Portskewett	resolved	51.5896	-2.7248	church	Same building as St Mary's Church Portskewett
+54	monmouthshire.txt	Portskewett Heritage Centre	ambiguous			attraction	No single fixed visitor centre found; parish promotes heritage trail/leaflet
+55	monmouthshire.txt	Harold's Field Portskewett	resolved	51.58918	-2.72539	historic_site	Earthworks S of church; Gatehouse/Coflein grid ST4986088050
+56	monmouthshire.txt	Leechpool	resolved	51.6033	-2.7263	hamlet	Leechpool Holdings area (NP26 5UU centroid)
+57	monmouthshire.txt	Crick	resolved	51.61005	-2.74800	hamlet	Wikipedia Crick, Monmouthshire
+58	monmouthshire.txt	Heston Brake	resolved	51.5905	-2.7210	prehistoric_site	Chambered tomb ST50528867 NE of Portskewett (literature grid)
+59	monmouthshire.txt	Garn Llwyd Portskewett	resolved	51.6667	-2.7997	prehistoric_site	Gaer Llwyd chambered tomb (Y Garn Llwyd) ST447968; Hando links name with Portskewett area
+60	monmouthshire.txt	Gwern-y-Cleppa	resolved	51.5600	-3.0450	prehistoric_site	Scheduled chambered long barrow ST276852 (Coflein/Wikipedia); not on coast
+61	monmouthshire.txt	Black Rock	resolved	51.5630	-2.7205	foreshore	Historic Severn crossing reach / intertidal rock and mud SE of Portskewett (distinct from picnic car park)
+62	monmouthshire.txt	Black Rock picnic site	resolved	51.5896	-2.7049	picnic_site	Monmouthshire countryside car park at 19 Black Rock Road NP26 5TW (park4night / birding guides)
+63	monmouthshire.txt	Black Rock Road	resolved	51.5870	-2.7090	road	Access lane from Portskewett toward Black Rock picnic and foreshore
+64	monmouthshire.txt	Black Rock foreshore	resolved	51.5625	-2.7210	foreshore	Tidal foreshore at Black Rock on Welsh bank of Severn Estuary
+65	monmouthshire.txt	Black Rock lave nets	resolved	51.5620	-2.7210	fishing_traditional	Intertidal lave-net salmon fishing tradition at Black Rock
+66	monmouthshire.txt	Welsh Severn Estuary salmon lave nets Black Rock	resolved	51.5620	-2.7210	fishing_traditional	Same cultural/foreshore practice as line 65; representative Black Rock reach
+67	monmouthshire.txt	Black Rock ferry historic	resolved	51.58955	-2.70412	ferry_landing	Welsh landing for New Passage Ferry (with Portskewett Pier); Wikipedia pier coords
+68	monmouthshire.txt	New Passage ferry Black Rock	resolved	51.58955	-2.70412	ferry_landing	Welsh-side terminus opposite Gloucestershire New Passage; same pier landing as line 67
+69	monmouthshire.txt	Portskewett Pier railway station	resolved	51.58955	-2.70412	railway_station	Wikipedia/GeoHack (Black Rock pier station1863–1886)
+70	monmouthshire.txt	Portskewett station site	resolved	51.590799	-2.714958	railway_station	Former Portskewett / Portskewett Junction on Gloucester–Newport line (Wikipedia coords)
+71	monmouthshire.txt	Caldicot Pill	resolved	51.5816	-2.73803	pill	BirdGuides site lat/lon; tidal creek into Caldicot Levels near Severn
+72	monmouthshire.txt	Sudbrook	resolved	51.5818	-2.7157	village	Wikipedia / Wikishire community coords
+73	monmouthshire.txt	Sudbrook hill fort	resolved	51.5825	-2.7155	hillfort	Cadw scheduled Sudbrook Camp (promontory fort) centroid (ancientmonuments.uk)
+74	monmouthshire.txt	Sudbrook Camp	resolved	51.5825	-2.7155	hillfort	Same Iron Age promontory fort as lines 73 and 75 (Coflein NPRN 94873 area)
+75	monmouthshire.txt	Sudbrook Iron Age fort	resolved	51.5825	-2.7155	hillfort	Same multivallate fort on Severn shore as lines 73–74
+76	monmouthshire.txt	Sudbrook Tunnel Centre	resolved	51.58347	-2.71321	visitor_centre	Read as Severn Tunnel interpretation/visitor access at pumping-station complex (Geograph area ST5087)
+77	monmouthshire.txt	Severn Tunnel Sudbrook	resolved	51.58347	-2.71321	tunnel_access	Surface works at Sudbrook pumping station for Severn Tunnel drainage/access (not mid-river)
+78	monmouthshire.txt	Severn Tunnel western portals	resolved	51.5760	-2.6895	tunnel_portal	Welsh-side railway tunnel portals near Sudbrook (approx; literature/OS vicinity)
+79	monmouthshire.txt	Sudbrook pump house	resolved	51.583467	-2.713212	pump_house	Wikimedia/Geograph coords for Severn Tunnel No.1 pumping station
+80	monmouthshire.txt	Sudbrook seawall	resolved	51.5755	-2.7075	seawall	Coastal flood defence along Sudbrook reach toward Severn Estuary
+81	monmouthshire.txt	Sudbrook foreshore	resolved	51.5758	-2.7070	foreshore	Intertidal margin below Sudbrook / camp toward estuary
+82	monmouthshire.txt	Sudbrook village	resolved	51.5818	-2.7157	village	Same settlement centroid as line 72
+83	monmouthshire.txt	Southbrook Sudbrook	resolved	51.5818	-2.7157	area	Historic Southbrook name for Sudbrook (Wikipedia)
+84	monmouthshire.txt	Prince of Wales Bridge underpass Wales Coast Path	resolved	51.5715	-2.7065	underpass	Wales Coast Path under western approach viaduct (route description; approximate)
+85	monmouthshire.txt	Second Severn Crossing Welsh shore	resolved	51.5735	-2.7040	shoreline	Prince of Wales Bridge Welsh bank / intertidal margin (generic reach)
+86	monmouthshire.txt	M4 Prince of Wales Bridge	resolved	51.5745	-2.7016	bridge	Wikipedia approximate midpoint (Second Severn Crossing / M4)
+87	monmouthshire.txt	Wales Coast Path Sudbrook	resolved	51.5795	-2.7110	trail	Designated path reach through Sudbrook / tunnel portal area
+88	monmouthshire.txt	Wales Coast Path Black Rock	resolved	51.5896	-2.7049	trail	Black Rock picnic / HistoryPoints viewpoint on WCP
+89	monmouthshire.txt	Caldicot	resolved	51.5910	-2.7492	town	Wikipedia community coordinates
+90	monmouthshire.txt	Cil-y-coed	resolved	51.5910	-2.7492	town	Welsh name for Caldicot; same centroid as line 89
+91	monmouthshire.txt	Caldicot Castle	resolved	51.59305	-2.74237	castle	Wikipedia/GeoHack landmark coords
+92	monmouthshire.txt	Caldicot Castle Country Park	resolved	51.5923	-2.7440	park	55-acre country park around castle; representative park centroid
+93	monmouthshire.txt	Caldicot Castle lake	resolved	51.5927	-2.7418	pond	Wildlife pond / moated reach in castle grounds (not a single named lake)
+94	monmouthshire.txt	Caldicot Castle seaward meadows	resolved	51.5908	-2.7395	meadow	Open meadows on castle estate toward Severn side of site
+95	monmouthshire.txt	Nedern Brook	resolved	51.5925	-2.7428	river	Reach through castle country park toward Nedern Brook Wetlands
+96	monmouthshire.txt	Nedern Brook Wetlands	resolved	51.600184	-2.743504	wetland	Wikipedia SSSI centroid / GeoHack
+97	monmouthshire.txt	Caldicot Levels	resolved	51.5930	-2.7360	area	Representative point on reclaimed Levels near Caldicot (broad lowland)
+98	monmouthshire.txt	Monmouthshire Levels	resolved	51.5900	-2.7400	area	Regional name for Gwent Levels within Monmouthshire; representative near Caldicot
+99	monmouthshire.txt	Gwent Levels	resolved	51.5870	-2.7320	area	Historic/coastal plain name; representative Welsh-side Levels reach toward Severn
+100	monmouthshire.txt	Caldicot Severn front	resolved	51.5740	-2.7210	shoreline	Townward Severn estuary margin / coastal frontage S and E of built-up Caldicot
+101	monmouthshire.txt	Caldicot seawall	resolved	51.5730	-2.7200	seawall	Flood defence along Caldicot reach of estuary (approximate linear feature)
+102	monmouthshire.txt	Caldicot foreshore	resolved	51.5720	-2.7170	foreshore	Intertidal margin below seawall on Welsh bank
+103	monmouthshire.txt	Caldicot coast path	resolved	51.5800	-2.7280	trail	Wales Coast Path / local coast-path reach through Caldicot area
+104	monmouthshire.txt	Wales Coast Path Caldicot	resolved	51.5810	-2.7300	trail	Designated WCP reach linking town, country park and estuary
+105	monmouthshire.txt	Severn ward Caldicot	resolved	51.5850	-2.7350	area	Electoral ward on Severnside/eastern Caldicot; approximate ward centroid
+106	monmouthshire.txt	West End Caldicot	resolved	51.5880	-2.7540	area	West End ward / western town area (includes Dewstow neighbourhood)
+107	monmouthshire.txt	Harold's Park Caldicot	resolved	51.5886	-2.7260	park	Harold’s Park open space at Portskewett (WCP circular walk); list ties to Caldicot coast
+108	monmouthshire.txt	Cornfield Project Caldicot	resolved	51.5892	-2.7240	community_garden	The Cornfield community field Portskewett/Sudbrook; list label Caldicot
+109	monmouthshire.txt	Caldicot railway station	resolved	51.5845	-2.7598	railway_station	Wikipedia/GeoHack
+110	monmouthshire.txt	Caldicot station	resolved	51.5845	-2.7598	railway_station	Same place as Caldicot railway station
+111	monmouthshire.txt	Llanthony Secunda Manor Caldicot	resolved	51.5958	-2.7487	manor	Wikipedia Church Farmhouse / Llanthony Secunda Manor (Church Road)
+112	monmouthshire.txt	St Mary's Church Caldicot	resolved	51.594133	-2.747593	church	Wikipedia / GENUKI grid ST4831088630
+113	monmouthshire.txt	Church of St Mary Caldicot	resolved	51.594133	-2.747593	church	Same Grade I building as St Mary’s Church, Caldicot
+114	monmouthshire.txt	Caldicot Leisure Centre near coast path	resolved	51.587459	-2.749192	leisure_centre	Mill Lane NP26 4BN; near active-travel links toward country park
+115	monmouthshire.txt	Castle Park Caldicot	resolved	51.5920	-2.7442	park	Castle Park locale within Caldicot Castle country park grounds
+116	monmouthshire.txt	Green Lane Caldicot	resolved	51.5903	-2.7582	street	Named Green Lane through Caldicot (OpenStreetMap way 1726246 centroid)
+117	monmouthshire.txt	Dewstow Caldicot	resolved	51.596152	-2.750596	area	Dewstow neighbourhood/West End; Dewstow House gardens register coords (Caerwent postal)
+118	monmouthshire.txt	Church Farmhouse Caldicot	resolved	51.5958	-2.7487	farmhouse	Same Grade II* site as Llanthony Secunda Manor (line 111)
+119	monmouthshire.txt	Rogiet	resolved	51.589	-2.787	village	Wikipedia community grid ST458877
+120	monmouthshire.txt	Rogiet Moor	resolved	51.5772	-2.7706	military_range	MOD Rogiet Moor firing range; approximate range footprint (not village centre)
+121	monmouthshire.txt	Rogiet community	resolved	51.5890	-2.7870	community	Same built-up area as Rogiet village; Wikipedia community grid ST458877 locality
+122	monmouthshire.txt	Severn Tunnel Junction	resolved	51.5842	-2.7771	railway_junction	Named rail junction locale at Rogiet; co-located with Severn Tunnel Junction station area
+123	monmouthshire.txt	Severn Tunnel Junction railway station	resolved	51.5842	-2.7771	railway_station	Wikipedia/GeoHack coordinates (National Rail STJ)
+124	monmouthshire.txt	STJ railway station	resolved	51.5842	-2.7771	railway_station	Station reporting mark STJ; same place as Severn Tunnel Junction railway station
+125	monmouthshire.txt	Wales Coast Path Rogiet	resolved	51.5844	-2.7775	trail	Representative WCP point at Severn Tunnel Junction overflow car park / station approach (trail listings)
+126	monmouthshire.txt	Rogiet seawall	resolved	51.5730	-2.7680	seawall	Approximate Severn estuary flood-defence frontage on Gwent Levels E of Rogiet
+127	monmouthshire.txt	Rogiet coast path	resolved	51.5760	-2.7720	trail	Local Wales Coast Path / active-travel reach on Levels near Rogiet (approximate linear feature)
+128	monmouthshire.txt	M4 Wales Coast Path crossing Rogiet	resolved	51.5630	-2.7820	crossing	Approximate M4 crossing used by WCP corridor near Rogiet (footbridge/underpass alignment varies)
+129	monmouthshire.txt	Caerwent	resolved	51.6110	-2.7650	village	Wikipedia village centre (Welsh Caer-went); Roman town within modern settlement
+130	monmouthshire.txt	Caerwent Roman town	resolved	51.6126	-2.7683	historic_site	Cadw/GeoHack Roman town walls and visitor focus (Venta Silurum)
+131	monmouthshire.txt	Venta Silurum	resolved	51.6110	-2.7680	historic_site	Roman civitas capital; archaeological remains in Caerwent (Wikipedia coordinates)
+132	monmouthshire.txt	Caerwent near Wales Coast Path	resolved	51.6080	-2.7600	trail	Representative point toward Severn-side coast-path corridor from Caerwent (approximate)
+133	monmouthshire.txt	Magor	resolved	51.57981	-2.83121	village	Wikipedia coordinates (large village on Caldicot Levels)
+134	monmouthshire.txt	Magwyr	resolved	51.57981	-2.83121	village	Welsh name for Magor; same settlement centre
+135	monmouthshire.txt	Magor with Undy	resolved	51.5805	-2.8240	community	Civil community covering Magor and Undy; approximate centroid between village centres
+136	monmouthshire.txt	Magor Marsh	resolved	51.5760	-2.8270	nature_reserve	Wikipedia/OS grid ST 428 866; Gwent Levels fen reserve
+137	monmouthshire.txt	Magor Marsh nature reserve	resolved	51.5760	-2.8270	nature_reserve	Same 36 ha wetland site as Magor Marsh
+138	monmouthshire.txt	Gwent Wildlife Trust Magor Marsh	resolved	51.5760	-2.8270	nature_reserve	GWT-managed reserve on Whitewall, Magor; same footprint as Magor Marsh
+139	monmouthshire.txt	Magor Pill	resolved	51.5565	-2.8164	creek	Named pill/inlet on Severn foreshore near Magor (Streetmap place coordinates)
+140	monmouthshire.txt	Magor Pill medieval boat find	resolved	51.5565	-2.8164	wreck_site	Coflein Magor Pill wreck (NPRN 440); 13th-century boat find in intertidal mud
+141	monmouthshire.txt	Magor reen	resolved	51.5740	-2.8280	watercourse	Representative reen/ditch on Gwent Levels near Magor Marsh and Pill corridor
+142	monmouthshire.txt	Magor Square	resolved	51.57981	-2.83121	square	Village centre square / war memorial locale (OpenStreetMap village hub)
+143	monmouthshire.txt	St Mary's Church Magor	resolved	51.5788	-2.8307	church	Grade I listed parish church; Wikipedia coordinates
+144	monmouthshire.txt	The Procurator's House Magor	resolved	51.5790	-2.83141	ruin	Grade II* scheduled ruin adjoining St Mary's churchyard; Wikipedia coordinates
+145	monmouthshire.txt	Undy	resolved	51.5830	-2.8170	village	Wikipedia coordinates; adjoins Magor in Magor with Undy community
+146	monmouthshire.txt	Undy village	resolved	51.57906	-2.81778	village	Ordnance Survey Open Names centre for Undy (getthedata.com)
+147	monmouthshire.txt	Mill Reen Undy	resolved	51.5780	-2.8190	watercourse	Named Mill Reen reach associated with Undy on Caldicot Levels (approximate ditch alignment)
+148	monmouthshire.txt	Dancing Hill Undy	resolved	51.5770	-2.8195	locality	Local Undy landmark/hill named in community sources near reens and Magor Marsh margin
+149	monmouthshire.txt	Vinegar Hill Undy	resolved	51.5818	-2.8190	street	Narrow residential lane; NP26 3EJ postcode centroid (Doogal)
+150	monmouthshire.txt	Whitewall Magor	resolved	51.5760	-2.8270	road	Whitewall access road along E side of Magor Marsh reserve (GWT directions)
+151	monmouthshire.txt	Abergwaitha	resolved	51.5565	-2.8164	historic_port	Medieval creek port at Magor Pill mouth (vanished); Wikipedia/Living Levels context; pin at Magor Pill intertidal corridor
+152	monmouthshire.txt	Aberweytha	resolved	51.5565	-2.8164	historic_port	Alternate spelling for Abergwaitha; same vanished harbour locale at Magor Pill (sources conflate names)
+153	monmouthshire.txt	Magor railway station site	resolved	51.578010	-2.831002	disused_station	Former Magor station (closed 1964); Wikipedia coordinates
+154	monmouthshire.txt	Undy Halt	resolved	51.578	-2.819	disused_station	Former halt 1933–1964; Wikipedia/GeoHack coordinates on South Wales Main Line
+155	monmouthshire.txt	Magor services	resolved	51.58786	-2.83713	services_area	M4 J23A Magor MSA; Wikipedia/GeoHack coordinates
+156	monmouthshire.txt	M4 Junction 23A Magor	resolved	51.5875	-2.8365	motorway_junction	Representative point at M4 J23A interchange by Magor (adjacent to Magor services)
+157	monmouthshire.txt	Wales 1 Business Park Magor	resolved	51.5864773	-2.8419811	business_park	Nominatim postcode centroid NP26 3DG (Wales 1 Business Park, Magor with Undy)
+158	monmouthshire.txt	Innovation House Magor	resolved	51.5864773	-2.8419811	office	Innovation House, Wales 1 Business Park, Newport Rd NP26 3DG; same postcode centroid as park hub
+159	monmouthshire.txt	Wales Coast Path Magor	resolved	51.5710	-2.8350	trail	Representative point on WCP reach at Magor (Severn/Gwent Levels foreshore corridor)
+160	monmouthshire.txt	Magor foreshore	resolved	51.5580	-2.8200	foreshore	Severn intertidal foreshore off Magor / Magor Pill approach (approximate public shore)
+161	monmouthshire.txt	Magor seawall	resolved	51.5630	-2.8250	sea_defence	Representative point on modern seawall line protecting Caldicot Level at Magor
+162	monmouthshire.txt	Magor Levels	resolved	51.579	-2.825	wetland	Caldicot/Gwent Levels tract at Magor; community-scale lowland (approximate centroid toward coast)
+163	monmouthshire.txt	Undy athletic club shore side	resolved	51.57937	-2.82808	sports_ground	Club pitches linked to Undy/Magor; OSM Sycamore Playing Field centroid (shoreward side of built-up area)
+164	monmouthshire.txt	Llandevaud	resolved	51.60826	-2.86688	hamlet	Wikipedia coordinates; Langstone/Newport side of coastal list corridor
+165	monmouthshire.txt	Llandevenny	resolved	51.57857	-2.85084	hamlet	Treated as Llandevenny (Gwent) near Magor/Undy; third-party map centroid NP26 3
+166	monmouthshire.txt	Cleppa Park	resolved	51.561633	-3.038963	business_park	Cleppa Park Newport NP10 8BA centroid (Doogal); inland from Severn but in Monmouthshire coastal corpus
+167	monmouthshire.txt	Leechpool turn	resolved	51.59925	-2.71045	junction	Approximate bend on Main Road near Leechpool House bus stops (Portskewett)
+168	monmouthshire.txt	Collister Pill	resolved	51.5759	-2.801	watercourse	Named reen/pill corridor; GeoHack/Coflein scheduled seawall coords alongside Collister Pill Reen
+169	monmouthshire.txt	Broadrock Reen	resolved	51.5740	-2.8080	watercourse	Lesser reen on Caldicot Level W of Magor; approximate alignment (no single POI; drainage network)
+170	monmouthshire.txt	Denny Island	resolved	51.5258	-2.7809	island	Wikipedia/Wikidata coordinates; Severn Estuary (Monmouthshire above HW)
+171	monmouthshire.txt	Monmouthshire Severn Estuary	resolved	51.556	-2.818	estuary	Representative foreshore point on Monmouthshire shore (Magor Pill / Levels frontage)
+172	monmouthshire.txt	Severn Estuary Monmouthshire shore	resolved	51.558	-2.822	shoreline	Representative intertidal/shore point; county context disambiguates from English shore
+173	monmouthshire.txt	Wales Coast Path Monmouthshire	ambiguous			trail	Multiple non-contiguous segments across county; no single pin
+174	monmouthshire.txt	Coast Path Chepstow to Magor	resolved	51.605	-2.775	trail	Approximate mid-reach of Chepstow–Magor WCP section along Levels/estuary margin
+175	monmouthshire.txt	Chepstow Wales Coast Path start	resolved	51.639722	-2.673611	trailhead	Traditional start at Old Wye Bridge / town reach (matches prior Chepstow batch rows)
+176	monmouthshire.txt	Magor Wales Coast Path end	resolved	51.570	-2.838	trailhead	Representative end of Magor reach toward Severn foreshore (section terminus locale)
+177	monmouthshire.txt	Bulwark Thornwell Mesolithic site	resolved	51.6360	-2.6765	archaeological_site	Thornwell Farm multi-period settlement (incl. early prehistoric); walkinchepstow Mesolithic claim; near Bulwark/Thornwell
+178	monmouthshire.txt	Chepstow town centre regeneration waterfront	resolved	51.6415	-2.6745	waterfront	Riverside regeneration zone Lower Chepstow / Marine Parade corridor (approximate)
+179	monmouthshire.txt	River Wye mouth view Chepstow	resolved	51.6380	-2.6685	viewpoint	Cliff/riverside viewpoint toward Wye mouth from Bulwark–Chepstow reach
+180	monmouthshire.txt	Severn view Bulwark	resolved	51.6325	-2.6620	viewpoint	Elevated Severn outlook from Bulwark ridge (inland of cliffs; approximate)
+181	monmouthshire.txt	Black Rock picnic site lave net demos	resolved	51.5892	-2.7044	picnic_site	Geograph/Wikimedia camera location for Black Rock picnic area; lave-net heritage demos
+182	monmouthshire.txt	Portskewett parish coast	resolved	51.588	-2.718	shoreline	Representative parish foreshore on Caldicot Levels between village core and Black Rock reach
+183	monmouthshire.txt	Sudbrook GWR village	resolved	51.5818	-2.7157	village	Wikipedia coordinates; GWR company village for Severn Tunnel workforce
+184	monmouthshire.txt	Caldicot Hundred coast	resolved	51.568	-2.775	shoreline	Historic hundred covered broad Caldicot Levels coast; approximate mid-estuary frontage pin
+185	monmouthshire.txt	Striguil historic Chepstow	resolved	51.643333	-2.676111	castle	Medieval lordship name for Chepstow; pin at Chepstow Castle
+186	monmouthshire.txt	Chepstow M48 viewpoint	resolved	51.602	-2.638	viewpoint	Welsh-side M48/Beachley–Thornwell corridor viewpoint toward Severn crossings (not English services)
+187	monmouthshire.txt	Mathern coast path approach	resolved	51.6176	-2.6918	trail	Wales Coast Path reaches Mathern from Chepstow direction; village conservation-area centroid (GeoHack)
+188	monmouthshire.txt	St Pierre coast path	resolved	51.6116	-2.7024	trail	Hamlet/WCP corridor toward St Pierre Pill; Wikipedia St Pierre coordinates
+189	monmouthshire.txt	Portskewett Black Rock walk	resolved	51.589	-2.704	trail	Black Rock–Portskewett circular/heritage walk hub at picnic site foreshore
+190	monmouthshire.txt	Caldicot circular walk coast	resolved	51.592	-2.738	trail	Coastal/castle-country-park circular walks from Caldicot toward Nedern/estuary margin
+191	monmouthshire.txt	Rogiet Moor seawall walk	resolved	51.575	-2.769	trail	Combines Rogiet Moor locale with Severn seawall footpath on Gwent Levels (approximate walk axis)
+192	monmouthshire.txt	Magor circular coast	resolved	51.570	-2.838	trail	Magor Wales Coast Path circular reach toward Severn foreshore (section locale)
+193	monmouthshire.txt	Magor Pill intertidal	resolved	51.5565	-2.8164	intertidal	Same pill corridor as prior Magor Pill rows; intertidal mud/creek focus
+194	monmouthshire.txt	Undy Magor boundary reen	resolved	51.576	-2.827	reen	Approximate Undy–Magor field-drainage boundary on Levels (linear feature)
+195	monmouthshire.txt	Prince of Wales Bridge viewpoint Caldicot Levels	resolved	51.572	-2.695	viewpoint	Representative Welsh-side estuary viewpoint toward Prince of Wales Bridge from Levels/foreshore belt
+196	monmouthshire.txt	Second Severn Crossing saltmarsh Welsh side	resolved	51.568	-2.688	saltmarsh	Intertidal saltmarsh/mudflat tract Welsh side of Prince of Wales Bridge (approximate corridor)
+197	monmouthshire.txt	Caldicot industrial shore historic	resolved	51.576	-2.732	industrial	Historic industrial belt along Nedern/estuary margin E of Caldicot (approximate shoreline)
+198	monmouthshire.txt	Llanwern steelworks skyline from Caldicot coast	resolved	51.580	-2.745	viewpoint	View corridor from Caldicot Levels shore toward distant Llanwern steelworks (Newport)
+199	monmouthshire.txt	Chepstow National Cycle Network coast	resolved	51.6405	-2.675	trail	NCN alongside Chepstow riverfront/Wye corridor (town reach)
+200	monmouthshire.txt	Offa's Dyke Path junction Chepstow	resolved	51.639722	-2.673611	trailhead	Trail terminus locale at Old Wye Bridge / Sedbury–Chepstow crossing (standard WCP/ODP hub)
+201	monmouthshire.txt	River Wye AONB Chepstow	resolved	51.639	-2.675	area	Wye Valley AONB gateway at Chepstow; representative town reach pin
+202	monmouthshire.txt	Chepstow Bridge iron bridge	resolved	51.646306	-2.671944	bridge	Old Wye Bridge (cast-iron road bridge 1816); Wikipedia coordinates
+203	monmouthshire.txt	Chepstow Railway Bridge	resolved	51.643639	-2.666944	railway_bridge	Brunel South Wales Main Line bridge over Wye; Wikipedia coordinates
+204	monmouthshire.txt	Chepstow Riverfront	resolved	51.6415	-2.675	waterfront	Marine Parade / lower town quays reach (regeneration riverside)
+205	monmouthshire.txt	Portskewett St Mary coast path	resolved	51.5895	-2.7255	trail	St Mary's church locale on WCP/heritage corridor (parish church hub)
+206	monmouthshire.txt	Sudbrook Tunnel ventilation towers	resolved	51.5835	-2.713	historic_railway	Severn Tunnel pumping/ventilation complex near Sudbrook (Geograph ST5087 engine-house area)
+207	monmouthshire.txt	Severn railway tunnel Welsh portal	resolved	51.5851	-2.7512	tunnel_portal	Welsh (Monmouthshire) portal coordinates from Severn Tunnel tabulated sources
+208	monmouthshire.txt	Black Rock historic pier remains	resolved	51.5890	-2.7045	historic_pier	Slipway/pier footprint at Black Rock picnic/heritage shore (approximate intertidal structure)
+209	monmouthshire.txt	Caldicot Castle Nedern mouth	resolved	51.597	-2.738	estuary	Nedern Brook–Severn interface S of castle; between castle and Nedern Wetlands SSSI corridor
+210	monmouthshire.txt	Magor church coast walker	resolved	51.5788	-2.8307	trail	St Mary's Church, Magor (Wikipedia); coast-walker hub at village church toward WCP/foreshore
+211	monmouthshire.txt	Undy north of Magor reen	resolved	51.582	-2.825	reen	North Undy field-drainage margin toward Magor reens (approximate linear feature; Gwent Levels)
+212	monmouthshire.txt	Wilcrick	resolved	51.58684	-2.85443	hamlet	Wikipedia coordinates; hamlet W of Magor on B4245 / historic Monmouthshire
+213	monmouthshire.txt	Highmoor Farm Magor area	resolved	51.571	-2.842	farm	Unverified farm name; approximate pasture belt W of Magor toward M4 distribution/Europark corridor on Levels margin
+214	monmouthshire.txt	Ifton Mead	resolved	51.589	-2.775	meadow	Ifton parish centroid (GENUKI ST464881); historic meadowland near Rogiet/Severn Tunnel Junction
+215	monmouthshire.txt	South Wales Main Line seawall Magor	resolved	51.562	-2.818	seawall_rail	Representative SWML embankment/seawall reach beside Magor Pill foreshore (linear corridor)
+216	monmouthshire.txt	Gloucester Newport line coast Magor	resolved	51.560	-2.816	rail_corridor	Gloucester–Newport (South Wales) railway coastal approach near Magor Pill (approximate)
+217	monmouthshire.txt	Magor east Newport boundary	resolved	51.574	-2.818	boundary	Approximate Monmouthshire/Newport (Magor east) local-authority margin toward reclaimed Levels
+218	monmouthshire.txt	Monmouthshire Newport coastal boundary	resolved	51.572	-2.815	boundary	Representative pin on shared estuarine Levels boundary belt (not a single monument)
+219	monmouthshire.txt	Leechpool Heston Brake footpath	resolved	51.5935	-2.714	trail	Public footpath access from Leechpool Lane toward Heston Brake long barrow (Coflein/NPRN300078 corridor)
+220	monmouthshire.txt	Portskewett Hill Roman temple site	resolved	51.5946	-2.7264	roman_site	Scheduled Roman complex/temple locale on Portskewett Hill (GeoHack listed monument coords)
+221	monmouthshire.txt	Crick hamlet Portskewett	resolved	51.61005	-2.748	hamlet	Wikipedia Crick (parish of Portskewett); A48 hamlet N of Caldicot
+222	monmouthshire.txt	Sudbrook paper mill site shore	resolved	51.5815	-2.716	industrial_ruin	Historic Sudbrook paper-mill/industrial belt toward Severn foreshore (approximate shoreline footprint)
+223	monmouthshire.txt	Black Rock Hotel site historic	resolved	51.5890	-2.7045	historic_site	Long-gone hotel/coaching locale at Black Rock crossing focus; pin with Black Rock shore cluster
+224	monmouthshire.txt	Welsh Grounds foreshore view	resolved	51.576	-2.705	viewpoint	Representative Welsh-shore viewpoint toward Welsh Grounds intertidal sandbank (estuary feature offshore)
+225	monmouthshire.txt	Severn Estuary mudflats Monmouthshire	resolved	51.565	-2.695	intertidal	Generic Welsh-side mudflat/saltmarsh tract label; mid-estuary representative pin
+226	monmouthshire.txt	Putcher fishing remains Gwent Levels	resolved	51.568	-2.782	heritage_fishing	Traditional lave/putcher fishing heritage locales on Gwent Levels (approximate Caldicot–Magor foreshore belt)
+227	monmouthshire.txt	Fish traps intertidal Portskewett	resolved	51.587	-2.730	archaeology	Documented intertidal fish-trap archaeology in Portskewett/Caldicot Pill corridor (approximate)
+228	monmouthshire.txt	Reen network Caldicot Levels	resolved	51.580	-2.755	drainage_network	Representative reen/ditch node on Caldicot Levels (distributed hydrology; not one point)
+229	monmouthshire.txt	Sea wall tearoom Black Rock	resolved	51.5892	-2.7044	cafe	Black Rock picnic/heritage shore hub (same cluster as other Black Rock rows)
+230	monmouthshire.txt	Caldicot community Severn front	resolved	51.592	-2.736	shoreline	Caldicot built-up area reach toward Nedern/Severn estuary margin
+231	monmouthshire.txt	Rogiet new village coast	resolved	51.575	-2.769	village	Rogiet new village with Wales Coast Path/seawall links to Levels foreshore (Rogiet Moor corridor)
+232	monmouthshire.txt	Magor Undy community council coast	resolved	51.572	-2.828	admin_coast	Representative coastal-facing community footprint for Magor and Undy (ward/community level)
+233	monmouthshire.txt	Chepstow Bulwark estuary view	resolved	51.6332	-2.6638	viewpoint	Bulwark suburb outlook toward Severn–Wye estuary mouth (paired with other Bulwark estuary rows)
+234	monmouthshire.txt	Thornwell Severn view housing	resolved	51.6365	-2.678	residential	Thornwell (S of Chepstow) Severn-view housing terrace belt
+235	monmouthshire.txt	Wyesham Wye Severn confluence walk	resolved	51.638	-2.665	trail	Named walk toward Wye/Severn confluence from Chepstow–Beachley corridor; pin near confluence zone (not Wyesham village centre)
+236	monmouthshire.txt	Mathern to Chepstow coast link	resolved	51.622	-2.680	trail	Wales Coast Path link segment Mathern–Thornwell–Chepstow (approximate mid-corridor)
+237	monmouthshire.txt	St Pierre estate shore fields	resolved	51.6116	-2.7024	estate	St Pierre hamlet/estate fields toward pill/foreshore (Wikipedia St Pierre corridor)
+238	monmouthshire.txt	Portskewett creek historic Norman tower	resolved	51.586	-2.732	historic_tower	Portskewett Pill/creek corridor; motte/tower traditions in parish (approximate creek-side locale)
+239	monmouthshire.txt	Sudbrook Black Rock park	resolved	51.585	-2.710	park	Open space corridor Sudbrook–Black Rock walks (between village and picnic shore)
+240	monmouthshire.txt	Caldicot footbridge M4 coast path	resolved	51.5928	-2.7599	footbridge	Wales Coast Path footbridge over M4 near Prince of Wales Bridge (WCP itinerary grid ST 48087 88370)
+241	monmouthshire.txt	Severn Tunnel Junction footbridge coast	resolved	51.5842	-2.7771	footbridge	WCP/STJ footbridge over tracks near Severn Tunnel Junction station (Wikipedia/GeoHack station coords as path hub)
+242	monmouthshire.txt	Magor Pill boat burial site	resolved	51.5868	-2.8308	archaeology	Medieval Magor Pill wreck (Coflein NPRN440; grid ST4381084270); list says boat burial but site is famous clinker wreck
+243	monmouthshire.txt	Magor village centre coast walkers	resolved	51.57981	-2.83121	village	Magor village centre / square war-memorial hub (Wikipedia community coords)
+244	monmouthshire.txt	Undy Millfield Park near reen	resolved	51.5791	-2.8178	park	Millfield Park estate N of Magor reen (Undy); centroid from Undy/Millfield NP26 cluster
+245	monmouthshire.txt	Magor east levels drainage	resolved	51.574	-2.818	drainage	Eastern Magor/Levels field-drainage margin toward Newport boundary (approximate belt)
+246	monmouthshire.txt	Gwent Levels SSSI Monmouthshire strip	resolved	51.568	-2.785	sssi	Monmouthshire share of Gwent Levels/SAC complex; representative mid-Levels pin (distributed designation)
+247	monmouthshire.txt	Caldicot Cross town centre	resolved	51.5876	-2.7494	town	Caldicot Cross memorial/town-centre hub (NP26 4BN postcode centroid / Doogal)
+248	monmouthshire.txt	Magor Square coast walkers	resolved	51.57981	-2.83121	square	Magor Square / war memorial (same hub as village-centre row; coast-walker meeting point)
+249	monmouthshire.txt	Chepstow Museum	resolved	51.644832	-2.672415	museum	Gwy House, Bridge Street (Wikipedia/GeoHack)
+250	monmouthshire.txt	Chepstow Lower Dock area	resolved	51.6445	-2.6686	historic_dock	Old riverside dock/promenade reach by scheduled Chepstow Town Slipway (GeoHack)
+251	monmouthshire.txt	Chepstow Middle Dock historic	resolved	51.6425	-2.6705	historic_dock	Mid reach of historic port frontage between Lower slipway cluster and Thornwell shipyard belt (approximate)
+252	monmouthshire.txt	Chepstow Upper Dock historic	resolved	51.6408	-2.6785	historic_dock	Upper dock/shipyard footprint toward Thornwell reach (paired with National Shipyard locale in this list)
+253	monmouthshire.txt	Bulwark housing Severn glimpses	resolved	51.6332	-2.6638	residential	Bulwark suburb Severn-view housing (paired with other Bulwark estuary rows)
+254	monmouthshire.txt	Thornwell housing estuary glimpses	resolved	51.6365	-2.678	residential	Thornwell housing belt with Severn views (Wikipedia/ward locale cluster)
+255	monmouthshire.txt	Mathern pill historic drainage	resolved	51.615	-2.688	drainage	Mathern parish pill/reen drainage toward Nedern/Severn (approximate historic corridor)
+256	monmouthshire.txt	Portskewett reen crossings	resolved	51.5905	-2.7255	drainage	Representative Portskewett reen footpath crossings on Gwent Levels (distributed network)
+257	monmouthshire.txt	Sudbrook Mission Church coast workers	resolved	51.5839	-2.7139	church	Trinity Presbyterian (Sudbrook Mission Hall) ST5063087470 (GENUKI/Coflein NPRN13091)
+258	monmouthshire.txt	Caldicot wireworks historic shore industry	resolved	51.588	-2.748	industrial	Historic wire/tinplate works beside Caldicot Pill & railway (Sudbrook Road industrial estate footprint; Wikipedia/Caldicot history)
+259	monmouthshire.txt	Severn Way Chepstow	resolved	51.6397	-2.6736	trail	National Trail hub at Old Wye Bridge / lower town riverfront (standard Severn Way crossing locale)
+260	monmouthshire.txt	Wye Valley Walk Chepstow	resolved	51.6403	-2.6755	trail	Lower Wye town reach by castle/riverfront (Wye Valley Walk passes Chepstow waterfront)
+261	monmouthshire.txt	Magor Baptist chapel village	resolved	51.5789	-2.8312	church	Historic Baptist chapel near Magor centre/Procurator's House cluster (approximate church locale)
+262	monmouthshire.txt	Undy Vinegar Hill footpath	resolved	51.5785	-2.818	trail	Vinegar Hill boundary footpath between Magor and Undy (Wikishire/Magor description cluster)
+263	monmouthshire.txt	St Pierre Lewis manor shore	resolved	51.6116	-2.7024	manor	St Pierre hamlet/estate shore fields toward pill (Lewis manor traditions; pin with St Pierre cluster)
+264	monmouthshire.txt	Denny Island Welsh foreshore	resolved	51.5258	-2.7809	island	Denny Island ST459810; Welsh-side rocky islet in Welsh Grounds (Wikipedia/Wikidata coords)
+265	monmouthshire.txt	Severn Estuary SAC Monmouthshire shore	resolved	51.56	-2.68	conservation	Monmouthshire foreshore within Severn Estuary SAC; representative mid-estuary Welsh bank pin
+266	monmouthshire.txt	River Severn Welsh bank Monmouthshire	resolved	51.565	-2.695	riverbank	Generic label for long Welsh bank through county; representative intertidal belt pin (not a single monument)

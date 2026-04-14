@@ -70,7 +70,6 @@ type SemanticInjectionDiagramSpec = {
   readonly centreFrame: { readonly frameArcRadius: number };
   readonly insideTrackRadius: number;
   readonly timeDelta: {
-    readonly leftOfOrigin: number;
     readonly belowOrigin: number;
     readonly fontHeight: number;
     readonly town: string;
@@ -133,7 +132,6 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     centreFrame: { frameArcRadius: 0.35 },
     insideTrackRadius: 0.75,
     timeDelta: {
-      leftOfOrigin: 1,
       belowOrigin: 0.1,
       fontHeight: 0.05,
       town: 'Lymington',
@@ -175,8 +173,8 @@ describe('spec.semantic.nextTide injection', () => {
     expect(diagram.timeDeltaDiagram.timeDeltaEmptyMessage).toEqual({
       content: TIME_DELTA_EMPTY_MESSAGE,
       fontSize: 5.9,
-      anchor: { x: -118, y: -11.8 },
-      hAlign: 'left',
+      anchor: { x: 0, y: -11.8 },
+      hAlign: 'center',
     });
     expect(diagram.timeNowLabel.hhmm.content).toBe('Mon 23 Mar - 23:59');
     expect(diagram.timeNowLabel.secondsColon.content).toBe(':');

@@ -1,0 +1,116 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	gloucestershire.txt	Tutshill	resolved	51.64829	-2.66565	village	River Wye east bank; Tidenham parish.
+2	gloucestershire.txt	Sedbury	resolved	51.63486	-2.65534	village	River Wye east bank; Tidenham parish.
+3	gloucestershire.txt	Tidenham	resolved	51.6605	-2.6435	village	Main village of Tidenham parish.
+4	gloucestershire.txt	Beachley	resolved	51.61603	-2.64844	village	Wye/Severn confluence peninsula; Tidenham parish.
+5	gloucestershire.txt	Woodcroft	resolved	51.66029	-2.66269	village	River Wye east bank; Tidenham parish.
+6	gloucestershire.txt	Boughspring	resolved	51.67181	-2.64345	hamlet	Tidenham parish; south of Tidenham Chase.
+7	gloucestershire.txt	Stroat	resolved	51.67529	-2.6205	hamlet	Tidenham parish; off A48 toward Chepstow.
+8	gloucestershire.txt	Wibdon	resolved	51.67136	-2.62606	hamlet	Tidenham parish; near Stroat.
+9	gloucestershire.txt	Wyegate Green	resolved	51.75541	-2.64609	hamlet	GL15; St Briavels area; Forest Road corridor.
+10	gloucestershire.txt	Bayfield	resolved	51.639	-2.69547	suburb	Bayfield (Chepstow, NP16, Wales); Wye-side growth west of A466—common label on maps here.
+11	gloucestershire.txt	Lancaut	resolved	51.66634	-2.67222	hamlet	Deserted village promontory; River Wye; Tidenham parish.
+12	gloucestershire.txt	Wintour's Leap	resolved	51.665	-2.669	cliff	Climbing crag/viewpoint above Wye near Woodcroft.
+13	gloucestershire.txt	Devil's Pulpit	resolved	51.6984	-2.6359	viewpoint	Limestone viewpoint on Offa's Dyke path; Tidenham Chase.
+14	gloucestershire.txt	Tidenham Chase	resolved	51.6983	-2.6365	heath	Forestry England / GWT heath; visitor access from B4228 car park area.
+15	gloucestershire.txt	Otter Hole	resolved	51.66083	-2.68611	cave	Famous decorated cave; gated entrance on Wye bank (St Arvans side); tidal.
+16	gloucestershire.txt	Woolaston	resolved	51.69997	-2.58887	village	Parish village north of Severn estuary shore.
+17	gloucestershire.txt	Netherend	resolved	51.6998	-2.58762	hamlet	Woolaston parish; cluster near A48.
+18	gloucestershire.txt	Brookend	resolved	51.69367	-2.58951	hamlet	Woolaston parish; A48 Woolaston Inn area.
+19	gloucestershire.txt	Bollow	resolved	51.81809	-2.36992	hamlet	Hamlet named Bollow in Westbury-on-Severn parish (GL14)—Severn-side; not the Wiltshire Purton Stoke.
+20	gloucestershire.txt	Aylburton	resolved	51.71272	-2.55574	village	A48 village south-west of Lydney.
+21	gloucestershire.txt	Alvington	resolved	51.70515	-2.57562	village	A48 parish village toward Severn.
+22	gloucestershire.txt	Purton	resolved	51.73913	-2.47844	hamlet	Purton on west bank (Lydney parish)—Severn; opposite Berkeley-side Purton.
+23	gloucestershire.txt	Purton Stoke	not_found				No distinct coastal feature of this name on Gloucestershire's Severn shore; well-known Purton Stoke is Wiltshire (SN5).
+24	gloucestershire.txt	Lydney	resolved	51.7286	-2.5285	town	Town centre by River Lyd/Severn.
+25	gloucestershire.txt	Newerne	resolved	51.72718	-2.5294	urban	Lydney town quarter along Newerne Street.
+26	gloucestershire.txt	Allaston	resolved	51.73348	-2.53717	suburb	Historic village now part of Lydney.
+27	gloucestershire.txt	Norchard	resolved	51.73625	-2.53939	railway	Dean Forest Railway main station area north of Lydney.
+28	gloucestershire.txt	Lydney Harbour	resolved	51.707	-2.538	harbour	Environment Agency harbour basins toward Severn (GL15 4ER area).
+29	gloucestershire.txt	Lydney Docks	resolved	51.7078	-2.534	dock	Upper/lower dock basins at canal mouth.
+30	gloucestershire.txt	Lydney Canal	resolved	51.7095	-2.528	canal	Tidal cut inland from Severn toward Lydney docks.
+31	gloucestershire.txt	Lydney Pill	resolved	51.7125	-2.5295	inlet	Tidal pill/creek mouth into the Severn south of Lydney town; aligns with historic moorings area.
+32	gloucestershire.txt	Lydney Level	resolved	51.704	-2.536	marsh	Reclaimed salt-marsh/levels belt along the Severn shore south of Lydney (broad feature; centroid on the riverside strip).
+33	gloucestershire.txt	Lydney town	resolved	51.7286	-2.5285	town	Duplicate informal label for Lydney settlement centre (same feature as Lydney earlier in this list).
+34	gloucestershire.txt	Sharpness	resolved	51.723	-2.478	port_village	Sharpness port settlement on the Severn at the canal entrance (Wikipedia centroid).
+35	gloucestershire.txt	Sharpness Docks	resolved	51.7166	-2.4833	dock	Impounded wet docks / port basins at Sharpness (harbour authority coordinates cluster here).
+36	gloucestershire.txt	Sharpness Old Dock	resolved	51.7238	-2.4795	dock	Original 1827 dock basin just inland of the Severn at Sharpness (north of the newer impounded docks).
+37	gloucestershire.txt	Sharpness Point	resolved	51.7248	-2.4762	point	River/foreshore spur at the Sharpness promontory into the Severn.
+38	gloucestershire.txt	Gloucester and Sharpness Canal	resolved	51.722	-2.481	canal	Linear waterway; pin at the Sharpness canal mouth junction with the Severn/dock complex.
+39	gloucestershire.txt	Purton Hulks	resolved	51.735833	-2.4575	ship_graveyard	Deliberately beached hulks reinforcing the east bank by the canal (GeoHack landmark coords).
+40	gloucestershire.txt	Purton ship graveyard	resolved	51.735833	-2.4575	ship_graveyard	Same site and purpose as Purton Hulks (alternate name).
+41	gloucestershire.txt	Berkeley	resolved	51.691	-2.459	town	Market town on the east side of the Vale of Berkeley (Wikipedia coords).
+42	gloucestershire.txt	Berkeley Vale	resolved	51.693	-2.465	region	Informal name for the lowland around Berkeley/Sharpness; centroid on the Severn-side vale floor.
+43	gloucestershire.txt	Berkeley Pill	resolved	51.6995	-2.498	inlet	Tidal pill where the Berkeley pill/creek system meets the Severn east of the town.
+44	gloucestershire.txt	Newtown	resolved	51.718	-2.472	hamlet	Newtown by Sharpness (sub-village SE of the port) per Sharpness article context.
+45	gloucestershire.txt	Oldbury-on-Severn	resolved	51.633	-2.567	village	Riverside parish village on the east bank (Wikipedia coords).
+46	gloucestershire.txt	Shepperdine	resolved	51.657	-2.558	hamlet	Estuary-side hamlet in Oldbury-on-Severn parish (OS placename centroid).
+47	gloucestershire.txt	Aust	resolved	51.599	-2.618	village	Village by the Severn Bridge (M48) on the east bank (Wikipedia coords).
+48	gloucestershire.txt	Aust Cliff	resolved	51.6042	-2.6315	cliff	River cliff/foreshore feature above the Severn near Aust (slightly riverward of the village centre).
+49	gloucestershire.txt	Old Passage	resolved	51.6115	-2.638	ferry_route	Historic Beachley-Aust ferry corridor along the east bank (pin on the established Old Passage lane area).
+50	gloucestershire.txt	Littleton-upon-Severn	resolved	51.6077	-2.5851	village	Severn-side village west of Thornbury (Wikipedia coords).
+51	gloucestershire.txt	Severn Beach	resolved	51.554	-2.659	village	Coastal village on the Severn estuary (OS/Wikipedia-scale centroid).
+52	gloucestershire.txt	Northwick	resolved	51.577363	-2.635345	hamlet	Severn-side hamlet between Pilning and Aust (Wikipedia extract coords).
+53	gloucestershire.txt	Easter Compton	resolved	51.537977	-2.61705	village	Village near J17 M5 with links toward Pilning/Severn Beach (GeoHack coords).
+54	gloucestershire.txt	Frampton on Severn	resolved	51.770112	-2.363702	village	Village on the Severn/Frome confluence by the canal (GeoHack coords).
+55	gloucestershire.txt	Frampton Severn	resolved	51.770112	-2.363702	village	Colloquial shorthand for Frampton on Severn (same settlement).
+56	gloucestershire.txt	Frampton Court	resolved	51.7793	-2.3575	country_house	Frampton Court estate north-east of the village green (manor house grounds on the Frome/Severn side).
+57	gloucestershire.txt	Epney	resolved	51.7975	-2.3447	village	Severn-side hamlet between Longney and Upper Framilode (Wikipedia coords).
+58	gloucestershire.txt	Longney	resolved	51.8091	-2.3484	village	Parish village on the Severn west of the canal (Wikipedia coords).
+59	gloucestershire.txt	Longney Point	resolved	51.8064	-2.3487	point	River foreshore/promontory area at Longney Sands (Geograph viewpoint cluster).
+60	gloucestershire.txt	Fretherne	resolved	51.78078	-2.38745	village	Village between Frampton on Severn and Arlingham (OS Open Names centroid).
+61	gloucestershire.txt	Fretherne with Saul	resolved	51.7813	-2.3769	civil_parish	Centroid between Fretherne village and Saul (combined civil parish).
+62	gloucestershire.txt	Saul	resolved	51.7817	-2.3663	village	Gloucester & Sharpness / Stroudwater canal junction village (OS/Wikipedia-scale centre).
+63	gloucestershire.txt	Saul Junction	resolved	51.7820	-2.3555	canal_junction	Meeting of Gloucester & Sharpness and Stroudwater navigations (Geograph/Commons camera coords cluster).
+64	gloucestershire.txt	Arlingham	resolved	51.7960	-2.4240	village	Severn horseshoe-loop village; St Mary’s church centroid scale (Wikipedia).
+65	gloucestershire.txt	Arlingham Ferry	resolved	51.8000	-2.4430	ferry_landing	East-bank historic ferry slip at Arlingham Passage toward Newnham (Geograph POV).
+66	gloucestershire.txt	Milton End	resolved	51.7944	-2.4063	hamlet	Arlingham parish hamlet (Nominatim: Upper Milton End cluster).
+67	gloucestershire.txt	Overton	resolved	51.7890	-2.3950	hamlet	Arlingham parish; Barrow Hill/Wick Court area (Wikipedia coords).
+68	gloucestershire.txt	Priding	resolved	51.7928	-2.3758	hamlet	Arlingham parish hamlet near Framilode (Wikipedia/OS).
+69	gloucestershire.txt	Sandfield	resolved	51.7791	-2.3584	bridge	Sandfield Bridge on Gloucester & Sharpness Canal by Saul Junction (Nominatim).
+70	gloucestershire.txt	Horseshoe Bend	resolved	51.7910	-2.4380	meander	Approx. centre of the Severn’s Arlingham horseshoe loop (river channel scale).
+71	gloucestershire.txt	Newnham Passage	resolved	51.7998	-2.4440	ferry_landing	West-bank landing opposite Arlingham Passage (Geograph cluster WGS84).
+72	gloucestershire.txt	Minsterworth	resolved	51.8511	-2.3295	village	A48 Severn-side village north-west of Gloucester (Wikipedia coords).
+73	gloucestershire.txt	Walmore Common	resolved	51.8335	-2.3707	marsh	SSSI flood-meadow north of Chaxhill / Minsterworth (Wikipedia/Natural England centroid).
+74	gloucestershire.txt	Framilode	resolved	51.7919	-2.3722	village	River Frome mouth / Severn-side settlement (OS Open Names-style centre).
+75	gloucestershire.txt	Splatt	resolved	51.7587	-2.3749	locality	The Splatt / Splatt Bridge lane by Gloucester & Sharpness Canal south of Frampton on Severn (Nominatim).
+76	gloucestershire.txt	Upper Framilode	resolved	51.7900	-2.3612	hamlet	Upstream Framilode cluster toward the Frome (OS Open Names).
+77	gloucestershire.txt	Lower Framilode	resolved	51.7917	-2.3737	hamlet	Framilode Passage / downstream cluster (Find That Postcode locality centroid).
+78	gloucestershire.txt	Westbury-on-Severn	resolved	51.8244	-2.4124	village	A48 parish village between Minsterworth and Newnham (Wikipedia coords).
+79	gloucestershire.txt	Chaxhill	resolved	51.8269	-2.3817	hamlet	Westbury-on-Severn parish; north of Walmore Common (OS-style centroid).
+80	gloucestershire.txt	Newnham on Severn	resolved	51.8030	-2.4500	village	A48 Forest-of-Dean Severn-side town (Wikipedia/GeoHack).
+81	gloucestershire.txt	Newnham Ferry	resolved	51.7997	-2.4442	ferry_landing	Historic Newnham-side ferry approach near Arlingham Passage (Geograph cluster; metres from Newnham Passage row).
+82	gloucestershire.txt	Hammond's Ham	ambiguous				Minor ‘ham’/field name not located in OS/Nominatim; likely Awre/Newnham corridor riverside meadow.
+83	gloucestershire.txt	Awre	resolved	51.7699	-2.4362	village	Awre village / parish centre (GeoHack/Wikipedia).
+84	gloucestershire.txt	Blakeney	resolved	51.7613	-2.4764	village	Largest Awre-parish settlement on the A48 near the Severn (Wikipedia coords).
+85	gloucestershire.txt	Blakeney Quay	resolved	51.7640	-2.4870	quay	Riverside wharf area west of Blakeney village toward the Severn (map-estimated cluster).
+86	gloucestershire.txt	Blakeney Hill	resolved	51.7622	-2.4806	hill	Summit area SO 663 077 above Blakeney (hill database grid ref).
+87	gloucestershire.txt	Etloe	resolved	51.7488	-2.4728	hamlet	Awre tything near Gatcombe/Blakeney (OS Open Names-style centroid).
+88	gloucestershire.txt	Hagloe	resolved	51.7552	-2.4560	tything	Hagloe House / tithing centre scale in Awre parish (listed-building grid ref).
+89	gloucestershire.txt	Gatcombe	resolved	51.7472	-2.4648	hamlet	Riverside hamlet in Awre; historic port site by the Severn (near Drakes House / quay cluster).
+90	gloucestershire.txt	Gatcombe anchorage	resolved	51.7478	-2.4695	anchorage	Historic river anchorage off Gatcombe quay (Severn channel margin; same locale as Gatcombe).
+91	gloucestershire.txt	Viney Hill	resolved	51.75724	-2.50013	village	Forest of Dean/West Dean; OS Open Names-style centre (getthedata cluster).
+92	gloucestershire.txt	Rodley	resolved	51.80241	-2.37078	hamlet	Westbury-on-Severn parish; Severn meander loop (OS Open Names).
+93	gloucestershire.txt	Ruddle	resolved	51.7833	-2.4667	hamlet	Domesday/Newnham parish hamlet; Wikipedia list coords for Ruddle (SO6811).
+94	gloucestershire.txt	Bullo Pill	resolved	51.7867584	-2.4553873	inlet	Tidal pill/creek head Newnham parish; Nominatim GL14 cluster.
+95	gloucestershire.txt	Guscar Rocks	resolved	51.680372	-2.582772	rocks	River Severn foreshore roost (OSM natural=rocks); Woolaston shore.
+96	gloucestershire.txt	Ham	ambiguous				Generic element name in Awre/Bledisloe corridor; no unambiguous gazetteer pin (cf. Hamstalls/warth context).
+97	gloucestershire.txt	Stonebench	resolved	51.82874	-2.29888	hamlet	Severn bore viewpoint; Streetmap centroid for Stonebench GL2 3NP / Elmore Lane area.
+98	gloucestershire.txt	Two Bridges	resolved	51.77731	-2.4868	hamlet	Awre parish/Ayleford valley scatter; coords at published ring-motte site (Gatehouse/HER cluster).
+99	gloucestershire.txt	Chaceley	resolved	51.97486	-2.20958	village	Tewkesbury parish village (Nominatim).
+100	gloucestershire.txt	Hasfield	resolved	51.94849	-2.25475	village	Tewkesbury area (Nominatim).
+101	gloucestershire.txt	Tirley	resolved	51.95461	-2.23689	village	Tewkesbury area (Nominatim).
+102	gloucestershire.txt	Elmore	resolved	51.83485	-2.31434	village	Severn-side Stroud district parish (Nominatim).
+103	gloucestershire.txt	Maisemore	resolved	51.88968	-2.27231	village	Severn weir/channel locality (Nominatim village node).
+104	gloucestershire.txt	Ashleworth	resolved	51.92944	-2.27383	village	Severn vale (Nominatim).
+105	gloucestershire.txt	Ashleworth Ham	resolved	51.93616	-2.24795	meadow	OSM named meadow; GWT reserve context.
+106	gloucestershire.txt	Sandhurst	resolved	51.90663	-2.2568	village	Sandhurst (Tewkesbury), not Gloucester street names (Nominatim).
+107	gloucestershire.txt	Deerhurst	resolved	51.96554	-2.18832	village	Severn-side Tewkesbury parish (Nominatim).
+108	gloucestershire.txt	Apperley	resolved	51.954	-2.20024	village	Tewkesbury parish (Nominatim).
+109	gloucestershire.txt	Wainlode Hill	resolved	51.92755	-2.22078	hill	OSM peak; viewpoint over Severn meanders.
+110	gloucestershire.txt	Forthampton	resolved	51.99251	-2.20927	village	West bank Severn opposite Tewkesbury (Nominatim).
+111	gloucestershire.txt	Severn Estuary	ambiguous				Regional macro-feature (Wales/England); no single representative shoreline pin for the whole estuary.
+112	gloucestershire.txt	National Diving and Activity Centre	resolved	51.65556	-2.64722	attraction	Flooded quarry Tidenham; Wikipedia coord (historic NDAC / DEEP site).
+113	gloucestershire.txt	Awre for Blakeney	resolved	51.76068	-2.44894	railway_former	Disused Awre for Blakeney station site (GeoHack/Wikipedia).
+114	gloucestershire.txt	Framilode Bridge	resolved	51.7925	-2.3616	bridge_site	Site of former Stroudwater swing bridge / Severn junction (Wikipedia Framilode Junction; OS SO751104).
+115	gloucestershire.txt	Sharpness Marina	resolved	51.72471	-2.47806	marina	Sharpness Old Dock marina berths; operator-published GPS latitude with Sharpness dock-area longitude.

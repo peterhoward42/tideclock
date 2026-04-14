@@ -1,0 +1,133 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	swansea.txt	Jersey Marine	resolved	51.63022	-3.8645	village	Wikipedia / OS Open Names coastal village; Neath Port Talbot side of Swansea Bay
+2	swansea.txt	Crymlyn Burrows	resolved	51.62360	-3.86182	area	Nominatim (Crymlyn Burrows, Fabian Way); dunes/SSSI margin
+3	swansea.txt	Crymlyn Bog	resolved	51.63694	-3.88938	wetland	Nominatim Crymlyn Bog; fen/NNR complex inland of Bay Campus
+4	swansea.txt	Swansea Bay Campus	resolved	51.62008	-3.88002	campus	findlatitudeandlongitude / university Bay Campus on Fabian Way frontage
+5	swansea.txt	Fabian's Bay	resolved	51.62187	-3.93075	bay	Nominatim hit Fabian's Bay Church; Fabian Way coastal margin / small bay
+6	swansea.txt	Prince of Wales Dock	resolved	51.61893	-3.92419	dock	Nominatim Prince of Wales Dock; SA1 waterfront docks
+7	swansea.txt	Kings Dock	resolved	51.61745	-3.92085	dock	Approx. historic basin within Swansea docks; no clean OSM name hit
+8	swansea.txt	Queens Dock	resolved	51.61625	-3.91795	dock	Approx. historic basin within Swansea docks; no clean OSM name hit
+9	swansea.txt	Swansea Docks	resolved	51.61650	-3.91840	port	Latitude.to / Wikipedia aggregate “Swansea docks” centroid
+10	swansea.txt	Swansea Marina	resolved	51.61568	-3.93908	marina	Nominatim; former South Dock / Maritime Quarter
+11	swansea.txt	Maritime Quarter	resolved	51.61500	-3.94000	area	Wikipedia centroid; waterfront quarter inc. marina
+12	swansea.txt	SA1 Waterfront	resolved	51.62093	-3.92593	development	Nominatim SA1 Swansea Waterfront district
+13	swansea.txt	Swansea Beach	resolved	51.59200	-3.96400	beach	Wikipedia / GeoHack “Swansea Beach” centroid along bay sands
+14	swansea.txt	Swansea Bay	resolved	51.59097	-3.98787	bay	Nominatim named bay; large feature — point is illustrative inshore label
+15	swansea.txt	Swansea seafront	resolved	51.61350	-3.94100	promenade	Representative Oystermouth Road / city-centre beach frontage
+16	swansea.txt	St Helens	resolved	51.60680	-3.96920	beach	Promenade/foreshore section (not St Helens Avenue); between city centre strip and Blackpill
+17	swansea.txt	Blackpill	resolved	51.59723	-3.99586	suburb	Nominatim; Mumbles ward bay frontage
+18	swansea.txt	Blackpill Lido	resolved	51.59726	-3.99443	attraction	Nominatim; splash park on coast path
+19	swansea.txt	West Cross	resolved	51.58722	-4.01029	suburb	Nominatim; west along bay toward Newton
+20	swansea.txt	Mayals	resolved	51.59381	-4.00993	suburb	Nominatim; hillside above west bay
+21	swansea.txt	Norton	resolved	51.58051	-4.00221	suburb	Nominatim Norton, Mumbles
+22	swansea.txt	Oystermouth	resolved	51.57507	-4.00126	village	Nominatim; Mumbles headland settlement
+23	swansea.txt	Oystermouth Castle	resolved	51.57701	-4.00274	castle	Nominatim landmark
+24	swansea.txt	Oystermouth Bay	resolved	51.57115	-3.98523	bay	Nominatim coastal path segment; inlet W of Mumbles Hill
+25	swansea.txt	Mumbles	resolved	51.57227	-3.99450	village	Nominatim Mumbles centre
+26	swansea.txt	The Mumbles	resolved	51.57227	-3.99450	village	Same locality as “Mumbles”; village label on headland
+27	swansea.txt	Mumbles Pier	resolved	51.56972	-3.98028	pier	Wikipedia / GeoHack pier head coordinates
+28	swansea.txt	Mumbles Lighthouse	resolved	51.56528	-3.97083	lighthouse	Wikipedia coord; island/reef light W of pier
+29	swansea.txt	Mumbles Lifeboat Station	resolved	51.56985	-3.98035	lifeboat	RNLI station at pier head; offset slightly E of pier centroid
+30	swansea.txt	Knab Rock	resolved	51.57088	-3.98500	cove	Nominatim; rocky cove on Mumbles Road coast
+31	swansea.txt	Limeslade Bay	resolved	51.56500	-3.98500	bay	Wikipedia / GeoHack; small cove W of Bracelet Bay
+32	swansea.txt	Limeslade	resolved	51.56500	-3.98500	cove	Same coastal inlet as Limeslade Bay (locality)
+33	swansea.txt	Rotherslade	resolved	51.56770	-4.00610	beach	Wikipedia; eastern end of Langland Bay
+34	swansea.txt	Bracelet Bay	resolved	51.56693	-3.98091	bay	Geograph SS628872 WGS84; cove by Mumbles lighthouse
+35	swansea.txt	Langland Bay	resolved	51.56700	-4.00000	bay	Wikipedia coord; main sandy bay
+36	swansea.txt	Langland	resolved	51.56700	-4.00000	village	Coastal settlement strip at Langland Bay
+37	swansea.txt	Langland Beach	resolved	51.56733	-4.01053	beach	Enjoy Gower beach centroid; same bay as Langland
+38	swansea.txt	Caswell Bay	resolved	51.56885	-4.03336	bay	GeoHack / Wikipedia landmark coord
+39	swansea.txt	Caswell	resolved	51.56885	-4.03336	village	Local name for the Caswell Bay frontage
+40	swansea.txt	Caswell Beach	resolved	51.57011	-4.03131	beach	Enjoy Gower Blue Flag centroid; Caswell sands
+41	swansea.txt	Brandy Cove	resolved	51.56722	-4.04194	cove	Wikipedia / GeoHack; W of Caswell
+42	swansea.txt	Pwlldu Bay	resolved	51.56340	-4.05570	bay	Wikipedia; Bae Pwll Du
+43	swansea.txt	Pwlldu	resolved	51.56340	-4.05570	beach	Same bay as Pwlldu Bay / Pwll Du (Welsh name)
+44	swansea.txt	Pwll Du	resolved	51.56340	-4.05570	bay	Alternate spelling of Pwlldu Bay
+45	swansea.txt	Hunts Bay	resolved	51.56139	-4.07472	cove	Wikipedia stub coord; rocky cove E of Three Cliffs
+46	swansea.txt	Bishopston	resolved	51.57857	-4.05320	village	Nominatim; village above Bishopston Valley
+47	swansea.txt	Southgate	resolved	51.56978	-4.09087	village	Nominatim SA3 2BY; cliff-top above Pennard coast
+48	swansea.txt	Porth y Saint	not_found				No Nominatim/Wikipedia hit; likely minor cove name in Pennard cliff section
+49	swansea.txt	Pennard Burrows	resolved	51.58013	-4.10128	dunes	Approx. NT dune tract N of Three Cliffs / castle (OS grid-derived)
+50	swansea.txt	Pennard Castle	resolved	51.57660	-4.10230	castle	Wikipedia / GeoHack; ruin over Pennard Pill
+51	swansea.txt	Pennard Pill	resolved	51.56880	-4.11200	stream	Approx. estuary in Three Cliffs Bay (Wikipedia; no OSM node)
+52	swansea.txt	Pobbles	resolved	51.56978	-4.10919	beach	SWCW Pobbles Bay West; E part of Three Cliffs
+53	swansea.txt	Three Cliffs Bay	resolved	51.56819	-4.11519	bay	Wikidata/Wikipedia; Bae y Tri Chlogwyn
+54	swansea.txt	Threecliff Bay	resolved	51.56819	-4.11519	bay	Alternate spelling of Three Cliffs Bay
+55	swansea.txt	Great Tor	resolved	51.56837	-4.12290	headland	BMC grid SS5296487636 → WGS84; limestone promontory
+56	swansea.txt	Tor Bay	resolved	51.56650	-4.13200	beach	W part of Three Cliffs complex; W of Great Tor (coastal map)
+57	swansea.txt	Penmaen	resolved	51.57819	-4.12072	village	Nominatim; A4118 South Gower settlement
+58	swansea.txt	Nicholaston	resolved	51.57499	-4.13603	village	Nominatim Nicholaston Cross; A4118 hamlet
+59	swansea.txt	Nicholaston Burrows	resolved	51.56897	-4.13641	dunes	OS grid SS520877 (beach guide) → WGS84; Oxwich E dunes
+60	swansea.txt	Oxwich Bay	resolved	51.56581	-4.14679	bay	Wikipedia / GeoHack; wide bay W of Three Cliffs
+61	swansea.txt	Oxwich	resolved	51.55990	-4.17393	village	Wikipedia / GeoHack village centre; S Gower
+62	swansea.txt	Oxwich Beach	resolved	51.56581	-4.14679	beach	Main sandy shore of Oxwich Bay (same bay as line 60); GeoHack bay point
+63	swansea.txt	Oxwich Point	resolved	51.54920	-4.15980	headland	Limestone headland W of Oxwich Bay; Wales Coast Path / coastal map
+64	swansea.txt	Oxwich Castle	resolved	51.55463	-4.16791	castle	Wikipedia coord; Cadw Grade I ruin overlooking bay
+65	swansea.txt	Oxwich Marsh	resolved	51.56420	-4.15350	marsh	Saltmarsh / Oxwich NNR lagoon zone behind dunes (illustrative centre)
+66	swansea.txt	Slade Bay	resolved	51.55075	-4.18359	bay	Small cove W of Oxwich Point; coast path grid SS487858 → WGS84
+67	swansea.txt	Slade	resolved	51.55180	-4.18220	hamlet	Coastal hamlet above Slade Bay (Oxwich community)
+68	swansea.txt	Horton	resolved	51.55333	-4.20167	village	List of villages in Gower / Wikipedia-derived coord; NE of Port Eynon
+69	swansea.txt	Horton Beach	resolved	51.54778	-4.20083	beach	Wikipedia Horton Beach; Port Eynon Bay sands
+70	swansea.txt	Port Eynon	resolved	51.54500	-4.22000	village	Wikipedia community centroid; S tip Gower
+71	swansea.txt	Port Eynon Bay	resolved	51.54050	-4.21500	bay	Named bay S coast Gower; illustrative inshore centroid
+72	swansea.txt	Port Eynon Beach	resolved	51.54350	-4.21900	beach	Main resort beach by village; coastal map
+73	swansea.txt	Overton Mere	resolved	51.54150	-4.22800	beach	Rocky foreshore W of Overton hamlet; coast path
+74	swansea.txt	Salt House Mere	resolved	51.54400	-4.21850	pool	Small coastal pool near Port Eynon Salt House; approximate
+75	swansea.txt	Scurlage	resolved	51.53200	-4.22550	hamlet	B4247 hamlet between Port Eynon and Rhossili; OS map
+76	swansea.txt	Culver Hole	resolved	51.53940	-4.21410	attraction	GeoHack scheduled monument / sea-cliff dovecote; Port Eynon Bay cliffs
+77	swansea.txt	Rhossili	resolved	51.56856	-4.28690	village	Wikipedia / GeoHack; W Gower
+78	swansea.txt	Rhossili Bay	resolved	51.57600	-4.27800	bay	Large arc N from Worm’s Head; illustrative mid-bay point
+79	swansea.txt	Rhossili Beach	resolved	51.57123	-4.28847	beach	OS grid SS415883 centroid → WGS84; main sand strip
+80	swansea.txt	Rhossili Down	resolved	51.58706	-4.30659	moorland	The Beacon (highest on Gower); OS grid SS403901 → WGS84
+81	swansea.txt	Worms Head	resolved	51.56410	-4.31980	headland	Wikipedia Worm’s Head; tidal island / headland (alt. spelling line 82)
+82	swansea.txt	Worm's Head	resolved	51.56410	-4.31980	headland	Same feature as line 81; Wikipedia coord
+83	swansea.txt	The Causeway	resolved	51.56050	-4.30250	tidal flat	Tidal crossing to Inner Head; approximate along Rhossili promontory
+84	swansea.txt	Inner Head	resolved	51.56200	-4.30650	headland	E part of Worm’s Head island chain; coastal map
+85	swansea.txt	Outer Head	resolved	51.56480	-4.31850	headland	W tip of Worm’s Head; OSM / Wikipedia alignment
+86	swansea.txt	Fall Bay	resolved	51.56210	-4.29061	beach	UK Beach Guide grid SS413872 → WGS84; W of Mewslade
+87	swansea.txt	Mewslade Bay	resolved	51.55900	-4.28200	bay	Wikipedia / GeoHack; sandy cove W Gower
+88	swansea.txt	Mewslade	resolved	51.55920	-4.28180	valley	Coastal valley / beach access; same tight locality as Mewslade Bay
+89	swansea.txt	Goat's Hole	resolved	51.55009	-4.25519	cave	Coflein / Wikipedia Paviland Cave entrance; SS4371085880 → WGS84
+90	swansea.txt	Paviland Cave	resolved	51.55009	-4.25519	cave	Same site as Goat’s Hole (Paviland); scheduled monument GM504
+91	swansea.txt	Tears Point	resolved	51.55984	-4.29651	headland	SWCW wiki WGS-84; limestone promontory E of Worm’s Head / Fall Bay
+92	swansea.txt	Kitchen Corner	resolved	51.56368	-4.30652	cove	SWCW wiki; Rhossili sea-level inlet / boathouse bay by causeway
+93	swansea.txt	Little Tor Bay	resolved	51.56937	-4.12798	bay	SWCW Little Tor; sandy cove W side of Tor Bay (Penmaen) — list order not coastal sequence
+94	swansea.txt	Lady's Cove	resolved	51.56770	-4.00610	beach	Wikipedia / GeoHack Rotherslade; historic name for Rotherslade Bay (E Langland)
+95	swansea.txt	Llangennith	resolved	51.59561	-4.28248	village	GeoHack / Wikipedia; village above N Rhossili Bay
+96	swansea.txt	Llangennith Beach	resolved	51.60100	-4.27300	beach	UK Beach Guide / Visit Swansea Bay; surf beach N Rhossili Bay sands
+97	swansea.txt	Broughton Bay	resolved	51.61357	-4.28483	bay	Wikipedia / GeoHack; N Gower bay toward Loughor estuary
+98	swansea.txt	Broughton Burrows	resolved	51.60850	-4.28200	dunes	Dune tract backing Broughton Bay (NNR/NT context); illustrative centre S of bay head
+99	swansea.txt	Burry Holms	resolved	51.60950	-4.30773	island	Wikipedia / GeoHack; tidal islet N Rhossili Bay
+100	swansea.txt	Whiteford Sands	resolved	51.62600	-4.26000	beach	Wikipedia coord; N Gower estuary beach
+101	swansea.txt	Whiteford Burrows	resolved	51.63778	-4.24694	dunes	Wikipedia Whiteford NNR; pine/dune system backing sands
+102	swansea.txt	Whiteford	resolved	51.63100	-4.25200	area	Local name for Whiteford/Whitford coast strip between burrows and sands; approximate
+103	swansea.txt	Whiteford Point	resolved	51.65278	-4.24694	spit	OS grid SS447966 (Walking Britain) → WGS84; N tip of Whiteford spit
+104	swansea.txt	Whiteford Lighthouse	resolved	51.65259	-4.25109	lighthouse	Wikipedia / GeoHack; cast-iron wave-washed tower off point
+105	swansea.txt	Cwm Ivy	resolved	51.61321	-4.26759	hamlet	BirdGuides site coords; hamlet below Llanmadoc toward Burrows
+106	swansea.txt	Landimore	resolved	51.61662	-4.21853	hamlet	GeoHack / Wikipedia; N Gower above saltmarsh
+107	swansea.txt	Weobley Castle	resolved	51.61280	-4.19940	castle	Wikipedia / Cadw; fortified manor above Llanrhidian Marsh
+108	swansea.txt	Weobley Ferry	resolved	51.60950	-4.20400	landing	Historic/local ferry landing name on Landimore Marsh below Weobley; approximate creek mouth
+109	swansea.txt	Llanmadoc	resolved	51.61056	-4.26333	village	Wikipedia community centroid; N Gower by Whiteford access
+110	swansea.txt	Cheriton	resolved	51.61506	-4.24035	village	Wikipedia List of villages in Gower; St Cadoc’s valley hamlet
+111	swansea.txt	Burry Green	resolved	51.60080	-4.22140	hamlet	Geograph.org.uk photo centroid; junction hamlet N Gower
+112	swansea.txt	Llanrhidian	resolved	51.60686	-4.17086	village	OS Open Names centre; above Llanrhidian Marsh
+113	swansea.txt	Llanrhidian Marsh	resolved	51.60800	-4.17500	marsh	Tidal saltmarsh N of village toward Loughor estuary; illustrative
+114	swansea.txt	Wernffrwd	resolved	51.62500	-4.14600	village	Wikipedia; lower/upper village by estuary marsh road
+115	swansea.txt	Blue Anchor	resolved	51.63580	-4.11120	hamlet	OS grid SS547939 area (GENUKI); hillside above Penclawdd ward
+116	swansea.txt	Penclawdd	resolved	51.64098	-4.09771	village	GeoHack / Wikipedia; cockle village on Loughor estuary
+117	swansea.txt	Pen-clawdd	resolved	51.64098	-4.09771	village	Welsh spelling of Penclawdd; same settlement
+118	swansea.txt	Crofty	resolved	51.63454	-4.12927	village	OS Open Names centre; cockling village W of Penclawdd
+119	swansea.txt	Loughor	resolved	51.66261	-4.06461	town	Wikipedia; Casllwchwr on River Loughor estuary
+120	swansea.txt	Loughor Bridge	resolved	51.66280	-4.08220	bridge	Wikipedia Loughor bridge; A484 crossing
+121	swansea.txt	Barland Common	resolved	51.58654	-4.04383	common	Streetmap/OS point; Gower common W of Bishopston–Kittle corridor
+122	swansea.txt	Harding's Down	resolved	51.59430	-4.25801	hill	Swansea CC site grid SS436908; heathland / hillfort massif W Gower
+123	swansea.txt	Oxwich Green	resolved	51.56046	-4.17395	village green	Conservation-area green W of Oxwich Bay (NR SS494086 neighbourhood)
+124	swansea.txt	Swansea Breakwater	resolved	51.60646	-3.92919	breakwater	Eastern breakwater head at bay entrance (OS grid 266500/191500 point)
+125	swansea.txt	Tawe Estuary	resolved	51.61611	-3.92889	estuary	Illustrative mouth at Swansea Bay barrage; wide tidal estuary
+126	swansea.txt	River Tawe	resolved	51.61700	-3.93300	river	Wikipedia harbour-reach coordinate; Afon Tawe in central Swansea
+127	swansea.txt	Gower	ambiguous			peninsula	Colloquial name for whole Gower peninsula/AONB; not one coastal point
+128	swansea.txt	Gower Peninsula	ambiguous			peninsula	Same extent as “Gower”; coastline spans many miles
+129	swansea.txt	Gower Coast Path	ambiguous			trail	Wales Coast Path segment encircling Gower; long corridor not one pin
+130	swansea.txt	Mumbles Beach	resolved	51.57344	-3.99237	beach	Wikipedia / GeoHack; small beach between bay sands and Bracelet Bay
+131	swansea.txt	Swansea Docks North Dock	resolved	51.62350	-3.93920	dock	Coflein North Dock (filled) site; Parc Tawe / former basin centroid
+132	swansea.txt	Swansea West Pier	resolved	51.60820	-3.92870	pier	Harbour light on West Pier at Tawe mouth (Coflein West Pier NPRN308198 area)

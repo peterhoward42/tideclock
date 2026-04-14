@@ -1,0 +1,164 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	dublin.txt	Bremore Beach	not_found			beach	No OpenStreetMap/Nominatim hit for this local beach name
+2	dublin.txt	Bremore	resolved	53.6189224	-6.1986372	administrative	OpenStreetMap/Nominatim (Bremore townland boundary)
+3	dublin.txt	Ben Head	resolved	53.6543295	-6.2225506	headland	OpenStreetMap cliff; Meath side of Delvin estuary (coastal with north Dublin list)
+4	dublin.txt	Ardgillan Castle shore	resolved	53.5864329	-6.1598281	attraction	OpenStreetMap Ardgillan Castle; mapped to landmark on coastal park
+5	dublin.txt	Balbriggan	resolved	53.6098320	-6.1861964	town	OpenStreetMap/Nominatim (town node, not railway station)
+6	dublin.txt	Balbriggan Harbour	not_found			harbour	No distinct named harbour feature in OpenStreetMap/Nominatim
+7	dublin.txt	Balbriggan Beach	not_found			beach	No OpenStreetMap/Nominatim hit
+8	dublin.txt	Balbriggan Pier	not_found			pier	No OpenStreetMap/Nominatim hit
+9	dublin.txt	Skerries	resolved	53.5806379	-6.1066867	town	OpenStreetMap/Nominatim (town node, not railway station)
+10	dublin.txt	Skerries Harbour	resolved	53.5820937	-6.1068056	harbour	OpenStreetMap/Nominatim
+11	dublin.txt	Skerries Pier	resolved	53.5853071	-6.1068845	pier	OpenStreetMap/Nominatim
+12	dublin.txt	Skerries Sailing Club	resolved	53.5836703	-6.1046292	sports_centre	OpenStreetMap/Nominatim
+13	dublin.txt	Red Island	resolved	53.5848836	-6.1027654	locality	OpenStreetMap/Nominatim
+14	dublin.txt	Colt Island	resolved	53.5848652	-6.0887141	island	OpenStreetMap/Nominatim
+15	dublin.txt	St Patrick's Island	resolved	53.5853223	-6.0737233	island	OpenStreetMap/Nominatim
+16	dublin.txt	Shenick Island	resolved	53.5726452	-6.0840168	islet	OpenStreetMap/Nominatim
+17	dublin.txt	Church Island	resolved	53.5853223	-6.0732693	islet	OpenStreetMap/Nominatim
+18	dublin.txt	Rockabill	resolved	53.5982404	-6.0033733	island	OpenStreetMap/Nominatim (place=island)
+19	dublin.txt	Rockabill Lighthouse	resolved	53.5969617	-6.0043159	lighthouse	OpenStreetMap/Nominatim
+20	dublin.txt	Lambay Island	resolved	53.4906309	-6.0191875	island	OpenStreetMap/Nominatim
+21	dublin.txt	Lambay landing	not_found			landing	No OpenStreetMap/Nominatim hit for landing
+22	dublin.txt	Rush	resolved	53.5220444	-6.0908956	town	OpenStreetMap/Nominatim
+23	dublin.txt	Rush Harbour	resolved	53.5109720	-6.1185318	marina	OpenStreetMap Rush Sailing Club marina (south shore harbour area)
+24	dublin.txt	Rush North Beach	resolved	53.5239722	-6.0844198	beach	North Beach car park node; beach front not separately named in OSM
+25	dublin.txt	Rush South Beach	resolved	53.5120886	-6.1015141	beach	OpenStreetMap/Nominatim
+26	dublin.txt	Rogerstown Estuary	resolved	53.5056429	-6.1379780	protected_area	OpenStreetMap Rogerstown Estuary SAC boundary
+27	dublin.txt	Rogerstown Estuary mouth	ambiguous			estuary	Mouth not separately mapped; several plausible points along tidal bar
+28	dublin.txt	Rogerstown shore	ambiguous			shore	No single shoreline POI; estuary has multiple shores
+29	dublin.txt	Kenure	resolved	53.5381788	-6.0925714	church	OpenStreetMap Kenure church; Kenure demesne/coastal Rush context
+30	dublin.txt	Drumanagh promontory	resolved	53.5406959	-6.0786716	headland	OpenStreetMap/Nominatim (archaeological headland)
+31	dublin.txt	Loughshinny	resolved	53.5466255	-6.0863619	village	OpenStreetMap/Nominatim (Loughshinny settlement)
+32	dublin.txt	Loughshinny Harbour	resolved	53.5469613	-6.1007300	harbour	OpenStreetMap/Nominatim (Harbour Road harbour area)
+33	dublin.txt	Loughshinny Beach	not_found			beach	No separate beach feature in OpenStreetMap/Nominatim; shore adjoins Loughshinny
+34	dublin.txt	Portrane	resolved	53.4934234	-6.1122710	town	OpenStreetMap/Nominatim (spelled Portraine in index)
+35	dublin.txt	The Burrow Beach	resolved	53.503333	-6.119167	beach	Burrow townland (Portrane peninsula) centroid from townlands.ie; Rogerstown bar beach, not Sutton's Burrow Beach
+36	dublin.txt	Donabate	resolved	53.4857483	-6.1512942	town	OpenStreetMap/Nominatim
+37	dublin.txt	Donabate Beach	resolved	53.4654662	-6.1262044	beach	OpenStreetMap/Nominatim
+38	dublin.txt	Donabate Strand	resolved	53.4654662	-6.1262044	beach	OpenStreetMap returns same feature as Donabate Beach
+39	dublin.txt	Bissetts Strand	not_found			beach	No OpenStreetMap/Nominatim hit for this local strand name
+40	dublin.txt	Corballis Beach	resolved	53.4591152	-6.1287916	beach	OpenStreetMap Corballis Nudist Beach (same Corballis shore)
+41	dublin.txt	Malahide	resolved	53.4508401	-6.1536700	town	OpenStreetMap/Nominatim
+42	dublin.txt	Malahide Marina	resolved	53.4543436	-6.1557158	marina	OpenStreetMap/Nominatim
+43	dublin.txt	Malahide Beach	resolved	53.4486608	-6.1357785	beach	OpenStreetMap/Nominatim
+44	dublin.txt	Malahide Harbour	resolved	53.4543436	-6.1557158	harbour	Mapped harbour basin aligns with Malahide Marina in OpenStreetMap
+45	dublin.txt	Malahide Estuary	ambiguous			estuary	Large tidal system; no single representative POI (avoided unrelated RFC hit)
+46	dublin.txt	Broadmeadow Estuary	ambiguous			estuary	Long intertidal channel; OpenStreetMap mainly names bridges/fragments
+47	dublin.txt	Broadmeadow Estuary mouth	ambiguous			estuary	Seaward opening not uniquely tagged as one point
+48	dublin.txt	Robswall	resolved	53.4438961	-6.1351858	locality	OpenStreetMap/Nominatim
+49	dublin.txt	Portmarnock	resolved	53.4176779	-6.1513456	town	OpenStreetMap/Nominatim
+50	dublin.txt	Portmarnock Beach	resolved	53.4158085	-6.1192456	beach	OpenStreetMap/Nominatim
+51	dublin.txt	Portmarnock Strand	resolved	53.4158085	-6.1192456	beach	OpenStreetMap returns same feature as Portmarnock Beach
+52	dublin.txt	Velvet Strand	resolved	53.4158085	-6.1192456	beach	Local name for Portmarnock strand; same OSM feature as Portmarnock Beach
+53	dublin.txt	Carrickhill Beach	not_found			beach	Carrickhill mapped as admin area; no named beach POI
+54	dublin.txt	Low Rock Portmarnock	not_found			coast	No OpenStreetMap/Nominatim hit for this rock/swim name
+55	dublin.txt	Sutton	resolved	53.3893873	-6.1098089	suburb	OpenStreetMap/Nominatim
+56	dublin.txt	Sutton Creek	ambiguous			inlet	Tidal channel; not one clear mapped POI
+57	dublin.txt	Sutton Dinghy Club	resolved	53.3762340	-6.1015095	clubhouse	OpenStreetMap/Nominatim
+58	dublin.txt	Red Rock Sutton	resolved	53.3657715	-6.0881086	bare_rock	OpenStreetMap Red Rock (bare_rock) on Howth/Sutton peninsula
+59	dublin.txt	Howth	resolved	53.3858337	-6.0651186	town	OpenStreetMap/Nominatim
+60	dublin.txt	Howth Harbour	resolved	53.3896330	-6.0713549	harbour	OpenStreetMap Middle Pier (central harbour works)
+61	dublin.txt	Howth Pier	resolved	53.3896330	-6.0713549	pier	Mapped to Middle Pier service road (generic pier; East/West follow as separate lines)
+62	dublin.txt	Howth East Pier	resolved	53.3932179	-6.0665325	pier	OpenStreetMap East Pier (highway=service)
+63	dublin.txt	Howth West Pier	resolved	53.3917487	-6.0698710	pier	OpenStreetMap West Pier (highway=service)
+64	dublin.txt	Howth Yacht Club	resolved	53.3891299	-6.0678249	yacht_club	OpenStreetMap/Nominatim (club=yachting)
+65	dublin.txt	Howth Fishery Harbour	not_found			harbour	No OpenStreetMap/Nominatim feature for this fishery harbour name (commercial fishing basin west of yacht harbour)
+66	dublin.txt	Howth Cliff Walk shore	resolved	53.3719772	-6.0507372	path	OpenStreetMap Howth Cliff Path segment on coastal cliff line
+67	dublin.txt	Howth Head	ambiguous			headland	Large headland; no single representative POI (cliff path, Baily, and peaks cover different parts)
+68	dublin.txt	Howth Summit	resolved	53.3732112	-6.0834069	peak	OpenStreetMap Shielmartin Hill peak (usual summit walk on Howth)
+69	dublin.txt	Baily Lighthouse	resolved	53.3616270	-6.0524407	lighthouse	OpenStreetMap/Nominatim
+70	dublin.txt	Balscadden Bay	not_found			bay	No OpenStreetMap/Nominatim hit for this small cove name
+71	dublin.txt	Claremont Beach	resolved	53.3899286	-6.0747513	beach	OpenStreetMap/Nominatim
+72	dublin.txt	Ireland's Eye	resolved	53.4057034	-6.0642652	island	OpenStreetMap/Nominatim (place=islet/island)
+73	dublin.txt	Ireland's Eye shore	ambiguous			shore	Island shoreline; not one mapped POI
+74	dublin.txt	Bull Island	resolved	53.3740365	-6.1416448	island	OpenStreetMap North Bull Island administrative boundary (Bull Island)
+75	dublin.txt	North Bull Island	resolved	53.3740365	-6.1416448	island	OpenStreetMap/Nominatim (same admin centroid as Bull Island)
+76	dublin.txt	Dollymount	resolved	53.3674578	-6.1674246	locality	OpenStreetMap/Nominatim
+77	dublin.txt	Dollymount Strand	resolved	53.3669863	-6.1456874	beach	OpenStreetMap/Nominatim
+78	dublin.txt	Causeway Bull Island	resolved	53.3597200	-6.1801883	causeway	OpenStreetMap Wooden Bridge at Bull Island causeway (North Bull Wall approach)
+79	dublin.txt	Saint Anne's shore	ambiguous			shore	Saint Anne's Park fronts a long bay shore; no single shoreline POI
+80	dublin.txt	Clontarf	resolved	53.3608138	-6.1968538	suburb	OpenStreetMap/Nominatim
+81	dublin.txt	Clontarf Promenade	ambiguous			promenade	Linear seafront; no single Nominatim object for the promenade
+82	dublin.txt	Clontarf Baths	not_found			baths	No OpenStreetMap/Nominatim hit for restored baths name
+83	dublin.txt	High Rock Clontarf	not_found			coast	No OpenStreetMap/Nominatim hit for this local swimming rock name
+84	dublin.txt	East Wall shore	ambiguous			shore	East Wall is a neighbourhood; coastal edge not one POI
+85	dublin.txt	North Wall Quay shore	ambiguous			quay	Long quay frontage; mapped highway centroid not a specific shore point
+86	dublin.txt	Dublin Port	ambiguous			port	Large multi-basin port; motorway junction hits are not used—no single tide pin
+87	dublin.txt	Alexandra Basin	resolved	53.3471085	-6.2189877	dock	OpenStreetMap waterway=dock
+88	dublin.txt	River Liffey mouth	ambiguous			estuary	Estuary mouth spans Poolbeg–East Link; no single representative POI
+89	dublin.txt	East Link Bridge shore	resolved	53.3461540	-6.2273572	bridge	OpenStreetMap Tom Clarke Bridge (former East Link); bridge centroid
+90	dublin.txt	Poolbeg	ambiguous			locality	Applies to lighthouse, chimneys, and industrial front—no single default pin
+91	dublin.txt	Poolbeg Lighthouse	resolved	53.3421059	-6.1513684	lighthouse	OpenStreetMap/Nominatim (man_made=lighthouse)
+92	dublin.txt	Poolbeg Peninsula shore	ambiguous			shore	No single shoreline POI; Poolbeg peninsula is industrial wall frontage and Great South Wall
+93	dublin.txt	Great South Wall	resolved	53.3411518	-6.1638620	promenade	OpenStreetMap pedestrian way along the wall (long linear feature)
+94	dublin.txt	South Bull Wall	resolved	53.3411518	-6.1638620	promenade	Historic name for Dublin Great South Wall; same OpenStreetMap way as Great South Wall
+95	dublin.txt	Pigeon House	resolved	53.3404706	-6.1931674	harbour	OpenStreetMap landuse=harbour named Pigeon House Harbour
+96	dublin.txt	Irishtown shore	ambiguous			shore	Irishtown ED mapped inland; coastal edge not one POI
+97	dublin.txt	Sandymount	resolved	53.3318342	-6.2153462	locality	OpenStreetMap admin boundary locality (avoided DART station centroid for suburb tide context)
+98	dublin.txt	Sandymount Strand	resolved	53.3276519	-6.2080060	beach	OpenStreetMap natural=beach (southern strand segment; multiple beach polygons share the name)
+99	dublin.txt	Sandymount Beach	resolved	53.3276519	-6.2080060	beach	Mapped as Sandymount Strand in OpenStreetMap; same centroid as line 98 segment
+100	dublin.txt	Merrion	resolved	53.3176920	-6.2091839	suburb	OpenStreetMap/Nominatim (place=suburb)
+101	dublin.txt	Merrion Strand	resolved	53.3166435	-6.2042796	beach	OpenStreetMap natural=beach
+102	dublin.txt	Booterstown Nature Reserve shore	ambiguous			shore	Marsh/nature-reserve frontage not a single mapped shoreline POI
+103	dublin.txt	Booterstown Marsh shore	ambiguous			wetland	Two separate Booterstown Marsh wetland polygons along the coast
+104	dublin.txt	Blackrock	resolved	53.3018639	-6.1788342	town	OpenStreetMap/Nominatim (place=town)
+105	dublin.txt	Blackrock Park shore	ambiguous			shore	Blackrock Park seafront is linear; park centroid not a specific shore point
+106	dublin.txt	Williamstown	resolved	53.3048062	-6.1928213	administrative	OpenStreetMap admin boundary named Williamstown (Blackrock coastal district)
+107	dublin.txt	Seapoint	resolved	53.2991568	-6.1652076	railway	OpenStreetMap DART station on the coastal strip (no separate suburb node ahead of station)
+108	dublin.txt	Seapoint Beach	resolved	53.2977505	-6.1596072	bathing_place	OpenStreetMap leisure=bathing_place “Seapoint Bathing Place”
+109	dublin.txt	Seapoint Martello Tower	resolved	53.2978574	-6.1598486	tower	OpenStreetMap Martello Tower No.14 - Seapoint
+110	dublin.txt	Monkstown	resolved	53.2936454	-6.1539023	suburb	OpenStreetMap/Nominatim (place=suburb)
+111	dublin.txt	Monkstown Cove	not_found			cove	No OpenStreetMap/Nominatim hit for this cove name
+112	dublin.txt	Dún Laoghaire	resolved	53.2922794	-6.1360079	town	OpenStreetMap/Nominatim (place=town)
+113	dublin.txt	Dun Laoghaire	resolved	53.2922794	-6.1360079	town	Same OpenStreetMap town node as Dún Laoghaire (ASCII spelling in source list)
+114	dublin.txt	Dún Laoghaire Harbour	resolved	53.2985952	-6.1344689	harbour	OpenStreetMap landuse=harbour
+115	dublin.txt	Dún Laoghaire East Pier	resolved	53.2943576	-6.1285742	pier	OpenStreetMap man_made=pier “East Pier”
+116	dublin.txt	Dún Laoghaire West Pier	resolved	53.3019855	-6.1401797	pier	OpenStreetMap highway=service named West Pier
+117	dublin.txt	Carlisle Pier	resolved	53.2952985	-6.1301091	pier	OpenStreetMap man_made=pier
+118	dublin.txt	Coal Harbour	resolved	53.2968573	-6.1427688	quay	Mapped only as Coal Harbour Quay Parking amenity in OpenStreetMap/Nominatim
+119	dublin.txt	Scotsmans Bay	resolved	53.2923730	-6.1210060	bay	OpenStreetMap natural=bay Scotsman's Bay (source list omits apostrophe)
+120	dublin.txt	Sandycove	resolved	53.2859485	-6.1155829	suburb	OpenStreetMap/Nominatim (place=suburb)
+121	dublin.txt	Sandycove Beach	not_found			beach	No OpenStreetMap/Nominatim hit; shore uses generic Sandycove coast without a named beach POI
+122	dublin.txt	Sandycove Harbour	not_found			harbour	No distinct harbour feature tagged under this name (nearby mapped harbours are Bullock and Dún Laoghaire)
+123	dublin.txt	Forty Foot	resolved	53.2894860	-6.1136988	bathing_place	OpenStreetMap/Nominatim (Forty Foot, Sandycove Point)
+124	dublin.txt	James Joyce Tower	resolved	53.2886714	-6.1136084	attraction	OpenStreetMap/Nominatim (James Joyce Tower and Museum)
+125	dublin.txt	Bullock Harbour	resolved	53.2848787	-6.1070919	harbour	OpenStreetMap/Nominatim (Bullock Harbour)
+126	dublin.txt	Dalkey	resolved	53.2782812	-6.1074381	town	OpenStreetMap/Nominatim (town node)
+127	dublin.txt	Dalkey Island	resolved	53.2718718	-6.0841562	island	OpenStreetMap/Nominatim (Dalkey Island)
+128	dublin.txt	Coliemore Harbour	resolved	53.2751828	-6.0936187	harbour	OpenStreetMap/Nominatim (Coliemore Harbour)
+129	dublin.txt	Killiney	resolved	53.2642381	-6.1148407	town	OpenStreetMap/Nominatim (town node)
+130	dublin.txt	Killiney Beach	resolved	53.2581905	-6.1119219	beach	OpenStreetMap/Nominatim (Killiney Beach)
+131	dublin.txt	Killiney Bay	ambiguous			bay	Large open bay; no single representative coastal POI in OpenStreetMap/Nominatim
+132	dublin.txt	Killiney Hill shore	ambiguous			shore	Killiney Hill mapped as peak/park; sea-facing foot of the hill is a long frontage without one shoreline POI
+133	dublin.txt	Whiterock Beach	resolved	53.2700499	-6.0964104	beach	OpenStreetMap/Nominatim (Hawk Cliff/Whiterock Beach)
+134	dublin.txt	Vico Baths	resolved	53.2690297	-6.0978165	bathing_place	OpenStreetMap/Nominatim (Vico Baths / Hawk Cliff)
+135	dublin.txt	Tower Bay	ambiguous			bay	Local cove name not separately tagged in OpenStreetMap; likely Killiney–Dalkey coast near Whiterock/Vico without a single POI
+136	dublin.txt	Shankill	resolved	53.2302278	-6.1241807	town	OpenStreetMap/Nominatim (town node)
+137	dublin.txt	Shankill Beach	not_found			beach	No OpenStreetMap/Nominatim hit for a named Shankill beach
+138	dublin.txt	Dublin Bay	resolved	53.3343902	-6.1197318	bay	OpenStreetMap/Nominatim (natural=bay Dublin Bay)
+139	dublin.txt	Dublin Bay North	ambiguous			locality	OpenStreetMap returns multiple distinct places named Dublin Bay North (e.g. Portmarnock vs Dublin city areas)
+140	dublin.txt	Dublin Bay South	resolved	53.3232905	-6.2425230	locality	OpenStreetMap/Nominatim (admin area Dublin Bay South; used as tide-context pin)
+141	dublin.txt	Skerries Coast Guard shore	resolved	53.5848826	-6.1042011	coast_guard	OpenStreetMap/Nominatim (Skerries Coast Guard, Red Island); shore pinned to station frontage
+142	dublin.txt	Malahide Yacht Club shore	resolved	53.4557271	-6.1686840	yacht_club	OpenStreetMap/Nominatim (Malahide Yacht Club clubhouse, Sea Road; two MYC sites exist—this is the Sea Road one)
+143	dublin.txt	Royal Irish Yacht Club Dun Laoghaire	resolved	53.2961011	-6.1364391	yacht_club	OpenStreetMap/Nominatim (Royal Irish Yacht Club, Harbour Road)
+144	dublin.txt	National Yacht Club Dun Laoghaire	resolved	53.2933431	-6.1305368	yacht_club	OpenStreetMap/Nominatim (National Yacht Club, Queen's Road)
+145	dublin.txt	Dun Laoghaire pier	ambiguous			pier	List distinguishes East and West piers separately; generic pier request matches multiple harbour works
+146	dublin.txt	Sandycove bathing place	not_found			bathing_place	No OpenStreetMap/Nominatim leisure=bathing_place for Sandycove (Forty Foot is mapped separately)
+147	dublin.txt	Forty Foot bathing place	resolved	53.2894860	-6.1136988	bathing_place	Same mapped coastal bathing area as Forty Foot (OpenStreetMap/Nominatim); no separate object for “bathing place” wording
+148	dublin.txt	Poolbeg Yacht Club shore	resolved	53.3432691	-6.2164699	yacht_club	OpenStreetMap/Nominatim (Poolbeg Yacht & Boat Club, Pigeon House Road)
+149	dublin.txt	Clontarf Yacht Boat Club shore	resolved	53.3587751	-6.1919127	yacht_club	OpenStreetMap/Nominatim (Clontarf Yacht and Boat Club, Clontarf Road)
+150	dublin.txt	Malahide Strand	resolved	53.4486608	-6.1357785	beach	OpenStreetMap returns Malahide Beach for Malahide Strand (same coastal strand feature)
+151	dublin.txt	Portmarnock Golf Club shore	resolved	53.4081786	-6.1198956	golf_course	OpenStreetMap/Nominatim (Portmarnock Golf Club leisure=golf_course; coastal club for shore label)
+152	dublin.txt	Sutton Sailing Club shore	resolved	53.3762340	-6.1015095	club	No separate Sutton Sailing Club in OpenStreetMap/Nominatim; pinned to Sutton Dinghy Club on Sutton Strand (closest mapped club POI)
+153	dublin.txt	Rogerstown RSPB shore	resolved	53.5060000	-6.1340000	nature_reserve	NPWS Rogerstown Estuary Nature Reserve published centre; BirdWatch Ireland shore access; no RSPB-tagged POI in Nominatim
+154	dublin.txt	North Bull Wall foot	ambiguous			seawall	Landward vs seaward end of North Bull Wall both plausible for "foot"; OpenStreetMap maps the wall as a linear way without a unique foot POI
+155	dublin.txt	Great South Wall walk shore	resolved	53.3411518	-6.1638620	seawall	OpenStreetMap Great South Wall pedestrian seawall (Poolbeg walk context)
+156	dublin.txt	Merrion Gates shore	resolved	53.3163880	-6.2049530	level_crossing	Wikipedia/GeoHack coordinates for Merrion Gates level crossing (Strand Road); no level-crossing POI in first-page Nominatim results
+157	dublin.txt	Blackrock Baths ruin shore	resolved	53.3031642	-6.1785410	historic	OpenStreetMap/Nominatim Blackrock Baths (closed) ruins
+158	dublin.txt	Dun Laoghaire marina	resolved	53.2975647	-6.1368705	marina	OpenStreetMap/Nominatim
+159	dublin.txt	West Pier Dun Laoghaire	resolved	53.3019855	-6.1401797	pier	OpenStreetMap/Nominatim West Pier (harbour service alignment)
+160	dublin.txt	East Pier Dun Laoghaire	resolved	53.2943576	-6.1285742	pier	OpenStreetMap/Nominatim East Pier (man_made=pier)
+161	dublin.txt	Dalkey Sound shore	resolved	53.2740278	-6.0901223	strait	OpenStreetMap/Nominatim Dalkey Sound natural=strait
+162	dublin.txt	Killiney strand	resolved	53.2581905	-6.1119219	beach	OpenStreetMap/Nominatim Killiney Beach
+163	dublin.txt	Shankill coast	resolved	53.2017182	-6.3892724	locality	OpenStreetMap/Nominatim Shankill administrative locality (County Wicklow; on Dublin-region coastal list)

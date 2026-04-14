@@ -1,0 +1,154 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	hampshire.txt	Barton on Sea	resolved	50.7428	-1.6552	village	Cliff-top coastal settlement; GeoHack/Wikipedia centroid.
+2	hampshire.txt	Barton Cliff	resolved	50.748	-1.659	cliff	Chalk cliff coast N of Barton-on-Sea along shore.
+3	hampshire.txt	Hordle	resolved	50.7603	-1.6212	village	Parish/village centroid; GeoHack/Wikidata.
+4	hampshire.txt	Hordle Cliff	resolved	50.736	-1.625	cliff	Coastal cliff / former church site S of main village.
+5	hampshire.txt	Hordle Beach	resolved	50.728	-1.654	beach	Shingle foreshore W of Milford/Barton stretch.
+6	hampshire.txt	Milford on Sea	resolved	50.726	-1.589	village	Large coastal village; Wikipedia coords.
+7	hampshire.txt	Milford Beach	resolved	50.7238	-1.5865	beach	Promenade and shingle beach by village green.
+8	hampshire.txt	Keyhaven	resolved	50.72286	-1.569425	hamlet	Harbour hamlet at W end of Hurst Spit; Wikipedia.
+9	hampshire.txt	Keyhaven Beach	resolved	50.7215	-1.566	beach	Shingle/mudflat shore N of spit near harbour.
+10	hampshire.txt	Pennington Marsh	resolved	50.73292	-1.54302	marsh	Pennington Marshes seawall / Lower Pennington area.
+11	hampshire.txt	Hurst Spit	resolved	50.712	-1.556	shingle_spit	Representative mid-spit between Keyhaven and castle.
+12	hampshire.txt	Hurst Point	resolved	50.7053	-1.5512	headland	S tip of spit / lighthouse vicinity.
+13	hampshire.txt	Hurst Castle	resolved	50.706389	-1.551111	castle	Henrician fort on spit; Wikipedia coord.
+14	hampshire.txt	Oxey Marsh	resolved	50.739	-1.535	marsh	Saline marsh W of Lymington mouth; Oxey reserve.
+15	hampshire.txt	Oxey Lake	resolved	50.7384	-1.5321	lagoon	Brackish lagoon by Solent Way seawall (SZ331933 area).
+16	hampshire.txt	Saltgrass	resolved	50.7435	-1.5465	hamlet	Saltgrass Lane locality between Pennington and Oxey.
+17	hampshire.txt	New Milton	resolved	50.755	-1.648	town	New Forest coastal town; settlement centroid.
+18	hampshire.txt	Pilley	resolved	50.7415	-1.5975	hamlet	Boldre parish hamlet N of Lymington.
+19	hampshire.txt	Woodside Bay	resolved	50.7285	-1.5785	bay	Small Solent inlet W of Lymington shore.
+20	hampshire.txt	Lymington	resolved	50.753722	-1.547737	town	Port town on Lymington River; GeoHack centroid.
+21	hampshire.txt	Lymington River	resolved	50.7525	-1.536	river	Tidal lower reach toward town quays.
+22	hampshire.txt	Lymington Harbour	resolved	50.7553	-1.5285	harbour	River harbour / marina basins.
+23	hampshire.txt	Lymington Town Quay	resolved	50.75835	-1.528	quay	Wightlink ferry and Town Quay frontage.
+24	hampshire.txt	Pennington	resolved	50.746	-1.547	village	Lower Pennington by Lymington–Keyhaven marshes.
+25	hampshire.txt	Boldre	resolved	50.7552	-1.7583	village	Inland New Forest village S of Brockenhurst.
+26	hampshire.txt	Ampress	resolved	50.7535	-1.577	industrial	Ampress Park area N of Lymington.
+27	hampshire.txt	Walhampton	resolved	50.7348	-1.5548	hamlet	Solent-side hamlet W of Lymington.
+28	hampshire.txt	South Baddesley	resolved	50.7395	-1.7115	hamlet	Hamlet NW of Lymington near Sway.
+29	hampshire.txt	Sowley	resolved	50.7669	-1.4696	hamlet	Sowley Pond SSSI / dam area E of Lymington.
+30	hampshire.txt	Needs Ore Point	resolved	50.77717	-1.3934	headland	Shingle point Beaulieu Estate NR; Geograph/Wiki area.
+31	hampshire.txt	Tanners Lane Beach	resolved	50.7554	-1.486844	beach	Solent shingle/marsh access at lane end (Boldre/East End); public beach coords.
+32	hampshire.txt	Beaulieu	resolved	50.8225	-1.451	village	New Forest village; settlement centroid (Wikipedia/GeoHack class).
+33	hampshire.txt	Bucklers Hard	resolved	50.8209	-1.422	hamlet	Historic shipbuilding hamlet on Beaulieu River.
+34	hampshire.txt	Beaulieu River	resolved	50.808	-1.395	river	Representative lower tidal reach toward Solent (estuary context).
+35	hampshire.txt	Exbury	resolved	50.8059	-1.4006	village	Exbury & Lepe parish village centre.
+36	hampshire.txt	Lepe	resolved	50.785	-1.361	hamlet	Linear Solent hamlet; Wikipedia centroid.
+37	hampshire.txt	Lepe Beach	resolved	50.7835	-1.358	beach	Main foreshore in Lepe Country Park.
+38	hampshire.txt	Lepe Country Park	resolved	50.7835	-1.358	park	HCC country park / visitor focus (coastal strip).
+39	hampshire.txt	Stone Point	resolved	50.786	-1.357	headland	Lepe shingle headland; NCI/GeoHack class coords.
+40	hampshire.txt	Stanswood Bay	resolved	50.8021	-1.3273	bay	Solent bay W of Calshot Spit; Streetmap place centroid.
+41	hampshire.txt	Calshot	resolved	50.817	-1.308	hamlet	Spit foot / Calshot Activities Centre area.
+42	hampshire.txt	Calshot Spit	resolved	50.819	-1.301	shingle_spit	Seaward shingle ridge toward castle/Solent.
+43	hampshire.txt	Calshot Beach	resolved	50.8175	-1.3055	beach	Spit beach by activities centre and launch slip.
+44	hampshire.txt	Calshot Castle	resolved	50.819872	-1.307513	castle	Henrician fort on spit; English Heritage / Wikipedia coords.
+45	hampshire.txt	Ashlett Creek	resolved	50.825	-1.346	creek	Tidal creek N of Calshot; tide mill/Solent Way mouth locale.
+46	hampshire.txt	Fawley	resolved	50.8253	-1.3306	village	Fawley settlement centroid (parish/refinery coast context).
+47	hampshire.txt	Blackfield	resolved	50.822	-1.355	suburb	Fawley parish suburb toward Southampton Water shore.
+48	hampshire.txt	Holbury	resolved	50.8235	-1.369	village	Fawley parish village centre S of estuary.
+49	hampshire.txt	Hardley	resolved	50.83934	-1.38825	suburb	Holbury parish; OS Open Names centroid (marsh/Solent fringe).
+50	hampshire.txt	Hythe	resolved	50.869	-1.399	village	Hythe-on-Solent centre; coastal esplanade context.
+51	hampshire.txt	Marchwood	resolved	50.8908	-1.4544	village	Village at head of Southampton Water.
+52	hampshire.txt	Marchwood Military Port	resolved	50.8975	-1.452	military_port	MOD port/jetty complex W of Marchwood village.
+53	hampshire.txt	Eling	resolved	50.9167	-1.4858	village	Eling beside tidal mill reach (Barton River).
+54	hampshire.txt	Eling Wharf	resolved	50.9175	-1.487	wharf	Tide mill wharf/quay on mill pond outlet.
+55	hampshire.txt	Netley	resolved	50.868	-1.348	suburb	Netley settlement by shore (east of Hamble).
+56	hampshire.txt	Netley Abbey	resolved	50.8645	-1.3514	abbey_ruin	Medieval abbey ruins; English Heritage listing area.
+57	hampshire.txt	Netley Castle	resolved	50.8658	-1.3514	castle	Coastal castellated house (Netley Castle) shorefront.
+58	hampshire.txt	Royal Victoria Country Park	resolved	50.8642	-1.3455	park	Former Netley military hospital park; visitor hub.
+59	hampshire.txt	Hamble-le-Rice	resolved	50.869	-1.3248	village	River Hamble estuary village; Wikipedia class coords.
+60	hampshire.txt	Hamble	resolved	50.8702	-1.3253	village	Core Hamble village street area (same parish; distinct list line).
+61	hampshire.txt	Hamble River	resolved	50.8545	-1.318	river	Representative lower tidal reach between Hamble-le-Rice and Hamble Point marina.
+62	hampshire.txt	Hamble Point	resolved	50.8522	-1.3117	headland	Mouth of River Hamble / Hamble Point Marina area; marina published coords.
+63	hampshire.txt	Hamble Common	resolved	50.8558	-1.3165	common	Coastal SSSI/open ground S of Hamble Point toward the river mouth.
+64	hampshire.txt	Warsash	resolved	50.851	-1.303	village	Solent-side village at mouth of River Hamble; Fareham borough.
+65	hampshire.txt	Warsash Channel	resolved	50.8465	-1.292	channel	Approach channel / fairway off Warsash into the Solent (marine extent).
+66	hampshire.txt	Titchfield Haven	resolved	50.8239	-1.2394	nature_reserve	Titchfield Haven LNR/NNR centroid (Planning Data point); marshes near Hill Head.
+67	hampshire.txt	Hill Head	resolved	50.814	-1.213	village	Coastal village W of Lee-on-the-Solent; Fareham borough.
+68	hampshire.txt	Meon Shore	resolved	50.808	-1.203	beach	Solent foreshore strip between Hill Head and Lee-on-the-Solent (local beach name).
+69	hampshire.txt	Lee-on-the-Solent	resolved	50.803056	-1.201111	town	Seaside district (Gosport); Wikipedia {{coord}}.
+70	hampshire.txt	Lee on Solent	resolved	50.803056	-1.201111	town	Common alternate styling for Lee-on-the-Solent; same settlement as line 69.
+71	hampshire.txt	Lee-on-the-Solent Beach	resolved	50.7955	-1.198	beach	Shingle seafront along the town's Solent shore (W of centre).
+72	hampshire.txt	Browndown	resolved	50.8285	-1.158	coastal_range	Coastal military training / shingle shore W of Stokes Bay (local name).
+73	hampshire.txt	Stubbington	resolved	50.816	-1.214	village	Inland village N of Hill Head; OS settlement centroid.
+74	hampshire.txt	Fareham	resolved	50.8547	-1.1782	town	Borough centre; market town inland of Portsmouth Harbour.
+75	hampshire.txt	Fareham Creek	resolved	50.8505	-1.182	creek	Tidal inlet/creek on N side of Fareham beside the town centre.
+76	hampshire.txt	Portchester	resolved	50.842	-1.142	village	Historic village around Roman fort; Fareham borough.
+77	hampshire.txt	Portchester Castle	resolved	50.836675	-1.11522	castle	Roman fort & medieval castle; GeoHack / English Heritage listing coords.
+78	hampshire.txt	Dibden Bay	resolved	50.875	-1.335	bay	Mudflat/shallow bay on W shore of Southampton Water (Hythe/Dibden).
+79	hampshire.txt	Dibden Purlieu	resolved	50.8795	-1.384	village	Linear village on Southampton Water W shore; New Forest district.
+80	hampshire.txt	Tipner	resolved	50.8168	-1.0985	industrial	Tipner Lake / reclaimed land N of Portsmouth dockyard (harbour margin).
+81	hampshire.txt	Whale Island	resolved	50.8053	-1.099	island	Artificial island; HM Naval Base Portsmouth (harbour).
+82	hampshire.txt	Portsmouth	resolved	50.815	-1.0917	city	City centroid (Wikipedia class coords); coastal conurbation.
+83	hampshire.txt	Portsmouth Harbour	resolved	50.805	-1.108	harbour	Representative mid-harbour point (naval/commercial basins context).
+84	hampshire.txt	Portsmouth Historic Dockyard	resolved	50.8005	-1.1065	attraction	HMS Victory / museum cluster; visitor hub W of Gunwharf.
+85	hampshire.txt	Historic Dockyard Portsmouth	resolved	50.8005	-1.1065	attraction	Same visitor complex as line 84; alternate word order in list.
+86	hampshire.txt	Old Portsmouth	resolved	50.7932	-1.1078	quarter	Camber/Spice Island historic waterfront S of the naval base.
+87	hampshire.txt	Spice Island	resolved	50.7918	-1.1065	quay	Old Portsmouth harbour mouth pubs/quay (local name).
+88	hampshire.txt	Hot Walls	resolved	50.7912	-1.1055	promenade	Old Portsmouth sea-defence walk / bathing history site.
+89	hampshire.txt	Clarence Pier	resolved	50.786067	-1.101133	pier	Southsea amusement pier; GeoHack landmark coords.
+90	hampshire.txt	Clarence Esplanade	resolved	50.785	-1.1015	promenade	Seafront esplanade along Clarence Pier frontage.
+91	hampshire.txt	Gunwharf Quays	resolved	50.7949	-1.1058	retail	Outlet/Spinnaker cluster; Wikipedia/GeoHack landmark coords.
+92	hampshire.txt	Southsea	resolved	50.785	-1.07	area	Seaside resort quarter of Portsmouth; Wikipedia centroid.
+93	hampshire.txt	Southsea Beach	resolved	50.778	-1.085	beach	Shingle seafront W of Southsea Castle along Solent shore.
+94	hampshire.txt	Southsea Common	resolved	50.7795	-1.0745	common	Large seafront open space E of South Parade Pier.
+95	hampshire.txt	South Parade Pier	resolved	50.7783	-1.0761	pier	Pleasure pier; Wikipedia/GeoHack coords.
+96	hampshire.txt	Southsea Castle	resolved	50.77805	-1.08888	castle	Henry VIII fort; English Heritage visitor site coords.
+97	hampshire.txt	Eastney	resolved	50.79	-1.053	area	Eastern Southsea/Eastney neighbourhood on Portsea Island.
+98	hampshire.txt	Eastney Beach	resolved	50.7885	-1.047	beach	Shingle foreshore along Eastney frontage.
+99	hampshire.txt	Fort Cumberland	resolved	50.78889	-1.0325	fort	Palmerston fort guarding Langstone Harbour mouth; Wikipedia coords.
+100	hampshire.txt	Milton	resolved	50.801	-1.038	suburb	Milton ward area NE Portsea Island (Portsmouth).
+101	hampshire.txt	Milton Common	resolved	50.8075	-1.0325	nature reserve	Floodplain/wetland N of Milton Locks along Portsea Creek.
+102	hampshire.txt	Milton Locks	resolved	50.8008	-1.0356	locks	Canal harbour mouth / locks at N end of Portsea Creek.
+103	hampshire.txt	Gosport	resolved	50.7955	-1.1172	town	Gosport town centre; coastal borough opposite Portsmouth Harbour.
+104	hampshire.txt	Alverstoke	resolved	50.7865	-1.152	village	Historic parish/village W of central Gosport.
+105	hampshire.txt	Stokes Bay	resolved	50.78	-1.142	bay	Stokes Bay seafront and shingle beach along Gosport shore.
+106	hampshire.txt	Haslar	resolved	50.789	-1.121	marina	Haslar Peninsula; harbour/marina context S of Gosport centre.
+107	hampshire.txt	Hardway	resolved	50.802	-1.134	suburb	Waterfront neighbourhood N of Gosport along Portsmouth Harbour.
+108	hampshire.txt	Fort Gilkicker	resolved	50.7742	-1.1408	fort	Palmerston battery at Gilkicker Point E Stokes Bay; Wikipedia coords.
+109	hampshire.txt	Priddy's Hard	resolved	50.8085	-1.125	heritage	Former ordnance yard/museum area on Gosport waterfront.
+110	hampshire.txt	Peel Common	resolved	50.8235	-1.159	heath	Heathland/common N Gosport (Peel Common area).
+111	hampshire.txt	Rowner	resolved	50.8275	-1.158	suburb	N Gosport residential area near Peel Common.
+112	hampshire.txt	Farlington Marshes	resolved	50.845	-1.067	marsh	Coastal grazing marsh SSSI N of Portsea; Langstone margin.
+113	hampshire.txt	Langstone	resolved	50.8505	-1.0115	village	Langstone village N of Langstone Bridge (Havant district).
+114	hampshire.txt	Langstone Harbour	resolved	50.818	-1.018	harbour	Tidal ria between Portsea, Hayling and mainland; mid-basin point.
+115	hampshire.txt	Langstone Bridge	resolved	50.848	-1.0205	bridge	A3023 road bridge from Langstone to Hayling Island.
+116	hampshire.txt	North Hayling	resolved	50.842	-0.9815	area	N part of Hayling Island near bridge and creeks.
+117	hampshire.txt	Hayling Island	resolved	50.7878	-0.9639	island	Island centroid class coords (long island; Wikipedia-class reading).
+118	hampshire.txt	South Hayling	resolved	50.782	-0.969	area	S Hayling settlements and beach strip (Sinah/Eastoke direction).
+119	hampshire.txt	Hayling Ferry	ambiguous			ferry	Two foot-passenger slips: Eastney pontoon vs Ferry Point Hayling; very short crossing.
+120	hampshire.txt	Northney	resolved	50.825	-0.958	village	N Hayling village near Langstone Harbour creeks.
+121	hampshire.txt	Eastoke	resolved	50.796	-0.975	area	Eastoke MSOA / seafront ward; representative near PO11 Eastoke postcodes and beach.
+122	hampshire.txt	Mengham	resolved	50.78783	-0.97144	village	Largest S Hayling centre; Wikipedia {{coord}}.
+123	hampshire.txt	West Town	resolved	50.7918	-0.989	village	West Town shops/centre; Geograph centre-of-village photo coords.
+124	hampshire.txt	Sinah Common	resolved	50.784	-1.011	heath	SSSI centroid class coords (large common); Wikipedia infobox.
+125	hampshire.txt	Sandy Point	resolved	50.779	-0.94	headland	Sandy Point LNR / SE tip; GeoHack landmark coords.
+126	hampshire.txt	Tournerbury	resolved	50.7895	-0.983	woodland	Tourner Bury area E of Mengham; approximate centroid from island context.
+127	hampshire.txt	Ferry Point	resolved	50.7871	-0.9798	ferry_slip	Hayling side foot ferry (Langstone); RYA/HFSC published location near Beach Rd.
+128	hampshire.txt	Stoke	resolved	50.8157	-0.9772	village	Stoke on Hayling (A3023); Gazetteer of British Place Names coords.
+129	hampshire.txt	Chilling	resolved	50.832	-1.282	coastal_hamlet	Solent foreshore / Chilling–Solent Breezes strip (Fareham coast W of Stubbington).
+130	hampshire.txt	Emsworth	resolved	50.849	-0.938	town	GeoHack/Wikipedia class coords for settlement.
+131	hampshire.txt	Emsworth Quay	resolved	50.8475	-0.9365	quay	Town basin/quay frontage on Chichester Harbour arm.
+132	hampshire.txt	Emsworth Marina	resolved	50.8465	-0.935	marina	Yacht harbour basins S of town centre.
+133	hampshire.txt	Thorney Island	resolved	50.8169	-0.9208	island	RAF Thorney Island / Baker Barracks area; Wikipedia airfield coords.
+134	hampshire.txt	West Thorney	resolved	50.81587	-0.91041	village	St Nicholas church area E shore; Wikipedia {{coord}} (MOD island).
+135	hampshire.txt	Royal Clarence Yard	resolved	50.7994	-1.1383	historic_yard	Heritage Gateway grid SU6179400607 centroid class; Gosport waterfront.
+136	hampshire.txt	Hardway Beach	resolved	50.8148	-1.132	beach	Shingle/hard foreshore by Hardway Sailing Club pontoon head (eOceanic haven position).
+137	hampshire.txt	Catisfield	resolved	50.852	-1.222	suburb	Fareham edge; Wikipedia {{coord}}.
+138	hampshire.txt	Southampton	resolved	50.9069	-1.4044	city	Wikipedia/GeoHack class centroid.
+139	hampshire.txt	Southampton Water	resolved	50.88	-1.34	estuary	Representative mid-reach of the drowned valley (tide context).
+140	hampshire.txt	Ocean Village	resolved	50.895	-1.390	marina	Wikipedia {{coord}}; Itchen mouth marina.
+141	hampshire.txt	Town Quay	resolved	50.8968	-1.4055	ferry_terminal	Central Southampton ferry/quay cluster (Red Funnel area).
+142	hampshire.txt	Mayflower Park	resolved	50.8965	-1.406	park	Waterfront park W of Town Quay along Western Docks shore.
+143	hampshire.txt	Western Docks	resolved	50.901	-1.411	commercial_docks	Representative mid Western Docks / Dock Head commercial basins.
+144	hampshire.txt	Royal Pier	resolved	50.897	-1.404	pier	Historic pier site (structure removed); waterfront datum near Mayflower Park.
+145	hampshire.txt	Hythe Pier	resolved	50.87333	-1.30139	pier	Hythe (Southampton Water) ferry pier; Wikipedia {{coord}} (not Hythe-on-Solent).
+146	hampshire.txt	Hythe Marina Village	resolved	50.8685	-1.305	marina	Marina basins W of Hythe Pier along village waterfront.
+147	hampshire.txt	Woolston	resolved	50.8953	-1.375	suburb	East Southampton / Itchen east bank settlement centroid class.
+148	hampshire.txt	Weston Shore	resolved	50.9042	-1.3636	promenade	Itchen east bank public shore N of Woolston.
+149	hampshire.txt	Weston	resolved	50.8943	-1.3702	suburb	Weston ward area SW of Itchen bridge approaches.
+150	hampshire.txt	Weston Beach	resolved	50.896	-1.368	beach	Shingle foreshore along Weston–Woolston Itchen shore.
+151	hampshire.txt	Cadland Creek	resolved	50.8266	-1.3447	creek	Tidal inlet on Cadland Estate (Ashlett Creek / Victoria Quay area, Fawley); OS grid ~SU4603, Ashlett hamlet refs.
+152	hampshire.txt	Netley Shingle Beach	resolved	50.8703	-1.3523	beach	Shingle foreshore at Netley (SU4508); Geograph/Wikimedia photo coords near Royal Victoria Country Park shore.
+153	hampshire.txt	Solent Breezes	resolved	50.833	-1.2836	holiday_park	Solent Breezes Holiday Park, Hook Lane, Warsash (SO31 9HG); open postcode centroid; Solent shore site.

@@ -1,0 +1,218 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	kent.txt	Northfleet	resolved	51.4418	0.3296	town	Wikipedia/GeoHack centroid; Thames south bank W of Gravesend.
+2	kent.txt	Northfleet Hope	ambiguous			estuary_reach	Thames reach NW past Tilbury Ness; long tidal channel—no single map pin.
+3	kent.txt	Gravesend	resolved	51.4415	0.3685	town	GeoHack/Wikipedia town centroid; Thames south bank opposite Tilbury.
+4	kent.txt	Milton-next-Gravesend	resolved	51.4391	0.3855	parish	GeoHack coords at SS Peter & Paul church; historic parish core of Milton.
+5	kent.txt	Chalk	resolved	51.4583	0.4342	village	Chalk parish/village N of Gravesend toward Thames marshes (GENUKI/OS area).
+6	kent.txt	Shorne	resolved	51.418	0.4255	village	Village S of Gravesend near A2/Thames corridor.
+7	kent.txt	Higham	resolved	51.4154	0.4679	village	Higham on Hoo Peninsula W of Cliffe (distinct from Higham Ferrers etc.).
+8	kent.txt	Cliffe	resolved	51.4651	0.4966	village	Cliffe-at-Hoo village centre N of Thames marshes.
+9	kent.txt	Cliffe Woods	resolved	51.4725	0.5135	residential	Built-up area NE of Cliffe village toward Thames.
+10	kent.txt	Cooling	resolved	51.4543	0.5219	village	Cooling village N of Thames; Dickens Great Expectations setting.
+11	kent.txt	High Halstow	resolved	51.3738	0.6496	village	Village on Hoo Peninsula N of Medway marshes.
+12	kent.txt	Allhallows	resolved	51.4675	0.6384	village	Allhallows settlement W of Grain on north Hoo coast.
+13	kent.txt	Allhallows-on-Sea	resolved	51.472	0.645	beach	Coastal/beach strip E of Allhallows village toward Thames.
+14	kent.txt	Hoo St Werburgh	resolved	51.4187	0.5568	village	Principal Hoo village near Stoke Marshes / Medway edge.
+15	kent.txt	Hoo Peninsula	ambiguous			peninsula	Large N Kent peninsula; tide-relevant point not unique without a named settlement.
+16	kent.txt	Isle of Grain	resolved	51.4554	0.7156	village_parish	Eastern Hoo/Grain village centroid (Wikipedia); industrial coast also on S side.
+17	kent.txt	Grain Coastal Park	resolved	51.4565	0.7185	park	Coastal parkland on N Isle of Grain by Thames/Yantlet area (approx. visitor access).
+18	kent.txt	Port Victoria	resolved	51.4333	0.7032	historic_pier	Wikipedia/GeoHack pier-head site; former SER terminus (structures removed).
+19	kent.txt	Yantlet Creek	resolved	51.4706	0.671	creek	Wikipedia coord at London Stone / creek mouth on Grain (Thames limit marker).
+20	kent.txt	Thames Estuary North Kent	ambiguous			estuary	Broad regional label; spans multiple shores from North Kent eastward.
+21	kent.txt	Gillingham	resolved	51.3865	0.5494	town	Medway town on Medway estuary (ceremonial Kent).
+22	kent.txt	Gillingham Marina	resolved	51.3892	0.5555	marina	Marina basin on Gillingham Reach W of town centre.
+23	kent.txt	Chatham	resolved	51.3789	0.5218	town	Medway town; historic dockyard on Medway.
+24	kent.txt	Riverside Country Park	resolved	51.3903	0.5562	country_park	Medway park along Medway estuary E of Gillingham (visitor centre area).
+25	kent.txt	Medway Towns Seafront	ambiguous			seafront	Linear shared estuary frontage across Chatham/Gillingham/Rochester—no single centroid.
+26	kent.txt	River Medway Mouth	resolved	51.415	0.735	estuary_mouth	Approximate outer estuary where Medway meets Thames / East Swale near Sheerness.
+27	kent.txt	Sheerness	resolved	51.441	0.7605	town	Sheppey port town at Medway mouth.
+28	kent.txt	Sheerness Beach	resolved	51.4432	0.764	beach	Sand/shingle beach along N Sheerness seafront.
+29	kent.txt	Blue Town	resolved	51.4402	0.7598	hamlet	Historic dockworkers’ area W of Sheerness centre by dockyard wall.
+30	kent.txt	Minster	resolved	51.422	0.8122	village	Minster-in-Sheppey village on Isle of Sheppey (distinct from Minster Thanet).
+31	kent.txt	Minster Leas	resolved	51.4344	0.8001	beach	Sand/shingle front N of Minster; British Beaches midpoint / visitor beach access (ME12 area).
+32	kent.txt	Minster-on-Sea	resolved	51.4183	0.8095	parish	Civil parish / seaside settlement name for Minster; pin near abbey–Leas historic core (OS parish context).
+33	kent.txt	Queenborough	resolved	51.4331	0.745	town	Isle of Sheppey town W of Sheerness; Wikipedia/GeoHack-class centroid (51°25′59″N 0°44′42″E).
+34	kent.txt	Queenborough Lines	resolved	51.4327	0.7652	defensive_line	Scheduled monument centroid (Historic England / Ancient Monuments); long linear rampart—pin is midpoint, not a single “gate”.
+35	kent.txt	Leysdown-on-Sea	resolved	51.398	0.9212	village	East Sheppey resort village; findthatpostcode/Wikipedia-class coords.
+36	kent.txt	Leysdown Beach	resolved	51.4005	0.9185	beach	Main resort beach/foreshore E side of Leysdown (shingle front on Swale/N Sea).
+37	kent.txt	Shellness	resolved	51.3735	0.9503	hamlet	Eastern Sheppey coastal hamlet; GeoHack / findthatpostcode locality coords.
+38	kent.txt	Shell Ness	resolved	51.372	0.954	spit	Eastern shell spit/ness at Shellness; pin E of hamlet centre toward foreshore (distinct label from “Shellness”).
+39	kent.txt	Harty	resolved	51.3675	0.9085	hamlet	Harty / Isle of Harty settlement S/E Sheppey near Leysdown marshes (approx. village cluster).
+40	kent.txt	Elmley National Nature Reserve	resolved	51.3778	0.7839	nature_reserve	South Sheppey Swale-side reserve; Kingshill Farm visitor access (RSPB Tonbridge page lat/lon).
+41	kent.txt	Eastchurch	resolved	51.4175	0.8565	village	Central Sheppey village S of Leysdown; OS/Wikipedia grid-class centroid.
+42	kent.txt	Warden	resolved	51.3845	0.907	village	Warden-on-Sea settlement N of Leysdown (holiday-park/coastal cluster area).
+43	kent.txt	Warden Bay	resolved	51.402	0.906	bay	Northeast Sheppey bay at Warden Point / Warden Bay Road chalet coast (ME12 4LT area centroid class).
+44	kent.txt	Oare	resolved	51.3385	0.8885	village	Oare north of Faversham by Oare Marshes / Swale creek mouths.
+45	kent.txt	Faversham Creek	resolved	51.3335	0.891	creek	Tidal creek system N/W of Faversham opening toward Oare Marsh / Swale.
+46	kent.txt	Seasalter	resolved	51.348	1.024	village	Coastal village W of Whitstable along The Street/sea wall.
+47	kent.txt	Seasalter Beach	resolved	51.3495	1.026	beach	Shingle front along Seasalter sea defences W of Whitstable.
+48	kent.txt	Graveney	resolved	51.3605	0.963	hamlet	Graveney by Graveney Marshes / Thames–Swale edge (distinct inland “Graveney” names elsewhere).
+49	kent.txt	Whitstable	resolved	51.361	1.024	town	Whitstable town centre / harbour quarter class (N Kent coast).
+50	kent.txt	Whitstable Beach	resolved	51.3625	1.023	beach	Town seafront shingle between harbour and Tankerton direction.
+51	kent.txt	Whitstable West Beach	resolved	51.3575	1.018	beach	Western town frontage toward Seasalter (West Beach label on charts/guides).
+52	kent.txt	Whitstable Harbour	resolved	51.3575	1.024	harbour	Inner harbour / jetty cluster (tide-head of harbour arms).
+53	kent.txt	Tankerton	resolved	51.3637	1.0491	suburb	Eastern Whitstable/Tankerton built-up (latitude.to class).
+54	kent.txt	Tankerton Beach	resolved	51.3642	1.045	beach	Beach below Tankerton Slopes (Wikipedia coords neighbourhood).
+55	kent.txt	Tankerton Slopes	resolved	51.364	1.045	promenade	Grass slopes & huts above shingle; Wikipedia coord for “Tankerton Slopes”.
+56	kent.txt	Swalecliffe	resolved	51.366	1.058	village	Swalecliffe between Whitstable and Herne Bay (coastal settlement strip).
+57	kent.txt	Hampton	resolved	51.375	1.125	suburb	Hampton, Herne Bay W bay suburbs inland of sea wall (distinct from lost “Hampton-on-Sea”).
+58	kent.txt	Hampton Pier	resolved	51.371	1.098	pier	Hampton Pier Avenue / lost Hampton-on-Sea pier head area (Wikipedia Hampton-on-Sea class coords).
+59	kent.txt	Hampton Beach	resolved	51.3725	1.105	beach	Studd Hill / Hampton Bay shingle west of Herne Bay centre (coastal warden section context).
+60	kent.txt	Herne Bay	resolved	51.372	1.128	town	Herne Bay town seafront/centroid class on N Kent coast.
+61	kent.txt	Herne Bay Beach	resolved	51.3725	1.1288	beach	Shingle seafront W-E through town centre (tide line class).
+62	kent.txt	Herne Bay Central Beach	resolved	51.373	1.1282	beach	Central town frontage between pier and eastern huts/slopes.
+63	kent.txt	Herne Bay Pier	resolved	51.3726	1.1293	pier	Neptune/Herne Bay pier head on main sands (visitor access).
+64	kent.txt	Beltinge	resolved	51.3785	1.1335	suburb	Eastern Herne Bay suburb along sea wall toward Reculver.
+65	kent.txt	Bishopstone	resolved	51.382	1.113	hamlet	Bishopstone (Thanet, CT6) inland of Reculver marshes—not Deal Bishopstone.
+66	kent.txt	Bishopstone Glen	resolved	51.3832	1.1125	coastal_glen	SSSI wooded glen to shore S of Bishopstone hamlet.
+67	kent.txt	Reculver	resolved	51.3784	1.1956	village	Reculver village by Roman fort / twin towers coast.
+68	kent.txt	Reculver Beach	resolved	51.3778	1.1945	beach	Shingle beach below fort towers and sea wall.
+69	kent.txt	Reculver Towers	resolved	51.3784	1.1956	historic_fort	English Heritage Roman fort / medieval church towers pin.
+70	kent.txt	Hillborough	resolved	51.375	1.175	hamlet	Wikipedia/GeoHack class; Reculver parish hamlet W of towers.
+71	kent.txt	Minnis Bay	resolved	51.3765	1.301	beach	Birchington western bay shingle (popular swim beach).
+72	kent.txt	Grenham Bay	resolved	51.3772	1.294	bay	Small bay W of Birchington between Minnis and Epple.
+73	kent.txt	Birchington-on-Sea	resolved	51.3758	1.301	town	Birchington town centroid toward Minnis seafront.
+74	kent.txt	Epple Bay	resolved	51.3765	1.297	bay	Named bay E of Minnis toward Westgate (local beach guides).
+75	kent.txt	Westgate-on-Sea	resolved	51.381	1.3382	town	Westgate town centre class N Kent coast.
+76	kent.txt	St Mildred's Bay	resolved	51.3813	1.3365	bay	Westgate bay W of station; tidal sand/shingle.
+77	kent.txt	Westbrook Bay	resolved	51.3845	1.354	bay	Between Westgate and Margate (Westbrook promenade).
+78	kent.txt	Margate	resolved	51.3813	1.3859	town	Margate town / harbour quarter centroid.
+79	kent.txt	Margate Main Sands	resolved	51.3812	1.3865	beach	Principal town beach by harbour / clock tower front.
+80	kent.txt	Margate Beach	resolved	51.3813	1.386	beach	General Main Sands frontage (same stretch as row 79).
+81	kent.txt	The Bay Margate	resolved	51.3815	1.386	attraction	Seafront “The Bay” branding/venue on Main Sands strip.
+82	kent.txt	Cliftonville	resolved	51.3896	1.4015	suburb	Eastern Margate/Cliftonville built-up toward Walpole Bay.
+83	kent.txt	Cliftonville Bay	resolved	51.39	1.402	bay	Eastern Cliftonville shingle front (local bay name).
+84	kent.txt	Walpole Bay	resolved	51.3921	1.4098	beach	Tidal pool / lido seafront; OS visitor-class pin.
+85	kent.txt	Fulsam Rock	resolved	51.3928	1.3869	rock	Beach Guide / OS grid TR357714 class; rock by harbour arm area.
+86	kent.txt	Palm Bay	resolved	51.3938	1.4045	beach	Eastern Cliftonville/Palm Bay shingle cove.
+87	kent.txt	North Foreland	resolved	51.4297	1.445	headland	Chalk headland N of Broadstairs (Thanet).
+88	kent.txt	North Foreland Lighthouse	resolved	51.4303	1.4494	lighthouse	Trinity House lighthouse on North Foreland.
+89	kent.txt	Kingsgate	resolved	51.3729	1.4475	village	Broadstairs-area coastal village above Kingsgate Bay.
+90	kent.txt	Kingsgate Bay	resolved	51.3698	1.4495	bay	Sandy cove below North Foreland W side (Botany Bay neighbour).
+91	kent.txt	Joss Bay	resolved	51.3794	1.4464	beach	British Beaches/OS TR399701 class; sandy cove N Broadstairs.
+92	kent.txt	Nab Bay	not_found			unknown	No widely used coastal feature name between Joss Bay and Botany Bay on standard Thanet bay lists; could not verify a distinct map pin.
+93	kent.txt	Botany Bay	resolved	51.38889	1.43472	bay	Wikipedia/GeoHack waterbody coords; chalk bay N Broadstairs.
+94	kent.txt	Broadstairs	resolved	51.35888	1.43944	town	Wikipedia town infobox; Stella Maris resort between Margate and Ramsgate.
+95	kent.txt	Louisa Bay	resolved	51.3537	1.4394	beach	UK Beach Guide OS TR39806745 area; small bay S of Viking Bay on Broadstairs frontage.
+96	kent.txt	Stone Bay	resolved	51.3654	1.4453	beach	Beaches On The Air listing; N of Viking Bay under chalk cliffs.
+97	kent.txt	Viking Bay	resolved	51.3589	1.4398	beach	Main town beach/horseshoe bay; pin at seaward centre near pavilion frontage.
+98	kent.txt	Harbour Strand Broadstairs	resolved	51.3578	1.4425	promenade	Harbour Street / strand by Broadstairs harbour mouth (coastal frontage).
+99	kent.txt	Dumpton Gap	resolved	51.34858	1.43929	beach	BeachAtlas class coords; sandy gap S Broadstairs toward Ramsgate promenade.
+100	kent.txt	East Cliff Broadstairs	resolved	51.3562	1.4435	cliff	Chalk cliff / built-up East Cliff zone E of harbour (coastal reading).
+101	kent.txt	Broadstairs Seafront	resolved	51.3589	1.44	seafront	General seafront pin near main bays/harbour (long frontage).
+102	kent.txt	Ramsgate	resolved	51.336	1.416	town	Wikipedia town infobox; Thanet harbour town.
+103	kent.txt	Ramsgate Main Sands	resolved	51.332372	1.4237038	beach	BeachAtlas class; sandy beach E of Royal Harbour.
+104	kent.txt	Ramsgate Beach	resolved	51.3323	1.4237	beach	Generic beach label; pinned with Main Sands frontage.
+105	kent.txt	Ramsgate Harbour	resolved	51.3295	1.4195	harbour	Royal Harbour / marina basin centroid reading from map context.
+106	kent.txt	Ramsgate Royal Harbour	resolved	51.3298	1.4198	harbour	Same Royal Harbour complex; ceremonial 'Royal' harbour frontage.
+107	kent.txt	Western Undercliff Ramsgate	resolved	51.3355	1.412	promenade	West Cliff undercliff walk toward Dumpton / west seafront.
+108	kent.txt	Pegwell Bay	resolved	51.3	1.383	bay	Wikipedia coarse waterbody centroid; mudflats/saltmarsh at Stour mouth.
+109	kent.txt	Pegwell Country Park	resolved	51.312	1.368	country_park	KCC Pegwell Bay Country Park access land above reserve (visitor access hub).
+110	kent.txt	Sandwich Bay	resolved	51.30571	1.37591	bay	Wikipedia/GeoHack; long inlet between Thanet and Deal (SSSI frontage).
+111	kent.txt	Sandwich	resolved	51.27472	1.33888	town	Wikipedia town infobox; Cinque Port on Stour (inland of Sandwich Bay).
+112	kent.txt	Great Stonar	resolved	51.28959	1.3459	locality	OS Open Names centroid; industrial/retail N of Sandwich at Stonar neck.
+113	kent.txt	Stonar Cut	resolved	51.3012	1.3454	channel	Geograph TR333611 western cut/sluice; artificial Stour bypass to sea.
+114	kent.txt	Prince's Golf	resolved	51.2911	1.3729	golf_course	Wikipedia infobox; Prince's Golf Club links on Sandwich Bay dunes.
+115	kent.txt	Ebbsfleet	resolved	51.315	1.35	hamlet	Wikipedia Ebbsfleet Thanet infobox; Pegwell/Stour head hamlet.
+116	kent.txt	Cliffsend	resolved	51.32897	1.36591	village	Wikipedia parish infobox; Pegwell cliff-top village W of Ramsgate.
+117	kent.txt	Deal	resolved	51.2226	1.4006	town	Wikipedia town infobox; Downs coast NE Kent.
+118	kent.txt	Deal Beach	resolved	51.2225	1.404	beach	Town shingle beach along The Leas / seafront (Deal front).
+119	kent.txt	Deal Pier	resolved	51.22375	1.4071	pier	Wikipedia Deal Pier coords; seaward leisure pier head area.
+120	kent.txt	Deal Castle	resolved	51.21943	1.40356	castle	Wikipedia English Heritage device fort on beachfront.
+121	kent.txt	Deal Seafront	resolved	51.2227	1.4045	seafront	Deal/The Leas shingle frontage class pin between pier and Walmer direction.
+122	kent.txt	Walmer	resolved	51.2043	1.3985	town	Wikipedia/GeoHack parish-town centroid; coastal Cinque Port limb.
+123	kent.txt	Walmer Beach	resolved	51.206	1.393	beach	Shingle beach seaward of built-up Walmer toward Sandwich Bay.
+124	kent.txt	Walmer Castle	resolved	51.200992	1.402308	castle	Wikipedia/GeoHack English Heritage Device Fort (Lord Warden residence).
+125	kent.txt	Walmer Seafront	resolved	51.205	1.396	seafront	General sea wall/Leas frontage W of castle toward Deal.
+126	kent.txt	Kingsdown	resolved	51.1862	1.3954	village	Wikipedia Kingsdown Dover infobox; Channel coast S of Deal.
+127	kent.txt	Kingsdown Beach	resolved	51.152	1.388	beach	Shingle foreshore at St Margaret's Bay / Kingsdown reach (beach guide class).
+128	kent.txt	St Margaret's Bay	resolved	51.1517	1.3857	bay	Find that Postcode locality centroid; bay below cliffs N of South Foreland.
+129	kent.txt	St Margaret's at Cliffe	resolved	51.15333	1.37222	village	Wikipedia parish centroid; inland of bay on coastal road.
+130	kent.txt	Abbot's Cliff	resolved	51.1006	1.256	cliff	Geograph TR2838 subject area; chalk cliff/foreshore W of Samphire Hoe (sound-mirror cliff top nearby).
+131	kent.txt	Capel-le-Ferne	resolved	51.1037	1.2016	village	Wikipedia village on clifftop above Channel; Battle of Britain Memorial locality.
+132	kent.txt	Shakespeare Beach	resolved	51.11404	1.31309	beach	Finstrokes/PADI dive listings; shingle beach W of harbour by Shakespeare Cliff.
+133	kent.txt	Samphire Hoe	resolved	51.1056	1.275	country_park	Wikipedia Samphire Hoe infobox; reclaimed foreshore below White Cliffs.
+134	kent.txt	Samphire Hoe Country Park	resolved	51.1056	1.275	country_park	Same managed site as Samphire Hoe; Wikipedia uses country-park naming.
+135	kent.txt	Dover	resolved	51.1295	1.3089	town	Wikipedia Dover town infobox; major ferry port.
+136	kent.txt	Dover Harbour	resolved	51.1255	1.318	harbour	Approx. enclosed harbour/inner docks centroid (Port of Dover complex).
+137	kent.txt	Dover Eastern Docks	resolved	51.1215	1.332	docks	Eastern ferry berths/Dover Eastern Docks area seaward of A20 cliff route.
+138	kent.txt	Dover Western Docks	resolved	51.1195	1.305	docks	Western cruise/freight basin toward Shakespeare Beach / marina quarter.
+139	kent.txt	Dover Seafront	resolved	51.124	1.315	seafront	Marine Parade / town beach sea-wall frontage class pin.
+140	kent.txt	Dover Beach	resolved	51.123	1.312	beach	Town shingle beach along Esplanade E of harbour mouth.
+141	kent.txt	White Cliffs Dover	ambiguous			cliff_line	Iconic escarpment spans many km; no single tide pin—Langdon–South Foreland sector all plausible.
+142	kent.txt	Folkestone	resolved	51.07917	1.17944	town	Wikipedia Folkestone infobox; coastal town in Folkestone & Hythe.
+143	kent.txt	Folkestone Harbour	resolved	51.078	1.188	harbour	Inner Victorian harbour basin / rail station quarter by harbour arm.
+144	kent.txt	Folkestone Seafront	resolved	51.0795	1.175	seafront	Lower Leas / town frontage toward Sunny Sands (general seafront reading).
+145	kent.txt	Folkestone Outer Harbour	resolved	51.0715	1.196	breakwater	Seaward end of outer harbour arm / wave-screen (approx. harbour mouth).
+146	kent.txt	Sunny Sands	resolved	51.0796	1.168	beach	Sandy town beach at Folkestone harbour mouth (visitor beach guides).
+147	kent.txt	The Warren	resolved	51.0941	1.2084	nature_reserve	Natural England Folkestone Warren LNR boundary point class; coastal landslip/warren.
+148	kent.txt	Sandgate	resolved	51.073	1.153	village	Wikipedia Sandgate Kent infobox; coastal village W of Folkestone.
+149	kent.txt	Sandgate Beach	resolved	51.074	1.154	beach	Shingle front along Sandgate High Street sea wall.
+150	kent.txt	Sandgate Seafront	resolved	51.0735	1.1535	seafront	Continuous promenade frontage through Sandgate toward Seabrook.
+151	kent.txt	Hythe	resolved	51.0716	1.084	town	Wikipedia Hythe Kent infobox; market town on north Romney Marsh coast.
+152	kent.txt	Hythe Beach	resolved	51.0725	1.079	beach	Marine Parade / town beach shingle front (seaward of High Street).
+153	kent.txt	Hythe Seafront	resolved	51.072	1.0805	seafront	General sea-wall promenade reading along Hythe frontage toward Seabrook.
+154	kent.txt	Dymchurch	resolved	51.027	1	village	Wikipedia Dymchurch infobox; village on A259 marsh coast.
+155	kent.txt	Dymchurch Beach	resolved	51.026	0.9985	beach	Shingle beach along village sea wall (GeoHack class near parish centroid).
+156	kent.txt	Dymchurch Redoubt	resolved	51.04889	1.03639	fort	Wikipedia coord; Napoleonic circular redoubt on coast by Hythe Ranges (Palmarsh).
+157	kent.txt	St Mary's Bay	resolved	51.0105	0.9771	village	Wikipedia St Mary's Bay Kent infobox; coastal village between Dymchurch and Littlestone.
+158	kent.txt	St Mary's Bay Beach	resolved	51.0112	0.978	beach	Long sandy/shingle bay beach along A259 frontage (visitor beach sector).
+159	kent.txt	Greatstone-on-Sea	resolved	50.97	0.964	village	Wikipedia Greatstone-on-Sea coord; coastal village E of New Romney.
+160	kent.txt	Greatstone Beach	resolved	50.9644	0.9594	beach	Main shingle beach front (findthatpostcode locality centroid class pin).
+161	kent.txt	Littlestone-on-Sea	resolved	50.98075	0.96415	village	Wikipedia Littlestone-on-Sea infobox; lifeboat-station hamlet E of New Romney.
+162	kent.txt	Littlestone Beach	resolved	50.9811	0.965	beach	Shingle front by lifeboat station / golf links coast (OS Open Names class).
+163	kent.txt	Romney Marsh Coast	ambiguous			coastline	Generic label for a very wide low-lying marsh coast; no single map pin.
+164	kent.txt	Lydd-on-Sea	resolved	50.92928	0.97401	village	OS Open Names centroid (getthedata); coastal strip S of Lydd toward Dungeness.
+165	kent.txt	Dungeness	resolved	50.916667	0.966667	headland	Wikipedia Dungeness headland infobox; shingle foreland / hamlet area.
+166	kent.txt	Dungeness Beach	resolved	50.914	0.976	beach	Shingle beach sector by lighthouse / public foreshore (class pin).
+167	kent.txt	Dungeness Point	resolved	50.91347	0.976	headland	Seaward shingle tip / lighthouse locality (Wikipedia lighthouse coords).
+168	kent.txt	Denge Beach	resolved	50.91225	0.94285	beach	Wikidata beach coord; shingle sector W of Dungeness on Denge Marsh front.
+169	kent.txt	Dungeness National Nature Reserve	resolved	50.9167	0.9667	nature_reserve	NNR spans broad shingle mosaic; class pin at Wikipedia/RSPB headland-scale coord.
+170	kent.txt	New Romney Beach	resolved	50.986	0.942	beach	Town is inland; pin at nearest main sandy channel front toward Pegwell/Littlestone (beach-guide class).
+171	kent.txt	RHDR Coast	ambiguous			railway_corridor	Romney Hythe & Dymchurch Railway parallels coast ~22 km; no single tide point.
+172	kent.txt	Abbot's Cliff Beach	resolved	51.099	1.255	beach	Shingle foreshore below Abbot's Cliff E of Samphire Hoe (paired with cliff row).
+173	kent.txt	Dover Harbour Beach	resolved	51.122	1.316	beach	Shingle pocket along inner harbour / Esplanade sector (harbour-adjacent beach).
+174	kent.txt	Folkestone Warren	resolved	51.0941	1.2084	nature_reserve	Same Folkestone Warren landslip SSSI as “The Warren” row; coastal LNR reading.
+175	kent.txt	Hythe Canal Sea Wall	resolved	51.072	1.1221	sea_defence	Royal Military Canal Path Seabrook terminus by coast (Wikipedia path coord).
+176	kent.txt	Kingsgate Castle	resolved	51.3832	1.4433	historic_building	Historic England listing / British Listed Buildings coord; Kingsgate above Kingsgate Bay.
+177	kent.txt	Margate Harbour Arm	resolved	51.3908	1.37808	pier	Wikipedia Margate Lighthouse coord; end of stone harbour arm.
+178	kent.txt	Ramsgate East Cliff	resolved	51.3374	1.4312	beach	East Cliff promenade / main sands sector (beach-guide class coord).
+179	kent.txt	Sandwich Flats	resolved	51.30571	1.37591	intertidal_flat	Wikipedia Sandwich Bay Kent coord; tidal sand flats of Sandwich Bay.
+180	kent.txt	Sheppey Coast Path	ambiguous			trail	Long-distance Isle of Sheppey coast circuit; tide use depends on segment.
+181	kent.txt	Thanet Coast	ambiguous			coastline	Thanet shoreline spans many bays; no single centroid for whole district coast.
+182	kent.txt	Viking Bay Broadstairs	resolved	51.3577	1.4429	beach	Beaches On The Air / OS TR398676 class pin; main Broadstairs bay.
+183	kent.txt	West Bay Broadstairs	resolved	51.3831	1.3311	beach	Thanet West Bay is at Westgate-on-Sea (UK Beach Guide TR3202 7019 midpoint); grouped with Broadstairs bays in promos.
+184	kent.txt	Whitstable Street	resolved	51.3605	1.0245	street	Harbour/High Street quarter by the working harbour (oyster town frontage).
+185	kent.txt	Barton's Point	resolved	51.4379	0.7850	coastal_park	Wikipedia Barton's Point Coastal Park infobox; N Sheppey between Minster and Sheerness.
+186	kent.txt	Garrison Point Sheerness	resolved	51.4469	0.7444	fort_peninsula	Wikipedia Garrison Point Fort; Medway meets Thames at Sheerness docks.
+187	kent.txt	Sheerness Promenade	resolved	51.4422	0.7640	seafront	Marine Parade / central seafront walk (paired with Sheerness Beach row).
+188	kent.txt	Sheerness Dockyard Seafront	resolved	51.4405	0.7495	seafront	Dockyard perimeter frontage on Medway (W of main town beach sector).
+189	kent.txt	Copt Point	resolved	51.0852	1.1988	headland	Geograph TR2436 cluster / NCI Folkestone Wear Bay Road lookout sector.
+190	kent.txt	Sandown Castle	resolved	51.2384	1.4022	historic_fort	Wikipedia scheduled monument coord; Henrician ruins N of Deal on Downs coast.
+191	kent.txt	Lydd-on-Sea Beach	resolved	50.9293	0.9740	beach	Shingle beach strip continuing Lydd-on-Sea (aligned with Lydd-on-Sea/Dungeness frontage).
+192	kent.txt	Dungeness Lighthouse	resolved	50.9119	0.9755	lighthouse	Operational Trinity House lighthouse at shingle foreland tip (Wikipedia coord).
+193	kent.txt	Dungeness Old Lighthouse	resolved	50.9147	0.9767	lighthouse	Decommissioned tall lighthouse/museum; slightly NE along shingle (Wikipedia DMS).
+194	kent.txt	Folkestone Leas	resolved	51.0800	1.1450	clifftop	Folkestone Leas SSSI chalk grassland / cliff-top west of town centre.
+195	kent.txt	Folkestone Lower Leas	resolved	51.0785	1.1525	seafront	Lower Leas promenade sector toward eastern Sandgate (continuous frontage).
+196	kent.txt	Lower Leas Coastal Park	resolved	51.0778	1.1545	park	Folkestone coastal park and zig-zag path sector by the Leas.
+197	kent.txt	Sandgate Esplanade	resolved	51.0735	1.1550	promenade	Sandgate High Street sea-wall esplanade (paired with Sandgate Seafront rows).
+198	kent.txt	Hythe Imperial Beach	resolved	51.0680	1.0930	beach	Shingle beach below Hythe Imperial on Princes Parade (Geograph/Wikimedia class).
+199	kent.txt	Westbrook	resolved	51.3775	1.3440	suburb	Westbrook W of Margate; pin toward Marine Drive/coastal strip.
+200	kent.txt	Dover Marina	resolved	51.1160	1.3140	marina	Wellington Dock / inner marina basins (visitor marina sector).
+201	kent.txt	Langdon Cliffs	resolved	51.1255	1.3390	cliffs	Langdon cliff sector above Samphire Hoe / foreshore (White Cliffs Country).
+202	kent.txt	Fan Bay	resolved	51.1275	1.3310	bay	Fan Bay chalk cove sector below NT cliff paths E of Langdon.
+203	kent.txt	South Foreland	resolved	51.1370	1.3255	headland	Chalk headland E of Dover toward Strait (geographic feature centroid).
+204	kent.txt	South Foreland Lighthouse	resolved	51.1389	1.3244	lighthouse	National Trust South Foreland Lighthouse published site coord.
+205	kent.txt	St Margaret's Bay Beach	resolved	51.1555	1.3950	beach	St Margaret's Bay sandy/shingle beach at cliff-foot (village coast).
+206	kent.txt	Aycliffe Dover	resolved	51.1250	1.2920	residential	W Dover Aycliff area; pin toward valley neighbourhood near A20 (inland of harbour).
+207	kent.txt	Gravesend Promenade	resolved	51.4415	0.3690	promenade	Thames south-bank parade / Gordon Gardens sector opposite Tilbury.
+208	kent.txt	Medway Estuary	ambiguous			estuary	Large tidal Medway system from upper reaches to Sheerness; no single tide point.
+209	kent.txt	Swale Estuary	ambiguous			estuary	Tidal strait between Sheppey and mainland; long multi-sector waterway.
+210	kent.txt	Isle of Sheppey Coast	ambiguous			coastline	Full island perimeter; use named beach/harbour for a precise pin.
+211	kent.txt	Thanet Sands	resolved	51.3794	1.2793	coastal_belt	Treated as Thanet's intertidal sand/shingle coast belt; pin at Thanet Coast SSSI / Wikipedia GeoHack centroid (Whitstable-Ramsgate frontage).
+212	kent.txt	Deal Walmer Bay	resolved	51.2230	1.4035	bay	Open bay between Deal and Walmer shingle frontages; pin mid-bay off beach sector (Deal–Walmer fishing-venue midpoint class).
+213	kent.txt	Broadstairs Harbour	resolved	51.3592	1.4451	harbour	Viking Bay fishing harbour / short pier; Geograph TR39946787 camera-subject WGS84.
+214	kent.txt	Ramsgate Harbour Arm	resolved	51.3295	1.4220	breakwater	Royal Harbour east breakwater / harbour-arm seaward sector (approx. outer pier-head class; west arm has listed lighthouse coords).
+215	kent.txt	Margate Harbour	resolved	51.3914	1.3797	harbour	PLA historical tide-gauge position “Margate Harbour” (Scientific Data table); drying harbour behind stone breakwater.
+216	kent.txt	Whitstable Oyster Beds	resolved	51.3600	1.0158	intertidal_fishery	Native-rock-oyster trestle/bed belt N of town; Geograph Oyster beds at Whitstable TR10066664 WGS84 class.
+217	kent.txt	Seasalter Hamlet	resolved	51.3456	0.9981	hamlet	List label matches Seasalter village core (historic hamlet sense); Wikipedia/infobox coord for Seasalter.

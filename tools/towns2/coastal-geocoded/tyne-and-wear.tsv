@@ -1,0 +1,127 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	tyne-and-wear.txt	Whitley Bay	resolved	55.0422091	-1.4454353	town	OpenStreetMap/Nominatim (town place)
+2	tyne-and-wear.txt	Monkseaton	resolved	55.0411812	-1.4637275	suburb	OpenStreetMap/Nominatim
+3	tyne-and-wear.txt	Spanish City	resolved	55.0476220	-1.4475989	attraction	Historic seafront complex; OSM building/retail footprint
+4	tyne-and-wear.txt	Whitley Bay Promenade	resolved	55.0458000	-1.4452000	promenade	Judged central seafront strip between town centre and Spanish City
+5	tyne-and-wear.txt	Briar Dene	resolved	55.0575550	-1.4551850	dene	Coastal dene/pub locale; WGS84 from Geograph subject tags (NZ3473); no direct OSM name hit
+6	tyne-and-wear.txt	St Mary's Island	resolved	55.0644490	-1.4583595	island	OSM tourism=information (visitor context on causeway island)
+7	tyne-and-wear.txt	St Mary's Lighthouse	resolved	55.0716819	-1.4494326	lighthouse	OpenStreetMap/Nominatim (St. Marys Lighthouse)
+8	tyne-and-wear.txt	Cullercoats	resolved	55.0352433	-1.4341253	suburb	OpenStreetMap/Nominatim
+9	tyne-and-wear.txt	Cullercoats Bay	resolved	55.0344035	-1.4312323	bay	OpenStreetMap/Nominatim (natural bay)
+10	tyne-and-wear.txt	Cullercoats Beach	resolved	55.0350000	-1.4328000	beach	Shore of Cullercoats Bay; judged coastal access (no beach polygon in Nominatim)
+11	tyne-and-wear.txt	Brown's Bay	resolved	55.0393006	-1.4300951	bay	OpenStreetMap/Nominatim
+12	tyne-and-wear.txt	King Edward's Bay	resolved	55.0195178	-1.4199010	beach	OpenStreetMap/Nominatim
+13	tyne-and-wear.txt	King Edwards Bay	resolved	55.0194556	-1.4191826	bay	OpenStreetMap/Nominatim (alternate apostrophe styling in OSM)
+14	tyne-and-wear.txt	Tynemouth	resolved	55.0177847	-1.4256042	town	OpenStreetMap/Nominatim
+15	tyne-and-wear.txt	Tynemouth Priory and Castle	resolved	55.0178826	-1.4177915	castle	OpenStreetMap/Nominatim (historic castle)
+16	tyne-and-wear.txt	Prior's Haven	resolved	55.0168190	-1.4158010	harbour	Wikimedia Commons / map reading for Prior's Haven inlet (Tynemouth)
+17	tyne-and-wear.txt	Priors Haven	resolved	55.0168190	-1.4158010	harbour	Same coastal inlet; alternate apostrophe in source list
+18	tyne-and-wear.txt	Sharpness Point	resolved	55.0228105	-1.4201147	headland	OpenStreetMap/Nominatim (natural cape)
+19	tyne-and-wear.txt	Longsands	resolved	55.0277890	-1.4276033	beach	OpenStreetMap/Nominatim
+20	tyne-and-wear.txt	Longsands Beach	resolved	55.0277890	-1.4276033	beach	Same OSM beach feature as Longsands
+21	tyne-and-wear.txt	Long Sands	resolved	55.0277890	-1.4276033	beach	Local name for Tynemouth Longsands; same OSM feature
+22	tyne-and-wear.txt	Long Sands North	resolved	55.0302500	-1.4264500	beach	North end of Longsands (judged along-shore)
+23	tyne-and-wear.txt	Long Sands South	resolved	55.0253500	-1.4289500	beach	South end of Longsands (judged along-shore)
+24	tyne-and-wear.txt	Tynemouth Long Sands North	resolved	55.0302500	-1.4264500	beach	Same north section as Long Sands North; alternate wording
+25	tyne-and-wear.txt	Tynemouth Long Sands South	resolved	55.0253500	-1.4289500	beach	Same south section as Long Sands South; alternate wording
+26	tyne-and-wear.txt	North Shields	resolved	55.0087655	-1.4471035	town	OpenStreetMap/Nominatim
+27	tyne-and-wear.txt	North Shields Fish Quay	resolved	55.0102500	-1.4328500	harbour	Judged Tyne quayside (Nominatim top hit was a bus stop)
+28	tyne-and-wear.txt	Fish Quay	resolved	55.0102000	-1.4335000	harbour	North Shields fish quay frontage (Nominatim street hit weak; map-centred)
+29	tyne-and-wear.txt	Clifford's Fort	resolved	55.0107540	-1.4321782	historic	OSM information board at Clifford's Fort (scheduled fort/moat complex)
+30	tyne-and-wear.txt	Low Lights	resolved	55.0112189	-1.4321781	historic	OSM parking node at foot of Low Lights leading lights; feature pinned to documented light site
+31	tyne-and-wear.txt	High Lights	resolved	55.0086300	-1.4377930	historic	Fish Quay New High Light (paired leading light with Low Light); WGS84 from published light listing
+32	tyne-and-wear.txt	Smith's Dock	resolved	55.0028362	-1.4466307	dock	OpenStreetMap/Nominatim (The Plateau, Smith's Dock)
+33	tyne-and-wear.txt	Royal Quays Marina	resolved	54.9968522	-1.4522115	marina	OpenStreetMap/Nominatim (Royal Quays Marina Boatyard)
+34	tyne-and-wear.txt	Royal Quays	resolved	54.9963845	-1.4648611	retail	OpenStreetMap/Nominatim (Royal Quays Outlet Centre node; wider quays/marina quarter)
+35	tyne-and-wear.txt	Albert Edward Dock	resolved	54.9959425	-1.4525395	dock	OpenStreetMap/Nominatim
+36	tyne-and-wear.txt	Meadow Well	resolved	55.0015620	-1.4656759	suburb	OpenStreetMap/Nominatim (Meadow Well neighbourhood)
+37	tyne-and-wear.txt	Percy Main	resolved	54.9995678	-1.4746255	suburb	OpenStreetMap/Nominatim
+38	tyne-and-wear.txt	Howdon	resolved	54.9959066	-1.4941598	suburb	OpenStreetMap/Nominatim
+39	tyne-and-wear.txt	Willington Quay	resolved	54.9918727	-1.4953291	suburb	OpenStreetMap/Nominatim
+40	tyne-and-wear.txt	Marden Quarry	resolved	55.0363878	-1.4455559	nature_reserve	OpenStreetMap/Nominatim (Marden Quarry LNR)
+41	tyne-and-wear.txt	Walker	resolved	54.9716047	-1.5541737	suburb	OpenStreetMap/Nominatim
+42	tyne-and-wear.txt	Walker Riverside	resolved	54.9763551	-1.5387520	industrial	OpenStreetMap/Nominatim (Walker Riverside Industrial Park / milepost node)
+43	tyne-and-wear.txt	St Anthony's	resolved	54.9677291	-1.5572146	suburb	OpenStreetMap/Nominatim (St Anthonys locality, Walker)
+44	tyne-and-wear.txt	Hebburn	resolved	54.9726376	-1.5173449	town	OpenStreetMap/Nominatim
+45	tyne-and-wear.txt	Hebburn Riverside	resolved	54.9656713	-1.5312470	park	OpenStreetMap/Nominatim (Riverside Park)
+46	tyne-and-wear.txt	Jarrow	resolved	54.9812514	-1.4908447	town	OpenStreetMap/Nominatim
+47	tyne-and-wear.txt	Jarrow Slake	resolved	54.9847216	-1.4736258	bay	OpenStreetMap/Nominatim (Jarrow Slake and Barrow)
+48	tyne-and-wear.txt	Shields Ferry	resolved	55.0037750	-1.4440591	ferry	OpenStreetMap/Nominatim (North Shields Ferry Terminal; cross-river Shields Ferry)
+49	tyne-and-wear.txt	Tyne Ferry	resolved	54.9972241	-1.4410983	ferry	OpenStreetMap/Nominatim (South Shields Ferry Terminal)
+50	tyne-and-wear.txt	South Shields	resolved	54.9987414	-1.4321848	town	OpenStreetMap/Nominatim
+51	tyne-and-wear.txt	South Shields Ferry Landing	resolved	54.9972241	-1.4410983	ferry	Same Tyne ferry slip as Tyne Ferry / South Shields terminal
+52	tyne-and-wear.txt	Ocean Beach Pleasure Park	resolved	55.0013883	-1.4172208	attraction	OpenStreetMap/Nominatim
+53	tyne-and-wear.txt	North Marine Park	resolved	55.0033084	-1.4248151	park	OpenStreetMap/Nominatim
+54	tyne-and-wear.txt	South Marine Park	resolved	54.9997328	-1.4207730	park	OpenStreetMap/Nominatim
+55	tyne-and-wear.txt	Sandhaven	resolved	54.9961749	-1.4084989	beach	OpenStreetMap/Nominatim (promenade lifeguard station; Sandhaven frontage)
+56	tyne-and-wear.txt	Sandhaven Beach	resolved	55.0013039	-1.4140690	beach	OpenStreetMap/Nominatim (promenade beach sector)
+57	tyne-and-wear.txt	Little Haven	resolved	55.0069915	-1.4263975	harbour	OpenStreetMap/Nominatim (The Little Haven, River Drive — coastal inlet at The Lawe)
+58	tyne-and-wear.txt	Littlehaven	resolved	55.0039677	-1.4228397	promenade	OpenStreetMap/Nominatim (Littlehaven Promenade)
+59	tyne-and-wear.txt	Littlehaven Beach	resolved	55.0044000	-1.4232000	beach	Judged sand frontage off Littlehaven Promenade; no named OSM beach polygon
+60	tyne-and-wear.txt	Herd Groyne	resolved	55.0079851	-1.4240442	lighthouse	OpenStreetMap/Nominatim (Herd Groyne Lighthouse)
+61	tyne-and-wear.txt	Frenchman's Bay	resolved	54.9889207	-1.3915065	bay	OpenStreetMap/Nominatim (natural bay)
+62	tyne-and-wear.txt	Black Middens	resolved	55.0123666	-1.4219054	rocks	OpenStreetMap/Nominatim (Black Middens, Tynemouth — Tyne mouth reef; Tyne and Wear coast list context)
+63	tyne-and-wear.txt	Trow Rocks	resolved	54.9930870	-1.4018930	rocks	Fabulous North / Geograph (Trow Rock battery locale; no named OSM node)
+64	tyne-and-wear.txt	Trow Quarry	resolved	54.9935456	-1.4057716	nature_reserve	OpenStreetMap/Nominatim (Trow Quarry Car Park — coastal LNR access; no reserve polygon name hit)
+65	tyne-and-wear.txt	Trow Point	resolved	54.9930499	-1.4015675	headland	OpenStreetMap/Nominatim (natural cape)
+66	tyne-and-wear.txt	South Shields North Pier	resolved	55.0155825	-1.4077121	pier	OpenStreetMap/Nominatim (Original River Tyne North Pier, Tynemouth — north pier at Tyne mouth; not on South Shields bank)
+67	tyne-and-wear.txt	South Shields South Pier	resolved	55.0085971	-1.4084645	pier	OpenStreetMap/Nominatim (River Tyne South Pier)
+68	tyne-and-wear.txt	Harton	resolved	54.9784138	-1.4136688	suburb	OpenStreetMap/Nominatim
+69	tyne-and-wear.txt	West Harton	resolved	54.9710879	-1.4388725	suburb	OpenStreetMap/Nominatim (West Harton, Harton Lane — not the bus-stop hit)
+70	tyne-and-wear.txt	Marsden	resolved	54.9777115	-1.3852382	village	OpenStreetMap/Nominatim (Marsden locality, Prince Edward Road East — not Marsden bus stop)
+71	tyne-and-wear.txt	Marsden Bay	resolved	54.9784877	-1.3740675	bay	OpenStreetMap/Nominatim
+72	tyne-and-wear.txt	Marsden Beach	resolved	54.9790000	-1.3745000	beach	Judged sandy shore of Marsden Bay (no named OSM beach polygon)
+73	tyne-and-wear.txt	Marsden Grotto	resolved	54.9770345	-1.3776022	attraction	OpenStreetMap/Nominatim (The Marsden Grotto)
+74	tyne-and-wear.txt	Marsden Rock	resolved	54.9774546	-1.3753136	attraction	OpenStreetMap/Nominatim
+75	tyne-and-wear.txt	Marsden Lime Kilns	resolved	54.9727225	-1.3694003	historic	OpenStreetMap/Nominatim
+76	tyne-and-wear.txt	The Leas	resolved	54.9945792	-1.4091372	park	OpenStreetMap/Nominatim (Gypsies Green Recreation Ground — clifftop green on The Leas shore)
+77	tyne-and-wear.txt	Whitburn	resolved	54.9529889	-1.3669464	village	OpenStreetMap/Nominatim (Whitburn village node)
+78	tyne-and-wear.txt	Whitburn Bays	resolved	54.9639565	-1.3595286	bay	OpenStreetMap/Nominatim (Whitburn Coastal Park LNR centroid — coastal inlets along Whitburn–Marsden shore; no single OSM name)
+79	tyne-and-wear.txt	Lizard Point	resolved	54.9705750	-1.3640433	headland	Geograph NZ408641 (Lizard Point; Souter Lighthouse stands here)
+80	tyne-and-wear.txt	Souter Lighthouse	resolved	54.9704433	-1.3643803	lighthouse	OpenStreetMap/Nominatim
+81	tyne-and-wear.txt	Cleadon	resolved	54.9528764	-1.4031049	village	OpenStreetMap/Nominatim
+82	tyne-and-wear.txt	Cleadon Shore	resolved	54.9555000	-1.3985000	beach	Judged Cleadon coastal foreshore (no direct OSM beach name)
+83	tyne-and-wear.txt	Cleadon Hills	resolved	54.9612961	-1.3948980	nature_reserve	OpenStreetMap/Nominatim (Cleadon Hills LNR)
+84	tyne-and-wear.txt	East Boldon	resolved	54.9463316	-1.4337819	village	OpenStreetMap/Nominatim (place node; not the railway station hit)
+85	tyne-and-wear.txt	Boldon Colliery	resolved	54.9501682	-1.4652557	suburb	OpenStreetMap/Nominatim
+86	tyne-and-wear.txt	Roker	resolved	54.9231540	-1.3733705	suburb	OpenStreetMap/Nominatim
+87	tyne-and-wear.txt	Roker Beach	resolved	54.9264342	-1.3641592	beach	OpenStreetMap/Nominatim (beach relation)
+88	tyne-and-wear.txt	Roker Pier	resolved	54.9202000	-1.3575000	pier	Judged mid-structure between Old North Pier approach and Roker Lighthouse (whole pier not a single Nominatim place)
+89	tyne-and-wear.txt	Roker Lighthouse	resolved	54.9213115	-1.3524950	lighthouse	OpenStreetMap/Nominatim (Roker Pier Lighthouse)
+90	tyne-and-wear.txt	Roker Watch House	resolved	54.9211764	-1.3653791	historic	OpenStreetMap/Nominatim (Sunderland Volunteer Life Brigade — watch house at Roker pier landward approach)
+91	tyne-and-wear.txt	Whitburn South	resolved	54.9387655	-1.3653300	beach	Whitburn Sands / southern Whitburn–Seaburn coastal strip (OpenStreetMap/Nominatim)
+92	tyne-and-wear.txt	Cliffe Park	resolved	54.9268000	-1.3622000	park	Roker/Seaburn seafront park (Roker Cliffe Park; relocated lighthouse site SR6); judged clifftop park — no direct OSM name hit
+93	tyne-and-wear.txt	Seaburn	resolved	54.9295618	-1.3865039	suburb	OpenStreetMap/Nominatim (Seaburn locality)
+94	tyne-and-wear.txt	Seaburn Beach	resolved	54.9369444	-1.3666667	beach	Mid-beach per published OS grid NZ406604 / British Beaches listing; complements OSM beach relations nearby
+95	tyne-and-wear.txt	Sunderland City Beach	resolved	54.9368000	-1.3668000	beach	City marketing name for Seaburn sand; judged with Seaburn Beach midpoint (no separate POI)
+96	tyne-and-wear.txt	Sunderland	resolved	54.9058512	-1.3828727	city	OpenStreetMap/Nominatim (admin boundary, Sunderland city)
+97	tyne-and-wear.txt	Sunderland Harbour	resolved	54.9105000	-1.3650000	harbour	Judged River Wear docklands / harbour basin between Hudson Docks and Wearmouth (no single named “Sunderland Harbour” POI)
+98	tyne-and-wear.txt	Port of Sunderland	resolved	54.9070100	-1.3596500	dock	OpenStreetMap/Nominatim (Hudson Dock — main commercial docks basin)
+99	tyne-and-wear.txt	Hendon	resolved	54.8952686	-1.3722331	suburb	OpenStreetMap/Nominatim (Hendon, Sunderland)
+100	tyne-and-wear.txt	Hendon Beach	resolved	54.8884336	-1.3586810	beach	OpenStreetMap/Nominatim
+101	tyne-and-wear.txt	Sunderland Marina	resolved	54.9185118	-1.3674334	marina	OpenStreetMap/Nominatim (named water “Sunderland Marina” / Roker Marina)
+102	tyne-and-wear.txt	Monkwearmouth	resolved	54.9158901	-1.3728539	suburb	OpenStreetMap/Nominatim (Monkwearmouth suburb node)
+103	tyne-and-wear.txt	Wearmouth	resolved	54.9131482	-1.3749350	historic	OpenStreetMap/Nominatim (St Peter’s Church, Monkwearmouth — historic Wearmouth settlement focus)
+104	tyne-and-wear.txt	Queen Alexandra Bridge	resolved	54.9140641	-1.4059786	bridge	OpenStreetMap/Nominatim
+105	tyne-and-wear.txt	Deptford	resolved	54.9118000	-1.4010000	industrial	Judged Deptford / Wear bank industrial quarter (Sunderland); Nominatim hits are roads/estates — map-centred on bridge approaches
+106	tyne-and-wear.txt	Sheepfolds	resolved	54.9120256	-1.3879612	events_venue	OpenStreetMap/Nominatim (Sheepfolds Stables — named riverside regeneration landmark)
+107	tyne-and-wear.txt	Grangetown	resolved	54.8861101	-1.3691613	suburb	OpenStreetMap/Nominatim
+108	tyne-and-wear.txt	Grangetown Beach	resolved	54.8880000	-1.3585000	beach	Judged foreshore south of Hendon Beach / Grangetown coast (no named OSM beach)
+109	tyne-and-wear.txt	Ryhope	resolved	54.8693109	-1.3585183	suburb	OpenStreetMap/Nominatim
+110	tyne-and-wear.txt	Ryhope Beach	resolved	54.8708598	-1.3537290	beach	OpenStreetMap/Nominatim (Ryhope Beach access)
+111	tyne-and-wear.txt	Ryhope South Beach	resolved	54.8665000	-1.3525000	beach	Judged south along Ryhope foreshore from main beach access (no separate OSM name)
+112	tyne-and-wear.txt	Ryhope East Beach	resolved	54.8685000	-1.3490000	beach	Judged east/nearer Ryhope Dene mouth (no separate OSM name)
+113	tyne-and-wear.txt	Ryhope Dene	resolved	54.8587393	-1.3573344	valley	OpenStreetMap/Nominatim (Ryhope Dene)
+114	tyne-and-wear.txt	Ryhope Colliery Beach	resolved	54.8702000	-1.3765000	beach	Judged coastal strip near Ryhope Colliery locality (54.8693574,-1.3770926 suburb node); no beach POI
+115	tyne-and-wear.txt	Gypsies Green	resolved	54.9945792	-1.4091372	park	OpenStreetMap/Nominatim (Gypsies Green Recreation Ground, South Shields)
+116	tyne-and-wear.txt	South Bents	resolved	54.9418612	-1.3704840	residential	OpenStreetMap/Nominatim (South Bents, Seaburn)
+117	tyne-and-wear.txt	Fulwell	resolved	54.9220699	-1.3800344	suburb	Judged Fulwell (SR6 seafront suburb) from Fulwell Road centroid Roker — OSM lacks place=suburb; quarry LNR is inland
+118	tyne-and-wear.txt	Newcastle Quayside	resolved	54.9683000	-1.6035000	promenade	Judged Newcastle bank riverfront between Tyne Bridge and Gateshead Millennium Bridge (NE1 Quayside)
+119	tyne-and-wear.txt	Gateshead Quays	resolved	54.9692451	-1.5980111	waterfront	OpenStreetMap/Nominatim (BALTIC Centre — Gateshead Quays cultural quarter pin)
+120	tyne-and-wear.txt	Dunston Staiths	resolved	54.9570875	-1.6369025	historic	OpenStreetMap/Nominatim (Dunston Staiths information point)
+121	tyne-and-wear.txt	Ouseburn	resolved	54.9754453	-1.5913018	suburb	OpenStreetMap/Nominatim (Ouseburn Farm — lower Ouseburn quarter by the Tyne)
+122	tyne-and-wear.txt	Spillers Wharf	resolved	54.9708026	-1.5872428	wharf	No named OSM wharf; pinned to Spillers Quay riverside sector (historic Spillers mill locale; OSM bus stop)
+123	tyne-and-wear.txt	Gateshead Millennium Bridge	resolved	54.9696264	-1.5991557	bridge	OpenStreetMap/Nominatim
+124	tyne-and-wear.txt	Swing Bridge	resolved	54.9679294	-1.6083604	bridge	OpenStreetMap/Nominatim (Tyne Swing Bridge, Newcastle)
+125	tyne-and-wear.txt	River Tyne	ambiguous			river	Whole tidal river/estuary; any single coordinate would be arbitrary for this list entry
+126	tyne-and-wear.txt	Arbeia	resolved	55.0044535	-1.4310797	historic	OpenStreetMap/Nominatim (Arbeia Roman Fort and Museum)

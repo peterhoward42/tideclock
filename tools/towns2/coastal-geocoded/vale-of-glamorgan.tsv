@@ -1,0 +1,162 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	vale-of-glamorgan.txt	Llantwit Major	resolved	51.4083212	-3.4857779	town	Nominatim (place=town).
+2	vale-of-glamorgan.txt	Llantwit Major Beach	resolved	51.39631	-3.50146	beach	Visit Wales listing for Llantwit Major (Cwm Colhuw) Beach; aligns with NRW bathing-water sample point nearby.
+3	vale-of-glamorgan.txt	Traeth Mawr	resolved	51.4264	-3.5844	beach	OS grid SS89947091 (UK Beach Guide); Traeth Mawr (Wick) pebble beach—Nominatim first hit was unrelated (Traeth yr Afon, Bridgend).
+4	vale-of-glamorgan.txt	Traeth Mawr Llantwit	resolved	51.4264	-3.5844	beach	Same mapped beach as “Traeth Mawr” at Wick; list label cites nearest town (Llantwit Major) per beach guides—not a second independent OSM object.
+5	vale-of-glamorgan.txt	Colhuw Beach	resolved	51.396388	-3.5017555	beach	NRW bathing-water sampling point coords for Col-Huw Beach (Llantwit Major).
+6	vale-of-glamorgan.txt	Colhuw Bay	resolved	51.3966	-3.5022	bay	Mouth of Afon Col-Huw / Cwm Colhuw; centroid just offshore of Col-Huw beach sampling point (no clean OSM “bay” polygon).
+7	vale-of-glamorgan.txt	Colhuw Point	resolved	51.3978	-3.5075	headland	Approx. west headland of Cwm Col-Huw; no Nominatim object—coastal reading from map context.
+8	vale-of-glamorgan.txt	Tresilian Bay	resolved	51.3984727	-3.5143634	bay	Nominatim (natural=bay).
+9	vale-of-glamorgan.txt	Stout Bay	resolved	51.3927126	-3.4726936	bay	Nominatim (natural=bay).
+10	vale-of-glamorgan.txt	Witch's Point	resolved	51.4111	-3.562	headland	Cadw/Wikipedia monument coords for Nash Point Round Barrows on Trwyn y Witch promontory (heritage-coast headland near Nash Point).
+11	vale-of-glamorgan.txt	Nash Point	resolved	51.4008239	-3.5521149	attraction	Nominatim (tourism=attraction at Nash Point; lighthouse compound).
+12	vale-of-glamorgan.txt	Nash Point lighthouse	resolved	51.4008239	-3.5521149	lighthouse	Nominatim (man_made=lighthouse; same OSM enclosure as Nash Point attraction).
+13	vale-of-glamorgan.txt	Nash Point coast	resolved	51.400863	-3.552259	coast	Wikipedia coordinate for Nash Point headland—open coast at the point (not the lighthouse yard).
+14	vale-of-glamorgan.txt	Marcross	resolved	51.4120780	-3.5473296	village	Nominatim (place=village).
+15	vale-of-glamorgan.txt	Monknash	resolved	51.4245955	-3.5549993	village	Nominatim (place=village).
+16	vale-of-glamorgan.txt	Monknash Beach	ambiguous			beach	Heritage-coast shingle foreshore south of Monknash; no named OSM beach polygon.
+17	vale-of-glamorgan.txt	Monknash shore	ambiguous			shore	Same stretch as Monknash foreshore; no single shoreline POI in Nominatim.
+18	vale-of-glamorgan.txt	St Donats	resolved	51.4059198	-3.5304994	village	Nominatim (place=village).
+19	vale-of-glamorgan.txt	St Donat's	resolved	51.4016218	-3.5343749	church	Nominatim returns St Donat's Church (amenity=place_of_worship); distinct pin from village centre (line 18).
+20	vale-of-glamorgan.txt	St Donats coast	resolved	51.3995	-3.5325	coast	Approx. shoreline below St Donats / Atlantic College frontage (no single “coast” POI).
+21	vale-of-glamorgan.txt	Atlantic College shore	resolved	51.3993	-3.5320	shore	Shoreline below Atlantic College (Nominatim college polygon; pin on seaward side of campus).
+22	vale-of-glamorgan.txt	St Donats Bay	resolved	51.4008	-3.5325	bay	Small bay south of St Donats Castle / college—approximate mouth of cove (no OSM bay name).
+23	vale-of-glamorgan.txt	East Aberthaw	resolved	51.3911156	-3.3884501	village	Nominatim (place=village).
+24	vale-of-glamorgan.txt	West Aberthaw	resolved	51.3925530	-3.4037827	village	Nominatim (place=village).
+25	vale-of-glamorgan.txt	Aberthaw	resolved	51.3920	-3.3960	hamlet	Common coastal label between East/West Aberthaw; pin on shoreward side of settlement strip; Nominatim query for Aberthaw alone returned power-station industrial landuse.
+26	vale-of-glamorgan.txt	Aberthaw Bay	ambiguous			bay	Open Bristol Channel bay at Aberthaw; no single centroid in Nominatim separate from villages and foreshore.
+27	vale-of-glamorgan.txt	Aberthaw foreshore	ambiguous			foreshore	Mud/sand flats by Aberthaw—no single OSM object for generic foreshore label.
+28	vale-of-glamorgan.txt	Aberthaw Power Station shore	resolved	51.3869	-3.4018	shore	Coastal margin below Aberthaw Power Station footprint (industrial polygon in OSM; pin on seaward edge of complex).
+29	vale-of-glamorgan.txt	Limpert Bay	resolved	51.3836521	-3.4137393	beach	Nominatim (natural=beach).
+30	vale-of-glamorgan.txt	Breaksea Point	resolved	51.3813613	-3.4051551	viewpoint	Nominatim (tourism=viewpoint at Breaksea Point).
+31	vale-of-glamorgan.txt	Rhoose	resolved	51.3901640	-3.3466416	village	Nominatim place=village (distinct from Rhoose Cardiff International Airport railway station hit).
+32	vale-of-glamorgan.txt	Rhoose Point	resolved	51.3850886	-3.3389708	neighbourhood	Nominatim neighbourhood “Rhoose Point” at the coastal end of Lower Porthkerry / Rhoose.
+33	vale-of-glamorgan.txt	The Leys	resolved	51.3892	-3.3935	beach	Leys Beach shingle foreshore by East Aberthaw / Aberthaw coast (Wikipedia & Geograph imagery); no single OSM beach object.
+34	vale-of-glamorgan.txt	Gileston	resolved	51.3937405	-3.4115791	village	Nominatim place=village.
+35	vale-of-glamorgan.txt	Gileston shore	ambiguous			shore	Generic shoreline west of Gileston; no distinct named OSM shoreline POI.
+36	vale-of-glamorgan.txt	Porthkerry	resolved	51.3915709	-3.3194002	hamlet	Nominatim place=hamlet.
+37	vale-of-glamorgan.txt	Porthkerry Beach	resolved	51.391869	-3.322216	beach	UK Beach Guide / Wikipedia-style coords (OS grid ST08736666); pebble beach in Porthkerry Country Park.
+38	vale-of-glamorgan.txt	Porthkerry Bay	resolved	51.3920	-3.3225	bay	Embayment at Porthkerry; centroid with hamlet/beach context (no separate Nominatim bay polygon).
+39	vale-of-glamorgan.txt	Porthkerry Country Park	resolved	51.3939	-3.3136	park	Centroid from published visitor-map sources (e.g. Wikipedia Porthkerry / park listings); Nominatim text search returned no row.
+40	vale-of-glamorgan.txt	Porth Ceri	resolved	51.391869	-3.322216	cove	Welsh “Porthceri” (Wikipedia) names the same coastal inlet as Porthkerry—pin on the mapped beach/embayment.
+41	vale-of-glamorgan.txt	Porthkerry cliffs	ambiguous			cliffs	Continuous cliff line south of Porthkerry—no single headland POI in Nominatim.
+42	vale-of-glamorgan.txt	Porthkerry Viaduct coast	resolved	51.3927	-3.3183	coast	Seaward of Porthkerry Viaduct (Nominatim bridge 51.3934676 -3.3179002) toward Bristol Channel foreshore.
+43	vale-of-glamorgan.txt	Barry	resolved	51.4065052	-3.2666925	town	Nominatim administrative centre for Barry, Vale of Glamorgan.
+44	vale-of-glamorgan.txt	Barry Island	resolved	51.3918420	-3.2712029	suburb	Nominatim place=suburb.
+45	vale-of-glamorgan.txt	Barry Island Pleasure Park	resolved	51.3917299	-3.2739939	attraction	Nominatim tourism=theme_park.
+46	vale-of-glamorgan.txt	Barry Island Promenade	resolved	51.3905298	-3.2745714	promenade	Nominatim highway=pedestrian “The Promenade” on Barry Island seafront.
+47	vale-of-glamorgan.txt	Whitmore Bay	resolved	51.3889586	-3.2748949	bay	Nominatim natural=bay.
+48	vale-of-glamorgan.txt	Whitmore Bay Barry	resolved	51.3889586	-3.2748949	bay	List label disambiguates the same Whitmore Bay on Barry Island.
+49	vale-of-glamorgan.txt	Jackson's Bay	resolved	51.3914737	-3.2641428	bay	Nominatim natural=bay “Jacksons Bay” (OSM spelling).
+50	vale-of-glamorgan.txt	Nell's Point	resolved	51.3882291	-3.2665291	cape	Nominatim natural=cape.
+51	vale-of-glamorgan.txt	Nells Point	resolved	51.3882291	-3.2665291	cape	Same Barry Island cape as line 50; OSM uses apostrophe in the name.
+52	vale-of-glamorgan.txt	Friar's Point	ambiguous			headland	Coastal headland on Barry Island; Nominatim only lists Friars Point House (building), not the foreland.
+53	vale-of-glamorgan.txt	Friars Point	ambiguous			headland	Same headland label as line 52 (orthographic variant).
+54	vale-of-glamorgan.txt	Font-y-gary	resolved	51.3905795	-3.3642698	suburb	Nominatim place=suburb “Font-y-Gary”.
+55	vale-of-glamorgan.txt	Fontygary	resolved	51.3905795	-3.3642698	suburb	Common spelling variant; same OSM suburb as line 54.
+56	vale-of-glamorgan.txt	Font-y-gary Bay	ambiguous			bay	Small bay by Font-y-gary; informal label with no OSM bay name.
+57	vale-of-glamorgan.txt	Fontygary Bay	ambiguous			bay	Same informal bay as line 56 (spelling variant).
+58	vale-of-glamorgan.txt	The Knap	resolved	51.3905035	-3.2915015	suburb	Nominatim place=suburb.
+59	vale-of-glamorgan.txt	Cold Knap	resolved	51.3880	-3.2925	bay	Pebble bay frontage between Cold Knap Roman Building and Cold Knap Point; no dedicated OSM beach polygon.
+60	vale-of-glamorgan.txt	Cold Knap Point	resolved	51.3868811	-3.2901967	cape	Nominatim natural=cape “Cold Knap Point”.
+61	vale-of-glamorgan.txt	Cold Knap Beach	resolved	51.38722	-3.29028	beach	Wikipedia Cold Knap / beach-guide grid ST09866446; steep shingle front at Cold Knap (no separate OSM beach polygon).
+62	vale-of-glamorgan.txt	Watch House Bay	resolved	51.387993	-3.2860172	bay	NRW bathing-water sampling point; matches OSM “Watch House Bay” node nearby.
+63	vale-of-glamorgan.txt	Romilly Park shore	resolved	51.3952	-3.2885	shore	Coastal margin north-east of Romilly Park toward The Knap foreshore (park leisure=park centroid is slightly inland).
+64	vale-of-glamorgan.txt	Barry Waterfront	resolved	51.40139	-3.27139	neighbourhood	Wikipedia infobox coordinates for Barry Waterfront (redeveloped No.1 Dock surrounds).
+65	vale-of-glamorgan.txt	Barry Docks	resolved	51.398242	-3.268954	harbour	Wikipedia / Wikidata coordinates for Barry Docks (ABP port).
+66	vale-of-glamorgan.txt	Barry docks shore	resolved	51.3972	-3.2696	shore	Seaward side of main dock basins relative to dock centroid (generic shoreline label).
+67	vale-of-glamorgan.txt	Atlantic Wharf Barry	ambiguous			waterfront	“Atlantic Wharf” is a major Cardiff Bay regeneration district; no distinct Atlantic Wharf POI found in Barry (likely name confusion or informal label).
+68	vale-of-glamorgan.txt	Eastbrook	resolved	51.4373571	-3.2114714	suburb	Nominatim place=suburb “Eastbrook”, Dinas Powys, Vale of Glamorgan (VoG coastal list).
+69	vale-of-glamorgan.txt	Eastbrook shore	resolved	51.405	-3.21	shore	Approximate nearest Bristol Channel foreshore accessed from the Eastbrook/Dinas Powys side toward Sully Bay (linear coast path context).
+70	vale-of-glamorgan.txt	Hayes Road shore	resolved	51.3938	-3.2485	shore	Coastal margin off Hayes Road / Atlantic Trading Estate access toward Bendrick Rock–Hayes Point cliffs (walking-guide context).
+71	vale-of-glamorgan.txt	Barry seafront	resolved	51.3907	-3.2735	coast	Generic Whitmore Bay / Barry Island seafront belt between promenade and open channel.
+72	vale-of-glamorgan.txt	Barry Esplanade	ambiguous			promenade	No dedicated OSM “Barry Esplanade”; Barry Island seafront is mainly “The Promenade”, while Penarth has “The Esplanade”.
+73	vale-of-glamorgan.txt	Barry promenade	resolved	51.3905298	-3.2745714	promenade	Nominatim highway=pedestrian “The Promenade”, Barry Island.
+74	vale-of-glamorgan.txt	Barry pleasure beach	resolved	51.3895	-3.2745	beach	Sandy resort front of Whitmore Bay beside Barry Island Pleasure Park (not separate from Whitmore Bay polygon).
+75	vale-of-glamorgan.txt	Barry Harbour	resolved	51.3919571	-3.2838492	harbour	Nominatim natural=bay “Old Harbour” (Vale council Old Barry Harbour).
+76	vale-of-glamorgan.txt	Barry harbour arm	resolved	51.3923	-3.2815	breakwater	Approx. outer breakwater / harbour entrance north of Old Harbour (York Breakwater area); no single OSM “arm” feature.
+77	vale-of-glamorgan.txt	Blue Flag Whitmore Bay	resolved	51.3889586	-3.2748949	beach	Whitmore Bay (Blue Flag resort beach); same OSM bay node as other Whitmore Bay rows.
+78	vale-of-glamorgan.txt	Wales Coast Path Llantwit Major	resolved	51.402	-3.482	path	Representative coastal alignment off Llantwit Major (between town centre and Colhuw coast).
+79	vale-of-glamorgan.txt	Wales Coast Path Nash Point	resolved	51.4008239	-3.5521149	path	Nash Point headland / lighthouse sector where path runs along named cliffs.
+80	vale-of-glamorgan.txt	Wales Coast Path Colhuw	resolved	51.396388	-3.5017555	path	Col-Huw / Cwm Colhuw beach sector (NRW sampling context).
+81	vale-of-glamorgan.txt	Wales Coast Path Aberthaw	resolved	51.392	-3.396	path	Foreshore strip at Aberthaw between East/West Aberthaw (pass-1 coastal centroid).
+82	vale-of-glamorgan.txt	Wales Coast Path Porthkerry	resolved	51.3915709	-3.3194002	path	Porthkerry hamlet / bay sector on the mapped path.
+83	vale-of-glamorgan.txt	Wales Coast Path Barry	resolved	51.4005	-3.272	path	Barry docks / waterfront–island link section of the national trail.
+84	vale-of-glamorgan.txt	Wales Coast Path Barry Island	resolved	51.391842	-3.2712029	path	Perimeter seafront around Barry Island (suburb centroid as path anchor).
+85	vale-of-glamorgan.txt	Wales Coast Path Whitmore Bay	resolved	51.3889586	-3.2748949	path	Whitmore Bay sandy frontage segment.
+86	vale-of-glamorgan.txt	Wales Coast Path Cold Knap	resolved	51.388	-3.2925	path	Cold Knap pebble-bay front (matches earlier Cold Knap bay pin).
+87	vale-of-glamorgan.txt	Wales Coast Path Sully	resolved	51.404	-3.22	path	Sully Bay margin on the trail (village place node is slightly inland at 51.4072, −3.2144).
+88	vale-of-glamorgan.txt	Wales Coast Path Lavernock	resolved	51.4065259	-3.1704956	path	Nominatim natural=cape “Lavernock Point” on the route.
+89	vale-of-glamorgan.txt	Wales Coast Path Penarth	resolved	51.4338457	-3.168167	path	Penarth seafront sector along OSM “The Esplanade”, Lower Penarth.
+90	vale-of-glamorgan.txt	Glamorgan Heritage Coast Llantwit	resolved	51.4	-3.52	heritage_coast	Representative Glamorgan Heritage Coast cliff/foreshore near Llantwit Major (between Colhuw and Nash); not the distant Ogmore visitor sign returned by generic Nominatim queries.
+91	vale-of-glamorgan.txt	Glamorgan Heritage Coast Nash Point	resolved	51.4008239	-3.5521149	heritage_coast	Heritage-coast sector at Nash Point (aligns with Nash Point / WCP rows).
+92	vale-of-glamorgan.txt	Glamorgan Heritage Coast Aberthaw	resolved	51.392	-3.396	heritage_coast	Foreshore/cliff sector at Aberthaw (between East/West Aberthaw; matches WCP Aberthaw anchor).
+93	vale-of-glamorgan.txt	Glamorgan Heritage Coast Barry	resolved	51.4005	-3.272	heritage_coast	Barry docks / island waterfront sector of the designated coast (matches WCP Barry strip).
+94	vale-of-glamorgan.txt	Sully	resolved	51.4071656	-3.2143843	village	Nominatim place=village.
+95	vale-of-glamorgan.txt	Sully Island	resolved	51.3956945	-3.1986909	island	Nominatim (island; tidal island off Swanbridge).
+96	vale-of-glamorgan.txt	Sully Bay	resolved	51.3997754	-3.2225683	bay	Nominatim (bay).
+97	vale-of-glamorgan.txt	Swanbridge	resolved	51.4009300	-3.1994031	hamlet	Nominatim place=hamlet.
+98	vale-of-glamorgan.txt	Swanbridge Bay	resolved	51.3988428	-3.1965492	bay	Nominatim (bay).
+99	vale-of-glamorgan.txt	Swanbridge shore	resolved	51.3989	-3.1968	shore	Seaward margin of Swanbridge Bay (no separate named OSM shoreline node).
+100	vale-of-glamorgan.txt	Bendrick Rock	resolved	51.3934991	-3.2493306	rock	Nominatim (Bendrick Rock).
+101	vale-of-glamorgan.txt	Bendrick Rock intertidal	resolved	51.3993711	-3.2335249	intertidal	Centroid of OSM natural=beach polygon “The Bendricks” (intertidal shingle at Bendrick Rock).
+102	vale-of-glamorgan.txt	Bendrick Bay	resolved	51.3993711	-3.2335249	bay	Mapped as “The Bendricks” beach polygon in OSM; no separate Nominatim “Bendrick Bay” object.
+103	vale-of-glamorgan.txt	Lavernock	resolved	51.4070616	-3.1713932	village	Nominatim place=village.
+104	vale-of-glamorgan.txt	Lavernock Point	resolved	51.4065259	-3.1704956	cape	Nominatim natural=cape.
+105	vale-of-glamorgan.txt	Lavernock battery	resolved	51.4042947	-3.1795654	fort	Nominatim returns “Lavernock Fort” (historic fort/battery site above the point).
+106	vale-of-glamorgan.txt	Lavernock SSSI	ambiguous			protected_area	Lavernock Point and coastal slopes SSSI; no single centroid POI in Nominatim.
+107	vale-of-glamorgan.txt	St Mary's Well Bay	resolved	51.4005	-3.1873	beach	Streetmap/Geograph ST1771 near Swanbridge; coarse sand/shingle bay (no clean Nominatim beach name).
+108	vale-of-glamorgan.txt	St Marys Well Bay	resolved	51.4005	-3.1873	beach	Orthographic variant; same mapped bay as line 107.
+109	vale-of-glamorgan.txt	Cosmeston	resolved	51.4198598	-3.1757455	village	Nominatim place=village.
+110	vale-of-glamorgan.txt	Cosmeston Bay	ambiguous			bay	Small coastal embayment by Cosmeston; no OSM/Nominatim bay object separate from generic foreshore.
+111	vale-of-glamorgan.txt	Cosmeston Lakes Country Park shore	resolved	51.4179360	-3.1912094	lake_shore	Nominatim leisure=park centroid; pin at public lakeshore of Cosmeston Lakes Country Park.
+112	vale-of-glamorgan.txt	Cosmeston coast	resolved	51.4135	-3.182	coast	Approx. nearest Bristol Channel foreshore below Cosmeston toward Lavernock (no single “Cosmeston coast” POI).
+113	vale-of-glamorgan.txt	Penarth	resolved	51.4357312	-3.1750960	town	Nominatim (town).
+114	vale-of-glamorgan.txt	Penarth Pier	resolved	51.4350026	-3.1660535	pier	Nominatim (man_made=pier).
+115	vale-of-glamorgan.txt	Penarth Pier Pavilion	resolved	51.4352458	-3.1672003	building	Nominatim (Penarth Pier Pavilion).
+116	vale-of-glamorgan.txt	Penarth Esplanade	resolved	51.4338457	-3.1681670	promenade	Nominatim highway=pedestrian “The Esplanade”, Lower Penarth.
+117	vale-of-glamorgan.txt	Penarth seafront	resolved	51.4338	-3.1682	coast	Generic seafront belt along The Esplanade / Lower Penarth frontage.
+118	vale-of-glamorgan.txt	Penarth Marina	resolved	51.4452405	-3.1744244	marina	Nominatim (marina landuse at John Batchelor Way entrance area).
+119	vale-of-glamorgan.txt	Penarth Head	resolved	51.4415165	-3.1650645	cape	Nominatim natural=cape “Penarth Head”.
+120	vale-of-glamorgan.txt	Penarth Headland	resolved	51.4415165	-3.1650645	cape	Same foreland as Penarth Head (list synonym).
+121	vale-of-glamorgan.txt	Penarth cliffs	ambiguous			cliffs	Continuous cliff line below Penarth Head / Lower Penarth; no single Nominatim POI.
+122	vale-of-glamorgan.txt	Penarth cliff walk	ambiguous			path	Linear Wales Coast Path / cliff-top section; no distinct named waypoint in Nominatim.
+123	vale-of-glamorgan.txt	Penarth beach	resolved	51.4337803	-3.1679001	beach	Nominatim place “Penarth Beach”, Lower Penarth.
+124	vale-of-glamorgan.txt	Penarth slipway	resolved	51.4446704	-3.1804313	slipway	Nominatim “The Slipway”, Penarth Marina (boat-launch access); differs from esplanade beach slipways if those were intended.
+125	vale-of-glamorgan.txt	RNLI Penarth	resolved	51.4325077	-3.1690373	lifeboat_station	Nominatim emergency=water_rescue “Penarth Lifeboat Station”, The Esplanade.
+126	vale-of-glamorgan.txt	RNLI Penarth Lifeboat Station	resolved	51.4325077	-3.1690373	lifeboat_station	Same physical station as line 125 (formal RNLI name).
+127	vale-of-glamorgan.txt	Penarth yacht club	resolved	51.4324	-3.1676	yacht_club	Listed Yacht Club House on The Esplanade (Wikipedia GeoHack / Cadw); not the Cardiff Bay Yacht Club at Penarth Marina.
+128	vale-of-glamorgan.txt	Bristol Channel Penarth	ambiguous			sea	Open-water label off Penarth; no meaningful single shore-anchored pin.
+129	vale-of-glamorgan.txt	Bristol Channel Barry	ambiguous			sea	Open-water label off Barry; no meaningful single shore-anchored pin.
+130	vale-of-glamorgan.txt	Bristol Channel Aberthaw	ambiguous			sea	Open-water label off Aberthaw; no meaningful single shore-anchored pin.
+131	vale-of-glamorgan.txt	Bristol Channel Sully	ambiguous			sea	Open-water label off Sully; no meaningful single shore-anchored pin.
+132	vale-of-glamorgan.txt	Barry Island beach	resolved	51.3889586	-3.2748949	beach	Main Barry Island sandy beach within Whitmore Bay (same embayment as lines 47–48).
+133	vale-of-glamorgan.txt	Barry Island seafront	resolved	51.3905298	-3.2745714	promenade	Nominatim highway=pedestrian “The Promenade”, Barry Island.
+134	vale-of-glamorgan.txt	Barry Island funfair front	resolved	51.3917299	-3.2739939	amusement_park	Seaward frontage of Barry Island Pleasure Park (Nominatim tourism=theme_park).
+135	vale-of-glamorgan.txt	Whitmore Bay sands	resolved	51.3889586	-3.2748949	beach	Sandy foreshore inside Whitmore Bay (Nominatim natural=bay).
+136	vale-of-glamorgan.txt	Jackson's Bay sands	resolved	51.3914737	-3.2641428	beach	Sand/shingle apron at Jacksons Bay (Nominatim natural=bay).
+137	vale-of-glamorgan.txt	Cold Knap promenade	resolved	51.3895199	-3.2958805	promenade	Nominatim “Pebble Beach, The Knap” nearby—Cold Knap seafront promenade context; no exact “Cold Knap promenade” object.
+138	vale-of-glamorgan.txt	Porthkerry pebble beach	resolved	51.391869	-3.322216	beach	Same mapped pebble beach as line 37 (Porthkerry Country Park / ST08736666 sources).
+139	vale-of-glamorgan.txt	Llantwit Major rock pools	ambiguous			intertidal	Rocky pools on Llantwit foreshore; no named OSM feature for generic label.
+140	vale-of-glamorgan.txt	Nash Point rock pools	ambiguous			intertidal	Intertidal pools along Nash Point boulder beach; no POI separate from Nash Point headland.
+141	vale-of-glamorgan.txt	Colhuw tide pools	resolved	51.396388	-3.5017555	intertidal	Col-Huw foreshore rock-pool belt (NRW Col-Huw bathing-water sampling context; line 5 beach).
+142	vale-of-glamorgan.txt	Barry Island tide pools	ambiguous			intertidal	Whitmore Bay rock-outcrop pools; no distinct Nominatim object.
+143	vale-of-glamorgan.txt	Penarth Pier beach	resolved	51.43495	-3.1662	beach	Small beach patch south of Penarth Pier (map reading; no dedicated Nominatim beach name).
+144	vale-of-glamorgan.txt	Penarth sea wall	resolved	51.4347617	-3.1679363	sea_defence	Nominatim place “Shore, The Esplanade” (revetment / promenade backshore, Lower Penarth).
+145	vale-of-glamorgan.txt	Penarth coastal path	ambiguous			path	Linear Wales Coast Path segment; no single centroid separate from adjoining promenade and cliffs.
+146	vale-of-glamorgan.txt	Sully causeway shore	ambiguous			shore	Tidal causeway to Sully Island (Swanbridge); no Nominatim object for generic causeway shore label.
+147	vale-of-glamorgan.txt	Sully intertidal walk	ambiguous			path	Intertidal walking margins around Sully Bay; linear route without a single POI.
+148	vale-of-glamorgan.txt	Lavernock Point walk	ambiguous			path	Circular / linear walks on Lavernock Point foreshore—headland cape exists but path is not one point.
+149	vale-of-glamorgan.txt	Penarth to Lavernock shore	ambiguous			shore	Along-shore stretch between Penarth and Lavernock; not one mapped feature.
+150	vale-of-glamorgan.txt	Barry to Porthkerry shore	ambiguous			shore	Along-shore stretch between Barry and Porthkerry; not one mapped feature.
+151	vale-of-glamorgan.txt	Porthkerry to Aberthaw shore	ambiguous			shore	Linear foreshore between Porthkerry and Aberthaw; no single Nominatim shoreline object (cf. other along-shore list rows).
+152	vale-of-glamorgan.txt	Llantwit to Nash shore	ambiguous			shore	Long Glamorgan Heritage Coast segment between Llantwit Major and Nash Point; not one centroid.
+153	vale-of-glamorgan.txt	Heritage Coast path Barry	resolved	51.4005	-3.272	path	Barry sector of Glamorgan Heritage Coast / Wales Coast Path (aligned with Glamorgan Heritage Coast Barry and WCP Barry rows).
+154	vale-of-glamorgan.txt	Coastal Barry	resolved	51.3907	-3.2735	coast	Representative Barry seafront on Bristol Channel (matches Barry seafront row).
+155	vale-of-glamorgan.txt	Coastal Penarth	resolved	51.4338	-3.1682	coast	Representative Lower Penarth seafront (matches Penarth seafront row).
+156	vale-of-glamorgan.txt	Coastal Porthkerry	resolved	51.391869	-3.322216	coast	Porthkerry Bay pebble-beach sector (matches Porthkerry Beach / ST08736666 context).
+157	vale-of-glamorgan.txt	Coastal Aberthaw	resolved	51.392	-3.396	coast	Aberthaw foreshore strip between East/West Aberthaw (matches WCP Aberthaw / Aberthaw hamlet rows).
+158	vale-of-glamorgan.txt	Coastal Llantwit Major	resolved	51.402	-3.482	coast	Coastal path sector off Llantwit Major (matches Wales Coast Path Llantwit Major row).
+159	vale-of-glamorgan.txt	Coastal Sully	resolved	51.3997754	-3.2225683	coast	Sully Bay seaward context for generic coastal label (Nominatim natural=bay).
+160	vale-of-glamorgan.txt	South Wales coast Barry	ambiguous			coast	Regional coastline label; no distinct POI from town seafront alone.
+161	vale-of-glamorgan.txt	South Wales coast Penarth	ambiguous			coast	Regional coastline label; no distinct POI from Penarth seafront alone.

@@ -1,0 +1,276 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	kerry.txt	Tarbert	resolved	52.572386	-9.375114	village	Shannon estuary; Wikipedia/Logainm-aligned centre.
+2	kerry.txt	Ballylongford	resolved	52.546	-9.478	village	Béal Átha Longfoirt; village centroid.
+3	kerry.txt	Kilcolgan	resolved	52.5688	-9.45858	townland	Kilcolgan Lower (Kilnaughtin parish); not Galway Kilcolgan.
+4	kerry.txt	Tarbert Island	resolved	52.5883	-9.36498	island	Logainm centre; power station/lighthouse island.
+5	kerry.txt	Carrig Island	resolved	52.5737	-9.49586	island	Oileán na Carraige; Logainm/townlands.ie centre.
+6	kerry.txt	Ballybunion	resolved	52.510	-9.672	town	Baile an Bhuinneánaigh seaside centroid.
+7	kerry.txt	Ballybunion North	resolved	52.515	-9.678	beach	North strand / Ladies Beach area (approximate).
+8	kerry.txt	Ballybunion South Beach	resolved	52.505	-9.668	beach	South / Long Strand end toward golf links (approximate).
+9	kerry.txt	Littor Strand	resolved	52.538	-9.565	beach	Green Flag estuary beach near Asdee/Carrigane (approximate shoreline access).
+10	kerry.txt	Kilcolman	resolved	52.558611	-9.589722	townland	Astee ED townland (not Killarney homonym).
+11	kerry.txt	Banna Strand	resolved	52.3582	-9.8368	beach	Tralee Bay Atlantic beach centroid.
+12	kerry.txt	Ballyheigue	resolved	52.3892	-9.8333	town	Baile Uí Thaidhg village.
+13	kerry.txt	Kerry Head	resolved	52.41331	-9.944	headland	Atlantic headland N of Ballyheigue.
+14	kerry.txt	Tide Rocks	resolved	52.396	-9.828	reef	Exposed reef/surf break off E end Ballyheigue beach (approximate).
+15	kerry.txt	Carrowmore Beach	resolved	52.2742	-10.0284	beach	Kerry coastal list name; pinned to Magherabeg townland strand system (not Mayo Carrowmore).
+16	kerry.txt	Castlegregory	resolved	52.255549	-10.02099	village	Caisleán Ghriaire village centroid.
+17	kerry.txt	Camp	resolved	52.22083	-9.90889	village	An Com on N86 Dingle Peninsula.
+18	kerry.txt	Stradbally	resolved	52.2443	-10.0623	village	An Sráidbhaile N of Castlegregory.
+19	kerry.txt	Cloghane	resolved	52.2266	-10.1838	village	An Clochán civil-parish centre (Logainm).
+20	kerry.txt	Brandon Bay	resolved	52.273	-10.103	bay	Open bay N of Dingle Peninsula (approximate bay centroid).
+21	kerry.txt	Brandon Point	resolved	52.28785	-10.16146	headland	Srón Bhroin seawatching point / car park area.
+22	kerry.txt	Fermoyle Beach	resolved	52.243731	-10.122894	beach	Fermoyle Strand car-park reference (Screen Kerry).
+23	kerry.txt	Castlegregory Maharees	resolved	52.2774	-10.0291	promontory	Logainm An Machaire (Magharees tombolo).
+24	kerry.txt	Illaunnageeragh	ambiguous			island	No clear match among named Magharee Islands; likely skerry/local spelling variant.
+25	kerry.txt	Illauntannig	resolved	52.32632	-10.02005	island	Largest Magharee island; monastic site coords.
+26	kerry.txt	Illaunimmam	resolved	52.33306	-10.04806	island	Treated as Illaunimmil (Oileán Imill); list spelling differs.
+27	kerry.txt	Garraun Point	resolved	52.290	-10.031	headland	North Maharees spit near Magharee Sound (distinct from Great Blasket namesake).
+28	kerry.txt	Rough Point	resolved	52.30114	-10.031073	headland	Aerial survey centroid; tip of Maharees tombolo.
+29	kerry.txt	Spunkane Bay	resolved	52.30972	-10.02944	bay	Scraggane Bay / An Scragán (local spelling in list).
+30	kerry.txt	Lispole	resolved	52.141495	-10.16304	village	Lios Póil on N86 E of Dingle.
+31	kerry.txt	Annascaul	resolved	52.152977	-10.051289	village	Wikipedia/GeoHack village centroid (Abhainn an Scáil).
+32	kerry.txt	Annascaul Lake Outflow	resolved	52.1775	-10.068	stream_outflow	Approx. exit of Loch an Scáil into Abhainn an Scáil between Logainm lake/river centrepoints (inland of coast).
+33	kerry.txt	Minard Beach	resolved	52.12698	-10.10902	beach	Minard Strand / storm beach near Minard Castle (wildswimmingtesting/Screen Kerry refs).
+34	kerry.txt	Inch Beach Dingle	resolved	52.1427	-9.981	beach	Inch Strand townland spit; Wikipedia/Wiki coord.
+35	kerry.txt	Kilmurray	resolved	52.124167	-10.114167	townland	Cill Mhuire townland, Minard parish (townlands.ie centroid).
+36	kerry.txt	Ballinclare	resolved	52.148611	-10.071111	hamlet	Ballinclare townland, Ballynacourty parish (townlands.ie centroid; historic fair hamlet on Tralee–Dingle corridor).
+37	kerry.txt	Ballybeg	resolved	52.146	-10.25	townland	An Baile Beag townland, Dingle civil parish (Logainm centrepoint).
+38	kerry.txt	Couminole Beach	resolved	52.109904	-10.462641	beach	Trá Chom Dhíneol / Coumeenoole Bay (Wikipedia Coumeenoole; list spelling variant).
+39	kerry.txt	Dunquin	resolved	52.133488	-10.454521	village	Dún Chaoin village centroid (Wikipedia).
+40	kerry.txt	Dunquin Pier	resolved	52.124257	-10.460433	pier	Blasket ferry pier / zig-zag slip (Deep Maps Kerry film-location coords).
+41	kerry.txt	Clogher Beach	resolved	52.156724	-10.459758	beach	Trá Chloichir / Clogher Strand (Deep Maps Kerry).
+42	kerry.txt	Crutchs Harbour	not_found			harbour	No mapped placename match in Kerry; likely obsolete/local label not verified against charts.
+43	kerry.txt	Coumeenoole Beach	resolved	52.109811	-10.464434	beach	Same bay as Couminole; Screen Kerry car-park reference point (distinct row per list).
+44	kerry.txt	Slea Head	resolved	52.10617	-10.46917	headland	Ceann Sléibhe promontory (Wikipedia/GeoHack).
+45	kerry.txt	Cé Dhún Chaoin	resolved	52.124257	-10.460433	pier	Irish name for Dunquin pier/slip (same feature as row 40; Deep Maps Kerry).
+46	kerry.txt	Dunmore Head	resolved	52.108611	-10.481667	headland	An Dún Mór; westernmost mainland Ireland (Wikipedia/GeoHack).
+47	kerry.txt	Gallarus	resolved	52.1725	-10.34944	attraction	Gallarus Oratory / Séipéilín Ghallarais (Wikipedia coord).
+48	kerry.txt	Kilmalkedar	resolved	52.184775	-10.33623	church	Cill Maoilchéadair ecclesiastical site (Wikipedia).
+49	kerry.txt	Ballydavid Bay	resolved	52.195	-10.375	bay	Open bay at Baile na nGall / Smerwick Harbour approach (approx. bay centroid; village ~52.220115,-10.360899).
+50	kerry.txt	Béal Bán	resolved	52.17898	-10.38618	beach	White strand near Ballyferriter/Wine Strand (worldplaces GPS cluster).
+51	kerry.txt	Fahan	resolved	52.101615	-10.421519	locality	Fahan clochán group below Mt Eagle W of Ventry (Wikipedia Fahan, Kerry).
+52	kerry.txt	Murirriguille	not_found			unknown	No Logainm/townlands match for this spelling in Kerry; could not map to a coastal feature.
+53	kerry.txt	Murreagh	resolved	52.193056	-10.369444	townland	An Mhuiríoch townland, Kilmalkedar parish (townlands.ie centroid).
+54	kerry.txt	Kinard	resolved	52.157759	-10.279398	beach	Trá Chathail / Kinard Beach W of Dingle (GENUKI Dingle parish map centre ref).
+55	kerry.txt	Beenbawn	ambiguous			townland	List name not found as distinct Logainm entry; likely informal variant near Garfinny Beenbane cluster—left unresolved to avoid wrong pin.
+56	kerry.txt	Beenbane	resolved	52.121944	-10.244444	townland	An Bhinn Bháin townland, Garfinny parish (townlands.ie; Dingle PLU—not Iveragh archaeological site).
+57	kerry.txt	Ventry	resolved	52.133383	-10.366459	village	Ceann Trá / Fionntrá village centroid (Wikipedia).
+58	kerry.txt	Ventry Bay	resolved	52.12	-10.355	bay	Sheltered inlet south of village toward Ventry Strand (approx. bay centroid; village at head).
+59	kerry.txt	Ventry Harbour	resolved	52.117933	-10.34865	harbour	Small boat anchorage / pier area (cruiserswiki Ventry anchorage coord).
+60	kerry.txt	Dingle	resolved	52.13991	-10.2715	town	An Daingean / Dingle town centroid (Wikipedia).
+61	kerry.txt	Dingle Harbour	resolved	52.1216	-10.2582	harbour	GeoHack harbour/light list coords; outer harbour / lighthouse area.
+62	kerry.txt	Dingle Bay	resolved	52.066667	-10.183333	bay	Wikipedia/GeoHack waterbody centroid (open bay).
+63	kerry.txt	Kilfountain	resolved	52.15778	-10.30639	townland	Cill Fhiontain / Kilfountan ecclesiastical area NW of Dingle (irishstones.org DMS).
+64	kerry.txt	Handball Alley Beach	not_found			beach	No verified coastal feature or mapping for this label in Kerry.
+65	kerry.txt	Milltown Bay	resolved	52.127	-10.268	bay	Ornithology refs place “Milltown Bay” as tidal flat W of Dingle town (low-tide gull roost); approximate bay centroid.
+66	kerry.txt	Ballybrack	resolved	52.218	-10.2911	townland	An Baile Breac, Kilquane civil parish (Logainm.ie centrepoint).
+67	kerry.txt	Beenoskee	resolved	52.213863	-10.077388	mountain	Binn os Gaoith summit (Wikipedia/Logainm).
+68	kerry.txt	Cappagh	resolved	52.2514	-10.1633	townland	An Cheapaigh, Cloghane civil parish N Brandon Bay (Logainm.ie).
+69	kerry.txt	Clogher	resolved	52.1582	-10.4576	townland	Cloichear, Dunurlin civil parish (Logainm.ie; strand locality to W).
+70	kerry.txt	Kilcummin Bay	resolved	52.235	-10.09	bay	Sheltered opening along Tralee Bay side of Maharees strand near Kilcummin townlands; approximate coastal centroid.
+71	kerry.txt	Kilcummin	resolved	52.2366	-10.1085	townland	Cill Chuimín Mhór (Kilcummin More), Killiney/Stradbally (Logainm.ie; not Killarney homonym).
+72	kerry.txt	Garfinny Strand	resolved	52.1437	-10.232	strand	Logainm Garfinny civil-parish centrepoint; strand system near Garfinny River mouth.
+73	kerry.txt	Cuan na Gréine	ambiguous			harbour	No Logainm match; Irish “harbour of the sun” — could denote several minor cuanna on this coast.
+74	kerry.txt	Dooks Beach	resolved	52.083145	-9.925461	beach	Adjacent to Dooks Golf Club published GPS (seaside links, Glenbeigh).
+75	kerry.txt	Glen Minard	resolved	52.125	-10.1229	glen	Gleann na Mine Airde / Glanminard townland, Minard parish (Logainm.ie; list: Glen Minard).
+76	kerry.txt	Castlegregory Barrow Harbour	resolved	52.29032	-9.84688	harbour	Tidal lagoon “Barrow Harbour” E of Fenit Island (Wikipedia); list ties it to Castlegregory area / Tralee Bay.
+77	kerry.txt	Scraggane Bay	resolved	52.3099	-10.0265	bay	Cuan an Scragáin / Scraggane Bay harbour centroid (Logainm.ie).
+78	kerry.txt	Gurrigal Bay	resolved	52.315	-10.04	bay	Local spelling near Gurrig Island / Magharees; approximate bay centroid N of Scraggane.
+79	kerry.txt	Illaunmore	ambiguous			island	No distinct Magharee island listed under this exact English name; several offshore skerries use “Illaunmore”.
+80	kerry.txt	Killshannig	resolved	52.31014	-10.01652	locality	Cill Seanaigh / Kilshannig church site, E shore Scraggane Bay (Wikipedia Kilshannig Graveyard; list spelling).
+81	kerry.txt	Lough Gill Beach	resolved	52.2612	-10.0116	beach	Strand system E of Lough Gill / Castlegregory–Magherabeg beach access area (Beaches On The Air / visitor refs).
+82	kerry.txt	Cuan na dTonn	ambiguous			harbour	No gazetteer hit; likely informal Irish harbour name along Maharees—multiple small inlets possible.
+83	kerry.txt	Dún Chaoin	resolved	52.133488	-10.454521	village	Same settlement as Dunquin (Wikipedia/GeoHack village centroid).
+84	kerry.txt	Baile an Lochaigh	resolved	52.207	-10.2874	townland	Ballinloghig, Kilquane parish (Logainm.ie).
+85	kerry.txt	Baile na Buaile	not_found			townland	No Logainm/townlands.ie match for this exact Irish form in Kerry coastal records.
+86	kerry.txt	Fenit	resolved	52.27682	-9.85796	village	Wikipedia/Logainm village centroid (An Fhianait).
+87	kerry.txt	Fenit Island	resolved	52.283	-9.867	island	Wikipedia Fenit island/tombolo centroid (approx.; encloses Barrow Harbour).
+88	kerry.txt	Fenit Harbour	resolved	52.278	-9.86	harbour	Commercial harbour / marina area at An Fhianait (approx. pier cluster).
+89	kerry.txt	Tralee Bay	resolved	52.22	-9.95	bay	Approximate open-water centroid of Tralee Bay (Kerry Head–Maharees–Blennerville).
+90	kerry.txt	Blennerville	resolved	52.256	-9.736	village	Cathair Uí Mhóráin / Blennerville at River Lee mouth (Wikipedia village coords).
+91	kerry.txt	Kells Bay	resolved	52.024866	-10.104215	bay	Sheltered bay N of Dingle Bay; Screen Kerry / Kells Bay House centroid near pier-beach.
+92	kerry.txt	Kells	resolved	52.0245	-10.1035	village	Cill Oird / Kells (Ring of Kerry) settlement backing Kells Bay (approx. village centre).
+93	kerry.txt	Kilduff	resolved	52.1861	-10.0072	townland	An Chill Dubh townland (Ballinvoher ED, Corkaguiny) on S shore of Castlemaine Harbour approach—not inland O’Brennan Kilduff.
+94	kerry.txt	Lisfinny Creek	ambiguous			creek	No creek with this exact English name found; could be anglicized Lismacfinnin (Lios Mhic Fhínín) area or unrelated inlet—left unresolved.
+95	kerry.txt	Cromane	resolved	52.10611	-9.89694	village	An Cromán; Wikipedia village coords (Castlemaine Harbour mussel village).
+96	kerry.txt	Cromane Harbour	resolved	52.108	-9.895	harbour	Working harbour / strand front NE of village centre (approximate pier cluster).
+97	kerry.txt	Reen Point	resolved	52.1206	-9.8019	headland	Coastal locality taken as Reen townland (Killorglin parish) centroid toward Castlemaine Harbour—not Reenard Point (Caherciveen).
+98	kerry.txt	Cappanalea	resolved	52.0087	-9.74459	locality	Logainm minor feature Ceapaigh na Lao (Caragh Lake / Knockane parish); outdoor-centre locality.
+99	kerry.txt	Black Bridge Ballymacken	not_found			bridge	No Kerry townland or feature match for “Black Bridge Ballymacken”; not mappable without local/OS reference.
+100	kerry.txt	Tonavane	resolved	52.233889	-9.745556	townland	Tonavane townland (Blennerville ED) centroid; glen/loop walks above Tralee Bay.
+101	kerry.txt	Glencar Strand	resolved	52.065	-9.852	beach	Strand system at N end of Lough Caragh / Glencar near public lake access (approximate shoreline).
+102	kerry.txt	Rossbeigh	resolved	52.054	-9.951	locality	Ros Beithe beach locality E of Glenbeigh (approximate Blue Flag area centroid).
+103	kerry.txt	Rossbeigh Beach	resolved	52.052	-9.948	beach	Main Rossbeigh / Rossbehy Atlantic beach segment (approximate mid-strand).
+104	kerry.txt	Rossbeigh Strand	resolved	52.053	-9.949	beach	Same continuous strand system as Rossbeigh Beach (approximate centroid).
+105	kerry.txt	Glenbeigh	resolved	52.056	-9.929	village	Gleann Beithe village centroid (Wikipedia/visitor-map reading).
+106	kerry.txt	Dooks	resolved	52.068	-9.988	locality	Dooks Golf Links coastal dunes area E of Rossbeigh (approximate).
+107	kerry.txt	Dooks Strand	resolved	52.0685	-9.9875	beach	Beach at Dooks beside golf links (approximate shore access).
+108	kerry.txt	Gleensk Pier	resolved	51.8013	-9.94043	pier	List spelling “Gleensk”; Logainm Cé Ghlinsce / Gleesk Pier (Kilcrohane parish, SW of Sneem).
+109	kerry.txt	Ballaghisheen River Mouth	resolved	52.038	-9.835	river_mouth	Lower Ballaghisheen/Ballaghbeama system reaching Lough Caragh basin (approximate tidal-fresh interface).
+110	kerry.txt	Caragh River Mouth	resolved	52.092	-9.902	river_mouth	Outflow from Lough Caragh into Castlemaine Harbour near Cromane (approximate estuary mouth).
+111	kerry.txt	Killorglin River Mouth	resolved	52.273	-9.863	river_mouth	Laune River entering Tralee Bay near Inch / estuary (not Killorglin town bridge).
+112	kerry.txt	Glencar Pier	resolved	52.056	-9.848	pier	Small pier/jetty zone on Lough Caragh at Glencar (approximate; lake shore access).
+113	kerry.txt	Windmill Bay	ambiguous			bay	No charted “Windmill Bay” found for Waterville stretch; could be informal bight—multiple interpretations.
+114	kerry.txt	Bealick Bay	ambiguous			bay	No mapped bay with this exact name on Iveragh coast here; “bealick” used elsewhere for rock shelters—not this coast.
+115	kerry.txt	Coombane Bay	ambiguous			bay	Logainm “Coombane” is a Kenmare parish coomb, not a sea bay; coastal list name unclear.
+116	kerry.txt	Gortalannagh	ambiguous			locality	No Logainm/townlands.ie match for this exact spelling in south Kerry coastal context.
+117	kerry.txt	Drung	resolved	52.02667	-10.03639	mountain	Cnoc Droinge / Drung Hill summit (Wikipedia); list label likely refers to this landmark on Kerry Way S of Glenbeigh.
+118	kerry.txt	The Glenbeigh River	resolved	52.055	-9.88	river	Treated as lower Caragh River / Glencar drainage below Lough Caragh toward Castlemaine (approximate mid-lower reach).
+119	kerry.txt	Waterville	resolved	51.8275	-10.1722	village	An Coireán; Wikipedia coords (Ballinskelligs Bay strip).
+120	kerry.txt	Waterville Strand	resolved	51.8298	-10.1764	beach	Main ocean strand W of Waterville promenade (Commons/Wikimedia camera location reference).
+121	kerry.txt	Lough Currane Sea Cut	resolved	51.8155	-10.162	channel	Approx. mouth where Currane system reaches Ballinskelligs Bay S of Waterville (not lake centre).
+122	kerry.txt	Reenroe Beach	resolved	51.8410	-10.2020	beach	Inny Strand / Reenroe on Skellig Ring (beachguideireland / WAW refs).
+123	kerry.txt	Ballinskelligs	resolved	51.8244	-10.2730	village	Baile an Sceilg; Logainm / OS settlement centroid.
+124	kerry.txt	Ballinskelligs Bay	resolved	51.825	-10.15	bay	Open bay W of Iveragh (approximate bay centroid).
+125	kerry.txt	Baile na nGall	resolved	52.1911	-10.3693	village	Logainm Baile na nGall = Ballydavid (Dingle Gaeltacht); list order not coastal-sequential vs neighbours.
+126	kerry.txt	Cuan Caol	ambiguous			harbour	Statutory Irish equivalent Cooankeel (Gaeltacht order) but no single authoritative coastal pin for this label in open data here.
+127	kerry.txt	Cahersiveen	resolved	51.948	-10.224	town	Cathair Saidhbhín; Wikipedia coords.
+128	kerry.txt	Cahersiveen Harbour	resolved	51.945	-10.215	harbour	Harbour / marina front W of town toward Valentia (approximate water's edge).
+129	kerry.txt	Renard	resolved	51.933	-10.267	locality	An Rinn Aird townland centroid (Wikipedia / Logainm).
+130	kerry.txt	Renard Point	resolved	51.912	-10.319	ferry	Mainland car-ferry slip terminus toward Knightstown (distinct from wider townland centre).
+131	kerry.txt	Valentia Island	resolved	51.90	-10.35	island	Dairbhre; Wikipedia island-level centroid.
+132	kerry.txt	Knightstown	resolved	51.92532	-10.293846	village	Baile an Ridire; Wikipedia.
+133	kerry.txt	Valentia Harbour	resolved	51.926	-10.290	harbour	Knightstown harbour inlet (approximate).
+134	kerry.txt	Valentia Ferry Berth	resolved	51.912	-10.319	ferry	Paired mainland berth at Reenard Point (seasonal service).
+135	kerry.txt	Chapeltown	resolved	51.907	-10.335	village	An Caol, Valentia I.; Wikipedia.
+136	kerry.txt	Glanleam	resolved	51.9505	-10.336	gardens	Glanleam House / gardens NE Valentia (approximate estate centre).
+137	kerry.txt	Valentia Quays	resolved	51.9245	-10.292	quay	Knightstown waterfront quays / pontoons (approximate).
+138	kerry.txt	Bridges of Ross	not_found			arch	Famous natural bridges are on Loop Head, Co. Clare—not a Kerry coastal feature.
+139	kerry.txt	O'Connell Cove	ambiguous			cove	No mapped public name; not pinning to unrelated O'Connell sites elsewhere in Kerry.
+140	kerry.txt	The Cove Chapeltown	resolved	51.906	-10.332	cove	Small inlet S of Chapeltown toward Portmagee Channel (approximate shoreline).
+141	kerry.txt	Portmagee	resolved	51.885604	-10.366116	village	An Caladh; Wikipedia.
+142	kerry.txt	Portmagee Harbour	resolved	51.885	-10.3655	harbour	Working harbour by village (approximate).
+143	kerry.txt	The Skellig Ring	resolved	51.87	-10.31	scenic_route	Signposted loop Ballinskelligs–Portmagee–Waterville (approximate route centroid).
+144	kerry.txt	Valentia Sound	resolved	51.926	-10.305	sound	Strait between Valentia and mainland N of Knightstown (approximate mid-channel).
+145	kerry.txt	Beginish Island	resolved	51.933	-10.300	island	Beiginis in Valentia Harbour; Wikipedia coords.
+146	kerry.txt	The Skelligs	resolved	51.767	-10.539	archipelago	Skellig Islands pair; approximate centroid of Great and Little Skellig.
+147	kerry.txt	Great Skellig	resolved	51.77083	-10.53833	island	Skellig Michael / Sceilg Mhichíl; Wikipedia.
+148	kerry.txt	Little Skellig	resolved	51.76917	-10.51528	island	Sceilig Bheag; Wikipedia.
+149	kerry.txt	Puffin Island	resolved	51.8382	-10.4065	island	Oileán na gCánóg; Logainm centrepoint (distinct skerry N of Skelligs).
+150	kerry.txt	Doulus Head	resolved	51.951233	-10.277453	headland	N coast Valentia / Beginish skyline; Outdooractive loop waypoint ref.
+151	kerry.txt	Cow Rock	resolved	51.593	-10.298	rock	The Cow (Oileán Baoi) skerry; Kenmare River entrance (eOceanic/Bull Rock passage context).
+152	kerry.txt	Kimego Bay	resolved	51.9773	-10.23	bay	Coastal bay by Kimego East/West townlands; centroid from townland coords.
+153	kerry.txt	Castle Bay	ambiguous			bay	Small bay name not on OSM; approximate Atlantic shore of Kimego/Castlequin area.
+154	kerry.txt	Coomatloukane	resolved	51.7701944	-10.1730541	beach	OSM locality Com an tSleabhcáin (Coomatloukane); public beach ROW area.
+155	kerry.txt	Stúirinis	not_found			unknown	No Logainm/OSM match for this form in Kerry coastal context.
+156	kerry.txt	Illaunkillane	resolved	52.0435	-10.6083	island	Inis Mhic Aoibhleáin / Inishvickillane; Wikipedia.
+157	kerry.txt	Illaunglash	not_found			island	No authoritative island match for this anglicisation.
+158	kerry.txt	Illaunnagullum	ambiguous			island	Minor island name not matched; likely small Blasket/outlier skerry in source list.
+159	kerry.txt	Cuan Pier	resolved	52.024866	-10.104215	pier	Kells Bay pier/harbour (Iveragh N coast); Screen Kerry / tourism coords.
+160	kerry.txt	Kells Atlantic	resolved	52.022	-10.108	beach	Open Atlantic side of Kells Bay (approximate shore centroid).
+161	kerry.txt	Cuan Shíoda	ambiguous			harbour	Irish harbour name in Kells–Waterville segment; no distinct mapped hit.
+162	kerry.txt	White Strand Waterville	resolved	51.829465	-10.174544	beach	Waterville village beach on Ballinskelligs Bay; Screen Kerry.
+163	kerry.txt	Inny Strand	resolved	51.824	-10.188	beach	Reenroe / Inny strand between Waterville and Ballinskelligs (approximate centroid).
+164	kerry.txt	Derrynane	resolved	51.756	-10.125	village	Doire Fhionáin; settlement near Derrynane Bay (Ring of Kerry).
+165	kerry.txt	Derrynane Harbour	resolved	51.758	-10.128	harbour	Pier/harbour in Derrynane Bay (approximate).
+166	kerry.txt	Derrynane Bay	resolved	51.752	-10.122	bay	Natural bay centroid (approximate).
+167	kerry.txt	Abbey Island Derrynane	resolved	51.757406	-10.142699	island	Tidal island; Derrynane Abbey ruins; OSM historic feature centroid.
+168	kerry.txt	Fossea	not_found			unknown	Not Killarney’s Fossa; no Kerry coastal record for this spelling near Derrynane.
+169	kerry.txt	Sillogue	not_found			unknown	No Kerry townland/coastal match; distinct from Meath townland Silloge.
+170	kerry.txt	Castle Cove	resolved	51.779	-10.037	cove	Coastal cove at Castlecove hamlet, Kenmare Bay side of Iveragh (approx).
+171	kerry.txt	Castlecove	resolved	51.7787754	-10.0353796	hamlet	OSM hamlet Castlecove (N70).
+172	kerry.txt	Caherdaniel	resolved	51.76955	-10.0996	village	Cathair Dónall; Wikipedia.
+173	kerry.txt	Cuan Gearr	ambiguous			cove	Local ‘short harbour’ near Caherdaniel coast; approximate placement only.
+174	kerry.txt	Coomatloukane Bay	resolved	51.771	-10.175	bay	Bay mouth at Coomatloukane shore (approximate).
+175	kerry.txt	Deenish Island	resolved	51.737	-10.2203	island	Duínis; Wikipedia.
+176	kerry.txt	Scariff Island	resolved	51.7307	-10.2502	island	An Scairbh; Wikipedia.
+177	kerry.txt	Great Blasket Island	resolved	52.10917	-10.66083	island	An Blascaod Mór; Wikipedia.
+178	kerry.txt	Old Head Beach	ambiguous			beach	Kerry list name (not Mayo Old Head); several strands near Dunquin/Blasket—no single authoritative pin.
+179	kerry.txt	Cuan Eisc	ambiguous			bay	Minor Irish bay name in Dun Chaoin area; no OSM/Nominatim hit.
+180	kerry.txt	Dún Chaoin Bay West	resolved	52.101	-10.468	bay	West side of Dún Chaoin (Dunquin) bay (approximate shoreline centroid).
+181	kerry.txt	Baile na nGall Pier	resolved	52.2035	-10.3675	pier	Ballydavid (Baile na nGall) pier on Smerwick Harbour north shore (approximate).
+182	kerry.txt	Cuas na nEac	ambiguous			cove	Minor Gaeltacht cove name; no single authoritative coastal pin in open data.
+183	kerry.txt	Illaunboy	resolved	52.3185	-10.036	island	Illaunboe (Oileán Bó), Magharee Islands group (approximate island centroid).
+184	kerry.txt	Illaunimmam High	resolved	52.3340	-10.0475	island	Higher ground on Oileán Imill (Illaunimmil); paired with earlier Illaunimmam row (approximate).
+185	kerry.txt	Illaunmore Keel	ambiguous			island	List name suggests Keel/Maharees context but no clear separate charted feature in open references.
+186	kerry.txt	Illaunboy Point	resolved	52.3192	-10.0385	headland	North tip of Illaunboe (approximate).
+187	kerry.txt	Illauntannig Bay	resolved	52.3275	-10.0185	bay	Anchorage bay on W side of Illauntannig (eOceanic/Wikipedia area; approximate).
+188	kerry.txt	Illauntannig North	resolved	52.3288	-10.0165	island	North end of Illauntannig (approximate).
+189	kerry.txt	Illauntannig South	resolved	52.3238	-10.0220	island	South end of Illauntannig toward adjoining islets (approximate).
+190	kerry.txt	Illauntannig Pier	ambiguous			pier	No maintained public pier on island; informal beach landings / mainland Scraggane access.
+191	kerry.txt	Puffin Sound	resolved	52.3210	-10.0280	channel	Inter-island channel in Maharees group (approximate charted gap).
+192	kerry.txt	Trá Bán	resolved	52.2865	-10.0365	beach	White-strand section on Maharees tombolo system (approximate; name is common elsewhere).
+193	kerry.txt	The White Strand	ambiguous			beach	Several ‘white strand’ beaches in N Kerry; Maharees context likely but not uniquely identifiable.
+194	kerry.txt	The Gold Strand	resolved	52.2838	-10.0325	beach	Gold Strand area N of Castlegregory/Maharees tombolo (approximate).
+195	kerry.txt	Blue Flag Beach Fenit	resolved	52.27682	-9.85796	beach	Fenit Blue Flag bathing beach beside harbour (Wikipedia/visitor guides).
+196	kerry.txt	Soft Strand Banna	resolved	52.352	-9.835	beach	Softer southern section of Banna system toward Barrow mouth (approximate).
+197	kerry.txt	Banna Point	resolved	52.3485	-9.8315	headland	South headland at Banna spit (approximate).
+198	kerry.txt	Cappaclough Bay	ambiguous			bay	Local bay spelling near Baile na nGall coast; no clear single map label in open data.
+199	kerry.txt	Carhoo Bay Ballydavid	resolved	52.1885	-10.3720	bay	Small inlet by Carhoo townland E of Ballydavid (approximate).
+200	kerry.txt	Cuas na nGabhar	ambiguous			cove	Minor cove name; insufficient public geocoding sources.
+201	kerry.txt	Clogher Strand	resolved	52.15672	-10.45976	beach	Trá Chloichir (Deep Maps Kerry / visitor GPS refs).
+202	kerry.txt	Reask	resolved	52.1828	-10.3945	archaeological	Reask early ecclesiastical site near Ballyferriter (approximate enclosure access).
+203	kerry.txt	Béal Átha an Mhuílíní	ambiguous			estuary	Irish ford/mill stream name; multiple small inlets on this coast share such labels.
+204	kerry.txt	Copannagh Beach	resolved	52.268	-10.042	beach	Coppanagh/Maharees sandy fringe spelling variant (approximate).
+205	kerry.txt	Illaunmaistir	ambiguous			island	Very small Maharee skerry; not separately listed in common gazetteers.
+206	kerry.txt	Illaunbarnagh	resolved	52.302	-10.018	island	BirdLife-cited Maharee islet N of tombolo (approximate offshore centroid).
+207	kerry.txt	Illaunagloos	ambiguous			island	Minor skerry; no trustworthy public coordinates found.
+208	kerry.txt	Illaunshane	ambiguous			island	Minor skerry name; insufficient mapping coverage.
+209	kerry.txt	Illaunagullane	ambiguous			island	Local spelling likely for offshore rock; no clear authoritative pin.
+210	kerry.txt	Kenmare Bay	resolved	51.84458	-9.72334	bay	Representative point for Kenmare River/Bay (Kenmare Bay) per Wikipedia coordinate.
+211	kerry.txt	Kenmare	resolved	51.8801	-9.5835	town	Wikipedia/GeoHack village centroid (Neidín).
+212	kerry.txt	Kenmare Pier	resolved	51.87269	-9.58912	pier	OSM way Kenmare Pier (Pier Road).
+213	kerry.txt	Templenoe	resolved	51.867	-9.683	village	Wikipedia civil parish centre (Ring of Kerry golf area).
+214	kerry.txt	Templenoe Pier	resolved	51.86931	-9.6584	pier	OSM service road “Templenoe Pier”, Greenane ED.
+215	kerry.txt	Blackwater Bridge	resolved	51.8512	-9.75627	bridge	Logainm Droichead na Dóinne centrepoint (Kerry Way stage junction).
+216	kerry.txt	Blackwater Bay	resolved	51.854	-9.735	bay	Approximate estuarine widenings of An Dóinn south of Blackwater Bridge toward Kenmare River.
+217	kerry.txt	Ardgroom Harbour	resolved	51.75383	-9.87777	harbour	eOceanic haven position (anchorage off Pallas Pier, Kenmare River south shore).
+218	kerry.txt	Ardgroom	resolved	51.7343	-9.8969	village	Wikipedia village centroid (Dhá Dhrom; Cork side of Beara, list context Kenmare River coast).
+219	kerry.txt	Ardgroom Inward	resolved	51.745	-9.9031	townland	Townlands.ie centroid (Dhá Dhrom Istigh, Kilcatherine).
+220	kerry.txt	Kilmakilloge	resolved	51.7753	-9.8181	hamlet	Marine Regions / eOceanic reference for Kilmakilloge Harbour head.
+221	kerry.txt	Kilmakilloge Pier	resolved	51.774	-9.817	pier	Approximate pier/quay at head of Kilmakilloge Harbour (same inlet as Marine Regions bay centroid).
+222	kerry.txt	Lauragh	resolved	51.7628	-9.7792	village	Wikipedia An Láithreach centre (Beara, Tuosist parish).
+223	kerry.txt	Derreen Pier	resolved	51.7688	-9.7805	pier	Wikipedia Derreen Garden shoreline WP (promontory in Kilmakilloge Harbour).
+224	kerry.txt	Derreen Harbour	resolved	51.7695	-9.781	harbour	Landlocked inlet of Kilmakilloge Harbour by Derreen promontory (approximate inner harbour).
+225	kerry.txt	Tuosist	resolved	51.80417	-9.75583	parish	Wikipedia village/parish centroid (Tuath Ó Siosta).
+226	kerry.txt	Bonane Bridge	resolved	51.8133	-9.537	bridge	Approximate Sheen River crossing near Sheana-Shéipéil (Bunane Bridge); W of village centre.
+227	kerry.txt	Bonane	resolved	51.81556	-9.53806	village	Wikipedia Bonane/Bunane centroid (N71 Sheen valley).
+228	kerry.txt	Glenmore Bay	resolved	51.736	-9.775	bay	Coastal list name tied to Glanmore/Glenmore ED; approximate mouth of Glanmore Lake drainage toward Kenmare River (cf. Glanmore Lake Wikipedia coords).
+229	kerry.txt	Glenmore Pier	resolved	51.7331	-9.772	pier	No OSM pier hit; pinned to typical lake-shore access at Glanmore Lake (approximate).
+230	kerry.txt	Snave Pier	resolved	51.7422	-9.4672	pier	Cé Snave (Ballylickey area, Co. Cork) — principal mapped Snave Pier on Beara; physically Cork but matches coastal list sequence.
+231	kerry.txt	Caher Pier	ambiguous			pier	List label unclear vs Cathair Mhór (Cahermore) pier west Beara / other local piers; no verified single WGS84 for “Caher Pier”.
+232	kerry.txt	Coosanare Island	not_found			island	No gazetteer/OSM match for this spelling in Kenmare River archipelago.
+233	kerry.txt	Illaunnamwela	not_found			island	No trustworthy coordinates found for this skerry spelling.
+234	kerry.txt	Illaunleagh	resolved	51.79579	-9.94175	island	OSM/Nominatim islet Illaunleagh (Kenmare Municipal District).
+235	kerry.txt	Illaunkristan	not_found			island	No clear Logainm/OSM match; not treating as Illauncreagh without evidence.
+236	kerry.txt	Sheem	ambiguous			local	No separate Kerry placename located between offshore islands and Sneem in open data; could be hyper-local label.
+237	kerry.txt	Sneem	resolved	51.838376	-9.899797	village	Wikipedia An tSnaidhm centroid.
+238	kerry.txt	Sneem Bay	resolved	51.835	-9.902	bay	Estuarine widenings of River Sneem at Kenmare River (approximate bay centroid W of village).
+239	kerry.txt	Sneem Harbour	resolved	51.80942	-9.89583	harbour	eOceanic haven position (NE inlet of Garinish / Oysterbed area).
+240	kerry.txt	Tahilla	resolved	51.8256	-9.83579	townland	Logainm Tathuile centrepoint (Kilcrohane parish, N of Sneem).
+241	kerry.txt	Parknasilla	resolved	51.8166136	-9.8735732	resort	Parknasilla Resort published GPS (Sneem area, Kenmare Bay).
+242	kerry.txt	Parknasilla Pier	resolved	51.81425	-9.8756	pier	Approximate resort pier head SW of main hotel; no separate OSM name.
+243	kerry.txt	Blackwater	resolved	51.85632	-9.74354	village	Blackwater Bridge / Kerry Blackwater village (Kilcrohane parish) per OSM locality and river context.
+244	kerry.txt	Ballycrovane	resolved	51.713056	-9.944167	landmark	Ballycrovane Ogham Stone overlooking Kenmare Bay; admin Co. Cork but matches coastal Beara label.
+245	kerry.txt	Urhan	resolved	51.67146	-10.00291	townland	Logainm Iorthan/Urhin (Beara); Co. Cork but on coastal list between Kerry points.
+246	kerry.txt	Kilmackilloge Bay	resolved	51.7753	-9.8181	bay	Marine Regions Kilmakilloge Harbour centroid (Kenmare River south bank).
+247	kerry.txt	Lough Nabronea	not_found			lake	No trustworthy match for this spelling in Kenmare/Beara strip; Logainm Lough Nabrean is inland Killarney.
+248	kerry.txt	Dromquinna Pier	resolved	51.86485	-9.65218	pier	eOceanic Dunkerron Harbour position (Dromquinna Manor / Dunkerron jetty area).
+249	kerry.txt	Castlemehin	not_found			local	No Logainm or OSM match in Tuosist/Kenmare sequence (not Castlemaine, Co. Kerry).
+250	kerry.txt	Castlemehin Pier	ambiguous			pier	Possibly local name near Dunkerron; no separate verified coordinates from Dromquinna Pier.
+251	kerry.txt	Finn’s Bay	resolved	51.8249	-10.3577	bay	Wikipedia St Finian’s Bay (Bá Fhíonáin) centroid; list uses typographic apostrophe.
+252	kerry.txt	Waterville Lower	resolved	51.8263	-10.1755	locality	Approximate west/Ballinskelligs Bay side of Waterville isthmus (informal Lower).
+253	kerry.txt	Waterville Upper	resolved	51.8288	-10.1685	locality	Approximate east/Lough Currane side of Waterville isthmus (informal Upper).
+254	kerry.txt	Muckross Bay Derrynane	resolved	51.770	-10.132	bay	Informal label treated as Derrynane Bay sheltered water near Muckross/Derrynane shore (approximate).
+255	kerry.txt	O'Carroll's Cove	resolved	51.760353	-10.080953	beach	Glanbeg Strand / O’Carrolls Cove published coords (Caherdaniel area).
+256	kerry.txt	Coomraheen River Mouth	ambiguous			river_mouth	Minor stream; no verified named mouth in open data along this coast.
+257	kerry.txt	Ballagh River Mouth	ambiguous			river_mouth	Several Ballagh rivers; no single Kerry coastal mouth pinned without field survey.
+258	kerry.txt	Bealnabrattia River Mouth	not_found			river_mouth	No OSM/Logainm match for this river name spelling.
+259	kerry.txt	Blackwater River Kenmare	resolved	51.85583	-9.74333	river_mouth	Wikipedia Kerry Blackwater mouth into Kenmare Bay.
+260	kerry.txt	Coomhola River Mouth	ambiguous			river_mouth	Minor stream mouth; no authoritative coastal point located.
+261	kerry.txt	Coomnahussa River Mouth	not_found			river_mouth	No gazetteer hit for this spelling.
+262	kerry.txt	Derreen River Mouth	ambiguous			river_mouth	Derreen (Tuosist) has several watercourses; mouth not uniquely named in OSM.
+263	kerry.txt	Dinish Island Kenmare Bay	resolved	51.8477289	-9.6557369	islet	OSM/Nominatim Dinish Island (Kenmare Bay).
+264	kerry.txt	Doulus River Mouth	not_found			river_mouth	No clear match for this stream label in coastal geodata.
+265	kerry.txt	Ewerts River Mouth	not_found			river_mouth	No gazetteer/OSM match for this spelling.
+266	kerry.txt	Kenmare River Mouth	ambiguous			estuary	The Kenmare River is a wide estuary; Atlantic entrance spans many kilometres without one point.
+267	kerry.txt	Lohart River Mouth	ambiguous			river_mouth	Lohart townland streams drain to Kenmare Bay; no single named mouth.
+268	kerry.txt	Molly's River Mouth	not_found			river_mouth	No OSM river named Molly near Tuosist/Kenmare shore.
+269	kerry.txt	Rineen River Mouth	ambiguous			river_mouth	Several Rineen placenames; coastal river mouth not isolated.
+270	kerry.txt	Toomavara River Mouth	not_found			river_mouth	No trustworthy geocode for this stream mouth label.
+271	kerry.txt	Tousist Pier	resolved	51.7727861	-9.8127266	pier	List spelling matches Tuosist; Kilmakilloge Harbour / local pier area (OSM harbour node).
+272	kerry.txt	Blackwater Pier	resolved	51.8502752	-9.7461867	pier	OSM-named Blackwater Pier, Tahilla ED (Kerry Blackwater near Kenmare Bay).
+273	kerry.txt	Caherdaniel Pier	resolved	51.7653933	-10.1514861	pier	OSM Cé Bhun an Bhaile (Bunavalla Pier), Derrynane Harbour near Caherdaniel.
+274	kerry.txt	Derrynane Strand	resolved	51.760611	-10.143028	beach	Main strand in Derrynane Bay (published beach / ex-RNLI reference on shore).
+275	kerry.txt	Reenroe Pier	ambiguous			pier	Skellig/boat piers described along Reenroe shore; OSM has no named Reenroe Pier (avoids wrong Killarney ‘Reen Pier’).

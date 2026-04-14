@@ -1,0 +1,94 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	moray.txt	Kingston on Spey	resolved	57.6746059	-3.1117755	village	Kingston on Spey / Kingston, Moray at west side of River Spey mouth (Wikipedia/OS-style coords)
+2	moray.txt	Garmouth	resolved	57.6638900	-3.1100000	village	Village on west bank of Spey at river mouth (Wikipedia coord)
+3	moray.txt	Spey Bay	resolved	57.6684200	-3.0845580	settlement	Spey Bay settlement east of Spey mouth (GeoHack/Wikipedia area)
+4	moray.txt	Tugnet	resolved	57.6736100	-3.0936100	historic_fishery	Tugnet fishing station / ice house group, Spey Bay (Wikipedia listed building coord)
+5	moray.txt	Mill of Tugnet	resolved	57.6738000	-3.0932000	hamlet	Mill locality adjoining Tugnet complex; pinned adjacent to Tugnet cluster (approximate)
+6	moray.txt	Mosstodloch	resolved	57.6295300	-3.1152200	village	Mosstodloch on west bank of Spey between Fochabers and Elgin (Wikipedia)
+7	moray.txt	River Spey mouth	resolved	57.6715000	-3.0980000	estuary	Representative point at main river mouth / shingle bar between Kingston and Spey Bay (broad feature)
+8	moray.txt	Lossiemouth	resolved	57.7214000	-3.2834000	town	Town centroid on Moray Firth (common databases)
+9	moray.txt	Lossiemouth East Beach	resolved	57.7175000	-3.2758330	beach	Mid-beach per visitor guides (OS grid NJ240704 area)
+10	moray.txt	Lossiemouth West Beach	resolved	57.7208970	-3.3023280	beach	Access/car-park area St Gerardine's side (SOBT grid NJ225709)
+11	moray.txt	Lossie	resolved	57.7214000	-3.2834000	town	Local short name for Lossiemouth; same town centroid as line 8 (separate row per pass-1 rules)
+12	moray.txt	Covesea	resolved	57.7195000	-3.3520000	coastal_locality	Covesea strip west of Lossiemouth toward lighthouse / links (approximate centroid)
+13	moray.txt	Covesea Skerries	resolved	57.7241400	-3.3385000	skerries	Offshore skerries / lighthouse islet (Canmore lighthouse centre)
+14	moray.txt	Covesea Lighthouse	resolved	57.7241400	-3.3385000	lighthouse	Covesea Skerries lighthouse (Canmore NRHE)
+15	moray.txt	Stotfield	resolved	57.7175675	-3.3025801	suburb	Historic fishing quarter NW of town centre (Streetmap cluster)
+16	moray.txt	Pitgaveny	resolved	57.7205500	-3.2809300	quay_area	Pitgaveny Street / old harbour quarter by marina (Canmore Salmon Bothy)
+17	moray.txt	Clifton	resolved	57.7173400	-3.2874800	seatown	Clifton Road Seatown frontage (Canmore general view)
+18	moray.txt	Greenbanks	not_found				No matching named place found on Moray coast in gazetteers; possibly informal/local label
+19	moray.txt	Lossiemouth Marina	resolved	57.7225000	-3.2794400	marina	Lossiemouth harbour/marina waypoint (pilotage / port listings)
+20	moray.txt	Spynie	resolved	57.7171100	-3.2824700	canal	Spynie Canal at Seatown Bridge immediately above confluence with River Lossie (Canmore)
+21	moray.txt	Moray Golf Club	resolved	57.7190000	-3.3160000	golf_club	Moray GC Stotfield Road links (Wikipedia/GeoHack)
+22	moray.txt	Innes Links	resolved	57.6950700	-3.2073200	coastal_strip	Innes Links coastal battery / dune strip SE of Lossiemouth (Canmore emergency coast battery)
+23	moray.txt	Hopeman	resolved	57.7069400	-3.4344400	village	Seaside village centroid (Wikipedia)
+24	moray.txt	Hopeman East Beach	resolved	57.7111300	-3.4248750	beach	East beach / huts area (Geograph/Wikimedia subject location)
+25	moray.txt	Hopeman West Beach	resolved	57.7111030	-3.4272240	beach	West beach west of harbour (Wikimedia object location)
+26	moray.txt	Hopeman Harbour	resolved	57.7111200	-3.4366900	harbour	Hopeman harbour basin (Canmore)
+27	moray.txt	Morrison's Haven	not_found				The well-known Morrison's Haven is a former harbour at Prestongrange, East Lothian (Firth of Forth), not on the Moray coast; no separate Moray coastal feature verified
+28	moray.txt	Burghead	resolved	57.7017580	-3.4915900	village	Burghead on Burg Head promontory (visitor/walk guides)
+29	moray.txt	Burghead Bay	resolved	57.6822000	-3.5439000	bay	Large bay W of Burghead toward Findhorn (GeoHack waterbody centroid)
+30	moray.txt	Burghead Beach	resolved	57.7018000	-3.4916000	beach	Sandy beach at village end of Burghead Bay (walk start grid NJ113686 area)
+31	moray.txt	Burghead Harbour	resolved	57.7012000	-3.4910000	harbour	Small harbour basin at Burghead on Burg Head (OSM / pilotage summaries)
+32	moray.txt	Burghead Promenade	resolved	57.7018000	-3.4913000	promenade	Seafront promenade on Burg Head (same headland cluster as harbour)
+33	moray.txt	Cummingston	resolved	57.7020000	-3.4580000	village	Wikipedia/GeoHack village centroid
+34	moray.txt	Cummingston Beach	resolved	57.7040000	-3.4570000	beach	Rocky foreshore / Moray Coast Trail below linear village (approximate; ~150 m N of houses per Wikipedia)
+35	moray.txt	Roseisle	resolved	57.6872000	-3.4463000	village	GeoHack / OS grid NJ137867
+36	moray.txt	Roseisle Beach	resolved	57.6713180	-3.5037910	beach	Dune beach / Moray Coast Path sector W of village (Walkhighlands start NJ104656)
+37	moray.txt	Roseisle Forest	resolved	57.6680000	-3.5250000	forest	Forestry and Land Scotland Roseisle block — centroid between links and bay (approximate)
+38	moray.txt	Findhorn	resolved	57.6590000	-3.6110000	village	Latitude.to / Apple Maps cluster for Findhorn village
+39	moray.txt	Findhorn Bay	resolved	57.6350000	-3.5950000	bay	Large tidal basin — representative point mid-basin (broad feature)
+40	moray.txt	Findhorn Beach	resolved	57.6595000	-3.6100000	beach	Sandy beach frontage at village on Findhorn Bay
+41	moray.txt	Findhorn Village	resolved	57.6590000	-3.6110000	village	Formal name matches Findhorn settlement (same centroid as line 38; separate row per pass-1)
+42	moray.txt	Findhorn Marina	resolved	57.6690000	-3.6420000	marina	Pontoon marina N along Findhorn channel (VisitMyHarbour / local pilot notes area)
+43	moray.txt	Kinloss	resolved	57.6370000	-3.5630000	village	Wikipedia parish village centroid near Findhorn Bay
+44	moray.txt	Kinloss Beach	resolved	57.6360000	-3.5540000	beach	Moray Firth foreshore E of Kinloss toward the bay mouth (approximate mid-beach)
+45	moray.txt	Culbin	resolved	57.6320000	-3.7260000	coastal_locality	Culbin coast/SSSI centroid (Wikipedia area coords for Culbin Sands, Forest and Findhorn Bay)
+46	moray.txt	Culbin Sands	resolved	57.5961000	-3.8414000	sand	RSPB beach / open sands — Wikimapia-listed midpoint
+47	moray.txt	Culbin Forest	resolved	57.6250000	-3.7800000	forest	Forestry and Land Scotland Culbin forest — visitor-area centroid (approximate)
+48	moray.txt	Strathlene	resolved	57.6867250	-2.9291240	coastal_locality	Strathlene beach / golf coast strip E of Buckie (OS grid NJ447670)
+49	moray.txt	Buckpool	resolved	57.7031100	-2.8993400	village	Wikipedia Buckpool (Nether Buckie) coord
+50	moray.txt	Buckie	resolved	57.6763900	-2.9650000	town	Wikipedia burgh centroid (OS grid NJ425655)
+51	moray.txt	Buckie Harbour	resolved	57.6785170	-2.9624840	harbour	Low Street / former lifeboat station frontage on main harbour (listed building coords)
+52	moray.txt	Cluny Harbour	resolved	57.6803630	-2.9594310	harbour	Cluny Harbour north pier / lighthouse cluster (listed building coords)
+53	moray.txt	Yardie	resolved	57.6779890	-2.9727820	coastal_quarter	Yardie fishing-house terrace (listed building “40 Yardie” cluster)
+54	moray.txt	Ianstown	resolved	57.6829830	-2.9491520	village	GeoHack / Wikipedia Ianstown
+55	moray.txt	Portessie	resolved	57.6850000	-2.9410000	village	GeoHack / Wikipedia Portessie
+56	moray.txt	Rathven	resolved	57.6780000	-2.9340000	village	Parish village / Rathven Kirk area E of Buckie (Wikipedia coord)
+57	moray.txt	Portgordon	resolved	57.6640000	-3.0120000	village	Wikipedia / Wikidata village centroid
+58	moray.txt	Portgordon Harbour	resolved	57.6636000	-3.0156000	harbour	Small harbour basin by village (Gazetteer for Scotland grid NJ395642)
+59	moray.txt	Findochty	resolved	57.6981000	-2.9015100	village	OS Open Names / Wikipedia infobox village centre
+60	moray.txt	Findochty Harbour	resolved	57.6978000	-2.9012000	harbour	Harbour basin on village waterfront (slightly toward piers vs centroid)
+61	moray.txt	Findochty Beach	resolved	57.6983000	-2.9025000	beach	Rocky beach W of harbour; OS grid NJ460679 (UK Beach Guide / village context)
+62	moray.txt	Clochan	resolved	57.6313310	-2.9992030	village	GENUKI / GeoHack NJ404606; Rathven parish hamlet above Buckie coast
+63	moray.txt	Drybridge	resolved	57.6503600	-2.9482300	hamlet	Cluster at Drybridge old Highland Railway bridge (Canmore NJ4350462667)
+64	moray.txt	Arradoul	resolved	57.6580000	-2.9810000	village	Wikipedia / OS NJ4163 ribbon settlement A98 Buckie–Cullen corridor
+65	moray.txt	Portknockie	resolved	57.7027000	-2.8597000	village	Wikipedia infobox; cliff-top fishing village
+66	moray.txt	Portknockie Harbour	resolved	57.7018000	-2.8610000	harbour	Harbour basin on waterfront E of village core (approx. pier cluster)
+67	moray.txt	Bow Fiddle Rock	resolved	57.7066670	-2.8502780	sea_arch	Wikipedia / GeoHack NJ494688; quartzite arch off Portknockie
+68	moray.txt	Sandend	resolved	57.6833000	-2.7464000	village	Wikipedia / Sandend Bay visitor coords; fishing village E of Cullen (Moray-Aberdeenshire coast)
+69	moray.txt	Sandend Bay	resolved	57.6832770	-2.7462240	bay	British Beaches midpoint; sandy bay by Sandend (SOBT GPS)
+70	moray.txt	Cullen	resolved	57.6913900	-2.8191700	village	Wikipedia; burgh centre NJ512672
+71	moray.txt	Cullen Bay	resolved	57.6927910	-2.8260020	bay	SOBT GPS; large bay W of Seatown / golf course frontage
+72	moray.txt	Cullen Beach	resolved	57.6935000	-2.8280000	beach	Main sandy beach in Cullen Bay below golf course / viaduct area (walk guides)
+73	moray.txt	Cullen Harbour	resolved	57.6938200	-2.8236000	harbour	Canmore NJ5100167408 harbour centroid
+74	moray.txt	Seatown	resolved	57.6940000	-2.8330000	seatown	Lower Cullen harbour quarter by Cullen Bay (distinct from other UK Seatowns)
+75	moray.txt	Sunnyside Beach	resolved	57.6791730	-2.7781520	beach	UK Beach Guide OS NJ53586735; secluded bay E of Cullen on coast path
+76	moray.txt	Logie Head	resolved	57.6936790	-2.8148960	headland	UKC crag approach; coastal headland E of Cullen caravan park
+77	moray.txt	Three Kings	resolved	57.6939400	-2.8321310	sea_stack	Sea stacks in Cullen Bay (Saints placenames NJ504674; Geograph subject)
+78	moray.txt	Portknockie Beach	resolved	57.7035000	-2.8600000	beach	Shingle/foreshore below village E of harbour (approx. coastal access strip)
+79	moray.txt	Branderburgh	resolved	57.7214000	-3.2829900	suburb	Northeast Lossiemouth grid; Canmore King Street Baptist NJ2367570904 cluster
+80	moray.txt	Coltfield	resolved	57.6602000	-3.4729000	hamlet	Wikipedia Coltfield Platform NJ122643; Alves parish S of Burghead
+81	moray.txt	Tynet	resolved	57.6369100	-3.0419800	hamlet	St Ninian's RC chapel cluster (Canmore NJ3788661252; Enzie/Bellie)
+82	moray.txt	Lower Mill of Tynet	resolved	57.6425300	-3.0333600	mill	Canmore NJ38416187 grain-mill site by Burn of Tynet
+83	moray.txt	Fochabers	resolved	57.6122200	-3.0969400	village	Wikipedia; Spey east-bank planned village NJ345585
+84	moray.txt	Scar Nose	resolved	57.7034560	-2.8490100	headland	Gazetteer for Scotland; Streetmap OS centroid NJ495685; E of Portknockie on Moray Coast Trail
+85	moray.txt	Crook of Alves	resolved	57.6420230	-3.4506450	hamlet	Geograph Crooked Inn NJ135622; A96/Burghead Rd corner, Alves parish
+86	moray.txt	Lintmill	resolved	57.6547470	-2.6571800	mill	Lintmill of Boyne farmstead (Aberdeenshire HER NJ60776455); Boyne S of Cullen on Moray coast road
+87	moray.txt	Findhorn Foundation	resolved	57.6539000	-3.5908000	ecovillage	Latitude.to / Wikipedia Findhorn Ecovillage The Park S of Findhorn village
+88	moray.txt	Scottish Dolphin Centre	resolved	57.6734800	-3.0928610	visitor_centre	WDC centre Spey Bay; SOBT GPS NJ349654 by Tugnet ice house
+89	moray.txt	Colach Bay	resolved	57.7028000	-3.4615000	bay	Rocky cove W of Cummingston on Moray Coast Trail / old railway (walk blogs)
+90	moray.txt	Bow Fiddle	resolved	57.7066670	-2.8502780	sea_arch	Local short name for Bow Fiddle Rock formation (same pin as line 67 per separate-row rule)
+91	moray.txt	West End Buckie	resolved	57.6750064	-2.9727255	suburb	West Street / Yardie quarter — Nominatim West Street AB56 1HQ; west Buckie waterfront area
+92	moray.txt	Wards	resolved	57.6612000	-3.4695000	hamlet	Wards hamlet, Alves parish; cluster E of dismantled Coltfield Platform on Burghead branch (served Wards per Wikipedia)
+93	moray.txt	Easter Coltfield	resolved	57.6601400	-3.4740500	hamlet	Canmore place378325; NJ 12147 64317 — farmstead / archaeology locus S of Burghead Bay

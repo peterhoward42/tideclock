@@ -1,0 +1,120 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	falkirk.txt	Kinneil	resolved	56.0085006	-3.6269012	suburb	Nominatim place node (Kinneil, Bo'ness).
+2	falkirk.txt	Kinneil Beach	resolved	56.01570	-3.62450	beach	No direct Nominatim hit; point on Kinneil foreshore shoreline W of mapped Kinneil Foreshore.
+3	falkirk.txt	Kinneil Foreshore	resolved	56.0157039	-3.6242203	information	Nominatim map board on Kinneil Road.
+4	falkirk.txt	Kinneil Estate	resolved	56.0028980	-3.6362705	forest	Nominatim landuse forest polygon.
+5	falkirk.txt	Kinneil House	resolved	56.0071789	-3.6342697	historic	Nominatim historic castle (Kinneil House).
+6	falkirk.txt	Kinneil Museum	resolved	56.0078613	-3.6325926	museum	Nominatim tourism museum.
+7	falkirk.txt	Kinneil Nature Reserve	resolved	56.0155658	-3.6277281	nature_reserve	Nominatim leisure nature_reserve polygon.
+8	falkirk.txt	Kinneil Local Nature Reserve	resolved	56.0139367	-3.6250618	information	Nominatim welcome board; entrance signing for the LNR.
+9	falkirk.txt	Kinneil Woods	resolved	56.0041946	-3.6357979	wood	Nominatim named highway=track centroid (wooded strip).
+10	falkirk.txt	Kinneil Sands	resolved	56.01435	-3.66575	beach	No OSM name hit; coords from Canmore Kinneil Kerse intertidal/shell midden record (mudflat/sand at low water).
+11	falkirk.txt	Kinneil Lagoon	resolved	56.0152	-3.6285	lagoon	No single named OSM object; approximate pools within Kinneil LNR foreshore.
+12	falkirk.txt	Kinneil Lagoons	resolved	56.0150	-3.6290	lagoon	No single named OSM object; approximate pools/scrapes in Kinneil LNR.
+13	falkirk.txt	Antonine Wall Kinneil	resolved	56.0018811	-3.6553702	historic	Nominatim Antonine Wall ruins segment at Kinneil.
+14	falkirk.txt	John Muir Way Kinneil	resolved	56.0120	-3.6290	trail	No named hit; point along the trail link between Kinneil Estate and Kinneil foreshore.
+15	falkirk.txt	Inner Forth Kinneil	ambiguous			unknown	Regional estuary label; several equally plausible shoreline viewpoints along Kinneil coast.
+16	falkirk.txt	Bo'ness	resolved	56.0176867	-3.6073601	town	Nominatim town polygon centroid.
+17	falkirk.txt	Borrowstounness	resolved	56.0176867	-3.6073601	town	Formal name resolves to same Bo'ness town hit.
+18	falkirk.txt	B'ness	resolved	56.0176867	-3.6073601	town	Abbreviation; same town centroid as Bo'ness.
+19	falkirk.txt	Bo'ness Harbour	resolved	56.0191750	-3.6065009	harbour	Nominatim named harbour information board (Union Street area).
+20	falkirk.txt	BoNess Harbour	resolved	56.0191750	-3.6065009	harbour	Variant spacing; same harbour board location as line 19.
+21	falkirk.txt	Bo'ness Marina	resolved	56.0191750	-3.6065009	harbour	No separate marina POI; uses harbour basin / pier frontage.
+22	falkirk.txt	Bo'ness & Kinneil Railway	resolved	56.0185537	-3.5989188	attraction	Heritage line hub mapped as Museum of Scottish Railways (SRPS).
+23	falkirk.txt	Bo'ness and Kinneil Railway	resolved	56.0183103	-3.5992553	railway	Nominatim named disused railway centreline (Links Road area).
+24	falkirk.txt	Bo'ness foreshore	resolved	56.0162386	-3.6283860	park	Nominatim leisure park polygon named Bo'ness Foreshore.
+25	falkirk.txt	Bo'ness Golf Club	resolved	55.9992566	-3.6005835	golf_course	No exact-name hit; mapped West Lothian Golf Course (Airngath Hill) — likely local name for this course.
+26	falkirk.txt	Bo'ness Town Centre waterfront	resolved	56.0173	-3.6085	waterfront	No POI; point on coastal edge near town centre south of harbour approaches.
+27	falkirk.txt	Bo'ness and Kinneil Foreshore	resolved	56.0162386	-3.6283860	park	Same mapped Bo'ness Foreshore park as the shared foreshore open space.
+28	falkirk.txt	LNR Bo'ness and Kinneil Foreshore	resolved	56.0155658	-3.6277281	nature_reserve	Falkirk Council LNR aligns with mapped Kinneil Nature Reserve polygon.
+29	falkirk.txt	Inner Forth Bo'ness	ambiguous			unknown	Regional estuary label; not a single mappable coastal feature name.
+30	falkirk.txt	Corbiehall	resolved	56.0148430	-3.6145444	neighbourhood	Nominatim named highway (locality Corbiehall, Bo'ness).
+31	falkirk.txt	Corbiehall pier	resolved	56.01535	-3.6178	pier	No named OSM pier; judged point on Kinneil/Corbiehall foreshore near listed Corbiehall waterfront parking (coastal context).
+32	falkirk.txt	Carriden	resolved	56.0148845	-3.5759924	suburb	Nominatim place node (Carriden, Bo'ness).
+33	falkirk.txt	Carriden Braes	ambiguous			woodland	Wooded slopes N of Carriden; no single named OSM object for "Carriden Braes".
+34	falkirk.txt	Carriden Industrial Estate waterfront	resolved	56.0156	-3.5715	industrial	Nominatim landuse=industrial centroid (Carriden Industrial Estate); point nudged toward Forth shoreline (estate abuts coast).
+35	falkirk.txt	Muirhouses	resolved	56.0102691	-3.5796968	neighbourhood	Centroid of mapped Muirhouses streets (Muirhouses Square), Carriden.
+36	falkirk.txt	Snab Point	resolved	56.01151	-3.62938	coastal_point	NRHE/trove Snab Brae locale (Castleloan/Kinneil foreshore); OSGB36 coords from Canmore family records.
+37	falkirk.txt	The Snab	resolved	56.0112	-3.6290	locality	Geograph/trove: Snab on old OS maps (Kinneil/Castleloan); judged coastal knoll near Snab Brae area (distinct lookup from line 36).
+38	falkirk.txt	Bridgeness	resolved	56.0167746	-3.5833468	suburb	Nominatim suburb node (Bridgeness, Bo'ness).
+39	falkirk.txt	Bridgeness Foreshore	resolved	56.0150822	-3.5803495	foreshore	Nominatim highway=Foreshore Way (residential spine along Bridgeness foreshore).
+40	falkirk.txt	Bridgeness Haven	resolved	56.01821	-3.58195	historic_harbour	HES Canmore Bridgeness Harbour (filled-in 19th c. harbour; pier remains/wasteland).
+41	falkirk.txt	Bridgeness Haven historic	resolved	56.01821	-3.58195	historic_harbour	Same documented filled harbour as line 40 (duplicate list label).
+42	falkirk.txt	Bridgeness Mile	resolved	56.0162361	-3.5836972	historic	Wikipedia/HES replica site of the Bridgeness Roman distance slab (Kinningars Park).
+43	falkirk.txt	Bridgeness Point	resolved	56.01735	-3.58245	headland	Judged Bridgeness coastal promontory N of suburb toward Forth (Bridgeness Tower/harbour headland area).
+44	falkirk.txt	Bridgeness salt works shore	resolved	56.01625	-3.58110	shore	Historic saltmaking belt along this coast; approximate shoreline below Bridgeness (no single named OSM object).
+45	falkirk.txt	Prince's Pier	not_found			pier	No HES/Canmore or OSM feature named Prince's Pier at Bo'ness; likely informal or obsolete label.
+46	falkirk.txt	East Pier Bo'ness	resolved	56.02050	-3.60585	pier	HES Canmore Bo'ness East Pier (NT 00000 82006).
+47	falkirk.txt	West Pier Bo'ness	resolved	56.02027	-3.60806	pier	HES Canmore Bo'ness West Pier (NS 99862 81984).
+48	falkirk.txt	Duchess Park foreshore	ambiguous			unknown	No leisure park named Duchess Park in OSM; unclear which local greenspace/foreshore is meant.
+49	falkirk.txt	Douglas Park foreshore	resolved	56.01295	-3.61015	foreshore	Nominatim leisure=park Douglas Park; point on N park edge toward Firth (park overlooks Forth per council descriptions).
+50	falkirk.txt	Craigmailing foreshore	not_found			unknown	HES Craigmailing boundary slab is near Torphichen (wrong region); no coastal Craigmailing pin found for Bo'ness.
+51	falkirk.txt	Blackness	resolved	56.0037326	-3.5221681	village	Nominatim place node (Blackness, Falkirk).
+52	falkirk.txt	Blackness-on-Sea	resolved	56.0037326	-3.5221681	village	Informal seaside suffix for the same mapped settlement as Blackness (separate line per source list).
+53	falkirk.txt	John Muir Way Blackness	resolved	56.00485	-3.51735	trail	Judged point on the John Muir Way / NCN 76 foreshore alignment at Blackness (no single named JMW POI).
+54	falkirk.txt	Blackness Castle	resolved	56.0060643	-3.5158315	castle	Nominatim historic=castle (Blackness Castle).
+55	falkirk.txt	Blackness Castle foreshore	resolved	56.00545	-3.51625	foreshore	Shore below/near the castle on Blackness Bay (judged coastal foot of castle promontory).
+56	falkirk.txt	Blackness Bay	resolved	56.0057185	-3.5218803	bay	Nominatim named bay (Blackness Bay).
+57	falkirk.txt	Blackness Pier	resolved	56.0044773	-3.5221560	pier	Nominatim pier way (mapped as Blackness Boatclub Pier).
+58	falkirk.txt	Blackness Harbour	resolved	56.00430	-3.52165	harbour	Small boat harbour basin at Blackness (judged near mapped boat club/marina; not Dundee Nominatim false positive).
+59	falkirk.txt	Blackness Yacht Club	resolved	56.0042238	-3.5216078	marina	Nominatim leisure=marina Blackness Boatclub (local yacht/boat club site).
+60	falkirk.txt	Blackness YC	resolved	56.0042238	-3.5216078	marina	Abbreviation; same OSM Blackness Boatclub marina as line 59 (separate list row).
+61	falkirk.txt	Blackness foreshore	resolved	56.0041500	-3.5218000	foreshore	Judged public shoreline on Blackness Bay west of the village (no single named OSM foreshore polygon).
+62	falkirk.txt	Lobster Pot Blackness	resolved	56.0034812	-3.5221390	pub	Nominatim pub node (The Lobster Pot, The Square, Blackness).
+63	falkirk.txt	Blackness Bay Distillery	resolved	56.0034785	-3.5220801	distillery	Postcode EH49 7NL centroid; registered office Low Valley House, Shore Road (distillery/pub complex).
+64	falkirk.txt	Inner Forth Blackness	ambiguous			unknown	Regional estuary label; no single coastal POI specific to Blackness on the wider Inner Forth.
+65	falkirk.txt	Grangemouth	resolved	56.0189027	-3.7230303	town	Nominatim town place polygon (Grangemouth).
+66	falkirk.txt	Grangemouth Docks	resolved	56.0285912	-3.6933804	industrial	Nominatim landuse=industrial area named Grangemouth Docks.
+67	falkirk.txt	Grangemouth Dock	resolved	56.0260762	-3.6971322	dock	Canmore Grange Dock (NRHE 281047; OSGB36 NS 94326 82763 → WGS84).
+68	falkirk.txt	Grangemouth harbour	resolved	56.0260762	-3.6971322	harbour	No separate named harbour POI; point at Grange Dock as the principal modern locked harbour basin.
+69	falkirk.txt	Grangemouth Port	resolved	56.0260762	-3.6971322	port	Judged main commercial port basin (Grange Dock) for Grangemouth.
+70	falkirk.txt	Forth Ports Grangemouth	resolved	56.0260762	-3.6971322	port	No dedicated operator POI; point at Grange Dock as core Forth Ports harbour infrastructure here.
+71	falkirk.txt	Grangemouth Refinery waterfront	resolved	56.0154414	-3.6859535	industrial	Nominatim Grangemouth Oil Refinery polygon centroid; waterfront toward the Carron / dock corridor.
+72	falkirk.txt	Grangemouth foreshore	resolved	56.0124500	-3.7181400	park	Judged town-centre river/estuary frontage near Zetland Park on the Carron (Canmore Zetland Park centroid NS92979 81279).
+73	falkirk.txt	Rannoch Pier	not_found			pier	No pier feature located; Rannoch Park in Grangemouth is an inland greenspace (possible name confusion).
+74	falkirk.txt	Old Dock Grangemouth	resolved	56.0232681	-3.7266616	dock	Nominatim waterway=dock (Old Dock, Auld Toon).
+75	falkirk.txt	Zetland Dock	not_found			dock	No dock named Zetland found; “Zetland” locally maps to Zetland Park, not a harbour basin.
+76	falkirk.txt	Earls Dock	not_found			dock	No Canmore/OS dock named Earls at Grangemouth (likely obsolete or misremembered label).
+77	falkirk.txt	Glensburgh	resolved	56.0192692	-3.7491776	hamlet	Nominatim place node (Glensburgh).
+78	falkirk.txt	Glensburgh shore	resolved	56.0203500	-3.7518000	foreshore	Judged Firth foreshore below Glensburgh (hamlet set back from the shoreline).
+79	falkirk.txt	Grangemouth waterfront	ambiguous			unknown	Long mixed industrial and public coastal frontage; no single mappable “waterfront” POI.
+80	falkirk.txt	Grangemouth Lighthouse	resolved	56.0357200	-3.6940400	beacon	Canmore Grangemouth Docks Beacon (NRHE 281058; OSGB36 NS 94545 83831 → WGS84).
+81	falkirk.txt	Carronshore	resolved	56.0286493	-3.7830558	village	Nominatim place relation (Carronshore).
+82	falkirk.txt	River Carron mouth	resolved	56.0182095	-3.7052260	estuary	Judged tidal mouth of the Carron with the Forth at Grangemouth (BNG-derived point in dock/estuary throat).
+83	falkirk.txt	Mouth of the Carron	resolved	56.0182095	-3.7052260	estuary	Same physical confluence as line 82 (distinct list label).
+84	falkirk.txt	Carron estuary	resolved	56.0182095	-3.7052260	estuary	Lower tidal Carron / Forth interface at Grangemouth (shared location with lines 82–83).
+85	falkirk.txt	Upper Forth Carronshore	resolved	56.0286493	-3.7830558	village	Informal regional label; anchored on Carronshore village on the upper Forth west of Grangemouth docks.
+86	falkirk.txt	River Avon mouth	resolved	56.0241465	-3.6982670	estuary	Judged Falkirk Avon confluence with the Carron/Grangemouth dock system (approx. OS grid294250 682550).
+87	falkirk.txt	Mouth of the Avon	resolved	56.0241465	-3.6982670	estuary	Same confluence feature as line 86 (distinct list label).
+88	falkirk.txt	Avon mouth Grangemouth	resolved	56.0241465	-3.6982670	estuary	Same confluence feature as lines 86–87 (distinct list label).
+89	falkirk.txt	Airth	resolved	56.0683412	-3.7699112	village	Nominatim place node (Airth).
+90	falkirk.txt	Airth Castle	resolved	56.0616779	-3.7681464	castle	Nominatim historic castle (Airth Castle).
+91	falkirk.txt	Airth Old Harbour	resolved	56.07402	-3.76232	historic_harbour	Canmore Airth Wharf (NS 904 882; remains of historic wharf/old harbour works on the Forth).
+92	falkirk.txt	Airth harbour	resolved	56.0692731	-3.7696940	harbour	Nominatim Shore Road way centroid (village waterfront road along the Forth; local harbour frontage).
+93	falkirk.txt	Airth foreshore	resolved	56.0690	-3.7705	foreshore	Judged public shoreline on the Forth below Shore Road (no single named OSM foreshore polygon).
+94	falkirk.txt	Pool of Airth	resolved	56.0740	-3.7625	historic_dock	Judged near Canmore Airth Wharf / historic royal dock works (historic “pool” context; not a modern named POI).
+95	falkirk.txt	Haughs of Airth	ambiguous			meadow	Broad haugh/meadow ground near Airth and the Forth; no single named coastal POI for this label.
+96	falkirk.txt	Dunmore	resolved	56.0849381	-3.7799944	hamlet	Nominatim place relation centroid (Dunmore, Falkirk).
+97	falkirk.txt	Dunmore Harbour	resolved	56.08544	-3.78052	harbour	Canmore Dunmore Harbour (NS 893 895; stone pier and harbour works at village N end).
+98	falkirk.txt	Dunmore Pier	resolved	56.09031	-3.78540	pier	Canmore Dunmore Home Farm pier (NS 890 900; distinct long pier remains S of the village).
+99	falkirk.txt	Dunmore Quay	resolved	56.08550	-3.78035	quay	Judged E harbour wall/quay line of Canmore Dunmore Harbour (same complex as line 97; seaward structure).
+100	falkirk.txt	Throsk	resolved	56.0991831	-3.8460148	village	Nominatim place node (Throsk; Carron/Forth coastal village — admin label may show Stirling).
+101	falkirk.txt	Throsk waterfront	resolved	56.0982	-3.8475	foreshore	Judged River Carron / estuary frontage below Throsk (no named OSM “waterfront” POI).
+102	falkirk.txt	Bainsford	resolved	56.0142017	-3.7895968	suburb	Nominatim place suburb (Bainsford, Falkirk).
+103	falkirk.txt	Bainsford Carron waterfront	resolved	56.0177808	-3.8028694	river	Nominatim River Carron way centroid through Bainsford (Carron corridor to the Forth).
+104	falkirk.txt	Skinflats	resolved	56.0288166	-3.7533593	hamlet	Nominatim place relation (Skinflats, Falkirk).
+105	falkirk.txt	Skinflats foreshore	resolved	56.0278	-3.7520	foreshore	Judged Forth shoreline near Skinflats (village set slightly inland on Wikipedia coords56.0274,-3.7537).
+106	falkirk.txt	Skinflats mudflats	resolved	56.0300	-3.7400	mudflat	Judged upper Forth intertidal flats off Skinflats (no single named OSM polygon).
+107	falkirk.txt	RSPB Skinflats	resolved	56.0557	-3.734	nature_reserve	RSPB Skinflats reserve / managed realignment project area (published scheme coords OMReg; wider than hamlet centroid).
+108	falkirk.txt	RSPB Skinflats Reserve	resolved	56.0557	-3.734	nature_reserve	Same RSPB Skinflats reserve footprint as line 107 (distinct list label).
+109	falkirk.txt	Skinflats Lagoons	resolved	56.02858	-3.72744	lagoon	BirdGuides Skinflats Lagoons site coords (viewing area NE of the village).
+110	falkirk.txt	Skinflats saltmarsh	resolved	56.0320	-3.7380	saltmarsh	Judged saltmarsh frontage on the Inner Forth near Skinflats (habitat label; no single OSM name).
+111	falkirk.txt	Skinflats Managed Realignment	resolved	56.0557	-3.734	coastal_realignment	OMReg Skinflats managed realignment project (2018 breach; same scheme footprint as lines 107–108).
+112	falkirk.txt	Wester Shieldhill	resolved	55.9714652	-3.7741569	neighbourhood	Nominatim place quarter (Wester Shieldhill, Shieldhill).
+113	falkirk.txt	Shieldhill	resolved	55.9709877	-3.7698195	village	Nominatim place relation (Shieldhill, Falkirk).
+114	falkirk.txt	Bothkennar	resolved	56.0315328	-3.7619471	hamlet	Nominatim place node (Bothkennar, Falkirk).
+115	falkirk.txt	Bothkennar Pools	resolved	56.0273	-3.7653	wetland	Glasgow Saintsplaces grid NS 900 830 (wetland lagoons between Skinflats and River Carron).
+116	falkirk.txt	Powfoulis	resolved	56.0514	-3.7389	estate	Historic Environment Scotland / Wikidata Powfoulis Manor Hotel coords (listed manor near Bothkennar Road).
+117	falkirk.txt	Wholeflats	resolved	56.0017577	-3.7088998	road_junction	Nominatim Wholeflats Roundabout (Bowhouse, Grangemouth) as the named Wholeflats locality anchor.
+118	falkirk.txt	Westfield	resolved	56.0026377	-3.7612966	suburb	Nominatim place suburb (Westfield, Falkirk — Grangemouth-side).
+119	falkirk.txt	Firthview	not_found			unknown	No Nominatim/OSM hit for “Firthview” in Falkirk/Grangemouth (likely informal estate or house name).

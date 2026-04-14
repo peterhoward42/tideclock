@@ -1,0 +1,139 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	sligo.txt	Mullaghmore	resolved	54.466389	-8.448611	village	OSM/Nominatim village centroid; Mullaghmore Peninsula settlement.
+2	sligo.txt	Mullaghmore Harbour	resolved	54.4670	-8.4505	harbour	Sheltered harbour basin NW of village core; approximate quay area.
+3	sligo.txt	Mullaghmore Pier	resolved	54.46700	-8.44895	pier	Fishing/quay at harbour mouth; near Pier Head area.
+4	sligo.txt	Mullaghmore Head	resolved	54.46111	-8.45972	headland	Wikipedia peninsula/head coords; exposed Atlantic head.
+5	sligo.txt	Mullaghmore Beach	resolved	54.4642	-8.4535	beach	Main sandy beach beside village/harbour (distinct from longer Bunduff Strand).
+6	sligo.txt	Bunduff Strand	resolved	54.44694	-8.42167	beach	Townlands.ie centroid for Bunduff townland strand (E side of peninsula).
+7	sligo.txt	Trawalua	resolved	54.4410	-8.4690	locality	Coastal locality name; centroid slightly E of Trawalua Strand.
+8	sligo.txt	Trawalua Beach	resolved	54.4403	-8.47083	beach	Trawalua Strand / beach; published beach coords.
+9	sligo.txt	Classiebawn Castle shore	resolved	54.4547	-8.4702	shore	Atlantic shoreline below Classiebawn Castle (castle 54.455153,-8.469331).
+10	sligo.txt	Mullaghmore Sailing Club	resolved	54.4667	-8.4492	harbour	Marina/sailing club at harbour; approximate berth area.
+11	sligo.txt	Bunduff Lough shore	resolved	54.44907	-8.44663	shore	Coastal lough shore; Sligo Walks trailhead coords (lat/lon order corrected).
+12	sligo.txt	Cliffoney	resolved	54.43056	-8.45343	village	Village on N15/R279 near Mullaghmore.
+13	sligo.txt	Cliffoney coast	resolved	54.4325	-8.4620	shore	Generic coastal front W of village toward Trawalua/Mullaghmore.
+14	sligo.txt	Streedagh	resolved	54.4040	-8.5590	locality	Townland/beach area N of Grange (visitor coords often cited for strand).
+15	sligo.txt	Streedagh Strand	resolved	54.40448	-8.56018	beach	Sligo Walks car-park/trailhead for Streedagh Beach walk.
+16	sligo.txt	Streedagh Beach	resolved	54.40610	-8.55960	beach	Beaches On The Air listing centroid; long sandy beach.
+17	sligo.txt	Streedagh Point	resolved	54.4099	-8.53433	headland	NPWS Streedagh Point Dunes SAC published coords.
+18	sligo.txt	Streedagh Armada wrecksite	resolved	54.4045	-8.5585	historic	Shallow intertidal wreck cluster off Streedagh beach; pin near documented beach centre.
+19	sligo.txt	Connors Island	resolved	54.4169	-8.52367	island	Logainm centrepoint (Oileán Chonchúir); sandbar-linked feature N of strand.
+20	sligo.txt	Connors Island shore	resolved	54.4174	-8.5244	shore	Landward shore of Connor’s Island toward Streedagh strand.
+21	sligo.txt	Spanish Armada Streedagh shore	resolved	54.4040	-8.5590	shore	Memorial/shore stretch by cattle grid before beach (sligotown.net coords).
+22	sligo.txt	Grange	resolved	54.4000	-8.5167	village	N15 village between Benbulben and coast (Wikipedia coords).
+23	sligo.txt	Grange coast	resolved	54.3975	-8.5250	shore	Atlantic coastal margin W/SW of village toward Streedagh.
+24	sligo.txt	Carney	resolved	54.3406	-8.5272	village	Maugherow Peninsula village (Wikipedia coords).
+25	sligo.txt	Carney coast	resolved	54.3415	-8.5340	shore	Northward coastal strip toward Drumcliff Bay side.
+26	sligo.txt	Maugherow Peninsula	resolved	54.3570	-8.6140	peninsula	Wikipedia centroid; largest W Sligo peninsula (Raghly/Streedagh).
+27	sligo.txt	Maugherow shore	resolved	54.3545	-8.6250	shore	Open Atlantic shoreline along NW side of peninsula.
+28	sligo.txt	Raghly	resolved	54.3322	-8.6467	locality	Small coastal settlement/harbour area (GeoNames/fallingrain).
+29	sligo.txt	Raghly Harbour	resolved	54.32291	-8.64258	harbour	Nimmo harbour; published map pin near pier group.
+30	sligo.txt	Raghly Pier	resolved	54.32315	-8.64240	pier	Stone pier/slip within Raghly Harbour (approx. seaward end).
+31	sligo.txt	Raghly Point	resolved	54.3326	-8.6527	headland	Exposed headland N/NW of Raghly (Irish Gob Reachla); clifftop loop overlooks Atlantic W of beach car park.
+32	sligo.txt	Gob Reachla	resolved	54.3326	-8.6527	headland	Irish name for Raghly Point (same headland per Maugherow Peninsula sources).
+33	sligo.txt	Yellow Strand	resolved	54.3436	-8.6547	beach	OSM/geoview beach centroid; long sandy strand E of Knocklane (also signed Raghly Strand in some guides).
+34	sligo.txt	Yellow Strand Beach	resolved	54.3435	-8.6546	beach	Same feature as Yellow Strand; centroid on main sandy shore.
+35	sligo.txt	Knocklane Fort shore	resolved	54.3490	-8.6798	shore	Atlantic shoreline at Knocklane promontory fort (megalithomania GPS for fort; shore on W/NW cliff front).
+36	sligo.txt	Ballygilgan	resolved	54.341	-8.549	nature_reserve	NPWS/Wikipedia centroid for Ballygilgan (Lissadell) Nature Reserve on Drumcliff Bay shore.
+37	sligo.txt	Ballygilgan shore	resolved	54.3418	-8.555	shore	Reserve frontage toward Drumcliff Bay (approx. between NPWS centroid and intertidal flats).
+38	sligo.txt	Lissadell House shore	resolved	54.3515	-8.581	shore	Coastal margin N of Lissadell House (house ~54.350,-8.583) toward estate strand/bay.
+39	sligo.txt	Lissadell Bay	resolved	54.3555	-8.575	bay	Sheltered bay NE of Lissadell along Maugherow shore (approximate open-water centroid).
+40	sligo.txt	Drumcliffe Bay	resolved	54.3215	-8.58275	bay	NPWS Cummeen Strand/Drumcliff Bay SAC published centroid; large inlet of Sligo Bay.
+41	sligo.txt	Drumcliffe Bay mouth	resolved	54.308	-8.558	bay_mouth	Approximate seaward opening of Drumcliff Bay toward central Sligo Bay (between Rosses Point and Coney Island).
+42	sligo.txt	Drumcliffe Estuary mouth	resolved	54.352	-8.508	estuary_mouth	Upper bay/river convergence near Drumcliff village and Codnach/Drumcliff River outflow (approximate tidal limit).
+43	sligo.txt	Rosses Point	resolved	54.3092	-8.5661	village	Wikipedia village centroid; peninsula at Sligo Harbour entrance.
+44	sligo.txt	Rosses Point Beach	resolved	54.3080	-8.5645	beach	Main Blue Flag beach strip along village Atlantic front (approx. mid-beach).
+45	sligo.txt	Rosses Point Harbour	resolved	54.3047	-8.5690	harbour	eOceanic pierhead haven position; fishing/small-craft basin W of village core.
+46	sligo.txt	Rosses Point Pier	resolved	54.3049	-8.5688	pier	Stone pier cluster at Rosses Point harbour mouth (adjacent to SYC/RNLI area).
+47	sligo.txt	Rosses Point Sailing Club	resolved	54.3052	-8.5686	harbour	Sligo Yacht Club base beside harbour pier (approx. pontoon/berth area).
+48	sligo.txt	Rossespoint	resolved	54.3092	-8.5661	village	Alternate spelling of Rosses Point; same settlement centroid.
+49	sligo.txt	Sligo Bay	resolved	54.298889	-8.645278	bay	Wikipedia/GeoHack centroid; large embayment (pin is indicative centre only).
+50	sligo.txt	Sligo Harbour	resolved	54.2715	-8.472	harbour	Inner commercial harbour / Garavogue estuary reach near town quays (approx. alongside Ballast Quay district).
+51	sligo.txt	Sligo Quay	resolved	54.2738	-8.4765	quay	Town quay front on Garavogue near central Sligo (approx. public quay wall).
+52	sligo.txt	Deep Water Quay	resolved	54.28141	-8.49428	quay	OSM Deep Water Quay way centroid (Finisklin deepwater berth reach).
+53	sligo.txt	Coney Island	resolved	54.2962	-8.588	island	Wikipedia centroid; Inishmulclohy in Sligo Bay (tidal causeway from Cummeen Strand).
+54	sligo.txt	Coney Island Strand	resolved	54.2955	-8.586	beach	Main sandy shore on Coney Island (approx. along W/Atlantic side of island).
+55	sligo.txt	Cummeen Strand	resolved	54.2897	-8.54575	strand	NPWS Cummeen Strand SPA centroid; vast tidal flat/causeway toward Coney Island.
+56	sligo.txt	Oyster Island	resolved	54.3018	-8.56569	island	Logainm.ie centrepoint; long narrow island sheltering Rosses Point approach.
+57	sligo.txt	Oyster Island shore	resolved	54.3022	-8.5665	shore	Landward shore along Needles Channel side (approx. NE facing Strandhill/Sligo Harbour).
+58	sligo.txt	Maguins	resolved	54.28748	-8.60729	island	MountainViews.ie centroid; tidal islet at Sligo Bay entrance N of Killaspugbrone.
+59	sligo.txt	Maguins Island	resolved	54.28694	-8.60670	island	Townland/island centroid (2ua.org); same tidal islet as Maguins entry, listed separately in source.
+60	sligo.txt	Church Island	resolved	54.28725	-8.60695	island	Historic OS/Logainm synonym for Maguins Island at bay mouth (not Inis Mór on Lough Gill).
+61	sligo.txt	Inishmurray	resolved	54.4306	-8.6643	island	Logainm.ie centrepoint Inis Muirígh; uninhabited island off NW Sligo (Donegal Bay).
+62	sligo.txt	Inishmurray Island	resolved	54.433333	-8.666667	island	Wikipedia/GeoHack island centroid; same landmass as line 61, listed separately in source.
+63	sligo.txt	Strandhill	resolved	54.271386	-8.594754	village	Wikipedia/GeoHack village centroid; Coolera Peninsula Atlantic resort W of Sligo town.
+64	sligo.txt	Strandhill Beach	resolved	54.2705	-8.597	beach	Mid reach of main surf beach along village promenade (distinct from sheltered Culleenamore).
+65	sligo.txt	Strandhill Pier	resolved	54.2720	-8.5956	pier	Stone pier/promenade end at harbour approach; approximate seaward structure near village core.
+66	sligo.txt	An Leathros	resolved	54.2695	-8.57752	locality	Logainm.ie centrepoint; Irish name for Larass/Strandhill townland (Coolera).
+67	sligo.txt	Larass	resolved	54.2695	-8.57752	locality	Townlands.ie 54°16′13″N 8°34′47″W; English name for An Leathros (Strandhill townland).
+68	sligo.txt	Coolera Peninsula	resolved	54.267	-8.592	peninsula	Wikipedia/GeoHack labelled point; Cúil Irra — Sligo Bay peninsula (Strandhill/Magheraboy).
+69	sligo.txt	Coolera shore	resolved	54.2700	-8.5980	shore	Open Atlantic shoreline along W side of peninsula (Strandhill beach front; indicative).
+70	sligo.txt	Culleenamore	resolved	54.2584	-8.5992	locality	Wikipedia centroid; strand/sheltered bay S of Strandhill promontory at Ballysadare Bay mouth.
+71	sligo.txt	Culleenamore Beach	resolved	54.2584	-8.5992	beach	Same feature as Culleenamore Strand; sandy shore backed by dunes (NPWS/visitor listings).
+72	sligo.txt	Dorrins Strand	resolved	54.2724	-8.58305	strand	Logainm street centrepoint Dorrins Strand; estuary-side strand N of airport (Killaspugbrone walk).
+73	sligo.txt	Killaspugbrone shore	resolved	54.2825	-8.6025	shore	Coastal margin below Killaspugbrone church ruins headland (church ~54.28286,-8.60236).
+74	sligo.txt	Carrowbunnaun shore	resolved	54.2655	-8.605	shore	W-facing coastal strip of Carrowbunnaun townland toward Sligo Bay (townland bounds reach shore).
+75	sligo.txt	Kilmacowen coast	resolved	54.242	-8.548	shore	Indicative Ballysadare Bay frontage on Kilmacowen parish coastal side S of Strandhill (not inland centroid).
+76	sligo.txt	Ballisodare	resolved	54.2117	-8.5094	village	Wikipedia Ballysadare/Ballisodare town centroid; tidal river reach near N59 bridge.
+77	sligo.txt	Ballisodare Bay	resolved	54.2356	-8.58897	bay	NPWS Ballysadare Bay SAC published coordinates; large estuarine bay E of Coolera.
+78	sligo.txt	Ballisodare Estuary mouth	resolved	54.190473	-8.483756	estuary_mouth	Wikipedia Ballisodare River mouth coords; Owenmore/Unshin system entering sea at Ballysadare.
+79	sligo.txt	Aughris	resolved	54.27474	-8.76101	locality	Wikipedia centroid; coastal townland & headland area W Sligo (Eachrois).
+80	sligo.txt	Aughris Head	resolved	54.27474	-8.76101	headland	Wikipedia coord; limestone promontory W of Aughris Hole (Wild Atlantic Way cliff walk).
+81	sligo.txt	Aughris Pier	resolved	54.273067	-8.754133	pier	eOceanic haven position 54°16.384′N 008°45.248′W; small fishing harbour pier.
+82	sligo.txt	Aughris Beach	resolved	54.2725	-8.758	beach	Sandy shore below Beach Bar / Aughris Bay (approx. mid-beach; swimming not always safe).
+83	sligo.txt	Aughris pier walk shore	resolved	54.2730	-8.7555	shore	Coastal path margin W of pier toward promontory fort (loop walk from harbour).
+84	sligo.txt	Dunmoran Strand	resolved	54.2642	-8.7658	beach	Aughris loop / Beach Bar car park coords; long sandy strand W of Aughris Head.
+85	sligo.txt	Dunmoran Beach	resolved	54.2640	-8.766	beach	Same strand system as Dunmoran Strand; mid-sand pin toward dune-backed section.
+86	sligo.txt	Beach Bar Aughris shore	resolved	54.269252	-8.757021	shore	Sligo Walks trailhead (Beach Bar car park); shore walk access above Aughris/Dunmoran sands.
+87	sligo.txt	Cartronofarry East shore	resolved	54.266389	-8.753611	shore	Townlands.ie 54°15′59″N 8°45′13″W centroid; small Aughris ED townland — pin toward bay shore.
+88	sligo.txt	Enniscrone	resolved	54.2130	-9.0933	village	Wikipedia/GeoHack town centroid; seaside town on Killala Bay (common spelling).
+89	sligo.txt	Inniscrone	resolved	54.2130	-9.0933	village	Alternate spelling of Enniscrone; same settlement centroid per Wikipedia redirects.
+90	sligo.txt	Inishcrone	resolved	54.2130	-9.0933	village	Official/legal spelling per Wikipedia; same town centroid as Enniscrone lines.
+91	sligo.txt	Enniscrone Beach	resolved	54.2124	-9.1037	beach	Beaches On The Air listing; long Blue Flag strand W of town core.
+92	sligo.txt	Enniscrone Pier	resolved	54.212178	-9.095116	pier	GeoHack/OSM pier cluster; stone pier N of beach beside harbour approach.
+93	sligo.txt	Enniscrone Harbour	resolved	54.2127	-9.0943	harbour	Small craft harbour basin immediately landward of main pier (approx. marina area).
+94	sligo.txt	Lacken	resolved	54.2392	-9.0731	locality	Townlands.ie “Lackan” townland centroid (Kilglass ED); coastal townland N of Enniscrone (spelled Lacken in list).
+95	sligo.txt	Lacken Bay	resolved	54.2410	-9.0680	bay	Embayment on Killala Bay side by Lackan townland; approximate mid-bay pin (not Mayo’s Lacken Bay).
+96	sligo.txt	Muckduff shore	resolved	54.2180	-9.0850	shore	Coastal margin of Muckduff townland (Wikipedia Enniscrone surrounds); Killala Bay shoreline W of pier.
+97	sligo.txt	Frankford shore	resolved	54.2165	-9.0790	shore	Townland shore strip E/NE of Enniscrone toward Lackan (approximate coastal front).
+98	sligo.txt	Killala Bay	resolved	54.250	-9.133	bay	Wikipedia centroid; large bay shared Mayo/Sligo — pin is broad marine centre, not a single beach.
+99	sligo.txt	Killala Bay shore	resolved	54.2175	-9.0920	shore	Representative Sligo shoreline along Killala Bay near Enniscrone (not Mayo headlands).
+100	sligo.txt	Black Rock Enniscrone	resolved	54.2175	-9.1005	reef	Approximate intertidal rock/snorkel feature off main strand; no single OS pin (local beach guides).
+101	sligo.txt	Kilglass shore	resolved	54.2340	-9.0520	shore	Coastal front of Kilglass parish ED toward Killala Bay (townland shore — approximate).
+102	sligo.txt	Easkey	resolved	54.2886	-8.9617	village	Wikipedia/GeoHack village centroid; R297 coastal village (Easkey spelling).
+103	sligo.txt	Easky	resolved	54.2886	-8.9617	village	Official Wikipedia title spelling; same centroid as Easkey.
+104	sligo.txt	Easkey Pier	resolved	54.2889	-8.9623	pier	Discover Ireland / pier beside O’Dowd Castle; slightly W of village centroid.
+105	sligo.txt	Easkey Beach	resolved	54.2900	-8.9640	beach	Main sandy beach at Easkey River mouth / castle side (approx. mid-beach).
+106	sligo.txt	Easkey River mouth	resolved	54.2888	-8.9620	estuary	River Iascaigh debouchment beside pier/castle (approximate bar/mouth).
+107	sligo.txt	Poll Gorm	resolved	54.2875	-8.9631	pool	Sligo Walks Easkey walk cites trailhead lon −8.963139; Blue Hole tidal pool on river walk.
+108	sligo.txt	Pollgorm	resolved	54.2875	-8.9631	pool	Alternate spelling of Poll Gorm; same feature.
+109	sligo.txt	Easkey left	resolved	54.2903	-8.9660	surf_reef	Famous left-hand reef N of river mouth; approximate takeoff zone (surfer charts).
+110	sligo.txt	Easkey right	resolved	54.2865	-8.9595	surf_reef	Right-hand reef S of mouth; approximate takeoff (distinct from Left).
+111	sligo.txt	Dromore West	resolved	54.2502	-8.87971	village	Logainm.ie centrepoint; N59 village between Ox Mts and Atlantic.
+112	sligo.txt	Dromore West coast	resolved	54.2525	-8.9020	shore	Open Atlantic shoreline W/NW of village toward Dunmoran/Aughris direction (approximate).
+113	sligo.txt	Templeboy	resolved	54.2466	-8.81088	locality	Logainm.ie civil-parish centrepoint; inland parish hub (coastal context for batch).
+114	sligo.txt	Templeboy Bay	resolved	54.2320	-8.7980	bay	Small Tireragh coastal inlet S/SW of parish toward Aughris peninsula (approximate bay mouth).
+115	sligo.txt	Templeboy coast	resolved	54.2380	-8.8050	shore	Generic SW Sligo coastal margin within Templeboy parish (toward Aughris).
+116	sligo.txt	Drumcliffe	resolved	54.32624	-8.49347	village	St Columba’s Church coords (Drumcliff/Drumcliffe); N15 between Benbulben and Drumcliff Bay.
+117	sligo.txt	Drumcliffe shore	resolved	54.3340	-8.4880	shore	Drumcliff Bay / Sligo Bay shoreline NE of village (mudflat/sand margin — approximate).
+118	sligo.txt	Lissadell	resolved	54.35	-8.583333	estate	Wikipedia Lissadell House; south shore of Maugherow Peninsula overlooking Drumcliff Bay.
+119	sligo.txt	Streedagh dunes	resolved	54.4075	-8.5565	dunes	Dune system behind Streedagh Strand; near NPWS Streedagh Point Dunes SAC footprint.
+120	sligo.txt	Spanish Armada memorial Streedagh	resolved	54.4042	-8.5595	memorial	Roadside memorial near Streedagh beach access (aligned with prior Armada shore rows).
+121	sligo.txt	Raghly Loop shore	resolved	54.330548	-8.647062	shore	Sligo Walks Raghly Loop trailhead (beach car park / clifftop loop shore context).
+122	sligo.txt	Streedagh Butter Boat wreck shore	resolved	54.4032	-8.5585	wreck_intertidal	Greyhound (“Butter Boat”) hull exposed at low tide on Streedagh strand; pin on documented beach wreck zone (not Armada offshore sites).
+123	sligo.txt	Inishmurray Pier	resolved	54.42993	-8.66158	pier	eOceanic “Inishmurray quay” haven position; island landing (no large pier structure).
+124	sligo.txt	Inishmurray landing	resolved	54.4302	-8.6612	landing	Natural rocky landing beside the charted quay on Inishmurray (slight offset from line 123).
+125	sligo.txt	Kilglass	resolved	54.2392	-9.0561	locality	Wikipedia centroid for Kilglass townland / Church of Ireland site N of Enniscrone (distinct from “Kilglass shore” row).
+126	sligo.txt	Killeenduff	resolved	54.283	-8.92983	townland	Logainm.ie townland centrepoint; inland Easkey parish context (~1 mile from coast).
+127	sligo.txt	Lacknaslevia	resolved	54.2092	-9.0511	locality	Wikipedia lists this as an Enniscrone-area locality; pin on Lackanatlieve townland centroid (Leacán an tSléibhe).
+128	sligo.txt	Stonehall	resolved	54.1975	-8.576	townland	Stonehall townland near Ballysadare (Ballysadare West ED); approximate centroid between village and bay (Logainm IDs conflate other counties).
+129	sligo.txt	Stonehall coast	resolved	54.1985	-8.582	shore	Atlantic/Ballysadare Bay frontage on Stonehall townland (approximate coastal margin).
+130	sligo.txt	Ballysadare	resolved	54.2117	-8.5094	village	Same settlement as “Ballisodare” rows; tidal Owenmore reach at N59 bridge.
+131	sligo.txt	Ballysadare Bay mouth	resolved	54.225	-8.595	bay_mouth	Seaward constriction of Ballysadare Bay toward Sligo Bay (approximate marine “mouth”, not river weir).
+132	sligo.txt	Carrowhubbert shore	resolved	54.2165	-9.088	shore	List spelling; interpreted as Carrowhubbuck (Hubbock) townland shore toward Killala Bay by Enniscrone (Logainm Ceathrú Hobac Theas area).
+133	sligo.txt	Sligo Yacht Club	resolved	54.3052	-8.5686	harbour	Matches prior Rosses Point SYC row; club base at Deadman’s Point end of peninsula.
+134	sligo.txt	Dead Man's Point	resolved	54.3045	-8.571	headland	Logainm promontory at west end of Rosses peninsula / Sligo Channel entrance (rocky point; near SYC).
+135	sligo.txt	Rosses Point Lighthouse	resolved	54.32878	-8.57347	lighthouse	Irish Lights “Lower Rosses” directional light position (widely signed as Rosses Point lighthouse walk).
+136	sligo.txt	Metal Man	resolved	54.30361	-8.57556	beacon	Wikipedia / CIL position on Perch Rock between Rosses Point and Oyster Island.
+137	sligo.txt	Magnins Island	resolved	54.28748	-8.60729	island	Same tidal islet as “Maguins” rows; spelling variant in source list.
+138	sligo.txt	Sligo Pier	resolved	54.2725	-8.4765	pier	Main public stone pier / quay front on inner Sligo Harbour (Garavogue reach near town centre).

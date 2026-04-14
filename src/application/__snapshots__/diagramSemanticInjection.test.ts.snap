@@ -678,12 +678,12 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "timeDeltaEmptyMessage": null,
     "timeDeltaLine": {
       "anchor": {
-        "x": -118,
+        "x": 0,
         "y": -11.8,
       },
       "content": "Lymington · Tide going out · Low tide in 3h 45m (23:06)",
       "fontSize": 5.9,
-      "hAlign": "left",
+      "hAlign": "center",
     },
   },
   "timeNowLabel": {

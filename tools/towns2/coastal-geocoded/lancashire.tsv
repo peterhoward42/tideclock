@@ -1,0 +1,348 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	lancashire.txt	Hesketh Bank	resolved	53.7085379	-2.8469682	village	OpenStreetMap/Nominatim
+2	lancashire.txt	Banks	resolved	53.6814154	-2.9245168	village	OpenStreetMap/Nominatim
+3	lancashire.txt	Tarleton	resolved	53.6793815	-2.8313794	village	Used village node (admin boundary hit also returned)
+4	lancashire.txt	Mere Brow	resolved	53.6624220	-2.8805237	village	OpenStreetMap/Nominatim
+5	lancashire.txt	Much Hoole	resolved	53.6993016	-2.8066768	village	Used village node (admin boundary hit also returned)
+6	lancashire.txt	Longton	resolved	53.7267651	-2.7818758	village	Used village node (admin boundary hit also returned)
+7	lancashire.txt	Freckleton	resolved	53.7540406	-2.8718952	village	Used village node (admin boundary hit also returned)
+8	lancashire.txt	Warton	resolved	53.7498129	-2.8908401	village	OpenStreetMap/Nominatim
+9	lancashire.txt	Clifton	resolved	53.7662590	-2.8119803	village	OpenStreetMap/Nominatim (Fylde)
+10	lancashire.txt	Becconsall	resolved	53.6979048	-2.8380819	village	OpenStreetMap/Nominatim
+11	lancashire.txt	Holmes	resolved	53.6680201	-2.8570300	hamlet	OpenStreetMap/Nominatim (Holmes, Tarleton)
+12	lancashire.txt	Lytham	resolved	53.7388175	-2.9651552	town	OpenStreetMap place=town node (station hit also returned)
+13	lancashire.txt	Lytham Green	ambiguous			promenade	No dedicated OSM feature for the seafront green; top hits are unrelated golf/leisure
+14	lancashire.txt	St Annes	resolved	53.7559903	-3.0228594	suburb	OpenStreetMap/Nominatim
+15	lancashire.txt	St Annes-on-the-Sea	resolved	53.7531813	-3.0289500	railway	OpenStreetMap railway station (formal town name)
+16	lancashire.txt	Lytham St Annes	resolved	53.7485046	-2.9990745	town	OpenStreetMap/Nominatim
+17	lancashire.txt	Fairhaven	resolved	53.7399724	-3.0074155	suburb	OpenStreetMap/Nominatim
+18	lancashire.txt	Fairhaven Lake	resolved	53.7380918	-3.0005637	water	OpenStreetMap natural=water relation
+19	lancashire.txt	Granny's Bay	resolved	53.7376577	-2.9949043	bay	OpenStreetMap natural=bay node
+20	lancashire.txt	Ansdell	resolved	53.7437217	-2.9908719	suburb	OpenStreetMap admin boundary centroid (suburb)
+21	lancashire.txt	Kilgrimol	ambiguous			unknown	OpenStreetMap only names Kilgrimol Gardens (roads); no place node for Kilgrimol
+22	lancashire.txt	Staining	resolved	53.8176589	-2.9925936	village	OpenStreetMap/Nominatim (Fylde)
+23	lancashire.txt	Squires Gate	resolved	53.7824164	-3.0464439	suburb	OpenStreetMap/Nominatim
+24	lancashire.txt	Blackpool	resolved	53.8179442	-3.0509812	town	OpenStreetMap/Nominatim
+25	lancashire.txt	Bispham	resolved	53.8518550	-3.0393790	village	OpenStreetMap/Nominatim
+26	lancashire.txt	Norbreck	resolved	53.8578946	-3.0493697	suburb	OpenStreetMap/Nominatim
+27	lancashire.txt	Layton	resolved	53.8220803	-3.0272078	suburb	Used suburb node (railway station hit also returned)
+28	lancashire.txt	Marton Mere	resolved	53.8090825	-2.9984925	water	OpenStreetMap natural=water (Marton Mere)
+29	lancashire.txt	Marton Mere Local Nature Reserve	resolved	53.8090825	-2.9984925	nature_reserve	No separate OSM object for the LNR name; coordinates from Marton Mere water polygon
+30	lancashire.txt	South Shore	resolved	53.7993553	-3.0478811	suburb	OpenStreetMap/Nominatim
+31	lancashire.txt	North Shore	resolved	53.8264674	-3.0537029	suburb	OpenStreetMap/Nominatim
+32	lancashire.txt	Revoe	resolved	53.8098730	-3.0438591	suburb	OpenStreetMap/Nominatim
+33	lancashire.txt	Bloomfield	resolved	53.8087402	-3.0488218	neighbourhood	OpenStreetMap landuse=Bloomfield Central (Blackpool district hub; stadium is also named Bloomfield)
+34	lancashire.txt	Happy Mount	resolved	54.0802314	-2.8339054	promenade	Seafront area anchored on Happy Mount Park (OpenStreetMap)
+35	lancashire.txt	Happy Mount Park	resolved	54.0802314	-2.8339054	park	OpenStreetMap leisure=park
+36	lancashire.txt	Gynn Square	resolved	53.8328682	-3.0545697	square	OpenStreetMap landuse=grass named Gynn Square
+37	lancashire.txt	Talbot Gateway	resolved	53.8229372	-3.0483730	urban_area	No OSM object named Talbot Gateway; pin at Blackpool North station (regeneration area)
+38	lancashire.txt	Hounds Hill	resolved	53.8145649	-3.0550046	retail	OpenStreetMap highway=pedestrian (Hounds Hill shopping area)
+39	lancashire.txt	Little Bispham	resolved	53.8677325	-3.0448146	suburb	OpenStreetMap/Nominatim
+40	lancashire.txt	Great Marton	resolved	53.8040550	-3.0204169	suburb	OpenStreetMap/Nominatim
+41	lancashire.txt	Starr Gate	resolved	53.7773320	-3.0541719	road_junction	OpenStreetMap highway=primary node at Starr Gate (southern Blackpool entrance)
+42	lancashire.txt	Blackpool Pleasure Beach	resolved	53.7906940	-3.0554665	attraction	OpenStreetMap tourism=theme_park
+43	lancashire.txt	Blackpool Tower	resolved	53.8158944	-3.0552392	attraction	OpenStreetMap tourism=attraction
+44	lancashire.txt	Blackpool North Pier	resolved	53.8190825	-3.0602920	pier	OpenStreetMap man_made=pier
+45	lancashire.txt	Blackpool Central Pier	resolved	53.8109345	-3.0574227	pier	OpenStreetMap man_made=pier
+46	lancashire.txt	Blackpool South Pier	resolved	53.7954969	-3.0593596	pier	OpenStreetMap man_made=pier
+47	lancashire.txt	North Pier	resolved	53.8190825	-3.0602920	pier	Blackpool North Pier (same feature as line 44; shorthand name)
+48	lancashire.txt	Central Pier	resolved	53.8109345	-3.0574227	pier	Blackpool Central Pier (same feature as line 45)
+49	lancashire.txt	South Pier	resolved	53.7954969	-3.0593596	pier	Blackpool South Pier (same feature as line 46)
+50	lancashire.txt	Blackpool Promenade	resolved	53.7855586	-3.0586703	promenade	OpenStreetMap highway=pedestrian named Blackpool Promenade (long linear seafront)
+51	lancashire.txt	North Promenade	resolved	53.8190825	-3.0602920	promenade	North shore seafront; OSM hit ties to North Pier vicinity
+52	lancashire.txt	South Promenade	resolved	53.7954969	-3.0593596	promenade	South shore seafront; OSM hit ties to South Pier vicinity
+53	lancashire.txt	Central Promenade	resolved	53.8109345	-3.0574227	promenade	Central seafront; OSM hit ties to Central Pier vicinity
+54	lancashire.txt	Thornton	resolved	53.8759203	-3.0121987	town	OpenStreetMap/Nominatim (Wyre)
+55	lancashire.txt	Cleveleys	resolved	53.8781587	-3.0428798	town	OpenStreetMap/Nominatim
+56	lancashire.txt	Thornton-Cleveleys	resolved	53.8770395	-3.0275392	urban_area	Centroid between OSM Thornton and Cleveleys town nodes (conurbation label; no single OSM place)
+57	lancashire.txt	Thornton Cleveleys	resolved	53.8770395	-3.0275392	urban_area	Same conurbation label as line 56; centroid between OSM Thornton and Cleveleys town nodes
+58	lancashire.txt	Cleveleys Promenade	resolved	53.8781534	-3.0465923	promenade	OpenStreetMap highway=North Promenade (Cleveleys seafront)
+59	lancashire.txt	Anchorsholme	resolved	53.8696556	-3.0321975	suburb	OpenStreetMap/Nominatim
+60	lancashire.txt	Anchorsholme Park	resolved	53.8698466	-3.0454760	park	OpenStreetMap leisure=park
+61	lancashire.txt	Rossall	resolved	53.8975785	-3.0392003	suburb	OpenStreetMap place=suburb node (Rossall, Fleetwood)
+62	lancashire.txt	Rossall Point	resolved	53.9239850	-3.0357638	headland	OpenStreetMap highway=bus_stop named Rossall Point (coastal headland vicinity; no separate viewpoint object)
+63	lancashire.txt	Rossall Beach	resolved	53.8906250	-3.0443746	suburb	OpenStreetMap place=suburb node (Rossall Beach, Cleveleys)
+64	lancashire.txt	Rossall School	resolved	53.8966951	-3.0472102	school	OpenStreetMap amenity=school way
+65	lancashire.txt	Carleton	resolved	53.8540426	-3.0047646	village	OpenStreetMap place=village node (Carleton, Wyre)
+66	lancashire.txt	Fleetwood	resolved	53.9246318	-3.0076372	town	OpenStreetMap place=town node
+67	lancashire.txt	The Esplanade	resolved	53.9247053	-3.0237011	promenade	OpenStreetMap highway=tertiary named The Esplanade (seafront road)
+68	lancashire.txt	Marine Hall	resolved	53.9270726	-3.0170982	theatre	OpenStreetMap amenity=theatre way
+69	lancashire.txt	North Euston Hotel	resolved	53.9279500	-3.0089966	hotel	OpenStreetMap tourism=hotel way
+70	lancashire.txt	Fleetwood Promenade	resolved	53.9244606	-3.0180252	promenade	OpenStreetMap highway=residential named Promenade Road (seafront promenade strip)
+71	lancashire.txt	Fleetwood Marsh	resolved	53.9110395	-3.0129530	nature_reserve	OpenStreetMap leisure=nature_reserve way
+72	lancashire.txt	Fleetwood Marsh Nature Reserve	resolved	53.9110395	-3.0129530	nature_reserve	Same OSM leisure=nature_reserve object as Fleetwood Marsh
+73	lancashire.txt	Fleetwood Docks	resolved	53.9158116	-3.0127567	dock	OpenStreetMap waterway=dock named Wyre Dock (principal dock basin)
+74	lancashire.txt	Fleetwood Ferry	resolved	53.9276240	-3.0079694	transit	OpenStreetMap railway=platform named Fleetwood Ferry (heritage tram terminus)
+75	lancashire.txt	Fleetwood Harbour	ambiguous			harbour	Multiple basins/uses (Wyre Dock, ferry approaches, small craft); no single object named Fleetwood Harbour
+76	lancashire.txt	Marine Beach	resolved	53.9251100	-3.0187500	beach	Postcode FY7 6RA centroid (Marine Beach seafront); Visit Fleetwood / beach guides place this by Marine Hall
+77	lancashire.txt	Burn Naze	resolved	53.8857784	-3.0112662	suburb	OpenStreetMap place=suburb node
+78	lancashire.txt	Wyre Light	resolved	53.9530000	-3.0270000	lighthouse	Wikipedia/Wikidata coordinates (offshore screw-pile lighthouse remains; not returned by Nominatim text search)
+79	lancashire.txt	Wyre Dock	resolved	53.9158116	-3.0127567	dock	OpenStreetMap waterway=dock way
+80	lancashire.txt	Preesall	resolved	53.9183501	-2.9655702	village	OpenStreetMap place=village node
+81	lancashire.txt	Preesall Hill	ambiguous			hamlet	No OSM place node; local name for higher ground/settlement east of Preesall on A588 (Wyre settlement profile)
+82	lancashire.txt	Knott End-on-the-Sea	resolved	53.9282116	-2.9940403	village	OpenStreetMap place=village node
+83	lancashire.txt	Knott End	resolved	53.9282116	-2.9940403	village	Local shorthand for Knott End-on-the-Sea; same OSM village node
+84	lancashire.txt	Knott End Ferry	resolved	53.9284668	-2.9960331	ferry	OpenStreetMap highway=bus_stop named Knott End Ferry (ferry landing area)
+85	lancashire.txt	Knott End on Sea	resolved	53.9282116	-2.9940403	village	Variant spacing of Knott End-on-the-Sea; same OSM village node
+86	lancashire.txt	Knott End Harbour	resolved	53.9284668	-2.9960331	harbour	No separate harbour polygon in OSM; pin at Knott End ferry landing/bus stop vicinity
+87	lancashire.txt	Pilling	resolved	53.9298051	-2.9071468	village	OpenStreetMap place=village node
+88	lancashire.txt	Pilling Sands	resolved	53.9425457	-2.9105853	sand	Wikipedia/GeoHack coordinates (tidal flats south of Morecambe Bay)
+89	lancashire.txt	Pilling Lane Ends	resolved	53.9377918	-2.8932925	amenity_area	OpenStreetMap leisure area named Lane Ends Amenity Area (Pilling Lane Ends)
+90	lancashire.txt	Pilling Marsh	ambiguous			marsh	Intertidal/coastal marsh adjoining Pilling Sands; no single named OSM polygon distinct from sands
+91	lancashire.txt	Hambleton	resolved	53.8738555	-2.9503199	suburb	OpenStreetMap/Nominatim (Hambleton, Wyre)
+92	lancashire.txt	Hambleton Moss	resolved	53.8750526	-2.9382100	hamlet	Nominatim place=hamlet Hambleton Moss Side (Wyre)
+93	lancashire.txt	Skippool	resolved	53.8565997	-2.9819577	suburb	OpenStreetMap/Nominatim
+94	lancashire.txt	Skippool Creek	resolved	53.8603667	-2.9786536	stream	OpenStreetMap waterway (Singleton/Fylde); checked against Wyre–Fylde coastal context
+95	lancashire.txt	Stanah	resolved	53.8792912	-2.9830222	suburb	OpenStreetMap/Nominatim (Thornton/Wyre)
+96	lancashire.txt	Hackinsall	resolved	53.9206089	-2.9931171	historic	OpenStreetMap historic=manor Hackensall Hall, Preesall (OSM spelling); source line uses Hackinsall
+97	lancashire.txt	Hackinsall Quay	ambiguous			quay	No OSM feature with this quay name; Wyre mudflat landing area not uniquely pinned
+98	lancashire.txt	Stalmine	resolved	53.9016878	-2.9536934	village	OpenStreetMap/Nominatim
+99	lancashire.txt	Stalmine-with-Staynall	resolved	53.8944104	-2.9632896	civil_parish	OpenStreetMap civil parish boundary relation
+100	lancashire.txt	Staynall	resolved	53.8868707	-2.9732497	hamlet	OpenStreetMap/Nominatim
+101	lancashire.txt	Scronkey	resolved	53.9204505	-2.8983071	hamlet	OpenStreetMap/Nominatim
+102	lancashire.txt	Churchtown	resolved	53.8810241	-2.7898489	village	OpenStreetMap place=village Churchtown, Wyre (not Kirkland school hit)
+103	lancashire.txt	Churchtown Marsh	ambiguous			marsh	No named marsh polygon in OSM for this label near Churchtown
+104	lancashire.txt	Wardleys	resolved	53.8793156	-2.9672947	caravan_site	OpenStreetMap Wardleys Creek Holiday Park (coastal access/Wardleys locality)
+105	lancashire.txt	Wardley's Channel	ambiguous			channel	No OSM waterway named Wardley's Channel; likely tidal channel near Wardleys Creek
+106	lancashire.txt	Broadfleet	ambiguous			creek	Saltmarsh/creek area near Pilling; Nominatim only returns nearby street names
+107	lancashire.txt	Burn Naze Marsh	ambiguous			marsh	Fringing marsh by Burn Naze; no single OSM object for this marsh name
+108	lancashire.txt	Preesall Marsh	resolved	53.9125566	-2.9469138	hamlet	Closest named OSM settlement is Preesall Moss Side hamlet on marsh edge
+109	lancashire.txt	Knott End Marsh	ambiguous			marsh	Intertidal marsh around Knott End; village node would misplace the marsh
+110	lancashire.txt	Cockerham	resolved	53.9527243	-2.8475857	village	OpenStreetMap/Nominatim
+111	lancashire.txt	Cocker Sands	resolved	53.9698436	-2.8655937	beach	OpenStreetMap leisure=resort Cockerham Sands (Moss Lane); aligns with Cockerham Sands shoreline
+112	lancashire.txt	Cockerham Marsh	resolved	53.9542049	-2.8695172	wetland	OpenStreetMap wetland named Cockerham Marsh
+113	lancashire.txt	Sand Side	resolved	53.9526065	-2.8533842	hamlet	OpenStreetMap/Nominatim
+114	lancashire.txt	Sand Villa	ambiguous			unknown	No OSM/Nominatim object named Sand Villa near Sand Side/Cockerham
+115	lancashire.txt	Hillam	resolved	53.9700884	-2.8362431	hamlet	OpenStreetMap/Nominatim
+116	lancashire.txt	Bolton-le-Sands	resolved	54.1066832	-2.8028352	village	OpenStreetMap/Nominatim
+117	lancashire.txt	Crag Bank	resolved	54.1259599	-2.7828237	locality	OpenStreetMap bus stop Crag Bank (The Drive), Carnforth area
+118	lancashire.txt	Carnforth	resolved	54.1282092	-2.7701207	town	OpenStreetMap/Nominatim
+119	lancashire.txt	Carnforth Marsh	resolved	54.1343895	-2.7666613	wetland	OpenStreetMap/Photon Keer Marsh E of Carnforth (River Keer tidal marsh)
+120	lancashire.txt	Slyne-with-Hest	resolved	54.0948425	-2.8242359	civil_parish	OpenStreetMap civil parish boundary relation
+121	lancashire.txt	Hest Bank	resolved	54.0890318	-2.8085482	village	OpenStreetMap/Nominatim
+122	lancashire.txt	Silverdale	resolved	54.1679619	-2.8286309	village	OpenStreetMap village node (railway station hit also returned)
+123	lancashire.txt	Silverdale Moss	ambiguous			wetland	No OSM object for this local moss name; only unrelated Leighton Moss bus stop if forced
+124	lancashire.txt	Silverdale Cove	ambiguous			bay	Coastal inlet at Silverdale Green; no dedicated bay feature in OSM/Nominatim
+125	lancashire.txt	Eaves Wood	resolved	54.1769805	-2.8180286	wood	OpenStreetMap natural=wood
+126	lancashire.txt	Jack Scout	resolved	54.1564410	-2.8291338	scrub	OpenStreetMap scrub (National Trust coastal strip)
+127	lancashire.txt	Jack Scout Wood	ambiguous			wood	No separate OSM name; likely part of Jack Scout
+128	lancashire.txt	Jenny Brown's Point	resolved	54.1540867	-2.8281137	locality	OpenStreetMap place=locality
+129	lancashire.txt	Jenny Brown's Wood	ambiguous			wood	No OSM/Nominatim hit for this wood name near Silverdale
+130	lancashire.txt	Yealand Conyers	resolved	54.1640158	-2.7591410	village	OpenStreetMap/Nominatim
+131	lancashire.txt	Yealand Redmayne	resolved	54.1726947	-2.7600811	village	OpenStreetMap/Nominatim
+132	lancashire.txt	Warton Crag	resolved	54.1483277	-2.7802352	viewpoint	OpenStreetMap tourism=viewpoint on crag
+133	lancashire.txt	Leighton Beck	resolved	54.1931499	-2.7970666	watercourse	OpenStreetMap bus stop at Leighton Beck Bridge (lower reach; waterway not separately indexed)
+134	lancashire.txt	Potts Corner	resolved	54.00973	-2.89444	parking	Sunderland Point trailhead (BirdGuides/Discovering Britain; grid SD413572)
+135	lancashire.txt	Glasson Wetlands	resolved	53.9962869	-2.8574458	wetland	OpenStreetMap natural=wetland Glasson Marsh (salt marsh S of Glasson Dock)
+136	lancashire.txt	Bare	resolved	54.0775133	-2.8360503	suburb	OpenStreetMap place=suburb
+137	lancashire.txt	Morecambe	resolved	54.0721085	-2.8650938	town	OpenStreetMap administrative boundary relation (Morecambe)
+138	lancashire.txt	Morecambe Promenade	resolved	54.0722274	-2.8734238	promenade	OpenStreetMap Marine Road Central (seafront)
+139	lancashire.txt	Morecambe Stone Jetty	resolved	54.0743460	-2.8779830	pier	OpenStreetMap man_made=pier (Stone Jetty)
+140	lancashire.txt	Morecambe Bay	resolved	54.1044697	-2.9712714	bay	OpenStreetMap natural=bay (Morecambe Bay)
+141	lancashire.txt	Stone Jetty	resolved	54.0743460	-2.8779830	pier	OpenStreetMap man_made=pier Stone Jetty (same object as Morecambe Stone Jetty)
+142	lancashire.txt	Torrisholme	resolved	54.0684155	-2.8329415	suburb	OpenStreetMap/Nominatim
+143	lancashire.txt	West End	resolved	54.0652671	-2.8790168	neighbourhood	OpenStreetMap/Nominatim
+144	lancashire.txt	Sandylands	resolved	54.0622678	-2.8887897	suburb	OpenStreetMap point on Sandylands Promenade (no separate place node)
+145	lancashire.txt	Middleton	resolved	54.0170497	-2.8934475	village	OpenStreetMap amenity=pub in Middleton (Morecambe Bay); village centroid proxy
+146	lancashire.txt	Middleton Sands	resolved	54.0143755	-2.9125690	wetland	OpenStreetMap wetland named Middleton Sands
+147	lancashire.txt	Poulton-le-Sands	resolved	54.0738293	-2.8589259	neighbourhood	OpenStreetMap/Nominatim
+148	lancashire.txt	Heysham	resolved	54.0494955	-2.8903110	town	OpenStreetMap/Nominatim
+149	lancashire.txt	Heysham Port	resolved	54.0333145	-2.9184459	harbour	OpenStreetMap landuse=harbour Heysham Port
+150	lancashire.txt	Heysham Moss	resolved	54.039	-2.884	nature_reserve	Heysham Moss SSSI / LWT reserve centroid (Wikipedia GeoHack); no Nominatim hit
+151	lancashire.txt	Heysham Harbour	resolved	54.0366472	-2.9137806	harbour	Wikipedia Heysham Port infobox; commercial harbour precinct (same complex as Heysham Port)
+152	lancashire.txt	Half Moon Bay	resolved	54.0412050	-2.9058679	beach	OpenStreetMap natural=beach Half Moon Bay
+153	lancashire.txt	Battery Heysham	resolved	54.0475033	-2.9027833	historic	Proxy at St Patrick's Chapel headland (OpenStreetMap historic=ruins); coastal battery context on Heysham promontory
+154	lancashire.txt	Heysham Nuclear Power Station	resolved	54.0287415	-2.9157568	industrial	OpenStreetMap landuse=industrial Heysham Nuclear Power Station
+155	lancashire.txt	Barrows Lane Heysham	resolved	54.0437329	-2.9019508	street	Representative point on Barrows Lane (OpenStreetMap highway way centroid via Nominatim)
+156	lancashire.txt	Sunderland Point	resolved	53.9910957	-2.8810559	cape	OpenStreetMap natural=cape Sunderland Point
+157	lancashire.txt	Sunderland	resolved	53.9970040	-2.8783654	hamlet	OpenStreetMap Sunderland Point Mission Heritage Centre on The Lane (settlement core labelled Sunderland in addresses)
+158	lancashire.txt	Sunderland Point Marsh	ambiguous			wetland	No discrete OSM object for this marsh label; saltmarsh belt south of Sunderland Point
+159	lancashire.txt	Overton	resolved	54.015	-2.860	village	Wikipedia/Wikidata parish centre (Overton LA3); not the Middleton Overton hit returned by generic Nominatim queries
+160	lancashire.txt	Glasson Dock	resolved	53.9970644	-2.8499743	village	OpenStreetMap place=village Glasson Dock
+161	lancashire.txt	Glasson	resolved	53.9970644	-2.8499743	village	Coastal Glasson read as Glasson Dock settlement (same OpenStreetMap village node as Glasson Dock)
+162	lancashire.txt	Glasson Marina	resolved	53.9960751	-2.8460788	marina	OpenStreetMap Glasson Basin Marina
+163	lancashire.txt	Glasson Harbour	resolved	53.9962711	-2.8469884	harbour	OpenStreetMap Glasson Dock Basin (marina/harbour basin precinct)
+164	lancashire.txt	Aldcliffe	resolved	54.0355210	-2.8180096	village	OpenStreetMap/Nominatim
+165	lancashire.txt	Aldcliffe Marsh	resolved	54.0363246	-2.8322151	wetland	OpenStreetMap natural=wetland Aldcliffe Marsh
+166	lancashire.txt	Heaton-with-Oxcliffe	resolved	54.0432329	-2.8582218	parish	OpenStreetMap administrative boundary centroid
+167	lancashire.txt	Heaton Marsh	ambiguous			wetland	No OSM wetland named Heaton Marsh; top Nominatim hits are unrelated businesses
+168	lancashire.txt	Oxcliffe Marsh	ambiguous			wetland	Marsh not represented as a single named OSM feature; only minor bridges/infra in search results
+169	lancashire.txt	Oxcliffe Hill	resolved	54.0496328	-2.8418062	hamlet	OpenStreetMap place=hamlet Oxcliffe Hill
+170	lancashire.txt	Snatchems	ambiguous			unknown	Historic/local field name; only nearby named POI is The Golden Ball (Oxcliffe Hill) in OSM
+171	lancashire.txt	Cockersand	resolved	53.9767731	-2.8749252	heritage	OpenStreetMap Cockersand Abbey ruins as anchor for Cockersand coastal locality
+172	lancashire.txt	Cockersand Abbey	resolved	53.9767731	-2.8749252	heritage	OpenStreetMap historic/tourism Cockersand Abbey
+173	lancashire.txt	Cockersand Priory	resolved	53.9767731	-2.8749252	heritage	Same monastic ruins as Cockersand Abbey (priory church)
+174	lancashire.txt	Cockersand Spit	ambiguous			spit	Tidal spit/shoal near Cockersand; no OSM object for this exact name
+175	lancashire.txt	Plover Scar	resolved	53.9815062	-2.8826693	shoal	Coordinates from Plover Scar Lighthouse (OpenStreetMap) on the tidal scar
+176	lancashire.txt	Plover Scar Lighthouse	resolved	53.9815062	-2.8826693	lighthouse	OpenStreetMap man_made=lighthouse
+177	lancashire.txt	Abbey Lighthouse Cockersand	resolved	53.9824043	-2.8695171	lighthouse	OpenStreetMap-named Abbey Lighthouse Cottage (Slack Lane, Thurnham); coastal light context
+178	lancashire.txt	Condor Green	resolved	53.9982	-2.8300	hamlet	Wikipedia Conder Green railway station coordinates; list spelling Condor Green
+179	lancashire.txt	Crag Foot	resolved	54.1562992	-2.7984287	locality	OpenStreetMap bus stop Crag Foot (Cottages), New Road, Warton (matches UKC crag locality between Warton and Trowbarrow)
+180	lancashire.txt	Red Bank Farm	resolved	54.1062379	-2.8094467	farm	OpenStreetMap building Red Bank Farm, The Shore, Bolton-le-Sands
+181	lancashire.txt	Thurnham Hall	resolved	53.9842544	-2.8194331	manor	OpenStreetMap historic=manor Thurnham Hall, Thurnham
+182	lancashire.txt	Singleton	resolved	53.8370494	-2.9422378	village	OpenStreetMap place=village Singleton, Fylde
+183	lancashire.txt	Great Singleton	resolved	53.8379575	-2.9360223	church	Great Singleton read as main settlement of Singleton parish; OpenStreetMap St Anne's Church (Singleton)
+184	lancashire.txt	Little Singleton	resolved	53.8487480	-2.9502486	village	OpenStreetMap place=village Little Singleton, Fylde
+185	lancashire.txt	Elswick	resolved	53.8391393	-2.8784448	village	OpenStreetMap place=village Elswick, Fylde
+186	lancashire.txt	Medlar	resolved	53.8143236	-2.8861996	hamlet	OpenStreetMap place=hamlet Medlar
+187	lancashire.txt	Wesham	resolved	53.7893432	-2.8857422	village	OpenStreetMap place=village Wesham, Fylde
+188	lancashire.txt	Medlar-with-Wesham	resolved	53.8061266	-2.8789335	parish	OpenStreetMap administrative boundary Medlar-with-Wesham (centroid)
+189	lancashire.txt	Treales	resolved	53.7902850	-2.8494587	village	OpenStreetMap place=village Treales, Fylde
+190	lancashire.txt	Weeton	resolved	53.8061151	-2.9337366	village	OpenStreetMap place=village Weeton, Fylde
+191	lancashire.txt	Great Eccleston	resolved	53.8543159	-2.8716959	village	OpenStreetMap place=village Great Eccleston, Wyre
+192	lancashire.txt	Little Eccleston	resolved	53.8593163	-2.8823202	village	OpenStreetMap place=village Little Eccleston, Fylde
+193	lancashire.txt	Out Rawcliffe	resolved	53.8677071	-2.9067433	parish	OpenStreetMap administrative boundary Out Rawcliffe, Wyre (centroid)
+194	lancashire.txt	Nateby	resolved	53.8974576	-2.8177495	village	OpenStreetMap place=village Nateby, Wyre
+195	lancashire.txt	Winmarleigh	resolved	53.9229505	-2.8083982	village	OpenStreetMap place=village Winmarleigh, Wyre
+196	lancashire.txt	Thistleton	resolved	53.8336083	-2.9033800	village	OpenStreetMap place=village Thistleton, Greenhalgh-with-Thistleton
+197	lancashire.txt	Greenhalgh	resolved	53.8153606	-2.9118861	hamlet	OpenStreetMap place=hamlet Greenhalgh, Greenhalgh-with-Thistleton
+198	lancashire.txt	Esprick	resolved	53.8209444	-2.8980845	hamlet	OpenStreetMap place=hamlet Esprick, Fylde
+199	lancashire.txt	Kirkham	resolved	53.7827278	-2.8714885	town	OpenStreetMap administrative boundary Kirkham (centroid)
+200	lancashire.txt	Poulton-le-Fylde	resolved	53.8461465	-2.9904844	town	OpenStreetMap place=town Poulton-le-Fylde, Wyre
+201	lancashire.txt	Hardhorn-with-Newton	resolved	53.8176589	-2.9925936	village	Historic township; principal settlement now Staining civil parish — OpenStreetMap place=village Staining, Fylde
+202	lancashire.txt	Carleton-in-Fylde	resolved	53.8540426	-3.0047646	village	Carleton (Fylde) — OpenStreetMap place=village Carleton, Wyre
+203	lancashire.txt	St Michael's-on-Wyre	resolved	53.8661934	-2.8192415	village	OpenStreetMap place=village St Michael's on Wyre, Wyre
+204	lancashire.txt	St Michaels on Wyre	resolved	53.8614942	-2.8228455	community_centre	Orthographic variant; OpenStreetMap amenity=community_centre St Michaels Village Hall, St Michael's on Wyre
+205	lancashire.txt	Lea Town	resolved	53.7730282	-2.7947687	village	OpenStreetMap place=village Lea Town, Preston
+206	lancashire.txt	Woodplumpton	resolved	53.8080731	-2.7588255	village	OpenStreetMap place=village Woodplumpton, Preston
+207	lancashire.txt	Barton	resolved	53.8318027	-2.7361208	village	OpenStreetMap place=village Barton, Preston
+208	lancashire.txt	Catforth	resolved	53.8156004	-2.7935321	village	OpenStreetMap place=village Catforth, Preston
+209	lancashire.txt	Broughton	resolved	53.8100187	-2.7238423	village	OpenStreetMap place=village Broughton, Preston
+210	lancashire.txt	Inskip	resolved	53.8353691	-2.8226447	village	OpenStreetMap place=village Inskip, Wyre (skipped unrelated Inskip street in Skelmersdale)
+211	lancashire.txt	Garstang	resolved	53.9015756	-2.7734763	town	OpenStreetMap administrative boundary (town), Wyre
+212	lancashire.txt	Cabus	resolved	53.9181422	-2.7737996	village	OpenStreetMap place=village Cabus, Wyre
+213	lancashire.txt	Norcross	resolved	53.8654946	-3.0106140	suburb	OpenStreetMap place=suburb Norcross, Thornton
+214	lancashire.txt	Queenstown	resolved	53.8247573	-3.0338955	suburb	OpenStreetMap place=suburb Queenstown, Blackpool
+215	lancashire.txt	Heathfield	ambiguous			unknown	Several unrelated Heathfield streets/localities; cannot tie list position between Queenstown and Catterall to one coastal feature
+216	lancashire.txt	Catterall	resolved	53.8771170	-2.7638138	village	OpenStreetMap place=village Catterall, Wyre
+217	lancashire.txt	Bilsborrow	resolved	53.8540144	-2.7447717	hamlet	OpenStreetMap place=hamlet Bilsborrow
+218	lancashire.txt	Cold Row	not_found			unknown	No OpenStreetMap match for Cold Row in Lancashire
+219	lancashire.txt	Lane Ends	ambiguous			unknown	Multiple Lane Ends (Preston neighbourhood, Blackpool Hawes Side, etc.); source line does not disambiguate
+220	lancashire.txt	St Cuthbert's Church Lytham	resolved	53.7374891	-2.9761765	church	OpenStreetMap amenity=place_of_worship St Cuthbert's, Lytham
+221	lancashire.txt	Lytham Windmill	resolved	53.7357015	-2.9554888	attraction	OpenStreetMap historic Lytham Windmill, East Beach
+222	lancashire.txt	St Annes Pier	resolved	53.7476114	-3.0389873	pier	OpenStreetMap man_made=pier (St Annes Pier Jetty on North Promenade)
+223	lancashire.txt	St Annes Beach	resolved	53.7469487	-3.0301012	beach	OpenStreetMap highway=South Promenade along St Annes seafront (no separate natural=beach POI)
+224	lancashire.txt	Lytham Beach	resolved	53.7366974	-2.9521929	beach	OpenStreetMap highway=East Beach, Lytham (coastal promenade)
+225	lancashire.txt	Fairhaven Beach	resolved	53.7486840	-3.0339296	beach	OpenStreetMap beach kiosk on South Promenade at Fairhaven/St Annes seafront
+226	lancashire.txt	Granny's Bay Beach	resolved	53.7376577	-2.9949043	beach	OpenStreetMap natural=bay Granny's Bay (beach on bay; no discrete beach object)
+227	lancashire.txt	Bispham Beach	resolved	53.8490405	-3.0535035	beach	OpenStreetMap railway=tram_stop Bispham on Queen's Promenade (seafront proxy)
+228	lancashire.txt	Norbreck Beach	resolved	53.8577979	-3.0500807	beach	OpenStreetMap railway=tram_stop Norbreck on Queen's Promenade (seafront proxy)
+229	lancashire.txt	Cleveleys Beach	resolved	53.8835202	-3.0469443	beach	OpenStreetMap highway=North Promenade, Rossall Beach, Cleveleys
+230	lancashire.txt	Fleetwood Beach	resolved	53.9277318	-3.0125080	beach	OpenStreetMap Fleetwood Beach Kiosk, The Esplanade
+231	lancashire.txt	Knott End Beach	resolved	53.9282116	-2.9940403	beach	OpenStreetMap place=village Knott End-On-Sea (Wyre estuary seafront; no named beach POI)
+232	lancashire.txt	Morecambe Beach	resolved	54.0743460	-2.8779830	beach	OpenStreetMap Stone Jetty / The Prom, Morecambe (seafront beach access)
+233	lancashire.txt	Heysham Beach	resolved	54.0412050	-2.9058679	beach	OpenStreetMap natural=beach Half Moon Bay, Heysham
+234	lancashire.txt	Half Moon Bay Beach	resolved	54.0412050	-2.9058679	beach	OpenStreetMap natural=beach Half Moon Bay
+235	lancashire.txt	Glasson Beach	resolved	53.9970644	-2.8499743	harbour	OpenStreetMap Glasson Dock (Lune estuary shoreline; no named sandy beach POI)
+236	lancashire.txt	St Annes Promenade	resolved	53.7560520	-3.0415926	promenade	OpenStreetMap highway=North Promenade, St Annes
+237	lancashire.txt	Lytham Promenade	resolved	53.7351837	-2.9697671	promenade	OpenStreetMap highway=West Beach, Lytham
+238	lancashire.txt	Fairhaven Promenade	resolved	53.7383584	-3.0009383	promenade	OpenStreetMap Inner Promenade at Fairhaven Lake, Ansdell (Fairhaven seafront)
+239	lancashire.txt	Fairhaven Marsh	not_found			unknown	No OpenStreetMap match for named Fairhaven Marsh
+240	lancashire.txt	Ansdell Beach Road	resolved	53.7545931	-3.0351228	road	OpenStreetMap highway=Beach Road, St Annes FY8 (nearest mapped Beach Road to Ansdell; source name not separately tagged)
+241	lancashire.txt	Lytham Green Drive	resolved	53.7455878	-2.9529243	road	OpenStreetMap highway=Green Drive, Lytham (source label reads as Lytham + Green Drive)
+242	lancashire.txt	St Annes North Promenade	resolved	53.7491146	-3.0358654	promenade	OpenStreetMap man_made=pier St Anne's Pier on North Promenade
+243	lancashire.txt	St Annes South Promenade	resolved	53.7491568	-3.0325865	promenade	OpenStreetMap tourism=hotel on South Promenade (seafront proxy)
+244	lancashire.txt	Fairhaven Drive	resolved	53.7458209	-3.0247736	road	OpenStreetMap highway=Fairhaven Road, St Annes (no separate Fairhaven Drive; likely same seafront access)
+245	lancashire.txt	Royal Lytham	resolved	53.7495921	-3.0178167	golf_club	OpenStreetMap building=Royal Lytham & St Annes Golf Club
+246	lancashire.txt	Royal Lytham & St Annes	resolved	53.7495921	-3.0178167	golf_club	OpenStreetMap building=Royal Lytham & St Annes Golf Club
+247	lancashire.txt	Royal Lytham Golf Club	resolved	53.7495921	-3.0178167	golf_club	OpenStreetMap building=Royal Lytham & St Annes Golf Club
+248	lancashire.txt	Fairhaven Golf Club	resolved	53.7484625	-2.9803659	golf_course	OpenStreetMap leisure=golf_course Fairhaven Golf Club
+249	lancashire.txt	St Annes Old Links	resolved	53.7665637	-3.0393338	golf_course	OpenStreetMap leisure=golf_course St Annes Old Links
+250	lancashire.txt	Eric Morecambe Statue	resolved	54.0730112	-2.8678707	memorial	OpenStreetMap historic=memorial Eric Morecambe Statue, The Prom
+251	lancashire.txt	Midland Hotel	resolved	54.0722189	-2.8753978	hotel	OpenStreetMap tourism=hotel The Midland Hotel, Morecambe
+252	lancashire.txt	Maritime Museum Morecambe	not_found			museum	No OpenStreetMap match for a maritime museum in Morecambe (Lancaster Maritime Museum is in Lancaster)
+253	lancashire.txt	Maritime Museum Fleetwood	resolved	53.9247978	-3.0057872	museum	OpenStreetMap tourism=museum Fleetwood Museum (local history/maritime collection; no separate name match)
+254	lancashire.txt	Stanley Park	resolved	53.8147056	-3.0228394	park	OpenStreetMap leisure=park Stanley Park, Blackpool
+255	lancashire.txt	George Bancroft Park	resolved	53.8014285	-3.0481235	park	OpenStreetMap leisure=park George Bancroft Park, Blackpool
+256	lancashire.txt	Kincraig	resolved	53.8552139	-3.0264471	nature_reserve	OpenStreetMap natural=water Kincraig Lake Ecological Reserve (main named Kincraig feature in Bispham)
+257	lancashire.txt	Kincraig Lake	resolved	53.8552139	-3.0264471	water	OpenStreetMap Kincraig Lake Ecological Reserve
+258	lancashire.txt	Kincraig Marsh	not_found			wetland	No OpenStreetMap object named Kincraig Marsh
+259	lancashire.txt	Kincraig Point	ambiguous			headland	No OpenStreetMap match; likely informal coastal label near Bispham Kincraig area
+260	lancashire.txt	Marton Sands	resolved	53.8015870	-3.0490601	beach	OpenStreetMap has no 'Marton Sands'; used amenity=parking Central Beach Car Park as South Shore/Marton seafront proxy
+261	lancashire.txt	Ribble Estuary	resolved	53.7187909	-2.8780424	estuary	OpenStreetMap Hesketh Out Marsh (Ribble estuary intertidal; representative Lancashire-side feature)
+262	lancashire.txt	Wyre Estuary	resolved	53.8800436	-2.9814393	estuary	OpenStreetMap Wyre Estuary Country Park (lower Wyre intertidal)
+263	lancashire.txt	River Wyre mouth	resolved	53.9282116	-2.9940403	estuary	OpenStreetMap place=village Knott End-on-Sea at Wyre mouth
+264	lancashire.txt	River Ribble mouth	resolved	53.6775227	-2.9712662	estuary	OpenStreetMap natural=wetland Crossens Marsh (north side of Ribble mouth, Sefton)
+265	lancashire.txt	River Lune mouth	resolved	53.9970644	-2.8499743	estuary	OpenStreetMap Glasson Dock (Lune entering Morecambe Bay)
+266	lancashire.txt	River Cocker mouth	resolved	53.9527243	-2.8475857	estuary	OpenStreetMap place=village Cockerham (River Cocker channel to Morecambe Bay; nearest named settlement)
+267	lancashire.txt	River Keer mouth	resolved	54.1277208	-2.7854709	estuary	OpenStreetMap Keer Sands at Keer channel mouth
+268	lancashire.txt	Keer Estuary	resolved	54.1277208	-2.7854709	estuary	OpenStreetMap Keer Sands (intertidal mouth area)
+269	lancashire.txt	Lune Estuary	resolved	53.9910957	-2.8810559	estuary	OpenStreetMap natural=cape Sunderland Point (upper Lune estuary shoreline)
+270	lancashire.txt	Keer Mouth	resolved	54.1277208	-2.7854709	estuary	OpenStreetMap Keer Sands (same mouth feature as River Keer mouth)
+271	lancashire.txt	Lancaster Canal	resolved	53.9881497	-2.7907390	canal	OpenStreetMap waterway=canal relation (Lancaster Canal)
+272	lancashire.txt	Glasson Branch Canal	resolved	53.9946778	-2.8359280	canal	OpenStreetMap Lancaster Canal (Glasson Branch) near Glasson Dock
+273	lancashire.txt	Isle of Man Ferry Heysham	resolved	54.0333145	-2.9184459	harbour	OpenStreetMap landuse=harbour Heysham Port (ferry berth area)
+274	lancashire.txt	Barrow Ferry Fleetwood	resolved	53.9158116	-3.0127567	dock	OpenStreetMap waterway=dock Wyre Dock; nearest named Fleetwood dock infrastructure for historic Irish Sea ferries (dedicated Barrow berth not tagged)
+275	lancashire.txt	ICI Hillhouse	not_found			industrial	Historic ICI chemical works at Hillhouse/Burn Naze; no clearly named OSM object for the plant site
+276	lancashire.txt	Hillhouse Pool	not_found			dock	Basin associated with former ICI wet dock; not separately named in OpenStreetMap
+277	lancashire.txt	Blackpool Harbour	not_found			harbour	No coastal harbour feature tagged in OSM; list name likely informal for small-craft shore
+278	lancashire.txt	Harbour Blackpool	not_found			harbour	Same as Blackpool Harbour; no named harbour in OpenStreetMap
+279	lancashire.txt	Morecambe Harbour	resolved	54.0743460	-2.8779830	pier	OpenStreetMap man_made=pier Stone Jetty (working harbour front / fleet base on Morecambe promenade)
+280	lancashire.txt	Pharos Lighthouse Fleetwood	resolved	53.9264838	-3.0075150	lighthouse	OpenStreetMap man_made=lighthouse Pharos Lighthouse
+281	lancashire.txt	Lower Lighthouse Fleetwood	resolved	53.9285535	-3.0090695	lighthouse	OpenStreetMap man_made=lighthouse Beach Lighthouse (Fleetwood lower light on foreshore)
+282	lancashire.txt	Upper Lighthouse Fleetwood	resolved	53.9264838	-3.0075150	lighthouse	OpenStreetMap Pharos Lighthouse (upper light on The Mount; paired with Beach Lighthouse)
+283	lancashire.txt	Blackpool Lifeboat Station	resolved	53.8134400	-3.0561119	lifeboat_station	OpenStreetMap emergency=water_rescue Blackpool Lifeboat Station
+284	lancashire.txt	Fleetwood Lifeboat Station	resolved	53.9277531	-3.0065334	lifeboat_station	OpenStreetMap emergency=water_rescue Fleetwood Lifeboat Station
+285	lancashire.txt	Knott End Lifeboat Station	ambiguous			lifeboat_station	No Knott End–named lifeboat building in OSM; nearest tagged station is Fleetwood across the Wyre
+286	lancashire.txt	Lytham Lifeboat Station	resolved	53.7468770	-3.0326751	lifeboat_station	OpenStreetMap Lytham St Annes Lifeboat Station (physically at St Annes)
+287	lancashire.txt	St Annes Lifeboat Station	resolved	53.7468770	-3.0326751	lifeboat_station	OpenStreetMap Lytham St Annes Lifeboat Station
+288	lancashire.txt	Morecambe Lifeboat Station	resolved	54.0735254	-2.8755043	lifeboat_station	OpenStreetMap emergency=water_rescue Morecambe Lifeboat Station
+289	lancashire.txt	Morecambe RNLI	resolved	54.0735254	-2.8755043	lifeboat_station	Same facility as Morecambe Lifeboat Station (RNLI shop hit is separate POI)
+290	lancashire.txt	Fleetwood RNLI	resolved	53.9277531	-3.0065334	lifeboat_station	Same building as Fleetwood Lifeboat Station
+291	lancashire.txt	Blackpool RNLI	resolved	53.8134400	-3.0561119	lifeboat_station	Same building as Blackpool Lifeboat Station
+292	lancashire.txt	Lytham St Annes RNLI	resolved	53.7468770	-3.0326751	lifeboat_station	Same building as Lytham St Annes Lifeboat Station
+293	lancashire.txt	National Coastwatch Rossall Point	resolved	53.9228333	-3.0445000	lookout	NCI/Wikipedia coords for Rossall Point Observation Tower (NCI Fleetwood / Rossall Point)
+294	lancashire.txt	Rossall Point Observatory	resolved	53.9228333	-3.0445000	tower	Same coastal tower as NCI Rossall Point (public observation deck; list name uses Observatory)
+295	lancashire.txt	Over Wyre	ambiguous			region	Informal area north of the River Wyre; OSM hits are unrelated POIs (e.g. surgeries) not the district
+296	lancashire.txt	Over Wyre Marsh	ambiguous			marsh	Saltmarsh/wetland belt of Over Wyre; no single named OSM wetland for this label
+297	lancashire.txt	Fylde Coast	ambiguous			coast	Broad regional label; many equally valid pins along the Fylde shoreline
+298	lancashire.txt	Dolphinholme	resolved	53.9762555	-2.7355952	village	OpenStreetMap place=village Dolphinholme
+299	lancashire.txt	Anchorsholme Golf	resolved	53.8698466	-3.0454760	park	OpenStreetMap leisure=park Anchorsholme Park (coastal pitch-and-putt/golf commonly tied to this name; no separate Anchorsholme Golf object)
+300	lancashire.txt	Fleetwood Golf Club	resolved	53.9182636	-3.0459651	golf_course	OpenStreetMap leisure=golf_course Fleetwood Golf Course / club on Princes Way
+301	lancashire.txt	Rossall Golf Club	not_found			golf_course	No named Rossall golf club/course in OpenStreetMap near Rossall/Fleetwood
+302	lancashire.txt	Blackpool North Shore Golf	resolved	53.8442568	-3.0454974	golf_course	OpenStreetMap leisure=golf_course Blackpool North Shore Golf Course
+303	lancashire.txt	Stanley Park Golf	resolved	53.8179638	-3.0239814	golf_course	OpenStreetMap leisure=golf_course Stanley Park Golf Course
+304	lancashire.txt	Knott End Golf Club	resolved	53.9207415	-2.9962319	golf_course	OpenStreetMap leisure=golf_course Knott End Golf Course (club list name)
+305	lancashire.txt	Squires Gate Lane	resolved	53.7794591	-3.0397762	road	OpenStreetMap highway=primary Squires Gate Lane (St Annes)
+306	lancashire.txt	Blackpool Airport	resolved	53.7732289	-3.0371901	airport	OpenStreetMap aeroway=aerodrome Blackpool Airport
+307	lancashire.txt	Squires Gate Airport	resolved	53.7732289	-3.0371901	airport	Same Squires Gate aerodrome as Blackpool Airport (line 306); historic list name
+308	lancashire.txt	Marine Road Central	resolved	54.0712628	-2.8756227	road	OpenStreetMap highway=primary Marine Road Central, Morecambe
+309	lancashire.txt	Marine Road	resolved	54.0826705	-2.8344863	road	Top Nominatim hit is Marine Road East (Bare, Morecambe); several Marine Road segments exist
+310	lancashire.txt	Regent Road Morecambe	resolved	54.0634550	-2.8755664	road	OpenStreetMap highway=tertiary Regent Road, West End, Morecambe
+311	lancashire.txt	Marine Drive Morecambe	resolved	54.0861314	-2.8252731	road	OpenStreetMap highway=primary Marine Drive (Bare/Hest Bank, Morecambe)
+312	lancashire.txt	Heysham Road	resolved	54.0447920	-2.8928624	road	OpenStreetMap highway=primary Heysham Road, Heysham
+313	lancashire.txt	Glasson Road	ambiguous			road	Local name for the long B5290 approach to Glasson Dock; no single OSM object for the whole road
+314	lancashire.txt	St Peter's Church Heysham	resolved	54.0474389	-2.9018933	church	OpenStreetMap amenity=place_of_worship St. Peter's Church, Heysham
+315	lancashire.txt	St Patrick's Chapel Heysham	resolved	54.0475033	-2.9027833	chapel	OpenStreetMap historic=ruins St. Patrick's Chapel, Heysham
+316	lancashire.txt	St Thomas Church St Annes	resolved	53.7474143	-3.0244321	church	OpenStreetMap amenity=place_of_worship St Thomas's, St Annes
+317	lancashire.txt	St Leonard's Church Lytham	not_found			church	No St Leonard's in Lytham on OpenStreetMap; Anglican parish church there is St Cuthbert's (separate list line)
+318	lancashire.txt	St Nicholas Church Fleetwood	resolved	53.9186632	-3.0301663	church	OpenStreetMap amenity=place_of_worship St. Nicholas, Fleetwood
+319	lancashire.txt	Skippool Boatyard	not_found			marina	No OSM feature named Skippool Boatyard; creek/marinas nearby are not uniquely tagged to this label
+320	lancashire.txt	Glasson Dock Chandlery	not_found			shop	No chandlery POI in OpenStreetMap at Glasson Dock under this name
+321	lancashire.txt	Sunderland Point Chapel	not_found			chapel	No chapel ruin/building tagged in OpenStreetMap for this isolated Sunderland Point label
+322	lancashire.txt	Sunderland Point House	not_found			building	No named house/estate in OpenStreetMap for this label
+323	lancashire.txt	Overton St Helen's Church	resolved	54.0111958	-2.8553302	church	OpenStreetMap amenity=place_of_worship St Helen's Church, Church Grove, Overton
+324	lancashire.txt	Heaton St Wilfrid's Church	resolved	54.0759521	-2.7672677	church	OpenStreetMap St Wilfrid's, Church Brow, Halton (list uses Heaton; Halton is the mapped Anglican church for this coastward area)
+325	lancashire.txt	Aldcliffe St John's Church	resolved	54.0502778	-2.7988889	church	St John the Evangelist (North Road, Lancaster): historic parish for Aldcliffe; coords from listed-building georeference (not an OSM name hit in this pass)
+326	lancashire.txt	England Coast Path Lancashire	ambiguous			trail	Long-distance trail segment; many equally valid points along the Lancashire shore
+327	lancashire.txt	Lancashire Coastal Way	ambiguous			trail	Regional promoted route without a single OSM centroid in Nominatim
+328	lancashire.txt	Wyre Way	ambiguous			trail	Wyre Valley walking route; Nominatim text search hits unrelated Wyre-named POIs, not the path as a whole
+329	lancashire.txt	Morecambe Bay Cycleway	ambiguous			cycleway	Promoted bay cycle route; no single mapped object for the full named corridor
+330	lancashire.txt	Blackpool Tramway	resolved	53.8178694	-3.0562415	tram	Representative OpenStreetMap railway=tram_stop on the promenade (North Pier Heritage Stop); line has no single centroid
+331	lancashire.txt	Blackpool North Station	resolved	53.8229372	-3.0483730	railway_station	OpenStreetMap/Nominatim railway station Blackpool North
+332	lancashire.txt	Blackpool South Station	resolved	53.7984415	-3.0488200	railway_station	OpenStreetMap/Nominatim railway station Blackpool South
+333	lancashire.txt	Blackpool Pleasure Beach Station	resolved	53.7878820	-3.0538832	railway_station	OpenStreetMap/Nominatim railway station Blackpool Pleasure Beach
+334	lancashire.txt	Squires Gate Station	resolved	53.7769901	-3.0501715	railway_station	OpenStreetMap/Nominatim railway station Squires Gate (Fylde coast branch)
+335	lancashire.txt	St Annes-on-the-Sea Station	resolved	53.7530071	-3.0289449	railway_station	OpenStreetMap/Nominatim railway station St Annes-on-the-Sea
+336	lancashire.txt	Ansdell and Fairhaven Station	resolved	53.7416370	-2.9935130	railway_station	OpenStreetMap/Nominatim railway station Ansdell and Fairhaven
+337	lancashire.txt	Lytham Station	resolved	53.7393224	-2.9641884	railway_station	OpenStreetMap/Nominatim railway station Lytham
+338	lancashire.txt	Kirkham and Wesham Station	resolved	53.7869046	-2.8833796	railway_station	OpenStreetMap/Nominatim railway station Kirkham and Wesham
+339	lancashire.txt	Poulton-le-Fylde Station	resolved	53.8485092	-2.9909164	railway_station	OpenStreetMap/Nominatim railway station Poulton-le-Fylde
+340	lancashire.txt	Layton Station	resolved	53.8353457	-3.0299186	railway_station	OpenStreetMap/Nominatim railway station Layton (Blackpool)
+341	lancashire.txt	Morecambe Station	resolved	54.0703282	-2.8685482	railway_station	OpenStreetMap/Nominatim railway station Morecambe
+342	lancashire.txt	Heysham Port Station	resolved	54.0333273	-2.9129990	railway_station	OpenStreetMap/Nominatim railway station Heysham Port
+343	lancashire.txt	Bare Lane Station	resolved	54.0746566	-2.8349663	railway_station	OpenStreetMap/Nominatim railway station Bare Lane
+344	lancashire.txt	Carnforth Station	resolved	54.1295307	-2.7707780	railway_station	OpenStreetMap/Nominatim railway station Carnforth
+345	lancashire.txt	Silverdale Station	resolved	54.1693432	-2.8037976	railway_station	OpenStreetMap/Nominatim railway station Silverdale (Furness Line, Lancashire)
+346	lancashire.txt	Silverdale Tunnel	not_found			tunnel	No Nominatim/OSM hit for a railway tunnel at Silverdale, Lancashire; Furness Line here is not tunnel-centric and “Silverdale Tunnel” commonly refers to a different disused tunnel in Staffordshire
+347	lancashire.txt	Shore Road Silverdale	resolved	54.1665808	-2.8299095	road	OpenStreetMap/Nominatim highway segment Shore Road, Silverdale Green

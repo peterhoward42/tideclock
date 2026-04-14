@@ -1,0 +1,173 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	mayo.txt	Killala	resolved	54.2125	-9.221389	village	Wikipedia/Wikidata; Cill Ala, Killala Bay.
+2	mayo.txt	Killala Pier	resolved	54.2142	-9.2228	pier	Harbour pier at Killala; OSM-style offset from village centroid.
+3	mayo.txt	Killala Bay	resolved	54.21	-9.24	bay	Representative open-water/shore centroid of the Moy/Killala Bay system (large inlet).
+4	mayo.txt	Ross Beach	resolved	54.232	-9.1979	beach	Blue Flag beach N of Killala; Beaches on the Air listing.
+5	mayo.txt	Ross Strand	resolved	54.2325	-9.1985	beach	Continuous strand with Ross Beach along Killala Bay shore.
+6	mayo.txt	Palmerstown	resolved	54.266	-9.232	area	Mayo Palmerstown (Lackan South ED), not Dublin; historic estate area near Kilcummin/Ross coast.
+7	mayo.txt	Rosserk Friary shore	resolved	54.1714	-9.1434	shore	River Moy / Killala Bay shore at Rosserk Friary (Wikipedia coords).
+8	mayo.txt	Kilcummin	resolved	54.278888	-9.213946	village	Wikipedia; Cill Chuimín, north Mayo coast.
+9	mayo.txt	Moy Estuary mouth	resolved	54.207	-9.188	estuary	Representative mouth/bar where River Moy meets Killala Bay (not a single charted point).
+10	mayo.txt	Kilcummin Head	resolved	54.281	-9.214	headland	Northeast tip of Kilcummin Head SAC / coast-guard area (north of village centroid).
+11	mayo.txt	Lacken Bay	resolved	54.268	-9.228	bay	Bay at Lacken/Lackan, north Mayo.
+12	mayo.txt	Lacken Strand	resolved	54.276	-9.238	beach	Long strand between Killala and Ballycastle; representative mid-strand point.
+13	mayo.txt	Ballycastle	resolved	54.2833	-9.3667	village	Baile an Chaisil, Mayo (not Antrim); Wikidata/GEOnet-class coords.
+14	mayo.txt	Ballycastle Beach	resolved	54.286	-9.368	beach	Atlantic-facing beach near village (north Mayo).
+15	mayo.txt	Ballycastle Pier	resolved	54.2845	-9.367	pier	Small quay/harbour feature at village; approximate pier head.
+16	mayo.txt	Kilgalligan	resolved	54.336	-9.786	area	Kilgalligan townland / loop-walk hub near Portacloy and Benwee (Erris).
+17	mayo.txt	Ross Port	resolved	54.2817	-9.7997	village	Ros Dumhach (Rossport), Kilcommon parish, Broadhaven Bay (Wikipedia).
+18	mayo.txt	Ross Port Pier	resolved	54.280973	-9.800159	pier	Pier/quay at Ross Port; GeoHack Rossport coords.
+19	mayo.txt	Portacloy	resolved	54.33082	-9.78337	village	Port an Chlóidh, Dún Chaocháin peninsula (Wikipedia).
+20	mayo.txt	Portacloy Bay	resolved	54.3315	-9.7825	bay	Horseshoe bay at Portacloy; representative centre.
+21	mayo.txt	Portacloy Strand	resolved	54.3298	-9.784	beach	Sheltered sandy strand inside Portacloy Bay.
+22	mayo.txt	Belderg	resolved	54.3	-9.55	village	Béal Deirg / Belderrig (Wikipedia village centroid).
+23	mayo.txt	Belderg Strand	resolved	54.311	-9.552	beach	Strand by Belderg Harbour / pier area.
+24	mayo.txt	Belderg Pier	resolved	54.31127	-9.55192	pier	eOceanic haven position at Belderg Harbour pier.
+25	mayo.txt	Kilcommon shore	ambiguous			shore	Kilcommon civil parish covers a long Erris Atlantic frontage; no single representative pin without a named cove.
+26	mayo.txt	Céide Fields coast	resolved	54.305	-9.456944	heritage	Cliff edge / visitor centre area, Glenurla (GeoHack Céide Fields).
+27	mayo.txt	Downpatrick Head	resolved	54.3278	-9.345	headland	Signature clifftop / viewpoint N of Ballycastle (geograph.org.uk camera location).
+28	mayo.txt	Dun Briste	resolved	54.3276	-9.3482	sea_stack	Offshore stack at Downpatrick Head (Wikipedia Dún Briste coords).
+29	mayo.txt	Benwee Head	resolved	54.335	-9.818	headland	An Bhinn Bhuí; cliffs over Broadhaven (blended NE head / cliff centroid).
+30	mayo.txt	Benwee cliffs shore	resolved	54.3342	-9.821	shore	Foot of Benwee cliff walks / shoreline below headland.
+31	mayo.txt	Porturlin	resolved	54.3161	-9.7149	village	Wikipedia/GeoHack; Port Durlainne, Erris Gaeltacht.
+32	mayo.txt	Porturlin Pier	resolved	54.3163	-9.7155	pier	Working fishing pier at Porturlin; slight offset from village coords.
+33	mayo.txt	Inishmuc	resolved	54.32	-9.698	islet	Small rocky islet (Irish Inis Muc) seen on Porturlin cliff loop; approximate offshore centroid (no OSM name match).
+34	mayo.txt	Pig Island	ambiguous			islet	Local tourism name for the same boar-shaped rock islet as line 33; separate list row — not given an independent pin in pass 1.
+35	mayo.txt	Carrowteige	resolved	54.3139	-9.8169	village	Wikipedia Ceathrú Thaidhg; Dún Chaocháin peninsula.
+36	mayo.txt	Broad Haven Bay	resolved	54.288	-9.894	bay	Wikipedia Broadhaven Bay chart centroid (large inlet).
+37	mayo.txt	Stags of Broadhaven	resolved	54.3659	-9.7892	island_group	NPWS SPA centroid; rocky islets N of Benwee Head.
+38	mayo.txt	Greanai River mouth	ambiguous			estuary	No Logainm/OSM match for this exact name; likely informal stream into Sruwaddacon/Broadhaven shore between Glengad and Pollatomish — no single charted mouth.
+39	mayo.txt	Blacksod Bay	resolved	54.12	-10.03	bay	Wikipedia/Ramsar listing centroid; very large bay — representative open-water point.
+40	mayo.txt	Blacksod Pier	resolved	54.0982	-10.059	pier	Termon pier / Blacksod Point landing near Irish Lights Blacksod Lighthouse compound.
+41	mayo.txt	Blacksod Lighthouse	resolved	54.0985	-10.0604	lighthouse	Wikipedia / Commissioners of Irish Lights published position.
+42	mayo.txt	Falmore Strand	resolved	54.0949	-10.086	beach	An Fál Mór / Fallmore townland beach (Wikipedia village coords; strand along shore).
+43	mayo.txt	Falmore Pier	resolved	54.0955	-10.087	pier	Small local quay near Fál Mór shore S Mullet; approximate pier head.
+44	mayo.txt	Termoncarragh Strand	resolved	54.245	-10.07	beach	Sandy shore near Tearmann Caithreach (Termoncarragh) toward Blacksod Bay; approximate mid-strand.
+45	mayo.txt	Termoncarragh	resolved	54.2462	-10.0633	village	OSM/Nominatim locality Tearmann Caithreach (townland cluster N Mullet).
+46	mayo.txt	Claggan Island	resolved	54.17996	-9.97586	islet	OSM islet relation centroid; tombolo island NE Blacksod Bay.
+47	mayo.txt	Claggan Strand	resolved	54.1785	-9.9765	beach	Srah / causeway beaches around Claggan; representative kitesurf shore segment.
+48	mayo.txt	Eachléim	resolved	54.1158	-10.1022	village	Wikipedia Aughleam / An Eachléim, Mullet W coast.
+49	mayo.txt	Binghamstown	resolved	54.2035	-10.0374	village	GeoHack/Wikipedia An Geata Mór; R313 Mullet.
+50	mayo.txt	Elly Bay	resolved	54.1618	-10.0872	bay	Beaches on the Air / eOceanic haven datum; sheltered bight E side Mullet in Blacksod Bay.
+51	mayo.txt	Elly Beach	resolved	54.163	-10.0885	beach	Atlantic-side Elly Bay beach; slight offset from anchorage centroid.
+52	mayo.txt	Cross	resolved	54.1925	-10.0222	area	Cross (Wallace) townland near Binghamstown (townlands.ie coords), not south Mayo Cross village.
+53	mayo.txt	Doohoma	resolved	54.070056	-9.957544	village	Wikipedia/GeoHack Dumha Thuama peninsula settlement.
+54	mayo.txt	Pullathomas	resolved	54.2491	-9.81098	village	Wikipedia Poll an tSómais; Kilcommon/Broadhaven shore.
+55	mayo.txt	Bangor Erris	resolved	54.1431	-9.7403	town	Wikipedia Baingear; Owenmore valley gateway.
+56	mayo.txt	Geesala	resolved	54.1125	-9.89917	village	Wikipedia Gaoth Sáile / Gweesalia.
+57	mayo.txt	Geesala Strand	resolved	54.1085	-9.892	beach	Main sandy strand near Gweesalia village toward Tallaghan Bay; approximate mid-beach.
+58	mayo.txt	Belmullet	resolved	54.225	-9.991	town	Wikipedia Béal an Mhuirthead centroid.
+59	mayo.txt	Belmullet Pier	resolved	54.2238	-9.988	pier	Carter's Canal / town quay works at Belmullet; approximate pier head.
+60	mayo.txt	Belmullet Harbour	resolved	54.2233	-9.987	harbour	Sheltered basin at canal–bay interface in Belmullet; approximate harbour centroid.
+61	mayo.txt	An Geata Mór pier	resolved	54.197	-10.042	pier	Saleen Harbour / Fishery Board pier (An Geata Mór, Binghamstown); ~1 km S of village centre per local sources.
+62	mayo.txt	Cartown Strand	resolved	54.118	-10.098	beach	Interpreted as sandy shore by Cartron townland (Mullet, Erris) toward Blacksod; list spelling “Cartown”; IWDG cites strand between Cartron and Blacksod.
+63	mayo.txt	Inishkea North	resolved	54.1349	-10.2009	island	Logainm Inis Gé Thuaidh centrepoint; island W of Belmullet.
+64	mayo.txt	Inishkea South	resolved	54.1124	-10.2252	island	Logainm Inis Gé Theas centrepoint.
+65	mayo.txt	Achill Sound	resolved	53.931181	-9.932766	channel	GeoHack Achill Sound; narrow channel between Achill Island and Corraun Peninsula.
+66	mayo.txt	Achill Sound Bridge	resolved	53.9325972	-9.92222	bridge	Michael Davitt swing bridge (R319); Wikipedia coords.
+67	mayo.txt	Polranny	resolved	53.931	-9.896	village	Poll Raithní; mainland side of Achill Sound (Wikipedia).
+68	mayo.txt	Polranny Pier	resolved	53.9313	-9.8955	pier	Small working quay at Polranny; slight E of village centroid.
+69	mayo.txt	Cloughmore	resolved	53.8786	-9.95248	village	Logainm An Chloich Mhóir townland centre; Achill south shore / ferry to Achillbeg.
+70	mayo.txt	Cashel	resolved	53.957222	-9.978056	area	Townlands.ie centroid for Cashel ED (An Caiseal), north Achill.
+71	mayo.txt	Cashel Bay	resolved	53.948	-9.985	bay	Representative open-water point on S/coastal side of large Cashel townland toward Atlantic (not one charted name).
+72	mayo.txt	Achillbeg	resolved	53.85	-9.95	island	GeoHack/Wikipedia-class centroid; Acaill Bheag off Cloghmore.
+73	mayo.txt	Bunnacurry	resolved	53.9729	-9.98391	village	Bun an Churraigh; Wikipedia coords (Gaeltacht village, north Achill).
+74	mayo.txt	Dereens	resolved	53.9026	-9.95547	area	Logainm An Doirín (Derreen) townland centre; list spelling “Dereens”.
+75	mayo.txt	Dooagh	resolved	53.974444	-10.129722	village	Dumha Acha; GeoHack settlement coords (Keem area).
+76	mayo.txt	Dooagh Beach	resolved	53.9738	-10.126	beach	Disappearing/reforming strand at Dooagh; tourist listing GPS near village shore.
+77	mayo.txt	Keel	resolved	53.9667	-10.0833	village	An Caol; Wikipedia centroid.
+78	mayo.txt	Keel Beach	resolved	53.9735	-10.0849	beach	Blue Flag shore; BirdGuides/visitor centroid along main strand.
+79	mayo.txt	Keel Strand	resolved	53.974	-10.0855	beach	Continuous strand with Keel Beach; slight offset W along bay.
+80	mayo.txt	Keel Pier	resolved	53.9678	-10.0815	pier	Small harbour pier at Keel; approximate head from OSM-style offset.
+81	mayo.txt	Dookinella	resolved	53.964233	-10.047806	area	Local listing (Dookinella NS / Minaun Heights area near Keel); separate row from Dookinelly townland.
+82	mayo.txt	Dookinelly	resolved	53.9616	-10.0447	area	Logainm Dumha Cinn Aille (Thulis) / Dookinelly (Thulis) townland centre.
+83	mayo.txt	Pollawaddy Point	resolved	53.9729	-10.1071	headland	Coastal point at Pollagh (Pollach) / Pollawaddy Strand context; Wikipedia Pollagh coords.
+84	mayo.txt	Slievemore shore	ambiguous			shore	Slievemore spans a very long N–S Atlantic frontage; no single representative pin without picking a named cove.
+85	mayo.txt	Dooega	resolved	53.9142	-10.0244	village	Logainm Dumha Éige population-centre coords (Gaeltacht south Achill).
+86	mayo.txt	Dooega Pier	resolved	53.9215	-10.0195	pier	Working quay near Dooega Blue Flag beach; slight N of beach listing.
+87	mayo.txt	Golden Strand	resolved	54.0124	-9.99575	beach	Barnnagappul / Golden Strand car park; Sport Ireland Valley Walk start (E Dugort).
+88	mayo.txt	Ashleam Bay	resolved	53.899	-9.9965	bay	Cuan na hAisléime pebble cove; coords near Wild Atlantic Way viewpoint/shore.
+89	mayo.txt	Dugort	resolved	54.00965	-10.025	village	Dumha Goirt; Wikipedia coords (Achill Mission / north shore).
+90	mayo.txt	Dugort Beach	resolved	54.0127	-10.0241	beach	Silver Strand / Pollawaddy Blue Flag at foot of Slievemore; synthesis coords E of village centre.
+91	mayo.txt	Dugort Pier	resolved	54.0113	-10.0232	pier	Small craft / tour pier at Dugort Silver Strand; offset NNE of village centre (visitachill boat-tour datum).
+92	mayo.txt	Keem	resolved	53.9681	-10.1942	area	Horseshoe bay head locality (Cuan na Cuime); Wikipedia Keem Bay coords with slight offset toward beach car-park cluster.
+93	mayo.txt	Keem Bay	resolved	53.9680	-10.1939	bay	Wikipedia infobox; representative centre of Keem horseshoe.
+94	mayo.txt	Keem beach	resolved	53.9684	-10.1944	beach	Blue Flag strand at head of Keem Bay; offset from bay centroid toward sand.
+95	mayo.txt	Keem Strand	resolved	53.9686	-10.1948	beach	Continuous with Keem beach along inner shore; slight W offset.
+96	mayo.txt	Achill Head	resolved	53.9746	-10.2567	headland	Western extremity of Achill; literature/Wiki-derived promontory coords W of Keem Bay.
+97	mayo.txt	Croaghaun cliffs	resolved	53.9795	-10.2000	cliff	Representative high cliff escarpment on N face of Croaghaun (688 m) above Atlantic; between summit coords and Keem-view foot.
+98	mayo.txt	Mennaun Pier	ambiguous			pier	No Logainm/OSM match for this exact spelling; could be Purteen/Gubalennaun Beg quay (Keel Bay) or another small Achill pier—left unset to avoid a wrong pin.
+99	mayo.txt	Mulranny	resolved	53.903745	-9.789987	village	GeoHack/Wikipedia An Mhala Raithní.
+100	mayo.txt	Mulranny Beach	resolved	53.8972	-9.7847	beach	Beaches on the Air / Mayo Blue Flag listing coords.
+101	mayo.txt	Mulranny Pier	resolved	53.90627	-9.78807	pier	Sport Ireland Mulranny Pier trailhead grid (L 829 957).
+102	mayo.txt	Mulranny Causeway	resolved	53.9015	-9.7935	causeway	Representative mid-section of 1889 causeway / greenway link across Trawoughter Bay S of village (trail literature).
+103	mayo.txt	Rosmoney	resolved	53.8253	-9.6199	village	Geograph camera location at Rosmoney; Mayo sailing-club harbour settlement on Clew Bay drumlins.
+104	mayo.txt	Rosmoney Harbour	resolved	53.8283	-9.6227	harbour	Collan More Harbour haven centroid (eOceanic 53°49.700′N 9°37.364′W).
+105	mayo.txt	Rosmoney Pier	resolved	53.8275	-9.6215	pier	Approximate club/landing front on Rosmoney Point; slight offset from haven position.
+106	mayo.txt	Newport Quay	resolved	53.8862	-9.5485	pier	Town quay on Newport Ship Canal toward Clew Bay; offset W from Wikipedia town centroid.
+107	mayo.txt	Newport Bay mouth	resolved	53.8835	-9.5350	estuary	Representative seaward mouth where Newport River / Clew Bay meet E of town centre.
+108	mayo.txt	Westport	resolved	53.8000	-9.5333	town	Wikipedia infobox Cathair na Mart.
+109	mayo.txt	Westport Quay	resolved	53.7998	-9.5342	quay	The Quay frontage at Westport Harbour (SeaRates/port centroid neighbourhood).
+110	mayo.txt	Westport Harbour	resolved	53.7995	-9.5338	harbour	Dorree River / Clew Bay harbour basin; approximate centroid of charted haven polygon.
+111	mayo.txt	Westport pier	resolved	53.8001	-9.5335	pier	Main working pier head NE of inner basin; OSM-style offset from harbour coords.
+112	mayo.txt	Westport Stone Pier	resolved	53.7992	-9.5348	pier	Historic stone-built pier section at harbour (approximate; distinguished from modern concrete berths).
+113	mayo.txt	Rosbeg	resolved	53.8400	-9.5800	village	GeoHack Rosbeg article coords.
+114	mayo.txt	Murrisk	resolved	53.7790	-9.6400	village	Centre of Murrisk south of Croagh Patrick; blended trailhead/Greenway coords near pier loop.
+115	mayo.txt	Murrisk Pier	resolved	53.7789	-9.6405	pier	Greenway.ie Murrisk Pier Loop trailhead GPS.
+116	mayo.txt	Bertra Strand	resolved	53.7918	-9.6565	beach	Exposed tombolo strand S Clew Bay; ActiveME/Bertra Rd access cluster (Thornhill).
+117	mayo.txt	Bertra Beach	resolved	53.7915	-9.6568	beach	Continuous sandy shore with Bertra Strand; slight offset toward open Atlantic side.
+118	mayo.txt	Bertra Island shore	resolved	53.7922	-9.6575	shore	Landward shore of Bertra tombolo toward inner Clew Bay flats; approximate mid-spit.
+119	mayo.txt	Clare Island	resolved	53.80217	-9.98617	island	Wikipedia Oileán Chliara centroid.
+120	mayo.txt	Clare Island Harbour	resolved	53.80055	-9.95075	harbour	eOceanic pierhead datum (53°48.033′N 9°57.045′W).
+121	mayo.txt	Clare Island Pier	resolved	53.8007	-9.951	pier	Ferry/main pier head SE harbour; slight offset from eOceanic pierhead (line 120).
+122	mayo.txt	Clare Island ferry	resolved	53.8006	-9.9509	ferry	Clare Island Ferry berth at island harbour; same operational cluster as pierhead datum.
+123	mayo.txt	Inishturk	resolved	53.7014	-10.1083	island	Wikipedia/Wikidata centroid; Inis Toirc.
+124	mayo.txt	Inishturk Pier	resolved	53.70458	-10.09163	pier	eOceanic Garranty harbour pier head (53°42.275′N 10°5.498′W).
+125	mayo.txt	Tranaun Beach	resolved	53.7025	-10.093	beach	Sheltered east-coast Tránaun strand near harbour/settlements; approx. mid-beach W of pier.
+126	mayo.txt	Tránaun Beach	resolved	53.7025	-10.093	beach	Same feature as line 125 (Irish spelling); separate list row per pass-1 rules.
+127	mayo.txt	Caher Island	resolved	53.7217	-10.023	island	Wikipedia centroid; Cathair na Naomh between Clare Island and Inishturk.
+128	mayo.txt	Roonagh	resolved	53.80156	-9.95301	area	Roonagh Point mainland ferry port; Clare Island Ferry Co. published GPS for Roonagh Port.
+129	mayo.txt	Roonagh Pier	resolved	53.8017	-9.9532	pier	Working ferry pier head; tiny offset from operator GPS.
+130	mayo.txt	Roonagh Quay	resolved	53.80145	-9.95285	quay	Inner/stone quay cluster same haven; offset from outer pier (Mayo.ie notes old tidal quay).
+131	mayo.txt	Louisburgh	resolved	53.762	-9.809	town	Wikipedia Cluain Cearbán; Clew Bay SW corner.
+132	mayo.txt	Louisburgh Pier	resolved	53.7648	-9.8115	pier	Small river-mouth/quay works where Bunowen reaches Clew Bay N of town centre (approximate).
+133	mayo.txt	Kilsallagh	resolved	53.7614	-9.7292	area	Kilsallagh Upper townland centroid (townlands.ie) near Old Head/Clew Bay shore.
+134	mayo.txt	Old Head	resolved	53.7774	-9.769	headland	Named headland neighbourhood of Old Head Beach; offset slightly N of beach listing.
+135	mayo.txt	Old Head Beach	resolved	53.7772	-9.7686	beach	Beaches on the Air EPA listing; Blue Flag shore E of Louisburgh.
+136	mayo.txt	Silver Strand	resolved	53.647	-9.8886	beach	Beaches on the Air “Louisburgh, Silver Strand”; Killadoon/Thallabawn area toward Killary.
+137	mayo.txt	Thallabawn	resolved	53.6756	-9.89081	area	Logainm Trá an Talaimh Bháin / An Talamh Bán centrepoint (strand townland near Silver Strand).
+138	mayo.txt	Thallabawn Beach	resolved	53.676	-9.891	beach	Open sandy shore in Thallabawn townland; slight offset from Logainm centrepoint toward strand.
+139	mayo.txt	White Strand	resolved	53.665	-9.888	beach	Visitor-guide position between Cross Beach and Silver Strand (Owennadornaun area); approximate car-park/shore access.
+140	mayo.txt	Carrowmore	resolved	53.770	-9.823	area	Carrowmore townland cluster N of Louisburgh toward Carrowmore Beach (blended townland/beach access).
+141	mayo.txt	Carrowmore Beach	resolved	53.771	-9.8245	beach	Beaches on the Air listing; Clew Bay machair shore N of Louisburgh.
+142	mayo.txt	Carrowmore Quay	resolved	53.7725	-9.8265	quay	Small quay W end of Carrowmore Beach (Irish Road Trip / beach guide layout).
+143	mayo.txt	Bunowen Bay	resolved	53.771	-9.814	bay	Representative open-water at Bunowen River mouth entering Clew Bay N of Louisburgh (not one charted point).
+144	mayo.txt	Carrowniskey	resolved	53.7346	-9.8934	area	Carrowniskey/Carrownisky Strand access; park4night beach car-park GPS.
+145	mayo.txt	Carrowniskey Beach	resolved	53.7348	-9.8935	beach	Atlantic surf beach W of Louisburgh; slight offset toward mid-strand from car park.
+146	mayo.txt	Roonah	resolved	53.80156	-9.95301	headland	Alternate anglicisation of Roonagh Point; same mainland ferry headland as line 128.
+147	mayo.txt	Roonah Pier	resolved	53.8017	-9.9532	pier	Same structure as Roonagh Pier (line 129); list spelling “Roonah”.
+148	mayo.txt	Srah Beach Louisburgh	ambiguous			beach	Well-known EPA “Srah Beach” is the Claggan/Blacksod tombolo (Shraigh), not beside Louisburgh; no separate pin found for this exact compound name—left unset.
+149	mayo.txt	Killary Harbour	resolved	53.616667	-9.8	fjord	Wikipedia/GeoHack sea-inlet centroid (An Caoláire Rua).
+150	mayo.txt	Killary Fjord	resolved	53.617	-9.8	fjord	Same body as Killary Harbour; Wikipedia uses both terms.
+151	mayo.txt	Killary shore	resolved	53.628	-9.785	shore	Representative Mayo-side steep shore of Killary between Delphi arm and open fjord; not one charted point.
+152	mayo.txt	Rossroe	resolved	53.608	-9.765	hamlet	GeoHack/Wikipedia Rosroe at Killary mouth (southern shore); list spelling “Rossroe”.
+153	mayo.txt	Rossroe pier	resolved	53.6073	-9.7642	pier	Approximate small-craft pier/quay at Rosroe hamlet; slight offset toward haven.
+154	mayo.txt	Delphi Resort shore	resolved	53.63223	-9.74548	shore	Wikipedia Delphi, Mayo coords; valley foot toward Killary (Bundorragha).
+155	mayo.txt	Corraun Peninsula shore	resolved	53.905	-9.875	shore	Representative Clew Bay–facing shore of Corraun (N/W of peninsula); broad coastal label.
+156	mayo.txt	Annagh Strand Belmullet	resolved	54.239	-10.078	beach	Sandy foreshore near Annagh Head / Frenchport inlet (Mullet W); approximate strand GPS.
+157	mayo.txt	Rinroe Beach	resolved	54.302	-9.8431	beach	Beaches on the Air (Rinroe / Carrowteige area).
+158	mayo.txt	Aughleam	resolved	54.1158	-10.1022	village	Wikipedia An Eachléim; Mullet Peninsula (not Achill).
+159	mayo.txt	Annagh Head Belmullet	resolved	54.24	-10.0817	headland	Wild Atlantic Way Discovery Point reading (Ceann an Eanaigh).
+160	mayo.txt	Erris Head	resolved	54.30128	-9.9972	headland	Wikipedia Ceann Iorrais (Mullet N tip SAC).
+161	mayo.txt	Illanroe	resolved	53.9172	-9.92121	island	Logainm.ie An tOileán Rua (Achill parish; Clew Bay archipelago).
+162	mayo.txt	Clew Bay outer shore	resolved	53.8333	-9.7755	shore	Representative mid-bay/open-water fix (Irish Cruising Club style Clew Bay approach literature).
+163	mayo.txt	Inishbiggle	resolved	53.99583	-9.90417	island	Wikipedia Inis Bigil (Achill Sound/Bullsmouth area).
+164	mayo.txt	Lecanvey	resolved	53.775	-9.6875	village	Wikipedia Leac an Anfa; Clew Bay S shore W of Westport.
+165	mayo.txt	Dorinish	resolved	53.812411	-9.671569	island	Wikipedia/Wikidata Deoirinis (Clew Bay).
+166	mayo.txt	Inishgort	resolved	53.82653	-9.67098	island	Irish Lights53°49.594′N 09°40.259′W (Inis Goirt lighthouse islet).
+167	mayo.txt	Carrickkildavnet Castle	resolved	53.880875	-9.945935	castle	Wikipedia Kildavnet tower house SE Achill (Grace O’Malley).
+168	mayo.txt	Mullaghroe Beach	resolved	54.1387	-10.0754	beach	Beaches on the Air (Belmullet / Mullet S Blacksod shore).
+169	mayo.txt	Belderrig	resolved	54.3	-9.55	village	Wikipedia Béal Deirg; N Mayo coast Gaeltacht.
+170	mayo.txt	Inishdalla	resolved	53.680556	-10.071667	island	Wikipedia Inis Deala SE of Inishturk.
+171	mayo.txt	Kid Island East	resolved	53.890278	-9.598333	island	Townlands.ie 53°53′25″N 9°35′54″W; Newport Bay (Oileán na Meannán).
+172	mayo.txt	Westport Bay mouth	resolved	53.8	-9.633	bay	Tageo “Westport bay” centroid; Atlantic approach to Clew Bay/Westport Harbour system.

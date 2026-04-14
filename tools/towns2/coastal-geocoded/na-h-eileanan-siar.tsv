@@ -1,0 +1,305 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	na-h-eileanan-siar.txt	Castlebay	resolved	56.953698	-7.488063	village	Main settlement Barra; Kisimul Castle bay
+2	na-h-eileanan-siar.txt	Vatersay	resolved	56.927363	-7.533568	village	Inhabited island; main village area south
+3	na-h-eileanan-siar.txt	Vatersay Bay	resolved	56.924	-7.514	bay	East bay Bàgh Bhatarsaigh (Vatersay Bay)
+4	na-h-eileanan-siar.txt	Mingulay	resolved	56.8115	-7.6375	island	Uninhabited Barra Isle; centroid
+5	na-h-eileanan-siar.txt	Sandray	resolved	56.891875	-7.501991	island	Uninhabited; Barra Isles
+6	na-h-eileanan-siar.txt	Hellisay	resolved	57.01692	-7.34469	island	Sound of Barra; NTS survey coords
+7	na-h-eileanan-siar.txt	Gighay	resolved	57.02083	-7.33333	island	Sound of Barra; harbour side
+8	na-h-eileanan-siar.txt	Flodaigh Barra	resolved	56.99625	-7.35244	island	Flodday (Sound of Barra), NE of Barra
+9	na-h-eileanan-siar.txt	Eriskay	resolved	57.07	-7.29	island	Island centroid
+10	na-h-eileanan-siar.txt	Eriskay Ferry	resolved	57.07056	-7.30778	ferry	Ceann a' Ghàraidh vehicular ferry slip
+11	na-h-eileanan-siar.txt	Eriskay Harbour	resolved	57.0656	-7.297	harbour	Acarsaid Mhòr improved harbour area
+12	na-h-eileanan-siar.txt	Haun	resolved	57.085855	-7.30056	village	Haunn township NW Eriskay
+13	na-h-eileanan-siar.txt	Ardveenish	resolved	57.003453	-7.421184	village	East coast Barra; pier and fish factory
+14	na-h-eileanan-siar.txt	Craigston	resolved	56.98604	-7.5052	village	West Barra; St Brendan's RC church locale
+15	na-h-eileanan-siar.txt	Eoligarry	resolved	57.03933	-7.43442	village	North Barra peninsula; Cille Bharra area
+16	na-h-eileanan-siar.txt	Northbay	resolved	57.003	-7.433	village	North Barra township
+17	na-h-eileanan-siar.txt	Borve Barra	resolved	56.981	-7.507	village	West coast Barra (Borgh)
+18	na-h-eileanan-siar.txt	Brevig	resolved	56.9589	-7.4512	village	SE Barra settlement above Brevig Bay
+19	na-h-eileanan-siar.txt	Tangasdale	resolved	56.9528	-7.504	village	West Barra along Halaman Bay
+20	na-h-eileanan-siar.txt	Ludag	resolved	57.10394	-7.32662	harbour	South Uist Ludac/Ludag jetty (Saltavik/Eriskay)
+21	na-h-eileanan-siar.txt	Allasdale	resolved	57.001	-7.502	settlement	West Barra A888
+22	na-h-eileanan-siar.txt	Grean	resolved	57.00233	-7.48195	village	West Barra township (Greian)
+23	na-h-eileanan-siar.txt	Traigh Mhor Barra	resolved	57.0248	-7.4324	beach	Cockle Strand / airport beach
+24	na-h-eileanan-siar.txt	Barra Airport Beach	resolved	57.02278	-7.44306	beach	Traigh Mhòr tidal runways (EGPR)
+25	na-h-eileanan-siar.txt	Coilleag a Phrionnsa	resolved	57.075307	-7.306464	beach	Prince's Beach Eriskay (Gaelic name variant)
+26	na-h-eileanan-siar.txt	Bagh Halaman	resolved	56.9528	-7.504	bay	Halaman Bay (Tangasdale beach)
+27	na-h-eileanan-siar.txt	Cuier	resolved	56.9672	-7.4555	village	NW Barra; church/cemetery near Dun Cuier
+28	na-h-eileanan-siar.txt	Iochdar	resolved	57.393	-7.365	hamlet	West coast South Uist
+29	na-h-eileanan-siar.txt	Askernish	resolved	57.187	-7.391	village	South Uist; A865 north of Daliburgh
+30	na-h-eileanan-siar.txt	Daliburgh	resolved	57.168	-7.372	village	South Uist crofting township
+31	na-h-eileanan-siar.txt	Lochboisdale	resolved	57.153141	-7.310644	village	Main port/village Loch Baghasdail (GeoHack/Wikipedia)
+32	na-h-eileanan-siar.txt	Lochboisdale Pier	resolved	57.152188	-7.304083	ferry_terminal	CalMac ferry terminal coords (corporate harbour page)
+33	na-h-eileanan-siar.txt	Stoneybridge	resolved	57.272	-7.395	village	Staoinebrig; Wikipedia/infobox
+34	na-h-eileanan-siar.txt	Howmore	resolved	57.302	-7.372	village	Tobha Mòr; chapel cluster ~57.302/-7.372
+35	na-h-eileanan-siar.txt	Snishival	resolved	57.289316	-7.381694	village	Peighinn nan Aoireann area (streetmap HER centre)
+36	na-h-eileanan-siar.txt	West Gerinish	resolved	57.352791	-7.377248	village	West Gerinish hamlet (GB gazetteer grid NF76724193)
+37	na-h-eileanan-siar.txt	Ormacleit	resolved	57.26073	-7.40835	village	Ormiclate steading centre (Canmore NF7404631856; local spelling Ormacleit)
+38	na-h-eileanan-siar.txt	Stilgarry	ambiguous			unknown	Spelling not matched cleanly to one OS feature; could be local variant—pin not chosen
+39	na-h-eileanan-siar.txt	Garrynamonie	resolved	57.121076	-7.37873	village	Gearraidh na Mònaidh township (74600,816200 osgb)
+40	na-h-eileanan-siar.txt	Kildonan	resolved	57.222896	-7.402604	village	Cill Donnain by A865/museum (Saintsplaces NF740276)
+41	na-h-eileanan-siar.txt	Peninerine	resolved	57.28527	-7.39507	village	Peighinn nan Aoireann (Canmore NF7506234519)
+42	na-h-eileanan-siar.txt	Smerclate	resolved	57.11185	-7.38028	village	Smercleit township (birdguides centroid; SW machair)
+43	na-h-eileanan-siar.txt	Grogarry	resolved	57.33219	-7.36951	settlement	Groigearraidh; Grogarry Lodge area (Canmore NF7701339611)
+44	na-h-eileanan-siar.txt	Balgarva	resolved	57.396084	-7.387411	village	Baile Gharbhaidh NF765468 (osgb.parse_grid)
+45	na-h-eileanan-siar.txt	Caolas	resolved	57.103091	-7.33643	village	Source “Caolas” taken as Taobh a' Chaolais NF770140 (Gazetteer/osgb)
+46	na-h-eileanan-siar.txt	Stilligarry	resolved	57.323717	-7.37512	village	Stadhlaigearraidh NF766387 (Gazetteer/osgb)
+47	na-h-eileanan-siar.txt	Machair South Uist	ambiguous			machair	Continuous west-coast machair belt—no single centroid
+48	na-h-eileanan-siar.txt	Rubha Ardvule	resolved	57.240954	-7.457646	headland	Rubha Àird a' Mhuile NF709299 (osgb)
+49	na-h-eileanan-siar.txt	Bagh Ban	ambiguous			bay	Several “white bay” labels; not tied to one charted beach here
+50	na-h-eileanan-siar.txt	Bagh Chaluim Chille	resolved	57.46979	-7.36959	bay	Coastal context by Teampull Chaluim Chille ruin SE Balivanich (Canmore NF7821954902)
+51	na-h-eileanan-siar.txt	Balivanich	resolved	57.471986	-7.380238	village	Baile a' Mhanaich NF776552 (osgb)
+52	na-h-eileanan-siar.txt	Benbecula	resolved	57.44796	-7.331629	island	Island centroid NF803523 (Gazetteer for Scotland)
+53	na-h-eileanan-siar.txt	Creagorry	resolved	57.4092	-7.3326	hamlet	Creag Ghoraidh by South Ford approach (Gazetteer for Scotland)
+54	na-h-eileanan-siar.txt	Nunton	resolved	57.458755	-7.394986	village	Baile nan Cailleach NF766538 (Gazetteer/osgb)
+55	na-h-eileanan-siar.txt	Uachdar	resolved	57.479	-7.339	village	An t-Uachdar N Benbecula (Wikipedia infobox)
+56	na-h-eileanan-siar.txt	Torlum	resolved	57.430945	-7.350837	village	Torlum township centre NF790505 (osgb)
+57	na-h-eileanan-siar.txt	Liniclate	resolved	57.422143	-7.346213	village	Lionacleit NF792495 (osgb)
+58	na-h-eileanan-siar.txt	Culla Bay	resolved	57.459599	-7.404906	bay	Bàgh Culla west Benbecula (GeoHack waterbody)
+59	na-h-eileanan-siar.txt	Ruabhal Benbecula	resolved	57.45003	-7.325254	hill	Rueval area NF807525 (OS grid from island article; osgb)
+60	na-h-eileanan-siar.txt	North Ford Causeway	resolved	57.493413	-7.278106	causeway	NF839571 (Gazetteer for Scotland; osgb)
+61	na-h-eileanan-siar.txt	South Ford Causeway	resolved	57.403333	-7.327222	causeway	Benbecula–South Uist A865; Wikidata 57°24′12″N 7°19′38″W
+62	na-h-eileanan-siar.txt	Lochmaddy	resolved	57.601048	-7.166432	village	GeoHack / Loch nam Madadh settlement (chief port NE North Uist)
+63	na-h-eileanan-siar.txt	Lochmaddy Ferry	resolved	57.59685	-7.15709	ferry_terminal	CalMac pier area (ChargePlace Scotland terminal coords; ~NF920680)
+64	na-h-eileanan-siar.txt	Carinish	resolved	57.522	-7.312	hamlet	Wikipedia / OS NF820604 Càirinis
+65	na-h-eileanan-siar.txt	Hosta North Uist	resolved	57.728002	-7.270006	beach	Traigh Stir area; BNG from NF864831-class west-coast position (OSGB→WGS84)
+66	na-h-eileanan-siar.txt	Sollas	resolved	57.648377	-7.34606	village	GeoHack Solas; machair north coast
+67	na-h-eileanan-siar.txt	Malacleit	resolved	57.6422	-7.37502	village	Canmore Malacleit NF7941574086
+68	na-h-eileanan-siar.txt	Hougharry	resolved	57.60908	-7.51977	village	Hogha Gearraidh township; Canmore NF70497110
+69	na-h-eileanan-siar.txt	Bayhead North Uist	resolved	57.58813	-7.44268	hamlet	Ceann a' Bhaigh; Canmore NF749684
+70	na-h-eileanan-siar.txt	Tigharry	resolved	57.61689	-7.50586	village	Taigh a' Ghearraidh; Canmore NF71397190
+71	na-h-eileanan-siar.txt	Clachan North Uist	resolved	57.659144	-7.240289	village	Clachan Sands / HS6 5AY centroid (postcode centre; ferry road locale)
+72	na-h-eileanan-siar.txt	Paible	resolved	57.593136	-7.45181	locality	West-coast Paibeil district; HER-style point NF744869 (BNG→WGS84)
+73	na-h-eileanan-siar.txt	Knockintorran	resolved	57.5816	-7.46868	village	Cnoc an Torrain; Canmore NF73296780
+74	na-h-eileanan-siar.txt	Sidinish	resolved	57.55059	-7.21979	village	Saighdinis by Loch Euphort; Canmore NF87886318
+75	na-h-eileanan-siar.txt	Grenitote	resolved	57.65221	-7.33311	village	Greinetobht township; Canmore centred NF8275
+76	na-h-eileanan-siar.txt	Newtonferry	resolved	57.68724	-7.21192	village	Port nan Long township; Canmore NF89527833
+77	na-h-eileanan-siar.txt	Port nan Long	resolved	57.68785	-7.21117	harbour	Gaelic name of Newtonferry; pier record NF8957078394
+78	na-h-eileanan-siar.txt	Grimsay	resolved	57.491944	-7.244167	island	Griomasaigh centroid; Wikipedia/GeoHack
+79	na-h-eileanan-siar.txt	Kallin	resolved	57.48119	-7.20518	harbour	Ceallan shellfish harbour SE Grimsay; Canmore NF88165540
+80	na-h-eileanan-siar.txt	Baleshare	resolved	57.53054	-7.34386	island	Baile Sear; Canmore causeway locale NF8029261530
+81	na-h-eileanan-siar.txt	Berneray	resolved	57.718023	-7.188178	island	Beàrnaraigh; GeoHack village/island centroid
+82	na-h-eileanan-siar.txt	Borve Berneray	resolved	57.71081	-7.18371	village	Borgh SE Berneray; Canmore NF91408082
+83	na-h-eileanan-siar.txt	West Beach Berneray	resolved	57.71944	-7.18639	beach	Machair West Beach; Wikipedia panorama coord
+84	na-h-eileanan-siar.txt	Berneray Causeway	resolved	57.70056	-7.1856	causeway	Otternish–Stone link; Canmore NF91207969
+85	na-h-eileanan-siar.txt	Kyles Flodda	resolved	57.612273	-7.124366	channel	Caolas / narrows at Flodday (Flodaigh), Loch Maddy; Wikipedia island coord NF941696
+86	na-h-eileanan-siar.txt	Loch Euphort	resolved	57.55166	-7.22192	loch	Loch Euport harbour head; Canmore NF8776263309 (Sidinish shore)
+87	na-h-eileanan-siar.txt	Loch nam Madadh	resolved	57.595	-7.145	sea_loch	Loch nam Madadh basin E of Lochmaddy village (tidal loch; not duplicate of pier pin)
+88	na-h-eileanan-siar.txt	Leverburgh	resolved	57.767	-7.021	village	An t-Ob (also Gaelic); Wikipedia NG014863 area
+89	na-h-eileanan-siar.txt	An t-Ob	resolved	57.7685	-7.0185	bay	Gaelic The Bay; harbour mouth S Harris (distinct pin from village centre)
+90	na-h-eileanan-siar.txt	Northton	resolved	57.78818	-7.06847	village	South Harris machair settlement; Canmore NF989889
+91	na-h-eileanan-siar.txt	Scarista	resolved	57.83509	-7.01979	village	Sgarasta/Scarista NRHE centroid (trove.scot S46)
+92	na-h-eileanan-siar.txt	Seilebost	resolved	57.86391	-6.95084	village	Seilebost township NG065968 (trove.scot)
+93	na-h-eileanan-siar.txt	Traigh Seilebost	resolved	57.869371	-6.953042	beach	Sheileboist sands; route centre OS grid NG064397416 (Outdooractive)
+94	na-h-eileanan-siar.txt	Luskentyre	resolved	57.882609	-6.945025	village	Losgaintir settlement; GeoHack/Wikipedia
+95	na-h-eileanan-siar.txt	Losgaintir	resolved	57.884	-6.944	village	Gaelic name for Luskentyre; Wikipedia infobox
+96	na-h-eileanan-siar.txt	Horgabost	resolved	57.85739	-6.97728	village	Gleann Horgabost township NG04889619 (trove.scot)
+97	na-h-eileanan-siar.txt	Strond	resolved	57.74707	-6.99371	village	Srannda South Harris; NRHE NG0884 centroid (coarse)
+98	na-h-eileanan-siar.txt	Manish	resolved	57.79844	-6.87613	village	Manish township NG104892 (Canmore/trove)
+99	na-h-eileanan-siar.txt	Geocrab	resolved	57.8152	-6.8588	village	East coast Bays; OSM/aggregated village pin
+100	na-h-eileanan-siar.txt	Drinishader	resolved	57.853	-6.77015	village	Drinisiadar on East Loch Tarbert; OSM hostel node
+101	na-h-eileanan-siar.txt	Rodel	resolved	57.74203	-6.96653	village	Roghadal township R80 NRHE (trove.scot)
+102	na-h-eileanan-siar.txt	Flodabay	resolved	57.79456	-6.88571	village	Fleòideabhagh NG09808881 (trove.scot)
+103	na-h-eileanan-siar.txt	Finsbay	resolved	57.77443	-6.92458	village	Fionnsbhagh NG07338674 (trove.scot)
+104	na-h-eileanan-siar.txt	Direcleit	resolved	57.88837	-6.80281	village	Diricleit Golden Road; settlement centroid (postcode DB)
+105	na-h-eileanan-siar.txt	Meavaig	resolved	57.86745	-6.79844	village	Miabhaig sealoch head; Canmore NG1556596541→BNG115556/896541
+106	na-h-eileanan-siar.txt	Miabhaig	resolved	57.86745	-6.79844	village	Gaelic spelling; same township/loch head as Meavaig line
+107	na-h-eileanan-siar.txt	Huisinish	resolved	57.99492	-7.093499	village	Hùisinis; Wikipedia/OS grid NA990119
+108	na-h-eileanan-siar.txt	Hushinish	resolved	57.99492	-7.093499	village	Alternate English spelling of Hùisinis (same hamlet)
+109	na-h-eileanan-siar.txt	Tarbert Harris	resolved	57.8985	-6.8076	village	An Tairbeart (Harris); Wikidata/Wikipedia village coord
+110	na-h-eileanan-siar.txt	East Loch Tarbert	resolved	57.868611	-6.752778	sea_loch	Loch an Tairbeairt mouth coord (Wikipedia)
+111	na-h-eileanan-siar.txt	West Loch Tarbert	resolved	57.927	-6.935	sea_loch	Loch Siar centroid (Wikipedia/GeoHack)
+112	na-h-eileanan-siar.txt	Scalpay	resolved	57.865	-6.6775	island	Sgalpaigh na Hearadh; Wikipedia island centroid
+113	na-h-eileanan-siar.txt	Kyles Scalpay	resolved	57.88502	-6.70395	village	Caolas Scalpaigh; BNG121290/898100 from Canmore NG29NW12 centre (pyproj OSGB→WGS84)
+114	na-h-eileanan-siar.txt	Scarp	resolved	58.02556	-7.12472	island	An Sgarp; Wikipedia listed coord
+115	na-h-eileanan-siar.txt	Pabbay Harris	resolved	57.77056	-7.23417	island	Pabaigh Sound of Harris; Wikipedia/Wikidata
+116	na-h-eileanan-siar.txt	Ensay Harris	resolved	57.767	-7.083	island	Easaigh Sound of Harris; Wikipedia centroid
+117	na-h-eileanan-siar.txt	Shiant Islands	resolved	57.899	-6.3641	island_group	Na h-Eileanan Seunta; GeoHack group centroid
+118	na-h-eileanan-siar.txt	Amhuinnsuidhe	resolved	57.962222	-6.989722	attraction	Amhuinnsuidhe Castle; listed building coord (GeoHack)
+119	na-h-eileanan-siar.txt	Loch Resort	resolved	58.04472	-6.98028	sea_loch	Loch Rèasort; Wikipedia sea loch coord
+120	na-h-eileanan-siar.txt	Stornoway	resolved	58.209	-6.387	town	Steòrnabhagh; Wikipedia town centroid
+121	na-h-eileanan-siar.txt	Stornoway Harbour	resolved	58.20659	-6.38882	harbour	Cala Steòrnabhaigh; Canmore harbour centre NB42283260
+122	na-h-eileanan-siar.txt	Stornoway Bay	resolved	58.215	-6.375	bay	Broad Bay (Bàgh Leòdhais) approaches; centroid approximate
+123	na-h-eileanan-siar.txt	Arnish Point	resolved	58.19129	-6.37041	headland	Rubha Airinis; Arnish lighthouse Canmore NB4325082828
+124	na-h-eileanan-siar.txt	Sandwick Lewis	resolved	58.206	-6.355	village	Sanndabhaig E of Stornoway; Wikipedia Sandwick Lewis
+125	na-h-eileanan-siar.txt	Melbost	resolved	58.21335	-6.30631	village	Mealabost; trove.scot NRHE centroid NB4717133039
+126	na-h-eileanan-siar.txt	Guershader	resolved	58.22525	-6.39364	suburb	Stornoway fringe; postcode-by-address centroid
+127	na-h-eileanan-siar.txt	Garrabost	resolved	58.217	-6.217	village	Point isthmus; Wikipedia Garrabost
+128	na-h-eileanan-siar.txt	Sheshader	resolved	58.22792	-6.16494	settlement	Seisiader; HER harbour NB5556834136 OSGB to WGS84
+129	na-h-eileanan-siar.txt	Swordale	resolved	58.19806	-6.272	village	Suardail; HER field system NB4907731210 OSGB to WGS84
+130	na-h-eileanan-siar.txt	Newvalley Lewis	resolved	58.229	-6.407	hamlet	An Gleann Ur; Wikipedia Newvalley Lewis
+131	na-h-eileanan-siar.txt	Lower Sandwick	resolved	58.207	-6.362	settlement	Sandwick harbour quarter; Gazetteer for Scotland
+132	na-h-eileanan-siar.txt	Tong Lewis	resolved	58.21639	-6.27167	village	Thunga; Wikipedia Tong Lewis
+133	na-h-eileanan-siar.txt	Back Lewis	resolved	58.26111	-6.15306	village	Bac Point; Wikipedia Back Lewis
+134	na-h-eileanan-siar.txt	Coll Lewis	resolved	58.2744	-6.3251	village	Col; Scottish Places NB465399
+135	na-h-eileanan-siar.txt	Vatisker	resolved	58.25306	-6.16389	village	Bhataisgeir; Wikipedia Vatisker
+136	na-h-eileanan-siar.txt	Gress	resolved	58.231	-6.224	village	Griais; Wikipedia Gress Lewis
+137	na-h-eileanan-siar.txt	Aignish	resolved	58.21	-6.284	peninsula	Aiginis; Wikipedia Aignish
+138	na-h-eileanan-siar.txt	Tiumpan Head	resolved	58.26093	-6.13891	headland	Rubha an Tiùmpain; Wikipedia/NLB lighthouse
+139	na-h-eileanan-siar.txt	Portvoller	resolved	58.2524	-6.1468	village	Port Mholair; Scottish Places / Wikipedia
+140	na-h-eileanan-siar.txt	Portnaguran	resolved	58.257	-6.163	village	Port nan Giùran; Wikipedia Portnaguran
+141	na-h-eileanan-siar.txt	Shulishader	resolved	58.236	-6.199	village	Siadar an Rubha; Wikipedia Shulishader
+142	na-h-eileanan-siar.txt	Bayble	resolved	58.204	-6.215	village	Pabail; Wikipedia Bayble
+143	na-h-eileanan-siar.txt	Sheildinish	resolved	58.1908	-6.33251	headland	Rubha Shilldinish; Canmore promontory fort centroid
+144	na-h-eileanan-siar.txt	Knock Lewis	resolved	58.205	-6.27	village	An Cnoc Point; Wikipedia Knock Isle of Lewis
+145	na-h-eileanan-siar.txt	Branahuie	resolved	58.2079	-6.3239	village	Bràigh na h-Aoidhe; Scottish Places
+146	na-h-eileanan-siar.txt	Aird Lewis	resolved	58.243	-6.159	village	Àird an Rubha; Wikipedia Aird Lewis
+147	na-h-eileanan-siar.txt	Newmarket Lewis	resolved	58.233	-6.39	village	An Margaidh Ur; Wikipedia Newmarket Lewis
+148	na-h-eileanan-siar.txt	Swainbost	resolved	58.48	-6.269	village	Suaineabost Ness; Wikipedia Swainbost
+149	na-h-eileanan-siar.txt	Barvas	resolved	58.35806	-6.51556	village	Barabhas; Wikipedia Barvas
+150	na-h-eileanan-siar.txt	South Shawbost	resolved	58.32954	-6.69955	settlement	Siabost bho Dheas; Canmore township NB25004750
+151	na-h-eileanan-siar.txt	Shawbost	resolved	58.322599	-6.683282	village	Siabost; GeoHack/Wikipedia NB258324
+152	na-h-eileanan-siar.txt	Dalbeag	resolved	58.291	-6.698	village	Dalbeg (Dail Beag) township Barvas parish; SE of Shawbost NE of Dalmore; Gazetteer for Scotland
+153	na-h-eileanan-siar.txt	Dalmore Lewis	resolved	58.30543	-6.75769	village	Dail Mòr Carloway area; Canmore Lewis Dalmore NB21414506
+154	na-h-eileanan-siar.txt	Carloway	resolved	58.281	-6.745	village	Dùn Chàrlabhaigh; settlement centroid OS/Wikipedia
+155	na-h-eileanan-siar.txt	Breaclete	resolved	58.1897	-6.9689	village	Breacleit Great Bernera; main island settlement
+156	na-h-eileanan-siar.txt	Great Bernera	resolved	58.2	-6.85	island	Beàrnaraigh Mòr; Wikipedia island centroid
+157	na-h-eileanan-siar.txt	Great Bernera Bridge	resolved	58.20488	-6.82826	bridge	B8059 Bernera Bridge; Canmore NB1647834177 centre
+158	na-h-eileanan-siar.txt	Kirkibost Great Bernera	resolved	58.21105	-6.78952	settlement	Circebost/Kirkibost township; Canmore NB18803470
+159	na-h-eileanan-siar.txt	Bosta	resolved	58.23	-6.85	beach	Bostadh Iron Age beach area; Wikipedia/GeoHack centroid
+160	na-h-eileanan-siar.txt	Tobson Great Bernera	resolved	58.24816	-6.88302	village	Tobsunn; Canmore NB1361439220
+161	na-h-eileanan-siar.txt	Croir	resolved	58.2527	-6.882	settlement	Crothair north Bernera; harbour/address centroid near 1 Croir
+162	na-h-eileanan-siar.txt	Valtos Great Bernera	resolved	58.2075	-6.896	settlement	Treated as Valasay (Bhalasaigh) near Breacleit; list label differs from OS form
+163	na-h-eileanan-siar.txt	Reef Beach Great Bernera	resolved	58.217867	-6.93728	beach	Traigh na Beirigh/Reef Beach by Kneep on Lewis; not on Great Bernera landmass
+164	na-h-eileanan-siar.txt	Cliff Beach Great Bernera	resolved	58.22304	-6.96397	beach	Camas na Clibhe (Tràigh na Clibhe) Valtos peninsula Lewis; list qualifier misleading
+165	na-h-eileanan-siar.txt	Uig Lewis	resolved	58.179	-7.026	community	Uig parish/community; Wikipedia coord
+166	na-h-eileanan-siar.txt	Uig Sands	resolved	58.206	-7.006	beach	Tràigh Uige / Camas Uig main strand; centroid near car park walk route
+167	na-h-eileanan-siar.txt	Ardroil	resolved	58.192	-7.012	settlement	Eadar Dhà Fhadhail; west of Uig Bay
+168	na-h-eileanan-siar.txt	Timsgarry	resolved	58.187	-7.022	settlement	Tuimisgearraidh / Timsgarry by Uig museum
+169	na-h-eileanan-siar.txt	Kneep	resolved	58.138	-7.048	village	Cnìp Bhaltos peninsula
+170	na-h-eileanan-siar.txt	Mangurstadh	resolved	58.164091	-7.082124	beach	Tràigh Mhangarstaidh parking/quarry; SOBT walk NB012307
+171	na-h-eileanan-siar.txt	Mangersta	resolved	58.1641	-7.082	village	Anglicised Mangurstadh; same township/beach head
+172	na-h-eileanan-siar.txt	Islivig	resolved	58.139	-7.115	settlement	Islibhig; HER township centroid near NA992276 / Camas Islibhig locale
+173	na-h-eileanan-siar.txt	Brenish	resolved	58.122	-7.11	village	Brèinis west Uig
+174	na-h-eileanan-siar.txt	Crowlista	resolved	58.155	-7.04	settlement	Cradhlasta south of Camas Uig
+175	na-h-eileanan-siar.txt	Dail Beag	resolved	58.149	-7.052	settlement	Dalbeg west Uig crofting township by Traigh Dhail Beag
+176	na-h-eileanan-siar.txt	Traigh Dhail Beag	resolved	58.1485	-7.0525	beach	Dalbeg beach; Visit Outer Hebrides / loch behind strand
+177	na-h-eileanan-siar.txt	Traigh Dhail Mhor	resolved	58.157	-7.033	beach	West-coast Dail Mhòr bay paired with Dalbeg (~0.9 mi per Visit OH); not Carloway Dalmore
+178	na-h-eileanan-siar.txt	Traigh Shanndaigh	ambiguous			beach	Name is Traigh Shanndaigh (Eoropie/Ness); list sits among west Uig lines - coast unclear
+179	na-h-eileanan-siar.txt	Traigh Tamat	not_found			beach	No reliable mapped feature; possible spelling variant undocumented
+180	na-h-eileanan-siar.txt	Port Ghlas	not_found			harbour	No Port Ghlas found in west Uig OS/web sources
+181	na-h-eileanan-siar.txt	Cliobber	resolved	58.215	-6.969	village	Anglicised Cliff (Scottish Gaelic Cliobh) west Uig; Wikipedia/Canmore centroid
+182	na-h-eileanan-siar.txt	North Tolsta	resolved	58.347	-6.211	village	Tolastadh bho Thuath; east coast Lewis Traigh Mhòr locale
+183	na-h-eileanan-siar.txt	Tolsta	resolved	58.347	-6.211	village	Tolastadh; Gazetteer primary settlement is North Tolsta cluster
+184	na-h-eileanan-siar.txt	Garry Beach	resolved	58.367424	-6.215708	beach	Tràigh Ghearadha; SOBT car-park grid NB535498
+185	na-h-eileanan-siar.txt	Traigh Mhor Tolsta	resolved	58.358745	-6.205548	beach	Traigh Mhòr (Tolsta); SOBT centroid NB542487
+186	na-h-eileanan-siar.txt	Port of Ness	resolved	58.493	-6.227	harbour	Port Nis / Cealagbhal; Wikipedia harbour area
+187	na-h-eileanan-siar.txt	Lionel	resolved	58.489	-6.242	village	Lìonal; Ness A857/B8013 junction; Wikipedia
+188	na-h-eileanan-siar.txt	Skigersta	resolved	58.474	-6.214	village	Sgiogarstaigh; Wikipedia/Canmore pier township
+189	na-h-eileanan-siar.txt	Fivepenny Ness	resolved	58.5008	-6.25169	hamlet	Còig Peighinnean Nis; Canmore Five Penny Ness township NB52406480
+190	na-h-eileanan-siar.txt	Eoropie	resolved	58.498274	-6.272747	village	Eòrapaigh; SOBT beach GPS north Lewis
+191	na-h-eileanan-siar.txt	Port Nis	resolved	58.493	-6.227	harbour	Gaelic name of Port of Ness; same harbour head
+192	na-h-eileanan-siar.txt	Cross Skigersta	resolved	58.474	-6.214	settlement	Cros-Sgiogarstaigh; Skigersta district per Visit OH / property addresses
+193	na-h-eileanan-siar.txt	Habost	resolved	58.48463	-6.25643	village	Tàbost Ness (NB52016302 Canmore); not Loch Erisort Habost
+194	na-h-eileanan-siar.txt	Knockaird	resolved	58.49851	-6.23939	village	An Cnoc Àrd; Canmore township NB53106450
+195	na-h-eileanan-siar.txt	South Dell	resolved	58.467757	-6.318089	village	Dail-bho-Dheas; Wikipedia/GeoHack
+196	na-h-eileanan-siar.txt	Garyvard	resolved	58.09249	-6.49621	village	Gearraidh Bhaird; Canmore NB35132033 south Loch Erisort
+197	na-h-eileanan-siar.txt	Broad Bay Lewis	resolved	58.24149	-6.26149	bay	Loch a Tuath; Canmore broad bay record centroid
+198	na-h-eileanan-siar.txt	Gress Beach	resolved	58.286971	-6.282098	beach	Tràigh Griais; Mapio photo GPS by Broad Bay
+199	na-h-eileanan-siar.txt	Coll Beach	resolved	58.263962	-6.325762	beach	Tràigh Chuil; SOBT NB464388
+200	na-h-eileanan-siar.txt	Braighe	resolved	58.20656	-6.28427	beach	Isthmus beaches A866 Point; Eye cemetery/Aignish grid ref coords
+201	na-h-eileanan-siar.txt	Leurbost	resolved	58.144	-6.468	village	Liùrbost North Lochs; Wikipedia
+202	na-h-eileanan-siar.txt	Airidhantuim	ambiguous			settlement	Airidh an Tuim historic school locale; no single published centroid; North Lochs between Leurbost and Keose on list order
+203	na-h-eileanan-siar.txt	Keose	resolved	58.10507	-6.48658	settlement	Ceòs; Canmore township NB35792169 north Loch Erisort
+204	na-h-eileanan-siar.txt	Croir Harbour	resolved	58.2481	-6.9149	harbour	Great Bernera Caolas anchorage; HER NB1448140244 converted
+205	na-h-eileanan-siar.txt	Kyles Langavat	resolved	58.0833	-6.75	channel	Interpreted as Loch Langabhat/Grimersta narrows system; JNCC Langavat SAC centroid NB201203
+206	na-h-eileanan-siar.txt	Bagh Steinigidh	resolved	57.835739	-7.025102	bay	GeoHack/List of bays; Scarista west Harris
+207	na-h-eileanan-siar.txt	Scaladale	resolved	57.994543	-6.762467	hostel	Scaladale Centre / Ardvourlie A859; SOBT walk start GPS
+208	na-h-eileanan-siar.txt	Hushinish Beach	resolved	57.99492	-7.093499	beach	Huisinis; Wikipedia settlement coord
+209	na-h-eileanan-siar.txt	Scarista Beach	resolved	57.9214	-6.727	beach	Traigh Scarista; UK Beach Guide OS NF99279214
+210	na-h-eileanan-siar.txt	Luskentyre Beach	resolved	57.876257	-6.945511	beach	Tràigh Losgaintir main bay; SOBT NG070980 centroid
+211	na-h-eileanan-siar.txt	Northton Beach	resolved	57.7922	-7.145	beach	Traigh na h-Uidhe; Northton village access guides (~HS3 3JA area)
+212	na-h-eileanan-siar.txt	Berneray West Beach	resolved	57.720749	-7.209159	beach	Tràigh Siar Berneray; SOBT NF 900821 access GPS
+213	na-h-eileanan-siar.txt	Hosta Beach	resolved	57.626764	-7.503492	beach	Traigh Stir; UK Beach Guide OS NF 7162 7299 → WGS84
+214	na-h-eileanan-siar.txt	Sollas Beach	resolved	57.664362	-7.350611	beach	Tràigh Iar (Sollas); SOBT NF 812764 centroid
+215	na-h-eileanan-siar.txt	West Beach North Uist	resolved	57.603982	-7.525125	beach	Tràigh nam Faoghailean / Balranald west; SOBT NF702706
+216	na-h-eileanan-siar.txt	Udal Beaches	resolved	57.67911	-7.33539	beach	Traigh Udal peninsula sands; Canmore NF 821 780 centroid
+217	na-h-eileanan-siar.txt	Pollachar	resolved	57.10491	-7.37657	landmark	Coastal standing stone / inn locale; Canmore NF 7459 1439
+218	na-h-eileanan-siar.txt	Howbeg	resolved	57.29829	-7.38754	settlement	Tobha Beag farmstead locale; Canmore NF 7563 3593
+219	na-h-eileanan-siar.txt	Gramsdale	resolved	57.48445	-7.30086	village	Gramisdale Benbecula; Canmore NF 82461 56207 cottage grid
+220	na-h-eileanan-siar.txt	Balranald	resolved	57.60436	-7.523904	beach	Balranald machair beach; OS NF702706
+221	na-h-eileanan-siar.txt	RSPB Balranald	resolved	57.605546	-7.517378	nature_reserve	Visitor centre car park; SOBT NF 706707
+222	na-h-eileanan-siar.txt	Carinish Bay	resolved	57.5233	-7.3159	bay	Càirinis coast; Gazetteer NF 819 606 / Wikipedia centroid
+223	na-h-eileanan-siar.txt	Loch Bee	resolved	57.369278	-7.374722	loch	Loch Bì freshwater; Wikipedia coord
+224	na-h-eileanan-siar.txt	Loch Druidibeag	resolved	57.3155	-7.3254	loch	Loch Druidibeg; Wikipedia waterbody centroid
+225	na-h-eileanan-siar.txt	Bagh a Deas Loch Eynort	resolved	57.234155	-7.312258	bay	South basin Loch Aineort; SEPA sampling pt NF 79600 28450
+226	na-h-eileanan-siar.txt	Rubh Aird na Monadh	resolved	57.2414	-7.4568	headland	Rudha Aird a' Mhuile Bornais; Canmore NF 70956 29942
+227	na-h-eileanan-siar.txt	Ardvule	resolved	57.24099	-7.45767	headland	Rubha Ardvule / Point of Airdmile; Canmore NF 709 299
+228	na-h-eileanan-siar.txt	Flodday Sound of Barra	resolved	56.99625	-7.35244	channel	Sound between Barra and Flodday; aligned with Flodaigh Barra centroid
+229	na-h-eileanan-siar.txt	Castlebay Pier	resolved	56.953784	-7.488112	harbour	CalMac ferry pier; Canmore NL 6649 9814
+230	na-h-eileanan-siar.txt	Vatersay Causeway	resolved	56.946722	-7.532278	causeway	Sound of Vatersay; Wikipedia coord
+231	na-h-eileanan-siar.txt	Eriskay Causeway	resolved	57.103825	-7.320023	causeway	South Uist–Eriskay road; Geograph NF780 140 photo GPS
+232	na-h-eileanan-siar.txt	Cleitreabhal	ambiguous			hill	List order follows South Uist chain but bare name usually Cleitreabhal a Deas (South Clettraval) on North Uist—no South Uist pin verified
+233	na-h-eileanan-siar.txt	Ormiclate	resolved	57.26027	-7.40911	settlement	Ormacleit castle locale; Canmore NF 73996 31809
+234	na-h-eileanan-siar.txt	Iochdar Mor	resolved	57.37173	-7.409649	settlement	Historic settlement grid NF7495 4420 (HER); NW of main Iochdar hamlet
+235	na-h-eileanan-siar.txt	Stilligarry Beach	resolved	57.32268	-7.3685	beach	Machair shore Stilligarry; Canmore NF 7699 3855
+236	na-h-eileanan-siar.txt	Askernish Beach	resolved	57.185571	-7.393211	beach	Machair beach by Àisgearnais; GeoHack Wikipedia area
+237	na-h-eileanan-siar.txt	Lochboisdale Bay	resolved	57.153141	-7.310644	bay	Loch Baghasdail sea loch; GeoHack head-of-loch centroid
+238	na-h-eileanan-siar.txt	Kyles Lochboisdale	resolved	57.1476	-7.318	channel	Kyles at loch entrance W of village; judged mouth of Loch Boisdale
+239	na-h-eileanan-siar.txt	Bagh Mhartainn	resolved	57.039769	-7.437924	bay	Eoligarry west-coast bay; approx NF 7030 0745 offshore strip
+240	na-h-eileanan-siar.txt	Cille Bharra	resolved	57.03933	-7.43442	attraction	St Barr chapel Eoligarry; Canmore NF 7051 0738
+241	na-h-eileanan-siar.txt	Bagh Siar	resolved	56.93037	-7.56025	beach	Vatersay West Bay / Tràigh Shiar; Canmore NL 6190 9589
+242	na-h-eileanan-siar.txt	Oban Barra	resolved	56.9545	-7.4866	harbour	CalMac mainland Oban ferry berth on Barra (Castlebay); disambiguates from Oban Argyll
+243	na-h-eileanan-siar.txt	Bagh Hartabhagh	resolved	57.11707	-7.24087	bay	Bàgh Hairteabhagh off Hartavagh township; Canmore NF 829 151 centroid
+244	na-h-eileanan-siar.txt	Beinn Ruigh	resolved	57.15593	-7.27950	hill	Treated as Beinn Ruigh Choinnich (Ben Kenneth) over Lochboisdale; Wikipedia summit
+245	na-h-eileanan-siar.txt	Rubha Na H-Earba	not_found		headland	No coastal Rubha na h-Earba verified on Barra; well-known DBIH summit is Morvern—wrong region
+246	na-h-eileanan-siar.txt	Bagh A Chaisteil	resolved	56.955	-7.486	bay	Bàgh a' Chaisteil / Castle Bay (Castlebay); Wikipedia settlement coord
+247	na-h-eileanan-siar.txt	Traigh Eais	resolved	57.03279	-7.45013	beach	West airport beach dunes; trove.scot NF 6950 0673
+248	na-h-eileanan-siar.txt	Frobost	resolved	57.20342	-7.39838	settlement	North Frobost township; Canmore NF 7414 2544
+249	na-h-eileanan-siar.txt	Orasaigh	resolved	57.1287	-7.4113	island	Orosay (Orasaigh) off SW South Uist; Gazetteer for Scotland NF 727 172
+250	na-h-eileanan-siar.txt	Cearnabhagh	resolved	57.11707	-7.24087	settlement	Anglicised form of Hairteabhagh / Hartavagh township; Canmore NF 829 151
+251	na-h-eileanan-siar.txt	Liniclate Beach	resolved	57.437	-7.365	beach	Traigh Lìniclate machair strip W of Liniclate; Visit OH HS7 5PJ access area
+252	na-h-eileanan-siar.txt	Nunton Beach	resolved	57.462	-7.405	beach	Machair shore W of Baile nan Cailleach (Nunton) toward Culla Bay
+253	na-h-eileanan-siar.txt	Culla Bay Beach	resolved	57.4596	-7.4049	beach	Main Culla sands; aligned with existing Culla Bay waterbody centroid
+254	na-h-eileanan-siar.txt	Griminish Benbecula	resolved	57.44233	-7.35839	village	Griminis linear settlement; Canmore NF 78648 51797
+255	na-h-eileanan-siar.txt	Benbecula Causeway	resolved	57.40281	-7.32756	causeway	South Ford Causeway (Benbecula–South Uist); Canmore NF 8015 4726
+256	na-h-eileanan-siar.txt	Torlum Beach	resolved	57.435	-7.377	beach	Machair beach by Torlum / Borve W Benbecula; township HER NF 790 505 locale
+257	na-h-eileanan-siar.txt	Aird Uig	resolved	58.196	-7.032	settlement	Àird / Aird end of Uig peninsula W of Baile na Cille; coastal crofts
+258	na-h-eileanan-siar.txt	Cliff Uig	resolved	58.215	-6.969	village	Cliobb / Cliff west Uig (same cluster as Cliobber); Wikipedia/Canmore centroid
+259	na-h-eileanan-siar.txt	Mangersta Sea Stacks	resolved	58.164091	-7.082124	coastline	Stacks off Mangersta/Mangurstadh head; SOBT walk NB012307 area
+260	na-h-eileanan-siar.txt	Dalmore Beach	resolved	58.305986	-6.755922	beach	Traigh Dhail Mhòr Carloway north coast; SOBT NB 215451
+261	na-h-eileanan-siar.txt	Dalbeg Beach	resolved	58.291	-6.698	beach	Dail Beag strand S of Dalmore Carloway; aligned with Dalbeag township row
+262	na-h-eileanan-siar.txt	Shawbost Beach	resolved	58.326	-6.695	beach	West machair beach by Siabost; near Shawbost village centroid
+263	na-h-eileanan-siar.txt	Bragar	resolved	58.254	-6.705	village	Bràigh na h-Àird; west Lewis coast A858
+264	na-h-eileanan-siar.txt	Arnol	resolved	58.246	-6.701	village	Àrnoil blackhouse village; GeoHack/visitor centroid
+265	na-h-eileanan-siar.txt	South Bragar	resolved	58.249	-6.704	settlement	South end of Bràigh na h-Àird crofts along A858
+266	na-h-eileanan-siar.txt	Dail Mor Carloway	resolved	58.302778	-6.75	settlement	Dail Mòr hamlet / beach car park; Wikipedia beach coord
+267	na-h-eileanan-siar.txt	Traigh na Beirigh	resolved	58.217867	-6.93728	beach	Traigh na Beirigh / Reef Beach by Cnìp; same pin as Reef Beach Great Bernera row
+268	na-h-eileanan-siar.txt	Bhaltos	resolved	58.182	-6.892	peninsula	Bhaltasaigh / Valasay peninsula W Uig; centroid near reef walks
+269	na-h-eileanan-siar.txt	Reef Uig	resolved	58.217867	-6.93728	beach	Reef Beach (Traigh na Beirigh) W Lewis—Uig parish; not North Uist Oronsay
+270	na-h-eileanan-siar.txt	Campail	resolved	58.19459	-7.02574	chapel	Capail Mòr / Baile na Cille chapel site; Canmore NB 04805 33882 (Cnoc Eothail)
+271	na-h-eileanan-siar.txt	Kneep Beach	resolved	58.22174	-6.94208	beach	Shore at Cnìp (Kneep) by Traigh na Beirigh; Canmore Kneep NB 09937 36536
+272	na-h-eileanan-siar.txt	Traigh na Clibhe	resolved	58.220656	-6.968406	beach	Cliff Beach (Camas na Clibhe) W of Valtos; SOBT NB 084365
+273	na-h-eileanan-siar.txt	Valtos Uig	resolved	58.183	-6.892	settlement	Bhaltasigh / Valtos crofting settlement on Uig peninsula; near Miavaig loop beaches
+274	na-h-eileanan-siar.txt	Timsgarry Beach	resolved	58.190441	-7.023369	beach	Uig Sands (Tràigh Uuige) by Timsgearraidh; SOBT NB 049334
+275	na-h-eileanan-siar.txt	Traigh na Berie	resolved	58.21434	-6.9361	beach	Reef / Berie sands S of Valtos; Canmore Lewis Bhaltos Traigh na Berie NB 10227 35688
+276	na-h-eileanan-siar.txt	Bunavoneadar	resolved	57.84972	-6.95556	beach	Bunabhainneadar machair beach / surf bay W Harris; Wikipedia centroid
+277	na-h-eileanan-siar.txt	Horgabost Beach	resolved	57.8843	-6.9339	beach	Tràigh Horgabost machair strand W Harris
+278	na-h-eileanan-siar.txt	Seilebost Sands	resolved	57.884	-7.022	beach	Seilebost machair beach facing Taransay; visitor map centroid
+279	na-h-eileanan-siar.txt	Luskentyre Sands	resolved	57.9167	-7.0167	beach	Tràigh Losgaintir main white-sand bay; broad beach centroid
+280	na-h-eileanan-siar.txt	Scarista Mor	resolved	57.862	-6.986	beach	Tràigh Scarasta main strand S Harris; coastal access area
+281	na-h-eileanan-siar.txt	Toe Head Harris	resolved	57.80874	-7.1033	headland	Rubh' an Teampuill / Toe Head chapel site; Canmore NF97005 91341
+282	na-h-eileanan-siar.txt	Ceann Hurnavay	resolved	58.14962	-6.42398	settlement	Ceann Thurnabhaigh township E Lewis (Lochs); Canmore NB 398 264
+283	na-h-eileanan-siar.txt	Rodel Harbour	resolved	57.7419	-6.9519	harbour	Ròdal small boat harbour S Harris; village pier locale
+284	na-h-eileanan-siar.txt	Flodabay Harbour	resolved	57.919	-6.818	harbour	Flòdaigearraidh (Flodabay) E Harris Golden Road inlet
+285	na-h-eileanan-siar.txt	Drinishader Pier	resolved	57.8917	-6.9083	pier	Drinisiadar pier E Harris; OS harbour locale
+286	na-h-eileanan-siar.txt	Scalpay Harbour	resolved	57.868	-6.692	harbour	An Acairseid a Tuath / North Harbour area Isle of Scalpay
+287	na-h-eileanan-siar.txt	Kyles Stockinish	resolved	57.81641	-6.82512	settlement	Caolas Stocinis township Golden Road E Harris; Canmore NG 1357 9098
+288	na-h-eileanan-siar.txt	Bunamhainneadar	resolved	57.841	-6.921	beach	Bunamhainneadar machair surf beach W Harris
+289	na-h-eileanan-siar.txt	Harris Scarista	resolved	57.862	-6.986	beach	Scarista coastal belt (disambiguation label); centroid on main strand
+290	na-h-eileanan-siar.txt	Harris Northton	resolved	57.856	-7.154	village	Taobh a Deas Thuath Hoireabard (Northton) by Scarista machair
+291	na-h-eileanan-siar.txt	Harris Tarbert	resolved	57.896	-6.797	village	An Tairbeart (Harris) isthmus ferry port; harbour centroid
+292	na-h-eileanan-siar.txt	Lewis Stornoway	resolved	58.210998	-6.385926	town	Steòrnabhagh town / harbour area; Wikipedia centroid
+293	na-h-eileanan-siar.txt	Lewis Uig	resolved	58.195	-7.021	village	Uig (Timsgarry) community centre by Uig Sands; Wikipedia Timsgarry grid
+294	na-h-eileanan-siar.txt	Lewis Ness	resolved	58.4829	-6.2243	village	Port of Nis (Ness) N Lewis coast; harbour locale
+295	na-h-eileanan-siar.txt	Lewis Tolsta	resolved	58.352	-6.233	village	Tolastadh bho Thuath settlement E coast Lewis
+296	na-h-eileanan-siar.txt	Lewis Carloway	resolved	58.281	-6.744	village	Càrlabhagh (Carloway) W Lewis; village centroid
+297	na-h-eileanan-siar.txt	Lewis Shawbost	resolved	58.335	-6.691	village	Siabost (Shawbost) W Lewis; village centroid
+298	na-h-eileanan-siar.txt	Barra Eriskay Ferry	resolved	57.0712	-7.3082	ferry	Eriskay slip for Barra ferry; Sound of Barra terminal locale
+299	na-h-eileanan-siar.txt	Obbe	resolved	57.7667	-7.02	village	Historic name for Leverburgh (Gaelic An t-Ob); S Harris harbour settlement
+300	na-h-eileanan-siar.txt	Kallin Harbour	resolved	57.48119	-7.20518	harbour	Ceallan (Kallin) fishing harbour SE Grimsay; Canmore NF 8816 5540
+301	na-h-eileanan-siar.txt	Lochmaddy Bay	resolved	57.605	-7.0833	bay	Sea-loch entrance off North Uist (visitmyharbour waypoint 57°36.3′N 007°05.0′W); approach to Lochmaddy harbour
+302	na-h-eileanan-siar.txt	Port Eynort	resolved	57.2177	-7.2866	sea_loch	Interpreted as Loch Eynort (Loch Aineort) E coast South Uist; Gazetteer for Scotland loch centroid
+303	na-h-eileanan-siar.txt	Bagh Mor	resolved	57.51389	-7.29714	settlement	Bàgh Mòr (Baymore) Grimsay near Kallin; Canmore/trove slipway locale NF8294059461
+304	na-h-eileanan-siar.txt	West Loch Tarbert Pier	resolved	57.90328	-6.82124	pier	West Loch Tarbert “new” concrete pier; Canmore 4076 BNG 114490,900620

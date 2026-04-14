@@ -1,0 +1,146 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	norfolk.txt	Terrington St Clement	resolved	52.7558736	0.2924582	village	OpenStreetMap/Nominatim (village node; admin boundary also returned)
+2	norfolk.txt	Walpole Cross Keys	resolved	52.7549630	0.2489132	village	OpenStreetMap/Nominatim
+3	norfolk.txt	Walpole St Peter	resolved	52.7272940	0.2304055	village	OpenStreetMap/Nominatim
+4	norfolk.txt	Clenchwarton	resolved	52.7572308	0.3549020	village	OpenStreetMap/Nominatim
+5	norfolk.txt	King's Lynn	resolved	52.7538673	0.3954774	town	OpenStreetMap/Nominatim
+6	norfolk.txt	West Lynn	resolved	52.7550515	0.3869899	village	OpenStreetMap/Nominatim
+7	norfolk.txt	South Wootton	resolved	52.7764656	0.4366103	suburb	OpenStreetMap/Nominatim (administrative boundary)
+8	norfolk.txt	North Wootton	resolved	52.7884837	0.4347221	suburb	OpenStreetMap/Nominatim (administrative boundary)
+9	norfolk.txt	Great Ouse Mouth	resolved	52.7522810	0.3931149	estuary	OpenStreetMap: South Quay, King's Lynn — river front on tidal Great Ouse approaching The Wash (no named “mouth” node)
+10	norfolk.txt	The Wash Norfolk Frontage	ambiguous			coastline	Not a discrete place; broad policy/segment label along The Wash — no single OSM point
+11	norfolk.txt	Heacham	resolved	52.9086926	0.4940848	village	OpenStreetMap/Nominatim (administrative boundary)
+12	norfolk.txt	Heacham South Beach	resolved	52.9034566	0.4699428	beach	OpenStreetMap/Nominatim (parking area named to beach)
+13	norfolk.txt	Heacham North Beach	resolved	52.9112896	0.4731862	beach	OpenStreetMap/Nominatim (parking area named to beach)
+14	norfolk.txt	Hunstanton	resolved	52.9393841	0.4901743	town	OpenStreetMap/Nominatim (administrative boundary)
+15	norfolk.txt	Old Hunstanton	resolved	52.9460527	0.5163781	village	OpenStreetMap/Nominatim (administrative boundary)
+16	norfolk.txt	Hunstanton Beach	resolved	52.9485485	0.4886003	beach	OpenStreetMap/Nominatim
+17	norfolk.txt	Hunstanton Cliffs	resolved	52.9469025	0.4905020	cliff	OpenStreetMap: Cliff Parade — chalk cliff frontage at Hunstanton/Old Hunstanton (no separate “cliffs” POI)
+18	norfolk.txt	Gore Point	resolved	52.975766	0.528667	headland	Shingle ridge west of Holme-next-the-Sea; OS grid TF7045 / third-party map reference (no Nominatim hit)
+19	norfolk.txt	Thornham	resolved	52.9617373	0.5809291	village	OpenStreetMap/Nominatim
+20	norfolk.txt	Thornham Creek	ambiguous			creek	Tidal creek network at Thornham; no single matching OSM feature name
+21	norfolk.txt	Thornham Harbour	resolved	52.9683	0.5782	harbour	Approx. OS grid TF727442 (Staithe Lane end); BirdGuides site description — no Nominatim hit
+22	norfolk.txt	Thornham Saltmarsh	ambiguous			saltmarsh	Extensive back-barrier marsh; multiple polygons/labels — no one canonical pin
+23	norfolk.txt	Titchwell	resolved	52.9619560	0.6176527	village	OpenStreetMap/Nominatim
+24	norfolk.txt	Titchwell Beach	ambiguous			beach	Foreshore north of village/RSPB; no OSM object named “Titchwell Beach”
+25	norfolk.txt	Titchwell Marsh	resolved	52.9672339	0.6150954	nature_reserve	OpenStreetMap/Nominatim: RSPB Titchwell Marsh
+26	norfolk.txt	Brancaster	resolved	52.9634407	0.6395494	village	OpenStreetMap/Nominatim (administrative boundary)
+27	norfolk.txt	Brancaster Staithe	resolved	52.9661420	0.6703572	village	OpenStreetMap/Nominatim
+28	norfolk.txt	Brancaster Bay	ambiguous			bay	Large open bay; no Nominatim point feature
+29	norfolk.txt	Brancaster Beach	resolved	52.9764282	0.6499062	beach	OpenStreetMap/Nominatim
+30	norfolk.txt	Burnham Deepdale	resolved	52.9658165	0.6836152	village	OpenStreetMap/Nominatim
+31	norfolk.txt	Burnham Norton	resolved	52.9624438	0.7203699	village	OpenStreetMap/Nominatim (village node)
+32	norfolk.txt	Burnham Overy Staithe	resolved	52.9642128	0.7439615	hamlet	OpenStreetMap/Nominatim
+33	norfolk.txt	Burnham Overy Town	resolved	52.9522970	0.7413082	village	OpenStreetMap/Nominatim: Burnham Overy village - local Town vs Staithe
+34	norfolk.txt	Scolt Head	resolved	52.9824658	0.7236175	island	OpenStreetMap/Nominatim: Scolt Head Island (colloquially Scolt Head)
+35	norfolk.txt	Scolt Head Island	resolved	52.9824658	0.7236175	island	OpenStreetMap/Nominatim
+36	norfolk.txt	Holkham	resolved	52.9591025	0.8143613	hamlet	OpenStreetMap/Nominatim (administrative boundary)
+37	norfolk.txt	Holkham Bay	resolved	52.9694652	0.8139584	bay	OpenStreetMap/Nominatim (named information point, Lady Anne's Drive)
+38	norfolk.txt	Holkham Beach	resolved	52.9718969	0.8062663	beach	OpenStreetMap: only named segment Holkham Naturist Beach; continuous Holkham sands
+39	norfolk.txt	Holkham National Nature Reserve	resolved	52.9674533	0.8150605	nature_reserve	OpenStreetMap/Nominatim (reserve information board, Lady Anne's Drive)
+40	norfolk.txt	Lady Anne's Drive Holkham	resolved	52.9645795	0.8145046	road	OpenStreetMap/Nominatim (Lady Anne's Drive way centroid)
+41	norfolk.txt	Wells-next-the-Sea	resolved	52.9549725	0.8515402	town	OpenStreetMap/Nominatim (administrative boundary)
+42	norfolk.txt	Wells Beach	resolved	52.9751601	0.8447657	beach	OpenStreetMap/Nominatim (Wells Next The Sea Beach)
+43	norfolk.txt	Wells Harbour	resolved	52.9572382	0.8513769	harbour	The Quay / inner harbour - pin at amenity on The Quay (Nominatim had no harbour feature)
+44	norfolk.txt	Wells Pinewoods	resolved	52.9727464	0.8465811	wood	OpenStreetMap/Nominatim (visitor sign Wells Pinewoods)
+45	norfolk.txt	Warham	resolved	52.9373317	0.8969653	village	OpenStreetMap/Nominatim (village node)
+46	norfolk.txt	Stiffkey	resolved	52.9500000	0.9345879	village	OpenStreetMap/Nominatim (village node)
+47	norfolk.txt	Stiffkey Marshes	resolved	52.9611408	0.9549350	wetland	OpenStreetMap/Nominatim: Stiffkey Salt Marshes
+48	norfolk.txt	Morston	resolved	52.9549305	0.9866333	village	OpenStreetMap/Nominatim (village node)
+49	norfolk.txt	Morston Marshes	resolved	52.9619734	0.9794935	wetland	OpenStreetMap/Nominatim: Morston Salt Marshes
+50	norfolk.txt	Blakeney	resolved	52.9539794	1.0180288	village	OpenStreetMap/Nominatim (village node)
+51	norfolk.txt	Blakeney Point	resolved	52.9766149	0.9735842	spit	OpenStreetMap/Nominatim (locality)
+52	norfolk.txt	Blakeney Harbour	resolved	52.9556044	1.0168375	harbour	Tidal creek moorings along The Quay - pin at quay frontage (no separate OSM harbour)
+53	norfolk.txt	Cley-next-the-Sea	resolved	52.9526378	1.0426860	village	OpenStreetMap/Nominatim (village node)
+54	norfolk.txt	Cley Beach	resolved	52.9609930	1.0474523	beach	Foreshore via Beach Road; no OSM Cley Beach - pin on Beach Road near shore access
+55	norfolk.txt	Cley Marshes	resolved	52.9598798	1.0564060	wetland	OpenStreetMap/Nominatim: Cley Marshes
+56	norfolk.txt	Salthouse	resolved	52.9511225	1.0876425	village	OpenStreetMap/Nominatim (village node)
+57	norfolk.txt	Salthouse Beach	ambiguous			beach	Shingle foreshore; no OSM/Nominatim object named Salthouse Beach
+58	norfolk.txt	Wiveton Shore	ambiguous			coastline	Informal shore label seaward of Wiveton; no discrete OSM feature
+59	norfolk.txt	Kelling	resolved	52.9424421	1.1147325	hamlet	OpenStreetMap/Nominatim (administrative boundary)
+60	norfolk.txt	Kelling Shore	ambiguous			coastline	Coastal strip; no OSM beach/shore POI for this name
+61	norfolk.txt	Weybourne	resolved	52.9371852	1.1478227	village	OpenStreetMap/Nominatim (administrative boundary)
+62	norfolk.txt	Weybourne Beach	resolved	52.9440628	1.1392456	beach	OpenStreetMap/Nominatim (Beach Lane / village hall — shingle foreshore)
+63	norfolk.txt	Weybourne Hope	resolved	52.9489380	1.1379200	shingle_bay	Wikimedia Commons / Geograph depicted-place coords for Weybourne Hope foreshore (broad coastal reach; no single OSM object)
+64	norfolk.txt	Sheringham	resolved	52.9438831	1.2126200	town	OpenStreetMap/Nominatim (administrative boundary)
+65	norfolk.txt	Sheringham Beach	resolved	52.9459729	1.2026718	beach	OpenStreetMap/Nominatim: Sheringham Lifeboat Station — The Esplanade seafront
+66	norfolk.txt	Sheringham Promenade	resolved	52.9454183	1.2124553	promenade	OpenStreetMap/Nominatim: Promenade (Sheringham)
+67	norfolk.txt	Sheringham Shoal	resolved	53.1166670	1.1333330	offshore_wind	Wikipedia / GeoHack centroid for Sheringham Shoal Offshore Wind Farm (North Sea; name also used for nearby sandbank)
+68	norfolk.txt	Beeston Regis	resolved	52.9333010	1.2300175	village	OpenStreetMap/Nominatim (village node)
+69	norfolk.txt	Beeston Bump	resolved	52.9428474	1.2253633	hill	OpenStreetMap/Nominatim: Beeston Bump
+70	norfolk.txt	West Runton	resolved	52.9377166	1.2440811	village	OpenStreetMap/Nominatim (administrative boundary)
+71	norfolk.txt	West Runton Beach	resolved	52.9412240	1.2510159	beach	OpenStreetMap/Nominatim: Sea View Beach Cafe — Water Lane seafront
+72	norfolk.txt	East Runton	resolved	52.9354034	1.2656849	village	OpenStreetMap/Nominatim (administrative boundary)
+73	norfolk.txt	East Runton Beach	resolved	52.9363812	1.2726342	beach	OpenStreetMap/Nominatim: Beach Road seafront (East Runton)
+74	norfolk.txt	Cromer	resolved	52.9311367	1.3012758	town	OpenStreetMap/Nominatim (administrative boundary)
+75	norfolk.txt	Cromer Beach	resolved	52.9300536	1.2916476	beach	OpenStreetMap/Nominatim (Cromer beach / seafront access)
+76	norfolk.txt	Cromer Pier	resolved	52.9337491	1.3014317	pier	OpenStreetMap/Nominatim: Cromer Pier
+77	norfolk.txt	Cromer Cliffs	resolved	52.9327785	1.2986264	cliff	OpenStreetMap: West Cliff seafront (chalk cliff frontage); no separate “Cromer Cliffs” POI
+78	norfolk.txt	Overstrand	resolved	52.9188635	1.3347167	village	OpenStreetMap/Nominatim (administrative boundary)
+79	norfolk.txt	Overstrand Beach	resolved	52.9201882	1.3390266	beach	OpenStreetMap/Nominatim: Overstrand Campsite — Beach Close shore access
+80	norfolk.txt	Sidestrand	resolved	52.9071856	1.3597320	village	OpenStreetMap/Nominatim (administrative boundary)
+81	norfolk.txt	Trimingham	resolved	52.8982846	1.3834770	village	OpenStreetMap/Nominatim (administrative boundary)
+82	norfolk.txt	Trimingham Beach	ambiguous			beach	Continuous foreshore below Trimingham; no OSM/Nominatim object named Trimingham Beach
+83	norfolk.txt	Mundesley	resolved	52.8802661	1.4262372	village	OpenStreetMap/Nominatim (administrative boundary)
+84	norfolk.txt	Mundesley Beach	resolved	52.8770074	1.4388680	beach	OpenStreetMap/Nominatim: Mundesley Inshore Lifeboat — Beach Road
+85	norfolk.txt	Bacton	resolved	52.8412753	1.4458815	village	OpenStreetMap/Nominatim (administrative boundary)
+86	norfolk.txt	Bacton Beach	ambiguous			beach	Open sandy coast by Bacton; no discrete OSM beach name
+87	norfolk.txt	Walcott	resolved	52.8312440	1.5064026	village	OpenStreetMap/Nominatim (administrative boundary)
+88	norfolk.txt	Walcott Beach	resolved	52.8436058	1.4970457	beach	OpenStreetMap/Nominatim: Walcott Beach Car Park — Coast Road
+89	norfolk.txt	Walcott Gap	resolved	52.8422670	1.5023983	coastal_gap	OpenStreetMap/Nominatim: Walcott Gap (Coast Road)
+90	norfolk.txt	Ostend	resolved	52.8380035	1.5100018	hamlet	OpenStreetMap/Nominatim: Ostend, Walcott (not Belgium)
+91	norfolk.txt	Happisburgh	resolved	52.8232637	1.5300546	village	OpenStreetMap/Nominatim (village node)
+92	norfolk.txt	Happisburgh Beach	resolved	52.8132478	1.5562103	beach	OpenStreetMap/Nominatim: Happisburgh Lifeboat Station — Cart Gap seafront (public shore; no separate “Happisburgh Beach” POI)
+93	norfolk.txt	Happisburgh Lighthouse	resolved	52.8204781	1.5370315	lighthouse	OpenStreetMap/Nominatim
+94	norfolk.txt	Eccles-on-Sea	resolved	52.8080479	1.5651401	village	OpenStreetMap/Nominatim: Eccles on Sea
+95	norfolk.txt	Eccles Beach	resolved	52.8067646	1.5692686	beach	OpenStreetMap/Nominatim: Eccles Beach Caravan Park — Beach Road shore access
+96	norfolk.txt	Cart Gap	resolved	52.8133252	1.5569318	coastal_access	OpenStreetMap/Nominatim: Cart Gap Car Park
+97	norfolk.txt	Lessingham Shore	ambiguous			coastline	Informal shore label seaward of Lessingham; no discrete OSM beach/shore feature for this name
+98	norfolk.txt	Sea Palling	resolved	52.7880583	1.6017754	village	OpenStreetMap/Nominatim (village node)
+99	norfolk.txt	Sea Palling Beach	ambiguous			beach	Open sandy foreshore east of village; no OSM object named Sea Palling Beach
+100	norfolk.txt	Sea Palling Reef	ambiguous			reef	Offshore rock/breakwater reef field; no single Nominatim point
+101	norfolk.txt	Waxham	resolved	52.7770463	1.6171049	village	OpenStreetMap/Nominatim (village node)
+102	norfolk.txt	Waxham Beach	ambiguous			beach	Continuous coast by Waxham; no named OSM beach separate from dunes/sands
+103	norfolk.txt	Horsey	resolved	52.7470952	1.6418048	village	OpenStreetMap/Nominatim (village node)
+104	norfolk.txt	Horsey Beach	ambiguous			beach	Wide sand beach (seals); public access via Horsey Gap — no OSM feature named Horsey Beach
+105	norfolk.txt	Horsey Gap	resolved	52.7587360	1.6502670	coastal_access	OpenStreetMap/Nominatim: Horsey Gap car park (coastal gap / beach access)
+106	norfolk.txt	Winterton-on-Sea	resolved	52.7154002	1.6909471	village	OpenStreetMap/Nominatim (village node)
+107	norfolk.txt	Winterton Beach	ambiguous			beach	Broad sandy foreshore; OSM only lists Beach Road buildings — no public beach POI
+108	norfolk.txt	Winterton Dunes	resolved	52.7189578	1.6932411	dune	OpenStreetMap/Nominatim: Winterton-Horsey Dunes
+109	norfolk.txt	Hemsby	resolved	52.6978049	1.6847060	village	OpenStreetMap/Nominatim (village node)
+110	norfolk.txt	Hemsby Beach	resolved	52.6980458	1.7007883	beach	OpenStreetMap/Nominatim: Hemsby Beach Holiday Park — Beach Road seafront
+111	norfolk.txt	California	resolved	52.6730486	1.7179180	village	OpenStreetMap/Nominatim: California, Great Yarmouth (not US)
+112	norfolk.txt	Newport	resolved	52.6870248	1.7112155	hamlet	OpenStreetMap/Nominatim: Newport by Hemsby/Scratby (not Wales)
+113	norfolk.txt	Scratby	resolved	52.6792799	1.7137473	village	OpenStreetMap/Nominatim (village node)
+114	norfolk.txt	Scratby Beach	ambiguous			beach	Coastal strip north of Scratby; Beach Road shops are inland of open shore — no beach POI
+115	norfolk.txt	Ormesby St Margaret Shore	ambiguous			coastline	Informal shore label; parish has long frontage — no single OSM point
+116	norfolk.txt	Runham	resolved	52.6409454	1.6385538	village	OpenStreetMap/Nominatim (village node)
+117	norfolk.txt	Caister-on-Sea	resolved	52.6508309	1.7237700	town	OpenStreetMap/Nominatim (administrative boundary)
+118	norfolk.txt	Caister Beach	ambiguous			beach	Public sandy beach; Nominatim hits are static-caravan plot names on “Caister Beach” avenue — not the foreshore
+119	norfolk.txt	Caister Lifeboat	resolved	52.6464323	1.7349241	lifeboat_station	OpenStreetMap/Nominatim: Caister Lifeboat Station
+120	norfolk.txt	Breydon Water	resolved	52.6012306	1.6706417	estuary	OpenStreetMap/Nominatim: Breydon Water (tidal broads/water body centroid)
+121	norfolk.txt	Burgh Castle	resolved	52.5870906	1.6598389	village	OpenStreetMap/Nominatim (administrative boundary)
+122	norfolk.txt	Berney Arms Reach	resolved	52.5902585	1.6310707	waterway	OpenStreetMap/Nominatim: Berney Arms station — local name for the Yare reach at Berney Arms (no object named “Reach”)
+123	norfolk.txt	Great Yarmouth	resolved	52.6071742	1.7314845	town	OpenStreetMap/Nominatim (administrative boundary)
+124	norfolk.txt	Yarmouth	resolved	52.6071742	1.7314845	town	OpenStreetMap/Nominatim: Great Yarmouth (colloquial “Yarmouth” on Norfolk coast)
+125	norfolk.txt	Great Yarmouth North Beach	resolved	52.6132427	1.7387775	beach	OpenStreetMap/Nominatim: The Beach Hut, North Drive — seafront access at north end of main sands
+126	norfolk.txt	Great Yarmouth South Beach	resolved	52.5947663	1.7355577	beach	OpenStreetMap/Nominatim: South Beach Parade (coastal road along southern sandy beach; foreshore has no beach POI)
+127	norfolk.txt	Great Yarmouth Central Beach	resolved	52.6066847	1.7367763	beach	OpenStreetMap/Nominatim: Marine Parade, Northgate — central seafront strip
+128	norfolk.txt	Great Yarmouth Seafront	resolved	52.6081748	1.7395651	coastline	OpenStreetMap/Nominatim: Britannia Pier — iconic Marine Parade seafront anchor
+129	norfolk.txt	Great Yarmouth Harbour	resolved	52.6054105	1.7250335	harbour	OpenStreetMap/Nominatim: South Quay (historic quays along River Yare)
+130	norfolk.txt	Britannia Pier Great Yarmouth	resolved	52.6081748	1.7395651	pier	OpenStreetMap/Nominatim
+131	norfolk.txt	Wellington Pier Great Yarmouth	resolved	52.5992629	1.7377081	pier	OpenStreetMap/Nominatim: Wellington Pier (man_made pier way; leisure building also returned)
+132	norfolk.txt	River Yare Mouth	resolved	52.5721123	1.7381010	estuary	OpenStreetMap/Nominatim: Gorleston South Pier Lighthouse — seaward entrance / mouth of the Yare navigation
+133	norfolk.txt	South Denes	resolved	52.5798469	1.7348168	locality	OpenStreetMap/Nominatim (place=locality)
+134	norfolk.txt	Southtown	resolved	52.5998910	1.7219733	suburb	OpenStreetMap/Nominatim (suburb node)
+135	norfolk.txt	Gorleston-on-Sea	resolved	52.5778559	1.7273353	town	OpenStreetMap/Nominatim (town node)
+136	norfolk.txt	Gorleston	resolved	52.5778559	1.7273353	town	OpenStreetMap/Nominatim: Gorleston-on-Sea (local “Gorleston”)
+137	norfolk.txt	Gorleston Beach	resolved	52.5725147	1.7309440	beach	OpenStreetMap/Nominatim: Beach Road — main sandy beach access in Gorleston
+138	norfolk.txt	Gorleston Pier	resolved	52.5721123	1.7381010	pier	OpenStreetMap/Nominatim: Gorleston South Pier Lighthouse (pier head)
+139	norfolk.txt	Hopton-on-Sea	resolved	52.5437519	1.7198668	suburb	OpenStreetMap/Nominatim (administrative boundary)
+140	norfolk.txt	Hopton Beach	ambiguous			beach	Sandy foreshore east of village; no OSM object named “Hopton Beach”
+141	norfolk.txt	Hopton Cliffs	ambiguous			cliff	Coastal cliffs south of Hopton; no single named OSM cliff feature
+142	norfolk.txt	Bradwell	resolved	52.5741604	1.6986575	village	OpenStreetMap/Nominatim (village node)
+143	norfolk.txt	Belton-with-Browston	resolved	52.5622774	1.6579658	suburb	OpenStreetMap/Nominatim: Belton with Browston (administrative boundary; parish name differs slightly)
+144	norfolk.txt	Fritton	resolved	52.5427655	1.6411343	village	OpenStreetMap/Nominatim: Fritton Village Sign (Fritton and St. Olaves)
+145	norfolk.txt	Fritton Lake	resolved	52.5427683	1.6557140	lake	OpenStreetMap/Nominatim: Fritton Lake Swim Centre — named water/park complex (building centroid)

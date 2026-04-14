@@ -1,0 +1,347 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	dorset.txt	Lyme Regis	resolved	50.7252897	-2.9345590	town	OpenStreetMap/Nominatim (town boundary)
+2	dorset.txt	Lyme Regis Cobb	resolved	50.7193760	-2.9372312	harbour_wall	The Cobb (tourism attraction way; historic harbour arm)
+3	dorset.txt	Charmouth	resolved	50.7379968	-2.9065606	village	OpenStreetMap/Nominatim (administrative boundary)
+4	dorset.txt	Charmouth Beach	resolved	50.7340118	-2.8990375	beach	Nearest mapped beachfront point (information board; OpenStreetMap)
+5	dorset.txt	Black Ven	resolved	50.7347522	-2.9126220	locality	OpenStreetMap locality node
+6	dorset.txt	Stonebarrow	resolved	50.7362966	-2.8715425	hill	Stonebarrow Hills area (landuse polygon centroid; OpenStreetMap)
+7	dorset.txt	Golden Cap	resolved	50.7263820	-2.8412028	headland	OpenStreetMap peak node
+8	dorset.txt	Seatown	resolved	50.7234751	-2.8232073	hamlet	OpenStreetMap place=hamlet
+9	dorset.txt	Seatown Beach	resolved	50.7211751	-2.8204091	beach	OpenStreetMap natural=beach
+10	dorset.txt	Thorncombe Beacon	resolved	50.7199428	-2.8010405	headland	OpenStreetMap peak node
+11	dorset.txt	Eype	resolved	50.7165138	-2.7839406	harbour	Coastal Eype (leisure=marina named Eype; OpenStreetMap)
+12	dorset.txt	Eype Mouth	resolved	50.7195849	-2.7822153	inlet	Eype's Mouth County Hotel at coastal inlet (OpenStreetMap way)
+13	dorset.txt	West Bay	resolved	50.7113313	-2.7612890	suburb	OpenStreetMap place=suburb
+14	dorset.txt	West Bay Harbour	resolved	50.7101452	-2.7642919	harbour	OpenStreetMap leisure=marina
+15	dorset.txt	Bridport Harbour	resolved	50.7101452	-2.7642919	harbour	Bridport harbour is at West Bay; same marina as West Bay Harbour (OpenStreetMap)
+16	dorset.txt	Burton Bradstock	resolved	50.7035269	-2.7159431	village	OpenStreetMap administrative boundary
+17	dorset.txt	Burton Beach	resolved	50.7087525	-2.7595405	beach	OpenStreetMap East Beach, Burton Bradstock
+18	dorset.txt	Hive Beach	resolved	50.6957082	-2.7213843	beach	OpenStreetMap natural=beach
+19	dorset.txt	West Bexington	resolved	50.6802203	-2.6614154	village	OpenStreetMap place=village
+20	dorset.txt	Cogden Beach	resolved	50.6944581	-2.7058594	beach	Car park/amenity way named Cogden Beach (OpenStreetMap)
+21	dorset.txt	Abbotsbury	resolved	50.6554430	-2.5779140	village	OpenStreetMap administrative boundary
+22	dorset.txt	Abbotsbury Beach	ambiguous			beach	Long Chesil frontage by Abbotsbury; no distinct named beach object separate from Chesil in OpenStreetMap
+23	dorset.txt	Fleet Lagoon	resolved	50.6164385	-2.5267043	lagoon	OpenStreetMap natural=water “The Fleet”
+24	dorset.txt	Smallmouth	resolved	50.5848952	-2.4718134	inlet	The Ferrybridge locality (bus stop node); mouth of The Fleet at Chesil (OpenStreetMap)
+25	dorset.txt	Chesil Beach	resolved	50.6153269	-2.5358932	beach	OpenStreetMap natural=beach (long shingle bank)
+26	dorset.txt	Chesil Cove	resolved	50.5581745	-2.4507151	bay	OpenStreetMap natural=bay
+27	dorset.txt	Chiswell	resolved	50.5620511	-2.4485498	village	OpenStreetMap place=village
+28	dorset.txt	Fortuneswell	resolved	50.5603502	-2.4457182	village	OpenStreetMap place=village
+29	dorset.txt	Castletown	resolved	50.5682277	-2.4430582	harbour	Castletown street centre in Portland Port area (OpenStreetMap highway)
+30	dorset.txt	Portland	resolved	50.5672516	-2.4472529	island_settlement	OpenStreetMap administrative boundary (Portland, Isle of Portland)
+31	dorset.txt	Isle of Portland	resolved	50.5475600	-2.4348454	island	OpenStreetMap/Nominatim (place=island)
+32	dorset.txt	Southwell	resolved	50.5328900	-2.4467528	village	OpenStreetMap/Nominatim (place=village, DT5)
+33	dorset.txt	Easton	resolved	50.5450204	-2.4353772	village	OpenStreetMap: Easton post office / Wakeham settlement centre
+34	dorset.txt	Portland Bill	resolved	50.5131703	-2.4566026	headland	OpenStreetMap tourism=viewpoint node
+35	dorset.txt	Portland Bill Lighthouse	resolved	50.5141165	-2.4563956	lighthouse	OpenStreetMap man_made=lighthouse
+36	dorset.txt	Balaclava Bay	resolved	50.5665000	-2.4267000	bay	Wikipedia infobox coordinates; Portland Harbour breakwater corner
+37	dorset.txt	Church Ope Cove	resolved	50.5381844	-2.4282793	beach	OpenStreetMap natural=beach
+38	dorset.txt	Cave Hole	resolved	50.5197287	-2.4447546	cave	OpenStreetMap natural=cave_entrance
+39	dorset.txt	Pulpit Rock Portland	resolved	50.5142519	-2.4595132	rock	OpenStreetMap natural=rock (Pulpit Rock)
+40	dorset.txt	Wyke Regis	resolved	50.5940448	-2.4729788	village	OpenStreetMap place=village
+41	dorset.txt	Wyke Regis Beach	ambiguous			beach	Long Chesil/Portland Beach shingle front; no separately named beach object in OpenStreetMap
+42	dorset.txt	Ferrybridge	resolved	50.5848952	-2.4718134	bridge	OpenStreetMap highway bus stop “The Ferrybridge” at Fleet/Chesil mouth
+43	dorset.txt	Redcliff Point	resolved	50.6333000	-2.4089000	headland	Wikipedia infobox coordinates; Jurassic Coast east of Weymouth Bay
+44	dorset.txt	Weymouth	resolved	50.6096257	-2.4543424	town	OpenStreetMap administrative boundary (Weymouth)
+45	dorset.txt	Weymouth Beach	resolved	50.6271763	-2.4430963	beach	Main seafront; Weymouth Beach car park on B3155 (OpenStreetMap)
+46	dorset.txt	Weymouth Esplanade	resolved	50.6153271	-2.4523446	promenade	OpenStreetMap highway “The Esplanade” (Melcombe Regis seafront)
+47	dorset.txt	Weymouth Harbour	resolved	50.6081976	-2.4587095	harbour	OpenStreetMap leisure=marina
+48	dorset.txt	Greenhill	resolved	50.6233358	-2.4460079	suburb	OpenStreetMap highway secondary “Greenhill”, Melcombe Regis
+49	dorset.txt	Greenhill Beach	resolved	50.6271763	-2.4430963	beach	Continuous with main Weymouth seafront; same frontage as mapped beach car park (OpenStreetMap)
+50	dorset.txt	Preston	resolved	50.6475563	-2.4215959	village	OpenStreetMap place=village
+51	dorset.txt	Preston Beach	ambiguous			beach	Preston (Weymouth) bay seafront; no distinct named beach polygon in OpenStreetMap
+52	dorset.txt	Overcombe	resolved	50.6354106	-2.4310797	suburb	OpenStreetMap place=suburb
+53	dorset.txt	Overcombe Beach	ambiguous			beach	Overcombe seafront; no separately named beach feature in OpenStreetMap
+54	dorset.txt	Sandsfoot	resolved	50.5952312	-2.4607954	coastal_locality	Foreshore/locality tied to Sandsfoot Castle (OpenStreetMap historic=castle)
+55	dorset.txt	Sandsfoot Castle	resolved	50.5952312	-2.4607954	castle	OpenStreetMap historic=castle
+56	dorset.txt	Nothe	resolved	50.6061918	-2.4465895	headland	OpenStreetMap leisure=park “Nothe Gardens” on Nothe peninsula
+57	dorset.txt	Nothe Fort	resolved	50.6073638	-2.4433419	fort	OpenStreetMap tourism=museum
+58	dorset.txt	Newton's Cove	resolved	50.6037000	-2.4477000	cove	Wikipedia infobox coordinates
+59	dorset.txt	Lodmoor	resolved	50.6317143	-2.4407957	wetland	OpenStreetMap wetland Lodmoor Nature Reserve
+60	dorset.txt	Radipole Lake	resolved	50.6222916	-2.4616947	lake	OpenStreetMap natural=water
+61	dorset.txt	Bowleaze Cove	resolved	50.6367836	-2.4250862	coast_access	OpenStreetMap highway centreline (Bowleaze Cove Way); nearest named match to the cove
+62	dorset.txt	Bowleaze	resolved	50.6367836	-2.4250862	locality	Same OpenStreetMap highway centroid as Bowleaze Cove (seafront road access)
+63	dorset.txt	Osmington	resolved	50.6461536	-2.3901583	village	OpenStreetMap administrative boundary (parish)
+64	dorset.txt	Osmington Mills	resolved	50.6367186	-2.3758746	hamlet	OpenStreetMap place=hamlet
+65	dorset.txt	Osmington Bay	resolved	50.6384508	-2.3959481	resort	OpenStreetMap tourism=resort (Osmington Bay PGL Centre) on the bay
+66	dorset.txt	Ringstead	resolved	50.6318840	-2.3530022	hamlet	OpenStreetMap place=hamlet
+67	dorset.txt	Ringstead Bay	resolved	50.6410373	-2.3431612	viewpoint	OpenStreetMap tourism=viewpoint (Ringstead Bay)
+68	dorset.txt	White Nothe	resolved	50.6268523	-2.3182576	cliff	OpenStreetMap natural=cliff
+69	dorset.txt	Bat's Head	resolved	50.6225853	-2.2911557	cape	OpenStreetMap natural=cape
+70	dorset.txt	Durdle Door	resolved	50.6211900	-2.2769164	attraction	OpenStreetMap tourism=attraction node
+71	dorset.txt	Man O War Bay	resolved	50.6214509	-2.2732240	bay	OpenStreetMap natural=bay node named Man o' War Cove (same bay feature)
+72	dorset.txt	Man O War Cove	resolved	50.6217793	-2.2743459	beach	OpenStreetMap natural=beach (Man O' War Cove)
+73	dorset.txt	Lulworth	resolved	50.6259195	-2.2505422	village	Mapped as West Lulworth village (coastal Lulworth settlement)
+74	dorset.txt	Lulworth Cove	resolved	50.6186336	-2.2441216	beach	OpenStreetMap natural=beach (Lulworth Cove)
+75	dorset.txt	West Lulworth	resolved	50.6342076	-2.2486539	village	OpenStreetMap administrative boundary
+76	dorset.txt	St Oswald's Bay	resolved	50.6202263	-2.2682244	bay	OpenStreetMap natural=bay node (St Oswald's Bay)
+77	dorset.txt	Scratchy Bottom	resolved	50.6279757	-2.2807907	valley	OpenStreetMap natural=valley
+78	dorset.txt	Mupe Bay	resolved	50.6176193	-2.2222378	bay	OpenStreetMap natural=bay node (Mupe Bay)
+79	dorset.txt	Mupe Rocks	resolved	50.6164117	-2.2259861	rock	OpenStreetMap natural=bare_rock (Mupe Rocks)
+80	dorset.txt	Arish Mell	resolved	50.6215823	-2.2068998	bay	OpenStreetMap natural=bay node (Arish Mell)
+81	dorset.txt	Worbarrow Bay	resolved	50.6177009	-2.1906579	bay	OpenStreetMap natural=bay node (Worbarrow Bay)
+82	dorset.txt	Worbarrow Tout	resolved	50.6159057	-2.1857202	headland	OpenStreetMap natural=peak (Worbarrow Tout)
+83	dorset.txt	Tyneham	resolved	50.6219963	-2.1694764	village	OpenStreetMap tourism name (Tyneham) in abandoned-village/military-range context
+84	dorset.txt	Flowers Barrow	resolved	50.6248398	-2.1938003	hillfort	OpenStreetMap historic=archaeological_site (Flower's Barrow)
+85	dorset.txt	Kimmeridge	resolved	50.6174386	-2.1204918	village	OpenStreetMap place=village
+86	dorset.txt	Kimmeridge Bay	resolved	50.6095314	-2.1338380	bay	OpenStreetMap natural=bay node (Kimmeridge Bay)
+87	dorset.txt	Kimmeridge Ledges	resolved	50.6034310	-2.1240070	intertidal	Wikipedia infobox coordinates (Kimmeridge Ledges)
+88	dorset.txt	Clavell's Hard	resolved	50.6079500	-2.1309000	slipway	Foreshore boat access below Hen Cliff east of Kimmeridge Bay (no separate OpenStreetMap name; coastal access point)
+89	dorset.txt	Broad Bench	resolved	50.6080491	-2.1466493	rock	OpenStreetMap natural=bare_rock (Broad Bench)
+90	dorset.txt	Chapman's Pool	resolved	50.5925698	-2.0644441	bay	OpenStreetMap natural=bay node (Chapman's Pool)
+91	dorset.txt	Rope Lake Head	resolved	50.5970980	-2.1051476	headland	OpenStreetMap/Nominatim (named locality near Kimmeridge)
+92	dorset.txt	Brandy Bay	resolved	50.6140000	-2.1562200	bay	Wikipedia infobox coordinates (Brandy Bay, Dorset; MoD range bay west of Gad Cliff)
+93	dorset.txt	Gad Cliff	resolved	50.6152176	-2.1722436	cliff	OpenStreetMap/Nominatim (Gad Cliff, Steeple with Tyneham)
+94	dorset.txt	St Aldhelm's Head	resolved	50.5784564	-2.0567125	headland	OpenStreetMap/Nominatim (reject first hit “St Alban's Head”; use St Aldhelm's Head node)
+95	dorset.txt	St Aldhelm's Chapel	resolved	50.5797199	-2.0568008	chapel	OpenStreetMap/Nominatim (St. Aldhelm's Chapel, Worth Matravers)
+96	dorset.txt	Winspit	resolved	50.5844372	-2.0339889	quarry_cove	OpenStreetMap/Nominatim (Winspit, Worth Matravers)
+97	dorset.txt	Seacombe	resolved	50.5891585	-2.0221262	hamlet	OpenStreetMap/Nominatim (Seacombe, Worth Matravers)
+98	dorset.txt	Worth Matravers	resolved	50.5966140	-2.0385918	village	OpenStreetMap/Nominatim (village boundary)
+99	dorset.txt	Dancing Ledge	resolved	50.5918902	-2.0048176	ledge	OpenStreetMap/Nominatim (Dancing Ledge, Langton Matravers)
+100	dorset.txt	Acton	resolved	50.6053075	-2.0166404	hamlet	OpenStreetMap/Nominatim (Acton, Langton Matravers — between Dancing Ledge and Durlston)
+101	dorset.txt	Durlston	resolved	50.5996642	-1.9586902	suburb	OpenStreetMap/Nominatim (Durlston, Swanage)
+102	dorset.txt	Durlston Head	resolved	50.5950986	-1.9526504	headland	OpenStreetMap place search (Durlston Head Art Gallery at the headland; nearest named match)
+103	dorset.txt	Durlston Bay	resolved	50.6016339	-1.9490148	bay	OpenStreetMap/Nominatim (Durlston Bay node)
+104	dorset.txt	Anvil Point	resolved	50.5919055	-1.9599699	headland	OpenStreetMap man_made=lighthouse (Anvil Point Lighthouse on the point)
+105	dorset.txt	Swanage	resolved	50.6086976	-1.9571971	town	OpenStreetMap/Nominatim (town boundary)
+106	dorset.txt	Swanage Bay	resolved	50.6183333	-1.9447222	bay	Approximate bay centre from BritishPlaceNames/OS grid SZ039798 (no clean natural=bay hit in Nominatim)
+107	dorset.txt	Swanage Pier	resolved	50.6076188	-1.9516524	pier	OpenStreetMap/Nominatim (Swanage Pier)
+108	dorset.txt	Peveril Point	resolved	50.6069040	-1.9458794	headland	OpenStreetMap/Nominatim (Peveril Point)
+109	dorset.txt	Ballard Down	resolved	50.6293034	-1.9545520	chalk_down	OpenStreetMap/Nominatim (Ballard Down, Studland)
+110	dorset.txt	Old Harry Rocks	resolved	50.6424193	-1.9233164	chalk_stacks	OpenStreetMap/Nominatim (Old Harry Rocks)
+111	dorset.txt	Handfast Point	resolved	50.6426775	-1.9227832	headland	OpenStreetMap/Nominatim (mapped as “The Foreland”; chalk headland of Old Harry)
+112	dorset.txt	Studland	resolved	50.6667634	-1.9721250	village	OpenStreetMap/Nominatim (Studland village)
+113	dorset.txt	Studland Bay	resolved	50.6626586	-1.9488359	bay	OpenStreetMap/Nominatim (Studland Bay)
+114	dorset.txt	Knoll Beach	resolved	50.6497591	-1.9529569	beach	OpenStreetMap/Nominatim (Knoll Beach, Studland)
+115	dorset.txt	Middle Beach Studland	resolved	50.6456737	-1.9506549	beach	OpenStreetMap (Middle Beach Car Park; nearest named match to Middle Beach)
+116	dorset.txt	South Beach Studland	resolved	50.6426766	-1.9441120	beach	OpenStreetMap/Nominatim (South Beach, Studland)
+117	dorset.txt	Shell Bay	resolved	50.6786778	-1.9507116	ferry_landing	OpenStreetMap/Nominatim (Shell Bay Ferry — bay entrance between Studland and Sandbanks)
+118	dorset.txt	Sandbanks	resolved	50.6853597	-1.9461882	suburb	OpenStreetMap/Nominatim (Sandbanks, Poole)
+119	dorset.txt	Sandbanks Beach	resolved	50.6884763	-1.9374171	beach	OpenStreetMap/Nominatim (Sandbanks Beach)
+120	dorset.txt	Canford Cliffs	resolved	50.7049469	-1.9213410	suburb	OpenStreetMap/Nominatim (Canford Cliffs, Poole)
+121	dorset.txt	Canford Cliffs Beach	resolved	50.7015832	-1.9184702	beach	OpenStreetMap/Nominatim (Canford Cliffs Beach)
+122	dorset.txt	Branksome Chine	resolved	50.7071063	-1.9088698	chine	OpenStreetMap/Nominatim (Branksome Chine)
+123	dorset.txt	Branksome	resolved	50.7270591	-1.9215989	suburb	OpenStreetMap/Nominatim (Branksome, Poole)
+124	dorset.txt	Branksome Dene	resolved	50.7088737	-1.9031360	promenade	OpenStreetMap/Nominatim (Branksome Dene, West Undercliff)
+125	dorset.txt	Alum Chine	resolved	50.7142278	-1.9002643	chine	OpenStreetMap/Nominatim (Alum Chine)
+126	dorset.txt	Durley Chine	resolved	50.7135048	-1.8894670	chine	OpenStreetMap/Nominatim (Durley Chine)
+127	dorset.txt	Westbourne	resolved	50.7235524	-1.9041085	suburb	OpenStreetMap/Nominatim (Westbourne, Bournemouth)
+128	dorset.txt	Bournemouth	resolved	50.7201514	-1.8799118	town	OpenStreetMap/Nominatim (Bournemouth administrative boundary)
+129	dorset.txt	Bournemouth Pier	resolved	50.7147395	-1.8749714	pier	OpenStreetMap/Nominatim (Bournemouth Pier)
+130	dorset.txt	Bournemouth Beach	resolved	50.7158683	-1.8748905	beach	OpenStreetMap/Nominatim (Bournemouth Beach)
+131	dorset.txt	Boscombe	resolved	50.7268199	-1.8386231	suburb	OpenStreetMap/Nominatim (Boscombe)
+132	dorset.txt	Boscombe Pier	resolved	50.7182417	-1.8428628	pier	OpenStreetMap/Nominatim (Boscombe Pier)
+133	dorset.txt	Boscombe Beach	resolved	50.7195657	-1.8430373	beach	OpenStreetMap/Nominatim (Boscombe Beach)
+134	dorset.txt	Southbourne	resolved	50.7212915	-1.7982661	suburb	OpenStreetMap/Nominatim (Southbourne)
+135	dorset.txt	Southbourne Beach	resolved	50.7191371	-1.7943365	beach	OpenStreetMap/Nominatim (Southbourne Beach)
+136	dorset.txt	Hengistbury Head	resolved	50.7143589	-1.7507378	headland	OpenStreetMap/Nominatim (Hengistbury Head)
+137	dorset.txt	Mudeford	resolved	50.7303721	-1.7430808	village	OpenStreetMap/Nominatim (Mudeford)
+138	dorset.txt	Mudeford Quay	resolved	50.7279362	-1.7417409	quay	OpenStreetMap/Nominatim (Mudeford Quay)
+139	dorset.txt	Mudeford Sandbank	resolved	50.7188889	-1.7419444	spit	Approximate mid-spit (British Beaches OS grid SZ183910); no clean Nominatim object for the sandbank
+140	dorset.txt	Avon Beach	resolved	50.7282544	-1.7348827	beach	OpenStreetMap/Nominatim (Avon Beach, Mudeford)
+141	dorset.txt	Friars Cliff	resolved	50.7356027	-1.7296763	suburb	OpenStreetMap/Nominatim (Friars Cliff, Christchurch)
+142	dorset.txt	Highcliffe	resolved	50.7422098	-1.6967624	village	OpenStreetMap/Nominatim (Highcliffe-on-Sea; avoids inland Highcliffe near Blandford)
+143	dorset.txt	Highcliffe Beach	resolved	50.7380600	-1.6952580	beach	OpenStreetMap/Nominatim (Highcliffe Beach)
+144	dorset.txt	Stanpit	resolved	50.7285277	-1.7529618	suburb	OpenStreetMap/Nominatim (Stanpit)
+145	dorset.txt	Christchurch	resolved	50.7349020	-1.7778853	town	OpenStreetMap/Nominatim (Christchurch, BCP)
+146	dorset.txt	Christchurch Harbour	resolved	50.7217009	-1.7519674	harbour	OpenStreetMap/Nominatim (Christchurch Harbour)
+147	dorset.txt	Iford	resolved	50.7383961	-1.8079118	suburb	OpenStreetMap/Nominatim (Iford)
+148	dorset.txt	Tuckton	resolved	50.7294665	-1.7878282	suburb	OpenStreetMap/Nominatim (Tuckton Tea Gardens; Tuckton area)
+149	dorset.txt	Wick Christchurch	resolved	50.7270493	-1.7785483	suburb	OpenStreetMap/Nominatim (Wick, BH6 — list label disambiguates from other Wicks)
+150	dorset.txt	Chewton Bunny	resolved	50.7413657	-1.6894074	chine	OpenStreetMap/Nominatim (Chewton Bunny, Walkford / Highcliffe-on-Sea)
+151	dorset.txt	Fishermans Walk	resolved	50.7239642	-1.8181977	promenade	OpenStreetMap leisure=park “Fisherman’s Walk”, Southbourne / Pokesdown (list spelling without apostrophe)
+152	dorset.txt	Poole	resolved	50.7179472	-1.9815210	town	OpenStreetMap/Nominatim administrative boundary (Poole, BCP)
+153	dorset.txt	Poole Harbour	resolved	50.6991691	-1.9810698	harbour	OpenStreetMap/Nominatim (named harbour polygon)
+154	dorset.txt	Poole Quay	resolved	50.7121773	-1.9871049	quay	Centre of The Quay / Old Town frontage (OpenStreetMap nodes on The Quay)
+155	dorset.txt	Hamworthy	resolved	50.7178289	-2.0121650	suburb	OpenStreetMap/Nominatim (Hamworthy, Poole)
+156	dorset.txt	Parkstone	resolved	50.7230025	-1.9536976	suburb	Ashley Cross / Parkstone centre (OpenStreetMap highway node)
+157	dorset.txt	Brownsea Island	resolved	50.6917237	-1.9718675	island	OpenStreetMap/Nominatim (Brownsea Island)
+158	dorset.txt	Rockley Sands	resolved	50.7182133	-2.0407711	beach	Sandy foreshore at Rockley Point / Rockley Park (OpenStreetMap; local name “Rockley Sands”)
+159	dorset.txt	Lake Pier	resolved	50.7139377	-2.0248335	pier	OpenStreetMap “Lake Pier”, Lake, Hamworthy (mean of pier nodes)
+160	dorset.txt	Sandbanks Ferry	resolved	50.6801760	-1.9499468	ferry	OpenStreetMap highway node “Sandbanks Ferry”, Studland
+161	dorset.txt	Shell Bay Studland	resolved	50.6766807	-1.9516866	beach	Shell Bay car park / foreshore (OpenStreetMap; Studland)
+162	dorset.txt	Encombe	resolved	50.6067909	-2.0795352	estate	OpenStreetMap Encombe House, Kingston / Corfe area (Encombe coastal estate)
+163	dorset.txt	Swyre Head	resolved	50.6058000	-2.0944000	hill	Wikipedia coordinates; Purbeck Swyre Head (Kingston), not Lulworth coastal Swyre Head
+164	dorset.txt	Clavell Tower	resolved	50.6074289	-2.1297719	tower	OpenStreetMap Clavell Tower, Kimmeridge
+165	dorset.txt	Prince Albert Gardens	resolved	50.6070677	-1.9512037	memorial	OpenStreetMap Prince Albert Memorial, Durlston Country Park, Swanage (gardens setting)
+166	dorset.txt	Tommy's Hole	ambiguous			cave	No single mapped/Wikipedia feature as “Tommy’s Hole”; likely colloquial / local name near Portland Bill sea caves (cf. Cave Hole); not resolved separately from that cluster
+167	dorset.txt	Jerry's Point	resolved	50.6746798	-1.9614072	headland	OpenStreetMap Jerry’s Point, Studland (RSPB/nature reserve context)
+168	dorset.txt	Red Crane	resolved	50.5152000	-2.4531000	crane	Wikipedia coordinates; Red Crane scheduled monument on Portland Bill (principal Dorset “Red Crane”; list order follows Studland but feature is on Portland)
+169	dorset.txt	Freshwater Beach West Bay	resolved	50.7061032	-2.7363404	holiday_park	OpenStreetMap “Freshwater Beach Holiday Park”, Burton Bradstock (list label “West Bay”)
+170	dorset.txt	Symondsbury	resolved	50.7422598	-2.7875554	village	OpenStreetMap/Nominatim (Symondsbury)
+171	dorset.txt	Chideock	resolved	50.7324097	-2.8190687	village	OpenStreetMap/Nominatim (Chideock)
+172	dorset.txt	Charlestown	resolved	50.6120000	-2.4940000	suburb	Wikipedia coordinates; Charlestown, Chickerell / Weymouth (Fleet shore; list order not strictly east–west)
+173	dorset.txt	East Cliff West Bay	resolved	50.7117000	-2.7568000	cliff	Approximate east cliff top above East Beach / harbour approach, West Bay (Jurassic Coast; no single Nominatim object)
+174	dorset.txt	West Cliff West Bay	resolved	50.7139833	-2.7749593	cliff	OpenStreetMap locality “West Cliff”, Bothenhampton / West Bay (cliff-top settlement strip)
+175	dorset.txt	Portland Heights	resolved	50.5551036	-2.4421367	locality	OpenStreetMap “Portland Heights”, Portland (near Heights Hotel)
+176	dorset.txt	South Beach Weymouth	resolved	50.6105000	-2.4510000	beach	Informal south seafront sector toward Rodwell / Stone Pier (continuous bay; approximate promenade midpoint)
+177	dorset.txt	North Beach Weymouth	resolved	50.6205000	-2.4455000	beach	Informal north seafront toward Greenhill / Overcombe (continuous bay; approximate midpoint north of pavilion stretch)
+178	dorset.txt	East Cliff Bournemouth	resolved	50.7183763	-1.8648407	cliff	OpenStreetMap East Cliff Lift, East Overcliff Drive
+179	dorset.txt	West Cliff Bournemouth	resolved	50.7152158	-1.8848209	cliff	OpenStreetMap locality West Cliff, Bournemouth
+180	dorset.txt	Durley Chine Beach	resolved	50.7154000	-1.8903000	beach	Approximate beach mouth at Durley Chine (West Cliff); chine path mapped in OpenStreetMap above
+181	dorset.txt	Middle Chine	resolved	50.7146669	-1.8952141	chine	OpenStreetMap named chine path in West Cliff, Bournemouth
+182	dorset.txt	Flaghead Chine	resolved	50.6992886	-1.9258807	chine	OpenStreetMap Flaghead Chine Road / chine access, Canford Cliffs–Poole border
+183	dorset.txt	Shore Road Sandbanks	resolved	50.6960131	-1.9309414	road	OpenStreetMap Shore Road centre, Sandbanks–Canford Cliffs seafront
+184	dorset.txt	Branksome Beach	resolved	50.7063904	-1.9093840	beach	OpenStreetMap named beach off Branksome Chine Promenade
+185	dorset.txt	West Undercliff Bournemouth	resolved	50.7150986	-1.8813351	promenade	OpenStreetMap West Cliff Lift on West Undercliff Promenade
+186	dorset.txt	East Undercliff Bournemouth	resolved	50.7200612	-1.8417526	promenade	OpenStreetMap Boscombe Beach Office, Undercliff Drive (east undercliff promenade)
+187	dorset.txt	Hengistbury Warren	resolved	50.7191021	-1.7661561	nature_reserve	OpenStreetMap Hengistbury Head Visitor Centre / Hengistbury Head Local Nature Reserve
+188	dorset.txt	Double Dykes	resolved	50.7183488	-1.7650969	earthwork	OpenStreetMap named earthwork on Hengistbury Head
+189	dorset.txt	Wick Ferry	resolved	50.7298992	-1.7812707	ferry	OpenStreetMap Wick Ferry stop, Christchurch Harbour
+190	dorset.txt	Tuckton Tea Gardens	resolved	50.7294665	-1.7878282	attraction	OpenStreetMap amenity named Tuckton Tea Gardens, Tuckton
+191	dorset.txt	Mudeford Beach	resolved	50.7282544	-1.7348827	beach	OpenStreetMap Avon Beach seafront, Mudeford (main public beach)
+192	dorset.txt	Steamer Point	resolved	50.7366199	-1.7163909	woodland	OpenStreetMap Steamer Point Woodland, Highcliffe
+193	dorset.txt	Highcliffe Castle Beach	resolved	50.7380600	-1.6952580	beach	OpenStreetMap Highcliffe Beach by Waterford Road
+194	dorset.txt	Walkford	resolved	50.7493202	-1.6903097	village	OpenStreetMap/Nominatim place Walkford, Highcliffe and Walkford
+195	dorset.txt	Green Island Poole	resolved	50.6793258	-1.9927026	island	OpenStreetMap islet in Poole Harbour (admin area Corfe Castle parish)
+196	dorset.txt	Furzey Island	resolved	50.6831143	-1.9853397	island	OpenStreetMap Furzey Island, Poole Harbour
+197	dorset.txt	Round Island Poole	resolved	50.6870543	-2.0179401	island	OpenStreetMap Round Island, Poole Harbour
+198	dorset.txt	Pottery Pier	resolved	50.6921883	-1.9879133	pier	Geograph photo geotag SZ009 880; ferry pier on Brownsea Island, Poole Harbour
+199	dorset.txt	Baiter Park	resolved	50.7122089	-1.9739194	park	OpenStreetMap Baiter / Harbourside Park, Poole
+200	dorset.txt	Whitecliff Poole	resolved	50.7156702	-1.9544641	suburb	OpenStreetMap Whitecliff, Parkstone
+201	dorset.txt	Lilliput	resolved	50.7080846	-1.9451658	suburb	OpenStreetMap/Nominatim Lilliput, Poole
+202	dorset.txt	Salterns Marina	resolved	50.7050203	-1.9509840	marina	OpenStreetMap leisure=marina Salterns Marina, Lilliput
+203	dorset.txt	Parkstone Bay	resolved	50.7126702	-1.9644070	bay	OpenStreetMap Parkstone Bay, Poole Harbour
+204	dorset.txt	Holes Bay	resolved	50.7269859	-1.9987384	inlet	OpenStreetMap Holes Bay, Poole Harbour
+205	dorset.txt	Upton Lake	resolved	50.7244511	-2.0017332	lake	OpenStreetMap named water Upton Lake, Poole (Holes Bay margin)
+206	dorset.txt	Rockley Point	resolved	50.7182133	-2.0407711	point	OpenStreetMap Rockley Point, Turlin Moor
+207	dorset.txt	Evening Hill	resolved	50.7028999	-1.9424987	locality	OpenStreetMap Evening Hill, Sandbanks Road, Lilliput
+208	dorset.txt	Sandbanks Peninsula	resolved	50.6853597	-1.9461882	peninsula	OpenStreetMap/Nominatim Sandbanks settlement (spit)
+209	dorset.txt	Studland Ferry Landing	resolved	50.6801760	-1.9499468	ferry	OpenStreetMap Sandbanks Ferry terminal, Ferry Road, Studland
+210	dorset.txt	South Haven Studland	resolved	50.6781501	-1.9518272	headland	Streetmap/Geograph coords for South Haven Point (Poole Harbour entrance; Studland side)
+211	dorset.txt	North Haven Studland	resolved	50.6871430	-1.9518180	headland	Streetmap North Haven Point (Poole Harbour entrance; pairs with South Haven in coastal list)
+212	dorset.txt	Agglestone Rock	resolved	50.6451412	-1.9679811	rock	OpenStreetMap Agglestone Rock, Studland Heath
+213	dorset.txt	Godlingston Heath	resolved	50.6377978	-1.9918563	heath	OpenStreetMap named Godlingston Heath parcel; Studland/Godlingston Heath NNR context
+214	dorset.txt	Knoll House Beach	resolved	50.6494008	-1.9574491	beach	Private foreshore below Knoll House Hotel; centroid from OpenStreetMap hotel building
+215	dorset.txt	Old Harry Studland	resolved	50.6424193	-1.9233164	chalk_stacks	OpenStreetMap Old Harry Rocks
+216	dorset.txt	Harry Rocks	resolved	50.6424193	-1.9233164	chalk_stacks	OpenStreetMap search resolves to Old Harry Rocks (name variant for same stacks)
+217	dorset.txt	Swanage Old Pier	resolved	50.6076188	-1.9516524	pier	OpenStreetMap Swanage Pier (historic pier at Swanage)
+218	dorset.txt	Peveril Point Lighthouse	ambiguous			lighthouse	List name suggests a lighthouse; Peveril Point is headland with NCI/lifeboat—main lighthouse is Anvil Point nearby
+219	dorset.txt	Durlston Castle	resolved	50.5951161	-1.9527157	castle	OpenStreetMap Durlston Castle, Durlston Country Park
+220	dorset.txt	Tilly Whim	resolved	50.5922273	-1.9579374	cave	OpenStreetMap Tilly Whim Caves
+221	dorset.txt	Anvil Lighthouse	resolved	50.5919055	-1.9599699	lighthouse	OpenStreetMap Anvil Point Lighthouse
+222	dorset.txt	Winspit Quarry	resolved	50.5844372	-2.0339889	quarry	OpenStreetMap Winspit locality/quarry access, Worth Matravers
+223	dorset.txt	Seacombe Cliff	resolved	50.5901493	-2.0163531	cliff	OpenStreetMap Seacombe Cliff
+224	dorset.txt	Kimmeridge Slipway	resolved	50.6177547	-2.1298899	slipway	WGS84 from OS grid SY907791 (Kimmeridge Bay slipway car park area per visitor directions)
+225	dorset.txt	Tyneham Beach	resolved	50.6167000	-2.2000000	beach	Worbarrow Bay beach (Tyneham access); Wikipedia Worbarrow Bay location coordinates
+226	dorset.txt	Worbarrow	resolved	50.6178979	-2.1788887	hamlet	OpenStreetMap place Worbarrow
+227	dorset.txt	Lulworth Ranges Coast	resolved	50.6405060	-2.1656703	military	OpenStreetMap Lulworth Ranges boundary label (MoD coast training area)
+228	dorset.txt	Mupe Bay Beach	resolved	50.6176193	-2.2222378	bay	OpenStreetMap Mupe Bay
+229	dorset.txt	Bat's Head Cove	resolved	50.6225853	-2.2911557	headland	OpenStreetMap Bat’s Head (Purbeck coast headland/cove)
+230	dorset.txt	Durdle Door Beach	resolved	50.6222020	-2.2791393	natural_arch	OpenStreetMap Durdle Door (limestone arch and adjoining shingle beach)
+231	dorset.txt	Man O War Beach	resolved	50.6217793	-2.2743459	cove	OpenStreetMap Man O' War Cove
+232	dorset.txt	Stair Hole	resolved	50.6180947	-2.2527388	cove	OpenStreetMap Stair Hole, West Lulworth
+233	dorset.txt	Lulworth Crumple	resolved	50.6177392	-2.2515933	geology	OpenStreetMap named feature Lulworth Crumple
+234	dorset.txt	Ringstead Village	resolved	50.6318840	-2.3530022	village	OpenStreetMap place Ringstead, Osmington
+235	dorset.txt	Burning Cliff	resolved	50.6332016	-2.3410386	cliff	Wikipedia coordinates; Kimmeridge Clay cliff on SW Coast Path east of Ringstead Bay
+236	dorset.txt	Ringstead Bay Beach	resolved	50.6309000	-2.3378000	beach	Wikipedia Ringstead Bay coordinates (main shingle beach of the bay)
+237	dorset.txt	Osmington White Horse	resolved	50.6578700	-2.4044007	landmark	OpenStreetMap Osmington White Horse hillside figure
+238	dorset.txt	Poxwell	resolved	50.6564878	-2.3654608	village	OpenStreetMap village centroid (inland parish in coastal list sequence)
+239	dorset.txt	Ringstead Nudist Beach	resolved	50.6316000	-2.3362000	beach	Published coordinates for eastern naturist section of Ringstead Bay (approximate)
+240	dorset.txt	Bowleaze Pierway	resolved	50.6365754	-2.4208221	promenade	OpenStreetMap centroid near Fantasy Island on Bowleaze Cove Way; seafront pier/promenade strip
+241	dorset.txt	Lodmoor Country Park Beach	resolved	50.6268582	-2.4476085	beach	Lodmoor Country Park seafront sector; park relation centroid (OpenStreetMap); no separate named beach object
+242	dorset.txt	Greenhill Gardens Weymouth	resolved	50.6215378	-2.4474921	gardens	OpenStreetMap landuse recreation_ground Greenhill Gardens
+243	dorset.txt	Nothe Gardens	resolved	50.6061918	-2.4465895	park	OpenStreetMap leisure park Nothe Gardens
+244	dorset.txt	Castle Cove Weymouth	resolved	50.5966411	-2.4599595	beach	OpenStreetMap natural beach Castle Cove
+245	dorset.txt	Chesilton Portland	resolved	50.5620511	-2.4485498	village	Historic name for Chiswell (Wikipedia); OpenStreetMap Chiswell village centroid
+246	dorset.txt	Victoria Square Portland	resolved	50.5632779	-2.4496567	square	OpenStreetMap highway Victoria Square (Castletown roundabout)
+247	dorset.txt	Pennsylvania Castle	resolved	50.5388394	-2.4304668	attraction	OpenStreetMap Pennsylvania Castle
+248	dorset.txt	Church Ope	resolved	50.5390398	-2.4290879	historic	OpenStreetMap historic ruins St Andrew's Church; Church Ope coastal hollow
+249	dorset.txt	Mermaid Cove Portland	resolved	50.5381844	-2.4282793	cove	Folklore/local name tied to Church Ope; coordinates from mapped Church Ope Cove beach (OpenStreetMap)
+250	dorset.txt	Avalanche Memorial Portland	resolved	50.5305000	-2.4431000	church	Avalanche Memorial Church (St Andrew's) Southwell; Wikipedia coordinates
+251	dorset.txt	Portland Marina	resolved	50.5718635	-2.4506858	marina	OpenStreetMap leisure marina Portland Marina
+252	dorset.txt	Portland Harbour	resolved	50.5873800	-2.4463200	harbour	Wikipedia/GeoHack coordinates; large enclosed harbour (no usable Nominatim hit)
+253	dorset.txt	Castletown Beach	resolved	50.5677576	-2.4578828	beach	OpenStreetMap Portland Beach polygon centroid; shingle by Castletown/Portland Port
+254	dorset.txt	Chiswell Beach	resolved	50.5612000	-2.4495000	beach	Chesil Cove shingle seafront at Chiswell (approximate; continuous Portland Beach/Chesil front)
+255	dorset.txt	Smallmouth Beach	resolved	50.5842000	-2.4720000	beach	Chesil shingle at Smallmouth/Ferrybridge mouth of The Fleet (approximate shoreline)
+256	dorset.txt	Fleet Chesil	resolved	50.5852000	-2.4712000	inlet	The Fleet lagoon meeting Chesil shingle at Smallmouth (approximate mouth area)
+257	dorset.txt	Abbotsbury Fleet	resolved	50.6544597	-2.6011057	lagoon	Abbotsbury end of The Fleet; Abbotsbury Swannery node on lagoon (OpenStreetMap tourism attraction)
+258	dorset.txt	Rodden Hive	resolved	50.6437760	-2.5595780	shore	Dorset HER centred SY60538266; BNG-derived centroid on north shore of The Fleet near Langton Herring
+259	dorset.txt	Hive Burton Bradstock	resolved	50.6957082	-2.7213843	beach	OpenStreetMap natural beach Hive Beach (list short form)
+260	dorset.txt	Freshwater Beach Burton	resolved	50.7061032	-2.7363404	holiday_park	OpenStreetMap tourism camp_site Freshwater Beach Holiday Park
+261	dorset.txt	Cogden	resolved	50.6944581	-2.7058594	coastal_access	OpenStreetMap Cogden Beach parking/amenity; list label for Cogden shingle sector
+262	dorset.txt	West Bexington Beach	resolved	50.6788000	-2.6630000	beach	Shingle front below West Bexington (approximate; Beach Road access to shore)
+263	dorset.txt	Burton Freshwater	resolved	50.7033480	-2.7408800	river_mouth	Geograph subject location SY477895; River Bride mouth west of Burton Cliff (Burton Freshwater)
+264	dorset.txt	Eype Beach	resolved	50.7177080	-2.7843175	beach	OpenStreetMap Eype Beach Holiday Park area (mapped beach access)
+265	dorset.txt	Thorncombe	resolved	50.7199428	-2.8010405	headland	Coastal list context: Thorncombe Beacon peak (OpenStreetMap); not inland Thorncombe village
+266	dorset.txt	Charmouth Heritage Coast	resolved	50.7369968	-2.9065606	heritage_coast	Jurassic Coast heritage sector; representative pin at Charmouth (linear designation)
+267	dorset.txt	Lyme Regis Front Beach	resolved	50.7263500	-2.9289500	beach	Eastern town sand front toward Cobb/Church Cliff sector (approximate; Marine Parade frontage)
+268	dorset.txt	Lyme Regis Town Beach	resolved	50.7244619	-2.9333727	beach	OpenStreetMap Marine Parade pedestrian seafront (central town beach)
+269	dorset.txt	Monmouth Beach Lyme	resolved	50.7191496	-2.9437019	beach	OpenStreetMap natural beach Monmouth Beach
+270	dorset.txt	Church Cliff Beach Lyme	resolved	50.7251444	-2.9303721	beach	OpenStreetMap natural beach Church Cliff Beach
+271	dorset.txt	East Beach Lyme	resolved	50.7254239	-2.9302208	beach	OpenStreetMap information board “Lyme Regis East Beach RNLI” on east beach frontage
+272	dorset.txt	West Beach Charmouth	ambiguous			beach	Charmouth foreshore; OSM maps a single central beach info point—no separately named west sector
+273	dorset.txt	Stonebarrow Hill	resolved	50.7358009	-2.8773669	hill	OpenStreetMap highway-named “Stonebarrow Hill” node near Stonebarrow/Golden Cap coast
+274	dorset.txt	Golden Cap Estate	resolved	50.7242525	-2.8209735	holiday_park	OpenStreetMap tourism=caravan_site “Golden Cap Holiday Park” (Seatown/Chideock)
+275	dorset.txt	Seatown Chideock	resolved	50.7211751	-2.8204091	beach	OpenStreetMap Seatown Beach in Chideock parish
+276	dorset.txt	West Bay Rivermouth	ambiguous			estuary	River Brit meets sea at West Bay; no discrete OSM object for the mouth itself
+277	dorset.txt	Bridport West Bay	resolved	50.7113313	-2.7612890	suburb	OpenStreetMap place=suburb West Bay (Bridport harbour settlement)
+278	dorset.txt	Hive Burton	resolved	50.6957082	-2.7213843	beach	OpenStreetMap natural=beach Hive Beach (Burton Bradstock)
+279	dorset.txt	Chesil Beach Visitor Centre	resolved	50.5791330	-2.4698104	visitor_centre	OpenStreetMap tourism=information “Chesil Beach Visitor Centre”, Portland Beach Road
+280	dorset.txt	Wyke Smugglers Beach	not_found			beach	No plausible OSM/Nominatim match for this informal name in Wyke Regis/Chesil context
+281	dorset.txt	Nothe Parade	resolved	50.6073133	-2.4501603	promenade	OpenStreetMap highway “Nothe Parade”, Rodwell/Weymouth seafront approach
+282	dorset.txt	Preston Road Weymouth	resolved	50.6384703	-2.4324413	road	OpenStreetMap highway “Preston Road”, Preston/Overcombe (Weymouth)
+283	dorset.txt	Overcombe Corner	resolved	50.6354106	-2.4310797	suburb	OpenStreetMap place=suburb Overcombe (corner locality treated as settlement centroid)
+284	dorset.txt	Sandsfoot Gardens	resolved	50.5952312	-2.4607954	castle_gardens	OpenStreetMap historic=castle Sandsfoot Castle; coastal list label refers to its garden setting
+285	dorset.txt	Jerry's Point Weymouth	not_found			headland	Nominatim “Jerry’s Point” hits Studland, not Weymouth; no Weymouth/Portland match found
+286	dorset.txt	Redcliff Weymouth	ambiguous			cliff	“Redcliff” matches guest houses/streets; coastal red-cliff feature not pinned to one OSM object here
+287	dorset.txt	Osmington Bay Beach	resolved	50.6367186	-2.3758746	beach	OpenStreetMap place=hamlet Osmington Mills on Osmington Bay (nearest mapped coastal settlement to the bay)
+288	dorset.txt	Ringstead Road Beach	resolved	50.6410373	-2.3431612	beach	OpenStreetMap “Ringstead Bay” place node (Fishers Place access area)
+289	dorset.txt	White Nothe Path	resolved	50.6268523	-2.3182576	coastal_path	OpenStreetMap natural=cliff peak node “White Nothe” (Jurassic Coast path landmark)
+290	dorset.txt	Durdle Door Car Park Beach	resolved	50.6211900	-2.2769164	coastal_access	OpenStreetMap tourism=attraction “Durdle Door” (visitor cluster; list ties beach access to car-park approach)
+291	dorset.txt	Lulworth Visitor Centre Beach	resolved	50.6196889	-2.2524834	visitor_centre	OpenStreetMap tourism=information “Lulworth Visitor Centre”; beach immediately below on Lulworth frontage
+292	dorset.txt	Mupe Walk	resolved	50.6164117	-2.2259861	coastal_walk	OpenStreetMap natural=bare_rock “Mupe Rocks” (Mupe Bay walk focal point)
+293	dorset.txt	Worbarrow Walk	resolved	50.6178979	-2.1788887	coastal_walk	OpenStreetMap place=locality “Worbarrow” near Worbarrow Bay/Tyneham access walks
+294	dorset.txt	Kimmeridge Fossil Forest	resolved	50.6095314	-2.1338380	fossil_ledges	OpenStreetMap natural=bay “Kimmeridge Bay”; fossil-bearing ledges/foreshore at this bay (distinct from Lulworth Fossil Forest attraction)
+295	dorset.txt	Kimmeridge SSSI	resolved	50.6174386	-2.1204918	sssi	OpenStreetMap place=village Kimmeridge as landward representative for the large Kimmeridge-designation complex (distinct bay pin on line 294)
+296	dorset.txt	St Aldhelm's Head Coast	resolved	50.5784564	-2.0567125	headland	OpenStreetMap natural=cliff “St Aldhelm’s Head” (avoid conflating with nearby “St Alban’s Head” hit)
+297	dorset.txt	Winspit Cove	resolved	50.5844372	-2.0339889	cove	OpenStreetMap place name nodes for “Winspit” (disused quarry cove, Worth Matravers)
+298	dorset.txt	Acton Field	resolved	50.6060205	-2.0138908	campsite	OpenStreetMap tourism=camp_site “Acton Field Campsite”, Langton Matravers/Worth Matravers area
+299	dorset.txt	Swanage Town Beach	resolved	50.6186565	-1.9557025	beach	OpenStreetMap natural=beach “Swanage Beach”
+300	dorset.txt	Durlston Globe	resolved	50.5948779	-1.9520458	attraction	OpenStreetMap tourism=artwork “Great Globe”, Durlston Country Park
+301	dorset.txt	Peveril Down	resolved	50.6071700	-1.9448300	downland	Wikipedia/infobox Peveril Point; list names open downland of Peveril Point & the Downs LNR (Swanage), same headland complex
+302	dorset.txt	Studland Nature Reserve Beach	resolved	50.6497591	-1.9529569	beach	OpenStreetMap/Photon Knoll Beach, Studland (National Trust Studland Bay / NNR beach sector)
+303	dorset.txt	Shell Bay Ferry	resolved	50.6786504	-1.9505697	ferry	OpenStreetMap highway bus stop “Shell Bay Ferry”, Ferry Road, Studland
+304	dorset.txt	Sandbanks Chain Ferry	resolved	50.6836845	-1.9484719	ferry	OpenStreetMap Sandbanks Ferry terminal (chain ferry to Studland), Ferry Way, Sandbanks
+305	dorset.txt	Branksome Wood Beach	resolved	50.7062032	-1.9086685	beach	Informal list label; pinned to OpenStreetMap natural=beach “Branksome Chine Beach” on contiguous Westbourne/Poole frontage
+306	dorset.txt	Alum Chine Beach	resolved	50.7113920	-1.8943559	beach	OpenStreetMap natural=beach “Alum Chine Beach”, West Cliff, Bournemouth
+307	dorset.txt	Middle Chine Beach	resolved	50.7123000	-1.8921000	beach	Judged seafront at Middle Chine mouth; Middle Chine mapped as chine woodland/path (OpenStreetMap) with no separate beach polygon name
+308	dorset.txt	West Cliff Zig Zag Bournemouth	resolved	50.7115353	-1.8953364	footway	OpenStreetMap highway=footway “Argyll Zig Zag”, West Undercliff (West Cliff cliff descent; list wording)
+309	dorset.txt	Boscombe Spa	resolved	50.7189019	-1.8429968	pier_seafront	Historic “spa” seafront taken as Boscombe Pier environs; OpenStreetMap man_made=pier “Boscombe Pier”
+310	dorset.txt	Southbourne Grove Beach	resolved	50.7230000	-1.8090000	beach	Judged Southbourne Beach sector opposite Southbourne Grove (BH6); contiguous Southbourne Beach frontage (OpenStreetMap)
+311	dorset.txt	Hengistbury Head Beach	resolved	50.7111247	-1.7487909	beach	OpenStreetMap natural=cape “Hengistbury Head” node at headland toe (foreshore below headland)
+312	dorset.txt	Mudeford Spit	resolved	50.7264000	-1.7378000	shingle_spit	Judged mid Mudeford sand/shingle spit between Hengistbury Head and Mudeford Quay; no single OSM “Mudeford Spit” name
+313	dorset.txt	Avon Beach Mudeford	resolved	50.7282544	-1.7348827	beach	OpenStreetMap natural=beach “Avon Beach”, Mudeford
+314	dorset.txt	Highcliffe Castle Foreshore	resolved	50.7368000	-1.7080000	foreshore	Judged shingle foreshore below Highcliffe Castle cliffs (between castle and mapped Highcliffe Beach sector)
+315	dorset.txt	Stanpit Marsh	resolved	50.7274579	-1.7611768	marsh	OpenStreetMap place locality “Stanpit Marsh”, Christchurch Harbour
+316	dorset.txt	Christchurch Quay	resolved	50.7303508	-1.7750079	quay	OpenStreetMap amenity=ferry_terminal “Christchurch Quay”, Quay Road, Christchurch
+317	dorset.txt	Iford Meadows	resolved	50.7378444	-1.7990631	meadow	OpenStreetMap landuse meadow name cluster “Iford Meadows”, Iford
+318	dorset.txt	Tuckton Bridge Beach	resolved	50.7288000	-1.7899000	beach	Judged Avon-side beach at Tuckton Bridge; bridge from OpenStreetMap “Tuckton Bridge”
+319	dorset.txt	Wick Hams	resolved	50.7183850	-1.7622560	marsh	Wikimedia/Geograph depictions of Wick Hams reedbeds (Christchurch Harbour west shore); no OSM name hit
+320	dorset.txt	Chewton Bunny Beach	resolved	50.7405000	-1.6885000	beach	Judged shingle at Chewton Bunny chine mouth; seaward of OpenStreetMap “Chewton Bunny” (line 150)
+321	dorset.txt	Poole Park Lake	resolved	50.7178682	-1.9689836	lake	OpenStreetMap amenity “Poole Park Boating Lake”
+322	dorset.txt	Baiter Park Beach	resolved	50.7122089	-1.9739194	beach	Judged harbourside shingle at Baiter/Harbourside Park; OpenStreetMap park name “Baiter, Harbourside Park”
+323	dorset.txt	Whitecliff Recreation Ground	resolved	50.7153007	-1.9539383	recreation_ground	OpenStreetMap highway bus stop name “Whitecliff Recreation Ground”, Sandbanks Road, Parkstone
+324	dorset.txt	Parkstone Yacht Club	resolved	50.7119305	-1.9593370	yacht_club	OpenStreetMap club=sailing “Parkstone Yacht Club”, Pearce Avenue
+325	dorset.txt	Salterns Beach	resolved	50.7048000	-1.9495000	beach	Judged Salterns peninsula shingle front by Salterns Marina sector; no distinct OSM natural=beach name
+326	dorset.txt	Lilliput Pier	not_found			pier	No OpenStreetMap object named “Lilliput Pier”; only generic marina/jetty infrastructure in Lilliput
+327	dorset.txt	Evening Hill Viewpoint	resolved	50.7028999	-1.9424987	viewpoint	OpenStreetMap tourism=viewpoint “Evening Hill”, Sandbanks Road, Lilliput
+328	dorset.txt	Sandbanks East	resolved	50.6836845	-1.9484719	beach	Judged east Sandbanks sector toward Studland ferry; Sandbanks Ferry terminal (OpenStreetMap)
+329	dorset.txt	Sandbanks West	resolved	50.6945505	-1.9306446	beach	Judged west Sandbanks sector toward harbour entrance; Sandbanks Hotel centroid Banks Road (OpenStreetMap)
+330	dorset.txt	Canford Cliffs Chine	resolved	50.7025369	-1.9212780	park	OpenStreetMap leisure=park “Canford Cliffs Chine”, Poole
+331	dorset.txt	Branksome Dean	resolved	50.7105614	-1.9045032	chine	List spelling “Branksome Dean”; OpenStreetMap footway name “Branksome Dene Chine”, Branksome Park (local Dene/Dean)
+332	dorset.txt	Westbourne Beach	resolved	50.7145220	-1.8815515	beach	OpenStreetMap name “Bournemouth West Beach”, West Cliff
+333	dorset.txt	Bournemouth Central Beach	resolved	50.7158683	-1.8748905	beach	OpenStreetMap tourism=viewpoint “Bournemouth Beach”, Pier Approach (central pier seafront)
+334	dorset.txt	Boscombe Seafront	resolved	50.7189019	-1.8429968	seafront	Judged promenade at Boscombe Pier; OpenStreetMap man_made=pier “Boscombe Pier”
+335	dorset.txt	Southbourne Fishermans Walk	resolved	50.7239642	-1.8181977	promenade	OpenStreetMap highway “Fisherman’s Walk”, Pokesdown/Southbourne seafront
+336	dorset.txt	Double Dykes Path	resolved	50.7183488	-1.7650969	trail	OpenStreetMap context “Hengistbury Head, Double Dykes”, Wick
+337	dorset.txt	Hengistbury Long Groyne	resolved	50.7142000	-1.7518000	groyne	Judged offshore end of terminal Long Groyne SSE of headland tip (Wikipedia Hengistbury Head 50.71583°N 1.75389°W; structure ~150m seaward)
+338	dorset.txt	Mudeford Sandbank Beach	resolved	50.7415000	-1.7375000	beach	Judged NE Mudeford Spit sandbank / beach-hut shingle sector seaward of Mudeford Quay path (distinct from mid-spit label elsewhere in this file)
+339	dorset.txt	Friars Cliff Beach	resolved	50.7328000	-1.7312000	beach	Judged shingle front below Friars Cliff near Cliff Drive (~50.7335, -1.7294 OpenStreetMap)
+340	dorset.txt	Highcliffe Steamer Point	resolved	50.7366199	-1.7163909	woodland	OpenStreetMap leisure=nature_reserve name “Steamer Point Woodland”, Highcliffe
+341	dorset.txt	Christchurch Avon Mouth	resolved	50.7225000	-1.7385000	estuary_mouth	Judged main tidal entrance of Christchurch Harbour between Hengistbury Head and Mudeford Spit (informal “mouth” label)
+342	dorset.txt	Stanpit Creek	resolved	50.7305000	-1.7560000	tidal_creek	Judged Stanpit Marsh tidal channel system near Stanpit (OpenStreetMap suburb “Stanpit” ~50.7285, -1.7530)
+343	dorset.txt	Iford Bridge	resolved	50.7412927	-1.8064202	bridge	OpenStreetMap highway “Iford Bridge”, Iford
+344	dorset.txt	Wick Bournemouth	resolved	50.7270493	-1.7785483	suburb	OpenStreetMap place=suburb “Wick”, Bournemouth
+345	dorset.txt	Rockley Park Beach	resolved	50.7202000	-2.0288000	beach	Judged harbour-side beach by Rockley Park (OpenStreetMap “Rockley Park”, Hamworthy / Rockley Sands sector)
+346	dorset.txt	Lake Pier Hamworthy	resolved	50.7138000	-2.0249000	pier_beach	Wikipedia “Hamworthy Beach” coordinates (Lake Pier jetty); BCP “Lake Pier beach”, Lake Drive

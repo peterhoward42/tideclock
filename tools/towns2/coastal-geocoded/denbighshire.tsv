@@ -1,0 +1,112 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	denbighshire.txt	Gronant Beach	resolved	53.3388	-3.3667	beach	Sandy foreshore at Gronant; aligns with GeoHack Gronant / beach-guide grid SJ10138474 area
+2	denbighshire.txt	Gronant Dunes	resolved	53.3520	-3.3570	dunes	SSSI dune belt (Wikipedia centroid for Gronant Dunes and Talacre Warren)
+3	denbighshire.txt	Gronant Sand Dunes	resolved	53.3500	-3.3580	dunes	Same coastal dune system as row 2; representative point within active dunes
+4	denbighshire.txt	Gronant Warren	resolved	53.3450	-3.3620	dunes	The Warren dune ridge east of Gronant village toward Talacre
+5	denbighshire.txt	Gronant Local Nature Reserve	resolved	53.3410	-3.3640	nature_reserve	NRW/visitor-access dune LNR footprint adjoining Traeth Gronant
+6	denbighshire.txt	Barkby	resolved	53.3450	-3.3980	locality	Informal seafront locality name at Barkby Beach (not Leicestershire Barkby)
+7	denbighshire.txt	Barkby Beach	resolved	53.3456	-3.3975	beach	UK Beach Guide / British Beaches midpoint; LL19 7LG belt
+8	denbighshire.txt	Barkby Slipway	resolved	53.3453	-3.4010	slipway	Launch slip near Prestatyn Sailing Club / Beach Road East frontage
+9	denbighshire.txt	Barkby Dunes	resolved	53.3460	-3.3950	dunes	Dune backing immediately behind Barkby seafront
+10	denbighshire.txt	Prestatyn	resolved	53.3310	-3.4050	town	Wikipedia/GeoHack town centroid (community of Prestatyn)
+11	denbighshire.txt	Prestatyn Central Beach	resolved	53.3355	-3.4140	beach	Central sandy section west of Barkby; Nova/Central Beach belt
+12	denbighshire.txt	Central Beach Prestatyn	resolved	53.3353	-3.4135	beach	Same central beach feature as row 11; wording variant
+13	denbighshire.txt	Prestatyn Sands	resolved	53.3340	-3.4120	beach	General sandy foreshore naming along town front (tide app use)
+14	denbighshire.txt	Prestatyn Promenade	resolved	53.3335	-3.4180	promenade	~4-mile linked promenade; point on Central/Ffrith link near Bastion area
+15	denbighshire.txt	Prestatyn Dunes	resolved	53.3400	-3.3800	dunes	Dune belt linking Prestatyn seafront toward Gronant (Prestatyn Gutter belt)
+16	denbighshire.txt	Prestatyn Sailing Club	resolved	53.3452	-3.4007	harbour	Clubhouse at Barkby Beach; Geograph/Wikimedia camera coords
+17	denbighshire.txt	Prestatyn Beach	resolved	53.3380	-3.4080	beach	Main resort sand frontage (town beach naming; between central and Barkby)
+18	denbighshire.txt	Prestatyn Seafront	resolved	53.3360	-3.4100	seafront	Representative seafront pin along the built frontage
+19	denbighshire.txt	Prestatyn Gutter	resolved	53.3415	-3.3988	stream	Tidal/stream channel in dunes between dune blocks (Geograph SJ069836 belt)
+20	denbighshire.txt	Prestatyn Central	resolved	53.3310	-3.4050	urban	Town centre / High Street area (same centroid as row 10; inland commercial core)
+21	denbighshire.txt	Ffrith	resolved	53.3350	-3.4390	locality	West Prestatyn seafront neighbourhood name behind Ffrith Beach
+22	denbighshire.txt	Ffrith Beach	resolved	53.3354	-3.4410	beach	UK Beach Guide grid SJ04738326; latitude.to article coords
+23	denbighshire.txt	Ffrith Beach East	resolved	53.3355	-3.4350	beach	Eastern end of Ffrith foreshore toward Central Beach
+24	denbighshire.txt	Ffrith Beach West	resolved	53.3353	-3.4460	beach	Western end of Ffrith foreshore toward Sandy Lane
+25	denbighshire.txt	Ffrith Promenade	resolved	53.3398	-3.4365	promenade	Geograph SJ0483 promenade/cycleway at Ffrith beach
+26	denbighshire.txt	Nova Prestatyn	resolved	53.3419	-3.4135	attraction	Nova Centre leisure pool/complex; VisitWales third-party coords
+27	denbighshire.txt	Tower Gardens Prestatyn	resolved	53.3435	-3.4160	neighbourhood	Tower Gardens estate / bus corridor NW of town centre near Ffrith belt
+28	denbighshire.txt	Presthaven	resolved	53.3500	-3.3530	attraction	Presthaven Sands (Haven) holiday park, Gronant LL19 9TT belt
+29	denbighshire.txt	Gwaenysgor	resolved	53.3186	-3.3897	village	Wikipedia/GeoHack village centroid (hilltop above Prestatyn)
+30	denbighshire.txt	Meliden	resolved	53.3148	-3.4139	village	Wikipedia/GeoHack; village between Prestatyn and Dyserth
+31	denbighshire.txt	Marian Mill	resolved	53.2997	-3.3896	locality	Felin Fawr / Marian Mills (Cwm) belt; Mills Archive NGR SJ074879; Dyserth–Prestatyn corridor
+32	denbighshire.txt	Cymau	not_found				Principal Cymau (Flintshire) is inland with no coastal beach; no distinct coastal label found on this frontage
+33	denbighshire.txt	Traeth Gronant	resolved	53.3388	-3.3667	beach	Welsh beach name; same sandy foreshore feature as Gronant Beach
+34	denbighshire.txt	Traeth Prestatyn	resolved	53.3418	-3.4136	beach	Welsh; Prestatyn central sandy belt (Visit Wales / beach-guide area)
+35	denbighshire.txt	Traeth Ffrith	resolved	53.3354	-3.4410	beach	Welsh; Ffrith foreshore (UK Beach Guide belt)
+36	denbighshire.txt	Traeth Rhyl	resolved	53.3230	-3.4910	beach	Welsh; main Rhyl sandy frontage seaward of town centre
+37	denbighshire.txt	Prestatyn East	resolved	53.3390	-3.3950	neighbourhood	Eastern seafront / dune belt toward Gronant
+38	denbighshire.txt	Prestatyn West	resolved	53.3355	-3.4380	neighbourhood	Ffrith-side west Prestatyn
+39	denbighshire.txt	Rhyl	resolved	53.3210	-3.4800	town	Wikipedia/GeoHack community centroid (53.321°N 3.480°W)
+40	denbighshire.txt	Y Rhyl	resolved	53.3210	-3.4800	town	Welsh exonym for Rhyl; same settlement
+41	denbighshire.txt	Ty'n Rhyl	resolved	53.3220	-3.4780	locality	Historic croft/manor name in early documents for Rhyl area; pin near early core E of centre
+42	denbighshire.txt	Rhyll	resolved	53.3210	-3.4800	town	Common alternate spelling of Rhyl
+43	denbighshire.txt	Rhûl	resolved	53.3210	-3.4800	town	Diacritic spelling variant of Rhyl
+44	denbighshire.txt	Sunny Rhyl	resolved	53.3230	-3.4880	seafront	Informal resort branding; representative central seafront
+45	denbighshire.txt	Rhyl Beach	resolved	53.3240	-3.4900	beach	Main resort sand frontage (town beach belt)
+46	denbighshire.txt	Rhyl Central Beach	resolved	53.3245	-3.4905	beach	Central sandy section of Rhyl front
+47	denbighshire.txt	Central Beach Rhyl	resolved	53.3245	-3.4905	beach	Same feature as Rhyl Central Beach; wording variant
+48	denbighshire.txt	Rhyl Central	resolved	53.3210	-3.4800	urban	Town / High Street core (inland of beach; same centroid as town)
+49	denbighshire.txt	Rhyl East Beach	resolved	53.3260	-3.4860	beach	Eastern sand toward Splash Point / Old Golf Road belt
+50	denbighshire.txt	Rhyl West Beach	resolved	53.3185	-3.4980	beach	Western sand toward Kinmel Bay
+51	denbighshire.txt	Rhyl North Beach	resolved	53.3270	-3.4840	beach	Quieter eastern section toward Splash Point (north-facing foreshore)
+52	denbighshire.txt	Rhyl Promenade	resolved	53.3225	-3.4890	promenade	Representative midpoint along sea-wall / cycle promenade
+53	denbighshire.txt	Rhyl Harbour	resolved	53.3135	-3.5100	harbour	Foryd Harbour / Clwyd mouth; GeoHack crossing ~53.313°N 3.5105°W
+54	denbighshire.txt	Rhyl Seafront	resolved	53.3225	-3.4890	seafront	Generic built seafront pin along central frontage
+55	denbighshire.txt	Rhyl Foryd	resolved	53.3145	-3.5085	estuary	The Foryd estuary / mudflat mouth W of Rhyl (harbour approach belt)
+56	denbighshire.txt	Splash Point	resolved	53.3195	-3.4930	headland	UK Beach Guide OS SJ02038247; eastern Rhyl beach nose
+57	denbighshire.txt	Splash Point Rhyl	resolved	53.3195	-3.4930	beach	Same coastal feature as Splash Point
+58	denbighshire.txt	Rhyl Splash Point	resolved	53.3195	-3.4930	beach	Wording variant; same feature as Splash Point
+59	denbighshire.txt	Drift Park	resolved	53.3188	-3.5025	park	Seafront play park on West Promenade (Denbighshire / Love Rhyl)
+60	denbighshire.txt	East Parade Rhyl	resolved	53.3250	-3.4845	promenade	East Parade seafront frontage toward Splash Point
+61	denbighshire.txt	West Parade Rhyl	resolved	53.3192	-3.5018	promenade	West Parade (B5118) seafront / Marine Lake frontage belt
+62	denbighshire.txt	West End Rhyl	resolved	53.3170	-3.5045	neighbourhood	Western built-up end toward Kinmel Bay / Foryd approach
+63	denbighshire.txt	Rhyl East	resolved	53.3265	-3.4855	neighbourhood	Eastern seafront / Splash Point side of town
+64	denbighshire.txt	Rhyl South	resolved	53.3168	-3.4795	neighbourhood	Area south of town centre toward station / Vale Road belt
+65	denbighshire.txt	Rhyl South West	resolved	53.3165	-3.4935	neighbourhood	South-west quadrant toward West Beach / harbour approach
+66	denbighshire.txt	Rhyl West	resolved	53.3188	-3.4985	neighbourhood	West seafront sector (aligns with Rhyl West Beach belt)
+67	denbighshire.txt	Rhyl Trellewelyn	resolved	53.3225	-3.4765	neighbourhood	Trellewelyn Avenue / east Rhyl residential belt
+68	denbighshire.txt	Rhyl Ty Newydd	resolved	53.3195	-3.4775	neighbourhood	Ty Newydd area east of centre (historic farm name reuse)
+69	denbighshire.txt	Rhyl Bodfor	resolved	53.3248	-3.4810	neighbourhood	Bodfor Street / central-east retail-residential belt
+70	denbighshire.txt	Rhyl Brynhedydd	resolved	53.3180	-3.4710	neighbourhood	Brynhedydd estate area east of centre
+71	denbighshire.txt	Rhyl Cefndy	resolved	53.3138	-3.4735	neighbourhood	Cefndy Road / south-east Rhyl belt
+72	denbighshire.txt	Rhyl Derwen	resolved	53.3158	-3.4765	neighbourhood	Derwen estate / south-east Rhyl belt
+73	denbighshire.txt	Rhyl Pendyffryn	resolved	53.3125	-3.4790	neighbourhood	Pendyffryn / south Rhyl belt toward Morfa
+74	denbighshire.txt	Rhyl Plastirion	resolved	53.3275	-3.4785	neighbourhood	Plastirion Avenue / north-east Rhyl belt
+75	denbighshire.txt	Rhyl Trellewellyn	resolved	53.3225	-3.4765	neighbourhood	Alternate spelling; same locality belt as Rhyl Trellewelyn
+76	denbighshire.txt	Rhyl Tynewydd	resolved	53.3190	-3.4770	neighbourhood	Tynewydd area (spelling variant cluster east of centre)
+77	denbighshire.txt	Morfa Rhyl	resolved	53.3120	-3.5080	marsh	Wikipedia/GeoHack Morfa Rhyl; salt-marsh / estuary flats west of town
+78	denbighshire.txt	Rhyl Sands	resolved	53.3240	-3.4900	beach	Informal naming for main sandy foreshore (tide-app pin with Rhyl Beach belt)
+79	denbighshire.txt	Marine Lake Rhyl	resolved	53.3110	-3.5039	lake	GeoHack Rhyl Marine Lake; Wellington Road artificial boating lake
+80	denbighshire.txt	Rhyl Miniature Railway	resolved	53.3115	-3.5035	attraction	Steam line around Marine Lake (Denbighshire council site)
+81	denbighshire.txt	Rhyl Children's Village	resolved	53.3120	-3.5015	attraction	Historic seafront attraction site near Marine Lake (demolished; footprint pin)
+82	denbighshire.txt	Children's Village Rhyl	resolved	53.3120	-3.5015	attraction	Same former Children's Village footprint as row 81
+83	denbighshire.txt	Ocean Beach Rhyl	resolved	53.3130	-3.5005	attraction	Former funfair / amusements belt on west promenade near Marine Lake
+84	denbighshire.txt	Ocean Plaza Rhyl	resolved	53.3128	-3.5065	retail	Former Ocean Plaza / Marina Quay retail scheme; Wellington Road brownfield frontage
+85	denbighshire.txt	Marina Quay Rhyl	resolved	53.3128	-3.5065	retail	Marina Quay retail park (successor branding to Ocean Plaza); Wellington Road belt
+86	denbighshire.txt	SC2 Rhyl	resolved	53.3208	-3.4964	attraction	Wikipedia SC2 coords; West Parade leisure pool (replacement Sun Centre)
+87	denbighshire.txt	SeaQuarium Rhyl	resolved	53.3232	-3.4917	attraction	Geograph SJ0081 subject location; East Parade aquarium
+88	denbighshire.txt	Rhyl Sun Centre	resolved	53.3205	-3.4970	attraction	Historic indoor waterpark site (closed 2014); pin near West Parade/SC2 belt
+89	denbighshire.txt	New Pavilion Theatre Rhyl	resolved	53.3206	-3.4911	theatre	Wikipedia Rhyl Pavilion centroid; modern pavilion complex
+90	denbighshire.txt	Pavilion Theatre Rhyl	resolved	53.3206	-3.4911	theatre	Same Rhyl Pavilion theatre complex as row 89; wording variant
+91	denbighshire.txt	Rhyl Pavilion	resolved	53.3206	-3.4911	theatre	Modern Rhyl Pavilion theatre/leisure complex (same built feature as rows 89-90)
+92	denbighshire.txt	Sky Tower Rhyl	resolved	53.3212	-3.4958	tower	Geograph SJ00438152; former seafront observation tower site (East Parade belt)
+93	denbighshire.txt	Foryd Harbour Bridge	resolved	53.3130	-3.5105	bridge	GeoHack; Grade II A548 road bridge ("Blue Bridge") over River Clwyd at Foryd
+94	denbighshire.txt	Pont y Ddraig	resolved	53.3149	-3.5079	bridge	GeoHack / Wikipedia; pedestrian/cycle lift bridge across Foryd (downstream of Foryd road bridge)
+95	denbighshire.txt	Rhyl Clock Tower	resolved	53.3222	-3.4922	monument	Geograph SJ00708163; clock tower on town-centre roundabout (relocated from promenade)
+96	denbighshire.txt	Rhyl Town Hall	resolved	53.3198	-3.4915	town_hall	Wikipedia/GeoHack; Grade II Wellington Road municipal building
+97	denbighshire.txt	Morfa Rhuddlan	resolved	53.2861	-3.4708	marsh	Coflein Rhuddlan Marsh belt SH977078; coastal saltmarsh / historic Morfa Rhuddlan label E of Rhyl
+98	denbighshire.txt	River Clwyd Estuary	resolved	53.3070	-3.4900	estuary	Representative mid-estuary pin; tidal Clwyd between Rhyl and Kinmel Bay (broad feature)
+99	denbighshire.txt	Clwyd Estuary	resolved	53.3070	-3.4900	estuary	Same estuary feature as row 98; English wording variant
+100	denbighshire.txt	Afon Clwyd Mouth	resolved	53.3020	-3.5080	estuary	Seaward mouth / Foryd approach; representative pin W of Rhyl seafront
+101	denbighshire.txt	Wales Coast Path Rhyl	resolved	53.3225	-3.4890	trail	Representative promenade pin; National Trail seafront alignment through Rhyl
+102	denbighshire.txt	Wales Coast Path Prestatyn	resolved	53.3360	-3.4120	trail	Representative seafront pin; trail alignment through Prestatyn–Barkby frontage
+103	denbighshire.txt	Clwyd Coast Path Rhyl	resolved	53.3225	-3.4890	trail	Legacy regional name; same coastal corridor as Wales Coast Path through Rhyl
+104	denbighshire.txt	Clwyd Coast Path Prestatyn	resolved	53.3360	-3.4120	trail	Legacy regional name; same coastal corridor as Wales Coast Path through Prestatyn
+105	denbighshire.txt	Offa's Dyke Path Prestatyn	resolved	53.3375	-3.4080	trail	National Trail northern terminus sector; pin at Prestatyn seafront where route meets coast
+106	denbighshire.txt	North Wales Coast Path Rhyl	resolved	53.3225	-3.4890	trail	Marketing/branding variant; same seafront alignment as Wales Coast Path Rhyl
+107	denbighshire.txt	North Wales Coast Path Prestatyn	resolved	53.3360	-3.4120	trail	Marketing/branding variant; same seafront alignment as Wales Coast Path Prestatyn
+108	denbighshire.txt	Prestatyn harbour	resolved	53.3448	-3.4012	harbour	Small-craft slip/harbour pocket near Barkby Beach (adjacent sailing-club belt)
+109	denbighshire.txt	Rhyl pier	resolved	53.3236	-3.4921	pier	Wikipedia/GeoHack shore-end site; pier demolished 1973 (historic East Parade footprint)
+110	denbighshire.txt	Rhyl prom	resolved	53.3225	-3.4890	promenade	Generic seafront prom pin (East/West Parade belt)
+111	denbighshire.txt	Prestatyn prom	resolved	53.3335	-3.4180	promenade	Representative promenade pin (links Central/Ffrith frontage; aligns with row 14 belt)

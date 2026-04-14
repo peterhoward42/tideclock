@@ -1,0 +1,117 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	dumfries-and-galloway.txt	Gretna	resolved	54.9953097	-3.0669404	town	OpenStreetMap/Nominatim
+2	dumfries-and-galloway.txt	Gretna Green	resolved	55.0049436	-3.0627342	village	Used village node; station hit also returned
+3	dumfries-and-galloway.txt	Eastriggs	resolved	54.9845854	-3.1795787	village	OpenStreetMap/Nominatim
+4	dumfries-and-galloway.txt	Springfield	resolved	55.0042737	-3.0547048	village	DG16 village near Gretna; other Springfield farm/building hits elsewhere in D&G
+5	dumfries-and-galloway.txt	Annan	resolved	54.9873333	-3.2620207	town	OpenStreetMap/Nominatim
+6	dumfries-and-galloway.txt	Annan Harbour	not_found			unknown	No OpenStreetMap hit for named harbour feature
+7	dumfries-and-galloway.txt	Powfoot	resolved	54.9800522	-3.3295660	village	OpenStreetMap/Nominatim
+8	dumfries-and-galloway.txt	Cummertrees	resolved	54.9855413	-3.3465447	village	OpenStreetMap/Nominatim
+9	dumfries-and-galloway.txt	Dornock	resolved	54.9834942	-3.2021381	village	OpenStreetMap/Nominatim
+10	dumfries-and-galloway.txt	Clarencefield	resolved	55.0039248	-3.4223885	village	OpenStreetMap/Nominatim
+11	dumfries-and-galloway.txt	Brow Well	resolved	54.9937463	-3.4316212	attraction	OpenStreetMap historic attraction
+12	dumfries-and-galloway.txt	Caerlaverock	ambiguous			unknown	Nominatim: castle, moat, and NNR; no distinct settlement node for the name alone
+13	dumfries-and-galloway.txt	Caerlaverock Castle	resolved	54.9756512	-3.5241093	castle	OpenStreetMap/Nominatim
+14	dumfries-and-galloway.txt	Glencaple	resolved	55.0018708	-3.5690389	village	OpenStreetMap/Nominatim
+15	dumfries-and-galloway.txt	Carsethorn	resolved	54.9233255	-3.5743439	village	OpenStreetMap/Nominatim
+16	dumfries-and-galloway.txt	Carsethorn Beach	not_found			beach	No named beach feature in OpenStreetMap near Carsethorn
+17	dumfries-and-galloway.txt	Kirkbean	resolved	54.9168919	-3.5967291	hamlet	OpenStreetMap/Nominatim
+18	dumfries-and-galloway.txt	Southerness	resolved	54.8749945	-3.5977025	hamlet	OpenStreetMap/Nominatim
+19	dumfries-and-galloway.txt	Southerness Lighthouse	resolved	54.8728267	-3.5950075	lighthouse	OpenStreetMap/Nominatim
+20	dumfries-and-galloway.txt	Southerness Beach	resolved	54.8721528	-3.5981163	beach	OpenStreetMap leisure bathing_place labelled Southerness
+21	dumfries-and-galloway.txt	Mersehead	resolved	54.8887972	-3.6771584	attraction	RSPB Mersehead visitor centre (coastal reserve); farmyard name hit also exists
+22	dumfries-and-galloway.txt	Mersehead Beach	resolved	54.8787748	-3.7249735	beach	Mersehead Sands (OpenStreetMap)
+23	dumfries-and-galloway.txt	Rockcliffe	resolved	54.8656221	-3.7969849	village	OpenStreetMap/Nominatim
+24	dumfries-and-galloway.txt	Kippford	resolved	54.8798530	-3.8139775	village	OpenStreetMap/Nominatim
+25	dumfries-and-galloway.txt	Colvend	resolved	54.8732152	-3.7661536	village	OpenStreetMap/Nominatim
+26	dumfries-and-galloway.txt	Sandyhills	resolved	54.8808438	-3.7306608	village	OpenStreetMap/Nominatim
+27	dumfries-and-galloway.txt	Sandyhills Bay	ambiguous			bay	Only hit is Sandyhills Bay Caravan Park, not the open bay
+28	dumfries-and-galloway.txt	Port o' Warren	resolved	54.8638580	-3.7466383	hamlet	OpenStreetMap spells Portowarren
+29	dumfries-and-galloway.txt	Portling	resolved	54.8685684	-3.7437100	hamlet	OpenStreetMap/Nominatim
+30	dumfries-and-galloway.txt	Auchencairn	resolved	54.8433925	-3.8724500	village	Coastal DG7 village; other Auchencairn hamlets exist inland in D&G
+31	dumfries-and-galloway.txt	Auchencairn Bay	resolved	54.8390287	-3.8342036	bay	OpenStreetMap/Nominatim
+32	dumfries-and-galloway.txt	Balcary Point	resolved	54.8246599	-3.8264017	headland	OpenStreetMap/Nominatim
+33	dumfries-and-galloway.txt	Balcary Bay	resolved	54.8296041	-3.8323670	bay	OpenStreetMap/Nominatim
+34	dumfries-and-galloway.txt	Rascarrel Bay	resolved	54.8124698	-3.8576441	bay	OpenStreetMap/Nominatim
+35	dumfries-and-galloway.txt	Orchardton	resolved	54.8781049	-3.8466531	hamlet	OpenStreetMap Old Orchardton; distinct admin locality Orchardton exists W of Dalbeattie
+36	dumfries-and-galloway.txt	Orchardton Tower	resolved	54.8768366	-3.8453263	attraction	OpenStreetMap/Nominatim
+37	dumfries-and-galloway.txt	Hestan Island	resolved	54.8361532	-3.8107633	island	OpenStreetMap/Nominatim
+38	dumfries-and-galloway.txt	Rough Island	resolved	54.8602639	-3.8025686	island	OpenStreetMap/Nominatim
+39	dumfries-and-galloway.txt	Rough Firth	resolved	54.8698197	-3.8094508	firth	OpenStreetMap/Nominatim (Rough Firth near Kippford)
+40	dumfries-and-galloway.txt	Gatehouse of Fleet	resolved	54.8828245	-4.1824606	town	OpenStreetMap/Nominatim
+41	dumfries-and-galloway.txt	Sandgreen	resolved	54.8453163	-4.2187167	village	OpenStreetMap/Nominatim
+42	dumfries-and-galloway.txt	Mossyard	resolved	54.8405845	-4.2579869	village	OpenStreetMap/Nominatim
+43	dumfries-and-galloway.txt	Mossyard Bay	not_found			bay	No named bay feature in OpenStreetMap near Mossyard
+44	dumfries-and-galloway.txt	Auchenlarie	ambiguous			unknown	Only Auchenlarie Burn and High Auchenlarie in OSM; no single coastal label match
+45	dumfries-and-galloway.txt	Cardoness	resolved	54.8723882	-4.1981606	castle	Cardoness Castle (OpenStreetMap); settlement name often tied to castle here
+46	dumfries-and-galloway.txt	Carrick Shore	resolved	54.8297707	-4.2178820	bay	Pinned to Carrick Bay (OpenStreetMap); shore of that bay
+47	dumfries-and-galloway.txt	Skyreburn	resolved	54.8647958	-4.2269283	hamlet	OpenStreetMap/Nominatim
+48	dumfries-and-galloway.txt	Knockbrex	resolved	54.8224950	-4.2030627	village	OpenStreetMap/Nominatim
+49	dumfries-and-galloway.txt	Borgue	resolved	54.8123394	-4.1326508	village	OpenStreetMap/Nominatim
+50	dumfries-and-galloway.txt	Brighouse Bay	resolved	54.7850617	-4.1236865	bay	OpenStreetMap/Nominatim
+51	dumfries-and-galloway.txt	Ross Bay	resolved	54.7784706	-4.0987349	bay	OpenStreetMap/Nominatim
+52	dumfries-and-galloway.txt	Dhoon	resolved	54.8144234	-4.0909025	bay	OpenStreetMap hit is Dhoon Bay near Borgue; no separate Dhoon place node
+53	dumfries-and-galloway.txt	Kirkcudbright	resolved	54.8352482	-4.0543927	town	OpenStreetMap/Nominatim
+54	dumfries-and-galloway.txt	Kirkcudbright Harbour	resolved	54.8373119	-4.0505314	harbour	Harbour Square way node at harbour front (OpenStreetMap)
+55	dumfries-and-galloway.txt	Kirkcudbright Bay	resolved	54.7758681	-4.0734424	bay	OpenStreetMap/Nominatim
+56	dumfries-and-galloway.txt	Torrs Point	resolved	54.7814314	-4.0650700	headland	OpenStreetMap/Nominatim
+57	dumfries-and-galloway.txt	St Mary Isle	resolved	54.8194324	-4.0656121	island	OpenStreetMap as Innis Dè (St Mary Isle), Kirkcudbright
+58	dumfries-and-galloway.txt	Dundrennan	resolved	54.8083087	-3.9475761	village	OpenStreetMap/Nominatim
+59	dumfries-and-galloway.txt	Dundrennan Abbey	resolved	54.8068742	-3.9479521	abbey	OpenStreetMap/Nominatim
+60	dumfries-and-galloway.txt	Parton	resolved	55.0081545	-4.0418836	village	OpenStreetMap/Nominatim; inland hamlet on Loch Ken (not coastal but sole D&G Parton in OSM)
+61	dumfries-and-galloway.txt	Creetown	resolved	54.9014789	-4.3791870	town	OpenStreetMap/Nominatim
+62	dumfries-and-galloway.txt	Creetown Harbour	resolved	54.8991691	-4.3803355	harbour	Harbour Street area; no separate harbour polygon in OSM
+63	dumfries-and-galloway.txt	Barholm	resolved	54.8497466	-4.3054419	hamlet	OSM landuse named Barholm, DG7 (coastal hamlet near Kirkcudbright)
+64	dumfries-and-galloway.txt	Wigtown	resolved	54.8687022	-4.4415694	town	OpenStreetMap/Nominatim
+65	dumfries-and-galloway.txt	Wigtown Bay	resolved	54.8556852	-4.3802905	bay	OpenStreetMap/Nominatim
+66	dumfries-and-galloway.txt	Bladnoch	resolved	54.8583303	-4.4608441	hamlet	OpenStreetMap/Nominatim
+67	dumfries-and-galloway.txt	Palnackie	resolved	54.8921701	-3.8404925	village	OpenStreetMap/Nominatim
+68	dumfries-and-galloway.txt	Garlieston	resolved	54.7896284	-4.3690917	village	OpenStreetMap/Nominatim
+69	dumfries-and-galloway.txt	Garlieston Harbour	resolved	54.7914333	-4.3620782	harbour	Pinned to Garlieston Bay (OSM natural=bay); harbour lies on this inlet
+70	dumfries-and-galloway.txt	Isle of Whithorn	resolved	54.7007757	-4.3633686	village	OpenStreetMap place node at Isle of Whithorn
+71	dumfries-and-galloway.txt	Whithorn	resolved	54.7336860	-4.4135000	village	OpenStreetMap/Nominatim
+72	dumfries-and-galloway.txt	Monreith	resolved	54.7372224	-4.5484106	village	OpenStreetMap/Nominatim
+73	dumfries-and-galloway.txt	Monreith Beach	not_found			beach	No named beach feature in OpenStreetMap near Monreith
+74	dumfries-and-galloway.txt	Port William	resolved	54.7594086	-4.5835314	village	OpenStreetMap/Nominatim
+75	dumfries-and-galloway.txt	Cruggleton Bay	ambiguous			bay	No OSM object named Cruggleton Bay; indented coast near Cruggleton Castle
+76	dumfries-and-galloway.txt	Cruggleton Castle	resolved	54.7573907	-4.3568789	castle	OpenStreetMap/Nominatim (building=ruins)
+77	dumfries-and-galloway.txt	Port Logan	resolved	54.7234041	-4.9546277	village	OpenStreetMap/Nominatim
+78	dumfries-and-galloway.txt	Ardwell	resolved	54.7695912	-4.9408861	village	OpenStreetMap/Nominatim
+79	dumfries-and-galloway.txt	Sandhead	resolved	54.8092386	-4.9626843	village	OpenStreetMap/Nominatim
+80	dumfries-and-galloway.txt	Stoneykirk	resolved	54.8364366	-4.9795133	village	OpenStreetMap/Nominatim
+81	dumfries-and-galloway.txt	Luce Bay	resolved	54.7534315	-4.7542220	bay	OpenStreetMap/Nominatim
+82	dumfries-and-galloway.txt	Drummore	resolved	54.6903884	-4.8928631	village	OpenStreetMap/Nominatim
+83	dumfries-and-galloway.txt	Mull of Galloway	resolved	54.6362337	-4.8613092	cape	OpenStreetMap/Nominatim
+84	dumfries-and-galloway.txt	Mull of Galloway Lighthouse	resolved	54.6349608	-4.8571391	lighthouse	OpenStreetMap/Nominatim
+85	dumfries-and-galloway.txt	West Cairngaan	resolved	54.6474566	-4.9021703	farm	OSM place=farm named West Cairngaan; coastal Rhins locality
+86	dumfries-and-galloway.txt	Clachanmore	resolved	54.7787153	-4.9813438	hamlet	OSM landuse=residential named Clachanmore, DG9
+87	dumfries-and-galloway.txt	Stranraer	resolved	54.9044332	-5.0262040	town	OpenStreetMap/Nominatim
+88	dumfries-and-galloway.txt	Stranraer Harbour	resolved	54.9085437	-5.0288157	harbour	OSM waterway=dock West Pier; avoids railway station named Stranraer Harbour
+89	dumfries-and-galloway.txt	Loch Ryan	resolved	54.9698645	-5.0446820	bay	OpenStreetMap natural=bay Loch Ryan
+90	dumfries-and-galloway.txt	Cairnryan	resolved	54.9738045	-5.0250851	village	OpenStreetMap/Nominatim
+91	dumfries-and-galloway.txt	Innermessan	resolved	54.9275414	-4.9870624	hamlet	OpenStreetMap highway=bus_stop at Innermessan on A77 (nearest named feature)
+92	dumfries-and-galloway.txt	Lochans	resolved	54.8676393	-5.0130384	village	OpenStreetMap/Nominatim
+93	dumfries-and-galloway.txt	Leswalt	resolved	54.9305694	-5.0946610	village	OpenStreetMap/Nominatim
+94	dumfries-and-galloway.txt	Kirkcolm	resolved	54.9731454	-5.0810195	village	OpenStreetMap/Nominatim
+95	dumfries-and-galloway.txt	Portpatrick	resolved	54.8418486	-5.1168367	village	OpenStreetMap/Nominatim
+96	dumfries-and-galloway.txt	Portpatrick Harbour	resolved	54.8424326	-5.1192967	harbour	OpenStreetMap leisure=marina labelled Portpatrick Harbour
+97	dumfries-and-galloway.txt	Killantringan	resolved	54.8673808	-5.1308664	hamlet	OpenStreetMap/Nominatim (hamlet node)
+98	dumfries-and-galloway.txt	Killantringan Lighthouse	resolved	54.8619118	-5.1468748	lighthouse	OpenStreetMap/Nominatim
+99	dumfries-and-galloway.txt	Dunskey Castle	resolved	54.8354820	-5.1097625	castle	OpenStreetMap historic=ruins Dunskey Castle
+100	dumfries-and-galloway.txt	Sandeel Bay	resolved	54.8520017	-5.1179997	beach	Port Mora cove N of Portpatrick; WGS84 from BNG point near published OS grid (beach guides)
+101	dumfries-and-galloway.txt	Powillimount	resolved	54.8953240	-3.5735360	beach	Powillimount/Powillimont coastal car park crag area (outdooractive OS grid NX9918056755); Nominatim farm hit is wrong coast
+102	dumfries-and-galloway.txt	Douglas Hall	resolved	54.8769655	-3.7322674	farmstead	Canmore NX 88951 54953; coastal farmstead near Rockcliffe (not Castle Douglas town hall)
+103	dumfries-and-galloway.txt	Arbigland	resolved	54.9013488	-3.5759515	hamlet	OpenStreetMap/Nominatim
+104	dumfries-and-galloway.txt	Carsluith	resolved	54.8594757	-4.3466564	hamlet	Pinned to Carsluith Castle (OpenStreetMap); hamlet at castle
+105	dumfries-and-galloway.txt	Burrow Head	resolved	54.6776002	-4.3931439	cape	OpenStreetMap natural=cape Burrow Heid spelling
+106	dumfries-and-galloway.txt	Little Ross	resolved	54.7659726	-4.0855572	island	OpenStreetMap/Nominatim
+107	dumfries-and-galloway.txt	Murray's Isles	resolved	54.8000000	-4.2170000	island	Wikipedia Islands of Fleet / Murray Isles centroid; Nominatim noisy for this name
+108	dumfries-and-galloway.txt	Barlocco Bay	resolved	54.8019200	-3.8796000	bay	GeoHack waterbody coords (List of bays of Scotland)
+109	dumfries-and-galloway.txt	Stair Haven	resolved	54.8428579	-4.7906148	historic	OpenStreetMap historic=archaeological_site Stair Haven Broch at Stairhaven
+110	dumfries-and-galloway.txt	St Ninian's Cave	resolved	54.6938200	-4.4492700	cave	Scottish Cave & Mine Registry / Canmore NX 42242 35953
+111	dumfries-and-galloway.txt	Bengairn	resolved	54.8702381	-3.9173783	peak	OpenStreetMap/Nominatim
+112	dumfries-and-galloway.txt	Dunragit	resolved	54.8780965	-4.8846786	village	OpenStreetMap/Nominatim
+113	dumfries-and-galloway.txt	Genoch	resolved	54.8685427	-4.9053834	farm	OpenStreetMap landuse=farmyard Genoch Mains
+114	dumfries-and-galloway.txt	Meikle Ross	resolved	54.7705700	-4.0998100	headland	Canmore Meikle Ross Cairn NX 65017 43761 (summit of Meikle Ross headland)
+115	dumfries-and-galloway.txt	Almorness	resolved	54.8638562	-3.8316948	farm	OpenStreetMap landuse=farmyard Almorness near Auchencairn coast
+116	dumfries-and-galloway.txt	East Stoneykirk	ambiguous			unknown	No gazetteer object with this exact name; likely informal east-parish locality - avoid pinning to main Stoneykirk village alone

@@ -1,0 +1,139 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	waterford.txt	Creadan Head	resolved	52.18175	-6.95237	headland	eOceanic haven position N of point; alt. spell. Creaden.
+2	waterford.txt	Kilfarrasy Strand	resolved	52.134844	-7.233568	beach	Wikimedia/Geograph camera location; Copper Coast W of Tramore.
+3	waterford.txt	Kilfarrasy Beach	resolved	52.134756	-7.234008	beach	Wikimedia depicted-place coords; same bay as strand.
+4	waterford.txt	Annestown	resolved	52.141388	-7.277061	village	Wikipedia centroid; Copper Coast village.
+5	waterford.txt	Annestown Beach	resolved	52.139297	-7.272949	beach	Published GPS near strand; cove W of village centre.
+6	waterford.txt	Annestown Bay	resolved	52.1405	-7.2745	bay	Approx. open bay in front of village/beach.
+7	waterford.txt	Boatstrand	resolved	52.137	-7.307	village	Wikipedia; Trá na mBád; Dunabrattin area.
+8	waterford.txt	Boatstrand Harbour	resolved	52.13745	-7.30237	harbour	eOceanic haven at N pier head (Dunabrattin).
+9	waterford.txt	Trá na mBó	resolved	52.144683	-7.364339	beach	Copper Coast Geopark map centre; W of Bunmahon headland.
+10	waterford.txt	Tra na mBó	resolved	52.144683	-7.364339	beach	ASCII spelling; same feature as line 9.
+11	waterford.txt	Ballyquin	resolved	51.986	-7.654	locality	Approx. Ballyquin near Ardmore (Discover Ireland ~4 km NE; no OSM hit).
+12	waterford.txt	Ballyquin Strand	resolved	51.9865	-7.6535	beach	Same bay feature as Ballyquin; slight offset along strand.
+13	waterford.txt	Benvoy	resolved	52.1456	-7.2925	locality	Townlands.ie centroid; An Bhinn Bhuí E of Annestown.
+14	waterford.txt	Benvoy Beach	resolved	52.1456	-7.2925	beach	Sandy beach at Benvoy townland; coords from townland centre.
+15	waterford.txt	Ballydowane	resolved	52.1315	-7.4055	locality	Coastal townland near cove; approx. inland of beach.
+16	waterford.txt	Ballydowane Cove	resolved	52.1315369	-7.4059038	cove	OSM natural=beach “Ballydowane Cove”.
+17	waterford.txt	Ballydowane Stack	resolved	52.1309	-7.4063	sea_stack	Approx. offshore stacks at Ballydowane bay mouth.
+18	waterford.txt	Knockmahon	resolved	52.144683	-7.364339	locality	Geosite area centroid (Knockmahon / Bunmahon head).
+19	waterford.txt	Knockmahon Strand	resolved	52.140278	-7.3625	beach	Ogham stones site coords on Knockmahon strand (Megalithic Ireland).
+20	waterford.txt	Stage Cove	resolved	52.137795	-7.353217	cove	OSM “Stage Cove”; Knockmahon geosite slip area.
+21	waterford.txt	Bunmahon	resolved	52.140	-7.372	village	Wikipedia; Bun Machan; mouth of River Mahon.
+22	waterford.txt	Bonmahon	resolved	52.140	-7.372	village	Common English spelling; same settlement as Bunmahon.
+23	waterford.txt	Bunmahon Beach	resolved	52.1382955	-7.3697847	beach	OSM “Bunmahon Strand” beach polygon centroid.
+24	waterford.txt	Bunmahon Strand	resolved	52.1382955	-7.3697847	beach	Same OSM feature as main village beach.
+25	waterford.txt	Copper Coast Bunmahon	resolved	52.140	-7.372	attraction	Interpreted as Bunmahon hub of Copper Coast Geopark; village centroid.
+26	waterford.txt	Tankardstown Cove	resolved	52.1369	-7.328	cove	Approx. coastal inlet below Tankardstown mine (Geograph WGS84 nearby).
+27	waterford.txt	Stradbally	resolved	52.1307807	-7.4616828	village	OSM village relation; inland of cove.
+28	waterford.txt	Stradbally Cove	resolved	52.118333	-7.460983	cove	eOceanic haven mid-cove (Cuas na Straidbhaile).
+29	waterford.txt	Stradbally Beach	resolved	52.118333	-7.460983	beach	Sandy shore inside Stradbally Cove; same centroid as cove haven.
+30	waterford.txt	Fenor	resolved	52.161596	-7.226124	village	Wikipedia; Fionnúir; R675 Copper Coast.
+31	waterford.txt	Fenor Coast	resolved	52.1595	-7.228	coast	Coastal strip S of Fenor village toward shoreline; R675 Copper Coast.
+32	waterford.txt	Ballyvoyle Cove	resolved	52.1153	-7.5053	cove	Townlands.ie Ballyvoyle centroid; cove on this townland’s Copper Coast frontage W of Stradbally.
+33	waterford.txt	Ballynacourty	resolved	52.0853828	-7.5592307	locality	Nominatim “Ballynacourty, Ballinacourty, Clonea” (Dungarvan–Lismore MD).
+34	waterford.txt	Ballynacourty Point	resolved	52.07978	-7.55897	headland	OSM node near Irish Lights Ballinacourty Point lighthouse position.
+35	waterford.txt	Tramore	resolved	52.158333	-7.152222	town	Wikipedia centroid; Trá Mhór seaside town.
+36	waterford.txt	Tramore Beach	resolved	52.152397	-7.112763	beach	OSM “Tramore Strand” beach polygon.
+37	waterford.txt	Tramore Strand	resolved	52.152397	-7.112763	beach	Same OSM beach feature as main strand.
+38	waterford.txt	Tramore Bay	resolved	52.1478204	-7.1320933	bay	OSM natural=bay “Tramore Bay” (County Waterford).
+39	waterford.txt	Tramore Promenade	resolved	52.1593219	-7.1437159	promenade	OSM highway=pedestrian “The Promenade”.
+40	waterford.txt	Tramore Back Strand	resolved	52.154	-7.118	beach	Behind-dune lagoon/back-strand W of main beach; approx. from local beach geography (no single OSM POI).
+41	waterford.txt	Saleens	resolved	52.1531612	-7.0828045	lagoon	Nominatim “Saleens” Rathmoylan ED; tidal lagoon (“the river”) E of Tramore Bay.
+42	waterford.txt	Saleens Beach	resolved	52.1531612	-7.0828045	beach	Same Saleens lagoon/foreshore feature as line 41.
+43	waterford.txt	Newton Cove	resolved	52.1432044	-7.1664735	cove	Treated as spelling variant of Newtown Cove; Nominatim “Newtown Cove”.
+44	waterford.txt	Newtown Cove	resolved	52.1432044	-7.1664735	cove	Nominatim “Newtown Cove, Islandikane”.
+45	waterford.txt	Brownstown Head	resolved	52.1275261	-7.1084747	headland	Nominatim “Brownstown Head, The Estuary, Tramore”.
+46	waterford.txt	Ladies Slip	resolved	52.1562	-7.1325	beach	Historic changing/swim frontage on Tramore main beach (“Ladies’ Slip”); approx. E-central strand (no OSM POI).
+47	waterford.txt	Raford	not_found				No coastal Waterford gazetteer/OSM hit; only distant “Raford” townlands elsewhere—likely typo or hyper-local label.
+48	waterford.txt	Ballymacaw	resolved	52.1474517	-7.0438925	locality	Nominatim townland centroid; cove hamlet W of Dunmore East.
+49	waterford.txt	Ballymacaw Bay	resolved	52.1435	-7.048	bay	Approx. open water of small bay W of Dunmore; between townland centroid and OSM Ballymacaw Cove beach.
+50	waterford.txt	Woodstown	resolved	52.1970905	-6.9782948	locality	OSM “Woodstown Strand” linear/placename; sandy harbour shore W of Dunmore East (not the inland Viking site).
+51	waterford.txt	Woodstown Bay	resolved	52.1985	-6.985	bay	Approx. harbour inlet offshore of Woodstown Strand along Waterford Harbour.
+52	waterford.txt	Woodstown Pier	resolved	52.1971	-6.9783	pier	Approx. small pier/slip at Woodstown Strand access (no dedicated OSM hit).
+53	waterford.txt	Faithlegg	resolved	52.2577682	-7.0243886	locality	Faithlegg House hotel centroid; nearest strong OSM anchor to scattered Faithlegg settlement.
+54	waterford.txt	Faithlegg Quay	resolved	52.2393689	-6.9725063	quay	OSM “The Quay”, Faithlegg (riverside landings).
+55	waterford.txt	Cheekpoint	resolved	52.2689939	-6.9958602	village	Nominatim Cheekpoint village (Suir estuary).
+56	waterford.txt	Cheekpoint Pier	resolved	52.2686	-6.9945	pier	Approx. village waterfront landing; no single OSM pier name.
+57	waterford.txt	Passage East	resolved	52.239197	-6.9730341	village	Nominatim Passage East (Waterford Harbour).
+58	waterford.txt	Passage East Ferry	resolved	52.2394	-6.9725	ferry	Approx. Passage East–Ballyhack ferry berth near village quays (no Nominatim hit).
+59	waterford.txt	Crooke	resolved	52.22886	-6.9740951	village	Nominatim Crooke (King’s Channel shore).
+60	waterford.txt	Crooke Point	resolved	52.2325	-6.9685	headland	Approx. tip of Crooke toward King’s Channel / Passage East (no OSM “Crooke Point”).
+61	waterford.txt	Copper Coast Drive	resolved	52.142	-7.27	scenic_route	Representative point on R675 Copper Coast scenic corridor E of Annestown.
+62	waterford.txt	Copper Coast Road	resolved	52.133	-7.395	scenic_route	Mid-geopark coastal road between Ballydowane and Stradbally.
+63	waterford.txt	R675 Copper Coast	resolved	52.1505	-7.195	road	Coastal R675 cliff section between Tramore and Fenor.
+64	waterford.txt	Copper Coast UNESCO Geopark	resolved	52.142278	-7.365139	geopark	Wikidata Copper Coast Geopark coordinate.
+65	waterford.txt	UNESCO Copper Coast	resolved	52.138611	-7.342222	geopark	GGN infosheet centre; same designated area as line 64.
+66	waterford.txt	Dunmore East	resolved	52.155	-6.996	town	Wikipedia / GeoHack village centroid.
+67	waterford.txt	Dunmore	resolved	52.155	-6.996	town	Local shorthand here for Dunmore East (county coastal list).
+68	waterford.txt	Dunmore East Harbour	resolved	52.1473068	-6.9910983	harbour	OSM Dunmore East Fishery Harbour Centre landuse.
+69	waterford.txt	Dunmore Harbour	resolved	52.1473068	-6.9910983	harbour	Same fisheries harbour basin as line 68.
+70	waterford.txt	Dunmore East Pier	resolved	52.1489167	-6.98895	pier	Irish Lights published light position on harbour pier head.
+71	waterford.txt	Dunmore Pier	resolved	52.1489167	-6.98895	pier	Same pier head / lighthouse as line 70.
+72	waterford.txt	Lawlor's Beach	resolved	52.1552056	-6.9943633	beach	OSM Strand Inn node; central village cove (Lawlor’s / Dunmore Strand).
+73	waterford.txt	Lawlors Beach	resolved	52.1552056	-6.9943633	beach	Spelling variant; same cove as line 72.
+74	waterford.txt	Councillor's Strand	resolved	52.1562	-6.9952	beach	North village Blue Flag cove; slight offset N of Lawlor’s.
+75	waterford.txt	Councillors Strand	resolved	52.1562	-6.9952	beach	Spelling variant of line 74.
+76	waterford.txt	Rathmoylan	resolved	52.138056	-7.031389	locality	Townlands.ie Rathmoylan townland (52°8′17″N 7°1′53″W).
+77	waterford.txt	Rathmoylan Cove	resolved	52.1375638	-7.0415203	cove	Nominatim Rathmoylan Cove.
+78	waterford.txt	Strawberry Hill Dunmore	ambiguous			unknown	No coastal hit; city “Strawberry Hill” is not in Dunmore East—label pairing unclear.
+79	waterford.txt	Waterford City	resolved	52.2609997	-7.1119081	city	OSM place=city node Waterford.
+80	waterford.txt	Waterford Quay	resolved	52.263044	-7.1160275	quay	Nominatim Waterford Quay (Merchants Quay area).
+81	waterford.txt	The Quays Waterford	resolved	52.2615	-7.1105	quay	Centroid for city riverfront Quays strip (Custom House / Meagher’s district).
+82	waterford.txt	Meagher's Quay	resolved	52.261837	-7.1101679	quay	OSM way centroid Meagher’s Quay (R680).
+83	waterford.txt	Waterford Waterfront	resolved	52.2625	-7.1125	promenade	Approx. mid-quays public frontage; generic label.
+84	waterford.txt	Waterford Harbour	resolved	52.1865619	-6.9461025	bay	OSM natural=bay Waterford Harbour relation centroid.
+85	waterford.txt	Waterford Estuary	resolved	52.252913	-7.049853	estuary	King’s Channel reach (tidal harbour arm near Ferrybank).
+86	waterford.txt	Waterford Port	resolved	52.264092	-7.036786	commercial_port	Belview deep-water terminal (modern Port of Waterford).
+87	waterford.txt	Port of Waterford	resolved	52.264092	-7.036786	commercial_port	Same Belview port as line 86.
+88	waterford.txt	Ferrybank	resolved	52.265167	-7.104194	suburb	Wikidata centroid Ferrybank (Port an Chalaidh).
+89	waterford.txt	Ferry Point	resolved	52.2655	-7.119	point	Approx. north-bank Suir foreshore near Edmund Rice Bridge; no OSM POI.
+90	waterford.txt	River Suir Mouth	resolved	52.263	-7.105	estuary	Approx. widening below city bridges into wider harbour.
+91	waterford.txt	King's Channel	resolved	52.2505	-7.0525	channel	Tidal Suir arm between Ferrybank shore and Little Island; centroid of navigable channel near housing “Kings Channel”.
+92	waterford.txt	Dungarvan	resolved	52.08806	-7.62528	town	Wikipedia / common gazetteer centroid; county harbour town.
+93	waterford.txt	Dungarvan Harbour	resolved	52.0839	-7.6284	harbour	Inner harbour / town quay area at head of Dungarvan Bay.
+94	waterford.txt	Dungarvan Bay	resolved	52.068	-7.565	bay	Approx. open-water centroid of bay inside Ballinacourty / town entrance.
+95	waterford.txt	Abbeyside	resolved	52.0868	-7.6302	suburb	W bank of Colligan at Dungarvan; opposite town core.
+96	waterford.txt	Ballinacourty	resolved	52.085	-7.56694	locality	Wikipedia townland centroid; lighthouse / Gold Coast area N of bay mouth.
+97	waterford.txt	Ballinacourty Marina	resolved	52.0785	-7.5528	marina	Marina basin immediately W of Ballinacourty Point lighthouse.
+98	waterford.txt	Clonea	resolved	52.0933	-7.5537	beach	Coastal Clonea at Kilgrovan; hotel / beach access hub coords.
+99	waterford.txt	Clonea Strand	resolved	52.0935	-7.5535	beach	Sandy strand fronting Clonea bay; slight offset along shore.
+100	waterford.txt	Clonea Beach	resolved	52.0932	-7.5539	beach	Same coastal feature as Clonea Strand; beach polygon centroid approx.
+101	waterford.txt	Clonea Power	resolved	52.257026	-7.401961	village	Inland village (Clonea Power) NW of Dungarvan; distinct from coastal Clonea Strand per placename sources.
+102	waterford.txt	Waterford Greenway Coast Dungarvan	resolved	52.084	-7.612	trail	Approx. coastal Greenway alignment along Dungarvan Bay W of town centre.
+103	waterford.txt	Old Parish	resolved	51.9896	-7.63603	village	Logainm centrepoint An Seanphobal / Old Parish (Gaeltacht na nDéise).
+104	waterford.txt	Ring Peninsula	resolved	52.036	-7.562	peninsula	Approx. centroid of Ring / Rinn peninsula S of Dungarvan.
+105	waterford.txt	Ring	resolved	52.05	-7.5833	village	Wikipedia coords for Ring (An Rinn) Gaeltacht village.
+106	waterford.txt	An Rinn	resolved	52.05	-7.5833	village	Official Irish name; same settlement centroid as Ring.
+107	waterford.txt	Ringville	resolved	52.05	-7.5833	village	Local name for main Ring village cluster (Ballynagaul area).
+108	waterford.txt	Ring Pier	resolved	52.0468	-7.5772	pier	Approx. Ballynagaul fishing pier on Ring peninsula (informal “Ring Pier”).
+109	waterford.txt	Helvick	resolved	52.0525	-7.5395	village	Fishing settlement at Heilbhic / Helvick cove; slightly W of headland tip.
+110	waterford.txt	Helvick Head	resolved	52.053615	-7.536734	headland	Wikipedia / GeoHack landmark coords (Ceann Heilbhic).
+111	waterford.txt	Helvick Harbour	resolved	52.0545	-7.5443	harbour	RNLI Helvick Head station coords; operational harbour / pier head.
+112	waterford.txt	Portally Cove	resolved	52.138611	-7.019444	cove	Townlands.ie centroid for Portally (Port Ailigh); well-known cove E of Dunmore East (list order ≠ geography).
+113	waterford.txt	Whiting Bay	resolved	51.94523	-7.78186	bay	BirdGuides site centroid; sandy bay E of Ardmore toward Youghal.
+114	waterford.txt	Whiting Bay Beach	resolved	51.9455	-7.7821	beach	Main sandy foreshore of Whiting Bay; offset from bay centroid.
+115	waterford.txt	Ardmore	resolved	51.9511	-7.7218	village	Wikipedia centroid Aird Mhór / Ardmore.
+116	waterford.txt	Ardmore Beach	resolved	51.9515	-7.7245	beach	Blue Flag “main beach” frontage along village shore.
+117	waterford.txt	Ardmore Bay	resolved	51.9545	-7.728	bay	Open bay seaward of village; centroid toward head of bay.
+118	waterford.txt	Ardmore Strand	resolved	51.952	-7.7245	beach	Local name for main strand; along same shore as Ardmore Beach.
+119	waterford.txt	Ardmore Cliff Walk	resolved	51.9478	-7.7175	promenade	Approx. mid cliff-path below headland E of village.
+120	waterford.txt	Ardmore Round Tower	resolved	51.9502	-7.7204	attraction	St Declan’s Round Tower; monument pin beside cathedral complex.
+121	waterford.txt	Ardmore Cathedral	resolved	51.948497	-7.72599	attraction	St Declan’s Monastery / cathedral ruins; Wikipedia coords (same complex as round tower).
+122	waterford.txt	Cliff House Ardmore	resolved	51.94806	-7.71528	hotel	Cliff House Hotel Middle Road; Wikipedia / published GPS.
+123	waterford.txt	Ram Head	resolved	51.94112	-7.71167	headland	BirdGuides site coords; Ardmore Head loop / Rams Head promontory.
+124	waterford.txt	Ram Head Ardmore	resolved	51.94112	-7.71167	headland	Same coastal feature as line 123; disambiguated label.
+125	waterford.txt	Goat Island	resolved	51.94558	-7.76112	beach	Goat’s Island beach / inlet W of Ardmore; Wikipedia / Discover Ireland coords.
+126	waterford.txt	Goat Island Ardmore	resolved	51.94558	-7.76112	beach	Same cove feature as line 125.
+127	waterford.txt	Curragh Beach	resolved	51.9635	-7.705	beach	Approx. along Curragh shore ~2 km NE of Ardmore village (beachguide / eOceanic Ardmore Bay context).
+128	waterford.txt	Curragh Ardmore	resolved	51.9633	-7.7045	beach	Local name for Curragh strand NE of Ardmore; slight offset along same shore as line 127.
+129	waterford.txt	Ballymacart	resolved	52.0011	-7.65306	locality	Logainm civil-parish centrepoint Baile Mhac Airt; coastal ED toward Mine Head / St George’s Channel.
+130	waterford.txt	Villierstown	resolved	52.08816	-7.85213	village	Wikipedia centroid; River Blackwater quay village.
+131	waterford.txt	Blackwater Estuary	resolved	51.985	-7.825	estuary	Approx. mid–lower tidal Blackwater reach toward Youghal Bay (generic estuary surface).
+132	waterford.txt	Blackwater Mouth	resolved	51.948	-7.848	estuary	Approx. river–bay interface near Youghal / bay entrance (mouth of Munster Blackwater).
+133	waterford.txt	Youghal Bay Waterford Shore	resolved	51.962	-7.818	coast	N shore / Waterford side of Youghal Bay; centroid toward county shore (not Youghal town).
+134	waterford.txt	Youghal Bay	resolved	51.9451	-7.84001	bay	Logainm.ie centrepoint Cuan Eochaille (Cork/Waterford bay).
+135	waterford.txt	Tankardstown Geosite Coast	resolved	52.137	-7.33	coast	Copper Coast Tankardstown geosite strip; aligned with Tankardstown Cove / mine engine area.
+136	waterford.txt	Stage Harbour	resolved	52.137795	-7.353217	harbour	Historic ore landing at Stage Cove (Knockmahon); same geosite slip as line 20 Stage Cove.
+137	waterford.txt	Dunhill	resolved	52.172665	-7.262138	village	Wikipedia centroid Dún Aill; inland of Copper Coast but listed settlement.
+138	waterford.txt	Dunhill Castle Coast	resolved	52.164	-7.264	attraction	Ruin tower house S of village on rock outcrop; Anne valley walk context toward Annestown coast.

@@ -1,0 +1,342 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	shetland-islands.txt	Sumburgh Head	resolved	59.8542900	-1.2753100	headland	Wikipedia/GeoHack; lighthouse cape south Mainland
+2	shetland-islands.txt	Sumburgh	resolved	59.8777786	-1.2889463	village	OpenStreetMap/Nominatim (Sumburgh settlement near airport)
+3	shetland-islands.txt	Sumburgh Lighthouse	resolved	59.8540530	-1.2745850	lighthouse	GeoHack lighthouse point
+4	shetland-islands.txt	Grutness	resolved	59.8737914	-1.2772983	hamlet	OpenStreetMap/Nominatim
+5	shetland-islands.txt	Quendale	resolved	59.9023540	-1.3376373	hamlet	OpenStreetMap/Nominatim
+6	shetland-islands.txt	Quendale Bay	resolved	59.8912217	-1.3317362	bay	OpenStreetMap/Nominatim (Bay of Quendale)
+7	shetland-islands.txt	Quendale Mill	resolved	59.9023861	-1.3385642	attraction	OpenStreetMap/Nominatim
+8	shetland-islands.txt	Spiggie	resolved	59.9393944	-1.3252631	hamlet	OpenStreetMap/Nominatim
+9	shetland-islands.txt	Spiggie Beach	resolved	59.9429902	-1.3443294	beach	OpenStreetMap/Nominatim (Beach of Spiggie)
+10	shetland-islands.txt	Loch of Spiggie	resolved	59.9337585	-1.3375049	lake	OpenStreetMap/Nominatim
+11	shetland-islands.txt	Boddam	resolved	59.9246744	-1.2906360	village	OpenStreetMap/Nominatim
+12	shetland-islands.txt	Levenwick	resolved	59.9720330	-1.2713867	village	OpenStreetMap/Nominatim
+13	shetland-islands.txt	Levenwick Bay	resolved	59.9682000	-1.2685000	bay	No direct Nominatim feature; coastal point south of Levenwick village
+14	shetland-islands.txt	Channerwick	resolved	59.9932013	-1.2756782	hamlet	OpenStreetMap/Nominatim
+15	shetland-islands.txt	Sandwick	resolved	59.9970000	-1.2230000	village	Wikipedia Sandwick, Dunrossness (tier-1 settlement centroid)
+16	shetland-islands.txt	Sandwick Bay	resolved	59.9965000	-1.2220000	bay	Coastal bay at Sandwick (Geo of Sandwick); approximate shoreline pin
+17	shetland-islands.txt	Bigton	resolved	59.9732356	-1.3231855	village	OpenStreetMap/Nominatim
+18	shetland-islands.txt	Hoswick	resolved	59.9980903	-1.2565080	village	OpenStreetMap/Nominatim
+19	shetland-islands.txt	Colvister	resolved	60.6533393	-1.0619062	hamlet	OpenStreetMap/Nominatim; settlement on Yell (Basta Voe), not Mainland
+20	shetland-islands.txt	Gulberwick	resolved	60.1280507	-1.2091893	village	OpenStreetMap/Nominatim
+21	shetland-islands.txt	Gulberwick Voe	resolved	60.1288000	-1.2102000	bay	No named Nominatim hit; mouth of voe near Gulberwick village
+22	shetland-islands.txt	Fladdabister	resolved	60.0763588	-1.2203389	hamlet	OpenStreetMap/Nominatim
+23	shetland-islands.txt	Lerwick	resolved	60.1543410	-1.1480320	town	GeoHack/Wikipedia
+24	shetland-islands.txt	Lerwick Harbour	resolved	60.1557837	-1.1483706	harbour	OpenStreetMap/Nominatim (Harbour Street harbour frontage)
+25	shetland-islands.txt	Lerwick Pier	resolved	60.1540727	-1.1416411	pier	OpenStreetMap/Nominatim (Victoria Pier)
+26	shetland-islands.txt	Holmsgarth	resolved	60.1630011	-1.1635404	quarter	OpenStreetMap/Nominatim
+27	shetland-islands.txt	Breiwick	resolved	60.1508000	-1.1445000	bay	Lerwick south shore; approximate voe mouth (no single OSM place node)
+28	shetland-islands.txt	Breiwick Voe	resolved	60.1505000	-1.1455000	bay	Same coastal system as Breiwick; approximate shoreline pin
+29	shetland-islands.txt	Scalloway	resolved	60.1370000	-1.2810000	village	Wikipedia centroid
+30	shetland-islands.txt	Scalloway Harbour	resolved	60.1337411	-1.2741587	harbour	OpenStreetMap/Nominatim (Scalloway Harbour Office)
+31	shetland-islands.txt	Scalloway Pier	resolved	60.1333330	-1.2761110	pier	Scalloway harbour coordinates (60°08′00″N 001°16′34″W) from scalloway.net harbour information
+32	shetland-islands.txt	East Voe	resolved	60.1340779	-1.2654588	quarter	OpenStreetMap/Nominatim (East Voe, Scalloway)
+33	shetland-islands.txt	Trondra	resolved	60.1153200	-1.2917113	island	OpenStreetMap/Nominatim
+34	shetland-islands.txt	Brindister	resolved	60.3013709	-1.4942582	hamlet	OpenStreetMap/Nominatim
+35	shetland-islands.txt	Papil	resolved	60.0657494	-1.3377553	hamlet	OpenStreetMap/Nominatim
+36	shetland-islands.txt	Papil Skerry	resolved	60.0630000	-1.3420000	skerry	Approximate offshore skerry SW of Papil; no OSM named feature
+37	shetland-islands.txt	Asta	resolved	60.1552320	-1.2587500	lake	OpenStreetMap/Nominatim (Loch of Asta)
+38	shetland-islands.txt	Girlsta	resolved	60.2520959	-1.2193488	hamlet	OpenStreetMap/Nominatim (Loch of Girlsta relation centroid; settlement around loch)
+39	shetland-islands.txt	Wadbister	resolved	60.2277015	-1.2224284	hamlet	OpenStreetMap/Nominatim
+40	shetland-islands.txt	North Nesting	ambiguous			unknown	District name in Nesting parish; no single OSM place node in OSM/Nominatim
+41	shetland-islands.txt	South Nesting	resolved	60.2872660	-1.1216571	bay	OpenStreetMap/Nominatim (South Nesting Bay; coastal anchor for district)
+42	shetland-islands.txt	Skellister	resolved	60.2759703	-1.1438690	bay	OpenStreetMap/Nominatim (East Voe of Skellister)
+43	shetland-islands.txt	Gletness	resolved	60.2488343	-1.1486027	bay	OpenStreetMap/Nominatim (North Voe of Gletness)
+44	shetland-islands.txt	Vidlin	resolved	60.3696333	-1.1367636	village	OpenStreetMap/Nominatim
+45	shetland-islands.txt	Vidlin Voe	resolved	60.3836522	-1.1284077	bay	OpenStreetMap/Nominatim
+46	shetland-islands.txt	Laxo	resolved	60.3535402	-1.1981169	hamlet	Wikipedia/GeoHack OS grid HU443635; matches ports.org ~60°21′N 1°11′W
+47	shetland-islands.txt	Laxo Ferry	resolved	60.3529000	-1.1974000	ferry	Approximate Laxo (Flugarth) ferry terminal; same coastal system as Laxo settlement
+48	shetland-islands.txt	Laxo Voe	resolved	60.3508799	-1.1824346	bay	OpenStreetMap/Nominatim
+49	shetland-islands.txt	Swining	resolved	60.3822108	-1.1692133	hamlet	OpenStreetMap/Nominatim
+50	shetland-islands.txt	Dury	resolved	60.3233268	-1.1762256	hamlet	Approximate centre from OS grid ref HU4560 via BNG 445600,1160200 (Wiktionary/OS)
+51	shetland-islands.txt	Dury Voe	resolved	60.3384380	-1.1269307	bay	OpenStreetMap/Nominatim
+52	shetland-islands.txt	Lunna	resolved	60.4055830	-1.1167869	hamlet	OpenStreetMap/Nominatim
+53	shetland-islands.txt	Lunna Voe	resolved	60.4051059	-1.1268562	bay	OpenStreetMap/Nominatim (West Lunna Voe)
+54	shetland-islands.txt	Lunning	resolved	60.3815984	-1.0846701	hamlet	OpenStreetMap/Nominatim
+55	shetland-islands.txt	Lunning Voe	resolved	60.3795000	-1.0875000	bay	No named OSM hit; approximate voe mouth south of Lunning
+56	shetland-islands.txt	Mossbank	resolved	60.4604963	-1.1809641	village	OpenStreetMap/Nominatim
+57	shetland-islands.txt	Firth	resolved	60.4491005	-1.1986023	hamlet	OpenStreetMap/Nominatim
+58	shetland-islands.txt	Firth Voe	resolved	60.4480000	-1.2050000	bay	Approximate inlet at Firth (Mossbank area); not Olna Firth (OSM)
+59	shetland-islands.txt	Brae	resolved	60.3963461	-1.3536585	village	OpenStreetMap/Nominatim
+60	shetland-islands.txt	Brae Voe	resolved	60.3935000	-1.3490000	bay	No direct Nominatim hit; approximate small voe at Brae
+61	shetland-islands.txt	Muckle Roe	resolved	60.3681853	-1.4235305	island	OpenStreetMap/Nominatim (Muckle Roe island relation)
+62	shetland-islands.txt	Muckle Roe Bridge	resolved	60.3813093	-1.4001553	bridge	No OSM bridge node; Roe Sound (bay) centroid at Busta–Muckle Roe crossing (bridge locality)
+63	shetland-islands.txt	Swarbacks Minn	resolved	60.3363343	-1.4312861	sea_channel	Streetmap/OS grid 431500,1161500 (deep channel W of Mainland)
+64	shetland-islands.txt	Toft	resolved	60.4701694	-1.2121850	hamlet	OpenStreetMap/Nominatim
+65	shetland-islands.txt	Toft Ferry	resolved	60.4669444	-1.2063889	ferry	Shetland Islands Council Toft Pier: 60°28′01″N 1°12′23″W
+66	shetland-islands.txt	Ollaberry	resolved	60.5077048	-1.3344248	village	OpenStreetMap/Nominatim
+67	shetland-islands.txt	Ollaberry Voe	resolved	60.5110000	-1.3365000	bay	No named Nominatim hit; approximate voe mouth north-east of Ollaberry
+68	shetland-islands.txt	Urafirth	resolved	60.4889522	-1.4495390	hamlet	OpenStreetMap/Nominatim
+69	shetland-islands.txt	Urafirth Voe	resolved	60.4895000	-1.4580000	bay	Approximate inlet west of Urafirth; no direct OSM named feature
+70	shetland-islands.txt	North Roe	resolved	60.5881569	-1.3352233	village	OpenStreetMap/Nominatim
+71	shetland-islands.txt	Isbister	resolved	60.6002076	-1.3240823	hamlet	OpenStreetMap/Nominatim (Isbister, Northmavine; not south Shetland namesake)
+72	shetland-islands.txt	Isbister Voe	resolved	60.6070000	-1.3220000	bay	Approximate voe north of Isbister; no direct Nominatim hit
+73	shetland-islands.txt	Sullom	resolved	60.4415924	-1.3550448	hamlet	OpenStreetMap/Nominatim
+74	shetland-islands.txt	Sullom Voe	resolved	60.4392708	-1.3325728	bay	OpenStreetMap/Nominatim (Sullom Voe relation, natural bay)
+75	shetland-islands.txt	Hillswick	resolved	60.4765334	-1.4875893	village	OpenStreetMap/Nominatim
+76	shetland-islands.txt	Hillswick Voe	resolved	60.4778000	-1.4895000	bay	No named Nominatim hit; small inlet at Hillswick
+77	shetland-islands.txt	Bight of Hillswick	resolved	60.4760000	-1.4885000	bay	Approximate Atlantic-facing bight at Hillswick; informal label
+78	shetland-islands.txt	Eshaness	resolved	60.4800000	-1.6080000	headland	Approximate Esha Ness coastal area; rejected Nominatim skerry hit as wrong feature class
+79	shetland-islands.txt	Eshaness Lighthouse	resolved	60.4892000	-1.6273300	lighthouse	Wikipedia/Canmore HU2058078451
+80	shetland-islands.txt	Eshaness Stacks	resolved	60.4622200	-1.5288900	stacks	Wikipedia 'The Drongs' coordinates (sea stacks off Hillswick Ness)
+81	shetland-islands.txt	Eshaness Voe	resolved	60.4830000	-1.6120000	bay	Approximate small voe on Eshaness coast; no OSM name hit
+82	shetland-islands.txt	Heylor	resolved	60.5097900	-1.4719520	village	Wikipedia/GeoHack (Ronas Voe shore)
+83	shetland-islands.txt	Heylor Voe	resolved	60.5105000	-1.4735000	bay	Approximate inlet at Heylor; no direct Nominatim hit
+84	shetland-islands.txt	Sandness	resolved	60.2988538	-1.6521998	hamlet	OpenStreetMap/Nominatim
+85	shetland-islands.txt	Sandness Voe	resolved	60.2960000	-1.6450000	bay	Approximate coastal inlet south-east of Sandness; no Nominatim name hit
+86	shetland-islands.txt	Melby	resolved	60.3018896	-1.6541402	hamlet	Melby cluster (Melby Shop); Nominatim lacks settlement node
+87	shetland-islands.txt	Melby Voe	resolved	60.3035000	-1.6570000	bay	Approximate voe by Melby/Loch of Melby; no OSM name hit
+88	shetland-islands.txt	Culswick	resolved	60.1913388	-1.5089446	hamlet	OpenStreetMap/Nominatim
+89	shetland-islands.txt	Culswick Voe	resolved	60.1920000	-1.5170000	bay	Approximate inlet at Culswick; no Nominatim name hit
+90	shetland-islands.txt	Skeld	resolved	60.1869158	-1.4420897	hamlet	OpenStreetMap/Nominatim
+91	shetland-islands.txt	Skeld Voe	resolved	60.1882000	-1.4450000	bay	Approximate Skeld Voe mouth near Skeld; no direct Nominatim name hit
+92	shetland-islands.txt	West Loch of Skeld	resolved	60.1915000	-1.4540000	lake	Approximate west sea loch at Skeld per OS mapping; no Nominatim feature
+93	shetland-islands.txt	East Loch of Skeld	resolved	60.1845000	-1.4360000	lake	Approximate east sea loch at Skeld per OS mapping; no Nominatim feature
+94	shetland-islands.txt	Reawick	resolved	60.1832503	-1.4103500	hamlet	OpenStreetMap/Nominatim
+95	shetland-islands.txt	Reawick Voe	resolved	60.1820000	-1.4180000	bay	Approximate voe at Reawick; no Nominatim name hit
+96	shetland-islands.txt	West Houlland	resolved	60.2368440	-1.5015020	hamlet	Gazetteer of British Place Names (Houlland, West, Sandsting mainland)
+97	shetland-islands.txt	Huxter	resolved	60.2956584	-1.6905072	hamlet	Loch of Huxter (Sandness mainland) OSM water centroid; disambiguated from Whalsay homonym
+98	shetland-islands.txt	Bixter	resolved	60.2532526	-1.4008078	hamlet	OpenStreetMap/Nominatim
+99	shetland-islands.txt	Bixter Voe	resolved	60.2540000	-1.4080000	bay	Approximate voe by Bixter; no Nominatim name hit
+100	shetland-islands.txt	Aith	resolved	60.2843334	-1.3762487	village	OpenStreetMap/Nominatim
+101	shetland-islands.txt	Aith Voe	resolved	60.3033326	-1.3739349	bay	OpenStreetMap/Nominatim (natural bay)
+102	shetland-islands.txt	Walls	resolved	60.2293070	-1.5663469	village	OpenStreetMap/Nominatim
+103	shetland-islands.txt	Walls Voe	resolved	60.2280000	-1.5580000	bay	Approximate Walls Voe shoreline; no Nominatim name hit
+104	shetland-islands.txt	Bridge of Walls	resolved	60.2440819	-1.5241613	locality	OpenStreetMap bus stop pin on A971 at Bridge of Walls (no separate place node)
+105	shetland-islands.txt	West Burra	resolved	60.0797539	-1.3446559	island	OpenStreetMap/Nominatim (West Burra)
+106	shetland-islands.txt	West Burra Ferry	resolved	60.0765000	-1.3375000	ferry	Approximate Roe Sound / inter-island crossing approach; no single OSM ferry name
+107	shetland-islands.txt	Bridge End	resolved	60.0830695	-1.3332492	village	OpenStreetMap/Nominatim (Bridge End, Burra isles)
+108	shetland-islands.txt	Hamnavoe Muckle Roe	resolved	60.5070400	-1.5640200	bay	Canmore NRHE Hamnavoe (Hamna Voe environs, Muckle Roe); not West Burra Hamnavoe
+109	shetland-islands.txt	Burra	resolved	60.0742000	-1.3328000	island	Approximate centroid between West Burra and East Burra (Burra Isles collective label)
+110	shetland-islands.txt	East Burra	resolved	60.0686876	-1.3209301	island	OpenStreetMap/Nominatim
+111	shetland-islands.txt	Maywick	resolved	60.0050195	-1.3234430	hamlet	OpenStreetMap/Nominatim
+112	shetland-islands.txt	Setter	resolved	60.0128356	-1.2287068	hamlet	Setter road/locality by Leebitten south mainland; disambiguated from Yell Setter
+113	shetland-islands.txt	Flugarth	resolved	60.3523800	-1.1700600	ferry	Canmore NRHE Flugarth ferry terminal (Nesting east coast); not Northmavine Flugarth hamlet
+114	shetland-islands.txt	Quarff	resolved	60.1043380	-1.2254458	village	OpenStreetMap/Nominatim
+115	shetland-islands.txt	Wester Quarff	resolved	60.0992789	-1.2648099	hamlet	OpenStreetMap/Nominatim
+116	shetland-islands.txt	Cunningsburgh	resolved	60.0456345	-1.2282246	hamlet	OpenStreetMap/Nominatim
+117	shetland-islands.txt	Virkie	resolved	59.8833330	-1.3000000	locality	Wikipedia/GeoHack district centroid (southern Dunrossness; not Pool of Virkie alone)
+118	shetland-islands.txt	Pool of Virkie	resolved	59.8844915	-1.2926882	bay	OpenStreetMap/Nominatim (natural bay)
+119	shetland-islands.txt	Ireland	resolved	59.9818942	-1.3261252	hamlet	OpenStreetMap/Nominatim (Ireland hamlet by Bigton; not the country)
+120	shetland-islands.txt	Gardiesfauld	resolved	60.6886769	-0.9188901	camp_site	OpenStreetMap/Nominatim Gardiesfauld Campsite Uyeasound Unst (principal named Gardiesfauld in OSM)
+121	shetland-islands.txt	Kergord	resolved	60.2727909	-1.2877696	hamlet	Streetmap/Geodata.us centroid for Kergord (Weisdale area); not the converter station node alone
+122	shetland-islands.txt	Kergord Voe	resolved	60.2770000	-1.2980000	bay	Inlet at Kergord; approximate shoreline centre (no direct Nominatim feature)
+123	shetland-islands.txt	Bressay	resolved	60.1461172	-1.0835368	island	OpenStreetMap/Nominatim
+124	shetland-islands.txt	Kirkabister	resolved	60.1248882	-1.1173881	hamlet	OpenStreetMap/Nominatim
+125	shetland-islands.txt	Kirkabister Ness	resolved	60.1210360	-1.1219014	headland	Gazetteer/Canmore lighthouse point (Kirkabister Ness)
+126	shetland-islands.txt	Noss	resolved	60.1431552	-1.0189424	island	OpenStreetMap/Nominatim (Isle of Noss)
+127	shetland-islands.txt	Noup of Noss	resolved	60.1463900	-1.0194400	cliff	Wikipedia/Commons infobox coords (Noss Head / Noup summit area)
+128	shetland-islands.txt	Mousa	resolved	59.9989725	-1.1759552	island	OpenStreetMap/Nominatim
+129	shetland-islands.txt	Mousa Broch	resolved	59.9952653	-1.1821248	ruins	OpenStreetMap/Nominatim (Broch of Mousa)
+130	shetland-islands.txt	St Ninian's Isle	resolved	59.9739326	-1.3457603	island	OpenStreetMap/Nominatim
+131	shetland-islands.txt	Meal Beach	resolved	60.1011652	-1.3284519	beach	OpenStreetMap/Nominatim
+132	shetland-islands.txt	Minn Beach	resolved	60.0585847	-1.3438956	beach	OpenStreetMap/Nominatim (Banna Minn Beach, Burra)
+133	shetland-islands.txt	West Voe	resolved	60.0540344	-1.3418930	strait	OpenStreetMap/Nominatim (West Voe of Burra; coastal channel)
+134	shetland-islands.txt	Scousburgh Sands	resolved	59.9435000	-1.3420000	beach	UK Beach Guide OS grid HU 3713 1801; shell-sand bay by Spiggie Loch (often called Spiggie Beach)
+135	shetland-islands.txt	Exnaboe	resolved	59.8891215	-1.2907977	hamlet	OpenStreetMap/Nominatim
+136	shetland-islands.txt	Laxfirth	resolved	60.2033420	-1.2212187	hamlet	OpenStreetMap/Nominatim (Laxfirth, Gott)
+137	shetland-islands.txt	Gunnister	resolved	60.4510048	-1.4192017	hamlet	OpenStreetMap/Nominatim Northmavine hit (also an Unst “Gunnister”; list context Northmavine/Collafirth belt)
+138	shetland-islands.txt	Voe	ambiguous			unknown	Several distinct places named Voe in Shetland (notably Delting village Voe vs Northmavine hamlet Voe); bare name not disambiguated
+139	shetland-islands.txt	Sellafirth	resolved	60.6608365	-1.0470038	hamlet	OpenStreetMap/Nominatim (Yell)
+140	shetland-islands.txt	Saebreck	resolved	60.8470000	-0.9830000	beach	Interpreted as Sands of Breckon by Breckon (north Yell); Wikipedia GeoHack Breckon; local name variant
+141	shetland-islands.txt	Bousta	resolved	60.3010180	-1.5947342	hamlet	Gazetteer of British Place Names (Bousta, Walls and Sandness/West Mainland)
+142	shetland-islands.txt	Cullingsburgh	resolved	60.1619504	-1.0629763	archaeological_site	OpenStreetMap/Nominatim Broch of Cullingsburgh, Bressay (principal fixed feature for this name)
+143	shetland-islands.txt	Greenmow	resolved	60.0425499	-1.2024114	hamlet	OpenStreetMap/Nominatim
+144	shetland-islands.txt	Heogan	resolved	60.1711992	-1.1404305	hamlet	OpenStreetMap/Nominatim (Bressay)
+145	shetland-islands.txt	Housabister	resolved	60.3013681	-1.1201262	archaeological_site	OpenStreetMap/Nominatim Housabister Broch (only clear OSM match for this name)
+146	shetland-islands.txt	Nesbister	resolved	60.1910554	-1.2832157	locality	OpenStreetMap/Nominatim Nesbister bus stop on A971 (Whiteness area; no separate hamlet node)
+147	shetland-islands.txt	South Collafirth	resolved	60.5277627	-1.3663154	hamlet	OpenStreetMap/Nominatim
+148	shetland-islands.txt	Collafirth	resolved	60.5291193	-1.3639766	locality	Approximate centroid between North and South Collafirth; no OSM place named exactly Collafirth
+149	shetland-islands.txt	Collafirth Voe	resolved	60.5280000	-1.3695000	bay	Collafirth inlet between North/South Collafirth; approximate voe mouth (no Nominatim hit)
+150	shetland-islands.txt	Vanlop	resolved	59.9488738	-1.3244828	hamlet	OpenStreetMap/Nominatim
+151	shetland-islands.txt	Voxter	resolved	60.0354343	-1.2180004	hamlet	OpenStreetMap/Nominatim (South Voxter; follows Vanlop on South Mainland coastal list)
+152	shetland-islands.txt	Weisdale	resolved	60.2542527	-1.2934618	hamlet	OpenStreetMap/Nominatim
+153	shetland-islands.txt	Weisdale Voe	resolved	60.2297451	-1.3105802	bay	OpenStreetMap/Nominatim
+154	shetland-islands.txt	Whiteness	resolved	60.2027556	-1.2948185	village	OpenStreetMap/Nominatim
+155	shetland-islands.txt	Wormadale	resolved	60.2044253	-1.2712764	locality	OpenStreetMap/Nominatim (Wormadale Hill; Whiteness area)
+156	shetland-islands.txt	Tresta	resolved	60.2430288	-1.3489950	hamlet	OpenStreetMap/Nominatim (Tresta west Mainland; not Fetlar Tresta given Whiteness/Weisdale list context)
+157	shetland-islands.txt	Grindiscol	resolved	60.1413865	-1.1131568	hamlet	OpenStreetMap/Nominatim (Grindiscol, Bressay)
+158	shetland-islands.txt	Challister	resolved	60.3691847	-0.9769241	hamlet	OpenStreetMap/Nominatim (Challister, Whalsay)
+159	shetland-islands.txt	Cott	resolved	60.2274484	-1.3173455	hamlet	OpenStreetMap/Nominatim
+160	shetland-islands.txt	Norby	resolved	60.3010023	-1.6423810	hamlet	OpenStreetMap/Nominatim (Norby, Walls)
+161	shetland-islands.txt	Usta	not_found			unknown	No OpenStreetMap/Nominatim match; likely minor Walls/West Burra belt name but pin not verified
+162	shetland-islands.txt	Grunnavoe	resolved	60.2278100	-1.5350200	lake	Canmore/NRHE Loch of Grunnavoe (HU258493; Walls and Sandness); centroid of named loch
+163	shetland-islands.txt	Grunnavoe Bay	resolved	60.2285000	-1.5280000	bay	Approximate mouth of Grunnavoe coastal inlet by Loch of Grunnavoe; no Nominatim hit
+164	shetland-islands.txt	Garth	resolved	60.1960000	-1.5040000	locality	Approximate between Silwick and Loch of Grunnavoe (Walls); no named OSM feature for Garth
+165	shetland-islands.txt	Silwick	resolved	60.1657358	-1.4716271	hamlet	OpenStreetMap/Nominatim
+166	shetland-islands.txt	Westerwick	resolved	60.1679134	-1.4917973	hamlet	OpenStreetMap/Nominatim
+167	shetland-islands.txt	Upper Sandwick	resolved	59.9880000	-1.2320000	hamlet	Approximate township centroid within Sandwick, Dunrossness (south Mainland); no OSM place node
+168	shetland-islands.txt	Lower Sandwick	resolved	59.9450000	-1.2550000	hamlet	Approximate township centroid between Sandwick and Scatness (Dunrossness); no OSM place node
+169	shetland-islands.txt	West Sandwick	resolved	59.9930000	-1.2480000	hamlet	Interpreted as west Sandwick, Dunrossness (not West Sandwick on Yell); approximate; no OSM place node
+170	shetland-islands.txt	Scatness	resolved	59.8754673	-1.3067169	hamlet	OpenStreetMap/Nominatim
+171	shetland-islands.txt	Jarlshof	resolved	59.8692777	-1.2908516	archaeological_site	OpenStreetMap/Nominatim (Jarlshof prehistoric site, Sumburgh)
+172	shetland-islands.txt	Stromness	resolved	60.1943791	-1.3100582	hamlet	OpenStreetMap/Nominatim (Stromness by Whiteness, Shetland; not Orkney Stromness)
+173	shetland-islands.txt	Aithsetter	resolved	60.0570430	-1.2095028	hamlet	OpenStreetMap/Nominatim
+174	shetland-islands.txt	Billister	resolved	60.3230000	-1.1310000	hamlet	Wikipedia OS grid HU479601; Lax Firth/Nesting Mainland
+175	shetland-islands.txt	Brettabister	resolved	60.2990000	-1.1310000	hamlet	Wikipedia coordinates; Nesting Mainland
+176	shetland-islands.txt	Braewick	resolved	60.4938255	-1.5601534	hamlet	OpenStreetMap/Nominatim (Braewick, Northmavine)
+177	shetland-islands.txt	Braehoulland	resolved	60.4984711	-1.5576441	lake	OpenStreetMap/Nominatim (Loch of Braehoulland, Northmavine)
+178	shetland-islands.txt	Clate	resolved	60.3350000	-1.0210000	hamlet	Wikipedia coordinates; Whalsay
+179	shetland-islands.txt	Clousta	resolved	60.2989359	-1.4398340	hamlet	OpenStreetMap/Nominatim
+180	shetland-islands.txt	Copister	resolved	60.4907276	-1.1278873	hamlet	OpenStreetMap/Nominatim (Copister, Yell)
+181	shetland-islands.txt	Stenness	resolved	60.4884315	-1.5598478	isle	OpenStreetMap/Nominatim (Isle of Stenness, Northmavine)
+182	shetland-islands.txt	Housetter	resolved	60.5468486	-1.3376328	hamlet	OpenStreetMap/Nominatim (Housetter, Northmavine)
+183	shetland-islands.txt	Assater	resolved	60.5002138	-1.4633665	lake	OpenStreetMap/Nominatim (Loch of Assater, Northmavine); no separate settlement node
+184	shetland-islands.txt	Parkgate	not_found			unknown	No OpenStreetMap/Nominatim match in Shetland context
+185	shetland-islands.txt	Effirth	resolved	60.2523384	-1.4389282	hamlet	OpenStreetMap/Nominatim
+186	shetland-islands.txt	Saltaire	not_found			unknown	No OSM/Nominatim hit; not the West Yorkshire village — likely minor Shetland name or alternate spelling unverified
+187	shetland-islands.txt	Brough	ambiguous			unknown	Three distinct Brough hamlets in OSM (Mainland ZE2 9QT, Yell near Burravoe, Whalsay); no single disambiguation from name alone
+188	shetland-islands.txt	Brough Lodge	resolved	60.6125775	-0.9421639	lodge	OpenStreetMap/Nominatim (Brough Lodge, Fetlar)
+189	shetland-islands.txt	Tangi	resolved	60.4872365	-1.1470210	bay	OpenStreetMap/Nominatim (Tangi Loch, Yell)
+190	shetland-islands.txt	Westing	resolved	60.7303439	-0.9511702	hamlet	OpenStreetMap/Nominatim (Westing, Unst)
+191	shetland-islands.txt	Ordale	resolved	60.7483918	-0.8383280	hamlet	OpenStreetMap/Nominatim (Ordale, Unst)
+192	shetland-islands.txt	Snarra Voe	not_found			unknown	No OpenStreetMap/Nominatim match for this voe name
+193	shetland-islands.txt	Easter Skeld	resolved	60.1880000	-1.4360000	locality	Eastern Skeld area; approximate pin east of Skeld hamlet (OSM Skeld 60.1869158°N 1.4420897°W)
+194	shetland-islands.txt	Houbie	resolved	60.5949342	-0.8653855	hamlet	OpenStreetMap/Nominatim (Houbie, Fetlar)
+195	shetland-islands.txt	Funzie	resolved	60.5893184	-0.7945966	hamlet	OpenStreetMap/Nominatim (Funzie, Fetlar)
+196	shetland-islands.txt	Freester	resolved	60.2674230	-1.1830429	lake	OpenStreetMap/Nominatim (Loch of Freester); coastal context via loch
+197	shetland-islands.txt	West Aywick	resolved	60.5635000	-1.0450000	hamlet	Approximate west Aywick township; no OSM place node (Aywick hamlet 60.5612012°N 1.0293549°W)
+198	shetland-islands.txt	Mid Yell	resolved	60.5974180	-1.0622388	village	OpenStreetMap/Nominatim
+199	shetland-islands.txt	Aywick	resolved	60.5612012	-1.0293549	hamlet	OpenStreetMap/Nominatim (Aywick, Yell)
+200	shetland-islands.txt	Burravoe	resolved	60.4988441	-1.0556513	village	OpenStreetMap/Nominatim (Burravoe, Yell — disambiguated from Burravoe near Brae)
+201	shetland-islands.txt	Cullivoe	resolved	60.7071349	-1.0125673	village	OpenStreetMap/Nominatim (Cullivoe Hall centroid; Cullivoe settlement North Yell)
+202	shetland-islands.txt	West Yell	resolved	60.5318055	-1.1746650	hamlet	OpenStreetMap/Nominatim
+203	shetland-islands.txt	Gloup	resolved	60.7217562	-1.0721415	hamlet	OpenStreetMap/Nominatim (Gloup, Yell)
+204	shetland-islands.txt	Gloup Ness	resolved	60.7212000	-1.0735000	headland	Approximate north-coast headland east of Gloup Voe mouth (Gazetteer for Scotland / map; near Gloup settlement)
+205	shetland-islands.txt	Gloup Holm	resolved	60.7500000	-1.1170000	island	Wikipedia/GeoHack (Gloup Holm north of Yell)
+206	shetland-islands.txt	Ulsta	resolved	60.4963003	-1.1584602	ferry_terminal	OpenStreetMap/Nominatim (Ulsta ferry terminal, West Yell)
+207	shetland-islands.txt	Ulsta Ferry	resolved	60.4965806	-1.1589762	ferry_terminal	OpenStreetMap/Nominatim (Ulsta Ferry Terminal bus stop)
+208	shetland-islands.txt	Gutcher	resolved	60.6731069	-0.9963618	ferry_terminal	OpenStreetMap/Nominatim (Gutcher ferry terminal, Yell Sound)
+209	shetland-islands.txt	Gutcher Ferry	resolved	60.6731069	-0.9963618	ferry_terminal	Same coastal node as Gutcher inter-island ferry pier
+210	shetland-islands.txt	North Aywick	resolved	60.5679770	-1.0203687	lake	OpenStreetMap/Nominatim (Loch of North Ayewick, Yell); named loch for district
+211	shetland-islands.txt	Otterswick	resolved	60.5520457	-1.0495787	hamlet	OpenStreetMap/Nominatim (Otterswick, Yell)
+212	shetland-islands.txt	Hamarisgarth	resolved	60.7615819	-0.8233844	hamlet	No OSM place named Hamarisgarth; Hamar hamlet (Unst, near Baltasound) used as same-name-pattern proxy
+213	shetland-islands.txt	Baltasound	resolved	60.7593967	-0.8613201	village	OpenStreetMap/Nominatim (Baltasound settlement; not the school hit from looser query)
+214	shetland-islands.txt	Baltasound Pier	resolved	60.7608000	-0.8575000	pier	No named Nominatim pier; approximate harbour head on Balta Sound east of village centre
+215	shetland-islands.txt	Uyeasound	resolved	60.6910285	-0.9111124	hamlet	OpenStreetMap/Nominatim
+216	shetland-islands.txt	Uyeasound Pier	resolved	60.6903000	-0.9100000	pier	Approximate pier line at Uyeasound; no separate named OSM/Nominatim hit
+217	shetland-islands.txt	Uyeasound Taing	resolved	60.6912000	-0.9105000	shore	Coastal taing near Uyeasound; approximate shoreline pin from hamlet context
+218	shetland-islands.txt	Haroldswick	resolved	60.7891546	-0.8310554	hamlet	OpenStreetMap/Nominatim
+219	shetland-islands.txt	Haroldswick Bay	resolved	60.7885000	-0.8320000	bay	Coastal bay at Haroldswick; approximate shoreline pin south of hamlet
+220	shetland-islands.txt	Haroldswick Taing	resolved	60.7890000	-0.8308000	shore	Tidal shore feature at Haroldswick; approximate
+221	shetland-islands.txt	Belmont	resolved	60.6858291	-0.9613046	hamlet	OpenStreetMap/Nominatim
+222	shetland-islands.txt	Norwick	resolved	60.8049693	-0.8051812	hamlet	OpenStreetMap/Nominatim
+223	shetland-islands.txt	Norwick Bay	resolved	60.8038000	-0.8065000	bay	Approximate bay mouth south of Norwick hamlet
+224	shetland-islands.txt	Norwick Ness	resolved	60.8075000	-0.8030000	headland	Approximate north-east ness of Norwick
+225	shetland-islands.txt	Norwick Taing	resolved	60.8042000	-0.8040000	shore	Approximate tidal shore at Norwick
+226	shetland-islands.txt	Lamba Ness	resolved	60.8159843	-0.7975555	locality	OpenStreetMap/Nominatim
+227	shetland-islands.txt	Uyea	resolved	60.6695637	-0.8919302	island	OpenStreetMap/Nominatim (Uyea, Clivocast)
+228	shetland-islands.txt	Burrafirth	resolved	60.8016861	-0.8784111	hamlet	OpenStreetMap/Nominatim
+229	shetland-islands.txt	East Burrafirth	resolved	60.8022000	-0.8778000	locality	East side of Burrafirth inlet; approximate
+230	shetland-islands.txt	West Burrafirth	resolved	60.8012000	-0.8790000	locality	West side of Burrafirth inlet; approximate
+231	shetland-islands.txt	Clivocast	resolved	60.6886440	-0.9023577	village	OpenStreetMap/Nominatim (Clivocast, Unst)
+232	shetland-islands.txt	Clivocast Bay	resolved	60.6875000	-0.9050000	bay	Coastal bay at Clivocast; approximate Balta Sound shore (no direct Nominatim feature)
+233	shetland-islands.txt	Hagdale	resolved	60.7730722	-0.8236634	hamlet	OpenStreetMap/Nominatim
+234	shetland-islands.txt	Skenness	not_found			unknown	No OpenStreetMap/Nominatim match for Skenness (Unst)
+235	shetland-islands.txt	Muckle Flugga	resolved	60.8539194	-0.8865504	island	OpenStreetMap/Nominatim
+236	shetland-islands.txt	Muckle Flugga Lighthouse	resolved	60.8553583	-0.8855877	lighthouse	OpenStreetMap/Nominatim
+237	shetland-islands.txt	Muckle Flugga Stack	resolved	60.8539194	-0.8865504	stack	OSM types Muckle Flugga as island; stack shares same coastal rock mass
+238	shetland-islands.txt	Out Stack	resolved	60.8603000	-0.8741000	island	Wikipedia coordinate location (60.8603°N0.8741°W); north of Muckle Flugga
+239	shetland-islands.txt	Fetlar	resolved	60.5974126	-0.8490763	island	OpenStreetMap/Nominatim (island)
+240	shetland-islands.txt	Fetlar Pier	resolved	60.6139027	-0.9463694	pier	OpenStreetMap/Nominatim (Broch Lodge Pier, Fetlar — only named pier result on island)
+241	shetland-islands.txt	Aith Fetlar	resolved	60.5898398	-0.8384938	hamlet	OpenStreetMap/Nominatim (Aith, Fetlar)
+242	shetland-islands.txt	Gruting	resolved	60.5987720	-0.8192090	hamlet	Listed building coords (Gruting Round House, Fetlar; coastal locality — no separate Nominatim)
+243	shetland-islands.txt	Tresta Fetlar	resolved	60.5932064	-0.8848476	hamlet	OpenStreetMap/Nominatim (Tresta, Fetlar)
+244	shetland-islands.txt	Fair Isle	resolved	59.5325909	-1.6310434	island	OpenStreetMap/Nominatim
+245	shetland-islands.txt	Fair Isle North	resolved	59.5521100	-1.6098300	lighthouse	Northern Lighthouse Board / Canmore (Fair Isle North / Skroo light); north end of island
+246	shetland-islands.txt	Fair Isle South	resolved	59.5138948	-1.6503341	lighthouse	OpenStreetMap near South Fair Isle lighthouse / golf course node; south end of island
+247	shetland-islands.txt	Fair Isle Harbour	resolved	59.5383100	-1.6047000	harbour	Wikipedia/Canmore North Haven (main harbour, Fair Isle)
+248	shetland-islands.txt	Foula	resolved	60.1337839	-2.0830950	island	OpenStreetMap/Nominatim
+249	shetland-islands.txt	Foula Pier	resolved	60.1325000	-2.0548000	pier	Ham ferry pier / slip; approximate waterfront (no Nominatim pier hit)
+250	shetland-islands.txt	Papa Stour	resolved	60.3306361	-1.7032641	island	OpenStreetMap/Nominatim
+251	shetland-islands.txt	Papa Stour Pier	resolved	60.3280000	-1.6595000	pier	Housa Voe ferry berth; approximate slip (chart/visitor sources; no Nominatim)
+252	shetland-islands.txt	Biggings	resolved	60.3253133	-1.6809482	hamlet	OpenStreetMap/Nominatim
+253	shetland-islands.txt	Housa Voe	resolved	60.3290300	-1.6595800	bay	Canmore / ENC chart centroid (Housa Voe, Papa Stour)
+254	shetland-islands.txt	Hamna Voe	resolved	60.3265000	-1.7060000	bay	Head of Hamna Voe south Papa Stour; approximate (Hamnavoe archaeology cluster Canmore ~60.3259–60.3274, -1.706 to -1.707)
+255	shetland-islands.txt	Hamnavoe Papa Stour	resolved	60.3273500	-1.7072200	locality	Canmore Papa Stour, Hamnavoe (farmstead/fish curing shore)
+256	shetland-islands.txt	Culla Voe	resolved	60.3377600	-1.7047700	bay	Canmore Papa Stour, Culla Voe (horizontal mill site; voe head)
+257	shetland-islands.txt	Crabbaberry	resolved	60.3341200	-1.6821600	locality	Canmore old fishing station Crabbabery, West Voe Papa Stour
+258	shetland-islands.txt	Sound of Papa	resolved	60.3102410	-1.6851080	channel	Streetmap GB grid→WGS84 centroid (Sound of Papa; ferry channel)
+259	shetland-islands.txt	Maiden Stack	resolved	60.3294400	-1.6572200	stack	Wikipedia coord (sea stack off Papa Stour near Housa Voe entrance)
+260	shetland-islands.txt	Kirstan's Hol	resolved	60.3278400	-1.7240500	cave	Scottish Cave Registry WGS84 (Christie's / Kirstan's Hole, Papa Stour)
+261	shetland-islands.txt	Whalsay	resolved	60.3574170	-0.9808823	island	OpenStreetMap/Nominatim (island place)
+262	shetland-islands.txt	Symbister	resolved	60.3557922	-0.9822604	village	OpenStreetMap/Nominatim
+263	shetland-islands.txt	Symbister Harbour	resolved	60.3565000	-0.9838000	harbour	Small-boat harbour mouth NW of Symbister; approximate (no Nominatim)
+264	shetland-islands.txt	Sandwick Whalsay	resolved	60.3355299	-1.0207787	hamlet	OpenStreetMap/Nominatim (Sandwick, Whalsay)
+265	shetland-islands.txt	Skaw Unst	resolved	60.8250635	-0.7911281	hamlet	OpenStreetMap/Nominatim (Skaw, Unst)
+266	shetland-islands.txt	Skaw Taing	resolved	60.8262000	-0.7895000	shore	Tidal taing NE of Skaw (Unst); approximate shoreline pin near Skaw
+267	shetland-islands.txt	Skaw Whalsay	resolved	60.3759790	-0.9315177	hamlet	OpenStreetMap/Nominatim (Skaw, Whalsay)
+268	shetland-islands.txt	Isbister Whalsay	resolved	60.3564375	-0.9609295	locality	OpenStreetMap/Nominatim (Isbister Hall area, Whalsay)
+269	shetland-islands.txt	Marrister	resolved	60.3575681	-1.0152450	hamlet	OpenStreetMap/Nominatim
+270	shetland-islands.txt	Brough Whalsay	resolved	60.3649442	-0.9954372	hamlet	OpenStreetMap/Nominatim (Brough, Whalsay)
+271	shetland-islands.txt	Out Skerries	resolved	60.4208012	-0.7703309	archipelago	OpenStreetMap/Nominatim (Out Skerries)
+272	shetland-islands.txt	Bruray	resolved	60.4264091	-0.7500763	island	OpenStreetMap/Nominatim (Bruray, Skerries)
+273	shetland-islands.txt	Housay	resolved	60.4207915	-0.7764120	island	OpenStreetMap/Nominatim relation bbox centre (Housay, Skerries)
+274	shetland-islands.txt	Grunay	resolved	60.4220547	-0.7393500	islet	OpenStreetMap/Nominatim (Grunay, Skerries)
+275	shetland-islands.txt	Grunay Sound	resolved	60.4242300	-0.7447100	channel	No named Nominatim hit; midpoint between Grunay islet and Bruray (Skerries)
+276	shetland-islands.txt	Papa Little	resolved	60.3321308	-1.3900826	island	OpenStreetMap/Nominatim
+277	shetland-islands.txt	Vementry	resolved	60.3261462	-1.4570347	island	OpenStreetMap/Nominatim
+278	shetland-islands.txt	Oxna	resolved	60.1176442	-1.3705579	island	OpenStreetMap/Nominatim
+279	shetland-islands.txt	Hildasay	resolved	60.1459043	-1.3598588	island	OpenStreetMap/Nominatim
+280	shetland-islands.txt	Samphrey	resolved	60.4684437	-1.1530572	island	OpenStreetMap/Nominatim
+281	shetland-islands.txt	Cheynies	resolved	60.1305634	-1.3735507	islet	OpenStreetMap/Nominatim
+282	shetland-islands.txt	Linga	resolved	60.6661665	-0.9789374	islet	OpenStreetMap/Nominatim (Linga, Yell near Gutcher)
+283	shetland-islands.txt	Balta	resolved	60.7501915	-0.7888873	island	OpenStreetMap/Nominatim (Balta, Unst)
+284	shetland-islands.txt	Hascosay	resolved	60.6080864	-0.9920444	island	OpenStreetMap/Nominatim
+285	shetland-islands.txt	Orfasay	resolved	60.4791666	-1.1047468	islet	OpenStreetMap/Nominatim (Orfasay, Yell)
+286	shetland-islands.txt	Brother Isle	resolved	60.5146898	-1.2284304	islet	OpenStreetMap/Nominatim
+287	shetland-islands.txt	Dore Holm	resolved	60.4695333	-1.6029322	islet	OpenStreetMap/Nominatim
+288	shetland-islands.txt	Haaf Gruney	resolved	60.6622443	-0.8400448	islet	OpenStreetMap/Nominatim (Haaf Gruney, Unst)
+289	shetland-islands.txt	Ronas Voe	resolved	60.5313777	-1.5008435	bay	OpenStreetMap/Nominatim (natural=bay relation)
+290	shetland-islands.txt	Ronas Hill	resolved	60.5339300	-1.4460500	peak	Wikipedia/GeoHack coords (highest point Shetland; OSM peak tagged Rønnies Hill same summit area)
+291	shetland-islands.txt	Bight of Braewick	resolved	60.3060253	-1.3903796	bay	OpenStreetMap/Nominatim (natural=water)
+292	shetland-islands.txt	Deepdale	resolved	60.2820300	-1.6901900	bay	Scottish Cave Registry WGS84 (Bay of Deepdale cave); coastal Deep Dale west Mainland Northmavine
+293	shetland-islands.txt	Bay of Deepdale	resolved	60.2787000	-1.6881000	bay	GeoHack (List of bays of the Shetland Islands)
+294	shetland-islands.txt	Sumburgh Roost	resolved	59.8440000	-1.2926000	tidal_race	Streetmap GB / Met Office named sea area; tidal stream south of Sumburgh (approximate centroid)
+295	shetland-islands.txt	Clift Sound	resolved	60.0840216	-1.2945376	strait	OpenStreetMap/Nominatim (natural=strait relation)
+296	shetland-islands.txt	Colgrave Sound	resolved	60.5736206	-0.9577271	strait	OpenStreetMap/Nominatim (natural=strait; Yell–Fetlar channel)
+297	shetland-islands.txt	Ordaal Voe	resolved	60.7517800	-0.8431100	bay	Canmore HP6315908192 (Ordaal farmstead, Baltasound/ Balta Sound); pin on named voe by Ordaal
+298	shetland-islands.txt	Yell Sound	resolved	60.5475514	-1.2522898	strait	OpenStreetMap/Nominatim (natural=strait relation)
+299	shetland-islands.txt	Yell Sound Ferry	ambiguous			unknown	Mainland–Yell service uses separate terminals (Toft and Ulsta); no single ferry pin for the name alone
+300	shetland-islands.txt	Bluemull Sound	resolved	60.6993830	-0.9789810	strait	OpenStreetMap/Nominatim (natural=strait relation)
+301	shetland-islands.txt	Mavis Grind	resolved	60.3980431	-1.3848531	isthmus	OpenStreetMap/Nominatim (Mavis Grind, Northmavine)
+302	shetland-islands.txt	The Drongs	resolved	60.4624205	-1.5290999	sea_stack	OpenStreetMap/Nominatim (The Drongs off Braewick; viewpoint pin)
+303	shetland-islands.txt	Fethaland	resolved	60.6302027	-1.3164171	hamlet	OpenStreetMap/Nominatim (Fethaland settlement, Northmavine)
+304	shetland-islands.txt	Point of Fethaland	resolved	60.6341110	-1.3115000	point	Wikidata/GeoHack (Point of Fethaland lighthouse)
+305	shetland-islands.txt	Ness of Burgi	resolved	59.8589390	-1.3090742	promontory_fort	OpenStreetMap/Nominatim (Ness of Burgi Fort; Iron Age site on the ness)
+306	shetland-islands.txt	Burgi Geo	resolved	59.8596440	-1.3104200	geo	Wikipedia coords for Ness of Burgi; coastal geo on same promontory (not Yell “Burgi Geo Broch”)
+307	shetland-islands.txt	Grutness Taing	resolved	59.8740579	-1.2775898	taing	OpenStreetMap/Nominatim (Grutness Pier / ferry shore; taing as coastal ness near Grutness)
+308	shetland-islands.txt	Swinna Ness	resolved	60.7631402	-0.7997367	headland	Streetmap GB grid465500,1209500 → WGS84 (Swinna Ness, Unst)
+309	shetland-islands.txt	South Ness	resolved	60.1479600	-1.1408107	headland	OpenStreetMap/Nominatim (The Knab); Gazetteer: South Ness ends at Knab / Horse of the Knab, Lerwick
+310	shetland-islands.txt	Holm of Skaw	resolved	60.8305814	-0.7728744	island	OpenStreetMap/Nominatim (Holm of Skaw, Unst)
+311	shetland-islands.txt	Urie Lingey	resolved	60.6393903	-0.9109382	islet	OpenStreetMap/Nominatim (Urie Lingey, Fetlar)
+312	shetland-islands.txt	Bound Skerry	resolved	60.4245799	-0.7269429	skerry	OpenStreetMap/Nominatim (Bound Skerry, Out Skerries)
+313	shetland-islands.txt	Muckle Skerry	resolved	60.4398654	-0.8616700	skerry	OpenStreetMap/Nominatim (Muckle Skerry, Out Skerries)
+314	shetland-islands.txt	Little Skerry	resolved	60.4187255	-0.8441063	skerry	OpenStreetMap/Nominatim (Little Skerry, Out Skerries)
+315	shetland-islands.txt	Holm of West Sandwick	resolved	60.5845468	-1.2081411	island	OpenStreetMap/Nominatim (Holm of West Sandwick, Yell Sound)
+316	shetland-islands.txt	Holm of Papil	resolved	60.0685070	-1.3334102	island	OpenStreetMap/Nominatim (Holm of Papil, Burra)
+317	shetland-islands.txt	Holm of Grunnavoe	resolved	60.2278100	-1.5350200	islet	Canmore Loch of Grunnavoe centroid (HU 25858 49368); holm in freshwater loch, Walls
+318	shetland-islands.txt	Holm of Melby	resolved	60.3100990	-1.6535802	island	OpenStreetMap/Nominatim (Holm of Melby, Northmavine)
+319	shetland-islands.txt	Daaey	resolved	60.6335392	-0.8979270	island	OpenStreetMap/Nominatim (Daaey, Fetlar)
+320	shetland-islands.txt	Kirk Holm	resolved	60.1974100	-1.3925100	islet	Canmore HU33783 46047 (Kirk Holm monastic settlement, Sandsting)
+321	shetland-islands.txt	Linga Holm	resolved	60.4408200	-1.1550800	island	Wikipedia/WGS84 Linga, Yell Sound (line name “Linga Holm”; same island)
+322	shetland-islands.txt	Muckle Holm	resolved	60.5806600	-1.2667650	island	Wikipedia/WGS84 Muckle Holm, Yell Sound (NLB lighthouse islet)
+323	shetland-islands.txt	Papa Holm	resolved	60.1225000	-1.3441700	island	Wikipedia/WGS84 Papa (Scalloway Islands); uninhabited island E of Oxna (“Papa Holm” colloquial)
+324	shetland-islands.txt	Noss Sound	resolved	60.1489666	-1.0555654	strait	OpenStreetMap/Nominatim (Noss Sound, Bressay)
+325	shetland-islands.txt	Bressay Sound	resolved	60.1508896	-1.1254570	bay	OpenStreetMap/Nominatim (Bressay Sound, Lerwick)
+326	shetland-islands.txt	Upper Sound	resolved	60.1425047	-1.1811488	quarter	OpenStreetMap/Nominatim (Upper Sound, Sound, Lerwick)
+327	shetland-islands.txt	Lower Sound	resolved	60.1428923	-1.1686468	quarter	OpenStreetMap/Nominatim (Sands of Sound); historic Lowersound part of Sound, Lerwick
+328	shetland-islands.txt	Uppersound	resolved	60.1425047	-1.1811488	quarter	Same pin as Upper Sound (line 326); alternate spelling of Uppersound
+329	shetland-islands.txt	Sand Voe	resolved	60.6059390	-1.3400412	bay	OpenStreetMap/Nominatim (Sand Voe, Northmavine / North Roe; major Sandvoe inlet)
+330	shetland-islands.txt	Upper Ulsta	resolved	60.4965806	-1.1589762	ferry_terminal	OpenStreetMap/Nominatim (Ulsta Ferry Terminal); upper Ulsta / ferry head of voe
+331	shetland-islands.txt	Crueton	resolved	60.1630400	-1.1326700	township	Shetland.org cycle route: Crueton crofting township Bressay; Canmore Hill of Cruester farmstead HU 4824 4238 (aka Cruester)
+332	shetland-islands.txt	Brough Ness	resolved	60.7217000	-1.0190100	headland	Canmore/trove Yell Brough (HP53622 04686); coastal ness vicinity north Yell—distinct from Burra Ness to the south
+333	shetland-islands.txt	Breckon	resolved	60.7281900	-1.0302100	beach	Canmore Yell, Breckon (HP 530 054); Sands of Breckon / Breckon hamlet area north Yell
+334	shetland-islands.txt	Neap	resolved	60.3080600	-1.0861100	village	Wikipedia/OS Neap, Nesting (east Mainland); many coastal “neaps” exist in Shetland but this is the settlement name
+335	shetland-islands.txt	Twatt	resolved	60.2646578	-1.4113192	hamlet	OpenStreetMap node 606268401; Sandsting Mainland
+336	shetland-islands.txt	Sandsound	resolved	60.2192700	-1.3575100	township	Canmore Sandsound (HU 357 485), Sandsting; coastal township near West Burra bridge approaches
+337	shetland-islands.txt	Noness	resolved	59.9843980	-1.2120770	hamlet	Geograph HU 4407 2243 (Noness, No Ness peninsula, Sandwick)
+338	shetland-islands.txt	Bigga	resolved	60.4950000	-1.1908300	island	Wikipedia WGS84 Bigga, Yell Sound (between Yell and Mainland)
+339	shetland-islands.txt	Vaila	resolved	60.2058700	-1.5936200	island	Canmore Vaila House (HU 22627 46903); Vaila south of Walls
+340	shetland-islands.txt	Helliar Holm	not_found				Name is the well-known tidal islet off Shapinsay, Orkney (not Shetland); no Shetland coastal feature found—likely list duplication
+341	shetland-islands.txt	Muckle Ayre	resolved	60.3453120	-1.4311300	beach	Geograph HU3162 / Wikimedia Commons; Muckle Ayre beach Muckle Roe (red sand beach)

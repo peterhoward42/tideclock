@@ -1,0 +1,127 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	suffolk.txt	Lowestoft	resolved	52.4766308	1.7537638	town	Nominatim (administrative boundary; town).
+2	suffolk.txt	Ness Point	resolved	52.4811973	1.7627129	viewpoint	Nominatim (tourism=viewpoint).
+3	suffolk.txt	Kirkley	resolved	52.4616414	1.7354321	suburb	Nominatim (suburb of Lowestoft).
+4	suffolk.txt	Pakefield	resolved	52.4523644	1.7271522	suburb	Nominatim (suburb of Lowestoft).
+5	suffolk.txt	Pakefield Beach	resolved	52.4519	1.7325	beach	Approximate Pakefield seafront; no clean Nominatim feature.
+6	suffolk.txt	Lowestoft Harbour	resolved	52.4733978	1.7392513	harbour	Nominatim (Lowestoft Inner Harbour water area).
+7	suffolk.txt	Lowestoft North Beach	resolved	52.4800	1.7585	beach	Approximate north Lowestoft seafront (Ness Point–town); no direct hit.
+8	suffolk.txt	Lowestoft South Beach	resolved	52.4711059	1.7502453	beach	Nominatim POI on Marine Parade near South Beach shoreline.
+9	suffolk.txt	Kessingland	resolved	52.4197397	1.7122444	village	Nominatim (town boundary).
+10	suffolk.txt	Kessingland Beach	resolved	52.4140	1.7280	beach	Approximate Kessingland seafront; Nominatim only listed a holiday park.
+11	suffolk.txt	Benacre	resolved	52.3942148	1.6919537	village	Nominatim (parish/town administrative polygon).
+12	suffolk.txt	Benacre Broad	resolved	52.3862837	1.7131541	lagoon	Nominatim (natural=water).
+13	suffolk.txt	Benacre Ness	resolved	52.3800	1.7100	headland	Approximate dynamic shingle foreland (literature ~TM538877); no Nominatim hit.
+14	suffolk.txt	Covehithe	resolved	52.3763500	1.7055067	hamlet	Nominatim (hamlet boundary).
+15	suffolk.txt	Covehithe Beach	resolved	52.3698966	1.7059869	beach	Nominatim (locality).
+16	suffolk.txt	Easton Bavents	resolved	52.3417240	1.6876446	hamlet	Nominatim.
+17	suffolk.txt	Easton Wood	resolved	52.3631529	1.6974255	woodland	Nominatim (landuse=forest).
+18	suffolk.txt	Southwold	resolved	52.3260841	1.6793095	town	Nominatim (town boundary).
+19	suffolk.txt	Southwold Beach	resolved	52.3275	1.6795	beach	Approximate main seafront; no direct Nominatim hit.
+20	suffolk.txt	Southwold Denes	resolved	52.3210	1.6755	beach	Approximate Denes shingle shore S of centre; no direct hit.
+21	suffolk.txt	Southwold Harbour	resolved	52.3172	1.6660	harbour	Wikipedia / Blyth Navigation infobox coords (harbour on Blyth estuary).
+22	suffolk.txt	Southwold Pier	resolved	52.329786	1.685384	pier	Wikipedia/GeoHack coords; Nominatim matched wrong building on Pier Avenue.
+23	suffolk.txt	Gun Hill Southwold	resolved	52.3230016	1.6792134	promenade	Nominatim (Gun Hill village_green by seafront).
+24	suffolk.txt	Reydon	resolved	52.3383192	1.6687647	village	Nominatim (village boundary).
+25	suffolk.txt	Reydon Marshes	resolved	52.3420	1.6620	marsh	Approximate grazing marsh N of Reydon; diffuse feature, no single OSM place.
+26	suffolk.txt	River Blyth Mouth	resolved	52.3133	1.6750	estuary	Wikipedia mouth coordinates (North Sea between Southwold and Walberswick).
+27	suffolk.txt	Walberswick	resolved	52.3139687	1.6616522	village	Nominatim (village boundary).
+28	suffolk.txt	Walberswick Beach	resolved	52.3110	1.6585	beach	Approximate village seafront; no Nominatim hit.
+29	suffolk.txt	Walberswick Ferry Reach	resolved	52.3155	1.6630	ferry	Approximate mid-channel for Walberswick–Southwold ferry reach.
+30	suffolk.txt	Blythburgh	resolved	52.3209345	1.5979437	village	Nominatim (on tidal River Blyth upstream of coast).
+31	suffolk.txt	Dunwich	resolved	52.2769243	1.6284725	village	Nominatim (village boundary).
+32	suffolk.txt	Dunwich Beach	resolved	52.2695	1.6255	beach	Approximate Dunwich seafront S of village; no clean Nominatim feature.
+33	suffolk.txt	Dunwich Heath	resolved	52.2578050	1.6190378	heath	Nominatim (natural=heath).
+34	suffolk.txt	Dunwich Cliffs	resolved	52.2680	1.6280	cliff	Approximate eroding cliffs S of Dunwich; diffuse feature, no Nominatim hit.
+35	suffolk.txt	Westleton Heath Shore	resolved	52.2656467	1.5965449	heath	Nominatim Westleton Heath; pointer is heath near coast (shore margin diffuse).
+36	suffolk.txt	Minsmere	resolved	52.2473144	1.6056743	protected_area	Nominatim (RSPB / protected_area polygon).
+37	suffolk.txt	Minsmere Beach	resolved	52.2345	1.6295	beach	Approximate shingle beach at reserve coast E of sluice; no direct Nominatim hit.
+38	suffolk.txt	Minsmere Sluice	resolved	52.2373	1.6286	sluice	Wikipedia / Minsmere River mouth coordinates (tidal sluice at sea end of New Cut).
+39	suffolk.txt	Minsmere Marshes	resolved	52.2424706	1.6272038	marsh	Nominatim wetland “The Scrape” as representative managed marsh complex; diffuse wider marshes.
+40	suffolk.txt	North Warren	resolved	52.16806	1.60361	nature_reserve	Wikipedia / RSPB reserve coordinates (coastal marshes N of Aldeburgh); Nominatim matched a road name only.
+41	suffolk.txt	Sizewell	resolved	52.2078964	1.6202752	hamlet	Nominatim (hamlet).
+42	suffolk.txt	Sizewell Beach	resolved	52.2090	1.6225	beach	Approximate Sizewell seafront N of power station; Nominatim only returned a café POI.
+43	suffolk.txt	Sizewell Bay	resolved	52.2060	1.6180	bay	Approximate open bay along Sizewell front; no Nominatim feature.
+44	suffolk.txt	Sizewell Gap	resolved	52.2078224	1.6211808	coastal_locality	Nominatim (road named Sizewell Gap in the coastal gap).
+45	suffolk.txt	Sizewell Marshes	resolved	52.2030	1.6150	marsh	Approximate grazing marsh S of Sizewell; diffuse, no Nominatim hit.
+46	suffolk.txt	Sizewell Power Station	resolved	52.2132	1.6175	power_station	Centroid between Sizewell A and B (Nominatim industrial polygons).
+47	suffolk.txt	Theberton	resolved	52.2372350	1.5683522	hamlet	Nominatim (hamlet boundary).
+48	suffolk.txt	Knodishall	resolved	52.1998367	1.5503934	village	Nominatim (village boundary).
+49	suffolk.txt	Aldringham	resolved	52.1938781	1.5785584	village	Nominatim (village node).
+50	suffolk.txt	Thorpeness	resolved	52.1793334	1.6147103	village	Nominatim (village node).
+51	suffolk.txt	Thorpeness Beach	resolved	52.1775	1.6160	beach	Approximate Thorpeness seafront; no Nominatim hit.
+52	suffolk.txt	Thorpeness Meare	resolved	52.1795883	1.6112103	lake	Nominatim (“The Meare” natural=water; source spelling Meare).
+53	suffolk.txt	Aldeburgh	resolved	52.1523814	1.6015691	town	Nominatim (town boundary).
+54	suffolk.txt	Aldeburgh Beach	resolved	52.1535	1.6005	beach	Approximate main shingle seafront; no Nominatim hit.
+55	suffolk.txt	Aldeburgh Marshes	resolved	52.1650	1.5950	marsh	Approximate grazing/reed marsh N of town (North Warren area); diffuse.
+56	suffolk.txt	North Beach Aldeburgh	resolved	52.1570	1.5970	beach	Approximate N end of Aldeburgh frontage; no Nominatim hit.
+57	suffolk.txt	River Alde Mouth	resolved	52.0401	1.4607	estuary	Wikipedia mouth coordinates (Ore/Alde to North Sea near Shingle Street).
+58	suffolk.txt	Slaughden	resolved	52.1429898	1.5991958	hamlet	Nominatim (hamlet).
+59	suffolk.txt	Slaughden Beach	resolved	52.1410	1.5980	beach	Approximate shingle S of Slaughden; no Nominatim hit.
+60	suffolk.txt	Snape	resolved	52.1695036	1.5004691	village	Nominatim (village boundary).
+61	suffolk.txt	Snape Maltings	resolved	52.1634227	1.4967704	attraction	Nominatim (tourism=attraction).
+62	suffolk.txt	Snape Quay	resolved	52.1642	1.4965	quay	Approximate River Alde quay by Snape Maltings; Nominatim returned no quay feature.
+63	suffolk.txt	Iken	resolved	52.1413811	1.5227027	village	Nominatim (village boundary).
+64	suffolk.txt	Iken Marshes	resolved	52.1320	1.5280	marsh	Approximate tidal reedbeds/marsh by River Alde near Iken; diffuse, no Nominatim feature.
+65	suffolk.txt	Orford	resolved	52.0949765	1.5344399	town	Nominatim (town boundary).
+66	suffolk.txt	Orford Quay	resolved	52.0908583	1.5392189	quay	Nominatim (Orford Quay parking polygon; quay frontage).
+67	suffolk.txt	Orford Ness	resolved	52.0859882	1.5586074	protected_area	Nominatim (Orford Ness NNR attraction polygon; large site).
+68	suffolk.txt	Havergate Island	resolved	52.0729785	1.5229066	island	Nominatim (island / RSPB reserve polygon).
+69	suffolk.txt	Shingle Street	resolved	52.0333553	1.4493846	hamlet	Nominatim (hamlet).
+70	suffolk.txt	Hollesley	resolved	52.0487345	1.4319630	village	Nominatim (village boundary).
+71	suffolk.txt	Hollesley Bay	resolved	52.0370	1.4620	bay	Approximate open North Sea bight E of Hollesley–Shingle Street coast; Nominatim matches HMP Hollesley Bay for this name (wrong feature for the bay).
+72	suffolk.txt	Boyton	resolved	52.0712926	1.4675698	hamlet	Nominatim (hamlet boundary).
+73	suffolk.txt	Boyton Marshes	resolved	52.0674734	1.4908946	marsh	Nominatim (locality node).
+74	suffolk.txt	Alderton Creek Frontage	resolved	52.0185	1.4080	creek_frontage	Approximate tidal creek margin SE of Alderton (Suffolk) toward River Deben; Nominatim only had village polygon.
+75	suffolk.txt	Bawdsey	resolved	52.0094318	1.4193577	village	Nominatim (village boundary).
+76	suffolk.txt	Bawdsey Beach	resolved	52.0188821	1.4392323	beach	Nominatim (locality).
+77	suffolk.txt	Bawdsey Manor	resolved	51.9896344	1.3995618	manor	Nominatim (historic=manor).
+78	suffolk.txt	Bawdsey Ferry	resolved	51.9855	1.3910	ferry	Approximate River Deben ferry crossing (Felixstowe Ferry–Bawdsey); Nominatim matched unrelated PGL centre on Ferry Road.
+79	suffolk.txt	Bawdsey Quay	resolved	51.9904766	1.3940865	ferry_terminal	Nominatim (amenity=ferry_terminal).
+80	suffolk.txt	Ramsholt	resolved	52.0281784	1.3638925	hamlet	Nominatim (hamlet boundary).
+81	suffolk.txt	Ramsholt Quay	resolved	52.02373	1.36156	quay	Ramsholt Arms / jetty coords (boatinginfo.co.uk); Nominatim no hit.
+82	suffolk.txt	Ramsholt Creek	resolved	52.0250	1.3625	creek	Approximate tidal inlet at Ramsholt on River Deben; Nominatim no feature.
+83	suffolk.txt	Deben Estuary Mouth	resolved	51.9808	1.3927	estuary	Wikipedia River Deben mouth coordinates (Felixstowe Ferry area); Nominatim no hit.
+84	suffolk.txt	Falkenham	resolved	52.0021688	1.3401070	village	Nominatim (village boundary).
+85	suffolk.txt	Falkenham Marshes	resolved	51.9994366	1.3676417	marsh	Nominatim (locality).
+86	suffolk.txt	Felixstowe	resolved	51.9642959	1.3289938	town	Nominatim (town polygon centroid).
+87	suffolk.txt	Felixstowe Beach	resolved	51.9547407	1.3325448	beach	Nominatim (Felixstowe Beach Caravan Park — coastal strip proxy).
+88	suffolk.txt	Felixstowe Seafront	resolved	51.9565	1.3400	promenade	Approximate Old Felixstowe seafront / Marine Parade; Nominatim no generic seafront place.
+89	suffolk.txt	Felixstowe Pier	resolved	51.9571523	1.3476354	pier	Nominatim (man_made=pier).
+90	suffolk.txt	Landguard Point	resolved	51.9405075	1.3202892	headland	Nominatim Landguard Visitor Centre (Landguard Fort headland area).
+91	suffolk.txt	Landguard Fort	resolved	51.9382620	1.3210066	fort	Nominatim (tourism=museum; Landguard Fort).
+92	suffolk.txt	Landguard Beach	resolved	51.9395	1.3220	beach	Approximate shingle beach by Landguard Fort; no clean Nominatim feature.
+93	suffolk.txt	Felixstowe Ferry	resolved	51.9884355	1.3897154	hamlet	Nominatim (place=hamlet).
+94	suffolk.txt	Trimley St Martin	resolved	51.9909660	1.3122621	village	Nominatim (village boundary).
+95	suffolk.txt	Trimley St Martin Beach	resolved	51.9855	1.3245	beach	Approximate foreshore W of Felixstowe beside Trimley St Martin; no Nominatim hit.
+96	suffolk.txt	Trimley Marshes	resolved	51.9738267	1.2885488	marsh	Nominatim (locality).
+97	suffolk.txt	Trimley St Mary Shore	resolved	51.9765	1.3040	shore	Approximate Orwell foreshore below Trimley St Mary; diffuse high-water line.
+98	suffolk.txt	Martlesham Creek Mouth	resolved	52.0220	1.2350	creek_mouth	Approximate confluence with River Orwell E of Ipswich; Nominatim only returned upstream creek ways.
+99	suffolk.txt	Kirton Creek	resolved	52.0175	1.3180	creek	Approximate tidal creek by Kirton toward the Orwell; Nominatim no named waterway.
+100	suffolk.txt	River Orwell Mouth	resolved	51.9667	1.3000	estuary	Wikipedia mouth coordinates (Harwich Harbour / Shotley Gate confluence area).
+101	suffolk.txt	Ipswich Waterfront	resolved	52.0524984	1.1622051	waterfront	Nominatim (Neptune Quay; central regenerated quays).
+102	suffolk.txt	Ipswich Wet Dock	resolved	52.0498452	1.1622497	dock	Nominatim (natural=water polygon).
+103	suffolk.txt	Levington	resolved	52.0062874	1.2521007	village	Nominatim (village boundary).
+104	suffolk.txt	Levington Creek	resolved	52.0085	1.2585	creek	Approximate short tidal creek at Levington joining the Orwell; Nominatim no feature.
+105	suffolk.txt	Nacton Shore	resolved	52.0120	1.2400	shore	Approximate wooded foreshore below Nacton on the Orwell; no Nominatim hit.
+106	suffolk.txt	Woolverstone	resolved	52.0027574	1.1820034	village	Nominatim (village boundary).
+107	suffolk.txt	Woolverstone Hard	resolved	52.0068192	1.1954661	hard	Nominatim (Woolverstone Marina; public hard/landing in this reach).
+108	suffolk.txt	Chelmondiston	resolved	51.9899040	1.2087457	village	Nominatim (village boundary).
+109	suffolk.txt	Chelmondiston Shore	resolved	51.9920	1.2150	shore	Approximate River Orwell foreshore by Pin Mill reach; diffuse.
+110	suffolk.txt	Pin Mill	resolved	51.9959341	1.2121120	hamlet	Nominatim (hamlet node).
+111	suffolk.txt	Pin Mill Hard	resolved	51.9963902	1.2126892	hard	Nominatim (The Butt and Oyster pub — classic hard landing beside wharfage).
+112	suffolk.txt	Shotley	resolved	51.9689140	1.2528292	village	Nominatim (village boundary).
+113	suffolk.txt	Shotley Gate	resolved	51.9579124	1.2686199	village	Nominatim (village node).
+114	suffolk.txt	Shotley Marshes	resolved	51.9620	1.2650	marsh	Approximate grazing marsh N of Shotley Gate; Nominatim no polygon.
+115	suffolk.txt	Shotley Peninsula	ambiguous			unknown	Whole Shotley peninsula between Orwell and Stour; no single authoritative point.
+116	suffolk.txt	Stour Estuary Shore	ambiguous			unknown	Label spans many miles of Suffolk/Essex foreshore; too broad for one pin.
+117	suffolk.txt	Erwarton Ness	resolved	51.9550	1.2075	headland	Suffolk HER point TM 211 331 (Arwarton Ness) on north shore of River Stour.
+118	suffolk.txt	Harkstead Marshes	resolved	51.9650	1.1900	marsh	Approximate riverside marsh S of Harkstead toward Stour; diffuse.
+119	suffolk.txt	Cattawade Bank	resolved	51.9560	1.0560	mudbank	Approximate tidal bank in River Stour by Cattawade; Nominatim only village node.
+120	suffolk.txt	Newbourne Creek Mouth	resolved	52.0420	1.3180	creek_mouth	Approximate mouth of Newbourne stream toward the Deben–Orwell gap E of village; diffuse.
+121	suffolk.txt	Holbrook Waterfront	resolved	51.9810	1.1600	waterfront	Approximate Stour estuary foreshore by Holbrook (village centroid ~51.984, 1.159 per Wikidata; nudged toward water).
+122	suffolk.txt	Stutton Waterfront	resolved	51.9703	1.1285	waterfront	Approximate Stour-side foreshore near Stutton (village ~51.9703, 1.1285 Streetmap/Wikidata).
+123	suffolk.txt	Sudbourne	resolved	52.122548	1.523751	village	Wikipedia/GeoHack coords (All Saints' area).
+124	suffolk.txt	Sudbourne Marshes	resolved	52.1180	1.5280	marsh	Approximate grazing/reed marsh between Sudbourne and the Alde–Ore coast; diffuse wetland belt.
+125	suffolk.txt	Eastbridge Marshes	resolved	52.2320	1.5920	marsh	Approximate Minsmere Level / Eastbridge marsh mosaic by Minsmere New Cut; part of wider RSPB coastal wetland.
+126	suffolk.txt	Butley Creek Mouth	resolved	52.0708	1.5025	creek_mouth	Wikipedia mouth coords: Butley River (Butley Creek) into River Ore near Boyton Marshes.

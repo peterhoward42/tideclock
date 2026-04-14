@@ -1,0 +1,208 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	west-sussex.txt	West Wittering	resolved	50.7833912	-0.8919931	suburb	Nominatim (administrative area West Wittering, Chichester).
+2	west-sussex.txt	West Wittering Beach	resolved	50.7608	-0.8592	beach	No direct Nominatim hit; representative point on main public foreshore S of the village (toward East Head).
+3	west-sussex.txt	East Head	resolved	50.7886443	-0.9112571	headland	Nominatim (East Head sand-dune spit, West Wittering).
+4	west-sussex.txt	Thorney Island	resolved	50.8155331	-0.9251693	peninsula	Nominatim landuse=military “Baker Barracks : Thorney Island” (covers most of the island).
+5	west-sussex.txt	Sandy Point	resolved	50.778791	-0.939949	nature_reserve	Sandy Point LNR at Chichester Harbour entrance (Hayling Island, Hampshire); statutory centroid from planning.data.gov.uk entity point.
+6	west-sussex.txt	Pilsey Island	resolved	50.8009627	-0.9073682	island	Nominatim (Pilsey Island, Chichester Harbour).
+7	west-sussex.txt	Itchenor	resolved	50.7997820	-0.8737383	village	Colloquially “Itchenor”; OSM/Nominatim place name is West Itchenor.
+8	west-sussex.txt	Itchenor Reach	ambiguous			waterway	Tidal channel/reach in Chichester Harbour; no single map pin.
+9	west-sussex.txt	West Itchenor	resolved	50.7997820	-0.8737383	village	Nominatim (West Itchenor).
+10	west-sussex.txt	Bosham	resolved	50.8261139	-0.8390211	village	Nominatim (Bosham).
+11	west-sussex.txt	Bosham Quay	resolved	50.8281935	-0.8599591	harbour	Nominatim hit is Bosham Sailing Club on the quay road; represents Bosham harbour frontage.
+12	west-sussex.txt	Chidham	resolved	50.8298250	-0.8840078	hamlet	Nominatim (Chidham).
+13	west-sussex.txt	Dell Quay	resolved	50.8192731	-0.8161671	hamlet	Nominatim (Dell Quay, Apuldram).
+14	west-sussex.txt	Birdham	resolved	50.7940105	-0.8336022	village	Nominatim (Birdham).
+15	west-sussex.txt	Birdham Pool	resolved	50.8034749	-0.8312067	marina	Nominatim (Birdham Pool).
+16	west-sussex.txt	Cobnor	resolved	50.8141	-0.8884	hamlet	No place=cobnor in Nominatim; point on Cobnor Rithe near named Cobnor features (distinct from Cobnor Point).
+17	west-sussex.txt	Cobnor Point	resolved	50.8116301	-0.8767813	cape	Nominatim (natural=cape Cobnor Point).
+18	west-sussex.txt	Nutbourne	resolved	50.8438639	-0.8960870	village	Nominatim (Nutbourne, Chichester).
+19	west-sussex.txt	Prinsted	resolved	50.8443898	-0.9138975	hamlet	Nominatim (Prinsted).
+20	west-sussex.txt	Fishbourne	resolved	50.8366434	-0.8190780	village	Nominatim (Fishbourne).
+21	west-sussex.txt	Southbourne	resolved	50.8422818	-0.9138832	village	Nominatim (Southbourne, Prinsted area).
+22	west-sussex.txt	West Thorney	resolved	50.8099941	-0.9247080	village	Nominatim (West Thorney).
+23	west-sussex.txt	Westlands	ambiguous			locality	Nominatim “Westlands” resolves to Cowfold (Horsham); likely Thorney Island / West Thorney locality not indexed—left unresolved.
+24	west-sussex.txt	Chichester Harbour	resolved	50.8132069	-0.8964437	harbour	Nominatim (Chichester Harbour).
+25	west-sussex.txt	Chichester Harbour Entrance	resolved	50.7652	-0.9045	channel	Approximate harbour mouth between West Wittering and Hayling; no clean Nominatim object.
+26	west-sussex.txt	East Wittering	resolved	50.7684833	-0.8615492	village	Nominatim (East Wittering).
+27	west-sussex.txt	East Wittering Beach	resolved	50.7662	-0.8548	beach	No direct Nominatim hit; representative foreshore E of village centre.
+28	west-sussex.txt	Bracklesham	resolved	50.7623646	-0.8588272	village	Nominatim (Bracklesham).
+29	west-sussex.txt	Bracklesham Bay	resolved	50.7655	-0.8558	bay	Nominatim top hit was a café; centroid chosen for open bay W of Selsey Bill.
+30	west-sussex.txt	Bracklesham Beach	resolved	50.7635	-0.858	beach	No direct Nominatim hit; representative shingle beach by Bracklesham settlement.
+31	west-sussex.txt	Earnley	resolved	50.7615064	-0.8368306	village	Nominatim (Earnley, Chichester).
+32	west-sussex.txt	Highleigh	resolved	50.7779549	-0.8029990	village	Nominatim (Highleigh).
+33	west-sussex.txt	Almodington	resolved	50.7726851	-0.8292458	hamlet	Nominatim (Almodington).
+34	west-sussex.txt	Manhood Peninsula	resolved	50.7769753	-0.8738316	peninsula	Nominatim (Manhood Peninsula).
+35	west-sussex.txt	Selsey	resolved	50.7327781	-0.7922896	town	Nominatim (Selsey).
+36	west-sussex.txt	Selsey Bill	resolved	50.7232576	-0.7855141	headland	Nominatim (Selsey Bill).
+37	west-sussex.txt	Selsey Beach	resolved	50.7265	-0.794	beach	Representative foreshore W of Selsey centre; Nominatim hit was a house name.
+38	west-sussex.txt	Selsey East Beach	resolved	50.73	-0.778	beach	Eastern shingle frontage toward Pagham; Nominatim returned unrelated POI.
+39	west-sussex.txt	Selsey West Beach	resolved	50.7225	-0.798	beach	Western frontage toward Selsey Bill; Nominatim returned unrelated POI.
+40	west-sussex.txt	Selsey Lifeboat Station	resolved	50.7283616	-0.7801497	lifeboat_station	Nominatim (Selsey Lifeboat Station, Kingsway).
+41	west-sussex.txt	Cakeham	resolved	50.772487	-0.888443	hamlet	Cakeham Manor / historic hamlet (West Wittering parish); no clean place node in Nominatim.
+42	west-sussex.txt	Pagham	resolved	50.7706947	-0.7394133	village	Nominatim (Pagham).
+43	west-sussex.txt	Pagham Beach	resolved	50.768	-0.739	beach	Foreshore by Harbour Road; Nominatim hit was a café premises.
+44	west-sussex.txt	Pagham Harbour	resolved	50.7621239	-0.7652700	harbour	Nominatim (Pagham Harbour).
+45	west-sussex.txt	Church Norton	resolved	50.7526857	-0.7686069	village	Nominatim (Church Norton).
+46	west-sussex.txt	Sidlesham	resolved	50.7680212	-0.7935466	village	Nominatim (Sidlesham).
+47	west-sussex.txt	Sidlesham Quay	resolved	50.7691040	-0.7796657	quay	Nominatim (Sidlesham Quay).
+48	west-sussex.txt	Medmerry	resolved	50.7530096	-0.8216351	coastal_realignment	Nominatim top hit was a caravan park; RSPB Medmerry reserve centroid used for the coastal scheme.
+49	west-sussex.txt	Medmerry Beach	resolved	50.7489715	-0.8329506	beach	Nominatim (Medmerry Beach).
+50	west-sussex.txt	Medmerry Nature Reserve	resolved	50.7530096	-0.8216351	nature_reserve	RSPB Medmerry (Nominatim).
+51	west-sussex.txt	Pagham Harbour North Wall	resolved	50.76905	-0.7589	seawall	North Wall seawall viewpoint; BirdGuides site map coordinates (no clean Nominatim object).
+52	west-sussex.txt	Breach Pool	resolved	50.7632	-0.7878	lagoon	Small LNR scrape on the north shore; no OSM feature—approximate viewing area.
+53	west-sussex.txt	Ferry Pool	resolved	50.7606125	-0.7879454	pond	Nominatim (water=Ferry Pool, Sidlesham).
+54	west-sussex.txt	Nyetimber	resolved	50.7787853	-0.7352328	village	Nominatim (Nyetimber).
+55	west-sussex.txt	South Bersted	resolved	50.79403	-0.67517	village	Wikipedia infobox coordinates (St Mary Magdalene); Nominatim hits were amenities in Bersted Street.
+56	west-sussex.txt	Flansham	resolved	50.8030479	-0.6371474	hamlet	Nominatim (Flansham).
+57	west-sussex.txt	Donnington	resolved	50.8116379	-0.7899659	village	Nominatim (Donnington, Chichester).
+58	west-sussex.txt	Bognor Regis	resolved	50.7834973	-0.6730718	town	Nominatim (Bognor Regis).
+59	west-sussex.txt	Bognor	resolved	50.7835	-0.6731	town	Colloquial short name for Bognor Regis; same town centroid.
+60	west-sussex.txt	Bognor Regis Pier	resolved	50.7816113	-0.6760204	pier	Nominatim guidepost “Pier” on The Esplanade.
+61	west-sussex.txt	Bognor Regis East Beach	resolved	50.7825	-0.668	beach	No clean Nominatim beach object; representative foreshore E of the pier toward Felpham.
+62	west-sussex.txt	Bognor Regis West Beach	resolved	50.7825	-0.683	beach	No clean Nominatim beach object; representative foreshore W of the pier toward Aldwick.
+63	west-sussex.txt	Aldwick	resolved	50.7815190	-0.7065119	village	Nominatim (Aldwick administrative boundary).
+64	west-sussex.txt	Aldwick Bay	resolved	50.7792	-0.695	bay	No Nominatim feature; open bay/foreshore in front of Aldwick (human-map centroid).
+65	west-sussex.txt	Felpham	resolved	50.7904582	-0.6541200	town	Nominatim (Felpham).
+66	west-sussex.txt	Felpham Beach	resolved	50.7890	-0.656	beach	No direct Nominatim beach; representative south-coast foreshore by Felpham.
+67	west-sussex.txt	Middleton-on-Sea	resolved	50.7905472	-0.6209590	village	Nominatim (Middleton-on-Sea).
+68	west-sussex.txt	Middleton-on-Sea Beach	resolved	50.7925	-0.612	beach	No direct Nominatim beach; representative shingle frontage S of the village.
+69	west-sussex.txt	Elmer	resolved	50.7926412	-0.6059400	village	Nominatim (Elmer).
+70	west-sussex.txt	Elmer Beach	resolved	50.7930	-0.608	beach	Nominatim hits were shops on Elmer Road; representative beach access/coast here.
+71	west-sussex.txt	Atherington	resolved	50.7983937	-0.5734066	hamlet	Nominatim (Atherington).
+72	west-sussex.txt	Atherington Beach	resolved	50.7972	-0.575	beach	No Nominatim beach; shingle frontage by Atherington toward Climping.
+73	west-sussex.txt	Climping	resolved	50.8054746	-0.5785797	suburb	Nominatim (Climping administrative boundary).
+74	west-sussex.txt	Climping Beach	resolved	50.7980551	-0.5749738	beach	Representative point from Climping Beach Cafe (disused) on Climping Street foreshore.
+75	west-sussex.txt	Climping Gap	resolved	50.7990	-0.565	coastal_gap	No Nominatim object; shingle gap between Climping and Littlehampton West Beach (approximate).
+76	west-sussex.txt	Kingston Gorse	resolved	50.8038820	-0.4577940	hamlet	Nominatim (Kingston Gorse).
+77	west-sussex.txt	Rustington	resolved	50.8110774	-0.5101687	village	Nominatim (Rustington).
+78	west-sussex.txt	Rustington Beach	resolved	50.8120	-0.505	beach	No Nominatim beach; representative Sea Road / greensward seafront.
+79	west-sussex.txt	East Preston	resolved	50.8087876	-0.4832171	village	Nominatim (East Preston).
+80	west-sussex.txt	East Preston Beach	resolved	50.8095	-0.478	beach	No Nominatim beach; representative coastal strip by the village.
+81	west-sussex.txt	Angmering-on-Sea	resolved	50.8043135	-0.4766632	village	Nominatim (Angmering on Sea).
+82	west-sussex.txt	Kingston	resolved	50.8077467	-0.4597681	hamlet	Nominatim (Kingston by Angmering-on-Sea — disambiguated from other Kingstons).
+83	west-sussex.txt	Littlehampton	resolved	50.8095801	-0.5424424	town	Nominatim (Littlehampton).
+84	west-sussex.txt	Littlehampton East Beach	resolved	50.8021302	-0.5294193	beach	Nominatim (natural=beach Littlehampton East Beach).
+85	west-sussex.txt	Littlehampton West Beach	resolved	50.8000295	-0.5511727	beach	Nominatim leisure=nature_reserve West Beach Local Nature Reserve (foreshore zone).
+86	west-sussex.txt	East Beach Littlehampton	resolved	50.8021302	-0.5294193	beach	Same feature as Littlehampton East Beach (alternate wording).
+87	west-sussex.txt	West Beach Littlehampton	resolved	50.8000295	-0.5511727	beach	Same feature as Littlehampton West Beach (alternate wording).
+88	west-sussex.txt	Littlehampton Harbour	resolved	50.8063	-0.5436	harbour	Representative point at Town Quay / inner harbour (Nominatim returns many pier segments).
+89	west-sussex.txt	Littlehampton Pier	resolved	50.8017218	-0.5419463	pier	Nominatim (man_made=pier East Pier — main public pier on the east beach).
+90	west-sussex.txt	River Arun	resolved	50.8055	-0.5285	estuary	No single river centreline hit; approximate tidal mouth / harbour entrance at Littlehampton.
+91	west-sussex.txt	River Arun Mouth	resolved	50.8020	-0.5230	estuary	Approximate harbour entrance / tidal mouth W of Littlehampton; no clean Nominatim object (cf. River Arun row).
+92	west-sussex.txt	Lyminster	resolved	50.8339978	-0.5475421	village	Nominatim (Lyminster).
+93	west-sussex.txt	Wick	resolved	50.8218492	-0.5427639	hamlet	Nominatim (Wick, Littlehampton area).
+94	west-sussex.txt	Mewsbrook Park	resolved	50.8051182	-0.5208929	park	Nominatim (Mewsbrook Park, Littlehampton).
+95	west-sussex.txt	Goring-by-Sea	resolved	50.8126677	-0.4214561	village	Nominatim place boundary for Goring-by-Sea (Worthing); first search hit was the railway station only.
+96	west-sussex.txt	Goring	resolved	50.8126677	-0.4214561	village	Nominatim (Goring-by-Sea — colloquial “Goring”).
+97	west-sussex.txt	Goring Beach	resolved	50.8135	-0.4260	beach	No direct Nominatim beach; representative shingle foreshore by Goring-by-Sea (human-map centroid).
+98	west-sussex.txt	Goring Gap	resolved	50.8045652	-0.4313971	coastal_gap	Nominatim (highway=footway Goring Gap).
+99	west-sussex.txt	Ferring	resolved	50.8085357	-0.4493336	village	Nominatim (Ferring administrative boundary).
+100	west-sussex.txt	Ferring Beach	resolved	50.8027624	-0.4474520	beach	Nominatim (tourism=information “Ferring Beach and Greensward”).
+101	west-sussex.txt	West Worthing	resolved	50.8183730	-0.3933519	suburb	Nominatim (West Worthing railway station — common label for the western seafront area).
+102	west-sussex.txt	Worthing	resolved	50.8115402	-0.3699697	town	Nominatim (Worthing).
+103	west-sussex.txt	Worthing Pier	resolved	50.8081313	-0.3691963	pier	Nominatim (Worthing Pier).
+104	west-sussex.txt	Worthing Beach	resolved	50.8163309	-0.3363303	beach	Nominatim (natural=beach Worthing Beach — name spans Worthing/Lancing frontage).
+105	west-sussex.txt	Worthing Lido	resolved	50.8088167	-0.3723504	attraction	Nominatim (The Worthing Lido building, Marine Parade).
+106	west-sussex.txt	East Worthing	resolved	50.8215920	-0.3551084	suburb	Nominatim (East Worthing railway station — label for eastern Worthing).
+107	west-sussex.txt	Brooklands	resolved	50.8206867	-0.3376425	park	Nominatim (Brooklands Park, Western Road) — coastal Worthing/Lancing margin; generic “Brooklands” elsewhere is inland.
+108	west-sussex.txt	Splash Point	resolved	50.8119	-0.3617	headland	Coastal locality E of Worthing Pier; coords from Wikipedia Splashpoint seafront (pool/leisure centre sits between road and beach).
+109	west-sussex.txt	Heene	resolved	50.8110	-0.3845	suburb	Heene seafront neighbourhood; approximate centroid near Heene Road — no place=* node (Nominatim hits were streets/cemetery).
+110	west-sussex.txt	Heene Beach	resolved	50.8105	-0.3620	beach	Representative east Worthing pebble foreshore by Splash Point; no clean Nominatim beach object.
+111	west-sussex.txt	Durrington	resolved	50.8328041	-0.4116659	suburb	Nominatim (Durrington).
+112	west-sussex.txt	Durrington-on-Sea	resolved	50.8174419	-0.4114787	suburb	Nominatim (Durrington-on-Sea railway station — usual label for the coastal part).
+113	west-sussex.txt	Lancing	resolved	50.8258666	-0.3225510	village	Nominatim (Lancing administrative boundary).
+114	west-sussex.txt	North Lancing	resolved	50.8385772	-0.3203360	hamlet	Nominatim (North Lancing).
+115	west-sussex.txt	South Lancing	resolved	50.8235	-0.3185	suburb	Southern coastal sector of Lancing; approximate centre near A259 retail strip — Nominatim only returned whole-parish boundary.
+116	west-sussex.txt	Lancing Beach	resolved	50.8231816	-0.3034137	beach	Nominatim (Lancing Beach).
+117	west-sussex.txt	Lancing Beach Green	resolved	50.8208787	-0.3214320	park	Nominatim (Lancing Beach Green).
+118	west-sussex.txt	South Lancing Beach	resolved	50.8215	-0.3028	beach	Representative southern Lancing shingle sector; no separate Nominatim object from Lancing Beach.
+119	west-sussex.txt	Widewater	resolved	50.8250545	-0.2976955	lagoon	Nominatim (water Widewater Lagoon — feature also named Widewater).
+120	west-sussex.txt	Widewater Lagoon	resolved	50.8250545	-0.2976955	lagoon	Nominatim (Widewater Lagoon).
+121	west-sussex.txt	Shoreham-by-Sea	resolved	50.8322307	-0.2746717	town	Nominatim (Shoreham-by-Sea).
+122	west-sussex.txt	Shoreham	resolved	50.8322307	-0.2746717	town	Colloquial short name for Shoreham-by-Sea; same town centroid.
+123	west-sussex.txt	Shoreham Beach	resolved	50.8283346	-0.2689381	suburb	Nominatim (Shoreham Beach neighbourhood).
+124	west-sussex.txt	Shoreham Beach Local Nature Reserve	resolved	50.8268	-0.264	nature_reserve	No clean Nominatim object; approximate centroid of the vegetated-shingle LNR on Shoreham Beach (distinct from built-up Shoreham Beach area).
+125	west-sussex.txt	Old Shoreham	resolved	50.840433	-0.2846328	village	St Nicolas Church / Old Shoreham historic core (National Churches Trust listing coords); Nominatim returned unrelated highway hits for “Old Shoreham”.
+126	west-sussex.txt	New Shoreham	resolved	50.8322307	-0.2746717	town	Historic name for the port town now usually called Shoreham-by-Sea; same centroid as row 121.
+127	west-sussex.txt	Kingston-by-Sea	resolved	50.8333788	-0.2472737	hamlet	Nominatim (Kingston Buci — usual modern name for this settlement).
+128	west-sussex.txt	Kingston Beach	resolved	50.8300474	-0.2467647	beach	Nominatim (Kingston Beach).
+129	west-sussex.txt	Shoreham Harbour	resolved	50.8300	-0.2475	harbour	Representative point in the main enclosed harbour / docks (many Nominatim hits are individual piers or POIs).
+130	west-sussex.txt	Shoreham Port	resolved	50.8311	-0.2395	harbour	Commercial port zone; centroid near Albion Street / port estate (Nominatim “Shoreham Port Authority” was the office building only).
+131	west-sussex.txt	River Adur	resolved	50.8343	-0.2734	river	Representative point on the tidal Adur at Shoreham (Norfolk Bridge area); Nominatim top hit was far upstream at Horsham.
+132	west-sussex.txt	Adur Estuary	ambiguous			estuary	Long tidal estuary reach; no single authoritative pin between Upper Beeding and the harbour mouth.
+133	west-sussex.txt	Adur Mouth	resolved	50.8265	-0.2495	estuary	Approximate harbour entrance / tidal mouth by Shoreham Fort (cf. Shoreham Redoubt Wikipedia coords).
+134	west-sussex.txt	Shoreham Lighthouse	resolved	50.8312	-0.2518	lighthouse	Grade II listed Shoreham Harbour Lighthouse (listed-buildings / GeoHack coords; Kingston Buci).
+135	west-sussex.txt	Shoreham Lifeboat Station	resolved	50.8303537	-0.2490306	lifeboat_station	Nominatim (Shoreham Harbour Lifeboat Station).
+136	west-sussex.txt	Shoreham Redoubt	resolved	50.826944	-0.250000	fort	Wikipedia / GeoHack (Shoreham Fort) scheduled monument coords.
+137	west-sussex.txt	Shoreham Airport	resolved	50.8356838	-0.2939213	airport	Nominatim (Brighton City Airport — historic “Shoreham Airport”).
+138	west-sussex.txt	Fishersgate	resolved	50.8342805	-0.2195742	suburb	Nominatim (Fishersgate railway station node — common label for the area).
+139	west-sussex.txt	Fishersgate Beach	resolved	50.8320	-0.2210	beach	Representative shingle foreshore W of Fishersgate; no separate Nominatim beach feature.
+140	west-sussex.txt	Southwick	resolved	50.8345258	-0.2383308	town	Nominatim (Southwick).
+141	west-sussex.txt	Southwick Beach	resolved	50.8289744	-0.2343398	beach	Nominatim (Southwick Beach Car Park — foreshore access point).
+142	west-sussex.txt	Bognor beach	resolved	50.7825	-0.6700	beach	Informal label; representative Bognor Regis seafront W of the pier (cf. Bognor Regis West Beach row).
+143	west-sussex.txt	Littlehampton beach	resolved	50.8030	-0.5300	beach	Generic town seafront centroid between river and East Beach (no single Nominatim name).
+144	west-sussex.txt	West Beach Promenade Littlehampton	resolved	50.8000295	-0.5511727	promenade	Promenade along West Beach / West Beach LNR frontage (same strip as Littlehampton West Beach).
+145	west-sussex.txt	East Beach Promenade Littlehampton	resolved	50.8021302	-0.5294193	promenade	Promenade along Littlehampton East Beach (Nominatim beach feature).
+146	west-sussex.txt	Norfolk Road Beach Littlehampton	resolved	50.8015	-0.5285	beach	Norfolk Road seafront access near East Beach; approximate (Nominatim search returned no match).
+147	west-sussex.txt	Sea Lane Rustington	resolved	50.8120	-0.5050	road	Sea Lane coastal access in Rustington; representative point near greensward/seafront (Nominatim rate-limited; aligned with Rustington seafront).
+148	west-sussex.txt	Grand Avenue Worthing	resolved	50.8120762	-0.3932163	promenade	Nominatim (Grand Avenue — west Worthing seafront avenue).
+149	west-sussex.txt	Marine Parade Worthing	resolved	50.8085053	-0.3783642	promenade	Nominatim (Marine Parade segment).
+150	west-sussex.txt	West Parade Worthing	resolved	50.8071479	-0.3894509	promenade	Nominatim (West Parade segment).
+151	west-sussex.txt	East Parade Worthing	resolved	50.81005	-0.36879	promenade	Seafront promenade E of the pier; representative point (Photon: Seafront Tattoo, Marine Parade area).
+152	west-sussex.txt	Brooklands Pleasure Park	resolved	50.8190003	-0.3373275	park	Photon (leisure=park Brooklands Pleasure Park, Worthing).
+153	west-sussex.txt	Beach House Park	resolved	50.8136208	-0.3632894	park	Photon (leisure=park Beach House Park, Worthing).
+154	west-sussex.txt	Dent Gardens	resolved	50.811484	-0.3640308	park	Photon maps as Denton Gardens (seafront formal gardens west of pier).
+155	west-sussex.txt	Shelley Beach	resolved	50.80274	-0.44899	beach	Shingle sector of Ferring foreshore (no direct Photon UK hit; WGS84 aligned with Geograph Ferring Beach TQ0901).
+156	west-sussex.txt	Goring Gap Beach	resolved	50.8059	-0.4316	beach	Coastal gap between Goring-by-Sea and Ferring; representative on foreshore (cf. Photon highway=footway Goring Gap).
+157	west-sussex.txt	Highdown Ferring	resolved	50.8516	-0.4626	headland	Highdown Hill / Highdown chalk down above Ferring; representative summit viewpoint (not the Arun “Highdown Close”).
+158	west-sussex.txt	East Preston Greensward	resolved	50.8088	-0.4825	greensward	Seafront open space at East Preston; approximate centroid W of Rustington (Photon village hit used as anchor).
+159	west-sussex.txt	Rustington Greensward	resolved	50.8113	-0.506	greensward	Coastal greensward/seafront open space at Rustington; approximate (no named Photon feature).
+160	west-sussex.txt	Kingston Seafront	resolved	50.83005	-0.24676	beach	Kingston Buci / Kingston Beach sector of Shoreham frontage (Photon natural=beach Kingston Beach).
+161	west-sussex.txt	Littlehampton Seafront	resolved	50.80245	-0.5285	promenade	Generic town seafront centroid between river mouths (Photon cycleway Littlehampton Promenade as anchor).
+162	west-sussex.txt	Worthing Seafront	resolved	50.80813	-0.3692	promenade	Representative at Worthing Pier / central seafront (long continuous front).
+163	west-sussex.txt	Lancing Seafront	resolved	50.82006	-0.32155	beach	Photon (natural=beach Lancing Beach — central sector).
+164	west-sussex.txt	Shoreham Beach East	resolved	50.82885	-0.262	beach	Eastern Shoreham Beach / East Beach access area; approximate foreshore point.
+165	west-sussex.txt	Shoreham Beach West	resolved	50.82833	-0.26894	beach	Photon (landuse=residential Shoreham Beach — representative west-central shingle frontage).
+166	west-sussex.txt	Coronation Green Shoreham	resolved	50.8314683	-0.2750793	park	Photon (leisure=park Coronation Green, Adur).
+167	west-sussex.txt	Lady Bee Marina	resolved	50.83092	-0.23382	marina	Shoreham Harbour / Southwick; coords from marina directory listings (Photon had no GB hit).
+168	west-sussex.txt	Ropetackle Shoreham	resolved	50.8341196	-0.2799766	quarter	Photon (highway=residential Ropetackle riverside quarter).
+169	west-sussex.txt	Sussex Yacht Club Shoreham	resolved	50.8315704	-0.2736494	club	Photon (club=sport Sussex Yacht Club, Shoreham-by-Sea).
+170	west-sussex.txt	Littlehampton Redoubt	resolved	50.8011761	-0.54399	historic	Photon (historic=archaeological_site Littlehampton Redoubt).
+171	west-sussex.txt	Littlehampton Lifeboat Station	resolved	50.8080592	-0.5444865	lifeboat_station	Photon (emergency=water_rescue Littlehampton Lifeboat Station).
+172	west-sussex.txt	East Pier Beach Worthing	resolved	50.80875	-0.3686	beach	Shingle immediately E of Worthing Pier; approximate foreshore (pier from Photon man_made=pier).
+173	west-sussex.txt	Beach House Worthing	resolved	50.8119358	-0.3627202	building	Photon (building=house Beach House — listed villa/foreshore landmark near Beach House Park).
+174	west-sussex.txt	Marine Gardens Worthing	resolved	50.8071432	-0.3969729	park	Photon (leisure=park Marine Gardens, West Parade seafront).
+175	west-sussex.txt	Coastal Gardens Worthing	resolved	50.8071	-0.397	park	Council seafront park complex; treated as Marine Gardens / West Parade gardens (colloquial “coastal” label).
+176	west-sussex.txt	Worthing Esplanade	resolved	50.8094	-0.3695	promenade	Generic seafront esplanade centroid near pier / central band (distinct named “Esplanade” segments vary along front).
+177	west-sussex.txt	Lancing Sailing Club	resolved	50.8215168	-0.3139026	marina	Photon (leisure=marina Lancing Sailing Club).
+178	west-sussex.txt	South Lancing Sailing Club	resolved	50.8215168	-0.3139026	marina	Photon returns only Lancing Sailing Club at this beach; likely same premises / dual naming in source list.
+179	west-sussex.txt	Widewater Nature Reserve	resolved	50.8250545	-0.2976955	lagoon	Photon (water=lagoon Widewater Lagoon LNR).
+180	west-sussex.txt	Lancing Ring	resolved	50.8465228	-0.3250918	nature_reserve	Photon (natural=peak Lancing Ring — downland reserve).
+181	west-sussex.txt	Bracklesham Bay SSSI	resolved	50.753	-0.847	protected_site	Natural England notified SSSI; citation grid ~SZ814954 (representative centroid).
+182	west-sussex.txt	East Head National Trust	resolved	50.7886443	-0.9112571	attraction	National Trust East Head dunes/spit; same coastal feature as “East Head” earlier in list.
+183	west-sussex.txt	Chichester Harbour National Landscape	ambiguous			designation	Large statutory landscape (formerly AONB) around Chichester Harbour; not a single point feature.
+184	west-sussex.txt	RSPB Pagham Harbour	resolved	50.7625554	-0.7866976	nature_reserve	RSPB Pagham Harbour LNR visitor centre (PO20 7NE); representative access point for the reserve.
+185	west-sussex.txt	RSPB Medmerry	resolved	50.7447	-0.7914	nature_reserve	RSPB Medmerry NR; coords from published grid SZ81649667 / RSPB “Getting here” (approximate).
+186	west-sussex.txt	Medmerry Sea Wall	resolved	50.741	-0.788	coastal_defence	Linear historic/realigned sea defence footprint; point on Medmerry frontage near realignment scheme (approximate).
+187	west-sussex.txt	Selsey Sea Wall	resolved	50.7383	-0.772	coastal_defence	Shingle sea defences along Selsey frontage; point near mapped East Beach access.
+188	west-sussex.txt	Church Norton Spit	resolved	50.7305	-0.7745	spit	Sand spit at Pagham Harbour entrance SW of Church Norton (approximate mouth feature).
+189	west-sussex.txt	Pagham Lagoon	resolved	50.7650624	-0.7479895	lagoon	Nominatim (Pagham Lagoon).
+190	west-sussex.txt	Broad Rife	resolved	50.7675	-0.735	watercourse	Small coastal stream entering sea near Pagham; approximate mouth (not cleanly indexed).
+191	west-sussex.txt	North Wall Pagham Harbour	resolved	50.757	-0.773	path	North Wall embankment / footpath along W side of Pagham Harbour (approximate midpoint).
+192	west-sussex.txt	Chichester Marina	resolved	50.8041	-0.8203	marina	Premier Marinas published position (Birdham, Chichester Harbour).
+193	west-sussex.txt	Birdham Marina	resolved	50.8034749	-0.8312067	marina	Treated as Birdham Pool lock/marina complex (adjacent to existing “Birdham Pool” row).
+194	west-sussex.txt	Itchenor Hard	resolved	50.8002	-0.8745	landing	Small craft hard/slip near Itchenor Reach; approximate foreshore point (Nominatim dominated by “Cobnor Hard” elsewhere).
+195	west-sussex.txt	Cobnor Hard	resolved	50.8160233	-0.8746099	landing	Nominatim (Cobnor Hard, boat storage, West Itchenor area).
+196	west-sussex.txt	Prinsted Hard	resolved	50.8435	-0.915	landing	Informal hard on Thorney Channel near Prinsted (approximate; no clean Nominatim object).
+197	west-sussex.txt	Bosham Channel	resolved	50.8259823	-0.8636371	waterway	Nominatim (Bosham Channel).
+198	west-sussex.txt	Nutbourne Channel	ambiguous			waterway	Tidal channel between Thorney Island shore and Nutbourne; no single authoritative pin.
+199	west-sussex.txt	Shingle Bank Selsey	resolved	50.725	-0.785	shingle	Shingle bank along Selsey Bill–Medmerry open coast (approximate foreshore ridge).
+200	west-sussex.txt	Harbour Arm Littlehampton	resolved	50.8012	-0.5432	breakwater	River-mouth training works / harbour arm; approximate seaward works near East Pier (no clean OSM hit).
+201	west-sussex.txt	East Pier Littlehampton	resolved	50.8017218	-0.5419463	pier	Nominatim (East Pier, Littlehampton).
+202	west-sussex.txt	River Beach Littlehampton	resolved	50.8085	-0.5425	beach	Foreshore by River Arun entrance W of pier area (approximate; distinct from River Beach school hit).
+203	west-sussex.txt	Arun View Littlehampton	resolved	50.8106552	-0.5502158	moorings	Nominatim hit “Arun View Moorings”, Wharf Road — represents waterside “Arun View” area.
+204	west-sussex.txt	West Worthing Beach	resolved	50.8068	-0.4125	beach	Shingle foreshore W of central Worthing/Goring band toward Ferring (approximate open beach).
+205	west-sussex.txt	Coastal Path Manhood	ambiguous			trail	Coastal path network around Manhood Peninsula; route not a single coordinate.
+206	west-sussex.txt	South Downs Coast	ambiguous			region	Broad regional label where South Downs meets the sea (multiple segments).
+207	west-sussex.txt	Sussex Heritage Coast	ambiguous			designation	National Heritage Coast corridor along Sussex shore; linear extent without one pin.

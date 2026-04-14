@@ -1,0 +1,130 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	durham.txt	Greatham	resolved	54.6410586	-1.2377218	village	OpenStreetMap/Nominatim (Greatham, Hartlepool)
+2	durham.txt	Greatham Creek	resolved	54.6264163	-1.2376721	stream	OSM river way (upper reach; second segment also mapped)
+3	durham.txt	Cowpen Bewley	resolved	54.6156303	-1.2574446	village	OpenStreetMap/Nominatim
+4	durham.txt	Cowpen Marsh	resolved	54.6149878	-1.2231859	wetland	OpenStreetMap/Nominatim
+5	durham.txt	Teesmouth National Nature Reserve	resolved	54.6264518	-1.1817348	protected_area	OpenStreetMap/Nominatim
+6	durham.txt	Bran Sands	resolved	54.6322961	-1.1410956	wetland	OpenStreetMap/Nominatim (Bran Sands, Redcar and Cleveland; Teesmouth)
+7	durham.txt	North Tees Marshes	ambiguous			wetland	Teesmouth marsh mosaic (e.g. Saltholme/Seal Sands); no OSM object with this exact name
+8	durham.txt	Haverton Hill	resolved	54.5965446	-1.2445126	locality	OpenStreetMap/Nominatim (indexed as Haverton Hil)
+9	durham.txt	Port Clarence	resolved	54.5875075	-1.2270069	village	OpenStreetMap/Nominatim
+10	durham.txt	North Shore	ambiguous			unknown	Generic name; OSM hits are unrelated schools/roads—unclear which north-bank locality is meant here
+11	durham.txt	Wolviston	resolved	54.6247300	-1.3000545	village	OpenStreetMap/Nominatim
+12	durham.txt	Crimdon	resolved	54.7273897	-1.2519760	beach	OpenStreetMap Crimdon Beach information point (coastal context)
+13	durham.txt	Crimdon Dene	resolved	54.7261789	-1.2585138	valley	OpenStreetMap/Nominatim
+14	durham.txt	Crimdon Beck	resolved	54.7258634	-1.2719365	stream	OpenStreetMap/Nominatim
+15	durham.txt	Crimdon Park	resolved	54.7353455	-1.2616071	attraction	OSM returns Crimdon Dene Holiday Park (caravan site)—likely the intended coastal park
+16	durham.txt	Crimdon Dene Viaduct	not_found			bridge	No plausible OSM/Nominatim match for this structure name
+17	durham.txt	Hart Warren	resolved	54.7148945	-1.2270633	protected_area	OpenStreetMap Hart Warren Dunes Local Nature Reserve
+18	durham.txt	Blackhall Colliery	resolved	54.7489850	-1.2902867	village	OpenStreetMap/Nominatim
+19	durham.txt	Blackhall Rocks	resolved	54.7407451	-1.2765709	village	OpenStreetMap/Nominatim
+20	durham.txt	Blackhall	resolved	54.7489850	-1.2902867	village	Same OSM resolution as Blackhall Colliery; likely the same settlement label on the ground
+21	durham.txt	High Hesleden	resolved	54.7360309	-1.2957565	hamlet	OpenStreetMap/Nominatim
+22	durham.txt	Hesleden	resolved	54.7367585	-1.3170633	village	OpenStreetMap/Nominatim
+23	durham.txt	Horden	resolved	54.7639360	-1.3163855	village	OpenStreetMap/Nominatim
+24	durham.txt	Horden Beach	resolved	54.7647	-1.3158	beach	Approximate foreshore south of Horden; no named OSM beach POI
+25	durham.txt	Horden Colliery	resolved	54.7699958	-1.3140518	mine	OpenStreetMap/Nominatim (former colliery site)
+26	durham.txt	Horden Viaduct	resolved	54.7567069	-1.3000081	bridge	OpenStreetMap/Nominatim
+27	durham.txt	Denemouth	resolved	54.7299097	-1.2598656	locality	OSM Denemouth Caravan Park—coastal Denemouth area
+28	durham.txt	Denemouth Viaduct	not_found			bridge	No plausible OSM/Nominatim match for this structure name
+29	durham.txt	Castle Eden	resolved	54.7330616	-1.3454410	village	OpenStreetMap/Nominatim
+30	durham.txt	Castle Eden Dene	resolved	54.7575056	-1.3100675	wood	OpenStreetMap Castle Eden Dene National Nature Reserve
+31	durham.txt	Peterlee	resolved	54.7618912	-1.3321519	town	OpenStreetMap/Nominatim (admin boundary)
+32	durham.txt	Shotton Colliery	resolved	54.7618647	-1.3861670	village	OpenStreetMap/Nominatim
+33	durham.txt	Shotton	resolved	54.7563817	-1.3852333	suburb	OpenStreetMap/Nominatim (Shotton, Peterlee area; other UK “Shotton” hits excluded by context)
+34	durham.txt	Hawthorn	resolved	54.8021119	-1.3505487	village	OpenStreetMap/Nominatim
+35	durham.txt	Hawthorn Hive	resolved	54.8080909	-1.3145017	beach	OpenStreetMap way Hawthorn Hive (beach)
+36	durham.txt	Hawthorn Dene	resolved	54.8015507	-1.3334477	valley	OpenStreetMap/Nominatim (natural=valley)
+37	durham.txt	Hawthorn Dene Viaduct	resolved	54.8062130	-1.3156079	bridge	OpenStreetMap/Nominatim
+38	durham.txt	Shippersea Bay	resolved	54.8009201	-1.3124699	beach	OpenStreetMap/Nominatim
+39	durham.txt	Shippersea	resolved	54.7989841	-1.3113964	cape	OpenStreetMap Shippersea Point (adjacent to Shippersea Bay)
+40	durham.txt	Cold Hesledon	resolved	54.8140200	-1.3587070	hamlet	IPN/FindThatPostcode locality centroid (OSM only indexed the A19 interchange name)
+41	durham.txt	Dalton-le-Dale	resolved	54.8258379	-1.3653352	hamlet	OpenStreetMap/Nominatim
+42	durham.txt	Dalden Tower	resolved	54.8317379	-1.3472627	historic	OpenStreetMap/Nominatim (ruins)
+43	durham.txt	Dalden Dene	resolved	54.8317379	-1.3472627	valley	No separate OSM object named Dalden Dene; same access point as Dalden Tower in the dene
+44	durham.txt	Dawdon	resolved	54.8291098	-1.3318133	suburb	OpenStreetMap/Nominatim
+45	durham.txt	Dawdon Colliery	resolved	54.8240300	-1.3187190	mine	Judged to former Dawdon Colliery / Noses Point reclaimed site (Durham Heritage Coast); no OSM object with this exact name
+46	durham.txt	Seaham	resolved	54.8372106	-1.3355612	town	OpenStreetMap/Nominatim
+47	durham.txt	Seaham Harbour	resolved	54.8344460	-1.3264915	harbour	OpenStreetMap Seaham Harbour Dock (landuse polygon centroid)
+48	durham.txt	Seaham Hbr	resolved	54.8344460	-1.3264915	harbour	Abbreviation of Seaham Harbour; same OSM feature as line 47
+49	durham.txt	Seaham Beach	resolved	54.8498386	-1.3447805	beach	Approximate north town beach foreshore (OSM has cafés/parking but no named “Seaham Beach” polygon)
+50	durham.txt	Seaham Hall Beach	resolved	54.8502259	-1.3439537	beach	OpenStreetMap relation “Seaham Hall Beach car park” centroid (beach access point)
+51	durham.txt	Seaham North Dock	resolved	54.8384814	-1.3281403	dock	OpenStreetMap/Nominatim (building)
+52	durham.txt	Seaham South Dock	resolved	54.8315000	-1.3275000	dock	No OSM object named South Dock; point placed at south end of Seaham Harbour Dock landuse polygon
+53	durham.txt	Seaham Marina	resolved	54.8379389	-1.3280779	marina	OpenStreetMap Seaham Harbour Marina
+54	durham.txt	Seaham Colliery	not_found			mine	No plausible OpenStreetMap/Nominatim match for this historic name (several Seaham-area collieries)
+55	durham.txt	Vane Tempest Colliery	resolved	54.8447345	-1.3409554	historic	OpenStreetMap/Nominatim (historic mine node)
+56	durham.txt	Vane Tempest Beach	ambiguous			beach	Local foreshore name; no distinct OSM object separate from nearby beaches/cliffs
+57	durham.txt	Blast Beach	resolved	54.8175794	-1.3196777	beach	OpenStreetMap/Nominatim
+58	durham.txt	Chemical Beach	resolved	54.8260338	-1.3221685	beach	OpenStreetMap/Nominatim (beach relation)
+59	durham.txt	Featherbed Rocks	resolved	54.8424092	-1.3317248	locality	OpenStreetMap/Nominatim
+60	durham.txt	Noses Point	resolved	54.8240300	-1.3187190	headland	Wikimedia Commons / Geograph camera object coordinates (Nose’s Point); no Nominatim hit for this spelling
+61	durham.txt	Noses Point	resolved	54.8237073	-1.3206983	headland	OpenStreetMap/Nominatim (“Nose’s Point”, Dawdon/Seaham)
+62	durham.txt	Red Acre Point	resolved	54.8388257	-1.3275401	cape	OpenStreetMap/Nominatim
+63	durham.txt	George Elmy Lifeboat Way	resolved	54.8353464	-1.3289629	promenade	OpenStreetMap/Nominatim (named cycleway along seafront)
+64	durham.txt	St Mary the Virgin Seaham	resolved	54.8475280	-1.3436884	church	OpenStreetMap/Nominatim (Church of St Mary The Virgin, Seaham)
+65	durham.txt	St John Seaham Harbour	resolved	54.8370566	-1.3367867	church	OpenStreetMap/Nominatim (Parish Church of St John The Evangelist, Dawdon)
+66	durham.txt	Tommy Seaham	resolved	54.8398433	-1.3317905	artwork	OpenStreetMap node named “1101” (Ray Lonsdale sculpture; local name “Tommy”)
+67	durham.txt	1101	resolved	54.8398433	-1.3317905	artwork	Same OSM feature as line 66; OSM node name is 1101
+68	durham.txt	Easington Colliery	resolved	54.7875410	-1.3234700	village	OpenStreetMap/Nominatim (admin boundary)
+69	durham.txt	Easington	resolved	54.7850506	-1.3530807	village	OpenStreetMap/Nominatim
+70	durham.txt	Easington Lagoons	resolved	54.7916243	-1.3203079	nature_reserve	OpenStreetMap “Easington Local Nature Reserve” (restored colliery ponds; no object named “Easington Lagoons”)
+71	durham.txt	Seaton	resolved	54.8434764	-1.3833096	hamlet	OpenStreetMap/Nominatim (Seaton, Seaton with Slingley)
+72	durham.txt	Seaton with Slingley	resolved	54.8365157	-1.3976104	parish	OpenStreetMap/Nominatim (civil parish relation centroid)
+73	durham.txt	Slingley	ambiguous			locality	No place node named Slingley; only minor “Slingley Close” — judged part of Seaton cluster but not a single pin
+74	durham.txt	Station Town	resolved	54.7212319	-1.3696410	hamlet	OpenStreetMap/Nominatim (inland in list but geocoded as named)
+75	durham.txt	Graythorp	resolved	54.6392206	-1.2024933	industrial	OpenStreetMap Graythorp Industrial Estate (coastal Tees-side locality in list)
+76	durham.txt	Hartlepool Nuclear Power Station	resolved	54.6354506	-1.1810468	power_station	OpenStreetMap/Nominatim (industrial polygon)
+77	durham.txt	Seaton Channel	resolved	54.6338000	-1.1785000	channel	Approximate mid-axis of tidal Seaton Channel (North Gare–power station reach); no OSM name match
+78	durham.txt	Seaton Snook	resolved	54.6342208	-1.1630871	sand	OpenStreetMap/Nominatim (natural=sand relation)
+79	durham.txt	North Gare	resolved	54.6407279	-1.1671689	beach	Judged to North Gare foreshore (same centroid as “North Gare Sands” beach relation)
+80	durham.txt	North Gare Sands	resolved	54.6407279	-1.1671689	beach	OpenStreetMap/Nominatim (beach relation)
+81	durham.txt	North Gare breakwater	not_found			breakwater	No OpenStreetMap/Nominatim hit for this structure name
+82	durham.txt	Seaton Carew	resolved	54.6602890	-1.1871436	village	OpenStreetMap/Nominatim (Seaton Carew village node)
+83	durham.txt	Seaton Carew Beach	resolved	54.6690000	-1.1920000	beach	Approximate main sandy foreshore off Coronation Drive / seafront (no single named OSM beach polygon)
+84	durham.txt	Seaton Beach	ambiguous			beach	Generic “Seaton Beach” label; overlaps Seaton Carew foreshore — not separately named in OSM
+85	durham.txt	Seaton Carew Promenade	resolved	54.6745000	-1.1965000	promenade	Approximate mid-line of coastal promenade linking Seaton Carew towards Stranton (no single OSM “Promenade” object)
+86	durham.txt	Seaton Carew Golf Club	resolved	54.6476674	-1.1739594	golf_course	OpenStreetMap/Nominatim (Tees Road course; second OSM polygon farther south not used)
+87	durham.txt	Seaton Dunes and Common	resolved	54.6493316	-1.1839330	protected_area	OpenStreetMap/Nominatim (Seaton Dunes and Common LNR)
+88	durham.txt	Seaton Common	resolved	54.6459736	-1.1756310	nature_reserve	OpenStreetMap “Seaton Common Nature Reserve” information node (wider common has several labels)
+89	durham.txt	The Green	ambiguous			unknown	Generic name; likely Seaton Carew village green area but no unambiguous POI
+90	durham.txt	Hartlepool Submerged Forest	resolved	54.6761100	-1.1927800	protected_area	Wikipedia/Natural England SSSI centroid (foreshore SSSI south of docks; intermittent exposure)
+91	durham.txt	Seaton Carew Wreck	resolved	54.6582418	-1.1803067	wreck	OpenStreetMap/Nominatim (historic wreck node; tourist information duplicate nearby)
+92	durham.txt	Longscar Rocks	not_found			reef	No OpenStreetMap/Nominatim match; offshore rocks/shoal off Seaton Carew
+93	durham.txt	Seaton Carew Lifeboat Station	not_found			emergency	No OSM object at Seaton Carew; active RNLI station is Hartlepool Ferry Road (separate coastal feature)
+94	durham.txt	Holy Trinity Church Seaton Carew	resolved	54.6587818	-1.1887677	church	OpenStreetMap/Nominatim (Holy Trinity Church, Church Street)
+95	durham.txt	Hartlepool	resolved	54.6857276	-1.2093696	town	OpenStreetMap/Nominatim (town place node)
+96	durham.txt	Old Hartlepool	resolved	54.7008423	-1.1876171	historic_settlement	OpenStreetMap administrative boundary centroid for Headland (historic Old Hartlepool)
+97	durham.txt	W Hartlepool	resolved	54.6868261	-1.2078320	railway_station	OpenStreetMap/Nominatim (Hartlepool station; common shorthand for West Hartlepool rail access)
+98	durham.txt	The Headland	resolved	54.7008423	-1.1876171	peninsula	OpenStreetMap Headland administrative boundary centroid (The Headland area)
+99	durham.txt	Headland Hartlepool	resolved	54.7008423	-1.1876171	suburb	OpenStreetMap/Nominatim (Headland, Hartlepool boundary)
+100	durham.txt	The Heugh	resolved	54.6965071	-1.1761594	lighthouse	OpenStreetMap/Nominatim (The Heugh Lighthouse—local name for Heugh)
+101	durham.txt	Heugh Battery	resolved	54.6972730	-1.1765152	museum	OpenStreetMap/Nominatim (Heugh Battery Museum)
+102	durham.txt	Hartlepool Historic Quay	resolved	54.6902885	-1.2074646	dock	OpenStreetMap/Nominatim (named dock/waterway)
+103	durham.txt	Hartlepool Marina	resolved	54.6909151	-1.2009995	marina	OpenStreetMap/Nominatim (named marina water polygon)
+104	durham.txt	Hartlepool Docks	resolved	54.6902885	-1.2074646	dock	OpenStreetMap pins to Historic Quay dock feature as main named docks POI in harbour estate
+105	durham.txt	Hartlepool Hbr	resolved	54.6907782	-1.1985256	harbour	OpenStreetMap/Nominatim (Hartlepool Harbour Master building at Navigation Point)
+106	durham.txt	Navigation Point	resolved	54.6922419	-1.1980731	locality	OpenStreetMap/Nominatim (named locality)
+107	durham.txt	Museum of Hartlepool	resolved	54.6896689	-1.2065023	museum	OpenStreetMap/Nominatim
+108	durham.txt	Middleton Hartlepool	resolved	54.6924427	-1.1942087	beach	OpenStreetMap Middleton Beach (coastal list context; other “Middleton” hits are inland retail)
+109	durham.txt	Stranton	resolved	54.6795889	-1.2138993	suburb	OpenStreetMap/Nominatim (Stranton suburb node)
+110	durham.txt	West Hartlepool	resolved	54.6795889	-1.2138993	suburb	OpenStreetMap Stranton suburb—historic West Hartlepool merged into modern Hartlepool
+111	durham.txt	Dyke House	resolved	54.6970386	-1.2180995	school	OpenStreetMap/Nominatim (Dyke House Academy—named place in Throston)
+112	durham.txt	Rift House	resolved	54.6695034	-1.2427779	suburb	OpenStreetMap/Nominatim
+113	durham.txt	Owton Manor	resolved	54.6598697	-1.2447477	suburb	OpenStreetMap/Nominatim
+114	durham.txt	Bishop Cuthbert	resolved	54.7005525	-1.2488950	suburb	OpenStreetMap/Nominatim (Bishop Cuthbert suburb node)
+115	durham.txt	Foggy Furze	resolved	54.6713343	-1.2185286	suburb	OpenStreetMap/Nominatim
+116	durham.txt	Throston	resolved	54.6948182	-1.2227815	suburb	OpenStreetMap/Nominatim
+117	durham.txt	High Throston	resolved	54.6978869	-1.2584061	golf_course	OpenStreetMap “High Throston Golf Course”—closest named OSM match to locality label
+118	durham.txt	Hart Village	resolved	54.7087919	-1.2713802	village	OpenStreetMap/Nominatim (St Mary Magdalene Church, Hart—village anchor; avoids mis-hit “Hart Station”)
+119	durham.txt	Hart	resolved	54.7071400	-1.2722301	parish	OpenStreetMap/Nominatim (Hart civil parish boundary)
+120	durham.txt	Dalton Piercy	resolved	54.6749509	-1.2807065	parish	OpenStreetMap/Nominatim (Dalton Piercy civil parish boundary)
+121	durham.txt	Elwick	resolved	54.6842311	-1.2950076	village	OpenStreetMap/Nominatim (Elwick administrative boundary)
+122	durham.txt	Summerhill Country Park	resolved	54.6753349	-1.2486586	park	OpenStreetMap/Nominatim
+123	durham.txt	Steetley Pier	resolved	54.7119596	-1.2101595	pier	OpenStreetMap/Nominatim
+124	durham.txt	Jackson's Bay	resolved	54.6906894	-1.2067264	harbour	No OSM object named 'Jackson's Bay'; Jacksons Wharf pub marks Jackson Dock/marina waterfront on that coast
+125	durham.txt	Town Wall Beach	resolved	54.6957223	-1.1878668	beach	Approximate shingle foreshore below medieval Town Wall (Historic England listing ~54.6956, −1.1876); OSM “Town Wall” residential way centroid used as map anchor
+126	durham.txt	Blue Lagoon Hartlepool	resolved	54.6407279	-1.1671689	beach	Local name for North Gare Sands (Seaton Carew area); OpenStreetMap/Nominatim (North Gare Sands)
+127	durham.txt	North Sands Hartlepool	resolved	54.7084890	-1.2060767	beach	OpenStreetMap/Nominatim (North Sands beach)
+128	durham.txt	South Sands Hartlepool	ambiguous			beach	No OSM/Nominatim feature with this exact name; likely an informal southern section of Hartlepool Bay sands
+129	durham.txt	Rossmere	resolved	54.6615915	-1.2244343	suburb	OpenStreetMap/Nominatim (Rossmere Park—ward/neighbourhood anchor)

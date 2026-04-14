@@ -1,0 +1,142 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	londonderry.txt	Derry	resolved	54.9958	-7.3074	city	Wikipedia/GeoHack-style centroid; City of Derry on River Foyle.
+2	londonderry.txt	Waterside	resolved	55.0012	-7.3048	urban_area	East-bank (Waterside) core near the Foyle; local usage for Derry E of the river.
+3	londonderry.txt	Cityside	resolved	54.9965	-7.3215	urban_area	West-bank city core (Cityside) near the walled city and west quays.
+4	londonderry.txt	Foyle Embankment	resolved	54.9978	-7.3175	promenade	Riverside walkway/embankment along the Foyle in central Derry.
+5	londonderry.txt	Strand Road	resolved	54.9998	-7.3125	road	Waterside arterial along the Foyle; pin near city-centre river frontage.
+6	londonderry.txt	Queen's Quay	resolved	54.9986	-7.3184	quay	Central Derry quay on the Foyle (Waterside harbour front).
+7	londonderry.txt	Princess Quay	resolved	54.9984	-7.3188	quay	Adjacent quay/berth area on central Foyle frontage.
+8	londonderry.txt	Craft Village Quay	resolved	54.9975	-7.3202	quay	Small craft/visitor quay near the historic Craft Village / west bank.
+9	londonderry.txt	Peace Bridge	resolved	54.9980	-7.3163	bridge	Wikipedia coordinates; pedestrian/cycle bridge across the Foyle.
+10	londonderry.txt	Craigavon Bridge	resolved	54.9997	-7.3167	bridge	Road bridge adjacent to Peace Bridge in central Derry.
+11	londonderry.txt	Foyle Bridge	resolved	55.0185	-7.2925	bridge	Structurae/Wikipedia; main downstream A2 bridge (Prehen area).
+12	londonderry.txt	Foyle Marina	resolved	54.9970	-7.3195	marina	City-centre marina/berths on the Foyle (not Lisahally deep-water port).
+13	londonderry.txt	Foyle Port Marina	resolved	55.0305	-7.2720	marina	Yacht/leisure marina associated with Londonderry Port at Lisahally.
+14	londonderry.txt	Foyle Port	resolved	55.0333	-7.2666	port	UNLOCODE-style listing; Lisahally commercial port on east bank of Foyle.
+15	londonderry.txt	Londonderry Port	resolved	55.0328	-7.2670	port	Same Lisahally port complex; alternate official name.
+16	londonderry.txt	Lisahally	resolved	55.0325	-7.2675	area	Harbour/industrial area east of the Foyle at Londonderry Port.
+17	londonderry.txt	Lisahally Terminal	resolved	55.0310	-7.2685	terminal	Main cargo terminal footprint within Lisahally port.
+18	londonderry.txt	Lisahally Docks	resolved	55.0330	-7.2660	docks	Dock/berth cluster within Lisahally.
+19	londonderry.txt	Strathfoyle	resolved	55.0392	-7.2310	village	Village/settlement NE along the Foyle below Culmore.
+20	londonderry.txt	Coolkeeragh	resolved	55.0597	-7.1812	industrial	Coolkeeragh power station/jetty area on Lough Foyle shore.
+21	londonderry.txt	Maydown	resolved	54.9426	-7.2484	industrial	West-bank Maydown industrial area on the Foyle S of the city.
+22	londonderry.txt	Prehen	resolved	55.0070	-7.3185	area	Prehen district at the Foyle Bridge approaches (E bank).
+23	londonderry.txt	Prehen Wood	resolved	55.0065	-7.3210	woodland	Woodland patch near Prehen and the bridge corridor.
+24	londonderry.txt	Culmore	resolved	55.0380	-7.2710	village	Culmore village on east shore of Lough Foyle N of Derry.
+25	londonderry.txt	Culmore Bay	resolved	55.0415	-7.2620	bay	Open bay/shore west of Culmore toward the lough mouth.
+26	londonderry.txt	Culmore Point	resolved	55.0464	-7.2541	headland	GeoHack lighthouse/coastal point coords at the Foyle entrance.
+27	londonderry.txt	Ballynagard	resolved	55.0431	-7.2759	townland	logainm.ie centrepoint; Lower Liberties townland near Culmore/Foyle shore.
+28	londonderry.txt	New Buildings	resolved	54.9580	-7.3550	village	Wikipedia coords; Newbuildings village on the Foyle S of Derry (spelling variant).
+29	londonderry.txt	Lough Foyle	ambiguous			lough	Whole estuary/lough—many plausible offshore/shore pins; no single tide feature.
+30	londonderry.txt	River Foyle	ambiguous			river	Entire tidal river from lough to city—no single representative coordinate.
+31	londonderry.txt	Foyle Estuary	ambiguous			estuary	Broad Foyle estuary/lough transition—many shoreline and channel pins.
+32	londonderry.txt	Lough Foyle Estuary	ambiguous			estuary	Overlaps wider Lough Foyle/estuary—no single tide-representative point.
+33	londonderry.txt	Myroe	resolved	55.0770	-6.9650	hamlet	Wikipedia centroid; hamlet on reclaimed land near Lough Foyle/Roe Valley.
+34	londonderry.txt	Myroe Flats	resolved	55.0800	-6.9700	coastal_flats	Intertidal/reclaimed flats N of Myroe toward the lough (approx. shore sector).
+35	londonderry.txt	Ballykelly	resolved	55.0445	-7.0158	village	Wikipedia centroid; large village on A2 with Lough Foyle views.
+36	londonderry.txt	Bay Road Nature Reserve	resolved	55.0164	-7.3013	nature_reserve	Bay Road Park LNR on River Foyle (Visit Derry / park centroid near Culmore Rd).
+37	londonderry.txt	Magilligan	resolved	55.1761	-6.9239	area	JNCC Magilligan SAC centroid; civil-parish/foreland scale (dunes and shore).
+38	londonderry.txt	Magilligan Point	resolved	55.1870	-6.9580	headland	Wikipedia coords; tip of Magilligan foreland at Lough Foyle mouth.
+39	londonderry.txt	Magilligan Point Nature Reserve	resolved	55.1924	-6.9633	nature_reserve	nidirect-published coords for Magilligan Point NNR.
+40	londonderry.txt	Magilligan Strand	resolved	55.1790	-6.9050	beach	Western sector of the long Magilligan/Benone strand system (toward the point).
+41	londonderry.txt	Magilligan Beach	resolved	55.1810	-6.9120	beach	Slightly farther W along the same strand toward Magilligan (local beach usage).
+42	londonderry.txt	Magilligan Bay	ambiguous			bay	Open embayment west of the foreland—offshore vs shore pins differ for tides.
+43	londonderry.txt	Magilligan ASSI	resolved	55.1761	-6.9239	protected_area	Approximate centre of the large dune ASSI/SAC complex (JNCC SAC centroid).
+44	londonderry.txt	Magilligan Coastal Complex	resolved	55.1761	-6.9239	protected_area	Umbrella coastal designation; pin at dune-system centroid (same SAC centre).
+45	londonderry.txt	Magilligan Ferry	resolved	55.1868	-6.9568	ferry	Lough Foyle ferry slip near Magilligan Point (Greencastle service).
+46	londonderry.txt	Magilligan Training Area	resolved	55.1690	-6.9260	military	MoD Magilligan range sector on the foreland (approximate; red-flag area).
+47	londonderry.txt	Umbra	resolved	55.1636	-6.8583	townland	townlands.ie centroid; Umbra townland on the Benone/Downhill coast.
+48	londonderry.txt	Umbra Nature Reserve	resolved	55.1663	-6.9150	nature_reserve	Ulster Wildlife Umbra reserve; near OS grid C 726 358 (dune grassland).
+49	londonderry.txt	Bellarena	resolved	55.1278	-6.9525	village	Wikipedia centroid; A2 village near Magilligan/Benone facilities.
+50	londonderry.txt	Bellarena Beach	resolved	55.1310	-6.9400	beach	Local strand access W of Bellarena toward the open beach (approx. shore).
+51	londonderry.txt	Benone	resolved	55.1680	-6.8790	beach	Wikipedia coords for Benone tourist beach on the long north-coast strand.
+52	londonderry.txt	Benone Strand	resolved	55.1680	-6.8790	beach	Same Blue Flag strand as Benone (synonymous naming along the sand).
+53	londonderry.txt	Benone Beach	resolved	55.1680	-6.8790	beach	Alternate label for Benone/Magilligan Strand (central car-park sector).
+54	londonderry.txt	Seven Mile Strand	resolved	55.1678	-6.8723	beach	Local name for the long strand; Wikipedia Downhill Strand/Benone coords.
+55	londonderry.txt	Seven Mile Beach	resolved	55.1678	-6.8723	beach	Same continuous beach as Seven Mile Strand (eastern sector label).
+56	londonderry.txt	Upper Drummans	resolved	55.1578	-6.9206	townland	townlands.ie centroid; Benone ED townland inland of the strand.
+57	londonderry.txt	Lower Drummans	resolved	55.1756	-6.9536	townland	townlands.ie centroid; Benone ED townland toward Magilligan dunes.
+58	londonderry.txt	Downhill	resolved	55.1639	-6.8247	village	Wikipedia centroid; village above Downhill Strand near Castlerock.
+59	londonderry.txt	Downhill Strand	resolved	55.1678	-6.8723	beach	Wikipedia Downhill Strand coords (eastern Benone/Downhill beach sector).
+60	londonderry.txt	Downhill Beach	resolved	55.1655	-6.8680	beach	Council Blue Flag sector at Downhill tunnel access; same 7-mile beach as strand.
+61	londonderry.txt	Downhill Demesne	resolved	55.1685	-6.8130	estate	National Trust coastal demesne around Downhill ruins; inland centroid of visitor grounds.
+62	londonderry.txt	Downhill Cliffs	resolved	55.1672	-6.8112	cliffs	Basalt sea cliffs below Mussenden Temple on the Downhill headland.
+63	londonderry.txt	Downhill Forest	resolved	55.1718	-6.8265	forest	DAERA Downhill Forest block inland of the A2/Bishop's Road corridor (trail/woodland mass).
+64	londonderry.txt	Mussenden Temple	resolved	55.167789	-6.810845	attraction	Wikipedia/GeoHack coords; clifftop temple within Downhill Demesne.
+65	londonderry.txt	Black Glen Waterfall	resolved	55.1660	-6.8195	waterfall	Small landscaped cascade/stream in the wooded Black Glen below the demesne cliffs (approx. glen sector).
+66	londonderry.txt	Hezlett House	resolved	55.1550	-6.7899	attraction	Wikipedia coords; NT thatched cottage on Mussenden Road, Castlerock.
+67	londonderry.txt	Castlerock	resolved	55.1500	-6.783333	village	Wikipedia centroid; seaside village W of Coleraine on the Bann coast.
+68	londonderry.txt	Castlerock Beach	resolved	55.1525	-6.7880	beach	Main strand W of the village toward Downhill cliffs (approx. mid-beach sector).
+69	londonderry.txt	Castlerock Promenade	resolved	55.1528	-6.7845	promenade	Seafront promenade along the village beach frontage.
+70	londonderry.txt	Castlerock Dunes	resolved	55.1538	-6.7795	dunes	Dune ridge backing the links/estuary side of Castlerock beach (golf-club sector).
+71	londonderry.txt	Castlerock Sands	resolved	55.1522	-6.7865	beach	Sandy foreshore sector along Castlerock bay (local "sands" usage).
+72	londonderry.txt	Castlerock Golf Dunes	resolved	55.1555	-6.7775	dunes	Links dunes of Castlerock Golf Club between beach, railway and River Bann.
+73	londonderry.txt	Sea Row Castlerock	resolved	55.1508	-6.7870	street	Narrow coastal row off the seafront (approx. seafront terrace cluster).
+74	londonderry.txt	Castlerock Railway Station	resolved	55.16528	-6.78694	station	Wikipedia coords; Belfast–Derry line stop above the tunnel/beach.
+75	londonderry.txt	Dunboe	resolved	55.1592	-6.79706	parish	logainm.ie civil-parish centrepoint; coastal parish of Downhill/Articlave/Castlerock.
+76	londonderry.txt	Articlave	resolved	55.1330	-6.7670	village	Wikipedia coords; A2 village between Coleraine and Castlerock.
+77	londonderry.txt	Grangemore	resolved	55.1567	-6.7367	townland	townlands.ie centroid; Grange More townland south of the Bann estuary (Portstewart side).
+78	londonderry.txt	Grangemore Dunes	resolved	55.1575	-6.7350	dunes	Grangemore dune ASSI sector south of the estuary (JNCC/ESCR grid C805355 locality).
+79	londonderry.txt	Grangemore Bird Sanctuary	resolved	55.1572	-6.7345	nature_reserve	Dune/heath pasture mosaic within the Grangemore system (approx. NT pasture/ASSI sector).
+80	londonderry.txt	Barmouth	resolved	55.1740	-6.7690	estuary_mouth	Local name for the River Bann bar/mouth W of Portstewart (training-wall approach sector).
+81	londonderry.txt	Barmouth Pier	resolved	55.1755	-6.7675	pier	East pier/training wall head at the Bann entrance (harbour pilotage references).
+82	londonderry.txt	Barmouth Strand	resolved	55.1735	-6.7705	beach	Sandy bar/strand at the Bann mouth (not Welsh Barmouth).
+83	londonderry.txt	River Bann Mouth	resolved	55.1750	-6.7680	estuary_mouth	Representative coordinate at the navigable bar between the training walls.
+84	londonderry.txt	Lower Bann Estuary	ambiguous			estuary	Long tidal reach from Lough Neagh to the sea; no single tide-representative point.
+85	londonderry.txt	Coleraine	resolved	55.13194	-6.66694	town	Wikipedia centroid; county town on the lowest bridging point of the Bann.
+86	londonderry.txt	Coleraine Harbour	resolved	55.13611	-6.67250	harbour	Coleraine Harbour Commissioners published position (55°08′10″N06°40′21″W).
+87	londonderry.txt	Mountsandel	resolved	55.1170	-6.6650	woodland	Mountsandel Wood visitor access sector above the east-bank Bann (near fort/mesolithic site).
+88	londonderry.txt	Mountsandel Fort	resolved	55.1160	-6.6640	hill_fort	Wikipedia coords; Iron Age fort mound above the Bann.
+89	londonderry.txt	The Cutts	resolved	55.1178	-6.6615	weir	Lower Bann weir/lock and salmon-leap complex just upstream of central Coleraine (approx. structure cluster).
+90	londonderry.txt	Somerset Riverside	resolved	55.11996	-6.67548	retail	Riverside Retail Park / Somerset Road shopping area on the east bank of the Bann.
+91	londonderry.txt	Portstewart	resolved	55.1800	-6.7110	town	Wikipedia/GeoHack-style centroid; seaside town between Coleraine and Portrush.
+92	londonderry.txt	Port Stewart	resolved	55.1800	-6.7110	town	Alternate spacing for Portstewart; same settlement centroid.
+93	londonderry.txt	Portstewart Strand	resolved	55.1680	-6.7450	beach	Wikipedia coords; long NT-managed strand at the River Bann mouth.
+94	londonderry.txt	Portstewart Strand Beach	resolved	55.1680	-6.7450	beach	Same Blue Flag beach sector as Portstewart Strand (sand at Bann estuary).
+95	londonderry.txt	Portstewart Promenade	resolved	55.1810	-6.7130	promenade	Atlantic seafront promenade linking harbour toward the strand path.
+96	londonderry.txt	Portstewart Harbour	resolved	55.1808	-6.7105	harbour	Small boat harbour / marina basin on the town seafront (approx. basin centroid).
+97	londonderry.txt	Portstewart Old Harbour	resolved	55.1812	-6.7098	harbour	Inner historic harbour pocket on the promenade frontage.
+98	londonderry.txt	Portstewart Dunes	resolved	55.1740	-6.7380	dunes	Backshore dune ridge between town and Portstewart Strand (approx. mid-dune sector).
+99	londonderry.txt	The Skerries	resolved	55.2245	-6.6221	islands	Wikipedia coords; rocky islets off Portrush (County Antrim); tide/seabird feature visible from this coast.
+100	londonderry.txt	Portstewart Town Rocks	resolved	55.1795	-6.7085	coastal_rocks	Rocky foreshore at the promenade/harbour headland (approx. intertidal cluster).
+101	londonderry.txt	Saint Patrick's Well Portstewart	resolved	55.1690	-6.7430	holy_well	Tobar Phádraig beside the NT strand/dune paths (approx. well site near strand head).
+102	londonderry.txt	Maddybenny More	resolved	55.178615	-6.671493	townland	OSM/Ofcom-style centroid (IC846376); Portstewart ED townland inland of the coast road.
+103	londonderry.txt	Maddybenny Beg	resolved	55.181667	-6.667500	townland	townlands.ie centroid; NE of Maddybenny More toward Craigtown More.
+104	londonderry.txt	Carnanee	resolved	55.158889	-6.706389	townland	townlands.ie centroid; small townland near Drumslade/Garborgle E of Portstewart.
+105	londonderry.txt	Craigtown More	resolved	55.187778	-6.677222	townland	townlands.ie centroid; Portstewart parish townland N of Maddybenny More.
+106	londonderry.txt	Island Vardin	resolved	55.165000	-6.668611	townland	townlands.ie centroid; Ballyaghran parish townland near Bann/strand hinterland.
+107	londonderry.txt	North Mullaghacall	resolved	55.184167	-6.710833	townland	townlands.ie centroid (Mullaghacall North); inland of Portstewart promontory.
+108	londonderry.txt	Broighter	resolved	55.072470	-6.986258	townland	OpenStreetMap relation centroid; Broighter townland on Lough Foyle W of Limavady.
+109	londonderry.txt	Aghanloo	resolved	55.093333	-6.901667	area	Aghanloo DED centroid (townlands.ie); rural parish/ED between Broighter and Myroe.
+110	londonderry.txt	Carrowclare	resolved	55.088889	-6.996944	townland	townlands.ie centroid; Myroe-level village/townland at Roe estuary/Lough Foyle edge.
+111	londonderry.txt	Ardmore	resolved	55.032222	-6.895000	townland	Balteagh parish Ardmore (not Clondermot); Fruithill ED near Limavady/Roe hinterland.
+112	londonderry.txt	Ardgarvan	resolved	55.027500	-6.924722	townland	townlands.ie centroid; Drumachose parish townland W of Limavady toward Lough Foyle.
+113	londonderry.txt	Ballylifford	resolved	54.666944	-6.555000	townland	Wikipedia/townlands.ie centroid; Ballinderry parish townland on Lough Neagh (inland lake shore).
+114	londonderry.txt	Campsey	resolved	55.028889	-7.218889	hamlet	townlands.ie centroid; Campsey subtownland in Upper Campsey (Faughanvale/Eglinton).
+115	londonderry.txt	Binevenagh Coast	resolved	55.1640	-6.8080	cliffs	Representative clifftop on the Binevenagh escarpment above Benone/Downhill coast.
+116	londonderry.txt	Binevenagh	resolved	55.114206	-6.916383	mountain	MountainViews.ie trig/summit coords; basalt plateau overlooking Magilligan.
+117	londonderry.txt	Causeway Coastal Route	ambiguous			scenic_route	Long signed touring route; no single representative coordinate.
+118	londonderry.txt	River Roe Mouth	resolved	55.0670	-7.0000	estuary_mouth	Wikipedia mouth coordinate where the Roe enters Lough Foyle (Myroe Levels sector).
+119	londonderry.txt	Roe Estuary	ambiguous			estuary	Wide Roe estuary and saltmarsh complex; many shoreline pins (cf. Roe Estuary NR).
+120	londonderry.txt	Faughan River Mouth	resolved	54.870751	-7.070453	estuary_mouth	Wikipedia coordinate; Faughan entering Lough Foyle E of Coolkeeragh.
+121	londonderry.txt	Roe Valley Country Park Shore	resolved	55.0242	-6.9397	riverside	nidirect coords; riverside sector of Roe Valley CP near Limavady (shore walk context).
+122	londonderry.txt	Seacoast Road Magilligan	resolved	55.1103	-6.9609	road	Listed-building grid for Bellarena House on Seacoast Road; coastal approach to Magilligan.
+123	londonderry.txt	Point Road Magilligan	resolved	55.1923	-6.9637	road	Martello Tower on Point Road (listed-building coordinates); road to Magilligan Point.
+124	londonderry.txt	Blue Flag Castlerock	resolved	55.1500	-6.7833	beach	Wikipedia village coords; Blue Flag bathing beach at Castlerock (promenade/Bann mouth sector).
+125	londonderry.txt	Blue Flag Benone	resolved	55.1678	-6.8723	beach	Downhill Strand/Benone Blue Flag sector (latitude.to / common beach centroid).
+126	londonderry.txt	Blue Flag Portstewart Strand	resolved	55.1680	-6.7450	beach	Wikipedia/GeoHack; Blue Flag National Trust strand at Bann mouth.
+127	londonderry.txt	Derry Quay	resolved	54.9986	-7.3184	quay	Central Foyle quays cluster (aligned with existing city quay rows).
+128	londonderry.txt	Derry City Quays	resolved	54.9988	-7.3190	quay	City-centre Foyle quay frontage; representative berth-front coordinate.
+129	londonderry.txt	Waterside Quay	resolved	54.9995	-7.3125	quay	East-bank (Waterside) quay front near city centre Foyle corridor.
+130	londonderry.txt	Strathfoyle Shore	resolved	55.0410	-7.2340	shore	Strathfoyle settlement on east Foyle; pin on estuary shore N of city centre.
+131	londonderry.txt	Foyle Port City Berths	resolved	54.9970	-7.3195	marina	City-centre leisure/city berths near Foyle Marina (distinct from Lisahally deep-water port).
+132	londonderry.txt	Culmore Pier	resolved	55.0464	-7.2601	pier	eOceanic Culmore Bay haven position; small-craft pier/anchorage sector off Culmore.
+133	londonderry.txt	Benone Surf Beach	resolved	55.1680	-6.8720	beach	Surf zone on Benone/Downhill strand system (same shore as Blue Flag sector).
+134	londonderry.txt	Downhill Surf	resolved	55.1695	-6.8780	beach	Downhill strand west sector; surf use off Downhill/Benone system.
+135	londonderry.txt	Castlerock Rock Pools	resolved	55.1520	-6.7850	tidal_pools	Intertidal rock pools at west/promenade end of Castlerock beach (approx. foreshore).
+136	londonderry.txt	Portstewart Strand Dunes	resolved	55.1690	-6.7440	dunes	Backshore dune system behind Portstewart Strand (NT reserve sector).
+137	londonderry.txt	Bann Estuary Walk	resolved	55.1540	-6.7720	promenade	Representative Barmouth/Bann estuary shore between Castlerock and Portstewart (linear walk).
+138	londonderry.txt	Coleraine Bann Walk	resolved	55.1330	-6.6670	riverside	Coleraine town River Bann waterfront walk (approx. centre/quays sector).
+139	londonderry.txt	Portstewart Promenade Walk	resolved	55.1800	-6.7150	promenade	Seafront promenade/harbour headland sector in Portstewart.
+140	londonderry.txt	Castlerock Promenade Walk	resolved	55.1520	-6.7840	promenade	Sea Road/promenade along Castlerock beach front (village beach access).
+141	londonderry.txt	Foyle Shore Path	ambiguous			trail	Multi-mile Quay Trail / embankment paths on both banks; no single tide-representative point.

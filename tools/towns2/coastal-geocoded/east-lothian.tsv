@@ -1,0 +1,125 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	east-lothian.txt	Fisherrow	resolved	55.9439450	-3.0610931	suburb	OpenStreetMap/Nominatim
+2	east-lothian.txt	Fisherrow Harbour	resolved	55.9457458	-3.0673625	mud	OpenStreetMap/Nominatim (natural=mud harbour basin)
+3	east-lothian.txt	Fisherrow Sands	resolved	55.9515423	-3.0570821	beach	OpenStreetMap/Nominatim
+4	east-lothian.txt	Fisherrow Beach	resolved	55.9515423	-3.0570821	beach	OpenStreetMap/Nominatim (same named beach polygon as Fisherrow Sands)
+5	east-lothian.txt	Fisherrow West	ambiguous			beach	No OSM/Nominatim object; likely the western Fisherrow foreshore strip (human-map label only)
+6	east-lothian.txt	Linkfield	resolved	55.9400086	-3.0358131	suburb	OpenStreetMap/Nominatim hit for Pinkie (Musselburgh) area where Linkfield sits
+7	east-lothian.txt	Musselburgh	resolved	55.9421202	-3.0538516	town	OpenStreetMap/Nominatim
+8	east-lothian.txt	Musselburgh Esplanade	resolved	55.9452540	-3.0654367	promenade	OpenStreetMap pedestrian Promenade along Fisherrow/Musselburgh shore (no “Esplanade” name)
+9	east-lothian.txt	Musselburgh foreshore	resolved	55.9533556	-3.0464510	beach	Musselburgh Sands (natural=beach) used as foreshore pin
+10	east-lothian.txt	Musselburgh Harbour	resolved	55.9456401	-3.0669739	harbour	OpenStreetMap leisure=marina at Fisherrow Harbour (local small-craft harbour for Musselburgh)
+11	east-lothian.txt	River Esk mouth	resolved	55.9344944	-3.0548345	waterway	Nearest downstream River Esk (Lothian) waterway segment toward the Forth; estuary mouth area
+12	east-lothian.txt	Mouth of the Esk	resolved	55.9344944	-3.0548345	waterway	Same estuary mouth reading as line 11 (duplicate coastal label)
+13	east-lothian.txt	Inveresk	resolved	55.9355537	-3.0443388	village	OpenStreetMap/Nominatim
+14	east-lothian.txt	Lewisvale	resolved	55.9391790	-3.0405464	neighbourhood	OpenStreetMap/Nominatim
+15	east-lothian.txt	Levenhall	resolved	55.9454093	-3.0238358	suburb	OpenStreetMap/Nominatim
+16	east-lothian.txt	Levenhall Links	resolved	55.9508082	-3.0300223	park	OpenStreetMap/Nominatim (leisure=park)
+17	east-lothian.txt	Prestonpans	resolved	55.9593948	-2.9842401	town	OpenStreetMap/Nominatim
+18	east-lothian.txt	Prestonpans foreshore	resolved	55.9620000	-2.9810000	beach	Approximate Firth of Forth foreshore off Prestonpans (no OSM “foreshore” label)
+19	east-lothian.txt	Preston Links	resolved	55.9657366	-2.9749780	grass	OpenStreetMap landuse=grass (coastal links); low feature specificity
+20	east-lothian.txt	Morrison Haven	resolved	55.9522367	-3.0085590	locality	OpenStreetMap/Nominatim
+21	east-lothian.txt	Cockenzie	resolved	55.9696964	-2.9644844	suburb	OpenStreetMap/Nominatim
+22	east-lothian.txt	Cockenzie and Port Seton	resolved	55.9706083	-2.9576975	town	OpenStreetMap/Nominatim
+23	east-lothian.txt	Port Seton	resolved	55.9719375	-2.9515817	suburb	OpenStreetMap/Nominatim
+24	east-lothian.txt	Port Seton Harbour	resolved	55.9727254	-2.9551627	harbour	OpenStreetMap industrial footprint for harbour area (not a leisure tag)
+25	east-lothian.txt	Port Seton beach	resolved	55.9730000	-2.9485000	beach	Approximate sandy shore at Port Seton (no OSM beach name match)
+26	east-lothian.txt	Seton Sands	resolved	55.9764404	-2.9196345	beach	OpenStreetMap/Nominatim
+27	east-lothian.txt	Peffersands	resolved	56.0363553	-2.6086136	beach	OpenStreetMap “Peffer Sands” (spelling differs from source line)
+28	east-lothian.txt	Longniddry	resolved	55.9749827	-2.8951176	town	OpenStreetMap/Nominatim
+29	east-lothian.txt	Longniddry Bents	resolved	55.9838153	-2.9015092	beach	OpenStreetMap/Nominatim
+30	east-lothian.txt	Longniddry Bents 1	resolved	55.9838000	-2.9015000	beach	Numbered subsection; pinned with main Longniddry Bents shore (no separate OSM object)
+31	east-lothian.txt	Longniddry Bents 2	resolved	55.9838153	-2.9015092	beach	Numbered subsection; pinned with main Longniddry Bents shore (no separate OSM object)
+32	east-lothian.txt	Longniddry Bents 3	resolved	55.9838153	-2.9015092	beach	Numbered subsection; pinned with main Longniddry Bents shore (no separate OSM object)
+33	east-lothian.txt	Gosford Bay	resolved	55.9989558	-2.8993265	bay	OpenStreetMap/Nominatim (natural=bay)
+34	east-lothian.txt	Gosford Sands	resolved	55.9963588	-2.8931347	beach	OpenStreetMap/Nominatim (natural=beach)
+35	east-lothian.txt	Gosford House shore	resolved	55.9967000	-2.8885000	foreshore	Approximate foreshore between Gosford House and Gosford Sands (no OSM “shore” name)
+36	east-lothian.txt	Aberlady	resolved	56.0095633	-2.8584834	village	OpenStreetMap/Nominatim
+37	east-lothian.txt	Aberlady Bay	resolved	56.0179628	-2.8768217	bay	OpenStreetMap/Nominatim (natural=bay)
+38	east-lothian.txt	Aberlady Bay Local Nature Reserve	resolved	56.0225349	-2.8729071	nature_reserve	OpenStreetMap/Nominatim
+39	east-lothian.txt	Rough Island	not_found			island	No East Lothian OSM/Nominatim match; likely a small tidal patch in Aberlady Bay (distinct from Dumfries and Galloway Rough Island)
+40	east-lothian.txt	Kilspindie	resolved	56.0101793	-2.8648778	ruins	OpenStreetMap Kilspindie Castle (Aberlady); coastal-list reading for Kilspindie near the bay
+41	east-lothian.txt	Kilspindie Bay	resolved	56.0112000	-2.8765000	bay	Approximate Aberlady Bay shore by Kilspindie; no named “Kilspindie Bay” polygon in OSM
+42	east-lothian.txt	Gullane	resolved	56.0350435	-2.8307089	village	OpenStreetMap/Nominatim
+43	east-lothian.txt	Gullane Bay	resolved	56.0443848	-2.8515918	bay	OpenStreetMap/Nominatim (natural=bay)
+44	east-lothian.txt	Gullane Bents	resolved	56.0446560	-2.8368516	beach	OpenStreetMap/Nominatim
+45	east-lothian.txt	Archerfield	resolved	56.0430533	-2.7962182	locality	OpenStreetMap/Nominatim (Archerfield, Dirleton area)
+46	east-lothian.txt	Archerfield sands	resolved	56.0556218	-2.7962001	beach	Coastal dunes/sand strip at Archerfield Links (nearest mapped anchor; OSM has no “Archerfield Sands” name)
+47	east-lothian.txt	Luffness foreshore	resolved	56.0165000	-2.8480000	foreshore	Approximate Aberlady Bay foreshore off Luffness/Luffness House (no OSM foreshore label)
+48	east-lothian.txt	Dirleton	resolved	56.0449400	-2.7822014	village	OpenStreetMap/Nominatim
+49	east-lothian.txt	Dirleton Bay	ambiguous			bay	No single OSM bay named Dirleton Bay; several small bights on this coast north of Dirleton
+50	east-lothian.txt	Yellowcraig	resolved	56.0630000	-2.7740000	coast	Wikipedia/visitor-site centroid for Yellowcraig LNR (also called Broad Sands); no clean Nominatim beach polygon hit
+51	east-lothian.txt	Yellowcraig Beach	resolved	56.0630000	-2.7740000	beach	Same coastal unit as line 50 (official bathing beach name)
+52	east-lothian.txt	Broad Sands Bay	resolved	56.0630000	-2.7740000	bay	Alternate name for Yellowcraig/Broad Sands beach area per Wikipedia and local signage
+53	east-lothian.txt	Fenton Barns	resolved	56.0250734	-2.7819757	hamlet	OpenStreetMap/Nominatim
+54	east-lothian.txt	North Berwick	resolved	56.0581178	-2.7209129	town	OpenStreetMap/Nominatim
+55	east-lothian.txt	North Berwick Harbour	resolved	56.0612787	-2.7185739	harbour	OpenStreetMap/Nominatim
+56	east-lothian.txt	NB Harbour	resolved	56.0612787	-2.7185739	harbour	Abbreviation; same harbour object as line 55
+57	east-lothian.txt	North Berwick West Beach	resolved	56.0604240	-2.7251005	beach	OpenStreetMap/Nominatim (“West Beach”)
+58	east-lothian.txt	West Bay North Berwick	resolved	56.0604240	-2.7251005	beach	Local label for the west bay beach; pinned with OSM West Beach
+59	east-lothian.txt	NB West Beach	resolved	56.0604240	-2.7251005	beach	Abbreviation; same OSM West Beach as lines 57–58
+60	east-lothian.txt	North Berwick East Beach	resolved	56.0618000	-2.7010000	beach	Approximate East Sands / Milsey Bay foreshore (OSM names the bay “Milsey Bay” but not a separate “East Beach” polygon)
+61	east-lothian.txt	Milsey Bay	resolved	56.0612419	-2.7023154	bay	OpenStreetMap/Nominatim (natural=bay)
+62	east-lothian.txt	Milsey Bay beach	resolved	56.0588498	-2.7120896	beach	OpenStreetMap leisure=bathing_place “North Berwick (Milsey Bay)” on Marine Parade (sandy Milsey shore)
+63	east-lothian.txt	Scottish Seabird Centre	resolved	56.0613132	-2.7173382	attraction	OpenStreetMap/Nominatim (tourism=museum)
+64	east-lothian.txt	Canty Bay	resolved	56.0574855	-2.6658108	hamlet	OpenStreetMap/Nominatim (coastal hamlet south of Tantallon)
+65	east-lothian.txt	Bass Rock	resolved	56.0774678	-2.6405694	islet	OpenStreetMap/Nominatim (place=islet)
+66	east-lothian.txt	The Bass Rock	resolved	56.0774678	-2.6405694	islet	Same OSM islet as line 65 (alternate list label)
+67	east-lothian.txt	Craigleith	resolved	56.0735650	-2.7202586	islet	OpenStreetMap/Nominatim (place=islet)
+68	east-lothian.txt	Craigleith Island	resolved	56.0735650	-2.7202586	islet	Same Craigleith islet as line 67 (OSM name “Craigleith” only)
+69	east-lothian.txt	Lamb Island	resolved	56.0699880	-2.7487808	island	OpenStreetMap place=island named “The Lamb” off North Berwick (list says Lamb Island)
+70	east-lothian.txt	Fidra	resolved	56.0711246	-2.7833037	islet	OpenStreetMap/Nominatim (place=islet)
+71	east-lothian.txt	Fidra Island	resolved	56.0711246	-2.7833037	islet	Same Fidra islet as line 70 (alternate list label)
+72	east-lothian.txt	Eyebroughy	resolved	56.0671697	-2.8126454	locality	OpenStreetMap/Nominatim (coastal locality west of North Berwick)
+73	east-lothian.txt	Tantallon Castle	resolved	56.0565173	-2.6501745	castle	OpenStreetMap/Nominatim (historic=castle)
+74	east-lothian.txt	Tantallon Castle cliffs	resolved	56.0558000	-2.6485000	cliff	Approximate seaward/cliffline below the castle headland (no separate OSM “cliffs” name)
+75	east-lothian.txt	Seacliff	resolved	56.0482951	-2.6334714	hamlet	OpenStreetMap/Nominatim (named hamlet node)
+76	east-lothian.txt	Seacliff Beach	resolved	56.0528768	-2.6367155	beach	OpenStreetMap/Nominatim (natural=beach)
+77	east-lothian.txt	Seacliff Harbour	resolved	56.0545787	-2.6396237	harbour	OpenStreetMap/Nominatim (place=locality)
+78	east-lothian.txt	Auldhame	resolved	56.0496806	-2.6552211	hamlet	OpenStreetMap/Nominatim
+79	east-lothian.txt	Ravensheugh	resolved	56.0266952	-2.5968890	beach	Pinned to OpenStreetMap “Ravensheugh Sands” (local name for Tyninghame beach area)
+80	east-lothian.txt	Tyninghame	resolved	56.0033803	-2.6266642	village	OpenStreetMap/Nominatim
+81	east-lothian.txt	Tyninghame Bay	resolved	56.0102818	-2.5826331	bay	River Tyne (East Lothian) estuary shore; pinned to OSM “Tyne Sands” beach at the mouth (human-map bay label)
+82	east-lothian.txt	Tyninghame Links	resolved	56.0228400	-2.5903600	dunes	Coastal links/dune strip at Ravensheugh (Trove.scot NT63308126 centroid; no OSM “Tyninghame Links” name)
+83	east-lothian.txt	Tyninghame Beach	resolved	56.0289730	-2.6013450	beach	Ravensheugh Sands / Tyninghame Beach access centroid (Scotland OTBT GPS; distinct pin from lines 79–82)
+84	east-lothian.txt	Whitekirk	resolved	56.0247292	-2.6504322	village	OpenStreetMap/Nominatim
+85	east-lothian.txt	Skateraw	resolved	55.9686040	-2.4272476	hamlet	OpenStreetMap/Nominatim
+86	east-lothian.txt	Skateraw Beach	resolved	55.9702000	-2.4085000	beach	Approximate open shore east of Skateraw toward the North Sea (no OSM “Skateraw Beach” object)
+87	east-lothian.txt	Belhaven	resolved	55.9982968	-2.5350544	suburb	OpenStreetMap/Nominatim (Belhaven, Dunbar)
+88	east-lothian.txt	Belhaven Bay	resolved	56.0031564	-2.5479501	bay	OpenStreetMap/Nominatim (natural=bay)
+89	east-lothian.txt	Bridge to Nowhere	resolved	56.0014507	-2.5442631	bridge	OpenStreetMap/Nominatim (Belhaven footway name)
+90	east-lothian.txt	John Muir Country Park	resolved	56.0146901	-2.5816731	park	OpenStreetMap/Nominatim (boundary=protected_area relation centroid)
+91	east-lothian.txt	John Muir Way shore	resolved	56.0185000	-2.5920000	trail	Approximate coastal John Muir Way foreshore west of Dunbar (no single OSM “shore” object; between country park and Belhaven coast)
+92	east-lothian.txt	West Barns	resolved	55.9943611	-2.5519075	suburb	OpenStreetMap/Nominatim
+93	east-lothian.txt	West Barns foreshore	resolved	55.9965000	-2.5560000	foreshore	Approximate Belhaven Bay foreshore off West Barns (no OSM foreshore name)
+94	east-lothian.txt	Dunbar	resolved	56.0021385	-2.5158237	town	OpenStreetMap/Nominatim
+95	east-lothian.txt	Dunbar Harbour	resolved	56.0053475	-2.5168437	harbour	OpenStreetMap/Nominatim (Dunbar Harbour Vaults node)
+96	east-lothian.txt	Dunbar Castle	resolved	56.0057538	-2.5171705	castle	OpenStreetMap/Nominatim
+97	east-lothian.txt	Dunbar East Beach	resolved	56.0026170	-2.5137064	beach	OpenStreetMap/Nominatim (East Beach Play Parklet; sandy East Beach shore)
+98	east-lothian.txt	East Beach Dunbar	resolved	56.0026170	-2.5137064	beach	Same East Beach shore reading as line 97 (alternate list label)
+99	east-lothian.txt	Dunbar West Beach	resolved	56.0055000	-2.5300000	beach	Approximate Belhaven Bay / west Dunbar sandy shore (no OSM “West Beach” name match)
+100	east-lothian.txt	Whitesands	resolved	55.9926999	-2.4826342	caravan_site	OpenStreetMap/Nominatim (Dunbar Camping and Caravanning Club Site — local “Whitesands” coast strip)
+101	east-lothian.txt	Whitesands Bay	resolved	55.9940000	-2.4750000	bay	Approximate open Firth foreshore bay east of Whitesands camping area (no named OSM bay)
+102	east-lothian.txt	Winterfield	resolved	56.0043783	-2.5279332	park	OpenStreetMap/Nominatim (Winterfield Park)
+103	east-lothian.txt	Winterfield Beach	resolved	56.0068000	-2.5180000	beach	Approximate North Sea beach east of Winterfield (no OSM beach polygon name)
+104	east-lothian.txt	Thorntonloch	resolved	55.9626184	-2.4008256	hamlet	OpenStreetMap/Nominatim
+105	east-lothian.txt	Thorntonloch Beach	resolved	55.9642000	-2.3985000	beach	Approximate sandy shore north of Thorntonloch (no OSM “Thorntonloch Beach” object)
+106	east-lothian.txt	Torness	resolved	55.9664126	-2.4111209	locality	OpenStreetMap/Nominatim (Torness, A1)
+107	east-lothian.txt	Torness Point	resolved	55.9731469	-2.4040713	headland	OpenStreetMap/Nominatim (Torness Point)
+108	east-lothian.txt	Torness foreshore	resolved	55.9705000	-2.4065000	foreshore	Approximate intertidal shore by Torness power station (human-map label)
+109	east-lothian.txt	Cove	resolved	55.9383579	-2.3536214	village	OpenStreetMap/Nominatim (Cove, Cockburnspath — Scottish Borders coast in East Lothian list context)
+110	east-lothian.txt	Cove Harbour	resolved	55.9380797	-2.3460993	harbour	OpenStreetMap/Nominatim (Cove Harbour)
+111	east-lothian.txt	Cove Bay	resolved	55.9284513	-2.3308149	bay	OpenStreetMap/Nominatim (Pease Bay natural=bay — wider bay for Cove/Pease coast)
+112	east-lothian.txt	Barns Ness	resolved	55.9872805	-2.4452809	cape	OpenStreetMap/Nominatim (Barns Ness)
+113	east-lothian.txt	Barns Ness Lighthouse	resolved	55.9872900	-2.4452900	lighthouse	Historic Environment Scotland / Trove.scot NT7231777236 (WGS84); OSM has no separate lighthouse node in Nominatim hit
+114	east-lothian.txt	Dunbear	resolved	55.9882597	-2.5070331	sculpture	OpenStreetMap/Nominatim (“Dunbar Bear” A1 artwork)
+115	east-lothian.txt	Kingston shore	resolved	56.0322000	-2.7420000	foreshore	Approximate Firth foreshore off Kingston (East Lothian) near village centroid OSM 56.0317674 -2.7368265
+116	east-lothian.txt	Canty Bay rocks	resolved	56.0578000	-2.6685000	rocks	Approximate rocky foreshore at Canty Bay (hamlet OSM 56.0574855 -2.6658108); no named “rocks” object
+117	east-lothian.txt	NB East Beach	resolved	56.0618000	-2.7010000	beach	Same Milsey Bay / East Sands reading as earlier North Berwick East Beach rows (abbreviation “NB”; not West Beach)
+118	east-lothian.txt	Black Rocks Port Seton	resolved	55.9730383	-2.9525167	rocks	Geograph NT40657597 / BGS site mid-point (Black Rocks dyke shore west of Port Seton)
+119	east-lothian.txt	Cockenzie foreshore	resolved	55.9710000	-2.9680000	foreshore	Approximate open shore by Cockenzie (village OSM centroid 55.9696964 -2.9644844 shifted W toward rock platforms)
+120	east-lothian.txt	Biel Water mouth	resolved	56.0012000	-2.5435000	estuary	Approximate Biel Water estuary into Belhaven Bay near Bridge to Nowhere (no OSM “mouth” label)
+121	east-lothian.txt	River Tyne mouth	resolved	56.0102818	-2.5826331	estuary	OpenStreetMap natural=beach Tyne Sands at River Tyne (East Lothian) estuary mouth (same coastal anchor as Tyninghame Bay row)
+122	east-lothian.txt	Belhaven Surf	resolved	56.0019444	-2.5502778	beach	Approximate Belhaven Bay surf beach midpoint (British Beaches OS grid NT657789; 56°0′7″N 2°33′1″W); local label for Dunbar/Belhaven Bay surf — no OSM “Belhaven Surf” object
+123	east-lothian.txt	Victoria Harbour Dunbar	resolved	56.0058041	-2.5152804	harbour	OpenStreetMap waterway=dock Victoria Harbour, Belhaven/Dunbar
+124	east-lothian.txt	Dunbar Battery	resolved	56.0060345	-2.5129498	battery	OpenStreetMap historic=ruins Lamer Island Battery (Dunbar harbour battery); list label “Dunbar Battery”

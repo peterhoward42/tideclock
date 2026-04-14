@@ -1,0 +1,172 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	newport.txt	Peterstone Great Wharf	resolved	51.5130	-3.0390	wharf	RCAHMW Coflein Peterstone Wharf landing (NPRN 506708) on Wentlooge foreshore
+2	newport.txt	Peterstone Gout	resolved	51.518889	-3.041111	sluice	Wikipedia/GeoHack coords for tidal outfall structure
+3	newport.txt	Peterstone Gout outfall	resolved	51.51895	-3.04115	outfall	Same facility; pinned slightly seaward of sluice on estuary side
+4	newport.txt	Peterstone Wentlooge	resolved	51.51596	-3.05631	village	Wikipedia village centroid (Peterstone; Welsh Llanbedr Gwynllwg)
+5	newport.txt	Peterstone Wentloog	resolved	51.51596	-3.05631	village	Alternate spelling; same settlement as line 4
+6	newport.txt	Peterstone Wentlooge Marshes	resolved	51.5165	-3.050	marsh	Gwent Levels marsh mosaic east of village toward Gout (reserve context)
+7	newport.txt	Peterstone Wentlooge nature reserve	resolved	51.5165	-3.050	reserve	Read as GWT Peterstone Wentlooge Marshes / levels wetland block near village
+8	newport.txt	Peterstone Wentlooge seawall	resolved	51.5163	-3.0565	seawall	Representative pin on village sea defences (linear feature)
+9	newport.txt	Peterstone Wentlooge sea wall	resolved	51.5163	-3.0565	seawall	Same linear defence as line 8
+10	newport.txt	Peterstone Wentlooge foreshore	resolved	51.5168	-3.0572	foreshore	Mud/saltmarsh off seawall at Peterstone
+11	newport.txt	Peterstone Wentlooge church	resolved	51.51596	-3.05631	church	Former St Peter's church site in village centre
+12	newport.txt	St Brides Wentloog	resolved	51.5343	-3.0207	hamlet	Wikipedia/Wikidata coords (St Bridget's church area)
+13	newport.txt	St Brides Wentlooge	resolved	51.5343	-3.0207	hamlet	Alternate spelling; same hamlet as line 12
+14	newport.txt	Wentlooge Levels	resolved	51.5300	-3.0350	area	Centroid of reclaimed Gwent/Wentlooge Levels behind seawalls
+15	newport.txt	Wentlooge Levels seawall	resolved	51.5280	-3.0400	seawall	Representative pin on outer seawall (linear)
+16	newport.txt	Wentlooge coast path	resolved	51.5190	-3.0420	path	Wales Coast Path along seawall near Peterstone Gout
+17	newport.txt	Wharf Reen	resolved	51.5140	-3.0400	reen	Named reen on Wentlooge foreshore near Peterstone wharf reach
+18	newport.txt	Wharf Reen mouth	resolved	51.5165	-3.0565	reen	Outfall toward estuary at seawall (approximate)
+19	newport.txt	Lighthouse Inn Wentlooge	resolved	51.5380	-2.9980	pub	Beach Road pub serving coast path to West Usk Lighthouse
+20	newport.txt	Lighthouse Park Newport	resolved	51.52887	-3.01207	park	Residential park estate NP10 (MapQuest coords); St Brides Wentlooge foreshore
+21	newport.txt	West Usk Lighthouse	resolved	51.54061	-2.99465	lighthouse	Wikipedia/GeoHack listed lighthouse (Uskmouth)
+22	newport.txt	West Usk light	resolved	51.54061	-2.99465	lighthouse	Same structure as line 21
+23	newport.txt	Great Traston Meadows	resolved	51.55446	-2.94974	meadow	GWT reserve; Geograph WGS84 for ST 342 843 car-park area
+24	newport.txt	Cors Crychydd	resolved	51.5142	-3.0330	reen	Wales Coast Path reen from Parc Tredelerch toward Wentlooge seawall
+25	newport.txt	Maesglas	resolved	51.5677	-3.0024	suburb	Newport suburb near Usk corridor (OpenStreetMap-class centroid)
+26	newport.txt	Corporation Road waterfront	resolved	51.5730	-2.9830	waterfront	River Usk frontage along Corporation Rd / eastern docks margin
+27	newport.txt	Lysaghts Newport	resolved	51.5714	-2.9782	works	John Lysaght Orb steelworks wharf frontage (Coflein NPRN 414107 area)
+28	newport.txt	Orb Works Newport	resolved	51.5722	-2.9761	works	Historic Orb Works site east bank Usk (Wikimapia/works centroid)
+29	newport.txt	Ebbw River Newport	resolved	51.5580	-2.9820	river	Tidal reach through Newport toward Usk confluence
+30	newport.txt	Ebbw River mouth Newport	resolved	51.5500	-2.9830	estuary	Wikipedia photo coords: joins estuarine Usk seaward of city
+31	newport.txt	Melbourne Park rugby ground coast path	not_found			unknown	No indexed map/OSM feature named Melbourne Park in Newport; not linked to a verifiable coast-path segment
+32	newport.txt	Newport	resolved	51.588233	-2.997497	city	OpenStreetMap wiki / findlatitude style centroid for Newport (Casnewydd), Wales
+33	newport.txt	Casnewydd	resolved	51.588233	-2.997497	city	Welsh name; same principal area centroid as line 32
+34	newport.txt	Pillgwenlly	resolved	51.5822	-2.9900	ward	Wikipedia ward centroid (ST315875 class mapping via streetmap/OS context)
+35	newport.txt	Pill Newport	resolved	51.5650	-2.9870	docks	Common short name for Pillgwenlly; pinned Newport Docks / Pill quayside
+36	newport.txt	Pill foreshore	resolved	51.5565	-2.9805	foreshore	Usk estuary foreshore off Pill / south dock margin (approximate)
+37	newport.txt	Newport Transporter Bridge	resolved	51.570556	-2.985556	bridge	Wikipedia / GeoHack listed structure (Grade I)
+38	newport.txt	Transporter Bridge	resolved	51.570556	-2.985556	bridge	Same landmark as line 37
+39	newport.txt	Transporter Bridge Newport	resolved	51.570556	-2.985556	bridge	Same landmark as line 37
+40	newport.txt	Clarence Wharf	resolved	51.5635	-2.9865	wharf	Representative quay pin in Newport Docks / Alexandra area (historic wharf name; linear frontage)
+41	newport.txt	Clarence Wharf Newport	resolved	51.5635	-2.9865	wharf	Same wharf frontage as line 40
+42	newport.txt	Victoria Wharf Newport	resolved	51.5620	-2.9850	wharf	Representative quay pin Newport Docks cluster (historic name)
+43	newport.txt	Alexandra Dock Newport	resolved	51.5617	-2.9872	dock	UK postcode atlas / ports context centroid for Alexandra Docks (ABP Newport)
+44	newport.txt	Alexandra North Dock	resolved	51.5658368	-2.9887131	dock	OpenStreetMap waterway=dock named North Dock
+45	newport.txt	Alexandra South Dock	resolved	51.5577683	-2.9819492	dock	OpenStreetMap waterway=dock named South Dock (Alexandra south basin context)
+46	newport.txt	Newport North Dock	resolved	51.5658368	-2.9887131	dock	Same OSM North Dock as line 44
+47	newport.txt	Newport South Dock	resolved	51.5577683	-2.9819492	dock	Same OSM South Dock as line 45
+48	newport.txt	South Dock Newport	resolved	51.5577683	-2.9819492	dock	Same OSM South Dock as line 45
+49	newport.txt	Newport Docks	resolved	51.5596698	-2.9823116	docks	OpenStreetMap landuse industrial named Newport Docks (polygon centroid)
+50	newport.txt	Newport harbour	resolved	51.5617	-2.9872	harbour	Commercial harbour centred on Alexandra Dock / ABP Newport (NP20 2UW area)
+51	newport.txt	Newport sea lock	resolved	51.5542	-2.9828	lock	Approximate seaward dock entrance lock; Newport Docks outer gate area
+52	newport.txt	Sea Lock Newport	resolved	51.5542	-2.9828	lock	Same entrance lock structure as line 51
+53	newport.txt	River Usk Newport	resolved	51.5906	-2.9950	river	Tidal Usk at Cadw Newport Castle west-bank crossing (Wikipedia coords)
+54	newport.txt	River Usk mouth	resolved	51.5460	-2.9705	estuary	Outer estuary / Severn transition zone off Nash-Uskmouth (approximate)
+55	newport.txt	Uskmouth	resolved	51.5528917	-2.9668324	locality	Riverside locality; OSM node context Newport Uskmouth Sailing Club / Nash shore
+56	newport.txt	Usk mouth	resolved	51.5445	-2.9695	estuary	Channel seaward of Uskmouth; outer estuary mouth zone (approximate)
+57	newport.txt	Newport Town Dock	resolved	51.5750300	-2.9804274	dock	OpenStreetMap landuse industrial named Old Town Dock
+58	newport.txt	Town Dock Newport	resolved	51.5750300	-2.9804274	dock	Same Old Town Dock as line 57
+59	newport.txt	Town Dock site Newport	resolved	51.5750300	-2.9804274	dock	Historic Town Dock infill footprint; OSM Old Town Dock polygon centroid
+60	newport.txt	GWR Wharf Newport	resolved	51.5720	-2.9785	wharf	Great Western Railway coal wharf context; Corporation Rd / east-bank Usk frontage near Orb
+61	newport.txt	River Wharf Newport	resolved	51.5605	-2.9850	wharf	Historic west-bank river wharves / quays toward Alexandra Dock cluster (Newport Past maritime context)
+62	newport.txt	ABP Newport	resolved	51.5610	-2.9865	port	ABP South Wales Port of Newport; representative pin on Alexandra Dock / Newport Docks estate
+63	newport.txt	Associated British Ports Newport	resolved	51.5610	-2.9865	port	Same operator estate as line 62
+64	newport.txt	Newport port	resolved	51.5597	-2.9823	harbour	Commercial port centred on Newport Docks (OSM industrial polygon centroid; aligns with earlier dock rows)
+65	newport.txt	Newport Riverfront	resolved	51.5883	-2.9934	waterfront	City-centre Usk west-bank riverfront; representative pin at The Riverfront / Bristol Packet Wharf quarter
+66	newport.txt	Riverfront Arts Centre Newport	resolved	51.58832	-2.99343	arts_centre	Wikipedia coordinates for The Riverfront theatre & arts centre (Kingsway / Bristol Packet Wharf)
+67	newport.txt	Riverfront Newport	resolved	51.58832	-2.99343	arts_centre	Short name; same venue as line 66
+68	newport.txt	Newport City Bridge	resolved	51.5769	-2.9743	bridge	Read as City Bridge (2004 road bridge over Usk); Wikipedia / Geograph coords
+69	newport.txt	City Bridge Newport	resolved	51.5769	-2.9743	bridge	Same structure as line 68
+70	newport.txt	George Street Bridge Newport	resolved	51.5842	-2.9844	bridge	Wikipedia / Wikidata coords for George Street Bridge (Usk road crossing, Victoria)
+71	newport.txt	Newport city footbridge	resolved	51.58691	-2.990191	bridge	Wikipedia / Geograph coords for Newport City footbridge (pedestrian/cycle Usk crossing)
+72	newport.txt	Usk Way waterfront	resolved	51.5760	-2.9865	waterfront	Riverside frontage along Usk Way (Pill / marathon start quarter; approximate linear feature)
+73	newport.txt	Mill Parade waterfront	resolved	51.5691	-2.9877	waterfront	MapQuest-class coords for Mill Parade; Usk margin near Pillgwenlly docks belt
+74	newport.txt	Commercial Road waterfront	resolved	51.5754	-2.9863	waterfront	NP20 2BY centroid (Doogal); Commercial Rd block adjoining Usk Way / Mill Parade river margin
+75	newport.txt	Uskmouth power station	resolved	51.549071	-2.970539	power_station	Wikipedia / GeoHack coords for Uskmouth B (Fifoots Point) station site
+76	newport.txt	Uskmouth power stations	resolved	51.549071	-2.970539	power_station	Plural label; same Fifoots Point complex as line 75
+77	newport.txt	Uskmouth industrial shore	resolved	51.5510	-2.9685	shore	Industrial river/estuary margin by Uskmouth works (approximate linear strip)
+78	newport.txt	Uskmouth foreshore	resolved	51.5460	-2.9665	foreshore	Mudflat/saltmarsh off Uskmouth toward outer estuary (approximate)
+79	newport.txt	Nash	resolved	51.5490	-2.9460	village	Wikipedia community centroid (Nash, Newport; Welsh Trefonnen)
+80	newport.txt	Trefonnen	resolved	51.5490	-2.9460	village	Welsh name for Nash; same settlement as line 79
+81	newport.txt	West Nash	resolved	51.5485	-2.9505	area	West Nash / church-side village quarter (toward St Mary's / West Nash Rd context)
+82	newport.txt	East Nash	resolved	51.5510	-2.9420	area	Eastern parish margin toward lower Usk / levels (approximate)
+83	newport.txt	Nash village	resolved	51.5490	-2.9460	village	Settlement core; same Nash as line 79
+84	newport.txt	Nash foreshore	resolved	51.5340	-2.9580	foreshore	Bristol Channel foreshore off Nash parish (approximate coastal strip)
+85	newport.txt	Nash seawall	resolved	51.5355	-2.9590	seawall	Representative pin on southern sea defences (linear)
+86	newport.txt	Nash sea wall	resolved	51.5355	-2.9590	seawall	Same defence line as line 85
+87	newport.txt	Nash coast	resolved	51.5335	-2.9575	coast	Open coast along parish southern boundary (approximate)
+88	newport.txt	St Mary the Virgin West Nash	resolved	51.5480	-2.9488	church	Wikipedia / British Listed Buildings coords for Church of St Mary, Nash (Grade I)
+89	newport.txt	Cathedral of the Moors	resolved	51.5480	-2.9488	church	Hando epithet for St Mary’s, Nash (same Grade I building as line 88)
+90	newport.txt	Nash Uskmouth	resolved	51.5515	-2.9580	locality	Transition strip between Nash village and Uskmouth riverside (judged centroid)
+91	newport.txt	Nash Community Hall	resolved	51.54880	-2.94847	community_hall	Geograph WGS84 for hall/car park (ST3483; ~47 St Mary's Rd, Nash)
+92	newport.txt	Coleg Gwent Nash	resolved	51.5730	-2.9520	college	City of Newport Campus, Nash Rd NP19 4TS (local name “Nash College”; Wikipedia coords)
+93	newport.txt	Nash College	resolved	51.5730	-2.9520	college	Same Nash Road campus as line 92
+94	newport.txt	Lliswerry	resolved	51.57791	-2.96249	suburb	Wikidata/Wikipedia community centroid (Lliswerry / Liswerry)
+95	newport.txt	Lliswerry shore fringe	resolved	51.5783	-2.9705	shore	Judged Usk estuary margin of Lliswerry community (west of ward centroid)
+96	newport.txt	Newport Wetlands	resolved	51.546	-2.961	reserve	Wikipedia/GeoHack landmark coords for Newport Wetlands NNR
+97	newport.txt	Newport Wetlands National Nature Reserve	resolved	51.546	-2.961	reserve	Same statutory reserve footprint as line 96
+98	newport.txt	Newport Wetlands NNR	resolved	51.546	-2.961	reserve	Abbreviation; same reserve as line 96
+99	newport.txt	RSPB Newport Wetlands	resolved	51.546	-2.961	reserve	RSPB co-managed block within Newport Wetlands (centroid pin)
+100	newport.txt	Newport Wetlands visitor centre	resolved	51.54425	-2.96139	visitor_centre	RSPB centre NP18 2BZ; Bath RSPB group lat/lon
+101	newport.txt	Newport Wetlands reserve	resolved	51.546	-2.961	reserve	Generic reserve label; same centroid as line 96
+102	newport.txt	Goldcliff Lagoons	resolved	51.5375	-2.9540	lagoon	RSPB saline lagoons / hides complex east of visitor centre (Goldcliff end)
+103	newport.txt	East Usk Lighthouse	resolved	51.5400	-2.9673	lighthouse	Wikidata coord (51°32′24″N 2°58′1″W); east bank Usk approach
+104	newport.txt	East Usk light	resolved	51.5400	-2.9673	lighthouse	Same active beacon as line 103
+105	newport.txt	Newport Wetlands estuary trail	resolved	51.5450	-2.9620	trail	Representative pin on signed estuary/coast trail circuit from reserve
+106	newport.txt	Newport Wetlands reedbeds	resolved	51.5470	-2.9630	reedbed	Phragmites belt within reserve (approximate centroid)
+107	newport.txt	Newport Wetlands saltmarsh	resolved	51.5440	-2.9580	saltmarsh	Mudflat/saltmarsh mosaic north/east of lagoons (approximate)
+108	newport.txt	Newport Wetlands floating walkway	resolved	51.5420	-2.9600	walkway	Boardwalk sections near pools/lagoons (approximate feature pin)
+109	newport.txt	Newport Wetlands lagoon hides	resolved	51.5370	-2.9540	hide	Goldcliff lagoons hide line (approximate centroid)
+110	newport.txt	Newport Wetlands R9 hide	resolved	51.5365	-2.9535	hide	Read as lagoon hide “R9” on Goldcliff lagoons (approximate)
+111	newport.txt	Uskmouth sludge lagoons shore	resolved	51.5505	-2.9705	shore	Former sludge lagoon bunds near Uskmouth works; estuary-margin pin
+112	newport.txt	Goldcliff	resolved	51.54304	-2.91466	village	OS Open Names centroid (getthedata / NP18 settlement centre)
+113	newport.txt	Allteuryn	resolved	51.54304	-2.91466	village	Welsh name for Goldcliff; same centroid as line 112
+114	newport.txt	Goldcliff village	resolved	51.54304	-2.91466	village	Settlement core; same as line 112
+115	newport.txt	Goldcliff Point	resolved	51.5342	-2.9128	headland	Coastal promontory / intertidal complex (Coflein NPRN 406260 area; judged shore pin)
+116	newport.txt	Goldcliff foreshore	resolved	51.5330	-2.9140	foreshore	Severn mudflats off Goldcliff seawall (approximate)
+117	newport.txt	Goldcliff sea wall	resolved	51.5328	-2.9142	seawall	Representative pin on village sea defences (linear)
+118	newport.txt	Goldcliff seawall	resolved	51.5328	-2.9142	seawall	Same defence line as line 117
+119	newport.txt	Goldcliff coast	resolved	51.5335	-2.9135	coast	Open coast along parish shore (approximate)
+120	newport.txt	Goldcliff Priory site	resolved	51.5420	-2.9160	priory	Approximate Hill Farm priory site inland of Goldcliff (historic cell; footprint imprecise)
+121	newport.txt	Goldcliff Pill	resolved	51.5362	-2.9123	pill	Tidal pill / main Caldicot Levels outfall near Goldcliff; Wikishire Geograph square ST3682 area
+122	newport.txt	Goldcliff groynes	resolved	51.5340	-2.9128	groyne	Coastal groynes off Goldcliff Point / open shore (linear feature; representative pin)
+123	newport.txt	Goldcliff Mesolithic footprints foreshore	resolved	51.5320	-2.9135	foreshore	Intertidal footprint horizons west of seawall walk (SELRC / Bell excavations); approximate vulnerable foreshore band
+124	newport.txt	Goldcliff Stone findspot	resolved	51.5342	-2.9128	historic	Roman inscribed stone find tradition tied to Goldcliff Point / intertidal mud (1878)
+125	newport.txt	Goldcliff sea fishing	resolved	51.5325	-2.9140	shore	Generic Severn shore fishing mark off Goldcliff defences (approximate)
+126	newport.txt	Seawall Tearooms Goldcliff	resolved	51.5348	-2.9028	cafe	Seawall Bungalow / Clifton Common; walk blog grid ST 37478 82149
+127	newport.txt	Monksditch	resolved	51.5470	-2.9085	reen	Raised freshwater carrier (Monmouthshire Levels); representative pin along Whitson–Goldcliff reach
+128	newport.txt	Monksditch outfall	resolved	51.5360	-2.9120	outfall	Read as estuary-side discharge with Goldcliff Pill / seawall flap system (approximate)
+129	newport.txt	Goldcliff Pill outfall	resolved	51.5362	-2.9123	outfall	Tidal outfall through Goldcliff seawall (same hydraulic system as line 121; seawall terminus)
+130	newport.txt	Mireland Pill	resolved	51.5375	-2.9105	reen	Mireland Pill reen north of Goldcliff Point (GGAT Nash/Goldcliff coastal zone description)
+131	newport.txt	Farmers Arms Goldcliff	resolved	51.54303	-2.91648	pub	Geograph ST 3654 8308 camera subject tag (The Farmers Arms)
+132	newport.txt	Whitson	resolved	51.5486	-2.9008	village	Wikipedia/infobox-style coords for Whitson (NP18 cluster)
+133	newport.txt	Whitson coast	resolved	51.5510	-2.8920	coast	Open coast / seaward side of Whitson toward Severn (approximate)
+134	newport.txt	Whitson foreshore	resolved	51.5520	-2.8855	foreshore	Intertidal margin east of Whitson (approximate)
+135	newport.txt	Three Parishes	resolved	51.5455	-2.9050	region	Local name for historic Nash–Goldcliff–Whitson grouping; centroid judged between settlements
+136	newport.txt	Redwick	resolved	51.55280	-2.83648	village	Wikipedia community coords / OS ST421841 area
+137	newport.txt	Y Redwig	resolved	51.55280	-2.83648	village	Welsh name for Redwick; same community centroid as line 136
+138	newport.txt	Redwick village	resolved	51.55280	-2.83648	village	Settlement label; same centroid as line 136
+139	newport.txt	Redwick seawall	resolved	51.5545	-2.8355	seawall	Severn sea defences east of Redwick (Wales Coast Path alignment; approximate)
+140	newport.txt	Redwick sea wall	resolved	51.5545	-2.8355	seawall	Same defence line as line 139
+141	newport.txt	Redwick foreshore	resolved	51.5560	-2.8280	foreshore	Severn intertidal off Redwick (approximate seaward pin)
+142	newport.txt	St Thomas the Apostle Redwick	resolved	51.55298	-2.84918	church	Coflein / GENUKI ST4122084130 (St Thomas the Apostle)
+143	newport.txt	St Thomas Redwick	resolved	51.55298	-2.84918	church	Short name for the same Grade I church as line 142
+144	newport.txt	Redwick circular walk	resolved	51.55304	-2.84879	trail	Wales Coast Path itinerary start grid ST 41247 84136 (church gate loop)
+145	newport.txt	Redwick Village Hall coast	resolved	51.55326	-2.84817	village_hall	Geograph subject ST 4129 8416; label references WCP / circular-walk coastal context
+146	newport.txt	Rose Inn Redwick	resolved	51.55547	-2.84086	pub	Geograph cluster square ST4184 (South Row free house)
+147	newport.txt	The Rose Inn Redwick	resolved	51.55547	-2.84086	pub	Same premises as line 146
+148	newport.txt	Porton	resolved	51.5505	-2.8930	hamlet	Historic church / coastal outlier of Whitson parish (Wikipedia Whitson / Porton notes)
+149	newport.txt	Porton House	resolved	51.5510	-2.8875	house	Pink-painted house on Wales Coast Path Redwick circular (coastal side of Porton)
+150	newport.txt	Mead Farm Redwick coast	resolved	51.5540	-2.8435	farm	The Mead Farm Mead Lane NP26 3DE; pin toward lane / walk route seaward of church core
+151	newport.txt	Collister Pill	resolved	51.5760	-2.8001	pill	Collister Pill Reen reach; pinned near Cadw SAM relict seawall corridor (ST 446866 class mapping)
+152	newport.txt	Collister Pill relict sea wall	resolved	51.5760	-2.8001	seawall	Cadw MM226 / Wikipedia {{coord}} for Relict Seawall alongside Collister Pill Reen
+153	newport.txt	Coldharbour Pill	resolved	51.5543	-2.8199	pill	Major medieval reen/outfall north-east of Redwick (GGAT landscape notes); ST 432842 class pin toward estuary
+154	newport.txt	Windmill Reen	resolved	51.5532	-2.8487	reen	Wales Coast Path footbridge locality Redwick circular (ST 412841 class mapping)
+155	newport.txt	Mill Reen Newport Levels	resolved	51.5559	-2.8445	reen	Embanked Mill Reen on Caldicot/Gwent Levels near Redwick (ST 415844 class mapping)
+156	newport.txt	Peterstone Lakes Golf Course seawall	resolved	51.5195	-3.0490	seawall	Seaward defences along Severn edge of Peterstone Lakes course (club centroid Wikipedia 51.522, -3.048; pinned on wall)
+157	newport.txt	Severn Estuary Newport shore	resolved	51.5480	-2.9350	shore	Representative open-coast Severn foreshore off eastern Newport (Goldcliff/Uskmouth belt; broad label)
+158	newport.txt	Bristol Channel Newport shore	resolved	51.5490	-2.9280	shore	Same coastal front read as Bristol Channel framing; pin slightly channel-ward of line 157
+159	newport.txt	Wales Coast Path Newport	resolved	51.5530	-2.9550	path	Representative pin on Wales Coast Path through Uskmouth/Newport Wetlands shore belt (linear route)
+160	newport.txt	Welsh coast path Newport	resolved	51.5530	-2.9550	path	Alternate wording; same representative path segment as line 159
+161	newport.txt	Usk estuary Newport	resolved	51.5630	-2.9820	estuary	Tidal Usk through Newport docks frontage (estuary section pin)
+162	newport.txt	Gwent Levels coast Newport	resolved	51.5280	-3.0150	coast	Representative Wentlooge/Gwent Levels seawall belt within Newport (broad area label)
+163	newport.txt	Caldicot Level Newport shore	resolved	51.5350	-2.9100	shore	Caldicot Levels open shore toward Severn east of Newport (Goldcliff parish belt)
+164	newport.txt	Newport mudflats	resolved	51.5510	-2.9580	mudflats	Intertidal mud off Uskmouth / Newport Wetlands foreshore (approximate centroid)
+165	newport.txt	Newport saltmarsh	resolved	51.5500	-2.9560	saltmarsh	Newport Wetlands / Uskmouth saltmarsh mosaic (approximate centroid)
+166	newport.txt	Waterloo Inn Nash	resolved	51.5484	-2.9490	pub	WhatPub/CAMRA listing coords St Mary's Road West Nash NP18 2BZ (coastal-pub context)
+167	newport.txt	Six Bells Peterstone Wentlooge	resolved	51.5160	-3.0545	pub	Broadstreet Common Peterstone Wentlooge CF3 2TN (CAMRA closed pub; pin at village common frontage)
+168	newport.txt	Wetlands Newport	resolved	51.5465	-2.9600	wetlands	Read as Newport Wetlands NNR hub; centroid between visitor centre and reedbed trail (broad label)
+169	newport.txt	Newport harbour arm	resolved	51.5603	-2.9875	breakwater	Outer harbour works off Newport docks cluster (Alexandra/river mouth area; approximate)
+170	newport.txt	Newport dock entrance	resolved	51.5578	-2.9815	dock_entrance	Read as South Dock / main docks seaward entrance pinch (OSM docks context)
+171	newport.txt	Newport docks riverside walk	resolved	51.5640	-2.9835	walk	Public Usk/docks waterfront promenade link (pin along east-bank walk)

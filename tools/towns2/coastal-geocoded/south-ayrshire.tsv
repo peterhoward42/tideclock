@@ -1,0 +1,175 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	south-ayrshire.txt	Glenapp	resolved	55.0289522	-5.0136231	hamlet	OSM Glenapp Church on A77; settlement label for Glenapp (castle estate nearby)
+2	south-ayrshire.txt	Glenapp Kirk	resolved	55.0289522	-5.0136231	church	OSM names this Glenapp Church; matches kirk on coastal list
+3	south-ayrshire.txt	Ballantrae	resolved	55.1014603	-5.0044737	village	OSM place node (village); mouth of River Stinchar
+4	south-ayrshire.txt	Ballantrae Beach	resolved	55.0984000	-5.0075000	beach	Judged shingle/sand shore immediately south of Ballantrae village (no separate OSM hit)
+5	south-ayrshire.txt	Ballantrae Bay	resolved	55.0920000	-5.0105000	bay	Judged bay mouth / foreshore centre south of village (human-map coastal feature)
+6	south-ayrshire.txt	Ballantrae Harbour	resolved	55.1020000	-5.0035000	harbour	Judged small harbour pocket north of village centre (no OSM harbour polygon)
+7	south-ayrshire.txt	River Stinchar	ambiguous			river	Multiple long OSM stretches; no single centroid for the whole river in this county context
+8	south-ayrshire.txt	Stinchar Mouth	resolved	55.0928000	-5.0055000	estuary	Judged estuary/mouth at Ballantrae (coastal reading; not a single named OSM point)
+9	south-ayrshire.txt	Bennane Head	resolved	55.1378421	-4.9963454	headland	OSM named coastal headland
+10	south-ayrshire.txt	Snib's Cave	resolved	55.1330791	-4.9952351	cave	OSM named cave beside A77 coast
+11	south-ayrshire.txt	Sawney Bean's Cave	resolved	55.1463820	-4.9842729	cave	OSM named cave (Bennane Head cliffs)
+12	south-ayrshire.txt	Sawney Beans Beach	resolved	55.1462000	-4.9845000	beach	Judged foreshore at foot of Sawney Bean cave cliffs (no OSM beach name)
+13	south-ayrshire.txt	Lendalfoot	resolved	55.1639018	-4.9409130	village	OSM place node
+14	south-ayrshire.txt	Lendalfoot Beach	resolved	55.1661154	-4.9397323	beach	OSM named beach
+15	south-ayrshire.txt	Varyag Monument	resolved	55.1636614	-4.9478820	monument	OSM Varyag Anchor beside A77 (memorial cluster)
+16	south-ayrshire.txt	Russian Cruiser Varyag Memorial	resolved	55.1634689	-4.9474245	memorial	OSM Varyag Memorial plaque cluster at Lendalfoot
+17	south-ayrshire.txt	Balsarroch	ambiguous			farm	No coastal OSM match between Lendalfoot and Bargany; Alloway-area Balsarroch farms are wrong coastal context
+18	south-ayrshire.txt	Bargany	resolved	55.2645903	-4.7674248	hamlet	OSM place node (Bargany estate area)
+19	south-ayrshire.txt	Ardstinchar Castle	resolved	55.0990900	-5.0000400	castle ruin	Canmore/HES-style coords for scheduled monument remains near Stinchar (NRHE centre)
+20	south-ayrshire.txt	Knockdolian	resolved	55.1216302	-4.9604452	hamlet	OSM place node (second OSM Knockdolian node exists inland; this matches Carrick coast belt)
+21	south-ayrshire.txt	Girvan	resolved	55.2413151	-4.8553579	town	OSM town node
+22	south-ayrshire.txt	Girvan Beach	resolved	55.2392000	-4.8585000	beach	Judged main sandy beach south of Water of Girvan (no separate OSM beach name)
+23	south-ayrshire.txt	Girvan Promenade	resolved	55.2371753	-4.8609540	promenade	OSM addr:street Promenade
+24	south-ayrshire.txt	Girvan Harbour	resolved	55.2442000	-4.8568000	harbour	Judged harbour/pier basin north of town centre (no OSM harbour search hit)
+25	south-ayrshire.txt	Girvan Boating Pond	resolved	55.2425547	-4.8612732	pond	OSM named boating pond
+26	south-ayrshire.txt	Girvan Quay Zone	resolved	55.2437467	-4.8610345	leisure	OSM The Quay Zone (matches list label)
+27	south-ayrshire.txt	Burnfoot	not_found			hamlet	Common name; no unambiguous coastal Carrick feature in OSM/Nominatim (street hits elsewhere are wrong)
+28	south-ayrshire.txt	Grangeston	resolved	55.2587100	-4.8278500	industrial	Wikipedia coords for Grangeston Halt / Grangestone distillery site NE of Girvan
+29	south-ayrshire.txt	Glendoune	resolved	55.2308778	-4.8564649	suburb	OSM Glendoune Street cluster in Girvan (farm nodes also exist)
+30	south-ayrshire.txt	Assel	resolved	55.2348017	-4.8466159	locality	OSM Assel Place addresses in Girvan (Laigh Assel Burn is a separate water label)
+31	south-ayrshire.txt	Byne Hill	resolved	55.2115	-4.8642	hill	Gazetteer for Scotland summit (NX 178 945 belt); coastal hill SSW of Girvan
+32	south-ayrshire.txt	Ailsa Craig	resolved	55.25194	-5.11639	island	Wikipedia island centroid (Firth of Clyde)
+33	south-ayrshire.txt	Turnberry	resolved	55.310879	-4.832595	village	Wikipedia village centre (Kirkoswald parish)
+34	south-ayrshire.txt	Turnberry Bay	resolved	55.318	-4.838	bay	Judged open bay / foreshore belt north of Turnberry Point
+35	south-ayrshire.txt	Turnberry Beach	resolved	55.315	-4.835	beach	Judged sandy shore along Turnberry resort coast
+36	south-ayrshire.txt	Turnberry Lighthouse	resolved	55.325934	-4.844536	lighthouse	Wikipedia / GeoHack Turnberry Point light
+37	south-ayrshire.txt	Turnberry Resort	resolved	55.3142	-4.8328	resort	Judged flagship hotel / links cluster (Trump Turnberry estate)
+38	south-ayrshire.txt	Trump Turnberry	resolved	55.3142	-4.8328	resort	Same resort campus as prior line; coastal golf hotel site
+39	south-ayrshire.txt	Maidens	resolved	55.33306	-4.81861	village	Wikipedia Maidens village grid NS215080
+40	south-ayrshire.txt	Maidens Beach	resolved	55.3322	-4.8205	beach	Judged village foreshore on Maidenhead Bay
+41	south-ayrshire.txt	Maidens Harbour	resolved	55.334	-4.817	harbour	Judged natural harbour pocket by offshore Maidens rocks
+42	south-ayrshire.txt	Kirkhill	ambiguous			locality	Several South Ayrshire Kirkhill labels (e.g. Colmonell castle belt vs street names); coastal list slot unclear
+43	south-ayrshire.txt	Fisherton	resolved	55.413009	-4.743296	hamlet	Map-style centroid for coastal Fisherton (KA7 belt); aligns with OS NS2616 square
+44	south-ayrshire.txt	Croy	resolved	55.376	-4.760	hamlet	Judged Croy / Croyshore settlement south of Dunure on A719 coast
+45	south-ayrshire.txt	Croy Beach	resolved	55.3748	-4.7635	beach	Judged sandy shore at Croy Shore holiday belt
+46	south-ayrshire.txt	Croy Shore	resolved	55.3738	-4.7625	shore	Judged Croy Shore bay / caravan belt per Gazetteer context
+47	south-ayrshire.txt	Electric Brae	resolved	55.38083	-4.756945	road	Wikipedia inscribed-marker gravity hill on A719 (Croy Brae)
+48	south-ayrshire.txt	Culzean	resolved	55.3544	-4.7895	estate	Reading as Culzean Castle estate / NTS clifftop site centroid
+49	south-ayrshire.txt	Culzean Bay	resolved	55.3512	-4.7862	bay	Judged bay below castle cliffs on estate shore
+50	south-ayrshire.txt	Culzean Beach	resolved	55.3498	-4.7878	beach	Judged main public beach in castle bay
+51	south-ayrshire.txt	Culzean Castle	resolved	55.3544	-4.7895	castle	Wikipedia listed building coords
+52	south-ayrshire.txt	Culzean Country Park	resolved	55.3535	-4.791	park	Judged NTS country park envelope around castle and shore walks
+53	south-ayrshire.txt	Minnow Bay	resolved	55.3518	-4.7855	bay	Judged small inlet name on Culzean coastal estate
+54	south-ayrshire.txt	Culzean Swan Pond	resolved	55.3532	-4.792	pond	Judged ornamental pond in castle grounds / visitor circuit
+55	south-ayrshire.txt	Culzean Deer Park	resolved	55.352	-4.795	park	Judged deer park paddock inland of coastal path
+56	south-ayrshire.txt	Culzean Visitor Centre	resolved	55.3540	-4.7883	visitor centre	Judged NTS visitor hub at castle approach
+57	south-ayrshire.txt	Dunure	resolved	55.4049	-4.7575	village	Gazetteer for Scotland village centre (NS 255 158)
+58	south-ayrshire.txt	Dunure Beach	resolved	55.4035	-4.7585	beach	Judged village foreshore below headland
+59	south-ayrshire.txt	Dunure Harbour	resolved	55.4038	-4.7598	harbour	Judged harbour basin below castle promontory
+60	south-ayrshire.txt	Dunure Castle	resolved	55.4048	-4.7655	castle ruin	Wikipedia / HES promontory castle coords
+61	south-ayrshire.txt	Kennedy Park	resolved	55.4038	-4.7621	park	Dunure visitor park beside castle (Pacer/OSM-style pin; Castle Rd belt)
+62	south-ayrshire.txt	Greenan	resolved	55.4365	-4.6695	locality	Judged coastal Greenan belt (Doonfoot/Greenan Beach hinterland; settlement label on maps)
+63	south-ayrshire.txt	Greenan Castle	resolved	55.43861	-4.67015	castle ruin	Canmore NRHE / Wikipedia promontory tower-house (WGS84 from NGR)
+64	south-ayrshire.txt	Greenan Shore	resolved	55.4372	-4.6708	shore	Judged foreshore below Greenan Castle cliffs (human-map coastal strip)
+65	south-ayrshire.txt	Bracken Bay	resolved	55.4285	-4.6970	bay	Judged secluded bay W of Heads of Ayr on coastal path (tidal cut-off area per walk guides)
+66	south-ayrshire.txt	Heads of Ayr	resolved	55.4323	-4.7032	headland	Judged Bower Hill / Heads of Ayr cliff belt (same coastal frame as named beach)
+67	south-ayrshire.txt	Heads of Ayr Beach	resolved	55.432277	-4.703234	beach	OS grid NS290187 / Mountain Guide decimal coords
+68	south-ayrshire.txt	Heads of Ayr Farm Park	resolved	55.42636	-4.69127	attraction	Dunure Rd visitor farm park (published map pin)
+69	south-ayrshire.txt	Alloway	resolved	55.4320	-4.6330	village	Streetmap/OS-style centroid for Alloway (Burns village; NS233618 belt)
+70	south-ayrshire.txt	Doonfoot	resolved	55.43167	-4.64877	suburb	Streetmap centroid for Doonfoot (mouth-of-Doon coastal suburb)
+71	south-ayrshire.txt	River Doon Mouth	resolved	55.440101	-4.651073	estuary	Wikidata mouth coordinate at Doonfoot / Firth of Clyde
+72	south-ayrshire.txt	Ayr	resolved	55.458	-4.629	town	Wikipedia / GeoHack town centroid
+73	south-ayrshire.txt	Ayr Beach	resolved	55.461076	-4.642325	beach	South Beach / Esplanade sandy shore (SOBT GPS for NS330217 belt)
+74	south-ayrshire.txt	Ayr Esplanade	resolved	55.4605	-4.6415	promenade	Judged main seafront promenade backing South Beach (continuous with Ayr Beach)
+75	south-ayrshire.txt	Ayr Harbour	resolved	55.46855	-4.64051	harbour	Canmore Compass Pier centroid (working harbour / River Ayr mouth works)
+76	south-ayrshire.txt	Ayr Seafront	resolved	55.4620	-4.6410	seafront	Judged generic town seafront pin between Low Green and harbour frontage
+77	south-ayrshire.txt	Low Green	resolved	55.45898	-4.64061	park	Canmore NRHE park record (Ayr seafront greens)
+78	south-ayrshire.txt	Newton-on-Ayr	resolved	55.4743	-4.6262	suburb	Newton-on-Ayr railway station coords (neighbourhood anchor)
+79	south-ayrshire.txt	Wallacetown	resolved	55.468489	-4.629554	suburb	GB gazetteer centroid for Wallacetown (Ayr northern suburb)
+80	south-ayrshire.txt	Craigie	resolved	55.4615	-4.6102	suburb	Craigie (Ayr KA8) postcode centroid; not Kilmarnock parish Craigie
+81	south-ayrshire.txt	Prestwick	resolved	55.495551	-4.614160	town	Wikipedia / OS grid NS349255 town centroid
+82	south-ayrshire.txt	Prestwick Beach	resolved	55.4940	-4.6220	beach	Judged main sandy foreshore W of town (beach-guide belt; continuous esplanade)
+83	south-ayrshire.txt	Prestwick Promenade	resolved	55.4942	-4.6213	promenade	Judged esplanade backing Prestwick foreshore
+84	south-ayrshire.txt	Prestwick St Nicholas Golf Course	resolved	55.493282	-4.620401	golf course	Where2Golf published clubhouse/course GPS (Grangemuir Rd links)
+85	south-ayrshire.txt	Prestwick Golf Club	resolved	55.502	-4.619	golf course	Wikipedia Old Course coordinate
+86	south-ayrshire.txt	Old Prestwick	resolved	55.4978	-4.6125	locality	Judged older burgh/kirk cluster N of main links (distinct pin from PGC clubhouse coords)
+87	south-ayrshire.txt	Monkton	resolved	55.5164	-4.6028	village	Wikipedia Monkton village coordinate
+88	south-ayrshire.txt	Loans	resolved	55.5511	-4.6249	village	Wikipedia Loans village coordinate
+89	south-ayrshire.txt	Troon	resolved	55.54	-4.66	town	Wikipedia infobox coordinate (coastal town / harbour)
+90	south-ayrshire.txt	Troon Beach	resolved	55.5422	-4.6642	beach	UK Beach Guide OS grid NS32230555 → South Beach sandy shore
+91	south-ayrshire.txt	Troon North Beach	resolved	55.5503	-4.6594	beach	BritishBeaches.uk approximate midpoint; OS grid NS323317 (North Sands N of harbour)
+92	south-ayrshire.txt	Troon South Beach	resolved	55.5408768	-4.6630204	beach	OSM leisure bathing_place named Troon (South Beach)
+93	south-ayrshire.txt	Troon Harbour	resolved	55.54769	-4.68066	harbour	Canmore Troon Harbour centroid (NS 30981 31484); whole harbour/marina complex
+94	south-ayrshire.txt	Troon Esplanade	resolved	55.5418	-4.6625	promenade	Judged seafront backing South/North Beach belt; no single OSM object named Esplanade
+95	south-ayrshire.txt	Royal Troon	resolved	55.5327164	-4.6507652	golf course	OSM Royal Troon Golf Club (Craigend Road building pin)
+96	south-ayrshire.txt	Portland Troon	resolved	55.5448	-4.661	locality	Judged Portland Street / Muirhead coastal belt (Troon Portland historic harbour naming); not a single POI
+97	south-ayrshire.txt	Pow Burn	resolved	55.563	-4.658	estuary	Judged coastal outfall at Barassie foreshore (Pow Burn to sea N of Troon); OSM traces river inland elsewhere
+98	south-ayrshire.txt	Barassie	resolved	55.5604446	-4.6497657	suburb	OSM place=suburb Barassie (Troon postal area)
+99	south-ayrshire.txt	Barassie Beach	resolved	55.5612928	-4.6579815	beach	OSM natural=beach named Barassie
+100	south-ayrshire.txt	Barassie Bay	resolved	55.5565	-4.658	bay	Judged Irvine Bay pocket between Troon harbour and Barassie Beach (no OSM bay polygon name)
+101	south-ayrshire.txt	Kilmarnock Barassie	resolved	55.5616026	-4.6514551	railway station	OSM Barassie station (historically Kilmarnock–Barassie)
+102	south-ayrshire.txt	Lady Isle	resolved	55.5267515	-4.7350618	island	OSM island label; Firth of Clyde off Troon
+103	south-ayrshire.txt	Lady Isle Lighthouse	resolved	55.52719	-4.73397	lighthouse	Canmore Lady Isle lighthouse (NS 27529 29335); NLB light on islet
+104	south-ayrshire.txt	Scart Rocks	resolved	55.531	-4.724	rock	Judged intertidal shoal NE of Lady Isle (MAIB Scart Rock); coarse hazard centroid not a dry landmark
+105	south-ayrshire.txt	Muirhead	resolved	55.550341	-4.641421	suburb	Judged Muirhead Troon neighbourhood (Muirhead Primary / activity centre belt)
+106	south-ayrshire.txt	Heathfield	ambiguous			locality	Name chiefly maps to Ayr/Prestwick Heathfield district inland (Wikipedia); among Troon coastal labels here with no clear separate coastal Heathfield in OSM
+107	south-ayrshire.txt	Fullarton	resolved	55.5355031	-4.6235136	park	OSM Fullarton Park Troon (public park pin)
+108	south-ayrshire.txt	Southwood	resolved	55.5344344	-4.6368529	suburb	Judged Southwood Road Troon KA10 belt (inland margin of coastal town)
+109	south-ayrshire.txt	Monktonhill	resolved	55.5354885	-4.633649	road	Judged Monktonhill Road Troon residential belt centroid
+110	south-ayrshire.txt	Loanswood	not_found			wood	No OSM/gazetteer feature for exact Loanswood label near Loans or Troon coast
+111	south-ayrshire.txt	Barassie Links	resolved	55.5695194	-4.6489512	golf course	OSM Kilmarnock Golf Club Barassie Links (Hillhouse Road)
+112	south-ayrshire.txt	Ayr Harbour Pier	resolved	55.46855	-4.64051	pier	Canmore Ayr Harbour Compass Pier centroid (NS 33179 22583)
+113	south-ayrshire.txt	Troon Pier	resolved	55.55029	-4.68266	pier	Canmore Troon Harbour East Pier pierhead area (NS 30866 31779)
+114	south-ayrshire.txt	Girvan Pier	resolved	55.24484	-4.8614	pier	Canmore Girvan Harbour centroid / pier works (NX 18196 98250)
+115	south-ayrshire.txt	Dunure Pier	resolved	55.4073	-4.75902	pier	Canmore Dunure Harbour West (South) Pier (NS 25419 16060)
+116	south-ayrshire.txt	Maidens Pier	resolved	55.333696	-4.824893	pier	Listed Barker Maidens Harbour coords (LB7620); breakwater/pier cluster
+117	south-ayrshire.txt	Ballantrae Pier	resolved	55.102	-5.0035	pier	Judged harbour pier pocket consistent with Ballantrae Harbour row in this TSV (rock-cut harbour)
+118	south-ayrshire.txt	Prestwick seafront	resolved	55.494	-4.622	seafront	Judged generic Prestwick foreshore pin with main beach/esplanade belt
+119	south-ayrshire.txt	Ayr promenade	resolved	55.4605	-4.6415	promenade	Judged with Ayr Esplanade / South Beach seafront (same band as Ayr Esplanade row)
+120	south-ayrshire.txt	Troon promenade	resolved	55.5422	-4.6642	promenade	Judged seafront backing Troon South Beach (continuous with Troon Beach row belt)
+121	south-ayrshire.txt	Barassie shore	resolved	55.5613	-4.658	shore	Judged generic Barassie foreshore consistent with OSM Barassie Beach belt
+122	south-ayrshire.txt	Troon Yacht Haven	resolved	55.545	-4.6792	marina	Yacht Digest 55°32′42″N 4°40′45″W; KA10 6DJ harbour complex
+123	south-ayrshire.txt	Ayr Seafront Playpark	resolved	55.4576	-4.6423	playground	Low Green / Esplanade playpark (TripAdvisor address; park4night GPS)
+124	south-ayrshire.txt	Girvan Lifeboat Station	resolved	55.2434	-4.8581	lifeboat station	Wikipedia / RNLI Girvan (Knockcushan Street harbour frontage)
+125	south-ayrshire.txt	Ayr Lifeboat Station	resolved	55.465278	-4.633333	lifeboat station	Wikipedia former RNLI station South Harbour Street (closed 1932); historic building pin
+126	south-ayrshire.txt	Troon Ferry Terminal	resolved	55.55	-4.6833	ferry terminal	Port / CalMac Troon–Brodick belt (shipnext port coords; Arran House KA10 6HH)
+127	south-ayrshire.txt	Loudon Hall	resolved	55.46482	-4.63263	historic building	Canmore Loudoun Hall (also spelled Loudon) NS3366122149
+128	south-ayrshire.txt	Wallace Tower Ayr	resolved	55.46176	-4.62941	tower	Canmore Wallace Tower 176 High Street NS3385221801
+129	south-ayrshire.txt	St John's Church Ayr	resolved	55.46357	-4.63717	church	Canmore St John the Baptist tower remains Bruce Crescent NS3336922021
+130	south-ayrshire.txt	Citadel Quay	resolved	55.46733	-4.63815	quay	Judged Ayr Harbour South Quay / Ratton wharf belt below Citadel environs
+131	south-ayrshire.txt	Harbour Street Girvan	resolved	55.2435	-4.857	street	Judged harbour-front spine near Girvan harbour / Knockcushan cluster
+132	south-ayrshire.txt	South Harbour Ayr	resolved	55.46733	-4.63815	harbour	Canmore Ayr Harbour South Quay centroid NS3332322442
+133	south-ayrshire.txt	North Harbour Ayr	resolved	55.46935	-4.6392	harbour	Judged North Ratton Quay / north bank wet dock frontage (Ayr harbour complex)
+134	south-ayrshire.txt	Harbour Bridge Ayr	resolved	55.46528	-4.63127	bridge	Canmore New Bridge midpoint over River Ayr (A79; harbour upstream limit)
+135	south-ayrshire.txt	Harbour Road Troon	resolved	55.546	-4.678	road	Judged main Troon harbour approach (Yacht Haven and ferry berth access belt)
+136	south-ayrshire.txt	Ayr South Beach	resolved	55.461076	-4.642325	beach	UK Beach Guide / SOBT NS330217 sandy reach south of river mouth
+137	south-ayrshire.txt	Ayr North Beach	resolved	55.472	-4.635	beach	Judged northern sandy continuation toward Newton-on-Ayr / Prestwick (distinct from main South Beach centroid)
+138	south-ayrshire.txt	Newton Green Ayr	resolved	55.47226	-4.63087	open space	Newton Green Cemetery / historic green belt gateway Weir Road (Find a Grave coords)
+139	south-ayrshire.txt	Seafield Troon	ambiguous			locality	Seafield is documented as an Ayr (KA7) seafront district; no separate Seafield locality in Troon (KA10) in sources
+140	south-ayrshire.txt	Dunure Smugglers Trail	resolved	55.4045	-4.758	trail	Judged signed coastal path loop around Dunure harbour headland (marketing trail name)
+141	south-ayrshire.txt	Turnberry Golf	resolved	55.3142	-4.8328	golf course	Reading as Turnberry resort links campus (Trump Turnberry / Ailsa belt)
+142	south-ayrshire.txt	Maidens Shore	resolved	55.3322	-4.820	shore	Judged Maidens village foreshore on Maidenhead Bay
+143	south-ayrshire.txt	Turnberry Shore	resolved	55.315	-4.835	shore	Judged open shore along Turnberry resort coast
+144	south-ayrshire.txt	Culzean Wood	resolved	55.3525	-4.79	wood	Judged estate coastal woodland west of castle on NTS Culzean belt
+145	south-ayrshire.txt	Greenan Farm	resolved	55.4355	-4.671	farm	Judged farm steading belt inland of Greenan Shore / castle coastal strip
+146	south-ayrshire.txt	Dunure Wood	resolved	55.4055	-4.755	wood	Judged coastal margin woodland behind Dunure (no single named OSM polygon)
+147	south-ayrshire.txt	Stinchar Foot	resolved	55.0928	-5.0055	estuary	Judged lower Stinchar at coast near Ballantrae (companion reading to Stinchar Mouth row)
+148	south-ayrshire.txt	Girvan Links	resolved	55.247	-4.859	golf course	GolfCourse.wiki Girvan Golf Course GPS (Golf Course Road links)
+149	south-ayrshire.txt	Prestwick Links	resolved	55.4978	-4.6125	golf course	Judged Old Prestwick / town links belt (distinct centroid from St Nicholas row)
+150	south-ayrshire.txt	Troon Links	resolved	55.54328	-4.653472	golf course	Doogal KA10 6NF centroid; municipal Troon Links Harling Drive complex
+151	south-ayrshire.txt	Ballantrae Links	resolved	55.11561	-4.99847	golf course	Trove.scot NRHE Balig / historic Ballantrae Golf Club site (coastal links belt; club long closed)
+152	south-ayrshire.txt	Troon Marina	resolved	55.5449	-4.6782	marina	Troon Yacht Haven (Windy.app spot coords)
+153	south-ayrshire.txt	Ayr Waterfront	resolved	55.462	-4.633	waterfront	Judged Low Green / harbour-front esplanade belt at River Ayr mouth
+154	south-ayrshire.txt	Belleisle	resolved	55.44099	-4.63359	park	Streetmap/OSM-style centroid for Belleisle Park (Alloway/Doonfoot side of Ayr)
+155	south-ayrshire.txt	Prestwick shore	resolved	55.495	-4.612	shore	Judged Prestwick foreshore / St Nicholas–Shawholm coastal belt
+156	south-ayrshire.txt	Troon shore	resolved	55.541	-4.665	shore	Judged main town seafront between harbours and South Beach
+157	south-ayrshire.txt	Ayr shore	resolved	55.465	-4.64	shore	Judged sandy foreshore strip (South/North beach continuum)
+158	south-ayrshire.txt	Girvan shore	resolved	55.245	-4.855	shore	Judged open coast south of Water of Girvan mouth
+159	south-ayrshire.txt	Dunure shore	resolved	55.405	-4.758	shore	Judged harbour headland foreshore (companion to Dunure rows)
+160	south-ayrshire.txt	Culzean shore	resolved	55.352	-4.79	shore	Judged NTS Culzean estate coastal margin west of castle
+161	south-ayrshire.txt	Turnberry coast	resolved	55.315	-4.83	coast	Open coast along Turnberry resort/Ailsa belt
+162	south-ayrshire.txt	Ballantrae coast	resolved	55.099	-5.008	coast	Judged village-to-Stinchar-mouth coastal strip
+163	south-ayrshire.txt	Lendalfoot coast	resolved	55.165	-4.94	coast	Judged foreshore continuation north of Lendalfoot village
+164	south-ayrshire.txt	Girvan Bay	resolved	55.235	-4.85	bay	Judged bay / Firth indentation at Girvan (no single OSM centroid)
+165	south-ayrshire.txt	Ayr Bay	resolved	55.458	-4.625	bay	Judged Firth of Clyde bay sector south of Ayr harbour mouth
+166	south-ayrshire.txt	Troon Bay	resolved	55.535	-4.66	bay	Judged Irvine Bay sector at Troon (harbour to Barassie arc)
+167	south-ayrshire.txt	Prestwick Bay	resolved	55.49	-4.605	bay	Judged open bay north of Prestwick foreshore toward Pow Burn
+168	south-ayrshire.txt	Barassie Bay Beach	resolved	55.5592	-4.6595	beach	Sandee map pin / UK Beach Guide Barassie (north Troon sands)
+169	south-ayrshire.txt	Troon Portland	resolved	55.5465	-4.674	harbour	Judged Portland Street / north harbour ferry berth frontage (ABP Troon complex)
+170	south-ayrshire.txt	North Troon	resolved	55.548	-4.675	locality	Judged Barassie/Troon north sands and harbour approach belt
+171	south-ayrshire.txt	South Troon	resolved	55.532	-4.655	locality	Judged South Beach / Marr College coastal side of town
+172	south-ayrshire.txt	Wallacetown Ayr	resolved	55.4645	-4.625	suburb	Judged Wallacetown residential belt inland of harbour (NS3322 belt)
+173	south-ayrshire.txt	Craigie Ayr	resolved	55.471	-4.618	suburb	Judged Craigie district northeast of centre (coastal list context)
+174	south-ayrshire.txt	Pow Burn Mouth	resolved	55.519053	-4.631228	estuary	Wikidata mouth of the watercourse → Firth of Clyde (OS Maps pin)

@@ -1,0 +1,208 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	merseyside.txt	Southport	resolved	53.6487421	-3.0044972	town	OpenStreetMap/Nominatim (place=town)
+2	merseyside.txt	Blowick	resolved	53.6398068	-2.9671345	suburb	OpenStreetMap/Nominatim
+3	merseyside.txt	Churchtown	resolved	53.6581040	-2.9604137	suburb	OpenStreetMap/Nominatim
+4	merseyside.txt	Crossens	resolved	53.6743009	-2.9492385	suburb	OpenStreetMap/Nominatim
+5	merseyside.txt	Marshside	resolved	53.6683082	-2.9656286	suburb	OpenStreetMap/Nominatim
+6	merseyside.txt	Ainsdale	resolved	53.6024799	-3.0426649	suburb	OpenStreetMap place=suburb (station was first hit)
+7	merseyside.txt	Birkdale	resolved	53.6270210	-3.0282342	suburb	OpenStreetMap place=suburb (station was first hit)
+8	merseyside.txt	Woodvale	resolved	53.5826199	-3.0548232	airfield	OpenStreetMap RAF Woodvale within Woodvale locality
+9	merseyside.txt	Formby	resolved	53.5563035	-3.0656565	village	OpenStreetMap/Nominatim (administrative centre)
+10	merseyside.txt	Freshfield	resolved	53.5617433	-3.0712097	suburb	OpenStreetMap place=suburb (station was first hit)
+11	merseyside.txt	Little Altcar	resolved	53.5381637	-3.0732577	suburb	OpenStreetMap administrative boundary centroid
+12	merseyside.txt	Great Altcar	resolved	53.5493240	-3.0190307	village	OpenStreetMap place=village (West Lancashire; coastal list context)
+13	merseyside.txt	Altcar	ambiguous			unknown	Nominatim returns Little Altcar; distinct Altcar Training Camp and Great Altcar also nearby
+14	merseyside.txt	Hightown	resolved	53.5206633	-3.0696762	village	OpenStreetMap/Nominatim
+15	merseyside.txt	Ince Blundell	resolved	53.5268905	-3.0232255	village	OpenStreetMap/Nominatim
+16	merseyside.txt	Southport Pier	resolved	53.6532660	-3.0154085	pier	OpenStreetMap/Nominatim
+17	merseyside.txt	Southport Beach	resolved	53.6512	-3.0105	beach	Approximate main seafront; no dedicated OSM beach feature named
+18	merseyside.txt	Southport Marine Lake	resolved	53.6541792	-3.0095492	water	OpenStreetMap water=Marine Lake
+19	merseyside.txt	Southport Promenade	resolved	53.6478524	-3.0094281	promenade	OpenStreetMap hit is NCP Promenade car park on seafront
+20	merseyside.txt	Ainsdale Beach	resolved	53.6076279	-3.0643902	beach	OpenStreetMap parking area on The Promenade (beach access)
+21	merseyside.txt	Ainsdale Sand Dunes National Nature Reserve	resolved	53.5866950	-3.0774874	nature_reserve	OpenStreetMap leisure=nature_reserve (named Ainsdale Sands NNR)
+22	merseyside.txt	Ainsdale-on-Sea	resolved	53.6024799	-3.0426649	suburb	Same suburb node as Ainsdale (coastal wording)
+23	merseyside.txt	Formby Point	resolved	53.5543321	-3.1034022	headland	OpenStreetMap/Nominatim
+24	merseyside.txt	Formby Beach	resolved	53.5568	-3.0845	beach	Approximate coastal sand; no OSM object named Formby Beach
+25	merseyside.txt	National Trust Formby	resolved	53.5515893	-3.0949880	attraction	OpenStreetMap Lifeboat Road Car Park (main NT pinewoods/dunes access)
+26	merseyside.txt	Blundellsands	resolved	53.4899440	-3.0505625	suburb	OpenStreetMap/Nominatim
+27	merseyside.txt	Blundellsands Beach	resolved	53.4860	-3.0480	beach	Seaward of Blundellsands on Crosby foreshore (Crosby Beach OSM nearby)
+28	merseyside.txt	Brighton-le-Sands	resolved	53.4798042	-3.0385677	suburb	OpenStreetMap/Nominatim (Brighton le Sands)
+29	merseyside.txt	Brighton le Sands	resolved	53.4798042	-3.0385677	suburb	OpenStreetMap/Nominatim (alternate spelling)
+30	merseyside.txt	Crosby	resolved	53.4844386	-3.0291758	town	OpenStreetMap/Nominatim
+31	merseyside.txt	Crosby Beach	resolved	53.4856693	-3.0586875	beach	OpenStreetMap/Nominatim (natural=beach)
+32	merseyside.txt	Another Place	ambiguous			artwork	Multiple OSM tourism=artwork nodes along Crosby Beach (Antony Gormley figures); no single canonical pin
+33	merseyside.txt	Hall Road	resolved	53.4976204	-3.0497373	railway_station	OpenStreetMap/Nominatim (Hall Road station)
+34	merseyside.txt	Waterloo	resolved	53.4737037	-3.0290822	suburb	OpenStreetMap place=suburb (Waterloo, Sefton)
+35	merseyside.txt	Seaforth	resolved	53.4653666	-3.0137032	suburb	OpenStreetMap/Nominatim
+36	merseyside.txt	Bootle	resolved	53.4506931	-2.9948834	town	OpenStreetMap/Nominatim
+37	merseyside.txt	Bootle Strand	resolved	53.4527853	-2.9946156	railway_station	OpenStreetMap railway station Bootle New Strand (Strand retail area)
+38	merseyside.txt	Orrell Park	resolved	53.4617054	-2.9628816	railway_station	OpenStreetMap/Nominatim
+39	merseyside.txt	Seaforth Dock	resolved	53.4598206	-3.0239424	dock	OpenStreetMap waterway=dock (Royal Seaforth Dock)
+40	merseyside.txt	Gladstone Dock	resolved	53.4553483	-3.0198383	dock	OpenStreetMap/Nominatim
+41	merseyside.txt	Gladstone Quay	resolved	53.4553483	-3.0198383	quay	No separate OSM object; centroid matched to Gladstone Dock
+42	merseyside.txt	Langton Dock	resolved	53.4424224	-3.0089100	dock	OpenStreetMap/Nominatim
+43	merseyside.txt	Brocklebank Dock	resolved	53.4415021	-3.0067441	dock	OpenStreetMap/Nominatim
+44	merseyside.txt	Alexandra Dock	resolved	53.4473304	-3.0131058	dock	OpenStreetMap/Nominatim
+45	merseyside.txt	Canada Dock	resolved	53.4368372	-3.0042726	dock	OpenStreetMap/Nominatim
+46	merseyside.txt	Nelson Dock	resolved	53.4233564	-3.0031628	dock	OpenStreetMap/Nominatim
+47	merseyside.txt	Stanley Dock	resolved	53.4216032	-2.9986748	dock	OpenStreetMap/Nominatim
+48	merseyside.txt	Salisbury Dock	resolved	53.4216020	-3.0035640	dock	OpenStreetMap/Nominatim
+49	merseyside.txt	Collingwood Dock	resolved	53.4215958	-3.0015332	dock	OpenStreetMap/Nominatim
+50	merseyside.txt	Huskisson Dock	resolved	53.4317589	-3.0052482	dock	OpenStreetMap/Nominatim
+51	merseyside.txt	Hornby Dock	resolved	53.4508754	-3.0163889	dock	OpenStreetMap/Nominatim returns name Old Hornby Dock
+52	merseyside.txt	Brocklebank	resolved	53.4415021	-3.0067441	dock	List context: shorthand for Brocklebank Dock (OpenStreetMap)
+53	merseyside.txt	Princes Half Tide Dock	resolved	53.4122273	-3.0007065	dock	OpenStreetMap/Nominatim (Prince's Half Tide Dock)
+54	merseyside.txt	Clarence Dock	resolved	53.4201485	-3.0019926	dock	OpenStreetMap waterway=dock named Clarence Graving Docks
+55	merseyside.txt	Trafalgar Dock	resolved	53.4200975	-3.0040385	dock	OpenStreetMap/Nominatim
+56	merseyside.txt	Waterloo Dock	resolved	53.4139910	-3.0004304	dock	OpenStreetMap/Nominatim (East Waterloo Dock)
+57	merseyside.txt	Wellington Dock	resolved	53.4267	-3.0016	dock	Historic dock (filled-in); centroid from Wikipedia List of Liverpool Docks — not current OSM water polygon
+58	merseyside.txt	Sandon Dock	resolved	53.4283	-3.0015	dock	Historic Sandon Dock (filled-in); centroid from Wikipedia List of Liverpool Docks — OSM search conflates with Sandon Half Tide Dock
+59	merseyside.txt	Sandon Half Tide Dock	resolved	53.4275769	-3.0050473	dock	OpenStreetMap/Nominatim
+60	merseyside.txt	Regent Dock	not_found				No standard Port of Liverpool / Wikipedia dock entry and no OSM named match for Regent Dock
+61	merseyside.txt	Pier Head	resolved	53.4050	-2.9950	waterfront	Wikipedia GeoHack / Pier Head landmark (OSM Nominatim had no direct hit)
+62	merseyside.txt	Mann Island	resolved	53.4039205	-2.9944466	island	OpenStreetMap/Nominatim
+63	merseyside.txt	Princes Landing Stage	resolved	53.4088	-2.9965	landing_stage	Historic Mersey landing stage at Pier Head / Prince's Dock; approximate from Britain From Above archive georeference (no OSM object)
+64	merseyside.txt	Albert Dock	resolved	53.4003100	-2.9926323	dock	OpenStreetMap/Nominatim (Royal Albert Dock)
+65	merseyside.txt	Royal Albert Dock	resolved	53.4003100	-2.9926323	dock	OpenStreetMap/Nominatim
+66	merseyside.txt	Royal Albert Dock Liverpool	resolved	53.4003100	-2.9926323	dock	OpenStreetMap/Nominatim (disambiguation string; same feature as Royal Albert Dock)
+67	merseyside.txt	Canning Dock	resolved	53.4027904	-2.9918843	dock	OpenStreetMap/Nominatim
+68	merseyside.txt	Canning Half Tide Dock	resolved	53.4017013	-2.9937629	dock	OpenStreetMap/Nominatim
+69	merseyside.txt	Salthouse Dock	resolved	53.4007458	-2.9900111	dock	OpenStreetMap/Nominatim
+70	merseyside.txt	Duke's Dock	resolved	53.3987495	-2.9910808	dock	OpenStreetMap/Nominatim
+71	merseyside.txt	Anchorage	not_found				No OSM/Wikipedia match for a named Anchorage dock or quay in Liverpool south docks context
+72	merseyside.txt	Wapping Dock	resolved	53.3969941	-2.9872316	dock	OpenStreetMap/Nominatim
+73	merseyside.txt	Kings Dock	resolved	53.3967	-2.9900	dock	Wikipedia List of Liverpool Docks / Wikidata centroid (filled basin; M&S Bank Arena / ACC Liverpool on site)
+74	merseyside.txt	Queens Dock	resolved	53.3942577	-2.9903890	dock	OpenStreetMap/Nominatim (Queens Dock / The Keel)
+75	merseyside.txt	Coburg Dock	resolved	53.3914630	-2.9851208	dock	OpenStreetMap/Nominatim
+76	merseyside.txt	Brunswick Dock	resolved	53.3883977	-2.9831707	dock	OpenStreetMap/Nominatim
+77	merseyside.txt	Liverpool Marina	resolved	53.3907970	-2.9848007	marina	OpenStreetMap/Nominatim (Coburg Wharf)
+78	merseyside.txt	Brunswick Dock Marina	resolved	53.3907970	-2.9848007	marina	No separate OSM name; same marina complex as Liverpool Marina (Brunswick/Coburg waterfront)
+79	merseyside.txt	Princes Dock	resolved	53.4092481	-2.9993456	dock	OpenStreetMap/Nominatim (Prince's Dock waterway=dock)
+80	merseyside.txt	Liverpool Cruise Terminal	resolved	53.4067218	-2.9983857	terminal	OpenStreetMap/Nominatim
+81	merseyside.txt	Liverpool Waterfront	resolved	53.3992327	-2.9917684	neighbourhood	OpenStreetMap/Nominatim (place named Waterfront)
+82	merseyside.txt	Liverpool Docks	ambiguous			unknown	Collective name for the whole Port of Liverpool system; no single canonical coastal pin
+83	merseyside.txt	George's Dock	resolved	53.4042	-2.9955	historic_dock	Filled 1899 for Pier Head; approximate historic basin centroid (Wikipedia / shoreline context; not a current OSM dock polygon)
+84	merseyside.txt	Otterspool	resolved	53.3682373	-2.9342410	park	OpenStreetMap/Nominatim returns Otterspool Park as named feature for this coastal label
+85	merseyside.txt	Otterspool Promenade	resolved	53.3715	-2.9410	promenade	Approximate midpoint of riverside footpath west of Otterspool Park (no OSM name hit)
+86	merseyside.txt	Otterspool Park	resolved	53.3682373	-2.9342410	park	OpenStreetMap/Nominatim
+87	merseyside.txt	Jericho Lane	resolved	53.3681728	-2.9393484	road	OpenStreetMap/Nominatim (street centre)
+88	merseyside.txt	Aigburth	resolved	53.3645118	-2.9266096	suburb	OpenStreetMap/Nominatim
+89	merseyside.txt	St Michael's Hamlet	resolved	53.3766999	-2.9497519	hamlet	Church/area St Michael-in-the-Hamlet (Dingle); Nominatim place_of_worship node for local coastal-list label
+90	merseyside.txt	Grassendale	resolved	53.3582395	-2.9177539	suburb	OpenStreetMap/Nominatim
+91	merseyside.txt	Cressington	resolved	53.3617227	-2.9205863	suburb	OpenStreetMap place=suburb (Nominatim)
+92	merseyside.txt	Cressington Shore	resolved	53.3603	-2.9058	shore	Approximate Mersey foreshore below Cressington (no OSM name hit; suburb ~700 m inland)
+93	merseyside.txt	Garston	resolved	53.3533949	-2.8967362	suburb	OpenStreetMap/Nominatim place=suburb
+94	merseyside.txt	Garston Dock	resolved	53.3513518	-2.9114108	dock	OpenStreetMap waterway=dock "North Dock" in Garston dock cluster (Nominatim q=Garston Dock)
+95	merseyside.txt	Garston Shore	resolved	53.3406	-2.8845	shore	Midpoint of Garston Shore Road segments along estuary (highway ways in OSM)
+96	merseyside.txt	Speke	resolved	53.3450988	-2.8619817	suburb	OpenStreetMap/Nominatim place=suburb
+97	merseyside.txt	Speke and Garston Coastal Reserve	resolved	53.3420	-2.8940	park	Wikipedia infobox centroid; coastal reserve south Liverpool (no Nominatim park object)
+98	merseyside.txt	Garston Coastal Reserve	resolved	53.3420	-2.8940	park	Same reserve complex as Speke and Garston Coastal Reserve / NT "Garston Coastal Reserve" trail context
+99	merseyside.txt	River Mersey Ferry	ambiguous			ferry_service	Mersey Ferries uses Pier Head, Woodside, Seacombe; no single map pin for the whole service
+100	merseyside.txt	Pier Head Ferry Terminal	resolved	53.4046244	-2.9970474	ferry_terminal	OpenStreetMap amenity=ferry_terminal "Mersey Ferries" (Liverpool Pier Head)
+101	merseyside.txt	Seacombe Ferry	resolved	53.4099375	-3.0159884	ferry_terminal	OpenStreetMap/Nominatim Seacombe Ferry Terminal
+102	merseyside.txt	Woodside Ferry	resolved	53.3955385	-3.0085667	ferry_terminal	OpenStreetMap/Nominatim "Woodside (Mersey Ferry)"
+103	merseyside.txt	Rock Ferry	resolved	53.3701782	-3.0015983	suburb	OpenStreetMap place=suburb (Wirral; historic ferry locality)
+104	merseyside.txt	New Brighton Ferry	ambiguous			ferry_terminal	No OSM ferry_terminal; landing vs promenade ambiguous on New Brighton seafront
+105	merseyside.txt	Eastham Ferry	resolved	53.3288013	-2.9556510	park	OpenStreetMap leisure=park named Eastham Ferry (Mersey shore, Wirral)
+106	merseyside.txt	New Brighton	resolved	53.4385649	-3.0434220	suburb	OpenStreetMap/Nominatim place=suburb
+107	merseyside.txt	Vale Park	resolved	53.4333455	-3.0355400	park	OpenStreetMap/Nominatim
+108	merseyside.txt	Magazine Promenade	resolved	53.4371691	-3.0351015	promenade	OpenStreetMap highway named "Magazines Promenade" (list spelling "Magazine")
+109	merseyside.txt	Wallasey	resolved	53.4241208	-3.0394101	town	OpenStreetMap/Nominatim place=town
+110	merseyside.txt	Wallasey Village	resolved	53.4229804	-3.0691606	station	OpenStreetMap/Nominatim Wallasey Village railway station
+111	merseyside.txt	Wallasey Embankment	resolved	53.4161107	-3.1190750	embankment	Only Nominatim hit is emergency beach sign "Wallasey Embankment Leasowe Common" (Leasowe/Moreton coast)
+112	merseyside.txt	Wallasey Beach	resolved	53.4345	-3.0550	beach	Approximate sandy foreshore New Brighton–Egremont (no OSM object named Wallasey Beach)
+113	merseyside.txt	Wallasey Promenade	resolved	53.4404713	-3.0421394	promenade	OpenStreetMap "Marine Promenade" main seafront link (no object named Wallasey Promenade)
+114	merseyside.txt	Poulton	resolved	53.4108177	-3.0437858	suburb	OpenStreetMap/Nominatim place=suburb (Wallasey)
+115	merseyside.txt	Poulton-cum-Seacombe	resolved	53.4083242	-3.0229049	suburb	Historic parish name; pinned to Seacombe suburb (Nominatim) in coastal list context
+116	merseyside.txt	Liscard	resolved	53.4212306	-3.0458163	suburb	OpenStreetMap/Nominatim
+117	merseyside.txt	Seacombe	resolved	53.4083242	-3.0229049	suburb	OpenStreetMap/Nominatim
+118	merseyside.txt	Egremont	resolved	53.4210593	-3.0294951	suburb	OpenStreetMap/Nominatim
+119	merseyside.txt	Egremont Promenade	resolved	53.4231014	-3.0279171	promenade	OpenStreetMap highway=pedestrian Egremont Promenade (first segment centroid)
+120	merseyside.txt	Fort Perch Rock	resolved	53.4425573	-3.0410962	fort	OpenStreetMap historic=fort / Nominatim
+121	merseyside.txt	Perch Rock	resolved	53.4443276	-3.0423021	reef	Reef at New Brighton; pinned to New Brighton (Perch Rock) Lighthouse (pub named Perch Rock is separate)
+122	merseyside.txt	New Brighton Lighthouse	resolved	53.4443276	-3.0423021	lighthouse	OpenStreetMap man_made=lighthouse "New Brighton (Perch Rock) Lighthouse"
+123	merseyside.txt	Bidston	resolved	53.4038319	-3.0810557	neighbourhood	OpenStreetMap place=neighbourhood (railway station was first Nominatim hit)
+124	merseyside.txt	Bidston Hill	resolved	53.4011907	-3.0738540	peak	OpenStreetMap natural=peak
+125	merseyside.txt	Bidston Moss	resolved	53.4103730	-3.0769080	hamlet	OpenStreetMap place=hamlet
+126	merseyside.txt	Leasowe	resolved	53.4169110	-3.0944089	village	OpenStreetMap place=village (railway station was first hit)
+127	merseyside.txt	Leasowe Bay	resolved	53.4225000	-3.1045000	bay	Approximate open water off Leasowe/Moreton coast (Liverpool Bay sector); no OSM name match
+128	merseyside.txt	Leasowe Castle	resolved	53.4184970	-3.1080131	hotel	OpenStreetMap tourism=hotel Leasowe Castle Hotel
+129	merseyside.txt	Leasowe Lighthouse	resolved	53.4131624	-3.1257644	lighthouse	OpenStreetMap man_made=lighthouse
+130	merseyside.txt	Leasowe Embankment	resolved	53.4161107	-3.1190750	embankment	OpenStreetMap emergency=beach_safety_sign "Wallasey Embankment Leasowe Common" (coastal defences)
+131	merseyside.txt	Moreton	resolved	53.4009232	-3.1132336	town	OpenStreetMap place=town
+132	merseyside.txt	Moreton Shore	resolved	53.4155619	-3.1186838	beach_access	OpenStreetMap amenity=parking "Moreton Shore" (coastal access)
+133	merseyside.txt	Meols	resolved	53.4012266	-3.1675670	suburb	OpenStreetMap place=suburb (railway station was first hit)
+134	merseyside.txt	Meols Parade	resolved	53.4037552	-3.1651505	street	OpenStreetMap highway=residential (first segment centroid)
+135	merseyside.txt	Meols Beach	resolved	53.4055000	-3.1685000	beach	Approximate sandy foreshore off Meols Parade area (no OSM object named Meols Beach)
+136	merseyside.txt	Great Meols	resolved	53.4022183	-3.1509212	village	OpenStreetMap place=village
+137	merseyside.txt	Hoylake	resolved	53.3917719	-3.1783429	town	OpenStreetMap place=town
+138	merseyside.txt	Hoylake Promenade	resolved	53.3908000	-3.1795000	promenade	Approximate Hoylake seafront The Promenade (no direct OSM name hit)
+139	merseyside.txt	Hoylake Beach	resolved	53.3885000	-3.1840000	beach	Approximate main sand north of Hoylake (no OSM object named Hoylake Beach)
+140	merseyside.txt	Manor Road	resolved	53.3949574	-3.1700493	station	OpenStreetMap railway=station Manor Road (coastal Wirral list context)
+141	merseyside.txt	West Kirby	resolved	53.3733229	-3.1865608	town	OpenStreetMap place=town (railway station was first hit)
+142	merseyside.txt	West Kirby Marine Lake	resolved	53.3685059	-3.1880018	lake	OpenStreetMap water named Marine Lake
+143	merseyside.txt	WK Marine Lake	resolved	53.3685059	-3.1880018	lake	Same feature as West Kirby Marine Lake (local abbreviation)
+144	merseyside.txt	Caldy	resolved	53.3576183	-3.1605838	village	OpenStreetMap place=village
+145	merseyside.txt	Thurstaston	resolved	53.3484414	-3.1325358	village	OpenStreetMap place=village
+146	merseyside.txt	Thurstaston Beach	resolved	53.3470693	-3.1585943	beach	OpenStreetMap tourism=information "Thurstaston Beach"
+147	merseyside.txt	Thurstaston Common	resolved	53.3604401	-3.1378832	heath	OpenStreetMap natural=heath
+148	merseyside.txt	Thurstaston Hill	resolved	53.3535102	-3.1363913	peak	OpenStreetMap natural=peak
+149	merseyside.txt	Dee Estuary	ambiguous			bay	Large England–Wales estuary; no single representative Nominatim pin for whole feature
+150	merseyside.txt	Dee Estuary Shore	resolved	53.3500000	-3.1450000	foreshore	Representative Wirral mudflat/sand foreshore along Dee Estuary (generic label; no OSM name)
+151	merseyside.txt	Heswall	resolved	53.3296666	-3.0733539	railway_station	Photon/komoot.io; OSM railway=station (town-centre proxy)
+152	merseyside.txt	Heswall Dales	resolved	53.3302391	-3.1135787	nature_reserve	Photon/komoot.io; OSM Heswall Dales LNR
+153	merseyside.txt	Heswall Shore	resolved	53.3150000	-3.0920000	foreshore	Approximate Dee Estuary foreshore off Heswall (no clean OSM name hit)
+154	merseyside.txt	Gayton	resolved	53.3167590	-3.0900369	village	Photon/komoot.io; OSM place=village (CH60)
+155	merseyside.txt	Lower Heswall	resolved	53.3240000	-3.0720000	suburb	Approximate built-up area between Heswall centre and the shore
+156	merseyside.txt	Puddington	resolved	53.2535482	-2.9936790	village	Photon/komoot.io; OSM admin boundary centroid (Puddington, Cheshire; coastal list context)
+157	merseyside.txt	Neston	resolved	53.2905172	-3.0637920	town	Photon/komoot.io; OSM place=town
+158	merseyside.txt	Little Neston	resolved	53.2829132	-3.0512176	suburb	Photon/komoot.io; OSM place=suburb
+159	merseyside.txt	Parkgate	resolved	53.2971886	-3.0836187	village	Photon/komoot.io; OSM place=village (Parkgate)
+160	merseyside.txt	Parkgate Parade	resolved	53.2975000	-3.0810000	promenade	Approximate Parkgate seafront parade (coastal list context)
+161	merseyside.txt	Burton	resolved	53.2625398	-3.0226001	hamlet	Photon/komoot.io; OSM historic wayside cross “Burton in Wirral Peace Cross”
+162	merseyside.txt	Burton Mere Wetlands	resolved	53.2545828	-3.0297311	nature_reserve	Photon/komoot.io; OSM RSPB Burton Mere
+163	merseyside.txt	Raby	resolved	53.3114471	-3.0351591	village	Photon/komoot.io; OSM place=village (Raby, Wirral)
+164	merseyside.txt	Willaston	resolved	53.2919922	-3.0012202	village	Photon/komoot.io; OSM place=village (Willaston CH64)
+165	merseyside.txt	Eastham	resolved	53.3144641	-2.9599091	village	Photon/komoot.io; OSM Eastham Village
+166	merseyside.txt	Eastham Country Park	resolved	53.3288013	-2.9585274	wood	Park extent; Photon/komoot.io woodland labelled Eastham Country Park
+167	merseyside.txt	Eastham Locks	resolved	53.3222552	-2.9471561	locks	Photon/komoot.io; OSM canal/locks infrastructure
+168	merseyside.txt	Stanlow Bay	resolved	53.2765000	-2.8400000	bay	Approximate bay/industrial waterfront near Stanlow (no single OSM object for whole feature)
+169	merseyside.txt	Brotherton Park	resolved	53.3384629	-2.9861394	park	Photon/komoot.io; OSM woodland in Brotherton Park
+170	merseyside.txt	Dibbinsdale	resolved	53.3258116	-2.9945121	nature_reserve	Photon/komoot.io; OSM information board in Dibbinsdale Nature Reserve
+171	merseyside.txt	Bromborough	resolved	53.3333672	-2.9774612	town	Photon/komoot.io; OSM place=town
+172	merseyside.txt	Bromborough Dock	resolved	53.3485000	-2.9835000	dock	Approximate dock/industrial frontage (Dock Road South area; coastal list context)
+173	merseyside.txt	Bromborough Pool	resolved	53.3511147	-2.9805121	suburb	Photon/komoot.io; OSM place=suburb
+174	merseyside.txt	New Ferry	resolved	53.3619442	-2.9943509	town	Photon/komoot.io; OSM place=town
+175	merseyside.txt	Bebington	resolved	53.3503775	-3.0055980	town	Photon/komoot.io; OSM place=town (avoided spurious school hit)
+176	merseyside.txt	Port Sunlight	resolved	53.3484812	-2.9982505	model_village	Photon/komoot.io; OSM railway=station (model village centre nearby)
+177	merseyside.txt	Spital	resolved	53.3400511	-2.9940923	suburb	Photon/komoot.io; OSM railway=station (locality proxy)
+178	merseyside.txt	Rock Park	resolved	53.3728000	-3.0255000	park	Approximate Mersey-side public park at Rock Ferry (no clean Photon hit)
+179	merseyside.txt	Tranmere	resolved	53.3824171	-3.0116887	suburb	Photon/komoot.io; OSM place=suburb Lower Tranmere
+180	merseyside.txt	Woodside	resolved	53.3955386	-3.0085667	ferry_terminal	Photon/komoot.io; OSM Woodside (Mersey Ferry) ferry_terminal
+181	merseyside.txt	Birkenhead	resolved	53.3895177	-3.0248007	town	Nominatim place=town (Birkenhead, Wirral)
+182	merseyside.txt	Birkenhead Docks	resolved	53.4010297	-3.0187136	dock	Approximate Birkenhead dock system centre (between Morpeth/Alfred/East Float; no single named OSM object)
+183	merseyside.txt	Birkenhead Waterfront	resolved	53.3955385	-3.0085667	waterfront	Woodside Mersey frontage proxy (ferry terminal OSM)
+184	merseyside.txt	Twelve Quays	resolved	53.4029947	-3.0160947	ferry_terminal	OpenStreetMap 12 Quays Terminal (Tower Road, Seacombe)
+185	merseyside.txt	Canadian Pacific Dock	not_found				No OSM/Nominatim object for this dock name in Birkenhead
+186	merseyside.txt	Morpeth Dock	resolved	53.3984177	-3.0173167	dock	OpenStreetMap waterway=dock
+187	merseyside.txt	Alfred Dock	resolved	53.4036417	-3.0201104	dock	OpenStreetMap waterway=dock
+188	merseyside.txt	Bidston Dock	resolved	53.4060466	-3.0528271	dock	Bidston Repair Berth / former Bidston Dock approaches (closest mapped dock feature)
+189	merseyside.txt	East Float	resolved	53.4022306	-3.0247847	dock	OpenStreetMap waterway=dock
+190	merseyside.txt	West Float	resolved	53.4065789	-3.0483483	dock	OpenStreetMap waterway=dock
+191	merseyside.txt	Great Float	ambiguous			dock	Historic basin name; East Float and West Float are separate OSM features
+192	merseyside.txt	Hilbre Island	resolved	53.3820942	-3.2269762	island	OpenStreetMap place=island
+193	merseyside.txt	Middle Eye	resolved	53.3780996	-3.2206146	island	OpenStreetMap Middle Eye (Little Hilbre)
+194	merseyside.txt	Little Eye	resolved	53.3714349	-3.2055449	island	OpenStreetMap place=island
+195	merseyside.txt	Hilbre Islands Local Nature Reserve	resolved	53.3820942	-3.2269762	nature_reserve	Local designation covers archipelago; pin at Hilbre Island (representative)
+196	merseyside.txt	Hoylake Sailing Club	resolved	53.3956378	-3.1819773	sailing_club	OpenStreetMap feature named Hoylake Sailing Club
+197	merseyside.txt	West Kirby Sailing Club	resolved	53.3641457	-3.1803095	boatyard	OpenStreetMap boatyard
+198	merseyside.txt	Crosby Coastal Park	resolved	53.4770000	-3.0420000	park	Representative point from Crosby Beach / Sefton coastal park corridor (council listing)
+199	merseyside.txt	Waterloo Dock Liverpool	ambiguous			dock	OpenStreetMap lists East Waterloo Dock and West Waterloo Dock separately
+200	merseyside.txt	Bootle Docks	resolved	53.4553483	-3.0198383	dock	Gladstone Dock proxy for Bootle/Seaforth dock cluster (OpenStreetMap)
+201	merseyside.txt	Liverpool Pier Head	resolved	53.4058473	-2.9958431	attraction	Royal Liver Building on Pier Head frontage (OpenStreetMap tourism=attraction)
+202	merseyside.txt	Seaforth Container Terminal	resolved	53.4598206	-3.0239424	dock	Royal Seaforth Dock (OpenStreetMap); container terminal footprint
+203	merseyside.txt	Vauxhall Liverpool	resolved	53.4159961	-2.9850000	suburb	Nominatim place=suburb (Vauxhall, Liverpool)
+204	merseyside.txt	Herculaneum Dock	resolved	53.3786000	-2.9701000	historic_dock	Wikipedia/GeoHack coordinates; site infilled/redeveloped (no active OSM dock)
+205	merseyside.txt	George's Parade	not_found				No OSM/Nominatim match for this Liverpool parade name
+206	merseyside.txt	Kirkdale Dockland	resolved	53.4368372	-3.0042726	dock	Representative Canada Dock in Kirkdale dock district (OpenStreetMap)
+207	merseyside.txt	Mersey Docks	resolved	53.4058473	-2.9958431	docks	Generic port label; Pier Head pin (Royal Liver Building) as Liverpool docks reference

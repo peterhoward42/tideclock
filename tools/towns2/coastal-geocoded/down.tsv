@@ -1,0 +1,142 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	down.txt	Holywood	resolved	54.63860	-5.82470	town	Town on Belfast Lough (standard mapping / town-centre class coords).
+2	down.txt	Seahill	resolved	54.66404	-5.76495	village	Coastal village between Holywood and Helen’s Bay (Wikipedia coords).
+3	down.txt	Cultra	resolved	54.65000	-5.81700	neighbourhood	Cúl Trá coastal suburb / yacht club shore (Wikipedia centroid).
+4	down.txt	Helen's Bay	resolved	54.67000	-5.73500	village	Helen's Bay on Belfast Lough (Wikipedia coords).
+5	down.txt	Crawfordsburn	resolved	54.65833	-5.73111	village	Inland village near coast / country park (Wikipedia coords).
+6	down.txt	Bangor	resolved	54.66079	-5.66802	city	Bangor seafront town on Belfast Lough (GeoNames-style centroid).
+7	down.txt	Pickie	resolved	54.65470	-5.66230	attraction	Pickie Fun Park / Marine Gardens gateway (Wikivoyage map pin).
+8	down.txt	Ballyholme	resolved	54.66750	-5.64550	suburb	Ballyholme coastal quarter of Bangor (map reading east of centre).
+9	down.txt	Ballyholme Bay	resolved	54.66780	-5.64450	bay	Ballyholme forebay east of Bangor centre.
+10	down.txt	Ballyholme Beach	resolved	54.66820	-5.64350	beach	Main sandy beach at Ballyholme (coastal access area).
+11	down.txt	Groomsport	resolved	54.66700	-5.61700	village	Groomsport on north Ards shore (Wikipedia coords).
+12	down.txt	Groomsport Harbour	resolved	54.66740	-5.61780	harbour	Sheltered harbour / pier focus in Groomsport village.
+13	down.txt	Orlock	resolved	54.67222	-5.58306	village	Orlock townland / coastal settlement centroid (townlands.ie point).
+14	down.txt	Orlock Point	resolved	54.67767	-5.58353	headland	Orlock Point headland / WW2 OP locality (geograph image coords).
+15	down.txt	Ballymacormick Point	resolved	54.66793	-5.63640	headland	National Trust coastal headland between Ballyholme and Groomsport (walk GPX).
+16	down.txt	Bangor Marina	resolved	54.65580	-5.66350	marina	Queen’s Parade / Pickie sector of Bangor Marina (map reading).
+17	down.txt	Bangor Harbour	resolved	54.65630	-5.66750	harbour	Main harbour basin south of town centre (representative harbour pin).
+18	down.txt	North Down Coastal Path	resolved	54.65700	-5.66550	coastal_path	Representative pin at Bangor Marine Gardens sector; route spans Holywood–Orlock.
+19	down.txt	Donaghadee	resolved	54.64130	-5.53590	town	Donaghadee town centroid (standard gazetteer-style coords).
+20	down.txt	Donaghadee Harbour	resolved	54.64380	-5.53280	harbour	Harbour pool / piers sector near lighthouse (map reading).
+21	down.txt	Donaghadee Lighthouse	resolved	54.64505	-5.53094	lighthouse	South pier lighthouse (Wikipedia / Irish Lights position).
+22	down.txt	Donaghadee Moat	resolved	54.64806	-5.55000	motte	Norman motte / Moat park (geograph image coords).
+23	down.txt	Millisle	resolved	54.60800	-5.52900	village	Millisle village on Ards east coast (Wikipedia coords).
+24	down.txt	Millisle Beach	resolved	54.61000	-5.52850	beach	Seaward beachfront south of village centre.
+25	down.txt	Millisle Lagoon	resolved	54.60880	-5.52980	lagoon	Millisle Lagoon & Beach Park seawater lagoon (visitor site).
+26	down.txt	Copeland Islands	resolved	54.67460	-5.52890	archipelago	Three-island group centroid (Wikipedia coords).
+27	down.txt	Copeland Island	resolved	54.67100	-5.52700	island	Great Copeland / “Big Island” landmass (map centroid).
+28	down.txt	Mew Island	resolved	54.69860	-5.51360	island	Mew Island; pin at active lighthouse (Wikipedia / MarineTraffic).
+29	down.txt	Lighthouse Island	resolved	54.69561	-5.52415	island	Lesser Copeland / Old Island; bird observatory islet (waypoint listing).
+30	down.txt	Big Copeland	resolved	54.67150	-5.52750	island	Same Great Copeland landmass as “Copeland Island”; slightly offset shore pin.
+31	down.txt	Ballywalter	resolved	54.54250	-5.48580	village	Village centroid (Wikidata / mapping aggregate; Irish Sea coast of Ards).
+32	down.txt	Ballywalter Beach	resolved	54.54350	-5.48450	beach	Main sandy beachfront east of Ballywalter village (seaward pin).
+33	down.txt	Ballywalter Harbour	resolved	54.54150	-5.48700	harbour	Small harbour / pier focus on village shore (map reading).
+34	down.txt	Ballyferris	resolved	54.59140	-5.54810	townland	Ballyfrenis townland centroid near Carrowdore (townlands.ie coords); list spelling “Ballyferris”.
+35	down.txt	Carrowdore	resolved	54.56700	-5.55000	village	Ards Peninsula village (Wikipedia coords).
+36	down.txt	Cloughey	resolved	54.41700	-5.46700	village	Cloghy/Cloughey village on east coast (Wikipedia Cloghy coords).
+37	down.txt	Cloughey Bay	resolved	54.41800	-5.46550	bay	Open bay north of Cloughey village toward Irish Sea (map reading).
+38	down.txt	Cloughey Strand	resolved	54.41900	-5.46400	beach	Sandy strand along Cloughey Bay (coastal access).
+39	down.txt	Kearney	resolved	54.38810	-5.46780	hamlet	Kearney townland / settlement centroid (townlands.ie).
+40	down.txt	Kearney Bay	resolved	54.38950	-5.46200	bay	Sandy bay and foreshore east of Kearney (National Trust coastal sector).
+41	down.txt	Kearney Village	resolved	54.38830	-5.46110	village	National Trust preserved fishing cottages cluster (geograph.org.uk image coords).
+42	down.txt	Knockinelder	resolved	54.38530	-5.48470	townland	Knockinelder townland centroid (townlands.ie).
+43	down.txt	Knockinelder Beach	resolved	54.38700	-5.48000	beach	Knockinelder sandy beach toward Irish Sea (NT visitor beach sector).
+44	down.txt	Quintin Bay	resolved	54.38200	-5.48500	bay	Small Irish Sea bay south of Cloughey near Quintin / Kearney coast (map reading).
+45	down.txt	Quintin Castle	resolved	54.37710	-5.48941	castle	Quintin Castle (logainm.ie centrepoint; private historic house).
+46	down.txt	Ballyhalbert	resolved	54.49500	-5.45900	village	Ballyhalbert village (Wikipedia coords).
+47	down.txt	Ballyhalbert Beach	resolved	54.49650	-5.45600	beach	Sandy shore east of village toward Irish Sea.
+48	down.txt	Ballyhalbert Harbour	resolved	54.49400	-5.46100	harbour	Pier / small harbour basin in village (map reading).
+49	down.txt	Burr Point	resolved	54.48714	-5.43291	headland	Easternmost mainland point of Ireland (Wikipedia coords).
+50	down.txt	Tara Point	resolved	54.37850	-5.47200	headland	Rocky Irish Sea headland in Quintin Bay sector (historical shipping refs; approximate shore pin).
+51	down.txt	Portavogie	resolved	54.46200	-5.44400	village	Fishing village (Wikipedia coords).
+52	down.txt	Portavogie Harbour	resolved	54.46100	-5.44250	harbour	Modern fishing harbour / piers (map reading).
+53	down.txt	Portavogie Beach	resolved	54.46350	-5.44300	beach	East-facing sandy beach by village (coastal access).
+54	down.txt	Cloghy	resolved	54.41700	-5.46700	village	Same settlement as Cloughey; official townland spelling Cloghy (Wikipedia).
+55	down.txt	Kircubbin	resolved	54.48300	-5.53300	village	Strangford Lough shore village (Wikipedia coords).
+56	down.txt	Kircubbin 40 Steps	resolved	54.48600	-5.54000	coastal_path	Designated Footpath 69 (“40 Steps”) — representative pin on lough-view sector NW of village (trail, not a single POI).
+57	down.txt	Greyabbey	resolved	54.53500	-5.56000	village	Greyabbey on Strangford Lough east shore (Wikipedia coords).
+58	down.txt	Lisbane	resolved	54.50338	-5.71062	village	Lisbane village near Strangford Lough (Wikipedia coord infobox).
+59	down.txt	Newtownards	resolved	54.59100	-5.68000	town	Town at north end of Strangford Lough (Wikipedia coords).
+60	down.txt	Balloo	resolved	54.47222	-5.69083	village	Balloo near Killinchy / west Strangford Lough (Wikipedia coords).
+61	down.txt	Killinchy	resolved	54.46667	-5.66667	village	Killinchy village overlooking Strangford Lough (Wikipedia / GeoHack centroid).
+62	down.txt	Portaferry	resolved	54.38090	-5.54860	town	Portaferry on Strangford Narrows (Wikipedia infobox coords).
+63	down.txt	Portaferry Strand	resolved	54.38160	-5.55080	beach	Sandy shore along The Strand seafront (map reading; distinct from town-centre coords).
+64	down.txt	Portaferry Harbour	resolved	54.38120	-5.54680	harbour	Main harbour / ferry berth sector on Portaferry waterfront (map reading).
+65	down.txt	Ballyquintin	resolved	54.33400	-5.50550	nature_reserve	Ballyquintin Point ASSI / National Trust reserve area on Ards shore (representative pin south of Portaferry).
+66	down.txt	Ballyquintin Point	resolved	54.33188	-5.50185	headland	Tip of Ards Peninsula / ASSI centroid (Earth Science Conservation Review grid-derived coords).
+67	down.txt	Whiterock	resolved	54.48111	-5.65000	village	Whiterock on west shore of Strangford Lough (Wikipedia coords).
+68	down.txt	Whiterock Bay	resolved	54.48447	-5.63718	bay	White Rock Bay / SLYC approach waypoint (eOceanic haven position; moorings area nearby).
+69	down.txt	Ballyhenry Island	resolved	54.39500	-5.53500	island	Small tidal National Trust island ~2 km north of Portaferry on east lough shore (approximate centroid from visitor descriptions).
+70	down.txt	Nugent's Wood	resolved	54.38113	-5.55022	woodland	National Trust shore woodland walk NW of Portaferry (OutmoreNI / council leisure geodata).
+71	down.txt	Ringhaddy	resolved	54.45150	-5.63330	townland	Strangford Lough shore townland south of Whiterock (Wikipedia coords).
+72	down.txt	Audley's Castle	resolved	54.37958	-5.57194	castle	National Trust tower house above Strangford Lough (Wikipedia coord precision).
+73	down.txt	Castle Ward Shore	resolved	54.37160	-5.57716	coastal_path	Castle Ward Shore Trail from shore car park (OSNI grid J575497 via Irish Grid ↔ WGS84 conversion).
+74	down.txt	Rocky Island	not_found		unknown	No clearly named "Rocky Island" on marine/OSM sources for this Strangford Lough sector; likely informal or unmapped at this label.
+75	down.txt	Island Hill	resolved	54.55190	-5.71360	nature_reserve	Island Hill & North Strangford NR / Rough Island walk; car park grid J489689 (Irish Grid metres via pyproj).
+76	down.txt	Strangford	resolved	54.37065	-5.55547	village	Strangford village on Lecale shore (GeoHack / Wikidata).
+77	down.txt	Strangford Ferry	resolved	54.38230	-5.54650	ferry	Portaferry–Strangford ferry berth sector on Portaferry side (representative slip / queue area).
+78	down.txt	Strangford Narrows	resolved	54.37600	-5.55300	channel	Representative mid-channel point between Portaferry and Strangford (map-derived mean of village coords).
+79	down.txt	Kilclief	resolved	54.33570	-5.54470	village	Kilclief civil parish centroid / village focus (Wikipedia coords).
+80	down.txt	Kilclief Beach	resolved	54.31850	-5.53850	beach	Sandy foreshore along Strangford Lough south of Kilclief toward St John's sector (approximate coastal access).
+81	down.txt	St John's Point	resolved	54.22611	-5.65928	headland	Saint John's Point coastal headland into the Irish Sea (Wikipedia/Wikidata cape coords).
+82	down.txt	St Johns Point	resolved	54.22605	-5.65925	headland	Same Lecale headland as St John's Point; list uses alternate apostrophe styling (independent map reading).
+83	down.txt	St John's Lighthouse	resolved	54.22675	-5.66018	lighthouse	Commissioners of Irish Lights published DMS position (54 13.605 N, 5 39.611 W) converted to decimal.
+84	down.txt	Ballyhornan	resolved	54.30000	-5.55000	village	Ballyhornan village on Irish Sea coast (Wikipedia infobox to ~3 decimals).
+85	down.txt	Ballyhornan Beach	resolved	54.30208	-5.55464	beach	Ballyhornan Bay geosite / OSPAR survey coords on main sandy shore.
+86	down.txt	Ardglass	resolved	54.25300	-5.60100	village	Ardglass fishing village centroid (Wikipedia coords).
+87	down.txt	Ardglass Harbour	resolved	54.25220	-5.60280	harbour	Natural inlet harbour / piers focus south of village centre (map reading).
+88	down.txt	Ardglass Marina	resolved	54.25420	-5.59980	marina	Yacht berths on north side of harbour basin (map reading).
+89	down.txt	Killard Point	resolved	54.31260	-5.52600	headland	Killard Point / Killard NNR coastal complex south of Strangford Lough entrance (ASSI centroid literature value).
+90	down.txt	Minerstown	resolved	54.25120	-5.68450	hamlet	Coastal cluster on Dundrum Bay west shore near Minerstown Beach (map reading toward Minerstown Road amenities).
+91	down.txt	Minerstown Beach	resolved	54.25082	-5.68660	beach	Wild-swimming map / visitor listing coords on main sandy shore at Minerstown.
+92	down.txt	Killough	resolved	54.25068	-5.64081	village	Wikidata centroid (village on Irish Sea; Lecale coast).
+93	down.txt	Coney Island	resolved	54.25630	-5.62510	hamlet	Wikipedia coords for Coney Island townland / seaside hamlet near Killough harbour.
+94	down.txt	Sheepland Harbour	resolved	54.27400	-5.57600	harbour	MBDP-NI survey GPS on Sheepland Harbour shore (Strangford Lough SE coast).
+95	down.txt	Mahee Island	resolved	54.50170	-5.63440	island	Wikimapia / guide centroid; largest Strangford Lough island (causewayed).
+96	down.txt	Nendrum	resolved	54.49821	-5.64775	monastic_site	National Churches Trust map pin; Nendrum Monastic Site (Mahee Island).
+97	down.txt	Reagh Island	resolved	54.50972	-5.64222	island	townlands.ie centroid; causewayed island W of Strangford Lough (Tullynakill).
+98	down.txt	Chapel Island	resolved	54.38392	-5.59410	island	eOceanic haven position (tidal pool — Chapel Island south, near Jackdaw Island / Audley’s sector).
+99	down.txt	Tyrella	resolved	54.25697	-5.77946	locality	Wikipedia coords (Tyrella / Dundrum Bay dune coast).
+100	down.txt	Tyrella Beach	resolved	54.25697	-5.77946	beach	Same headland complex as Tyrella; Wikipedia centroid used for main Blue Flag shore.
+101	down.txt	Dundrum	resolved	54.25811	-5.84421	village	Disused Dundrum station coords (village beside Dundrum Bay, A2).
+102	down.txt	Dundrum Bay	resolved	54.23500	-5.87500	bay	Representative mid-bay pin between inner estuary and open Dundrum Bay (map reading).
+103	down.txt	Dundrum Inner Bay	resolved	54.24822	-5.85997	estuary	OpenStreetMap “Dundrum Inner Bay” amenity / shore access near Dundrum Road.
+104	down.txt	Dundrum Outer Bay	resolved	54.19500	-5.89500	bay	Seaward sector of Dundrum Bay toward Irish Sea off Newcastle–Tyrella (approximate bay mouth).
+105	down.txt	Newcastle	resolved	54.21500	-5.89000	town	Wikipedia centroid; seaside resort at foot of the Mournes.
+106	down.txt	Newcastle Beach	resolved	54.21080	-5.88950	beach	Main sandy front off Beach Avenue / Central Promenade sector (map reading).
+107	down.txt	Newcastle Promenade	resolved	54.20908	-5.89038	promenade	OpenStreetMap Central Promenade sector (Newcastle Centre).
+108	down.txt	Bloody Bridge Newcastle	resolved	54.20540	-5.91646	landmark	Irish Grid → WGS84 from WalkNI 6-figure J389271 vicinity (Bloody Bridge river / coastal car park area).
+109	down.txt	Murlough	resolved	54.23417	-5.85278	coastal_peninsula	Wikipedia coords for Murlough Nature Reserve (dune peninsula between bays).
+110	down.txt	Murlough Beach	resolved	54.23250	-5.85400	beach	Representative Dundrum Bay foreshore along Murlough dune system (NNR shoreline).
+111	down.txt	Murlough National Nature Reserve	resolved	54.23417	-5.85278	nature_reserve	Wikipedia / GeoHack coords (National Trust Murlough NNR).
+112	down.txt	Annalong	resolved	54.10800	-5.90100	village	Wikipedia coords; Mourne coast fishing village.
+113	down.txt	Annalong Harbour	resolved	54.10720	-5.89820	harbour	Harbour / pier focus E of village centre toward Irish Sea (map reading).
+114	down.txt	Annalong Beach	resolved	54.10700	-5.89750	beach	Shorefront E of village along harbour bay (approximate public beach sector).
+115	down.txt	Annalong River Mouth	resolved	54.10650	-5.89850	estuary_mouth	River debouches at head of Annalong harbour bay (map reading).
+116	down.txt	Kilkeel	resolved	54.05900	-5.99200	town	Wikipedia centroid; principal Down fishing port.
+117	down.txt	Kilkeel Harbour	resolved	54.06080	-5.99321	harbour	Geograph Commons camera/object location on inner harbour (piers sector).
+118	down.txt	Stinking Strand	not_found				No gazetteer or OpenStreetMap hit for this exact name on the Kilkeel–Ballykinler coast; likely informal / very local label.
+119	down.txt	Ballykinler	resolved	54.25000	-5.80000	village	Wikipedia / Wikidata coords (Ballykinlar; Irish Sea shore near Tyrella dunes).
+120	down.txt	Cranfield	resolved	54.03194	-6.05667	village	townlands.ie centroid; Cranfield townland at Carlingford Lough entrance (beach area nearby).
+121	down.txt	Cranfield Beach	resolved	54.05290	-6.16950	beach	Blue Flag shore at Cranfield Bay / holiday-park front (UK Beach Guide OS grid ref. vicinity; Kilkeel coast).
+122	down.txt	Cranfield East	resolved	54.05340	-6.16400	beach	Eastern sector of Cranfield Bay sandy front (map reading east of main car-park access).
+123	down.txt	Cranfield West	resolved	54.05240	-6.17500	beach	Western sector of Cranfield Bay toward promenade / seawall stretch (map reading).
+124	down.txt	Cranfield Point	resolved	54.01660	-6.06000	headland	Wikipedia coords; southernmost mainland point of NI at Carlingford Lough mouth.
+125	down.txt	Greencastle	resolved	54.04053	-6.10430	village	Hamlet / shore settlement at Greencastle (Wikipedia coords for the castle and village focus).
+126	down.txt	Greencastle Beach	resolved	54.04000	-6.10350	beach	Shingle/sand foreshore by Greencastle pier and castle shore (map reading).
+127	down.txt	Rostrevor	resolved	54.10100	-6.20100	village	Wikipedia infobox coords; Carlingford Lough shore below Slieve Martin.
+128	down.txt	Rostrevor Beach	resolved	54.10180	-6.20020	beach	Main lough-side beach / promenade sector in Rostrevor (seaward of village centre).
+129	down.txt	Rostrevor Kilbroney Shore	resolved	54.09350	-6.19200	coastal_path	Kilbroney Park / forest public shore on Carlingford Lough SE of village (representative waterfront pin).
+130	down.txt	Warrenpoint	resolved	54.09880	-6.24900	town	Wikipedia infobox coords; head of Carlingford Lough.
+131	down.txt	Warrenpoint Harbour	resolved	54.09830	-6.24820	harbour	Warrenpoint commercial port / docks sector adjacent to town centre (map reading).
+132	down.txt	Warrenpoint Pier	resolved	54.09980	-6.25100	pier	Town pier / public quay focus on Warrenpoint waterfront (map reading).
+133	down.txt	Narrow Water	resolved	54.11200	-6.27600	locality	Representative shore pin on Newry River / Carlingford Lough approach near Narrow Water townland (wider than the castle alone).
+134	down.txt	Narrow Water Castle	resolved	54.11480	-6.28280	castle	Wikipedia coords; 16th-c. tower house at Clanrye–lough confluence.
+135	down.txt	Carlingford Lough	resolved	54.07330	-6.19940	sea_lough	Wikipedia centroid for the lough waterbody (cross-border fjard).
+136	down.txt	Mourne Coastal Route	resolved	54.10200	-6.20200	scenic_route	Representative pin on designated route at Rostrevor seafront (Tourism NI / village description).
+137	down.txt	Glasswater Bay	ambiguous			bay	Name not matched as a distinct charted bay; likely local label for a west Strangford Lough inlet near Whiterock / SLYC sector—several plausible small bays along that drumlin shore.
+138	down.txt	Castle Espie	resolved	54.52935	-5.69810	nature_reserve	WWT Castle Espie wetland centre; Wikipedia coords on Strangford Lough near Comber.
+139	down.txt	Ballycran	resolved	54.45780	-5.49400	locality	Centroid between Ballycran Beg and Ballycran More townlands (townlands.ie coords averaged); Ards Peninsula near Kircubbin.
+140	down.txt	Eisenhower Pier Bangor	resolved	54.65720	-5.66180	pier	Seacliff Road / north marina seafront pier (Discover NI / MapQuest address sector; Bangor town context).
+141	down.txt	Horse Island Strangford Lough	resolved	54.46850	-5.53050	island	Approximate centroid of NT tidal island ~1 mile S of Kircubbin on east lough shore (visitor descriptions; no single POI coord).

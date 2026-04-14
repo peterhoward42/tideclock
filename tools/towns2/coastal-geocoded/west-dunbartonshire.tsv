@@ -1,0 +1,263 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	west-dunbartonshire.txt	Old Kilpatrick	resolved	55.9260686	-4.4617288	village	OpenStreetMap/Nominatim village node
+2	west-dunbartonshire.txt	Old Kilpatrick shore	resolved	55.9252000	-4.4600000	shore	Approximate Clyde/Old Kilpatrick waterfront; no distinct OSM object
+3	west-dunbartonshire.txt	Old Kilpatrick foreshore	resolved	55.9248000	-4.4595000	foreshore	Approximate intertidal strip Old Kilpatrick; no distinct OSM object
+4	west-dunbartonshire.txt	Old Kilpatrick Beach	resolved	55.9245000	-4.4598000	beach	Approximate coastal beach strip Old Kilpatrick (cf. Gazetteer for Scotland coords for village)
+5	west-dunbartonshire.txt	Old Kilpatrick Roman Fort	resolved	55.9276271	-4.4559562	ruins	Antonine Wall fort trace Mount Pleasant area; OSM ruins along wall
+6	west-dunbartonshire.txt	Antonine Wall Old Kilpatrick	resolved	55.9272069	-4.4543558	historic	OpenStreetMap Antonine Wall segment Great Western Road
+7	west-dunbartonshire.txt	Gavinburn	resolved	55.9298322	-4.4696798	farmyard	Gavinburn Farm node Mountblow/Old Kilpatrick
+8	west-dunbartonshire.txt	Gavinburn Roman Fort	ambiguous			historic	No separate OSM object; archaeology tied to Antonine Wall sector near Gavinburn
+9	west-dunbartonshire.txt	Dalnottar	resolved	55.9234035	-4.4640243	waterway	Dalnottar Burn; nearest named OSM feature to Dalnottar label
+10	west-dunbartonshire.txt	Dalnottar Hill	resolved	55.9212115	-4.4523391	residential	Dalnottar Hill Road centroid
+11	west-dunbartonshire.txt	St Patrick's Well	not_found			unknown	No verifiable well feature in OSM for Old Kilpatrick; unrelated hits elsewhere
+12	west-dunbartonshire.txt	Old Kilpatrick Parish Church	not_found			unknown	No matching church POI in OSM/Nominatim for this name
+13	west-dunbartonshire.txt	Old Kilpatrick Secession Church	not_found			unknown	No matching church POI in OSM/Nominatim for this name
+14	west-dunbartonshire.txt	Old Kilpatrick railway station	resolved	55.9241104	-4.4528360	station	OSM names station Kilpatrick; on Station Road Old Kilpatrick
+15	west-dunbartonshire.txt	Auchentorlie	resolved	55.9340377	-4.5022380	isolated_dwelling	Auchentorlie House near Bowling canal corridor
+16	west-dunbartonshire.txt	Barnhill	resolved	55.9481122	-4.5253808	locality	Barnhill Milton; isolated_dwelling node
+17	west-dunbartonshire.txt	Barnhill shore	resolved	55.9487000	-4.5272000	shore	Approximate shore/Leven bank near Barnhill Milton; no distinct OSM object
+18	west-dunbartonshire.txt	The Saltings	resolved	55.9226611	-4.4605188	nature_reserve	OpenStreetMap nature reserve Mountblow
+19	west-dunbartonshire.txt	Saltings nature reserve	resolved	55.9226611	-4.4605188	nature_reserve	Same mapped reserve as The Saltings; separate input line per pass-1 rules
+20	west-dunbartonshire.txt	Erskine Ferry historic	resolved	55.9235000	-4.4550000	ferry	Approximate historic Clyde crossing vicinity Old Kilpatrick; ferry not mapped as operating POI
+21	west-dunbartonshire.txt	Ferrydyke	resolved	55.9218000	-4.4535000	canalside	Approximate Forth and Clyde Ferrydyke locality Old Kilpatrick/Bowling; no direct Nominatim hit
+22	west-dunbartonshire.txt	Donald's Quay	resolved	55.9252600	-4.4683400	navigation	Canmore NS45870 72996 Donald's Quay Light coordinates
+23	west-dunbartonshire.txt	Dumbuck	resolved	55.9387377	-4.5404710	neighbourhood	Dumbuck area Silverton/Dumbarton; OSM centroid Dumbuck Bowling Club open space
+24	west-dunbartonshire.txt	Dumbuck Crannog	resolved	55.9322000	-4.5372100	crannog	Canmore NRHE 43402 NS 41596 73923 published site coordinates
+25	west-dunbartonshire.txt	Dunglass Castle	resolved	55.9291000	-4.5027000	castle	Wikipedia coordinate for Dunglass Castle article; West Dunbartonshire ruin
+26	west-dunbartonshire.txt	Dunglass	resolved	55.9318579	-4.5029155	locality	Dunglass Roundabout area Milton; used as nearest named OSM anchor for Dunglass label
+27	west-dunbartonshire.txt	Milton	resolved	55.9370594	-4.5190120	village	OpenStreetMap Milton village
+28	west-dunbartonshire.txt	Milton of Colquhoun	resolved	55.9367739	-4.5223961	residential	Colquhoun Road centroid Milton; approximate for historic estate name
+29	west-dunbartonshire.txt	Milton Brae	resolved	55.9466028	-4.5273979	road	OpenStreetMap Milton Brae
+30	west-dunbartonshire.txt	Littlemill	resolved	55.9310900	-4.4970100	historic	Canmore NS 44102 73708 Littlemill Distillery Bowling site coordinates
+31	west-dunbartonshire.txt	Littlemill distillery site	resolved	55.9310900	-4.4970100	historic	Canmore NS 44102 73708 Littlemill Distillery Bowling site coordinates; same site as line 30
+32	west-dunbartonshire.txt	Buchanan Institute	resolved	55.9312500	-4.4912500	attraction	West Dunbartonshire heritage-trail stop near Bowling Hall/Harbour; no distinct OSM object; map placement
+33	west-dunbartonshire.txt	Bowling	resolved	55.9308816	-4.4857872	village	OpenStreetMap place node Bowling village
+34	west-dunbartonshire.txt	Bowling Harbour	resolved	55.9298199	-4.4772467	harbour	OpenStreetMap amenity named Bowling Harbour (polygon centroid)
+35	west-dunbartonshire.txt	Bowling Harbour arches	resolved	55.9298199	-4.4772467	attraction	Harbour arches not separately mapped; same harbour vicinity as line 34
+36	west-dunbartonshire.txt	Bowling Harbour swing bridge	resolved	55.9296500	-4.4818000	bridge	Approximate swing bridge / basin entrance at Bowling; no dedicated OSM name hit
+37	west-dunbartonshire.txt	Bowling Basin	resolved	55.9297406	-4.4820050	water	OpenStreetMap Bowling Basin water polygon centroid
+38	west-dunbartonshire.txt	Bowling lower basin	resolved	55.9297406	-4.4820050	water	Same mapped basin as line 37; lower basin not split in OSM
+39	west-dunbartonshire.txt	Bowling upper basin	resolved	55.9297406	-4.4820050	water	Same mapped basin as line 37; upper basin not split in OSM
+40	west-dunbartonshire.txt	Bowling beach	resolved	55.9282000	-4.4755000	beach	Approximate Clyde foreshore at Bowling harbour mouth
+41	west-dunbartonshire.txt	Bowling woodland	resolved	55.9328000	-4.4875000	wood	Approximate woodland strip south of Bowling (Great Western Road corridor)
+42	west-dunbartonshire.txt	Bowling shipyard	resolved	55.9294000	-4.4778000	industrial	Approximate historic shipyard footprint beside Bowling Harbour (heritage-trail label)
+43	west-dunbartonshire.txt	Bowling Hall	resolved	55.9314084	-4.4903308	townhall	OpenStreetMap Bowling Hall amenity
+44	west-dunbartonshire.txt	Bowling Church	not_found			church	No OSM/Nominatim church POI matching this Bowling name
+45	west-dunbartonshire.txt	Bowling railway station	resolved	55.9310545	-4.4929182	station	OpenStreetMap railway station node Bowling
+46	west-dunbartonshire.txt	Forth and Clyde Canal Bowling	resolved	55.9293212	-4.4771407	canal	OpenStreetMap Forth and Clyde Canal Towpath way at Bowling (canal corridor)
+47	west-dunbartonshire.txt	Forth and Clyde Canal sea lock Bowling	resolved	55.9296000	-4.4815000	lock	Approximate canal sea-lock / basin entrance at Bowling; no separate OSM name hit
+48	west-dunbartonshire.txt	Scottish Canals Bowling	resolved	55.9297406	-4.4820050	navigation	Scottish Canals operates Forth & Clyde at Bowling Basin; basin centroid used
+49	west-dunbartonshire.txt	NCN 7 Bowling	resolved	55.9293212	-4.4771407	cycleway	National Cycle Network route 7 follows canal towpath here (OSM towpath segment)
+50	west-dunbartonshire.txt	Old Kilpatrick Bowling Milton Heritage Trail	resolved	55.9305000	-4.4800000	trail	Approximate mid-corridor point along West Dunbartonshire heritage trail (canal/river strip)
+51	west-dunbartonshire.txt	Erskine Bridge	resolved	55.9204703	-4.4621734	bridge	OpenStreetMap Erskine Bridge (A898)
+52	west-dunbartonshire.txt	Erskine Bridge north approach	resolved	55.9235000	-4.4555000	road	Approximate north-west approach Old Kilpatrick / A82 side of Erskine Bridge
+53	west-dunbartonshire.txt	Napier and Miller shipyard site	resolved	55.9228000	-4.4575000	historic	Approximate former yard Clyde north bank Old Kilpatrick near Erskine Bridge; no OSM yard polygon
+54	west-dunbartonshire.txt	Dalmuir	resolved	55.9124430	-4.4279729	suburb	OpenStreetMap place suburb node Dalmuir
+55	west-dunbartonshire.txt	Dalmuir Shore	resolved	55.9102000	-4.4248000	shore	Approximate Clyde foreshore sector Dalmuir; no distinct OSM object
+56	west-dunbartonshire.txt	Dalmuir Park	ambiguous			park	Several local uses (parkland vs railway name); no single OSM feature named Dalmuir Park
+57	west-dunbartonshire.txt	Dalmuir Riverside	resolved	55.9058000	-4.4195000	waterfront	Approximate Clyde walkway / riverside sector Dalmuir (toward Erskine Bridge)
+58	west-dunbartonshire.txt	Dalmuir railway station	resolved	55.9115525	-4.4274577	station	OpenStreetMap Dalmuir Railway Station amenity polygon centroid
+59	west-dunbartonshire.txt	Golden Jubilee University Hospital shore	resolved	55.9052000	-4.4258000	shore	Clyde shore below Golden Jubilee National Hospital campus (hospital building OSM reference)
+60	west-dunbartonshire.txt	Clydebank	resolved	55.9026837	-4.4034151	town	OpenStreetMap Clydebank town place node
+61	west-dunbartonshire.txt	Clydebank waterfront	resolved	55.9012000	-4.4055000	shore	Approximate Clyde town-centre waterfront; corridor between OSM town node and river
+62	west-dunbartonshire.txt	Clydebank Riverside	resolved	55.9010000	-4.4062000	waterfront	Approximate central riverside/walkway sector; no single named OSM feature
+63	west-dunbartonshire.txt	Clydebank town centre shore	resolved	55.9022000	-4.4038000	shore	Approximate foreshore strip at town centre beside Clyde
+64	west-dunbartonshire.txt	Titan Clydebank	resolved	55.8973336	-4.4086936	attraction	OpenStreetMap Titan Crane (local "Titan" label)
+65	west-dunbartonshire.txt	Titan Crane Clydebank	resolved	55.8973336	-4.4086936	attraction	OpenStreetMap Titan Crane, Queens Quay area
+66	west-dunbartonshire.txt	Queens Quay Clydebank	resolved	55.8994434	-4.4082391	unclassified	OSM Queens Quay Main Avenue centroid (Kilbowie/Queens Quay)
+67	west-dunbartonshire.txt	John Brown's Shipyard site	resolved	55.8985000	-4.4088000	historic	Approximate redeveloped Queens Quay shipyard footprint; no dedicated OSM yard polygon
+68	west-dunbartonshire.txt	Clydebank Museum waterfront	resolved	55.9008163	-4.4080871	museum	OpenStreetMap Clydebank Museum and Art Gallery; waterfront context to Queens Quay corridor
+69	west-dunbartonshire.txt	Clyde Walkway Clydebank	resolved	55.9045000	-4.4180000	walkway	Approximate Clyde Walkway sector along Clyde bank in Clydebank/Dalmuir frontage; no WD-named OSM segment
+70	west-dunbartonshire.txt	Forth and Clyde Canal towpath Whitecrook	resolved	55.9022084	-4.3924269	cycleway	OpenStreetMap Forth and Clyde Canal Towpath in Whitecrook
+71	west-dunbartonshire.txt	Whitecrook shore	resolved	55.8982000	-4.3895000	shore	Approximate Clyde/canal foreshore near Whitecrook suburb; no distinct OSM object
+72	west-dunbartonshire.txt	Kilbowie	resolved	55.9084675	-4.4030742	suburb	OpenStreetMap suburb node Kilbowie
+73	west-dunbartonshire.txt	North Kilbowie	resolved	55.9054673	-4.4068210	locality	OSM North Avenue / Clydebank Business Park area (North Kilbowie context)
+74	west-dunbartonshire.txt	Parkhall	resolved	55.9181213	-4.4157450	suburb	OpenStreetMap Parkhall (Duntocher)
+75	west-dunbartonshire.txt	Radnor Park Clydebank	resolved	55.9147664	-4.4086640	suburb	OpenStreetMap Radnor Park suburb node
+76	west-dunbartonshire.txt	Linnvale	resolved	55.9030706	-4.3847093	suburb	OpenStreetMap Linnvale suburb node
+77	west-dunbartonshire.txt	Linnvale Shore	resolved	55.9024000	-4.3828000	shore	Approximate Clyde foreshore below Linnvale; no distinct OSM object
+78	west-dunbartonshire.txt	Drumry	resolved	55.9045970	-4.3854827	suburb	OpenStreetMap Drumry railway station node as area anchor
+79	west-dunbartonshire.txt	Mountblow	resolved	55.9199971	-4.4485752	suburb	OpenStreetMap Mountblow (Old Kilpatrick)
+80	west-dunbartonshire.txt	Craigton Lusset	resolved	55.9220275	-4.4562229	locality	No "Craigton Lusset" POI; anchored to OpenStreetMap The Glen Lusset pub (Mountblow/Old Kilpatrick canal strip, local "Lusset" usage)
+81	west-dunbartonshire.txt	Kilbowie Burn mouth Clyde	resolved	55.8925000	-4.4140000	water	Approximate burn mouth on north Clyde bank west of Scotstoun; confluence not separately mapped in OSM
+82	west-dunbartonshire.txt	Dalmuir Burn mouth Clyde	resolved	55.9108000	-4.4240000	water	Approximate Duntocher/Dalmuir burn confluence with Clyde near Dalmuir Shore; mouth not separately mapped
+83	west-dunbartonshire.txt	Singer Burn Clydebank shore	resolved	55.9078000	-4.4100000	water	Approximate last reach of Singer Burn toward Clyde near Singer/Kilbowie corridor; no mouth POI
+84	west-dunbartonshire.txt	Faifley	resolved	55.9286442	-4.3979459	village	OpenStreetMap Faifley place node
+85	west-dunbartonshire.txt	Faifley shore	resolved	55.9280000	-4.4040000	shore	Approximate Clyde-facing slope below Faifley; no distinct OSM object
+86	west-dunbartonshire.txt	Silverton	resolved	55.9459206	-4.5535555	suburb	OpenStreetMap Silverton (Dumbarton)
+87	west-dunbartonshire.txt	Overtoun	resolved	55.9521000	-4.5244000	locality	Approximate Overtoun estate/Garshake area west of Milton; centroid near mapped Overtoun features
+88	west-dunbartonshire.txt	Overtoun House	resolved	55.9522948	-4.5246827	attraction	OpenStreetMap Overtoun House (tourism)
+89	west-dunbartonshire.txt	Overtoun Bridge	resolved	55.9526831	-4.5253179	bridge	OpenStreetMap Overtoun Bridge footway
+90	west-dunbartonshire.txt	Dumbarton	resolved	55.9432443	-4.5708479	town	OpenStreetMap Dumbarton town place node
+91	west-dunbartonshire.txt	Dumbarton Castle	resolved	55.9366031	-4.5632192	castle	OpenStreetMap tourism node Dumbarton Castle
+92	west-dunbartonshire.txt	Dumbarton Rock	resolved	55.9366031	-4.5632192	rock	Nominatim returns same node as castle; rock is the volcanic plug landform
+93	west-dunbartonshire.txt	Dumbarton East	resolved	55.9423477	-4.5540413	station	OpenStreetMap Dumbarton East railway station
+94	west-dunbartonshire.txt	Dumbarton North	not_found			unknown	No Dumbarton North passenger station in National Rail (Central/East/Dalreoch only)
+95	west-dunbartonshire.txt	Dumbarton Central	resolved	55.9465247	-4.5676104	station	OpenStreetMap Dumbarton Central railway station
+96	west-dunbartonshire.txt	Dumbarton West	ambiguous			station	Historic signal-box name; west rail access is Dalreoch—no single coastal POI for this label
+97	west-dunbartonshire.txt	Dumbarton waterfront	resolved	55.9432000	-4.5685000	waterfront	Approximate Clyde frontage near town centre/High Street; no single OSM object
+98	west-dunbartonshire.txt	Dumbarton foreshore	resolved	55.9385000	-4.5550000	foreshore	Approximate intertidal Clyde strip east of Dumbarton Rock (Dumbarton East shore)
+99	west-dunbartonshire.txt	Dumbarton Harbour	resolved	55.9411850	-4.5673300	harbour	Sandpoint Marina published position (port directory); Leven-mouth moorings
+100	west-dunbartonshire.txt	Dumbarton East Bay	resolved	55.9390000	-4.5480000	bay	Approximate Clyde embayment east of the rock per local geography; no named OSM bay
+101	west-dunbartonshire.txt	Dumbarton Bridge	resolved	55.9443500	-4.5749000	bridge	Approximate Bridge Street crossing of River Leven (town centre)
+102	west-dunbartonshire.txt	Dumbarton railway station	resolved	55.9465247	-4.5676104	station	Primary town station is Dumbarton Central (historic “Dumbarton” name)
+103	west-dunbartonshire.txt	Levengrove Park	resolved	55.9402746	-4.5752194	park	OpenStreetMap leisure=park
+104	west-dunbartonshire.txt	Levengrove	resolved	55.9402746	-4.5752194	park	Local area name; anchored to Levengrove Park OSM centroid
+105	west-dunbartonshire.txt	Sandpoint Marina	resolved	55.9411850	-4.5673300	marina	Port directory coordinates; not a separate leisure=marina hit in Nominatim
+106	west-dunbartonshire.txt	River Leven mouth	resolved	55.9362000	-4.5585000	estuary	Approximate Leven–Clyde confluence at the rock; no dedicated mouth POI
+107	west-dunbartonshire.txt	River Leven Dumbarton	resolved	55.9410000	-4.5700000	river	Approximate town reach of River Leven between rock and Central area
+108	west-dunbartonshire.txt	Leven walkway	resolved	55.9405000	-4.5730000	path	Approximate NCN 7 / river bank path near Levengrove; no “Leven walkway” Nominatim match
+109	west-dunbartonshire.txt	Castle Road shore Dumbarton	resolved	55.9368000	-4.5595000	shore	Approximate Leven/Clyde shore at Castle Road approach; no distinct OSM object
+110	west-dunbartonshire.txt	Brucehill shore	resolved	55.9445000	-4.5900000	shore	Approximate Clyde-facing foot from Brucehill suburb toward estuary
+111	west-dunbartonshire.txt	Bellsmyre shore	resolved	55.9555000	-4.5550000	shore	Approximate Leven-side below Bellsmyre from suburb centroid toward river
+112	west-dunbartonshire.txt	Eastfield shore Dumbarton	resolved	55.9408000	-4.5495000	shore	Approximate Clyde/Silverton shore near Eastfield streets
+113	west-dunbartonshire.txt	Vale of Leven	ambiguous			valley	Strath along River Leven; could anchor to Alexandria, Renton, or valley axis—no single pin
+114	west-dunbartonshire.txt	Alexandria	resolved	55.9878736	-4.5822088	town	OpenStreetMap Alexandria place=town
+115	west-dunbartonshire.txt	Alexandria waterfront	resolved	55.9888000	-4.5845000	waterfront	Approximate River Leven frontage central Alexandria; no single OSM object
+116	west-dunbartonshire.txt	Alexandria Pier	not_found			pier	No distinct public “Alexandria Pier” in OSM/Nominatim; frontage is general walkway
+117	west-dunbartonshire.txt	Loch Lomond Galleries Alexandria	resolved	55.9926000	-4.5853000	mall	Geograph/Wikimedia object coords for Lomond Galleries (former factory outlets site)
+118	west-dunbartonshire.txt	Argyll Motor Works Alexandria	resolved	55.9919000	-4.5838000	attraction	Wikipedia coordinates; same Category A building complex as Lomond Galleries (separate input line)
+119	west-dunbartonshire.txt	Bonhill	resolved	55.9816349	-4.5733016	town	OpenStreetMap Bonhill place=town
+120	west-dunbartonshire.txt	Bonhill Bridge	resolved	55.9848506	-4.5731721	bridge	OpenStreetMap Bonhill Bridge highway way centroid
+121	west-dunbartonshire.txt	Bonhill shore	resolved	55.9824000	-4.5740000	shore	River Leven frontage Bonhill; approximate waterfront strip
+122	west-dunbartonshire.txt	Dalmonach	resolved	55.9882786	-4.5690182	locality	OpenStreetMap Dalmonach (Alexandria area)
+123	west-dunbartonshire.txt	Dalmonach shore	resolved	55.9888000	-4.5685000	shore	Approximate Leven/Clyde corridor waterfront Dalmonach; no distinct OSM object
+124	west-dunbartonshire.txt	Renton	resolved	55.9703118	-4.5863543	village	OpenStreetMap Renton place node
+125	west-dunbartonshire.txt	Renton shore	resolved	55.9710000	-4.5868000	shore	Approximate River Leven foreshore Renton; no distinct OSM object
+126	west-dunbartonshire.txt	Renton Victoria Bridge	resolved	55.9707800	-4.5827500	bridge	Canmore NRHE 277964 footbridge centre of span (published NGR coords)
+127	west-dunbartonshire.txt	Tulloch Renton	resolved	55.9722000	-4.5845000	locality	Tulloch sector Renton; approximate centroid near Tulloch Road
+128	west-dunbartonshire.txt	Millburn Park Vale shore	resolved	55.9850000	-4.5810000	shore	Approximate Leven bank below Millburn Park Vale/Alexandria; no WD-named OSM shore
+129	west-dunbartonshire.txt	Balloch	resolved	56.0040003	-4.5788823	town	OpenStreetMap place=town Balloch
+130	west-dunbartonshire.txt	Balloch Bridge	resolved	56.0033900	-4.5818500	bridge	Canmore NRHE 75491 Balloch Road bridge over River Leven (structure centre)
+131	west-dunbartonshire.txt	Balloch Pier	resolved	56.0087000	-4.5914100	pier	Canmore NRHE 127162 Balloch Pier published coordinates
+132	west-dunbartonshire.txt	Balloch railway station	resolved	56.0023629	-4.5832835	station	OpenStreetMap Balloch railway station node
+133	west-dunbartonshire.txt	Balloch Road shore	resolved	56.0032000	-4.5825000	shore	Approximate Leven/Balloch Road corridor waterfront; no single OSM object
+134	west-dunbartonshire.txt	Haldane	resolved	56.0047270	-4.5688443	residential	OpenStreetMap Haldane (Fisherwood/Balloch)
+135	west-dunbartonshire.txt	Haldane shore	resolved	56.0055000	-4.5705000	shore	Approximate loch margin below Haldane; no distinct OSM object
+136	west-dunbartonshire.txt	Balloch Castle	resolved	56.0130300	-4.5836900	castle	Historic Environment Scotland LB123 listed building coordinates
+137	west-dunbartonshire.txt	Balloch Castle Country Park	resolved	56.0115148	-4.5842977	park	OpenStreetMap Balloch Castle Country Park leisure polygon centroid
+138	west-dunbartonshire.txt	Balloch Country Park	resolved	56.0115148	-4.5842977	park	Same mapped country park as line 137; separate input line per pass-1 rules
+139	west-dunbartonshire.txt	Loch Lomond Shores	resolved	56.0059090	-4.5922074	attraction	OpenStreetMap Loch Lomond Shores leisure area
+140	west-dunbartonshire.txt	Loch Lomond Shores pier	resolved	56.0062000	-4.5924000	pier	Approximate visitor pier/jetty at Loch Lomond Shores; not separately named in OSM
+141	west-dunbartonshire.txt	Drumkinnon Bay	resolved	56.0077810	-4.5909640	bay	HES LB46721 / Canmore slipway coords (Drumkinnon Bay winch house & slipway)
+142	west-dunbartonshire.txt	Maid of the Loch	resolved	56.0085000	-4.5907000	attraction	Approximate PS Maid of the Loch berth Drumkinnon/Balloch Pier; no dedicated OSM vessel POI
+143	west-dunbartonshire.txt	Sweeney's Cruise Balloch	resolved	56.0082000	-4.5908000	attraction	Approximate cruise operator base Balloch Pier/Drumkinnon sector
+144	west-dunbartonshire.txt	Duncan Mills Memorial Slipway	resolved	56.0080310	-4.5913000	slipway	Geograph Commons depicted-place coordinates (Pier Road public slip)
+145	west-dunbartonshire.txt	NSPCC Loch Lomond Cycle Path Balloch	resolved	56.0065000	-4.5890000	cycleway	Approximate NCN / Loch Lomond cycleway sector Balloch lochshore
+146	west-dunbartonshire.txt	Duck Bay	resolved	56.0162100	-4.6105800	bay	Canmore NRHE 137758 Duck Bay / Lomond Castle Hotel coordinates
+147	west-dunbartonshire.txt	Duck Bay Marina	resolved	56.0167520	-4.6111000	marina	Visitor/paddling-site coordinates; marina beside Duck Bay complex
+148	west-dunbartonshire.txt	Duck Bay Hotel	resolved	56.0162100	-4.6105800	hotel	Same Canmore hotel centroid as Duck Bay (Lomond Castle Hotel)
+149	west-dunbartonshire.txt	Duck Bay beach	resolved	56.0160000	-4.6100000	beach	Approximate shingle beach Duck Bay; no separate OSM beach polygon
+150	west-dunbartonshire.txt	Arden	resolved	56.0200000	-4.6300000	village	Wikipedia/Wikishire village coords (~56.02N 4.63W) Loch Lomond SW shore
+151	west-dunbartonshire.txt	Arden Loch Lomond shore	resolved	56.0270000	-4.6310000	shore	Approximate lochshore east of Arden (Nominatim place=Arden Argyll and Bute ~56.0267,-4.6325 shifted toward loch)
+152	west-dunbartonshire.txt	Inchmurrin	resolved	56.0495683	-4.6025983	island	OpenStreetMap/Nominatim Inchmurrin place node
+153	west-dunbartonshire.txt	Inchmurrin north end	resolved	56.0820000	-4.5850000	island	Approximate north end Inchmurrin; no separate OSM object
+154	west-dunbartonshire.txt	Inchfad	resolved	56.0844099	-4.5732873	island	OpenStreetMap/Nominatim Inchfad
+155	west-dunbartonshire.txt	Inchcailloch	resolved	56.0780537	-4.5577431	island	OpenStreetMap/Nominatim Inchcailloch
+156	west-dunbartonshire.txt	Gartocharn	resolved	56.0423169	-4.5261268	village	OpenStreetMap/Nominatim Gartocharn
+157	west-dunbartonshire.txt	Gartocharn Loch Lomond shore	resolved	56.0380000	-4.5380000	shore	Approximate SE Loch Lomond shore sector served from Gartocharn; no single named OSM object
+158	west-dunbartonshire.txt	Ross Priory	resolved	56.0544680	-4.5474003	attraction	OpenStreetMap/Nominatim Ross Priory (Strathclyde/Gartocharn)
+159	west-dunbartonshire.txt	Ross Priory Loch Lomond	resolved	56.0544680	-4.5474003	attraction	Same mapped priory grounds as line 158; separate input line per pass-1 rules
+160	west-dunbartonshire.txt	Auchentullich Bay	resolved	56.0457600	-4.6409500	bay	Canmore NRHE 129096 NS 356 868 (Auchintullich/Auchentullich Bay) published coordinates
+161	west-dunbartonshire.txt	Balmaha Road Balloch shore	resolved	56.0180000	-4.6220000	road	Approximate A811/Balmaha Road lochshore approach from Balloch; no dedicated OSM name hit
+162	west-dunbartonshire.txt	Loch Lomond south-east shore Balloch	resolved	56.0080000	-4.5900000	shore	Approximate SE lochshore Drumkinnon/Balloch sector; broad heritage label
+163	west-dunbartonshire.txt	National Cycle Route 7 Loch Lomond Balloch	resolved	56.0065000	-4.5890000	cycleway	NCN 7 follows lochshore cycleway here; aligned with line 145 sector coordinates
+164	west-dunbartonshire.txt	Core Path Loch Lomond Balloch	resolved	56.0063000	-4.5885000	path	Approximate Loch Lomond core path network Balloch lochshore; co-located with NCN corridor
+165	west-dunbartonshire.txt	Vale of Leven Way Leven mouth	resolved	56.0005000	-4.5705000	river_mouth	Approximate River Leven mouth at Loch Lomond (Balloch); route mouth sector
+166	west-dunbartonshire.txt	Clyde Coastal Path Old Kilpatrick	resolved	55.9245000	-4.4580000	path	Approximate Clyde Walkway/coastal path sector Old Kilpatrick; no single Nominatim hit
+167	west-dunbartonshire.txt	Three Villages Path Clyde	resolved	55.9310000	-4.4700000	path	Approximate heritage path linking Old Kilpatrick/Bowling/Milton; corridor centroid
+168	west-dunbartonshire.txt	Bowling Harbour beach	resolved	55.9282000	-4.4755000	beach	Approximate foreshore at Bowling Harbour mouth; aligned with prior Bowling beach sector
+169	west-dunbartonshire.txt	Bowling Harbour picnic	resolved	55.9290000	-4.4765000	picnic_site	Approximate harbour picnic area; no separate OSM POI
+170	west-dunbartonshire.txt	Clydebank Blitz memorial shore	resolved	55.9230900	-4.4422500	memorial	Geograph/Wikimedia object coords for Clydebank Blitz memorial (Old Dalnottar Cemetery); principal memorial not on Clyde shore
+171	west-dunbartonshire.txt	Queens Quay crane viewpoint	resolved	55.8973400	-4.4087300	viewpoint	Canmore NRHE 238492 John Brown shipyard giant cantilever (Titan) crane coords; Queens Quay regeneration area
+172	west-dunbartonshire.txt	John Brown's Quay	resolved	55.8966700	-4.4054400	quay	Canmore NS46NE 29 NS 49688 69676 John Brown shipyard / Queen's Quay published centre
+173	west-dunbartonshire.txt	Clydebank College Riverside	resolved	55.8960400	-4.4049900	college	OpenStreetMap West College Scotland Clydebank Campus (legacy Clydebank College riverside)
+174	west-dunbartonshire.txt	West College Scotland Clyde Riverside	resolved	55.8960400	-4.4049900	college	Same campus as line 173; separate input line per pass-1 rules
+175	west-dunbartonshire.txt	Mountblow Shore	resolved	55.9190000	-4.4480000	shore	Approximate Clyde shore off Mountblow (Nominatim Mountblow centroid toward river)
+176	west-dunbartonshire.txt	Linnvale play park shore	resolved	55.9105000	-4.4370000	playground	Approximate Linnvale play park / Leven corridor shore; no Nominatim hit
+177	west-dunbartonshire.txt	Drumry shore	resolved	55.9046000	-4.4042000	shore	Approximate Clyde/Leven corridor from Drumry (Nominatim Drumry locality node as anchor)
+178	west-dunbartonshire.txt	Faifley Castlehill shore	resolved	55.9175000	-4.4510000	shore	Approximate Faifley Castlehill sector toward Clyde; no Nominatim hit
+179	west-dunbartonshire.txt	Dumbarton FC stadium shore	resolved	55.9384000	-4.5617000	stadium	OpenStreetMap Dumbarton Football Stadium; shore label for Leven/Clyde walkway sector
+180	west-dunbartonshire.txt	Strathleven Place shore	resolved	55.9458000	-4.5644000	shore	Nominatim Strathleven Place Dumbarton; Leven/Townend waterfront sector
+181	west-dunbartonshire.txt	Balloch visitor moorings	resolved	56.0065000	-4.5895000	moorings	Approximate Drumkinnon Bay/Lomond Shores visitor boating sector; national-park slip site is launch/retrieve not overnight mooring
+182	west-dunbartonshire.txt	Balloch slipway	resolved	56.0049474	-4.5864666	slipway	OpenStreetMap Pier Road centroid; Duncan Mills Memorial Slipway (Drumkinnon Bay) on this road
+183	west-dunbartonshire.txt	Balloch Lomond pier	resolved	56.0059090	-4.5922074	pier	OpenStreetMap Loch Lomond Shores leisure=park centroid; Lomond pier/cruise sector Drumkinnon
+184	west-dunbartonshire.txt	LLTNP Balloch hub	resolved	56.0032945	-4.5750648	visitor_centre	Loch Lomond and The Trossachs National Park Authority HQ Carrochan Road G83 8EG; OSM Carrochan Road centroid
+185	west-dunbartonshire.txt	Inchmurrin ferry Balloch	ambiguous			ferry	Scheduled Inchmurrin passenger ferry uses Burnfoot jetty Arden off A82, not Balloch; Balloch has cruises to other islands
+186	west-dunbartonshire.txt	Loch Lomond Sea Life historic Balloch	resolved	56.0058441	-4.5910975	aquarium	OpenStreetMap Loch Lomond Sea Life Centre (Drumkinnon Tower); historic wording treated as heritage-trail label
+187	west-dunbartonshire.txt	De Vere hotel Balloch shore	resolved	56.0100592	-4.6020974	hotel	OpenStreetMap Cameron House on Loch Lomond leisure=marina node; lochshore hotel complex long linked with former De Vere branding
+188	west-dunbartonshire.txt	Maid of Loch pier Balloch	resolved	56.0077953	-4.5911026	historic_ship	OpenStreetMap Maid of the Loch (paddle steamer) beside Drumkinnon pier/slip sector
+189	west-dunbartonshire.txt	Alexandria boat club Leven	not_found			boat_club	No OpenStreetMap/Nominatim boat club on River Leven at Alexandria matching this label
+190	west-dunbartonshire.txt	Renton rowing Leven	not_found		rowing	No OpenStreetMap rowing-club POI at Renton/Leven matching this label
+191	west-dunbartonshire.txt	Bonhill Dam Leven	ambiguous			dam	No single named dam in OSM along River Leven at Bonhill; may mean weir/mill works—multiple indistinct structures
+192	west-dunbartonshire.txt	Dalmonach industrial Leven	resolved	55.9882786	-4.5690182	industrial	OpenStreetMap Dalmonach neighbourhood; former mill/industrial zone beside River Leven
+193	west-dunbartonshire.txt	Vale of Leven Academy shore	resolved	55.9798160	-4.5809416	school	OpenStreetMap Vale of Leven Academy; shore read as River Leven frontage sector
+194	west-dunbartonshire.txt	Christie Park Alexandria	resolved	55.9896947	-4.5862578	park	OpenStreetMap Christie Park leisure=park
+195	west-dunbartonshire.txt	Myrtle Park Renton	not_found			park	No park named Myrtle Park verified for Renton in OSM or national sources
+196	west-dunbartonshire.txt	Smollett Fountain Renton	resolved	55.9696600	-4.5843100	monument	Canmore NRHE 198445 Renton Main Street Smollett Monument (listed LB1168); distinct from Alexandria Smollett Fountain
+197	west-dunbartonshire.txt	Leven river walk Bonhill	resolved	55.9816349	-4.5733016	path	Approximate River Leven walkway sector Bonhill; anchored to OpenStreetMap Bonhill town node
+198	west-dunbartonshire.txt	River Leven cycle route	resolved	55.9420000	-4.5700000	cycleway	Approximate National Cycle Network/Leven corridor through Dumbarton; broad route label
+199	west-dunbartonshire.txt	Leven towpath Dumbarton	resolved	55.9425000	-4.5685000	path	Approximate River Leven towpath/walkway Townend/Dumbarton sector
+200	west-dunbartonshire.txt	Castle View Dumbarton Rock	resolved	55.9385000	-4.5685000	viewpoint	Approximate Levengrove/Dumbarton Rock viewshed sector; interpretive coastal label
+201	west-dunbartonshire.txt	Dumbarton Harbour slip	resolved	55.9434200	-4.5631200	harbour_slip	Approximate Townend waterfront slip sector; Scottish Maritime Museum Denny Tank Wikipedia coords as nearby maritime-heritage anchor
+202	west-dunbartonshire.txt	Levengrove bandstand	resolved	55.9407000	-4.5748000	bandstand	Approximate historic bandstand locus per West Dunbartonshire Council park heritage notes; within Levengrove Park
+203	west-dunbartonshire.txt	West Bay Dumbarton	resolved	55.9445000	-4.5735000	bay	Approximate Clyde west bay sector off Dumbarton Rock/Townend
+204	west-dunbartonshire.txt	East Bay Dumbarton	resolved	55.9470000	-4.5660000	bay	Approximate Clyde east bay sector toward Dalreoch/Castle Road
+205	west-dunbartonshire.txt	Rock Road Dumbarton	not_found			road	No OpenStreetMap highway named Rock Road Dumbarton; castle accessed via Castle Road
+206	west-dunbartonshire.txt	Glencairn Street shore Clydebank	not_found			road	No Glencairn Street match in OpenStreetMap for Clydebank; verify local street spelling
+207	west-dunbartonshire.txt	Hall Street Clydebank shore	resolved	55.9009000	-4.4088000	shore	OpenStreetMap Hall Street Kilbowie centroid shifted slightly toward River Clyde waterfront
+208	west-dunbartonshire.txt	Abbotshaugh Burn mouth	not_found			stream	No Abbotshaugh Burn in West Dunbartonshire OSM; Abbotshaugh toponyms elsewhere are Falkirk/Grangemouth canal corridor
+209	west-dunbartonshire.txt	Dalreoch railway shore Dumbarton	resolved	55.9475000	-4.5780000	shore	Approximate River Leven/Clyde shore sector near Dalreoch station
+210	west-dunbartonshire.txt	Dumbarton Central shore path	resolved	55.9462000	-4.5665000	path	Approximate waterfront path sector near Dumbarton Central station and River Leven mouth
+211	west-dunbartonshire.txt	Pier Alexandria	resolved	55.9893500	-4.5763200	pier	Approximate River Leven waterfront pier/walkway sector Alexandria; Geograph subject NS 3937 8035 near former Alexandria Works
+212	west-dunbartonshire.txt	Bonhill Parish Church shore	resolved	55.9827000	-4.5729000	shore	OpenStreetMap Bonhill Parish Church node offset east toward River Leven bank
+213	west-dunbartonshire.txt	Dalmonach Wynd Leven	resolved	55.9882786	-4.5690182	path	OpenStreetMap Dalmonach locality; Wynd not separately mapped
+214	west-dunbartonshire.txt	Tontine Park Renton	resolved	55.9654772	-4.5823781	road	OpenStreetMap Tontine Park residential way centroid Renton
+215	west-dunbartonshire.txt	Balloch Road cycle Loch	resolved	56.0064114	-4.5780500	cycleway	OpenStreetMap National Cycle Route 7 pedestrian/cycle segment Mollanbowie/Balloch
+216	west-dunbartonshire.txt	Loch Lomond Gateway Balloch	resolved	56.0059090	-4.5922074	attraction	OpenStreetMap Loch Lomond Shores visitor/retail gateway Balloch
+217	west-dunbartonshire.txt	Trossachs Trail Balloch	resolved	56.0064114	-4.5780500	path	Active travel corridor at Balloch (NCN 7) links toward Loch Lomond/Trossachs; no distinct Trossachs Trail POI in OSM here
+218	west-dunbartonshire.txt	Henry Bell Monument Old Kilpatrick	resolved	55.9293852	-4.5021795	monument	OpenStreetMap Henry Bell Monument; mapped on Dumbarton Road Bowling/A82 corridor
+219	west-dunbartonshire.txt	Bay Inn Old Kilpatrick	resolved	55.9305929	-4.4847029	pub	OpenStreetMap The Bay Inn; mapped Bowling sector though list qualifier says Old Kilpatrick
+220	west-dunbartonshire.txt	Glen Lusset Scout Hall Saltings	resolved	55.9220275	-4.4562229	scout	OpenStreetMap The Glen Lusset building Mountblow; Scout Hall/saltings not separate objects
+221	west-dunbartonshire.txt	Esso tank farm remediation shore Old Kilpatrick	resolved	55.9265000	-4.4485000	shore	Approximate industrial foreshore Mountblow/Old Kilpatrick; no named remediation POI in OSM
+222	west-dunbartonshire.txt	Disused Lanarkshire and Dunbartonshire Railway Bowling	resolved	55.9298199	-4.4772467	railway	Approximate disused rail alignment beside OpenStreetMap Bowling Harbour
+223	west-dunbartonshire.txt	Shipyard Cottages Bowling	not_found			unknown	No Shipyard Cottages match in OpenStreetMap/Nominatim for Bowling
+224	west-dunbartonshire.txt	Bowling Harbour NC7 start	resolved	55.9298199	-4.4772467	harbour	OpenStreetMap Bowling Harbour; NCN 7 connects locally per council cycle mapping
+225	west-dunbartonshire.txt	Old Kilpatrick Burn mouth Clyde	resolved	55.9228000	-4.4578000	stream	Approximate burn confluence to Clyde Mountblow/Old Kilpatrick sector; not a mapped mouth node
+226	west-dunbartonshire.txt	Milton Burn mouth Clyde	resolved	55.9315000	-4.5120000	stream	Approximate Milton/Bowling burn mouth toward Clyde from Milton/Dumbuck area
+227	west-dunbartonshire.txt	Bowling Burn mouth Clyde	resolved	55.9305000	-4.4765000	stream	Approximate Bowling Burn confluence near Bowling Harbour
+228	west-dunbartonshire.txt	A82 Clyde viewpoint Old Kilpatrick	resolved	55.9205000	-4.4650000	viewpoint	Approximate elevated A82 Clyde views Old Kilpatrick sector; no signed viewpoint POI
+229	west-dunbartonshire.txt	Great Western Road Clyde shore Old Kilpatrick	resolved	55.9225000	-4.4585000	shore	Approximate Great Western Road Clyde foreshore Old Kilpatrick
+230	west-dunbartonshire.txt	Dumbarton Road shore Old Kilpatrick	resolved	55.9265000	-4.4605000	shore	Approximate Dumbarton Road Clyde frontage Old Kilpatrick/Mountblow
+231	west-dunbartonshire.txt	Stirling Road shore Bowling	resolved	55.9312000	-4.4748000	shore	Approximate Stirling Road approach to Clyde at Bowling
+232	west-dunbartonshire.txt	Clyde Coastal Route Bowling	resolved	55.9295000	-4.4775000	cycleway	Approximate Clyde coastal cycle/walk corridor Bowling Harbour sector
+233	west-dunbartonshire.txt	Queens Quay Glasgow road Clydebank approach	resolved	55.8994434	-4.4082391	road	OpenStreetMap Queens Quay Main Avenue Kilbowie/Clydebank
+234	west-dunbartonshire.txt	Singer railway station Clydebank shore path	resolved	55.9085000	-4.4035000	path	OpenStreetMap Singer locality; approximate path toward Clyde from Kilbowie shore
+235	west-dunbartonshire.txt	John Brown Memorial Park shore	resolved	55.8942900	-4.4053900	park	Canmore NRHE 278726 John Brown shipyard slipway centroid; informal memorial park/waterfront realm
+236	west-dunbartonshire.txt	Peel Park Clydebank shore	not_found			park	No Peel Park listed for Clydebank in council sources; OSM has Peel View street only
+237	west-dunbartonshire.txt	North Clyde railway line shore Dalmuir	resolved	55.9102000	-4.4295000	railway	Approximate North Clyde line Dalmuir sector toward Clyde; anchored near Dalmuir station
+238	west-dunbartonshire.txt	River Leven Barrage Balloch	resolved	55.9991600	-4.5784400	weir	Canmore NRHE 277883 Balloch River Leven barrage centre NS 39299 81468
+239	west-dunbartonshire.txt	River Leven Barrage portage	resolved	55.9989000	-4.5787000	portage	Adjacent to Canmore barrage centre; approximate canoe portage/ladder sector
+240	west-dunbartonshire.txt	Loch Lomond Water Scheme intake Balloch	resolved	56.0002500	-4.5791000	intake	Loch Lomond Water Scheme tied to barrage; point shifted slightly upstream toward loch from Canmore barrage centre
+241	west-dunbartonshire.txt	River Leven footbridge Dumbarton	resolved	55.9443036	-4.5752856	bridge	Listed Dumbarton Bridge over River Leven (HES/Canmore NS 39268 75358); carries pedestrian footways—lowest town crossing
+242	west-dunbartonshire.txt	Stuckie Bridge Leven	resolved	55.9982137	-4.5705798	footbridge	Former Forth & Clyde Junction Railway viaduct; now pedestrian NCN crossing (local name Stuckie/Stirling Bridge); approximate midspan OSGB→WGS84
+243	west-dunbartonshire.txt	College Park Dumbarton shore	resolved	55.9595179	-4.5749826	shore	Approximate River Leven east-bank foreshore College Way / former Lost Lagoon infill sector; no distinct “College Park” polygon in OSM
+244	west-dunbartonshire.txt	Mollanbowie Wood Balloch shore	resolved	56.0005909	-4.5664872	wood	Approximate Mollanbowie Estate woodland edge toward Loch Lomond; anchored from OS Landform context
+245	west-dunbartonshire.txt	NCN Route 40 Balloch	resolved	55.9992000	-4.5788000	cycleway	National Cycle Network corridor through Balloch (NCN 7 mapped; “Route 40” not separately geocoded—point on Leven-side path near barrage sector)
+246	west-dunbartonshire.txt	Balloch Cottages Loch shore	resolved	55.9966752	-4.5602935	cottages	Approximate Drumkinnon Bay / Loch Lomond foreshore cottages belt south of Balloch pier sector
+247	west-dunbartonshire.txt	Arden House Loch Lomond	resolved	56.0257400	-4.6295200	country_house	Canmore NRHE 42495 Arden House NS 36227 84546 (OSGB published lat/lon)
+248	west-dunbartonshire.txt	Jamestown Balloch	resolved	55.9983833	-4.5707645	village	OpenStreetMap Jamestown Primary School centroid; village anchor on east bank Leven
+249	west-dunbartonshire.txt	Jamestown Parish Church Balloch	resolved	55.9981635	-4.5708331	church	HES/Canmore Jamestown Parish Church NS 39769 81340 (OSGB→WGS84 via EPSG:27700→4326)
+250	west-dunbartonshire.txt	Tullichewan	resolved	55.9965864	-4.5880567	locality	OpenStreetMap Tullichewan Crescent neighbourhood centroid Alexandria/Balloch fringe
+251	west-dunbartonshire.txt	Tullichewan Balloch shore	resolved	55.9978000	-4.5840000	shore	Approximate Loch Lomond foreshore between Tullichewan built-up area and Balloch (no single named OSM beach polygon)
+252	west-dunbartonshire.txt	Fisher Wood Balloch	resolved	55.9990187	-4.5642979	wood	Approximate Fisher Wood tract north of Balloch; no single OSM forest polygon with this exact name
+253	west-dunbartonshire.txt	Lomond Road bridge Balloch	resolved	56.0016020	-4.5810420	bridge	OpenStreetMap “Lomond Bridge” (listed Lomond Road bridge cluster); River Leven road crossing
+254	west-dunbartonshire.txt	Drymen Road Balloch shore	resolved	56.0060000	-4.5775000	shore	Approximate Drymen Road sector at Drumkinnon Bay / Loch Lomond shoreline (OSM road geometry toward loch)
+255	west-dunbartonshire.txt	Bonhill Weir Leven	resolved	55.9991600	-4.5784400	weir	Scottish Water River Leven barrage / flow-control weir complex Balloch (trail literature sometimes “Bonhill weir”); Canmore barrage centre reused
+256	west-dunbartonshire.txt	Sandbank Marina Dumbarton	resolved	55.9411850	-4.5673300	marina	Sandpoint Marina Woodyard Road Dumbarton (commonly charted as “Sandpoint”; list label “Sandbank”)
+257	west-dunbartonshire.txt	Broadmeadow Industrial Estate Leven shore	resolved	55.9544586	-4.5719230	industrial	Approximate Broadmeadow Industrial Estate River Leven frontage Alexandria / former lagoon margin
+258	west-dunbartonshire.txt	Victoria Shipbuilding Yard site Leven	resolved	55.9432593	-4.5658950	historic_shipyard	Approximate 1860-map Victoria Ship Building Yard slipway sector between Denny works and Dumbarton Rock
+259	west-dunbartonshire.txt	Leven Shipyard Basin Dumbarton	resolved	55.9438545	-4.5632116	basin	Approximate surviving McMillan/Leven wet basin footprint from heritage mapping (waterfront redevelopment)
+260	west-dunbartonshire.txt	Meadow Industrial Leven historic mudflats	resolved	55.9576971	-4.5631656	mudflats	Approximate Meadow Industrial Estate historic intertidal / reclaimed Leven margin (no modern mudflat polygon)
+261	west-dunbartonshire.txt	Lost Lagoon Leven historic	resolved	55.9600001	-4.5734124	historic_centroid	Approximate centre of infilled “Lost Lagoon” mudflat (College Way / Broadmeadow sector) from local heritage descriptions
+262	west-dunbartonshire.txt	Loch Lomond Rowing Club Balloch	resolved	55.9996910	-4.5800070	rowing_club	Wikipedia/infobox coordinates; Heather Avenue River Leven clubhouse

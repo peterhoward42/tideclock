@@ -1,0 +1,167 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	essex.txt	Purfleet	resolved	51.4839	0.2425	town	Thurrock; Thames north bank settlement centre.
+2	essex.txt	Purfleet-on-Thames	resolved	51.4751	0.2377	town	Official name of Purfleet; GeoHack/Wikipedia centroid.
+3	essex.txt	Purfleet Riverside	resolved	51.4762	0.2392	residential	Thames-side regeneration frontage W of town centre.
+4	essex.txt	West Thurrock	resolved	51.483	0.282	industrial	A13/Thames Gateway area W of Grays; settlement centroid.
+5	essex.txt	Grays	resolved	51.4775	0.32	town	Thurrock town centre (ceremonial Essex).
+6	essex.txt	Grays Beach	resolved	51.476	0.318	beach	Thames foreshore below Grays town centre.
+7	essex.txt	Tilbury	resolved	51.4628	0.3619	town	Thurrock port town on Thames.
+8	essex.txt	Tilbury Riverside	resolved	51.4625	0.3645	ferry	Gravesend ferry / riverside frontage.
+9	essex.txt	Tilbury Docks	resolved	51.464	0.3458	harbour	Port of Tilbury container / docks complex.
+10	essex.txt	Tilbury Fort	resolved	51.45278	0.37472	fort	English Heritage artillery fort on Thames bend.
+11	essex.txt	Coalhouse Point	resolved	51.45161	0.43578	headland	Henrician blockhouse point E of Tilbury; Coalhouse Fort nearby.
+12	essex.txt	East Tilbury	resolved	51.468	0.419	village	Village and fort area on Lower Hope Reach.
+13	essex.txt	Stanford-le-Hope	resolved	51.5133	0.4228	town	Inland Thurrock town near Thames marshes.
+14	essex.txt	Corringham	resolved	51.5206	0.4561	town	Built-up area N of Thameside oil storage / Hole Haven.
+15	essex.txt	Mucking Marshes	resolved	51.496	0.449	marsh	SSSI mudflats/saltmarsh E of Tilbury (Mucking Flats and Marshes).
+16	essex.txt	Mucking Flats	resolved	51.48	0.441	mudflat	Intertidal flats within Mucking Flats and Marshes SSSI.
+17	essex.txt	Thurrock Thameside	resolved	51.49	0.43	nature_reserve	Interpreted as Thurrock Thameside Nature Park (ex-landfill reserve).
+18	essex.txt	Chadwell St Mary Riverside	resolved	51.4705	0.3555	marsh	Thames/marsh edge S of Chadwell St Mary built-up area.
+19	essex.txt	Orsett Marshes	resolved	51.506	0.378	marsh	Saltmarsh/mudflats S of Orsett toward Thames.
+20	essex.txt	Hole Haven	resolved	51.518	0.522	creek	Inlet between Canvey and Corringham (Holehaven Creek SSSI).
+21	essex.txt	Canvey Island	resolved	51.525	0.5725	settlement	Island town centroid (Castle Point/Thames Estuary).
+22	essex.txt	Canvey Dutch Village	resolved	51.52508	0.5566	attraction	Dutch Cottage Museum / historic Dutch-worker settlement focus.
+23	essex.txt	Canvey Point	resolved	51.5355	0.587	headland	North shore foreland toward Hole Haven / Thames.
+24	essex.txt	Thorney Bay	resolved	51.5132	0.5861	beach	Sandy bay and park off Thorney Bay Road.
+25	essex.txt	Concord Beach	resolved	51.5088	0.591	beach	Tidal pool / Concord seafront strip on Eastern Esplanade.
+26	essex.txt	Labworth Beach	resolved	51.5118	0.5947	beach	Sandy strip by Labworth Café; Geograph/Wikipedia vicinity.
+27	essex.txt	Canvey Seafront	resolved	51.5145	0.5875	seafront	Representative pin along main developed sea wall/Eastern Esplanade.
+28	essex.txt	Smallgains Creek	resolved	51.5205	0.552	creek	Inlet/creek on W side of Canvey toward Benfleet Creek.
+29	essex.txt	Ostend Canvey	resolved	51.527	0.561	hamlet	Ostend locality eastern Canvey near sea wall.
+30	essex.txt	Two Tree Island	resolved	51.53623	0.62858	nature_reserve	Leigh/Canvey side nature reserve; Wikipedia centroid.
+31	essex.txt	Leigh-on-Sea	resolved	51.5425	0.6535	town	Southend-on-Sea parish; Wikipedia/GeoHack centroid.
+32	essex.txt	Leigh on Sea	resolved	51.5425	0.6535	town	Same settlement as Leigh-on-Sea; alternate spacing on source line.
+33	essex.txt	Old Leigh	resolved	51.5392	0.6615	harbour	Historic cockle-boat waterfront (Old Town) E of Leigh centre.
+34	essex.txt	Bell Wharf Leigh	resolved	51.5387	0.6605	wharf	Bell Wharf on Old Leigh backwater.
+35	essex.txt	Hadleigh	resolved	51.5535	0.6095	town	Castle Point town; Wikipedia Hadleigh, Essex.
+36	essex.txt	Hadleigh Marsh	resolved	51.548	0.614	marsh	Thames-side marsh/SSSI belt S of Hadleigh built-up area.
+37	essex.txt	Benfleet	resolved	51.5528	0.5615	town	Built-up area around Benfleet / South Benfleet (Castle Point).
+38	essex.txt	South Benfleet	resolved	51.5541	0.5594	town	Principal settlement name; station/centroid vicinity.
+39	essex.txt	Benfleet Creek	resolved	51.556	0.5545	creek	Tidal creek between Canvey and mainland near Benfleet.
+40	essex.txt	Hullbridge	resolved	51.6221	0.6132	village	Rochford parish; OS Open Names centre (River Crouch N boundary).
+41	essex.txt	Paglesham	resolved	51.5785	0.7895	village	Rochford district village on Roach estuary.
+42	essex.txt	Paglesham Reach	resolved	51.582	0.796	reach	Widening of River Roach E of Paglesham.
+43	essex.txt	Barling	resolved	51.5685	0.8555	village	Small Rochford parish village near Maplin Sands coast.
+44	essex.txt	Rochford Marshes	resolved	51.572	0.748	marsh	Saltmarsh/mudflats between Rochford and River Roach.
+45	essex.txt	Westcliff-on-Sea	resolved	51.5359	0.697	suburb	Southend-on-Sea ward; GeoHack centroid.
+46	essex.txt	Westcliff Beach	resolved	51.5352	0.6985	beach	Shingle/sand foreshore below Westcliff cliffs.
+47	essex.txt	Chalkwell	resolved	51.5378	0.6745	suburb	Coastal suburb W of Southend centre; station vicinity.
+48	essex.txt	Chalkwell Beach	resolved	51.5368	0.6735	beach	Beach below Chalkwell Esplanade.
+49	essex.txt	Southend-on-Sea	resolved	51.5378	0.7137	town	Unitary authority / seaside city centre (ceremonial Essex).
+50	essex.txt	Southend Seafront	resolved	51.5335	0.711	seafront	Representative pin along Western/Eastern Esplanade frontage.
+51	essex.txt	Southend Pier	resolved	51.5257	0.7175	pier	Landmark pier; latitude.to / Wikipedia pier coordinates.
+52	essex.txt	Southend Beach	resolved	51.531	0.714	beach	Mudflat/shingle beach along main resort front E of pier.
+53	essex.txt	Southchurch	resolved	51.5315	0.738	suburb	Eastern Southend area inland of Southchurch Beach.
+54	essex.txt	Southchurch Beach	resolved	51.5295	0.742	beach	Estuary beach at Eastern Esplanade / Southchurch end.
+55	essex.txt	Chalkwell Esplanade	resolved	51.5365	0.674	seafront	Promenade segment at Chalkwell.
+56	essex.txt	Westcliff Esplanade	resolved	51.5355	0.6965	seafront	Clifftop promenade above Westcliff Beach.
+57	essex.txt	Thorpe Bay	resolved	51.53267	0.75909	suburb	Wikipedia / GeoHack Thorpe Bay centroid.
+58	essex.txt	Thorpe Esplanade	resolved	51.5315	0.761	seafront	Coastal road/promenade serving Thorpe Bay beach.
+59	essex.txt	Shoeburyness	resolved	51.5316	0.7978	town	Eastern Southend-on-Sea town; Wikipedia coordinates.
+60	essex.txt	Shoebury Common Beach	resolved	51.5338	0.7955	beach	Sandy beach by Shoebury Common E of Shoeburyness centre.
+61	essex.txt	Shoeburyness East Beach	resolved	51.5317	0.8038	beach	Also Shoebury East Beach; British Beaches / BOTA midpoint on Thames estuary foreshore.
+62	essex.txt	East Beach Shoeburyness	resolved	51.5328	0.8046	beach	Same coastal feature as East Beach; photo/GPS on foreshore E of Shoeburyness.
+63	essex.txt	Gunners Park	resolved	51.5342	0.7983	park	Local nature reserve and seafront park beside East Beach / MOD range edge.
+64	essex.txt	Great Wakering	resolved	51.5516	0.8165	village	Rochford parish; Wikipedia/GeoHack village centroid.
+65	essex.txt	Little Wakering	resolved	51.5606	0.7889	village	Barling Magna parish; Wikipedia coordinates (contiguous with Great Wakering BUA).
+66	essex.txt	Foulness Island	resolved	51.5976	0.8954	island	Wikipedia parish centroid; farmland and sea walls in Thames Maplin area.
+67	essex.txt	Foulness Point	resolved	51.61	0.94	headland	Eastern tip of Foulness; OS grid TR038951 area (simple gazetteer centroid).
+68	essex.txt	Wallasea Island	resolved	51.6	0.833	island	RSPB/coastal island; Wikipedia rounded centroid (Crouch/Roach bounded).
+69	essex.txt	Potton Island	resolved	51.583	0.817	island	Wikipedia centroid; island W of Foulness linked toward Great Wakering.
+70	essex.txt	Havengore Creek	resolved	51.568	0.782	creek	Tidal channel between New England/Havengore islands and mainland E of Wakering.
+71	essex.txt	Bridgemarsh Island	resolved	51.632	0.805	island	Small island in River Crouch W of Burnham-on-Crouch (estuary feature).
+72	essex.txt	Stansgate	resolved	51.7175	0.7935	hamlet	Blackwater hamlet in Steeple parish; Stansgate Priory / CM0 7RS vicinity.
+73	essex.txt	Bradwell-on-Sea	resolved	51.7234	0.8946	village	Dengie peninsula village; Wikipedia coordinates.
+74	essex.txt	Bradwell Waterside	resolved	51.7415	0.8955	marina	Marina/hamlet cluster on Blackwater W of Bradwell nuclear site.
+75	essex.txt	Bradwell Nuclear Power Station	resolved	51.7411	0.894	facility	Decommissioned Magnox station (Bradwell A); site entrance/coastal plant footprint.
+76	essex.txt	Dengie	resolved	51.681	0.908	hamlet	Named Dengie village on Dengie peninsula (distinct from wider hundred name).
+77	essex.txt	Dengie Flats	resolved	51.685	0.92	mudflat	Intertidal flats off Dengie N shore / Blackwater mouth; representative seaward pin.
+78	essex.txt	St Lawrence	resolved	51.702	0.902	hamlet	St Lawrence, Maldon parish hamlet on Dengie coast W of St Lawrence Bay.
+79	essex.txt	St Lawrence Bay	resolved	51.706	0.908	bay	Small bay and holiday shore N of Tillingham on Dengie coast.
+80	essex.txt	Tillingham	resolved	51.71	0.874	village	Dengie peninsula village; Wikipedia/infobox DMS (~51.71°N 0.874°E).
+81	essex.txt	Steeple Bay	resolved	51.694	0.815	holiday_park	Estuary holiday park and shoreline S of Southminster toward Maylandsea.
+82	essex.txt	Creeksea	resolved	51.634	0.792	hamlet	Hamlet W of Burnham-on-Crouch on north bank of the Crouch.
+83	essex.txt	Burnham-on-Crouch	resolved	51.6284	0.8145	town	Town centre; Wikipedia/GeoHack coordinates.
+84	essex.txt	Burnham Yacht Harbour	resolved	51.6265	0.813	marina	Yacht harbour basins on town reach of River Crouch.
+85	essex.txt	Burnham-on-Crouch Marina	resolved	51.6245	0.811	marina	Town marina berths S of High Street/quay on the Crouch.
+86	essex.txt	Burnham Crouch	resolved	51.6284	0.8145	river_front	Interpreted as Burnham-on-Crouch on the River Crouch (colloquial shorthand; Essex context).
+87	essex.txt	Creeksea Wick	resolved	51.636	0.776	creek	Mouth/creek of Creeksea Fleet W of Creeksea toward Blackwater confluence.
+88	essex.txt	Osea Island	resolved	51.7225	0.7711	island	Blackwater estuary island; Wikipedia/Wikidata coordinates.
+89	essex.txt	Maylandsea	resolved	51.687	0.754	village	Mayland parish waterfront; Wikipedia coordinates.
+90	essex.txt	Latchingdon	resolved	51.6775	0.776	village	Maldon parish village W of Maylandsea toward Blackwater headwaters.
+91	essex.txt	South Fambridge	resolved	51.6309	0.6785	village	South bank River Crouch; Wikipedia/GeoHack centroid.
+92	essex.txt	North Fambridge	resolved	51.642	0.675	village	North bank opposite South Fambridge; Wikipedia coordinates.
+93	essex.txt	Cold Norton Creek	resolved	51.662	0.672	creek	Tidal creek linking Cold Norton area toward River Crouch; representative inlet between village and estuary.
+94	essex.txt	Heybridge Basin	resolved	51.7312	0.7091	village	Canal basin / parish at Chelmer–Blackwater mouth; Wikipedia coordinates.
+95	essex.txt	Heybridge Sea Lock	resolved	51.7289	0.7094	lock	Chelmer & Blackwater Navigation sea lock (No.13); CanalPlanAC / GeoHack.
+96	essex.txt	Northey Island	resolved	51.7235	0.7225	island	Blackwater tidal island; National Trust / findthatpostcode centroid.
+97	essex.txt	Southminster	resolved	51.6598	0.831	town	Dengie peninsula town; Wikipedia coordinates.
+98	essex.txt	Southminster Sea Wall	resolved	51.668	0.835	sea_defence	Representative pin on Dengie coast sea wall N of Southminster toward River Blackwater.
+99	essex.txt	Goldhanger	resolved	51.7455	0.7581	village	North side Blackwater head of creek; Wikipedia coordinates.
+100	essex.txt	Goldhanger Creek	resolved	51.733	0.755	creek	Tidal creek from Goldhanger toward Blackwater estuary; mouth/vicinity pin.
+101	essex.txt	Tollesbury	resolved	51.7553	0.8355	village	Blackwater coast; GeoHack/Wikipedia vicinity.
+102	essex.txt	Tollesbury Marina	resolved	51.7584	0.8516	marina	Woodrolfe Creek marina entrance; Geograph TL969104 subject location.
+103	essex.txt	Tollesbury Wick	resolved	51.757	0.853	nature_reserve	Essex WT grazing marsh E of Tollesbury; Wikipedia/GeoHack centroid.
+104	essex.txt	Salcott-cum-Virley	resolved	51.7878	0.8233	settlement	Joined Salcott/Virley locality; Ordnance Survey Open Names centre (getthedata).
+105	essex.txt	Salcott Creek	resolved	51.786	0.832	creek	Tidal creek by Salcott opening to Blackwater saltings; representative channel pin.
+106	essex.txt	Virley Channel	resolved	51.789	0.835	channel	Tidal channel between Virley and Salcott/estuary; representative coastal water pin.
+107	essex.txt	West Mersea	resolved	51.7784	0.9168	town	Main settlement W side Mersea Island; Wikipedia coordinates.
+108	essex.txt	East Mersea	resolved	51.7957	0.986	village	East parish St Edmund’s area; Wikipedia coordinates.
+109	essex.txt	Mersea Island	resolved	51.7957	0.94	island	Blackwater/Colne tidal island; Wikipedia island centroid.
+110	essex.txt	Mersea Stone	resolved	51.794	0.938	headland	Eastern shingle foreland / beach; TM0714 Geograph vicinity toward Colne mouth.
+111	essex.txt	Cudmore Grove	resolved	51.7934	0.9916	country_park	East Mersea coastal park; RSPB Colchester group listing coordinates.
+112	essex.txt	Rewsalls Marshes	resolved	51.7795	0.9675	marsh	Coastal grazing marsh S side East Mersea near Rewsalls Lane / Essex Outdoors; representative wildfowl area.
+113	essex.txt	Colne Point	resolved	51.771	1.054	nature_reserve	Essex WT Colne Estuary reserve; Wikipedia coordinates.
+114	essex.txt	Wivenhoe	resolved	51.8667	0.9625	town	River Colne west bank; Wikipedia/GeoHack coordinates.
+115	essex.txt	Wivenhoe Quay	resolved	51.8585	0.9642	quay	Historic riverside quay / The Quay frontage; slightly downstream of town centroid.
+116	essex.txt	Rowhedge	resolved	51.8569	0.9474	village	River Colne east bank; Wikipedia coordinates.
+117	essex.txt	Rowhedge Ferry	resolved	51.856	0.946	ferry	Seasonal foot ferry slip area on Rowhedge waterfront opposite Wivenhoe.
+118	essex.txt	Fingringhoe Wick	resolved	51.835	0.971	nature_reserve	Essex WT Colne estuary reserve; Wikipedia coordinates.
+119	essex.txt	Alresford Creek	resolved	51.8332	0.9829	creek	Tidal creek of the Colne near Alresford/Brightlingsea; BirdGuides site centroid.
+120	essex.txt	Brightlingsea	resolved	51.8116	1.0234	town	Colne mouth / Brightlingsea Creek; latitude.to / Wikipedia vicinity.
+121	essex.txt	Brightlingsea Creek	resolved	51.8039	1.0118	creek	Tidal Colne inlet W of Brightlingsea; representative mid-creek pin toward Pyefleet.
+122	essex.txt	Brightlingsea Harbour	resolved	51.8054	1.0227	harbour	Brightlingsea Harbour marina / commissioners’ basin; BoatView decimal from published minutes.
+123	essex.txt	Point Clear	resolved	51.793	1.040	village	St Osyth parish spit settlement; Wikipedia infobox coordinates.
+124	essex.txt	St Osyth	resolved	51.796	1.074	village	Tendring village centre; Wikipedia / GeoHack vicinity.
+125	essex.txt	St Osyth Beach	resolved	51.7742	1.0768	beach	Coastal beach S of St Osyth village toward Stone Point / Martello belt.
+126	essex.txt	Seawick	resolved	51.7865	1.097	seafront	Seawick Esplanade locality (Jaywick); OSM centroid band.
+127	essex.txt	Jaywick	resolved	51.7894	1.1031	settlement	Jaywick Sands built-up area; Wikipedia coordinates.
+128	essex.txt	Jaywick Sands	resolved	51.778	1.098	beach	Sandy foreshore S of Jaywick seafront.
+129	essex.txt	Clacton-on-Sea	resolved	51.7897	1.1557	town	Seaside town centre; Wikipedia / GeoHack.
+130	essex.txt	Clacton Beach	resolved	51.787	1.154	beach	Shingle/sand below pier and Marine Parade West.
+131	essex.txt	Clacton Pier	resolved	51.7878	1.1536	pier	Clacton Pier head / entrance band; visitor maps.
+132	essex.txt	Clacton Seafront	resolved	51.788	1.151	seafront	Representative pin along central Marine Parade / sea wall.
+133	essex.txt	Holland-on-Sea	resolved	51.805	1.198	suburb	Coastal suburb N of Clacton; Wikipedia vicinity.
+134	essex.txt	Holland Haven	resolved	51.818	1.212	nature_reserve	Holland Haven Country Park / creek mouth band (Essex CC reserve).
+135	essex.txt	Holland-on-Sea Beach	resolved	51.803	1.201	beach	Beach below Holland-on-Sea promenade toward Clacton.
+136	essex.txt	Frinton-on-Sea	resolved	51.8327	1.2452	town	Wikipedia infobox coordinates.
+137	essex.txt	Frinton Beach	resolved	51.833	1.248	beach	Sandy beach along Connaught Avenue / greensward frontage.
+138	essex.txt	Frinton-on-Sea Beach	resolved	51.833	1.246	beach	Same coastal frontage as Frinton Beach; alternate list label.
+139	essex.txt	Walton-on-the-Naze	resolved	51.848	1.267	town	Town centre near Naze; GeoHack / Wikipedia band.
+140	essex.txt	Walton-on-the-Naze Pier	resolved	51.8485	1.265	pier	Walton Pier structure / approach.
+141	essex.txt	Walton Beach	resolved	51.8465	1.264	beach	Main town beach S of pier along Esplanade.
+142	essex.txt	Naze	resolved	51.878	1.288	headland	The Naze peninsula / SSSI (general headland pin N of Walton).
+143	essex.txt	Naze Tower	resolved	51.8893	1.3145	attraction	Historic tower on The Naze; English Heritage listing coordinates band.
+144	essex.txt	Stone Point	resolved	51.8854	1.2637	headland	Exposed foreland N of Walton (Hamford Water mouth); Geograph WGS84 tag.
+145	essex.txt	Copperas Bay	resolved	51.9358	1.1975	bay	Stour estuary mudflat inlet W of Parkeston; OS grid TM199312 entrance (converted).
+146	essex.txt	Harwich	resolved	51.9349	1.2615	town	Old Harwich / parish centre; GeoHack Wikipedia coordinates.
+147	essex.txt	Harwich Quay	resolved	51.928	1.259	quay	Historic quayside (King’s Quay / Lower Harwich waterfront band).
+148	essex.txt	Harwich Harbour	resolved	51.948	1.274	harbour	Representative deep-water harbour / Stour–Orwell confluence band (excludes Shotley list line).
+149	essex.txt	Harwich Beach	resolved	51.925	1.276	beach	Dovercourt Bay seafront (town’s principal sandy beach).
+150	essex.txt	Harwich Green	resolved	51.9275	1.266	park	Registered village green between Esplanade, Harbour Crescent and St Helens Green (centroid).
+151	essex.txt	Ha'penny Pier	resolved	51.9485	1.286	pier	Geograph TM25923288 subject location; working wooden pier on Harwich Quay.
+152	essex.txt	Dovercourt	resolved	51.9308	1.2637	town	Wikipedia/GeoHack Harwich–Dovercourt BUA centre (ceremonial Essex).
+153	essex.txt	Dovercourt Bay	resolved	51.928	1.278	bay	Open water of Dovercourt Bay S of the built-up seafront; representative seaward pin.
+154	essex.txt	Dovercourt Beach	resolved	51.925	1.276	beach	Principal sandy seafront (Marine Parade / Dovercourt Bay); aligns with Harwich Beach row band.
+155	essex.txt	Parkeston	resolved	51.9407	1.2531	village	Wikipedia Ramsey and Parkeston parish; Stour south bank W of Harwich.
+156	essex.txt	Harwich International Port	resolved	51.9465	1.2527	ferry_terminal	Stena Line published GPS for Parkeston Quay terminal; RoPax berths.
+157	essex.txt	Lower Dovercourt	resolved	51.923	1.274	suburb	Historic “Lower Dovercourt” seafront/southern strip of Dovercourt (S of High Street centroid).
+158	essex.txt	Shotley	resolved	51.969	1.253	village	Wikipedia Shotley, Suffolk; Stour north shore opposite Harwich (Essex list, estuary context).
+159	essex.txt	Shotley Gate	resolved	51.9579	1.2687	settlement	GeoHack/OS Open Names centroid; tip of Shotley peninsula W of Harwich Haven.
+160	essex.txt	Shotley Marina	resolved	51.9918	1.1609	marina	Marina basins at Stour/Orwell confluence (Shotley Gate); pilotage/lock approach band.
+161	essex.txt	Shotley Peninsula	resolved	51.9954	1.163	peninsula	Wikipedia infobox centroid for the rural peninsula between Stour and Orwell.
+162	essex.txt	Harkstead	resolved	51.968	1.185	village	GeoHack parish centroid; north bank of Stour (Holbrook Bay), Suffolk side of estuary.
+163	essex.txt	Cattawade	resolved	51.9564	1.0578	hamlet	Brantham locality by Cattawade bridges/barrage; Suffolk bank at Essex border (Stour).
+164	essex.txt	Stour Estuary Mouth	resolved	51.9494	1.2196	estuary_mouth	Wikipedia River Stour (Suffolk) mouth at Harwich/Orwell Haven (seaward confluence band).
+165	essex.txt	Manningtree Mudflats	resolved	51.9466	1.0655	mudflat	Geograph “Mud flats at Manningtree” depicted place; upper estuary intertidal off town hard.
+166	essex.txt	Mistley Quay	resolved	51.945	1.0859	quay	Geograph/Wikimedia camera & object location band; commercial wharf on River Stour at Mistley.

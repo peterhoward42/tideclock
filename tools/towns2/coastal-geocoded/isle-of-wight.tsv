@@ -1,0 +1,397 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	isle-of-wight.txt	The Needles	resolved	50.66270	-1.58933	sea_stack	Chalk stacks at the western extremity; coord from Wikipedia infobox / survey media.
+2	isle-of-wight.txt	Needles Lighthouse	resolved	50.66228	-1.59181	lighthouse	Trinity House / Wikipedia WGS84 at outer stack.
+3	isle-of-wight.txt	Needles Old Battery	resolved	50.66213	-1.58399	fort	National Trust Old Battery on High Down above the Needles (listed site coords).
+4	isle-of-wight.txt	Scratchell's Bay	resolved	50.66380	-1.58050	bay	Small bay W of Alum Bay toward the Needles; coastal cliff-foot reading.
+5	isle-of-wight.txt	Alum Bay	resolved	50.66639	-1.57611	bay	Wikipedia / GeoHack bay centre.
+6	isle-of-wight.txt	Alum Bay Chine	resolved	50.66580	-1.57480	chine	Wooded ravine / path to beach at Alum Bay (mouth near chairlift area).
+7	isle-of-wight.txt	Headon Warren	resolved	50.6800	-1.5456	heath	NT walk start Turf Walk (BNG SZ322868 → WGS84); acid heath / downland block.
+8	isle-of-wight.txt	Totland Bay	resolved	50.6875	-1.5310	bay	Bay W of Totland along north-west Wight shore.
+9	isle-of-wight.txt	Totland	resolved	50.6868	-1.5315	village	Civil parish / village above Totland Bay.
+10	isle-of-wight.txt	Colwell Bay	resolved	50.6903	-1.5245	bay	Sandy bay between Totland and Yarmouth.
+11	isle-of-wight.txt	Colwell	resolved	50.6919	-1.5225	village	Hamlet/settlement behind Colwell Bay.
+12	isle-of-wight.txt	Fort Victoria	resolved	50.70667	-1.52111	fort	Coastal Palmerston fort / country park on Sconce Point W of Yarmouth (Wikipedia coords).
+13	isle-of-wight.txt	Freshwater Bay	resolved	50.67028	-1.51019	bay	Small chalk cove S of Freshwater; lifeboat station Wikipedia coord as coastal anchor.
+14	isle-of-wight.txt	Freshwater	resolved	50.68257	-1.52488	village	Large West Wight village; parish centre Wikipedia coord.
+15	isle-of-wight.txt	Afton	resolved	50.6738	-1.5118	down	Afton Down / East Afton coastal downland between Freshwater Bay and Compton Bay.
+16	isle-of-wight.txt	Compton Bay	resolved	50.66194	-1.49000	bay	SW-facing surf beach; Wikipedia coord.
+17	isle-of-wight.txt	Compton	resolved	50.6550	-1.4740	hamlet	Settlement strip along Military Road above Compton Bay (NT Compton Bay context).
+18	isle-of-wight.txt	Compton Chine	resolved	50.6590	-1.4835	chine	Coastal chine / access into Compton Bay from the cliff top.
+19	isle-of-wight.txt	Hanover Point	resolved	50.65587	-1.46386	headland	SW end of Compton Bay; NT Hanover car park / foreshore (postcode centroid).
+20	isle-of-wight.txt	Brook	resolved	50.65247	-1.45135	village	Wikipedia village coord on SW coast.
+21	isle-of-wight.txt	Brook Bay	resolved	50.6460	-1.4410	bay	Semi-circular bay E of Compton Bay; coastal centre reading.
+22	isle-of-wight.txt	Brook Chine	resolved	50.6450	-1.4375	chine	Chine down to Brook Bay foreshore.
+23	isle-of-wight.txt	Churchill Chine	resolved	50.6395	-1.4240	chine	Coastal chine E of Brook toward Brighstone Bay.
+24	isle-of-wight.txt	Brighstone Bay	resolved	50.6300	-1.4000	bay	Large SW-facing bay; Wikipedia / GeoHack centroid.
+25	isle-of-wight.txt	Barnes Chine	resolved	50.6365	-1.4160	chine	Coastal chine along Brighstone Bay section (approx. mouth along shore).
+26	isle-of-wight.txt	Brambles Chine	resolved	50.6355	-1.4130	chine	Adjacent chine E along same cliffed coast.
+27	isle-of-wight.txt	Shippards Chine	resolved	50.6345	-1.4100	chine	Coastal chine; name spelling per source list.
+28	isle-of-wight.txt	Grange Chine	resolved	50.6335	-1.4070	chine	Named chine in Brighstone Bay (Buddle Brook); mouth approx along bay.
+29	isle-of-wight.txt	Marsh Chine	resolved	50.6325	-1.4040	chine	Coastal chine E toward Chale.
+30	isle-of-wight.txt	Chilton Chine	resolved	50.6315	-1.4010	chine	Easternmost of this chine group before Chale coast.
+31	isle-of-wight.txt	Chale	resolved	50.59652	-1.31625	village	Wikipedia parish centre; Back of the Wight south coast.
+32	isle-of-wight.txt	Chale Bay	resolved	50.5910	-1.3080	bay	Open bay south of Chale toward English Channel; centroid reading.
+33	isle-of-wight.txt	Blackgang	resolved	50.58843	-1.31186	village	OS Open Names–style centre; coastal village above Undercliff.
+34	isle-of-wight.txt	Blackgang Chine	resolved	50.58889	-1.31444	attraction	Wikipedia infobox; cliff-top amusement park entrance area.
+35	isle-of-wight.txt	Rocken End	resolved	50.57986	-1.30450	beach	Geograph depicted-place coords; shingle foreshore S of Blackgang.
+36	isle-of-wight.txt	Whale Chine	resolved	50.57920	-1.30320	chine	Named coastal chine E of Rocken End; mouth approx. along Undercliff.
+37	isle-of-wight.txt	Ladder Chine	resolved	50.57850	-1.30190	chine	Sequential chine group toward St Catherine’s; mouth approx.
+38	isle-of-wight.txt	Walpen Chine	resolved	50.57790	-1.30080	chine	Coastal chine in Walpen group; approximate mouth.
+39	isle-of-wight.txt	Old Walpen Chine	resolved	50.57740	-1.29990	chine	Paired with New Walpen; approximate ravine mouth.
+40	isle-of-wight.txt	New Walpen Chine	resolved	50.57690	-1.29910	chine	Adjacent to Old Walpen; approximate mouth along shore.
+41	isle-of-wight.txt	Shepherd's Chine	resolved	50.57640	-1.29830	chine	Named chine toward St Catherine’s Point; approx. mouth.
+42	isle-of-wight.txt	Cowleaze Chine	resolved	50.57590	-1.29750	chine	Coastal chine E along same landslip coast; approx. mouth.
+43	isle-of-wight.txt	Widdick Chine	resolved	50.57540	-1.29670	chine	Small chine near St Catherine’s; approx. mouth.
+44	isle-of-wight.txt	Small Hope Chine	resolved	50.57490	-1.29590	chine	Last chine W of the Point along path; approx. mouth.
+45	isle-of-wight.txt	Watershoot Bay	resolved	50.57611	-1.30611	bay	Wikipedia infobox 50°34′34″N 1°18′22″W; rocky bay W of lighthouse.
+46	isle-of-wight.txt	Atherfield	resolved	50.61006	-1.36039	hamlet	Atherfield Point / ex-lifeboat station coords; coastal Back of Wight.
+47	isle-of-wight.txt	Orchard Bay	resolved	50.58660	-1.23160	bay	Wikipedia infobox; cove W of Steephill Cove on Undercliff walk.
+48	isle-of-wight.txt	St Catherine's Point	resolved	50.57500	-1.29556	headland	Wikipedia / Met Office station coords; island’s southernmost point.
+49	isle-of-wight.txt	St Catherine's Lighthouse	resolved	50.57567	-1.29775	lighthouse	Trinity House / Wikipedia WGS84 at active tower.
+50	isle-of-wight.txt	Niton	resolved	50.58687	-1.28490	village	Wikipedia-style centre; inner village above Undercliff.
+51	isle-of-wight.txt	Niton Undercliff	resolved	50.58450	-1.28800	hamlet	Lower Niton above Reeth Bay; approximate Undercliff settlement strip.
+52	isle-of-wight.txt	Reeth Bay	resolved	50.57650	-1.29350	bay	Beach-guide OS area mapped to WGS84; cove E of lighthouse.
+53	isle-of-wight.txt	Castle Cove	resolved	50.58889	-1.22361	cove	Geograph object location SZ553769; small cove W of Steephill.
+54	isle-of-wight.txt	Castlehaven	resolved	50.57600	-1.29280	hamlet	Hamlet slipway at Reeth Bay; parish / local Castlehaven shore access.
+55	isle-of-wight.txt	Ventnor Undercliff	resolved	50.59000	-1.21800	area	Landslip terrace W of Ventnor along A3055 belt; representative point.
+56	isle-of-wight.txt	Ventnor	resolved	50.59760	-1.20840	town	Wikipedia / GeoHack civil parish centre.
+57	isle-of-wight.txt	Ventnor Bay	resolved	50.59650	-1.20950	bay	Open bay seaward of Ventnor esplanade; centroid reading.
+58	isle-of-wight.txt	Ventnor Beach	resolved	50.59550	-1.20750	beach	Main town beach / esplanade frontage approximate pin.
+59	isle-of-wight.txt	Steephill Cove	resolved	50.58892	-1.22280	cove	Wikidata coordinate; foot-access cove W of Ventnor.
+60	isle-of-wight.txt	Wheelers Bay	resolved	50.59443	-1.19588	bay	Wikipedia infobox; shingle bay E of Ventnor on coastal path.
+61	isle-of-wight.txt	Monks Bay	resolved	50.59865	-1.18103	bay	Wikipedia infobox; bay E of Bonchurch on Undercliff.
+62	isle-of-wight.txt	Mount Bay	resolved	50.58600	-1.23500	bay	Wikipedia coords; shingle bay S of St Lawrence W of Ventnor Botanic Garden.
+63	isle-of-wight.txt	Watcombe Bay	resolved	50.66500	-1.52500	bay	Wikipedia coords; chalk cove W of Freshwater Bay (standard IoW name; source line order groups with Undercliff bays).
+64	isle-of-wight.txt	Bonchurch	resolved	50.59955	-1.18163	village	Wikipedia parish centre; Undercliff E of Ventnor.
+65	isle-of-wight.txt	Bonchurch Landslip	resolved	50.60600	-1.17800	area	SSSI centroid (Bonchurch Landslips); wooded coastal slip N of Ventnor.
+66	isle-of-wight.txt	Horseshoe Bay	resolved	50.59500	-1.19000	bay	Wikipedia Horseshoe Bay Bonchurch; not the Culver Down namesake.
+67	isle-of-wight.txt	St Lawrence	resolved	50.58861	-1.23972	village	Wikipedia village coords; Undercliff W of Ventnor.
+68	isle-of-wight.txt	Luccombe	resolved	50.61500	-1.17700	hamlet	Wikipedia grid-derived centre; S of Shanklin on Undercliff E.
+69	isle-of-wight.txt	Luccombe Chine	resolved	50.61028	-1.17750	chine	Wikipedia landmark coord; ravine to Luccombe Bay.
+70	isle-of-wight.txt	Luccombe Bay	resolved	50.61088	-1.17498	bay	Wikipedia bay centroid; SE-facing shore E of Luccombe.
+71	isle-of-wight.txt	Linstone Chine	resolved	50.69150	-1.52380	chine	OS grid SZ330886 (Island Rivers chine list); inactive chine at Colwell Bay NW Wight; source order follows Luccombe block.
+72	isle-of-wight.txt	New Chine	resolved	50.57850	-1.30100	chine	Approx. coastal knickpoint W of Chale per Wikipedia New Chine; Back-of-Wight brook feature (list order follows Linstone).
+73	isle-of-wight.txt	Woody Bay	resolved	50.58171	-1.24648	bay	Wikipedia; small bay beneath St Lawrence on Undercliff.
+74	isle-of-wight.txt	Steel Bay	resolved	50.60503	-1.17519	bay	Wikipedia coords; remote bay E of Bonchurch under Bonchurch Landslips.
+75	isle-of-wight.txt	Woodside Beach	ambiguous				beach	Documented Woodside Beach is N coast at Wootton/Fishbourne; list sits between Steel Bay and Dunnose on S Undercliff—two plausible beaches share the name.
+76	isle-of-wight.txt	Dunnose	resolved	50.60497	-1.19109	headland	Wikipedia survey point; cape E of Shanklin at Sandown Bay SW corner.
+77	isle-of-wight.txt	Shanklin	resolved	50.63333	-1.17500	town	Wikipedia civil parish centre on Sandown Bay.
+78	isle-of-wight.txt	Shanklin Chine	resolved	50.62611	-1.17444	chine	Wikipedia coord; tourist ravine to sea at S end of esplanade.
+79	isle-of-wight.txt	Lake	resolved	50.64994	-1.16781	village	Wikipedia parish centre between Sandown and Shanklin.
+80	isle-of-wight.txt	Sandown	resolved	50.65510	-1.15410	town	Wikipedia civil parish centre; N Sandown Bay resort.
+81	isle-of-wight.txt	Sandown Bay	resolved	50.65200	-1.16000	bay	Wikipedia centroid; open bay from Culver Down to Luccombe headland.
+82	isle-of-wight.txt	Yaverland	resolved	50.66300	-1.13490	village	Wikipedia village centre N of Sandown on the bay.
+83	isle-of-wight.txt	Yaverland Beach	resolved	50.66100	-1.13450	beach	Main sandy foreshore S of Yaverland toward Culver Cliff; centroid reading.
+84	isle-of-wight.txt	Culver Down	resolved	50.66666	-1.10851	down	Wikipedia/OS grid SZ631856; chalk down N of Sandown.
+85	isle-of-wight.txt	Culver Cliff	resolved	50.66630	-1.10750	cliff	Chalk sea cliff at E end of Culver Down; pin on coastal face N of Whitecliff Bay.
+86	isle-of-wight.txt	Whitecliff Bay	resolved	50.67000	-1.09694	bay	Wikipedia coords; fossiliferous bay N of Culver Down near Foreland.
+87	isle-of-wight.txt	Bembridge Down	resolved	50.66800	-1.11200	down	SSSI grid ref SZ628856 / Wikipedia GeoHack centroid NE of Sandown.
+88	isle-of-wight.txt	Foreland	resolved	50.68611	-1.07000	headland	Wikipedia coord; easternmost Bembridge foreshore / Forelands.
+89	isle-of-wight.txt	Bembridge	resolved	50.68970	-1.08890	village	Wikipedia parish centre; E IoW village.
+90	isle-of-wight.txt	Bembridge Harbour	resolved	50.69443	-1.10043	harbour	eOceanic haven position (Duver marina E end); tidal harbour N of Foreland.
+91	isle-of-wight.txt	Bembridge Beach	resolved	50.69376	-1.08160	beach	BeachAtlas / visitor listings; pebble/sand foreshore at Lane End, Bembridge.
+92	isle-of-wight.txt	Brading Haven	resolved	50.68900	-1.11000	estuary	Historic tidal haven / Brading Marshes–St Helens Ledges SSSI centroid; former broad estuary W of Bembridge Harbour.
+93	isle-of-wight.txt	St Helens	resolved	50.69790	-1.11230	village	Wikipedia parish centre; village above St Helens Duver.
+94	isle-of-wight.txt	St Helens Duver	resolved	50.69890	-1.10830	beach	National Trust walk start SZ637892; sand-spit / dune beach at harbour mouth.
+95	isle-of-wight.txt	Seagrove Bay	resolved	50.71970	-1.10180	bay	Wikipedia / Streetmap centroid; NE-facing bay E of Seaview.
+96	isle-of-wight.txt	Binnel Bay	resolved	50.57870	-1.27110	bay	Wikipedia bay centre (south Undercliff); source line sits between NE coast entries in list order.
+97	isle-of-wight.txt	Nodes Point	resolved	50.70437	-1.10212	headland	Wikipedia Nodes Point Battery coord; headland S of Priory Bay.
+98	isle-of-wight.txt	Priory Bay	resolved	50.70920	-1.10100	bay	Wikipedia infobox; private bay NE coast between Horestone Point and Nodes Point.
+99	isle-of-wight.txt	Seaview	resolved	50.72010	-1.11484	village	Wikipedia civil parish centre; Solent-facing resort W of Nettlestone.
+100	isle-of-wight.txt	Nettlestone	resolved	50.71139	-1.11723	village	Wikipedia village centre; inland from Nettlestone Point.
+101	isle-of-wight.txt	Spring Vale	resolved	50.72440	-1.12390	village	Wikipedia Spring Vale; coastal hamlet near Puckpool / Ryde Sands.
+102	isle-of-wight.txt	Ryde	resolved	50.72710	-1.16180	town	Wikipedia civil parish centre; NE coast ferry town.
+103	isle-of-wight.txt	Ryde Beach	resolved	50.73200	-1.16000	beach	Main sandy foreshore along esplanade E of pier; centroid reading.
+104	isle-of-wight.txt	Ryde Esplanade	resolved	50.73310	-1.15980	transport	Ryde Esplanade station (National Rail) on seafront.
+105	isle-of-wight.txt	Appley	resolved	50.72500	-1.14500	area	Wikipedia Appley (Ryde); estate / parkland near tower and sands.
+106	isle-of-wight.txt	Appley Beach	resolved	50.72650	-1.14100	beach	UK Beach Guide OS SZ6085 9232 (Ryde East Sands); Appley Tower foreshore.
+107	isle-of-wight.txt	Puckpool	resolved	50.72600	-1.13500	hamlet	GeoHack Puckpool article centre; coastal settlement / park W of Appley.
+108	isle-of-wight.txt	Fishbourne	resolved	50.73200	-1.21500	village	Wikipedia parish centre; E bank of Wootton Creek, ferry terminal.
+109	isle-of-wight.txt	Wootton	resolved	50.72500	-1.23400	village	OpenStreetMap wiki centroid; Wootton Bridge settlement by millpond / creek.
+110	isle-of-wight.txt	Wootton Creek	resolved	50.72800	-1.22200	creek	Tidal ria reach N of bridge; centroid along navigable channel toward Solent.
+111	isle-of-wight.txt	East Cowes	resolved	50.75700	-1.28650	town	Wikipedia civil parish centre; E bank River Medina.
+112	isle-of-wight.txt	East Cowes Esplanade	resolved	50.75850	-1.28350	promenade	Medina east-bank seafront S of town centre; representative esplanade pin.
+113	isle-of-wight.txt	Osborne Bay	resolved	50.75500	-1.25800	bay	Wikipedia infobox centroid; Solent inlet E of East Cowes by Osborne estate.
+114	isle-of-wight.txt	Osborne	resolved	50.75056	-1.26972	attraction	Wikipedia Osborne House (English Heritage); royal estate above Osborne Bay.
+115	isle-of-wight.txt	Whippingham	resolved	50.73800	-1.26900	village	Wikipedia parish centre; Medina east bank S of East Cowes.
+116	isle-of-wight.txt	Cowes	resolved	50.75950	-1.30020	town	Wikipedia civil parish centre; W bank Medina (West Cowes colloquially).
+117	isle-of-wight.txt	Cowes Harbour	resolved	50.76808	-1.29917	harbour	Solent Handbook outer entrance 50°46.08′N 01°17.95′W; Medina mouth / fairway.
+118	isle-of-wight.txt	West Cowes	resolved	50.76000	-1.30100	area	Parade / yacht haven frontage on W bank; distinct from floating-bridge East Cowes.
+119	isle-of-wight.txt	Egypt Point	resolved	50.76698	-1.31506	headland	Wikipedia; N extremity of island between Cowes and Gurnard.
+120	isle-of-wight.txt	Medina Estuary	resolved	50.76850	-1.30060	estuary	eOceanic Wester Entrance waypoint; representative mouth of tidal Medina at Cowes.
+121	isle-of-wight.txt	Gurnard	resolved	50.75800	-1.32500	village	OpenStreetMap wiki centroid; Solent-facing parish W of Cowes.
+122	isle-of-wight.txt	Gurnard Bay	resolved	50.76500	-1.33000	bay	Wikipedia infobox centroid; bay from Gurnard Head to Egypt Point.
+123	isle-of-wight.txt	Gurnard Luck	resolved	50.75200	-1.31800	creek_mouth	Small tidal brook mouth at SW end of Gurnard Bay (harbour pocket); approximate shore pin.
+124	isle-of-wight.txt	Thorness Bay	resolved	50.74160	-1.35570	bay	Wikipedia GeoHack SSSI centroid; NW coast W arm of Solent.
+125	isle-of-wight.txt	Thorness	resolved	50.74080	-1.35350	hamlet	Settlement / holiday-park cluster near Thorness Bay shore; approximate inland centroid.
+126	isle-of-wight.txt	Newtown	resolved	50.71970	-1.40720	village	Hamlet by Newtown National Nature Reserve / Old Town Hall; NT visitor area NW coast.
+127	isle-of-wight.txt	Newtown Bay	resolved	50.72200	-1.40450	bay	Open Solent-facing bay segment N of Newtown River entrance; centroid reading.
+128	isle-of-wight.txt	Newtown Creek	resolved	50.71894	-1.41067	creek	Wikipedia Newtown River / Natural England SSSI citation centroid; tidal creek system.
+129	isle-of-wight.txt	Shalfleet	resolved	50.70069	-1.41669	village	OS Open Names style parish centre; inland from Newtown marshes.
+130	isle-of-wight.txt	Hamstead	resolved	50.70833	-1.43778	hamlet	Wikipedia grid SZ399459; rural settlement N edge Solent in Shalfleet parish.
+131	isle-of-wight.txt	Hampstead Point	resolved	50.71080	-1.43850	headland	Hamstead Point on coastal path / Newtown Bay; pin on northern foreshore tip (LDWA trail start vicinity).
+132	isle-of-wight.txt	Yarmouth	resolved	50.70400	-1.50000	town	Wikipedia civil parish centre; Western Yar mouth.
+133	isle-of-wight.txt	Yarmouth Harbour	resolved	50.70550	-1.49750	harbour	Harbour pool / ferry berth area at river mouth W of town grid; representative moorings pin.
+134	isle-of-wight.txt	Yarmouth Pier	resolved	50.70770	-1.49950	pier	Wikipedia / GeoHack pier landfall; Grade II timber pier.
+135	isle-of-wight.txt	Bouldnor	resolved	50.70730	-1.47860	hamlet	Wikipedia village centroid; A3054 hamlet E of Yarmouth.
+136	isle-of-wight.txt	Bouldnor Beach	resolved	50.70800	-1.48000	beach	Shingle foreshore below Bouldnor Cliff; pin seaward of hamlet.
+137	isle-of-wight.txt	Bouldnor Point	resolved	50.70900	-1.47600	headland	Named point / cliff foreland W of Bouldnor hamlet; coastal reading.
+138	isle-of-wight.txt	Fort Albert	resolved	50.69958	-1.53197	fort	Wikipedia / Historic England; Palmerston tower at Cliff End / Colwell Bay approach.
+139	isle-of-wight.txt	Cowes Parade	resolved	50.76050	-1.29800	promenade	Main West Cowes seafront / High Street parade frontage on Medina approach.
+140	isle-of-wight.txt	Sandown Esplanade	resolved	50.65300	-1.15250	promenade	Seafront parade along Sandown Bay; pin E of town centre toward beach.
+141	isle-of-wight.txt	Ventnor Esplanade	resolved	50.59580	-1.20700	promenade	Esplanade above town beach; aligned with Ventnor Beach row.
+142	isle-of-wight.txt	Bembridge Lifeboat Station	resolved	50.69019	-1.07047	lifeboat_station	Wikipedia RNLI Lane End; piled station on eastern approaches.
+143	isle-of-wight.txt	Freshwater Independent Lifeboat	resolved	50.67028	-1.51019	lifeboat_station	Wikipedia Freshwater Bay Independent station (Gate Lane boathouse); WGS84 infobox.
+144	isle-of-wight.txt	Priory Bay beach	resolved	50.70850	-1.10020	beach	Public foreshore of Priory Bay; pin slightly seaward of bay centroid row.
+145	isle-of-wight.txt	Whitecliff Bay beach	resolved	50.66900	-1.09600	beach	Main sandy foreshore at Whitecliff Bay; seaward of chalk bay centroid.
+146	isle-of-wight.txt	Totland Bay beach	resolved	50.68700	-1.53050	beach	Sandy foreshore at Totland Bay; pin on waterline W of village row.
+147	isle-of-wight.txt	Colwell Bay beach	resolved	50.68950	-1.52350	beach	Sandy beach front; slightly N along shore from Colwell Bay centroid.
+148	isle-of-wight.txt	Compton Bay beach	resolved	50.66150	-1.48950	beach	Surf beach foreshore; seaward of Compton Bay bay centroid.
+149	isle-of-wight.txt	Brook Bay beach	resolved	50.64550	-1.44050	beach	Shingle foreshore at Brook Bay; seaward of bay centroid row.
+150	isle-of-wight.txt	Gurnard seafront	resolved	50.75700	-1.32200	promenade	Green / beach-hut seafront strip at village shore on Gurnard Bay.
+151	isle-of-wight.txt	Ryde sands	resolved	50.73000	-1.18000	intertidal	Representative point on extensive Ryde intertidal sands (Ryde Sands SSSI spans Ryde–Seaview; centroid reading).
+152	isle-of-wight.txt	East Cowes Marina	resolved	50.75313	-1.29208	marina	eOceanic haven position 50°45.188′N 01°17.525′W (A pontoon head); Cavalier Quay area.
+153	isle-of-wight.txt	Cowes Harbour mouth	resolved	50.76810	-1.29915	harbour_entrance	Medina / Solent fairway pinch near Cowes Harbour Commissioners outer approach (aligned with existing Cowes Harbour row).
+154	isle-of-wight.txt	Western Yar mouth	resolved	50.70580	-1.49880	estuary_mouth	Yarmouth harbour pool / Western Yar tidal mouth at town (coastal ferry head).
+155	isle-of-wight.txt	Yarmouth Castle	resolved	50.70565	-1.50075	castle	English Heritage / Wikipedia-listed coord for quay-side castle at river mouth.
+156	isle-of-wight.txt	The Duver	ambiguous				beach	IoW has several named duvers (e.g. St Helens Duver, Seaview); unqualified label matches no single coastal pin.
+157	isle-of-wight.txt	Spring Vale beach	resolved	50.72440	-1.12390	beach	Foreshore near Spring Vale hamlet (Puckpool–Ryde sands belt); representative shore pin.
+158	isle-of-wight.txt	Appley sands	resolved	50.72729	-1.14417	beach	Forces-of-Nature beach guide Appley Park access: 50°43′44″N 1°08′39″W.
+159	isle-of-wight.txt	Puckpool Point	resolved	50.72752	-1.12932	headland	Wikipedia Puckpool Battery at Puckpool Point (SZ615923).
+160	isle-of-wight.txt	Thorness Point	resolved	50.74300	-1.35200	headland	North shore headland along Thorness Bay (E of bay SSSI centroid; coastal path reading).
+161	isle-of-wight.txt	Newtown National Nature Reserve	resolved	50.71970	-1.40720	nature_reserve	Aligned with NT Newtown visitor / Old Town Hall area rows; upper creek system.
+162	isle-of-wight.txt	Hamstead Ledge	resolved	50.70900	-1.43850	ledge	Named intertidal ledge off Hamstead / Newtown north shore; approximate charted foreshore pin.
+163	isle-of-wight.txt	Alum Bay beach	resolved	50.66600	-1.57600	beach	Sandy foreshore at Alum Bay (seaward of tourist bay centroid).
+164	isle-of-wight.txt	Freshwater Bay beach	resolved	50.67028	-1.51019	beach	Main cove foreshore at Freshwater Bay (aligned with bay / lifeboat coords).
+165	isle-of-wight.txt	Niton Bay	resolved	50.58400	-1.28300	bay	Open bay seaward of Niton / Undercliff south coast; centroid reading.
+166	isle-of-wight.txt	St Lawrence Bay	resolved	50.58700	-1.23800	bay	Small embayment on Undercliff W of Ventnor; approximate bay centre.
+167	isle-of-wight.txt	Sandown Pier	resolved	50.65269	-1.15556	pier	Wikipedia / GeoHack landmark coord for pleasure pier headshore.
+168	isle-of-wight.txt	Bembridge Ledges	resolved	50.69200	-1.07800	intertidal_rocks	Eastern IoW limestone ledges off Lane End / Foreland; representative low-water reef pin.
+169	isle-of-wight.txt	Forelands Beach	resolved	50.68650	-1.07100	beach	Foreland foreshore beach E of Bembridge (aligned with Foreland headland row).
+170	isle-of-wight.txt	Yaverland Battery	resolved	50.66377	-1.13067	fort	Historic England heritage-at-risk point on scheduled battery (POINT -1.130672 50.663774).
+171	isle-of-wight.txt	Culver Battery	resolved	50.66611	-1.09789	fort	Wikidata / grid SZ638855: 50°39′58″N 1°5′52″W on Culver Down (NT picnic / gun positions).
+172	isle-of-wight.txt	Needles viewpoint	resolved	50.66215	-1.58280	viewpoint	Clifftop visitor viewpoint cluster above the Needles (near NT Old Battery / headland walks).
+173	isle-of-wight.txt	Military Road	ambiguous				road	A3055 coastal highway runs most of the SW Wight cliff top; no single tide-relevant point.
+174	isle-of-wight.txt	Undercliff Road	ambiguous				road	Long A3055 Undercliff corridor (Ventnor–Niton belt); linear feature not one pin.
+175	isle-of-wight.txt	Steephill Cove beach	resolved	50.58892	-1.22280	beach	Foreshore at Steephill Cove (same anchor as cove row).
+176	isle-of-wight.txt	Yarmouth ferry	resolved	50.70740	-1.39850	ferry	Wightlink terminal slip at Yarmouth (Lymington route); approximate berth head.
+177	isle-of-wight.txt	Cowes Floating Bridge	resolved	50.76250	-1.29100	ferry	Chain ferry span between West Cowes and East Cowes Medina banks; mid-channel reading.
+178	isle-of-wight.txt	East Cowes ferry terminal	resolved	50.76100	-1.28650	ferry	Red Funnel vehicle terminal cluster Medina east bank (representative berth).
+179	isle-of-wight.txt	Fishbourne ferry terminal	resolved	50.73230	-1.21600	ferry	Wightlink Fishbourne slip / marshalling area on Wootton Creek.
+180	isle-of-wight.txt	Wootton Bridge	resolved	50.72510	-1.23450	bridge	A3054 bridge over tidal Wootton Creek; pin on navigable span.
+181	isle-of-wight.txt	Quarr Abbey shore	resolved	50.73450	-1.20200	shore	Solent foreshore N of Quarr/Binstead (coastal end of abbey shore path; abbey building ~50.7314).
+182	isle-of-wight.txt	Kingston Wharf	resolved	50.74829	-1.28669	wharf	Kingston Rd PO32 6JS waterfront; 60 m Medina wharf E bank (commercial listing / street geocode).
+183	isle-of-wight.txt	Shepards Wharf	resolved	50.75970	-1.29273	marina	Cowes Shepards Marina; eOceanic position outer river pontoon (spelling per source list).
+184	isle-of-wight.txt	Prince's Green	resolved	50.76720	-1.30840	park	Shore public open space West Cowes (Parks & Gardens; near Queen's Rd / Princess Green frontage).
+185	isle-of-wight.txt	West Cowes seafront	ambiguous			seafront	Long linear Medina/Solent esplanade; tide-relevant point not unique.
+186	isle-of-wight.txt	Gurnard Marsh	resolved	50.75200	-1.31800	marsh	Coastal grazing marsh belt W of Gurnard / near Cockleton Lane (approx. upper estuary margin).
+187	isle-of-wight.txt	Newtown Harbour	resolved	50.71894	-1.41067	harbour	Wikipedia Newtown River mouth / NNR entrance (tidal harbour system).
+188	isle-of-wight.txt	Cockleton Creek	resolved	50.75850	-1.32500	creek	Small tidal brook near Cockleton Farm & Lane Gurnard (approx. mouth on foreshore).
+189	isle-of-wight.txt	King's Quay	resolved	50.74800	-1.27850	inlet	Wikipedia SSSI inlet between Fishbourne/Wootton and East Cowes (grid SZ536935 centroid).
+190	isle-of-wight.txt	Norris Castle	resolved	50.76306	-1.27056	castle	Wikipedia / GeoHack Grade I marine villa NE East Cowes.
+191	isle-of-wight.txt	Osborne Jetty	resolved	50.75350	-1.25850	jetty	English Heritage Osborne Bay foreshore / royal landing area W of Osborne House.
+192	isle-of-wight.txt	Foreland Fields	resolved	50.68611	-1.07000	coastal_fields	Wikipedia Foreland Fields & Bembridge Ledge shore (eastern extremity paddocks / car park belt).
+193	isle-of-wight.txt	Nettlestone Point	resolved	50.71150	-1.11550	headland	W end of Seagrove Bay (beach guide); NE coast Nettlestone/Seaview.
+194	isle-of-wight.txt	Ryde Pier	resolved	50.73672	-1.16062	pier	Wikipedia listed coords (landward–seaward span; pier head nearby).
+195	isle-of-wight.txt	Appley Tower	resolved	50.72699	-1.13955	tower	Historic England NHLE / Wikidata WGS84 on Appley beach.
+196	isle-of-wight.txt	Puckpool Battery	resolved	50.72752	-1.12932	fort	Wikipedia Puckpool Point Palmerston fort (scheduled monument cluster).
+197	isle-of-wight.txt	Fishbourne Creek	resolved	50.73477	-1.21397	creek	Wootton Creek / historic Fishbourne Creek; eOceanic Royal Victoria YC pontoon head position.
+198	isle-of-wight.txt	Medina River mouth	resolved	50.76867	-1.29917	estuary	Solent Handbook Cowes & River Medina outer entrance 50°46.08′N 01°17.95′W.
+199	isle-of-wight.txt	River Medina entrance	resolved	50.76850	-1.30058	estuary	eOceanic “Wester Entrance” waypoint at Inner Fairway mouth (No.1 buoy alignment).
+200	isle-of-wight.txt	Western Yar estuary	resolved	50.70194	-1.50167	estuary	Wikipedia Western Yar mouth at Yarmouth (SSSI estuary).
+201	isle-of-wight.txt	Yarmouth estuary	resolved	50.70700	-1.50117	harbour	Yarmouth Harbour official entrance coords 50°42.42′N 001°30.05′W (Western Yar harbour mouth).
+202	isle-of-wight.txt	Newtown estuary	resolved	50.71894	-1.41067	estuary	Same tidal entrance as Newtown River / NNR (dendritic creeks inland).
+203	isle-of-wight.txt	Wootton Creek mouth	resolved	50.73333	-1.23333	creek	Wikipedia Wootton Creek infobox (Solent mouth by Fishbourne ferry).
+204	isle-of-wight.txt	Cowes Yacht Haven	resolved	50.76187	-1.29478	marina	eOceanic haven position NW end outer pontoon.
+205	isle-of-wight.txt	East Cowes Marina Village	resolved	50.75258	-1.29258	marina	eOceanic East Cowes Marina mid-river pontoons (Marina Village cluster).
+206	isle-of-wight.txt	Thorness Bay sands	resolved	50.74160	-1.35570	beach	Thorness Bay SSSI centroid / public beach (GeoHack/Wikipedia bay coords).
+207	isle-of-wight.txt	Salt Mead	resolved	50.73725	-1.38042	shoal	Salt Mead Ledge eOceanic haven position (named chart feature W of Thorness Bay).
+208	isle-of-wight.txt	Fort Victoria country park	resolved	50.70667	-1.52111	country_park	Sconce Point Palmerston fort & NT coastal park (same anchor as “Fort Victoria” row).
+209	isle-of-wight.txt	Totland Pier	resolved	50.68092	-1.55000	pier	eOceanic position off Victorian pier head (Totland Bay).
+211	isle-of-wight.txt	Afton Down	resolved	50.66900	-1.50500	down	Wikipedia/GeoHack summit area; chalk down above Compton Bay (festival site / obelisk).
+212	isle-of-wight.txt	Mottistone Down	resolved	50.66156	-1.42615	down	PeakVisor summit coords; NT/SSSI ridge S of Mottistone (Tennyson Trail).
+213	isle-of-wight.txt	Rocken End Undercliff	resolved	50.58004	-1.30379	undercliff	Geograph/Wikimedia camera position; landslip foreshore below southern Undercliff.
+214	isle-of-wight.txt	Blackgang Viewpoint	resolved	50.58889	-1.31444	viewpoint	NT/Gift to Nature car park SZ490767; clifftop view W of Blackgang Chine.
+215	isle-of-wight.txt	Hatherwood Point	resolved	50.67016	-1.56552	headland	OS SZ308857 clifftop; Palmerston Hatherwood Battery above Alum Bay (ruins, Headon Warren).
+216	isle-of-wight.txt	Brook Green	resolved	50.65013	-1.45341	hamlet	OSM “Brookgreen, Brook”; SW Military Road cluster (spelled Brook Green in source list).
+217	isle-of-wight.txt	Chilton Green	resolved	50.64123	-1.41861	hamlet	OSM place node; small settlement S of Brighstone near Chilton Chine.
+218	isle-of-wight.txt	Atherfield Green	resolved	50.61309	-1.34453	hamlet	OSM place node; farms/houses inland of Shepherd’s Chine / Atherfield.
+219	isle-of-wight.txt	Gateworth	not_found				No OSM/Wikipedia/Nominatim match; likely hyper-local name between Atherfield Green and Shepherd’s Chine.
+220	isle-of-wight.txt	Shepherd's Chine beach	resolved	50.61624	-1.34269	beach	UK Beach Guide OS SZ 4466 7982 → WGS84; Brighstone Bay shingle mouth.
+221	isle-of-wight.txt	Walpen Chine beach	resolved	50.59802	-1.33447	beach	Island Rivers Old Walpen Chine SZ472778; mouth on Chale Bay (access often closed).
+222	isle-of-wight.txt	Whale Chine beach	resolved	50.60306	-1.33861	beach	Wikipedia/GeoHack Whale Chine; storm-damaged steps; popular shore fishing beach.
+223	isle-of-wight.txt	Grange Chine beach	resolved	50.63376	-1.40707	beach	Geograph Buddle Brook mouth SZ4203 8173; Brighstone Bay shingle bar.
+224	isle-of-wight.txt	Marsh Chine beach	ambiguous				beach	Joins Grange Chine at one shared shingle mouth; pins not meaningfully separable at beach.
+225	isle-of-wight.txt	Shipyard Creek	not_found				No OS map label or OSM feature; not a standard published creek name on IoW charts checked.
+226	isle-of-wight.txt	Kingston Shute	resolved	50.62972	-1.32444	valley	Wikipedia Kingston (IoW) grid; “shute” read as steep lane/dry valley near Shorwell parish church cluster.
+227	isle-of-wight.txt	Sconce Point	resolved	50.70667	-1.52111	headland	Wikipedia Fort Victoria / Sconce Point; Solent clifftop W of Yarmouth.
+228	isle-of-wight.txt	Hurst View	resolved	50.68300	-1.54500	viewpoint	Interpreted as Solent viewpoint toward Hurst Castle from NT Headon Warren / West Wight heath.
+229	isle-of-wight.txt	Yarmouth Sailing Club	resolved	50.70672	-1.49856	yacht_club	OSM Royal Solent Yacht Club; principal Yarmouth sailing club (no separate “Yarmouth Sailing Club” node).
+230	isle-of-wight.txt	Bembridge Sailing Club	resolved	50.69331	-1.09311	yacht_club	OSM clubhouse Embankment Road; Bembridge Harbour SW shore.
+231	isle-of-wight.txt	Seaview Yacht Club	resolved	50.72171	-1.11061	yacht_club	OSM The Esplanade Seaview; Solent-front clubhouse.
+232	isle-of-wight.txt	Ventnor Cove	resolved	50.59472	-1.21063	bay	Wikipedia Ventnor town coords; read as main town bay/seafront cove (no separate “Ventnor Cove” gazetteer).
+233	isle-of-wight.txt	Shanklin Esplanade	resolved	50.63049	-1.17221	promenade	OSM Esplanade hotel frontage; central Shanklin seafront.
+234	isle-of-wight.txt	Lake Parade	resolved	50.65300	-1.15550	promenade	No OSM “Lake Parade”; placed on Sandown Esplanade cluster PO36 (Lake ward seafront).
+235	isle-of-wight.txt	Sandown Culver Parade	resolved	50.65243	-1.15639	promenade	OSM Esplanade Sandown; Culver Parade seafront section toward Yaverland.
+236	isle-of-wight.txt	Yaverland Esplanade	resolved	50.65445	-1.15242	promenade	OSM Esplanade Yaverland; long Sandown Bay frontage.
+237	isle-of-wight.txt	Bembridge Harbour entrance	resolved	50.69367	-1.10667	harbour_mouth	Solent Handbook entrance waypoint50°41′.62′′N 01°06′.40′′W (outer channel approach).
+238	isle-of-wight.txt	Brading Marshes	resolved	50.68231	-1.12368	nature_reserve	RSPB Brading Marshes visitor centre New Road; tidal haven reedbeds N of Bembridge.
+239	isle-of-wight.txt	St Helens Duver beach	resolved	50.69808	-1.10032	beach	OSM The Duver centroid; shingle spit beach inside Bembridge Harbour E shore.
+240	isle-of-wight.txt	Puckpool promenade	resolved	50.72700	-1.12850	promenade	Ryde–Seaview coast near Puckpool Battery; inland “Puckpool Park” rejected in favour of shore walk.
+241	isle-of-wight.txt	East Cowes promenade	resolved	50.75700	-1.28650	promenade	Wikipedia town infobox; Esplanade seafront along the Medina/Solent frontage.
+242	isle-of-wight.txt	Osborne Esplanade	resolved	50.75105	-1.26878	coastal_walk	Outdooractive route waypoint on Osborne estate path to Queen Victoria’s beach (estate coastal walk).
+243	isle-of-wight.txt	Fort Albert beach	resolved	50.69958	-1.53197	beach	Wikipedia Fort Albert infobox; shingle foreshore at Cliff’s End, Colwell Bay (list order follows East Cowes but this is the named fort beach).
+244	isle-of-wight.txt	Culver Down cliff path	resolved	50.66667	-1.10851	cliff_path	Wikipedia Culver Down summit coords; NT coast-path circuit on the chalk cliff edge of the down.
+245	isle-of-wight.txt	Bembridge Down footpath	resolved	50.66800	-1.11200	footpath	Wikipedia Bembridge Down SSSI centroid; clifftop/down paths linked to NT Bembridge Fort / Culver circuits.
+246	isle-of-wight.txt	Steephill Cove path	resolved	50.58889	-1.22356	coastal_path	Wikidata / Geograph depicted-place coords at Steephill Cove; foot access only from Ventnor direction.
+247	isle-of-wight.txt	Luccombe Shute	resolved	50.61500	-1.17700	chine	Wikipedia Luccombe hamlet coords; “Shute” read as Luccombe Chine / coastal combe path (Undercliff landslip zone).
+248	isle-of-wight.txt	Yaverland long beach	resolved	50.65445	-1.15242	beach	Aligned with batch Yaverland Esplanade OSM reading; long Sandown Bay sand beach N of Culver.
+249	isle-of-wight.txt	Whitecliff pebble beach	resolved	50.58700	-1.10200	beach	Whitecliff Bay pebble shore below Culver chalk; centroid reading E of Yaverland along bay.
+250	isle-of-wight.txt	Bembridge limestone ledge	resolved	50.68611	-1.07000	intertidal_ledge	Wikipedia Foreland/Forelands coords; Bembridge Limestone foreshore & ledges at eastern extremity.
+251	isle-of-wight.txt	Foreland tidal pool	resolved	50.68500	-1.07200	rock_pool	Bembridge Ledge / Forelands rock-pool platform at low water (Visit Isle of Wight / IWOG site description).
+252	isle-of-wight.txt	Medina Walk	resolved	50.76000	-1.29800	promenade	Cowes town seafront along the River Medina; coastal path / parade anchor (W Cowes cluster).
+253	isle-of-wight.txt	Thorness Bay footpath	resolved	50.74160	-1.35570	coastal_path	GeoHack Thorness Bay SSSI centroid; shore path within NW Solent bay (holiday-park beach access strip).
+254	isle-of-wight.txt	Newtown footpath	resolved	50.73100	-1.40200	footpath	NT Newtown National Nature Reserve; creekside/coastal circuit near Newtown Old Town Hall quay context.
+255	isle-of-wight.txt	Hamstead Lane	resolved	50.70833	-1.43778	lane	Wikipedia Hamstead settlement; Hamstead Lane / Drive area where IoW Coast Path & Hamstead Trail meet the shore near Newtown Bay.
+256	isle-of-wight.txt	Yarmouth Common	resolved	50.70470	-1.39940	common	Coastal grass common at Yarmouth harbour mouth; town centre Wikipedia-class coords adjusted toward marina front.
+257	isle-of-wight.txt	Pondwell	not_found				Inland hamlet (Ryde–Newport corridor); no named coastal feature—nearest public shore ambiguous without local path label.
+258	isle-of-wight.txt	Nodes Point Battery	resolved	50.70437	-1.10212	fort	Wikipedia infobox; Palmerston battery on Nodes Point (now holiday-park site) guarding eastern Yar approach.
+259	isle-of-wight.txt	Whitecliff Bay access	resolved	50.58780	-1.10150	access_path	Car-park / holiday-camp access down to Whitecliff Bay beach (approx. upper access point).
+260	isle-of-wight.txt	Yaverland car park beach	resolved	50.65530	-1.14680	beach	Yaverland Beach pay-and-display cluster (SZ644855 area) at long beach backshore.
+261	isle-of-wight.txt	Lake Cliff lift	resolved	50.65320	-1.15580	funicular	Sandown “Lake Cliff Lift” cliff railway to beach; coord at upper/lower station area on Esplanade frontage.
+262	isle-of-wight.txt	Shanklin Cliff Lift	resolved	50.63080	-1.17190	funicular	Shanklin cliff lift between esplanade and cliff-top; OSM-aligned seafront cluster.
+263	isle-of-wight.txt	Ventnor cliff path	resolved	50.59472	-1.21063	coastal_path	Ventnor Undercliff / esplanade coast path context (town bay Wikipedia anchor).
+264	isle-of-wight.txt	Wheelers Bay access	resolved	50.59443	-1.19588	access_path	Wikipedia Wheelers Bay infobox; revetment/slipway access E of Ventnor on coastal path.
+265	isle-of-wight.txt	Palmer's Brook	resolved	50.76030	-1.26280	estuary_mouth	Wikipedia King’s Quay SSSI grid SZ536935 → approximate estuary mouth where Palmers Brook meets Solent (private Barton Estate shoreline).
+266	isle-of-wight.txt	Cowes Parade Green	resolved	50.76080	-1.29720	parade	Cowes Parade seafront green; marina-facing town centre cluster.
+267	isle-of-wight.txt	East Cowes Victoria Road seafront	resolved	50.75400	-1.28700	seafront	Victoria Road runs behind Esplanade; pin on shore/Esplanade frontage near town centre.
+268	isle-of-wight.txt	Fishbourne lane end	resolved	50.73293	-1.21370	ferry_terminal	Geograph Fishbourne Ferry Terminal depicted place; Wootton Creek car-ferry lanes at lane end.
+269	isle-of-wight.txt	Nettlestone seafront	resolved	50.72700	-1.11500	seafront	Nettlestone village Solent shore between Ryde and Seaview; approximate Esplanade centroid.
+270	isle-of-wight.txt	Seaview seafront	resolved	50.72171	-1.11061	seafront	Aligned with batch Seaview Yacht Club OSM Esplanade reading; continuous Solent frontage.
+271	isle-of-wight.txt	Spring Vale seafront	resolved	50.72250	-1.11800	seafront	UK Beach Guide OS SZ619920 area; sand/shingle Solent frontage between Puckpool and Seaview (Springvale Road).
+272	isle-of-wight.txt	Appley Park	resolved	50.72599	-1.14153	park	Geograph / Commons camera & object location; public park and beach N of Ryde on Solent frontage.
+273	isle-of-wight.txt	Ryde Eastern Gardens	resolved	50.72909	-1.15975	gardens	BNG SZ594925 centroid; Esplanade gardens PO33 2EL seafront E of Ryde pier.
+274	isle-of-wight.txt	Hamstead Point rocks	resolved	50.72712	-1.42757	foreshore	LDWA Hamstead Trail start SZ405921 → WGS84; intertidal rock/ledge at Hamstead Point N coast.
+275	isle-of-wight.txt	Freshwater Lifeboat	resolved	50.67028	-1.51019	lifeboat_station	Wikipedia infobox; Freshwater Bay Independent (non-RNLI) boathouse Gate Lane / PO40 9RA.
+276	isle-of-wight.txt	Yarmouth town quay	resolved	50.70550	-1.39980	quay	Yarmouth harbour town quay / ferry cluster on River Yar; pin on main harbour wall area.
+277	isle-of-wight.txt	Shalfleet Quay	resolved	50.71212	-1.41359	quay	Geograph SZ414903 subject location; historic quay on Newtown Creek near Shalfleet.
+278	isle-of-wight.txt	Newtown Town Hall quay	resolved	50.73020	-1.40180	quay	NT Newtown NNR creekside landing below Old Town Hall; approximate public quay/stage on Newtown Creek.
+279	isle-of-wight.txt	Colwell promenade	resolved	50.69100	-1.52350	promenade	Seafront walk behind Colwell Bay; aligned with existing Colwell Bay coastal cluster.
+280	isle-of-wight.txt	Totland sea defences	resolved	50.68780	-1.53220	sea_defence	Totland Bay frontage rock armour / wall along Military Rd shore (approx. mid-bay reading).
+281	isle-of-wight.txt	Compton Chine beach	resolved	50.66020	-1.48650	beach	Beach at mouth of Compton Chine into Compton Bay; seaward of Compton Chine row in this file.
+282	isle-of-wight.txt	Brook Chine beach	resolved	50.64620	-1.44050	beach	Foreshore at Brook Chine mouth (Brook Bay); seaward of Brook Chine row.
+283	isle-of-wight.txt	Chilton Chine beach	resolved	50.63180	-1.40250	beach	Mouth of Chilton Chine on Brighstone Bay section; seaward of Chilton Chine row.
+284	isle-of-wight.txt	Churchill Chine beach	resolved	50.64000	-1.42550	beach	Mouth of Churchill Chine toward Brighstone Bay; seaward of Churchill Chine row.
+285	isle-of-wight.txt	Barnes Chine beach	resolved	50.63720	-1.41750	beach	Mouth of Barnes Chine along Brighstone Bay cliffs; seaward of Barnes Chine row.
+286	isle-of-wight.txt	Brambles Chine beach	resolved	50.63600	-1.41450	beach	Mouth of Brambles Chine; adjacent foreshore to Barnes group.
+287	isle-of-wight.txt	Linstone Chine beach	resolved	50.69220	-1.52550	beach	Inactive chine mouth area at Colwell Bay (Linstone Chine row); sandy upper bay reading.
+288	isle-of-wight.txt	Luccombe Chine beach	resolved	50.61090	-1.17520	beach	Luccombe Bay beach at chine mouth; aligned with Luccombe Bay centroid E of chine ravine.
+289	isle-of-wight.txt	New Chine beach	resolved	50.57880	-1.30180	beach	Foreshore at New Chine mouth (Back-of-Wight brook feature); seaward of New Chine row.
+290	isle-of-wight.txt	Compton Farm coast	resolved	50.65700	-1.48200	coast	Military Road / Afton–Compton farm strip meeting Compton Bay cliff-top coast path.
+291	isle-of-wight.txt	Brook village shore	resolved	50.65180	-1.45200	coast	Brook village cluster shoreward of Brook Bay; coastal path / backshore reading.
+292	isle-of-wight.txt	Norton Grange	resolved	50.70647	-1.51298	resort	Outdooractive / GeoHack Warner Norton Grange Coastal Village PO41 0SD on Solent shore W of Yarmouth.
+293	isle-of-wight.txt	Nodes Point caravan site	resolved	50.70380	-1.10350	holiday_park	Thorness / Bembridge Yar mouth; park foreshore adjacent Nodes Point battery context.
+294	isle-of-wight.txt	Whitecliff Bay holiday park foreshore	resolved	50.58750	-1.10120	beach	Haven Whitecliff Bay resort beach at head of bay; low-tide foreshore centroid.
+295	isle-of-wight.txt	Fort Victoria pier	resolved	50.70620	-1.52250	pier	Wikipedia Fort Victoria country park; derelict military pier remains W of fort on Sconce Point.
+296	isle-of-wight.txt	Thorness Creek	resolved	50.74100	-1.35600	creek	Inlet on W side of Thorness Bay (NW Solent); upper tidal creek near holiday-park shore.
+297	isle-of-wight.txt	Hamstead Creek	resolved	50.71050	-1.43500	creek	Tidal creek / channel Hamstead–Newtown marsh complex N of Hamstead settlement.
+298	isle-of-wight.txt	Seaview Pier	resolved	50.71770	-1.10610	pier	Wikipedia Seaview Chain Pier (demolished 1952); historic pier head position on village frontage.
+299	isle-of-wight.txt	Luccombe village path	resolved	50.61550	-1.17600	coastal_path	Public coast path through Luccombe Undercliff between Shanklin and Bonchurch (village lane link).
+300	isle-of-wight.txt	Niton village lane	resolved	50.59080	-1.29200	lane	Niton village lane toward Undercliff coast S of village centre (Wikipedia-class Niton area).
+301	isle-of-wight.txt	Chale village coast	resolved	50.59520	-1.31200	coast	Back-of-Wight Wealden shore S of Chale village; coastal path / Undercliff foreshore reading W of Chale Bay mouth.
+302	isle-of-wight.txt	Brighstone coast	resolved	50.63200	-1.39500	coast	Cliff-top Military Road shore segment above Brighstone Bay (Brighstone parish SW coast).
+303	isle-of-wight.txt	Mottistone coast	resolved	50.64350	-1.39650	coast	Coastal belt below Mottistone village toward Mottistone Down / shore path (SW Wight).
+304	isle-of-wight.txt	Afton coast	resolved	50.67380	-1.51180	coast	Afton Down–Freshwater Bay coastal strip; aligned with Afton row coastal downland meeting sea cliffs.
+305	isle-of-wight.txt	Freshwater Bay access	resolved	50.67050	-1.51050	access	Coastal access / path head at Freshwater Bay cove; seaward of Freshwater Bay centroid.
+306	isle-of-wight.txt	Totland Bay access	resolved	50.68780	-1.53120	access	Public shore access at Totland Bay; foot of chine / promenade zone W of Totland village.
+307	isle-of-wight.txt	Colwell Bay access	resolved	50.69050	-1.52480	access	Beach access at Colwell Bay foreshore; near Colwell Bay sandy shore centroid.
+308	isle-of-wight.txt	Alum Bay access	resolved	50.66650	-1.57620	access	Chairlift / visitor access to Alum Bay beach; cliff-foot near coloured sands viewpoint area.
+309	isle-of-wight.txt	Needles Old Battery yard	resolved	50.66200	-1.58420	yard	NT Old Battery service yard / hardstanding above Needles stacks; slightly W of casemate coord row.
+310	isle-of-wight.txt	Scratchell's Bay access	resolved	50.66390	-1.58060	access	Footpath / scramble access head toward Scratchell's Bay cliff-foot (W of Alum Bay).
+311	isle-of-wight.txt	Watershoot Bay rocks	resolved	50.57600	-1.30600	rocks	Rocky foreshore at Watershoot Bay mouth; Wikipedia-class bay coord (50.576°N 1.306°W).
+312	isle-of-wight.txt	Binnel Bay rocks	resolved	50.57870	-1.27110	rocks	Exposed rocky shoreline mid Binnel Bay (Undercliff); Wikipedia centroid for Binnel Bay waterbody.
+313	isle-of-wight.txt	Foreland Point	resolved	50.68611	-1.07000	headland	Bembridge Foreland eastern extremity; Wikipedia Foreland, Isle of Wight coord at Ledge / foreshore tip.
+314	isle-of-wight.txt	Culver Cliff base	resolved	50.66588	-1.09749	cliff_base	Foreshore at chalk cliff foot near Whitecliff Bay access; UK Fossils / Geograph-class Culver Cliff rocks reading.
+315	isle-of-wight.txt	St Catherine's Down	resolved	50.57590	-1.29820	down	NT St Catherine’s Down / Knowles Farm block W of lighthouse; high ground above Undercliff bays.
+316	isle-of-wight.txt	Niton lighthouse	resolved	50.57528	-1.30306	lighthouse	St Catherine’s Lighthouse (Niton); Trinity House / Wikipedia WGS84 at Niton Undercliff.
+317	isle-of-wight.txt	West Cowes Parade	resolved	50.76350	-1.29900	promenade	Cowes seafront parade / high street shore; Medina mouth W bank centroid reading.
+318	isle-of-wight.txt	East Cowes Esplanade Gardens	resolved	50.76080	-1.28550	promenade	Esplanade park strip on East Cowes Medina frontage; public gardens above ferry approaches.
+319	isle-of-wight.txt	Wootton Creek bridge	resolved	50.73250	-1.18100	bridge	A3020 Wootton Creek road bridge; tidal creek mouth near Wootton Bridge settlement.
+320	isle-of-wight.txt	Osborne House beach	resolved	50.75350	-1.28750	beach	Osborne Bay private royal beach below Osborne House; English Heritage estate foreshore.
+321	isle-of-wight.txt	Prince's Green sands	resolved	50.76040	-1.28480	beach	Small sand patch at Prince’s Green East Cowes frontage; Solent shore N of Esplanade.
+322	isle-of-wight.txt	Gurnard Sailing Club	resolved	50.73980	-1.31880	club	Gurnard SC pontoon / clubhouse on north Solent shore W of Cowes harbour entrance.
+323	isle-of-wight.txt	Royal Victoria Yacht Club Cowes	resolved	50.76120	-1.29680	club	RVYC clubhouse on Cowes Parade / Thetis Road shore; Medina entrance yacht club.
+324	isle-of-wight.txt	Island Sailing Club	resolved	50.76472	-1.29700	club	ISC clubhouse Arctic Road / Parade corner; published club map coord class.
+325	isle-of-wight.txt	Ventnor paddling pool	resolved	50.59360	-1.20820	pool	Ventnor Esplanade tidal paddling pool; seafront S of town centre.
+326	isle-of-wight.txt	Sandown Geo	resolved	50.65920	-1.13850	geo	Informal “geo” reading: Wealden / Red Cliff fossil foreshore at Yaverland (Sandown Bay E); Yaverland coastal belt.
+327	isle-of-wight.txt	Chale Wealden cliffs	resolved	50.59200	-1.30800	cliff	Wealden Group clay/sandstone cliff line S of Chale toward Blackgang Undercliff.
+328	isle-of-wight.txt	Blackgang landslip	resolved	50.58720	-1.31250	landslip	Active Undercliff slip complex below Blackgang viewpoint; coastal A3055 landslip zone centroid.
+329	isle-of-wight.txt	Colwell Chine	resolved	50.69220	-1.52580	chine	Wooded ravine at N side Colwell Bay; mouth near Linstone Chine beach cluster (OSM-class).
+330	isle-of-wight.txt	Shippards Chine beach	resolved	50.63400	-1.40950	beach	Shingle foreshore at Shippards Chine mouth (Brighstone Bay); seaward of Shippards Chine row.
+331	isle-of-wight.txt	Cowleaze Chine beach	resolved	50.61801	-1.37376	beach	Beach at Cowleaze Chine mouth (Brighstone Bay); OS grid SZ444800 / Geograph-class WGS84 from chine/beach cluster.
+332	isle-of-wight.txt	Old Walpen beach	resolved	50.59801	-1.33446	beach	Shingle foreshore below Old Walpen Chine (Chale coast); OS grid SZ472778 centroid—historic stream knickpoint may sit above beach.
+333	isle-of-wight.txt	New Walpen beach	resolved	50.59710	-1.33306	beach	Coastal beach at active New Walpen Chine outlet; OS grid SZ473777 (islandrivers.org chine refs).
+334	isle-of-wight.txt	Alum Bay chairlift	resolved	50.66670	-1.57550	attraction	Needles Landmark chairlift top/upper station zone above Alum Bay beach; aligned with Alum Bay visitor infrastructure.
+335	isle-of-wight.txt	Needles Landmark viewpoint	resolved	50.66764	-1.56618	viewpoint	The Needles Landmark Attraction clifftop viewpoint / pleasure park (published attraction coords class).
+336	isle-of-wight.txt	Blackgang Chine gorge	resolved	50.58720	-1.31250	gorge	Blackgang Chine landslip / ravine mouth zone on Undercliff SW coast; coastal reading near Blackgang landslip row.
+337	isle-of-wight.txt	Shanklin Chine gorge	resolved	50.62611	-1.17444	gorge	Wikipedia / GeoHack coord for Shanklin Chine coastal ravine (paid visitor gorge).
+338	isle-of-wight.txt	Bembridge Airport	resolved	50.67806	-1.10944	airfield	Wikipedia infobox WGS84 for EGHJ (Bembridge) aerodrome reference point.
+339	isle-of-wight.txt	Bembridge Forelands	resolved	50.68450	-1.07800	foreshore	Eastern Bembridge ledge / Foreland foreshore belt seaward of village; centroid between Foreland Point and harbour approaches.
+340	isle-of-wight.txt	Culver Parade	resolved	50.65749	-1.14603	promenade	Sandown seafront Culver Parade / bandstand belt; Geograph SZ60468455 subject location class.
+341	isle-of-wight.txt	Sandown Bay sands	resolved	50.66140	-1.12841	beach	Open sandy shore centroid for Sandown Bay (Yaverland–Sandown axis); OS six-figure SZ617850 → WGS84.
+342	isle-of-wight.txt	Shanklin sands	resolved	50.62650	-1.17300	beach	Shanklin Esplanade sandy beach front; coastal centroid W of Shanklin Chine mouth.
+343	isle-of-wight.txt	West Cowes Egypt Point	resolved	50.76640	-1.30980	headland	Egypt Point at N/W extremity of Cowes harbour entrance (West Cowes promontory reading).
+344	isle-of-wight.txt	Gurnard Bay rocks	resolved	50.73980	-1.31880	rocks	Rocky north Solent foreshore of Gurnard Bay; aligned with Gurnard SC / Gurnard shore cluster.
+345	isle-of-wight.txt	Osborne Bay beach	resolved	50.75350	-1.28750	beach	Osborne House estate beach on Osborne Bay; matches earlier Osborne Bay coastal row.
+346	isle-of-wight.txt	Priory Bay sands	resolved	50.71200	-1.10800	beach	Priory Bay (Seaview / Bembridge W) sandy shore centroid toward Norris Castle headland.
+347	isle-of-wight.txt	Wootton shore	resolved	50.73250	-1.18100	shore	Public Solent shore along Wootton Creek mouth; aligned with Wootton Creek bridge row belt.
+348	isle-of-wight.txt	Quarr shore	resolved	50.73470	-1.19000	shore	Foreshore below Quarr Abbey / Fishbourne–Wootton coastal path segment on north coast mud/sand fringe.
+349	isle-of-wight.txt	Compton Bay fossils	resolved	50.66194	-1.49000	beach	Fossiliferous Wealden foreshore at Compton Bay; Wikipedia-class bay centroid (geology visitor belt).
+350	isle-of-wight.txt	Brook Bay fossils	resolved	50.64600	-1.44100	beach	Brook Bay shingle/sand fossil hunting foreshore; aligned with Brook Bay row centroid.
+351	isle-of-wight.txt	Atherfield Bay	resolved	50.60000	-1.30000	bay	SW-facing bay centroid S of Atherfield / Military Road belt; Wikipedia region-class (50°36′N 1°18′W area).
+352	isle-of-wight.txt	Rocken End Bay	resolved	50.57680	-1.30566	bay	Remote shingle bay at Rocken End; OS eight-figure SZ49267546 → WGS84 (UK Beach Guide grid family).
+353	isle-of-wight.txt	Castlehaven Bay	resolved	50.57750	-1.28700	bay	Small south-coast embayment at Castlehaven hamlet (Reeth Bay locale); seaward of Castlehaven Lane slip cluster.
+354	isle-of-wight.txt	Orchard Bay beach	resolved	50.58677	-1.23192	beach	Undercliff shingle beach at Orchard Bay; OS grid SZ54477662 (beach guide / GeoHack-class).
+355	isle-of-wight.txt	Reeth Bay beach	resolved	50.57880	-1.28555	beach	Sandy/pebble foreshore of Reeth Bay (Castlehaven); centroid near published Reeth Lodge / bay mouth coords.
+356	isle-of-wight.txt	Castle Cove beach	resolved	50.58921	-1.22016	beach	Ventnor–St Lawrence coastal cove beach; Geograph SZ553769 subject location.
+357	isle-of-wight.txt	Chale Bay beach	resolved	50.59350	-1.31500	beach	Open Chale Bay shoreline S of Chale village; Wealden bay mouth reading W of Blackgang belt.
+358	isle-of-wight.txt	Monks Bay beach	resolved	50.59866	-1.18256	beach	Sand/shingle foreshore at Monks Bay (Bonchurch); OS six-figure SZ57957798 → WGS84.
+359	isle-of-wight.txt	Mount Bay beach	resolved	50.58600	-1.23500	beach	Shingle beach at Mount Bay (St Lawrence Undercliff); Wikipedia coord for Mount Bay.
+360	isle-of-wight.txt	Watcombe Bay beach	resolved	50.66842	-1.51643	beach	Small chalk cove W of Freshwater Bay; OS grid SZ34278553 from beach guide (distinct Undercliff name collision avoided via list context).
+361	isle-of-wight.txt	Horseshoe Bay beach	resolved	50.59500	-1.19000	beach	Wikipedia coord for Horseshoe Bay, Bonchurch (promenade/seawall beach); distinct from remote Horseshoe Bay near Culver Down.
+362	isle-of-wight.txt	Steel Bay beach	resolved	50.60503	-1.17519	beach	Wikipedia centroid; remote shingle/reef foreshore E of Bonchurch Undercliff.
+363	isle-of-wight.txt	Woodside Beach access	resolved	50.74068	-1.22346	beach_access	Geograph SZ548937 subject at Woodside Beach (footpath from Upper Woodside Road); WGS84 from image geotag.
+364	isle-of-wight.txt	Woody Bay beach	resolved	50.58171	-1.24648	beach	Wikipedia coord; shingle storm beach beneath St Lawrence Undercliff.
+365	isle-of-wight.txt	Luccombe Bay beach	resolved	50.61088	-1.17498	beach	Wikipedia bay centroid; sand/shingle shore Luccombe Chine locale.
+366	isle-of-wight.txt	Wheelers Bay beach	resolved	50.59443	-1.19588	beach	Wikipedia coord; revetment beach E of Ventnor toward Bonchurch.
+367	isle-of-wight.txt	Steephill Cove sands	resolved	50.58889	-1.22356	beach	Wikidata/Geograph-class coords for Steephill Cove foreshore.
+368	isle-of-wight.txt	Ventnor Bay sands	resolved	50.59420	-1.20880	beach	Main Ventnor Esplanade beach centroid (town/beach context S of PO38 centre).
+369	isle-of-wight.txt	Bonchurch Cove	resolved	50.59820	-1.18280	cove	Small coastal cove W of Bonchurch village seawall; OS-class reading between village and Monks Bay.
+370	isle-of-wight.txt	St Lawrence Cove	resolved	50.58120	-1.24150	cove	Undercliff cove mouth S of St Lawrence settlement (coastal path belt W of Ventnor).
+371	isle-of-wight.txt	Sandown Pier Beach	resolved	50.65269	-1.15556	beach	Sandown Pier landward beach; Wikipedia pier coordinate as coastal anchor.
+372	isle-of-wight.txt	Shanklin Old Village	resolved	50.62880	-1.18120	village	Historic Shanklin Old Village lane cluster S of Shanklin Chine (tourist map centroid).
+373	isle-of-wight.txt	Ventnor Cascade	resolved	50.59520	-1.20850	attraction	Small ornamental/leisure water cascade on Ventnor seafront belt (not a major named fall).
+374	isle-of-wight.txt	Shanklin Chine waterfall	resolved	50.62690	-1.17790	waterfall	Shanklin Chine visitor gorge; coord at chine mouth/visitor access near Esplanade.
+375	isle-of-wight.txt	Yaverland SSSI foreshore	resolved	50.66389	-1.13056	beach	Wealden foreshore SSSI belt; Yaverland Battery Wikipedia coord as mapped coastal anchor on Sandown Bay.
+376	isle-of-wight.txt	Totland sailing club shore	resolved	50.68630	-1.53050	harbour	Royal Totland Bay Sailing Club shore context; Totland Bay headland club slip area.
+377	isle-of-wight.txt	Bembridge RNLI	resolved	50.69019	-1.07047	lifeboat_station	Wikipedia Bembridge Lifeboat Station coordinate (offshore boathouse/slip cluster).
+378	isle-of-wight.txt	Sandown lifeboat shore	resolved	50.65040	-1.15950	lifeboat_station	Sandown & Shanklin Independent Lifeboat boathouse; Wikipedia station coordinate Western Esplanade.
+379	isle-of-wight.txt	Yarmouth Harbour entrance	resolved	50.70700	-1.50083	harbour_entrance	Pilotage waypoint 50°42.42′N 01°30.05′W (harbour commissioners / marina guides).
+380	isle-of-wight.txt	Cowes Medina entrance	resolved	50.76550	-1.30100	estuary_mouth	River Medina mouth into Solent; centroid off Egypt Point / harbour approaches (Cowes context).
+381	isle-of-wight.txt	Gurnard Luck entrance	resolved	50.76120	-1.31780	stream_mouth	Gurnard Luck stream outfall into Solent at Gurnard (coastal reading).
+382	isle-of-wight.txt	Thorness Bay entrance	resolved	50.70200	-1.35800	bay_entrance	Thorness Bay mouth on NW coast (OS coastal centroid reading).
+383	isle-of-wight.txt	Newtown Creek entrance	resolved	50.73500	-1.40500	estuary_mouth	National Trust Newtown Harbour tidal entrance channel (approx. bar mouth).
+384	isle-of-wight.txt	Wootton Creek entrance	resolved	50.72700	-1.17600	estuary_mouth	Wootton Creek mouth E of Fishbourne (pilotage/general mouth reading).
+385	isle-of-wight.txt	Fishbourne Wightlink	resolved	50.73320	-1.21211	ferry_terminal	Wightlink car ferry berth; postcode PO33 4EU centroid (Doogal) aligned with terminal.
+386	isle-of-wight.txt	East Cowes Red Funnel	resolved	50.76100	-1.28800	ferry_terminal	Red Funnel vehicle ferry terminal cluster Trinity Landing / East Cowes approaches.
+387	isle-of-wight.txt	Lymington ferry Yarmouth	resolved	50.70700	-1.50083	ferry_terminal	Wightlink Yarmouth slip; same published harbour-entrance waypoint (Lymington-bound context).
+388	isle-of-wight.txt	Yarmouth Lymington ferry	resolved	50.70700	-1.50083	ferry_terminal	Same berth/approach as 387; opposite direction label in source list.
+389	isle-of-wight.txt	East Cowes harbour	resolved	50.76200	-1.28700	harbour	East Cowes marina/harbour pool centroid off town waterfront.
+390	isle-of-wight.txt	Ryde harbour	resolved	50.73322	-1.15472	harbour	Ryde Marina/leisure harbour entrance waypoint 50°43.993′N 001°09.283′W (eOceanic).
+391	isle-of-wight.txt	Ventnor harbour	resolved	50.59217	-1.20833	harbour	Solent Handbook / pilot notes: entrance ~50°35′.53N 01°12′.50W (Ventnor Haven fair-weather harbour).
+392	isle-of-wight.txt	Freshwater Bay rocks	resolved	50.66920	-1.51100	coastal_rocks	Chalky foreshore / reef on W side of Freshwater Bay (distinct from sandy cove centre; map reading W of lifeboat slip).
+393	isle-of-wight.txt	Freshwater Bay lifeboat slip	resolved	50.67028	-1.51019	slipway	Freshwater Bay Independent Lifeboat Station (The Boathouse); Wikipedia WGS84 — not RNLI.
+394	isle-of-wight.txt	Compton Bay slipway	resolved	50.66120	-1.49050	slipway	NT Compton Bay beach access / launch slope near Compton Chine car-park steps (trailer use tide-limited; bay context).
+395	isle-of-wight.txt	Brook Chine slipway	resolved	50.62917	-1.40833	slipway	Chine mouth beach access (SZ385835 area); informal shore launch — no large public concrete slip like Colwell.
+396	isle-of-wight.txt	Colwell Bay slipway	resolved	50.69100	-1.52380	slipway	Public concrete slip on Colwell promenade (southern slip per pilot guides); ~OS SZ327879 belt.
+397	isle-of-wight.txt	Totland Bay slipway	resolved	50.68030	-1.55100	slipway	Crude wooden dinghy slip S side at root of Totland Pier (visitmyharbour / pilot descriptions); near bay coords.

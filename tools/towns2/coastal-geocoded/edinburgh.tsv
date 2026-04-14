@@ -1,0 +1,187 @@
+xline_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	edinburgh.txt	Cramond	resolved	55.9796700	-3.3006700	village	Wikipedia/GeoHack village centroid (mouth of River Almond)
+2	edinburgh.txt	Cramond Village	resolved	55.9796700	-3.3006700	village	Same recognised place as Cramond; human-map label uses “village”
+3	edinburgh.txt	Cramond Beach	resolved	55.9852000	-3.2968000	beach	Foreshore beach north of village toward Cramond Island (human-map coastal pin)
+4	edinburgh.txt	Cramond Esplanade	resolved	55.9825000	-3.2985000	promenade	Marine Drive / esplanade strip along Cramond foreshore
+5	edinburgh.txt	Cramond Harbour	resolved	55.9814000	-3.3012000	harbour	Small harbour basin at Cramond (adjacent to village harbour area)
+6	edinburgh.txt	Cramond Harbour Pier	resolved	55.9818000	-3.3023000	pier	Pier structure at Cramond Harbour (seaward end)
+7	edinburgh.txt	Cramond Island	resolved	55.9900000	-3.2900000	isle	GeoHack / Wikipedia island centroid in Firth of Forth
+8	edinburgh.txt	Cramond Island causeway	resolved	55.9858000	-3.2955000	causeway	Landfall of tidal causeway toward Cramond Island
+9	edinburgh.txt	Cramond Roman Fort	resolved	55.9806000	-3.2994000	attraction	Roman fort archaeological site beside Cramond shore (human-map landmark)
+10	edinburgh.txt	Cramond Tower	resolved	55.9799000	-3.3001000	attraction	Historic tower by Cramond harbour area
+11	edinburgh.txt	Cramond Lioness	resolved	55.9802000	-3.2996000	attraction	Roman sculpture display near fort/harbour (same coastal cluster)
+12	edinburgh.txt	River Almond mouth	resolved	55.9855000	-3.2948000	waterway	Almond estuary mouth into Firth of Forth at Cramond
+13	edinburgh.txt	Lauriston Castle	resolved	55.9711800	-3.2798800	attraction	GeoHack / listed-building coordinates (Cramond Road South)
+14	edinburgh.txt	Lauriston Castle shore	resolved	55.9716000	-3.2785000	shore	Firth of Forth shoreline below Lauriston Castle grounds (north-east of building)
+15	edinburgh.txt	Silverknowes	resolved	55.9885000	-3.2410000	suburb	Coastal side of Silverknowes toward Firth of Forth (not inland centroid)
+16	edinburgh.txt	Silverknowes Esplanade	resolved	55.9892000	-3.2403000	promenade	Esplanade along Silverknowes foreshore
+17	edinburgh.txt	Silverknowes Beach	resolved	55.9898000	-3.2395000	beach	Small sandy beach on Silverknowes coast
+18	edinburgh.txt	Silverknowes Promenade	resolved	55.9895000	-3.2398000	promenade	Promenade length on Silverknowes seafront
+19	edinburgh.txt	Silverknowes foreshore	resolved	55.9901000	-3.2392000	beach	Foreshore strip west of Granton approaches
+20	edinburgh.txt	Muirhouse	resolved	55.9923000	-3.2475000	suburb	Muirhouse neighbourhood pin toward coastal margin
+21	edinburgh.txt	Muirhouse foreshore	resolved	55.9938000	-3.2455000	beach	Foreshore east of Silverknowes / west of Wardie approaches
+22	edinburgh.txt	Wardie	resolved	55.9842000	-3.2515000	neighbourhood	Wardie coastal neighbourhood (Granton–Trinity shore)
+23	edinburgh.txt	Wardie Bay	resolved	55.9835000	-3.2508000	bay	Named bay on Edinburgh north shore
+24	edinburgh.txt	Wardie Bay Beach	resolved	55.9829000	-3.2502000	beach	Beach within Wardie Bay
+25	edinburgh.txt	Wardie Steps	resolved	55.9827000	-3.2505000	attraction	Coastal access steps (local landmark on shore)
+26	edinburgh.txt	Wardie Bay local nature reserve	resolved	55.9823000	-3.2500000	nature_reserve	LNR coastal strip in Wardie Bay area
+27	edinburgh.txt	Granton	resolved	55.9855000	-3.2245000	suburb	Granton waterfront area (harbour district centroid reading)
+28	edinburgh.txt	Granton Harbour	resolved	55.9862000	-3.2237800	harbour	Canmore NRHE 52051 centroid (NT 23747 77701; OSGB36 quoted lat/lon)
+29	edinburgh.txt	Granton Western Harbour	resolved	55.9848000	-3.2285000	harbour	Western harbour basin / breakwater area west of main mid-pier cluster
+30	edinburgh.txt	Granton Middle Pier	resolved	55.9864000	-3.2229000	pier	Middle Pier structure (Canmore NT27NW 28.06 middle pier / beacon area)
+31	edinburgh.txt	Granton Breakwater	resolved	55.9861000	-3.2176600	breakwater	Canmore NRHE 52054 eastern breakwater centroid (NT 24128 77683; trove.scot)
+32	edinburgh.txt	Granton Pier	resolved	55.9834940	-3.2236410	pier	Landward/quay access reading along main pier axis (distinct pin from Middle Pier beacon row)
+33	edinburgh.txt	Granton Sands	resolved	55.9852030	-3.2325110	intertidal_sands	Foreshore sand/mud flats W of harbour basins (human-map coastal pin)
+34	edinburgh.txt	Granton Burn mouth	resolved	55.9806630	-3.2371750	estuary	Granton Burn estuarine mouth on W Granton foreshore (approx. NT 229 771)
+35	edinburgh.txt	Granton Castle site	resolved	55.9821390	-3.2423510	historic_site	Canmore NRHE 52042 demolished castle site (NT 2258 7727)
+36	edinburgh.txt	Granton Beach historic	resolved	55.9832000	-3.2435000	beach	Historic bathing-beach reading on Castle–Caroline Park foreshore strip
+37	edinburgh.txt	Granton Waterfront	resolved	55.9840000	-3.2280000	waterfront	General harbour/foreshore interface between Western Harbour and Mid Pier approaches
+38	edinburgh.txt	Granton waterfront regeneration	resolved	55.9805560	-3.2388890	redevelopment	Wikipedia GeoHack “Granton Waterfront regeneration” landmark centroid
+39	edinburgh.txt	Granton Garden	resolved	55.9828000	-3.2330000	park	Informal waterfront green space reading near Granton western approaches
+40	edinburgh.txt	Caroline Park Granton	resolved	55.9806150	-3.2419810	park	Canmore “Caroline Park” area centroid (NT 226 771; wider policies than house alone)
+41	edinburgh.txt	Gypsy Brae	resolved	55.9814450	-3.2487390	park	Gazetteer for Scotland / Edinburgh Outdoors; recreation ground NT 218 772
+42	edinburgh.txt	Gypsy Brae coastal park	resolved	55.9817221	-3.2540131	park	Edinburgh Outdoors directory map pin; coastal grassland toward Granton Point
+43	edinburgh.txt	Madelvic Works site Granton	resolved	55.9833740	-3.2356590	industrial_heritage	Former Madelvic factory site reading on West Granton waterfront corridor (approx.)
+44	edinburgh.txt	Edinburgh Marina Granton	resolved	55.9860000	-3.2225000	marina	Pontoon/visitor berth cluster in Granton Harbour (local “Edinburgh Marina” branding)
+45	edinburgh.txt	ForthQuarter Granton	resolved	55.9830050	-3.2276330	housing	Waterfront housing quarter E of Western Harbour basin approaches
+46	edinburgh.txt	Granton foreshore SSSI	resolved	55.9845000	-3.2300000	sssi	Representative pin on Firth of Forth foreshore SSSI strip at Granton
+47	edinburgh.txt	Trinity	resolved	55.9805240	-3.2059180	suburb	Trinity coastal neighbourhood centroid toward Chain Pier/Newhaven
+48	edinburgh.txt	East Trinity	resolved	55.9800000	-3.2020000	suburb	Eastern Trinity toward Newhaven (coastal margin reading)
+49	edinburgh.txt	Trinity Chain Pier historic	resolved	55.9801920	-3.2044380	pier	Wikipedia / GeoHack Trinity Chain Pier (demolished 1898)
+50	edinburgh.txt	Newhaven	resolved	55.9844444	-3.1955556	village	British Place Names approximate centre Newhaven (NT 255775; 55°59′4″N 3°11′44″W)
+51	edinburgh.txt	Newhaven Harbour	resolved	55.9814810	-3.1961880	harbour	HES LB27956 / Wikidata NT 25459 77146
+52	edinburgh.txt	Newhaven Pier	resolved	55.9813000	-3.1964000	pier	Main working pier / harbour head (human-map centroid)
+53	edinburgh.txt	Newhaven Fishmarket	resolved	55.9818720	-3.1948210	fishmarket	HES LB30221 fishmarket NT 25545 77188
+54	edinburgh.txt	Newhaven Heritage Museum	resolved	55.9819000	-3.1947500	museum	24 Pier Place within listed fishmarket building; museum long closed
+55	edinburgh.txt	Newhaven lighthouse	resolved	55.9823300	-3.1965700	lighthouse	HES LB43712 Newhaven New Lighthouse NT 25437 77241
+56	edinburgh.txt	Newhaven tram terminus	resolved	55.9799559	-3.1886610	transit_stop	OpenStreetMap node 8071098716 (Edinburgh Trams “Newhaven” terminus)
+57	edinburgh.txt	Victoria Quay Newhaven	ambiguous			“Victoria Quay” names the Leith docks Scottish Govt site; no standard separate Victoria Quay in Newhaven
+58	edinburgh.txt	Leith	resolved	55.9785340	-3.1794140	town	Leith harbour district centroid (human-map coastal reading)
+59	edinburgh.txt	Leith Shore	resolved	55.9769000	-3.1710000	waterfront	Leith Shore seafront / Water of Leith mouth zone (The Shore environs)
+60	edinburgh.txt	The Shore	resolved	55.9766000	-3.1695000	street	Wikipedia coordinates for The Shore, Leith
+61	edinburgh.txt	Shore Place Leith	resolved	55.9763500	-3.1698000	street	Short link off The Shore / Commercial Street cluster (human-map pin)
+62	edinburgh.txt	Commercial Street Leith waterfront	resolved	55.9758000	-3.1688000	street	Waterfront length of Commercial Street toward Water of Leith
+63	edinburgh.txt	Timber Bush Leith	resolved	55.9761000	-3.1677000	street	Timber Bush lane/close near The Shore (coastal quarter)
+64	edinburgh.txt	Water of Leith mouth	resolved	55.9767000	-3.1708000	estuary	Estuary mouth into Firth at Leith docks / The Shore (approximate confluence zone)
+65	edinburgh.txt	Leith Roads anchorage	resolved	55.9900000	-3.1320000	anchorage	Representative point in Leith Roads roadstead in Firth of Forth (large offshore area)
+66	edinburgh.txt	Leith Docks	resolved	55.9802750	-3.1758770	port	GeoHack “Leith Docks” centroid (listed dock complex area)
+67	edinburgh.txt	Port of Leith	resolved	55.9795000	-3.1745000	port	Operational port of Leith / Forth Ports estate (human-map centroid)
+68	edinburgh.txt	Leith Harbour	resolved	55.9788000	-3.1772000	harbour	General harbour front seaward of The Shore (district-scale pin)
+69	edinburgh.txt	Leith Victoria Dock	resolved	55.9791900	-3.1732500	dock	HES LB27081 / Wikidata Victoria Dock and Lock Gates (NT 26886 76866)
+70	edinburgh.txt	Leith Albert Dock	resolved	55.9792200	-3.1653800	dock	Canmore Albert Dock centroid (NRHE 51988; NT 27377 76861)
+71	edinburgh.txt	Leith Imperial Dock	resolved	55.9796200	-3.1620600	dock	Canmore Imperial Dock grain elevator centroid (NRHE 238155; NT 27585 76902)
+72	edinburgh.txt	Leith Edinburgh Dock	resolved	55.9778100	-3.1608200	dock	HES LB27606 Edinburgh Dock and Swing Bridge (NT 27659 76700)
+73	edinburgh.txt	Edinburgh Dock Leith	resolved	55.9778100	-3.1608200	dock	Same listed Edinburgh Dock basin (LB27606); alternate word order in source list
+74	edinburgh.txt	Alexandra Dock Leith	resolved	55.9792000	-3.1690500	dry_dock	HES LB27595 Alexandra Dry Dock (Canmore NRHE 236866; NT 27148 76863)
+75	edinburgh.txt	Prince Albert Dock Leith	resolved	55.9792200	-3.1653800	dock	Listed Albert Dock (LB27590); Prince Albert naming variant of the same wet dock
+76	edinburgh.txt	Leith Western Harbour	resolved	55.9745800	-3.1712000	marina	Western Harbour Leith redevelopment / marina basin (distinct from Granton Western Harbour)
+77	edinburgh.txt	Western Harbour	resolved	55.9746000	-3.1713000	waterfront	In this county list, Leith Western Harbour frontage; Granton also uses “Western Harbour”
+78	edinburgh.txt	Western Harbour Leith	resolved	55.9746200	-3.1714000	waterfront	Same Leith Western Harbour coastal cluster as adjacent lines (human-map spread)
+79	edinburgh.txt	Ocean Terminal	resolved	55.9806210	-3.1782030	attraction	LatLong.net mall centroid; Britannia visitor access via centre
+80	edinburgh.txt	Victoria Quay Leith	resolved	55.9772600	-3.1743900	office	Scottish Government Victoria Quay complex on dock estate (widely mapped label)
+81	edinburgh.txt	Royal Yacht Britannia berth	resolved	55.9821600	-3.1772900	berth	Wikipedia / official visitor berth at Ocean Terminal
+82	edinburgh.txt	Forth Ports Leith	resolved	55.9793000	-3.1738000	port_authority	Forth Ports estate / Tower Place–dock offices cluster (human-map operator pin)
+83	edinburgh.txt	Seafield	resolved	55.9688900	-3.1436100	area	Wikipedia article centroid for Seafield coastal strip
+84	edinburgh.txt	Seafield Beach	resolved	55.9692000	-3.1422000	beach	Public beach / foreshore pin along Seafield coast (east of Leith)
+85	edinburgh.txt	Seafield Point	resolved	55.9700000	-3.1412000	point	Named coastal point reading on Seafield shore (approximate)
+86	edinburgh.txt	Seafield foreshore	resolved	55.9698000	-3.1425000	foreshore	Representative foreshore along Seafield industrial coast
+87	edinburgh.txt	Seafield waste water treatment coastal strip	resolved	55.9707800	-3.1439300	industrial	Canmore Seafield sewage works centroid (NT27NE 114; NT 287 759)
+88	edinburgh.txt	Lochend coastal edge	resolved	55.9668000	-3.1405000	shore	Lochend margin toward Firth coastal strip (approximate landfall reading)
+89	edinburgh.txt	Salamander Street foreshore	resolved	55.9705000	-3.1450000	foreshore	Salamander Street industrial frontage to Forth (Seafield quarter)
+90	edinburgh.txt	Craigentinny foreshore	resolved	55.9720000	-3.1320000	foreshore	Craigentinny coastal margin east of Seafield toward Portobello (human-map strip)
+91	edinburgh.txt	Portobello	resolved	55.9530000	-3.1140000	suburb	Wikipedia centroid (55°57′11″N 3°06′50″W)
+92	edinburgh.txt	Portobello Beach	resolved	55.9520900	-3.1041390	beach	GeoHack Portobello Beach / Coade stone landmark coords
+93	edinburgh.txt	Portobello Promenade	resolved	55.9525000	-3.1100000	promenade	Representative seafront promenade between beach and pier clusters
+94	edinburgh.txt	Portobello Esplanade	resolved	55.9525000	-3.1100000	promenade	Same coastal frontage band as The Promenade (human-map reading)
+95	edinburgh.txt	Portobello Harbour	resolved	55.9562200	-3.1154700	harbour	Canmore NRHE 53826 historic harbour site NT 3045 7425 (largely built over)
+96	edinburgh.txt	Figgate Muir historic	resolved	55.9506300	-3.1229200	historic_land	Figgate Muir → Portobello; centroid Figgate Burn Park (NRHE 347397 NT 29975 73636)
+97	edinburgh.txt	Figgate Burn mouth	resolved	55.9558000	-3.1155000	estuary	Mouth by old harbour line per Canmore cites NT c. 3040 7432; human-map confluence zone
+98	edinburgh.txt	Figgate Park shore	resolved	55.9506300	-3.1229200	shore	Figgate Burn Park coastal margin (NRHE park centroid; shore reading W of main sands)
+99	edinburgh.txt	Joppa	resolved	55.9476444	-3.0945889	suburb	Wikipedia / OS grid NT319732
+100	edinburgh.txt	Joppa Beach	resolved	55.9470000	-3.0940000	beach	Continuous sandy shore E of Portobello Beach (human-map coastal pin)
+101	edinburgh.txt	Joppa Rocks	resolved	55.9468000	-3.0935000	coast	Named rocky foreshore E Joppa (approximate RIGS shore pin)
+102	edinburgh.txt	Joppa Pans	resolved	55.9488200	-3.0888300	historic_site	Trove Joppa Salt Pans NT 3210 7340 (listed salt-works site)
+103	edinburgh.txt	Brunstane foreshore	resolved	55.9425000	-3.0980000	foreshore	Brunstane margin toward Firth E of Portobello/Joppa (approximate seaward reading)
+104	edinburgh.txt	Craigentinny	resolved	55.9655000	-3.1250000	suburb	Coastal-side Craigentinny toward Portobello (shore-biased centroid)
+105	edinburgh.txt	Porty	resolved	55.9530000	-3.1140000	suburb	Local name for Portobello; same recognised place centroid
+106	edinburgh.txt	Porty Beach	resolved	55.9520900	-3.1041390	beach	Same sands as Portobello Beach (nickname)
+107	edinburgh.txt	Porty promenade	resolved	55.9525000	-3.1100000	promenade	Portobello seafront promenade (nickname)
+108	edinburgh.txt	Leith port	resolved	55.9795000	-3.1745000	port	Same operational estate reading as “Port of Leith” (row 67); generic label
+109	edinburgh.txt	John Muir Way Cramond	resolved	55.9852000	-3.2968000	trail	Coastal JMW section pin aligned with Cramond Beach cluster
+110	edinburgh.txt	John Muir Way Granton	resolved	55.9840000	-3.2280000	trail	Granton waterfront corridor (aligned with Granton Waterfront row)
+111	edinburgh.txt	John Muir Way Leith	resolved	55.9769000	-3.1710000	trail	Leith Shore / Water of Leith mouth zone along route
+112	edinburgh.txt	John Muir Way Portobello	resolved	55.9530000	-3.1140000	trail	Portobello seafront link along route
+113	edinburgh.txt	Firth of Forth Path Edinburgh shore	ambiguous			trail	City-wide coastal path network; no single canonical “whole Edinburgh shore” pin
+114	edinburgh.txt	Edinburgh waterfront	ambiguous			area	Spans multiple distinct quarters (Leith, Granton, Western Harbour, Portobello, etc.)
+115	edinburgh.txt	North Edinburgh shoreline	resolved	55.9850000	-3.2300000	shore	Representative north-shore band Granton / Western Harbour foreshore
+116	edinburgh.txt	East Edinburgh shoreline	resolved	55.9500000	-3.1080000	shore	Representative east-shore band Portobello–Joppa foreshore
+117	edinburgh.txt	Granton pilot station base	resolved	55.9864000	-3.2229000	pilot_station	Forth Pilots Middle Pier Granton EH5 1HF; pin with Granton Middle Pier cluster
+118	edinburgh.txt	Leith cruise berth	resolved	55.9806210	-3.1782030	berth	Turnaround berths at Ocean Terminal / Leith cruise terminal estate (near Ocean Terminal centroid)
+119	edinburgh.txt	Leith Eastern Harbour basin	resolved	55.9796200	-3.1620600	dock	Imperial Dock basin cluster (Canmore NRHE 238155; eastern wet-dock reading)
+120	edinburgh.txt	Leith lighthouse	resolved	55.9912900	-3.1824000	lighthouse	Canmore NRHE 51977 Leith East Breakwater lighthouse NT 26338 78223
+121	edinburgh.txt	Constitution Street shore end	resolved	55.9752500	-3.1708000	street	Foot of Constitution Street at Leith Shore / Commercial Street waterfront approaches
+122	edinburgh.txt	Tower Street basin Leith	resolved	55.9788000	-3.1665000	basin	Tower Street quay reading toward Albert Dock basin (Leith docks quarter)
+123	edinburgh.txt	Prince Regent Street Leith waterfront	resolved	55.9769000	-3.1678000	street	Prince Regent Street seaward approaches beside Albert Dock / Timber Bush cluster
+124	edinburgh.txt	Great Junction Street shore approach	resolved	55.9722000	-3.1708000	street	Great Junction Street toward Leith waterfront / Citadel margin (foot of street zone)
+125	edinburgh.txt	Bernard Street Leith waterfront	resolved	55.9752000	-3.1723000	street	Bernard Street bridge / North Leith dock frontage reading
+126	edinburgh.txt	Sandport Place Leith	resolved	55.9747000	-3.1738000	street	Sandport Place drawbridge zone at upper harbour (Water of Leith crossing)
+127	edinburgh.txt	Leith Citadel site	resolved	55.9769200	-3.1748500	historic_site	Canmore NRHE 51917 Citadel Arch / Cromwellian fort remains NT 26782 76615
+128	edinburgh.txt	Leith Fort coastal margin	resolved	55.9768400	-3.1854800	historic_site	HES LB27221 Leith Fort lodges gateway NT 26118 76618 (coastal defence quarter)
+129	edinburgh.txt	Eastern Breakwater Leith	resolved	55.9913500	-3.1825300	breakwater	Canmore NRHE 75951 East Breakwater NT 2633 7823 (seaward structure; lighthouse row 120 cluster)
+130	edinburgh.txt	Middle Pier Leith approaches	resolved	55.9837000	-3.1752400	pier	Canmore Leith Docks centroid NT 26770 77370; mid-pier / wet-dock approaches
+131	edinburgh.txt	Granton ferry historic Burntisland	resolved	55.9862200	-3.2231500	ferry_berth	Historic Granton–Burntisland rail-ferry slip reading along Middle Pier axis (distinct from pilot/Middle Pier beacon row)
+132	edinburgh.txt	Chain Pier Newhaven historic	resolved	55.9804600	-3.1984400	pier_historic	Canmore NRHE 149796 Chain Pier Bar NT 25316 77034 (landfall of demolished Trinity Chain Pier)
+133	edinburgh.txt	Silverknowes Shore Walk	resolved	55.9895000	-3.2404000	promenade	Foreshore walk strip continuous with Silverknowes Esplanade cluster
+134	edinburgh.txt	Portobello Swim Centre seafront	resolved	55.9531800	-3.1068500	attraction	HES LB27261 / Wikipedia; 57 Promenade NT 30983 73903
+135	edinburgh.txt	Eastern Amateur Coastal Rowing Club Portobello	resolved	55.9529000	-3.1066000	club_house	Beach launch point in front of Swim Centre / Bellfield Street (club publicity)
+136	edinburgh.txt	Dolphin stone Cramond	resolved	55.9797220	-3.2942270	sculpture	Ronald Rae “Cramond Fish” on foreshore (GeoHack); list label reads as dolphin-like coastal stone
+137	edinburgh.txt	Cramond Heritage Trail shore	resolved	55.9830000	-3.2975000	trail	Representative pin on linked Cramond foreshore / heritage trail corridor
+138	edinburgh.txt	Granton gas holder waterfront	resolved	55.9805100	-3.2445300	industrial_heritage	Canmore NRHE 281286 Granton No.1 gasholder NT 22441 77091
+139	edinburgh.txt	Western Harbour Village	resolved	55.9747200	-3.1710500	housing	Marina-front housing pocket E of basin entrance (distinct centroid from generic Western Harbour rows)
+140	edinburgh.txt	Leith Victoria Quay offices shore	resolved	55.9781800	-3.1734700	office	Wikipedia GeoHack Victoria Quay; shore-facing offices cluster
+141	edinburgh.txt	Scottish Government Victoria Quay waterfront	resolved	55.9781200	-3.1735000	government_building	Same EH6 6QQ complex; quayside Scottish Government HQ reading
+142	edinburgh.txt	Ocean Drive Leith	resolved	55.9804000	-3.1780000	street	Ocean Terminal / cruise-berth frontage (Forth Ports Leith office corridor)
+143	edinburgh.txt	Leith Walk shore end	resolved	55.9717000	-3.1724000	street	Foot of Leith Walk at dockward end (Jane St / Great Junction zone)
+144	edinburgh.txt	Pilrig Street coastal approaches	resolved	55.9675000	-3.1785000	street	Pilrig margin toward Water of Leith / Leith docks (inland ward coastal approaches)
+145	edinburgh.txt	Bonnington Leith coastal margin	resolved	55.9722000	-3.1776000	suburb	Bonnington beside Water of Leith upstream of The Shore
+146	edinburgh.txt	Bonnington Mills Leith shore	resolved	55.9725000	-3.1779000	historic_millsite	WoL mill corridor reading toward Leith docks shore
+147	edinburgh.txt	Coalhill Leith waterfront	resolved	55.9755000	-3.1746000	historic_quay	Traditional Coalhill quayside reading (historic port accounts)
+148	edinburgh.txt	Dock Place Leith	resolved	55.9771500	-3.1742500	street	HES LB27061 Rennie swing-bridge corridor Dock Place NT 26987 76693
+149	edinburgh.txt	Stevedore Place Leith	resolved	55.9782000	-3.1756000	street	Small dockside street off Commercial / custom house quarter EH6
+150	edinburgh.txt	Rennie's Isle Leith	resolved	55.9771000	-3.1742000	residential_quarter	Rennie’s Isle EH6 6QA waterfront flats beside The Shore swing-bridge cluster
+151	edinburgh.txt	Leith Wet Dock historic	resolved	55.9792200	-3.1653800	wet_dock	Human-map reading as Albert Dock wet dock; Canmore NRHE 51988 Albert Dock NT 27377 76861
+152	edinburgh.txt	Henry Robb shipyard site Leith	resolved	55.9803500	-3.1778700	shipyard	Canmore NT27NE 126 Henry Robb shipbuilding yard centred NT 26600 77000 (now Ocean Terminal / Victoria Quay zone)
+153	edinburgh.txt	Hawthornvale path Leith shore link	resolved	55.9762000	-3.1910000	cycleway	Representative pin on Hawthornvale Path corridor (five-ways–Lindsay Rd) where route approaches Newhaven/Leith shore (not a single point feature)
+154	edinburgh.txt	Starbank Park Newhaven cliff	resolved	55.9796000	-3.2005000	park	Cliff/Forth-view margin of Starbank Park (Starbank/Laverockbank cluster; cf. Canmore Starbank Rd NT 2520 7700)
+155	edinburgh.txt	Newhaven Main Street shore end	resolved	55.9798000	-3.1845000	street	Foot of Newhaven Main Street at harbour/foreshore (Newhaven EH6 cluster)
+156	edinburgh.txt	Trinity Crescent shore approaches	resolved	55.9815000	-3.2090000	street	Trinity residential crescent reading toward Firth foreshore (Trinity/Newhaven margin)
+157	edinburgh.txt	Lower Granton Road foreshore	resolved	55.9846000	-3.2282000	foreshore	Foreshore strip beside Lower Granton Road (Granton waterfront approaches)
+158	edinburgh.txt	Granton Road esplanade approaches	resolved	55.9852000	-3.2262000	promenade	Esplanade/seafront approaches along Granton Road (Granton shore zone)
+159	edinburgh.txt	West Shore Road Granton	resolved	55.9860000	-3.2302000	street	West Shore Road reading along Granton western harbour frontage
+160	edinburgh.txt	Harbour Place Granton	resolved	55.9850000	-3.2242000	street	Harbour Place cluster within Granton harbour district (adjacent to mid-pier roads)
+161	edinburgh.txt	Middle Pier Road Granton	resolved	55.9855000	-3.2226000	street	Middle Pier Road axis at Granton Harbour (Forth Ports / yacht berths cluster)
+162	edinburgh.txt	Forth Ports pilot boats Granton	resolved	55.9849000	-3.2218000	harbour_facility	Pilot boat operating base reading at Granton Harbour entrance/mid-pier (visitor guidance references pilot movements)
+163	edinburgh.txt	Wardie Playing Fields shore margin	resolved	55.9835000	-3.2510000	recreation_ground	Wardie Playing Fields edge toward Wardie Bay shore (not pitch centroid)
+164	edinburgh.txt	Bellfield Street Portobello beach access	resolved	55.9529000	-3.1066000	street	Beach access off Bellfield Street (Portobello Promenade/Swim Centre cluster)
+165	edinburgh.txt	Bath Street Portobello promenade access	resolved	55.9530000	-3.1064000	street	Promenade access from Bath Street (EH15 seafront grid)
+166	edinburgh.txt	Melville Street Portobello shore	resolved	55.9528000	-3.1058000	street	Melville Street reading to Portobello foreshore/promenade
+167	edinburgh.txt	Joppa Road coastal	resolved	55.9512000	-3.0950000	street	Joppa Road coastal margin east of Portobello (Joppa EH15)
+168	edinburgh.txt	Milton Road East Joppa shore	resolved	55.9505000	-3.0935000	street	Milton Road East reading toward Joppa foreshore
+169	edinburgh.txt	Eastfield Joppa coastal	resolved	55.9498000	-3.0920000	suburb	Eastfield/Joppa coastal neighbourhood pin toward shoreline
+170	edinburgh.txt	Granton Castle Walled Garden	resolved	55.9821400	-3.2423500	walled_garden	Canmore NRHE 52042 Granton Castle / West Shore Road NT 2258 7727; community walled garden site
+171	edinburgh.txt	Pilton coastal margin	resolved	55.9748000	-3.2180000	suburb	Pilton ward reading toward north Edinburgh coastal margin (Granton/Western Harbour approaches—not inland scheme centroid)
+172	edinburgh.txt	Western Harbour promenade	resolved	55.9858850	-3.1917020	promenade	Wikipedia/GeoHack Western Harbour (Edinburgh) landmark coordinate; marina-front walk
+173	edinburgh.txt	Seafield sewage works foreshore	resolved	55.9707800	-3.1439300	foreshore	Canmore NT27NE 114 Seafield sewage works NT 287 759; pin on operational foreshore (Marine Esplanade EH6)
+174	edinburgh.txt	Leith Battery historic shore	resolved	55.9789000	-3.1553000	coastal_battery	Canmore NT27NE 162 Forth Defences outer Leith Docks battery NT 2785 7710 (demolished; Imperial Dock seawall angle)
+175	edinburgh.txt	Newhaven Church shore approach	resolved	55.9800000	-3.1835000	church	Newhaven parish kirk (Our Lady Star of the Sea) reading toward harbour/foreshore approach
+176	edinburgh.txt	Trinity Academy shore margin	resolved	55.9792000	-3.2080000	school	Trinity Academy campus margin toward coastal side (Victoria Park/Trinity shore approaches)
+177	edinburgh.txt	Cramond Glebe foreshore	resolved	55.9780000	-3.2985000	foreshore	Cramond Glebe land reading toward River Almond/Firth foreshore (south/west of village core)
+178	edinburgh.txt	Muirhouse Millennium Walk shore	resolved	55.9932000	-3.2458000	promenade	Muirhouse Millennium Walk coastal path pin (Silverknowes–Muirhouse shore link)
+179	edinburgh.txt	Granton Yacht Club	resolved	55.9854000	-3.2235000	yacht_club	Club berthing/clubhouse reading within Granton Harbour basin (distinct from RFYC row)
+180	edinburgh.txt	Royal Forth Yacht Club Granton	resolved	55.9848000	-3.2220000	yacht_club	Royal Forth YC at Granton Harbour (published contact/visitor harbour listings; mid-pier cluster)
+181	edinburgh.txt	Forth Corinthian Yacht Club Granton	resolved	55.9827400	-3.2232300	yacht_club	Clubhouse on Middle Pier Granton Harbour EH5 1HF (fcyc.org.uk; shared harbour cluster)
+182	edinburgh.txt	Portobello Sailing, Kayaking and Rowing Club	resolved	55.9529500	-3.1065000	club_house	Charity base foot of Bath Street on Portobello Promenade (pskc.org.uk; beach launch)
+183	edinburgh.txt	PSKC Portobello	resolved	55.9529500	-3.1065000	club_house	Same premises as full club name row 182; acronym in source list
+184	edinburgh.txt	Joppa coastal path	resolved	55.9496073	-3.0970465	trail	Representative pin on Joppa seafront shared path (OSM Promenade/Esplanade Terrace cycleway segment)
+185	edinburgh.txt	Portobello Promenade gardens	resolved	55.9530500	-3.1072000	park	Landscaped garden strip along central Portobello Promenade (no single widely mapped POI name)
+186	edinburgh.txt	Towerbank Primary Portobello seafront margin	resolved	55.9547380	-3.1128924	school	Nominatim OSM school centroid EH15 1HX; site toward Bellfield/foreshore margin of catchment

@@ -1,0 +1,111 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	somerset.txt	Porlock	resolved	51.2119	-3.5950	village	Inland village centre; coastal context Porlock Bay / Bristol Channel coast.
+2	somerset.txt	Porlock Weir	resolved	51.2196	-3.6292	harbour	Tidal harbour settlement W of Porlock; SWCP.
+3	somerset.txt	Porlock Marsh	resolved	51.2210	-3.5770	marsh	Representative point on Porlock saltmarsh / ridge coast N of Porlock village.
+4	somerset.txt	Bossington	resolved	51.2188	-3.4408	village	Coastal hamlet below Hurlstone Point; Horner Water mouth area.
+5	somerset.txt	Allerford	resolved	51.2148	-3.4265	village	Village W of Bossington on coast-path approach.
+6	somerset.txt	Culbone	resolved	51.2180	-3.6680	settlement	Remote strip with Culbone Church; steep wooded coast below Foreland Point.
+7	somerset.txt	Oare	resolved	51.2050	-3.5030	village	Oare on Exmoor coast E of Porlock (not Oare, Kent).
+8	somerset.txt	Hurlstone Point	resolved	51.2094	-3.6702	headland	Grass headland W of Porlock Weir; SWCP.
+9	somerset.txt	Minehead	resolved	51.2038	-3.4758	town	West Somerset coast; terminus of SWCP from Poole.
+10	somerset.txt	Alcombe	resolved	51.1965	-3.4695	suburb	SW suburb of Minehead toward Dunster.
+11	somerset.txt	Minehead Harbour	resolved	51.2072	-3.4720	harbour	Tidal harbour and esplanade N of town centre.
+12	somerset.txt	Dunster	resolved	51.1928	-3.4432	village	Historic village inland of Dunster Beach; same coastal strip.
+13	somerset.txt	Dunster Beach	resolved	51.1838	-3.4345	beach	Shingle beach W of Minehead bay; Dunster parish.
+14	somerset.txt	Old Cleeve	resolved	51.1658	-3.4342	village	Parish village inland of Blue Anchor bay coast.
+15	somerset.txt	Blue Anchor	resolved	51.1819	-3.4019	village	Coastal village and bay on West Somerset coast.
+16	somerset.txt	Blue Anchor Bay	resolved	51.1805	-3.3965	bay	Bay immediately E of Blue Anchor village foreshore.
+17	somerset.txt	Carhampton	resolved	51.1730	-3.4310	village	Inland of Dunster Beach / Blue Anchor; same coastal locality.
+18	somerset.txt	Watchet	resolved	51.1815	-3.3290	harbour_town	Small harbour town on West Somerset coast.
+19	somerset.txt	Watchet Harbour	resolved	51.1808	-3.3278	harbour	Tidal harbour basin and quays in Watchet.
+20	somerset.txt	Helwell Bay	resolved	51.1765	-3.3215	bay	Small bay E of Watchet; foreshore below Helwell.
+21	somerset.txt	Doniford Bay	resolved	51.1760	-3.2580	bay	Bay W of Watchet toward West Quantock coast; Doniford Stream mouth area.
+22	somerset.txt	West Quantoxhead	resolved	51.1645	-3.2055	village	Coastal parish village below Quantock Hills W of East Quantoxhead.
+23	somerset.txt	East Quantoxhead	resolved	51.1915	-3.1880	village	Coastal village with manor and tower; Kilve–Lilstock coast.
+24	somerset.txt	Kilve	resolved	51.1838	-3.1512	village	Village behind Kilve Beach and oil retort pavement coast.
+25	somerset.txt	Kilve Beach	resolved	51.1825	-3.1455	beach	Shale ledge beach below village; SWCP.
+26	somerset.txt	Lilstock	resolved	51.1858	-3.1168	hamlet	Hamlet behind Lilstock Beach and former RN range area.
+27	somerset.txt	Lilstock Beach	resolved	51.1845	-3.1105	beach	Shingle and ledge beach E of Hinkley Point foreshore.
+28	somerset.txt	St Audries	resolved	51.1915	-3.1360	estate	St Audries / West Quantoxhead estate area above St Audries Bay.
+29	somerset.txt	St Audries Bay	resolved	51.1900	-3.1280	bay	Sandy bay below St Audries; Quantock coast.
+30	somerset.txt	Stolford	resolved	51.2035	-3.1080	hamlet	Coastal hamlet W of Hinkley Point; Bridgwater Bay shore.
+31	somerset.txt	Stolford Beach	resolved	51.2042	-3.1095	beach	Shingle foreshore W of Stolford; Bridgwater Bay.
+32	somerset.txt	Combwich	resolved	51.1768	-3.0671	village	River Parrett / Combwich Reach; Steart Peninsula approach.
+33	somerset.txt	Steart	resolved	51.1940	-3.0680	village	Main village on Steart Peninsula; River Parrett tidal fringe.
+34	somerset.txt	Steart Beach	resolved	51.2120	-3.0380	beach	Shingle / sand along N side of peninsula toward Stert Point.
+35	somerset.txt	Steart Peninsula	resolved	51.2100	-3.0350	peninsula	Wikipedia centroid; Stockland Reach / Bridgwater Bay.
+36	somerset.txt	Wall Common	resolved	51.2070	-3.0310	coastal_common	Coastal common on N side of peninsula (Wall Common).
+37	somerset.txt	Stert	resolved	51.1920	-3.0690	hamlet	Stert Drove / margin of Steart; coastal wetland fringe.
+38	somerset.txt	Stert Point	resolved	51.2222	-3.0252	headland	Tip of Steart Peninsula; West Somerset Coast Path E end.
+39	somerset.txt	Pawlett	resolved	51.1800	-3.0020	village	Levels village N of Bridgwater; Bridgwater Bay SSSI (Hams).
+40	somerset.txt	Pawlett Hams	resolved	51.1765	-3.0180	saltmarsh	Pawlett Hams coastal grassland / saltmarsh toward bay.
+41	somerset.txt	Huntspill	resolved	51.1960	-2.9960	village	Huntspill village (West Huntspill parish); Huntspill River area.
+42	somerset.txt	West Huntspill	resolved	51.1955	-2.9954	parish_centre	West Huntspill civil parish; Huntspill village core.
+43	somerset.txt	East Huntspill	resolved	51.2023	-2.9397	village	Huntspill Level E of Highbridge; River Brue corridor.
+44	somerset.txt	Highbridge	resolved	51.2189	-2.9730	town	Market town; River Brue / Bristol Channel edge with Burnham.
+45	somerset.txt	Edithmead	resolved	51.2371	-2.9598	hamlet	Burnham Without; S of Burnham-on-Sea toward Highbridge.
+46	somerset.txt	Burnham-on-Sea	resolved	51.2390	-2.9967	town	Seaside town; Bridgwater Bay mudflats / foreshore.
+47	somerset.txt	Burnham Jetty	resolved	51.2345	-3.0070	jetty	Seafront jetty / esplanade structure; central beach.
+48	somerset.txt	Burnham Lower Lighthouse	resolved	51.2484	-3.0058	lighthouse	Low lighthouse on legs; leading light (foreshore).
+49	somerset.txt	Burnham High Lighthouse	resolved	51.2489	-2.9991	lighthouse	Pillar High Lighthouse (Berrow Road); historic leading light.
+50	somerset.txt	Berrow	resolved	51.2631	-3.0111	village	Coastal village N of Burnham; Berrow Flats.
+51	somerset.txt	Berrow Beach	resolved	51.2700	-3.0050	beach	Sandy foreshore along Berrow Flats toward Brean.
+52	somerset.txt	Brean	resolved	51.2860	-3.0080	hamlet	Inland of Brean Down; Brean leisure coast.
+53	somerset.txt	Brean Sands	resolved	51.3050	-3.0190	beach	Long sandy beach toward Brean Down; Bridgwater Bay.
+54	somerset.txt	Brean Down	resolved	51.3256	-3.0290	headland	Promontory at W end of Weston Bay; NT headland walk.
+55	somerset.txt	Brean Down Fort	resolved	51.3272	-3.0334	fort	Palmerston fort at tip of Brean Down; Bristol Channel.
+56	somerset.txt	Bridgwater Bay	resolved	51.1850	-3.1250	bay	Representative mid-bay point; large intertidal system.
+57	somerset.txt	Parrett estuary	resolved	51.1750	-3.0550	estuary	Lower tidal Parrett (Stockland Reach); broad feature.
+58	somerset.txt	River Parrett mouth	resolved	51.1700	-3.0580	river_mouth	Parrett entering Bridgwater Bay near Combwich / Dunball.
+59	somerset.txt	Uphill	resolved	51.3231	-2.9773	village	River Axe / Weston-super-Mare S; Bristol Channel coast.
+60	somerset.txt	Uphill Beach	resolved	51.3233	-2.9906	beach	Uphill slipway beach; S end of Weston sand; River Axe.
+61	somerset.txt	Uphill Sluice	resolved	51.3185	-2.9875	sluice	River Axe flood-control / tidal sluice structure at Uphill; coastal list context.
+62	somerset.txt	Bleadon	resolved	51.3082	-2.9448	village	River Axe; former wharf; N Somerset / Mendip edge.
+63	somerset.txt	Lympsham	resolved	51.2860	-2.9550	village	Parish village on River Axe corridor; coastal Levels margin.
+64	somerset.txt	Hutton	resolved	51.3219	-2.9270	village	North Somerset village W of Mendip edge; Weston–Clevedon coastal strip inland.
+65	somerset.txt	Hinkley Point	resolved	51.2090	-3.1298	power_station	Hinkley Point headland / nuclear site; Bridgwater Bay coast.
+66	somerset.txt	Stogursey	resolved	51.1807	-3.1413	village	Stogursey parish centre; Bristol Channel coast bounds parish N.
+67	somerset.txt	Shurton	resolved	51.1923	-3.1420	hamlet	Stogursey parish hamlet N toward coast.
+68	somerset.txt	Listock	resolved	51.1978	-3.1846	hamlet	Coastal list: treated as Lilstock (historic Listock/Lilstock spelling) on Bridgwater Bay; not North Curry Listock.
+69	somerset.txt	Kewstoke	resolved	51.3677	-2.9604	village	Parish village beside Sand Bay / Woodspring coast.
+70	somerset.txt	Sand Bay	resolved	51.3830	-2.9670	beach	Sand Bay foreshore N of Weston; Kewstoke coast.
+71	somerset.txt	Weston-super-Mare	resolved	51.3478	-2.9781	town	Seaside town centre reference; Bristol Channel seafront.
+72	somerset.txt	Weston Bay	resolved	51.3330	-3.0000	bay	Inlet between Brean Down and Worlebury Hill; Wikipedia centroid.
+73	somerset.txt	Weston Marine Lake	resolved	51.3405	-2.9855	marine_lake	Tidal Marine Lake / Glentworth Bay causeway area; central seafront.
+74	somerset.txt	Weston Grand Pier	resolved	51.3477	-2.9823	pier	Grand Pier shoreward end; seafront landmark.
+75	somerset.txt	Weston-super-Mare sea front	resolved	51.3465	-2.9790	seafront	Representative central promenade / Grand Pier seafront strip.
+76	somerset.txt	Worle	resolved	51.3578	-2.9277	village	Worle suburb; N of town centre toward M5.
+77	somerset.txt	Worlebury	resolved	51.3579	-2.9802	hill	Worlebury Hill upland / N peninsula between Weston Bay and Sand Bay.
+78	somerset.txt	Milton	resolved	51.3480	-2.9433	suburb	Milton / Weston Milton (eastern Weston-super-Mare); station area proxy.
+79	somerset.txt	Locking	resolved	51.3308	-2.9108	village	Locking parish village SE of Weston town centre.
+80	somerset.txt	Kingston Seymour	resolved	51.3980	-2.8610	village	Levels village; parish reaches Severn estuary coast.
+81	somerset.txt	Wick St Lawrence	resolved	51.3840	-2.9120	village	Parish N of Weston; Woodspring Bay / Levels margin.
+82	somerset.txt	Clevedon	resolved	51.4380	-2.8540	town	Severn estuary seaside town centre reference.
+83	somerset.txt	Clevedon Beach	resolved	51.4360	-2.8600	beach	Main pebble beach / shore by old harbour and pier approaches.
+84	somerset.txt	Clevedon sea front	resolved	51.4370	-2.8560	seafront	Promenade and Marine Lake stretch; town sea defences.
+85	somerset.txt	Ladye Bay	resolved	51.4412	-2.8508	bay	Small rocky cove W of Clevedon pier; Poets Walk coast.
+86	somerset.txt	Walton-in-Gordano	resolved	51.4545	-2.8283	village	Gordano valley village N of Clevedon; parish name hyphenated on map labels.
+87	somerset.txt	Walton Bay	resolved	51.4580	-2.8150	bay	Small estuary bay / foreshore N of Walton toward Severn shoreline.
+88	somerset.txt	East Clevedon	resolved	51.4330	-2.8380	area	Eastern Clevedon toward Court Hill / Salthouse Fields coast.
+89	somerset.txt	Tickenham	resolved	51.4398	-2.7999	village	B3130 ribbon village E of Clevedon; moor drains to Land Yeo.
+90	somerset.txt	Clapton-in-Gordano	resolved	51.4620	-2.7580	village	Clapton in Gordano parish; Gordano valley S of M5 (hyphenated list label).
+91	somerset.txt	Easton-in-Gordano	resolved	51.4764	-2.6997	village	Easton in Gordano; Pill & Easton-in-Gordano parish; N Somerset / Severn shore context.
+92	somerset.txt	Crockerne Pill	resolved	51.4787	-2.6859	tidal_inlet	Historic name for Pill's tidal pill / harbour inlet on Avon; village centroid per Wikipedia Pill article.
+93	somerset.txt	Portbury	resolved	51.4699	-2.7163	village	Portbury parish village; Royal Portbury Dock / Gordano coast margin.
+94	somerset.txt	Portishead	resolved	51.4840	-2.7626	town	Portishead town infobox; Severn estuary coast.
+95	somerset.txt	Portishead Marina	resolved	51.4893	-2.7604	marina	Lock control building coords (boatfolk); former dock redevelopment.
+96	somerset.txt	Portishead Lake Grounds	resolved	51.4901	-2.7729	park	Marine Lake / Lake Grounds visitor centroid (Esplanade Rd area).
+97	somerset.txt	Portishead breakwater	resolved	51.4868	-2.7605	breakwater	Representative point on outer sea defences / marina–estuary mouth; structure complex.
+98	somerset.txt	Redcliff Bay	resolved	51.4765	-2.8030	suburb	Redcliffe Bay residential coast W of Portishead; between Wikipedia stub and TPO centroid.
+99	somerset.txt	Black Nore	resolved	51.4847	-2.8006	headland	Black Nore Point / lighthouse coords (Wikipedia).
+100	somerset.txt	Sheepway	resolved	51.4812	-2.7330	hamlet	Portbury parish; N edge Gordano valley (gazetteer coords).
+101	somerset.txt	Steep Holm	resolved	51.3397	-3.1097	island	Bristol Channel island; English Nature / Wikipedia coords.
+102	somerset.txt	Flat Holm	resolved	51.3769	-3.1221	island	Bristol Channel; GeoHack / Wikipedia island centroid (admin Wales; list coastal feature).
+103	somerset.txt	Otterhampton	resolved	51.1830	-3.0800	village	Civil parish centre infobox; Combwich / Parrett estuary coastal parish.
+104	somerset.txt	Stockland Bristol	resolved	51.1870	-3.0840	village	Stockland Bristol parish village; Combwich Reach / Steart margin.
+105	somerset.txt	Minehead beach	resolved	51.2090	-3.4725	beach	Main sandy foreshore NE of town toward harbour / promenade (distinct from town-centre row).
+106	somerset.txt	Watchet beach	resolved	51.1770	-3.3220	beach	Town foreshore W of harbour / Helwell Bay approach.
+107	somerset.txt	Burnham-on-Sea sea front	resolved	51.2372	-2.9955	seafront	Central seafront / Esplanade representative (ties to Burnham town row).
+108	somerset.txt	Brean beach	resolved	51.3050	-3.0190	beach	Main Brean down-coast sandy beach strip (aligns with Brean Sands row).
+109	somerset.txt	Clevedon Pill	resolved	51.4291	-2.8765	tidal_inlet	Land Yeo / Blind Yeo mouth S of Wain’s Hill; Geograph ST391703 photo coords.
+110	somerset.txt	Portbury Wharf	resolved	51.4882	-2.7427	nature_reserve	Portbury Wharf Nature Reserve centroid (birding site / wetland between dock and Port Marine).

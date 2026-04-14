@@ -1,0 +1,381 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	highland.txt	Onich	resolved	56.7030000	-5.2250000	village	East shore of Loch Linnhe / Nether Lochaber (Wikipedia coord; Highland coast)
+2	highland.txt	North Ballachulish	resolved	56.6935500	-5.1811300	village	North side of Loch Leven narrows by Ballachulish Bridge (Canmore NRHE centre)
+3	highland.txt	South Ballachulish	resolved	56.6875000	-5.1844000	village	South shore at Loch Leven narrows (Wikidata centroid; distinct from Ballachulish village)
+4	highland.txt	Glencoe	resolved	56.6828200	-5.1059800	village	Main settlement at foot of Glen Coe on Loch Leven (Wikipedia Glencoe, Highland)
+5	highland.txt	Ballachulish	resolved	56.6755120	-5.1338980	village	Former slate-quarry village at East/West Laroch by River Laroch (Wikipedia)
+6	highland.txt	Corpach	resolved	56.8429000	-5.1058000	village	Caledonian Canal sea lock / Loch Eil entrance near Fort William (human-map centroid)
+7	highland.txt	Caol	resolved	56.8182000	-5.1070000	suburb	Western outskirts of Fort William on Caol shore (settlement along A830)
+8	highland.txt	Fort William	resolved	56.8198000	-5.1052000	town	Loch Linnhe shore town centre (standard gazetteer centroid)
+9	highland.txt	Ft William	resolved	56.8198000	-5.1052000	town	Common abbreviation for Fort William; same coastal settlement
+10	highland.txt	Banavie	resolved	56.8436000	-5.0958000	village	Caledonian Canal locks / Loch Linnhe shore west of Corpach
+11	highland.txt	Locheilside	resolved	56.8554140	-5.2900380	hamlet	Locheilside request stop / Loch Eil north shore (National Rail geography)
+12	highland.txt	Fassfern	resolved	56.8578100	-5.2476500	hamlet	North shore of Loch Eil by Fassfern House (Historic Environment Scotland NGR)
+13	highland.txt	Glenfinnan	resolved	56.8712000	-5.4389000	village	Loch Shiel head / Glenfinnan monument area (Wikipedia-class centroid)
+14	highland.txt	Lochailort	resolved	56.8800000	-5.6630000	village	Loch Ailort head of sea loch on A830 (human-map village)
+15	highland.txt	Roshven	resolved	56.8380000	-5.7580000	hamlet	East shore of Loch Ailort (Wikipedia coord)
+16	highland.txt	Glenuig	resolved	56.8480000	-5.8430000	hamlet	Small coastal settlement west of Glenuig Bay (OS settlement centroid)
+17	highland.txt	Borrodale	resolved	56.8990100	-5.7875200	estate	Coastal Borrodale / Borrodale House area south of Loch nan Uamh (Canmore NRHE)
+18	highland.txt	Arisaig	resolved	56.9100000	-5.8430000	village	Road-to-the-Isles coast village (Wikipedia coord)
+19	highland.txt	Traigh	resolved	56.9280000	-5.8150000	beach	Traigh beaches / B8008 coast between Arisaig and Morar (Traigh Golf Course belt)
+20	highland.txt	Back of Keppoch	resolved	56.9241850	-5.8552370	hamlet	Coastal strip northwest of Arisaig (listed-buildings GeoHack centroid)
+21	highland.txt	Portnaluchaig	resolved	56.9353300	-5.8508200	hamlet	Coastal hamlet north of Arisaig (Wikipedia / GeoHack)
+22	highland.txt	Morar	resolved	56.9700000	-5.8250000	village	Morar by River Morar / Morar Bay head (Wikipedia-class centroid)
+23	highland.txt	Morar Bay	resolved	56.9685000	-5.8285000	bay	Shallow estuary at River Morar outflow west of Morar village (open bay toward sea)
+24	highland.txt	Camusdarrach	resolved	56.9554700	-5.8467900	beach	Camusdarach / Local Hero beach by B8008 (Canmore Camusdarrach farmstead NGR)
+25	highland.txt	Silver Sands Morar	resolved	56.9465000	-5.8245000	beach	Main Morar estuary sands south of river (Walkhighlands Silver Sands area NM678929 belt)
+26	highland.txt	Bracorina	resolved	56.9700500	-5.7436400	hamlet	North shore of Loch Morar at road end (listed former chapel NGR)
+27	highland.txt	Mallaig	resolved	57.0038130	-5.8271730	harbour_town	Fishing/port town terminus of West Highland Line (Wikipedia coord)
+28	highland.txt	Mallaig Harbour	resolved	57.0072000	-5.8305000	harbour	Working ferry/quay front on north shore of Mallaig Bay (distinct pier cluster)
+29	highland.txt	Arivegaig	resolved	56.9208000	-5.8390000	hamlet	Road end by Kentra Bay / Singing Sands access (Walkhighlands start NM650677)
+30	highland.txt	Ormsaigbeg	resolved	56.6928600	-6.1288000	locality	Crofting township on west shore of Kilchoan Bay, Ardnamurchan (Canmore township centre)
+31	highland.txt	Ormsaigmore	resolved	56.6962000	-6.1065000	locality	Crofting township on east side of Kilchoan Bay (distinct from Ormsaigbeg; Kilchoan Diary / coast reading)
+32	highland.txt	Kilchoan	resolved	56.6980000	-6.1033000	village	Main Ardnamurchan village at Kilchoan Bay (Wikipedia Kilchoan)
+33	highland.txt	Portuairk	resolved	56.7188461	-6.2602176	hamlet	Northwest of Sanna; OS grid NM439682 → WGS84
+34	highland.txt	Sanna	resolved	56.7380000	-6.1753080	beach	Sanna Bay / settlement belt (Wild About Ardnamurchan page coords for bay area)
+35	highland.txt	Grigadale	resolved	56.7233000	-6.2017000	hamlet	Wikipedia Grigadale (NM431670 atlas)
+36	highland.txt	Ockle	resolved	56.7367206	-5.9985419	hamlet	Walkhighlands Singing Sands walk start (NM555704)
+37	highland.txt	Achateny	resolved	56.7555310	-6.0560729	hamlet	Achateny House / township belt north shore Kentra area (literature centroid)
+38	highland.txt	Fascadale	resolved	56.7340720	-6.0809640	hamlet	Fascadale coastal settlement / bay head (listed ice house belt NM500707)
+39	highland.txt	Bourblaige	resolved	56.6906570	-6.0101390	ruins	Depopulated coastal clachan; OS NM546623 → WGS84
+40	highland.txt	Ardnamurchan Point	resolved	56.7271264	-6.2260156	headland	Most westerly mainland point; Ardnamurchan Lighthouse (NLB / Wikidata NM415674)
+41	highland.txt	The Singing Sands	resolved	56.7485000	-5.9875000	beach	Camas an Lighe / Gortenfern singing sands east of Kentra Bay (Walkhighlands route belt)
+42	highland.txt	Kentra Bay	resolved	56.7085000	-6.0120000	bay	Tidal bay south of Acharacle–Ockle belt (human-map bay centre)
+43	highland.txt	Ardnamurchan	resolved	56.7330000	-5.9830000	peninsula	Wikipedia Ardnamurchan reference coordinates (whole peninsula label)
+44	highland.txt	Eigg	resolved	56.8736000	-6.1267000	island	Isle of Eigg centroid (Wikipedia Eigg)
+45	highland.txt	Isle of Eigg	resolved	56.8736000	-6.1267000	island	Same island-level reading as preceding line; tide app use
+46	highland.txt	Galmisdale	resolved	56.8820800	-6.1466700	harbour	Eigg ferry landing / main port (trove.scot Galmisdale NGR)
+47	highland.txt	Rum	resolved	56.9940000	-6.3440000	island	Isle of Rùm centroid (Wikipedia Rùm)
+48	highland.txt	Isle of Rum	resolved	56.9940000	-6.3440000	island	Same island centroid as Rum line
+49	highland.txt	Kinloch Rum	resolved	57.0155560	-6.2808340	hamlet	Main settlement Kinloch (Wikimedia Commons map 57°00′56″N 6°16′51″W)
+50	highland.txt	Canna	resolved	57.0471000	-6.4659000	island	Wikipedia Canna, Scotland island coords
+51	highland.txt	Isle of Canna	resolved	57.0471000	-6.4659000	island	Same island centroid as Canna line
+52	highland.txt	Sanday Isle Canna	resolved	57.0500000	-6.4833000	island	Tidal islet south of Canna; Wikipedia Sanday 57°03′N 6°29′W
+53	highland.txt	Muck	resolved	56.8170000	-6.2500000	island	Wikipedia Muck ~56°49′N 6°15′W centroid
+54	highland.txt	Isle of Muck	resolved	56.8170000	-6.2500000	island	Same island centroid as Muck line
+55	highland.txt	Port Mor Muck	resolved	56.8353300	-6.2276700	harbour	Main pier / settlement Port Mòr (trove.scot NM4223079511)
+56	highland.txt	Armadale	resolved	57.0649670	-5.8933670	ferry_terminal	CalMac Armadale pier (CMAL 57°3.898′N 5°53.602′W)
+57	highland.txt	Armadale Bay	resolved	57.0625000	-5.8960000	bay	Bay south/west of Armadale ferry front (Sleat coast)
+58	highland.txt	Point of Sleat	resolved	57.0203390	-6.0181720	headland	Southern tip of Skye; automatic lighthouse (findthatpostcode IPN0056553)
+59	highland.txt	Aird of Sleat	resolved	57.0346560	-5.9756190	locality	Road-end settlement / car park for Point of Sleat walk (NG589008)
+60	highland.txt	Isleornsay	resolved	57.1461100	-5.7987100	harbour	Sleat east coast harbour / Eilean Iarmain (trove Isleornsay pier NG70301 12503)
+61	highland.txt	Sleat	resolved	57.1300000	-5.8750000	peninsula	Approximate mid-peninsula belt on Sound of Sleat (Sleat parish / garden of Skye coast)
+62	highland.txt	Tokavaig	resolved	57.1344440	-5.9658330	village	Sleat west-coast settlement; DMS 57°08′04″N 5°57′57″W (distinct from Tarskavaig)
+63	highland.txt	Tarskavaig	resolved	57.1126000	-5.9875100	village	Wikipedia / OS grid NG586094; crofting village on Tarskavaig Bay
+64	highland.txt	Isle of Skye	resolved	57.3069000	-6.2300000	island	Wikipedia infobox centroid for the island (tide-app island-scale pin)
+65	highland.txt	Kyleakin	resolved	57.2769440	-5.7369440	village	Skye bridgehead village; Wikipedia coords (57°16′37″N 5°44′13″W)
+66	highland.txt	Kyle of Lochalsh	resolved	57.2833000	-5.7166700	village	Mainland Kyle harbour settlement; Wikipedia infobox (57°17′N 5°43′W)
+67	highland.txt	Kyleakin Ferry	resolved	57.2735000	-5.7310000	ferry_slip	Pre-1995 vehicle ferry slip cluster at Kyleakin (historic; distinct from Skye Bridge)
+68	highland.txt	Kylerhea	resolved	57.2170000	-5.6670000	village	Skye side of Kyle Rhea; summer ferry to Glenelg (Wikipedia-class 57°13′N 5°40′W)
+69	highland.txt	Glenelg	resolved	57.2119440	-5.6238890	village	Kirkton of Glenelg; Wikipedia coords (57°12′43″N 5°37′26″W)
+70	highland.txt	Balmacara	resolved	57.2929000	-5.6429000	village	Scattered village N shore Loch Alsh / NTS estate belt; Wikipedia coords
+71	highland.txt	Erbusaig	resolved	57.3019000	-5.7168000	hamlet	Gazetteer for Scotland / OS NG762296 belt; shore N of Kyle
+72	highland.txt	Duirinish	resolved	57.3145700	-5.6743500	hamlet	Inner Sound hamlet W of Plockton; Wikipedia Duirinish Lochalsh coords
+73	highland.txt	Plockton	resolved	57.3380100	-5.6523100	village	Wikipedia Plockton coords
+74	highland.txt	Drumbuie	resolved	57.3154900	-5.6913500	hamlet	Wikipedia Drumbuie (SW of Duirinish)
+75	highland.txt	Dunan	resolved	57.2759600	-6.0063600	hamlet	trove.scot Skye Dunan BNG 158600,827700 → WGS84 (NG 586 277 @100 m)
+76	highland.txt	Lower Drumbuie	resolved	57.3138000	-5.6925000	hamlet	Coastal strip S of Drumbuie toward Balmacara Bay (approximate; IV40 belt)
+77	highland.txt	Ardintigh	resolved	56.9755780	-5.6597850	locality	OpenStreetMap locality PH41; Ardintigh on Loch Nevis (mainland), not Skye
+78	highland.txt	Breakish	resolved	57.2410270	-5.8470040	village	trove Breakish NG67982326 → WGS84; Ashaig/Breakish A87 belt
+79	highland.txt	Broadford	resolved	57.2410000	-5.9070000	village	Wikipedia Broadford coords (57°14′28″N 5°54′25″W)
+80	highland.txt	Lower Breakish	resolved	57.2388000	-5.8455000	locality	Southern Breakish / A87 shore belt S of main Breakish cluster (approximate)
+81	highland.txt	Heaste	resolved	57.1875550	-5.8948830	hamlet	OSM node “Heasta” (Gaelic form); S shore Broadford Bay area
+82	highland.txt	Elgol	resolved	57.1520000	-6.0980000	village	Loch Scavaig shore; Wikipedia coords (57°09′07″N 6°05′53″W)
+83	highland.txt	Camasunary	resolved	57.1795460	-6.0635110	bay	Sandy bay S of Cuillin; route GPX belt NG545171 (Outdooractive / walk sources)
+84	highland.txt	Torrin	resolved	57.2110000	-6.0160000	village	Loch Slapin east shore; Wikipedia coords
+85	highland.txt	Isle of Pabay	resolved	57.2800000	-5.8600000	island	Wikipedia Pabay 57°16′30″N 5°51′36″W / trove NG67712657 belt
+86	highland.txt	Raasay	resolved	57.4000000	-6.0330000	island	Wikipedia Raasay island coords (57°24′N 6°02′W)
+87	highland.txt	Inverarish	resolved	57.3525800	-6.0621300	village	trove.scot Inverarish NRHE centroid NG55753642
+88	highland.txt	Hallin	resolved	57.3215000	-6.0994000	hamlet	South Raasay Inner Sound settlement belt (approximate OS NG533331 area; ferry to Applecross history)
+89	highland.txt	Brochel	resolved	57.4420000	-6.0280000	ruin	Brochel Castle ruins; Wikipedia coords 57°26′31″N 6°01′41″W
+90	highland.txt	North Fearns	resolved	57.3498110	-6.0027710	township	Walkhighlands start NG593359 → WGS84; N Raasay road-end townships
+91	highland.txt	Rona	resolved	57.5781350	-5.9590460	island	South Rona (Inner Hebrides); Wikipedia / Kiddle infobox coords (distinct from North Rona)
+92	highland.txt	Fladda	resolved	57.4816636	-6.0215465	island	Eilean Fladday tidal islet off Raasay; trove.scot BNG 159040 850630 → WGS84
+93	highland.txt	Portree	resolved	57.4120000	-6.1920000	town	Skye capital; Wikipedia infobox NG483454
+94	highland.txt	Penifiler	resolved	57.4149219	-6.1848622	hamlet	South shore Loch Portree opposite Portree; Gazetteer + approximate BNG centroid
+95	highland.txt	Kingsburgh	resolved	57.5132100	-6.3519680	township	Loch Snizort Beag shore; Wikipedia Kingsburgh Skye infobox
+96	highland.txt	Skeabost	resolved	57.4531200	-6.3058900	village	Head of Loch Snizort Beag; Wikipedia infobox
+97	highland.txt	Branahuie	ambiguous			unknown	Only gazetteer match is Branahuie (Lewis); list sits between Skye places—no Skye coastal match found
+98	highland.txt	Lonmore	resolved	57.4253600	-6.5573400	village	SE of Dunvegan; Canmore Skye Lonmore farmstead NG26534640 → WGS84
+99	highland.txt	Carbost	resolved	57.3027800	-6.3561100	village	Minginish Carbost on Loch Harport (Talisker distillery locus); Wikipedia Talisker distillery coords
+100	highland.txt	Talisker Bay	resolved	57.2840004	-6.4693221	bay	Sandy bay W of Talisker settlement; GeoHack / Walkhighlands start NG326306
+101	highland.txt	Glenbrittle	resolved	57.2250000	-6.3000000	hamlet	Glen Brittle valley mouth / campsite belt; Wikipedia Glen Brittle coords
+102	highland.txt	Loch Brittle	resolved	57.1930000	-6.2970000	sea_loch	Sea loch at Glen Brittle; Wikipedia Loch Brittle infobox
+103	highland.txt	Portnalong	resolved	57.3254760	-6.4074320	village	Loch Harport NW shore; Wikipedia infobox NG348347
+104	highland.txt	Fiskavaig	resolved	57.3180700	-6.4381500	village	Loch Bracadale / Minginish coast; Wikipedia infobox NG328340
+105	highland.txt	Orbost	resolved	57.3950500	-6.5666100	hamlet	Loch Bracadale shore cluster; trove.scot Orbost House NG2574743067
+106	highland.txt	Colbost	resolved	57.4430000	-6.6480000	hamlet	Glendale estate by Loch Dunvegan; Wikipedia infobox NG212488
+107	highland.txt	Glendale	resolved	57.4475930	-6.7107700	estate	Glendale community estate; Wikipedia infobox NG175495
+108	highland.txt	Milovaig	resolved	57.4515500	-6.7443600	township	Loch Pooltiel shore; Wikipedia Milovaig infobox NG155500
+109	highland.txt	Waterstein	resolved	57.4374100	-6.7661700	township	Duirinish W coast; Canmore Waterstein NRHE NG141486 centroid
+110	highland.txt	Lorgill	resolved	57.3796800	-6.6987100	ruins	Depopulated Glendale township; Canmore Lorgill NG177419
+111	highland.txt	Neist Point	resolved	57.4210000	-6.7870000	headland	Most westerly Skye point; Wikipedia Neist Point coords
+112	highland.txt	Husabost	resolved	57.4672600	-6.6691300	hamlet	Loch Dunvegan NW shore; trove.scot Husabost House NG2014651514
+113	highland.txt	Dunvegan	resolved	57.4358220	-6.5825310	village	Loch Dunvegan shore; GeoHack / Wikipedia Dunvegan
+114	highland.txt	Harlosh	resolved	57.3854100	-6.5178940	township	Harlosh peninsula settlement; Wikipedia Harlosh infobox
+115	highland.txt	Roag	resolved	57.4042800	-6.5456200	hamlet	Pool Roag NW shore; Wikipedia Roag Skye infobox NG270440
+116	highland.txt	Cliff	ambiguous			unknown	Generic name; no Skye settlement located in Duirinish sequence (Lewis has Cliobh “Cliff”)
+117	highland.txt	Vaternish	resolved	57.5388900	-6.5750000	peninsula	Waternish / Vaternish peninsula label; Wikipedia Waternish centroid coords
+118	highland.txt	Huishnish	not_found			unknown	No Skye/OSM/gazetteer match; spelling evokes Harris Hushinish but list is Waternish belt
+119	highland.txt	Geary	resolved	57.5680730	-6.5761040	township	NE Waternish on Loch Snizort; Wikipedia Geary Skye infobox NG264623
+120	highland.txt	Husabost More	resolved	57.4695000	-6.6708000	hamlet	Northern Husabost / Totaig road-end belt; approximate cluster N of Husabost House (no separate NRHE pin)
+121	highland.txt	Hornish	resolved	57.4406800	-6.5417300	farmstead	Horneval farmstead Duirinish; trove.scot / NRHE NG275804 (Skye spelling Hornish)
+122	highland.txt	Totaig	resolved	57.4591200	-6.6710700	hamlet	Wikipedia Totaig; Loch Dunvegan west shore NG199506
+123	highland.txt	Husinish	not_found			unknown	No Skye coastal/OS match in Waternish belt; name matches Harris Hùisinis (Hushinish) not Highland council
+124	highland.txt	Ardmore	resolved	57.5431300	-6.6501800	headland	Ardmore Point Waternish; NRHE NG21865987 (list order after Waternish places)
+125	highland.txt	Borreraig	resolved	57.4840000	-6.6940000	hamlet	Wikipedia Borreraig Duirinish (MacCrimmon centre) NG1853 — not Loch Eishort Boreraig
+126	highland.txt	Staffin	resolved	57.6347930	-6.2185780	village	GeoHack Staffin; Trotternish east coast A855 belt
+127	highland.txt	Flodigarry	resolved	57.6622150	-6.2586820	hamlet	GeoHack Flodigarry NG461716
+128	highland.txt	Hungladder	resolved	57.6568000	-6.3766300	village	Wikipedia Hungladder; Kilmuir NG347732
+129	highland.txt	Kilmuir	resolved	57.6490000	-6.3850000	village	Wikipedia Kilmuir Trotternish NG384706
+130	highland.txt	Kilmuir Bay	resolved	57.6510000	-6.3920000	bay	Informal bay label; Loch Snizort open water W of Kilmuir village (shore belt ~1 km W of NG384706)
+131	highland.txt	Garafad	resolved	57.6263400	-6.1873000	hamlet	Wikipedia Garafad linear settlement NG501673
+132	highland.txt	Skinidin	resolved	57.4352100	-6.6324500	township	NRHE Skye Skinidin NG221478
+133	highland.txt	Peinlich	resolved	57.5423900	-6.3249200	hamlet	NRHE Peinlich / Peinlea NG413585 (Snizort parish; Staffin coastal list)
+134	highland.txt	Balmaqueen	resolved	57.6906800	-6.3014600	township	NRHE Balmaqueen Kilmaluag NG43757490
+135	highland.txt	Kilmaluag	resolved	57.6810000	-6.3170000	township	Wikipedia Kilmaluag NG426738
+136	highland.txt	Huria	not_found			unknown	No gazetteer/NRHE match on Skye in Kilmaluag–Staffin sequence
+137	highland.txt	Staffin Bay	resolved	57.6403010	-6.2211070	bay	GeoHack Staffin Bay waterbody centroid
+138	highland.txt	Stenscholl	resolved	57.6315610	-6.2179250	hamlet	GBPN / gazetteer.org.uk Stenscholl NG48316801
+139	highland.txt	Garros	resolved	57.6232600	-6.1962100	hamlet	Staffin district township; approximate centroid between Garafad and Clachan NRHE centres (no dedicated page)
+140	highland.txt	Brogaig	resolved	57.6432600	-6.2250300	village	Wikipedia Brogaig NG470681
+141	highland.txt	Penifiler Bay	resolved	57.4045000	-6.2090000	bay	Small bay/inver on Loch Portree S shore by Penifiler hamlet (Gazetteer for Scotland; Skyeforall shore walk belt)
+142	highland.txt	Ellishadder	resolved	57.6070300	-6.1785200	hamlet	Wikipedia Ellishadder NG504651
+143	highland.txt	Portree Bay	resolved	57.4147770	-6.1825380	bay	Wikimedia Commons Portree Bay viewpoint coords (Loch Portree inlet)
+144	highland.txt	Bharcasaig	resolved	57.3883100	-6.5743800	bay	Gleann Bharcasaig / Varkasaig NRHE NG25234235; Loch Bharcasaig shore (Duirinish)
+145	highland.txt	Idrigill	resolved	57.5909000	-6.3769300	village	Wikipedia Idrigill Uig Bay NG385637
+146	highland.txt	Uig	resolved	57.5848500	-6.3579400	village	Wikidata Uig Snizort; ferry/harbour settlement NG39634
+147	highland.txt	Rhu Vaig	resolved	57.5851500	-6.3935200	headland	Interpreted as chart rubha W of Uig Bay; Highland harbour boundary Ru Idrigill position (57°35.109′N 6°23.611′W)
+148	highland.txt	Loch Snizort	resolved	57.5666670	-6.4666670	sea_loch	Wikipedia / GeoHack loch centroid
+149	highland.txt	Loch Greshornish	resolved	57.5044700	-6.4332700	sea_loch	Loch entrance belt by Greshornish Point NRHE NG3454654703 (Waternish peninsula)
+150	highland.txt	Loch Bay	resolved	57.5150800	-6.5734630	bay	Stein Loch Bay coastal inlet Waternish; Drone Scene / visitor coords by Stein jetty
+151	highland.txt	Stein	resolved	57.5140700	-6.5592000	village	Wikipedia Stein Skye; Loch Bay shore Waternish
+152	highland.txt	Holmfield	resolved	57.4873463	-6.1430625	hamlet	No separate record; pinned to Holm deserted township (Canmore NG 518 517 / OSGB→WGS84) Portree parish coast
+153	highland.txt	Kensaleyre	resolved	57.4799800	-6.3010200	village	Wikipedia Kensaleyre
+154	highland.txt	Eyre	resolved	57.4670000	-6.4000000	hamlet	Tageo and coastal name index; Kilmuir/Duirinish area west Skye
+155	highland.txt	Stenshaw	not_found		unknown	No Highland/Skye gazetteer match; likely transcription error
+156	highland.txt	Timsgearraidh	resolved	57.5797511	-6.3628461	village	Timsgarry West Uig Skye (not Lewis Timsgarry); approx OS grid near Uig Sands
+157	highland.txt	Loch Dunvegan	resolved	57.5000000	-6.6670000	sea_loch	Wikipedia loch centroid; sea loch Duirinish north Skye
+158	highland.txt	Kilmuir Uig	resolved	57.6172316	-6.3712720	hamlet	Centroid between Kilmuir village and Uig ferry along north Trotternish coast
+159	highland.txt	Suardal	resolved	57.4698607	-6.5992643	hamlet	Glen Suardal depopulated township NRHE NG 243 515 Duirinish (OSGB to WGS84)
+160	highland.txt	Aird Uig	resolved	57.5912475	-6.3943715	headland	Aird Uig Skye west of Uig Bay; approximate OS grid NG 375 642
+161	highland.txt	Vatisker	ambiguous			headland	Name chiefly Lewis (Vatisker); Skye reading as Vaig hamlet NW of Uig NG 371 639
+162	highland.txt	Peinachorrain	resolved	57.3293700	-6.0941000	hamlet	Wikipedia Peinachorran (OS spelling Peinachorrain)
+163	highland.txt	Ardvasar	resolved	57.0580000	-5.9090000	village	Wikipedia Àird a’ Bhàsair Sleat
+164	highland.txt	Knoydart	resolved	57.0667000	-5.6667000	peninsula	Wikipedia Knoydart NSA centroid; remote mainland peninsula Loch Nevis/Hourn
+165	highland.txt	Inverie	resolved	57.0380000	-5.6830000	village	Wikipedia Inbhir Aoidh main Knoydart settlement
+166	highland.txt	Airor	resolved	57.0830000	-5.7640000	hamlet	Wikidata/Commons 57°04′58.8″N 5°45′50.4″W; west Knoydart pier
+167	highland.txt	Corran Ferry	resolved	56.7225000	-5.2427972	ferry	Wikipedia Corran Ferry Loch Linnhe narrows
+168	highland.txt	Ardelve	resolved	57.2667000	-5.5500000	village	Wikipedia Àird Eilbh Loch Alsh (infobox rounded)
+169	highland.txt	Dornie	resolved	57.2763000	-5.5156000	village	Wikipedia An Dòrnaidh Loch Duich/Alsh/Long
+170	highland.txt	Eilean Donan	resolved	57.2740278	-5.5161100	island	Wikipedia tidal island castle Loch Duich
+171	highland.txt	Inverinate	resolved	57.2457400	-5.4603600	village	Wikipedia Inbhir Ìonaid north Loch Duich
+172	highland.txt	Letterfearn	resolved	57.2542800	-5.5087700	hamlet	Wikipedia Leitir Fheàrna west Loch Duich
+173	highland.txt	Ratagan	resolved	57.2207200	-5.4403800	hamlet	Wikipedia Ràtagan southwest Loch Duich
+174	highland.txt	Ardnarff	resolved	57.3511747	-5.5055995	hamlet	Gazetteer for Scotland south Loch Carron east of Stromeferry; approximate A890 shore
+175	highland.txt	Stromeferry	resolved	57.3520000	-5.5510000	village	Wikipedia Port an t-Sròim Loch Carron
+176	highland.txt	Kishorn	resolved	57.3860000	-5.6360000	hamlet	Wikipedia Loch Kishorn settlements collective centroid
+177	highland.txt	Attadale	resolved	57.3900000	-5.4500000	hamlet	Wikipedia Attadal south Loch Carron (infobox)
+178	highland.txt	Torridon	resolved	57.5500000	-5.5200000	village	Wikipedia Toirbheartan Loch Torridon shore
+179	highland.txt	Inveralligin	resolved	57.5565700	-5.6102600	hamlet	Wikipedia Inbhir Àiliginn north Loch Torridon
+180	highland.txt	Diabaig	resolved	57.5783200	-5.6831900	hamlet	Wikipedia Dìobaig Lower Diabaig Loch Diabaig
+181	highland.txt	Redpoint	resolved	57.6527600	-5.8013100	beach	Red Point Applecross peninsula (Inner Sound); distinct from Loch Gairloch Red Point later in list
+182	highland.txt	Kenmore	resolved	57.5506520	-5.7495170	hamlet	Geograph-tagged Kenmore shore NG75765737; north Applecross coast Loch a’ Chracaich inlet
+183	highland.txt	Applecross	resolved	57.4330400	-5.8095800	village	Wikipedia/Gazetteer Shore Street cluster centroid
+184	highland.txt	Camustiel	resolved	57.4117800	-5.8229300	hamlet	Canmore Camusteel / Camustiel NRHE; west Applecross Bay
+185	highland.txt	Cuaig	resolved	57.5500200	-5.8390900	hamlet	Canmore Cuaig township NG704576
+186	highland.txt	Perch	not_found			unknown	No coastal gazetteer hit between Cuaig and Toscaig in Applecross parish
+187	highland.txt	Toscaig	resolved	57.3792439	-5.8078862	hamlet	Megalithic Portal / OS NG712385 centroid
+188	highland.txt	Shieldaig	resolved	57.5224036	-5.6490248	village	Torridon village on Loch Shieldaig (Gazetteer); list order before Gairloch south shore
+189	highland.txt	Shieldaig Applecross	resolved	57.5224036	-5.6490248	village	Same Torridon settlement; Applecross civil-parish disambiguator
+190	highland.txt	Shieldaig Bay	resolved	57.5096610	-5.6544330	bay	Approx mouth of Loch Shieldaig off Upper Loch Torridon (OS belt)
+191	highland.txt	Shieldaig Torridon	resolved	57.5224036	-5.6490248	village	Explicit Torridon label; same locus as 188–189
+192	highland.txt	Badachro	resolved	57.6971450	-5.7253830	village	Wikipedia/GeoHack; south shore Loch Gairloch
+193	highland.txt	Charlestown	resolved	57.7109370	-5.6827790	hamlet	Canmore Gairloch pier / Charlestown NG80724998
+194	highland.txt	Gairloch	resolved	57.7284000	-5.6929000	village	Gazetteer for Scotland village centroid
+195	highland.txt	Gairloch Sands	resolved	57.7180330	-5.6922370	beach	Sandy belt south of village on Loch Gairloch (coastal belt estimate)
+196	highland.txt	Big Sand	resolved	57.7381670	-5.7716180	beach	British Beaches midpoint NG756783 by Lonemore
+197	highland.txt	Little Sand Gairloch	resolved	57.7350698	-5.7669249	beach	SEPA bathing-water sample NG7586077940 beside Big Sand dune belt
+198	highland.txt	Strath	resolved	57.7317550	-5.6995190	hamlet	Canmore Strath NG79857735; Gairloch B8021 cluster
+199	highland.txt	Melvaig	resolved	57.8083720	-5.7941280	hamlet	GeoHack/Wikipedia; NG746288 belt
+200	highland.txt	Redpoint Melvaig	resolved	57.6518180	-5.8028920	beach	Walkhighlands Red Point NG732688; Loch Gairloch south shore (not Applecross Redpoint)
+201	highland.txt	Opinan	resolved	57.6853900	-5.7825500	hamlet	Wikipedia Opinan Gairloch coords; SW of Gairloch near Port Henderson
+202	highland.txt	Laide	resolved	57.8650100	-5.5419600	village	Wikipedia Laide; south shore Gruinard Bay
+203	highland.txt	Rubha Reidh	resolved	57.8588330	-5.8117500	headland	NLB/Wikipedia Rubha Réidh lighthouse position
+204	highland.txt	Gruinard Bay	resolved	57.8930000	-5.4920000	bay	Wikipedia infobox embayment centroid
+205	highland.txt	Gruinard Island	resolved	57.8839300	-5.4648600	island	Canmore Gruinard Island NG94689354
+206	highland.txt	Achgarve	resolved	57.8720580	-5.5561740	hamlet	Gazetteer west Gruinard Bay belt; approximate south of Mellon Udrigle
+207	highland.txt	Pearlwort Bay	not_found			unknown	No map/gazetteer anchor; likely minor inlet W Gruinard–Laide coast
+208	highland.txt	Camas a Chara	resolved	57.9019260	-5.5588340	beach	SOBT/Walkhighlands Camas a’ Charraig Mellon Udrigle (spelling variant)
+209	highland.txt	Achduart	resolved	57.9802720	-5.2992010	hamlet	Wikipedia/Canmore NC050037; Coigach hamlet SE Achiltibuie (Loch Broom)
+210	highland.txt	Polglass	resolved	58.0138237	-5.3362386	hamlet	Coigach crofting township north Loch Broom (postcode centroid / Mapcarta)
+211	highland.txt	Badentarbet	resolved	58.0322200	-5.3700000	hamlet	OSM node2133580951 (Badentarbat); trove HES NC01390999 cluster
+212	highland.txt	Achnahaird Bay	resolved	58.0715000	-5.3604000	bay	Wikipedia/Gazetteer centroid; GeoHack list of bays
+213	highland.txt	Polbain	resolved	58.0355460	-5.3588780	village	Wikipedia/GeoHack Polbain
+214	highland.txt	Rechullin	not_found			unknown	No coastal anchor on Coigach run; only well-known Rechullin is Torridon (Upper Loch Torridon)
+215	highland.txt	Old Dornie	resolved	58.0469000	-5.4185900	hamlet	Canmore/trove Old Dornie NB98341153
+216	highland.txt	Altandhu	resolved	58.0546800	-5.4095500	hamlet	Wikipedia coord Altandhu
+217	highland.txt	Achnacarin	ambiguous			unknown	Name matches Coigach fifth ‘Achnacarinan’ but no single modern pin between Altandhu and Achiltibuie; Assynt Achnacarnin is distant
+218	highland.txt	Coigach	resolved	58.0200000	-5.3400000	locality	Wikipedia infobox ~58.02°N 5.34°W; peninsula centred on Achiltibuie area
+219	highland.txt	Achiltibuie	resolved	58.0215130	-5.3457030	village	GeoHack/Wikipedia Achiltibuie
+220	highland.txt	Polldubh	not_found			unknown	No OSM/gazetteer hit on Coigach coast (Poll Dubh is generic; unrelated hills elsewhere)
+221	highland.txt	Summer Isles	ambiguous			archipelago	Multiple islands in Loch Broom; no single tide point without choosing one island
+222	highland.txt	Isle Ristol	resolved	58.0441670	-5.4372220	island	Wikipedia/GeoHack Isle Ristol
+223	highland.txt	North Ristol	resolved	58.0480000	-5.4385000	coast	Judged north machair end of Isle Ristol (Wikipedia island extent)
+224	highland.txt	Tanera	resolved	58.0117000	-5.4108000	island	Gazetteer for Scotland Tanera Mor centroid; informal name for archipelago island
+225	highland.txt	Tanera Mhor	resolved	58.0111100	-5.4083300	island	Wikipedia precise coord Tanera Mòr
+226	highland.txt	Isle Martin	resolved	57.9450000	-5.2250000	island	Wikipedia Isle Martin
+227	highland.txt	Oldany Island	resolved	58.2574250	-5.2604960	island	GeoHack/Wikipedia Oldany Island
+228	highland.txt	Achnacarin Bay	not_found			unknown	No chart/gazetteer feature by this exact spelling on Loch Broom; Argyll ‘Achanarnich’ is unrelated
+229	highland.txt	Ullapool	resolved	57.8954180	-5.1613130	town	GPS-latitude-longitude / standard harbour town centroid
+230	highland.txt	Harbour Ullapool	resolved	57.8950000	-5.1533330	harbour	Ullapool Harbour Trust tech sheet 57°53.70′N 05°09.20′W
+231	highland.txt	Rhue	resolved	57.9251770	-5.2230720	headland	NLB Rubha Cadail / Walkhighlands NH097973 lighthouse
+232	highland.txt	Ardmair	resolved	57.9288690	-5.1989650	village	Ardmair Bay House map pin; Wikipedia ~57.93°N 5.19°W
+233	highland.txt	Strathkanaird	resolved	57.9697000	-5.1289900	hamlet	Wikipedia/GeoHack Strathkanaird NC150021 belt
+234	highland.txt	Blarnalearoch	resolved	57.8564000	-5.1154200	hamlet	Wikipedia Blarnalearoch NH152894 Loch Broom west shore
+235	highland.txt	Achmelvich	resolved	58.1701370	-5.3060490	beach	Achmelvich Beach site map pin; NC05682494 belt
+236	highland.txt	Achnalerig	not_found			unknown	No gazetteer/OSM match on Assynt coast near Achmelvich (likely very minor croft name)
+237	highland.txt	Clachtoll	resolved	58.1871180	-5.3374410	village	GeoHack Clachtoll; beach settlement NC039273 belt
+238	highland.txt	Stoer Bay	resolved	58.1984000	-5.3460000	bay	GeoHack Bay of Stoer waterbody centroid
+239	highland.txt	Stoer Head	resolved	58.2400170	-5.4025730	headland	Wikipedia/NLB Stoer Head Lighthouse position
+240	highland.txt	Stoerhead	resolved	58.2400170	-5.4025730	headland	Same feature as Stoer Head (alternate spelling); NLB lighthouse coord
+241	highland.txt	Drumbeg	resolved	58.2420000	-5.1990000	village	Wikipedia/Wikidata Drumbeg Sutherland; Assynt NC123 belt
+242	highland.txt	Clashnessie Bay	resolved	58.2293000	-5.3073000	bay	Gazetteer for Scotland Clashnessie Bay; NC059315 belt
+243	highland.txt	Clashnessie	resolved	58.2305000	-5.3038186	village	Wikipedia coord; crofting settlement at head of Clashnessie Bay
+244	highland.txt	Nedd	resolved	58.2363800	-5.1754100	village	Wikipedia Nedd; west head of Loch Nedd NC136319 belt
+245	highland.txt	Elphin	resolved	58.0532310	-5.0306730	hamlet	Wikipedia Elphin Assynt; crofting township NC212111
+246	highland.txt	Inverkirkaig	resolved	58.1253070	-5.2602970	hamlet	GeoHack/Wikipedia Inverkirkaig; NE bay of Loch Kirkaig
+247	highland.txt	Achins	resolved	58.1258000	-5.2620000	hamlet	Achins Bookshop/croft cluster off Inverkirkaig lane (Discover Assynt IV27 4LR); approximate township access
+248	highland.txt	Achmelvich Bay	resolved	58.1739000	-5.3103000	bay	GeoHack List of bays; waterbody centroid NC056249 belt (distinct from Achmelvich settlement row)
+249	highland.txt	Lochinver	resolved	58.1459007	-5.2795601	village	Wikipedia/GeoHack Lochinver; head of Loch Inver
+250	highland.txt	Lochinver Harbour	resolved	58.1501200	-5.2421600	harbour	Trove.scot / NRHE Lochinver pier centroid NC093225; east end working harbour
+251	highland.txt	Badnaban	resolved	58.1394100	-5.2615000	village	Wikipedia Badnaban; south shore Loch Inver NC081213
+252	highland.txt	Port Leathad	not_found			unknown	No OSM/gazetteer hit on Assynt coast; name not matched to Loch Inver feature
+253	highland.txt	Badcall Bay	resolved	58.3221000	-5.1436000	bay	GeoHack Badcall Bay; inlet south of Scourie in Eddrachillis Bay
+254	highland.txt	Tarbet	resolved	58.3897200	-5.1427800	hamlet	Wikipedia Tarbet Sutherland; Handa ferry hamlet Sound of Handa NC164489 belt
+255	highland.txt	Scourie	resolved	58.3519000	-5.1512000	village	Wikipedia Scourie; crofting village on Scourie Bay (Eddrachillis) NC157447
+256	highland.txt	Scourie Bay	resolved	58.3562000	-5.1728000	bay	GeoHack Scourie Bay waterbody; open bay toward Sound of Handa
+257	highland.txt	Handa Island	resolved	58.3806370	-5.1863110	island	GeoHack/Wikipedia Handa; SWT reserve centroid NC138480
+258	highland.txt	Blairmore	resolved	58.4906400	-5.0811800	hamlet	Wikipedia Blairmore Sutherland; NW coast Kinlochbervie road NC205599
+259	highland.txt	Kylesku	resolved	58.2568400	-5.0180370	hamlet	Wikipedia Kylesku; narrows of Lochs Glendhu/Glencoul NC230336
+260	highland.txt	Unapool	resolved	58.2496480	-5.0060232	hamlet	Wikipedia Unapool; A894 south of Kylesku Bridge NC236073
+261	highland.txt	Achfary	resolved	58.3120000	-4.9160000	hamlet	Wikipedia Achfary; north end of Loch More NC293396 belt
+262	highland.txt	Rhiconich	resolved	58.4230000	-4.9850000	hamlet	Wikipedia Rhiconich; head of Loch Inchard NC257522
+263	highland.txt	Achiemore	resolved	58.5680000	-4.8210000	hamlet	Wikipedia Achiemore Durness; Kyle of Durness west shore by Cape Wrath ferry road NC360679
+264	highland.txt	Balnahard	not_found			unknown	No NW Sutherland coastal gazetteer match; name is chiefly Colonsay/Mull (distinct places)
+265	highland.txt	Aultrib	not_found			unknown	No OSM/gazetteer match in Durness/Rhiconich context; possibly rare/local spelling
+266	highland.txt	Keoldale	resolved	58.5540600	-4.7850900	hamlet	Canmore Cape Wrath Hotel / Keoldale NC38056625; Kyle of Durness ferry east shore
+267	highland.txt	Kirtomy	resolved	58.5413730	-4.1611375	hamlet	Stravaiging/Kirtomy Bay; Farr north coast NC743635
+268	highland.txt	Skerray	resolved	58.5328700	-4.3008000	hamlet	Wikipedia Skerray; rocky north coast NC661628
+269	highland.txt	Melness	resolved	58.5320000	-4.4320000	locality	Wikipedia Melness; croft townships west of Tongue Bay NC585630 belt
+270	highland.txt	Midfield Tongue	resolved	58.5494400	-4.4405600	hamlet	Wikipedia Midfield Highland; Melness area north of Talmine NC585636
+271	highland.txt	Achuvoldrach	resolved	58.4929100	-4.4236700	village	Wikipedia Achuvoldrach; west shore Kyle of Tongue (WGS84 infobox)
+272	highland.txt	Talmine	resolved	58.5298300	-4.4303200	village	Wikipedia Talmine Sutherland; Talmine Bay / Tongue Bay shore
+273	highland.txt	Kyle of Tongue	resolved	58.4770000	-4.4530000	sea_loch	Wikipedia / GeoHack centroid; shallow sea loch east of Melness
+274	highland.txt	Tongue Bay	resolved	58.5260000	-4.3918000	bay	GeoHack / Wikipedia Tongue Bay waterbody; inlet west of village of Tongue
+275	highland.txt	Sandside Bay	resolved	58.5590000	-3.7750000	bay	Sandside Bay at Reay (SSSI) on north coast between Melvich and Thurso; village centroid proxy
+276	highland.txt	Strathy Point	resolved	58.5987520	-4.0185450	headland	Wikipedia Strathy Point Lighthouse; north tip of Strathy peninsula
+277	highland.txt	Strathy Bay	resolved	58.5694000	-3.9971000	bay	GeoHack Strathy Bay; beach bay by Strathy village
+278	highland.txt	Farr	resolved	58.5377500	-4.1970300	hamlet	Wikipedia Farr Sutherland; Farr parish church / Far Bay belt NC721631
+279	highland.txt	Armadale Strathy	resolved	58.5499000	-4.0895000	village	Wikipedia Armadale Sutherland (Lord Armadale of Strathy); distinct from Armadale Skye
+280	highland.txt	Portvasgo	resolved	58.5501400	-4.4341600	hamlet	Canmore Port Vasgo fishing station NC58447 65020; Melness townships
+281	highland.txt	Bettyhill	resolved	58.5300000	-4.2200000	village	Wikipedia Bettyhill; Farr parish A836
+282	highland.txt	Torrisdale Bay	resolved	58.5317000	-4.2450000	bay	GeoHack Torrisdale Bay (Sutherland); west of Bettyhill
+283	highland.txt	Torrisdale	resolved	58.5219400	-4.2743700	hamlet	Wikipedia Torrisdale Sutherland; west shore Torrisdale Bay NC676615
+284	highland.txt	Reay	resolved	58.5589330	-3.7771500	village	Wikipedia Reay; Sandside Bay north coast Caithness belt (historic Reay parish)
+285	highland.txt	Sandend	not_found			unknown	No gazetteer/OSM coastal feature between Reay and Melvich; name chiefly Aberdeenshire Moray Sandend
+286	highland.txt	Melvich	resolved	58.5495950	-3.9261910	village	GeoHack / Wikipedia Melvich; River Halladale mouth area
+287	highland.txt	Portskerra	resolved	58.5682890	-3.9375340	hamlet	GeoHack / Wikipedia Portskerra; Melvich Bay pier belt
+288	highland.txt	Poll na h-Airigh	not_found			unknown	No map/gazetteer hit in Kinlochbervie–Oldshoremore belt; not Bàgh Poll a’ Bhacain (different name)
+289	highland.txt	Kinlochbervie	resolved	58.4586000	-5.0493000	village	Gazetteer for Scotland Kinlochbervie; fishing port NC222563
+290	highland.txt	Oldshoremore	resolved	58.4761500	-5.0688200	hamlet	Wikipedia Oldshoremore; Sandwood Estate NC211583
+291	highland.txt	Oldshoremore Beach	resolved	58.4761000	-5.0697000	beach	GeoHack Oldshoremore; Am Mellan sands by headland Eilean na h-Aiteig
+292	highland.txt	Old Shore More	resolved	58.4761500	-5.0688200	hamlet	Alternate spacing for Oldshoremore; same township (Àisir Mòr)
+293	highland.txt	Sandwood Bay	resolved	58.5396000	-5.0623000	bay	Wikipedia Sandwood Bay; main beach / bay centroid
+294	highland.txt	Cape Wrath	resolved	58.6253540	-4.9991500	headland	GeoHack Cape Wrath Lighthouse; NW tip of mainland
+295	highland.txt	Balnakeil	resolved	58.5760000	-4.7680000	hamlet	Wikipedia Balnakeil; craft village / old church NC394678
+296	highland.txt	Balnakeil Bay	resolved	58.5847000	-4.7950000	bay	GeoHack Balnakeil Bay; west of Durness / Faraid Head
+297	highland.txt	Durness	resolved	58.5700000	-4.7500000	village	Wikipedia Durness; Sango Bay / A838 coast NC403677
+298	highland.txt	Smoo Cave	resolved	58.5630600	-4.7200000	cave	Wikipedia Smoo Cave; Geodha Smoo east of Durness
+299	highland.txt	Sangobeg	resolved	58.5534800	-4.7036100	hamlet	Wikipedia Sangobeg; Sangobeg Sands northwest of Durness A838
+300	highland.txt	Ceannabeinne	resolved	58.5505600	-4.6830600	locality	Wikipedia Ceannabeinne; ruined township / beach under Beinn Ceannabeinne
+301	highland.txt	Sango Sands	resolved	58.5693450	-4.7392090	beach	SOBT / OS NC408678; main sands by Durness (NC500)
+302	highland.txt	Durine	resolved	58.5715000	-4.7585000	hamlet	Gazetteer for Scotland Durine; crofting township west Sango Bay between Balnakeil and Durness centre
+303	highland.txt	Hope	resolved	58.5024950	-4.6190305	hamlet	Gazetteer of British Place Names Hope Sutherland; Durness parish south of Kyle belt
+304	highland.txt	Kyle of Durness	resolved	58.5500000	-4.7900000	inlet	Wikipedia / Wikidata centroid; tidal kyle Balnakeil–Cape Wrath peninsula (broad feature centre)
+305	highland.txt	Foindle	resolved	58.3874000	-5.0979500	village	Wikipedia Foindle; south shore Loch Laxford (Assynt–Lairg coast; Highland list context)
+306	highland.txt	Dunnet Head	resolved	58.6569440	-3.3769440	headland	Wikipedia Dunnet Head (Easter Head mainland north point); distinct from lighthouse coords
+307	highland.txt	Brough	resolved	58.6410000	-3.3410000	village	Wikipedia Brough Caithness ND222733; northerly mainland village by Pentland Firth
+308	highland.txt	Dunnet Bay	resolved	58.6154000	-3.3937000	bay	GeoHack List of bays; sandy bay Dunnet Head–Murkle belt
+309	highland.txt	Castletown Thurso	resolved	58.5907600	-3.3839900	village	getthedata Castletown centre; Dunnet Bay south shore (disambiguated from Castletown elsewhere)
+310	highland.txt	Thurso	resolved	58.5960000	-3.5210000	town	Wikipedia Thurso; River Thurso / Thurso Bay burgh centroid
+311	highland.txt	Scrabster	resolved	58.6111000	-3.5470500	harbour	Canmore Scrabster Harbour ND1022070275; ferry port Thurso Bay
+312	highland.txt	Holburn Head	resolved	58.6230550	-3.5350000	headland	Wikipedia Holborn Head point ND10857155; source uses Holburn spelling variant
+313	highland.txt	Keiss	resolved	58.5350000	-3.1190000	village	Wikipedia Keiss; north end Sinclair's Bay
+314	highland.txt	Sinclairs Bay	resolved	58.5057180	-3.0941100	bay	Wikipedia Sinclair's Bay; Keiss–Wick sweep centroid
+315	highland.txt	Reiss	resolved	58.4759100	-3.1459100	village	Wikidata Reiss; Reiss Beach / Sinclair's Bay south end
+316	highland.txt	Wick	resolved	58.4540000	-3.0890000	town	Wikipedia Wick Caithness; Wick Bay / River Wick burgh
+317	highland.txt	Wick Harbour	resolved	58.4397500	-3.0838700	harbour	Canmore Wick Harbour ND3682050670; inner/river basins
+318	highland.txt	Wick River Mouth	resolved	58.4422200	-3.0883300	estuary	Wikipedia Wick River mouth Bay of Wick; sea end by Harbour Bridge belt
+319	highland.txt	Papigoe	resolved	58.4497400	-3.0591600	village	Canmore Papigoe ND38285176; Broad Haven Bay head
+320	highland.txt	Yarrows	resolved	58.3735500	-3.1847600	locality	Canmore Yarrows ND308434; Loch of Yarrows / South Yarrows farm belt (Thrumster parish)
+321	highland.txt	Ulbster	resolved	58.3548900	-3.1566900	hamlet	Wikipedia Ulbster; scattered crofting east coast A99 south of Wick
+322	highland.txt	Thrumster	resolved	58.3888000	-3.1299300	hamlet	Wikipedia Thrumster; A99 crofting township south of Wick
+323	highland.txt	Whaligoe	resolved	58.3471900	-3.1611400	harbour	Wikipedia Whaligoe; cliff haven / Whaligoe Steps ND321404
+324	highland.txt	Lybster	resolved	58.3034000	-3.2848000	village	Gazetteer for Scotland Lybster ND248357; east coast planned fishing village
+325	highland.txt	Dunbeath	resolved	58.2493140	-3.4319250	village	Wikipedia Dunbeath; Dunbeath Water mouth / bay
+326	highland.txt	Latheronwheel	resolved	58.2775400	-3.3742400	village	Wikipedia Latheronwheel; harbour hamlet A9/A99 junction area
+327	highland.txt	Latheron	resolved	58.2828030	-3.3676170	village	GeoHack Latheron; A9/A99 junction village (Clan Gunn Centre belt)
+328	highland.txt	Berriedale	resolved	58.1894400	-3.4958300	village	Wikipedia Berriedale Highland; Berriedale/Langwell waters mouth
+329	highland.txt	Helmsdale	resolved	58.1176840	-3.6566620	village	GeoHack Helmsdale; River Helmsdale estuary / A9 east Sutherland
+330	highland.txt	Navidale	resolved	58.1280000	-3.6320000	hamlet	Canmore Navidale Farm / enclosure belt ND041–048; east of Helmsdale A9 settlement scatter
+331	highland.txt	Portgower	resolved	58.0988300	-3.6840100	village	Wikipedia / GeoHack Portgower; former fishing hamlet Loth parish east Sutherland coast
+332	highland.txt	West Helmsdale	resolved	58.1155000	-3.6750000	locality	West bank / upper estuary side of Helmsdale (judged W of town centre toward River Helmsdale)
+333	highland.txt	Brora	resolved	58.0107710	-3.8531350	village	GeoHack Brora; east Sutherland coast settlement NC905040
+334	highland.txt	Brora Harbour	resolved	58.0085000	-3.8580000	harbour	Coastal pier / harbour cluster S of Brora village centre (human-map harbour front)
+335	highland.txt	Golspie	resolved	57.9729710	-3.9763080	village	GeoHack Golspie; North Sea coast at mouth of Loch Fleet / Ben Bhraggie backdrop
+336	highland.txt	Loch Fleet	resolved	57.9500000	-4.0670000	estuary	Wikipedia Loch Fleet NNR centroid; tidal basin between Golspie and Dornoch (broad feature)
+337	highland.txt	Little Ferry	resolved	57.9341100	-4.0183800	village	Wikipedia Littleferry; NE shore Loch Fleet entrance (list spelling “Little Ferry”)
+338	highland.txt	Embo	resolved	57.9075200	-3.9968500	village	Wikipedia Embo; Dornoch Firth east shore N of Dornoch (NH816928 belt)
+339	highland.txt	Dornoch	resolved	57.8796080	-4.0285240	town	GeoHack Dornoch; burgh on Dornoch Firth
+340	highland.txt	Dornoch Beach	resolved	57.8786330	-4.0137430	beach	SOBT Beach Road east access; main sands links belt E of town (NH807895 area)
+341	highland.txt	Dornoch Firth Shore	ambiguous			shore	Many miles of south/north intertidal shore; no single pin without a more specific access point
+342	highland.txt	Cambusmore	resolved	57.9566800	-4.1767100	estate	Canmore Cambusmore Estate centred NH712984; Dornoch parish inland of Dornoch Firth (list name)
+343	highland.txt	Shandwick	resolved	57.7503000	-3.9206600	village	Wikipedia Shandwick; Seaboard village Shandwick Bay NH857750
+344	highland.txt	Balintore	resolved	57.7570100	-3.9119500	village	Wikipedia Balintore; Seaboard fishing village / harbour NH863757
+345	highland.txt	Hilton of Cadboll	resolved	57.7672200	-3.8958300	village	Wikipedia Hilton of Cadboll Chapel coords; Tarbat peninsula coast settlement belt
+346	highland.txt	Inver Hill	resolved	57.8200000	-3.9167000	village	Wikipedia Inver (Highland) NH854833; SE Inver Bay / Dornoch Firth (“Hill” local/archaeology label)
+347	highland.txt	Portmahomack	resolved	57.8369500	-3.8274600	village	GeoHack Portmahomack; Tarbat peninsula north coast harbour village
+348	highland.txt	Nigg Ferry	resolved	57.6944900	-4.0315900	ferry	Canmore Nigg Ferry quay NH79656879; Cromarty Firth car-ferry slip area (human-map crossing)
+349	highland.txt	Ardersier	resolved	57.5692600	-4.0377500	village	Wikipedia Ardersier; Moray Firth coast W of Fort George NH782550
+350	highland.txt	Fort George	resolved	57.5830500	-4.0742300	attraction	HES / trove Fort George centroid NH7607956674; artillery fort Ardersier Point
+351	highland.txt	Rosemarkie	resolved	57.5913000	-4.1147000	village	Rosemarkie High Street belt; south Black Isle coast W of Chanonry Ness
+352	highland.txt	Fortrose	resolved	57.5820000	-4.1320000	town	Wikipedia Fortrose; royal burgh head of Chanonry Ness NH7256
+353	highland.txt	Chanonry Point	resolved	57.5740300	-4.0927000	headland	Canmore Chanonry Lighthouse NH7494455704; tip of Chanonry Ness spit
+354	highland.txt	Avoch	resolved	57.5693270	-4.1753350	village	Wikipedia Avoch; harbour village SE Black Isle NH699553
+355	highland.txt	Killen	resolved	57.5937600	-4.2081100	hamlet	Wikipedia Killen Highland; crofting belt NW of Avoch NH681581
+356	highland.txt	Munlochy	resolved	57.5499320	-4.2622800	village	Wikipedia Munlochy; head of Munlochy Bay NH647533
+357	highland.txt	North Kessock	resolved	57.5015000	-4.2453000	village	Wikipedia North Kessock; Black Isle shore N of Kessock Bridge
+358	highland.txt	South Kessock	resolved	57.4910000	-4.2420000	suburb	Wikipedia South Kessock; Inverness north shore Beauly Firth / former ferry
+359	highland.txt	Clachnaharry	resolved	57.4883300	-4.2597200	village	Wikipedia Clachnaharry; Beauly Firth shore / Caledonian Canal sea-lock neighbourhood
+360	highland.txt	Inverness Harbour	resolved	57.4864000	-4.2309000	harbour	GeoHack Port of Inverness; River Ness / Longman–Thornbush basins (trust port centroid)
+361	highland.txt	Merkinch	resolved	57.4850000	-4.2380000	suburb	Wikipedia / GeoHack Merkinch; Inverness NW shore between River Ness and Caledonian Canal
+362	highland.txt	Longman	resolved	57.4880600	-4.2197200	industrial_area	Wikipedia Longman Inverness; Moray Firth / River Ness front industrial belt
+363	highland.txt	Bunchrew	resolved	57.4790000	-4.3070000	village	Wikipedia Bunchrew; Beauly Firth south shore west of Inverness (NH617455 belt)
+364	highland.txt	Clachnaharry Ferry	resolved	57.4906000	-4.2628000	ferry	Caledonian Canal Clachnaharry Sea Lock area; historic Bona narrows ferry reading (Wikipedia canal article)
+365	highland.txt	Redcastle	resolved	57.5134630	-4.3657330	castle	Wikipedia / Canmore NH58386 49508; Black Isle promontory ruin Killearnan
+366	highland.txt	Cromarty	resolved	57.6808780	-4.0392100	town	GeoHack / Wikipedia Cromarty; Black Isle tip Cromarty Firth mouth
+367	highland.txt	Cromarty Firth Shore	ambiguous			shore	Many miles of intertidal shore; no single access point without a more specific name
+368	highland.txt	Jemimaville	resolved	57.6589000	-4.1478100	village	Wikipedia Jemimaville; Udale Bay / Resolis north Black Isle coast
+369	highland.txt	Balblair	resolved	57.6714000	-4.1761000	hamlet	Gazetteer for Scotland Balblair (Resolis); Cromarty Firth hamlet / ferry historic (not Balblair distillery Edderton)
+370	highland.txt	Saltburn	resolved	57.6988700	-4.1457100	village	Wikipedia Saltburn Ross-shire; linear coast N Cromarty Firth by Invergordon
+371	highland.txt	Invergordon	resolved	57.6879200	-4.1570400	town	GeoHack Invergordon; Cromarty Firth port town
+372	highland.txt	Ankerville	resolved	57.7413100	-3.9906000	village	Wikipedia Ankerville; Nigg parish cluster IV19
+373	highland.txt	Ardross	resolved	57.7386100	-4.3381500	locality	Canmore Mains of Ardross NH609745 / Ardross Castle belt; Easter Ross rural area (inland of firth but list name)
+374	highland.txt	South Fearn	resolved	57.7580000	-3.9680000	locality	Judged S belt of Fearn parish toward ex-RNAS Fearn (HMS Owl) S of Fearn hamlet; not Hill of Fearn station
+375	highland.txt	Barbaraville	resolved	57.7230000	-4.1020000	hamlet	Wikipedia Barbaraville; Nigg Bay N shore Cromarty Firth
+376	highland.txt	Alcaig	resolved	57.5841800	-4.4038500	landing	Canmore NH55NE 179 jetty inner Cromarty Firth (Urquhart & Logie Wester); coastal feature for name vs distillery village
+377	highland.txt	Nigg Old Hall	resolved	57.7186800	-4.0098500	laird_house	Source label matched to Nigg House (former Nigg Farmhouse) Canmore NH80375 71654
+378	highland.txt	Shandwick Bay	resolved	57.7512000	-3.9140000	beach	GeoHack / Beach Guide NH86027514; sands W of Shandwick Seaboard village
+379	highland.txt	Inver Bay	resolved	57.8180000	-3.9280000	bay	Gazetteer Inver Bay shallow inlet S Dornoch Firth N of Inver village; broad bay centroid
+380	highland.txt	Tain Shore	resolved	57.8173700	-4.0659900	shore	Canmore NH78SE 233 Tain Shore Road belt; Dornoch Firth frontage near burgh

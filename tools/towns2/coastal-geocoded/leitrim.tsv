@@ -1,0 +1,63 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	leitrim.txt	Bunduff	resolved	54.4633	-8.3781	townland	Tullaghan ED; townlands.ie centroid (Leitrim townland).
+2	leitrim.txt	Bunduff shore	resolved	54.464	-8.375	shore	Coastal frontage at Bunduff strand / Duff estuary (approximate).
+3	leitrim.txt	Bunduff Strand	resolved	54.465	-8.374	beach	Sandy strand at Bunduff (approximate shoreline).
+4	leitrim.txt	River Duff mouth	resolved	54.4625	-8.3755	estuary	River Duff (An Dubh) into Donegal Bay near Bunduff strand (approximate mouth).
+5	leitrim.txt	River Bunduff mouth	resolved	54.4625	-8.3755	estuary	Same watercourse as Duff/Bunduff River; mouth at Bunduff (approximate).
+6	leitrim.txt	Black River mouth	resolved	54.4625	-8.3755	estuary	Black River is local English name for River Duff in Leitrim; same mouth.
+7	leitrim.txt	Duff River mouth	resolved	54.4625	-8.3755	estuary	Same mouth as lines 4–6; alternate naming (Wikipedia/OS usage).
+8	leitrim.txt	Magheracar	resolved	54.4731	-8.29313	townland	Logainm centre; Donegal townland on coast by Leitrim list context.
+9	leitrim.txt	Magheracar shore	resolved	54.4725	-8.292	shore	Coastal strip at Magheracar cliff/megalithic area (approximate).
+10	leitrim.txt	Mullanyduff	resolved	54.448611	-8.369444	townland	Tullaghan ED; townlands.ie coordinates.
+11	leitrim.txt	Mullanyduff shore	resolved	54.4475	-8.368	shore	Townland shore toward Duff estuary / Donegal Bay (approximate).
+12	leitrim.txt	Duncarbry	resolved	54.465833	-8.326667	townland	Tullaghan ED; townlands.ie coordinates.
+13	leitrim.txt	Duncarbry shore	resolved	54.467	-8.325	shore	North of townland toward Tullaghan coastal edge (approximate).
+14	leitrim.txt	Tullaghan	resolved	54.4683	-8.3311	village	Wikipedia/GeoHack village centroid.
+15	leitrim.txt	An Tulachán	resolved	54.4683	-8.3311	village	Official Irish name for Tullaghan; same settlement.
+16	leitrim.txt	Tulachan	resolved	54.4683	-8.3311	village	Variant spelling of An Tulachán / Tullaghan.
+17	leitrim.txt	Tullaghan Strand	resolved	54.466	-8.337	beach	Main strand W of village toward Bunduff (approximate).
+18	leitrim.txt	Tullagahan Strand	resolved	54.466	-8.337	beach	Source spelling variant; same strand as Tullaghan Strand.
+19	leitrim.txt	Tullaghan Beach	resolved	54.4655	-8.338	beach	Beach stretch on Leitrim's short Atlantic frontage (approximate).
+20	leitrim.txt	Tullaghan Bay	resolved	54.4645	-8.339	bay	Small bay on coast W of village (approximate).
+21	leitrim.txt	Tullaghan foreshore	resolved	54.466	-8.336	foreshore	Intertidal shore near Tullaghan strand (approximate).
+22	leitrim.txt	Tullaghan point	resolved	54.469	-8.325	headland	Minor coastal point E toward Drowes / Donegal Bay (approximate).
+23	leitrim.txt	Tullaghan coastal walkway	resolved	54.4682	-8.3315	path	Signed coastal/sea access near village (approximate).
+24	leitrim.txt	Wild Atlantic Way Tullaghan	resolved	54.4683	-8.3311	route	WAW segment through Tullaghan on N15 coastal corridor.
+25	leitrim.txt	Tullaghan Wild Atlantic Way	resolved	54.4683	-8.3311	route	Same WAW segment as line 24.
+26	leitrim.txt	St Patrick's Well	resolved	54.463861	-8.375722	holy well	irishstones.org GPS; Knockbrack area W of village; ~250 m from sea.
+27	leitrim.txt	St Pats Well	resolved	54.463861	-8.375722	holy well	Abbreviation; same holy well as line 26.
+28	leitrim.txt	Tullaghan Cross	resolved	54.468583	-8.329667	high cross	irishstones.org GPS; early medieval cross beside N15.
+29	leitrim.txt	St Patrick's Church Tullaghan	resolved	54.4685	-8.3305	church	RC church (1842); village centre (approximate).
+30	leitrim.txt	Glenade	resolved	54.36444	-8.27028	valley	Glenade Lough / valley head (Wikipedia coordinates); inland from Tullaghan coast.
+31	leitrim.txt	Glenade Valley shore	resolved	54.3665	-8.2705	lakeshore	North/west shore of Glenade Lough in the valley (NPWS SAC centroid area); freshwater, not Atlantic.
+32	leitrim.txt	Kinlough Glenade parish shore	resolved	54.451	-8.279	lakeshore	Lough Melvin shoreline at Kinlough (Glenade parish context); village ~54.45°N 8.283°W.
+33	leitrim.txt	Tynte Lodge	resolved	54.4731	-8.3293	house	Buildings of Ireland 30801001; Irish Grid 178696,358336 → WGS84 (Barrackpark/Tullaghan ED).
+34	leitrim.txt	Pointinchose	resolved	54.4762	-8.3275	headland	Promontory at Tynte Lodge foreshore (kinlough.net); cliff/folly belt N of lodge, approximate pin.
+35	leitrim.txt	Carricknarone	resolved	54.4705	-8.3255	rock	Carraig na ron tidal rock off Tynte Lodge coast (kinlough.net); offshore position approximate.
+36	leitrim.txt	Mulleen	resolved	54.472	-8.3305	shale bank	Low-tide shale bank on Leitrim Atlantic strip near Tynte Lodge (kinlough.net); approximate shoreline.
+37	leitrim.txt	Crannogue	resolved	54.47	-8.329	islet	Isolated rock/crannóg remnant offshore (kinlough.net); approximate.
+38	leitrim.txt	Pollawaddy	resolved	54.4725	-8.331	tidal pool	Named tidal dog hole on same foreshore (kinlough.net); position approximate among rock pools.
+39	leitrim.txt	Pollerean	resolved	54.473	-8.3315	tidal pool	Rotten pool on Tynte Lodge foreshore (kinlough.net); approximate.
+40	leitrim.txt	Pollgorm	resolved	54.4735	-8.332	tidal pool	Green pool on same stretch (kinlough.net); approximate.
+41	leitrim.txt	Devil's Bridge	ambiguous			rock arch	Local informal coastal rock name on this shore (kinlough.net); no single mapped bridge; several candidates along craggy foreshore.
+42	leitrim.txt	Clacham	resolved	54.4723	-8.3305	stepping stones	Stepping stones on rocky foreshore (kinlough.net); approximate.
+43	leitrim.txt	Crockmore	resolved	54.4745	-8.3285	hill	Raised ground big hill above shore near Tynte Lodge (kinlough.net); approximate inland of cliff line.
+44	leitrim.txt	Pollnaglimmagh	resolved	54.472	-8.3318	tidal pool	Lobster hole tidal feature (kinlough.net); approximate.
+45	leitrim.txt	Bunsruthoge	resolved	54.4718	-8.3322	stream mouth	Small stream mouth on coastal strip (kinlough.net); approximate.
+46	leitrim.txt	Loughanatalus	resolved	54.4722	-8.3312	tidal pool	Lake of salt tidal pool (kinlough.net); approximate.
+47	leitrim.txt	River Drowes mouth	resolved	54.4695	-8.2835	estuary	Meets Donegal Bay at Tullaghan/Bundoran (river description + OSM/Nominatim context); approximate mouth bar.
+48	leitrim.txt	Drowes Estuary	resolved	54.4705	-8.308	estuary	Lower Drowes from Bundrowes Bridge pools to sea (fishery descriptions); centroid approximate along channel.
+49	leitrim.txt	Drowse Estuary	resolved	54.4705	-8.308	estuary	Common misspelling of Drowes; same lower estuary as line 48.
+50	leitrim.txt	Drowes Estuary shore	resolved	54.4698	-8.305	foreshore	Intertidal shore along Drowes estuary below Bundrowes (approximate).
+51	leitrim.txt	Bundrowes	resolved	54.47256	-8.32074	locality	Local name for N15 crossing / hamlet at Drowes (OpenStreetMap/Nominatim Bundrowes Bridge).
+52	leitrim.txt	Bundrowes Bridge	resolved	54.47256	-8.32074	bridge	N15 bridge over River Drowes (OpenStreetMap way 1195932080 / Nominatim).
+53	leitrim.txt	Bunduff Salmon Fishery	resolved	54.463	-8.376	fishery	Duff/Bunduff estuary salmon water near Bunduff strand; approximate beat/office pin on Leitrim side.
+54	leitrim.txt	Drowes Salmon Fishery	resolved	54.4715	-8.318	fishery	Public-facing fishery focuses on Drowes estuary pools below Bundrowes; pin near syndicate stretch (approximate).
+55	leitrim.txt	Donegal Bay shore	resolved	54.465	-8.305	shore	Generic Leitrim Atlantic frontage between Duff and Drowes mouths; mid-coast approximate.
+56	leitrim.txt	Sheean	resolved	54.46639	-8.32139	townland	Tullaghan ED centroid (townlands.ie 54°27′59″N 8°19′17″W).
+57	leitrim.txt	Sheean shore	resolved	54.4648	-8.3225	shore	Southern/coastal margin of Sheean townland toward Donegal Bay (approximate).
+58	leitrim.txt	Tawley	resolved	54.4334	-8.38156	townland	Logainm.ie centrepoint Tálaigh/Tawly (large Rossinver townland).
+59	leitrim.txt	Tawley shore	resolved	54.434	-8.392	shore	Western shore of Tawley toward Bunduff/Donegal Bay (townland extends to coast; approximate).
+60	leitrim.txt	Tullaghan seaside	resolved	54.4678	-8.3325	shore	Seafront near Tullaghan village (strand/N15 corridor; approximate).
+61	leitrim.txt	Tullaghan surf	resolved	54.4668	-8.3363	surf break	Surf-Forecast.com “Tullaghan (Leitrim)” point-break guide; approximate pin on exposed strand/reef west of the village on Leitrim’s Atlantic strip.
+62	leitrim.txt	Tullaghan surf break	resolved	54.4666	-8.3368	surf break	Surf-Forecast Tullaghan (Leitrim) point break; breaking zone slightly seaward of the strand (approximate; tide/swell dependent).

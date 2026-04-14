@@ -1,0 +1,189 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	scottish-borders.txt	Marshall Meadows Bay	resolved	55.805287	-2.026297	bay	GeoHack/Wikipedia (bay mouth on Northumberland/Borders coast)
+2	scottish-borders.txt	Marshall Meadows	resolved	55.803034	-2.037471	hamlet	findthatpostcode/OS place (hamlet W of the bay; Northumberland)
+3	scottish-borders.txt	Lamberton	resolved	55.808	-2.055	settlement	Wikipedia/GeoHack (Lamberton estate area, Berwickshire)
+4	scottish-borders.txt	Lamberton toll	resolved	55.80671	-2.04374	historic	Canmore NRHE 128365 Old Toll House (A1, just N of border)
+5	scottish-borders.txt	Burnmouth	resolved	55.84222	-2.075	village	Wikipedia settlement coordinates (Ayton parish)
+6	scottish-borders.txt	Burnmouth harbour	resolved	55.8420563	-2.067725	harbour	OpenStreetMap harbour polygon (Cowdrait/Lower Burnmouth)
+7	scottish-borders.txt	Burnmouth village	resolved	55.84222	-2.075	village	Same coastal settlement as Burnmouth (Wikipedia)
+8	scottish-borders.txt	Lower Burnmouth	resolved	55.8408481	-2.0657461	neighbourhood	OpenStreetMap residential (Lower Burnmouth)
+9	scottish-borders.txt	Upper Burnmouth	resolved	55.8415262	-2.0751551	neighbourhood	OpenStreetMap (Upper Burnmouth)
+10	scottish-borders.txt	Partanhall	resolved	55.8441153	-2.0691346	neighbourhood	OpenStreetMap (N part of Lower Burnmouth)
+11	scottish-borders.txt	Fishwick	not_found			unknown	No Fishwick at Burnmouth in OSM/Nominatim; Berwickshire parish Fishwick is on the River Tweed W of Berwick (different feature)
+12	scottish-borders.txt	Vinney	not_found			unknown	No OSM/Nominatim match in Burnmouth/Eyemouth area under this name
+13	scottish-borders.txt	Burnmouth memorial	resolved	55.8420563	-2.067725	attraction	Bronze Eyemouth disaster memorial on harbour area; pinned to Burnmouth Harbour (OSM)
+14	scottish-borders.txt	Ayton	resolved	55.842567	-2.113853	village	GENUKI centroid NT930610 (village on Eye Water)
+15	scottish-borders.txt	Reston	resolved	55.852192	-2.18977	village	OpenStreetMap Reston Post Office on Main Street (village proxy)
+16	scottish-borders.txt	Grantshouse	resolved	55.88303	-2.30538	village	Wikipedia coordinates (A1 village)
+17	scottish-borders.txt	Eyemouth	resolved	55.868239	-2.092653	town	GeoHack/Wikipedia town centre
+18	scottish-borders.txt	Eyemouth town	resolved	55.868239	-2.092653	town	Same as Eyemouth centre
+19	scottish-borders.txt	Eyemouth Harbour	resolved	55.883333	-2.091111	harbour	Eyemouth Harbour Trust published position (55°53′N 02°05′28″W)
+20	scottish-borders.txt	Eyemouth waterfront	resolved	55.87273	-2.09107	promenade	Canmore beach record NT944644 (foreshore west of harbour)
+21	scottish-borders.txt	Eyemouth beach	resolved	55.87273	-2.09107	beach	Canmore NT944644 / UK Beach Guide OS grid
+22	scottish-borders.txt	Eyemouth Bantry	resolved	55.87273	-2.09107	beach	Wikipedia: local name The Bantry for the main sandy bay
+23	scottish-borders.txt	The Bantry	resolved	55.87273	-2.09107	beach	Same bay (Eyemouth)
+24	scottish-borders.txt	Bantry beach	resolved	55.87273	-2.09107	beach	Same bay (Eyemouth)
+25	scottish-borders.txt	Eyemouth Bay	resolved	55.875	-2.088	bay	Approximate open bay centroid seaward of town (town opens to this bay)
+26	scottish-borders.txt	Eyemouth fish market	resolved	55.8746	-2.0891	harbour	Port centroid (VesselFinder GBEYM; working harbour)
+27	scottish-borders.txt	Eyemouth port	resolved	55.8746	-2.0891	harbour	Same harbour/port area
+28	scottish-borders.txt	Eyemouth fishing port	resolved	55.8746	-2.0891	harbour	Same active fishing harbour
+29	scottish-borders.txt	Gunsgreen	resolved	55.87245	-2.08555	neighbourhood	Canmore/HES Gunsgreen House location (Gunsgreen by harbour)
+30	scottish-borders.txt	Gunsgreen House	resolved	55.87245	-2.08555	attraction	Canmore 60250 / HES listed building coordinates
+31	scottish-borders.txt	Gunsgreen Point	resolved	55.87315	-2.08635	headland	Small promontory by Gunsgreen / harbour mouth; approx. seaward of Gunsgreen House (Canmore area)
+32	scottish-borders.txt	Eye Water	ambiguous	55.8712	-2.0885	river	Long Berwickshire burn; point placed at tidal/estuary sector at Eyemouth (not full course)
+33	scottish-borders.txt	Eye Water mouth	resolved	55.8712	-2.0885	estuary	River mouth / lower Eye Water at Eyemouth bay (same coastal sector as line 32)
+34	scottish-borders.txt	Mouth of the Eye Water	resolved	55.8712	-2.0885	estuary	Same mouth as lines 32–33 (alternate wording)
+35	scottish-borders.txt	Eyemouth Holiday Park	resolved	55.876194	-2.098042	holiday_park	Parkdean Eyemouth Holiday Park, Fort Road TD14 5BE (third-party map coords)
+36	scottish-borders.txt	Eyemouth caravan park	resolved	55.876194	-2.098042	holiday_park	Same Parkdean coastal park as “Eyemouth Holiday Park” (Fort Road)
+37	scottish-borders.txt	Eyemouth Golf Course	resolved	55.869	-2.083	golf_course	Eyemouth Golf Club, Gunsgreenhill TD14 5SF (published course GPS)
+38	scottish-borders.txt	Eyemouth Fort	resolved	55.87673	-2.09235	fort	Canmore 60188 King’s Mount / Eyemouth Fort NT 94320 64845
+39	scottish-borders.txt	Eyemouth RNLI	resolved	55.87222	-2.08611	lifeboat_station	Wikipedia: Eyemouth Lifeboat Station, Gunsgreen Quay
+40	scottish-borders.txt	Eyemouth disaster memorial	resolved	55.872804	-2.089269	monument	“Widows and Bairns” sculpture, St Ella’s Place / Bantry promenade (Atlas Obscura coords)
+41	scottish-borders.txt	Eyemouth memorial	resolved	55.872804	-2.089269	monument	Same Black Friday memorial as line 40 unless visitor means churchyard plaque (default: promenade)
+42	scottish-borders.txt	Killiedraught Bay	resolved	55.877125	-2.104023	bay	Geograph NT9364 photo WGS84 from NT 9359 6489 (Killiedraught Bay)
+43	scottish-borders.txt	Hurkur Rocks	resolved	55.8782	-2.0856	reef	Wikipedia/RCAHMS spelling variant; same as Hurkar Rocks off Eyemouth harbour
+44	scottish-borders.txt	Hurker Rocks	resolved	55.8782	-2.0856	reef	Same Eyemouth harbour reef group (Hurkar/Hurker)
+45	scottish-borders.txt	East Hurker	resolved	55.91855	-2.1474	reef	Eastern reef of Hurker pair at St Abb’s Head (boat dive area; approx. E of West Hurker cave)
+46	scottish-borders.txt	West Hurker	resolved	55.91839	-2.14882	reef	Scottish Cave & Mine Database: West Hurker Cave NGR NT 90797 69488
+47	scottish-borders.txt	Coldingham	resolved	55.8833	-2.1667	village	Wikipedia infobox coordinates (Coldingham village)
+48	scottish-borders.txt	Coldingham village	resolved	55.8833	-2.1667	village	Same settlement as Coldingham (line 47)
+49	scottish-borders.txt	Coldingham Priory	resolved	55.88659	-2.15514	church	Canmore 60143 Coldingham Priory church NT 90394 65949
+50	scottish-borders.txt	Coldingham Bay	resolved	55.89246	-2.13268	bay	Wikipedia / GeoHack Coldingham Bay
+51	scottish-borders.txt	Coldingham Sands	resolved	55.89246	-2.13268	beach	Main sandy beach in Coldingham Bay (Wikipedia bay coords)
+52	scottish-borders.txt	Coldingham beach	resolved	55.89246	-2.13268	beach	Same sands (Coldingham Bay)
+53	scottish-borders.txt	Coldingham Bay beach	resolved	55.89246	-2.13268	beach	Same coastal beach (wording variant)
+54	scottish-borders.txt	Greenends	not_found			unknown	No OSM/Nominatim or gazetteer hit in Coldingham–St Abbs coastal sector for this name
+55	scottish-borders.txt	Abbey Burn	resolved	55.8802	-2.0988	stream	Coastal burn valley (Berwickshire Coast Path) between Coldingham Bay and Linkim Shore; mouth sector approx.
+56	scottish-borders.txt	Linkim Shore	resolved	55.8796	-2.0993	beach	Rocky shore / cove on coast path S of Coldingham Bay (Walkhighlands sector)
+57	scottish-borders.txt	Linkim Shore Steps	resolved	55.8797	-2.0992	path_steps	Coastal path steps down to Linkim Shore (same shore sector as line 56)
+58	scottish-borders.txt	St Abbs	resolved	55.898	-2.131	village	Wikipedia settlement coordinates
+59	scottish-borders.txt	Saint Abbs	resolved	55.898	-2.131	village	Formal spelling; same fishing village as St Abbs
+60	scottish-borders.txt	St Abbs village	resolved	55.898	-2.131	village	Same settlement as lines 58–59
+61	scottish-borders.txt	Coldingham Shore	resolved	55.8985	-2.1295	settlement	Historic name for St Abbs (Wikipedia); harbour/foreshore sector of the village
+62	scottish-borders.txt	St Abbs harbour	resolved	55.898979	-2.128836	harbour	Canmore 128379 / Wikidata (listed harbour works NT 92042 67325)
+63	scottish-borders.txt	St Abbs pier	resolved	55.8990	-2.1285	pier	Harbour pier/breakwater within St Abbs harbour enclosure (Canmore harbour complex)
+64	scottish-borders.txt	St Abbs beach	resolved	55.902342	-2.134637	beach	UK Beach Guide OS grid NT 9168 6770 (also mapped as Starney Bay)
+65	scottish-borders.txt	St Abbs Visitor Centre	resolved	55.8979	-2.1295	attraction	Independent charity visitor centre in former village hall by the cliff/harbour (opened 2011); village-hall sector
+66	scottish-borders.txt	St Abbs lifeboat station	resolved	55.89891	-2.12866	lifeboat_station	Canmore 128380 slipway/station; now St Abbs Independent Lifeboat (not RNLI since 2015)
+67	scottish-borders.txt	St Abb's Head	resolved	55.916083	-2.138611	headland	Wikipedia infobox coordinates (St Abb's Head NNR promontory)
+68	scottish-borders.txt	St Abbs Head	resolved	55.916083	-2.138611	headland	Spelling variant; same coastal headland as line 67
+69	scottish-borders.txt	St Abb's Head National Nature Reserve	resolved	55.916083	-2.138611	nature_reserve	NNR boundary centred on headland; joint NTS/NatureScot management
+70	scottish-borders.txt	St Abb's Head NNR	resolved	55.916083	-2.138611	nature_reserve	Same statutory NNR as line 69 (abbreviation)
+71	scottish-borders.txt	St Abb's Head lighthouse	resolved	55.916317	-2.1381	lighthouse	Wikipedia/NLB published position (OS grid NT 91425 69243)
+72	scottish-borders.txt	St Abbs Head lighthouse	resolved	55.916317	-2.1381	lighthouse	Spelling variant; same tower as line 71
+73	scottish-borders.txt	National Trust St Abb's Head	resolved	55.916083	-2.138611	nature_reserve	NTS manages St Abb's Head NNR; representative point at headland/lighthouse sector
+74	scottish-borders.txt	NTS St Abb's Head	resolved	55.916083	-2.138611	nature_reserve	Same National Trust for Scotland place as line 73
+75	scottish-borders.txt	NatureScot St Abb's Head	resolved	55.916083	-2.138611	nature_reserve	NNR statutory designation; same headland centroid as adjacent rows
+76	scottish-borders.txt	Pettico Wick	resolved	55.91400	-2.15084	cove	Canmore 60153 (Pettico Wick promontory/harbour area NT 9067 6900)
+77	scottish-borders.txt	Pettico Wick Bay	resolved	55.9145	-2.149	bay	Wikipedia: bay on N side of St Abb's Head; centroid toward inner wick
+78	scottish-borders.txt	Mire Loch	resolved	55.91111	-2.14111	loch	Wikipedia coordinates; artificial freshwater loch on St Abb's Head NNR (NT 912687 area)
+79	scottish-borders.txt	Kirk Hill	resolved	55.91306	-2.13315	hill	Wikipedia: chapel/abbey site ~0.5 km SE of lighthouse; approx. summit sector from OS offset
+80	scottish-borders.txt	Wuddy Rocks	resolved	55.89929	-2.12871	reef	Dive guides: inshore reef/shore-dive N of St Abbs harbour; approximate reef centroid
+81	scottish-borders.txt	Horsecastle Bay	resolved	55.9101	-2.1305	bay	GeoHack/List of bays of Scotland coordinates
+82	scottish-borders.txt	Horse Castle Bay	resolved	55.9101	-2.1305	bay	Spacing variant; same cove as Horsecastle Bay (Berwickshire Coastal Path)
+83	scottish-borders.txt	Starney Bay	resolved	55.902342	-2.134637	bay	Streetmap place centroid; aligns with St Abbs beach sector (line 64)
+84	scottish-borders.txt	Northfield Farm	resolved	55.89964	-2.14070	farm	NTS planning-your-visit: reserve car park/Nature Centre at NT 913 674 (Northfield, TD14 5QF)
+85	scottish-borders.txt	Blackpotts	resolved	55.8911	-2.1399	farmland	Wikipedia: Blackpotts grazings purchased for NNR (1994); approximate inland pasture block
+86	scottish-borders.txt	St Abbs and Eyemouth Voluntary Marine Reserve	resolved	55.899167	-2.129444	marine_reserve	GeoHack/Wikipedia centroid for the voluntary marine reserve
+87	scottish-borders.txt	St Abbs Eyemouth Voluntary Marine Reserve	resolved	55.899167	-2.129444	marine_reserve	Same VMR as line 86 (wording variant)
+88	scottish-borders.txt	Berwickshire Marine Reserve	resolved	55.899167	-2.129444	marine_reserve	Public name for the St Abbs–Eyemouth voluntary marine reserve area (same coastal centroid)
+89	scottish-borders.txt	Fast Castle	resolved	55.93228	-2.22404	castle	Canmore 59944 / Wikipedia (ruined courtyard castle NT 86101 71047)
+90	scottish-borders.txt	Fast Castle Head	resolved	55.93249	-2.22357	headland	Canmore 59947 (Fast Castle Head / Jock Trap; NT 8613 7107)
+91	scottish-borders.txt	St Abb's Head to Fast Castle SSSI	resolved	55.9194	-2.1958	protected_area	JNCC SAC UK0030281 centroid (NT878696); cliff SSSI co-extensive with cited unit
+92	scottish-borders.txt	St Abb's Head to Fast Castle SPA	resolved	55.9194	-2.1958	protected_area	Same coastal unit centroid as overlapping SAC/SSSI (JNCC UK0030281 / NatureScot SPA 8579)
+93	scottish-borders.txt	Berwickshire Coast Intertidal SSSI	resolved	55.9339	-2.3306	protected_area	Approximate representative intertidal frontage (Pease Bay sector, NT793709); linear site along shore
+94	scottish-borders.txt	Dowlaw	resolved	55.91640	-2.23556	archaeological_site	Canmore scheduled monument SM4704 (Dowlaw settlement; Coldingham parish)
+95	scottish-borders.txt	Dowlaw farm	resolved	55.92412	-2.23121	farm	Geograph NT85657014 (Dowlaw Farm, near Lumsdaine)
+96	scottish-borders.txt	Cove	resolved	55.9369	-2.3521	village	Wikipedia/Wikidata coordinates (Cove, Scottish Borders)
+97	scottish-borders.txt	Cove village	resolved	55.9369	-2.3521	village	Same settlement as Cove
+98	scottish-borders.txt	Cove harbour	resolved	55.93785	-2.34562	harbour	Canmore 58902 (NT7850871698)
+99	scottish-borders.txt	Cove Bay	resolved	55.9355	-2.338	bay	Open bay mouth NW of harbour; approximate seaward centroid
+100	scottish-borders.txt	Cove memorial	resolved	55.93821	-2.35329	attraction	Geograph NT78037174; Widows and Bairns sculpture (1881 disaster)
+101	scottish-borders.txt	Siccar Point	resolved	55.9317	-2.3009	headland	GeoHack/Wikipedia (classic Hutton locality)
+102	scottish-borders.txt	Siccar Point unconformity	resolved	55.9317	-2.3009	geological	Same promontory; unconformity exposed at Siccar Point
+103	scottish-borders.txt	Pease Bay	resolved	55.9339	-2.3306	bay	GeoHack list of bays (NT793710 area)
+104	scottish-borders.txt	Pease Bay beach	resolved	55.9339	-2.3306	beach	UK Beach Guide OS grid NT79367109 / Wikishire
+105	scottish-borders.txt	Pease Bay sands	resolved	55.9339	-2.3306	beach	Same sandy shore as Pease Bay beach
+106	scottish-borders.txt	Pease Bay holiday park	resolved	55.9333	-2.331	attraction	Static caravan park at SW foot of bay (adjacent to beach access)
+107	scottish-borders.txt	Pease Bay caravan park	resolved	55.9333	-2.331	attraction	Same holiday park cluster as line 106
+108	scottish-borders.txt	Pease Bay surf	resolved	55.9339	-2.3306	beach	Main surf beach in the bay (same shore reference)
+109	scottish-borders.txt	Pease Dean	resolved	55.9268	-2.3364	valley	Wikipedia centroid (SWT reserve; NT790704)
+110	scottish-borders.txt	Pease Dean Wildlife Reserve	resolved	55.9268	-2.3364	nature_reserve	Scottish Wildlife Trust visitor grid NT790704
+111	scottish-borders.txt	Pease Dean woods	resolved	55.9268	-2.3364	woodland	Wooded sector of Pease Dean SWT reserve
+112	scottish-borders.txt	Cockburnspath	resolved	55.93295	-2.36018	village	Wikipedia coordinates (NT774710)
+113	scottish-borders.txt	Cockburnspath village	resolved	55.93295	-2.36018	village	Same as Cockburnspath
+114	scottish-borders.txt	Cockburnspath coast	resolved	55.9345	-2.355	coast	Approximate coastal strip NW of village (harbour/Cove sector)
+115	scottish-borders.txt	Berwickshire Coastal Path	resolved	55.93295	-2.36018	trail	Eastern trailhead at Cockburnspath (Scotland’s Great Trail)
+116	scottish-borders.txt	Berwickshire coast path	resolved	55.93295	-2.36018	trail	Same route as Berwickshire Coastal Path
+117	scottish-borders.txt	Scotland's Great Trail Berwickshire Coastal Path	resolved	55.93295	-2.36018	trail	NatureScot Great Trail designation; Cockburnspath terminus
+118	scottish-borders.txt	Southern Upland Way	resolved	55.93295	-2.36018	trail	Eastern terminus Cockburnspath (Cicerone/Wikipedia)
+119	scottish-borders.txt	John Muir Way	resolved	55.9369	-2.3521	trail	Coastal sector through Cove (Wikipedia Cove article)
+120	scottish-borders.txt	Berwickshire coast	ambiguous			coast	Generic coastline label; no single point; spans multiple embayments
+121	scottish-borders.txt	Berwickshire and North Northumberland Coast SAC	resolved	55.6539	-1.6722	protected_area	JNCC SAC UK0017072 published centroid (NU206401); vast cross-border site—centroid sits on Northumberland sector
+122	scottish-borders.txt	Eyemouth harbour beach	resolved	55.87273	-2.09107	beach	Sandy Bantry sector immediately W of harbour (UK Beach Guide NT 9450 6445; same shore as Eyemouth beach rows)
+123	scottish-borders.txt	Coldingham Bay car park	resolved	55.8917	-2.1318	parking	Public parking/access knoll above Coldingham Bay sands (approx. NT 903 658 sector)
+124	scottish-borders.txt	St Abbs harbour wall	resolved	55.898979	-2.128836	harbour	Breakwater/harbour works within listed St Abbs harbour complex (Canmore NT 92042 67325 area)
+125	scottish-borders.txt	St Abbs dive centre	resolved	55.8979	-2.1294	dive_centre	Village dive/charter hub by harbour lane (representative cluster point)
+126	scottish-borders.txt	St Abbs scuba	resolved	55.8979	-2.1294	dive_centre	Same inshore dive services sector as line 125 (wording variant)
+127	scottish-borders.txt	Eyemouth diving	resolved	55.8725	-2.088	dive_centre	Working-boat/dive pickup sector at Eyemouth harbour–Gunsgreen basin (town dive hub)
+128	scottish-borders.txt	St Abbs cliffs	resolved	55.9048	-2.1328	cliffs	High sandstone cliff line N of St Abbs toward St Abb’s Head (coastal sector)
+129	scottish-borders.txt	Eyemouth cliffs	resolved	55.8738	-2.0935	cliffs	West cliff line above Eyemouth Bantry/harbour mouth sector
+130	scottish-borders.txt	Cove cliffs	resolved	55.9378	-2.346	cliffs	Steep coast NW of Cove harbour (Berwickshire cliff frontage)
+131	scottish-borders.txt	Pease Bay cliffs	resolved	55.9362	-2.326	cliffs	North headland cliffs framing Pease Bay (NT 793 709 sector)
+132	scottish-borders.txt	Marshall Meadows shore	resolved	55.805287	-2.026297	coast	Foreshore at Marshall Meadows Bay mouth (same coastal unit as bay rows)
+133	scottish-borders.txt	Lamberton shore	resolved	55.808	-2.055	coast	Tidal foreshore off Lamberton/A1 coast (settlement proxy)
+134	scottish-borders.txt	Burnmouth shore	resolved	55.8420563	-2.067725	coast	Working harbour foreshore / Lower Burnmouth sector (OSM harbour polygon)
+135	scottish-borders.txt	Eyemouth shore	resolved	55.87273	-2.09107	coast	Town foreshore along Bantry–promenade sector
+136	scottish-borders.txt	St Abbs shore	resolved	55.8985	-2.1295	coast	Village harbour/beach foreshore (Coldingham Shore historic sector)
+137	scottish-borders.txt	Cove shore	resolved	55.9369	-2.3521	coast	Sandy/open bay foreshore NW of Cove village
+138	scottish-borders.txt	Pease Bay shore	resolved	55.9339	-2.3306	coast	Main sandy bay frontage (Pease Bay beach sector)
+139	scottish-borders.txt	Cockburnspath shore	resolved	55.9345	-2.355	coast	Coastal strip NW of village toward Cove (same sector as “Cockburnspath coast”)
+140	scottish-borders.txt	Abbey St Bathans	resolved	55.852	-2.386	village	Wikipedia infobox / OS grid NT762 618 (Whiteadder valley; inland on coastal list)
+141	scottish-borders.txt	Foulden	resolved	55.7954	-2.1148	village	Wikipedia coordinates (Berwickshire parish village)
+142	scottish-borders.txt	Chirnside	resolved	55.7989	-2.2137	village	Gazetteer for Scotland coordinates (NT 867 562)
+143	scottish-borders.txt	Hutton	resolved	55.761756	-2.139314	village	GENUKI parish centroid NT 914 521 (Hutton post-office village sector)
+144	scottish-borders.txt	Berwickshire Coastal Path stage 1	ambiguous			trail	Promotional “stage” split; route spans many km—no single official point for stage 1 alone
+145	scottish-borders.txt	Berwickshire Coastal Path stage 2	ambiguous			trail	Same staged-route issue as line 144 (no canonical midpoint)
+146	scottish-borders.txt	Berwickshire Coastal Path stage 3	ambiguous			trail	Same staged-route issue as lines 144–145
+147	scottish-borders.txt	Eyemouth to Burnmouth walk	resolved	55.8552	-2.0838	trail	Approx. midpoint along published coastal footpath corridor (Eyemouth–Burnmouth)
+148	scottish-borders.txt	St Abbs to Eyemouth walk	resolved	55.8831	-2.1118	trail	Approx. midpoint St Abbs–Eyemouth coastal path
+149	scottish-borders.txt	Coldingham Sands to Eyemouth	resolved	55.8804	-2.1127	trail	Approx. midpoint Coldingham Sands–Eyemouth coastal route
+150	scottish-borders.txt	St Abb's Head circular	resolved	55.916083	-2.138611	trail	NTS/NNR headland circuit; representative point at St Abb’s Head (same promontory as lighthouse rows)
+151	scottish-borders.txt	Eyemouth lifeboat	resolved	55.872222	-2.086111	building	RNLI Shannon/D-class station on Gunsgreen Quay (Wikipedia/GeoHack)
+152	scottish-borders.txt	Carr Rock	resolved	55.89718	-2.1249	reef	Ebb Carr Rock off St Abbs Head (UKHO/Canmore wreck register position; foul ground seaward of village)
+153	scottish-borders.txt	Castle Rock St Abbs	resolved	55.89721	-2.12869	building	Listed house “Castle Rock”, St Abbs (HES LB46655; shore-adjacent knoll site)
+154	scottish-borders.txt	West Bay Coldingham	resolved	55.89246	-2.13268	beach	West/sheltered sector of Coldingham Bay / Coldingham Sands (Wikipedia bay centroid)
+155	scottish-borders.txt	Gunsgreen quay	resolved	55.87245	-2.08555	quay	Working quay at Gunsgreen harbour frontage (same cluster as Gunsgreen House/Canmore harbour records)
+156	scottish-borders.txt	Eyemouth pontoon	resolved	55.8746	-2.0891	harbour	Visitor/working pontoon sector within Eyemouth harbour basin (harbour centroid proxy)
+157	scottish-borders.txt	Eyemouth charter boats	resolved	55.8746	-2.0891	harbour	Charter fishing boats berth in main harbour (same harbour centroid as active port rows)
+158	scottish-borders.txt	St Abbs fish landing	resolved	55.898	-2.131	harbour	St Abbs harbour fish landing / working quay (village harbour focus; OSM sector)
+159	scottish-borders.txt	Coldingham priory shore path	resolved	55.8885	-2.144	path	Approx. mid-corridor on footpath linking Coldingham Priory (NT903659) toward Coldingham Sands
+160	scottish-borders.txt	NTS ranger St Abb's Head	resolved	55.89979	-2.14015	attraction	St Abb’s Head NNR access / ranger hub near NTS car park (grid NT91335 67417 via pyproj EPSG:27700→4326)
+161	scottish-borders.txt	Explore Berwickshire Coast	ambiguous			website	Promotional umbrella site; not a single on-the-ground point
+162	scottish-borders.txt	Visit Berwickshire Coast	ambiguous			website	Destination marketing hub; no one map pin
+163	scottish-borders.txt	St Abbs community harbour	resolved	55.898	-2.131	harbour	St Abbs community harbour trust basin (same harbour focus as village harbour rows)
+164	scottish-borders.txt	Pease Bay parking	resolved	55.9345	-2.3285	parking	Main beach access / visitor parking above Pease Bay (A1107 corridor; bay sector proxy)
+165	scottish-borders.txt	Siccar Point shore	resolved	55.931588	-2.3012	coast	Foreshore at Siccar Point / Hutton’s unconformity (Wikipedia coord)
+166	scottish-borders.txt	Cove fishery disaster memorial	resolved	55.938208	-2.35327	memorial	Jill Watson “Widows & Bairns” sculpture, cliff-top above Cove (Geograph subject NT78037174)
+167	scottish-borders.txt	1881 fishing disaster memorial Cove	resolved	55.938208	-2.35327	memorial	Same Cove 1881 memorial group as line 166 (Geograph NT78037174)
+168	scottish-borders.txt	1881 fishing disaster memorial St Abbs	resolved	55.89956	-2.13111	memorial	Jill Watson memorial on Coldingham Road (Geograph NT91906739)
+169	scottish-borders.txt	1881 fishing disaster memorial Eyemouth	resolved	55.872822	-2.091866	memorial	Granite obelisk, old churchyard garden High St/Albert Rd (Geograph/Wikidata Q114038804)
+170	scottish-borders.txt	Berwickshire Coastal Path bronze waymarkers	ambiguous			trail_art	Twelve bronze trail pieces spread along the full Great Trail; no single marker location
+171	scottish-borders.txt	St Abbs Head signal station	resolved	55.91548	-2.14089	historic	19th-c. naval signal station knoll (Canmore 330145 NT9129269163)
+172	scottish-borders.txt	St Abbs old village hall	resolved	55.8985	-2.1308	building	Former village hall, now St Abbs Visitor Centre (Coldingham Road; overlooks harbour)
+173	scottish-borders.txt	Coldingham Loch	resolved	55.9105	-2.1699	loch	Freshwater loch E of St Abb’s Head (Wikipedia/GeoHack centroid)
+174	scottish-borders.txt	Mire Loch hide	resolved	55.91111	-2.14111	hide	Bird hide on NTS Mire Loch circuit (Wikipedia Mire Loch centroid; freshwater N of village)
+175	scottish-borders.txt	Eyemouth breakwater	resolved	55.87418	-2.08735	breakwater	East pier / south breakwater at harbour entrance (Canmore “Eyemouth Harbour, East Pier”)
+176	scottish-borders.txt	Eyemouth sea wall	resolved	55.8733	-2.0895	sea_defence	Harbour/marine parade sea wall sector between Bantry foreshore and harbour mouth
+177	scottish-borders.txt	St Abbs slipway	resolved	55.8983	-2.1312	slipway	Working slipway on St Abbs harbour front (harbour mouth sector)
+178	scottish-borders.txt	Cove slipway	resolved	55.9369	-2.3521	slipway	Cove harbour slip/tunnel access foreshore (same coastal unit as Cove shore row)
+179	scottish-borders.txt	Pease Bay rocks	resolved	55.936	-2.326	rocks	Rocky northern flank / headland rocks framing Pease Bay (Pease Bay cliffs sector)
+180	scottish-borders.txt	Berwickshire Coastal Path Dowlaw	resolved	55.92376	-2.2336	trail	Stage break / Dowlaw car-park end of Cockburnspath–Dowlaw leg (grid NT855701 via EPSG:27700→4326)
+181	scottish-borders.txt	Berwickshire Coastal Path Fast Castle	resolved	55.93228	-2.22404	trail	Berwickshire Coastal Path stage at Fast Castle promontory (Canmore NRHE 59944 / Wikipedia coords)
+182	scottish-borders.txt	Fast Castle walk	resolved	55.93228	-2.22404	trail	Circular cliff-top walk around Fast Castle scheduled monument (same site hub as path stage)
+183	scottish-borders.txt	St Abbs Head walk	resolved	55.9156083	-2.1399184	trail	NTS St Abb’s Head NNR cliff path network; hub at lighthouse (OpenStreetMap node7925166187)
+184	scottish-borders.txt	Eyemouth Gunsgreen walk	resolved	55.8726	-2.0862	trail	Foreshore/cliff sector walk past Gunsgreen House and harbour mouth (proxy near Gunsgreen / Bantry front)
+185	scottish-borders.txt	Coldingham Priory beach path	resolved	55.8872	-2.1526	trail	Link from Coldingham Priory (55.88656, -2.15516) toward Coldingham Sands on Berwickshire Coastal Path
+186	scottish-borders.txt	Abbey Burn mouth	resolved	55.882	-2.1225	estuary	Stream mouth at Linkim Shore / Eyemouth–St Abbs coast (lower Abbey Burn reach OSM toward sea)
+187	scottish-borders.txt	Old Coble House Eyemouth	resolved	55.8731	-2.0876	building	Geograph NT94626444 “The Coble House, Marine Parade”; historic harbour boathouse
+188	scottish-borders.txt	Marine Parade Eyemouth	resolved	55.8730525	-2.0875159	street	OpenStreetMap residential Marine Parade (harbour seafront)
