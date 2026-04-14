@@ -131,7 +131,7 @@
  *   radius: number,
  *   thetaStart: number,
  *   sweepRad: number,
- *   arrow: ArcArrowMeta,
+ *   arrow?: ArcArrowMeta,
  * }} WaitArcDiagram
  *
  * Annular sector between RefRadius and RefRadius + w (**w** = **annularBandWidth·RefRadius**); same **θ_left** and CCW sweep as RefArc.

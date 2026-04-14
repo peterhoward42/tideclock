@@ -1,0 +1,181 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	wexford.txt	Campile	resolved	52.2879607	-6.9413398	village	Nominatim place=village (preferred over river hit for same name).
+2	wexford.txt	Arthurstown	resolved	52.2419927	-6.9518356	village	
+3	wexford.txt	Arthurstown Quay	resolved	52.2410	-6.9505	harbour	Judged quay/harbourfront SW of village centroid; no separate OSM POI.
+4	wexford.txt	Ballyhack	resolved	52.2452333	-6.9682764	village	
+5	wexford.txt	Ballyhack Castle	resolved	52.2459634	-6.9674401	attraction	
+6	wexford.txt	Ballyhack Ferry	resolved	52.2456	-6.9690	ferry	Approx. ferry slip on Wexford (Ballyhack) shore; no dedicated hit.
+7	wexford.txt	King's Bay	resolved	52.2418832	-6.9547847	bay	
+8	wexford.txt	Duncannon	resolved	52.2211436	-6.9335442	village	
+9	wexford.txt	Duncannon Beach	resolved	52.2207333	-6.9334103	beach	OSM beach/information point on strand road.
+10	wexford.txt	Duncannon Strand	resolved	52.2190429	-6.9273076	beach	
+11	wexford.txt	Duncannon Fort	resolved	52.2209429	-6.9365833	attraction	
+12	wexford.txt	Duncannon Harbour	resolved	52.2219267	-6.937427	harbour	OSM pier/harbour area.
+13	wexford.txt	Barrow Estuary Wexford Shore	ambiguous				Long linear Wexford shoreline along the Barrow estuary; not a single point.
+14	wexford.txt	Hook Peninsula	resolved	52.1720	-6.9325	peninsula	Representative mid-peninsula point; Nominatim text search surfaced unrelated POIs.
+15	wexford.txt	Ring of Hook	resolved	52.1237579	-6.9294595	route	Scenic loop; pin at Hook Lighthouse as iconic coastal stop on the ring.
+16	wexford.txt	Slade	resolved	52.1339882	-6.9109316	village	
+17	wexford.txt	Slade Harbour	resolved	52.1339155	-6.9108742	harbour	OSM result named harbour stop; harbour/ferry pocket in Slade.
+18	wexford.txt	Slade Castle	resolved	52.1338279	-6.9106398	castle	
+19	wexford.txt	Hook Head	resolved	52.1232072	-6.9305068	headland	
+20	wexford.txt	Hook Head Lighthouse	resolved	52.1237579	-6.9294595	lighthouse	
+21	wexford.txt	Hook Lighthouse	resolved	52.1237579	-6.9294595	lighthouse	Same tower as Hook Head Lighthouse.
+22	wexford.txt	Loftus Hall	resolved	52.1486579	-6.9105972	attraction	Historic house / visitor attraction on Hook Peninsula.
+23	wexford.txt	Fethard-on-Sea	resolved	52.1915688	-6.8398404	village	OSM uses local name Fethard.
+24	wexford.txt	Fethard	resolved	52.1915688	-6.8398404	village	Same settlement as Fethard-on-Sea in local usage.
+25	wexford.txt	Templetown	resolved	52.1801290	-6.8949088	locality	OSM administrative locality for Templetown ED area.
+26	wexford.txt	Templetown Strand	resolved	52.1785945	-6.9013086	beach	OSM Templetown Bay Beach.
+27	wexford.txt	Dollar Bay	resolved	52.1966552	-6.9032260	beach	OSM Dollar Bay Beach.
+28	wexford.txt	Dollar Bay Beach	resolved	52.1966552	-6.9032260	beach	
+29	wexford.txt	Booley Bay	resolved	52.2010506	-6.9047909	beach	OSM Booley Bay Beach.
+30	wexford.txt	Booley Bay Beach	resolved	52.2010506	-6.9047909	beach	
+31	wexford.txt	Baginbun	resolved	52.1753553	-6.8246699	locality	Nominatim Baginbun Point; coastal headland for the Baginbun area.
+32	wexford.txt	Baginbun Beach	resolved	52.1767584	-6.8300485	beach	OSM natural=beach.
+33	wexford.txt	Baginbun Bay	resolved	52.1761	-6.8274	bay	Judged representative point in the Baginbun cove; no separate OSM bay name hit.
+34	wexford.txt	Bannow	resolved	52.2115197	-6.7830378	village	Nominatim Bannow administrative centre (Carrig-on-Bannow area).
+35	wexford.txt	Bannow Bay	resolved	52.2247	-6.8013	bay	NPWS Bannow Bay SPA published coordinates; largeria — point is indicative.
+36	wexford.txt	Bannow Island	resolved	52.2175919	-6.8033845	island	Nominatim Bannow Island administrative polygon centroid.
+37	wexford.txt	Bannow Drive	not_found				No Nominatim/OSM match for a distinct coastal feature with this name in Wexford.
+38	wexford.txt	Cullenstown	resolved	52.2191260	-6.7135619	village	Nominatim Cullenstown (Bannow ED); preferred coastal village over same-name hits elsewhere in Wexford.
+39	wexford.txt	Cullenstown Strand	resolved	52.2162170	-6.7189306	beach	OSM beach south of Cullenstown.
+40	wexford.txt	Duncormick	resolved	52.2295313	-6.6531555	village	
+41	wexford.txt	Tacumshin	resolved	52.2008594	-6.4307777	village	Nominatim Tacumshin ED/administrative label.
+42	wexford.txt	Tacumshin Lake	resolved	52.1983007	-6.4583677	lake	Nominatim water polygon named Tacumshin Lake.
+43	wexford.txt	Tacumshane	resolved	52.2089511	-6.4224264	village	
+44	wexford.txt	Wellingtonbridge	resolved	52.2667111	-6.7500582	village	
+45	wexford.txt	Kilmore Quay	resolved	52.1729654	-6.5890655	village	
+46	wexford.txt	Kilmore	resolved	52.1729654	-6.5890655	village	Local usage ties Kilmore to the Kilmore Quay settlement; no separate village centroid in Nominatim.
+47	wexford.txt	Kilmore Quay Harbour	resolved	52.1721555	-6.5894153	harbour	Harbour office POI on OSM; represents working harbour front.
+48	wexford.txt	Kilmore Harbour	resolved	52.17228	-6.58965	harbour	Judged inner harbour basin of the same complex as Kilmore Quay; no separate named OSM feature.
+49	wexford.txt	Kilmore Quay Marina	resolved	52.1724621	-6.5882148	marina	OSM marina polygon centroid.
+50	wexford.txt	Kilmore Pier	resolved	52.17205	-6.58970	pier	Judged main fishing pier head near harbour; no dedicated named pier node in Nominatim.
+51	wexford.txt	Kilmore Quay Little Beach	resolved	52.17285	-6.58825	beach	Small harbour beach (aka Kilmore Quay Small Beach); approximate shoreline east of marina.
+52	wexford.txt	Ballyteigue	resolved	52.1845	-6.5870	locality	Coastal hamlet W of Kilmore Quay near Ballyteigue Castle; Nominatim lacks a village node for the name.
+53	wexford.txt	Ballyteigue Burrow	resolved	52.1959282	-6.6252475	dunes	OSM Ballyteigue Burrow heath/dune area (duplicate polygon centroid is equivalent).
+54	wexford.txt	Ballyteigue Bay	resolved	52.2110906	-6.7081761	bay	Nominatim names it “Ballyteige Bay” (alternate spelling) as natural=bay.
+55	wexford.txt	Ballyteigue Castle	resolved	52.1839378	-6.5873322	castle	OSM historic tower record for Ballyteigue Castle.
+56	wexford.txt	Ballyteigue Burrow Bay Beach	resolved	52.1982	-6.6335	beach	Representative point on Ballyteigue Burrow foreshore; no exact OSM name match.
+57	wexford.txt	Saltee Islands	ambiguous			islands	Refers to the island group; not a single point (Great vs Little Saltee).
+58	wexford.txt	Great Saltee	resolved	52.1158358	-6.6185364	island	Nominatim place=island.
+59	wexford.txt	Little Saltee	resolved	52.1370706	-6.5863663	islet	Nominatim Little Saltee islet.
+60	wexford.txt	Saltee Island	ambiguous			island	Name alone does not distinguish Great Saltee vs Little Saltee vs the pair.
+61	wexford.txt	St Helen's Bay	resolved	52.2313156	-6.3256244	bay	Representative point for St Helen’s Bay coastal holiday area N of Rosslare Harbour (OSM/Nominatim cluster).
+62	wexford.txt	St Helen’s Bay Beach	resolved	52.2305	-6.3245	beach	Foreshore of St Helen’s Bay; no separate exact OSM name hit; judged shoreline SW of golf-course access area.
+63	wexford.txt	St Helens Bay	resolved	52.2313156	-6.3256244	bay	Variant spelling; same coastal bay as line 61.
+64	wexford.txt	Helen's Bay	resolved	52.2313156	-6.3256244	bay	In this county file the name refers to St Helen’s Bay (Wexford), not Helen’s Bay in Northern Ireland.
+65	wexford.txt	Helens Bay Beach	resolved	52.2305	-6.3245	beach	St Helen’s Bay foreshore; judged beach pin consistent with line 62.
+66	wexford.txt	Lady's Island	resolved	52.2101067	-6.3806842	village	Nominatim place=village.
+67	wexford.txt	Lady's Island Strand	resolved	52.2075	-6.3778	strand	Judged main strand east of the village toward the narrow causeway; no dedicated OSM name hit.
+68	wexford.txt	Lady's Island Lake	resolved	52.1991974	-6.3935115	lagoon	Nominatim water=Lady’s Island Lake.
+69	wexford.txt	Our Lady's Island	resolved	52.2101067	-6.3806842	village	Pilgrimage/local usage name for the Lady’s Island settlement; same centroid as line 66.
+70	wexford.txt	Ballyhealy	resolved	52.1894361	-6.5252271	locality	Photon locality “Ballyhealy South”; coastal cluster near Ballyhealy Beach.
+71	wexford.txt	Ballyhealy Beach	resolved	52.1868514	-6.5223464	beach	OSM natural=beach.
+72	wexford.txt	St Ishmaels	not_found				No Logainm/Photon match in County Wexford; name overwhelmingly maps to St Ishmaels, Wales.
+73	wexford.txt	St Ishmael's	not_found				Same as line 72; no Irish coastal feature located with this spelling.
+74	wexford.txt	Kilgorman	resolved	52.7395	-6.19511	civil_parish	Logainm.ie centrepoint for civil parish Cill Ghormáin/Kilgorman (Irish Sea coast NE Wexford).
+75	wexford.txt	Kilpatrick	resolved	52.7265579	-6.1590459	locality	Photon locality “Kilpatrick” within Kilgorman ED / north-east coastal hinterland (not Kilpatrick civil parish WNW of Wexford town).
+76	wexford.txt	Rosslare	resolved	52.2735675	-6.3869031	village	Nominatim place=village.
+77	wexford.txt	Rosslare Strand	resolved	52.2881426	-6.3900724	beach	OSM Rosslare Strand Beach.
+78	wexford.txt	Rosslare Beach	resolved	52.2881426	-6.3900724	beach	OSM names the main open beach as Rosslare Strand Beach; same feature as line 77.
+79	wexford.txt	Rosslare Point	resolved	52.3101678	-6.3887549	locality	Nominatim locality Rosslare Point.
+80	wexford.txt	Rosslare Harbour	resolved	52.2497333	-6.3401152	village	Photon village centroid “Rosslare Harbour”.
+81	wexford.txt	Rosslare Europort	resolved	52.2511936	-6.3375376	ferry_terminal	Photon/OSM rail station POI at the ferry port complex.
+82	wexford.txt	Rosslare Harbour Beach	resolved	52.2510556	-6.3322332	beach	OSM viewpoint/beach POI beside N25.
+83	wexford.txt	Carne	resolved	52.1973	-6.35	locality	Judged settlement cluster around Carne Beach / Carne Pier (no separate “Carne village” node in search tools used).
+84	wexford.txt	Carne Beach	resolved	52.1988419	-6.3508014	beach	OSM natural=beach.
+85	wexford.txt	Carne Pier	resolved	52.1979035	-6.3477841	pier	Photon “Carne Pier” service road/POI.
+86	wexford.txt	Greenore	not_found				Well-known Greenore is a port in County Louth; no Wexford coastal feature with this name found.
+87	wexford.txt	Greenore Point	resolved	52.2406277	-6.3140489	headland	Nominatim locality Greenore Point (St Helen’s ED).
+88	wexford.txt	Carnsore Point	resolved	52.1729874	-6.3637192	headland	Photon/OSM locality “Carnsore Point / The Point of Carne”.
+89	wexford.txt	Carnsore	resolved	52.1729874	-6.3637192	locality	Treated as the Carnsore Point settlement/hinterland pin; tightly coupled to line 88.
+90	wexford.txt	Tuskar Rock	resolved	52.202917	-6.207417	lighthouse	Irish Lights published position 52°12.175′N 06°12.445′W for Tuskar Rock Lighthouse.
+91	wexford.txt	Wexford Harbour	resolved	52.3333	-6.4000	harbour	Indicative harbour centroid (mouth of River Slaney / Loch Garman); avoids unrelated tennis-club hits.
+92	wexford.txt	North Slob	resolved	52.3800	-6.3800	wetland	Wikipedia/GeoHack centroid for the reclaimed North Slob mudflats; large site.
+93	wexford.txt	South Slob	resolved	52.3220	-6.3880	wetland	Judged reclaimed sloblands S of Wexford Harbour; no direct Nominatim name hit.
+94	wexford.txt	Raven Point	resolved	52.3564	-6.36553	sand_spit	NPWS Raven Point Nature Reserve SAC published coordinates.
+95	wexford.txt	Raven Wood	resolved	52.3632969	-6.3684344	woodland	OSM landuse=forest labelled Raven Point Nature Reserve (Raven Wood trail area).
+96	wexford.txt	Raven Point Beach	resolved	52.3620	-6.3640	beach	Judged foreshore on The Raven spit N of main Curracloe Beach access; contiguous dune/beach system.
+97	wexford.txt	Ferrycarrig	resolved	52.3557128	-6.5104280	locality	Nominatim administrative boundary locality.
+98	wexford.txt	Irish National Heritage Park Ferrycarrig	resolved	52.3479313	-6.5167973	attraction	Nominatim tourism=attraction Irish National Heritage Park.
+99	wexford.txt	Wexford Town	resolved	52.3367671	-6.4601397	town	Nominatim place=town Wexford.
+100	wexford.txt	Wexford Quay	resolved	52.3392612	-6.4601345	quay	Custom House Quay bus stop — quayside frontage in Wexford town.
+101	wexford.txt	Wexford Port	resolved	52.3456896	-6.4556452	harbour	Ferrybank (R741) stop area — judged working ferry/commercial harbour approach N of town centre.
+102	wexford.txt	Wexford Estuary	ambiguous			estuary	Long linear Slaney–Wexford Harbour system; not a single point.
+103	wexford.txt	Barrystown Bay	resolved	52.2520	-6.7380	bay	Judged coastal margin near Barrystown townland (Logainm ~52.253,-6.744) toward Bannow Bay; no OSM bay name hit.
+104	wexford.txt	Curracloe	resolved	52.3929762	-6.3882000	village	Nominatim place=village.
+105	wexford.txt	Curracloe Beach	resolved	52.3871569	-6.3635865	beach	Nominatim natural=beach.
+106	wexford.txt	Curracloe Strand	resolved	52.3871569	-6.3635865	strand	Same mapped feature as Curracloe Beach.
+107	wexford.txt	Curracloe Dunes	resolved	52.3800	-6.3670	dunes	Judged Raven/Curracloe dune belt near published trailhead coords for Raven Point Wood walk.
+108	wexford.txt	Ballinesker	resolved	52.4017331	-6.3607605	locality	Nominatim administrative locality boundary.
+109	wexford.txt	Ballinesker Beach	resolved	52.3983974	-6.3582060	beach	Nominatim natural=beach.
+110	wexford.txt	Ballinasker	resolved	52.4017331	-6.3607605	locality	No separate hit; treated as local spelling variant of Ballinesker.
+111	wexford.txt	Ballyconniger	resolved	52.4426	-6.3254	locality	Spelling variant of Ballyconnigar; centroid between Ballyconnigar Upper/Lower localities + strand access.
+112	wexford.txt	Courtown	resolved	52.6448210	-6.2278240	village	Nominatim place=village.
+113	wexford.txt	Courtown Harbour	resolved	52.6442	-6.2275	harbour	Judged harbour basin frontage near Harbour Court / pier heads; no single named harbour polygon.
+114	wexford.txt	Courtown Pier	resolved	52.6419798	-6.2254944	pier	Nominatim Courtown Sailing Club on South Pier.
+115	wexford.txt	Courtown Beach	resolved	52.6435	-6.2273	beach	Judged main resort beach strip near lifeboat station / harbour (Blue Flag beach).
+116	wexford.txt	North Beach Courtown	resolved	52.647800	-6.225600	beach	Beaches On The Air published coords for Courtown North Beach.
+117	wexford.txt	Ardamine	resolved	52.6405	-6.2280	locality	Judged coastal strip S of Courtown Harbour (Ardamine ED); no place=village node.
+118	wexford.txt	Ardamine Beach	resolved	52.5988789	-6.2133060	beach	Nominatim natural=beach Roney Beach within Ardamine ED.
+119	wexford.txt	Cahore	resolved	52.5661840	-6.2029364	village	Nominatim place=village.
+120	wexford.txt	Cahore Point	resolved	52.5647966	-6.1939632	headland	Nominatim place=locality Cahore Point.
+121	wexford.txt	Cahore Beach	resolved	52.5722094	-6.2037700	beach	Photon Cahore Beach (primary sandy beach N of Cahore village cluster).
+122	wexford.txt	Cahore Point Beach	resolved	52.564555	-6.195719	beach	MountainViews published headland coords; sandy foreshore wraps the point (Cahore south beach).
+123	wexford.txt	Old Bawn Beach	resolved	52.5520	-6.1990	beach	Judged mid-strand section S of Cahore (Cahore Polders); aligns with walking-trail “Oldbawn” parking references.
+124	wexford.txt	Morriscastle	resolved	52.5167281	-6.2538205	village	OSM administrative locality (Morriscastle Village / Ford ED).
+125	wexford.txt	Morriscastle Strand	resolved	52.513700	-6.238100	beach	Beaches On The Air published coords for Morriscastle Beach (local strand).
+126	wexford.txt	Kilmuckridge	resolved	52.513289	-6.28374	village	Wikipedia / Logainm population-centre coordinates.
+127	wexford.txt	Kilmuckridge Beach	resolved	52.513700	-6.238100	beach	Locally the main bathing beach is Morriscastle Strand (same BOTA pin as row 124).
+128	wexford.txt	Blackhall	resolved	52.2178	-6.7539	locality	Logainm/townlands centroid for Blackhall townland (Bannow), paired with Blackhall Strand on this coast.
+129	wexford.txt	Blackhall Strand	resolved	52.2133647	-6.7479548	beach	OSM natural=beach Blackhall Strand (Keeragh Islands shore).
+130	wexford.txt	Kerragh Islands	resolved	52.1989201	-6.7382432	island	Common spelling variant of Keeragh Islands; OSM island centroid.
+131	wexford.txt	Keeragh Islands	resolved	52.1989201	-6.7382432	island	OSM named islets off Blackhall Strand.
+132	wexford.txt	Ballymoney	resolved	52.6810243	-6.2201534	village	OSM place=village Ballymoney (north County Wexford; disambiguated from Antrim Ballymoney).
+133	wexford.txt	Ballymoney Beach	resolved	52.6965	-6.2175	beach	Judged Green Coast foreshore near Sea Road / council beach pages (north-cusp of the Ballymoney cove).
+134	wexford.txt	Ballymoney North Beach	resolved	52.6982	-6.2163	beach	Northern crescent of the Ballymoney beaches (Screen Wexford / local access descriptions).
+135	wexford.txt	Glascarrig	resolved	52.5812767	-6.2085012	locality	OSM locality Glascarrig (Ballygarrett ED).
+136	wexford.txt	Glascarrig Beach	resolved	52.5802602	-6.2034818	beach	OSM Glascarrig Beach.
+137	wexford.txt	Clones Upper	resolved	52.7160664	-6.1778975	locality	OSM locality Clones Upper (north-east Wexford).
+138	wexford.txt	Clones Lower	resolved	52.7197791	-6.1611755	locality	OSM locality Clones Lower.
+139	wexford.txt	Donaghmore Beach	resolved	52.5918831	-6.2133914	beach	OSM Donaghmore Beach (Glascarrig/Donaghmore coast).
+140	wexford.txt	Culleton's Gap	resolved	52.3580	-6.3620	beach	Southern Curracloe strand access (Raven-side); judged beachfront between Curracloe village and Raven SAC pins.
+141	wexford.txt	Culletons Gap	resolved	52.3580	-6.3620	beach	Same feature as Culleton's Gap (apostrophe variant).
+142	wexford.txt	St Margaret's Beach	resolved	52.2029755	-6.3502341	beach	OSM locality St. Margaret's Beach (Carne / Our Lady's Island sandy shore).
+143	wexford.txt	St Margarets Beach	resolved	52.2029755	-6.3502341	beach	Same mapped feature; punctuation variant in source list.
+144	wexford.txt	Tinnaberna	resolved	52.4810947	-6.2810603	locality	OSM locality Tinnaberna.
+145	wexford.txt	Tinnaberna Strand	resolved	52.4815684	-6.2736357	beach	OSM Tinnaberna Beach / car-park access cluster.
+146	wexford.txt	Ballynamona	resolved	52.4788759	-6.2927165	locality	OSM Ballynamona (Tinnaberna/Kilmuckridge sandhills area).
+147	wexford.txt	Ballynaclash	resolved	52.4253705	-6.3398422	locality	OSM locality Ballynaclash; centroid may sit slightly inland of foreshore.
+148	wexford.txt	Ballytrent	resolved	52.2161174	-6.3402363	locality	OSM anchor labelled Ballytrent Beach (south-east Wexford).
+149	wexford.txt	Ballyvaldon	resolved	52.4810947	-6.2810603	locality	Civil parish is extensive; pin at Tinnaberna as the main named coastal settlement in that parish.
+150	wexford.txt	Ballyvaloo	resolved	52.4124814	-6.3536743	locality	Photon/OSM “Ballyvaloo Centre” amenity cluster as village-scale anchor.
+151	wexford.txt	Ballygrangans	resolved	52.1849922	-6.5518754	locality	OSM locality Ballygrangans (south Wexford).
+152	wexford.txt	Ballyduboy	resolved	52.4984818	-6.2584665	locality	Nominatim Ballyduboy (Killincooly ED, Gorey–Kilmuckridge).
+153	wexford.txt	Ballinoulart	resolved	52.5324849	-6.2237461	locality	Nominatim Ballinoulart (Cahore ED).
+154	wexford.txt	Ballagh	resolved	52.1920944	-6.5029173	locality	Nominatim Ballagh in Tomhaggard ED (south Wexford); preferred over New Ross ED homonym for coastal list order.
+155	wexford.txt	Pollshone	resolved	52.6173691	-6.2219683	headland	Nominatim Pollshone Head (Ardamine ED).
+156	wexford.txt	Rostoonstown	resolved	52.1920128	-6.4191314	locality	Photon/OSM Rostonstown townland (Tacumshin area); source spelling variant with extra “o”.
+157	wexford.txt	Knocknasillogue	resolved	52.4540452	-6.316798	locality	Photon Knocknasilloge (Gorey–Kilmuckridge); common spelling variant Knocknasillogue.
+158	wexford.txt	Ingard Point	resolved	52.1916327	-6.8200600	headland	Nominatim Ingard Point (Fethard ED).
+159	wexford.txt	Roney Point	resolved	52.6022074	-6.2127444	headland	Nominatim Roney Point (Ardamine ED; multiple nodes — first coastal hit).
+160	wexford.txt	Clammers Point	resolved	52.2043843	-6.7861014	headland	Nominatim Clammers Point (Bannow ED).
+161	wexford.txt	Churchtown Beach	resolved	52.1936562	-6.3483390	beach	Nominatim Churchtown Beach / The Sandy Gripe (Lady’s Island ED).
+162	wexford.txt	Glen Salt Rock	resolved	52.1728947	-6.3658158	rock	Photon “The West Rock” in Lady’s Island ED; matches Visit Wexford “Glen (Salt rock)” informal label — indicative pin.
+163	wexford.txt	Nethertown	resolved	52.1797478	-6.3614479	locality	Nominatim Nethertown (Lady’s Island ED).
+164	wexford.txt	Shilmore	resolved	52.1840851	-6.3661159	locality	Nominatim Shilmore (Lady’s Island ED).
+165	wexford.txt	Nethertown Shilmore	ambiguous				Two distinct OSM localities; combined label has no single centroid.
+166	wexford.txt	Saview	not_found				No OSM/Photon match; likely informal “Sea View” — not mapped as a named place.
+167	wexford.txt	Sandeel	resolved	52.1611811	-6.8821796	bay	Nominatim Sandeel Bay (Templetown ED).
+168	wexford.txt	Ballyconniger Beach	resolved	52.4300734	-6.328096	beach	Photon Ballyconnigar Strand car park / foreshore (Kilmuckridge coast).
+169	wexford.txt	Grange	resolved	52.2024696	-6.8380714	locality	Photon Grange in Fethard ED (pairs with following Grange Beach on this list).
+170	wexford.txt	Grange Beach	resolved	52.2060565	-6.8227869	beach	Nominatim Grange Beach (Fethard).
+171	wexford.txt	Grange Wood Village	resolved	52.2014827	-6.8287309	locality	Photon “Wood Village” near Grange (Fethard ED) — holiday/estate cluster name on maps.
+172	wexford.txt	Tomhaggard	resolved	52.2155749	-6.4939063	village	Nominatim Tomhaggard (Borough District of Wexford).
+173	wexford.txt	St Kearns	resolved	52.1985	-6.375	saltmarsh	BSBI “Saint Kearns” saltmarsh (~Irish grid S818101); indicative centre near Lady’s Island Lake fringe — no single POI name in Photon.
+174	wexford.txt	St Kearns Bay	ambiguous				No dedicated named bay in OSM/Nominatim; only generic shoreline adjoining Saint Kearns saltmarsh.
+175	wexford.txt	Saltmills	resolved	52.2259660	-6.8330602	locality	Nominatim Saltmills (New Ross MD cluster north of Tintern Abbey road).
+176	wexford.txt	Clogga	resolved	52.762000	-6.145600	beach	Beaches On The Air “Clogga” pin; Clogga Strand is administratively Wicklow (Arklow) but appears on Wexford coastal beach inventories.
+177	wexford.txt	Clogga Beach	resolved	52.762000	-6.145600	beach	Same foreshore as row 176 (Clogga Strand).
+178	wexford.txt	Kildermot Strand	resolved	52.7350	-6.1880	beach	Judged Irish Sea strand sector north-east Wexford near Kilgorman civil parish (Visit Wexford lists Kildermot); no OSM name= match.
+179	wexford.txt	Carnivan	resolved	52.1751024	-6.8323549	locality	Nominatim Carnivan (Fethard ED).
+180	wexford.txt	Carnivan Beach	resolved	52.1748883	-6.8341422	beach	Nominatim Carnivan Beach (Fethard ED).

@@ -133,7 +133,7 @@ type WaitArcDiagram = {
   readonly radius: number;
   readonly thetaStart: number;
   readonly sweepRad: number;
-  readonly arrow: ArcArrowMeta;
+  readonly arrow?: ArcArrowMeta;
 };
 
 type AnnularBandDiagram = {

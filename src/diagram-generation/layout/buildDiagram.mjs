@@ -353,9 +353,13 @@ function buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
   const core = computeNextTideEventCore(spec, parsedNow);
-  if (shouldOmitNowWaitVisualsForNextPointerClearance(parsedNow, core)) {
+  if (core == null) {
     return null;
   }
+  const omitArrowForShortWait = shouldOmitNowWaitVisualsForNextPointerClearance(
+    parsedNow,
+    core,
+  );
 
   const nowTheta = timeToTheta(parsedNow.hours, thetaLeft, thetaRight);
   const nextTheta = timeToTheta(core.seconds / 3600, thetaLeft, thetaRight);
@@ -365,13 +369,17 @@ function buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     radius,
     thetaStart: nowTheta,
     sweepRad: Math.max(0, nextTheta - nowTheta),
-    arrow: {
-      at: "end",
-      lengthK,
-      widthK,
-      insetK,
-      style,
-      scaleWithStroke,
-    },
+    ...(omitArrowForShortWait
+      ? {}
+      : {
+          arrow: {
+            at: "end",
+            lengthK,
+            widthK,
+            insetK,
+            style,
+            scaleWithStroke,
+          },
+        }),
   };
 }

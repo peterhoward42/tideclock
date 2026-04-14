@@ -122,14 +122,21 @@ fart
 						o  collab cursor on better UX
 							o  put in first stab at better UX
 							o  tune it once we have the full input data set
-								o  is it dynamic?
+
+				o  Make the new location picker the master
+				o  Wean off non geoencoded data set and files
+				o  Wean off orphaned old towns dir 
+				o  Remove planning and unused docs
 
 				o  falmouth estuary and south west extents poor coverage
-				o  show remnant of wait time for as long as poss
-					o  keep the arc longer, but drop the "now" and arrow head
-					o  but what when at that time?
-						o  see what it looks like?
-				o  centre the home banner - maybe prettyfy it too
+
+				o  wait time mods
+					*  show arc but drop arrow head when too close
+					o  omit "now" when ???
+					o  get it working right
+					o  clean up spec to suit
+					o  await tides for testing
+
 				o  come back to alternating in/out edge cases 
 				o  come back to the Bournemouth dilemma
 				o  tune line thicknesses and font for platforms

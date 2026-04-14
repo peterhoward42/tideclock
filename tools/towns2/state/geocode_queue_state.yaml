@@ -4,7 +4,7 @@
 # Orchestrator: tools/towns2/scripts/run-geocode-agent-loop.sh
 # Agent instructions: tools/towns2/prompt-colateral/geocode_universal_prompt.md
 
-queue_exhausted: false
+queue_exhausted: true
 
 # Number of source lines (1-based, inclusive range) per headless agent invocation.
 lines_per_batch: 30
@@ -15,5 +15,5 @@ stems: []
 
 # Work pointer. If current_stem is empty, the first iteration picks the first stem
 # in order that still has lines to process (normally stem 1 at line 1).
-current_stem: westmorland-and-furness
-next_line_start: 61
+current_stem: wicklow
+next_line_start: 121

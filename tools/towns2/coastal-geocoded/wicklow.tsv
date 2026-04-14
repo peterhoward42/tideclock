@@ -1,0 +1,137 @@
+line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
+1	wicklow.txt	Bray	resolved	53.203	-6.098	town	Wikipedia / GeoHack city centroid (Bray, County Wicklow).
+2	wicklow.txt	Bray Seafront	resolved	53.2047	-6.0995	beach	Judged seafront / strand frontage S of town centre (human-map coastal strip).
+3	wicklow.txt	Bray Promenade	resolved	53.2050	-6.0993	promenade	Main Victorian promenade along the north beach front.
+4	wicklow.txt	Bray Esplanade	resolved	53.2048	-6.0994	promenade	Esplanade contiguous with promenade / seafront (same coastal strip).
+5	wicklow.txt	Bray Harbour	resolved	53.2055	-6.0965	harbour	Small harbour / marina basin at N end of front (judged coastal pocket).
+6	wicklow.txt	Bray Beach	resolved	53.2045	-6.0997	beach	Main sandy beach in front of the promenade.
+7	wicklow.txt	Bray Head	resolved	53.1905	-6.0842	headland	Wikipedia summit coords (241 m hill / headland between Bray and Greystones).
+8	wicklow.txt	Bray Head shore	resolved	53.1885	-6.0860	coast	Foot-of-cliff / shoreline at Bray Head (seaward of summit pin).
+9	wicklow.txt	Bray Head cliff walk	resolved	53.1750	-6.0750	coastal_path	Representative point along the rail/cliff line (linear feature; not the full path).
+10	wicklow.txt	Cliff Walk Bray to Greystones	ambiguous			coastal_path	Long linear cliff/rail walk; no single canonical coordinate.
+11	wicklow.txt	Killincarrig	resolved	53.1361	-6.0776	village	Wikipedia / GeoHack village centroid.
+12	wicklow.txt	Killincarrig shore	resolved	53.1380	-6.0650	coast	Judged seaward (E) toward the strand from the village crossroads.
+13	wicklow.txt	Greystones	resolved	53.1440	-6.0720	town	GeoHack / common gazetteer centroid (Greystones).
+14	wicklow.txt	Greystones Seafront	resolved	53.1450	-6.0740	beach	Coastal strip at town frontage (human-map seafront).
+15	wicklow.txt	Greystones Promenade	resolved	53.1452	-6.0745	promenade	Seafront promenade contiguous with north beach area.
+16	wicklow.txt	Greystones Harbour	resolved	53.1413	-6.0635	harbour	Historic harbour / cove at S end of built-up front (judged harbour mouth).
+17	wicklow.txt	Greystones Marina	resolved	53.1420	-6.0620	marina	Modern marina basin S of town centre (judged basin).
+18	wicklow.txt	Greystones North Beach	resolved	53.1470	-6.0760	beach	North / Bray-side end of Greystones frontage.
+19	wicklow.txt	Greystones South Beach	resolved	53.1400	-6.0695	beach	South strand toward Kilcoole (distinct from north end).
+20	wicklow.txt	North Beach Greystones	resolved	53.1470	-6.0760	beach	Same coastal feature as “Greystones North Beach” (separate list line).
+21	wicklow.txt	South Beach Greystones	resolved	53.1400	-6.0695	beach	Same coastal feature as “Greystones South Beach” (separate list line).
+22	wicklow.txt	Greystones Blue Flag beach	resolved	53.1402	-6.0693	beach	Blue-flag strand at Greystones (south beach cluster).
+23	wicklow.txt	Kilcoole	resolved	53.1028	-6.0650	village	Common gazetteer centroid (village inland of the marsh/beach).
+24	wicklow.txt	Kilcoole Beach	resolved	53.1019	-6.0392	beach	Wikimapia / DMS for “Kilcoole Beach” (shingle front on east coast).
+25	wicklow.txt	Kilcoole shore	resolved	53.1030	-6.0520	coast	Generic coastal strip between village and open beach.
+26	wicklow.txt	Kilcoole station beach	resolved	53.1045	-6.0540	beach	Coastal strand near Kilcoole railway station (judged station-side shore).
+27	wicklow.txt	Kilcoole Marshes shore	resolved	53.1070	-6.0480	marsh	Northern marsh / lagoon shoreline (East Coast wetland complex).
+28	wicklow.txt	Kilcoole Point	resolved	53.0990	-6.0410	headland	Judged minor coastal point S of Kilcoole beach / The Breaches area.
+29	wicklow.txt	The Rock Kilcoole	resolved	53.1020	-6.0510	rock	Judged coastal rock feature on Kilcoole strand (no dedicated authoritative pin).
+30	wicklow.txt	Newcastle	resolved	53.0692	-6.0621	village	Wikipedia centroid (Newcastle, County Wicklow).
+31	wicklow.txt	Newcastle shore	resolved	53.0715	-6.0560	coast	Seaward / beach-side of Newcastle relative to village centroid (east toward Irish Sea).
+32	wicklow.txt	Newcastle Aerodrome coast	resolved	53.0731	-6.0364	coast	Published aerodrome reference (EINC) on Sea Road; judged coastal margin of the airfield strip.
+33	wicklow.txt	East Coast Nature Reserve Newcastle	resolved	53.0704	-6.0428	reserve	Sat-nav coords published for BirdWatch Ireland ECNR main entrance (birdwatching guides).
+34	wicklow.txt	BirdWatch Ireland Newcastle Reserve shore	resolved	53.0685	-6.0440	coast	Coastal shingle / rail-crossing access side of ECNR (human-map shore, not inland hides).
+35	wicklow.txt	Killoughter	resolved	53.0298	-6.0800	townland	Logainm.ie / townlands.ie centrepoint (Kilcoole area townland).
+36	wicklow.txt	Killoughter shore	resolved	53.0300	-6.0550	coast	Judged Irish Sea margin east of Killoughter townland centre (coastal strip).
+37	wicklow.txt	Ballygannon shore	resolved	53.1181	-6.0380	coast	Logainm centre for Kilcoole ED Ballygannon; point shifted east onto coastal shingle belt.
+38	wicklow.txt	The Breaches	resolved	53.0920	-6.0450	coastal_feature	Shingle breach / tidal cut S of Kilcoole station (local guides; linear feature, representative point).
+39	wicklow.txt	The Breaches shore	resolved	53.0915	-6.0445	beach	Seaward shingle immediately at the breach mouth (same feature as “The Breaches”, shore emphasis).
+40	wicklow.txt	Five Mile Point	resolved	53.0563	-6.0395	headland	Logainm.ie centrepoint (Pointe na gCúig Mhíle / Five Mile Point).
+41	wicklow.txt	Six Mile Point	resolved	53.0640	-6.0410	headland	Judged on Murrough shingle N of Five Mile Point; widely used local name without a separate Logainm centrepoint.
+42	wicklow.txt	Blackditch shore	resolved	53.0647	-6.0380	coast	Blackditch townland centre (townlands.ie) shifted east onto shingle / sea margin.
+43	wicklow.txt	Knockroe shore	resolved	53.1183	-6.0520	coast	Kilcoole-area Knockroe townland centroid (townlands.ie) shifted east toward coastal strip.
+44	wicklow.txt	Ballynerrin shore	resolved	53.1258	-6.0420	coast	Kilcoole-area Ballynerrin centroid (townlands.ie) shifted east toward coast (borders Knockroe / Ballygannon).
+45	wicklow.txt	Leamore shore	resolved	53.0560	-6.0375	coast	Leamore Strand locale near Five Mile Point / Sea Road (judged shore frontage).
+46	wicklow.txt	The Murrough	resolved	53.0090	-6.0510	wetland	Wikipedia / SAC summary centroid for The Murrough Wetlands (long linear complex).
+47	wicklow.txt	Murrough Beach	resolved	53.0120	-6.0480	beach	Shingle beach on Irish Sea side of the Murrough ridge near Wicklow town (human-map strand).
+48	wicklow.txt	Murrough shore	resolved	53.0100	-6.0495	coast	Generic foreshore along Murrough shingle belt S of Broad Lough (representative coastal strip).
+49	wicklow.txt	Murrough Wetlands shore	resolved	53.0080	-6.0520	marsh	Landward wetland margin / salt-marsh shore of the Murrough complex near Broad Lough (judged).
+50	wicklow.txt	East Coast Nature Reserve Murrough	resolved	53.0704	-6.0428	reserve	Same BirdWatch Ireland ECNR lands as the Newcastle-named reserve row; label reflects Murrough-wide context.
+51	wicklow.txt	Wicklow	resolved	52.9779	-6.0330	town	GeoHack / Wikipedia-style centroid for Wicklow (county town).
+52	wicklow.txt	Wicklow Town	resolved	52.9779	-6.0330	town	Same settlement centroid as “Wicklow” (separate list line).
+53	wicklow.txt	Wicklow Harbour	resolved	52.9817	-6.0358	harbour	Wikimapia / pilotage-style coords for harbour area (Packet Pier / inner harbour centroid).
+54	wicklow.txt	Wicklow Marina	resolved	52.9798	-6.0380	marina	MarinaSpots listing coordinates for Wicklow Harbour Marina (South Quay area).
+55	wicklow.txt	Wicklow Pier	resolved	52.9832	-6.0344	pier	GeoHack coords for Wicklow East Pier head / lighthouse structure.
+56	wicklow.txt	Wicklow waterfront	resolved	52.9820	-6.0345	waterfront	Judged town-side quay / harbour frontage between piers and town centre.
+57	wicklow.txt	Wicklow Bay	resolved	52.9720	-6.0220	bay	Judged open-water centroid of the bay south of Wicklow Head (not the inner river harbour).
+58	wicklow.txt	Wicklow Bay shore	resolved	52.9780	-6.0310	coast	Town-facing shore of Wicklow Bay / outer harbour mouth strip (human-map).
+59	wicklow.txt	Black Castle	resolved	52.9811	-6.0308	castle	Logainm.ie / irishstones.org coordinates for the Black Castle ruin promontory.
+60	wicklow.txt	Travelahawk Beach	resolved	52.9804	-6.0308	beach	Paddling.com / tourism listings for Travelahawk Beach below Black Castle (also spelled Travelehawk in next line).
+61	wicklow.txt	Travelehawk Beach	resolved	52.9804	-6.0308	beach	Alternate spelling of Travelahawk Beach (same shingle cove below Black Castle).
+62	wicklow.txt	Glen Beach	resolved	52.9725	-6.0238	beach	Sport Ireland trailhead “Glen Turn Beach Car Park” coords for Glen Beach (Wicklow Head cliff walk area).
+63	wicklow.txt	Glen Beach cliff walk	ambiguous			coastal_path	~4 km signed loop; linear cliff route with no single canonical coordinate (Sport Ireland / AllTrails).
+64	wicklow.txt	Wicklow Head	resolved	52.9679	-6.0023	headland	GeoHack / Wikipedia-style centroid for the Wicklow Head headland (not the lighthouse alone).
+65	wicklow.txt	Wicklow Head Lighthouse	resolved	52.9652	-6.0025	lighthouse	Irish Lights WGS84 position for Wicklow Head lighthouse (52°57.947′N 005°59.889′W).
+66	wicklow.txt	Wicklow Head cliffs	resolved	52.9665	-6.0030	cliff	Representative cliff-top point on Wicklow Head SPA coastline (seaward of summit grassland).
+67	wicklow.txt	Broad Lough	resolved	52.9960	-6.0545	lagoon	BirdGuides / wetland summaries centroid for Broad Lough (brackish lagoon N of Wicklow town).
+68	wicklow.txt	Broad Lough shore	resolved	52.9930	-6.0525	coast	Landward / tidal margin along Broad Lough (human-map wetland shore, not open sea).
+69	wicklow.txt	Vartry River mouth	resolved	52.9815	-6.0338	estuary	Judged harbour mouth where the Vartry / Leitrim channel meets Wicklow Harbour (Wikipedia infobox coords are inconsistent with this site).
+70	wicklow.txt	Vartry estuary shore	resolved	52.9875	-6.0465	coast	Tidal estuary margin between Broad Lough and Wicklow Harbour (representative foreshore strip).
+71	wicklow.txt	RNLI Wicklow shore	resolved	52.9813	-6.0320	coast	Seaward / beach-side offset from Wicklow lifeboat station (East Pier; Wikipedia station coords).
+72	wicklow.txt	Wicklow Sailing Club	resolved	52.9832	-6.0344	club	GeoHack Wicklow East Pier coords (clubhouse on East Pier / harbour wall area).
+73	wicklow.txt	Wicklow Rowing Club shore	resolved	52.9842	-6.0310	coast	Club based beside North Pier; judged launch beach / foreshore immediately E of clubhouse (wicklowrowingclub.ie).
+74	wicklow.txt	Wicklow Sea Swimming Club slip	resolved	52.9836	-6.0305	slip	Traditional Murrough / harbour-front swim venue; representative slip on shingle near North Pier (wicklowsc.com).
+75	wicklow.txt	Silver Strand	resolved	52.9533	-6.0119	beach	Beaches On The Air published coords for Silver Strand (Magheramore area).
+76	wicklow.txt	Silver Strand Beach	resolved	52.9533	-6.0119	beach	Same sandy strand as “Silver Strand” (separate list line).
+77	wicklow.txt	Magheramore	resolved	52.9339	-6.0286	townland	Townlands.ie centre for Magheramore ED (52°56′02″N 6°01′43″W).
+78	wicklow.txt	Magheramore Beach	resolved	52.9533	-6.0119	beach	Local usage ties beach to Magheramore / Silver Strand (same OSM/coastal pin as Silver Strand).
+79	wicklow.txt	Magheramore shore	resolved	52.9510	-6.0140	coast	Coastal strip between townland centroid and Silver Strand foreshore (judged).
+80	wicklow.txt	Brittas Bay	resolved	52.8830	-6.0500	bay	Wikipedia / gazetteer centroid for Brittas Bay (long sandy embayment).
+81	wicklow.txt	Brittas Bay Beach	resolved	52.8830	-6.0480	beach	Representative mid-bay sandy foreshore (human-map main beach strip).
+82	wicklow.txt	Brittas Bay North	resolved	52.8920	-6.0460	beach	North / Wicklow-access end of the Brittas foreshore (distinct from mid-bay).
+83	wicklow.txt	Brittas Bay South	resolved	52.8740	-6.0520	beach	South end of Brittas foreshore toward Jack’s Hole / Arklow direction.
+84	wicklow.txt	Brittas north beach	resolved	52.8920	-6.0460	beach	Same end as “Brittas Bay North” (alternate wording).
+85	wicklow.txt	Brittas south beach	resolved	52.8740	-6.0520	beach	Same end as “Brittas Bay South” (alternate wording).
+86	wicklow.txt	Brittas Bay dunes	resolved	52.8840	-6.0470	dunes	Representative point in the backing dune belt (landward of open sand).
+87	wicklow.txt	Brittas Bay shore	resolved	52.8830	-6.0430	coast	Seaward shingle / foreshore emphasis along the main bay front.
+88	wicklow.txt	Jack's Hole	resolved	52.8805	-6.0650	cove	Wikipedia / local history: smugglers’ cove on Brittas coast (judged pocket S of main strand; not the N11 pub pin).
+89	wicklow.txt	Jack White's Cross	resolved	52.8820	-6.0987	crossroads	Wikipedia / GeoHack coords for Jack White’s Inn (famous N11 junction name).
+90	wicklow.txt	Cornagower	resolved	52.8769	-6.0656	townland	Townlands.ie centroid for Cornagower East (52°52′37″N 6°03′56″W); list label without East/West suffix.
+91	wicklow.txt	Cornagower East shore	resolved	52.8780	-6.0525	coast	Eastward from Cornagower East townland centroid onto the Brittas / Jack’s Hole coastal belt (human-map foreshore).
+92	wicklow.txt	Dunganstown	resolved	52.9089	-6.1101	locality	GeoHack / GENUKI centroid for Dunganstown (T2720085863); coastal parish centre N of Arklow.
+93	wicklow.txt	Dunganstown Castle shore	resolved	52.9068	-6.1095	castle_ruin	Buildings of Ireland / local setting: ruinous castle S of Dunganstown House demesne; point on seaward margin of the tower/ivy ruin belt.
+94	wicklow.txt	Three Mile Water	resolved	52.8880	-6.0580	stream	Judged Three Mile Water / Three Mile River corridor where it crosses the R750 ~3 km W of Brittas (property brochures; linear watercourse).
+95	wicklow.txt	Three Mile Water shore	resolved	52.8865	-6.0495	estuary	Representative foreshore / tidal margin at the river’s seaward end E of the R750 belt (human-map outlet strip).
+96	wicklow.txt	Brittas Bay Park shore	resolved	52.8875	-6.0475	coast	Holiday-park cluster (“Brittas Bay Park”) backing the dunes; judged dune-line / beach access margin N of main mid-bay strand.
+97	wicklow.txt	Staunton's Caravan Site shore	resolved	52.8865	-6.0470	coast	Local caravan foreshore S of Brittas village; representative pin on open-coast margin (no single published centroid).
+98	wicklow.txt	O'Driscoll's Caravan Park shore	resolved	52.8860	-6.0465	coast	Adjacent caravan-park coastal belt; judged foreshore contiguous with Staunton’s / Brittas Park frontage cluster.
+99	wicklow.txt	Ballymoney Strand	resolved	52.7675	-6.1690	strand	Ballymoney townland (Wicklow) Sea Road coastal belt S of Arklow; judged main strand access strip (not Courtown Wexford).
+100	wicklow.txt	Ballymoney Beach	resolved	52.7668	-6.1685	beach	Same shingle/sand front as Ballymoney Strand (separate list line); Sea Road–side foreshore emphasis.
+101	wicklow.txt	Kilpatrick Beach	resolved	52.7299	-6.1504	beach	NPWS Kilpatrick Sandhills SAC published centroid (site 001742; dunes/beach complex on Wicklow–Wexford shore S of Arklow).
+102	wicklow.txt	Kilquaide shore	resolved	52.8045	-6.1525	coast	Kilquaide townland (Arklow hinterland) centroid shifted E onto the Irish Sea margin N of Arklow (townlands.ie + human-map offset).
+103	wicklow.txt	Arklow	resolved	52.7941	-6.1649	town	Wikipedia / GeoHack city centroid (52°47′39″N 6°09′54″W).
+104	wicklow.txt	Arklow Harbour	resolved	52.7965	-6.1570	harbour	Judged inner harbour / South Quay basin centroid (marine charts & pilotage descriptions; not the open-roadstead bay).
+105	wicklow.txt	Arklow Port	resolved	52.7955	-6.1565	port	Commercial / ferry quay cluster contiguous with harbour basin (same marine complex as “Arklow Harbour”; operational emphasis).
+106	wicklow.txt	Arklow Seafront	resolved	52.7935	-6.1630	seafront	Main coastal frontage / Wexford Road strand side of the town (human-map “seafront” strip).
+107	wicklow.txt	Arklow Promenade	resolved	52.7930	-6.1625	promenade	Representative point on the signed seafront promenade contiguous with North/South beach access (linear feature).
+108	wicklow.txt	Arklow North Beach	resolved	52.7980	-6.1610	beach	North / Ferrybank end of Arklow’s main sandy foreshore (distinct from south strand).
+109	wicklow.txt	Arklow South Beach	resolved	52.7900	-6.1650	beach	South strand toward Clogga / Askintinny (distinct from north end).
+110	wicklow.txt	North Beach Arklow	resolved	52.7980	-6.1610	beach	Same foreshore as “Arklow North Beach” (alternate wording).
+111	wicklow.txt	South Beach Arklow	resolved	52.7900	-6.1650	beach	Same foreshore as “Arklow South Beach” (alternate wording).
+112	wicklow.txt	Arklow Bay	resolved	52.7820	-6.1400	bay	Judged open-water centroid of the bay seaward of the harbour mouth (not the inner river channel).
+113	wicklow.txt	Arklow Rock	resolved	52.7815	-6.1280	rock	Offshore reef / rock cluster S of Arklow harbour entrance (chart / local “Arklow Rock” usage; marine position).
+114	wicklow.txt	Arklow Rock-Askintinny	resolved	52.7810	-6.1270	reef	Continuous inshore rock strip linking Arklow Rock toward Askintinny / Clogga foreshore (representative marine point).
+115	wicklow.txt	Askintinny shore	resolved	52.7800	-6.1255	coast	Askintinny townland foreshore S of Arklow near Clogga (human-map shore; property-address cluster “Askintinny, Clogga”).
+116	wicklow.txt	Avoca Estuary	resolved	52.7920	-6.1580	estuary	Representative mid-estuary point at the town / harbour interface (broad Avoca / Avongbeg system).
+117	wicklow.txt	River Avoca mouth	resolved	52.7975	-6.1555	estuary	Harbour-bar / river mouth where the Avoca meets the harbour basin (pilotage reading).
+118	wicklow.txt	Avoca river mouth shore	resolved	52.7965	-6.1560	coast	Foreshore immediately flanking the river mouth / bar (not offshore).
+119	wicklow.txt	Seabank Arklow shore	resolved	52.7915	-6.1635	coast	Seabank residential belt seaward margin along the main town beach front (human-map “Seabank” usage).
+120	wicklow.txt	Shelly Bank	resolved	52.7930	-6.1620	beach	Local “Shelly Bank / Shellybank” swim spot on Arklow south beach frontage (judged promenade-adjacent shingle).
+121	wicklow.txt	Shellybank	resolved	52.7930	-6.1620	beach	Alternate spelling of “Shelly Bank” (line 120); same south-beach shingle cluster (separate list line).
+122	wicklow.txt	Arklow Duck Pond shore	resolved	52.7980	-6.1445	wetland_shore	Arklow Nature & Wildlife Reserve pond (“duck pond”) near Seaview Avenue; point on outer (north) reserve margin toward the coastal walk / sea.
+123	wicklow.txt	Clogga	resolved	52.7576	-6.1439	townland	Logainm.ie centrepoint (An Chlogach / Clogga townland, Arklow barony).
+124	wicklow.txt	Clogga Beach	resolved	52.7560	-6.1470	beach	Main public strand / swim beach S of Arklow (car-park access; outdoorswimming.ie / local guides cluster).
+125	wicklow.txt	Clogga Cove	resolved	52.7563	-6.1458	cove	Rock-sheltered cove at the Clogga headland cluster (human-map cove pin; contiguous with Clogga strand).
+126	wicklow.txt	Nuns Beach	resolved	52.7775	-6.1310	beach	Sandy beach sheltered by Arklow Rock S of South Beach / The Cove (Visit Arklow; not the main town strand).
+127	wicklow.txt	Nun's Beach	resolved	52.7775	-6.1310	beach	Apostrophe variant of the same Nuns Beach feature (separate list line).
+128	wicklow.txt	Ardanary shore	resolved	52.8635	-6.0560	coast	“Ardanary” matches Ardanairy townland (Logainm centre 52.8626,-6.0697) shifted east onto the Brittas Bay / R750 coastal belt.
+129	wicklow.txt	Mizen Head	resolved	52.8485	-6.0685	headland	Wicklow’s Mizen Head S of Brittas Bay (distinct from County Cork); Brittas Bay article places European Club beside Ardanary on this headland—judged dune crest above the links.
+130	wicklow.txt	European Club golf shore	resolved	52.8578	-6.0645	coast	Seaward / foredune margin of The European Club links (clubhouse cluster Visit Wicklow 52.856085,-6.069946 shifted east toward the open sea).
+131	wicklow.txt	Kilmichael Point	resolved	52.7394	-6.1342	headland	Logainm.ie promontory centre (Rinn Chill Mhichíl / Kilmichael Point); rugged headland on the Wicklow–Wexford boundary S of Arklow.
+132	wicklow.txt	National SEA LIFE Bray	resolved	53.20341	-6.09821	attraction	Strand Road seafront aquarium (map POI / venue address cluster).
+133	wicklow.txt	Bray Martello tower shore	resolved	53.20201	-6.09785	martello	Bray seafront Martello tower / Strand Road defence line (published hotel-adjacent GPS matches the seafront tower cluster).
+134	wicklow.txt	Wicklow lifeboat station shore	resolved	52.981667	-6.032722	lifeboat_station	RNLI Wicklow lifeboat house on East Pier (Wikipedia coordinates); seaward pier / harbour-mouth reading.
+135	wicklow.txt	Arklow Sailing Club shore	resolved	52.7955	-6.1410	sailing_club	North Quay clubhouse (club site); judged harbour-wall frontage on the navigable basin.
+136	wicklow.txt	Arklow Rowing Club shore	resolved	52.792361	-6.147333	rowing_club	Dock Road / South Quay clubhouse (Wikipedia / GeoHack); coastal rowing base on inner harbour front.

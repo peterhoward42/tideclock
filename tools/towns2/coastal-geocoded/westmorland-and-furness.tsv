@@ -59,3 +59,248 @@ line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
 58	westmorland-and-furness.txt	Little Urswick	resolved	54.1530278	-3.1299605	village	OpenStreetMap/Nominatim
 59	westmorland-and-furness.txt	Scales	resolved	54.1416678	-3.1163298	hamlet	OpenStreetMap/Nominatim (Scales, Aldingham)
 60	westmorland-and-furness.txt	Sunbrick	resolved	54.1436119	-3.0908762	hamlet	Nearest OSM named cluster: Sunbrick Lane (Baycliff); no separate Sunbrick place node
+61	westmorland-and-furness.txt	Heaning	not_found			unknown	No OSM place on Furness coast; Windermere and Heaning Wood (Urswick) are different features
+62	westmorland-and-furness.txt	Newton-in-Furness	resolved	54.1351321	-3.1800843	village	OpenStreetMap/Nominatim
+63	westmorland-and-furness.txt	Dalton-in-Furness	resolved	54.1563701	-3.1807567	town	OpenStreetMap/Nominatim
+64	westmorland-and-furness.txt	Lindal-in-Furness	resolved	54.1728935	-3.1465870	village	OpenStreetMap/Nominatim
+65	westmorland-and-furness.txt	Broughton-in-Furness	resolved	54.2776901	-3.2113968	town	OpenStreetMap/Nominatim (indexed as Broughton in Furness)
+66	westmorland-and-furness.txt	Yarlside	resolved	54.1170249	-3.1934506	suburb	Yarlside treated as Roose neighbourhood; OSM suburb Roose (no separate Yarlside place node)
+67	westmorland-and-furness.txt	Roose	resolved	54.1170249	-3.1934506	suburb	OpenStreetMap/Nominatim (suburb Roose, Barrow)
+68	westmorland-and-furness.txt	Roose Marsh	ambiguous			wetland	Saltmarsh belt around Roose; no single named OSM feature
+69	westmorland-and-furness.txt	Roosecote	resolved	54.1096562	-3.1827427	hamlet	OpenStreetMap/Nominatim
+70	westmorland-and-furness.txt	Roosecote Marsh	ambiguous			wetland	Marsh near Roosecote; no single named OSM feature
+71	westmorland-and-furness.txt	Askam-in-Furness	resolved	54.1887065	-3.2039446	town	OpenStreetMap/Nominatim
+72	westmorland-and-furness.txt	Askam Beach	ambiguous			beach	Foreshore along Irish Sea; no dedicated named OSM beach place
+73	westmorland-and-furness.txt	Askam	resolved	54.1887065	-3.2039446	town	Informal name; same settlement node as Askam-in-Furness
+74	westmorland-and-furness.txt	Ireleth	resolved	54.1893334	-3.1959907	village	OpenStreetMap/Nominatim
+75	westmorland-and-furness.txt	Ireleth Marsh	ambiguous			wetland	Coastal marsh near Ireleth; no single named OSM feature
+76	westmorland-and-furness.txt	Kirkby-in-Furness	resolved	54.2320301	-3.1815475	village	OpenStreetMap/Nominatim (village node; not railway station)
+77	westmorland-and-furness.txt	Soutergate	resolved	54.2223009	-3.1872768	hamlet	OpenStreetMap locality Soutergate, Kirkby Ireleth
+78	westmorland-and-furness.txt	Gleaston	resolved	54.1285156	-3.1390522	village	OpenStreetMap/Nominatim
+79	westmorland-and-furness.txt	Gleaston Castle	resolved	54.1336059	-3.1314965	castle	OpenStreetMap/Nominatim
+80	westmorland-and-furness.txt	Gleaston Marsh	ambiguous			wetland	Marsh near Gleaston; no single named OSM feature
+81	westmorland-and-furness.txt	Dunnerholme	resolved	54.2070996	-3.2089824	locality	OpenStreetMap/Nominatim
+82	westmorland-and-furness.txt	Dunnerholme Point	ambiguous			cape	Limestone scar/foreshore point; no separate OSM object from Dunnerholme locality
+83	westmorland-and-furness.txt	Rampside	resolved	54.0855487	-3.1648431	village	OpenStreetMap/Nominatim
+84	westmorland-and-furness.txt	Rampside Marsh	ambiguous			wetland	Marsh near Rampside; no single named OSM feature
+85	westmorland-and-furness.txt	Roa Island	resolved	54.0742028	-3.1743721	village	OpenStreetMap/Nominatim
+86	westmorland-and-furness.txt	Piel Island	resolved	54.0642957	-3.1743995	islet	OpenStreetMap/Nominatim
+87	westmorland-and-furness.txt	Piel Castle	resolved	54.0626265	-3.1736835	castle	OpenStreetMap/Nominatim
+88	westmorland-and-furness.txt	Piel	resolved	54.0642957	-3.1743995	islet	Common short name for Piel Island; same OSM islet
+89	westmorland-and-furness.txt	Ship Inn Piel	resolved	54.0641752	-3.1727102	pub	OpenStreetMap/Nominatim (Ship Inn, Piel Street)
+90	westmorland-and-furness.txt	Chapel Island	resolved	54.1737823	-3.0412536	islet	OpenStreetMap/Nominatim (Morecambe Bay islet near Lower Allithwaite)
+91	westmorland-and-furness.txt	Foulney Island	resolved	54.066689	-3.151488	islet	Wikipedia infobox centroid; no Nominatim island hit (bird sanctuary / Furness isles)
+92	westmorland-and-furness.txt	Sheep Island	resolved	54.0648542	-3.2015601	islet	OpenStreetMap/Nominatim (Sheep Island, Walney Channel)
+93	westmorland-and-furness.txt	Barrow Island	resolved	54.1041299	-3.2282928	suburb	OpenStreetMap/Nominatim (Barrow Island)
+94	westmorland-and-furness.txt	Barrow-in-Furness	resolved	54.1113351	-3.2289494	town	OpenStreetMap/Nominatim (place=town)
+95	westmorland-and-furness.txt	Barrow Port	ambiguous			harbour	Royal Port of Barrow spans multiple basins; no single authoritative pin
+96	westmorland-and-furness.txt	Barrow Harbour	ambiguous			harbour	Natural shelter of Walney Channel / historic harbour; not one named OSM place
+97	westmorland-and-furness.txt	Barrow Docks	ambiguous			dock	Collective dock system on Barrow Island; several separate named basins
+98	westmorland-and-furness.txt	Barrow Waterfront	ambiguous			waterfront	Long developed seafront; multiple promenades and industrial frontages
+99	westmorland-and-furness.txt	Barrow Promenade	resolved	54.1116632	-3.2478091	promenade	OpenStreetMap/Nominatim (Barrow Nautical Club, The Promenade, Vickerstown)
+100	westmorland-and-furness.txt	Ramsden Dock	resolved	54.1013000	-3.2128070	dock	OpenStreetMap/Nominatim
+101	westmorland-and-furness.txt	Devonshire Dock	resolved	54.1086966	-3.2310489	dock	OpenStreetMap/Nominatim
+102	westmorland-and-furness.txt	Devonshire Dock Hall	resolved	54.1101921	-3.2369488	industrial	OpenStreetMap/Nominatim (works)
+103	westmorland-and-furness.txt	Buccleuch Dock	resolved	54.1064233	-3.2220909	dock	OpenStreetMap/Nominatim
+104	westmorland-and-furness.txt	Cavendish Dock	resolved	54.1047015	-3.2056604	dock	OpenStreetMap/Nominatim
+105	westmorland-and-furness.txt	Michaelson Dock	not_found			dock	No OpenStreetMap/Nominatim feature with this dock name (shipyard frontage is Michaelson Road)
+106	westmorland-and-furness.txt	Ocean Road	resolved	54.1014237	-3.2504783	road	OpenStreetMap/Nominatim (primary highway segment, Vickerstown)
+107	westmorland-and-furness.txt	Michaelson Road	resolved	54.1062191	-3.2299217	road	OpenStreetMap/Nominatim (tertiary segment, Barrow shipyard)
+108	westmorland-and-furness.txt	Holker Street	resolved	54.1189869	-3.2285443	road	OpenStreetMap/Nominatim (residential segment, Hindpool)
+109	westmorland-and-furness.txt	Hawcoat	resolved	54.1308270	-3.2161324	suburb	Proxy: Hawcoat Park crossroads; named suburb lacks dedicated OSM place node
+110	westmorland-and-furness.txt	Newbarns	resolved	54.1260377	-3.2144747	suburb	OpenStreetMap/Nominatim (suburb)
+111	westmorland-and-furness.txt	Ormsgill	resolved	54.1322050	-3.2336706	suburb	OpenStreetMap/Nominatim (suburb)
+112	westmorland-and-furness.txt	Stank	resolved	54.1239934	-3.1736199	village	OpenStreetMap/Nominatim (village Stank)
+113	westmorland-and-furness.txt	Cowpen	not_found			suburb	No OpenStreetMap/Nominatim match for this Barrow locality name
+114	westmorland-and-furness.txt	Risedale	ambiguous			locality	Name shared by road, school, and care sites; no single locality node
+115	westmorland-and-furness.txt	Old Barrow	resolved	54.1041299	-3.2282928	suburb	Local name for Barrow Island; same OSM suburb centroid as Barrow Island
+116	westmorland-and-furness.txt	Newland	resolved	54.1115206	-3.2236012	residential	Proxy: Newland Terrace; wider Newland area lacks OSM place node
+117	westmorland-and-furness.txt	Hindpool	resolved	54.1102387	-3.2302393	suburb	OpenStreetMap/Nominatim (suburb)
+118	westmorland-and-furness.txt	Vickerstown	resolved	54.1062618	-3.2495496	suburb	OpenStreetMap/Nominatim (suburb)
+119	westmorland-and-furness.txt	Walney Island	resolved	54.0988981	-3.2477290	island	OpenStreetMap/Nominatim (Isle of Walney)
+120	westmorland-and-furness.txt	Walney	resolved	54.0988981	-3.2477290	island	Colloquial label for the Isle of Walney; same OSM island place
+121	westmorland-and-furness.txt	Walney Channel	resolved	54.1199361	-3.2476606	waterway	OpenStreetMap/Nominatim (Walney Channel waterway)
+122	westmorland-and-furness.txt	North Walney	ambiguous			locality	Colloquial north half of Walney; Nominatim returns only whole-island relation
+123	westmorland-and-furness.txt	South Walney	ambiguous			locality	Colloquial south half of Walney; top Nominatim hits are unrelated schools
+124	westmorland-and-furness.txt	Biggar Bank	resolved	54.0964455	-3.2573326	beach	Proxy: Beach Crescent / Biggar Bank Road bus stop; named shingle bank seafront
+125	westmorland-and-furness.txt	Biggar	resolved	54.0916941	-3.2386356	locality	OpenStreetMap/Nominatim (Biggar Sands locality; Walney settlement label)
+126	westmorland-and-furness.txt	Earnse Bay	ambiguous			bay	Broad west-facing bay north of Walney; no dedicated Nominatim place (Earnse Point is the headland)
+127	westmorland-and-furness.txt	Earnse Point	resolved	54.1182433	-3.2715606	cape	OpenStreetMap/Nominatim (natural point)
+128	westmorland-and-furness.txt	North Scale	resolved	54.1202960	-3.2526324	village	OpenStreetMap/Nominatim (village node)
+129	westmorland-and-furness.txt	Sandy Gap	resolved	54.1046271	-3.2601373	locality	Proxy: Sandy Gap Lane highway centroid; dune-gap access (not Walney School)
+130	westmorland-and-furness.txt	Jubilee Bridge	resolved	54.1076352	-3.2434177	bridge	OpenStreetMap/Nominatim (Walney Bridge, also signed Jubilee Bridge)
+131	westmorland-and-furness.txt	Sandscale Haws	resolved	54.1675114	-3.2502967	locality	OpenStreetMap/Nominatim
+132	westmorland-and-furness.txt	Sandscale Haws National Nature Reserve	ambiguous			nature_reserve	NNR co-located with Sandscale Haws dunes; no single Nominatim object for full designation
+133	westmorland-and-furness.txt	North Walney National Nature Reserve	ambiguous			nature_reserve	No OpenStreetMap/Nominatim match for reserve boundary or visitor hub
+134	westmorland-and-furness.txt	South Walney Nature Reserve	resolved	54.0485089	-3.1994913	nature_reserve	OpenStreetMap/Nominatim (South Walney Nature Reserve Visitor Centre)
+135	westmorland-and-furness.txt	Walney Bird Observatory	resolved	54.0485000	-3.1995000	attraction	BirdGuides site listing coords; observatory records hub within South Walney NR (no separate OSM place)
+136	westmorland-and-furness.txt	Walney Lighthouse	resolved	54.0486374	-3.1772402	lighthouse	OpenStreetMap/Nominatim
+137	westmorland-and-furness.txt	South Walney Old Lighthouse	not_found			lighthouse	1790 wooden lighthouse destroyed by fire 1803; no extant separate structure in OSM
+138	westmorland-and-furness.txt	West Shore Walney	resolved	54.1135903	-3.2499312	promenade	Proxy: The Promenade tertiary segment (Vickerstown) west-facing seafront
+139	westmorland-and-furness.txt	East Shore Walney	ambiguous			coast	Long Walney Channel frontage; urban/industrial stretches without one named centroid
+140	westmorland-and-furness.txt	North End Walney	ambiguous			cape	Northern dune spit / foreshore; no dedicated Nominatim place
+141	westmorland-and-furness.txt	South End Walney	ambiguous			cape	Southern peninsula (Haws Point, shingle hook, NR); multiple tips—no single pin
+142	westmorland-and-furness.txt	North Walney Beach	ambiguous			beach	Foreshore along north Walney; no dedicated named OSM beach
+143	westmorland-and-furness.txt	South Walney Beach	resolved	54.0479000	-3.2001000	beach	Judged shingle foreshore west of visitor centre (Wikipedia seaward beach description); not a dedicated OSM beach
+144	westmorland-and-furness.txt	Earnse Bay Beach	ambiguous			beach	Sandy foreshore of Earnse Bay; no dedicated OSM beach place
+145	westmorland-and-furness.txt	Biggar Bank Beach	resolved	54.0968000	-3.2582000	beach	Judged foreshore at Biggar Bank shingle (offset from Biggar Bank road proxy toward Irish Sea)
+146	westmorland-and-furness.txt	Sandy Gap Beach	ambiguous			beach	Dune-slack foreshore; no dedicated OSM beach
+147	westmorland-and-furness.txt	North Scale Beach	ambiguous			beach	Foreshore off North Scale; no dedicated named OSM beach
+148	westmorland-and-furness.txt	Vickerstown Beach	resolved	54.1096380	-3.2458030	beach	Proxy: The Promenade segment centroid (Vickerstown seafront)
+149	westmorland-and-furness.txt	Walney Beach	ambiguous			beach	Generic label; several distinct stretches without one OSM object
+150	westmorland-and-furness.txt	West Shore Beach	resolved	54.1080289	-3.2465580	beach	Proxy: The Promenade segment centroid (west shore foreshore)
+151	westmorland-and-furness.txt	Walney Sands	ambiguous			shoal	Intertidal sandbanks west of Walney; no single Nominatim/OSM centroid
+152	westmorland-and-furness.txt	Morecambe Bay	resolved	54.1044697	-2.9712714	bay	OpenStreetMap/Nominatim (natural bay relation)
+153	westmorland-and-furness.txt	Duddon Estuary	ambiguous			estuary	Large estuarine system; multiple channels and mouths—no single authoritative pin
+154	westmorland-and-furness.txt	Duddon Sands	resolved	54.1673839	-3.2830634	locality	OpenStreetMap/Nominatim (Duddon Sands, Askam and Ireleth)
+155	westmorland-and-furness.txt	Duddon Channel	ambiguous			channel	Marine channel label; could refer to several segments near Walney/Duddon—no one OSM object
+156	westmorland-and-furness.txt	River Leven	resolved	54.2345000	-3.0491000	river	Wikipedia infobox mouth coordinates (enters Morecambe Bay near Ulverston)
+157	westmorland-and-furness.txt	Leven Estuary	ambiguous			estuary	Tidal estuary reach of the Leven; broad feature without a single named centroid
+158	westmorland-and-furness.txt	Leven Viaduct	resolved	54.1984123	-3.0416466	bridge	OpenStreetMap/Nominatim (rail viaduct over the Leven)
+159	westmorland-and-furness.txt	River Kent	resolved	54.1918584	-2.8678545	river	OpenStreetMap/Nominatim (River Kent reach at Arnside)
+160	westmorland-and-furness.txt	Kent Estuary	ambiguous			estuary	Tidal Kent estuary toward Morecambe Bay; not one point feature
+161	westmorland-and-furness.txt	Kent Viaduct	resolved	54.2054098	-2.8389636	bridge	OpenStreetMap/Nominatim (Arnside Viaduct: Furness Line over Kent estuary)
+162	westmorland-and-furness.txt	Grange Sands	ambiguous			sands	Broad intertidal sands off Grange-over-Sands; no dedicated OSM place
+163	westmorland-and-furness.txt	Cartmel Sands	ambiguous			sands	Mudflats/sands off Cartmel coast; no single named OSM feature
+164	westmorland-and-furness.txt	Ulverston Sands	ambiguous			sands	Tidal sands at Leven/Ulverston frontage; no dedicated OSM beach/sands place
+165	westmorland-and-furness.txt	Furness Peninsula	ambiguous			peninsula	Regional peninsula label; too large for one pin
+166	westmorland-and-furness.txt	Cartmel Peninsula	ambiguous			peninsula	Regional peninsula label; no single centroid
+167	westmorland-and-furness.txt	Furness Abbey	resolved	54.1355947	-3.1990192	historic	OpenStreetMap/Nominatim (ruined monastery, Barrow area)
+168	westmorland-and-furness.txt	Furness Islands	ambiguous			islands	Collective label (e.g. Walney, Piel); not one feature
+169	westmorland-and-furness.txt	Angerton Marsh	ambiguous			wetland	Marshy farmland near Angerton/Marsh Side; no named marsh object in OSM
+170	westmorland-and-furness.txt	Crosslands	not_found			locality	No OSM place match; only modern street names with this token
+171	westmorland-and-furness.txt	Marsh Grange	not_found			locality	No OpenStreetMap/Nominatim match in this coastal context
+172	westmorland-and-furness.txt	Lowsy Point	resolved	54.1558154	-3.2489229	cape	OpenStreetMap/Nominatim (natural point)
+173	westmorland-and-furness.txt	Castle Head	resolved	54.2111000	-2.8886000	historic	Wikipedia/Historic England centroid (Castle Head Field Centre / listed house near Lindale)
+174	westmorland-and-furness.txt	Rampside Point	ambiguous			cape	Southern Morecambe Bay foreshore near Rampside; multiple possible tips—no single OSM point
+175	westmorland-and-furness.txt	Roosegate	ambiguous			locality	Colloquial Roose Gate area near Rampside/Roose; no dedicated OSM place node
+176	westmorland-and-furness.txt	Stainton with Adgarley	resolved	54.1426124	-3.1553819	village	OpenStreetMap/Nominatim (village node)
+177	westmorland-and-furness.txt	Holker Moss	ambiguous			wetland	Raised bog/mossland near Holker; no single named OSM feature
+178	westmorland-and-furness.txt	Lower Holker	resolved	54.1224007	-2.9731552	suburb	OpenStreetMap/Nominatim (administrative boundary centroid)
+179	westmorland-and-furness.txt	Upper Holker	not_found			locality	No separate OSM locality; likely informal label within wider Holker area
+180	westmorland-and-furness.txt	Heald Brow	resolved	54.1597007	-2.8148913	peak	OpenStreetMap/Nominatim (Heald Brow peak near Silverdale/Morecambe Bay coast)
+181	westmorland-and-furness.txt	Hazelslack	resolved	54.2020199	-2.8035161	hamlet	OpenStreetMap/Nominatim (Hazelslack Tower Farm node; coastal Hazelslack area)
+182	westmorland-and-furness.txt	Bowling Green	ambiguous			locality	Common local/coastal label near Silverdale; no dedicated OSM place match in this county context
+183	westmorland-and-furness.txt	Goadsbarrow	resolved	54.1063380	-3.1327660	locality	OpenStreetMap/Nominatim (Goadsbarrow Farm/Long Lane cluster near Roosebeck)
+184	westmorland-and-furness.txt	Lee Green	not_found			locality	No OpenStreetMap/Nominatim match in this Roose/Morecambe Bay coastal strip
+185	westmorland-and-furness.txt	Strawberry Bank	resolved	54.2977479	-2.9003688	locality	Streetmap OS grid 341500,489500 (Strawberry Bank, Cumbria)
+186	westmorland-and-furness.txt	Strawberry Bank Holiday Park	resolved	54.2977479	-2.9003688	holiday_park	Same published Strawberry Bank locality centroid; park sits in this named area
+187	westmorland-and-furness.txt	Ocean Edge Holiday Park	resolved	54.0217985	-2.9023330	holiday_park	OpenStreetMap/Nominatim (Money Close Lane, Heysham — Morecambe Bay foreshore)
+188	westmorland-and-furness.txt	Scales Moor	not_found			moor	No OpenStreetMap/Nominatim match in Furness/Morecambe Bay coastal context
+189	westmorland-and-furness.txt	Sunbrick Marsh	ambiguous			wetland	Coastal marsh belt by Sunbrick/Baycliff; no single named OSM feature
+190	westmorland-and-furness.txt	Heaning Wood	resolved	54.2009365	-3.1066452	wood	OpenStreetMap/Nominatim (Heaning Wood, Osmotherley, Ulverston)
+191	westmorland-and-furness.txt	Yarlside Hill	not_found			peak	No coastal Furness match; distant “Yarlside” peaks in OSM are different features
+192	westmorland-and-furness.txt	Ireleth Hill	ambiguous			peak	Several Askam/Ireleth fells in OSM; none named exactly “Ireleth Hill”
+193	westmorland-and-furness.txt	Kirkby Moor	resolved	54.2461110	-3.1522220	wind_farm	GeoHack/The Wind Power centroid for Kirkby Moor onshore wind site (near Broughton-in-Furness)
+194	westmorland-and-furness.txt	Soutergate Marsh	ambiguous			wetland	Saltmarsh belt by Soutergate/Kirkby Ireleth; no single named OSM feature
+195	westmorland-and-furness.txt	Dunnerholme Wood	ambiguous			wood	Dunnerholme hamlet mapped in OSM; no separate “Dunnerholme Wood” object
+196	westmorland-and-furness.txt	Rampside Lane	ambiguous			street	Generic lane name around Rampside; multiple OSM segments, no single centroid
+197	westmorland-and-furness.txt	Askam Slag Bank	not_found			nature_reserve	Known coastal slag-bank wildlife area; no Nominatim hit at time of lookup
+198	westmorland-and-furness.txt	Port of Barrow	resolved	54.1064233	-3.2220909	harbour	OpenStreetMap/Nominatim (Buccleuch Dock)
+199	westmorland-and-furness.txt	Royal Port of Barrow	resolved	54.1065771	-3.2308775	harbour	OpenStreetMap/Nominatim (Barrow Shipyard industrial waterfront — branded port area)
+200	westmorland-and-furness.txt	BAE Systems Barrow	resolved	54.1065771	-3.2308775	industrial	OpenStreetMap/Nominatim (Barrow Shipyard site)
+201	westmorland-and-furness.txt	Barrow Gas Terminal	resolved	54.0938558	-3.1803393	industrial	OpenStreetMap/Nominatim (Roosecote Gas Terminal)
+202	westmorland-and-furness.txt	Roosecote Works	resolved	54.1046051	-3.1891655	industrial	OpenStreetMap/Nominatim (Roosecote Power Station / Roosecote industrial belt)
+203	westmorland-and-furness.txt	Barrow Lifeboat Station	resolved	54.0725167	-3.1733898	emergency	OpenStreetMap/Nominatim (Roa Island/Piel Street)
+204	westmorland-and-furness.txt	Dock Museum	resolved	54.1119815	-3.2400658	museum	OpenStreetMap/Nominatim (The Dock Museum)
+205	westmorland-and-furness.txt	Piel Ferry	resolved	54.0742028	-3.1743721	ferry_terminal	OpenStreetMap/Nominatim (Roa Island settlement — mainland side of Piel ferry)
+206	westmorland-and-furness.txt	Roa Island Jetty	resolved	54.0742028	-3.1743721	jetty	No separate jetty node; Roa Island hamlet centroid as coastal landing area
+207	westmorland-and-furness.txt	Sandscale Beach	resolved	54.1675114	-3.2502967	beach	OpenStreetMap/Nominatim (Sandscale Haws NNR label — foreshore/dune coast)
+208	westmorland-and-furness.txt	North Walney Dunes	ambiguous			dunes	North Walney dune system; no single named OSM point
+209	westmorland-and-furness.txt	South Walney Lagoon	resolved	54.0485089	-3.1994913	lagoon	OpenStreetMap/Nominatim (South Walney Nature Reserve visitor centre on lagoon margin)
+210	westmorland-and-furness.txt	Duddon Estuary SSSI	resolved	54.1848531	-3.2144911	protected_area	OpenStreetMap/Nominatim (“The Duddon Estuary” place near Askam)
+211	westmorland-and-furness.txt	Leven Estuary SSSI	resolved	54.1927700	-3.0425200	protected_area	BirdGuides site map centroid for Leven Estuary; no Nominatim POI
+212	westmorland-and-furness.txt	Morecambe Bay SSSI	ambiguous			protected_area	SSSI spans the wider Morecambe Bay intertidal system; not one point feature
+213	westmorland-and-furness.txt	Cumbria Coastal Way	resolved	54.1958100	-2.9019476	hiking_route	OpenStreetMap/Nominatim (named segment on Grange-over-Sands Promenade)
+214	westmorland-and-furness.txt	King Charles III England Coast Path	ambiguous			trail	National Coast Path; Cumbria segment is long — no single centroid
+215	westmorland-and-furness.txt	Jubilee Bridge Footpath	resolved	54.1076352	-3.2434177	bridge	OpenStreetMap/Nominatim (Walney Bridge / Jubilee Bridge footway)
+216	westmorland-and-furness.txt	Walney Offshore Wind Farm	resolved	54.0440000	-3.5220000	offshore_wind	Wikipedia published array centroid; offshore — no OSM POI
+217	westmorland-and-furness.txt	Walney Extension Offshore Wind Farm	resolved	54.0318090	-3.4319190	offshore_wind	UK Planning Data infrastructure-project point (Walney Extension); offshore array
+218	westmorland-and-furness.txt	West of Duddon Sands	resolved	53.9851000	-3.4620000	offshore_wind	Global Energy Monitor / Wikipedia centroid; Irish Sea site west of Furness
+219	westmorland-and-furness.txt	Ormonde Wind Farm	resolved	54.0889000	-3.4386000	offshore_wind	Global Energy Monitor centroid; Irish Sea west of Barrow
+220	westmorland-and-furness.txt	Barrow Offshore Wind	resolved	53.9915000	-3.2983000	offshore_wind	Global Energy Monitor centroid; Irish Sea off Barrow
+221	westmorland-and-furness.txt	North Walney Extension	resolved	54.0870000	-3.7370000	offshore_wind	Walney Extension western/northern sector coords (industry database); large array
+222	westmorland-and-furness.txt	Grange	resolved	54.1929391	-2.9100401	town	OpenStreetMap/Nominatim (Grange-over-Sands — local short name)
+223	westmorland-and-furness.txt	Barrow	resolved	54.1288796	-3.2269008	town	OpenStreetMap/Nominatim (Barrow-in-Furness — local short name)
+224	westmorland-and-furness.txt	Foulney	resolved	54.0668306	-3.1521789	island	OpenStreetMap/Nominatim (Foulney Island)
+225	westmorland-and-furness.txt	Roa	resolved	54.0742028	-3.1743721	island	OpenStreetMap/Nominatim (Roa Island — list short name)
+226	westmorland-and-furness.txt	Chapel	resolved	54.1741000	-3.0416000	island	Wikipedia Chapel Island (Leven estuary) — list short name; not Chapel Street Barrow
+227	westmorland-and-furness.txt	Sheep	resolved	54.0648542	-3.2015601	island	OpenStreetMap/Nominatim (Sheep Island — list short name)
+228	westmorland-and-furness.txt	Irish Sea off Barrow	resolved	54.0700000	-3.3300000	sea	Representative offshore point seaward of Barrow (no POI)
+229	westmorland-and-furness.txt	Irish Sea off Walney	resolved	54.0300000	-3.3500000	sea	Representative offshore point west of Walney Island (no POI)
+230	westmorland-and-furness.txt	Morecambe Bay Sands	ambiguous			sand	Intertidal sand/mudflat system; bay-scale feature
+231	westmorland-and-furness.txt	Kent Sands	ambiguous			sand	Kent estuary intertidal sands; no single OSM place
+232	westmorland-and-furness.txt	Leven Sands	resolved	54.1927700	-3.0425200	sand	Leven estuary foreshore (BirdGuides centroid; same locale as Leven Estuary SSSI row)
+233	westmorland-and-furness.txt	Duddon Mouth	ambiguous			estuary	River Duddon meets Irish Sea over a wide dynamic mouth — not one pin
+234	westmorland-and-furness.txt	Leven Mouth	resolved	54.1927700	-3.0425200	estuary	River Leven / Ulverston Channel outlet to Morecambe Bay (BirdGuides locale)
+235	westmorland-and-furness.txt	Kent Channel Mouth	ambiguous			estuary	Tidal Kent channel entering Morecambe Bay; broad mouth zone
+236	westmorland-and-furness.txt	South Lakeland Coast	ambiguous			coast	Administrative coastline label; not a single feature
+237	westmorland-and-furness.txt	Furness Coast	ambiguous			coast	Regional coastline label; not a single feature
+238	westmorland-and-furness.txt	Grange Jetty	resolved	54.1956930	-2.9028039	jetty	No dedicated jetty node; Grange-over-Sands Promenade / seafront proxy
+239	westmorland-and-furness.txt	Flookburgh Jetty	ambiguous			jetty	Working harbour/jetty area at Flookburgh; no single named OSM jetty point
+240	westmorland-and-furness.txt	Ulverston Canal Basin	resolved	54.1952000	-3.0928000	harbour	Town-end canal basin/locks vicinity (approx; no Nominatim POI — distinct from Canal Foot)
+241	westmorland-and-furness.txt	Canal Foot Slipway	resolved	54.1899933	-3.0541839	slipway	Canal Foot hamlet; slipway at canal terminus ~same locale (OpenStreetMap/Nominatim)
+242	westmorland-and-furness.txt	Newton Marsh	ambiguous			wetland	Saltmarsh near Newton-in-Cartmel; no single named OSM feature
+243	westmorland-and-furness.txt	Dalton Marsh	ambiguous			wetland	Coastal marsh near Dalton-in-Furness; no single named OSM feature
+244	westmorland-and-furness.txt	Lindal Marsh	ambiguous			wetland	Coastal marsh near Lindal-in-Furness; no single named OSM feature
+245	westmorland-and-furness.txt	Storth Marsh	ambiguous			wetland	Coastal marsh belt near Storth; no single named OSM feature
+246	westmorland-and-furness.txt	Sandside Marsh	ambiguous			wetland	Marsh near Sandside on Leven estuary; no single named OSM feature
+247	westmorland-and-furness.txt	Carr Bank Marsh	ambiguous			wetland	Marsh near Carr Bank; no single named OSM feature
+248	westmorland-and-furness.txt	Kents Bank Marsh	ambiguous			wetland	Marsh near Kents Bank; no single named OSM feature
+249	westmorland-and-furness.txt	Grange Marsh	ambiguous			wetland	Marsh near Grange-over-Sands; no single named OSM feature
+250	westmorland-and-furness.txt	Arnside Beach	resolved	54.1990654	-2.8412203	beach	Foreshore proxy; Arnside Beach Hut node on coastal road (OpenStreetMap/Nominatim)
+251	westmorland-and-furness.txt	Askam Shore	resolved	54.1887065	-3.2039446	shore	Coastal shore via Askam-in-Furness town centroid (human-map proxy)
+252	westmorland-and-furness.txt	Ireleth Shore	resolved	54.1893334	-3.1959907	shore	Coastal shore via Ireleth village (OpenStreetMap/Nominatim)
+253	westmorland-and-furness.txt	Flookburgh Shore	resolved	54.1743800	-2.9737924	shore	Morecambe Bay foreshore locale via Flookburgh village (OpenStreetMap/Nominatim)
+254	westmorland-and-furness.txt	Roose Bay	resolved	54.1170249	-3.1934506	bay	Shore zone at bay features near Roose suburb (OpenStreetMap/Nominatim)
+255	westmorland-and-furness.txt	Roosecote Bay	resolved	54.1096562	-3.1827427	bay	Coastal inlet locale near Roosecote hamlet (OpenStreetMap/Nominatim)
+256	westmorland-and-furness.txt	Barrow Island Shipyard	resolved	54.1041299	-3.2282928	shipyard	Barrow Island suburb centroid as shipyard locale proxy (OpenStreetMap/Nominatim)
+257	westmorland-and-furness.txt	Submarine Building Hall	resolved	54.1101921	-3.2369488	works	Devonshire Dock Hall submarine assembly building (OpenStreetMap/Nominatim)
+258	westmorland-and-furness.txt	Chapel Island Spit	ambiguous			spit	Sediment spit off Chapel Island (Leven); no single stable OSM point
+259	westmorland-and-furness.txt	Foulney Island Spit	ambiguous			spit	Dynamic spit margins at Foulney Island; not one pin
+260	westmorland-and-furness.txt	Sheep Island Rocks	resolved	54.0648542	-3.2015601	islet	Sheep Island (OpenStreetMap/Nominatim); rocky islet label
+261	westmorland-and-furness.txt	Arnside Tidal Bore	resolved	54.2013106	-2.8342988	phenomenon	Morecambe Bay bore; viewer locale Arnside village (OpenStreetMap/Nominatim)
+262	westmorland-and-furness.txt	Ayside	resolved	54.2443218	-2.9339006	hamlet	OpenStreetMap/Nominatim
+263	westmorland-and-furness.txt	Woodland	not_found		woodland	No OpenStreetMap match; likely minor wooded locality near Bouth/Colton without a named place node
+264	westmorland-and-furness.txt	Bouth	resolved	54.2617244	-3.0327687	village	OpenStreetMap/Nominatim
+265	westmorland-and-furness.txt	Haverthwaite	resolved	54.2461852	-3.0136663	village	OpenStreetMap/Nominatim (village node)
+266	westmorland-and-furness.txt	Backbarrow	resolved	54.2554422	-2.9885306	village	OpenStreetMap/Nominatim
+267	westmorland-and-furness.txt	Spark Bridge	resolved	54.2549619	-3.0674055	village	OpenStreetMap/Nominatim
+268	westmorland-and-furness.txt	Bandrake Head	resolved	54.2760294	-3.0553007	hamlet	OpenStreetMap/Nominatim
+269	westmorland-and-furness.txt	Boarbank	resolved	54.1818259	-2.9504364	locality	Boarbank Lane (Lower Allithwaite) way centroid; no named hamlet node (OpenStreetMap/Nominatim)
+270	westmorland-and-furness.txt	Hycemoor	resolved	54.2941036	-3.3926777	hamlet	Hamlet at Bootle (Cumberland LA19) on west Cumbria coast; OSM — outside W&F unitary but same coastal list
+271	westmorland-and-furness.txt	Lane Ends	resolved	54.1827180	-3.1604900	hamlet	Open Postcode Geo LA12 0NG (Lane Ends, Marton, Ulverston)
+272	westmorland-and-furness.txt	Loppergarth	resolved	54.1896913	-3.1370991	hamlet	OS grid SD259977 → WGS84; hamlet in Pennington parish (Historic England / community sources)
+273	westmorland-and-furness.txt	Mountbarrow	resolved	54.1797380	-3.0968040	locality	Mount Barrow Way / LA12 9NT centroid (Doogal); Ulverston built-up area
+274	westmorland-and-furness.txt	Rosside	resolved	54.1972318	-3.1145896	village	Postcode place centroid (postcodebyaddress); Wikipedia/Wikishire village east of Ulverston
+275	westmorland-and-furness.txt	Beacon Hill	resolved	54.0958593	-3.2629781	hill	Walney “Beacon Brow” locale east of south-end coastguard area; OS grid proxy SD175674
+276	westmorland-and-furness.txt	Quarry Hill	resolved	54.1011700	-3.2707862	hill	Walney west coast near Quarryhead Lane; OS grid proxy SD1768
+277	westmorland-and-furness.txt	Millionaires Walk	ambiguous			path	No verifiable single coastal path by this name in public W&F/Furness sources for this list context
+278	westmorland-and-furness.txt	Arnside Marsh Walk	ambiguous			path	Informal marsh/foreshore walks near Arnside; no single mapped “walk” centroid
+279	westmorland-and-furness.txt	Roose Marsh Walk	ambiguous			path	Marsh footpath network near Roose; not one pin
+280	westmorland-and-furness.txt	Sandscale Marsh	resolved	54.1868480	-3.2427630	wetland	Sandscale Haws NNR marsh/dune system (GeoHack / Wikipedia infobox coords)
+281	westmorland-and-furness.txt	North Scale Marsh	resolved	54.1185000	-3.2520000	wetland	Saltmarsh north of North Scale, Walney; approximate centroid from MSOA/postcode context
+282	westmorland-and-furness.txt	Sandy Gap Slacks	resolved	54.1042830	-3.2604820	dune_slack	Sandy Gap Lane centroid (StreetList); dune slack complex behind beach
+283	westmorland-and-furness.txt	Foxfield	resolved	54.2580000	-3.2150000	village	Wikipedia infobox; village on Duddon Estuary (Broughton West parish)
+284	westmorland-and-furness.txt	Ulverston Bay	ambiguous			bay	Large Morecambe Bay margin by Ulverston/Leven; no single representative point
+285	westmorland-and-furness.txt	Ramsden Square	resolved	54.1140672	-3.2313933	square	Wikipedia / postcodebyaddress LA14 1LL area
+286	westmorland-and-furness.txt	Devonshire Buildings	resolved	54.1104000	-3.2374000	works	Proxy: Devonshire Dock Hall centroid (Wikipedia/GeoHack); yard buildings on Barrow Island
+287	westmorland-and-furness.txt	Earnse Sandbank	ambiguous			sandbank	Intertidal sandbanks off Earnse; dynamic feature, no stable single coordinate
+288	westmorland-and-furness.txt	Walney Channel Sands	ambiguous			sand	Intertidal sands in Walney Channel; channel-scale feature
+289	westmorland-and-furness.txt	South Walney Spit	resolved	54.0518739	-3.1684642	spit	GCR site southern distal area proxy SD236624 → WGS84
+290	westmorland-and-furness.txt	North Walney Spit	resolved	54.1325698	-3.2763389	spit	GCR site northern distal area proxy SD167715 → WGS84
+291	westmorland-and-furness.txt	Rating Lane	resolved	54.1312130	-3.2065520	street	LA13 0NY postcode centroid (Doogal); Rating Lane, Barrow
+292	westmorland-and-furness.txt	North Road	resolved	54.1116620	-3.2389180	street	North Road LA14 2PW centroid (StreetList); Barrow Island
+293	westmorland-and-furness.txt	Park Drive	resolved	54.1188970	-3.2165670	street	LA13 9BB centroid (Doogal)
+294	westmorland-and-furness.txt	Greengate	resolved	54.1136160	-3.2311590	locality	LA14 1XA centroid (Doogal); Greengate Street / Hindpool dockside area
+295	westmorland-and-furness.txt	Island Road	resolved	54.1042510	-3.2224270	street	LA14 2SW centroid (Doogal); Barrow Island
+296	westmorland-and-furness.txt	Walney Promenade	resolved	54.1053310	-3.2466670	promenade	LA14 3BN centroid (Doogal); Promenade, Walney
+297	westmorland-and-furness.txt	Earnse Bay Sands	resolved	54.1057912	-3.2586914	beach	Earnse Bay intertidal proxy (pyproj from Earnse Bay centroid estimate)
+298	westmorland-and-furness.txt	North Scale Sands	resolved	54.1190000	-3.2680000	beach	North Walney west-shore sands north of Vickerstown; map estimate
+299	westmorland-and-furness.txt	Sandy Gap Sands	resolved	54.1042830	-3.2604820	beach	Sandy Gap beach access / lane centroid (StreetList BBC context)
+300	westmorland-and-furness.txt	Biggar Sands	resolved	54.0950000	-3.2584000	beach	Walney Biggar Bank / Biggar Sands (Beaches On The Air / beach guides)
+301	westmorland-and-furness.txt	Vickerstown Sands	resolved	54.0980000	-3.2552000	beach	Walney west-shore sands off Vickerstown (between Biggar Bank and Sandy Gap; map proxy)
+302	westmorland-and-furness.txt	Kent Estuary Mudflats	resolved	54.1680000	-2.9180000	mudflat	River Kent estuary intertidal flats proxy (Kents Bank / mid-estuary sector)
+303	westmorland-and-furness.txt	Leven Estuary Mudflats	resolved	54.2320000	-3.0580000	mudflat	Greenodd Sands / River Leven mouth intertidal proxy (near Greenodd footbridge views)
+304	westmorland-and-furness.txt	Duddon Estuary Mudflats	resolved	54.1775000	-3.2567000	mudflat	Duddon Estuary intertidal centroid proxy (published SPA/summary coordinates)
+305	westmorland-and-furness.txt	Morecambe Bay Mudflats	ambiguous			mudflat	UK’s largest continuous intertidal complex; any single pin is not representative of the whole bay

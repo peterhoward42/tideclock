@@ -496,7 +496,7 @@ export function tideDiagramToScene(diagram) {
               cy,
             ),
             waitArc.sweepRad,
-            { arrow: waitArc.arrow },
+            waitArc.arrow != null ? { arrow: waitArc.arrow } : undefined,
           ),
         ])
       : null;
