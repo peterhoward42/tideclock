@@ -40,19 +40,21 @@ When `**spec.semantic.nextTide`** is injected, layout may use it for next-tide t
 instead of scanning markers; `**tideMarks**` remains **required** for drawing **TideMarks**.
 
 For **NextPointer** occlusion clearance, a separate derived rule applies only when
-a next marker exists on the same civil day: if the forward interval from
-`**timeNow`** to that marker is **strictly less than 5 minutes** (the angular span
-of 5 minutes on the 24 h dial), generation omits **NowPointer**’s **Now radial
-line** and **Now label**. At that same threshold, **WaitArc** geometry is kept and
-only **WaitArc** arrow metadata is omitted. At **exactly 5 minutes**, none of these
-clearance omissions apply.
+a next marker exists on the same civil day:
+
+- If the forward interval from `**timeNow`** to that marker is **strictly less
+  than 5 minutes** (the angular span of 5 minutes on the 24 h dial), generation
+  omits **NowPointer**’s **Now radial line** and **Now label**.
+- At that same threshold, **WaitArc** geometry is kept and only **WaitArc**
+  arrow metadata is omitted.
+- At **exactly 5 minutes**, none of these clearance omissions apply.
 
 - `**canvas`** — object with finite `**width`** and `**height**` (px).
 - `**title**` — string (diagram meta).
 - `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
 - `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
-- `**waitArc`** — **required** plain object. `**radius`** must be a finite **k·R** multiplier **> 0** (**R_wait = WaitArcRadius·RefRadius**). `**arrow`** is **required**: finite `**lengthK`**, `**widthK**`, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a **boolean**. (The wait arc is still **omitted from the scene** when there is no next marker at/after `**timeNow`**. When a qualifying next marker exists but is strictly less than **5 minutes** ahead, generation keeps **WaitArc** geometry and omits only its arrow metadata; that behavior is derived, not a zero-radius escape hatch.)
+- `**waitArc`** — **required** plain object. `**radius`** must be a finite **k·R** multiplier **> 0** (**R_wait = WaitArcRadius·RefRadius**). `**arrow`** is **required**: finite `**lengthK`**, `**widthK**`, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a **boolean**. (Derived behaviour still applies: with no next marker at/after `**timeNow`**, **WaitArc** is omitted; with a qualifying next marker strictly less than **5 minutes** ahead, **WaitArc** geometry remains and only arrow metadata is omitted.)
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText**`, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** in `**HH:MM:SS`** **other than** `**24:00:00`** (that sentinel is for the RefArc right endpoint only, not for tide events). These finite numbers are required on `**tideMarks**`: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
 - `**nowPointer**` / `**nextPointer**` — **required** plain objects with the nested fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks): **now** — `**radialLine`**, `**label**`, `**triangle**`; **next** — `**radialLine`** only. `**radialLine.outerRadius`** must be a finite **k·R** multiplier **> 0** and must place the line end **outside** **R_frame** (outer **>** inner). On `**nowPointer.triangle`**, `**subtendedAngleRad**` is **required**: a **literal** angle in **radians** (not a **k·R** length); see **§NowPointer**. **R_frame** from `**centreFrame.frameArcRadius`** supplies the Now radial **inner** radius; the Next filled-circle radius is **σ·R_frame** for fixed **σ** in **§NextPointer** (see **CentreFrame**, **NowPointer**, **NextPointer**). **NextPointer** is omitted from the scene only when there is no qualifying next tide (derived), not when `**nextPointer`** is missing.
 - `**timeNowLabel**` — **required** plain object; finite `**x`**, `**fontHeight**`, and `**y**` (**k·R** multiples; see **TimeNowLabel**). Together with required string `**timeNowDatePrefix`**, drives the **TimeNowLabel** group.
@@ -254,9 +256,14 @@ model em-boxes or similar font metrics.
 - **Now radial line** — one radial segment on the time-now ray.
 - **Now label** — one **TextElement** with constant text `now`.
 - **Now triangle** — one **filled** closed wedge (**fill** and **stroke** on the composite boundary), geometrically as follows: **vertex** on the **RefArc** at **θ_now**; the wedge **opens outward** along the time-now ray (**away from O**, into **AnnularBand**). Two **equal** straight sides diverge from that outward bisector by **±½·subtendedAngleRad** and meet the **outer** circle of **AnnularBand**; the third boundary is the **minor circular arc** on that outer circle between the two outer endpoints (same centre **O** as the RefArc). Paint uses **NowTriangle** leaf styles (product default: **fill** and **stroke** colour matched to **TideMarks.TimePointer** outline colour for visual consistency).
-- Occlusion-clearance omission: when a qualifying next tide marker exists and is
-strictly less than 5 minutes ahead of `**timeNow`**, **Now radial line** and
-**Now label** are omitted; **Now triangle** remains.
+
+### Occlusion-clearance rule
+
+- When a qualifying next tide marker exists and is strictly less than
+**5 minutes** ahead of `**timeNow`**, **Now radial line** and **Now label** are
+omitted.
+- **Now triangle** remains.
+- At **exactly 5 minutes**, this omission does not apply.
 
 ### Time association
 
@@ -398,14 +405,15 @@ geometry.
 - If no next marker exists on the same civil day, **WaitArc** is omitted.
 - If the qualifying next tide marker exists and is strictly less than
 **5 minutes** ahead of `**timeNow`**, **WaitArc** geometry is still emitted and
-only its arrow metadata is omitted.
+only its arrow metadata is omitted (see also **§Strict diagram input → Derived
+behaviour**).
 
 ### Arrow metadata
 
 - **WaitArc** carries arrow metadata only; generator does not synthesize
 arrowhead geometry.
-- Arrow metadata is omitted when the qualifying next tide marker exists and is
-strictly less than **5 minutes** ahead of `**timeNow`**.
+- Arrow metadata is omitted in the same strictly-less-than-**5 minutes**
+occlusion-clearance case described above.
 - Arrow metadata fields:
   - **at** — currently fixed to `end` for **WaitArc**.
   - **lengthK** — arrowhead length multiplier (recommended in stroke-width
