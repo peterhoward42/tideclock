@@ -1,6 +1,6 @@
 /**
  * Aggregates tools/towns2/coastal-geocoded/*.tsv into shipped app JSON:
- * - src/data/towns2.compact.json — same v1 shape as towns.compact.json (Town rows)
+ * - src/data/towns2.compact.json — compact Town rows (see src/data/townSchema.ts)
  * - src/data/towns2-search-lines.json — parallel search strings (same row order)
  *
  * Run: node tools/towns2/build-towns2-compact.mjs

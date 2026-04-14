@@ -29,8 +29,8 @@ Files: `src/core-models/TideExtreme.ts`, `src/core-models/TideExtremesAtLocation
 Goal: ensure exported shapes and any constructors/factories reflect required vs optional fields honestly.
 
 **Step 2 — Baked town list**  
-Files: `src/data/bakedTowns.ts`, `src/data/bakedTowns.test.ts`.  
-Goal: tighten types for town records and any helpers; keep data file readable.
+Files: `src/data/townSchema.ts`, `src/data/bakedTowns2.ts`, plus tests that exercise `Town` / location persistence (e.g. `src/data-pipelines/currentLocation.test.ts`).  
+Goal: tighten types for town records and any helpers; keep compact JSON and build pipeline readable.
 
 ---
 
@@ -142,7 +142,7 @@ Files: `src/ui/routes/About.svelte`, `Acknowledgements.svelte`, `Cookies.svelte`
 Goal: typed props/state; orchestration stays thin.
 
 **Step 24 — Location route**  
-Files: `src/ui/routes/Location.svelte`.
+Files: `src/ui/routes/LocationTowns2.svelte`.
 
 **Step 25 — Home route**  
 Files: `src/ui/routes/Home.svelte`.  
@@ -209,7 +209,7 @@ TypeScript migration of `src/diagram-generation/**/*.mjs` or stricter shared spe
 flowchart LR
   subgraph p1 [Phase 1]
     M[core-models]
-    T[data/bakedTowns]
+    T[data/townSchema + bakedTowns2]
   end
   subgraph p2 [Phase 2]
     W[time-services]

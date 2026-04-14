@@ -1,6 +1,6 @@
 /**
- * townSchema.ts — Shared town row shape and compact-table hydration used by both
- * legacy and towns2 datasets.
+ * townSchema.ts — Shared town row shape and compact-table hydration for shipped
+ * towns2 JSON (`towns2.compact.json`).
  */
 
 /** One settlement row after hydration from a compact towns JSON document. */

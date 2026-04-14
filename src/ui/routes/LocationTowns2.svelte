@@ -1,7 +1,7 @@
 <script lang="ts">
   /**
-   * LocationTowns2.svelte — Prototype coastal place search using fragment AND matching
-   * ({@link SearchSpaceQueryer}) over the towns2 baked dataset. Calls the shell to persist selection.
+   * LocationTowns2.svelte — Coastal place search using fragment AND matching ({@link SearchSpaceQueryer})
+   * over the baked towns2 list. Calls the shell to persist selection.
    */
   import { navigate } from "../../infrastructure/router.js";
   import type { Town } from "../../data/townSchema";
@@ -77,7 +77,7 @@
 
   <section class="feedback" id="town2-search-feedback" aria-live="polite">
     {#if queryPack.kind === "idle"}
-      <p class="muted">Start typing to search the coastal places list (prototype dataset).</p>
+      <p class="muted">Start typing to search the coastal places list.</p>
     {:else if queryPack.totalMatchingRows === 0}
       <p class="muted">No places match that search. Try different words or fewer words.</p>
     {:else}
@@ -118,8 +118,6 @@
       {/if}
     {/if}
   </section>
-
-  <p class="lab">Prototype route — the classic Location screen is unchanged under Menu → Location.</p>
 </main>
 
 <style>
@@ -130,15 +128,9 @@
   }
 
   .helper,
-  .muted,
-  .lab {
+  .muted {
     color: #4b5563;
     margin: 0;
-  }
-
-  .lab {
-    font-size: 0.88rem;
-    margin-top: 0.5rem;
   }
 
   .mono {

@@ -11,19 +11,22 @@ This plan is intentionally split into session-friendly phases, each with:
 - dependency notes, and
 - explicit verification gates.
 
-## Current State (Baseline)
+## Migration status (Phases 1–5 complete)
 
-- Runtime route selection already favors the newer location flow:
-  - `#/location` is normalized to `location2` in `src/infrastructure/router.js`.
-  - Menu and header links use `#/location2` in `src/ui/components/AppHeader.svelte`.
-- Old and new location implementations coexist:
-  - old: `src/ui/routes/Location.svelte` + `src/data/bakedTowns.ts` + `src/data/towns.compact.json`
-  - new: `src/ui/routes/LocationTowns2.svelte` + `src/data/bakedTowns2.ts` + towns2 JSON artifacts
-- Shared types and hydration logic still live in the old module:
-  - `Town` type and `hydrateTownsCompact()` are exported from `src/data/bakedTowns.ts`
-  - newer code imports those exports, so direct deletion would break compilation.
-- Old developer tooling likely still exists but appears disconnected from active scripts:
-  - `tools/os-open-names/*`
+The redundancy removal described below has been carried through in this repo. **Canonical** location data is the towns2 pipeline (`tools/towns2/pipeline-source-of-truth.md`); runtime consumption is `src/data/bakedTowns2.ts`, `src/data/towns2.compact.json`, and `src/data/towns2-search-lines.json`, with shared row typing in `src/data/townSchema.ts`. The location UI is `src/ui/routes/LocationTowns2.svelte` (route id `location2`). Hash alias behaviour for `#/location` is whatever `src/infrastructure/router.js` currently implements.
+
+The phase checklist and **Historical baseline** section remain for audit and onboarding.
+
+## Historical baseline (before migration)
+
+- Runtime route selection was moving toward the newer location flow:
+  - `#/location` was normalized to `location2` in `src/infrastructure/router.js`.
+  - Menu and header links used `#/location2` in `src/ui/components/AppHeader.svelte`.
+- Old and new location implementations coexisted:
+  - **Removed later:** `src/ui/routes/Location.svelte`, `src/data/bakedTowns.ts`, `src/data/towns.compact.json`
+  - **Canonical now:** `src/ui/routes/LocationTowns2.svelte` + `src/data/bakedTowns2.ts` + towns2 JSON artifacts
+- Shared types and hydration initially lived in the legacy module until Phase 1 moved them to `src/data/townSchema.ts`.
+- Legacy tooling under `tools/os-open-names/*` was retired in Phase 4.
 
 ## Constraints and Safety Rules
 

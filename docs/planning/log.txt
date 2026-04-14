@@ -179,5 +179,7 @@ o  don't forget
 	o  learn about tides
 	o  hire me
 
+2026-04-14 — Location route redundancy plan Phase 5: docs and comments aligned with canonical towns2 route (`LocationTowns2`, `bakedTowns2`, `townSchema`); planning docs updated; `location-route-redundancy-removal-plan.md` marked complete with migration status banner.
+
 
 
