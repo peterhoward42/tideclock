@@ -111,7 +111,7 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
   title: 'home-tide-diagram',
   canvas: { width: 420, height: 320 },
   refRadius: 118,
-  sweepRad: 2.75,
+  sweepRad: Math.PI ,
   tickLen: 0.02,
   tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
   tickLabelSize: 0.04,
