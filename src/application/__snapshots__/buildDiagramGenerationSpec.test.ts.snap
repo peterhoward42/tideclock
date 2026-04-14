@@ -706,20 +706,20 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     ],
     "timeDeltaEmptyMessage": null,
   },
-  "timeNowLabel": {
+  "timeNowClock": {
     "hhmm": {
       "anchor": {
-        "x": 109.504,
-        "y": -141.6,
+        "x": 113.036649765169,
+        "y": -130.98000000000002,
       },
-      "content": "Mon 23 Mar - 19:20",
+      "content": "19:20",
       "fontSize": 4.72,
       "hAlign": "right",
     },
     "seconds": {
       "anchor": {
-        "x": 118,
-        "y": -141.6,
+        "x": 121.532649765169,
+        "y": -130.98000000000002,
       },
       "content": "03",
       "fontSize": 4.72,
@@ -727,13 +727,22 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     },
     "secondsColon": {
       "anchor": {
-        "x": 112.336,
-        "y": -141.6,
+        "x": 115.868649765169,
+        "y": -130.98000000000002,
       },
       "content": ":",
       "fontSize": 4.72,
       "hAlign": "right",
     },
+  },
+  "timeNowDate": {
+    "anchor": {
+      "x": 121.532649765169,
+      "y": -125.08000000000001,
+    },
+    "content": "Mon 23 Mar",
+    "fontSize": 4.72,
+    "hAlign": "right",
   },
   "version": 1,
   "waitArc": {
@@ -764,7 +773,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "maxX": 332.532649765169,
       "maxY": 150.6695167057848,
       "minX": 80.00553500568172,
-      "minY": 16.456000000000007,
+      "minY": 27.075999999999983,
     },
     "title": "home-tide-diagram",
     "width": 420,
@@ -1629,14 +1638,31 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       {
         "children": [
           {
+            "anchor": {
+              "x": 331.532649765169,
+              "y": 34.91999999999999,
+            },
+            "angleRad": 0,
+            "content": "Mon 23 Mar",
+            "hAlign": "right",
+            "kind": "text",
+            "size": 4.72,
+          },
+        ],
+        "kind": "group",
+        "name": "TimeNowDate",
+      },
+      {
+        "children": [
+          {
             "children": [
               {
                 "anchor": {
-                  "x": 319.504,
-                  "y": 18.400000000000006,
+                  "x": 323.036649765169,
+                  "y": 29.019999999999982,
                 },
                 "angleRad": 0,
-                "content": "Mon 23 Mar - 19:20",
+                "content": "19:20",
                 "hAlign": "right",
                 "kind": "text",
                 "size": 4.72,
@@ -1649,8 +1675,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 322.336,
-                  "y": 18.400000000000006,
+                  "x": 325.868649765169,
+                  "y": 29.019999999999982,
                 },
                 "angleRad": 0,
                 "content": ":",
@@ -1666,8 +1692,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 328,
-                  "y": 18.400000000000006,
+                  "x": 331.532649765169,
+                  "y": 29.019999999999982,
                 },
                 "angleRad": 0,
                 "content": "03",
@@ -1681,7 +1707,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           },
         ],
         "kind": "group",
-        "name": "TimeNowLabel",
+        "name": "TimeNowClock",
       },
       {
         "children": [

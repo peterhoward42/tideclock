@@ -14,6 +14,7 @@ export {
 } from "./mapping/toScene.mjs";
 
 export {
+  annularBandMaxX,
   polar,
   refArcAngles,
   timeToTheta,

@@ -12,7 +12,7 @@
  * - Sub-builders (`buildTideMarksFromSpec`, pointers, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0** (defines the Now **triangle** outer radius together with **RefRadius**).
  * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
- * - `**timeNowLabel**` is required (plain object with finite **x**, **fontHeight**, **y** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
+ * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
  * - `**waitArc.radius**` must be a finite **k·R** multiplier **> 0** (zero or negative throws).
  * - `**nowPointer**` and `**nextPointer**` are required plain objects with the nested fields in docs/specs/tide-diagram.md; degenerate radial geometry (outer ≤ inner) throws.
  * - `**nowPointer.triangle.subtendedAngleRad**` is required: literal radians, strictly between **0** and **π** (see spec).
@@ -34,6 +34,7 @@ import {
   computeNextTideEventCore,
 } from "../model/tideEvents.mjs";
 import {
+  annularBandMaxX,
   polar,
   refArcAngles,
   timeToTheta,
@@ -43,31 +44,28 @@ import {
 const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
 
 /**
- * Root-level clock readout from `spec.timeNow` (canonical `HH:MM:SS`) and required
- * `spec.timeNowDatePrefix` (e.g. `Wed 21 Jun`).
- * Required `spec.timeNowLabel`: `{ x, fontHeight, y }` as RefRadius multiples;
- * **y** is proportion **k**; baseline **Y = −k·R** (subtract **k·R** from **Y = 0**).
- * Date+HH:MM, the colon before seconds, and SS are separate {@link DiagramTextInst}s so each can bind a distinct scene style name.
+ * Time-now readout: **TimeNowDate** (civil prefix) and **TimeNowClock** (`HH:MM` + `:` + `SS`), right-aligned
+ * to {@link annularBandMaxX}; clock baseline **Y** matches the minimum **Y** among **TickLabels** (see spec).
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
- * @returns {import('../model/tideDiagramModel.mjs').DiagramTimeNowLabelInst}
+ * @param {number} annularMaxX diagram-space maximum **X** of **AnnularBand**
+ * @param {number} clockBaselineY diagram-space **Y** shared by all three clock fragments (tick-label-min rule)
+ * @returns {{ timeNowDate: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowClock: import('../model/tideDiagramModel.mjs').DiagramTimeNowClockInst }}
  */
-function buildTimeNowLabelFromSpec(spec, refRadius) {
+function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaselineY) {
   const o = requirePlainObject(spec.timeNowLabel, "spec.timeNowLabel");
-  const xK = o.x;
   const fontHeightK = o.fontHeight;
-  const yK = o.y;
+  const dateAboveK = o.dateAboveTime;
   if (
-    typeof xK !== "number" ||
-    !Number.isFinite(xK) ||
     typeof fontHeightK !== "number" ||
     !Number.isFinite(fontHeightK) ||
-    typeof yK !== "number" ||
-    !Number.isFinite(yK)
+    typeof dateAboveK !== "number" ||
+    !Number.isFinite(dateAboveK) ||
+    dateAboveK < 0
   ) {
     throw new Error(
-      "spec.timeNowLabel requires finite numbers x, fontHeight, and y (RefRadius multiples)",
+      "spec.timeNowLabel requires finite numbers fontHeight and dateAboveTime (RefRadius multiples); dateAboveTime must be >= 0",
     );
   }
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
@@ -79,31 +77,39 @@ function buildTimeNowLabelFromSpec(spec, refRadius) {
   }
   const datePrefix = spec.timeNowDatePrefix.trim();
   const fontSize = fontHeightK * refRadius;
-  const ax = xK * refRadius;
-  const ay = -yK * refRadius;
+  const ax = annularMaxX;
+  const timeY = clockBaselineY;
+  const dateY = timeY + dateAboveK * refRadius;
   const canonical = parsedNow.canonical;
-  const leftSegment = datePrefix === "" ? canonical.slice(0, 5) : `${datePrefix} - ${canonical.slice(0, 5)}`;
   const w = TIME_NOW_LABEL_CHAR_WIDTH_EM * fontSize;
   const secondsWidth = 2 * w;
   const colonWidth = 1 * w;
   return {
-    hhmm: {
-      content: leftSegment,
+    timeNowDate: {
+      content: datePrefix,
       fontSize,
-      anchor: { x: ax - secondsWidth - colonWidth, y: ay },
+      anchor: { x: ax, y: dateY },
       hAlign: "right",
     },
-    secondsColon: {
-      content: canonical.slice(5, 6),
-      fontSize,
-      anchor: { x: ax - secondsWidth, y: ay },
-      hAlign: "right",
-    },
-    seconds: {
-      content: canonical.slice(6),
-      fontSize,
-      anchor: { x: ax, y: ay },
-      hAlign: "right",
+    timeNowClock: {
+      hhmm: {
+        content: canonical.slice(0, 5),
+        fontSize,
+        anchor: { x: ax - secondsWidth - colonWidth, y: timeY },
+        hAlign: "right",
+      },
+      secondsColon: {
+        content: canonical.slice(5, 6),
+        fontSize,
+        anchor: { x: ax - secondsWidth, y: timeY },
+        hAlign: "right",
+      },
+      seconds: {
+        content: canonical.slice(6),
+        fontSize,
+        anchor: { x: ax, y: timeY },
+        hAlign: "right",
+      },
     },
   };
 }
@@ -174,7 +180,26 @@ export function buildDiagram(spec) {
     refRadius,
     sweepRad,
   );
-  const timeNowLabel = buildTimeNowLabelFromSpec(spec, refRadius);
+
+  const annularBand = buildAnnularBandFromSpec(
+    spec,
+    refRadius,
+    thetaLeft,
+    sweepRad,
+  );
+  const annularMaxX = annularBandMaxX(annularBand);
+  if (tickLabels.length === 0) {
+    throw new Error(
+      "spec.tickLabelHours must list at least one hour: time-now clock uses the minimum Y among tick label anchors",
+    );
+  }
+  const clockBaselineY = Math.min(...tickLabels.map((tl) => tl.anchor.y));
+  const { timeNowDate, timeNowClock } = buildTimeNowReadoutFromSpec(
+    spec,
+    refRadius,
+    annularMaxX,
+    clockBaselineY,
+  );
 
   const tideMarks = buildTideMarksFromSpec(
     spec,
@@ -197,12 +222,6 @@ export function buildDiagram(spec) {
     thetaRight,
   );
   const waitArc = buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight);
-  const annularBand = buildAnnularBandFromSpec(
-    spec,
-    refRadius,
-    thetaLeft,
-    sweepRad,
-  );
   const insideTrack = buildInsideTrackFromSpec(
     spec,
     refRadius,
@@ -230,7 +249,8 @@ export function buildDiagram(spec) {
     annularBand,
     timeDeltaDiagram,
     centreFrameDiagram,
-    timeNowLabel,
+    timeNowDate,
+    timeNowClock,
   };
 }
 

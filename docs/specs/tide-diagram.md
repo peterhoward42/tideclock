@@ -23,8 +23,7 @@ The generator **throws** when required host fields are missing or the wrong type
 it does **not** substitute silent numeric defaults for layout keys (`buildDiagram.mjs`
 and layout submodules). Invalid marker rows (including `**24:00:00`** as a marker
 time), degenerate geometry used as configuration (e.g. wait-arc radius **≤ 0**,
-pointer outer radius **≤ R_frame**), or missing objects such as `**timeNowLabel`**
-or `**annularBand`**, are **errors** — not “omit this element” fallbacks.
+pointer outer radius **≤ R_frame**), or missing objects such as the time-now readout inputs (`**timeNowLabel**`, `**timeNowDatePrefix**`) or `**annularBand`**, are **errors** — not “omit this element” fallbacks.
 
 ### Derived behaviour (civil day vs `timeNow`)
 
@@ -59,7 +58,7 @@ arrowhead would dominate the rendered arc segment.
 - `**waitArc`** — **required** plain object. `**radius`** must be a finite **k·R** multiplier **> 0** (**R_wait = WaitArcRadius·RefRadius**). `**arrow`** is **required**: finite `**lengthK`**, `**widthK`**, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a boolean. (Derived behaviour still applies: with no next marker at/after `**timeNow**`, **WaitArc** is omitted; with a qualifying next marker, **WaitArc** geometry remains and arrow metadata is emitted only when the configured arrowhead fits the rendered arc span.)
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** in `**HH:MM:SS`** **other than** `**24:00:00`** (that sentinel is for the RefArc right endpoint only, not for tide events). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
 - `**nowPointer**` / `**nextPointer**` — **required** plain objects with the nested fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks): **now** — `**radialLine`**, `**label`**, `**triangle**`; next — `**radialLine**` only. `**radialLine.outerRadius`** must be a finite **k·R** multiplier **> 0** and must place the line end **outside** **R_frame** (outer **>** inner). On `**nowPointer.triangle`**, `**subtendedAngleRad`** is required: a literal angle in radians (not a k·R length); see §NowPointer. R_frame from `**centreFrame.frameArcRadius**` supplies the Now radial **inner** radius; the Next filled-circle radius is **σ·R_frame** for fixed **σ** in **§NextPointer** (see **CentreFrame**, **NowPointer**, **NextPointer**). **NextPointer** is omitted from the scene only when there is no qualifying next tide (derived), not when `**nextPointer`** is missing.
-- `**timeNowLabel`** — **required** plain object; finite `**x`**, `**fontHeight`**, and `**y**` (k·R multiples; see TimeNowLabel). Together with required string `**timeNowDatePrefix**`, drives the **TimeNowLabel** group.
+- `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required string `**timeNowDatePrefix**`, drives **TimeNowDate** and **TimeNowClock**.
 - `**timeDelta`** — **required** plain object; string `**town**`; enum `**tidePhasePair ∈ {"out-low","in-high"}**`; **`countdownLines`** — array of **exactly three** plain objects (location, phase, next-event stripes), each with finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**); **`emptyMessage`** — plain object with finite `**belowOrigin`** and `**fontHeight`** for the **NoMoreTidesToday** case. Per stripe, `**belowOrigin`** is the distance from **Y = 0** toward **−Y** to that stripe’s baseline; **X** is fixed at **0** for all. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc and the **NowPointer** radial inner endpoint (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
 - `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
@@ -73,7 +72,8 @@ arrowhead would dominate the rendered arc segment.
   - NowPointer
   - NextPointer
   - WaitArc
-  - TimeNowLabel (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds**)
+  - TimeNowDate (single **TextElement**; civil date prefix from the host)
+  - TimeNowClock (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds** — canonical `HH:MM`, the colon before `SS`, and `SS`)
   - TimeDelta (countdown style-bound leaves: **TimeDeltaLocation**, **TimeDeltaPhase**, **TimeDeltaNext**)
   - NoMoreTidesToday
   - CentreFrame
@@ -428,43 +428,49 @@ Now-line/Now-label 1-hour occlusion threshold).
   - **scaleWithStroke** — boolean; when true, renderer scales marker with
   stroke width.
 
-## TimeNowLabel
+## Time now readout
 
-**TimeNowLabel** is a **top-level** named element (see **Diagram elements**). It
-shows the current civil clock time derived from global `**timeNow`**.
+Two related **top-level** named elements (see **Diagram elements**) show local civil **date** and **clock time** derived from the host’s `**timeNowDatePrefix**` and global canonical `**timeNow**` (`**HH:MM:SS**`). They are positioned **relative to AnnularBand** and **TickLabels** as below (not from free-floating absolute `x`/`y` clock anchors).
 
-### Input
+### Shared inputs
 
-- Diagram input object `**timeNowLabel`** — **required**; all of the following are **required**
-(finite numbers as **k·R** multiples); the host supplies layout (e.g. product baseline
-in `**buildDiagramGenerationSpec`**):
-  - `**fontHeight`** — proportion **k** as **k·R** (**§Sizing**).
-  - `**x`** — proportion **k** as **k·R** for anchor **X** (typically toward **+X** in the content region).
-  - `**y`** — proportion **k** as **k·R** (**§Sizing**): a **positive** host value is interpreted as **k·R** **subtracted** from **Y = 0** (**§Origin**) to place the shared text **baseline** at **Y = 0 − k·R** (toward **−Y** / **below** the arc centre when **k > 0**).
-- Diagram input `**timeNowDatePrefix`** — required string prefix for the left fragment
-(customary short form such as `**Wed 21 Jun`**).
+- Diagram input object `**timeNowLabel`** — **required** plain object; finite numbers as **k·R** multiples (**§Sizing**):
+  - `**fontHeight`** — **k_font·R**; used as **FontHeight** for **both** **TimeNowDate** and **TimeNowClock** leaves.
+  - `**dateAboveTime`** — non-negative **k·R** gap: the **TimeNowDate** baseline is **`dateAboveTime·R`** **above** (+**Y**) the **TimeNowClock** baseline (same diagram-space **Y** convention as **§Origin**).
+- Diagram input `**timeNowDatePrefix`** — required string for **TimeNowDate** text (customary short form such as `**Wed 21 Jun`**; may be empty after trim).
 
-### Text and placement
+### Horizontal placement (both elements)
 
-- Three **TextElement**s that read as one `**Wed 21 Jun - HH:MM:SS`** line (same **FontHeight** and baseline):
-  - **Date+HH:MM fragment** — `**timeNowDatePrefix + " - " + HH:MM`**.
-  - **Seconds-colon fragment** — a single literal `**:`** (the colon immediately before `**SS`**).
-  - **Seconds fragment** — canonical `**SS`** (two digits).
-  - **No** literal prefix such as “Time now”.
-  - **FontHeight** — **k_font·R** with **k_font** from `**fontHeight`**.
-  - **Horizontal justification** — **right** for all three; the seconds fragment’s anchor sits at the
-  readout’s trailing edge in **+X**, and the seconds-colon and HMS anchors are offset left by fixed
-  monospace advances so the triple abuts (**§Scene model** uses the same width heuristic as preview framing).
-  - **Baseline polar angle** — **0** (**TextElement defaults**).
-  - **Anchor** — HMS and seconds share **y = 0 − k_y·R** with **k_y** from `**y`**; x for the trailing (seconds)
-  anchor is k_x·R with k_x from `**x`**.
+- Let **X_ann_max** be the **maximum diagram-space X** coordinate attained by the closed **AnnularBand** sector (outer/inner arcs and closing radial segments), for the band’s emitted geometry (same centre **O** as **RefArc**).
+- **TimeNowDate** and **TimeNowClock** use **horizontal justification** **right**.
+- The **trailing** (rightmost) anchor for the clock row is at **(X_ann_max, y_clock)** so the **TimeNowLabelSeconds** anchor **x** equals **X_ann_max**; **TimeNowLabelSecondsColon** and **TimeNowLabelHms** anchors sit to the left by the same fixed monospace width heuristic as before (**§Scene model** / preview framing).
+- **TimeNowDate** uses the same **x** anchor as that trailing clock anchor (**X_ann_max**) so the date and clock are **right-aligned** to one another at the annular band’s **+X** bound.
+
+### Vertical placement
+
+- Let **y_tick_min** be the **minimum** `**anchor.y**` among all emitted **TickLabels** (same anchor convention as **TickLabels**).
+- **TimeNowClock** — all three fragments share baseline **`y_clock = y_tick_min`** (exact numeric equality).
+- **TimeNowDate** — baseline **`y_date = y_clock + dateAboveTime·R`**.
+
+### Clock row text (TimeNowClock)
+
+- Three **TextElement**s on one line (same **FontHeight** and **`y_clock`**):
+  - **TimeNowLabelHms** — canonical `**HH:MM**` only (no date, no literal `" - "`).
+  - **TimeNowLabelSecondsColon** — a single literal `**:`**.
+  - **TimeNowLabelSeconds** — canonical `**SS`**.
+- **Baseline polar angle** — **0** (**TextElement defaults**).
 
 ### Scene model
 
-- Emitted as a named group **TimeNowLabel** containing three child groups:
-  - **TimeNowLabelHms** — one **TextElement** for the **Date+HH:MM** fragment (style name `**time-now-label`**).
-  - **TimeNowLabelSecondsColon** — one **TextElement** (style name `**time-now-label-seconds-colon`**).
-  - **TimeNowLabelSeconds** — one **TextElement** (style name `**time-now-label-seconds`**).
+- **TimeNowDate** — one named group **TimeNowDate** containing one **TextElement** (leaf/style binding name **TimeNowDate**).
+- **TimeNowClock** — named group **TimeNowClock** containing three child groups (stable leaf names for hosts that patch DOM text):
+  - **TimeNowLabelHms** — **TextElement** (leaf name for style binding).
+  - **TimeNowLabelSecondsColon** — **TextElement** (leaf name for style binding).
+  - **TimeNowLabelSeconds** — **TextElement** (leaf name for style binding).
+
+### Generator note
+
+- **`spec.tickLabelHours`** must yield **at least one** tick label when this readout is used; otherwise **y_tick_min** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests the time-now readout — the reference product always lists hours).
 
 ## TimeDelta
 

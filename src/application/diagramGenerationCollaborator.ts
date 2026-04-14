@@ -44,7 +44,7 @@ type DiagramTextInst = {
   readonly hAlign?: "left" | "center" | "right";
 };
 
-type DiagramTimeNowLabelInst = {
+type DiagramTimeNowClockInst = {
   readonly hhmm: DiagramTextInst;
   readonly secondsColon: DiagramTextInst;
   readonly seconds: DiagramTextInst;
@@ -169,7 +169,8 @@ export type TideDiagramDocument = {
   readonly annularBand: AnnularBandDiagram;
   readonly timeDeltaDiagram: TimeDeltaDiagram;
   readonly centreFrameDiagram: CentreFrameDiagram;
-  readonly timeNowLabel: DiagramTimeNowLabelInst;
+  readonly timeNowDate: DiagramTextInst;
+  readonly timeNowClock: DiagramTimeNowClockInst;
 };
 
 type ScenePoint = { readonly x: number; readonly y: number };

@@ -70,6 +70,7 @@ export const STATIC_STYLE_MODEL = {
     { name: "TimeLabel", styleName: "grey6" },
     { name: "TickLabel", styleName: "grey6" },
     { name: "CentreFrame", styleName: "centre-frame" },
+    { name: "TimeNowDate", styleName: "grey5" },
     { name: "TimeNowLabelHms", styleName: "grey5" },
     { name: "TimeNowLabelSecondsColon", styleName: "emphnow" },
     { name: "TimeNowLabelSeconds", styleName: "emphnow" },

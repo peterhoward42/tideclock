@@ -63,9 +63,8 @@ type SemanticInjectionDiagramSpec = {
     readonly markers: readonly SemanticInjectionTideMark[];
   };
   readonly timeNowLabel: {
-    readonly x: number;
     readonly fontHeight: number;
-    readonly y: number;
+    readonly dateAboveTime: number;
   };
   readonly centreFrame: { readonly frameArcRadius: number };
   readonly insideTrackRadius: number;
@@ -128,7 +127,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
         { time: '23:06:00', heightText: '4.8 m', highOrLow: 'High' },
       ],
     },
-    timeNowLabel: { x: 0.8, fontHeight: 0.05, y: 0.95 },
+    timeNowLabel: { fontHeight: 0.05, dateAboveTime: 0.05 },
     centreFrame: { frameArcRadius: 0.35 },
     insideTrackRadius: 0.75,
     timeDelta: {
@@ -180,9 +179,10 @@ describe('spec.semantic.nextTide injection', () => {
       anchor: { x: 0, y: -11.8 },
       hAlign: 'center',
     });
-    expect(diagram.timeNowLabel.hhmm.content).toBe('Mon 23 Mar - 23:59');
-    expect(diagram.timeNowLabel.secondsColon.content).toBe(':');
-    expect(diagram.timeNowLabel.seconds.content).toBe('00');
+    expect(diagram.timeNowDate.content).toBe('Mon 23 Mar');
+    expect(diagram.timeNowClock.hhmm.content).toBe('23:59');
+    expect(diagram.timeNowClock.secondsColon.content).toBe(':');
+    expect(diagram.timeNowClock.seconds.content).toBe('00');
     expect(diagram.nextPointer).toBeNull();
     expect(diagram.waitArc).toBeNull();
     expect(diagram.nowPointer?.triangle).toBeDefined();
@@ -305,6 +305,13 @@ describe('spec.semantic.nextTide injection', () => {
     const { insideTrackRadius: _omit, ...rest } = sampleTideDiagramSpec();
     expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
       /insideTrackRadius/,
+    );
+  });
+
+  it('throws when tickLabelHours is empty (clock baseline needs tick labels)', () => {
+    const spec = { ...sampleTideDiagramSpec(), tickLabelHours: [] };
+    expect(() => buildDiagramFromSpec(spec as DiagramGenerationSpec)).toThrow(
+      /tick label anchors/,
     );
   });
 

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
+import { annularBandMaxX } from '../diagram-generation/index.mjs';
 import { buildDiagramGenerationSpec, utcIsoToLocalCanonicalTimeUtc } from './buildDiagramGenerationSpec';
 import { createDiagramGenerationCollaborator } from './diagramGenerationCollaborator';
 
@@ -88,6 +89,28 @@ describe('createDiagramGenerationCollaborator', () => {
     });
     const spec = { ...base, annularBand: { annularBandWidth: 0 } };
     expect(() => collaborator.generate(spec)).toThrow(/greater than 0/);
+  });
+
+  it('aligns time-now readout to annular max X and minimum tick-label Y', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const spec = buildDiagramGenerationSpec({
+      extremesAtLocation: minimalExtremesForCollaboratorTest(),
+      timeNow: '12:00:00',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+      townName: 'Lymington',
+    });
+    const { diagram } = collaborator.generate(spec);
+    const tickMinY = Math.min(...diagram.tickLabels.map((t) => t.anchor.y));
+    const maxX = annularBandMaxX(diagram.annularBand);
+    expect(diagram.timeNowClock.hhmm.anchor.y).toBe(tickMinY);
+    expect(diagram.timeNowClock.seconds.anchor.y).toBe(tickMinY);
+    expect(diagram.timeNowDate.anchor.x).toBe(maxX);
+    expect(diagram.timeNowClock.seconds.anchor.x).toBe(maxX);
+    const dateAbove =
+      (spec.timeNowLabel as { readonly fontHeight: number; readonly dateAboveTime: number }).dateAboveTime *
+      diagram.refArc.refRadius;
+    expect(diagram.timeNowDate.anchor.y).toBeCloseTo(tickMinY + dateAbove, 6);
   });
 
   it('throws when annularBand is present without annularBandWidth', () => {

@@ -37,14 +37,13 @@
  *   hAlign?: 'left' | 'center' | 'right',
  * }} DiagramTextInst
  *
- * Civil clock readout: `HH:MM`, `:`, and `SS` as separate text instances (same baseline;
- * {@link buildTimeNowLabelFromSpec} sets baseline **y** to **0 − k·R** for **`timeNowLabel.y`** = **k** and offsets **x** so the triple reads as one right-aligned `HH:MM:SS`).
+ * Civil clock readout: date line (**TimeNowDate**) plus `HH:MM`, `:`, and `SS` (**TimeNowClock** leaves; same baseline on the clock row).
  *
  * @typedef {{
  *   hhmm: DiagramTextInst,
  *   secondsColon: DiagramTextInst,
  *   seconds: DiagramTextInst,
- * }} DiagramTimeNowLabelInst
+ * }} DiagramTimeNowClockInst
  *
  * @typedef {{
  *   center: DiagramPoint,
@@ -167,9 +166,41 @@
  *   annularBand: AnnularBandDiagram,
  *   timeDeltaDiagram: TimeDeltaDiagram,
  *   centreFrameDiagram: CentreFrameDiagram,
- *   timeNowLabel: DiagramTimeNowLabelInst,
+ *   timeNowDate: DiagramTextInst,
+ *   timeNowClock: DiagramTimeNowClockInst,
  * }} TideDiagramDocument
  */
+
+/**
+ * Maximum diagram-space **X** over the closed **AnnularBand** sector (same geometry as layout).
+ * Used to right-align the time-now readout to the band’s **+X** extent.
+ *
+ * @param {{ center: DiagramPoint, rInner: number, rOuter: number, thetaLeft: number, sweepRad: number }} annular
+ * @returns {number}
+ */
+export function annularBandMaxX(annular) {
+  const { center, rInner, rOuter, thetaLeft, sweepRad } = annular;
+  const thetaRight = thetaLeft + sweepRad;
+  const lo = Math.min(thetaLeft, thetaRight);
+  const hi = Math.max(thetaLeft, thetaRight);
+  let maxX = -Infinity;
+  const consider = (theta, r) => {
+    const x = center.x + r * Math.cos(theta);
+    if (x > maxX) maxX = x;
+  };
+  for (const r of [rInner, rOuter]) {
+    consider(thetaLeft, r);
+    consider(thetaRight, r);
+  }
+  for (let n = -12; n <= 12; n += 1) {
+    const th = n * Math.PI;
+    if (th > lo && th < hi) {
+      consider(th, rInner);
+      consider(th, rOuter);
+    }
+  }
+  return maxX;
+}
 
 /** @param {string} label @param {number} value */
 function assertFiniteNumber(label, value) {

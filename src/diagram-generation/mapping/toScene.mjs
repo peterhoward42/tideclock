@@ -441,7 +441,8 @@ export function tideDiagramToScene(diagram) {
     nextPointer,
     waitArc,
     annularBand: annularBandDiagram,
-    timeNowLabel,
+    timeNowDate,
+    timeNowClock,
   } = diagram;
   const R = refArc.refRadius;
   const C = refArc.center;
@@ -542,32 +543,42 @@ export function tideDiagramToScene(diagram) {
     cy,
   );
 
-  const timeNowLabelGroup = group("TimeNowLabel", [
+  const timeNowDateGroup = group("TimeNowDate", [
+    text({
+      content: timeNowDate.content,
+      size: timeNowDate.fontSize,
+      hAlign: timeNowDate.hAlign ?? "center",
+      angleRad: 0,
+      anchor: mapPoint(timeNowDate.anchor, cx, cy),
+    }),
+  ]);
+
+  const timeNowClockGroup = group("TimeNowClock", [
     group("TimeNowLabelHms", [
       text({
-        content: timeNowLabel.hhmm.content,
-        size: timeNowLabel.hhmm.fontSize,
-        hAlign: timeNowLabel.hhmm.hAlign ?? "center",
+        content: timeNowClock.hhmm.content,
+        size: timeNowClock.hhmm.fontSize,
+        hAlign: timeNowClock.hhmm.hAlign ?? "center",
         angleRad: 0,
-        anchor: mapPoint(timeNowLabel.hhmm.anchor, cx, cy),
+        anchor: mapPoint(timeNowClock.hhmm.anchor, cx, cy),
       }),
     ]),
     group("TimeNowLabelSecondsColon", [
       text({
-        content: timeNowLabel.secondsColon.content,
-        size: timeNowLabel.secondsColon.fontSize,
-        hAlign: timeNowLabel.secondsColon.hAlign ?? "center",
+        content: timeNowClock.secondsColon.content,
+        size: timeNowClock.secondsColon.fontSize,
+        hAlign: timeNowClock.secondsColon.hAlign ?? "center",
         angleRad: 0,
-        anchor: mapPoint(timeNowLabel.secondsColon.anchor, cx, cy),
+        anchor: mapPoint(timeNowClock.secondsColon.anchor, cx, cy),
       }),
     ]),
     group("TimeNowLabelSeconds", [
       text({
-        content: timeNowLabel.seconds.content,
-        size: timeNowLabel.seconds.fontSize,
-        hAlign: timeNowLabel.seconds.hAlign ?? "center",
+        content: timeNowClock.seconds.content,
+        size: timeNowClock.seconds.fontSize,
+        hAlign: timeNowClock.seconds.hAlign ?? "center",
         angleRad: 0,
-        anchor: mapPoint(timeNowLabel.seconds.anchor, cx, cy),
+        anchor: mapPoint(timeNowClock.seconds.anchor, cx, cy),
       }),
     ]),
   ]);
@@ -645,7 +656,8 @@ export function tideDiagramToScene(diagram) {
     tickLabelsGroup,
     centreFrameGroup,
     timeDeltaGroup,
-    timeNowLabelGroup,
+    timeNowDateGroup,
+    timeNowClockGroup,
     nowPointerGroup,
     ...(nextPointerGroup != null ? [nextPointerGroup] : []),
   ]);

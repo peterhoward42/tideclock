@@ -706,20 +706,20 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     ],
     "timeDeltaEmptyMessage": null,
   },
-  "timeNowLabel": {
+  "timeNowClock": {
     "hhmm": {
       "anchor": {
-        "x": 83.78,
-        "y": -112.1,
+        "x": 110.912649765169,
+        "y": -136.88000000000002,
       },
-      "content": "Mon 23 Mar - 19:20",
+      "content": "19:20",
       "fontSize": 5.9,
       "hAlign": "right",
     },
     "seconds": {
       "anchor": {
-        "x": 94.4,
-        "y": -112.1,
+        "x": 121.532649765169,
+        "y": -136.88000000000002,
       },
       "content": "03",
       "fontSize": 5.9,
@@ -727,13 +727,22 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     "secondsColon": {
       "anchor": {
-        "x": 87.32000000000001,
-        "y": -112.1,
+        "x": 114.452649765169,
+        "y": -136.88000000000002,
       },
       "content": ":",
       "fontSize": 5.9,
       "hAlign": "right",
     },
+  },
+  "timeNowDate": {
+    "anchor": {
+      "x": 121.532649765169,
+      "y": -130.98000000000002,
+    },
+    "content": "Mon 23 Mar",
+    "fontSize": 5.9,
+    "hAlign": "right",
   },
   "version": 1,
   "waitArc": {

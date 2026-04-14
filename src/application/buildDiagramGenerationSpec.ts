@@ -1,7 +1,8 @@
 /**
  * buildDiagramGenerationSpec.ts — Maps domain extremes and local time into `DiagramGenerationSpec` fields.
  * Fed by Home and tests; consumed by diagram-generation. Kind: Pure logic (with injectable time mapping).
- * Does not invoke `buildDiagram` itself.
+ * Does not invoke `buildDiagram` itself. Time-now date/clock placement is derived in diagram-generation
+ * from AnnularBand and TickLabels; this module only supplies `timeNowLabel.fontHeight`, `dateAboveTime`, and `timeNowDatePrefix`.
  */
 
 import type { TideExtreme, TideExtremeType } from '../core-models/TideExtreme';
@@ -21,7 +22,7 @@ export type UtcIsoToLocalCanonicalTime = (timeUtcIso: string) => string;
  */
 export type BuildDiagramGenerationSpecTimeInput = {
   readonly timeNow: string;
-  /** Local civil-day prefix shown before HH:MM in TimeNowLabel (e.g. "Wed 21 Jun"). */
+  /** Local civil-day prefix for the TimeNowDate element (e.g. "Wed 21 Jun"). */
   readonly timeNowDatePrefix: string;
   readonly utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime;
 };
@@ -85,9 +86,9 @@ type HomeTideDiagramLayoutBase = {
     };
   };
   readonly timeNowLabel: {
-    readonly x: number;
     readonly fontHeight: number;
-    readonly y: number;
+    /** k·RefRadius: date baseline is this far above (+Y) the clock baseline (tick-label-min Y). */
+    readonly dateAboveTime: number;
   };
   readonly centreFrame: { readonly frameArcRadius: number };
   /** k·RefRadius; concentric arc inside RefArc, same angular span as RefArc. */
@@ -133,7 +134,7 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
       scaleWithStroke: true,
     },
   },
-  timeNowLabel: { x: 1.0, fontHeight: 0.04, y: 1.2 },
+  timeNowLabel: { fontHeight: 0.04, dateAboveTime: 0.05 },
   centreFrame: { frameArcRadius: 0.45 },
   insideTrackRadius: 0.77,
   timeDelta: {
