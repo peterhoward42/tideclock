@@ -85,12 +85,12 @@ export const homeTideDiagramLayoutBase: HomeTideDiagramLayoutBase = {
   tickLabelSize: 0.04,
   tickLabelClearance: 0.07,
   nowPointer: {
-    radialLine: { outerRadius: 0.7 },
-    label: { size: 0.03, normalOffset: 0.02 },
+    radialLine: { outerRadius: 0.68 },
+    label: { size: 0.045, normalOffset: 0.02 },
     triangle: { subtendedAngleRad: Math.PI / 5 },
   },
   nextPointer: {
-    radialLine: { outerRadius: 0.73 },
+    radialLine: { outerRadius: 0.74 },
   },
   waitArc: {
     radius: 0.68,

@@ -49,7 +49,7 @@ export const homeTideStyleModel: StyleModelSpec = {
     },
     {
       name: 'role.structure.mid',
-      colors: { color: '#555' },
+      colors: { color: '#444' },
     },
     {
       name: 'role.structure.text',
