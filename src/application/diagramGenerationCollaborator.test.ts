@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
+import { homeTideDiagramLayoutBase } from '../diagram-config';
 import { annularBandMaxX } from '../diagram-generation/index.mjs';
 import { buildDiagramGenerationSpec, utcIsoToLocalCanonicalTimeUtc } from './buildDiagramGenerationSpec';
 import { createDiagramGenerationCollaborator } from './diagramGenerationCollaborator';
@@ -42,7 +43,9 @@ describe('createDiagramGenerationCollaborator', () => {
     const { diagram } = collaborator.generate(spec);
     expect(diagram.insideTrack.sweepRad).toBe(diagram.refArc.sweepRad);
     expect(diagram.insideTrack.thetaLeft).toBe(diagram.refArc.thetaLeft);
-    expect(diagram.insideTrack.radius).toBeCloseTo(0.77 * diagram.refArc.refRadius);
+    expect(diagram.insideTrack.radius).toBeCloseTo(
+      homeTideDiagramLayoutBase.insideTrackRadius * diagram.refArc.refRadius,
+    );
   });
 
   it('includes AnnularBand from home layout (annularBand.annularBandWidth)', () => {
