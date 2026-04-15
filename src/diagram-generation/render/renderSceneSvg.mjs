@@ -17,11 +17,12 @@ const RENDER_DEFAULTS = {
 };
 
 /**
- * @typedef {{ color?: string, strokeColor?: string, fillColor?: string, lineStyle?: string }} SceneRenderStyleProps
+ * @typedef {{ color?: string, strokeColor?: string, fillColor?: string }} SceneRenderRoleColorProps
  *
  * @typedef {{
- *   stylesByName: Map<string, SceneRenderStyleProps>,
- *   nameToStyle: Map<string, string>,
+ *   roleColorsByName: Map<string, SceneRenderRoleColorProps>,
+ *   nameToRole: Map<string, string>,
+ *   lineStyleByName: Map<string, string>,
  * }} SceneRenderStyleRuntime
  *
  * Scene input for the public render entrypoints: v1 rects in `elements`, or v2 (`version >= 2`) with group `root` and valid `meta.previewFrame` for the tight viewBox.
@@ -643,14 +644,14 @@ function renderTextSvg(node, fillColor) {
 }
 
 /**
- * Resolved named style for a leaf group (geometry parent `data-name`), or undefined.
+ * Resolved role colors for a leaf group (geometry parent `data-name`), or undefined.
  *
  * @param {SceneRenderStyleRuntime | undefined} styleRuntime
  * @param {string | null} leafName
  * @param {string} primitiveKind
- * @returns {SceneRenderStyleProps | undefined}
+ * @returns {SceneRenderRoleColorProps | undefined}
  */
-function resolveLeafNamedStyleProps(styleRuntime, leafName, primitiveKind) {
+function resolveLeafRoleColorProps(styleRuntime, leafName, primitiveKind) {
   if (!styleRuntime) {
     throw new Error(
       `styleRuntime is required for v2 scenes (while rendering ${primitiveKind})`,
@@ -661,13 +662,13 @@ function resolveLeafNamedStyleProps(styleRuntime, leafName, primitiveKind) {
       `primitive "${primitiveKind}" is not nested under a leaf group`,
     );
   }
-  const styleName = styleRuntime.nameToStyle.get(leafName);
-  if (!styleName) {
+  const roleName = styleRuntime.nameToRole.get(leafName);
+  if (!roleName) {
     throw new Error(
-      `missing style binding for leaf group name "${leafName}" (while rendering ${primitiveKind})`,
+      `missing role binding for leaf group name "${leafName}" (while rendering ${primitiveKind})`,
     );
   }
-  return styleRuntime.stylesByName.get(styleName);
+  return styleRuntime.roleColorsByName.get(roleName);
 }
 
 /**
@@ -679,7 +680,7 @@ function resolveLeafNamedStyleProps(styleRuntime, leafName, primitiveKind) {
  * @param {string} primitiveKind
  */
 function requireLeafStrokeColor(styleRuntime, leafName, fallback, primitiveKind) {
-  const styleProps = resolveLeafNamedStyleProps(
+  const styleProps = resolveLeafRoleColorProps(
     styleRuntime,
     leafName,
     primitiveKind,
@@ -699,7 +700,7 @@ function requireLeafStrokeColor(styleRuntime, leafName, fallback, primitiveKind)
  * @param {string} primitiveKind
  */
 function requireLeafFillColor(styleRuntime, leafName, fallback, primitiveKind) {
-  const styleProps = resolveLeafNamedStyleProps(
+  const styleProps = resolveLeafRoleColorProps(
     styleRuntime,
     leafName,
     primitiveKind,
@@ -711,22 +712,16 @@ function requireLeafFillColor(styleRuntime, leafName, fallback, primitiveKind) {
 }
 
 /**
- * Optional `stroke-dasharray` from domain `lineStyle` on the same named style.
+ * Optional `stroke-dasharray` from external leaf-level line-style binding.
  *
  * @param {SceneRenderStyleRuntime | undefined} styleRuntime
  * @param {string | null} leafName
  * @param {string} primitiveKind
  */
 function strokeDashAttrFragmentFromLeaf(styleRuntime, leafName, primitiveKind) {
-  const styleProps = resolveLeafNamedStyleProps(
-    styleRuntime,
-    leafName,
-    primitiveKind,
-  );
+  resolveLeafRoleColorProps(styleRuntime, leafName, primitiveKind);
   const lineStyle =
-    styleProps && typeof styleProps.lineStyle === "string"
-      ? styleProps.lineStyle
-      : undefined;
+    leafName && styleRuntime ? styleRuntime.lineStyleByName.get(leafName) : undefined;
   return svgStrokeDasharrayAttrFragment(lineStyle);
 }
 

@@ -278,11 +278,12 @@ export type TideSceneDocument = {
 export type DiagramGenerationSpec = Record<string, unknown>;
 
 export type DiagramGenerationStyleRuntime = {
-  readonly stylesByName: Map<
+  readonly roleColorsByName: Map<
     string,
-    { readonly color?: string; readonly lineStyle?: string }
+    { readonly color?: string; readonly strokeColor?: string; readonly fillColor?: string }
   >;
-  readonly nameToStyle: Map<string, string>;
+  readonly nameToRole: Map<string, string>;
+  readonly lineStyleByName: Map<string, string>;
 };
 
 export type DiagramGenerationOutput = {

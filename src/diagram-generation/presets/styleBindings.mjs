@@ -1,14 +1,14 @@
 /**
- * styleBindings.mjs — Loads named styles and scene-leaf bindings into runtime maps for SVG render.
+ * styleBindings.mjs — Loads semantic color roles and scene-leaf bindings for SVG render.
  * Consumed at collaborator init. Kind: Service (load-time). Does not layout geometry.
  *
- * Style registry and leaf-name style bindings (load-time only).
+ * Style registry and leaf-name bindings (load-time only).
  *
  * Policy:
- * - Bindings are directional: scene leaf name → named style.
- * - Duplicate leaf names throw; unknown styleName in a binding throws.
- * - `color` allows CSS named colors and 3-digit hex (#abc).
- * - Optional `lineStyle` is a domain token validated against `lineStyleRendering.mjs`.
+ * - Bindings are directional: scene leaf name → semantic role name.
+ * - Duplicate leaf names throw; unknown roleName in a binding throws.
+ * - `color`/`strokeColor`/`fillColor` allow CSS named colors and 3-digit hex (#abc).
+ * - Optional line styles are externalized from color roles: leaf name → lineStyle token.
  *
  * `loadStyleModel` returns maps used when resolving SVG attributes from scene nodes;
  * pass `null`/`undefined` for an empty registry (no styles), otherwise an object shaped
@@ -17,15 +17,18 @@
 
 import { assertKnownLineStyleToken } from "./lineStyleRendering.mjs";
 
-/** @typedef {{ color?: string, strokeColor?: string, fillColor?: string, lineStyle?: string }} StyleProps */
+/** @typedef {{ color?: string, strokeColor?: string, fillColor?: string }} RoleColorProps */
 
-/** @typedef {{ name: string, style: StyleProps }} NamedStyle */
+/** @typedef {{ name: string, colors: RoleColorProps }} SemanticRole */
 
-/** @typedef {{ name: string, styleName: string }} NameStyleBinding */
+/** @typedef {{ name: string, roleName: string }} NameRoleBinding */
+
+/** @typedef {{ name: string, lineStyle: string }} NameLineStyleBinding */
 
 /** @typedef {{
- *   styles: NamedStyle[],
- *   bindings: NameStyleBinding[],
+ *   roles: SemanticRole[],
+ *   bindings: NameRoleBinding[],
+ *   lineStyles?: NameLineStyleBinding[],
  * }} StyleModelSpec
  */
 
@@ -67,17 +70,19 @@ const THREE_DIGIT_HEX = /^#[0-9a-fA-F]{3}$/;
  * Parse and validate a style model config.
  *
  * @param {unknown} raw `null`/`undefined` → empty maps; otherwise must be an object with
- *   `styles` and `bindings` arrays per {@link StyleModelSpec}.
+ *   `roles` and `bindings` arrays per {@link StyleModelSpec}.
  * @returns {{
- *   stylesByName: Map<string, StyleProps>,
- *   nameToStyle: Map<string, string>,
- * }} Resolved named styles and leaf→styleName lookup for render.
+ *   roleColorsByName: Map<string, RoleColorProps>,
+ *   nameToRole: Map<string, string>,
+ *   lineStyleByName: Map<string, string>,
+ * }} Resolved roles and leaf→role/lineStyle lookups for render.
  */
 export function loadStyleModel(raw) {
   if (raw == null) {
     return {
-      stylesByName: new Map(),
-      nameToStyle: new Map(),
+      roleColorsByName: new Map(),
+      nameToRole: new Map(),
+      lineStyleByName: new Map(),
     };
   }
   if (typeof raw !== "object") {
@@ -85,56 +90,57 @@ export function loadStyleModel(raw) {
   }
   const model = /** @type {Record<string, unknown>} */ (raw);
 
-  const stylesByName = loadNamedStyles(model.styles);
-  const nameToStyle = loadNameStyleBindings(model.bindings, stylesByName);
+  const roleColorsByName = loadSemanticRoles(model.roles);
+  const nameToRole = loadNameRoleBindings(model.bindings, roleColorsByName);
+  const lineStyleByName = loadNameLineStyleBindings(model.lineStyles, nameToRole);
 
-  return { stylesByName, nameToStyle };
+  return { roleColorsByName, nameToRole, lineStyleByName };
 }
 
 /**
- * @param {unknown} rawStyles
- * @returns {Map<string, StyleProps>}
+ * @param {unknown} rawRoles
+ * @returns {Map<string, RoleColorProps>}
  */
-function loadNamedStyles(rawStyles) {
-  if (!Array.isArray(rawStyles)) {
-    throw new Error("styleModel.styles must be an array");
+function loadSemanticRoles(rawRoles) {
+  if (!Array.isArray(rawRoles)) {
+    throw new Error("styleModel.roles must be an array");
   }
-  /** @type {Map<string, StyleProps>} */
-  const stylesByName = new Map();
-  for (const [idx, entry] of rawStyles.entries()) {
+  /** @type {Map<string, RoleColorProps>} */
+  const roleColorsByName = new Map();
+  for (const [idx, entry] of rawRoles.entries()) {
     if (entry == null || typeof entry !== "object") {
-      throw new Error(`styleModel.styles[${idx}] must be an object`);
+      throw new Error(`styleModel.roles[${idx}] must be an object`);
     }
     const s = /** @type {Record<string, unknown>} */ (entry);
     if (typeof s.name !== "string" || s.name.trim() === "") {
-      throw new Error(`styleModel.styles[${idx}].name must be a non-empty string`);
+      throw new Error(`styleModel.roles[${idx}].name must be a non-empty string`);
     }
-    if (stylesByName.has(s.name)) {
-      throw new Error(`duplicate style name "${s.name}"`);
+    if (roleColorsByName.has(s.name)) {
+      throw new Error(`duplicate role name "${s.name}"`);
     }
-    if (s.style == null || typeof s.style !== "object") {
-      throw new Error(`styleModel.styles[${idx}].style must be an object`);
+    if (s.colors == null || typeof s.colors !== "object") {
+      throw new Error(`styleModel.roles[${idx}].colors must be an object`);
     }
-    const style = normalizeStyleProps(
-      /** @type {Record<string, unknown>} */ (s.style),
-      `styleModel.styles[${idx}].style`,
+    const colors = normalizeRoleColorProps(
+      /** @type {Record<string, unknown>} */ (s.colors),
+      `styleModel.roles[${idx}].colors`,
     );
-    stylesByName.set(s.name, style);
+    roleColorsByName.set(s.name, colors);
   }
-  return stylesByName;
+  return roleColorsByName;
 }
 
 /**
  * @param {unknown} rawBindings
- * @param {Map<string, StyleProps>} stylesByName
+ * @param {Map<string, RoleColorProps>} roleColorsByName
  * @returns {Map<string, string>}
  */
-function loadNameStyleBindings(rawBindings, stylesByName) {
+function loadNameRoleBindings(rawBindings, roleColorsByName) {
   if (!Array.isArray(rawBindings)) {
     throw new Error("styleModel.bindings must be an array");
   }
-  /** @type {Map<string, string>} */
-  const nameToStyle = new Map();
+  /** @type {Map<string, string>} leaf name -> role name */
+  const nameToRole = new Map();
   for (const [idx, entry] of rawBindings.entries()) {
     if (entry == null || typeof entry !== "object") {
       throw new Error(`styleModel.bindings[${idx}] must be an object`);
@@ -143,31 +149,74 @@ function loadNameStyleBindings(rawBindings, stylesByName) {
     if (typeof b.name !== "string" || b.name.trim() === "") {
       throw new Error(`styleModel.bindings[${idx}].name must be a non-empty string`);
     }
-    if (typeof b.styleName !== "string" || b.styleName.trim() === "") {
-      throw new Error(`styleModel.bindings[${idx}].styleName must be a non-empty string`);
+    if (typeof b.roleName !== "string" || b.roleName.trim() === "") {
+      throw new Error(`styleModel.bindings[${idx}].roleName must be a non-empty string`);
     }
-    if (!stylesByName.has(b.styleName)) {
+    if (!roleColorsByName.has(b.roleName)) {
       throw new Error(
-        `styleModel.bindings[${idx}] references unknown style "${b.styleName}"`,
+        `styleModel.bindings[${idx}] references unknown role "${b.roleName}"`,
       );
     }
-    if (nameToStyle.has(b.name)) {
+    if (nameToRole.has(b.name)) {
       throw new Error(
-        `duplicate binding for "${b.name}": already bound to "${nameToStyle.get(b.name)}", cannot bind to "${b.styleName}"`,
+        `duplicate binding for "${b.name}": already bound to "${nameToRole.get(b.name)}", cannot bind to "${b.roleName}"`,
       );
     }
-    nameToStyle.set(b.name, b.styleName);
+    nameToRole.set(b.name, b.roleName);
   }
-  return nameToStyle;
+  return nameToRole;
+}
+
+/**
+ * @param {unknown} rawLineStyles
+ * @param {Map<string, string>} nameToRole
+ * @returns {Map<string, string>}
+ */
+function loadNameLineStyleBindings(rawLineStyles, nameToRole) {
+  if (rawLineStyles == null) {
+    return new Map();
+  }
+  if (!Array.isArray(rawLineStyles)) {
+    throw new Error("styleModel.lineStyles must be an array when provided");
+  }
+  /** @type {Map<string, string>} leaf name -> lineStyle token */
+  const lineStyleByName = new Map();
+  for (const [idx, entry] of rawLineStyles.entries()) {
+    if (entry == null || typeof entry !== "object") {
+      throw new Error(`styleModel.lineStyles[${idx}] must be an object`);
+    }
+    const b = /** @type {Record<string, unknown>} */ (entry);
+    if (typeof b.name !== "string" || b.name.trim() === "") {
+      throw new Error(`styleModel.lineStyles[${idx}].name must be a non-empty string`);
+    }
+    if (!nameToRole.has(b.name)) {
+      throw new Error(
+        `styleModel.lineStyles[${idx}] references unknown bound leaf "${b.name}"`,
+      );
+    }
+    if (typeof b.lineStyle !== "string" || b.lineStyle.trim() === "") {
+      throw new Error(
+        `styleModel.lineStyles[${idx}].lineStyle must be a non-empty string`,
+      );
+    }
+    assertKnownLineStyleToken(b.lineStyle, `styleModel.lineStyles[${idx}]`);
+    if (lineStyleByName.has(b.name)) {
+      throw new Error(
+        `duplicate lineStyle binding for "${b.name}": already bound to "${lineStyleByName.get(b.name)}", cannot bind to "${b.lineStyle}"`,
+      );
+    }
+    lineStyleByName.set(b.name, b.lineStyle);
+  }
+  return lineStyleByName;
 }
 
 /**
  * @param {Record<string, unknown>} raw
  * @param {string} context
- * @returns {StyleProps}
+ * @returns {RoleColorProps}
  */
-function normalizeStyleProps(raw, context) {
-  /** @type {StyleProps} */
+function normalizeRoleColorProps(raw, context) {
+  /** @type {RoleColorProps} */
   const out = {};
   if (raw.color !== undefined) {
     if (typeof raw.color !== "string") {
@@ -201,13 +250,6 @@ function normalizeStyleProps(raw, context) {
       );
     }
     out.fillColor = raw.fillColor;
-  }
-  if (raw.lineStyle !== undefined) {
-    if (typeof raw.lineStyle !== "string" || raw.lineStyle.trim() === "") {
-      throw new Error(`${context}.lineStyle must be a non-empty string`);
-    }
-    assertKnownLineStyleToken(raw.lineStyle, context);
-    out.lineStyle = raw.lineStyle;
   }
   return out;
 }

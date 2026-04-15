@@ -111,12 +111,10 @@ o  new data fetch paradigm
 					*  arrange time now label in short rows on right
 
 fart
-					o  constrast and size for mobile
+					o  improve text legibility with colours first
 						o  can we abstract styles into roles?
-						o  get physical tablet and phone going
-						o  colours
-						o  size
-						o  weight
+						o  what about 
+						o  what about font weight
 
 
 						o  come back to UX branch when no location has been

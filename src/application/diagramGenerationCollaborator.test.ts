@@ -27,7 +27,7 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(output.diagram.version).toBe(1);
     expect(output.scene.version).toBe(2);
     expect(output.scene.root.kind).toBe('group');
-    expect(output.styleRuntime.stylesByName.size).toBeGreaterThan(0);
+    expect(output.styleRuntime.roleColorsByName.size).toBeGreaterThan(0);
   });
 
   it('InsideTrack is concentric with RefArc at insideTrackRadius·RefRadius', () => {
