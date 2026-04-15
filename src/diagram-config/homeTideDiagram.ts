@@ -107,9 +107,9 @@ export const homeTideDiagramLayoutBase: HomeTideDiagramLayoutBase = {
   insideTrackRadius: 0.74,
   timeDelta: {
     countdownLines: [
-      { belowOrigin: 0.15, fontHeight: 0.032 },
-      { belowOrigin: 0.235, fontHeight: 0.03 },
-      { belowOrigin: 0.32, fontHeight: 0.03 },
+      { belowOrigin: 0.05, fontHeight: 0.045 },
+      { belowOrigin: 0.18, fontHeight: 0.045 },
+      { belowOrigin: 0.32, fontHeight: 0.045 },
     ],
     emptyMessage: { belowOrigin: 0.08, fontHeight: 0.038 },
     town: 'Unset',
