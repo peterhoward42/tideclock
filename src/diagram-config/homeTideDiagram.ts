@@ -21,7 +21,8 @@ export type HomeDiagramTideMarks = {
   readonly markers: readonly DiagramTideMarkMarker[];
 };
 
-export type HomeDiagramTideMarkLayoutDefaults = Omit<HomeDiagramTideMarks, 'markers'>;
+/** Static subset of `spec.tideMarks` (geometry only; `markers` added when building the spec). */
+export type HomeDiagramTideMarksDefaults = Omit<HomeDiagramTideMarks, 'markers'>;
 
 type HomeTideDiagramLayoutBase = {
   readonly title: 'home-tide-diagram';
@@ -70,6 +71,7 @@ type HomeTideDiagramLayoutBase = {
     readonly tidePhasePair: 'out-low' | 'in-high';
   };
   readonly annularBand: { readonly annularBandWidth: number };
+  readonly tideMarksDefaults: HomeDiagramTideMarksDefaults;
 };
 
 /** Static layout/geometry for the Home tide diagram (canonical values live in this object). */
@@ -114,14 +116,12 @@ export const homeTideDiagramLayoutBase: HomeTideDiagramLayoutBase = {
     tidePhasePair: 'out-low',
   },
   annularBand: { annularBandWidth: 0.05 },
-};
-
-/** Radii, sizes, and arrow geometry for tide marks (`markers` added when building the spec). */
-export const homeTideDiagramTideMarkLayout: HomeDiagramTideMarkLayoutDefaults = {
-  tideHeightLabelRadius: 0.9,
-  tideTimeLabelRadius: 0.821,
-  tideHeightLabelSize: 0.045,
-  tideTimeLabelSize: 0.045,
-  tideMarkArrowDivergence: 0.8,
-  tideMarkArrowLineLen: 0.045,
+  tideMarksDefaults: {
+    tideHeightLabelRadius: 0.9,
+    tideTimeLabelRadius: 0.821,
+    tideHeightLabelSize: 0.045,
+    tideTimeLabelSize: 0.045,
+    tideMarkArrowDivergence: 0.8,
+    tideMarkArrowLineLen: 0.045,
+  },
 };

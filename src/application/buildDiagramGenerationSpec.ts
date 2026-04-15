@@ -7,10 +7,7 @@
  * Tunable layout numbers live in `diagram-config/homeTideDiagram.ts`.
  */
 
-import {
-  homeTideDiagramLayoutBase,
-  homeTideDiagramTideMarkLayout,
-} from '../diagram-config';
+import { homeTideDiagramLayoutBase } from '../diagram-config';
 import type { DiagramTideMarkMarker, HomeDiagramTideMarks } from '../diagram-config';
 import type { TideExtreme, TideExtremeType } from '../core-models/TideExtreme';
 import type { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
@@ -165,17 +162,19 @@ export function buildDiagramGenerationSpec(
     throw new Error('buildDiagramGenerationSpec requires at least one tide extreme');
   }
 
+  const { tideMarksDefaults, ...homeTideDiagramSpecLayout } = homeTideDiagramLayoutBase;
+
   const tideMarks: HomeDiagramTideMarks = {
-    ...homeTideDiagramTideMarkLayout,
+    ...tideMarksDefaults,
     ...tideMarksFromExtremes(extremesAtLocation.extremes, utcIsoToLocalCanonicalTime),
   };
 
   const spec: DiagramGenerationSpec = {
-    ...homeTideDiagramLayoutBase,
+    ...homeTideDiagramSpecLayout,
     timeNow,
     timeNowDatePrefix,
     timeDelta: {
-      ...homeTideDiagramLayoutBase.timeDelta,
+      ...homeTideDiagramSpecLayout.timeDelta,
       town: townName,
       tidePhasePair: deriveTimeDeltaTidePhasePair({
         extremes: extremesAtLocation.extremes,
