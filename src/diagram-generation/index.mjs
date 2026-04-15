@@ -3,7 +3,7 @@
  * Re-exports are the stable cross-package contract; keep names and shapes unchanged.
  * Kind: Adapter / boundary (module surface). Does not implement layout itself.
  *
- * Public diagram-generation surface: layout, scene mapping, time/tide helpers, and style presets.
+ * Public diagram-generation surface: layout, scene mapping, time/tide helpers, and style loading.
  */
 export { buildDiagram } from "./layout/buildDiagram.mjs";
 export {
@@ -31,4 +31,3 @@ export {
 } from "./model/tideEvents.mjs";
 
 export { loadStyleModel } from "./presets/styleBindings.mjs";
-export { STATIC_STYLE_MODEL } from "./presets/staticStyleModel.mjs";

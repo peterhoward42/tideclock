@@ -1,11 +1,12 @@
 /**
  * diagramGenerationCollaborator.ts — Types and factory for `src/diagram-generation` (diagram + scene + styles).
+ * Product style defaults: `src/diagram-config/homeTideStyleModel.ts`; `loadStyleModel` from diagram-generation.
  * Keeps app and tests on this boundary instead of `.mjs` internals. Kind: Adapter / boundary.
  * Does not source tide data.
  */
 
+import { homeTideStyleModel } from "../diagram-config";
 import {
-  STATIC_STYLE_MODEL,
   buildDiagram,
   loadStyleModel,
   tideDiagramToScene,
@@ -298,11 +299,11 @@ export type DiagramGenerationCollaborator = {
 
 /**
  * Stable, app-facing entrypoint for diagram-generation orchestration.
- * Runtime-safe: composes only pure modules from src/diagram-generation.
+ * Runtime-safe: composes pure modules from src/diagram-generation and product config from src/diagram-config.
  */
 export function createDiagramGenerationCollaborator(): DiagramGenerationCollaborator {
   const styleRuntime = loadStyleModel(
-    STATIC_STYLE_MODEL,
+    homeTideStyleModel,
   ) as DiagramGenerationStyleRuntime;
   return {
     generate(spec: DiagramGenerationSpec): DiagramGenerationOutput {

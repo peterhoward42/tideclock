@@ -188,7 +188,7 @@ Files: `src/diagram-generation/render/renderSceneSvg.mjs` only.
 Note: **large** (~580+ lines); same rule as Step 34.
 
 **Step 36 — Presets and package entry**  
-Files: `src/diagram-generation/presets/staticStyleModel.mjs`, `styleBindings.mjs`, `lineStyleRendering.mjs`, `src/diagram-generation/index.mjs`.  
+Files: `src/diagram-config/homeTideStyleModel.ts`, `src/diagram-generation/presets/styleBindings.mjs`, `lineStyleRendering.mjs`, `src/diagram-generation/index.mjs`.  
 Goal: exports remain stable; clarify any “options” objects passed into layout/render.
 
 ---
