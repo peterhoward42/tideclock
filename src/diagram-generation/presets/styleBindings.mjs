@@ -7,7 +7,7 @@
  * Policy:
  * - Bindings are directional: scene leaf name → semantic role name.
  * - Duplicate leaf names throw; unknown roleName in a binding throws.
- * - `color`/`strokeColor`/`fillColor` allow CSS named colors and 3-digit hex (#abc).
+ * - `color`/`strokeColor`/`fillColor` allow CSS named colors and 3/6-digit hex (#abc, #aabbcc).
  * - Optional line styles are externalized from color roles: leaf name → lineStyle token.
  *
  * `loadStyleModel` returns maps used when resolving SVG attributes from scene nodes;
@@ -64,7 +64,8 @@ const CSS_NAMED_COLORS = new Set([
   "yellowgreen",
 ]);
 
-const THREE_DIGIT_HEX = /^#[0-9a-fA-F]{3}$/;
+const SHORT_HEX = /^#[0-9a-fA-F]{3}$/;
+const LONG_HEX = /^#[0-9a-fA-F]{6}$/;
 
 /**
  * Parse and validate a style model config.
@@ -224,7 +225,7 @@ function normalizeRoleColorProps(raw, context) {
     }
     if (!isAllowedColor(raw.color)) {
       throw new Error(
-        `${context}.color must be a CSS named color or 3-digit hex like "#333"`,
+        `${context}.color must be a CSS named color or 3/6-digit hex like "#333" or "#0FFF50"`,
       );
     }
     out.color = raw.color;
@@ -235,7 +236,7 @@ function normalizeRoleColorProps(raw, context) {
     }
     if (!isAllowedColor(raw.strokeColor)) {
       throw new Error(
-        `${context}.strokeColor must be a CSS named color or 3-digit hex like "#333"`,
+        `${context}.strokeColor must be a CSS named color or 3/6-digit hex like "#333" or "#0FFF50"`,
       );
     }
     out.strokeColor = raw.strokeColor;
@@ -246,7 +247,7 @@ function normalizeRoleColorProps(raw, context) {
     }
     if (!isAllowedColor(raw.fillColor)) {
       throw new Error(
-        `${context}.fillColor must be a CSS named color or 3-digit hex like "#333"`,
+        `${context}.fillColor must be a CSS named color or 3/6-digit hex like "#333" or "#0FFF50"`,
       );
     }
     out.fillColor = raw.fillColor;
@@ -259,6 +260,6 @@ function normalizeRoleColorProps(raw, context) {
  * @returns {boolean}
  */
 function isAllowedColor(value) {
-  if (THREE_DIGIT_HEX.test(value)) return true;
+  if (SHORT_HEX.test(value) || LONG_HEX.test(value)) return true;
   return CSS_NAMED_COLORS.has(value.toLowerCase());
 }

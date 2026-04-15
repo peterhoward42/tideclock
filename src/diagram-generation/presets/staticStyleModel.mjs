@@ -15,7 +15,7 @@ export const STATIC_STYLE_MODEL = {
     },
     {
       name: "role.now.live",
-      colors: { color: "lawngreen" },
+      colors: { color: "#0FFF50" },
     },
     {
       name: "role.structure.band",

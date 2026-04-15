@@ -113,10 +113,13 @@ o  new data fetch paradigm
 fart
 					o  constrast and size for mobile
 						*  can we abstract styles into roles?
-						o  get physical tablet and phone going
-						o  colours
-						o  size
-						o  weight
+						o  improve each type of text first for mobile
+							o  start with a max contrast colour pair choice
+								o  ask giving context
+									o  switch the prompt to chatgpt
+
+							o  bright neon green #0FFF50
+							o  bright lavender #bf94e4
 
 
 						o  come back to UX branch when no location has been
@@ -126,6 +129,8 @@ fart
 Implement ###6 in /docs/planning/home-landscape-header-space.md
 
 					o  kiosk mode and the following
+						o  see chatgpt kiosk mode overview
+							o  entry point PWA
 					o  encourage landscape
 					o  encourage hide browser bar
 					o  how to use real estate better - partic on phone
