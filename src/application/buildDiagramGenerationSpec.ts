@@ -134,9 +134,9 @@ const HOME_TIDE_DIAGRAM_LAYOUT_BASE: HomeTideDiagramLayoutBase = {
       scaleWithStroke: true,
     },
   },
-  timeNowLabel: { fontHeight: 0.05, dateAboveTime: 0.05 },
+  timeNowLabel: { fontHeight: 0.045, dateAboveTime: 0.05 },
   centreFrame: { frameArcRadius: 0.45 },
-  insideTrackRadius: 0.77,
+  insideTrackRadius: 0.74,
   timeDelta: {
     countdownLines: [
       { belowOrigin: 0.150, fontHeight: 0.032 },
