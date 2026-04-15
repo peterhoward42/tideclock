@@ -11,11 +11,11 @@ export const STATIC_STYLE_MODEL = {
   roles: [
     {
       name: "role.tide.primary",
-      colors: { color: "orchid" },
+      colors: { color: "#bf94e4" }, /* bright lavender */
     },
     {
       name: "role.now.live",
-      colors: { color: "#0FFF50" },
+      colors: { color: "#0FFF50" }, /* bright neon greeen */
     },
     {
       name: "role.structure.band",
@@ -58,11 +58,11 @@ export const STATIC_STYLE_MODEL = {
     { name: "NextPointer", roleName: "role.tide.primary" },
     { name: "WaitArc", roleName: "role.now.live" },
     { name: "TimePointer", roleName: "role.tide.primary" },
-    { name: "TimeLabel", roleName: "role.structure.text" },
-    { name: "TickLabel", roleName: "role.structure.text" },
+    { name: "TimeLabel", roleName: "role.structure.emphasis" },
+    { name: "TickLabel", roleName: "role.structure.emphasis" },
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
-    { name: "TimeNowDate", roleName: "role.structure.mid" },
-    { name: "TimeNowLabelHms", roleName: "role.structure.mid" },
+    { name: "TimeNowDate", roleName: "role.structure.emphasis" },
+    { name: "TimeNowLabelHms", roleName: "role.structure.emphasis" },
     { name: "TimeNowLabelSecondsColon", roleName: "role.now.live" },
     { name: "TimeNowLabelSeconds", roleName: "role.now.live" },
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
