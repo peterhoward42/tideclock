@@ -4,7 +4,7 @@
    * Minute cadence for full regen; second cadence only for the live clock label. Kind: Presentation + orchestration.
    * Does not own proxy fetch (receives extremes from the shell).
    */
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
   import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
   import { nowMs } from "../../application/appClock.js";
   import {
@@ -18,7 +18,7 @@
   import { deriveNextTideSemantics } from "../../application/nextTideSemantics";
   import { subscribeSemanticMinuteCadence } from "../../application/semanticMinuteCadence";
   import { renderSceneSvg } from "../../diagram-generation/render/renderSceneSvg.mjs";
-  import PrimaryNavMenu from "../components/PrimaryNavMenu.svelte";
+  import PrimaryNavLinks from "../components/PrimaryNavLinks.svelte";
 
   type TidePredictionsLoadState = { readonly status: "loading" | "ready" | "error" };
 
@@ -67,6 +67,10 @@
   let diagramError = $state<string | undefined>(undefined);
   /** Container for injected SVG; patches TimeNowDate and TimeNowClock text without regenerating the scene. */
   let diagramHostEl = $state<HTMLElement | undefined>(undefined);
+  let homeInstrumentEl = $state<HTMLElement | undefined>(undefined);
+  let homeMenuPanelEl = $state<HTMLElement | undefined>(undefined);
+  let homeMenuOpen = $state(false);
+  let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
 
   /** Dev-only: optional debug tooling (toggle with query params). */
   let domDumpEnabled = $state(false);
@@ -109,6 +113,49 @@
       null,
       2
     );
+  }
+
+  function homeMenuTriggerGroup(): SVGGElement | null {
+    const host = diagramHostEl;
+    if (host == null) return null;
+    return host.querySelector('svg g[data-name="HomeMenuTrigger"]');
+  }
+
+  function updateHomeMenuPanelAnchorFromSvgTrigger(): void {
+    const figure = homeInstrumentEl;
+    const trigger = homeMenuTriggerGroup();
+    if (figure == null || trigger == null) return;
+    const figureRect = figure.getBoundingClientRect();
+    const triggerRect = trigger.getBoundingClientRect();
+    const left = Math.max(0, triggerRect.left - figureRect.left);
+    const bottom = Math.max(0, figureRect.bottom - triggerRect.top + 8);
+    homeMenuPanelStyle = `left: ${left}px; bottom: ${bottom}px;`;
+  }
+
+  function closeHomeMenu(): void {
+    homeMenuOpen = false;
+  }
+
+  /** Patch live clock text inside injected SVG; host must contain the current diagram. */
+  function patchTimeNowReadout(host: HTMLElement, ms: number): void {
+    const canonical = localCanonicalTimeNowFromMs(ms);
+    const datePrefix = localTimeNowDatePrefixFromMs(ms);
+    const dateEl = host.querySelector(
+      'svg g[data-name="TimeNowDate"] text'
+    ) as SVGTextElement | null;
+    const hhmmEl = host.querySelector(
+      'svg g[data-name="TimeNowLabelHms"] text'
+    ) as SVGTextElement | null;
+    const colonEl = host.querySelector(
+      'svg g[data-name="TimeNowLabelSecondsColon"] text'
+    ) as SVGTextElement | null;
+    const secEl = host.querySelector(
+      'svg g[data-name="TimeNowLabelSeconds"] text'
+    ) as SVGTextElement | null;
+    if (dateEl !== null) dateEl.textContent = datePrefix;
+    if (hhmmEl !== null) hhmmEl.textContent = canonical.slice(0, 5);
+    if (colonEl !== null) colonEl.textContent = canonical.slice(5, 6);
+    if (secEl !== null) secEl.textContent = canonical.slice(6);
   }
 
   function localCanonicalTimeNowFromMs(ms: number): string {
@@ -203,27 +250,105 @@
     const host = diagramHostEl;
     const svg = diagramSvg;
     if (host == null || svg === "") return;
+
+    let cancelled = false;
     const unsub = nowMs.subscribe((ms) => {
-      const canonical = localCanonicalTimeNowFromMs(ms);
-      const datePrefix = localTimeNowDatePrefixFromMs(ms);
-      const dateEl = host.querySelector(
-        'svg g[data-name="TimeNowDate"] text'
-      ) as SVGTextElement | null;
-      const hhmmEl = host.querySelector(
-        'svg g[data-name="TimeNowLabelHms"] text'
-      ) as SVGTextElement | null;
-      const colonEl = host.querySelector(
-        'svg g[data-name="TimeNowLabelSecondsColon"] text'
-      ) as SVGTextElement | null;
-      const secEl = host.querySelector(
-        'svg g[data-name="TimeNowLabelSeconds"] text'
-      ) as SVGTextElement | null;
-      if (dateEl !== null) dateEl.textContent = datePrefix;
-      if (hhmmEl !== null) hhmmEl.textContent = canonical.slice(0, 5);
-      if (colonEl !== null) colonEl.textContent = canonical.slice(5, 6);
-      if (secEl !== null) secEl.textContent = canonical.slice(6);
+      if (!cancelled) patchTimeNowReadout(host, ms);
     });
-    return unsub;
+
+    void tick().then(() => {
+      if (!cancelled) patchTimeNowReadout(host, Date.now());
+    });
+
+    return () => {
+      cancelled = true;
+      unsub();
+    };
+  });
+
+  $effect(() => {
+    if (diagramSvg === "") {
+      homeMenuOpen = false;
+      return;
+    }
+
+    let cancelled = false;
+    let rafId = 0;
+    let wiredTrigger: SVGGElement | null = null;
+
+    const detach = (): void => {
+      if (wiredTrigger == null) return;
+      const trigger = wiredTrigger;
+      trigger.classList.remove("home-menu-trigger--hover");
+      trigger.style.cursor = "";
+      trigger.removeEventListener("pointerenter", onEnter);
+      trigger.removeEventListener("pointerleave", onLeave);
+      trigger.removeEventListener("click", onClick);
+      window.removeEventListener("resize", onResize);
+      document.removeEventListener("pointerdown", onPointerDown);
+      wiredTrigger = null;
+    };
+
+    const onEnter = (): void => {
+      wiredTrigger?.classList.add("home-menu-trigger--hover");
+    };
+    const onLeave = (): void => {
+      wiredTrigger?.classList.remove("home-menu-trigger--hover");
+    };
+    const onClick = (event: Event): void => {
+      event.preventDefault();
+      event.stopPropagation();
+      updateHomeMenuPanelAnchorFromSvgTrigger();
+      homeMenuOpen = !homeMenuOpen;
+    };
+    const onResize = (): void => {
+      if (!homeMenuOpen) return;
+      updateHomeMenuPanelAnchorFromSvgTrigger();
+    };
+    const onPointerDown = (event: Event): void => {
+      if (!homeMenuOpen) return;
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+      if (homeMenuPanelEl?.contains(target)) return;
+      const trigger = wiredTrigger;
+      if (trigger !== null && trigger.contains(target)) return;
+      closeHomeMenu();
+    };
+
+    const MAX_ATTACH_FRAMES = 45;
+    let frames = 0;
+
+    const tryWireTrigger = (): void => {
+      if (cancelled) return;
+      const trigger = homeMenuTriggerGroup();
+      if (trigger == null) {
+        frames += 1;
+        if (frames < MAX_ATTACH_FRAMES) {
+          rafId = requestAnimationFrame(tryWireTrigger);
+        }
+        return;
+      }
+      detach();
+      wiredTrigger = trigger;
+      trigger.style.cursor = "pointer";
+      trigger.addEventListener("pointerenter", onEnter);
+      trigger.addEventListener("pointerleave", onLeave);
+      trigger.addEventListener("click", onClick);
+      window.addEventListener("resize", onResize);
+      document.addEventListener("pointerdown", onPointerDown);
+    };
+
+    void tick().then(() => {
+      if (cancelled) return;
+      frames = 0;
+      rafId = requestAnimationFrame(tryWireTrigger);
+    });
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(rafId);
+      detach();
+    };
   });
 </script>
 
@@ -250,7 +375,6 @@
       {#if showHomeChooseLocationWhenNoExtremes}
         <p class="muted">Choose a location to see today’s tide diagram.</p>
       {/if}
-      <PrimaryNavMenu variant="home-overlay" />
     </div>
   {:else if tideExtremes.extremes.length === 0}
     <div class="home-panel" aria-live="polite">
@@ -262,10 +386,22 @@
     </div>
   {:else if diagramSvg !== ""}
     <div class="home-panel" bind:this={diagramHostEl}>
-      <figure class="home-instrument" aria-label="Tide diagram for the current civil day">
+      <figure
+        class="home-instrument"
+        bind:this={homeInstrumentEl}
+        aria-label="Tide diagram for the current civil day"
+      >
         <!-- Trusted: SVG from diagram-generation scene graph (renderSceneSvg). -->
         {@html diagramSvg}
-        <PrimaryNavMenu variant="home-overlay" />
+        {#if homeMenuOpen}
+          <div
+            class="home-menu-panel"
+            bind:this={homeMenuPanelEl}
+            style={homeMenuPanelStyle}
+          >
+            <PrimaryNavLinks className="home-menu-panel__links" onNavigate={closeHomeMenu} />
+          </div>
+        {/if}
       </figure>
     </div>
   {/if}
@@ -322,6 +458,34 @@
     overflow: hidden;
   }
 
+  /*
+   * Make the whole menu control’s bounds hit-testable (not only painted glyph edges).
+   * Avoids flaky pointerenter/hover when the pointer crosses “empty” parts of the group.
+   */
+  .home-instrument :global(svg g[data-name="HomeMenuTrigger"]) {
+    pointer-events: all;
+  }
+
+  .home-instrument :global(svg g[data-name="HomeMenuTrigger"] circle) {
+    transition:
+      fill 120ms ease-out,
+      stroke 120ms ease-out;
+  }
+
+  .home-instrument :global(svg g[data-name="HomeMenuTrigger"] g[data-name="HomeMenuTriggerLabel"] text) {
+    transition: fill 120ms ease-out;
+  }
+
+  .home-instrument :global(svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover circle) {
+    fill: #191919;
+    stroke: #aaa;
+  }
+
+  .home-instrument
+    :global(svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover g[data-name="HomeMenuTriggerLabel"] text) {
+    fill: #ffffff;
+  }
+
   .home-instrument :global(svg) {
     display: block;
     position: absolute;
@@ -372,6 +536,35 @@
 
   .home-panel .muted {
     color: #dbeafe;
+  }
+
+  .home-menu-panel {
+    position: absolute;
+    transform: translate(-4px, 0);
+    z-index: 30;
+    min-width: 12rem;
+    padding: 0.5rem;
+    background: rgb(2 6 23 / 0.92);
+    border: 1px solid rgb(148 163 184 / 0.2);
+    border-radius: 0.375rem;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.45);
+  }
+
+  .home-menu-panel :global(.home-menu-panel__links) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .home-menu-panel :global(.home-menu-panel__links a) {
+    color: rgb(241 245 249 / 0.92);
+    text-decoration: none;
+    padding: 0.35rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  .home-menu-panel :global(.home-menu-panel__links a:hover) {
+    background: rgb(148 163 184 / 0.12);
   }
 
   .home-debug {

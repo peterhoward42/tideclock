@@ -11,6 +11,7 @@
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
  * - Sub-builders (`buildTideMarksFromSpec`, pointers, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0** (defines the Now **triangle** outer radius together with **RefRadius**).
+ * - `**homeMenuTrigger**` is required: plain object with finite `**centerX`**, `**centerY`**, `**radius`** (**> 0**), `**labelSize`** (**> 0**), and string `**label`**.
  * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
  * - `**waitArc.radius**` must be a finite **k·R** multiplier **> 0** (zero or negative throws).
@@ -187,6 +188,7 @@ export function buildDiagram(spec) {
     thetaLeft,
     sweepRad,
   );
+  const homeMenuTrigger = buildHomeMenuTriggerFromSpec(spec, refRadius);
   const annularMaxX = annularBandMaxX(annularBand);
   if (tickLabels.length === 0) {
     throw new Error(
@@ -247,6 +249,7 @@ export function buildDiagram(spec) {
     nextPointer,
     waitArc,
     annularBand,
+    homeMenuTrigger,
     timeDeltaDiagram,
     centreFrameDiagram,
     timeNowDate,
@@ -334,6 +337,44 @@ function buildAnnularBandFromSpec(spec, refRadius, thetaLeft, sweepRad) {
     rOuter: refRadius + w,
     thetaLeft,
     sweepRad,
+  };
+}
+
+/**
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @returns {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram}
+ */
+function buildHomeMenuTriggerFromSpec(spec, refRadius) {
+  const o = requirePlainObject(spec.homeMenuTrigger, "spec.homeMenuTrigger");
+  const centerXK = requireFiniteNumber(
+    o.centerX,
+    "spec.homeMenuTrigger.centerX",
+  );
+  const centerYK = requireFiniteNumber(
+    o.centerY,
+    "spec.homeMenuTrigger.centerY",
+  );
+  const radiusK = requireFiniteNumber(
+    o.radius,
+    "spec.homeMenuTrigger.radius",
+  );
+  const labelSizeK = requireFiniteNumber(
+    o.labelSize,
+    "spec.homeMenuTrigger.labelSize",
+  );
+  const label = requireString(o.label, "spec.homeMenuTrigger.label");
+  if (radiusK <= 0) {
+    throw new Error("spec.homeMenuTrigger.radius must be greater than 0");
+  }
+  if (labelSizeK <= 0) {
+    throw new Error("spec.homeMenuTrigger.labelSize must be greater than 0");
+  }
+  return {
+    center: { x: centerXK * refRadius, y: centerYK * refRadius },
+    radius: radiusK * refRadius,
+    labelSize: labelSizeK * refRadius,
+    label,
   };
 }
 

@@ -75,6 +75,13 @@ type SemanticInjectionDiagramSpec = {
     readonly tidePhasePair: 'out-low' | 'in-high';
   };
   readonly annularBand: { readonly annularBandWidth: number };
+  readonly homeMenuTrigger: {
+    readonly centerX: number;
+    readonly centerY: number;
+    readonly radius: number;
+    readonly labelSize: number;
+    readonly label: string;
+  };
 };
 
 /** `buildDiagram` is implemented in `.mjs`; align returns with {@link TideDiagramDocument}. */
@@ -135,12 +142,20 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
         { belowOrigin: 0.04, fontHeight: 0.05 },
         { belowOrigin: 0.07, fontHeight: 0.05 },
         { belowOrigin: 0.1, fontHeight: 0.05 },
+        { belowOrigin: 0.13, fontHeight: 0.05 },
       ],
       emptyMessage: { belowOrigin: 0.1, fontHeight: 0.05 },
       town: 'Lymington',
       tidePhasePair: 'out-low',
     },
     annularBand: { annularBandWidth: 0.05 },
+    homeMenuTrigger: {
+      centerX: -1.08,
+      centerY: -1.0,
+      radius: 0.09,
+      labelSize: 0.042,
+      label: 'Menu',
+    },
   };
 }
 

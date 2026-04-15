@@ -152,6 +152,13 @@ type InsideTrackDiagram = {
   readonly sweepRad: number;
 };
 
+type HomeMenuTriggerDiagram = {
+  readonly center: DiagramPoint;
+  readonly radius: number;
+  readonly labelSize: number;
+  readonly label: string;
+};
+
 /**
  * Shape returned by {@link buildDiagram} in `buildDiagram.mjs` (see JSDoc on `TideDiagramDocument`
  * in `tideDiagramModel.mjs`). App code treats this as the diagram-generation boundary contract.
@@ -168,6 +175,7 @@ export type TideDiagramDocument = {
   readonly nextPointer: NextPointerDiagram | null;
   readonly waitArc: WaitArcDiagram | null;
   readonly annularBand: AnnularBandDiagram;
+  readonly homeMenuTrigger: HomeMenuTriggerDiagram;
   readonly timeDeltaDiagram: TimeDeltaDiagram;
   readonly centreFrameDiagram: CentreFrameDiagram;
   readonly timeNowDate: DiagramTextInst;

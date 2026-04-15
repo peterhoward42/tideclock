@@ -53,7 +53,7 @@
 
   <div class="top-bar__right">
     {#if includeMenu}
-      <PrimaryNavMenu bind:this={primaryNav} variant="header" />
+      <PrimaryNavMenu bind:this={primaryNav} />
     {/if}
   </div>
 </header>

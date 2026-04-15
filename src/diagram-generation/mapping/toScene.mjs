@@ -342,6 +342,7 @@ export function timeDeltaDiagramToGroup(td, cx, cy) {
       "TimeDeltaLocation",
       "TimeDeltaPhase",
       "TimeDeltaNext",
+      "TimeDeltaNextTime",
     ];
     if (td.countdownStripes.length !== stripeNames.length) {
       throw new Error(
@@ -441,6 +442,7 @@ export function tideDiagramToScene(diagram) {
     nextPointer,
     waitArc,
     annularBand: annularBandDiagram,
+    homeMenuTrigger,
     timeNowDate,
     timeNowClock,
   } = diagram;
@@ -638,6 +640,22 @@ export function tideDiagramToScene(diagram) {
         ])
       : null;
 
+  const homeMenuTriggerGroup = group("HomeMenuTrigger", [
+    circle(
+      mapPoint(homeMenuTrigger.center, cx, cy),
+      homeMenuTrigger.radius,
+    ),
+    group("HomeMenuTriggerLabel", [
+      text({
+        content: homeMenuTrigger.label,
+        size: homeMenuTrigger.labelSize,
+        hAlign: "center",
+        angleRad: 0,
+        anchor: mapPoint(homeMenuTrigger.center, cx, cy),
+      }),
+    ]),
+  ]);
+
   const meta = {
     title,
     width,
@@ -660,6 +678,7 @@ export function tideDiagramToScene(diagram) {
     timeNowClockGroup,
     nowPointerGroup,
     ...(nextPointerGroup != null ? [nextPointerGroup] : []),
+    homeMenuTriggerGroup,
   ]);
   meta.previewFrame = computeScenePreviewFrame(root);
 

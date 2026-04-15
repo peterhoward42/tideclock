@@ -102,31 +102,19 @@ o  new data fetch paradigm
 				*  loop back to fix no more times today
 				*  scrape diag spec for optional / if present errors
 				*  better UX for locations
-				o  hone UI incl mobile and verbosity
-					*  exploit aspect ratio for internal diagram layout
-						*  header padding
-						*  omit header
-						*  reinstate menu 
-					*  move tide delta text into centreFramme
-					*  arrange time now label in short rows on right
+				*  hone UI incl mobile and verbosity
 
 fart
-					o  constrast and size for mobile
-						*  can we abstract styles into roles?
-						o  improve each type of text first for mobile
-							o  start with a max contrast colour pair choice
-								o  ask giving context
-									o  switch the prompt to chatgpt
+				o  move menu into diagram so that nothing else is there
+				   to get layout right?
+				   	*  something working
+					o  harden it
+						o  intermittent mouse over
+					o  style it
 
-							o  bright neon green #0FFF50
-							o  bright lavender #bf94e4
-
-
-						o  come back to UX branch when no location has been
-						   stored yet.
+				o  come back to UX branch when no location has been stored yet.
 
 
-Implement ###6 in /docs/planning/home-landscape-header-space.md
 
 					o  kiosk mode and the following
 						o  see chatgpt kiosk mode overview
@@ -149,6 +137,7 @@ Implement ###6 in /docs/planning/home-landscape-header-space.md
 						o  ?
 
 				o  come back to alternating in/out edge cases 
+				o  QR code in auxilliary route
 				o  report bugs and suggestions
 				o  donate?
 				o  come back to the Bournemouth dilemma

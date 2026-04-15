@@ -40,6 +40,10 @@ export const homeTideStyleModel: StyleModelSpec = {
       colors: { color: '#bf94e4' }, // bright lavender
     },
     {
+      name: 'role.tide.secondary',
+      colors: { color: '#AAA' },
+    },
+    {
       name: 'role.now.live',
       colors: { color: '#0FFF50' }, // bright neon green
     },
@@ -71,6 +75,10 @@ export const homeTideStyleModel: StyleModelSpec = {
       name: 'role.text.primary',
       colors: { color: 'white' },
     },
+    {
+      name: 'role.menu.trigger',
+      colors: { strokeColor: '#888', fillColor: '#111' },
+    },
   ],
   bindings: [
     { name: 'AnnularBand', roleName: 'role.structure.band' },
@@ -80,7 +88,8 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: 'HeightLabel', roleName: 'role.tide.primary' },
     { name: 'TimeDeltaLocation', roleName: 'role.text.primary' },
     { name: 'TimeDeltaPhase', roleName: 'role.tide.primary' },
-    { name: 'TimeDeltaNext', roleName: 'role.tide.primary' },
+    { name: 'TimeDeltaNext', roleName: 'role.tide.secondary' },
+    { name: 'TimeDeltaNextTime', roleName: 'role.tide.secondary' },
     { name: 'NextPointer', roleName: 'role.tide.primary' },
     { name: 'WaitArc', roleName: 'role.now.live' },
     { name: 'TimePointer', roleName: 'role.tide.primary' },
@@ -95,6 +104,8 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: 'NowTriangle', roleName: 'role.now.live' },
     { name: 'NowRadialLine', roleName: 'role.now.live' },
     { name: 'NowLabel', roleName: 'role.now.live' },
+    { name: 'HomeMenuTrigger', roleName: 'role.menu.trigger' },
+    { name: 'HomeMenuTriggerLabel', roleName: 'role.structure.emphasis' },
   ],
   lineStyles: [{ name: 'NowRadialLine', lineStyle: 'dashed' }],
 };

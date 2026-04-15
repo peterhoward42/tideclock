@@ -5,7 +5,7 @@
  * Policies for {@link buildTimeDeltaDiagramFromSpec}:
  * - Throws when `spec.timeDelta` is missing or not a plain object.
  * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
- * - Throws when `timeDelta.countdownLines` is not an array of three finite `{ belowOrigin, fontHeight }` rows,
+ * - Throws when `timeDelta.countdownLines` is not an array of four finite `{ belowOrigin, fontHeight }` rows,
  *   or when `timeDelta.emptyMessage` is missing those finite numbers.
  *
  * {@link layoutTimeDeltaDiagram} is pure geometry + text placement from a resolved {@link TimeDeltaLayout}; it does not read the spec.
@@ -18,21 +18,24 @@ import { requirePlainObject, requireString } from "./specRequire.mjs";
 /** Fixed copy when no tide remains on the civil day (docs/specs/tide-diagram.md §TimeDelta). */
 export const TIME_DELTA_EMPTY_MESSAGE = "No further tides today";
 
-/** Expected length of `spec.timeDelta.countdownLines` (location, phase, next-event). */
-export const TIME_DELTA_COUNTDOWN_LINE_COUNT = 3;
+/** Expected length of `spec.timeDelta.countdownLines` (location, phase, next-event interval, next-event clock). */
+export const TIME_DELTA_COUNTDOWN_LINE_COUNT = 4;
 
 /**
  * @param {string} eventLabel
  * @param {string} interval
+ * @returns {string}
+ */
+export function formatTimeDeltaNextIntervalLine(eventLabel, interval) {
+  return `${eventLabel} in ${interval}`;
+}
+
+/**
  * @param {string} nextEventTimeHhmm
  * @returns {string}
  */
-export function formatTimeDeltaNextStripeContent(
-  eventLabel,
-  interval,
-  nextEventTimeHhmm,
-) {
-  return `${eventLabel} in ${interval} (${nextEventTimeHhmm})`;
+export function formatTimeDeltaNextAtLine(nextEventTimeHhmm) {
+  return `at ${nextEventTimeHhmm}`;
 }
 
 /**
@@ -96,11 +99,8 @@ export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
     const contents = [
       timeDeltaLayout.town,
       `Tide ${direction}`,
-      formatTimeDeltaNextStripeContent(
-        eventLabel,
-        timeDeltaLayout.interval,
-        timeDeltaLayout.nextEventTimeHhmm,
-      ),
+      formatTimeDeltaNextIntervalLine(eventLabel, timeDeltaLayout.interval),
+      formatTimeDeltaNextAtLine(timeDeltaLayout.nextEventTimeHhmm),
     ];
     countdownStripes = lines.map((line, i) => ({
       content: /** @type {string} */ (contents[i]),
@@ -157,7 +157,7 @@ export function buildTimeDeltaDiagramFromSpec(spec, refRadius) {
   }
   if (rawLines.length !== TIME_DELTA_COUNTDOWN_LINE_COUNT) {
     throw new Error(
-      `spec.timeDelta.countdownLines must have length ${TIME_DELTA_COUNTDOWN_LINE_COUNT} (location, phase, next-event)`,
+      `spec.timeDelta.countdownLines must have length ${TIME_DELTA_COUNTDOWN_LINE_COUNT} (location, phase, next-interval, next-at-time)`,
     );
   }
   /** @type {TimeDeltaStripeLayoutInput[]} */

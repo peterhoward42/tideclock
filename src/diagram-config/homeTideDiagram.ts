@@ -60,7 +60,7 @@ type HomeTideDiagramLayoutBase = {
   /** k·RefRadius; concentric arc inside RefArc, same angular span as RefArc. */
   readonly insideTrackRadius: number;
   readonly timeDelta: {
-    /** Three stripes: location name, tide phase line, next-event line (see tide-diagram §TimeDelta). */
+    /** Four stripes: location, phase, next-event interval, next-event clock (`at HH:MM`) (see tide-diagram §TimeDelta). */
     readonly countdownLines: readonly {
       readonly belowOrigin: number;
       readonly fontHeight: number;
@@ -71,6 +71,13 @@ type HomeTideDiagramLayoutBase = {
     readonly tidePhasePair: 'out-low' | 'in-high';
   };
   readonly annularBand: { readonly annularBandWidth: number };
+  readonly homeMenuTrigger: {
+    readonly centerX: number;
+    readonly centerY: number;
+    readonly radius: number;
+    readonly labelSize: number;
+    readonly label: "Menu";
+  };
   readonly tideMarksDefaults: HomeDiagramTideMarksDefaults;
 };
 
@@ -107,15 +114,23 @@ export const homeTideDiagramLayoutBase: HomeTideDiagramLayoutBase = {
   insideTrackRadius: 0.74,
   timeDelta: {
     countdownLines: [
-      { belowOrigin: 0.05, fontHeight: 0.045 },
-      { belowOrigin: 0.18, fontHeight: 0.045 },
-      { belowOrigin: 0.32, fontHeight: 0.045 },
+      { belowOrigin: 0.065, fontHeight: 0.048 },
+      { belowOrigin: 0.155, fontHeight: 0.045 },
+      { belowOrigin: 0.25, fontHeight: 0.045 },
+      { belowOrigin: 0.35, fontHeight: 0.045 },
     ],
     emptyMessage: { belowOrigin: 0.08, fontHeight: 0.038 },
     town: 'Unset',
     tidePhasePair: 'out-low',
   },
   annularBand: { annularBandWidth: 0.05 },
+  homeMenuTrigger: {
+    centerX: -1.08,
+    centerY: -1.0,
+    radius: 0.09,
+    labelSize: 0.042,
+    label: "Menu",
+  },
   tideMarksDefaults: {
     tideHeightLabelRadius: 0.9,
     tideTimeLabelRadius: 0.821,

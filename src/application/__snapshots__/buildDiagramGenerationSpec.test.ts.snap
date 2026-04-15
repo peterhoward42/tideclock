@@ -24,6 +24,15 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "thetaRight": 6.283185307179586,
     },
   },
+  "homeMenuTrigger": {
+    "center": {
+      "x": -127.44000000000001,
+      "y": -118,
+    },
+    "label": "Menu",
+    "labelSize": 4.956,
+    "radius": 10.62,
+  },
   "insideTrack": {
     "center": {
       "x": 0,
@@ -41,15 +50,15 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "nextPointer": {
     "circle": {
       "center": {
-        "x": 85.54291688209734,
-        "y": -10.124671417018137,
+        "x": 86.71473766130416,
+        "y": -10.263365546018383,
       },
       "radius": 1.5171428571428571,
     },
     "radialLine": {
       "end": {
-        "x": 85.54291688209734,
-        "y": -10.124671417018137,
+        "x": 86.71473766130416,
+        "y": -10.263365546018383,
       },
       "start": {
         "x": 52.7319350643066,
@@ -62,18 +71,18 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "nowPointer": {
     "nowLabel": {
       "anchor": {
-        "x": 56.937140580524144,
-        "y": -36.977751723348874,
+        "x": 55.97046734438385,
+        "y": -36.30103697212054,
       },
       "angleRad": 11.955614459239406,
       "content": "now",
-      "fontSize": 3.54,
+      "fontSize": 5.31,
     },
     "nowLabelBranch": "B",
     "radialLine": {
       "end": {
-        "x": 67.66712652982126,
-        "y": -47.370032585983715,
+        "x": 65.73378005754067,
+        "y": -46.016603083527045,
       },
       "start": {
         "x": 43.50029562631367,
@@ -679,28 +688,37 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       {
         "anchor": {
           "x": 0,
-          "y": -17.7,
+          "y": -7.67,
         },
         "content": "Lymington",
-        "fontSize": 3.7760000000000002,
+        "fontSize": 5.664,
         "hAlign": "center",
       },
       {
         "anchor": {
           "x": 0,
-          "y": -27.729999999999997,
+          "y": -18.29,
         },
         "content": "Tide coming in",
-        "fontSize": 3.54,
+        "fontSize": 5.31,
         "hAlign": "center",
       },
       {
         "anchor": {
           "x": 0,
-          "y": -37.76,
+          "y": -29.5,
         },
-        "content": "High tide in 3h 45m (23:06)",
-        "fontSize": 3.54,
+        "content": "High tide in 3h 45m",
+        "fontSize": 5.31,
+        "hAlign": "center",
+      },
+      {
+        "anchor": {
+          "x": 0,
+          "y": -41.3,
+        },
+        "content": "at 23:06",
+        "fontSize": 5.31,
         "hAlign": "center",
       },
     ],
@@ -772,7 +790,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "previewFrame": {
       "maxX": 334.9,
       "maxY": 162.41600000000003,
-      "minX": 77.548,
+      "minX": 70.93999999999998,
       "minY": 26.95799999999998,
     },
     "title": "home-tide-diagram",
@@ -1585,13 +1603,13 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 210,
-                  "y": 142.3,
+                  "y": 152.33,
                 },
                 "angleRad": 0,
                 "content": "Lymington",
                 "hAlign": "center",
                 "kind": "text",
-                "size": 3.7760000000000002,
+                "size": 5.664,
               },
             ],
             "kind": "group",
@@ -1602,13 +1620,13 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 210,
-                  "y": 132.27,
+                  "y": 141.71,
                 },
                 "angleRad": 0,
                 "content": "Tide coming in",
                 "hAlign": "center",
                 "kind": "text",
-                "size": 3.54,
+                "size": 5.31,
               },
             ],
             "kind": "group",
@@ -1619,17 +1637,34 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 210,
-                  "y": 122.24000000000001,
+                  "y": 130.5,
                 },
                 "angleRad": 0,
-                "content": "High tide in 3h 45m (23:06)",
+                "content": "High tide in 3h 45m",
                 "hAlign": "center",
                 "kind": "text",
-                "size": 3.54,
+                "size": 5.31,
               },
             ],
             "kind": "group",
             "name": "TimeDeltaNext",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 210,
+                  "y": 118.7,
+                },
+                "angleRad": 0,
+                "content": "at 23:06",
+                "hAlign": "center",
+                "kind": "text",
+                "size": 5.31,
+              },
+            ],
+            "kind": "group",
+            "name": "TimeDeltaNextTime",
           },
         ],
         "kind": "group",
@@ -1737,8 +1772,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "end": {
-                  "x": 277.66712652982125,
-                  "y": 112.62996741401628,
+                  "x": 275.7337800575407,
+                  "y": 113.98339691647296,
                 },
                 "kind": "line",
                 "start": {
@@ -1754,14 +1789,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 266.93714058052416,
-                  "y": 123.02224827665113,
+                  "x": 265.97046734438385,
+                  "y": 123.69896302787946,
                 },
                 "angleRad": 11.955614459239406,
                 "content": "now",
                 "hAlign": "center",
                 "kind": "text",
-                "size": 3.54,
+                "size": 5.31,
               },
             ],
             "kind": "group",
@@ -1775,8 +1810,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "children": [
           {
             "end": {
-              "x": 295.54291688209736,
-              "y": 149.87532858298187,
+              "x": 296.7147376613042,
+              "y": 149.73663445398162,
             },
             "kind": "line",
             "start": {
@@ -1786,8 +1821,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           },
           {
             "center": {
-              "x": 295.54291688209736,
-              "y": 149.87532858298187,
+              "x": 296.7147376613042,
+              "y": 149.73663445398162,
             },
             "kind": "circle",
             "radius": 1.5171428571428571,
@@ -1795,6 +1830,37 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         ],
         "kind": "group",
         "name": "NextPointer",
+      },
+      {
+        "children": [
+          {
+            "center": {
+              "x": 82.55999999999999,
+              "y": 42,
+            },
+            "kind": "circle",
+            "radius": 10.62,
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 82.55999999999999,
+                  "y": 42,
+                },
+                "angleRad": 0,
+                "content": "Menu",
+                "hAlign": "center",
+                "kind": "text",
+                "size": 4.956,
+              },
+            ],
+            "kind": "group",
+            "name": "HomeMenuTriggerLabel",
+          },
+        ],
+        "kind": "group",
+        "name": "HomeMenuTrigger",
       },
     ],
     "kind": "group",

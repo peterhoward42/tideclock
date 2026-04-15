@@ -58,7 +58,7 @@
  *   end: DiagramPoint,
  * }} DiagramLineSeg
  *
- * TimeDeltaDiagram: **countdownStripes** holds three center-justified lines (location, phase, next event) when counting down;
+ * TimeDeltaDiagram: **countdownStripes** holds four center-justified lines (location, phase, next-event interval, next-event clock) when counting down;
  * **timeDeltaEmptyMessage** is set (and **countdownStripes** null) when there is no next tide today (**NoMoreTidesToday** in the spec).
  * X anchor is fixed at **0** for each stripe; baseline Y follows per-stripe **belowOrigin** on the spec (**k·R**), distance from the origin toward negative Y.
  *
@@ -152,6 +152,15 @@
  *   sweepRad: number,
  * }} InsideTrackDiagram
  *
+ * Home menu trigger marker embedded in the diagram space.
+ *
+ * @typedef {{
+ *   center: DiagramPoint,
+ *   radius: number,
+ *   labelSize: number,
+ *   label: string,
+ * }} HomeMenuTriggerDiagram
+ *
  * @typedef {{
  *   version: number,
  *   meta: { title: string, width: number, height: number },
@@ -164,6 +173,7 @@
  *   nextPointer: NextPointerDiagram | null,
  *   waitArc: WaitArcDiagram | null,
  *   annularBand: AnnularBandDiagram,
+ *   homeMenuTrigger: HomeMenuTriggerDiagram,
  *   timeDeltaDiagram: TimeDeltaDiagram,
  *   centreFrameDiagram: CentreFrameDiagram,
  *   timeNowDate: DiagramTextInst,

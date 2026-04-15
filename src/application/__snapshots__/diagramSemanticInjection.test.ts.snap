@@ -24,6 +24,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "thetaRight": 6.08738898038469,
     },
   },
+  "homeMenuTrigger": {
+    "center": {
+      "x": -127.44000000000001,
+      "y": -118,
+    },
+    "label": "Menu",
+    "labelSize": 4.956,
+    "radius": 10.62,
+  },
   "insideTrack": {
     "center": {
       "x": 0,
@@ -699,7 +708,16 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
           "x": 0,
           "y": -11.8,
         },
-        "content": "Low tide in 3h 45m (23:06)",
+        "content": "Low tide in 3h 45m",
+        "fontSize": 5.9,
+        "hAlign": "center",
+      },
+      {
+        "anchor": {
+          "x": 0,
+          "y": -15.34,
+        },
+        "content": "at 23:06",
         "fontSize": 5.9,
         "hAlign": "center",
       },
