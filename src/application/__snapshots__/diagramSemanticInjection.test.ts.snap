@@ -724,7 +724,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "hAlign": "center",
       },
     ],
-    "timeDeltaEmptyMessage": null,
+    "timeDeltaEmptyStripes": null,
   },
   "timeNowClock": {
     "hhmm": {

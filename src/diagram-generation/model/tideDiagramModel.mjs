@@ -59,12 +59,12 @@
  * }} DiagramLineSeg
  *
  * TimeDeltaDiagram: **countdownStripes** holds four center-justified lines (location, phase, next-event interval, next-event clock) when counting down;
- * **timeDeltaEmptyMessage** is set (and **countdownStripes** null) when there is no next tide today (**NoMoreTidesToday** in the spec).
+ * **timeDeltaEmptyStripes** holds three lines (location, phase, tomorrow event) when there is no next tide today (**NoMoreTidesToday** third stripe in the spec).
  * X anchor is fixed at **0** for each stripe; baseline Y follows per-stripe **belowOrigin** on the spec (**k·R**), distance from the origin toward negative Y.
  *
  * @typedef {{
  *   countdownStripes: DiagramTextInst[] | null,
- *   timeDeltaEmptyMessage: DiagramTextInst | null,
+ *   timeDeltaEmptyStripes: DiagramTextInst[] | null,
  * }} TimeDeltaDiagram
  *
  * @typedef {{

@@ -385,19 +385,32 @@ export function timeDeltaDiagramToGroup(td, cx, cy) {
       timeDeltaChildren.push(group(leaf, [node]));
     }
   }
-  if (td.timeDeltaEmptyMessage != null) {
-    const m = td.timeDeltaEmptyMessage;
-    timeDeltaChildren.push(
-      group("NoMoreTidesToday", [
-        text({
-          content: m.content,
-          size: m.fontSize,
-          hAlign: m.hAlign,
-          angleRad: 0,
-          anchor: mapPoint(m.anchor, cx, cy),
-        }),
-      ]),
-    );
+  if (td.timeDeltaEmptyStripes != null) {
+    const emptyStripeNames = [
+      "TimeDeltaLocation",
+      "TimeDeltaPhase",
+      "NoMoreTidesToday",
+    ];
+    if (td.timeDeltaEmptyStripes.length !== emptyStripeNames.length) {
+      throw new Error(
+        `timeDeltaDiagram.timeDeltaEmptyStripes must have length ${emptyStripeNames.length}`,
+      );
+    }
+    for (let i = 0; i < emptyStripeNames.length; i += 1) {
+      const seg = td.timeDeltaEmptyStripes[i];
+      const leaf = emptyStripeNames[i];
+      timeDeltaChildren.push(
+        group(leaf, [
+          text({
+            content: seg.content,
+            size: seg.fontSize,
+            hAlign: seg.hAlign,
+            angleRad: 0,
+            anchor: mapPoint(seg.anchor, cx, cy),
+          }),
+        ]),
+      );
+    }
   }
   return group("TimeDelta", timeDeltaChildren);
 }

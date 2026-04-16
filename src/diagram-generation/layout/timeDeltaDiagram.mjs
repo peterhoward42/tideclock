@@ -1,5 +1,5 @@
 /**
- * timeDeltaDiagram.mjs — Time-delta text layout in diagram space (countdown stripes or empty-day message).
+ * timeDeltaDiagram.mjs — Time-delta text layout in diagram space (countdown stripes or empty-day three stripes).
  * Fed by spec + shared tide-event helpers. See docs/specs/tide-diagram.md §TimeDelta.
  *
  * Policies for {@link buildTimeDeltaDiagramFromSpec}:
@@ -85,9 +85,10 @@ function requireCountdownLineRow(row, label) {
  *
  * @typedef {object} TimeDeltaLayoutEmpty
  * @property {'empty'} kind
+ * @property {string} town
  * @property {'out-low' | 'in-high'} tidePhasePair
- * @property {number} belowOrigin
- * @property {number} fontHeight
+ * @property {readonly TimeDeltaStripeLayoutInput[]} linesTopThree first three `countdownLines` rows (location, phase, interval-slot baseline for tomorrow copy).
+ * @property {number} tomorrowFontHeight `emptyMessage.fontHeight` for the third line only.
  *
  * @typedef {TimeDeltaLayoutCountdown | TimeDeltaLayoutEmpty} TimeDeltaLayout
  */
@@ -101,8 +102,8 @@ export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
   const R = refRadius;
   /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst[] | null} */
   let countdownStripes = null;
-  /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst | null} */
-  let timeDeltaEmptyMessage = null;
+  /** @type {import('../model/tideDiagramModel.mjs').DiagramTextInst[] | null} */
+  let timeDeltaEmptyStripes = null;
 
   if (timeDeltaLayout.kind === "countdown") {
     const lines = timeDeltaLayout.countdownLines;
@@ -133,17 +134,23 @@ export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
       hAlign: "center",
     }));
   } else {
-    const tdFont = timeDeltaLayout.fontHeight * R;
-    const tdY = 0 - timeDeltaLayout.belowOrigin * R;
-    timeDeltaEmptyMessage = {
-      content: formatTimeDeltaTomorrowEventLine(timeDeltaLayout.tidePhasePair),
-      fontSize: tdFont,
-      anchor: { x: 0, y: tdY },
+    const lines = timeDeltaLayout.linesTopThree;
+    const isOutLow = timeDeltaLayout.tidePhasePair === "out-low";
+    const direction = isOutLow ? "going out" : "coming in";
+    const tomorrow = formatTimeDeltaTomorrowEventLine(
+      timeDeltaLayout.tidePhasePair,
+    );
+    const contents = [timeDeltaLayout.town, `Tide ${direction}`, tomorrow];
+    timeDeltaEmptyStripes = [0, 1, 2].map((i) => ({
+      content: /** @type {string} */ (contents[i]),
+      fontSize:
+        (i === 2 ? timeDeltaLayout.tomorrowFontHeight : lines[i].fontHeight) * R,
+      anchor: { x: 0, y: 0 - lines[i].belowOrigin * R },
       hAlign: "center",
-    };
+    }));
   }
 
-  return { countdownStripes, timeDeltaEmptyMessage };
+  return { countdownStripes, timeDeltaEmptyStripes };
 }
 
 /**
@@ -212,9 +219,10 @@ export function buildTimeDeltaDiagramFromSpec(spec, refRadius) {
     nextEvent == null
       ? {
           kind: "empty",
+          town: tdTown,
           tidePhasePair: tdTidePhasePair,
-          belowOrigin: emptyBelow,
-          fontHeight: emptyFh,
+          linesTopThree: countdownLines.slice(0, 3),
+          tomorrowFontHeight: emptyFh,
         }
       : {
           kind: "countdown",

@@ -724,7 +724,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "hAlign": "center",
       },
     ],
-    "timeDeltaEmptyMessage": null,
+    "timeDeltaEmptyStripes": null,
   },
   "timeNowClock": {
     "hhmm": {

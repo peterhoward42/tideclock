@@ -186,15 +186,33 @@ describe('spec.semantic.nextTide injection', () => {
   });
 
   it('after last tide of the day shows NoMoreTidesToday and omits NextPointer and WaitArc', () => {
-    const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
+    const base = sampleTideDiagramSpec();
+    const spec = { ...base, timeNow: '23:59:00' };
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
     expect(diagram.timeDeltaDiagram.countdownStripes).toBeNull();
-    expect(diagram.timeDeltaDiagram.timeDeltaEmptyMessage).toEqual({
-      content: 'Low tide tomorrow',
-      fontSize: 5.9,
-      anchor: { x: 0, y: -11.8 },
-      hAlign: 'center',
-    });
+    const R = spec.refRadius;
+    const [l0, l1, l2] = spec.timeDelta.countdownLines;
+    const emptyFh = spec.timeDelta.emptyMessage.fontHeight;
+    expect(diagram.timeDeltaDiagram.timeDeltaEmptyStripes).toEqual([
+      {
+        content: 'Lymington',
+        fontSize: l0.fontHeight * R,
+        anchor: { x: 0, y: -l0.belowOrigin * R },
+        hAlign: 'center',
+      },
+      {
+        content: 'Tide going out',
+        fontSize: l1.fontHeight * R,
+        anchor: { x: 0, y: -l1.belowOrigin * R },
+        hAlign: 'center',
+      },
+      {
+        content: 'Low tide tomorrow',
+        fontSize: emptyFh * R,
+        anchor: { x: 0, y: -l2.belowOrigin * R },
+        hAlign: 'center',
+      },
+    ]);
     expect(diagram.timeNowDate.content).toBe('Mon 23 Mar');
     expect(diagram.timeNowClock.hhmm.content).toBe('23:59');
     expect(diagram.timeNowClock.secondsColon.content).toBe(':');

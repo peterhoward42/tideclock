@@ -65,7 +65,10 @@ type HomeTideDiagramLayoutBase = {
       readonly belowOrigin: number;
       readonly fontHeight: number;
     }[];
-    /** Baseline and font for **NoMoreTidesToday** when there is no next tide on the civil day. */
+    /**
+     * Required; `fontHeight` sizes the third centre line (“… tomorrow”) when there is no next tide
+     * today. `belowOrigin` is validated but layout uses `countdownLines[2].belowOrigin` for that baseline.
+     */
     readonly emptyMessage: { readonly belowOrigin: number; readonly fontHeight: number };
     readonly town: string;
     readonly tidePhasePair: 'out-low' | 'in-high';

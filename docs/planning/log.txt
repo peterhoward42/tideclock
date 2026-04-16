@@ -114,14 +114,13 @@ fart
 							*  no more today
 							*  some readme or redirected docco for these 
 							   snapshots
-							o  atypical tides
-							o  no room for now label / arrohead
-							o  other ux conditionals?
-							o  now make sure all these controls work
-							o  merge the branch
+							*  atypical tides
+							*  no room for now label / arrohead
+							*  other ux conditionals?
+							*  now make sure all these controls work
+							*  merge the branch
 
 
-Read diagram-dev-preview-catalog.md for context. We have implemented the no-more-tides-today now successfully. I want to add the next driving use case which is time-delta-short. Please have a go at that. You may will need to extend the scaffolding for the preview catalogue mechanism. There is no merit in treating this as a cautious patch to the catalogue mechanism, prefer making sure the code is easy to understand in this area and doesn't feel patched.
 
 							o  exercise each snapshot
 
@@ -136,8 +135,7 @@ Read diagram-dev-preview-catalog.md for context. We have implemented the no-more
 
 
 				o  location ui verbosity and mobile fit
-
-
+				o  big code cleanse
 
 					o  kiosk mode and the following
 						o  see chatgpt kiosk mode overview
@@ -148,6 +146,8 @@ Read diagram-dev-preview-catalog.md for context. We have implemented the no-more
 				o  proxy cost risk containment
 					o  how to use real estate better - partic on phone
 						o  aspect ratio sensitivity in diagram and outer?
+
+
 
 				o  falmouth estuary and south west extents poor coverage
 
