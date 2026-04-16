@@ -12,9 +12,12 @@
     utcIsoToLocalCanonicalTimeLocal,
   } from "../../application/buildDiagramGenerationSpec";
   import {
-    buildDiagramDevPreviewNoMoreTidesTodayClock,
-    diagramDevPreviewNoMoreTidesTodayRequestedFromSearch,
-  } from "../../application/diagramDevPreviewNoMoreTidesToday";
+    diagramDevPreviewIdFromSearch,
+    type DiagramDevPreviewId,
+  } from "../../application/diagramDevPreviewCatalog";
+  import { buildDiagramDevPreviewNoMoreTidesTodayClock } from "../../application/diagramDevPreviewNoMoreTidesToday";
+  import { buildDiagramDevPreviewTimeDeltaShortClock } from "../../application/diagramDevPreviewTimeDeltaShort";
+  import { buildDiagramDevPreviewTimeDeltaMediumClock } from "../../application/diagramDevPreviewTimeDeltaMedium";
   import {
     localCanonicalTimeNowFromMs,
     localTimeNowDatePrefixFromMs,
@@ -46,18 +49,18 @@
   /** Drives Loop B: bumps only on local minute rollover (aligned scheduler), not every second. */
   let semanticMinuteEpoch = $state(Math.floor(Date.now() / 60_000));
 
-  /** Dev-only: `?diagramPreview=no-more-tides-today` (see docs/planning/diagram-dev-preview-catalog.md). */
-  let noMoreTidesTodayPreviewFromUrl = $state(false);
+  /** Dev-only: `?diagramPreview=<id>` (see docs/planning/diagram-dev-preview-catalog.md). */
+  let diagramPreviewIdFromUrl = $state<DiagramDevPreviewId | null>(null);
 
-  function readNoMoreTidesTodayPreviewFromLocation(): boolean {
-    if (!import.meta.env.DEV) return false;
-    if (typeof window === "undefined") return false;
+  function readDiagramPreviewIdFromLocation(): DiagramDevPreviewId | null {
+    if (!import.meta.env.DEV) return null;
+    if (typeof window === "undefined") return null;
     const search =
       window.location.search ||
       (window.location.hash.includes("?")
         ? window.location.hash.slice(window.location.hash.indexOf("?"))
         : "");
-    return diagramDevPreviewNoMoreTidesTodayRequestedFromSearch(search);
+    return diagramDevPreviewIdFromSearch(search);
   }
 
   onMount(() => {
@@ -67,12 +70,10 @@
       domDumpEnabled = params.has("dom");
       outlineEnabled = params.has("outline");
       previewFrameEnabled = params.has("pf");
-      noMoreTidesTodayPreviewFromUrl =
-        readNoMoreTidesTodayPreviewFromLocation();
+      diagramPreviewIdFromUrl = readDiagramPreviewIdFromLocation();
 
       const onUrlChange = (): void => {
-        noMoreTidesTodayPreviewFromUrl =
-          readNoMoreTidesTodayPreviewFromLocation();
+        diagramPreviewIdFromUrl = readDiagramPreviewIdFromLocation();
       };
       window.addEventListener("hashchange", onUrlChange);
       window.addEventListener("popstate", onUrlChange);
@@ -112,7 +113,10 @@
   let domSummary = $state<string>("");
 
   const noMoreTidesTodayPreviewClock = $derived.by(() => {
-    if (!import.meta.env.DEV || !noMoreTidesTodayPreviewFromUrl) {
+    if (
+      !import.meta.env.DEV ||
+      diagramPreviewIdFromUrl !== "no-more-tides-today"
+    ) {
       return null;
     }
     if (tideExtremes === undefined || tideExtremes.extremes.length === 0) {
@@ -124,15 +128,61 @@
     });
   });
 
-  const activeNoMoreTidesTodayPreview = $derived(
-    noMoreTidesTodayPreviewClock?.kind === "active"
-      ? noMoreTidesTodayPreviewClock
-      : null,
-  );
+  const timeDeltaShortPreviewClock = $derived.by(() => {
+    if (
+      !import.meta.env.DEV ||
+      diagramPreviewIdFromUrl !== "time-delta-short"
+    ) {
+      return null;
+    }
+    if (tideExtremes === undefined || tideExtremes.extremes.length === 0) {
+      return null;
+    }
+    return buildDiagramDevPreviewTimeDeltaShortClock({
+      extremesAtLocation: tideExtremes,
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
+    });
+  });
 
-  const noMoreTidesTodayPreviewLive = $derived(
-    activeNoMoreTidesTodayPreview !== null,
-  );
+  const timeDeltaMediumPreviewClock = $derived.by(() => {
+    if (
+      !import.meta.env.DEV ||
+      diagramPreviewIdFromUrl !== "time-delta-medium"
+    ) {
+      return null;
+    }
+    if (tideExtremes === undefined || tideExtremes.extremes.length === 0) {
+      return null;
+    }
+    return buildDiagramDevPreviewTimeDeltaMediumClock({
+      extremesAtLocation: tideExtremes,
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
+    });
+  });
+
+  const activeDiagramPreviewClock = $derived.by<{
+    readonly kind: DiagramDevPreviewId;
+    readonly frozenEpochMs: number;
+  } | null>(() => {
+    if (diagramPreviewIdFromUrl === "no-more-tides-today") {
+      return noMoreTidesTodayPreviewClock?.kind === "active"
+        ? { kind: "no-more-tides-today", frozenEpochMs: noMoreTidesTodayPreviewClock.frozenEpochMs }
+        : null;
+    }
+    if (diagramPreviewIdFromUrl === "time-delta-short") {
+      return timeDeltaShortPreviewClock?.kind === "active"
+        ? { kind: "time-delta-short", frozenEpochMs: timeDeltaShortPreviewClock.frozenEpochMs }
+        : null;
+    }
+    if (diagramPreviewIdFromUrl === "time-delta-medium") {
+      return timeDeltaMediumPreviewClock?.kind === "active"
+        ? { kind: "time-delta-medium", frozenEpochMs: timeDeltaMediumPreviewClock.frozenEpochMs }
+        : null;
+    }
+    return null;
+  });
+
+  const diagramPreviewLive = $derived(activeDiagramPreviewClock !== null);
 
   function refreshDomSummary(): void {
     if (!domDumpEnabled) return;
@@ -236,7 +286,7 @@
   }
 
   $effect(() => {
-    if (!noMoreTidesTodayPreviewLive) {
+    if (!diagramPreviewLive) {
       void semanticMinuteEpoch;
     }
     const extremes = tideExtremes;
@@ -253,12 +303,12 @@
     }
 
     try {
-      const nowMs =
-        activeNoMoreTidesTodayPreview !== null
-          ? activeNoMoreTidesTodayPreview.frozenEpochMs
+      const nowMsValue =
+        activeDiagramPreviewClock !== null
+          ? activeDiagramPreviewClock.frozenEpochMs
           : Date.now();
-      const timeNow = localCanonicalTimeNowFromMs(nowMs);
-      const timeNowDatePrefix = localTimeNowDatePrefixFromMs(nowMs);
+      const timeNow = localCanonicalTimeNowFromMs(nowMsValue);
+      const timeNowDatePrefix = localTimeNowDatePrefixFromMs(nowMsValue);
       const baseSpec = buildDiagramGenerationSpec({
         extremesAtLocation: extremes,
         timeNow,
@@ -322,8 +372,8 @@
     if (host == null || svg === "") return;
 
     const frozenClockMs =
-      activeNoMoreTidesTodayPreview !== null
-        ? activeNoMoreTidesTodayPreview.frozenEpochMs
+      activeDiagramPreviewClock !== null
+        ? activeDiagramPreviewClock.frozenEpochMs
         : null;
 
     let cancelled = false;
@@ -429,15 +479,33 @@
 </script>
 
 <main class="home-route">
-  {#if import.meta.env.DEV && noMoreTidesTodayPreviewFromUrl}
+  {#if import.meta.env.DEV && diagramPreviewIdFromUrl !== null}
     <div class="home-diagram-preview-banner" role="status">
-      {#if noMoreTidesTodayPreviewClock === null}
-        Preview: no more tides today (waiting for tide data…)
-      {:else if noMoreTidesTodayPreviewClock.kind === "active"}
-        Preview: no more tides today (frozen time for diagram)
-      {:else}
-        Preview: no more tides today — unavailable for this day&apos;s extremes
-        (last tide too close to end of civil day)
+      {#if diagramPreviewIdFromUrl === "no-more-tides-today"}
+        {#if noMoreTidesTodayPreviewClock === null}
+          Preview: no more tides today (waiting for tide data…)
+        {:else if noMoreTidesTodayPreviewClock.kind === "active"}
+          Preview: no more tides today (frozen time for diagram)
+        {:else}
+          Preview: no more tides today — unavailable for this day&apos;s extremes
+          (last tide too close to end of civil day)
+        {/if}
+      {:else if diagramPreviewIdFromUrl === "time-delta-short"}
+        {#if timeDeltaShortPreviewClock === null}
+          Preview: time-delta-short (waiting for tide data…)
+        {:else if timeDeltaShortPreviewClock.kind === "active"}
+          Preview: time-delta-short (frozen time close to next tide)
+        {:else}
+          Preview: time-delta-short — unavailable for this day&apos;s extremes
+        {/if}
+      {:else if diagramPreviewIdFromUrl === "time-delta-medium"}
+        {#if timeDeltaMediumPreviewClock === null}
+          Preview: time-delta-medium (waiting for tide data…)
+        {:else if timeDeltaMediumPreviewClock.kind === "active"}
+          Preview: time-delta-medium (frozen time a short while before next tide)
+        {:else}
+          Preview: time-delta-medium — unavailable for this day&apos;s extremes
+        {/if}
       {/if}
     </div>
   {/if}

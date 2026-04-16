@@ -55,7 +55,8 @@ only: *does this snapshot look the way I expect, and is the quality good?*
 | Id (working) | Intent | Status |
 | --- | --- | --- |
 | `no-more-tides-today` | After last extreme of the day; exercise copy/layout for “no further tides” (or equivalent) presentation. | **First implementation target** |
-| `time-delta-short` | `timeNow` close enough to next tide that threshold-driven diagram changes apply (e.g. NowPointer occlusion rules). | Planned later |
+| `time-delta-short` | `timeNow` very close to next tide; exercise the strict short-window occlusion where both Now label and Now radial line are omitted (`Δt` strictly less than 5 minutes). | Implemented |
+| `time-delta-medium` | `timeNow` in the short window before next tide where the Now label is omitted but the Now radial line remains (`5 minutes ≤ Δt < 1 hour`). | Implemented |
 | `atypical-tide-day` | Day’s extrema pattern is atypical; exercise summary / wording branch. See `atypical-tide-story.md`. | Planned later |
 
 ## First scenario: no more tides today
