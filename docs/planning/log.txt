@@ -106,19 +106,12 @@ o  new data fetch paradigm
 				*  move menu into diagram so that nothing else is there
 fart
 
-					o  ask ai to explain home route dom tree down as far as
-					   diagram and what role those layers have, in partic but
-					   limitied to margins and padding
-				   		o  note that a tide event at 00:04 sticks above y0 and
-						   pads the SVG nicely to accomodate itself - with
-						   perfect accuracy
-						   	o  but does the 00 tick mark label?
-
-				o  come back to UX branch when no location has been stored yet.
 				o  no further tides today problems
 					o  omits echo of location
 					o  could say going in or out?
 					o  "no tide extremes now until tomorrow morning.
+
+				o  come back to UX branch when no location has been stored yet.
 
 				o  slightly darker grey fills?
 				o  stick brand url in bottom left in diagram

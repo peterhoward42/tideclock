@@ -15,9 +15,6 @@ import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import { computeNextTideEventFromSpec } from "../model/tideEvents.mjs";
 import { requirePlainObject, requireString } from "./specRequire.mjs";
 
-/** Fixed copy when no tide remains on the civil day (docs/specs/tide-diagram.md §TimeDelta). */
-export const TIME_DELTA_EMPTY_MESSAGE = "No further tides today";
-
 /** Expected length of `spec.timeDelta.countdownLines` (location, phase, next-event interval, next-event clock). */
 export const TIME_DELTA_COUNTDOWN_LINE_COUNT = 4;
 
@@ -36,6 +33,14 @@ export function formatTimeDeltaNextIntervalLine(eventLabel, interval) {
  */
 export function formatTimeDeltaNextAtLine(nextEventTimeHhmm) {
   return `at ${nextEventTimeHhmm}`;
+}
+
+/**
+ * @param {'out-low' | 'in-high'} tidePhasePair
+ * @returns {string}
+ */
+export function formatTimeDeltaTomorrowEventLine(tidePhasePair) {
+  return tidePhasePair === "out-low" ? "Low tide tomorrow" : "High tide tomorrow";
 }
 
 /**
@@ -73,6 +78,7 @@ function requireCountdownLineRow(row, label) {
  *
  * @typedef {object} TimeDeltaLayoutEmpty
  * @property {'empty'} kind
+ * @property {'out-low' | 'in-high'} tidePhasePair
  * @property {number} belowOrigin
  * @property {number} fontHeight
  *
@@ -112,7 +118,7 @@ export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
     const tdFont = timeDeltaLayout.fontHeight * R;
     const tdY = 0 - timeDeltaLayout.belowOrigin * R;
     timeDeltaEmptyMessage = {
-      content: TIME_DELTA_EMPTY_MESSAGE,
+      content: formatTimeDeltaTomorrowEventLine(timeDeltaLayout.tidePhasePair),
       fontSize: tdFont,
       anchor: { x: 0, y: tdY },
       hAlign: "center",
@@ -181,6 +187,7 @@ export function buildTimeDeltaDiagramFromSpec(spec, refRadius) {
     nextEvent == null
       ? {
           kind: "empty",
+          tidePhasePair: tdTidePhasePair,
           belowOrigin: emptyBelow,
           fontHeight: emptyFh,
         }

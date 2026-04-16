@@ -499,8 +499,7 @@ Two related **top-level** named elements (see **Diagram elements**) show local c
       - if `**height_{i+1} < height_i`**, use `**"out-low"`**.
     - For `**timeNow`** before the first retained event or after the last retained event, treat those as half-defined edge segments and resolve by alternating opposite to the nearest fully defined segment.
 - **No next marker at or after `timeNow` on the civil day** (e.g. after the last tide; includes the case where every marker is strictly before `**timeNow`**) — one **TextElement** only:
-  - **Text** — fixed synthesis: exactly `**No further tides today`** (not a host
-  override).
+  - **Text** — fixed synthesis from `**timeDelta.tidePhasePair`**: `**Low tide tomorrow`** for `"out-low"` and `**High tide tomorrow`** for `"in-high"` (not a host override).
   - **FontHeight** — **k·R** from `**emptyMessage.fontHeight**`; **Horizontal justification** (**centre**); **Baseline polar
   angle** (**0**); **Anchor X** (**0**); **Anchor Y** (**0 − emptyMessage.belowOrigin·R**).
   - Allocated leaf name for styling/host binding (exact match): **NoMoreTidesToday**.

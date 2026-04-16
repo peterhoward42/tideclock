@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import { buildDiagram } from '../diagram-generation/index.mjs';
-import { TIME_DELTA_EMPTY_MESSAGE } from '../diagram-generation/layout/timeDeltaDiagram.mjs';
 import type {
   DiagramGenerationSpec,
   TideDiagramDocument,
@@ -189,7 +188,7 @@ describe('spec.semantic.nextTide injection', () => {
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
     expect(diagram.timeDeltaDiagram.countdownStripes).toBeNull();
     expect(diagram.timeDeltaDiagram.timeDeltaEmptyMessage).toEqual({
-      content: TIME_DELTA_EMPTY_MESSAGE,
+      content: 'Low tide tomorrow',
       fontSize: 5.9,
       anchor: { x: 0, y: -11.8 },
       hAlign: 'center',
