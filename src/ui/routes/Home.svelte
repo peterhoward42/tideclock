@@ -12,6 +12,19 @@
     utcIsoToLocalCanonicalTimeLocal,
   } from "../../application/buildDiagramGenerationSpec";
   import {
+    diagramDevPreviewIdFromSearch,
+    type DiagramDevPreviewId,
+  } from "../../application/diagramDevPreviewCatalog";
+  import {
+    formatDiagramDevPreviewBannerLine,
+    homeDiagramDevPreviewIsFrozen,
+    resolveHomeDiagramDevPreview,
+  } from "../../application/diagramDevPreviewResolveForHome";
+  import {
+    localCanonicalTimeNowFromMs,
+    localTimeNowDatePrefixFromMs,
+  } from "../../application/localWallClockReadoutFromMs";
+  import {
     createDiagramGenerationCollaborator,
     type DiagramGenerationCollaborator,
   } from "../../application/diagramGenerationCollaborator";
@@ -38,6 +51,20 @@
   /** Drives Loop B: bumps only on local minute rollover (aligned scheduler), not every second. */
   let semanticMinuteEpoch = $state(Math.floor(Date.now() / 60_000));
 
+  /** Dev-only: `?diagramPreview=<id>` (see docs/planning/diagram-dev-preview-catalog.md). */
+  let diagramPreviewIdFromUrl = $state<DiagramDevPreviewId | null>(null);
+
+  function readDiagramPreviewIdFromLocation(): DiagramDevPreviewId | null {
+    if (!import.meta.env.DEV) return null;
+    if (typeof window === "undefined") return null;
+    const search =
+      window.location.search ||
+      (window.location.hash.includes("?")
+        ? window.location.hash.slice(window.location.hash.indexOf("?"))
+        : "");
+    return diagramDevPreviewIdFromSearch(search);
+  }
+
   onMount(() => {
     if (!import.meta.env.DEV) return;
     try {
@@ -45,7 +72,19 @@
       domDumpEnabled = params.has("dom");
       outlineEnabled = params.has("outline");
       previewFrameEnabled = params.has("pf");
+      diagramPreviewIdFromUrl = readDiagramPreviewIdFromLocation();
+
+      const onUrlChange = (): void => {
+        diagramPreviewIdFromUrl = readDiagramPreviewIdFromLocation();
+      };
+      window.addEventListener("hashchange", onUrlChange);
+      window.addEventListener("popstate", onUrlChange);
       if (domDumpEnabled) refreshDomSummary();
+
+      return () => {
+        window.removeEventListener("hashchange", onUrlChange);
+        window.removeEventListener("popstate", onUrlChange);
+      };
     } catch {
       // ignore (non-browser / tests)
     }
@@ -74,6 +113,23 @@
   let outlineEnabled = $state(false);
   let previewFrameEnabled = $state(false);
   let domSummary = $state<string>("");
+
+  const homeDiagramDevPreview = $derived.by(() =>
+    resolveHomeDiagramDevPreview({
+      dev: import.meta.env.DEV,
+      previewId: diagramPreviewIdFromUrl,
+      tideExtremes,
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
+    }),
+  );
+
+  const diagramPreviewLive = $derived(
+    homeDiagramDevPreviewIsFrozen(homeDiagramDevPreview),
+  );
+
+  const diagramPreviewBannerLine = $derived(
+    formatDiagramDevPreviewBannerLine(homeDiagramDevPreview),
+  );
 
   function refreshDomSummary(): void {
     if (!domDumpEnabled) return;
@@ -176,24 +232,10 @@
     if (secEl !== null) secEl.textContent = canonical.slice(6);
   }
 
-  function localCanonicalTimeNowFromMs(ms: number): string {
-    const d = new Date(ms);
-    const hh = String(d.getHours()).padStart(2, "0");
-    const mm = String(d.getMinutes()).padStart(2, "0");
-    const ss = String(d.getSeconds()).padStart(2, "0");
-    return `${hh}:${mm}:${ss}`;
-  }
-
-  function localTimeNowDatePrefixFromMs(ms: number): string {
-    const d = new Date(ms);
-    const weekday = d.toLocaleDateString(undefined, { weekday: "short" });
-    const day = String(d.getDate()).padStart(2, "0");
-    const month = d.toLocaleDateString(undefined, { month: "short" });
-    return `${weekday} ${day} ${month}`;
-  }
-
   $effect(() => {
-    const _semanticMinute = semanticMinuteEpoch;
+    if (!diagramPreviewLive) {
+      void semanticMinuteEpoch;
+    }
     const extremes = tideExtremes;
     const load = tideLoadState;
 
@@ -208,11 +250,15 @@
     }
 
     try {
-      const nowMs = Date.now();
-      const timeNow = localCanonicalTimeNowFromMs(nowMs);
-      const timeNowDatePrefix = localTimeNowDatePrefixFromMs(nowMs);
+      const preview = homeDiagramDevPreview;
+      const extremesForSpec =
+        preview.state === "frozen" ? preview.extremesAtLocation : extremes;
+      const nowMsValue =
+        preview.state === "frozen" ? preview.frozenEpochMs : Date.now();
+      const timeNow = localCanonicalTimeNowFromMs(nowMsValue);
+      const timeNowDatePrefix = localTimeNowDatePrefixFromMs(nowMsValue);
       const baseSpec = buildDiagramGenerationSpec({
-        extremesAtLocation: extremes,
+        extremesAtLocation: extremesForSpec,
         timeNow,
         timeNowDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
@@ -220,7 +266,7 @@
       });
       const derived = deriveNextTideSemantics(baseSpec);
       const spec = buildDiagramGenerationSpec({
-        extremesAtLocation: extremes,
+        extremesAtLocation: extremesForSpec,
         timeNow,
         timeNowDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
@@ -273,13 +319,19 @@
     const svg = diagramSvg;
     if (host == null || svg === "") return;
 
+    const frozenClockMs =
+      homeDiagramDevPreview.state === "frozen"
+        ? homeDiagramDevPreview.frozenEpochMs
+        : null;
+
     let cancelled = false;
     const unsub = nowMs.subscribe((ms) => {
-      if (!cancelled) patchTimeNowReadout(host, ms);
+      if (!cancelled) patchTimeNowReadout(host, frozenClockMs ?? ms);
     });
 
     void tick().then(() => {
-      if (!cancelled) patchTimeNowReadout(host, Date.now());
+      if (!cancelled)
+        patchTimeNowReadout(host, frozenClockMs ?? Date.now());
     });
 
     return () => {
@@ -375,6 +427,11 @@
 </script>
 
 <main class="home-route">
+  {#if import.meta.env.DEV && diagramPreviewBannerLine !== null}
+    <div class="home-diagram-preview-banner" role="status">
+      {diagramPreviewBannerLine}
+    </div>
+  {/if}
   {#if domDumpEnabled}
     <div class="home-debug">
       <button type="button" class="home-debug__btn" onclick={refreshDomSummary}
@@ -464,6 +521,16 @@
     min-height: 0;
     display: flex;
     flex-direction: column;
+  }
+
+  .home-diagram-preview-banner {
+    flex: 0 0 auto;
+    padding: 0.35rem 0.75rem;
+    background: #422006;
+    color: #fef3c7;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgb(251 191 36 / 0.35);
   }
 
   .home-panel {

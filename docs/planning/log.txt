@@ -108,18 +108,25 @@ o  new data fetch paradigm
 				*  slightly darker grey fills?
 				*  stick brand url in bottom left in diagram = no d
 fart
-				o  come back to alternating in/out edge cases  like Bournemouth
-					*  introduce problem to ai
-					*  agree on atypical detection goals
-					*  agree on atypical logic
-					*  detection as a service
-					o  messaging for atypical case
-					o  wiring up and integration tests
-					o  my tests
-						o  idea for logic triggers for developer
+				*  come back to alternating in/out edge cases  like Bournemouth
+
+						o  idea for logic triggers for developer visual tests
+							*  no more today
+							*  some readme or redirected docco for these 
+							   snapshots
 							o  atypical tides
-							o  no more today
+							o  no room for now label / arrohead
 							o  other ux conditionals?
+							o  now make sure all these controls work
+							o  merge the branch
+
+
+Read diagram-dev-preview-catalog.md for context. We have implemented the no-more-tides-today now successfully. I want to add the next driving use case which is time-delta-short. Please have a go at that. You may will need to extend the scaffolding for the preview catalogue mechanism. There is no merit in treating this as a cautious patch to the catalogue mechanism, prefer making sure the code is easy to understand in this area and doesn't feel patched.
+
+							o  exercise each snapshot
+
+
+
 
 					o  sort out if necessary atypical needs for extrema ordering
 
@@ -128,8 +135,7 @@ fart
 					o  review it when it fires
 
 
-				o  javascript falsy skill
-					o  first is it wise
+				o  location ui verbosity and mobile fit
 
 
 
