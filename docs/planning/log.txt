@@ -109,7 +109,10 @@ o  new data fetch paradigm
 				*  stick brand url in bottom left in diagram = no d
 fart
 				o  come back to alternating in/out edge cases  like Bournemouth
-					o  introduce problem to ai
+					*  introduce problem to ai
+					o  agree on atypical detection goals
+					o  agree on atypical logic
+					o  detection as a service
 
 				o  no further tides today problems
 					*  change it
