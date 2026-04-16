@@ -25,7 +25,7 @@ Created from a fresh pass: judgements from **source and tests** only.
 ## Dominant themes (3–5)
 
 1. **Explicit adapter at the TS ↔ diagram-generation boundary**  
-   `diagramGenerationCollaborator.ts` centralises `buildDiagram`, `loadStyleModel`, `tideDiagramToScene` and documents that role. **Leak:** `Home.svelte` also imports `renderSceneSvg` directly from `diagram-generation/render/renderSceneSvg.mjs` instead of going through the collaborator (or a sibling façade). Same for `diagramSemanticInjection.test.ts` importing `buildDiagram` directly. Not wrong, but two patterns coexist.
+   `diagramGenerationCollaborator.ts` centralises `buildDiagram`, `loadStyleModel`, `tideDiagramToScene`, and re-exports `renderSceneSvg` from `diagram-generation/index.mjs`. **Remaining optional consistency:** `diagramSemanticInjection.test.ts` still imports `buildDiagram` directly from the barrel (test-only; acceptable).
 
 2. **Orchestration density at the UI root**  
    `App.svelte` correctly owns serialised tide loads, rollover suppression, and route wiring; it is the natural “application shell.” Any future simplification likely means **extracting named policies** (e.g. load coalescing / rollover) into `application/` rather than thinning comments.
@@ -51,11 +51,15 @@ Created from a fresh pass: judgements from **source and tests** only.
 - Large moves of `diagram-generation` into TypeScript (high churn, low leverage until façade is tidy).
 - Reworking `docs/planning/*` legacy narratives.
 
+## Completed this thread (dated)
+
+- **2026-04-16 — Unify diagram render entry:** `renderSceneSvg` is exported from `diagram-generation/index.mjs` and re-exported from `diagramGenerationCollaborator.ts`. `Home.svelte` imports it from the collaborator only; no other `src/ui/` route imported `diagram-generation/**/*.mjs` directly.
+
 ## Next session candidates (pick one)
 
-1. **Unify diagram render entry:** re-export `renderSceneSvg` from `diagramGenerationCollaborator.ts` (or `diagram-generation/index.mjs` only) and switch `Home.svelte` (and grep for any other direct `.mjs` imports from routes).
-2. **Document the layer table** in one file header (e.g. `src/application/README` is overkill—prefer a short module header on `diagramGenerationCollaborator.ts` only if it stays one sentence).
-3. **Rollover / load policy extraction:** pull `shouldTriggerCivilDayRolloverRefresh` call site helpers out of `App.svelte` into a small `application/` module if the file grows further.
+1. **Document the layer table** in one file header (e.g. `src/application/README` is overkill—prefer a short module header on `diagramGenerationCollaborator.ts` only if it stays one sentence).
+2. **Rollover / load policy extraction:** pull `shouldTriggerCivilDayRolloverRefresh` call site helpers out of `App.svelte` into a small `application/` module if the file grows further.
+3. **Optional:** route `diagramSemanticInjection.test.ts` through `diagramGenerationCollaborator` (or a tiny test helper) if you want a single import path for `buildDiagram` in tests as well as app code.
 
 ---
 

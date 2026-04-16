@@ -112,9 +112,16 @@ o  new data fetch paradigm
 fart
 				o  big code cleanse thus far - deserves a skill
 					o  try a skill in new branch
-						o  bootstrapping phase 1
+						*  bootstrapping phase 1
+						o  launch again in new session - nomimating the 
+						   next step
+
 
 					o  merge the branch
+
+First read my holistic-refactor skill for context. Then read the current 
+state of that process from docs/refactor-state. Then resume it from my choice 
+of "Unify diagram render entry" as this session's candidate.
 
 				o  sort out if necessary atypical needs for extrema ordering
 

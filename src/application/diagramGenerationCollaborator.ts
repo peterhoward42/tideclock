@@ -2,6 +2,7 @@
  * diagramGenerationCollaborator.ts — Types and factory for `src/diagram-generation` (diagram + scene + styles).
  * Product style defaults: `src/diagram-config/homeTideStyleModel.ts`; `loadStyleModel` from diagram-generation.
  * Keeps app and tests on this boundary instead of `.mjs` internals. Kind: Adapter / boundary.
+ * Re-exports `renderSceneSvg` for UI that already holds a scene from `generate`.
  * Does not source tide data.
  */
 
@@ -333,3 +334,5 @@ export function createDiagramGenerationCollaborator(): DiagramGenerationCollabor
     },
   };
 }
+
+export { renderSceneSvg } from "../diagram-generation/index.mjs";

@@ -26,11 +26,11 @@
   } from "../../application/localWallClockReadoutFromMs";
   import {
     createDiagramGenerationCollaborator,
+    renderSceneSvg,
     type DiagramGenerationCollaborator,
   } from "../../application/diagramGenerationCollaborator";
   import { deriveNextTideSemantics } from "../../application/nextTideSemantics";
   import { subscribeSemanticMinuteCadence } from "../../application/semanticMinuteCadence";
-  import { renderSceneSvg } from "../../diagram-generation/render/renderSceneSvg.mjs";
   import PrimaryNavLinks from "../components/PrimaryNavLinks.svelte";
 
   type TidePredictionsLoadState = {
