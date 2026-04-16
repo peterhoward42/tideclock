@@ -15,9 +15,11 @@
     diagramDevPreviewIdFromSearch,
     type DiagramDevPreviewId,
   } from "../../application/diagramDevPreviewCatalog";
-  import { buildDiagramDevPreviewNoMoreTidesTodayClock } from "../../application/diagramDevPreviewNoMoreTidesToday";
-  import { buildDiagramDevPreviewTimeDeltaShortClock } from "../../application/diagramDevPreviewTimeDeltaShort";
-  import { buildDiagramDevPreviewTimeDeltaMediumClock } from "../../application/diagramDevPreviewTimeDeltaMedium";
+  import {
+    formatDiagramDevPreviewBannerLine,
+    homeDiagramDevPreviewIsFrozen,
+    resolveHomeDiagramDevPreview,
+  } from "../../application/diagramDevPreviewResolveForHome";
   import {
     localCanonicalTimeNowFromMs,
     localTimeNowDatePrefixFromMs,
@@ -112,77 +114,22 @@
   let previewFrameEnabled = $state(false);
   let domSummary = $state<string>("");
 
-  const noMoreTidesTodayPreviewClock = $derived.by(() => {
-    if (
-      !import.meta.env.DEV ||
-      diagramPreviewIdFromUrl !== "no-more-tides-today"
-    ) {
-      return null;
-    }
-    if (tideExtremes === undefined || tideExtremes.extremes.length === 0) {
-      return null;
-    }
-    return buildDiagramDevPreviewNoMoreTidesTodayClock({
-      extremesAtLocation: tideExtremes,
+  const homeDiagramDevPreview = $derived.by(() =>
+    resolveHomeDiagramDevPreview({
+      dev: import.meta.env.DEV,
+      previewId: diagramPreviewIdFromUrl,
+      tideExtremes,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
-    });
-  });
+    }),
+  );
 
-  const timeDeltaShortPreviewClock = $derived.by(() => {
-    if (
-      !import.meta.env.DEV ||
-      diagramPreviewIdFromUrl !== "time-delta-short"
-    ) {
-      return null;
-    }
-    if (tideExtremes === undefined || tideExtremes.extremes.length === 0) {
-      return null;
-    }
-    return buildDiagramDevPreviewTimeDeltaShortClock({
-      extremesAtLocation: tideExtremes,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
-    });
-  });
+  const diagramPreviewLive = $derived(
+    homeDiagramDevPreviewIsFrozen(homeDiagramDevPreview),
+  );
 
-  const timeDeltaMediumPreviewClock = $derived.by(() => {
-    if (
-      !import.meta.env.DEV ||
-      diagramPreviewIdFromUrl !== "time-delta-medium"
-    ) {
-      return null;
-    }
-    if (tideExtremes === undefined || tideExtremes.extremes.length === 0) {
-      return null;
-    }
-    return buildDiagramDevPreviewTimeDeltaMediumClock({
-      extremesAtLocation: tideExtremes,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
-    });
-  });
-
-  const activeDiagramPreviewClock = $derived.by<{
-    readonly kind: DiagramDevPreviewId;
-    readonly frozenEpochMs: number;
-  } | null>(() => {
-    if (diagramPreviewIdFromUrl === "no-more-tides-today") {
-      return noMoreTidesTodayPreviewClock?.kind === "active"
-        ? { kind: "no-more-tides-today", frozenEpochMs: noMoreTidesTodayPreviewClock.frozenEpochMs }
-        : null;
-    }
-    if (diagramPreviewIdFromUrl === "time-delta-short") {
-      return timeDeltaShortPreviewClock?.kind === "active"
-        ? { kind: "time-delta-short", frozenEpochMs: timeDeltaShortPreviewClock.frozenEpochMs }
-        : null;
-    }
-    if (diagramPreviewIdFromUrl === "time-delta-medium") {
-      return timeDeltaMediumPreviewClock?.kind === "active"
-        ? { kind: "time-delta-medium", frozenEpochMs: timeDeltaMediumPreviewClock.frozenEpochMs }
-        : null;
-    }
-    return null;
-  });
-
-  const diagramPreviewLive = $derived(activeDiagramPreviewClock !== null);
+  const diagramPreviewBannerLine = $derived(
+    formatDiagramDevPreviewBannerLine(homeDiagramDevPreview),
+  );
 
   function refreshDomSummary(): void {
     if (!domDumpEnabled) return;
@@ -303,14 +250,15 @@
     }
 
     try {
+      const preview = homeDiagramDevPreview;
+      const extremesForSpec =
+        preview.state === "frozen" ? preview.extremesAtLocation : extremes;
       const nowMsValue =
-        activeDiagramPreviewClock !== null
-          ? activeDiagramPreviewClock.frozenEpochMs
-          : Date.now();
+        preview.state === "frozen" ? preview.frozenEpochMs : Date.now();
       const timeNow = localCanonicalTimeNowFromMs(nowMsValue);
       const timeNowDatePrefix = localTimeNowDatePrefixFromMs(nowMsValue);
       const baseSpec = buildDiagramGenerationSpec({
-        extremesAtLocation: extremes,
+        extremesAtLocation: extremesForSpec,
         timeNow,
         timeNowDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
@@ -318,7 +266,7 @@
       });
       const derived = deriveNextTideSemantics(baseSpec);
       const spec = buildDiagramGenerationSpec({
-        extremesAtLocation: extremes,
+        extremesAtLocation: extremesForSpec,
         timeNow,
         timeNowDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
@@ -372,8 +320,8 @@
     if (host == null || svg === "") return;
 
     const frozenClockMs =
-      activeDiagramPreviewClock !== null
-        ? activeDiagramPreviewClock.frozenEpochMs
+      homeDiagramDevPreview.state === "frozen"
+        ? homeDiagramDevPreview.frozenEpochMs
         : null;
 
     let cancelled = false;
@@ -479,34 +427,9 @@
 </script>
 
 <main class="home-route">
-  {#if import.meta.env.DEV && diagramPreviewIdFromUrl !== null}
+  {#if import.meta.env.DEV && diagramPreviewBannerLine !== null}
     <div class="home-diagram-preview-banner" role="status">
-      {#if diagramPreviewIdFromUrl === "no-more-tides-today"}
-        {#if noMoreTidesTodayPreviewClock === null}
-          Preview: no more tides today (waiting for tide data…)
-        {:else if noMoreTidesTodayPreviewClock.kind === "active"}
-          Preview: no more tides today (frozen time for diagram)
-        {:else}
-          Preview: no more tides today — unavailable for this day&apos;s extremes
-          (last tide too close to end of civil day)
-        {/if}
-      {:else if diagramPreviewIdFromUrl === "time-delta-short"}
-        {#if timeDeltaShortPreviewClock === null}
-          Preview: time-delta-short (waiting for tide data…)
-        {:else if timeDeltaShortPreviewClock.kind === "active"}
-          Preview: time-delta-short (frozen time close to next tide)
-        {:else}
-          Preview: time-delta-short — unavailable for this day&apos;s extremes
-        {/if}
-      {:else if diagramPreviewIdFromUrl === "time-delta-medium"}
-        {#if timeDeltaMediumPreviewClock === null}
-          Preview: time-delta-medium (waiting for tide data…)
-        {:else if timeDeltaMediumPreviewClock.kind === "active"}
-          Preview: time-delta-medium (frozen time a short while before next tide)
-        {:else}
-          Preview: time-delta-medium — unavailable for this day&apos;s extremes
-        {/if}
-      {/if}
+      {diagramPreviewBannerLine}
     </div>
   {/if}
   {#if domDumpEnabled}

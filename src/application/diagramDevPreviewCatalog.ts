@@ -6,10 +6,29 @@
 export const DIAGRAM_DEV_PREVIEW_QUERY_PARAM = "diagramPreview" as const;
 
 /** Known dev-preview scenarios for the Home tide diagram. */
-export type DiagramDevPreviewId =
-  | "no-more-tides-today"
-  | "time-delta-short"
-  | "time-delta-medium";
+export const DIAGRAM_DEV_PREVIEW_IDS = [
+  "no-more-tides-today",
+  "time-delta-short",
+  "time-delta-medium",
+  "atypical-tide-day",
+] as const;
+
+export type DiagramDevPreviewId = (typeof DIAGRAM_DEV_PREVIEW_IDS)[number];
+
+const HEADLINE: Record<DiagramDevPreviewId, string> = {
+  "no-more-tides-today": "no more tides today",
+  "time-delta-short": "time-delta-short",
+  "time-delta-medium": "time-delta-medium",
+  "atypical-tide-day": "atypical tide day",
+};
+
+export function diagramDevPreviewShortHeadline(id: DiagramDevPreviewId): string {
+  return HEADLINE[id];
+}
+
+function isDiagramDevPreviewId(value: string): value is DiagramDevPreviewId {
+  return (DIAGRAM_DEV_PREVIEW_IDS as readonly string[]).includes(value);
+}
 
 /**
  * Reads the current diagram dev preview id from a raw search string.
@@ -23,11 +42,7 @@ export function diagramDevPreviewIdFromSearch(
     const q = new URLSearchParams(search);
     const value = q.get(DIAGRAM_DEV_PREVIEW_QUERY_PARAM);
     if (value === null) return null;
-    if (
-      value === "no-more-tides-today" ||
-      value === "time-delta-short" ||
-      value === "time-delta-medium"
-    ) {
+    if (isDiagramDevPreviewId(value)) {
       return value;
     }
     return null;
@@ -35,4 +50,3 @@ export function diagramDevPreviewIdFromSearch(
     return null;
   }
 }
-
