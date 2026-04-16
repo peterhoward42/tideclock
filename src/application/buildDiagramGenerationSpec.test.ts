@@ -21,6 +21,17 @@ function fixtureExtremesAtLocation(): TideExtremesAtLocation {
   ]);
 }
 
+/** Fifth extreme triggers `moreThanFourExtrema` in `isAtypicalTideExtremaPattern` (ordered same-day UTC instants). */
+function fixtureAtypicalFiveExtremesAtLocation(): TideExtremesAtLocation {
+  return new TideExtremesAtLocation(50.8, -1.1, [
+    new TideExtreme('low', '2026-03-23T04:15:00.000Z', 0.94),
+    new TideExtreme('high', '2026-03-23T10:45:00.000Z', 4.7),
+    new TideExtreme('low', '2026-03-23T16:59:24.000Z', 0.89),
+    new TideExtreme('high', '2026-03-23T23:06:00.000Z', 4.8),
+    new TideExtreme('low', '2026-03-23T23:50:00.000Z', 0.95),
+  ]);
+}
+
 const expectedFixtureMarkers = [
   { time: '04:15:00', heightText: '0.94 m', highOrLow: 'Low' },
   { time: '10:45:00', heightText: '4.7 m', highOrLow: 'High' },
@@ -50,6 +61,9 @@ describe('buildDiagramGenerationSpec', () => {
     expect(markers).toEqual(expectedFixtureMarkers);
     expect(spec.timeNow).toBe('19:20:03');
     expect(spec.semantic).toBeUndefined();
+    expect((spec.timeDelta as { atypicalTideSummary: boolean }).atypicalTideSummary).toBe(
+      false,
+    );
   });
 
   it('rejects empty extremes', () => {
@@ -62,6 +76,28 @@ describe('buildDiagramGenerationSpec', () => {
         townName: 'Lymington',
       }),
     ).toThrow(/at least one tide extreme/);
+  });
+
+  it('sets atypicalTideSummary and atypical TimeDelta countdown copy when extrema pattern is atypical', () => {
+    const spec = buildDiagramGenerationSpec({
+      extremesAtLocation: fixtureAtypicalFiveExtremesAtLocation(),
+      timeNow: '19:20:03',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+      townName: 'Lymington',
+    });
+    expect((spec.timeDelta as { atypicalTideSummary: boolean }).atypicalTideSummary).toBe(true);
+    const collaborator = createDiagramGenerationCollaborator();
+    const { diagram } = collaborator.generate(spec);
+    const stripes = diagram.timeDeltaDiagram.countdownStripes;
+    expect(stripes).not.toBeNull();
+    expect(stripes!.map((s) => s.content)).toEqual([
+      'Lymington',
+      'Tricky tides today',
+      'Use the markers',
+      '',
+    ]);
+    expect(diagram.nextPointer).not.toBeNull();
   });
 
   it('injects semantic.nextTide when derivedSemantics is passed', () => {

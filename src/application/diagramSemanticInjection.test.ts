@@ -72,6 +72,7 @@ type SemanticInjectionDiagramSpec = {
     readonly emptyMessage: { readonly belowOrigin: number; readonly fontHeight: number };
     readonly town: string;
     readonly tidePhasePair: 'out-low' | 'in-high';
+    readonly atypicalTideSummary: boolean;
   };
   readonly annularBand: { readonly annularBandWidth: number };
   readonly homeMenuTrigger: {
@@ -146,6 +147,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       emptyMessage: { belowOrigin: 0.1, fontHeight: 0.05 },
       town: 'Lymington',
       tidePhasePair: 'out-low',
+      atypicalTideSummary: false,
     },
     annularBand: { annularBandWidth: 0.05 },
     homeMenuTrigger: {
@@ -299,6 +301,17 @@ describe('spec.semantic.nextTide injection', () => {
     expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
       /spec\.timeDelta/,
     );
+  });
+
+  it('throws when timeDelta.atypicalTideSummary is omitted', () => {
+    const spec = sampleTideDiagramSpec();
+    const { atypicalTideSummary: _omit, ...timeDeltaRest } = spec.timeDelta;
+    expect(() =>
+      buildDiagramFromSpec({
+        ...spec,
+        timeDelta: timeDeltaRest,
+      } as DiagramGenerationSpec),
+    ).toThrow(/atypicalTideSummary/);
   });
 
   it('throws when spec omits centreFrame', () => {

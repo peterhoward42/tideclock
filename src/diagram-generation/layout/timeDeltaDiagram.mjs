@@ -7,6 +7,8 @@
  * - Throws from {@link parseCanonicalTimeOrThrow} when `spec.timeNow` is invalid; throws when `timeNow` is `24:00:00`.
  * - Throws when `timeDelta.countdownLines` is not an array of four finite `{ belowOrigin, fontHeight }` rows,
  *   or when `timeDelta.emptyMessage` is missing those finite numbers.
+ * - Required boolean `timeDelta.atypicalTideSummary`: when `true` and a next tide exists, countdown copy
+ *   uses the atypical centre lines (see docs/specs/tide-diagram.md §TimeDelta); **NoMoreTidesToday** is unchanged.
  *
  * {@link layoutTimeDeltaDiagram} is pure geometry + text placement from a resolved {@link TimeDeltaLayout}; it does not read the spec.
  */
@@ -17,6 +19,10 @@ import { requirePlainObject, requireString } from "./specRequire.mjs";
 
 /** Expected length of `spec.timeDelta.countdownLines` (location, phase, next-event interval, next-event clock). */
 export const TIME_DELTA_COUNTDOWN_LINE_COUNT = 4;
+
+/** Centre copy when `timeDelta.atypicalTideSummary` is true (countdown mode only). */
+export const ATYPICAL_TIDE_SUMMARY_PHASE_LINE = "Tricky tides today";
+export const ATYPICAL_TIDE_SUMMARY_STEER_LINE = "Use the markers";
 
 /**
  * @param {string} eventLabel
@@ -74,6 +80,7 @@ function requireCountdownLineRow(row, label) {
  * @property {'out-low' | 'in-high'} tidePhasePair
  * @property {string} nextEventTimeHhmm
  * @property {string} interval
+ * @property {boolean} atypicalTideSummary
  * @property {readonly TimeDeltaStripeLayoutInput[]} countdownLines
  *
  * @typedef {object} TimeDeltaLayoutEmpty
@@ -98,16 +105,27 @@ export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
   let timeDeltaEmptyMessage = null;
 
   if (timeDeltaLayout.kind === "countdown") {
-    const isOutLow = timeDeltaLayout.tidePhasePair === "out-low";
-    const direction = isOutLow ? "going out" : "coming in";
-    const eventLabel = isOutLow ? "Low tide" : "High tide";
     const lines = timeDeltaLayout.countdownLines;
-    const contents = [
-      timeDeltaLayout.town,
-      `Tide ${direction}`,
-      formatTimeDeltaNextIntervalLine(eventLabel, timeDeltaLayout.interval),
-      formatTimeDeltaNextAtLine(timeDeltaLayout.nextEventTimeHhmm),
-    ];
+    /** @type {readonly string[]} */
+    let contents;
+    if (timeDeltaLayout.atypicalTideSummary === true) {
+      contents = [
+        timeDeltaLayout.town,
+        ATYPICAL_TIDE_SUMMARY_PHASE_LINE,
+        ATYPICAL_TIDE_SUMMARY_STEER_LINE,
+        "",
+      ];
+    } else {
+      const isOutLow = timeDeltaLayout.tidePhasePair === "out-low";
+      const direction = isOutLow ? "going out" : "coming in";
+      const eventLabel = isOutLow ? "Low tide" : "High tide";
+      contents = [
+        timeDeltaLayout.town,
+        `Tide ${direction}`,
+        formatTimeDeltaNextIntervalLine(eventLabel, timeDeltaLayout.interval),
+        formatTimeDeltaNextAtLine(timeDeltaLayout.nextEventTimeHhmm),
+      ];
+    }
     countdownStripes = lines.map((line, i) => ({
       content: /** @type {string} */ (contents[i]),
       fontSize: line.fontHeight * R,
@@ -182,6 +200,13 @@ export function buildTimeDeltaDiagramFromSpec(spec, refRadius) {
     );
   }
 
+  const rawAtypical = o.atypicalTideSummary;
+  if (typeof rawAtypical !== "boolean") {
+    throw new Error(
+      "spec.timeDelta.atypicalTideSummary is required and must be boolean",
+    );
+  }
+
   const nextEvent = computeNextTideEventFromSpec(spec, parsedNow);
   const timeDeltaLayout =
     nextEvent == null
@@ -198,6 +223,7 @@ export function buildTimeDeltaDiagramFromSpec(spec, refRadius) {
           nextEventTimeHhmm: `${String(Math.floor(nextEvent.seconds / 3600)).padStart(2, "0")}:${String(Math.floor((nextEvent.seconds % 3600) / 60)).padStart(2, "0")}`,
           interval: nextEvent.intervalText,
           countdownLines,
+          atypicalTideSummary: rawAtypical,
         };
 
   return layoutTimeDeltaDiagram(timeDeltaLayout, refRadius);

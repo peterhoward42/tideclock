@@ -69,6 +69,11 @@ type HomeTideDiagramLayoutBase = {
     readonly emptyMessage: { readonly belowOrigin: number; readonly fontHeight: number };
     readonly town: string;
     readonly tidePhasePair: 'out-low' | 'in-high';
+    /**
+     * When true, countdown centre copy uses the atypical-pattern lines (see docs/planning/atypical-tide-story.md);
+     * next/WaitArc behaviour unchanged. When false, typical phase + next-interval copy.
+     */
+    readonly atypicalTideSummary: boolean;
   };
   readonly annularBand: { readonly annularBandWidth: number };
   readonly homeMenuTrigger: {
@@ -125,6 +130,7 @@ export const homeTideDiagramLayoutBase: HomeTideDiagramLayoutBase = {
     emptyMessage: { belowOrigin: 0.08, fontHeight: 0.038 },
     town: 'Unset',
     tidePhasePair: 'out-low',
+    atypicalTideSummary: false,
   },
   annularBand: { annularBandWidth: 0.05 },
   homeMenuTrigger: {

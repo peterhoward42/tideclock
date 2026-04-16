@@ -117,15 +117,19 @@ fart
 					o  wiring up and integration tests
 					o  my tests
 						o  idea for logic triggers for developer
-							o  this one
+							o  atypical tides
 							o  no more today
 							o  other ux conditionals?
+
+					o  sort out if necessary atypical needs for extrema ordering
 
 				o  no further tides today problems
 					*  change it
 					o  review it when it fires
 
 
+				o  javascript falsy skill
+					o  first is it wise
 
 
 

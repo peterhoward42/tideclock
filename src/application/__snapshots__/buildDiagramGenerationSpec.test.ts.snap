@@ -26,8 +26,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   },
   "homeMenuTrigger": {
     "center": {
-      "x": -127.44000000000001,
-      "y": -118,
+      "x": -119.652,
+      "y": -123.31000000000002,
     },
     "cornerRadius": 4.484,
     "height": 15.34,
@@ -792,7 +792,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "previewFrame": {
       "maxX": 334.9,
       "maxY": 162.41600000000003,
-      "minX": 69.75999999999999,
+      "minX": 77.548,
       "minY": 26.95799999999998,
     },
     "title": "home-tide-diagram",
@@ -1837,8 +1837,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "children": [
           {
             "center": {
-              "x": 82.55999999999999,
-              "y": 42,
+              "x": 90.348,
+              "y": 36.68999999999998,
             },
             "height": 15.34,
             "kind": "roundedRect",
@@ -1849,8 +1849,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 82.55999999999999,
-                  "y": 42,
+                  "x": 90.348,
+                  "y": 36.68999999999998,
                 },
                 "angleRad": 0,
                 "content": "Menu",

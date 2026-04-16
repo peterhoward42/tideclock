@@ -11,6 +11,10 @@ import { homeTideDiagramLayoutBase } from '../diagram-config';
 import type { DiagramTideMarkMarker, HomeDiagramTideMarks } from '../diagram-config';
 import type { TideExtreme, TideExtremeType } from '../core-models/TideExtreme';
 import type { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
+import {
+  isAtypicalTideExtremaPattern,
+  TideExtremaPatternDetection,
+} from '../time-services/isAtypicalTideExtremaPattern';
 import type { DiagramGenerationSpec } from './diagramGenerationCollaborator';
 import type { DerivedNextTideSemantics } from './nextTideSemantics';
 
@@ -169,19 +173,26 @@ export function buildDiagramGenerationSpec(
     ...tideMarksFromExtremes(extremesAtLocation.extremes, utcIsoToLocalCanonicalTime),
   };
 
+  const atypicalTideSummary =
+    isAtypicalTideExtremaPattern(extremesAtLocation.extremes) !==
+    TideExtremaPatternDetection.IsTypical;
+
+  const timeDelta = {
+    ...homeTideDiagramSpecLayout.timeDelta,
+    town: townName,
+    tidePhasePair: deriveTimeDeltaTidePhasePair({
+      extremes: extremesAtLocation.extremes,
+      timeNow,
+      utcIsoToLocalCanonicalTime,
+    }),
+    atypicalTideSummary,
+  };
+
   const spec: DiagramGenerationSpec = {
     ...homeTideDiagramSpecLayout,
     timeNow,
     timeNowDatePrefix,
-    timeDelta: {
-      ...homeTideDiagramSpecLayout.timeDelta,
-      town: townName,
-      tidePhasePair: deriveTimeDeltaTidePhasePair({
-        extremes: extremesAtLocation.extremes,
-        timeNow,
-        utcIsoToLocalCanonicalTime,
-      }),
-    },
+    timeDelta,
     tideMarks,
   };
 
