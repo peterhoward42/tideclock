@@ -107,9 +107,8 @@ o  new data fetch paradigm
 fart
 
 				o  no further tides today problems
-					o  omits echo of location
-					o  could say going in or out?
-					o  "no tide extremes now until tomorrow morning.
+					*  change it
+					o  review it when it fires
 
 				o  come back to UX branch when no location has been stored yet.
 

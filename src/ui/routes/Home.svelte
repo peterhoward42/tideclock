@@ -30,12 +30,6 @@
 
   let { tideLoadState, tideExtremes, townName }: Props = $props();
 
-  /**
-   * TEMP: when false, skip the "Choose a location…" branch when extremes are undefined (no stored
-   * town yet). Restore true when revisiting empty-state UX and home chrome.
-   */
-  const showHomeChooseLocationWhenNoExtremes = false;
-
   const collaborator: DiagramGenerationCollaborator = createDiagramGenerationCollaborator();
 
   /** Drives Loop B: bumps only on local minute rollover (aligned scheduler), not every second. */
@@ -372,9 +366,14 @@
     </div>
   {:else if tideExtremes === undefined}
     <div class="home-panel home-panel--corner-nav-host">
-      {#if showHomeChooseLocationWhenNoExtremes}
-        <p class="muted">Choose a location to see today’s tide diagram.</p>
-      {/if}
+      <section class="home-empty-state" aria-labelledby="home-empty-state-title">
+        <p class="home-empty-state__eyebrow">First use</p>
+        <h1 id="home-empty-state-title" class="home-empty-state__title">Choose your location</h1>
+        <p class="muted home-empty-state__body">
+          Set a coastal location to see today&apos;s tide clock. You can change it later from the menu.
+        </p>
+        <a class="home-empty-state__action" href="#/location2">Choose location</a>
+      </section>
     </div>
   {:else if tideExtremes.extremes.length === 0}
     <div class="home-panel" aria-live="polite">
@@ -442,10 +441,61 @@
     align-items: center;
   }
 
-  .home-panel--corner-nav-host > .muted {
-    max-width: 100%;
-    padding: 0 0.5rem;
-    box-sizing: border-box;
+  .home-empty-state {
+    width: min(28rem, calc(100% - 2rem));
+    display: grid;
+    gap: 0.9rem;
+    justify-items: start;
+    padding: 1.5rem;
+    border: 1px solid rgb(148 163 184 / 0.22);
+    border-radius: 0.875rem;
+    background: linear-gradient(180deg, rgb(15 23 42 / 0.92), rgb(2 6 23 / 0.98));
+    box-shadow: 0 18px 40px rgb(0 0 0 / 0.32);
+  }
+
+  .home-empty-state__eyebrow {
+    margin: 0;
+    color: #93c5fd;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .home-empty-state__title {
+    margin: 0;
+    color: #f8fafc;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    line-height: 1.05;
+  }
+
+  .home-empty-state__body {
+    margin: 0;
+    max-width: 28ch;
+    line-height: 1.5;
+  }
+
+  .home-empty-state__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: #0f172a;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.22);
+  }
+
+  .home-empty-state__action:hover {
+    background: #eff6ff;
+  }
+
+  .home-empty-state__action:focus-visible {
+    outline: 2px solid #f8fafc;
+    outline-offset: 3px;
   }
 
   .home-instrument {
