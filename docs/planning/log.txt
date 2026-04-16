@@ -107,35 +107,20 @@ o  new data fetch paradigm
 				*  come back to UX branch when no location has been stored yet.
 				*  slightly darker grey fills?
 				*  stick brand url in bottom left in diagram = no d
-fart
 				*  come back to alternating in/out edge cases  like Bournemouth
+				*  idea for logic triggers for developer visual tests
+fart
+				o  big code cleanse thus far - deserves a skill
+					o  try a skill in new branch
+						o  bootstrapping phase 1
 
-						o  idea for logic triggers for developer visual tests
-							*  no more today
-							*  some readme or redirected docco for these 
-							   snapshots
-							*  atypical tides
-							*  no room for now label / arrohead
-							*  other ux conditionals?
-							*  now make sure all these controls work
-							*  merge the branch
+					o  merge the branch
 
-
-
-							o  exercise each snapshot
-
-
-
-
-					o  sort out if necessary atypical needs for extrema ordering
-
-				o  no further tides today problems
-					*  change it
-					o  review it when it fires
+				o  sort out if necessary atypical needs for extrema ordering
 
 
 				o  location ui verbosity and mobile fit
-				o  big code cleanse
+
 
 					o  kiosk mode and the following
 						o  see chatgpt kiosk mode overview
