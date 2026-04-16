@@ -1,7 +1,7 @@
 /**
  * diagramGenerationCollaborator.ts is the `src/application/` façade into `src/diagram-generation/` (build, styles,
- * diagram→scene, `buildDiagram` + SVG render re-exports) with home tide styling from `diagram-config`, keeping UI and tests off `.mjs`
- * internals and out of tide data fetching.
+ * diagram→scene, re-exports used by spec builders and tests) with home tide styling from `diagram-config`, keeping UI
+ * and application modules off `.mjs` internals and out of tide data fetching.
  */
 
 import { homeTideStyleModel } from "../diagram-config";
@@ -333,4 +333,11 @@ export function createDiagramGenerationCollaborator(): DiagramGenerationCollabor
   };
 }
 
-export { buildDiagram, renderSceneSvg } from "../diagram-generation/index.mjs";
+export {
+  annularBandMaxX,
+  buildDiagram,
+  computeNextTideEventCore,
+  formatIntervalHoursMinutes,
+  parseCanonicalTimeOrThrow,
+  renderSceneSvg,
+} from "../diagram-generation/index.mjs";

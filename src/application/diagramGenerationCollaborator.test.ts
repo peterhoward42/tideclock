@@ -2,9 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import { homeTideDiagramLayoutBase } from '../diagram-config';
-import { annularBandMaxX } from '../diagram-generation/index.mjs';
 import { buildDiagramGenerationSpec, utcIsoToLocalCanonicalTimeUtc } from './buildDiagramGenerationSpec';
-import { createDiagramGenerationCollaborator } from './diagramGenerationCollaborator';
+import { annularBandMaxX, createDiagramGenerationCollaborator } from './diagramGenerationCollaborator';
 
 function minimalExtremesForCollaboratorTest(): TideExtremesAtLocation {
   return new TideExtremesAtLocation(50.8, -1.1, [

@@ -6,10 +6,10 @@
 
 import {
   computeNextTideEventCore,
+  type DiagramGenerationSpec,
   formatIntervalHoursMinutes,
   parseCanonicalTimeOrThrow,
-} from '../diagram-generation/index.mjs';
-import type { DiagramGenerationSpec } from './diagramGenerationCollaborator';
+} from './diagramGenerationCollaborator';
 
 /**
  * Minute-scale next-tide semantics: single derivation per tick, consumed by diagram layout

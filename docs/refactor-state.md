@@ -25,7 +25,7 @@ Created from a fresh pass: judgements from **source and tests** only.
 ## Dominant themes (3–5)
 
 1. **Explicit adapter at the TS ↔ diagram-generation boundary**  
-   `diagramGenerationCollaborator.ts` centralises `buildDiagram`, `loadStyleModel`, `tideDiagramToScene`, and re-exports `buildDiagram` and `renderSceneSvg` from `diagram-generation/index.mjs`. App and semantic-injection tests use the collaborator for those entrypoints.
+   `diagramGenerationCollaborator.ts` centralises `buildDiagram`, `loadStyleModel`, `tideDiagramToScene`, and re-exports the barrel surface app code needs (`buildDiagram`, `renderSceneSvg`, next-tide helpers, layout probes such as `annularBandMaxX`). Only this module imports `diagram-generation/index.mjs` from `src/application/`.
 
 2. **Orchestration density at the UI root**  
    `App.svelte` owns route wiring, storage sync, and Svelte state for tides; tide **refresh serial / stale-completion** policy lives in `tideExtremesRefreshController.ts`. Civil-day **rollover decision** policy remains in `civilDayRolloverTick.ts`. Further thinning is optional unless the shell gains more triggers.
@@ -59,12 +59,11 @@ Created from a fresh pass: judgements from **source and tests** only.
 - **2026-04-16 — Single façade for `buildDiagram` in tests:** `diagramGenerationCollaborator.ts` re-exports `buildDiagram`; `diagramSemanticInjection.test.ts` imports `buildDiagram` and diagram types from the collaborator only (no direct `diagram-generation/index.mjs` import for that call).
 - **2026-04-16 — Tide refresh orchestration in `application/`:** `createTideExtremesRefreshController` in `tideExtremesRefreshController.ts` owns monotonic load serial and stale-completion policy; `App.svelte` wires `loadTideExtremesForCurrentCivilDay`, civil-day window read, and Svelte state via callbacks. Tests in `tideExtremesRefreshController.test.ts`.
 - **2026-04-16 — Dev diagram preview package by folder:** moved `diagramDevPreview*.ts` and colocated Vitest files to `src/application/diagram-dev-preview/`; adjusted imports to parent `application/` and `core-models` / `time-services`; `Home.svelte` imports the catalog and resolver from that folder only.
+- **2026-04-16 — Single `index.mjs` import in application:** `nextTideSemantics.ts` and `diagramGenerationCollaborator.test.ts` import diagram-generation helpers via `diagramGenerationCollaborator.ts` re-exports only; no other `src/application/**/*.ts` imports `diagram-generation/index.mjs` directly.
 
 ## Next session candidates (pick one)
 
-1. **Import façade consistency (theme 5):** audit remaining `diagram-generation/**/*.mjs` imports outside the collaborator / `index.mjs`; tighten to the proposed dependency discipline where low-churn.
-
-2. **UI shell thinning (theme 2, optional):** only if `App.svelte` gains more triggers—extract further wiring or document the stopping point.
+1. **UI shell thinning (theme 2, optional):** only if `App.svelte` gains more triggers—extract further wiring or document the stopping point.
 
 ---
 
