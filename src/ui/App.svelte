@@ -8,10 +8,7 @@
   import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
   import type { Town } from "../data/townSchema";
   import { nowMs } from "../application/appClock.js";
-  import {
-    shouldTriggerCivilDayRolloverRefresh,
-    type CivilDayRolloverRefreshInput
-  } from "../application/civilDayRolloverRefresh";
+  import { decideCivilDayRolloverTideRefresh } from "../application/civilDayRolloverTick";
   import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
   import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
   import { attachHashListener, route } from "../infrastructure/router.js";
@@ -49,7 +46,7 @@
   let lastSuccessfulTideExtremes = $state<TideExtremesAtLocation | undefined>(undefined);
   /** Local civil-day window start (ms) after the last successful load completed; drives midnight rollover detection. */
   let civilDayWindowStartMsAtLastSuccessfulLoad = $state<number | undefined>(undefined);
-  /** After a failed rollover fetch, suppress re-entry for the same civil day (see `shouldTriggerCivilDayRolloverRefresh`). */
+  /** After a failed rollover fetch, suppress re-entry for the same civil day (see `decideCivilDayRolloverTideRefresh`). */
   let lastRolloverAttemptCivilDayStartMs = $state<number | undefined>(undefined);
   let currentTown = $state<Town | undefined>(undefined);
 
@@ -143,21 +140,18 @@
     const town = loadCurrentLocation({ loader: localStorage });
     currentTown = town;
     const currentStart = getCurrentTideClockCivilDayDisplayWindowFromSystemClock().startLocal.getTime();
-    const rolloverInput: CivilDayRolloverRefreshInput = {
-      hasSelectedTown: town !== undefined,
+    const decision = decideCivilDayRolloverTideRefresh({
+      town,
       tideLoadIsLoading: tideLoadState.status === "loading",
       currentCivilDayStartMs: currentStart,
-      lastSuccessfulLoadCivilDayStartMs: civilDayWindowStartMsAtLastSuccessfulLoad,
-      lastRolloverAttemptCivilDayStartMs: lastRolloverAttemptCivilDayStartMs
-    };
-    if (!shouldTriggerCivilDayRolloverRefresh(rolloverInput)) {
+      civilDayWindowStartMsAtLastSuccessfulLoad,
+      lastRolloverAttemptCivilDayStartMs
+    });
+    if (decision.action === "none") {
       return;
     }
-    if (town === undefined) {
-      return;
-    }
-    lastRolloverAttemptCivilDayStartMs = currentStart;
-    refreshTideExtremesForTown(town);
+    lastRolloverAttemptCivilDayStartMs = decision.markRolloverAttemptCivilDayStartMs;
+    refreshTideExtremesForTown(decision.town);
   }
 
   function headerPlaceholderForRoute(routeId: AppRouteId): string {
