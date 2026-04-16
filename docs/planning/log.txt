@@ -119,9 +119,10 @@ fart
 
 					o  merge the branch
 
-First read my holistic-refactor skill for context. Then read the current 
-state of that process from docs/refactor-state. Then resume it from my choice 
-of "Unify diagram render entry" as this session's candidate.
+
+First read my holistic-refactor skill for context. Then read the current state of
+that process from docs/refactor-state. Then resume it from Next session 
+candidate (1)
 
 				o  sort out if necessary atypical needs for extrema ordering
 

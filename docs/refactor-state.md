@@ -54,12 +54,12 @@ Created from a fresh pass: judgements from **source and tests** only.
 ## Completed this thread (dated)
 
 - **2026-04-16 — Unify diagram render entry:** `renderSceneSvg` is exported from `diagram-generation/index.mjs` and re-exported from `diagramGenerationCollaborator.ts`. `Home.svelte` imports it from the collaborator only; no other `src/ui/` route imported `diagram-generation/**/*.mjs` directly.
+- **2026-04-16 — Layer map skim header:** single orienting file-level block on `diagramGenerationCollaborator.ts` (application ↔ `diagram-generation` boundary, `diagram-config` styling, no tide fetch); full table remains authoritative in this file.
 
 ## Next session candidates (pick one)
 
-1. **Document the layer table** in one file header (e.g. `src/application/README` is overkill—prefer a short module header on `diagramGenerationCollaborator.ts` only if it stays one sentence).
-2. **Rollover / load policy extraction:** pull `shouldTriggerCivilDayRolloverRefresh` call site helpers out of `App.svelte` into a small `application/` module if the file grows further.
-3. **Optional:** route `diagramSemanticInjection.test.ts` through `diagramGenerationCollaborator` (or a tiny test helper) if you want a single import path for `buildDiagram` in tests as well as app code.
+1. **Rollover / load policy extraction:** pull `shouldTriggerCivilDayRolloverRefresh` call site helpers out of `App.svelte` into a small `application/` module if the file grows further.
+2. **Optional:** route `diagramSemanticInjection.test.ts` through `diagramGenerationCollaborator` (or a tiny test helper) if you want a single import path for `buildDiagram` in tests as well as app code.
 
 ---
 
