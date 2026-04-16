@@ -26,7 +26,7 @@ export type CivilDayRolloverTickDecision =
 
 /**
  * Decide whether the clock tick should start a civil-day rollover tide reload.
- * Caller keeps storage subscription and {@link refreshTideExtremesForTown} wiring.
+ * Caller keeps storage subscription and {@link createTideExtremesRefreshController} refresh wiring.
  */
 export function decideCivilDayRolloverTideRefresh(
   snapshot: CivilDayRolloverTickSnapshot

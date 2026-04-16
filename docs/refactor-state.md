@@ -6,14 +6,14 @@ Created from a fresh pass: judgements from **source and tests** only.
 
 ## Test baseline
 
-- `npm test` (Vitest): **20 files, 133 tests**, all passing (session date in repo: 2026-04-16).
+- `npm test` (Vitest): **21 files, 137 tests**, all passing (session date in repo: 2026-04-16).
 
 ## Layer map (observed)
 
 | Area | Role (short) |
 |------|----------------|
 | `src/ui/` | Svelte shell, routes, dial SVG mapping; `App.svelte` orchestrates load, routing, rollover refresh. |
-| `src/application/` | Civil-day queries, diagram spec building, semantic cadence, dev diagram previews, typed bridge to diagram engine. |
+| `src/application/` | Civil-day queries, tide extremes refresh orchestration, diagram spec building, semantic cadence, dev diagram previews, typed bridge to diagram engine. |
 | `src/data-pipelines/` | Proxy fetch, localStorage, civil-day extremes shaping, location snapshot helpers. |
 | `src/time-services/` | Civil-day display window, atypical-pattern detection. |
 | `src/location-services/` | Town search / space query. |
@@ -28,7 +28,7 @@ Created from a fresh pass: judgements from **source and tests** only.
    `diagramGenerationCollaborator.ts` centralises `buildDiagram`, `loadStyleModel`, `tideDiagramToScene`, and re-exports `buildDiagram` and `renderSceneSvg` from `diagram-generation/index.mjs`. App and semantic-injection tests use the collaborator for those entrypoints.
 
 2. **Orchestration density at the UI root**  
-   `App.svelte` correctly owns serialised tide loads, rollover suppression, and route wiring; it is the natural “application shell.” Civil-day **rollover decision** policy now lives in `civilDayRolloverTick.ts`; further simplification likely means **load serial / coalescing** extraction into `application/` if the shell grows further.
+   `App.svelte` owns route wiring, storage sync, and Svelte state for tides; tide **refresh serial / stale-completion** policy lives in `tideExtremesRefreshController.ts`. Civil-day **rollover decision** policy remains in `civilDayRolloverTick.ts`. Further thinning is optional unless the shell gains more triggers.
 
 3. **Dev-only diagram preview cluster**  
    `diagramDevPreview*.ts` modules in `application/` are a coherent feature island (catalog, resolve, time-freeze scenarios). Good candidate for later “package by feature” grouping **if** folder churn is justified—behaviour is already test-backed.
@@ -57,10 +57,11 @@ Created from a fresh pass: judgements from **source and tests** only.
 - **2026-04-16 — Layer map skim header:** single orienting file-level block on `diagramGenerationCollaborator.ts` (application ↔ `diagram-generation` boundary, `diagram-config` styling, no tide fetch); full table remains authoritative in this file.
 - **2026-04-16 — Rollover tick policy in `application/`:** `decideCivilDayRolloverTideRefresh` in `civilDayRolloverTick.ts` composes `shouldTriggerCivilDayRolloverRefresh` and returns a typed `refresh | none` decision; `App.svelte` only applies storage sync, state mutation, and `refreshTideExtremesForTown`. Tests in `civilDayRolloverTick.test.ts`.
 - **2026-04-16 — Single façade for `buildDiagram` in tests:** `diagramGenerationCollaborator.ts` re-exports `buildDiagram`; `diagramSemanticInjection.test.ts` imports `buildDiagram` and diagram types from the collaborator only (no direct `diagram-generation/index.mjs` import for that call).
+- **2026-04-16 — Tide refresh orchestration in `application/`:** `createTideExtremesRefreshController` in `tideExtremesRefreshController.ts` owns monotonic load serial and stale-completion policy; `App.svelte` wires `loadTideExtremesForCurrentCivilDay`, civil-day window read, and Svelte state via callbacks. Tests in `tideExtremesRefreshController.test.ts`.
 
 ## Next session candidates (pick one)
 
-1. **Further shell thinning (if needed):** extract `refreshTideExtremesForTown` + load serial policy into `application/` behind an explicit factory or small module; only worthwhile if `App.svelte` picks up more orchestration.
+1. **Dev diagram preview cluster (optional):** if folder churn is justified, group `diagramDevPreview*.ts` under a single feature subfolder; behaviour is already test-backed.
 
 ---
 

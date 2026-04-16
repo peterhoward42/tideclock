@@ -9,6 +9,7 @@
   import type { Town } from "../data/townSchema";
   import { nowMs } from "../application/appClock.js";
   import { decideCivilDayRolloverTideRefresh } from "../application/civilDayRolloverTick";
+  import { createTideExtremesRefreshController } from "../application/tideExtremesRefreshController";
   import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
   import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
   import { attachHashListener, route } from "../infrastructure/router.js";
@@ -34,14 +35,6 @@
 
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
   let tideLoadState = $state<TidePredictionsLoadState>({ status: "ready" });
-  /**
-   * Monotonic counter for in-flight tide loads. Each refresh captures the value after incrementing;
-   * when the async work finishes, it only updates state if that capture still matches. Rationale:
-   * network latency is unbounded, so responses can complete out of order (town A slow, town B fast).
-   * Without this guard, a late response for an abandoned location would overwrite the UI with the
-   * wrong place's tides.
-   */
-  let tideLoadSerial = $state(0);
   /** Last successful civil-day slice; Home assembles the diagram spec from this. Not cleared on transient errors. */
   let lastSuccessfulTideExtremes = $state<TideExtremesAtLocation | undefined>(undefined);
   /** Local civil-day window start (ms) after the last successful load completed; drives midnight rollover detection. */
@@ -83,37 +76,30 @@
     }
   }
 
-  /**
-   * Intent hold (Phase 5): this refresh flow is retained as orchestration policy
-   * (load sequencing + stale-response guards), not diagram-semantic ownership.
-   */
-  function refreshTideExtremesForTown(town: Town): void {
-    const serial = ++tideLoadSerial;
-    tideLoadState = { status: "loading" };
-    void (async () => {
-      try {
-        const result = await loadTideExtremesForCurrentCivilDay(town.lat, town.lon);
-        if (serial !== tideLoadSerial) {
-          return;
-        }
-        if (result !== undefined) {
-          lastSuccessfulTideExtremes = result;
-          civilDayWindowStartMsAtLastSuccessfulLoad =
-            getCurrentTideClockCivilDayDisplayWindowFromSystemClock().startLocal.getTime();
-          lastRolloverAttemptCivilDayStartMs = undefined;
-          tideLoadState = { status: "ready" };
-        } else {
-          tideLoadState = { status: "error" };
-        }
-      } catch (e) {
-        if (serial !== tideLoadSerial) {
-          return;
-        }
-        appDiag("refreshTideExtremesForTown error", e);
+  const { refreshTideExtremesForTown } = createTideExtremesRefreshController(
+    {
+      loadTideExtremesForCurrentCivilDay,
+      civilDayWindowStartMsAfterSuccessfulLoad: () =>
+        getCurrentTideClockCivilDayDisplayWindowFromSystemClock().startLocal.getTime(),
+    },
+    {
+      onLoading: () => {
+        tideLoadState = { status: "loading" };
+      },
+      onSuccess: ({ extremes, civilDayWindowStartMs }) => {
+        lastSuccessfulTideExtremes = extremes;
+        civilDayWindowStartMsAtLastSuccessfulLoad = civilDayWindowStartMs;
+        lastRolloverAttemptCivilDayStartMs = undefined;
+        tideLoadState = { status: "ready" };
+      },
+      onError: () => {
         tideLoadState = { status: "error" };
-      }
-    })();
-  }
+      },
+      onLoadRejected: (e) => {
+        appDiag("refreshTideExtremesForTown error", e);
+      },
+    }
+  );
 
   /**
    * Central write-orchestrator for the selected town.
