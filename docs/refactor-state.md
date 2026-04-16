@@ -60,10 +60,11 @@ Created from a fresh pass: judgements from **source and tests** only.
 - **2026-04-16 — Tide refresh orchestration in `application/`:** `createTideExtremesRefreshController` in `tideExtremesRefreshController.ts` owns monotonic load serial and stale-completion policy; `App.svelte` wires `loadTideExtremesForCurrentCivilDay`, civil-day window read, and Svelte state via callbacks. Tests in `tideExtremesRefreshController.test.ts`.
 - **2026-04-16 — Dev diagram preview package by folder:** moved `diagramDevPreview*.ts` and colocated Vitest files to `src/application/diagram-dev-preview/`; adjusted imports to parent `application/` and `core-models` / `time-services`; `Home.svelte` imports the catalog and resolver from that folder only.
 - **2026-04-16 — Single `index.mjs` import in application:** `nextTideSemantics.ts` and `diagramGenerationCollaborator.test.ts` import diagram-generation helpers via `diagramGenerationCollaborator.ts` re-exports only; no other `src/application/**/*.ts` imports `diagram-generation/index.mjs` directly.
+- **2026-04-16 — Deferred:** Optional UI shell thinning for `App.svelte` (former “next session candidate (1)”): not scheduled now; the root already delegates tide serial/rollover policy to `application/`. Revisit only if mount/tick/location triggers grow enough that extraction or an explicit stopping-point note is worth the churn.
 
 ## Next session candidates (pick one)
 
-1. **UI shell thinning (theme 2, optional):** only if `App.svelte` gains more triggers—extract further wiring or document the stopping point.
+- **None queued.** Optional follow-ups remain under **Dominant themes** (e.g. theme 3 barrel only if import noise grows; theme 5 import façade consistency).
 
 ---
 
