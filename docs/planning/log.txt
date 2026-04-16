@@ -108,12 +108,27 @@ fart
 				o  move menu into diagram so that nothing else is there
 				   to get layout right?
 				   	*  something working
-					o  harden it
-						o  intermittent mouse over
+					*  harden it
 					o  style it
+						o  better shape
+						o  lock its bottom and left to other stuff
+
+					o  ask ai to explain home route dom tree down as far as
+					   diagram and what role those layers have, in partic but
+					   limitied to margins and padding
+				   		o  note that a tide event at 00:04 sticks above y0 and
+						   pads the SVG nicely to accomodate itself - with
+						   perfect accuracy
+						   	o  but does the 00 tick mark label?
 
 				o  come back to UX branch when no location has been stored yet.
+				o  no further tides today problems
+					o  omits echo of location
+					o  could say going in or out?
+					o  "no tide extremes now until tomorrow morning.
 
+				o  slightly darker grey fills?
+				o  stick brand url in bottom left in diagram
 
 
 					o  kiosk mode and the following
@@ -121,6 +136,7 @@ fart
 							o  entry point PWA
 					o  encourage landscape
 					o  encourage hide browser bar
+				o  proxy cost risk containment
 					o  how to use real estate better - partic on phone
 						o  aspect ratio sensitivity in diagram and outer?
 

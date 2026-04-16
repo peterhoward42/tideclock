@@ -152,11 +152,13 @@
  *   sweepRad: number,
  * }} InsideTrackDiagram
  *
- * Home menu trigger marker embedded in the diagram space.
+ * Home menu trigger control embedded in the diagram space (rounded rectangle + label).
  *
  * @typedef {{
  *   center: DiagramPoint,
- *   radius: number,
+ *   width: number,
+ *   height: number,
+ *   cornerRadius: number,
  *   labelSize: number,
  *   label: string,
  * }} HomeMenuTriggerDiagram

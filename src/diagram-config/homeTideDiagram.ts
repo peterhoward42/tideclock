@@ -74,7 +74,12 @@ type HomeTideDiagramLayoutBase = {
   readonly homeMenuTrigger: {
     readonly centerX: number;
     readonly centerY: number;
-    readonly radius: number;
+    /** k·RefRadius: full width along +X. */
+    readonly width: number;
+    /** k·RefRadius: full height along +Y. */
+    readonly height: number;
+    /** k·RefRadius: SVG rx/ry; must be ≤ min(width,height)/2. */
+    readonly cornerRadius: number;
     readonly labelSize: number;
     readonly label: "Menu";
   };
@@ -127,7 +132,9 @@ export const homeTideDiagramLayoutBase: HomeTideDiagramLayoutBase = {
   homeMenuTrigger: {
     centerX: -1.08,
     centerY: -1.0,
-    radius: 0.09,
+    width: 0.2,
+    height: 0.13,
+    cornerRadius: 0.038,
     labelSize: 0.042,
     label: "Menu",
   },

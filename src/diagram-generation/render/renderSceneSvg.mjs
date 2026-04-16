@@ -371,6 +371,30 @@ function renderNode(node, styleRuntime, leafName) {
       );
       return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
     }
+    case "roundedRect": {
+      assertLeafScoped(node.kind, leafName);
+      const { center, width, height, rx } = node;
+      const stroke = requireLeafStrokeColor(
+        styleRuntime,
+        leafName,
+        RENDER_DEFAULTS.curveStroke,
+        node.kind,
+      );
+      const dash = strokeDashAttrFragmentFromLeaf(
+        styleRuntime,
+        leafName,
+        node.kind,
+      );
+      const fill = requireLeafFillColor(
+        styleRuntime,
+        leafName,
+        RENDER_DEFAULTS.shapeFill,
+        node.kind,
+      );
+      const x = center.x - 0.5 * width;
+      const y = center.y - 0.5 * height;
+      return `    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${rx}" ry="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
+    }
     case "text": {
       assertLeafScoped(node.kind, leafName);
       const fill = requireLeafFillColor(
@@ -634,11 +658,13 @@ function renderTextSvg(node, fillColor) {
   const anchorAttr = textAnchorFor(hAlign);
   const deg = (-angleRad * 180) / Math.PI;
   const inner = escapeHtml(content);
+  const baseline =
+    node.dominantBaseline === "middle" ? "middle" : "alphabetic";
   // Scene->SVG uses scale(1,-1) on the root; that flips glyph outlines. A local scale(1,-1)
   // around the anchor restores upright text without changing the anchor position.
   return `    <g transform="translate(${ax}, ${ay}) scale(1,-1) translate(${-ax}, ${-ay})">
       <g transform="rotate(${deg}, ${ax}, ${ay})">
-      <text x="${ax}" y="${ay}" font-size="${size}" fill="${fillColor}" text-anchor="${anchorAttr}" dominant-baseline="alphabetic" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">${inner}</text>
+      <text x="${ax}" y="${ay}" font-size="${size}" fill="${fillColor}" text-anchor="${anchorAttr}" dominant-baseline="${baseline}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">${inner}</text>
       </g>
     </g>`;
 }

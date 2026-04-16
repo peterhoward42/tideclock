@@ -13,6 +13,7 @@ import {
   line,
   nowWedgeOutline,
   point,
+  roundedRect,
   text,
 } from "../model/sceneModel.mjs";
 
@@ -179,9 +180,19 @@ function expandBoundsByText(b, node) {
     x0 = x0 - 0.5 * w;
     x1 = x1 + 0.5 * w;
   }
-  // `dominant-baseline="alphabetic"`: anchor is baseline.
-  const y0 = node.anchor.y - desc;
-  const y1 = node.anchor.y + asc;
+  const ay = node.anchor.y;
+  let y0;
+  let y1;
+  if (node.dominantBaseline === "middle") {
+    // Match `dominant-baseline="middle"`: symmetric em box around anchor.
+    const halfEm = 0.52 * size;
+    y0 = ay - halfEm;
+    y1 = ay + halfEm;
+  } else {
+    // `dominant-baseline="alphabetic"`: anchor is baseline.
+    y0 = ay - desc;
+    y1 = ay + asc;
+  }
 
   const ang = Number(node.angleRad) || 0;
   if (Math.abs(ang) < 1e-12) {
@@ -191,7 +202,6 @@ function expandBoundsByText(b, node) {
   const c = Math.cos(ang);
   const s = Math.sin(ang);
   const ax = node.anchor.x;
-  const ay = node.anchor.y;
   const corners = [
     { x: x0, y: y0 },
     { x: x1, y: y0 },
@@ -224,6 +234,19 @@ function expandBoundsByNode(b, node) {
         node.center.y + node.radius,
       );
       return;
+    case "roundedRect": {
+      const { center, width, height } = node;
+      const hw = 0.5 * width;
+      const hh = 0.5 * height;
+      expandBoundsByRect(
+        b,
+        center.x - hw,
+        center.y - hh,
+        center.x + hw,
+        center.y + hh,
+      );
+      return;
+    }
     case "triangle":
       expandBoundsByPoint(b, node.a);
       expandBoundsByPoint(b, node.b);
@@ -640,10 +663,13 @@ export function tideDiagramToScene(diagram) {
         ])
       : null;
 
+  const menuCenter = mapPoint(homeMenuTrigger.center, cx, cy);
   const homeMenuTriggerGroup = group("HomeMenuTrigger", [
-    circle(
-      mapPoint(homeMenuTrigger.center, cx, cy),
-      homeMenuTrigger.radius,
+    roundedRect(
+      menuCenter,
+      homeMenuTrigger.width,
+      homeMenuTrigger.height,
+      homeMenuTrigger.cornerRadius,
     ),
     group("HomeMenuTriggerLabel", [
       text({
@@ -651,7 +677,8 @@ export function tideDiagramToScene(diagram) {
         size: homeMenuTrigger.labelSize,
         hAlign: "center",
         angleRad: 0,
-        anchor: mapPoint(homeMenuTrigger.center, cx, cy),
+        anchor: menuCenter,
+        dominantBaseline: "middle",
       }),
     ]),
   ]);

@@ -29,9 +29,11 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "x": -127.44000000000001,
       "y": -118,
     },
+    "cornerRadius": 4.484,
+    "height": 15.34,
     "label": "Menu",
     "labelSize": 4.956,
-    "radius": 10.62,
+    "width": 23.6,
   },
   "insideTrack": {
     "center": {

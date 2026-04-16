@@ -466,7 +466,7 @@
     pointer-events: all;
   }
 
-  .home-instrument :global(svg g[data-name="HomeMenuTrigger"] circle) {
+  .home-instrument :global(svg g[data-name="HomeMenuTrigger"] > rect) {
     transition:
       fill 120ms ease-out,
       stroke 120ms ease-out;
@@ -476,7 +476,7 @@
     transition: fill 120ms ease-out;
   }
 
-  .home-instrument :global(svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover circle) {
+  .home-instrument :global(svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover > rect) {
     fill: #191919;
     stroke: #aaa;
   }

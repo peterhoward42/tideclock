@@ -29,9 +29,11 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "x": -127.44000000000001,
       "y": -118,
     },
+    "cornerRadius": 4.484,
+    "height": 15.34,
     "label": "Menu",
     "labelSize": 4.956,
-    "radius": 10.62,
+    "width": 23.6,
   },
   "insideTrack": {
     "center": {
@@ -790,7 +792,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "previewFrame": {
       "maxX": 334.9,
       "maxY": 162.41600000000003,
-      "minX": 70.93999999999998,
+      "minX": 69.75999999999999,
       "minY": 26.95799999999998,
     },
     "title": "home-tide-diagram",
@@ -1838,8 +1840,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               "x": 82.55999999999999,
               "y": 42,
             },
-            "kind": "circle",
-            "radius": 10.62,
+            "height": 15.34,
+            "kind": "roundedRect",
+            "rx": 4.484,
+            "width": 23.6,
           },
           {
             "children": [
@@ -1850,6 +1854,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 },
                 "angleRad": 0,
                 "content": "Menu",
+                "dominantBaseline": "middle",
                 "hAlign": "center",
                 "kind": "text",
                 "size": 4.956,

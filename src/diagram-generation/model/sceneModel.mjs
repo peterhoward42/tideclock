@@ -66,6 +66,17 @@
  *   radius: number,
  * }} CirclePrimitive
  *
+ * Axis-aligned rounded rectangle in scene space (**y** upward), centred on **center**:
+ * spans **width** along **+X** and **height** along **+Y** (edges at **center ± half**).
+ *
+ * @typedef {{
+ *   kind: 'roundedRect',
+ *   center: Point,
+ *   width: number,
+ *   height: number,
+ *   rx: number,
+ * }} RoundedRectPrimitive
+ *
  * Closed annular sector: inner/outer circular arcs (same centre, CCW **sweepRad** from **thetaStart**)
  * joined by radial segments at both ends. See docs/specs/tide-diagram.md §AnnularBand.
  *
@@ -85,6 +96,7 @@
  *   hAlign: TextHAlign,
  *   angleRad: number,
  *   anchor: Point,
+ *   dominantBaseline?: 'alphabetic' | 'middle',
  * }} TextPrimitive
  *
  * @typedef {{
@@ -93,7 +105,7 @@
  *   children: SceneNode[],
  * }} GroupNode
  *
- * @typedef { LinePrimitive | ArcPrimitive | ArcSegmentPrimitive | TrianglePrimitive | NowWedgeOutlinePrimitive | CirclePrimitive | AnnularSectorPrimitive | TextPrimitive | GroupNode } SceneNode
+ * @typedef { LinePrimitive | ArcPrimitive | ArcSegmentPrimitive | TrianglePrimitive | NowWedgeOutlinePrimitive | CirclePrimitive | RoundedRectPrimitive | AnnularSectorPrimitive | TextPrimitive | GroupNode } SceneNode
  *
  * @typedef {{
  *   title: string,
@@ -266,6 +278,34 @@ export function circle(center, radius) {
 }
 
 /**
+ * @param {Point} center — geometric centre (scene / diagram space, **y** up)
+ * @param {number} width — full width along **+X**
+ * @param {number} height — full height along **+Y**
+ * @param {number} rx — corner radius (SVG **rx**); must be **≤ min(width,height)/2**
+ * @returns {RoundedRectPrimitive}
+ */
+export function roundedRect(center, width, height, rx) {
+  assertPoint("center", center);
+  assertFiniteNumber("width", width);
+  assertFiniteNumber("height", height);
+  assertFiniteNumber("rx", rx);
+  if (!(width > 0)) {
+    throw new Error("width must be greater than 0");
+  }
+  if (!(height > 0)) {
+    throw new Error("height must be greater than 0");
+  }
+  if (rx < 0) {
+    throw new Error("rx must be non-negative");
+  }
+  const maxRx = 0.5 * Math.min(width, height);
+  if (rx > maxRx + 1e-9) {
+    throw new Error("rx must not exceed half the smaller of width and height");
+  }
+  return { kind: "roundedRect", center, width, height, rx };
+}
+
+/**
  * @param {Point} center
  * @param {number} rInner
  * @param {number} rOuter
@@ -303,10 +343,11 @@ export function annularSector(center, rInner, rOuter, thetaStart, sweepRad) {
  * @param {TextHAlign} o.hAlign
  * @param {number} o.angleRad
  * @param {Point} o.anchor
+ * @param {'alphabetic' | 'middle'} [o.dominantBaseline] - default **alphabetic** (SVG default); **middle** centres the em box on **anchor** for upright labels
  * @returns {TextPrimitive}
  * @throws {Error} missing or invalid fields
  */
-export function text({ content, size, hAlign, angleRad, anchor }) {
+export function text({ content, size, hAlign, angleRad, anchor, dominantBaseline }) {
   if (typeof content !== "string") {
     throw new Error("content must be a string");
   }
@@ -316,5 +357,16 @@ export function text({ content, size, hAlign, angleRad, anchor }) {
   }
   assertFiniteNumber("angleRad", angleRad);
   assertPoint("anchor", anchor);
-  return { kind: "text", content, size, hAlign, angleRad, anchor };
+  const node = /** @type {TextPrimitive} */ ({
+    kind: "text",
+    content,
+    size,
+    hAlign,
+    angleRad,
+    anchor,
+  });
+  if (dominantBaseline === "middle") {
+    node.dominantBaseline = "middle";
+  }
+  return node;
 }

@@ -154,7 +154,9 @@ type InsideTrackDiagram = {
 
 type HomeMenuTriggerDiagram = {
   readonly center: DiagramPoint;
-  readonly radius: number;
+  readonly width: number;
+  readonly height: number;
+  readonly cornerRadius: number;
   readonly labelSize: number;
   readonly label: string;
 };
@@ -230,6 +232,14 @@ type SceneCirclePrimitive = {
   readonly radius: number;
 };
 
+type SceneRoundedRectPrimitive = {
+  readonly kind: "roundedRect";
+  readonly center: ScenePoint;
+  readonly width: number;
+  readonly height: number;
+  readonly rx: number;
+};
+
 type SceneAnnularSectorPrimitive = {
   readonly kind: "annularSector";
   readonly center: ScenePoint;
@@ -246,6 +256,7 @@ type SceneTextPrimitive = {
   readonly hAlign: "left" | "center" | "right";
   readonly angleRad: number;
   readonly anchor: ScenePoint;
+  readonly dominantBaseline?: "alphabetic" | "middle";
 };
 
 type SceneGroupNode = {
@@ -260,6 +271,7 @@ type SceneNode =
   | SceneTrianglePrimitive
   | SceneNowWedgeOutlinePrimitive
   | SceneCirclePrimitive
+  | SceneRoundedRectPrimitive
   | SceneAnnularSectorPrimitive
   | SceneTextPrimitive
   | SceneGroupNode;
