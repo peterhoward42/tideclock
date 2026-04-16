@@ -116,19 +116,8 @@ fart
 						o  launch again in new session - nomimating the 
 						   next step
 
-
 					o  merge the branch
 
-
-First read my holistic-refactor skill for context. Then read the current state of
-that process from docs/refactor-state. Then resume it from Next session 
-candidate (1)
-
-
-First read my holistic-refactor skill for context. Then read the current state of
-that process from docs/refactor-state. I am going to ask you to resume it from 
-Next session candidate (1), but first ask me if I want to discuss the task 
-first.
 
 
 
