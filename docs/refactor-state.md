@@ -31,7 +31,7 @@ Created from a fresh pass: judgements from **source and tests** only.
    `App.svelte` owns route wiring, storage sync, and Svelte state for tides; tide **refresh serial / stale-completion** policy lives in `tideExtremesRefreshController.ts`. Civil-day **rollover decision** policy remains in `civilDayRolloverTick.ts`. Further thinning is optional unless the shell gains more triggers.
 
 3. **Dev-only diagram preview cluster**  
-   `diagramDevPreview*.ts` modules in `application/` are a coherent feature island (catalog, resolve, time-freeze scenarios). Good candidate for later “package by feature” grouping **if** folder churn is justified—behaviour is already test-backed.
+   `diagramDevPreview*.ts` under `application/diagram-dev-preview/` (catalog, resolve, time-freeze scenarios). Behaviour remains test-backed; further grouping is optional (e.g. a barrel only if import noise grows).
 
 4. **JavaScript islands on the runtime edge**  
    `main.js`, `infrastructure/router.js`, `application/appClock.js`, `ui/dialFrame.js` coexist with pervasive TypeScript. `main.js` uses `// @ts-check` and file-level intent comments; this looks like a deliberate boundary choice (Vite entry, hash router, clock injectable in tests).
@@ -58,10 +58,13 @@ Created from a fresh pass: judgements from **source and tests** only.
 - **2026-04-16 — Rollover tick policy in `application/`:** `decideCivilDayRolloverTideRefresh` in `civilDayRolloverTick.ts` composes `shouldTriggerCivilDayRolloverRefresh` and returns a typed `refresh | none` decision; `App.svelte` only applies storage sync, state mutation, and `refreshTideExtremesForTown`. Tests in `civilDayRolloverTick.test.ts`.
 - **2026-04-16 — Single façade for `buildDiagram` in tests:** `diagramGenerationCollaborator.ts` re-exports `buildDiagram`; `diagramSemanticInjection.test.ts` imports `buildDiagram` and diagram types from the collaborator only (no direct `diagram-generation/index.mjs` import for that call).
 - **2026-04-16 — Tide refresh orchestration in `application/`:** `createTideExtremesRefreshController` in `tideExtremesRefreshController.ts` owns monotonic load serial and stale-completion policy; `App.svelte` wires `loadTideExtremesForCurrentCivilDay`, civil-day window read, and Svelte state via callbacks. Tests in `tideExtremesRefreshController.test.ts`.
+- **2026-04-16 — Dev diagram preview package by folder:** moved `diagramDevPreview*.ts` and colocated Vitest files to `src/application/diagram-dev-preview/`; adjusted imports to parent `application/` and `core-models` / `time-services`; `Home.svelte` imports the catalog and resolver from that folder only.
 
 ## Next session candidates (pick one)
 
-1. **Dev diagram preview cluster (optional):** if folder churn is justified, group `diagramDevPreview*.ts` under a single feature subfolder; behaviour is already test-backed.
+1. **Import façade consistency (theme 5):** audit remaining `diagram-generation/**/*.mjs` imports outside the collaborator / `index.mjs`; tighten to the proposed dependency discipline where low-churn.
+
+2. **UI shell thinning (theme 2, optional):** only if `App.svelte` gains more triggers—extract further wiring or document the stopping point.
 
 ---
 

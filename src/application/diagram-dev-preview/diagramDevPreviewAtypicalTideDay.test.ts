@@ -1,21 +1,21 @@
 import { describe, expect, it } from "vitest";
-import { TideExtreme } from "../core-models/TideExtreme";
-import { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
+import { TideExtreme } from "../../core-models/TideExtreme";
+import { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
 import {
   isAtypicalTideExtremaPattern,
   TideExtremaPatternDetection,
-} from "../time-services/isAtypicalTideExtremaPattern";
+} from "../../time-services/isAtypicalTideExtremaPattern";
 import {
   buildDiagramGenerationSpec,
   utcIsoToLocalCanonicalTimeLocal,
-} from "./buildDiagramGenerationSpec";
-import { createDiagramGenerationCollaborator } from "./diagramGenerationCollaborator";
+} from "../buildDiagramGenerationSpec";
+import { createDiagramGenerationCollaborator } from "../diagramGenerationCollaborator";
 import { buildDiagramDevPreviewAtypicalTideDay } from "./diagramDevPreviewAtypicalTideDay";
 import {
   localCanonicalTimeNowFromMs,
   localTimeNowDatePrefixFromMs,
-} from "./localWallClockReadoutFromMs";
-import { deriveNextTideSemantics } from "./nextTideSemantics";
+} from "../localWallClockReadoutFromMs";
+import { deriveNextTideSemantics } from "../nextTideSemantics";
 
 describe("buildDiagramDevPreviewAtypicalTideDay", () => {
   it("produces five strictly ascending extremes that classify as atypical", () => {

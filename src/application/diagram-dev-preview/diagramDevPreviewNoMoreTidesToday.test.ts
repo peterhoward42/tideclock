@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { TideExtreme } from '../core-models/TideExtreme';
-import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
+import { TideExtreme } from '../../core-models/TideExtreme';
+import { TideExtremesAtLocation } from '../../core-models/TideExtremesAtLocation';
 import {
   buildDiagramGenerationSpec,
   utcIsoToLocalCanonicalTimeUtc,
-} from './buildDiagramGenerationSpec';
+} from '../buildDiagramGenerationSpec';
 import { buildDiagramDevPreviewNoMoreTidesTodayClock } from './diagramDevPreviewNoMoreTidesToday';
-import { deriveNextTideSemantics } from './nextTideSemantics';
+import { deriveNextTideSemantics } from '../nextTideSemantics';
 
 describe('buildDiagramDevPreviewNoMoreTidesTodayClock', () => {
   it('returns a clock after the last marker so deriveNextTideSemantics has no next tide', () => {

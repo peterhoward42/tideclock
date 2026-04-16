@@ -14,12 +14,12 @@
   import {
     diagramDevPreviewIdFromSearch,
     type DiagramDevPreviewId,
-  } from "../../application/diagramDevPreviewCatalog";
+  } from "../../application/diagram-dev-preview/diagramDevPreviewCatalog";
   import {
     formatDiagramDevPreviewBannerLine,
     homeDiagramDevPreviewIsFrozen,
     resolveHomeDiagramDevPreview,
-  } from "../../application/diagramDevPreviewResolveForHome";
+  } from "../../application/diagram-dev-preview/diagramDevPreviewResolveForHome";
   import {
     localCanonicalTimeNowFromMs,
     localTimeNowDatePrefixFromMs,

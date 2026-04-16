@@ -6,10 +6,10 @@
  * the Now label is omitted but the Now radial line remains (5 minutes ≤ Δt < 1 hour).
  */
 
-import type { TideExtreme } from "../core-models/TideExtreme";
-import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
-import type { UtcIsoToLocalCanonicalTime } from "./buildDiagramGenerationSpec";
-import { localTimeNowDatePrefixFromMs } from "./localWallClockReadoutFromMs";
+import type { TideExtreme } from "../../core-models/TideExtreme";
+import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
+import type { UtcIsoToLocalCanonicalTime } from "../buildDiagramGenerationSpec";
+import { localTimeNowDatePrefixFromMs } from "../localWallClockReadoutFromMs";
 
 const ONE_HOUR_SECONDS = 60 * 60;
 const FIVE_MINUTES_SECONDS = 5 * 60;

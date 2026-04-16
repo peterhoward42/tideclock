@@ -6,10 +6,10 @@
  * occlusion rules on NowPointer / TimeDelta apply (e.g. Now label + radial line omitted).
  */
 
-import type { TideExtreme } from "../core-models/TideExtreme";
-import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
-import type { UtcIsoToLocalCanonicalTime } from "./buildDiagramGenerationSpec";
-import { localTimeNowDatePrefixFromMs } from "./localWallClockReadoutFromMs";
+import type { TideExtreme } from "../../core-models/TideExtreme";
+import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
+import type { UtcIsoToLocalCanonicalTime } from "../buildDiagramGenerationSpec";
+import { localTimeNowDatePrefixFromMs } from "../localWallClockReadoutFromMs";
 
 const FIVE_MINUTES_SECONDS = 5 * 60;
 const FOUR_MINUTES_SECONDS = 4 * 60;
