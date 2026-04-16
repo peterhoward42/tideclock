@@ -104,15 +104,17 @@ o  new data fetch paradigm
 				*  better UX for locations
 				*  hone UI incl mobile and verbosity
 				*  move menu into diagram so that nothing else is there
+				*  come back to UX branch when no location has been stored yet.
 fart
 
 				o  no further tides today problems
 					*  change it
 					o  review it when it fires
 
-				o  come back to UX branch when no location has been stored yet.
 
 				o  slightly darker grey fills?
+					o  try on centre cluster
+
 				o  stick brand url in bottom left in diagram
 
 

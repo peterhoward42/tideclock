@@ -69,7 +69,7 @@ export const homeTideStyleModel: StyleModelSpec = {
     },
     {
       name: 'role.surface.centre-frame',
-      colors: { strokeColor: '#555', fillColor: '#222' },
+      colors: { strokeColor: '#555', fillColor: '#151515' },
     },
     {
       name: 'role.text.primary',
