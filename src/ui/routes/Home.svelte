@@ -20,7 +20,9 @@
   import { renderSceneSvg } from "../../diagram-generation/render/renderSceneSvg.mjs";
   import PrimaryNavLinks from "../components/PrimaryNavLinks.svelte";
 
-  type TidePredictionsLoadState = { readonly status: "loading" | "ready" | "error" };
+  type TidePredictionsLoadState = {
+    readonly status: "loading" | "ready" | "error";
+  };
 
   interface Props {
     readonly tideLoadState: TidePredictionsLoadState;
@@ -30,7 +32,8 @@
 
   let { tideLoadState, tideExtremes, townName }: Props = $props();
 
-  const collaborator: DiagramGenerationCollaborator = createDiagramGenerationCollaborator();
+  const collaborator: DiagramGenerationCollaborator =
+    createDiagramGenerationCollaborator();
 
   /** Drives Loop B: bumps only on local minute rollover (aligned scheduler), not every second. */
   let semanticMinuteEpoch = $state(Math.floor(Date.now() / 60_000));
@@ -53,8 +56,8 @@
       (epoch) => {
         semanticMinuteEpoch = epoch;
       },
-      { fireImmediately: false }
-    )
+      { fireImmediately: false },
+    ),
   );
 
   let diagramSvg = $state("");
@@ -75,12 +78,19 @@
   function refreshDomSummary(): void {
     if (!domDumpEnabled) return;
     const host =
-      diagramHostEl ?? (document.querySelector("main.home-route figure.home-instrument") as HTMLElement | null);
-    const figure = document.querySelector("main.home-route figure.home-instrument") as HTMLElement | null;
+      diagramHostEl ??
+      (document.querySelector(
+        "main.home-route figure.home-instrument",
+      ) as HTMLElement | null);
+    const figure = document.querySelector(
+      "main.home-route figure.home-instrument",
+    ) as HTMLElement | null;
     const svg =
       (host?.querySelector("svg") as SVGSVGElement | null) ??
       (document.querySelector("main.home-route svg") as SVGSVGElement | null);
-    const panel = document.querySelector("main.home-route .home-panel") as HTMLElement | null;
+    const panel = document.querySelector(
+      "main.home-route .home-panel",
+    ) as HTMLElement | null;
 
     const svgRect = svg?.getBoundingClientRect();
     const figureRect = figure?.getBoundingClientRect();
@@ -93,7 +103,14 @@
         svgExists: svg != null,
         svg: svg
           ? {
-              rect: svgRect ? { w: svgRect.width, h: svgRect.height, x: svgRect.x, y: svgRect.y } : null,
+              rect: svgRect
+                ? {
+                    w: svgRect.width,
+                    h: svgRect.height,
+                    x: svgRect.x,
+                    y: svgRect.y,
+                  }
+                : null,
               client: { w: svg.clientWidth, h: svg.clientHeight },
               transform: svg.style.transform ?? "",
               transformOrigin: svg.style.transformOrigin ?? "",
@@ -101,11 +118,18 @@
               ariaHidden: svg.getAttribute("aria-hidden"),
             }
           : null,
-        figure: figureRect ? { w: figureRect.width, h: figureRect.height, x: figureRect.x, y: figureRect.y } : null,
+        figure: figureRect
+          ? {
+              w: figureRect.width,
+              h: figureRect.height,
+              x: figureRect.x,
+              y: figureRect.y,
+            }
+          : null,
         panel: panelRect ? { w: panelRect.width, h: panelRect.height } : null,
       },
       null,
-      2
+      2,
     );
   }
 
@@ -135,16 +159,16 @@
     const canonical = localCanonicalTimeNowFromMs(ms);
     const datePrefix = localTimeNowDatePrefixFromMs(ms);
     const dateEl = host.querySelector(
-      'svg g[data-name="TimeNowDate"] text'
+      'svg g[data-name="TimeNowDate"] text',
     ) as SVGTextElement | null;
     const hhmmEl = host.querySelector(
-      'svg g[data-name="TimeNowLabelHms"] text'
+      'svg g[data-name="TimeNowLabelHms"] text',
     ) as SVGTextElement | null;
     const colonEl = host.querySelector(
-      'svg g[data-name="TimeNowLabelSecondsColon"] text'
+      'svg g[data-name="TimeNowLabelSecondsColon"] text',
     ) as SVGTextElement | null;
     const secEl = host.querySelector(
-      'svg g[data-name="TimeNowLabelSeconds"] text'
+      'svg g[data-name="TimeNowLabelSeconds"] text',
     ) as SVGTextElement | null;
     if (dateEl !== null) dateEl.textContent = datePrefix;
     if (hhmmEl !== null) hhmmEl.textContent = canonical.slice(0, 5);
@@ -173,7 +197,11 @@
     const extremes = tideExtremes;
     const load = tideLoadState;
 
-    if (load.status !== "ready" || extremes === undefined || extremes.extremes.length === 0) {
+    if (
+      load.status !== "ready" ||
+      extremes === undefined ||
+      extremes.extremes.length === 0
+    ) {
       diagramSvg = "";
       diagramError = undefined;
       return;
@@ -349,7 +377,9 @@
 <main class="home-route">
   {#if domDumpEnabled}
     <div class="home-debug">
-      <button type="button" class="home-debug__btn" onclick={refreshDomSummary}>Refresh DOM summary</button>
+      <button type="button" class="home-debug__btn" onclick={refreshDomSummary}
+        >Refresh DOM summary</button
+      >
       <details open>
         <summary>Home route DOM (summary)</summary>
         <pre class="home-debug__pre">{domSummary}</pre>
@@ -362,17 +392,27 @@
     </div>
   {:else if tideLoadState.status === "error"}
     <div class="home-panel" aria-live="polite">
-      <p class="muted" role="alert">Tides could not be loaded. Check the connection and try again.</p>
+      <p class="muted" role="alert">
+        Tides could not be loaded. Check the connection and try again.
+      </p>
     </div>
   {:else if tideExtremes === undefined}
     <div class="home-panel home-panel--corner-nav-host">
-      <section class="home-empty-state" aria-labelledby="home-empty-state-title">
+      <section
+        class="home-empty-state"
+        aria-labelledby="home-empty-state-title"
+      >
         <p class="home-empty-state__eyebrow">First use</p>
-        <h1 id="home-empty-state-title" class="home-empty-state__title">Choose your location</h1>
-        <p class="muted home-empty-state__body">
-          Set a coastal location to see today&apos;s tide clock. You can change it later from the menu.
+        <h1 id="home-empty-state-title" class="home-empty-state__title">
+          Choose your location
+        </h1>
+        <p class="home-empty-state__body">
+          Set a coastal location to see today&apos;s tide clock. You can change
+          it later from the menu.
         </p>
-        <a class="home-empty-state__action" href="#/location2">Choose location</a>
+        <a class="home-empty-state__action" href="#/location2"
+          >Choose location</a
+        >
       </section>
     </div>
   {:else if tideExtremes.extremes.length === 0}
@@ -381,7 +421,9 @@
     </div>
   {:else if diagramError !== undefined}
     <div class="home-panel" aria-live="polite">
-      <p class="muted" role="alert">Diagram could not be rendered: {diagramError}</p>
+      <p class="muted" role="alert">
+        Diagram could not be rendered: {diagramError}
+      </p>
     </div>
   {:else if diagramSvg !== ""}
     <div class="home-panel" bind:this={diagramHostEl}>
@@ -398,7 +440,10 @@
             bind:this={homeMenuPanelEl}
             style={homeMenuPanelStyle}
           >
-            <PrimaryNavLinks className="home-menu-panel__links" onNavigate={closeHomeMenu} />
+            <PrimaryNavLinks
+              className="home-menu-panel__links"
+              onNavigate={closeHomeMenu}
+            />
           </div>
         {/if}
       </figure>
@@ -447,15 +492,15 @@
     gap: 0.9rem;
     justify-items: start;
     padding: 1.5rem;
-    border: 1px solid rgb(148 163 184 / 0.22);
+    border: 1px solid #d1d5db;
     border-radius: 0.875rem;
-    background: linear-gradient(180deg, rgb(15 23 42 / 0.92), rgb(2 6 23 / 0.98));
-    box-shadow: 0 18px 40px rgb(0 0 0 / 0.32);
+    background: #fff;
+    box-shadow: 0 18px 40px rgb(0 0 0 / 0.16);
   }
 
   .home-empty-state__eyebrow {
     margin: 0;
-    color: #93c5fd;
+    color: #1d4ed8;
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -464,7 +509,7 @@
 
   .home-empty-state__title {
     margin: 0;
-    color: #f8fafc;
+    color: #111827;
     font-size: clamp(1.8rem, 4vw, 2.4rem);
     line-height: 1.05;
   }
@@ -473,6 +518,7 @@
     margin: 0;
     max-width: 28ch;
     line-height: 1.5;
+    color: #374151;
   }
 
   .home-empty-state__action {
@@ -483,18 +529,19 @@
     padding: 0.7rem 1rem;
     border-radius: 999px;
     background: #dbeafe;
-    color: #0f172a;
-    font-weight: 700;
+    color: #1d4ed8;
+    font-weight: 600;
     text-decoration: none;
-    box-shadow: 0 8px 20px rgb(0 0 0 / 0.22);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
   }
 
   .home-empty-state__action:hover {
-    background: #eff6ff;
+    background: #bfdbfe;
+    color: #1e40af;
   }
 
   .home-empty-state__action:focus-visible {
-    outline: 2px solid #f8fafc;
+    outline: 2px solid #1d4ed8;
     outline-offset: 3px;
   }
 
@@ -522,17 +569,31 @@
       stroke 120ms ease-out;
   }
 
-  .home-instrument :global(svg g[data-name="HomeMenuTrigger"] g[data-name="HomeMenuTriggerLabel"] text) {
+  .home-instrument
+    :global(
+      svg
+        g[data-name="HomeMenuTrigger"]
+        g[data-name="HomeMenuTriggerLabel"]
+        text
+    ) {
     transition: fill 120ms ease-out;
   }
 
-  .home-instrument :global(svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover > rect) {
+  .home-instrument
+    :global(
+      svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover > rect
+    ) {
     fill: #191919;
     stroke: #aaa;
   }
 
   .home-instrument
-    :global(svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover g[data-name="HomeMenuTriggerLabel"] text) {
+    :global(
+      svg
+        g[data-name="HomeMenuTrigger"].home-menu-trigger--hover
+        g[data-name="HomeMenuTriggerLabel"]
+        text
+    ) {
     fill: #ffffff;
   }
 
@@ -622,8 +683,8 @@
     background: #0b1020;
     color: #e5e7eb;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-      monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
     font-size: 12px;
   }
 
