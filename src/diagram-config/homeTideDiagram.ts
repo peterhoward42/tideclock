@@ -72,8 +72,6 @@ type HomeTideDiagramLayoutBase = {
   };
   readonly annularBand: { readonly annularBandWidth: number };
   readonly homeMenuTrigger: {
-    readonly centerX: number;
-    readonly centerY: number;
     /** k·RefRadius: full width along +X. */
     readonly width: number;
     /** k·RefRadius: full height along +Y. */
@@ -130,8 +128,6 @@ export const homeTideDiagramLayoutBase: HomeTideDiagramLayoutBase = {
   },
   annularBand: { annularBandWidth: 0.05 },
   homeMenuTrigger: {
-    centerX: -1.08,
-    centerY: -1.0,
     width: 0.2,
     height: 0.13,
     cornerRadius: 0.038,

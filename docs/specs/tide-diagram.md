@@ -62,7 +62,7 @@ arrowhead would dominate the rendered arc segment.
 - `**timeDelta`** — **required** plain object; string `**town**`; enum `**tidePhasePair ∈ {"out-low","in-high"}**`; **`countdownLines`** — array of **exactly four** plain objects (location, phase, next-event interval, next-event clock stripes), each with finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**); **`emptyMessage`** — plain object with finite `**belowOrigin`** and `**fontHeight`** for the **NoMoreTidesToday** case. Per stripe, `**belowOrigin`** is the distance from **Y = 0** toward **−Y** to that stripe’s baseline; **X** is fixed at **0** for all. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc and the **NowPointer** radial inner endpoint (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
 - `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
-- `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**centerX`**, `**centerY`** (both **k·R** offsets from **O**); finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); and string `**label`** (product default `**Menu**`). Layout emits a **roundedRect** centred on that point plus a centred **label** (see **HomeMenuTrigger** under diagram elements).
+- `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); and string `**label`** (product default `**Menu**`). Position is derived from diagram content bounds: the trigger’s left edge is anchored to the leftmost tick-label bound, and its bottom edge is anchored to the minimum tick-label-anchor **Y**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
 
 ## Diagram elements
 
@@ -81,7 +81,7 @@ arrowhead would dominate the rendered arc segment.
   - AnnularBand
   - InsideTrack
   - RefArc
-  - HomeMenuTrigger (named group: **roundedRect** outline on **(centerX, centerY)·R** with **width**, **height**, and **cornerRadius** (k·R); **HomeMenuTriggerLabel** carries the **label** at the same centre with vertical alignment chosen so the cap height is centred in the control)
+  - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from content bounds so the rectangle left edge aligns to the leftmost tick-label bound and rectangle bottom edge aligns to the minimum tick-label-anchor **Y**; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
 
 When there is **no** tide marker at or after `timeNow` on the same civil day
 (same “next marker” notion as **WaitArc**), **NextPointer** and **WaitArc** are

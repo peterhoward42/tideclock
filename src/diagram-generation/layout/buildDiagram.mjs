@@ -11,7 +11,7 @@
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
  * - Sub-builders (`buildTideMarksFromSpec`, pointers, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0** (defines the Now **triangle** outer radius together with **RefRadius**).
- * - `**homeMenuTrigger**` is required: plain object with finite `**centerX`**, `**centerY**`, `**width`**, `**height`**, `**cornerRadius`** (all **k·R**; each of width, height, cornerRadius strictly **> 0**; cornerRadius ≤ half the smaller of width and height), `**labelSize`** (**> 0**), and string `**label`**.
+ * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from diagram bounds: left edge at the leftmost tick-label bound, bottom edge at the minimum tick-label-anchor **Y**.
  * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
  * - `**waitArc.radius**` must be a finite **k·R** multiplier **> 0** (zero or negative throws).
@@ -188,7 +188,6 @@ export function buildDiagram(spec) {
     thetaLeft,
     sweepRad,
   );
-  const homeMenuTrigger = buildHomeMenuTriggerFromSpec(spec, refRadius);
   const annularMaxX = annularBandMaxX(annularBand);
   if (tickLabels.length === 0) {
     throw new Error(
@@ -200,6 +199,18 @@ export function buildDiagram(spec) {
     spec,
     refRadius,
     annularMaxX,
+    clockBaselineY,
+  );
+  const leftmostTickLabelX = Math.min(
+    ...tickLabels.map((tl) =>
+      tl.anchor.x -
+      0.5 * tl.content.length * TIME_NOW_LABEL_CHAR_WIDTH_EM * tl.fontSize,
+    ),
+  );
+  const homeMenuTrigger = buildHomeMenuTriggerFromSpec(
+    spec,
+    refRadius,
+    leftmostTickLabelX,
     clockBaselineY,
   );
 
@@ -343,18 +354,12 @@ function buildAnnularBandFromSpec(spec, refRadius, thetaLeft, sweepRad) {
 /**
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
+ * @param {number} leftEdgeX
+ * @param {number} bottomEdgeY
  * @returns {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram}
  */
-function buildHomeMenuTriggerFromSpec(spec, refRadius) {
+function buildHomeMenuTriggerFromSpec(spec, refRadius, leftEdgeX, bottomEdgeY) {
   const o = requirePlainObject(spec.homeMenuTrigger, "spec.homeMenuTrigger");
-  const centerXK = requireFiniteNumber(
-    o.centerX,
-    "spec.homeMenuTrigger.centerX",
-  );
-  const centerYK = requireFiniteNumber(
-    o.centerY,
-    "spec.homeMenuTrigger.centerY",
-  );
   const widthK = requireFiniteNumber(
     o.width,
     "spec.homeMenuTrigger.width",
@@ -390,10 +395,12 @@ function buildHomeMenuTriggerFromSpec(spec, refRadius) {
   if (labelSizeK <= 0) {
     throw new Error("spec.homeMenuTrigger.labelSize must be greater than 0");
   }
+  const width = widthK * refRadius;
+  const height = heightK * refRadius;
   return {
-    center: { x: centerXK * refRadius, y: centerYK * refRadius },
-    width: widthK * refRadius,
-    height: heightK * refRadius,
+    center: { x: leftEdgeX + 0.5 * width, y: bottomEdgeY + 0.5 * height },
+    width,
+    height,
     cornerRadius: cornerRadiusK * refRadius,
     labelSize: labelSizeK * refRadius,
     label,

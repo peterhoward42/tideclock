@@ -26,8 +26,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "homeMenuTrigger": {
     "center": {
-      "x": -127.44000000000001,
-      "y": -118,
+      "x": -122.98173403075491,
+      "y": -129.21000000000004,
     },
     "cornerRadius": 4.484,
     "height": 15.34,
