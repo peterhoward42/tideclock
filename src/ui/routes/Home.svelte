@@ -14,23 +14,23 @@
   import {
     diagramDevPreviewIdFromSearch,
     type DiagramDevPreviewId,
-  } from "../../application/diagramDevPreviewCatalog";
+  } from "../../application/diagram-dev-preview/diagramDevPreviewCatalog";
   import {
     formatDiagramDevPreviewBannerLine,
     homeDiagramDevPreviewIsFrozen,
     resolveHomeDiagramDevPreview,
-  } from "../../application/diagramDevPreviewResolveForHome";
+  } from "../../application/diagram-dev-preview/diagramDevPreviewResolveForHome";
   import {
     localCanonicalTimeNowFromMs,
     localTimeNowDatePrefixFromMs,
   } from "../../application/localWallClockReadoutFromMs";
   import {
     createDiagramGenerationCollaborator,
+    renderSceneSvg,
     type DiagramGenerationCollaborator,
   } from "../../application/diagramGenerationCollaborator";
   import { deriveNextTideSemantics } from "../../application/nextTideSemantics";
   import { subscribeSemanticMinuteCadence } from "../../application/semanticMinuteCadence";
-  import { renderSceneSvg } from "../../diagram-generation/render/renderSceneSvg.mjs";
   import PrimaryNavLinks from "../components/PrimaryNavLinks.svelte";
 
   type TidePredictionsLoadState = {

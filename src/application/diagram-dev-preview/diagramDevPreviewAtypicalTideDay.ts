@@ -4,12 +4,12 @@
  * loaded first extreme, then freezes “now” in the mid-afternoon gap so countdown copy uses the atypical branch.
  */
 
-import { TideExtreme } from "../core-models/TideExtreme";
-import { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
+import { TideExtreme } from "../../core-models/TideExtreme";
+import { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
 import {
   isAtypicalTideExtremaPattern,
   TideExtremaPatternDetection,
-} from "../time-services/isAtypicalTideExtremaPattern";
+} from "../../time-services/isAtypicalTideExtremaPattern";
 
 /** Local marker schedule (Bournemouth-style busy day shape); matches buildDiagramGenerationSpec tests. */
 const ATYPICAL_DAY_LOCAL_SCHEDULE: readonly {

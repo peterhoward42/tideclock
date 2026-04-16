@@ -3,10 +3,10 @@
  * Pure clock patching from civil-day extremes; does not touch fetch or stores.
  */
 
-import type { TideExtreme } from "../core-models/TideExtreme";
-import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
-import type { UtcIsoToLocalCanonicalTime } from "./buildDiagramGenerationSpec";
-import { localTimeNowDatePrefixFromMs } from "./localWallClockReadoutFromMs";
+import type { TideExtreme } from "../../core-models/TideExtreme";
+import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
+import type { UtcIsoToLocalCanonicalTime } from "../buildDiagramGenerationSpec";
+import { localTimeNowDatePrefixFromMs } from "../localWallClockReadoutFromMs";
 
 const CIVIL_DAY_LAST_SECOND = 23 * 3600 + 59 * 60 + 59;
 

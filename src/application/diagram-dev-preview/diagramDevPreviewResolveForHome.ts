@@ -3,8 +3,8 @@
  * frozen clock, optional extremes override, and banner copy (see docs/planning/diagram-dev-preview-catalog.md).
  */
 
-import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
-import type { UtcIsoToLocalCanonicalTime } from "./buildDiagramGenerationSpec";
+import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
+import type { UtcIsoToLocalCanonicalTime } from "../buildDiagramGenerationSpec";
 import { buildDiagramDevPreviewAtypicalTideDay } from "./diagramDevPreviewAtypicalTideDay";
 import {
   diagramDevPreviewShortHeadline,

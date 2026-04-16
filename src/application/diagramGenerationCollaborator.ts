@@ -1,8 +1,7 @@
 /**
- * diagramGenerationCollaborator.ts — Types and factory for `src/diagram-generation` (diagram + scene + styles).
- * Product style defaults: `src/diagram-config/homeTideStyleModel.ts`; `loadStyleModel` from diagram-generation.
- * Keeps app and tests on this boundary instead of `.mjs` internals. Kind: Adapter / boundary.
- * Does not source tide data.
+ * diagramGenerationCollaborator.ts is the `src/application/` façade into `src/diagram-generation/` (build, styles,
+ * diagram→scene, re-exports used by spec builders and tests) with home tide styling from `diagram-config`, keeping UI
+ * and application modules off `.mjs` internals and out of tide data fetching.
  */
 
 import { homeTideStyleModel } from "../diagram-config";
@@ -333,3 +332,12 @@ export function createDiagramGenerationCollaborator(): DiagramGenerationCollabor
     },
   };
 }
+
+export {
+  annularBandMaxX,
+  buildDiagram,
+  computeNextTideEventCore,
+  formatIntervalHoursMinutes,
+  parseCanonicalTimeOrThrow,
+  renderSceneSvg,
+} from "../diagram-generation/index.mjs";

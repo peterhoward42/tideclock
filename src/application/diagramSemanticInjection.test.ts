@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { buildDiagram } from '../diagram-generation/index.mjs';
-import type {
-  DiagramGenerationSpec,
-  TideDiagramDocument,
+import {
+  buildDiagram,
+  type DiagramGenerationSpec,
+  type TideDiagramDocument,
 } from './diagramGenerationCollaborator';
 import { deriveNextTideSemantics } from './nextTideSemantics';
 
