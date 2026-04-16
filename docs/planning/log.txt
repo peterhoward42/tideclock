@@ -105,17 +105,18 @@ o  new data fetch paradigm
 				*  hone UI incl mobile and verbosity
 				*  move menu into diagram so that nothing else is there
 				*  come back to UX branch when no location has been stored yet.
+				*  slightly darker grey fills?
+				*  stick brand url in bottom left in diagram = no d
 fart
+				o  come back to alternating in/out edge cases  like Bournemouth
+					o  introduce problem to ai
 
 				o  no further tides today problems
 					*  change it
 					o  review it when it fires
 
 
-				o  slightly darker grey fills?
-					o  try on centre cluster
 
-				o  stick brand url in bottom left in diagram
 
 
 					o  kiosk mode and the following
@@ -123,23 +124,14 @@ fart
 							o  entry point PWA
 					o  encourage landscape
 					o  encourage hide browser bar
+
 				o  proxy cost risk containment
 					o  how to use real estate better - partic on phone
 						o  aspect ratio sensitivity in diagram and outer?
 
 				o  falmouth estuary and south west extents poor coverage
 
-				o  wait time mods
-					*  show arc but drop arrow head when too close
-					*  omit "now" when ???
-					*  get it working right
-					*  clean up spec to suit
-					o  await tides for testing
-						*  see screen shots (1)
-						*  see screen shots (2)
-						o  ?
 
-				o  come back to alternating in/out edge cases 
 				o  QR code in auxilliary route
 				o  report bugs and suggestions
 				o  donate?
