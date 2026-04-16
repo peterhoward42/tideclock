@@ -110,9 +110,16 @@ o  new data fetch paradigm
 fart
 				o  come back to alternating in/out edge cases  like Bournemouth
 					*  introduce problem to ai
-					o  agree on atypical detection goals
-					o  agree on atypical logic
-					o  detection as a service
+					*  agree on atypical detection goals
+					*  agree on atypical logic
+					*  detection as a service
+					o  messaging for atypical case
+					o  wiring up and integration tests
+					o  my tests
+						o  idea for logic triggers for developer
+							o  this one
+							o  no more today
+							o  other ux conditionals?
 
 				o  no further tides today problems
 					*  change it

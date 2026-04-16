@@ -93,6 +93,32 @@ describe('isAtypicalTideExtremaPattern', () => {
     );
   });
 
+  it('returns IsTypical for three visible extrema when a likely bookend event has slipped just outside the civil day', () => {
+    // Interpretative clarification rather than strictly necessary coverage: this test
+    // records the policy that a day can look humanly typical even when the civil-day
+    // slice misses one bookend event by a whisker.
+    const extrema = [
+      fixtureExtreme('low', 1, 10, 0.8),
+      fixtureExtreme('high', 7, 20, 4.6),
+      fixtureExtreme('low', 13, 40, 0.9)
+    ];
+
+    expect(isAtypicalTideExtremaPattern(extrema)).toBe(TideExtremaPatternDetection.IsTypical);
+  });
+
+  it('returns IsTypical for a Portsmouth-style low-high-low afternoon story', () => {
+    // Interpretative clarification rather than strictly necessary coverage: the known
+    // location may produce atypical days, but this particular three-event shape still
+    // reads as an ordinary falling-tide story to a human viewer.
+    const extrema = [
+      fixtureExtreme('low', 4, 37, 1.09),
+      fixtureExtreme('high', 11, 39, 4.46),
+      fixtureExtreme('low', 16, 55, 0.02)
+    ];
+
+    expect(isAtypicalTideExtremaPattern(extrema)).toBe(TideExtremaPatternDetection.IsTypical);
+  });
+
   it('returns IsTypical for sparse input that does not yet look visually odd', () => {
     // Behavioural requirement: missing data should not be treated as suspicious on its
     // own; atypical mode is for odd-looking patterns, not merely incomplete ones.
