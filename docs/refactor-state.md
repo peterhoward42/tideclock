@@ -25,7 +25,7 @@ Created from a fresh pass: judgements from **source and tests** only.
 ## Dominant themes (3–5)
 
 1. **Explicit adapter at the TS ↔ diagram-generation boundary**  
-   `diagramGenerationCollaborator.ts` centralises `buildDiagram`, `loadStyleModel`, `tideDiagramToScene`, and re-exports `renderSceneSvg` from `diagram-generation/index.mjs`. **Remaining optional consistency:** `diagramSemanticInjection.test.ts` still imports `buildDiagram` directly from the barrel (test-only; acceptable).
+   `diagramGenerationCollaborator.ts` centralises `buildDiagram`, `loadStyleModel`, `tideDiagramToScene`, and re-exports `buildDiagram` and `renderSceneSvg` from `diagram-generation/index.mjs`. App and semantic-injection tests use the collaborator for those entrypoints.
 
 2. **Orchestration density at the UI root**  
    `App.svelte` correctly owns serialised tide loads, rollover suppression, and route wiring; it is the natural “application shell.” Civil-day **rollover decision** policy now lives in `civilDayRolloverTick.ts`; further simplification likely means **load serial / coalescing** extraction into `application/` if the shell grows further.
@@ -56,11 +56,11 @@ Created from a fresh pass: judgements from **source and tests** only.
 - **2026-04-16 — Unify diagram render entry:** `renderSceneSvg` is exported from `diagram-generation/index.mjs` and re-exported from `diagramGenerationCollaborator.ts`. `Home.svelte` imports it from the collaborator only; no other `src/ui/` route imported `diagram-generation/**/*.mjs` directly.
 - **2026-04-16 — Layer map skim header:** single orienting file-level block on `diagramGenerationCollaborator.ts` (application ↔ `diagram-generation` boundary, `diagram-config` styling, no tide fetch); full table remains authoritative in this file.
 - **2026-04-16 — Rollover tick policy in `application/`:** `decideCivilDayRolloverTideRefresh` in `civilDayRolloverTick.ts` composes `shouldTriggerCivilDayRolloverRefresh` and returns a typed `refresh | none` decision; `App.svelte` only applies storage sync, state mutation, and `refreshTideExtremesForTown`. Tests in `civilDayRolloverTick.test.ts`.
+- **2026-04-16 — Single façade for `buildDiagram` in tests:** `diagramGenerationCollaborator.ts` re-exports `buildDiagram`; `diagramSemanticInjection.test.ts` imports `buildDiagram` and diagram types from the collaborator only (no direct `diagram-generation/index.mjs` import for that call).
 
 ## Next session candidates (pick one)
 
-1. **Optional:** route `diagramSemanticInjection.test.ts` through `diagramGenerationCollaborator` (or a tiny test helper) if you want a single import path for `buildDiagram` in tests as well as app code.
-2. **Further shell thinning (if needed):** extract `refreshTideExtremesForTown` + load serial policy into `application/` behind an explicit factory or small module; only worthwhile if `App.svelte` picks up more orchestration.
+1. **Further shell thinning (if needed):** extract `refreshTideExtremesForTown` + load serial policy into `application/` behind an explicit factory or small module; only worthwhile if `App.svelte` picks up more orchestration.
 
 ---
 

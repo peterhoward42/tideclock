@@ -1,6 +1,6 @@
 /**
  * diagramGenerationCollaborator.ts is the `src/application/` façade into `src/diagram-generation/` (build, styles,
- * diagram→scene, SVG render re-export) with home tide styling from `diagram-config`, keeping UI and tests off `.mjs`
+ * diagram→scene, `buildDiagram` + SVG render re-exports) with home tide styling from `diagram-config`, keeping UI and tests off `.mjs`
  * internals and out of tide data fetching.
  */
 
@@ -333,4 +333,4 @@ export function createDiagramGenerationCollaborator(): DiagramGenerationCollabor
   };
 }
 
-export { renderSceneSvg } from "../diagram-generation/index.mjs";
+export { buildDiagram, renderSceneSvg } from "../diagram-generation/index.mjs";
