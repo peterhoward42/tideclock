@@ -111,10 +111,14 @@ fart
 				*  come back to alternating in/out edge cases  like Bournemouth
 
 						o  idea for logic triggers for developer visual tests
-							o  atypical tides
 							o  no more today
+							o  some readme or redirected docco for these 
+							   snapshots
+							o  atypical tides
 							o  no room for now label / arrohead
 							o  other ux conditionals?
+
+							o  merge the branch
 
 					o  sort out if necessary atypical needs for extrema ordering
 

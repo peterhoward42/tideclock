@@ -12,6 +12,14 @@
     utcIsoToLocalCanonicalTimeLocal,
   } from "../../application/buildDiagramGenerationSpec";
   import {
+    buildDiagramDevPreviewNoMoreTidesTodayClock,
+    diagramDevPreviewNoMoreTidesTodayRequestedFromSearch,
+  } from "../../application/diagramDevPreviewNoMoreTidesToday";
+  import {
+    localCanonicalTimeNowFromMs,
+    localTimeNowDatePrefixFromMs,
+  } from "../../application/localWallClockReadoutFromMs";
+  import {
     createDiagramGenerationCollaborator,
     type DiagramGenerationCollaborator,
   } from "../../application/diagramGenerationCollaborator";
@@ -38,6 +46,20 @@
   /** Drives Loop B: bumps only on local minute rollover (aligned scheduler), not every second. */
   let semanticMinuteEpoch = $state(Math.floor(Date.now() / 60_000));
 
+  /** Dev-only: `?diagramPreview=no-more-tides-today` (see docs/planning/diagram-dev-preview-catalog.md). */
+  let noMoreTidesTodayPreviewFromUrl = $state(false);
+
+  function readNoMoreTidesTodayPreviewFromLocation(): boolean {
+    if (!import.meta.env.DEV) return false;
+    if (typeof window === "undefined") return false;
+    const search =
+      window.location.search ||
+      (window.location.hash.includes("?")
+        ? window.location.hash.slice(window.location.hash.indexOf("?"))
+        : "");
+    return diagramDevPreviewNoMoreTidesTodayRequestedFromSearch(search);
+  }
+
   onMount(() => {
     if (!import.meta.env.DEV) return;
     try {
@@ -45,7 +67,21 @@
       domDumpEnabled = params.has("dom");
       outlineEnabled = params.has("outline");
       previewFrameEnabled = params.has("pf");
+      noMoreTidesTodayPreviewFromUrl =
+        readNoMoreTidesTodayPreviewFromLocation();
+
+      const onUrlChange = (): void => {
+        noMoreTidesTodayPreviewFromUrl =
+          readNoMoreTidesTodayPreviewFromLocation();
+      };
+      window.addEventListener("hashchange", onUrlChange);
+      window.addEventListener("popstate", onUrlChange);
       if (domDumpEnabled) refreshDomSummary();
+
+      return () => {
+        window.removeEventListener("hashchange", onUrlChange);
+        window.removeEventListener("popstate", onUrlChange);
+      };
     } catch {
       // ignore (non-browser / tests)
     }
@@ -74,6 +110,29 @@
   let outlineEnabled = $state(false);
   let previewFrameEnabled = $state(false);
   let domSummary = $state<string>("");
+
+  const noMoreTidesTodayPreviewClock = $derived.by(() => {
+    if (!import.meta.env.DEV || !noMoreTidesTodayPreviewFromUrl) {
+      return null;
+    }
+    if (tideExtremes === undefined || tideExtremes.extremes.length === 0) {
+      return null;
+    }
+    return buildDiagramDevPreviewNoMoreTidesTodayClock({
+      extremesAtLocation: tideExtremes,
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
+    });
+  });
+
+  const activeNoMoreTidesTodayPreview = $derived(
+    noMoreTidesTodayPreviewClock?.kind === "active"
+      ? noMoreTidesTodayPreviewClock
+      : null,
+  );
+
+  const noMoreTidesTodayPreviewLive = $derived(
+    activeNoMoreTidesTodayPreview !== null,
+  );
 
   function refreshDomSummary(): void {
     if (!domDumpEnabled) return;
@@ -176,24 +235,10 @@
     if (secEl !== null) secEl.textContent = canonical.slice(6);
   }
 
-  function localCanonicalTimeNowFromMs(ms: number): string {
-    const d = new Date(ms);
-    const hh = String(d.getHours()).padStart(2, "0");
-    const mm = String(d.getMinutes()).padStart(2, "0");
-    const ss = String(d.getSeconds()).padStart(2, "0");
-    return `${hh}:${mm}:${ss}`;
-  }
-
-  function localTimeNowDatePrefixFromMs(ms: number): string {
-    const d = new Date(ms);
-    const weekday = d.toLocaleDateString(undefined, { weekday: "short" });
-    const day = String(d.getDate()).padStart(2, "0");
-    const month = d.toLocaleDateString(undefined, { month: "short" });
-    return `${weekday} ${day} ${month}`;
-  }
-
   $effect(() => {
-    const _semanticMinute = semanticMinuteEpoch;
+    if (!noMoreTidesTodayPreviewLive) {
+      void semanticMinuteEpoch;
+    }
     const extremes = tideExtremes;
     const load = tideLoadState;
 
@@ -208,7 +253,10 @@
     }
 
     try {
-      const nowMs = Date.now();
+      const nowMs =
+        activeNoMoreTidesTodayPreview !== null
+          ? activeNoMoreTidesTodayPreview.frozenEpochMs
+          : Date.now();
       const timeNow = localCanonicalTimeNowFromMs(nowMs);
       const timeNowDatePrefix = localTimeNowDatePrefixFromMs(nowMs);
       const baseSpec = buildDiagramGenerationSpec({
@@ -273,13 +321,19 @@
     const svg = diagramSvg;
     if (host == null || svg === "") return;
 
+    const frozenClockMs =
+      activeNoMoreTidesTodayPreview !== null
+        ? activeNoMoreTidesTodayPreview.frozenEpochMs
+        : null;
+
     let cancelled = false;
     const unsub = nowMs.subscribe((ms) => {
-      if (!cancelled) patchTimeNowReadout(host, ms);
+      if (!cancelled) patchTimeNowReadout(host, frozenClockMs ?? ms);
     });
 
     void tick().then(() => {
-      if (!cancelled) patchTimeNowReadout(host, Date.now());
+      if (!cancelled)
+        patchTimeNowReadout(host, frozenClockMs ?? Date.now());
     });
 
     return () => {
@@ -375,6 +429,18 @@
 </script>
 
 <main class="home-route">
+  {#if import.meta.env.DEV && noMoreTidesTodayPreviewFromUrl}
+    <div class="home-diagram-preview-banner" role="status">
+      {#if noMoreTidesTodayPreviewClock === null}
+        Preview: no more tides today (waiting for tide data…)
+      {:else if noMoreTidesTodayPreviewClock.kind === "active"}
+        Preview: no more tides today (frozen time for diagram)
+      {:else}
+        Preview: no more tides today — unavailable for this day&apos;s extremes
+        (last tide too close to end of civil day)
+      {/if}
+    </div>
+  {/if}
   {#if domDumpEnabled}
     <div class="home-debug">
       <button type="button" class="home-debug__btn" onclick={refreshDomSummary}
@@ -464,6 +530,16 @@
     min-height: 0;
     display: flex;
     flex-direction: column;
+  }
+
+  .home-diagram-preview-banner {
+    flex: 0 0 auto;
+    padding: 0.35rem 0.75rem;
+    background: #422006;
+    color: #fef3c7;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgb(251 191 36 / 0.35);
   }
 
   .home-panel {
