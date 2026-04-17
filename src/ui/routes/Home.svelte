@@ -1,11 +1,13 @@
 <script lang="ts">
   /**
-   * Home.svelte — Civil-day tide diagram: builds specs, runs diagram-generation collaborator, swaps SVG.
-   * Minute cadence for full regen; second cadence only for the live clock label. Kind: Presentation + orchestration.
+   * Home route — civil-day tide diagram: props and stores in, diagram SVG and chrome out.
+   * Skim order below: inputs → collaborator → state → derived readouts → effects → handlers.
+   * Minute cadence drives full regen; sub-second cadence only patches the live clock inside SVG.
    * Does not own proxy fetch (receives extremes from the shell).
    */
   import { get } from "svelte/store";
   import { onMount, tick } from "svelte";
+
   import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
   import { nowMs } from "../../application/appClock.js";
   import {
@@ -43,6 +45,7 @@
     homeRouteDevDebugFlagsFromSearch,
   } from "../homeRouteUrlQuery";
 
+  // Route inputs — `$props` contract
   type TidePredictionsLoadState = {
     readonly status: "loading" | "ready" | "error";
   };
@@ -58,25 +61,61 @@
   let { tideLoadState, tideExtremes, townName, tideUxDevPreviewBannerLine }: Props =
     $props();
 
+  // Diagram generation collaborator (generate + render entry; owns no DOM)
   const collaborator: DiagramGenerationCollaborator =
     createDiagramGenerationCollaborator();
 
+  // Mutable route state ($state)
   /** Drives Loop B: bumps only on local minute rollover (aligned scheduler), not every second. */
   let semanticMinuteEpoch = $state(Math.floor(Date.now() / 60_000));
 
   /** Dev-only: `?diagramPreview=<id>` (see docs/planning/diagram-dev-preview-catalog.md). */
   let diagramPreviewIdFromUrl = $state<DiagramDevPreviewId | null>(null);
 
-  function readDiagramPreviewIdFromLocation(): DiagramDevPreviewId | null {
-    if (!import.meta.env.DEV) return null;
-    if (typeof window === "undefined") return null;
-    const search = effectiveSearchStringFromLocationParts(
-      window.location.search,
-      window.location.hash,
-    );
-    return diagramDevPreviewIdFromSearch(search);
-  }
+  let diagramSvg = $state("");
+  let diagramError = $state<string | undefined>(undefined);
+  /** Container for injected SVG; patches TimeNowDate and TimeNowClock text without regenerating the scene. */
+  let diagramHostEl = $state<HTMLElement | undefined>(undefined);
+  let homeInstrumentEl = $state<HTMLElement | undefined>(undefined);
+  let homeMenuPanelEl = $state<HTMLElement | undefined>(undefined);
+  let homeMenuOpen = $state(false);
+  let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
 
+  /** Snapshot from {@link displayOptimisation}; sole source for hint device/aspect policy. */
+  let displaySnapshot = $state(get(displayOptimisation));
+  /** Vertical letterbox slack (px) for `xMidYMid meet` fit of the diagram SVG inside the instrument. */
+  let verticalLetterboxSlackPx = $state(0);
+
+  /** Dev-only: optional debug tooling (toggle with query params). */
+  let domDumpEnabled = $state(false);
+  let outlineEnabled = $state(false);
+  let previewFrameEnabled = $state(false);
+  let domSummary = $state<string>("");
+
+  // Derived readouts ($derived)
+  const showLandscapeHint = $derived(
+    diagramSvg !== "" &&
+      shouldShowHomeLandscapeHint(displaySnapshot, verticalLetterboxSlackPx),
+  );
+
+  const homeDiagramDevPreview = $derived.by(() =>
+    resolveHomeDiagramDevPreview({
+      dev: import.meta.env.DEV,
+      previewId: diagramPreviewIdFromUrl,
+      tideExtremes,
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
+    }),
+  );
+
+  const diagramPreviewLive = $derived(
+    homeDiagramDevPreviewIsFrozen(homeDiagramDevPreview),
+  );
+
+  const diagramPreviewBannerLine = $derived(
+    formatDiagramDevPreviewBannerLine(homeDiagramDevPreview),
+  );
+
+  // Subscriptions and lifecycle (onMount)
   onMount(() => {
     if (!import.meta.env.DEV) return;
     try {
@@ -113,151 +152,9 @@
     ),
   );
 
-  let diagramSvg = $state("");
-  let diagramError = $state<string | undefined>(undefined);
-  /** Container for injected SVG; patches TimeNowDate and TimeNowClock text without regenerating the scene. */
-  let diagramHostEl = $state<HTMLElement | undefined>(undefined);
-  let homeInstrumentEl = $state<HTMLElement | undefined>(undefined);
-  let homeMenuPanelEl = $state<HTMLElement | undefined>(undefined);
-  let homeMenuOpen = $state(false);
-  let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
-
-  /** Snapshot from {@link displayOptimisation}; sole source for hint device/aspect policy. */
-  let displaySnapshot = $state(get(displayOptimisation));
-  /** Vertical letterbox slack (px) for `xMidYMid meet` fit of the diagram SVG inside the instrument. */
-  let verticalLetterboxSlackPx = $state(0);
-
-  const showLandscapeHint = $derived(
-    diagramSvg !== "" &&
-      shouldShowHomeLandscapeHint(displaySnapshot, verticalLetterboxSlackPx),
-  );
-
   onMount(() => displayOptimisation.subscribe((v) => (displaySnapshot = v)));
 
-  /** Dev-only: optional debug tooling (toggle with query params). */
-  let domDumpEnabled = $state(false);
-  let outlineEnabled = $state(false);
-  let previewFrameEnabled = $state(false);
-  let domSummary = $state<string>("");
-
-  const homeDiagramDevPreview = $derived.by(() =>
-    resolveHomeDiagramDevPreview({
-      dev: import.meta.env.DEV,
-      previewId: diagramPreviewIdFromUrl,
-      tideExtremes,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
-    }),
-  );
-
-  const diagramPreviewLive = $derived(
-    homeDiagramDevPreviewIsFrozen(homeDiagramDevPreview),
-  );
-
-  const diagramPreviewBannerLine = $derived(
-    formatDiagramDevPreviewBannerLine(homeDiagramDevPreview),
-  );
-
-  function refreshDomSummary(): void {
-    if (!domDumpEnabled) return;
-    const host =
-      diagramHostEl ??
-      (document.querySelector(
-        "main.home-route figure.home-instrument",
-      ) as HTMLElement | null);
-    const figure = document.querySelector(
-      "main.home-route figure.home-instrument",
-    ) as HTMLElement | null;
-    const svg =
-      (host?.querySelector("svg") as SVGSVGElement | null) ??
-      (document.querySelector("main.home-route svg") as SVGSVGElement | null);
-    const panel = document.querySelector(
-      "main.home-route .home-panel",
-    ) as HTMLElement | null;
-
-    const svgRect = svg?.getBoundingClientRect();
-    const figureRect = figure?.getBoundingClientRect();
-    const panelRect = panel?.getBoundingClientRect();
-
-    domSummary = JSON.stringify(
-      {
-        diagramSvgLen: diagramSvg.length,
-        tideExtremesCount: tideExtremes?.extremes.length ?? 0,
-        svgExists: svg != null,
-        svg: svg
-          ? {
-              rect: svgRect
-                ? {
-                    w: svgRect.width,
-                    h: svgRect.height,
-                    x: svgRect.x,
-                    y: svgRect.y,
-                  }
-                : null,
-              client: { w: svg.clientWidth, h: svg.clientHeight },
-              transform: svg.style.transform ?? "",
-              transformOrigin: svg.style.transformOrigin ?? "",
-              viewBox: svg.getAttribute("viewBox") ?? null,
-              ariaHidden: svg.getAttribute("aria-hidden"),
-            }
-          : null,
-        figure: figureRect
-          ? {
-              w: figureRect.width,
-              h: figureRect.height,
-              x: figureRect.x,
-              y: figureRect.y,
-            }
-          : null,
-        panel: panelRect ? { w: panelRect.width, h: panelRect.height } : null,
-      },
-      null,
-      2,
-    );
-  }
-
-  function homeMenuTriggerGroup(): SVGGElement | null {
-    const host = diagramHostEl;
-    if (host == null) return null;
-    return host.querySelector('svg g[data-name="HomeMenuTrigger"]');
-  }
-
-  function updateHomeMenuPanelAnchorFromSvgTrigger(): void {
-    const figure = homeInstrumentEl;
-    const trigger = homeMenuTriggerGroup();
-    if (figure == null || trigger == null) return;
-    const figureRect = figure.getBoundingClientRect();
-    const triggerRect = trigger.getBoundingClientRect();
-    const left = Math.max(0, triggerRect.left - figureRect.left);
-    const bottom = Math.max(0, figureRect.bottom - triggerRect.top + 8);
-    homeMenuPanelStyle = `left: ${left}px; bottom: ${bottom}px;`;
-  }
-
-  function closeHomeMenu(): void {
-    homeMenuOpen = false;
-  }
-
-  /** Patch live clock text inside injected SVG; host must contain the current diagram. */
-  function patchTimeNowReadout(host: HTMLElement, ms: number): void {
-    const canonical = localCanonicalTimeNowFromMs(ms);
-    const datePrefix = localTimeNowDatePrefixFromMs(ms);
-    const dateEl = host.querySelector(
-      'svg g[data-name="TimeNowDate"] text',
-    ) as SVGTextElement | null;
-    const hhmmEl = host.querySelector(
-      'svg g[data-name="TimeNowLabelHms"] text',
-    ) as SVGTextElement | null;
-    const colonEl = host.querySelector(
-      'svg g[data-name="TimeNowLabelSecondsColon"] text',
-    ) as SVGTextElement | null;
-    const secEl = host.querySelector(
-      'svg g[data-name="TimeNowLabelSeconds"] text',
-    ) as SVGTextElement | null;
-    if (dateEl !== null) dateEl.textContent = datePrefix;
-    if (hhmmEl !== null) hhmmEl.textContent = canonical.slice(0, 5);
-    if (colonEl !== null) colonEl.textContent = canonical.slice(5, 6);
-    if (secEl !== null) secEl.textContent = canonical.slice(6);
-  }
-
+  // Reactive effects ($effect) — diagram regen, SVG glue, measurement, clock patch, menu wiring
   $effect(() => {
     if (!diagramPreviewLive) {
       void semanticMinuteEpoch;
@@ -485,6 +382,118 @@
       detach();
     };
   });
+
+  // Event handlers & imperative helpers (onMount, $effect, template)
+  function readDiagramPreviewIdFromLocation(): DiagramDevPreviewId | null {
+    if (!import.meta.env.DEV) return null;
+    if (typeof window === "undefined") return null;
+    const search = effectiveSearchStringFromLocationParts(
+      window.location.search,
+      window.location.hash,
+    );
+    return diagramDevPreviewIdFromSearch(search);
+  }
+
+  function refreshDomSummary(): void {
+    if (!domDumpEnabled) return;
+    const host =
+      diagramHostEl ??
+      (document.querySelector(
+        "main.home-route figure.home-instrument",
+      ) as HTMLElement | null);
+    const figure = document.querySelector(
+      "main.home-route figure.home-instrument",
+    ) as HTMLElement | null;
+    const svg =
+      (host?.querySelector("svg") as SVGSVGElement | null) ??
+      (document.querySelector("main.home-route svg") as SVGSVGElement | null);
+    const panel = document.querySelector(
+      "main.home-route .home-panel",
+    ) as HTMLElement | null;
+
+    const svgRect = svg?.getBoundingClientRect();
+    const figureRect = figure?.getBoundingClientRect();
+    const panelRect = panel?.getBoundingClientRect();
+
+    domSummary = JSON.stringify(
+      {
+        diagramSvgLen: diagramSvg.length,
+        tideExtremesCount: tideExtremes?.extremes.length ?? 0,
+        svgExists: svg != null,
+        svg: svg
+          ? {
+              rect: svgRect
+                ? {
+                    w: svgRect.width,
+                    h: svgRect.height,
+                    x: svgRect.x,
+                    y: svgRect.y,
+                  }
+                : null,
+              client: { w: svg.clientWidth, h: svg.clientHeight },
+              transform: svg.style.transform ?? "",
+              transformOrigin: svg.style.transformOrigin ?? "",
+              viewBox: svg.getAttribute("viewBox") ?? null,
+              ariaHidden: svg.getAttribute("aria-hidden"),
+            }
+          : null,
+        figure: figureRect
+          ? {
+              w: figureRect.width,
+              h: figureRect.height,
+              x: figureRect.x,
+              y: figureRect.y,
+            }
+          : null,
+        panel: panelRect ? { w: panelRect.width, h: panelRect.height } : null,
+      },
+      null,
+      2,
+    );
+  }
+
+  function homeMenuTriggerGroup(): SVGGElement | null {
+    const host = diagramHostEl;
+    if (host == null) return null;
+    return host.querySelector('svg g[data-name="HomeMenuTrigger"]');
+  }
+
+  function updateHomeMenuPanelAnchorFromSvgTrigger(): void {
+    const figure = homeInstrumentEl;
+    const trigger = homeMenuTriggerGroup();
+    if (figure == null || trigger == null) return;
+    const figureRect = figure.getBoundingClientRect();
+    const triggerRect = trigger.getBoundingClientRect();
+    const left = Math.max(0, triggerRect.left - figureRect.left);
+    const bottom = Math.max(0, figureRect.bottom - triggerRect.top + 8);
+    homeMenuPanelStyle = `left: ${left}px; bottom: ${bottom}px;`;
+  }
+
+  function closeHomeMenu(): void {
+    homeMenuOpen = false;
+  }
+
+  /** Patch live clock text inside injected SVG; host must contain the current diagram. */
+  function patchTimeNowReadout(host: HTMLElement, ms: number): void {
+    const canonical = localCanonicalTimeNowFromMs(ms);
+    const datePrefix = localTimeNowDatePrefixFromMs(ms);
+    const dateEl = host.querySelector(
+      'svg g[data-name="TimeNowDate"] text',
+    ) as SVGTextElement | null;
+    const hhmmEl = host.querySelector(
+      'svg g[data-name="TimeNowLabelHms"] text',
+    ) as SVGTextElement | null;
+    const colonEl = host.querySelector(
+      'svg g[data-name="TimeNowLabelSecondsColon"] text',
+    ) as SVGTextElement | null;
+    const secEl = host.querySelector(
+      'svg g[data-name="TimeNowLabelSeconds"] text',
+    ) as SVGTextElement | null;
+    if (dateEl !== null) dateEl.textContent = datePrefix;
+    if (hhmmEl !== null) hhmmEl.textContent = canonical.slice(0, 5);
+    if (colonEl !== null) colonEl.textContent = canonical.slice(5, 6);
+    if (secEl !== null) secEl.textContent = canonical.slice(6);
+  }
 </script>
 
 <main class="home-route">
