@@ -113,13 +113,8 @@ o  new data fetch paradigm
 				*  sort out if necessary atypical needs for extrema ordering
 				*  location ui verbosity and mobile fit
 				*  extend dev mode to see error presentation
+				*  manual prompt when not landscape
 fart
-				o  manual prompt when not landscape
-					*  basics
-					*  fires on desktop
-					o  only one of the spaces
-					o  better message
-					o  styling?
 
 				o  Home.svelte is too darn long
 
