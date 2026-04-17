@@ -27,6 +27,12 @@ export type AspectClass = "portrait" | "square" | "landscape";
 export interface DisplayOptimisationInput {
   readonly viewportWidthPx: number;
   readonly viewportHeightPx: number;
+  /**
+   * When `true`, the primary input is hover-capable with a fine pointer (typical mouse on desktop).
+   * Narrow desktop browser windows still use width-based {@link DeviceClass} `"mobile"`/`"tablet"`;
+   * this flag is the extra signal that home landscape encouragement must stay off.
+   */
+  readonly primaryInputFineAndHoverCapable?: boolean;
 }
 
 export interface DisplayOptimisationSnapshot {
@@ -36,6 +42,11 @@ export interface DisplayOptimisationSnapshot {
   readonly aspectClass: AspectClass;
   /** Width divided by height of the layout viewport (CSS px). */
   readonly aspectRatio: number;
+  /**
+   * When `false`, do not show the home landscape hint: primary input looks like a desktop browser
+   * (`(hover: hover)` and `(pointer: fine)`), regardless of width bucket.
+   */
+  readonly homeLandscapeEncouragementPrimaryInputInScope: boolean;
 }
 
 export function deviceClassFromViewportWidthPx(viewportWidthPx: number): DeviceClass {
@@ -68,24 +79,43 @@ export function aspectClassFromViewportPx(viewportWidthPx: number, viewportHeigh
  * @throws RangeError when dimensions are non-finite or non-positive
  */
 export function deriveDisplayOptimisation(input: DisplayOptimisationInput): DisplayOptimisationSnapshot {
-  const { viewportWidthPx, viewportHeightPx } = input;
+  const { viewportWidthPx, viewportHeightPx, primaryInputFineAndHoverCapable } = input;
   const deviceClass = deviceClassFromViewportWidthPx(viewportWidthPx);
   const aspectClass = aspectClassFromViewportPx(viewportWidthPx, viewportHeightPx);
   const aspectRatio = viewportWidthPx / viewportHeightPx;
+  const homeLandscapeEncouragementPrimaryInputInScope =
+    primaryInputFineAndHoverCapable !== true;
   return {
     viewportWidthPx,
     viewportHeightPx,
     deviceClass,
     aspectClass,
-    aspectRatio
+    aspectRatio,
+    homeLandscapeEncouragementPrimaryInputInScope,
   };
+}
+
+function readPrimaryInputFineAndHoverCapable(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return (
+      window.matchMedia("(hover: hover)").matches &&
+      window.matchMedia("(pointer: fine)").matches
+    );
+  } catch {
+    return false;
+  }
 }
 
 function readDisplayOptimisationFromInnerDimensions(
   viewportWidthPx: number,
-  viewportHeightPx: number
+  viewportHeightPx: number,
 ): DisplayOptimisationSnapshot {
-  return deriveDisplayOptimisation({ viewportWidthPx, viewportHeightPx });
+  return deriveDisplayOptimisation({
+    viewportWidthPx,
+    viewportHeightPx,
+    primaryInputFineAndHoverCapable: readPrimaryInputFineAndHoverCapable(),
+  });
 }
 
 /**
@@ -101,11 +131,30 @@ export const displayOptimisation: Readable<DisplayOptimisationSnapshot> = readab
     const update = (): void => {
       set(readDisplayOptimisationFromInnerDimensions(window.innerWidth, window.innerHeight));
     };
+    let mqlHover: MediaQueryList | null = null;
+    let mqlPointer: MediaQueryList | null = null;
+    const onMediaChange = (): void => {
+      update();
+    };
+    try {
+      mqlHover = window.matchMedia("(hover: hover)");
+      mqlPointer = window.matchMedia("(pointer: fine)");
+      mqlHover.addEventListener("change", onMediaChange);
+      mqlPointer.addEventListener("change", onMediaChange);
+    } catch {
+      // ignore (very old engines): resize/orientation still refresh dimensions
+    }
     window.addEventListener("resize", update);
     window.addEventListener("orientationchange", update);
     return () => {
       window.removeEventListener("resize", update);
       window.removeEventListener("orientationchange", update);
+      if (mqlHover !== null) {
+        mqlHover.removeEventListener("change", onMediaChange);
+      }
+      if (mqlPointer !== null) {
+        mqlPointer.removeEventListener("change", onMediaChange);
+      }
     };
   }
 );

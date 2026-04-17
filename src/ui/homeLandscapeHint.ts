@@ -43,16 +43,27 @@ export function verticalLetterboxSlackMidMeetPx(
 }
 
 export function homeLandscapeHintDisplayPolicyAllows(
-  snap: Pick<DisplayOptimisationSnapshot, "aspectClass" | "deviceClass">,
+  snap: Pick<
+    DisplayOptimisationSnapshot,
+    | "aspectClass"
+    | "deviceClass"
+    | "homeLandscapeEncouragementPrimaryInputInScope"
+  >,
 ): boolean {
   return (
+    snap.homeLandscapeEncouragementPrimaryInputInScope &&
     snap.aspectClass === "portrait" &&
     (snap.deviceClass === "mobile" || snap.deviceClass === "tablet")
   );
 }
 
 export function shouldShowHomeLandscapeHint(
-  snap: Pick<DisplayOptimisationSnapshot, "aspectClass" | "deviceClass">,
+  snap: Pick<
+    DisplayOptimisationSnapshot,
+    | "aspectClass"
+    | "deviceClass"
+    | "homeLandscapeEncouragementPrimaryInputInScope"
+  >,
   verticalLetterboxSlackPx: number,
 ): boolean {
   return (

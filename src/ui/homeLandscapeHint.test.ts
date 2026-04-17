@@ -38,24 +38,35 @@ describe("homeLandscapeHintDisplayPolicyAllows", () => {
       homeLandscapeHintDisplayPolicyAllows({
         aspectClass: "portrait",
         deviceClass: "mobile",
+        homeLandscapeEncouragementPrimaryInputInScope: true,
       }),
     ).toBe(true);
     expect(
       homeLandscapeHintDisplayPolicyAllows({
         aspectClass: "portrait",
         deviceClass: "tablet",
+        homeLandscapeEncouragementPrimaryInputInScope: true,
       }),
     ).toBe(true);
     expect(
       homeLandscapeHintDisplayPolicyAllows({
         aspectClass: "portrait",
         deviceClass: "desktop",
+        homeLandscapeEncouragementPrimaryInputInScope: true,
       }),
     ).toBe(false);
     expect(
       homeLandscapeHintDisplayPolicyAllows({
         aspectClass: "landscape",
         deviceClass: "mobile",
+        homeLandscapeEncouragementPrimaryInputInScope: true,
+      }),
+    ).toBe(false);
+    expect(
+      homeLandscapeHintDisplayPolicyAllows({
+        aspectClass: "portrait",
+        deviceClass: "mobile",
+        homeLandscapeEncouragementPrimaryInputInScope: false,
       }),
     ).toBe(false);
   });
@@ -63,7 +74,11 @@ describe("homeLandscapeHintDisplayPolicyAllows", () => {
 
 describe("shouldShowHomeLandscapeHint", () => {
   it("requires policy and slack threshold", () => {
-    const snap = { aspectClass: "portrait" as const, deviceClass: "mobile" as const };
+    const snap = {
+      aspectClass: "portrait" as const,
+      deviceClass: "mobile" as const,
+      homeLandscapeEncouragementPrimaryInputInScope: true,
+    };
     expect(
       shouldShowHomeLandscapeHint(snap, HOME_LANDSCAPE_HINT_MIN_VERTICAL_SLACK_CSS_PX),
     ).toBe(true);

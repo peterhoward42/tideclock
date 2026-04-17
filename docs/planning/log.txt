@@ -115,6 +115,11 @@ o  new data fetch paradigm
 				*  extend dev mode to see error presentation
 fart
 				o  manual prompt when not landscape
+					*  basics
+					*  fires on desktop
+					o  only one of the spaces
+					o  better message
+					o  styling?
 
 				o  Home.svelte is too darn long
 

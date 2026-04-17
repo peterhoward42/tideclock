@@ -63,11 +63,23 @@ describe("deriveDisplayOptimisation", () => {
     expect(s.aspectRatio).toBeCloseTo(390 / 844, 10);
     expect(s.viewportWidthPx).toBe(390);
     expect(s.viewportHeightPx).toBe(844);
+    expect(s.homeLandscapeEncouragementPrimaryInputInScope).toBe(true);
   });
 
   it("returns landscape mobile when width stays within the mobile breakpoint", () => {
     const s = deriveDisplayOptimisation({ viewportWidthPx: 740, viewportHeightPx: 360 });
     expect(s.deviceClass).toBe("mobile");
     expect(s.aspectClass).toBe("landscape");
+  });
+
+  it("treats fine-pointer + hover primary input as out of scope for home landscape encouragement", () => {
+    const s = deriveDisplayOptimisation({
+      viewportWidthPx: 400,
+      viewportHeightPx: 900,
+      primaryInputFineAndHoverCapable: true,
+    });
+    expect(s.deviceClass).toBe("mobile");
+    expect(s.aspectClass).toBe("portrait");
+    expect(s.homeLandscapeEncouragementPrimaryInputInScope).toBe(false);
   });
 });
