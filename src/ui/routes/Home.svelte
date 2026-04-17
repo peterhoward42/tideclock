@@ -559,18 +559,7 @@
             role="note"
           >
             <p class="home-landscape-hint-strip__text">
-              Today's tide diagram reads clearest when your screen is a little
-              wider.
-            </p>
-          </div>
-          <div
-            class="home-landscape-hint-strip home-landscape-hint-strip--bottom"
-            style={`--home-landscape-hint-band-px: ${verticalLetterboxSlackPx}px`}
-            aria-hidden="true"
-          >
-            <p class="home-landscape-hint-strip__text">
-              Today's tide diagram reads clearest when your screen is a little
-              wider.
+              The diagram will be bigger if you turn your phone
             </p>
           </div>
         {/if}
@@ -783,10 +772,6 @@
 
   .home-landscape-hint-strip--top {
     top: 0;
-  }
-
-  .home-landscape-hint-strip--bottom {
-    bottom: 0;
   }
 
   .home-landscape-hint-strip__text {
