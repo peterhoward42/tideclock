@@ -19,7 +19,7 @@ import { deriveNextTideSemantics } from "../nextTideSemantics";
 
 describe("buildDiagramDevPreviewAtypicalTideDay", () => {
   it("produces five strictly ascending extremes that classify as atypical", () => {
-    const base = new TideExtremesAtLocation(50.8, -1.1, [
+    const base = TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
       new TideExtreme("low", "2026-03-23T12:00:00.000Z", 1),
     ]);
     const preview = buildDiagramDevPreviewAtypicalTideDay({
@@ -38,7 +38,7 @@ describe("buildDiagramDevPreviewAtypicalTideDay", () => {
   });
 
   it("hits atypical countdown copy through the same pipeline as Home", () => {
-    const base = new TideExtremesAtLocation(50.8, -1.1, [
+    const base = TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
       new TideExtreme("low", "2026-03-23T12:00:00.000Z", 1),
     ]);
     const material = buildDiagramDevPreviewAtypicalTideDay({

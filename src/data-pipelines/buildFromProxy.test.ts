@@ -34,6 +34,24 @@ describe('buildExtremesFromProxy', () => {
     ]);
   });
 
+  it('canonicalizes proxy rows into ascending UTC order', () => {
+    const result = buildExtremesFromProxy({
+      latitude: 50.8,
+      longitude: -1.1,
+      response: makeResponse({
+        tides: [
+          { type: 'Low', time: '2026-03-23T07:05:00Z', heightMetres: 0.4 },
+          { type: 'High', time: '2026-03-23T00:40:00Z', heightMetres: 3.2 }
+        ]
+      })
+    });
+
+    expect(result.extremes.map((e) => e.timeUtc)).toEqual([
+      '2026-03-23T00:40:00Z',
+      '2026-03-23T07:05:00Z'
+    ]);
+  });
+
   it('throws when latitude is invalid', () => {
     expect(() =>
       buildExtremesFromProxy({

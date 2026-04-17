@@ -67,7 +67,7 @@ describe('loadTideExtremesForCurrentCivilDayQuery', () => {
     expect(fetchImpl).not.toHaveBeenCalled();
     expect(storer.writes).toHaveLength(0);
     expect(result).toEqual(
-      new TideExtremesAtLocation(50.8, -1.1, [
+      TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
         new TideExtreme('low', utcIsoForLocal(2026, 2, 23, 0, 0), 0.5),
         new TideExtreme('high', utcIsoForLocal(2026, 2, 23, 12, 10), 3.3)
       ])
@@ -112,7 +112,7 @@ describe('loadTideExtremesForCurrentCivilDayQuery', () => {
     expect(storer.writes).toHaveLength(1);
     expect(storer.writes[0]?.key).toBe(EXTREMES_SNAPSHOT_KEY);
     expect(result).toEqual(
-      new TideExtremesAtLocation(50.8, -1.1, [
+      TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
         new TideExtreme('low', utcIsoForLocal(2026, 2, 23, 6, 0), 0.4),
         new TideExtreme('high', utcIsoForLocal(2026, 2, 23, 18, 0), 3.2)
       ])
@@ -157,7 +157,7 @@ describe('loadTideExtremesForCurrentCivilDayQuery', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(1);
     expect(storer.writes).toEqual([{ key: customKey, value: expect.any(String) }]);
     expect(result).toEqual(
-      new TideExtremesAtLocation(50.8, -1.1, [
+      TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
         new TideExtreme('high', utcIsoForLocal(2026, 2, 23, 18, 0), 3.2)
       ])
     );

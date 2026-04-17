@@ -6,7 +6,7 @@ import { buildDiagramGenerationSpec, utcIsoToLocalCanonicalTimeUtc } from './bui
 import { annularBandMaxX, createDiagramGenerationCollaborator } from './diagramGenerationCollaborator';
 
 function minimalExtremesForCollaboratorTest(): TideExtremesAtLocation {
-  return new TideExtremesAtLocation(50.8, -1.1, [
+  return TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
     new TideExtreme('low', '2026-03-23T12:00:00.000Z', 1.0),
   ]);
 }

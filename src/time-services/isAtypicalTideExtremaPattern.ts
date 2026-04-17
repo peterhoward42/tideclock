@@ -3,7 +3,8 @@
  * do not fit the usual simple "two highs, two lows, clear alternation" story.
  * Kind: Pure logic service over ordered tide extrema. Does not know about UI copy.
  */
-import type { TideExtreme } from '../core-models/TideExtreme';
+import type { TimedTideExtreme } from '../core-models/TideExtreme';
+import type { TimeOrderedTideExtrema } from '../core-models/TimeOrderedTideExtrema';
 
 function hoursToMilliseconds(hours: number): number {
   return hours * 60 * 60 * 1000;
@@ -36,13 +37,7 @@ const WEAK_SWING_RATIO_THRESHOLD = 0.2;
  */
 const MAX_HESITATION_SPAN_HOURS = 8;
 
-interface TimedExtreme {
-  readonly type: TideExtreme['type'];
-  readonly timeMs: number;
-  readonly heightMetres: number;
-}
-
-function toTimedExtremes(extremes: readonly TideExtreme[]): TimedExtreme[] {
+function toTimedExtremes(extremes: TimeOrderedTideExtrema): TimedTideExtreme[] {
   return extremes.map((extreme, index) => {
     const timeMs = Date.parse(extreme.timeUtc);
     if (Number.isNaN(timeMs)) {
@@ -56,7 +51,7 @@ function toTimedExtremes(extremes: readonly TideExtreme[]): TimedExtreme[] {
   });
 }
 
-function hasNonAlternatingAdjacentTypes(extremes: readonly TimedExtreme[]): boolean {
+function hasNonAlternatingAdjacentTypes(extremes: readonly TimedTideExtreme[]): boolean {
   for (let i = 1; i < extremes.length; i += 1) {
     if (extremes[i - 1].type === extremes[i].type) {
       return true;
@@ -65,11 +60,8 @@ function hasNonAlternatingAdjacentTypes(extremes: readonly TimedExtreme[]): bool
   return false;
 }
 
-function hasTightlyBunchedExtrema(extremes: readonly TimedExtreme[]): boolean {
+function hasTightlyBunchedExtrema(extremes: readonly TimedTideExtreme[]): boolean {
   for (let i = 1; i < extremes.length; i += 1) {
-    if (extremes[i].timeMs <= extremes[i - 1].timeMs) {
-      throw new Error('isAtypicalTideExtremaPattern: extremes must be in strictly ascending time order');
-    }
     const gapMs = extremes[i].timeMs - extremes[i - 1].timeMs;
     if (gapMs < hoursToMilliseconds(MIN_TYPICAL_EXTREMA_GAP_HOURS)) {
       return true;
@@ -78,7 +70,7 @@ function hasTightlyBunchedExtrema(extremes: readonly TimedExtreme[]): boolean {
   return false;
 }
 
-function hasWeakHesitationSwing(extremes: readonly TimedExtreme[]): boolean {
+function hasWeakHesitationSwing(extremes: readonly TimedTideExtreme[]): boolean {
   for (let i = 0; i <= extremes.length - 3; i += 1) {
     const first = extremes[i];
     const middle = extremes[i + 1];
@@ -117,7 +109,7 @@ function hasWeakHesitationSwing(extremes: readonly TimedExtreme[]): boolean {
  * a simple story on days whose plotted extrema look visually odd.
  */
 export function isAtypicalTideExtremaPattern(
-  extremes: readonly TideExtreme[],
+  extremes: TimeOrderedTideExtrema,
 ): TideExtremaPatternDetection {
   if (extremes.length <= 1) {
     return TideExtremaPatternDetection.IsTypical;

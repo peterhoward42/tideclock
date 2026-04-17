@@ -44,7 +44,7 @@ describe('extremesForCurrentCivilDay', () => {
   const nowProvider = new FakeTimeNowProvider(new Date(2026, 2, 23, 10, 30, 0, 0));
 
   it('returns undefined when stored location does not match required location', () => {
-    const stored = new TideExtremesAtLocation(50.8, -1.1, [
+    const stored = TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
       new TideExtreme('high', utcIsoForLocal(2026, 2, 22, 23, 30), 3.1),
       new TideExtreme('low', utcIsoForLocal(2026, 2, 23, 2, 30), 0.5),
       new TideExtreme('high', utcIsoForLocal(2026, 2, 24, 0, 15), 3.2)
@@ -61,7 +61,7 @@ describe('extremesForCurrentCivilDay', () => {
   });
 
   it('returns undefined when there is no extreme before window start', () => {
-    const stored = new TideExtremesAtLocation(50.8, -1.1, [
+    const stored = TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
       new TideExtreme('low', utcIsoForLocal(2026, 2, 23, 1, 15), 0.4),
       new TideExtreme('high', utcIsoForLocal(2026, 2, 23, 14, 20), 3.3),
       new TideExtreme('low', utcIsoForLocal(2026, 2, 24, 1, 10), 0.6)
@@ -78,7 +78,7 @@ describe('extremesForCurrentCivilDay', () => {
   });
 
   it('returns undefined when there is no extreme after window end', () => {
-    const stored = new TideExtremesAtLocation(50.8, -1.1, [
+    const stored = TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
       new TideExtreme('high', utcIsoForLocal(2026, 2, 22, 22, 50), 3.0),
       new TideExtreme('low', utcIsoForLocal(2026, 2, 23, 7, 30), 0.4),
       new TideExtreme('high', utcIsoForLocal(2026, 2, 23, 23, 50), 3.4)
@@ -101,7 +101,7 @@ describe('extremesForCurrentCivilDay', () => {
     const atEndExclusive = new TideExtreme('low', utcIsoForLocal(2026, 2, 24, 0, 0), 0.4);
     const afterEnd = new TideExtreme('high', utcIsoForLocal(2026, 2, 24, 0, 20), 3.0);
 
-    const stored = new TideExtremesAtLocation(50.8, -1.1, [
+    const stored = TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
       beforeStart,
       atStart,
       midDay,
@@ -117,7 +117,7 @@ describe('extremesForCurrentCivilDay', () => {
     });
 
     expect(result).toEqual(
-      new TideExtremesAtLocation(50.8, -1.1, [
+      TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
         atStart,
         midDay
       ])
@@ -134,7 +134,7 @@ describe('extremesForCurrentCivilDay', () => {
     const midDay = new TideExtreme('high', utcIsoForLocal(2026, 2, 23, 12, 10), 3.3);
     const afterEnd = new TideExtreme('high', utcIsoForLocal(2026, 2, 24, 0, 20), 3.0);
 
-    const stored = new TideExtremesAtLocation(50.8, -1.1, [beforeStart, atStart, midDay, afterEnd]);
+    const stored = TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [beforeStart, atStart, midDay, afterEnd]);
 
     const result = extremesForCivilDayInWindow({
       requiredLatitude: 50.8,
@@ -143,7 +143,7 @@ describe('extremesForCurrentCivilDay', () => {
       civilDayDisplayWindow: civilDay
     });
 
-    expect(result).toEqual(new TideExtremesAtLocation(50.8, -1.1, [atStart, midDay]));
+    expect(result).toEqual(TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [atStart, midDay]));
   });
 });
 
@@ -205,7 +205,7 @@ describe('loadExtremesForCurrentCivilDay', () => {
     });
 
     expect(result).toEqual(
-      new TideExtremesAtLocation(50.8, -1.1, [
+      TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
         new TideExtreme('low', utcIsoForLocal(2026, 2, 23, 0, 0), 0.5),
         new TideExtreme('high', utcIsoForLocal(2026, 2, 23, 12, 10), 3.3)
       ])

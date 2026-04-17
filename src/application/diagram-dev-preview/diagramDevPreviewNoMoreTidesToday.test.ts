@@ -10,7 +10,7 @@ import { deriveNextTideSemantics } from '../nextTideSemantics';
 
 describe('buildDiagramDevPreviewNoMoreTidesTodayClock', () => {
   it('returns a clock after the last marker so deriveNextTideSemantics has no next tide', () => {
-    const extremes = new TideExtremesAtLocation(50, -1, [
+    const extremes = TideExtremesAtLocation.fromPossiblyUnordered(50, -1, [
       new TideExtreme('low', '2025-06-01T10:00:00.000Z', 1),
       new TideExtreme('high', '2025-06-01T22:00:00.000Z', 5),
     ]);
@@ -32,7 +32,7 @@ describe('buildDiagramDevPreviewNoMoreTidesTodayClock', () => {
   });
 
   it('returns inactive when the last marker leaves no civil-day instant after it', () => {
-    const extremes = new TideExtremesAtLocation(50, -1, [
+    const extremes = TideExtremesAtLocation.fromPossiblyUnordered(50, -1, [
       new TideExtreme('high', '2025-06-01T23:59:59.000Z', 5),
     ]);
     const preview = buildDiagramDevPreviewNoMoreTidesTodayClock({

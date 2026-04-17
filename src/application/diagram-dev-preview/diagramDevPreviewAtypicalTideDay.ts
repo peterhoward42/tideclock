@@ -6,6 +6,7 @@
 
 import { TideExtreme } from "../../core-models/TideExtreme";
 import { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
+import { type TimeOrderedTideExtrema, toTimeOrderedTideExtrema } from "../../core-models/TimeOrderedTideExtrema";
 import {
   isAtypicalTideExtremaPattern,
   TideExtremaPatternDetection,
@@ -31,16 +32,16 @@ const PREVIEW_CLOCK_LOCAL = { hh: 19, mm: 20, ss: 3 } as const;
 
 function syntheticExtremesOnLocalCivilDayOfFirstExtreme(
   extremesAtLocation: TideExtremesAtLocation,
-): readonly TideExtreme[] {
+): TimeOrderedTideExtrema {
   const anchor = new Date(extremesAtLocation.extremes[0].timeUtc);
-  return ATYPICAL_DAY_LOCAL_SCHEDULE.map(
+  return toTimeOrderedTideExtrema(ATYPICAL_DAY_LOCAL_SCHEDULE.map(
     ({ type, hh, mm, ss, heightMetres }) => {
       const instant = new Date(anchor);
       instant.setHours(hh, mm, ss, 0);
       instant.setMilliseconds(0);
       return new TideExtreme(type, instant.toISOString(), heightMetres);
     },
-  );
+  ));
 }
 
 export type DiagramDevPreviewAtypicalTideDay =

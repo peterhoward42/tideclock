@@ -13,7 +13,7 @@ import { deriveNextTideSemantics } from './nextTideSemantics';
 
 /** UTC instants chosen so `utcIsoToLocalCanonicalTimeUtc` matches fixture marker times. */
 function fixtureExtremesAtLocation(): TideExtremesAtLocation {
-  return new TideExtremesAtLocation(50.8, -1.1, [
+  return TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
     new TideExtreme('low', '2026-03-23T04:15:00.000Z', 0.94),
     new TideExtreme('high', '2026-03-23T10:45:00.000Z', 4.7),
     new TideExtreme('low', '2026-03-23T16:59:24.000Z', 0.89),
@@ -23,7 +23,7 @@ function fixtureExtremesAtLocation(): TideExtremesAtLocation {
 
 /** Fifth extreme triggers `moreThanFourExtrema` in `isAtypicalTideExtremaPattern` (ordered same-day UTC instants). */
 function fixtureAtypicalFiveExtremesAtLocation(): TideExtremesAtLocation {
-  return new TideExtremesAtLocation(50.8, -1.1, [
+  return TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
     new TideExtreme('low', '2026-03-23T04:15:00.000Z', 0.94),
     new TideExtreme('high', '2026-03-23T10:45:00.000Z', 4.7),
     new TideExtreme('low', '2026-03-23T16:59:24.000Z', 0.89),
@@ -69,7 +69,7 @@ describe('buildDiagramGenerationSpec', () => {
   it('rejects empty extremes', () => {
     expect(() =>
       buildDiagramGenerationSpec({
-        extremesAtLocation: new TideExtremesAtLocation(1, 2, []),
+        extremesAtLocation: TideExtremesAtLocation.fromPossiblyUnordered(1, 2, []),
         timeNow: '12:00:00',
         timeNowDatePrefix: FIXTURE_DATE_PREFIX,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,

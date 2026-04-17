@@ -79,7 +79,7 @@ export function deserializeExtremesSnapshot(raw: string): TideExtremesAtLocation
       return undefined;
     }
 
-    return new TideExtremesAtLocation(
+    return TideExtremesAtLocation.fromPossiblyUnordered(
       parsed.latitude,
       parsed.longitude,
       parsed.extremes.map((extreme) => new TideExtreme(extreme.type, extreme.timeUtc, extreme.heightMetres))

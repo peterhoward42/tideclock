@@ -5,6 +5,7 @@
 
 import type { TideExtreme } from "../../core-models/TideExtreme";
 import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
+import type { TimeOrderedTideExtrema } from "../../core-models/TimeOrderedTideExtrema";
 import type { UtcIsoToLocalCanonicalTime } from "../buildDiagramGenerationSpec";
 import { localTimeNowDatePrefixFromMs } from "../localWallClockReadoutFromMs";
 
@@ -28,7 +29,7 @@ function daySecondsToCanonical(total: number): string {
 }
 
 function lastExtremeByLatestLocalMarker(params: {
-  readonly extremes: readonly TideExtreme[];
+  readonly extremes: TimeOrderedTideExtrema;
   readonly utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime;
 }): { readonly extreme: TideExtreme; readonly lastMarkerDaySeconds: number } {
   const { extremes, utcIsoToLocalCanonicalTime } = params;

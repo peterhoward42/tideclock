@@ -11,6 +11,7 @@ import { homeTideDiagramLayoutBase } from '../diagram-config';
 import type { DiagramTideMarkMarker, HomeDiagramTideMarks } from '../diagram-config';
 import type { TideExtreme, TideExtremeType } from '../core-models/TideExtreme';
 import type { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
+import type { TimeOrderedTideExtrema } from '../core-models/TimeOrderedTideExtrema';
 import {
   isAtypicalTideExtremaPattern,
   TideExtremaPatternDetection,
@@ -38,7 +39,7 @@ export type BuildDiagramGenerationSpecTimeInput = {
 };
 
 export type BuildDiagramGenerationSpecParams = BuildDiagramGenerationSpecTimeInput & {
-  /** Stored extremes for the civil day (coordinates identify the place; list order is snapshot order). */
+  /** Stored extremes for the civil day (coordinates identify the place; `extremes` is canonical time-ordered). */
   readonly extremesAtLocation: TideExtremesAtLocation;
   /**
    * When set, adds `spec.semantic.nextTide` (e.g. output of `deriveNextTideSemantics` for the
@@ -63,7 +64,7 @@ export function formatTideHeightMetresForDiagram(metres: number): string {
 }
 
 function tideMarksFromExtremes(
-  extremes: readonly TideExtreme[],
+  extremes: TimeOrderedTideExtrema,
   utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime,
 ): { readonly markers: readonly DiagramTideMarkMarker[] } {
   return {
@@ -94,7 +95,7 @@ function phasePairFromSegmentHeightDelta(
 }
 
 export function deriveTimeDeltaTidePhasePair(params: {
-  readonly extremes: readonly TideExtreme[];
+  readonly extremes: TimeOrderedTideExtrema;
   readonly timeNow: string;
   readonly utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime;
 }): TidePhasePair {

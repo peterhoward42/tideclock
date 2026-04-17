@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { TideExtreme, type TideExtremeType } from '../core-models/TideExtreme';
+import { toTimeOrderedTideExtrema } from '../core-models/TimeOrderedTideExtrema';
 import {
   isAtypicalTideExtremaPattern,
   TideExtremaPatternDetection
@@ -147,12 +148,15 @@ describe('isAtypicalTideExtremaPattern', () => {
     );
   });
 
-  it('throws when extrema are not strictly ordered in time', () => {
+  it('can consume constructor-normalized ordering from unsorted extrema input', () => {
     const extrema = [
       fixtureExtreme('low', 6, 0, 0.8),
       fixtureExtreme('high', 4, 0, 4.6)
     ];
 
-    expect(() => isAtypicalTideExtremaPattern(extrema)).toThrow(/strictly ascending time order/);
+    const ordered = toTimeOrderedTideExtrema(extrema);
+    expect(isAtypicalTideExtremaPattern(ordered)).toBe(
+      TideExtremaPatternDetection.TightlyBunchedAdjacentExtrema
+    );
   });
 });

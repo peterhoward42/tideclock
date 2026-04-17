@@ -120,5 +120,5 @@ export function buildExtremesFromProxy({
   validateResponseShape(response);
 
   const mappedExtremes = response.tides.map((extreme, index) => mapOneExtreme(extreme, index));
-  return new TideExtremesAtLocation(latitude, longitude, mappedExtremes);
+  return TideExtremesAtLocation.fromPossiblyUnordered(latitude, longitude, mappedExtremes);
 }

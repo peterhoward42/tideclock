@@ -104,7 +104,11 @@ export function extremesForCivilDayInWindow({
     .filter(({ timeMs }) => timeMs >= windowStartMs && timeMs < windowEndExclusiveMs)
     .map(({ extreme }) => extreme);
 
-  return new TideExtremesAtLocation(stored.latitude, stored.longitude, inWindowExtremes);
+  return TideExtremesAtLocation.fromPossiblyUnordered(
+    stored.latitude,
+    stored.longitude,
+    inWindowExtremes,
+  );
 }
 
 export function extremesForCurrentCivilDay({

@@ -17,3 +17,10 @@ export class TideExtreme {
     this.heightMetres = heightMetres;
   }
 }
+
+/** Canonical enriched row shape used when tide extrema need parsed time arithmetic. */
+export interface TimedTideExtreme {
+  readonly type: TideExtremeType;
+  readonly timeMs: number;
+  readonly heightMetres: number;
+}

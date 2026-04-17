@@ -17,8 +17,8 @@ const aTown = {
 
 const otherTown = { ...aTown, id: "t2", lat: 11, lon: 21 };
 
-const extremesA = new TideExtremesAtLocation(1, 2, []);
-const extremesB = new TideExtremesAtLocation(3, 4, []);
+const extremesA = TideExtremesAtLocation.fromPossiblyUnordered(1, 2, []);
+const extremesB = TideExtremesAtLocation.fromPossiblyUnordered(3, 4, []);
 
 function deferred<T>(): {
   promise: Promise<T>;
