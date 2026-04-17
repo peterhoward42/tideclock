@@ -114,6 +114,18 @@ o  new data fetch paradigm
 				*  location ui verbosity and mobile fit
 				*  extend dev mode to see error presentation
 fart
+				o  manual prompt when not landscape
+				o  tentative explore progressive web app
+					o  context is elevator pitch
+					o  mobile only?
+					o  only really want always on, encourage landscape, min
+					   browser clutter stealing real estate, prevent screen 
+					   dim 
+					o  not meaningful offline
+
+
+
+
 
 					o  kiosk mode and the following
 						o  see chatgpt kiosk mode overview
