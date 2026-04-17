@@ -110,16 +110,7 @@ o  new data fetch paradigm
 				*  come back to alternating in/out edge cases  like Bournemouth
 				*  idea for logic triggers for developer visual tests
 fart
-				o  big code cleanse thus far - deserves a skill
-					o  try a skill in new branch
-						*  bootstrapping phase 1
-						o  launch again in new session - nomimating the 
-						   next step
-
-					o  merge the branch
-
-
-
+				*  big code cleanse thus far - deserves a skill
 
 
 				o  sort out if necessary atypical needs for extrema ordering
