@@ -35,3 +35,23 @@ You should see an amber banner and the Home tide diagram adjusted for the select
 Changing the URL after load updates the preview (hash / history navigation).
 
 More detail: [`docs/planning/diagram-dev-preview-catalog.md`](docs/planning/diagram-dev-preview-catalog.md).
+
+## Dev-only tide load UX previews
+
+Same **DEV-only** guard as diagram previews (`npm run dev`). These simulate **runtime load-path** outcomes (failed load, stuck loading, empty civil-day slice) so you can check Home copy and layout without breaking the proxy or going offline. They short-circuit the shell fetch in `App.svelte`; implementation lives in [`src/application/tide-ux-dev-preview/tideUxDevPreviewCatalog.ts`](src/application/tide-ux-dev-preview/tideUxDevPreviewCatalog.ts).
+
+Pick a **saved location** first (otherwise Home may still show the first-use empty state instead of tide panels). Then open one of:
+
+http://localhost:5173/#/home?tideUxPreview=load-failed
+
+http://localhost:5173/#/home?tideUxPreview=load-stuck
+
+http://localhost:5173/#/home?tideUxPreview=no-extremes-today
+
+You should see a **blue** banner on Home when a preview is active, plus:
+
+- **`load-failed`**: same error panel as a failed tide refresh (“Tides could not be loaded…”).
+- **`load-stuck`**: loading state never completes (infinite “Loading tides…”).
+- **`no-extremes-today`**: successful load path with **zero** extremes for the day (“No tide extremes for this day.”).
+
+Changing the URL after load re-runs the tide refresh so you can switch scenarios without a full reload.

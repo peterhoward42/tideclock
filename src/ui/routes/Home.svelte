@@ -41,9 +41,12 @@
     readonly tideLoadState: TidePredictionsLoadState;
     readonly tideExtremes: TideExtremesAtLocation | undefined;
     readonly townName: string;
+    /** Dev-only copy from shell when `?tideUxPreview=` is active; null in production or when idle. */
+    readonly tideUxDevPreviewBannerLine: string | null;
   }
 
-  let { tideLoadState, tideExtremes, townName }: Props = $props();
+  let { tideLoadState, tideExtremes, townName, tideUxDevPreviewBannerLine }: Props =
+    $props();
 
   const collaborator: DiagramGenerationCollaborator =
     createDiagramGenerationCollaborator();
@@ -432,6 +435,11 @@
       {diagramPreviewBannerLine}
     </div>
   {/if}
+  {#if import.meta.env.DEV && tideUxDevPreviewBannerLine !== null}
+    <div class="home-tide-ux-preview-banner" role="status">
+      {tideUxDevPreviewBannerLine}
+    </div>
+  {/if}
   {#if domDumpEnabled}
     <div class="home-debug">
       <button type="button" class="home-debug__btn" onclick={refreshDomSummary}
@@ -531,6 +539,16 @@
     font-size: 0.75rem;
     font-weight: 600;
     border-bottom: 1px solid rgb(251 191 36 / 0.35);
+  }
+
+  .home-tide-ux-preview-banner {
+    flex: 0 0 auto;
+    padding: 0.35rem 0.75rem;
+    background: #172554;
+    color: #dbeafe;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgb(96 165 250 / 0.35);
   }
 
   .home-panel {

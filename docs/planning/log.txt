@@ -109,13 +109,11 @@ o  new data fetch paradigm
 				*  stick brand url in bottom left in diagram = no d
 				*  come back to alternating in/out edge cases  like Bournemouth
 				*  idea for logic triggers for developer visual tests
-fart
 				*  big code cleanse thus far - deserves a skill
 				*  sort out if necessary atypical needs for extrema ordering
-
-
-				o  location ui verbosity and mobile fit
-
+				*  location ui verbosity and mobile fit
+fart
+				o  extend dev mode to see error presentation
 
 					o  kiosk mode and the following
 						o  see chatgpt kiosk mode overview
@@ -135,36 +133,27 @@ fart
 				o  QR code in auxilliary route
 				o  report bugs and suggestions
 				o  donate?
-				o  come back to the Bournemouth dilemma
-				o  tune line thicknesses and font for platforms
-				o  other screens
-				o  make your own colour schemes / submit one for namecheck
 				o  see the source
 				o  see a funny tide
 				o  learn about tides
 				o  stories about tides:w
 				o  marketing route?
-				o  optimise svg for mobile/table/desktop
 				o  branding
 				o  deploy
-				o  try on phone
-				o  line thicknesses knobs
 				o  leave it running to spot errors / null in log
 				o  say suggest use landscape
 				o  older browsers
-				o  fit for purpose graphics design styling
 				o  network hits observability
 				o  say hello
 				o  give feedback
 				o  donate
-				o  buy my software
+				o  buy my software / my skills
 				o  learn about tides
-				o  acks
+				o  acks and source
+				o  safety
+				o  tide joke / image for human
 				o  how hide browser apparatus at top?
-				o  test on tablet and phone
-				o  how encourage keep screen on if charging
 				o  facilitate user reporting errors
-				o  sweep code for optional behaviour / fallbacks / defaults
 				
 
 o  don't forget
@@ -175,8 +164,3 @@ o  don't forget
 	o  about me, gis a job
 	o  learn about tides
 	o  hire me
-
-2026-04-14 — Location route redundancy plan Phase 5: docs and comments aligned with canonical towns2 route (`LocationTowns2`, `bakedTowns2`, `townSchema`); planning docs updated; `location-route-redundancy-removal-plan.md` marked complete with migration status banner.
-
-
-
