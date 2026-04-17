@@ -11,14 +11,14 @@
 | Field | Value |
 |--------|--------|
 | **Last updated** | 2026-04-17 |
-| **Phases touched** | _(none yet — doc created)_ |
-| **Notes** | Baseline: implementation lives in `src/ui/routes/Home.svelte`. |
+| **Phases touched** | Phase 1 (started) |
+| **Notes** | Extracted home-route URL/query helpers to `src/ui/homeRouteUrlQuery.ts` with tests. |
 
 ## Phase checklist (strategy doc)
 
 Use phase names from [`home-route-narrative-shape-strategies.md`](./home-route-narrative-shape-strategies.md).
 
-- [ ] **Phase 1** — Pure / policy logic in `.ts` (+ tests where valuable)
+- [ ] **Phase 1** — Pure / policy logic in `.ts` (+ tests where valuable) _(in progress: URL/query helpers)_
 - [ ] **Phase 2** — Script narrative: grouping and skim-oriented structure inside `Home.svelte`
 - [ ] **Phase 3** — Presentational child components for major template regions
 - [ ] **Phase 4** — Orchestration-heavy regions (effects, collaborators, DOM) behind clear seams
@@ -26,7 +26,7 @@ Use phase names from [`home-route-narrative-shape-strategies.md`](./home-route-n
 
 Optional **sub-targets** (fill in and tick as you go; replace when stale):
 
-- [ ] _(e.g. dev preview URL helpers extracted)_
+- [x] Dev preview effective search string + dev debug query flags → `src/ui/homeRouteUrlQuery.ts`
 - [ ] _(e.g. loading / error UI child component)_
 - [ ] _(e.g. diagram stage wrapper child)_
 
@@ -36,6 +36,7 @@ Newest first.
 
 | Date | Focus | Outcome / links |
 |------|--------|------------------|
+| 2026-04-17 | Phase 1 | Extracted `effectiveSearchStringFromLocationParts` and `homeRouteDevDebugFlagsFromSearch` to `src/ui/homeRouteUrlQuery.ts`; `Home.svelte` imports them. Added `homeRouteUrlQuery.test.ts`. |
 | 2026-04-17 | Planning | Added mission doc, strategies doc, and this progress tracker. No code refactors yet. |
 
 ---

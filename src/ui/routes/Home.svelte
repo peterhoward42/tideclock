@@ -38,6 +38,10 @@
     shouldShowHomeLandscapeHint,
     verticalLetterboxSlackMidMeetPx,
   } from "../homeLandscapeHint";
+  import {
+    effectiveSearchStringFromLocationParts,
+    homeRouteDevDebugFlagsFromSearch,
+  } from "../homeRouteUrlQuery";
 
   type TidePredictionsLoadState = {
     readonly status: "loading" | "ready" | "error";
@@ -66,21 +70,22 @@
   function readDiagramPreviewIdFromLocation(): DiagramDevPreviewId | null {
     if (!import.meta.env.DEV) return null;
     if (typeof window === "undefined") return null;
-    const search =
-      window.location.search ||
-      (window.location.hash.includes("?")
-        ? window.location.hash.slice(window.location.hash.indexOf("?"))
-        : "");
+    const search = effectiveSearchStringFromLocationParts(
+      window.location.search,
+      window.location.hash,
+    );
     return diagramDevPreviewIdFromSearch(search);
   }
 
   onMount(() => {
     if (!import.meta.env.DEV) return;
     try {
-      const params = new URLSearchParams(window.location.search);
-      domDumpEnabled = params.has("dom");
-      outlineEnabled = params.has("outline");
-      previewFrameEnabled = params.has("pf");
+      const debugFlags = homeRouteDevDebugFlagsFromSearch(
+        window.location.search,
+      );
+      domDumpEnabled = debugFlags.domDump;
+      outlineEnabled = debugFlags.outline;
+      previewFrameEnabled = debugFlags.previewFrame;
       diagramPreviewIdFromUrl = readDiagramPreviewIdFromLocation();
 
       const onUrlChange = (): void => {
