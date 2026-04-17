@@ -112,8 +112,8 @@ o  new data fetch paradigm
 				*  big code cleanse thus far - deserves a skill
 				*  sort out if necessary atypical needs for extrema ordering
 				*  location ui verbosity and mobile fit
+				*  extend dev mode to see error presentation
 fart
-				o  extend dev mode to see error presentation
 
 					o  kiosk mode and the following
 						o  see chatgpt kiosk mode overview

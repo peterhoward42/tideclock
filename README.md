@@ -1,57 +1,71 @@
 # tideclock
 
-Tide clock web app (Vite + Svelte).
-
-## Run locally
+Tide clock web app (Vite + Svelte). **This README currently documents the developer-only preview helpers** (everything below).
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Dev-only diagram previews
+---
 
-These previews only run when **`import.meta.env.DEV` is true** (i.e. `npm run dev`, not production or `vite preview`). They freeze the Home tide diagram (and matching clock readout) so you can inspect presentation branches without hunting for the right place, date, and time of day.
+## Developer previews — how to use them
 
-1. Start the dev server: `npm run dev`
-2. Open the app in the browser (this app uses a **hash** router; query params belong **after `#/`**).
-3. Paste one of these full URLs (each line is complete—no editing needed). Default host and port match `npm run dev` (`localhost:5173`).
+**When they work:** only in a **dev** build (`npm run dev`). They are disabled in production builds and in `vite preview`, so they never ship as a user feature by accident.
 
-http://localhost:5173/#/?diagramPreview=no-more-tides-today
+**What they are:** special **query parameters** on the URL that force specific Home-route behaviour (frozen diagram branches, or fake tide-load outcomes) so you can review UI without waiting on the right tide, time, or network.
 
-http://localhost:5173/#/?diagramPreview=time-delta-short
+### Steps
 
-http://localhost:5173/#/?diagramPreview=time-delta-medium
+1. Run **`npm run dev`** and open the app (default **http://localhost:5173**).
+2. This app uses a **hash router**. Put the query string **inside the hash**, after `#`, not before it.  
+   **Good:** `http://localhost:5173/#/home?diagramPreview=…`  
+   **Wrong:** `http://localhost:5173/?diagramPreview=…#/home` (the preview helpers will not see the params.)
+3. **Diagram** previews: you only need to be on **Home** with tides already loaded (pick a coastal place once if prompted).  
+   **Tide load** previews: same — pick a **saved location** first, or Home may show the “first use” screen instead of loading / error / empty panels.
+4. Paste a **full example URL** from the tables below, or edit the address bar: add `?param=value`, or join two params with **`&`**.
 
-http://localhost:5173/#/?diagramPreview=atypical-tide-day
+Changing the hash (or using back/forward) **updates the preview without a full page reload**.
 
-You should see an amber banner and the Home tide diagram adjusted for the selected scenario:
+---
 
-- **`no-more-tides-today`**: “no further tides today” branch after the last extreme of the civil day.
-- **`time-delta-short`**: time frozen a few minutes before the next tide so short-interval occlusion rules apply with **both** Now label **and** Now radial line omitted (Δt strictly less than 5 minutes).
-- **`time-delta-medium`**: time frozen a short while before the next tide so that the Now label is omitted but the Now radial line remains (5 minutes ≤ Δt < 1 hour).
-- **`atypical-tide-day`**: replaces the loaded civil-day extremes with a **synthetic five-extrema “busy” day** (same local calendar day as the first loaded extreme) and freezes time in a countdown window so **atypical** centre copy (“Tricky tides today” / “Use the markers”) appears. Real fetch data is unchanged; only the diagram path sees the override.
+### 1. Diagram previews (`diagramPreview`)
 
-Changing the URL after load updates the preview (hash / history navigation).
+**Param name:** `diagramPreview`  
+**What it does:** freezes time and/or patches extremes **only for the diagram pipeline** so layout and copy branches are easy to see.  
+**On screen:** **amber** banner on Home.
+
+| Paste this URL (dev server) | Scenario |
+| --- | --- |
+| http://localhost:5173/#/?diagramPreview=no-more-tides-today | After last extreme of the day (“no further tides today” style branch). |
+| http://localhost:5173/#/?diagramPreview=time-delta-short | “Now” frozen shortly before next tide — **both** Now label **and** Now radial line hidden (strictly under five minutes before next). |
+| http://localhost:5173/#/?diagramPreview=time-delta-medium | Now label hidden, radial line still shown (five minutes to one hour before next). |
+| http://localhost:5173/#/?diagramPreview=atypical-tide-day | Synthetic busy day + atypical centre copy (“Tricky tides today” / markers hint). Fetched data unchanged; diagram path only. |
+
+`#/?…` and `#/home?…` both land on Home; use whichever you prefer.
 
 More detail: [`docs/planning/diagram-dev-preview-catalog.md`](docs/planning/diagram-dev-preview-catalog.md).
 
-## Dev-only tide load UX previews
+---
 
-Same **DEV-only** guard as diagram previews (`npm run dev`). These simulate **runtime load-path** outcomes (failed load, stuck loading, empty civil-day slice) so you can check Home copy and layout without breaking the proxy or going offline. They short-circuit the shell fetch in `App.svelte`; implementation lives in [`src/application/tide-ux-dev-preview/tideUxDevPreviewCatalog.ts`](src/application/tide-ux-dev-preview/tideUxDevPreviewCatalog.ts).
+### 2. Tide load UX previews (`tideUxPreview`)
 
-Pick a **saved location** first (otherwise Home may still show the first-use empty state instead of tide panels). Then open one of:
+**Param name:** `tideUxPreview`  
+**What it does:** skips the real storage/proxy load in the shell and returns a **fixed outcome** so Home shows the same panels as real network / empty-data cases.  
+**On screen:** **blue** banner on Home.  
+**Code:** [`src/application/tide-ux-dev-preview/tideUxDevPreviewCatalog.ts`](src/application/tide-ux-dev-preview/tideUxDevPreviewCatalog.ts).
 
-http://localhost:5173/#/home?tideUxPreview=load-failed
+| Paste this URL (dev server) | What you should see on Home |
+| --- | --- |
+| http://localhost:5173/#/home?tideUxPreview=load-failed | Error panel: tides could not be loaded. |
+| http://localhost:5173/#/home?tideUxPreview=load-stuck | “Loading tides…” stays forever. |
+| http://localhost:5173/#/home?tideUxPreview=no-extremes-today | Success path with zero extremes: “No tide extremes for this day.” |
 
-http://localhost:5173/#/home?tideUxPreview=load-stuck
+---
 
-http://localhost:5173/#/home?tideUxPreview=no-extremes-today
+### Adding a new scenario later
 
-You should see a **blue** banner on Home when a preview is active, plus:
+1. **Diagram:** add an id to [`src/application/diagram-dev-preview/diagramDevPreviewCatalog.ts`](src/application/diagram-dev-preview/diagramDevPreviewCatalog.ts), implement the patch/freeze in a small module under that folder, and wire it in [`diagramDevPreviewResolveForHome.ts`](src/application/diagram-dev-preview/diagramDevPreviewResolveForHome.ts).  
+2. **Tide load:** add an id and branch in [`tideUxDevPreviewCatalog.ts`](src/application/tide-ux-dev-preview/tideUxDevPreviewCatalog.ts); the shell already calls `tideUxDevPreviewMaybeOverrideLoad` from `App.svelte`.
 
-- **`load-failed`**: same error panel as a failed tide refresh (“Tides could not be loaded…”).
-- **`load-stuck`**: loading state never completes (infinite “Loading tides…”).
-- **`no-extremes-today`**: successful load path with **zero** extremes for the day (“No tide extremes for this day.”).
-
-Changing the URL after load re-runs the tide refresh so you can switch scenarios without a full reload.
+Then add one README row and (for diagram work) extend the planning doc if you keep using it.
