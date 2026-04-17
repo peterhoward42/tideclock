@@ -55,19 +55,7 @@
 </script>
 
 <main class="route">
-  <p class="example-lead">
-    <span class="mono">park chesh</span>
-    <span class="example-lead__arrow">→</span>
-    Parkgate, Cheshire
-  </p>
-
-  <details class="how">
-    <summary class="how__summary">How this works</summary>
-    <p class="how__body">
-      Short <strong>pieces</strong>, spaces between — each must appear somewhere in the name. Order
-      does not matter; they need not be full spellings or prefixes.
-    </p>
-  </details>
+  <p class="search-prompt">Start typing short pieces, with spaces between</p>
 
   <label class="search-label" for="town2-search">Search places</label>
   <input
@@ -75,43 +63,44 @@
     type="search"
     bind:value={searchText}
     class="search-input"
-    placeholder="e.g. park chesh"
+    placeholder="e.g. seat corn"
     spellcheck="false"
     autocomplete="off"
     enterkeyhint="search"
   />
 
-  <section class="feedback">
-    {#if queryPack.kind === "idle"}
-      <p class="feedback-line muted">Start typing.</p>
-    {:else if queryPack.totalMatchingRows === 0}
-      <p class="feedback-line muted">No matches — try other pieces or fewer.</p>
-    {:else}
-      {#if queryPack.totalHitCountCeiling}
-        <p class="feedback-line">
-          {MATCH_COUNT_CEILING - 1}+ matches — add another piece.
-          <span class="muted"> First {MAX_VISIBLE_RESULTS} listed.</span>
-        </p>
+  {#if queryPack.kind === "run" && queryPack.totalMatchingRows !== 1}
+    <p
+      class="result-guidance"
+      class:result-guidance--muted={queryPack.totalMatchingRows === 0 ||
+        (queryPack.totalMatchingRows > 1 &&
+          queryPack.totalMatchingRows <= MAX_VISIBLE_RESULTS &&
+          !queryPack.totalHitCountCeiling)}
+    >
+      {#if queryPack.totalMatchingRows === 0}
+        No matches — try other pieces or fewer.
+      {:else if queryPack.totalHitCountCeiling}
+        {MATCH_COUNT_CEILING - 1}+ matches — add another piece.<span class="muted">
+          First {MAX_VISIBLE_RESULTS} listed.</span>
       {:else if queryPack.totalMatchingRows > MAX_VISIBLE_RESULTS}
-        <p class="feedback-line">
-          {queryPack.totalMatchingRows} matches — first {MAX_VISIBLE_RESULTS} shown. Add a piece to
-          narrow.
-        </p>
-      {:else if queryPack.totalMatchingRows > 1}
-        <p class="feedback-line muted">{queryPack.totalMatchingRows} matches — pick one.</p>
+        {queryPack.totalMatchingRows} matches — first {MAX_VISIBLE_RESULTS} shown. Add a piece to narrow.
+      {:else}
+        {queryPack.totalMatchingRows} matches — pick one.
       {/if}
+    </p>
+  {/if}
 
-      <ul class="results">
-        {#each queryPack.resultKeys as townId, i (townId)}
-          <li class="results__item">
-            <button type="button" class="place-button" onclick={() => chooseByKey(townId)}>
-              {queryPack.displayNames[i]}
-            </button>
-          </li>
-        {/each}
-      </ul>
-    {/if}
-  </section>
+  {#if queryPack.kind === "run" && queryPack.totalMatchingRows > 0}
+    <ul class="results">
+      {#each queryPack.resultKeys as townId, i (townId)}
+        <li class="results__item">
+          <button type="button" class="place-button" onclick={() => chooseByKey(townId)}>
+            {queryPack.displayNames[i]}
+          </button>
+        </li>
+      {/each}
+    </ul>
+  {/if}
 </main>
 
 <style>
@@ -121,56 +110,28 @@
     max-width: 34rem;
   }
 
-  .example-lead {
+  .search-prompt {
     margin: 0;
-    font-size: 0.95rem;
-    color: #374151;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.35rem 0.5rem;
-  }
-
-  .example-lead__arrow {
-    color: #9ca3af;
-    user-select: none;
-  }
-
-  .how {
-    margin: 0;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.5rem;
-    padding: 0.35rem 0.6rem;
-    background: #fafafa;
-  }
-
-  .how__summary {
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #4b5563;
-    list-style: none;
-  }
-
-  .how__summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .how__body {
-    margin: 0.5rem 0 0.15rem;
-    font-size: 0.82rem;
+    font-size: 0.92rem;
     line-height: 1.35;
     color: #4b5563;
+  }
+
+  .result-guidance {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .result-guidance--muted {
+    font-weight: 400;
+    color: #6b7280;
   }
 
   .muted {
     color: #6b7280;
     font-weight: 400;
-  }
-
-  .mono {
-    font-family: ui-monospace, monospace;
-    font-size: 0.92em;
   }
 
   .search-label {
@@ -192,18 +153,6 @@
     border: 1px solid #d1d5db;
     border-radius: 0.5rem;
     font: inherit;
-  }
-
-  .feedback {
-    display: grid;
-    gap: 0.4rem;
-  }
-
-  .feedback-line {
-    margin: 0;
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: #111827;
   }
 
   .results {
