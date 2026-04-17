@@ -4,6 +4,7 @@
    * Minute cadence for full regen; second cadence only for the live clock label. Kind: Presentation + orchestration.
    * Does not own proxy fetch (receives extremes from the shell).
    */
+  import { get } from "svelte/store";
   import { onMount, tick } from "svelte";
   import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
   import { nowMs } from "../../application/appClock.js";
@@ -32,6 +33,11 @@
   import { deriveNextTideSemantics } from "../../application/nextTideSemantics";
   import { subscribeSemanticMinuteCadence } from "../../application/semanticMinuteCadence";
   import PrimaryNavLinks from "../components/PrimaryNavLinks.svelte";
+  import { displayOptimisation } from "../displayOptimisation";
+  import {
+    shouldShowHomeLandscapeHint,
+    verticalLetterboxSlackMidMeetPx,
+  } from "../homeLandscapeHint";
 
   type TidePredictionsLoadState = {
     readonly status: "loading" | "ready" | "error";
@@ -110,6 +116,18 @@
   let homeMenuPanelEl = $state<HTMLElement | undefined>(undefined);
   let homeMenuOpen = $state(false);
   let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
+
+  /** Snapshot from {@link displayOptimisation}; sole source for hint device/aspect policy. */
+  let displaySnapshot = $state(get(displayOptimisation));
+  /** Vertical letterbox slack (px) for `xMidYMid meet` fit of the diagram SVG inside the instrument. */
+  let verticalLetterboxSlackPx = $state(0);
+
+  const showLandscapeHint = $derived(
+    diagramSvg !== "" &&
+      shouldShowHomeLandscapeHint(displaySnapshot, verticalLetterboxSlackPx),
+  );
+
+  onMount(() => displayOptimisation.subscribe((v) => (displaySnapshot = v)));
 
   /** Dev-only: optional debug tooling (toggle with query params). */
   let domDumpEnabled = $state(false);
@@ -318,6 +336,41 @@
   });
 
   $effect(() => {
+    const figure = homeInstrumentEl;
+    if (figure == null || diagramSvg === "") {
+      verticalLetterboxSlackPx = 0;
+      return;
+    }
+
+    const measure = (): void => {
+      const el = homeInstrumentEl;
+      if (el == null) return;
+      const svg = el.querySelector("svg") as SVGSVGElement | null;
+      const vb = svg?.viewBox?.baseVal;
+      if (svg == null || vb == null) {
+        verticalLetterboxSlackPx = 0;
+        return;
+      }
+      verticalLetterboxSlackPx = verticalLetterboxSlackMidMeetPx(
+        el.clientWidth,
+        el.clientHeight,
+        vb.width,
+        vb.height,
+      );
+    };
+
+    const ro = new ResizeObserver(() => {
+      queueMicrotask(measure);
+    });
+    ro.observe(figure);
+    queueMicrotask(measure);
+
+    return () => {
+      ro.disconnect();
+    };
+  });
+
+  $effect(() => {
     const host = diagramHostEl;
     const svg = diagramSvg;
     if (host == null || svg === "") return;
@@ -499,6 +552,28 @@
       >
         <!-- Trusted: SVG from diagram-generation scene graph (renderSceneSvg). -->
         {@html diagramSvg}
+        {#if showLandscapeHint}
+          <div
+            class="home-landscape-hint-strip home-landscape-hint-strip--top"
+            style={`--home-landscape-hint-band-px: ${verticalLetterboxSlackPx}px`}
+            role="note"
+          >
+            <p class="home-landscape-hint-strip__text">
+              Today's tide diagram reads clearest when your screen is a little
+              wider.
+            </p>
+          </div>
+          <div
+            class="home-landscape-hint-strip home-landscape-hint-strip--bottom"
+            style={`--home-landscape-hint-band-px: ${verticalLetterboxSlackPx}px`}
+            aria-hidden="true"
+          >
+            <p class="home-landscape-hint-strip__text">
+              Today's tide diagram reads clearest when your screen is a little
+              wider.
+            </p>
+          </div>
+        {/if}
         {#if homeMenuOpen}
           <div
             class="home-menu-panel"
@@ -689,6 +764,39 @@
     width: 100%;
     height: 100%;
     max-height: none;
+  }
+
+  .home-landscape-hint-strip {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 8;
+    height: var(--home-landscape-hint-band-px, 0px);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 0.75rem;
+    pointer-events: none;
+    text-align: center;
+  }
+
+  .home-landscape-hint-strip--top {
+    top: 0;
+  }
+
+  .home-landscape-hint-strip--bottom {
+    bottom: 0;
+  }
+
+  .home-landscape-hint-strip__text {
+    margin: 0;
+    max-width: 36ch;
+    color: rgb(148 163 184 / 0.55);
+    font-size: 0.72rem;
+    line-height: 1.3;
+    font-weight: 500;
+    letter-spacing: 0.02em;
   }
 
   /*

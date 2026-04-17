@@ -115,6 +115,9 @@ o  new data fetch paradigm
 				*  extend dev mode to see error presentation
 fart
 				o  manual prompt when not landscape
+
+				o  Home.svelte is too darn long
+
 				o  tentative explore progressive web app
 					o  context is elevator pitch
 					o  mobile only?
@@ -122,6 +125,7 @@ fart
 					   browser clutter stealing real estate, prevent screen 
 					   dim 
 					o  not meaningful offline
+
 
 
 
