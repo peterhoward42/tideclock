@@ -19,8 +19,6 @@
   /** Stop counting matches here so we can say “more than {MATCH_COUNT_CEILING - 1}”. */
   const MATCH_COUNT_CEILING = 51;
 
-  const title = "Location";
-
   let { setCurrentLocation }: Props = $props();
   let searchText = $state("");
 
@@ -57,65 +55,61 @@
 </script>
 
 <main class="route">
-  <h1>{title}</h1>
-  <p class="helper">
-    Type words separated by spaces. Every word must appear somewhere in the place (order does not
-    matter). Example: <span class="mono">park chesh</span> for Parkgate in Cheshire.
+  <p class="example-lead">
+    <span class="mono">park chesh</span>
+    <span class="example-lead__arrow">→</span>
+    Parkgate, Cheshire
   </p>
 
-  <label class="search-label" for="town2-search">Search</label>
+  <details class="how">
+    <summary class="how__summary">How this works</summary>
+    <p class="how__body">
+      Short <strong>pieces</strong>, spaces between — each must appear somewhere in the name. Order
+      does not matter; they need not be full spellings or prefixes.
+    </p>
+  </details>
+
+  <label class="search-label" for="town2-search">Search places</label>
   <input
     id="town2-search"
     type="search"
     bind:value={searchText}
     class="search-input"
-    placeholder="e.g. neston cheshire"
+    placeholder="e.g. park chesh"
     spellcheck="false"
     autocomplete="off"
-    aria-describedby="town2-search-feedback"
+    enterkeyhint="search"
   />
 
-  <section class="feedback" id="town2-search-feedback" aria-live="polite">
+  <section class="feedback">
     {#if queryPack.kind === "idle"}
-      <p class="muted">Start typing to search the coastal places list.</p>
+      <p class="feedback-line muted">Start typing.</p>
     {:else if queryPack.totalMatchingRows === 0}
-      <p class="muted">No places match that search. Try different words or fewer words.</p>
+      <p class="feedback-line muted">No matches — try other pieces or fewer.</p>
     {:else}
       {#if queryPack.totalHitCountCeiling}
-        <p class="lead">
-          Too many places still match. Add another word (or a more specific fragment) to narrow down.
-        </p>
-        <p class="muted">
-          There are more than {MATCH_COUNT_CEILING - 1} matches; only the first {MAX_VISIBLE_RESULTS}
-          are listed below in list order.
+        <p class="feedback-line">
+          {MATCH_COUNT_CEILING - 1}+ matches — add another piece.
+          <span class="muted"> First {MAX_VISIBLE_RESULTS} listed.</span>
         </p>
       {:else if queryPack.totalMatchingRows > MAX_VISIBLE_RESULTS}
-        <p class="lead">
-          Several places match. Add another word if this list feels too broad.
+        <p class="feedback-line">
+          {queryPack.totalMatchingRows} matches — first {MAX_VISIBLE_RESULTS} shown. Add a piece to
+          narrow.
         </p>
-        <p class="muted">
-          {queryPack.totalMatchingRows} places match; showing the first {MAX_VISIBLE_RESULTS} in list
-          order.
-        </p>
-      {:else if queryPack.totalMatchingRows === 1}
-        <p class="lead">One place matches:</p>
-      {:else}
-        <p class="lead">These places all match — pick the one you mean:</p>
+      {:else if queryPack.totalMatchingRows > 1}
+        <p class="feedback-line muted">{queryPack.totalMatchingRows} matches — pick one.</p>
       {/if}
 
-      {#if queryPack.totalMatchingRows > 0}
-        <ul class="results">
-          {#each queryPack.resultKeys as townId, i (townId)}
-            <li>
-              <p class="result-row">
-                <button type="button" class="place-button" onclick={() => chooseByKey(townId)}>
-                  {queryPack.displayNames[i]}
-                </button>
-              </p>
-            </li>
-          {/each}
-        </ul>
-      {/if}
+      <ul class="results">
+        {#each queryPack.resultKeys as townId, i (townId)}
+          <li class="results__item">
+            <button type="button" class="place-button" onclick={() => chooseByKey(townId)}>
+              {queryPack.displayNames[i]}
+            </button>
+          </li>
+        {/each}
+      </ul>
     {/if}
   </section>
 </main>
@@ -123,14 +117,55 @@
 <style>
   .route {
     display: grid;
-    gap: 0.75rem;
+    gap: 0.6rem;
     max-width: 34rem;
   }
 
-  .helper,
-  .muted {
-    color: #4b5563;
+  .example-lead {
     margin: 0;
+    font-size: 0.95rem;
+    color: #374151;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.5rem;
+  }
+
+  .example-lead__arrow {
+    color: #9ca3af;
+    user-select: none;
+  }
+
+  .how {
+    margin: 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 0.35rem 0.6rem;
+    background: #fafafa;
+  }
+
+  .how__summary {
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4b5563;
+    list-style: none;
+  }
+
+  .how__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .how__body {
+    margin: 0.5rem 0 0.15rem;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    color: #4b5563;
+  }
+
+  .muted {
+    color: #6b7280;
+    font-weight: 400;
   }
 
   .mono {
@@ -138,14 +173,16 @@
     font-size: 0.92em;
   }
 
-  .lead {
-    margin: 0;
-    font-weight: 600;
-    color: #111827;
-  }
-
   .search-label {
-    font-weight: 600;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .search-input {
@@ -158,24 +195,28 @@
   }
 
   .feedback {
-    min-height: 6rem;
     display: grid;
-    gap: 0.45rem;
+    gap: 0.4rem;
+  }
+
+  .feedback-line {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #111827;
   }
 
   .results {
     list-style: none;
-    margin: 0.3rem 0 0;
+    margin: 0.15rem 0 0;
     padding: 0;
     display: grid;
-    gap: 0.45rem;
-  }
-
-  .result-row {
-    margin: 0;
+    gap: 0.35rem;
   }
 
   .place-button {
+    display: block;
+    width: 100%;
     border: none;
     background: none;
     padding: 0;

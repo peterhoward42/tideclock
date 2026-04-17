@@ -111,9 +111,7 @@ o  new data fetch paradigm
 				*  idea for logic triggers for developer visual tests
 fart
 				*  big code cleanse thus far - deserves a skill
-
-
-				o  sort out if necessary atypical needs for extrema ordering
+				*  sort out if necessary atypical needs for extrema ordering
 
 
 				o  location ui verbosity and mobile fit
