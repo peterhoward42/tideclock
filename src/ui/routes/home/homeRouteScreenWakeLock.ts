@@ -27,6 +27,7 @@ export function mountHomeRouteScreenWakeLock(): () => void {
     sentinel = undefined;
     try {
       await held.release();
+      debugLog("WakeLock.release() completed");
     } catch (err) {
       debugLog("release threw", err);
     }
@@ -51,8 +52,10 @@ export function mountHomeRouteScreenWakeLock(): () => void {
     try {
       const acquired = await wakeLock.request("screen");
       if (disposed) {
+        debugLog("WakeLock.request('screen') resolved after teardown; releasing stray sentinel");
         try {
           await acquired.release();
+          debugLog("WakeLock.release() completed (stray sentinel after teardown)");
         } catch (err) {
           debugLog("release after dispose threw", err);
         }
@@ -60,9 +63,10 @@ export function mountHomeRouteScreenWakeLock(): () => void {
       }
 
       sentinel = acquired;
+      debugLog("WakeLock.request('screen') resolved; hold active");
       acquired.addEventListener("release", () => {
         if (sentinel === acquired) sentinel = undefined;
-        debugLog("sentinel released");
+        debugLog("sentinel released (platform or navigation)");
         if (!disposed && document.visibilityState === "visible") {
           queueMicrotask(() => scheduleAcquire());
         }
@@ -74,9 +78,11 @@ export function mountHomeRouteScreenWakeLock(): () => void {
 
   const onVisibilityChange = (): void => {
     if (document.visibilityState === "hidden") {
+      debugLog("document hidden; calling WakeLock.release()");
       void releaseNow();
       return;
     }
+    debugLog("document visible; scheduling WakeLock.request('screen')");
     scheduleAcquire();
   };
 
@@ -86,6 +92,7 @@ export function mountHomeRouteScreenWakeLock(): () => void {
   return () => {
     disposed = true;
     document.removeEventListener("visibilitychange", onVisibilityChange);
+    debugLog("home route unmount; calling WakeLock.release()");
     void releaseNow();
   };
 }
