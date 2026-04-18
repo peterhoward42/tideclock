@@ -43,6 +43,7 @@ Exact line counts are not the goal; **narrative density** is. A shorter file tha
 
 ## Repo anchor
 
-- **Primary implementation today:** `src/ui/routes/Home.svelte`
+- **Router entry (stable import path):** `src/ui/routes/Home.svelte` — thin shell; forwards props into `src/ui/routes/home/HomeRoute.svelte`.
+- **Orchestration and template:** `src/ui/routes/home/HomeRoute.svelte` — runes, effects, and composition of `HomeRoute*` children.
 
-When this file shrinks or gains siblings, update this section if the **entry point** for the home route changes (for example a thin `Home.svelte` that only re-exports or composes a `HomeRoute` module).
+When the **entry point** for the home route changes (for example if `App.svelte` imports a different file), update this section.

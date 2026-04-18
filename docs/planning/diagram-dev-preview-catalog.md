@@ -87,8 +87,8 @@ toggle surfaced only in DEV, plus a visible hint that the view is frozen
 
 ## References in repo
 
-- Home orchestration: `src/ui/routes/Home.svelte` (spec build, minute cadence,
-  `Date.now()` today for regen).
+- Home orchestration: `src/ui/routes/home/HomeRoute.svelte` (spec build, minute cadence,
+  `Date.now()` today for regen); router entry `src/ui/routes/Home.svelte`.
 - Spec mapping: `src/application/buildDiagramGenerationSpec.ts`,
   `src/application/nextTideSemantics.ts`.
 - Tide load seams (optional later if previews need civil-day alignment):
