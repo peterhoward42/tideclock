@@ -39,9 +39,12 @@
   import HomeRouteDomDebugPanel from "./home/HomeRouteDomDebugPanel.svelte";
   import HomeRouteTidePanels from "./home/HomeRouteTidePanels.svelte";
   import {
-    shouldShowHomeLandscapeHint,
-    verticalLetterboxSlackMidMeetPx,
-  } from "../homeLandscapeHint";
+    patchTimeNowReadoutInDiagramHost,
+    scheduleDiagramHostSvgDevPresentation,
+  } from "./home/homeRouteDiagramDom";
+  import { mountInstrumentVerticalLetterboxSlackObserver } from "./home/homeRouteInstrumentLetterboxObserver";
+  import { mountHomeMenuSvgTriggerWire } from "./home/homeRouteMenuSvgTriggerWire";
+  import { shouldShowHomeLandscapeHint } from "../homeLandscapeHint";
   import {
     effectiveSearchStringFromLocationParts,
     homeRouteDevDebugFlagsFromSearch,
@@ -216,26 +219,9 @@
 
     // The diagram SVG should scale via CSS (`width/height: 100%`) + preserveAspectRatio.
     // Keep only tiny debug affordances here (outline, summary refresh).
-    queueMicrotask(() => {
-      requestAnimationFrame(() => {
-        const host = diagramHostEl;
-        if (host == null) return;
-        const svg = host.querySelector("svg") as SVGSVGElement | null;
-        if (svg == null) return;
-
-        svg.style.transformOrigin = "50% 50%";
-        svg.style.transform = "scale(1)";
-
-        if (outlineEnabled) {
-          svg.style.outline = "2px solid rgba(255,0,0,0.6)";
-          svg.style.background = "rgba(255,0,0,0.06)";
-        } else {
-          svg.style.outline = "";
-          svg.style.background = "";
-        }
-
-        refreshDomSummary();
-      });
+    scheduleDiagramHostSvgDevPresentation(diagramHostEl, {
+      outlineEnabled,
+      onAfterPaint: refreshDomSummary,
     });
   });
 
@@ -246,32 +232,9 @@
       return;
     }
 
-    const measure = (): void => {
-      const el = homeInstrumentEl;
-      if (el == null) return;
-      const svg = el.querySelector("svg") as SVGSVGElement | null;
-      const vb = svg?.viewBox?.baseVal;
-      if (svg == null || vb == null) {
-        verticalLetterboxSlackPx = 0;
-        return;
-      }
-      verticalLetterboxSlackPx = verticalLetterboxSlackMidMeetPx(
-        el.clientWidth,
-        el.clientHeight,
-        vb.width,
-        vb.height,
-      );
-    };
-
-    const ro = new ResizeObserver(() => {
-      queueMicrotask(measure);
+    return mountInstrumentVerticalLetterboxSlackObserver(figure, (px) => {
+      verticalLetterboxSlackPx = px;
     });
-    ro.observe(figure);
-    queueMicrotask(measure);
-
-    return () => {
-      ro.disconnect();
-    };
   });
 
   $effect(() => {
@@ -286,12 +249,13 @@
 
     let cancelled = false;
     const unsub = nowMs.subscribe((ms) => {
-      if (!cancelled) patchTimeNowReadout(host, frozenClockMs ?? ms);
+      if (!cancelled)
+        patchTimeNowReadoutInDiagramHost(host, frozenClockMs ?? ms);
     });
 
     void tick().then(() => {
       if (!cancelled)
-        patchTimeNowReadout(host, frozenClockMs ?? Date.now());
+        patchTimeNowReadoutInDiagramHost(host, frozenClockMs ?? Date.now());
     });
 
     return () => {
@@ -306,83 +270,21 @@
       return;
     }
 
-    let cancelled = false;
-    let rafId = 0;
-    let wiredTrigger: SVGGElement | null = null;
-
-    const detach = (): void => {
-      if (wiredTrigger == null) return;
-      const trigger = wiredTrigger;
-      trigger.classList.remove("home-menu-trigger--hover");
-      trigger.style.cursor = "";
-      trigger.removeEventListener("pointerenter", onEnter);
-      trigger.removeEventListener("pointerleave", onLeave);
-      trigger.removeEventListener("click", onClick);
-      window.removeEventListener("resize", onResize);
-      document.removeEventListener("pointerdown", onPointerDown);
-      wiredTrigger = null;
-    };
-
-    const onEnter = (): void => {
-      wiredTrigger?.classList.add("home-menu-trigger--hover");
-    };
-    const onLeave = (): void => {
-      wiredTrigger?.classList.remove("home-menu-trigger--hover");
-    };
-    const onClick = (event: Event): void => {
-      event.preventDefault();
-      event.stopPropagation();
-      updateHomeMenuPanelAnchorFromSvgTrigger();
-      homeMenuOpen = !homeMenuOpen;
-    };
-    const onResize = (): void => {
-      if (!homeMenuOpen) return;
-      updateHomeMenuPanelAnchorFromSvgTrigger();
-    };
-    const onPointerDown = (event: Event): void => {
-      if (!homeMenuOpen) return;
-      const target = event.target;
-      if (!(target instanceof Node)) return;
-      if (homeMenuPanelEl?.contains(target)) return;
-      const trigger = wiredTrigger;
-      if (trigger !== null && trigger.contains(target)) return;
-      closeHomeMenu();
-    };
-
-    const MAX_ATTACH_FRAMES = 45;
-    let frames = 0;
-
-    const tryWireTrigger = (): void => {
-      if (cancelled) return;
-      const trigger = homeMenuTriggerGroup();
-      if (trigger == null) {
-        frames += 1;
-        if (frames < MAX_ATTACH_FRAMES) {
-          rafId = requestAnimationFrame(tryWireTrigger);
-        }
-        return;
-      }
-      detach();
-      wiredTrigger = trigger;
-      trigger.style.cursor = "pointer";
-      trigger.addEventListener("pointerenter", onEnter);
-      trigger.addEventListener("pointerleave", onLeave);
-      trigger.addEventListener("click", onClick);
-      window.addEventListener("resize", onResize);
-      document.addEventListener("pointerdown", onPointerDown);
-    };
-
-    void tick().then(() => {
-      if (cancelled) return;
-      frames = 0;
-      rafId = requestAnimationFrame(tryWireTrigger);
+    return mountHomeMenuSvgTriggerWire({
+      getDiagramHost: () => diagramHostEl,
+      getInstrumentFigure: () => homeInstrumentEl,
+      getMenuPanel: () => homeMenuPanelEl,
+      isMenuOpen: () => homeMenuOpen,
+      setMenuOpen: (open) => {
+        homeMenuOpen = open;
+      },
+      setMenuPanelStyle: (cssText) => {
+        homeMenuPanelStyle = cssText;
+      },
+      scheduleAfterDomReady: (fn) => {
+        void tick().then(fn);
+      },
     });
-
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(rafId);
-      detach();
-    };
   });
 
   // Event handlers & imperative helpers (onMount, $effect, template)
@@ -454,47 +356,8 @@
     );
   }
 
-  function homeMenuTriggerGroup(): SVGGElement | null {
-    const host = diagramHostEl;
-    if (host == null) return null;
-    return host.querySelector('svg g[data-name="HomeMenuTrigger"]');
-  }
-
-  function updateHomeMenuPanelAnchorFromSvgTrigger(): void {
-    const figure = homeInstrumentEl;
-    const trigger = homeMenuTriggerGroup();
-    if (figure == null || trigger == null) return;
-    const figureRect = figure.getBoundingClientRect();
-    const triggerRect = trigger.getBoundingClientRect();
-    const left = Math.max(0, triggerRect.left - figureRect.left);
-    const bottom = Math.max(0, figureRect.bottom - triggerRect.top + 8);
-    homeMenuPanelStyle = `left: ${left}px; bottom: ${bottom}px;`;
-  }
-
   function closeHomeMenu(): void {
     homeMenuOpen = false;
-  }
-
-  /** Patch live clock text inside injected SVG; host must contain the current diagram. */
-  function patchTimeNowReadout(host: HTMLElement, ms: number): void {
-    const canonical = localCanonicalTimeNowFromMs(ms);
-    const datePrefix = localTimeNowDatePrefixFromMs(ms);
-    const dateEl = host.querySelector(
-      'svg g[data-name="TimeNowDate"] text',
-    ) as SVGTextElement | null;
-    const hhmmEl = host.querySelector(
-      'svg g[data-name="TimeNowLabelHms"] text',
-    ) as SVGTextElement | null;
-    const colonEl = host.querySelector(
-      'svg g[data-name="TimeNowLabelSecondsColon"] text',
-    ) as SVGTextElement | null;
-    const secEl = host.querySelector(
-      'svg g[data-name="TimeNowLabelSeconds"] text',
-    ) as SVGTextElement | null;
-    if (dateEl !== null) dateEl.textContent = datePrefix;
-    if (hhmmEl !== null) hhmmEl.textContent = canonical.slice(0, 5);
-    if (colonEl !== null) colonEl.textContent = canonical.slice(5, 6);
-    if (secEl !== null) secEl.textContent = canonical.slice(6);
   }
 </script>
 
