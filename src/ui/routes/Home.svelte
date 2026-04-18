@@ -34,8 +34,10 @@
   } from "../../application/diagramGenerationCollaborator";
   import { deriveNextTideSemantics } from "../../application/nextTideSemantics";
   import { subscribeSemanticMinuteCadence } from "../../application/semanticMinuteCadence";
-  import PrimaryNavLinks from "../components/PrimaryNavLinks.svelte";
   import { displayOptimisation } from "../displayOptimisation";
+  import HomeRouteDevPreviewBanners from "./home/HomeRouteDevPreviewBanners.svelte";
+  import HomeRouteDomDebugPanel from "./home/HomeRouteDomDebugPanel.svelte";
+  import HomeRouteTidePanels from "./home/HomeRouteTidePanels.svelte";
   import {
     shouldShowHomeLandscapeHint,
     verticalLetterboxSlackMidMeetPx,
@@ -497,101 +499,30 @@
 </script>
 
 <main class="home-route">
-  {#if import.meta.env.DEV && diagramPreviewBannerLine !== null}
-    <div class="home-diagram-preview-banner" role="status">
-      {diagramPreviewBannerLine}
-    </div>
-  {/if}
-  {#if import.meta.env.DEV && tideUxDevPreviewBannerLine !== null}
-    <div class="home-tide-ux-preview-banner" role="status">
-      {tideUxDevPreviewBannerLine}
-    </div>
-  {/if}
+  <HomeRouteDevPreviewBanners
+    diagramPreviewBannerLine={diagramPreviewBannerLine}
+    tideUxDevPreviewBannerLine={tideUxDevPreviewBannerLine}
+  />
   {#if domDumpEnabled}
-    <div class="home-debug">
-      <button type="button" class="home-debug__btn" onclick={refreshDomSummary}
-        >Refresh DOM summary</button
-      >
-      <details open>
-        <summary>Home route DOM (summary)</summary>
-        <pre class="home-debug__pre">{domSummary}</pre>
-      </details>
-    </div>
+    <HomeRouteDomDebugPanel
+      domSummary={domSummary}
+      onRefreshDomSummary={refreshDomSummary}
+    />
   {/if}
-  {#if tideLoadState.status === "loading"}
-    <div class="home-panel" aria-live="polite">
-      <p class="muted" role="status">Loading tides…</p>
-    </div>
-  {:else if tideLoadState.status === "error"}
-    <div class="home-panel" aria-live="polite">
-      <p class="muted" role="alert">
-        Tides could not be loaded. Check the connection and try again.
-      </p>
-    </div>
-  {:else if tideExtremes === undefined}
-    <div class="home-panel home-panel--corner-nav-host">
-      <section
-        class="home-empty-state"
-        aria-labelledby="home-empty-state-title"
-      >
-        <p class="home-empty-state__eyebrow">First use</p>
-        <h1 id="home-empty-state-title" class="home-empty-state__title">
-          Choose your location
-        </h1>
-        <p class="home-empty-state__body">
-          Set a coastal location to see today&apos;s tide clock. You can change
-          it later from the menu.
-        </p>
-        <a class="home-empty-state__action" href="#/location2"
-          >Choose location</a
-        >
-      </section>
-    </div>
-  {:else if tideExtremes.extremes.length === 0}
-    <div class="home-panel" aria-live="polite">
-      <p class="muted" role="status">No tide extremes for this day.</p>
-    </div>
-  {:else if diagramError !== undefined}
-    <div class="home-panel" aria-live="polite">
-      <p class="muted" role="alert">
-        Diagram could not be rendered: {diagramError}
-      </p>
-    </div>
-  {:else if diagramSvg !== ""}
-    <div class="home-panel" bind:this={diagramHostEl}>
-      <figure
-        class="home-instrument"
-        bind:this={homeInstrumentEl}
-        aria-label="Tide diagram for the current civil day"
-      >
-        <!-- Trusted: SVG from diagram-generation scene graph (renderSceneSvg). -->
-        {@html diagramSvg}
-        {#if showLandscapeHint}
-          <div
-            class="home-landscape-hint-strip home-landscape-hint-strip--top"
-            style={`--home-landscape-hint-band-px: ${verticalLetterboxSlackPx}px`}
-            role="note"
-          >
-            <p class="home-landscape-hint-strip__text">
-              The diagram will be bigger if you turn your phone
-            </p>
-          </div>
-        {/if}
-        {#if homeMenuOpen}
-          <div
-            class="home-menu-panel"
-            bind:this={homeMenuPanelEl}
-            style={homeMenuPanelStyle}
-          >
-            <PrimaryNavLinks
-              className="home-menu-panel__links"
-              onNavigate={closeHomeMenu}
-            />
-          </div>
-        {/if}
-      </figure>
-    </div>
-  {/if}
+  <HomeRouteTidePanels
+    bind:diagramHostEl
+    bind:homeInstrumentEl
+    bind:homeMenuPanelEl
+    {tideLoadState}
+    {tideExtremes}
+    {diagramError}
+    {diagramSvg}
+    {showLandscapeHint}
+    {verticalLetterboxSlackPx}
+    {homeMenuOpen}
+    {homeMenuPanelStyle}
+    onCloseHomeMenu={closeHomeMenu}
+  />
 </main>
 
 <style>
@@ -609,292 +540,4 @@
     flex-direction: column;
   }
 
-  .home-diagram-preview-banner {
-    flex: 0 0 auto;
-    padding: 0.35rem 0.75rem;
-    background: #422006;
-    color: #fef3c7;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-bottom: 1px solid rgb(251 191 36 / 0.35);
-  }
-
-  .home-tide-ux-preview-banner {
-    flex: 0 0 auto;
-    padding: 0.35rem 0.75rem;
-    background: #172554;
-    color: #dbeafe;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-bottom: 1px solid rgb(96 165 250 / 0.35);
-  }
-
-  .home-panel {
-    flex: 1;
-    min-height: 0;
-    width: 100%;
-    background: #000;
-    display: flex;
-    align-items: stretch;
-    justify-content: stretch;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  .home-panel--corner-nav-host {
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .home-empty-state {
-    width: min(28rem, calc(100% - 2rem));
-    display: grid;
-    gap: 0.9rem;
-    justify-items: start;
-    padding: 1.5rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.875rem;
-    background: #fff;
-    box-shadow: 0 18px 40px rgb(0 0 0 / 0.16);
-  }
-
-  .home-empty-state__eyebrow {
-    margin: 0;
-    color: #1d4ed8;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .home-empty-state__title {
-    margin: 0;
-    color: #111827;
-    font-size: clamp(1.8rem, 4vw, 2.4rem);
-    line-height: 1.05;
-  }
-
-  .home-empty-state__body {
-    margin: 0;
-    max-width: 28ch;
-    line-height: 1.5;
-    color: #374151;
-  }
-
-  .home-empty-state__action {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 2.75rem;
-    padding: 0.7rem 1rem;
-    border-radius: 999px;
-    background: #dbeafe;
-    color: #1d4ed8;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
-  }
-
-  .home-empty-state__action:hover {
-    background: #bfdbfe;
-    color: #1e40af;
-  }
-
-  .home-empty-state__action:focus-visible {
-    outline: 2px solid #1d4ed8;
-    outline-offset: 3px;
-  }
-
-  .home-instrument {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    flex: 1;
-    min-height: 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  /*
-   * Make the whole menu control’s bounds hit-testable (not only painted glyph edges).
-   * Avoids flaky pointerenter/hover when the pointer crosses “empty” parts of the group.
-   */
-  .home-instrument :global(svg g[data-name="HomeMenuTrigger"]) {
-    pointer-events: all;
-  }
-
-  .home-instrument :global(svg g[data-name="HomeMenuTrigger"] > rect) {
-    transition:
-      fill 120ms ease-out,
-      stroke 120ms ease-out;
-  }
-
-  .home-instrument
-    :global(
-      svg
-        g[data-name="HomeMenuTrigger"]
-        g[data-name="HomeMenuTriggerLabel"]
-        text
-    ) {
-    transition: fill 120ms ease-out;
-  }
-
-  .home-instrument
-    :global(
-      svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover > rect
-    ) {
-    fill: #191919;
-    stroke: #aaa;
-  }
-
-  .home-instrument
-    :global(
-      svg
-        g[data-name="HomeMenuTrigger"].home-menu-trigger--hover
-        g[data-name="HomeMenuTriggerLabel"]
-        text
-    ) {
-    fill: #ffffff;
-  }
-
-  .home-instrument :global(svg) {
-    display: block;
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    max-height: none;
-  }
-
-  .home-landscape-hint-strip {
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 8;
-    height: var(--home-landscape-hint-band-px, 0px);
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-inline: 0.75rem;
-    pointer-events: none;
-    text-align: center;
-  }
-
-  .home-landscape-hint-strip--top {
-    top: 0;
-  }
-
-  .home-landscape-hint-strip__text {
-    margin: 0;
-    max-width: 36ch;
-    color: rgb(148 163 184 / 0.55);
-    font-size: 0.72rem;
-    line-height: 1.3;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-  }
-
-  /*
-   * Hard-coded pulse for TimeNowLabelSecondsColon only (not in style model).
-   * ~600ms cycle: dip and return reads as a subtle “heartbeat” on the : before SS.
-   */
-  @keyframes home-time-now-colon-heartbeat {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.22;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .home-instrument :global(svg g[data-name="TimeNowLabelSecondsColon"] text) {
-      animation: home-time-now-colon-heartbeat 600ms ease-in-out infinite;
-    }
-  }
-
-  /*
-   * Time-now pointer wedge (rendered as path.home-now-triangle-pulse): 50%→100% opacity in 600ms, full cycle 1s.
-   */
-  @keyframes home-now-triangle-pulse {
-    0%,
-    100% {
-      opacity: 0.45;
-    }
-    60% {
-      opacity: 1;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .home-instrument :global(svg path.home-now-triangle-pulse) {
-      animation: home-now-triangle-pulse 1s linear infinite;
-    }
-  }
-
-  .home-panel .muted {
-    color: #dbeafe;
-  }
-
-  .home-menu-panel {
-    position: absolute;
-    transform: translate(-4px, 0);
-    z-index: 30;
-    min-width: 12rem;
-    padding: 0.5rem;
-    background: rgb(2 6 23 / 0.92);
-    border: 1px solid rgb(148 163 184 / 0.2);
-    border-radius: 0.375rem;
-    box-shadow: 0 10px 30px rgb(0 0 0 / 0.45);
-  }
-
-  .home-menu-panel :global(.home-menu-panel__links) {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .home-menu-panel :global(.home-menu-panel__links a) {
-    color: rgb(241 245 249 / 0.92);
-    text-decoration: none;
-    padding: 0.35rem 0.5rem;
-    border-radius: 0.25rem;
-  }
-
-  .home-menu-panel :global(.home-menu-panel__links a:hover) {
-    background: rgb(148 163 184 / 0.12);
-  }
-
-  .home-debug {
-    padding: 0.5rem 0.75rem;
-    background: #0b1020;
-    color: #e5e7eb;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      "Liberation Mono", "Courier New", monospace;
-    font-size: 12px;
-  }
-
-  .home-debug__btn {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: inherit;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.375rem;
-    cursor: pointer;
-    margin-bottom: 0.5rem;
-  }
-
-  .home-debug__pre {
-    white-space: pre-wrap;
-    word-break: break-word;
-    max-height: 35vh;
-    overflow: auto;
-    margin: 0.5rem 0 0;
-  }
 </style>
