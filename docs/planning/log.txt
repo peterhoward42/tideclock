@@ -114,28 +114,18 @@ o  new data fetch paradigm
 				*  location ui verbosity and mobile fit
 				*  extend dev mode to see error presentation
 				*  manual prompt when not landscape
+				*  Home.svelte is too darn long
 fart
 
-				o  Home.svelte is too darn long
 
 				o  tentative explore progressive web app
 					o  context is elevator pitch
-					o  mobile only?
-					o  only really want always on, encourage landscape, min
-					   browser clutter stealing real estate, prevent screen 
-					   dim 
-					o  not meaningful offline
+					o  see PWA planning doc
 
 
 
 
-
-
-					o  kiosk mode and the following
-						o  see chatgpt kiosk mode overview
-							o  entry point PWA
-					o  encourage landscape
-					o  encourage hide browser bar
+				o  encourage hide browser bar
 
 				o  proxy cost risk containment
 					o  how to use real estate better - partic on phone
