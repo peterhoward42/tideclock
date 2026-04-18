@@ -49,6 +49,7 @@
     effectiveSearchStringFromLocationParts,
     homeRouteDevDebugFlagsFromSearch,
   } from "../../homeRouteUrlQuery";
+  import { mountHomeRouteScreenWakeLock } from "./homeRouteScreenWakeLock";
 
   let {
     tideLoadState,
@@ -149,6 +150,8 @@
   );
 
   onMount(() => displayOptimisation.subscribe((v) => (displaySnapshot = v)));
+
+  onMount(() => mountHomeRouteScreenWakeLock());
 
   // Reactive effects ($effect) — diagram regen, SVG glue, measurement, clock patch, menu wiring
   $effect(() => {

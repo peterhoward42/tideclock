@@ -123,6 +123,8 @@ fart
 					*  finalise the decision implementation doc
 					o  plan the implementation sequence
 
+				o  concurrency (two tabs) - arghhh ! panic !
+
 
 
 
