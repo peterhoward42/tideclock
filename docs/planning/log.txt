@@ -119,8 +119,15 @@ fart
 
 
 				o  tentative explore progressive web app
-					o  context is elevator pitch
-					o  see PWA planning doc
+					*  start the implementation decision loop
+					o  respond to clarifications and give pushback, noting 
+					   maybe do orthogonal stuff first
+						o  kiosk - most users wont invest in dedicated hw and
+						   discovery inev mobile or existing device - so must not
+						   compromise those entry point UX
+						o  must not create friction story
+
+					o  ask for step by step plan
 
 
 

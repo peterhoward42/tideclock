@@ -35,6 +35,8 @@ This satisfies “cache other things for faster load” without entangling the s
 
 Manifest + installability can still be valuable without a service worker on some platforms; startup wins would then come mostly from HTTP caching headers on static assets at the host. That is a valid incremental step if we want to defer SW complexity entirely until needed.
 
+<todo - why might we want to start without a service worker?>
+
 ---
 
 ## Landscape orientation
@@ -49,6 +51,8 @@ PWA-specific work should **add** optional tightening on top, not replace that fo
 2. **Screen Orientation API (`screen.orientation.lock`)**: attempt only when it is likely to succeed and is not user-hostile—typically when the app is already in an installed / standalone display mode and ideally after a user gesture if the platform requires it. Always catch failures and fall back silently to the existing UX. Do not depend on lock for correctness.
 3. **Fullscreen**: the rationale explicitly deprioritises full kiosk mode. Avoid pushing fullscreen purely to unlock orientation lock unless we later decide the trade-off is acceptable.
 
+<todo> I think we should push for fullscreen mode on tablet and mobile but not desktop. Because the illusion of being an "instrument" is better. What we are trying to avoid is the full kiosk pattern for a real, dedicated "appliance".
+
 Net: **manifest hint + best-effort lock in installed contexts**, with the current portrait messaging as the universal safety net.
 
 ---
@@ -62,6 +66,7 @@ Installation, `display: standalone`, and related manifest fields improve chrome 
 ### Recommended choices
 
 1. **Wake lock as the primary technical lever**: acquire `navigator.wakeLock.request('screen')` when the app is in active use for the home / instrument view, and **re-acquire** when the document becomes visible again (wake locks can be dropped by the browser on visibility change, tab backgrounding, or battery policy).
+<todo> would putting in the wakeLock request behaviour before we gun for this PWA be a good move?
 2. **Transparent degradation**: if the API is missing, permission-denied, or the lock is released, continue working with no hard dependency—matching the rationale’s progressive enhancement stance.
 3. **Optional subtle UI** (as the rationale already suggests): a small indicator when wake lock is active helps debugging and sets expectations without implying a guarantee.
 4. **Copy and expectations**: light-touch guidance for “wall tablet” setups can mention OS display sleep settings and power supply. That is honest where web APIs cannot promise behaviour.
@@ -87,5 +92,6 @@ Hacky patterns (hidden video loops, etc.) are brittle, often throttled, and conf
 ## Open follow-ups for later sessions
 
 - Confirm target browsers and devices (especially iOS Safari vs Chrome on Android) for wake lock and orientation hints, and document known limitations.
+<todo> this is a bit chicken and egg because I don't know what choosing a set of target browser is committing me to. I do know it should work on windows and mac deskopts and laptops, android and ios phones. The browsers I care about are Chrome, Safari, Edge and little else. (but push back here to educate me). And it need not be slavish or go to great lengths to deal with any but recent versions of those browsers.
 - Decide whether v1 ships **manifest-only** or **manifest + minimal service worker**, based on how much installability each platform requires for the “appliance” story.
-- If a service worker is added, pick the concrete tooling (e.g. Workbox injectManifest vs a maintained Vite PWA plugin) and align it with CI’s build output paths.
+- If a service worker is added, pick the concrete tooling (e.g. Workbox injectManifest vs a maintained Vite PWA plugin) and align it with CI’s build output paths. <todo> please educate me on the implications of that choice.
