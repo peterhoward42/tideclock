@@ -116,18 +116,13 @@ o  new data fetch paradigm
 				*  manual prompt when not landscape
 				*  Home.svelte is too darn long
 fart
+				o  tackle wake lock independently next
 
-
-				o  tentative explore progressive web app
+				o  resume PWA story...
 					*  start the implementation decision loop
-					o  respond to clarifications and give pushback, noting 
-					   maybe do orthogonal stuff first
-						o  kiosk - most users wont invest in dedicated hw and
-						   discovery inev mobile or existing device - so must not
-						   compromise those entry point UX
-						o  must not create friction story
+					*  finalise the decision implementation doc
+					o  plan the implementation sequence
 
-					o  ask for step by step plan
 
 
 
