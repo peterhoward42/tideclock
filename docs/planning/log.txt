@@ -115,12 +115,13 @@ o  new data fetch paradigm
 				*  extend dev mode to see error presentation
 				*  manual prompt when not landscape
 				*  Home.svelte is too darn long
+				*  tackle wake lock independently next
 fart
-				o  tackle wake lock independently next
 
 				o  resume PWA story...
 					*  start the implementation decision loop
 					*  finalise the decision implementation doc
+					o  mark screen lock as done
 					o  plan the implementation sequence
 
 				o  concurrency (two tabs) - arghhh ! panic !
