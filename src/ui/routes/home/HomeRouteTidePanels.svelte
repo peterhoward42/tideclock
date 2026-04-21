@@ -19,7 +19,9 @@
     readonly verticalLetterboxSlackPx: number;
     readonly homeMenuOpen: boolean;
     readonly homeMenuPanelStyle: string;
+    readonly homeFullscreenActive: boolean;
     readonly onCloseHomeMenu: () => void;
+    readonly onToggleHomeFullscreen: () => void | Promise<void>;
     diagramHostEl?: HTMLElement | undefined;
     homeInstrumentEl?: HTMLElement | undefined;
     homeMenuPanelEl?: HTMLElement | undefined;
@@ -34,7 +36,9 @@
     verticalLetterboxSlackPx,
     homeMenuOpen,
     homeMenuPanelStyle,
+    homeFullscreenActive,
     onCloseHomeMenu,
+    onToggleHomeFullscreen,
     diagramHostEl = $bindable(),
     homeInstrumentEl = $bindable(),
     homeMenuPanelEl = $bindable(),
@@ -108,6 +112,13 @@
             className="home-menu-panel__links"
             onNavigate={onCloseHomeMenu}
           />
+          <button
+            type="button"
+            class="home-menu-panel__action"
+            onclick={onToggleHomeFullscreen}
+          >
+            {homeFullscreenActive ? "Exit fullscreen" : "Enter fullscreen"}
+          </button>
         </div>
       {/if}
     </figure>
@@ -354,5 +365,22 @@
 
   .home-menu-panel :global(.home-menu-panel__links a:hover) {
     background: rgb(148 163 184 / 0.12);
+  }
+
+  .home-menu-panel__action {
+    margin-top: 0.35rem;
+    width: 100%;
+    border: 0;
+    border-radius: 0.25rem;
+    background: rgb(148 163 184 / 0.12);
+    color: rgb(241 245 249 / 0.92);
+    text-align: left;
+    padding: 0.45rem 0.5rem;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .home-menu-panel__action:hover {
+    background: rgb(148 163 184 / 0.2);
   }
 </style>

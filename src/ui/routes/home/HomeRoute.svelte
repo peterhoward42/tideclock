@@ -51,6 +51,7 @@
   } from "../../homeRouteUrlQuery";
   import { mountHomeRouteOrientationLock } from "./homeRouteOrientationLock";
   import { mountHomeRouteScreenWakeLock } from "./homeRouteScreenWakeLock";
+  import { toggleInstrumentFullscreen } from "./homeRouteFullscreen";
 
   let {
     tideLoadState,
@@ -79,6 +80,7 @@
   let homeMenuPanelEl = $state<HTMLElement | undefined>(undefined);
   let homeMenuOpen = $state(false);
   let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
+  let homeFullscreenActive = $state(false);
 
   /** Snapshot from {@link displayOptimisation}; sole source for hint device/aspect policy. */
   let displaySnapshot = $state(get(displayOptimisation));
@@ -159,6 +161,28 @@
     const routeRoot = homeRouteEl;
     if (routeRoot == null) return;
     return mountHomeRouteOrientationLock(routeRoot);
+  });
+
+  onMount(() => {
+    if (typeof document === "undefined") return;
+    const runtimeDocument = document as Document & {
+      webkitFullscreenElement?: Element | null;
+    };
+    const syncFullscreenState = (): void => {
+      homeFullscreenActive =
+        runtimeDocument.fullscreenElement != null ||
+        runtimeDocument.webkitFullscreenElement != null;
+    };
+    syncFullscreenState();
+    runtimeDocument.addEventListener("fullscreenchange", syncFullscreenState);
+    runtimeDocument.addEventListener("webkitfullscreenchange", syncFullscreenState as EventListener);
+    return () => {
+      runtimeDocument.removeEventListener("fullscreenchange", syncFullscreenState);
+      runtimeDocument.removeEventListener(
+        "webkitfullscreenchange",
+        syncFullscreenState as EventListener,
+      );
+    };
   });
 
   // Reactive effects ($effect) — diagram regen, SVG glue, measurement, clock patch, menu wiring
@@ -361,6 +385,13 @@
   function closeHomeMenu(): void {
     homeMenuOpen = false;
   }
+
+  async function handleHomeFullscreenToggle(): Promise<void> {
+    const instrument = homeInstrumentEl;
+    if (instrument == null) return;
+    await toggleInstrumentFullscreen(instrument);
+    homeMenuOpen = false;
+  }
 </script>
 
 <main class="home-route" bind:this={homeRouteEl}>
@@ -386,7 +417,9 @@
     {verticalLetterboxSlackPx}
     {homeMenuOpen}
     {homeMenuPanelStyle}
+    {homeFullscreenActive}
     onCloseHomeMenu={closeHomeMenu}
+    onToggleHomeFullscreen={handleHomeFullscreenToggle}
   />
 </main>
 

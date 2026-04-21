@@ -11,7 +11,7 @@ Cross-session checklist for [`implementation-plan.md`](./implementation-plan.md)
 - [x] **`pkg-manifest`** — Web app manifest, icons (192/512), `index.html` link, theme meta.
 - [x] **`pkg-host-cache`** — Added `vercel.json` headers to revalidate `/` + `/index.html` and long-cache `/assets/*`.
 - [x] **`pkg-orientation`** — Best-effort `screen.orientation.lock` in standalone, user-gesture-gated, silent failure.
-- [ ] **`pkg-fullscreen`** — Opt-in fullscreen (gesture), device-aware prominence.
+- [x] **`pkg-fullscreen`** — Opt-in fullscreen (gesture), device-aware prominence.
 - [ ] **`pkg-wake-ui`** (optional) — Subtle indicator when wake lock active.
 - [ ] **`pkg-copy`** (optional) — Honest wall/tablet expectations copy.
 - [ ] **`pkg-browser-doc`** (optional) — Target browsers / known limitations (short).
@@ -21,3 +21,4 @@ Cross-session checklist for [`implementation-plan.md`](./implementation-plan.md)
 - 2026-04-21: Completed `pkg-manifest` with `public/site.webmanifest`, generated `public/icon-192.png` and `public/icon-512.png` from `public/favicon.svg`, and added manifest/theme wiring in `index.html`.
 - 2026-04-21: Completed `pkg-host-cache` by adding `vercel.json` `Cache-Control` policy split (`/` and `/index.html` => `max-age=0, must-revalidate`; `/assets/*` => `max-age=31536000, immutable`). Deploy-preview `curl -I` verification still recommended.
 - 2026-04-21: Completed `pkg-orientation` by adding `homeRouteOrientationLock` (standalone gating + silent `screen.orientation.lock('landscape')`), wiring a one-shot user-gesture mount from `HomeRoute.svelte`, and covering the gating/gesture flow with unit tests.
+- 2026-04-21: Completed `pkg-fullscreen` with `homeRouteFullscreen` helper/tests and a gesture-triggered Enter/Exit fullscreen action in the home overlay menu; failures silently no-op and preserve letterboxed layout.

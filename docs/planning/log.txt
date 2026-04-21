@@ -125,8 +125,25 @@ fart
 					*  mark screen lock as done
 					*  plan the implementation sequence
 					*  do phase A - installability shell
-					*  do phase B - ?
-					o  do phase C - ?
+					*  do phase B - rotate lock
+					*  do phase C  - install as app
+					o  do phase D  - full screen
+						*  have cursor do it
+						o  commit it
+						o  study the code
+						o  test it with new deployment
+
+				o  does new vercel deployment update installed apps?
+
+				o  proper favicon
+
+Mobile install offer "evaporates"
+Desktop install offer is a bit hidden (as is subsequent use)
+
+	If you want a more reliable install path, the usual fix is to add an explicit
+	in-app “Install app” button wired to the beforeinstallprompt event
+	(store/defer it and trigger on user tap). That gives users a second chance
+	even if the automatic prompt disappears.
 
 				o  concurrency (two tabs) - arghhh ! panic !
 				o  favicon
