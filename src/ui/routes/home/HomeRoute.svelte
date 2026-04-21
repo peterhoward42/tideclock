@@ -49,6 +49,7 @@
     effectiveSearchStringFromLocationParts,
     homeRouteDevDebugFlagsFromSearch,
   } from "../../homeRouteUrlQuery";
+  import { mountHomeRouteOrientationLock } from "./homeRouteOrientationLock";
   import { mountHomeRouteScreenWakeLock } from "./homeRouteScreenWakeLock";
 
   let {
@@ -73,6 +74,7 @@
   let diagramError = $state<string | undefined>(undefined);
   /** Container for injected SVG; patches TimeNowDate and TimeNowClock text without regenerating the scene. */
   let diagramHostEl = $state<HTMLElement | undefined>(undefined);
+  let homeRouteEl = $state<HTMLElement | undefined>(undefined);
   let homeInstrumentEl = $state<HTMLElement | undefined>(undefined);
   let homeMenuPanelEl = $state<HTMLElement | undefined>(undefined);
   let homeMenuOpen = $state(false);
@@ -152,6 +154,12 @@
   onMount(() => displayOptimisation.subscribe((v) => (displaySnapshot = v)));
 
   onMount(() => mountHomeRouteScreenWakeLock());
+
+  onMount(() => {
+    const routeRoot = homeRouteEl;
+    if (routeRoot == null) return;
+    return mountHomeRouteOrientationLock(routeRoot);
+  });
 
   // Reactive effects ($effect) — diagram regen, SVG glue, measurement, clock patch, menu wiring
   $effect(() => {
@@ -355,7 +363,7 @@
   }
 </script>
 
-<main class="home-route">
+<main class="home-route" bind:this={homeRouteEl}>
   <HomeRouteDevPreviewBanners
     diagramPreviewBannerLine={diagramPreviewBannerLine}
     tideUxDevPreviewBannerLine={tideUxDevPreviewBannerLine}

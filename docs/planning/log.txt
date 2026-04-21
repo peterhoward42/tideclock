@@ -125,7 +125,8 @@ fart
 					*  mark screen lock as done
 					*  plan the implementation sequence
 					*  do phase A - installability shell
-					o  do phase B - ?
+					*  do phase B - ?
+					o  do phase C - ?
 
 				o  concurrency (two tabs) - arghhh ! panic !
 				o  favicon
