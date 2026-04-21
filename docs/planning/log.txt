@@ -124,14 +124,17 @@ fart
 					*  finalise the decision implementation doc
 					*  mark screen lock as done
 					*  plan the implementation sequence
+					*  do phase A - installability shell
+					o  do phase B - ?
 
 				o  concurrency (two tabs) - arghhh ! panic !
+				o  favicon
 
 
+o  DV21NGE
+o  Purchased
 
 
-
-				o  encourage hide browser bar
 
 				o  proxy cost risk containment
 					o  how to use real estate better - partic on phone
@@ -142,6 +145,8 @@ fart
 				o  falmouth estuary and south west extents poor coverage
 
 
+				o  other pages
+				o  what about marketing route or separate app?
 				o  QR code in auxilliary route
 				o  report bugs and suggestions
 				o  donate?
