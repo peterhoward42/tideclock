@@ -116,13 +116,14 @@ o  new data fetch paradigm
 				*  manual prompt when not landscape
 				*  Home.svelte is too darn long
 				*  tackle wake lock independently next
+				*  deploy it to https://tideclock-eight.vercel.app/#/home
 fart
 
 				o  resume PWA story...
 					*  start the implementation decision loop
 					*  finalise the decision implementation doc
-					o  mark screen lock as done
-					o  plan the implementation sequence
+					*  mark screen lock as done
+					*  plan the implementation sequence
 
 				o  concurrency (two tabs) - arghhh ! panic !
 

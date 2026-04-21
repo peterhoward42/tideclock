@@ -8,7 +8,7 @@ Cross-session checklist for [`implementation-plan.md`](./implementation-plan.md)
 
 ## Packages (from implementation plan)
 
-- [ ] **`pkg-manifest`** — Web app manifest, icons (192/512), `index.html` link, theme meta.
+- [x] **`pkg-manifest`** — Web app manifest, icons (192/512), `index.html` link, theme meta.
 - [ ] **`pkg-host-cache`** — Verify or configure `index.html` vs hashed asset `Cache-Control` on deploy host.
 - [ ] **`pkg-orientation`** — Best-effort `screen.orientation.lock` in standalone, user-gesture-gated, silent failure.
 - [ ] **`pkg-fullscreen`** — Opt-in fullscreen (gesture), device-aware prominence.
@@ -18,4 +18,4 @@ Cross-session checklist for [`implementation-plan.md`](./implementation-plan.md)
 
 ## Notes / verification log
 
-_Add dated bullets here as you complete packages (e.g. header samples, devices used for smoke tests)._
+- 2026-04-21: Completed `pkg-manifest` with `public/site.webmanifest`, generated `public/icon-192.png` and `public/icon-512.png` from `public/favicon.svg`, and added manifest/theme wiring in `index.html`.
