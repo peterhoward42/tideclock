@@ -117,27 +117,21 @@ o  new data fetch paradigm
 				*  Home.svelte is too darn long
 				*  tackle wake lock independently next
 				*  deploy it to https://tideclock-eight.vercel.app/#/home
+				*  put in PWA story...
+				*  does new vercel deployment update installed apps? = yes
 fart
-
-				o  resume PWA story...
-					*  start the implementation decision loop
-					*  finalise the decision implementation doc
-					*  mark screen lock as done
-					*  plan the implementation sequence
-					*  do phase A - installability shell
-					*  do phase B - rotate lock
-					*  do phase C  - install as app
-					o  do phase D  - full screen
-						*  have cursor do it
-						o  commit it
-						o  study the code
-						o  test it with new deployment
-
-				o  does new vercel deployment update installed apps?
 
 				o  proper favicon
 
-Mobile install offer "evaporates"
+				o  UX to help people install as app
+					o  see below
+					o  main prio
+						o  help people realise they can install
+							o  incl defeat default browser /Users/pete/Downloads/crane\ hook\ dimensioned\ example-desktop.png offer timeout
+						o  and when so real fullscreen
+						o  what about wake lock?
+
+
 Desktop install offer is a bit hidden (as is subsequent use)
 
 	If you want a more reliable install path, the usual fix is to add an explicit
@@ -146,7 +140,6 @@ Desktop install offer is a bit hidden (as is subsequent use)
 	even if the automatic prompt disappears.
 
 				o  concurrency (two tabs) - arghhh ! panic !
-				o  favicon
 
 
 o  DV21NGE
