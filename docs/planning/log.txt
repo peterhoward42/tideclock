@@ -1,4 +1,6 @@
 
+o  dacia warranty
+	o  .20 Valley Road, Plympton, Plymouth, PL7 1RF
 
 *  main display requirements
 *  main display design
@@ -119,17 +121,13 @@ o  new data fetch paradigm
 				*  deploy it to https://tideclock-eight.vercel.app/#/home
 				*  put in PWA story...
 				*  does new vercel deployment update installed apps? = yes
+				*  proper favicon
 fart
 
-				o  proper favicon
 
 				o  UX to help people install as app
-					o  see below
-					o  main prio
-						o  help people realise they can install
-							o  incl defeat default browser /Users/pete/Downloads/crane\ hook\ dimensioned\ example-desktop.png offer timeout
-						o  and when so real fullscreen
-						o  what about wake lock?
+					*  get prov plan
+					o  tighten plan
 
 
 Desktop install offer is a bit hidden (as is subsequent use)
