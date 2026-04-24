@@ -1,163 +1,195 @@
 # PWA implementation plan (for coding)
 
-This file turns [`implementation.md`](./implementation.md) into ordered, agent-sized work packages. It is the **execution checklist**; keep judgments and rationale in `implementation.md`.
+This file is the execution checklist for the current PWA UX direction. It encodes resolved product decisions as source-of-truth implementation work packages.
 
 ## Preconditions (already shipped)
 
-- **Screen Wake Lock** on the home / instrument route: `src/ui/routes/home/homeRouteScreenWakeLock.ts`, mounted from `HomeRoute.svelte`, with tests in `homeRouteScreenWakeLock.test.ts`. Behaviour matches the doc: acquire while visible, release on hide, re-acquire after visibility return and on sentinel `release`. **No further wake-lock logic is required for the initial PWA milestone** unless you add product UI (see optional package below).
+- **Screen Wake Lock runtime behaviour** exists on home route (`homeRouteScreenWakeLock.ts`) with tests (`homeRouteScreenWakeLock.test.ts`).
+- **Orientation nudge behaviour** already exists and is considered sufficient for this pass.
+- Core installability assets already exist in repo (`index.html`, manifest artifact, hosting config), and should be adjusted only as needed by the packages below.
 
-## Non-goals (do not implement)
+## Non-goals (do not implement in this pass)
 
-- **Service worker** of any kind (including Vite PWA plugin precache). Decision is recorded at the top of `implementation.md`.
-- **Kiosk / OS-level appliance** positioning; fullscreen and orientation are **best-effort progressive enhancement** only.
+- **Service worker** of any kind.
+- **New orientation feature work** beyond maintaining existing behaviour.
+- **Timed/threshold reminder resurfacing** for install prompts.
+- **Telemetry/event instrumentation** until a general-purpose backend/event pipeline exists.
 
 ## Multi-session strategy
 
-Splitting work across sessions **is recommended**: each package below touches different surfaces (build/static assets vs runtime APIs vs hosting config vs copy), and manual checks on real phones benefit from pausing between merges.
+Splitting work across sessions is recommended. Each package is intentionally reviewable on its own.
 
-**Session handoff:** after each session, update [`implementation-progress.md`](./implementation-progress.md) so the next run starts with a clear “next package” and does not re-read the whole rationale.
+**Session handoff:** after each session, update [`implementation-progress.md`](./implementation-progress.md) with package status, decisions made, and any manual verification notes.
 
 Suggested grouping:
 
 | Session focus | Packages | Why separate |
 | ------------- | -------- | ------------ |
-| A — Installability shell | `pkg-manifest` | Icons + manifest + `index.html` wiring; easy to review in one PR. |
-| B — Deploy caching | `pkg-host-cache` | Vercel/headers only; verify with curl or deploy preview, not unit tests. |
-| C — Landscape lock | `pkg-orientation` | Small TS module + home route hook; needs device smoke tests. |
-| D — Fullscreen | `pkg-fullscreen` | UX placement and gesture rules; can ship after manifest. |
-| E — Polish + docs | `pkg-wake-ui`, `pkg-copy`, `pkg-browser-doc` | Small, optional, or documentation-only. |
-
-Packages C and D can swap order if you prefer “chrome removal” before orientation lock, but orientation lock should still not depend on fullscreen.
+| A — Install surface | `pkg-install-entry`, `pkg-install-content` | Core UX shift: first-class menu entry + integrated explanation content. |
+| B — Keep-awake UX | `pkg-setup-helper`, `pkg-wake-controls` | Shared UX language and state handling around wake lock preferences. |
+| C — Platform hardening | `pkg-install-fallbacks`, `pkg-copy` | Platform-specific install instructions and final wording polish. |
+| D — Docs alignment | `pkg-doc-sync` | Keep planning/progress docs aligned with shipped behaviour. |
 
 ---
 
-## Package `pkg-manifest` — Web app manifest + icons
+## Package `pkg-install-entry` — First-class menu install action
 
-**Goal:** Installable PWA shell: correct name, `display`, start URL, theme/background colours, landscape **hint** via manifest `orientation`, and icons that meet common platform minimums.
+**Goal:** A persistent, first-class `Install app` action in the primary menu (not buried in settings), always available as a recovery path.
 
 **Concrete steps:**
 
-1. Add a **Web App Manifest** (e.g. `public/site.webmanifest` or `public/manifest.webmanifest` — pick one name and keep it stable). Fields to include at minimum:
-   - `name` / `short_name` (align with product strings used in `index.html` title or marketing copy).
-   - `start_url` and `scope` (typically `/` for this SPA; confirm router base).
-   - `display`: `standalone` (per rationale: instrument-like chrome).
-   - `orientation`: prefer **`landscape`** or **`landscape-primary`** as a hint; document in a one-line comment in manifest or adjacent README note that **tab behaviour is unchanged** and letterbox UX remains authoritative.
-   - `theme_color` / `background_color` (match existing UI chrome if any; otherwise neutral values consistent with home screen).
-   - `icons`: provide **192** and **512** PNG (or maskable variants if you generate them); reuse or derive from `public/favicon.svg` if practical.
-
-2. Wire in **`index.html`**:
-   - `<link rel="manifest" href="…">`
-   - Optional: `meta name="theme-color"` for tab UI consistency.
-
-3. **Vite:** ensure manifest and icons live under `public/` so they are emitted at stable URLs without hashing (correct for manifest icon references).
+1. Add/update a top-level menu entry labeled `Install app`.
+2. Route action through a single install handler for consistent behavior and copy.
+3. Keep the entry visible regardless of prior dismissals of browser-originated prompts.
 
 **Acceptance:**
 
-- Lighthouse PWA (or manual “Install app”) sees a manifest with icons and `standalone`.
-- Opening installed app loads the same entry as the site; no broken icon URLs.
+- User can always find `Install app` in the primary menu.
+- Entry remains available after closing or dismissing install UI.
 
-**Tests:** Automated tests optional; manifest is static. If you add a small build check (JSON parse), keep it minimal.
+**Tests:**
+
+- Add or update unit/component tests to verify menu entry rendering and click wiring.
 
 ---
 
-## Package `pkg-host-cache` — HTTP caching for shell vs hashed assets
+## Package `pkg-install-content` — Install benefits in install flow
 
-**Goal:** Align deployed responses with `implementation.md`: long cache for **immutable hashed** JS/CSS; **short or revalidate** policy for `index.html` so deploys propagate quickly. **No service worker.**
+**Goal:** Explain install value inside the install flow itself (not via separate banner/tooltip surfaces).
 
 **Concrete steps:**
 
-1. Inspect current deployment path (e.g. Vercel project defaults). If `index.html` is already non-aggressive, document the observed headers in `implementation-progress.md` or a single comment in config and **close the package**.
-
-2. If not, add configuration (e.g. `vercel.json` `headers`) so that:
-   - `index.html` (or `/`) is not `immutable` long-cache.
-   - Static build output matching hashed asset patterns can use `Cache-Control` with long `max-age` and `immutable` where the host supports it.
+1. Add concise benefit copy to the install action path:
+   - Better fit with less browser chrome.
+   - Better immersive usage.
+   - Better context for keep-awake behaviour.
+2. Ensure content is visible when:
+   - `beforeinstallprompt` is available.
+   - Manual install instructions are shown as fallback.
+3. Remove or avoid introducing separate install explainer surfaces that fragment guidance.
 
 **Acceptance:**
 
-- Deploy preview: response headers for `/` vs a hashed asset file match the intent above (record example values in progress file once verified).
+- Install explanation appears in the same user journey as `Install app`.
+- No standalone install banner/tooltip is required to understand the benefit.
 
-**Tests:** None in repo unless you add a trivial script; this is infra verification.
+**Tests:**
+
+- Verify expected copy/fallback branch rendering in existing UI tests where practical.
 
 ---
 
-## Package `pkg-orientation` — Screen Orientation API (best-effort)
+## Package `pkg-setup-helper` — Installed-mode first-run helper (keep-awake only)
 
-**Goal:** In **display-mode standalone** (or equivalent installed context), optionally call `screen.orientation.lock('landscape')` **after a user gesture** when the platform requires it, with **silent catch** on failure. Never replace `displayOptimisation` / portrait hint; those remain the safety net.
+**Goal:** Optional, skippable first-run helper in standalone mode focused on keep-awake preference only.
 
 **Concrete steps:**
 
-1. Add a small module (e.g. `src/ui/routes/home/homeRouteOrientationLock.ts` or under `src/ui/pwa/`) that:
-   - Detects support: `screen.orientation?.lock`.
-   - Detects installed context: `matchMedia('(display-mode: standalone)')` or `window.matchMedia('(display-mode: standalone)').matches` — also consider `fullscreen` if you want parity with some Android behaviours (optional, document choice).
-   - Exposes a function like `requestHomeLandscapeOrientationLock(): void` that no-ops if unsupported or not standalone, otherwise calls `lock('landscape')` in a try/catch (or promise catch).
-
-2. **Invocation:** tie to an explicit user action rather than `onMount` alone — e.g. first tap on the diagram/instrument area, or a dedicated “Lock landscape” control in an overflow menu, depending on product preference. **Default:** one-shot attempt on first user interaction inside home route while standalone, to avoid spamming `lock()` on every mount.
-
-3. Wire from `HomeRoute.svelte` with minimal surface (import + handler or `onMount` subscription that registers a once listener).
+1. Gate helper to installed/standalone context.
+2. Include keep-awake explanation + preference action.
+3. Provide:
+   - `Skip` behavior.
+   - `Don't show again` persistence.
+   - Reopen path from menu/help.
+4. Do not add orientation onboarding steps.
 
 **Acceptance:**
 
-- In desktop browser tab: no lock attempted (or attempt only in standalone — must not break).
-- In installed PWA on a device that allows lock: landscape lock succeeds or fails silently; portrait hint path still works when lock fails.
+- Helper can be skipped and permanently dismissed.
+- Helper can be reopened from a stable UI surface.
+- Orientation messaging is not added to helper flow.
 
-**Tests:** Unit-test the gating logic with stubbed `matchMedia` and fake `screen.orientation`; do not depend on real orientation in CI.
+**Tests:**
+
+- Unit tests for persisted dismissal and standalone gating.
 
 ---
 
-## Package `pkg-fullscreen` — Optional Fullscreen API
+## Package `pkg-wake-controls` — Explicit keep-awake controls + state
 
-**Goal:** User-triggered **element or document fullscreen** on handheld/tablet emphasis; **available but not default** on desktop for “wall PC” use. No auto-fullscreen on load.
+**Goal:** Surface keep-awake as explicit, user-controlled UX with honest state and platform limitations.
 
 **Concrete steps:**
 
-1. Decide **UX surface**: e.g. item in existing home menu, or subtle control near the landscape hint. Must be **activated by user gesture** (`requestFullscreen` requirement).
-
-2. Implement a helper (e.g. `requestInstrumentFullscreen(el: HTMLElement): Promise<void>`) with feature detection, try/catch, and **exit** path if you need toggle behaviour.
-
-3. Gate prominence by `displayOptimisation` / device class if you want stronger nudge on phone/tablet and quieter on desktop — match existing patterns in `HomeRoute.svelte` / `displayOptimisation.ts`.
+1. Provide a `Keep screen awake` toggle in the agreed UI surface (home and/or menu/settings).
+2. Show status feedback as one of:
+   - `active`
+   - `inactive`
+   - `not supported`
+3. Include concise tradeoff copy (battery/heat when not charging).
+4. Keep runtime behavior best-effort; UI must never imply guaranteed always-on operation.
 
 **Acceptance:**
 
-- Fullscreen never enters without user action.
-- Failure leaves current letterboxed layout unchanged.
+- User can explicitly enable/disable keep-awake.
+- State feedback remains correct through visibility/state transitions.
+- Unsupported platforms render honest fallback state.
 
-**Tests:** Mock `requestFullscreen` / `fullscreenElement` in unit tests for the helper only.
+**Tests:**
+
+- Extend wake-lock tests for state projection into UI controls if needed.
 
 ---
 
-## Package `pkg-wake-ui` — Optional “wake active” indicator (optional)
+## Package `pkg-install-fallbacks` — Manual install instructions by platform
 
-**Goal:** Satisfy `implementation.md` § “Optional subtle UI”: small indicator when wake lock is held, without implying a guarantee.
+**Goal:** Reliable manual install guidance when browser install prompt APIs are unavailable.
 
 **Concrete steps:**
 
-1. Extend `mountHomeRouteScreenWakeLock` to accept an optional callback, or expose a tiny store updated on acquire/release — **prefer minimal coupling** so tests stay simple.
+1. Detect absence/unavailability of `beforeinstallprompt`.
+2. Show concise, platform-appropriate instruction copy from the same install flow.
+3. Keep fallback guidance compact and rediscoverable from `Install app`.
 
-2. Add unobtrusive UI in `HomeRoute.svelte` (or a child component) visible only when lock is active.
+**Acceptance:**
 
-**Acceptance:** Indicator appears/disappears with lock state in a dev build with fake wake lock; no layout shift on the main diagram.
+- Install flow remains useful on platforms without prompt API support.
+- User can reopen instructions at any time from menu entry.
 
-**Tests:** Extend existing wake lock tests if callback/store is added.
+**Tests:**
 
----
-
-## Package `pkg-copy` — Expectations copy for wall / tablet
-
-**Goal:** Light-touch honest copy (settings menu, footer, or existing landscape hint area) that mentions OS sleep / brightness where the web cannot promise behaviour.
-
-**Concrete steps:** Single copy pass; link to or echo tone from `pwa-rationale.md`. Avoid duplicating long policy in multiple places.
-
-**Acceptance:** Copy is short and accurate; no claim that PWA replaces OS display sleep.
+- Unit test fallback branch by stubbing install prompt availability.
 
 ---
 
-## Package `pkg-browser-doc` — Target browsers / limitations
+## Package `pkg-copy` — Final UX copy pass
 
-**Goal:** Close the “open follow-ups” loop in `implementation.md`: short **baselines + known limitations** (wake lock on iOS Safari, orientation lock quirks, install UI differences).
+**Goal:** Ensure all new PWA UX copy is concise, honest, and internally consistent.
 
-**Concrete steps:** Add a subsection to `key-questions.md` or a new `browser-notes.md` in this folder — **keep it one page**.
+**Concrete steps:**
 
-**Acceptance:** Future sessions can point QA at that list.
+1. Normalize wording across:
+   - `Install app` entry/action text.
+   - Install benefits/fallback instructions.
+   - Keep-awake helper and controls.
+2. Confirm copy does not promise behaviour the platform cannot guarantee.
+3. Remove stale wording that references deferred features (timed reminders, telemetry).
+
+**Acceptance:**
+
+- Copy is consistent across all relevant surfaces.
+- No overpromising language remains.
+
+---
+
+## Package `pkg-doc-sync` — Planning docs alignment
+
+**Goal:** Keep planning docs aligned with resolved scope and shipped behavior.
+
+**Concrete steps:**
+
+1. Update `implementation-progress.md` after each completed package.
+2. Keep this file and `ux-improvements-plan.md` aligned on:
+   - first-class install menu entry
+   - install-flow-integrated explanation
+   - orientation no-change scope
+   - telemetry deferred status
+3. Update `implementation.md` only when architectural judgments change.
+
+**Acceptance:**
+
+- Docs no longer contain unresolved TODO framing for decisions already made.
+- Next coding session can start from package checklist without reinterpreting intent.
 
 ---
 
@@ -165,27 +197,36 @@ Packages C and D can swap order if you prefer “chrome removal” before orient
 
 ```mermaid
 flowchart TD
-  manifest[pkg-manifest]
-  orient[pkg-orientation]
-  full[pkg-fullscreen]
-  browsers[pkg-browser-doc]
+  installEntry[pkg-install-entry]
+  installContent[pkg-install-content]
+  installFallbacks[pkg-install-fallbacks]
+  setup[pkg-setup-helper]
+  wake[pkg-wake-controls]
+  copy[pkg-copy]
+  docs[pkg-doc-sync]
 
-  manifest --> orient
-  manifest --> full
-  manifest --> browsers
+  installEntry --> installContent
+  installContent --> installFallbacks
+  installContent --> copy
+  setup --> wake
+  wake --> copy
+  installFallbacks --> copy
+  copy --> docs
 ```
 
-`pkg-orientation` and `pkg-fullscreen` are **parallel** after the manifest exists. **`pkg-host-cache`** is infra-only (no edge above). **`pkg-wake-ui`** and **`pkg-copy`** are optional polish with no hard deps.
+`pkg-install-entry` and `pkg-setup-helper` can begin in parallel. `pkg-doc-sync` runs after each merged package and closes the loop at the end of the pass.
 
 ---
 
-## Definition of done (initial PWA milestone)
+## Definition of done (current PWA UX pass)
 
-- [ ] `pkg-manifest` shipped and installable on at least one target (e.g. Android Chrome + desktop Chrome).
-- [ ] `pkg-host-cache` verified or explicitly documented as already correct.
-- [ ] `pkg-orientation` shipped with silent failure and no regression to portrait hint.
-- [ ] `pkg-fullscreen` shipped as opt-in gesture-driven enhancement.
-- [ ] Optional: `pkg-wake-ui`, `pkg-copy`, `pkg-browser-doc`.
-- [ ] Wake lock remains as today; no service worker added.
+- [ ] `pkg-install-entry` shipped with persistent top-level menu access.
+- [ ] `pkg-install-content` shipped with benefit copy embedded in install flow.
+- [ ] `pkg-install-fallbacks` shipped for non-`beforeinstallprompt` platforms.
+- [ ] `pkg-setup-helper` shipped as optional/skip/don't-show-again flow (keep-awake only).
+- [ ] `pkg-wake-controls` shipped with explicit toggle and accurate state (`active`/`inactive`/`not supported`).
+- [ ] `pkg-copy` completed with honest, consistent messaging.
+- [ ] `pkg-doc-sync` completed (`implementation-progress.md` updated, plans aligned).
+- [ ] No service worker added; no new orientation feature work added; telemetry remains deferred.
 
-When all required boxes are checked, update `implementation.md` only if judgments changed (per user workflow); otherwise `implementation-progress.md` can record completion date.
+When all required boxes are checked, record completion in `implementation-progress.md` and update `implementation.md` only if architectural decisions changed.

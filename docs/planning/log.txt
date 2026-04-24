@@ -127,7 +127,13 @@ fart
 
 				o  UX to help people install as app
 					*  get prov plan
-					o  tighten plan
+					*  tighten plan
+					o  phase 1
+						*  implementation
+						o  operate on mac
+						o  operate on phone
+						o  read code
+						o  particularly platform specifics
 
 
 Desktop install offer is a bit hidden (as is subsequent use)

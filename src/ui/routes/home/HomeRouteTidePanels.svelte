@@ -20,8 +20,15 @@
     readonly homeMenuOpen: boolean;
     readonly homeMenuPanelStyle: string;
     readonly homeFullscreenActive: boolean;
+    readonly homeInstallInfoOpen: boolean;
+    readonly homeInstallCanPrompt: boolean;
+    readonly homeInstallBenefitLines: readonly string[];
+    readonly homeInstallManualSteps: readonly string[];
+    readonly homeInstallStatusLine: string | null;
     readonly onCloseHomeMenu: () => void;
     readonly onToggleHomeFullscreen: () => void | Promise<void>;
+    readonly onOpenInstallMenu: () => void;
+    readonly onPromptInstall: () => void | Promise<void>;
     diagramHostEl?: HTMLElement | undefined;
     homeInstrumentEl?: HTMLElement | undefined;
     homeMenuPanelEl?: HTMLElement | undefined;
@@ -37,8 +44,15 @@
     homeMenuOpen,
     homeMenuPanelStyle,
     homeFullscreenActive,
+    homeInstallInfoOpen,
+    homeInstallCanPrompt,
+    homeInstallBenefitLines,
+    homeInstallManualSteps,
+    homeInstallStatusLine,
     onCloseHomeMenu,
     onToggleHomeFullscreen,
+    onOpenInstallMenu,
+    onPromptInstall,
     diagramHostEl = $bindable(),
     homeInstrumentEl = $bindable(),
     homeMenuPanelEl = $bindable(),
@@ -108,6 +122,49 @@
           bind:this={homeMenuPanelEl}
           style={homeMenuPanelStyle}
         >
+          <button
+            type="button"
+            class="home-menu-panel__action"
+            onclick={onOpenInstallMenu}
+          >
+            Install app
+          </button>
+          {#if homeInstallInfoOpen}
+            <section class="home-menu-panel__install-flow" aria-live="polite">
+              <p class="home-menu-panel__install-title">Install Tideclock</p>
+              <p class="home-menu-panel__install-body">
+                Installing helps Tideclock feel focused and reliable for
+                always-on use.
+              </p>
+              <ul class="home-menu-panel__install-list">
+                {#each homeInstallBenefitLines as line}
+                  <li>{line}</li>
+                {/each}
+              </ul>
+              {#if homeInstallCanPrompt}
+                <button
+                  type="button"
+                  class="home-menu-panel__action"
+                  onclick={onPromptInstall}
+                >
+                  Continue install
+                </button>
+              {:else}
+                <p class="home-menu-panel__install-body">
+                  Your browser does not expose the install prompt right now. You
+                  can still install manually:
+                </p>
+                <ol class="home-menu-panel__install-list">
+                  {#each homeInstallManualSteps as step}
+                    <li>{step}</li>
+                  {/each}
+                </ol>
+              {/if}
+              {#if homeInstallStatusLine !== null}
+                <p class="home-menu-panel__install-status">{homeInstallStatusLine}</p>
+              {/if}
+            </section>
+          {/if}
           <PrimaryNavLinks
             className="home-menu-panel__links"
             onNavigate={onCloseHomeMenu}
@@ -382,5 +439,41 @@
 
   .home-menu-panel__action:hover {
     background: rgb(148 163 184 / 0.2);
+  }
+
+  .home-menu-panel__install-flow {
+    margin-top: 0.35rem;
+    padding: 0.45rem 0.5rem;
+    border: 1px solid rgb(148 163 184 / 0.2);
+    border-radius: 0.25rem;
+    background: rgb(15 23 42 / 0.68);
+    color: rgb(241 245 249 / 0.92);
+  }
+
+  .home-menu-panel__install-title {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .home-menu-panel__install-body {
+    margin: 0.4rem 0 0;
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .home-menu-panel__install-list {
+    margin: 0.45rem 0 0;
+    padding-left: 1rem;
+    display: grid;
+    gap: 0.25rem;
+    font-size: 0.78rem;
+    line-height: 1.3;
+  }
+
+  .home-menu-panel__install-status {
+    margin: 0.45rem 0 0;
+    font-size: 0.76rem;
+    color: rgb(191 219 254 / 0.92);
   }
 </style>

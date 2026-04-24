@@ -1,24 +1,43 @@
 # PWA implementation progress
 
-Cross-session checklist for [`implementation-plan.md`](./implementation-plan.md). After completing a package in a coding session, flip its checkbox and add a one-line note (PR link, date, or “verified on device X”) so the next session does not repeat work.
+Cross-session checklist for [`implementation-plan.md`](./implementation-plan.md). After completing a package, flip its checkbox and add a one-line verification note so future sessions can continue without re-discovery.
 
-## Completed
+## Baseline already shipped
 
-- [x] **Wake lock (pre-plan / out of band)** — `mountHomeRouteScreenWakeLock` + tests; mounted from `HomeRoute.svelte`. Matches `implementation.md` (re-acquire on visibility, release on hide).
+- [x] **Wake lock runtime** — `mountHomeRouteScreenWakeLock` + tests; mounted from `HomeRoute.svelte` (visibility-aware acquire/release/reacquire behaviour).
+- [x] **Orientation behaviour baseline** — Existing orientation guidance and lock behavior are in place and considered sufficient for this pass (no new orientation package planned).
+- [x] **Installability baseline** — Manifest/assets and host cache split previously implemented (`public/site.webmanifest`, `index.html` manifest wiring, `vercel.json` cache headers).
 
-## Packages (from implementation plan)
+## Current packages (source-of-truth checklist)
 
-- [x] **`pkg-manifest`** — Web app manifest, icons (192/512), `index.html` link, theme meta.
-- [x] **`pkg-host-cache`** — Added `vercel.json` headers to revalidate `/` + `/index.html` and long-cache `/assets/*`.
-- [x] **`pkg-orientation`** — Best-effort `screen.orientation.lock` in standalone, user-gesture-gated, silent failure.
-- [x] **`pkg-fullscreen`** — Opt-in fullscreen (gesture), device-aware prominence.
-- [ ] **`pkg-wake-ui`** (optional) — Subtle indicator when wake lock active.
-- [ ] **`pkg-copy`** (optional) — Honest wall/tablet expectations copy.
-- [ ] **`pkg-browser-doc`** (optional) — Target browsers / known limitations (short).
+- [x] **`pkg-install-entry`** — Persistent first-class `Install app` menu entry (not buried in settings).
+- [x] **`pkg-install-content`** — Install benefit explanation integrated directly into install flow.
+- [ ] **`pkg-setup-helper`** — Standalone first-run helper focused on keep-awake preference (skip + don't-show-again + reopen path).
+- [ ] **`pkg-wake-controls`** — Explicit keep-awake toggle and clear state (`active` / `inactive` / `not supported`).
+- [x] **`pkg-install-fallbacks`** — Manual platform install instructions when `beforeinstallprompt` is unavailable.
+- [ ] **`pkg-copy`** — Final consistency pass for concise, honest copy.
+- [ ] **`pkg-doc-sync`** — Keep implementation docs aligned after each package completion.
+
+## Deferred / explicitly out of scope
+
+- Telemetry/event metrics implementation (deferred until backend/event pipeline exists).
+- New orientation feature work beyond existing behaviour.
+- Timed install reminder resurfacing heuristics.
+- Service worker introduction.
+
+## Legacy package mapping (for historical continuity)
+
+- `pkg-manifest` -> absorbed into baseline shipped state.
+- `pkg-host-cache` -> absorbed into baseline shipped state.
+- `pkg-orientation` -> closed as no-change baseline for this pass.
+- `pkg-fullscreen` -> shipped previously; not part of current required package checklist.
+- `pkg-wake-ui`, `pkg-browser-doc` -> superseded by current package structure and priorities.
 
 ## Notes / verification log
 
-- 2026-04-21: Completed `pkg-manifest` with `public/site.webmanifest`, generated `public/icon-192.png` and `public/icon-512.png` from `public/favicon.svg`, and added manifest/theme wiring in `index.html`.
-- 2026-04-21: Completed `pkg-host-cache` by adding `vercel.json` `Cache-Control` policy split (`/` and `/index.html` => `max-age=0, must-revalidate`; `/assets/*` => `max-age=31536000, immutable`). Deploy-preview `curl -I` verification still recommended.
-- 2026-04-21: Completed `pkg-orientation` by adding `homeRouteOrientationLock` (standalone gating + silent `screen.orientation.lock('landscape')`), wiring a one-shot user-gesture mount from `HomeRoute.svelte`, and covering the gating/gesture flow with unit tests.
-- 2026-04-21: Completed `pkg-fullscreen` with `homeRouteFullscreen` helper/tests and a gesture-triggered Enter/Exit fullscreen action in the home overlay menu; failures silently no-op and preserve letterboxed layout.
+- 2026-04-21: Completed manifest baseline with `public/site.webmanifest`, generated `public/icon-192.png` + `public/icon-512.png`, and wired manifest/theme in `index.html`.
+- 2026-04-21: Completed host-cache baseline via `vercel.json` `Cache-Control` split (`/` and `/index.html` => `max-age=0, must-revalidate`; `/assets/*` => `max-age=31536000, immutable`).
+- 2026-04-21: Completed orientation baseline with standalone-gated, gesture-triggered, silent-fail `screen.orientation.lock('landscape')` path and tests.
+- 2026-04-21: Completed fullscreen enhancement with helper/tests and gesture-triggered Enter/Exit fullscreen in home overlay menu.
+- 2026-04-24: Realigned planning docs to source-of-truth package set (`ux-improvements-plan.md` + `implementation-plan.md`); progress checklist updated to new package IDs.
+- 2026-04-24: Completed install Phase 1 core packages: added persistent home-menu `Install app` entry, install-flow benefit copy, and prompt/unavailable fallback branch with platform-specific manual steps.
