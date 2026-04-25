@@ -34,7 +34,7 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
     } as SVGGElement;
 
     expect(computeHomeMenuPanelAnchorStyle(figure, trigger)).toBe(
-      "left: 10px; bottom: 38px;",
+      "left: 10px; bottom: 18px;",
     );
   });
 
@@ -70,7 +70,7 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
     } as SVGGElement;
 
     expect(computeHomeMenuPanelAnchorStyle(figure, trigger)).toBe(
-      "left: 0px; bottom: 28px;",
+      "left: 0px; bottom: 18px;",
     );
   });
 });

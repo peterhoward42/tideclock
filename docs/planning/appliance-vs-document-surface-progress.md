@@ -14,7 +14,7 @@ After completing a package, flip its checkbox and add a short verification note 
 
 - [x] **`pkg-surface-contract`** — Introduce global semantic surface/text/border/focus tokens.
 - [x] **`pkg-mode-switch`** — Add deterministic route-level mode marker (`appliance` vs `document`).
-- [ ] **`pkg-menu-shell`** — Make home and header menu shells mode-aware via tokens.
+- [x] **`pkg-menu-shell`** — Make home and header menu shells mode-aware via tokens.
 - [ ] **`pkg-menu-content-tokenize`** — Tokenize shared menu content styles (no behavior/copy changes).
 - [ ] **`pkg-home-appliance-pass`** — Align home supporting surfaces to appliance mode; keep diagram palette unchanged.
 - [ ] **`pkg-document-pass`** — Align non-home surfaces to document mode tokens while preserving current tone.
@@ -33,3 +33,4 @@ After completing a package, flip its checkbox and add a short verification note 
 - 2026-04-25: Completed `pkg-surface-contract` in `src/app.css` by introducing semantic role tokens with `appliance`/`document` mode overrides and migrating app-shell/header/menu styles to token usage without changing layout behavior.
 - 2026-04-25: Completed `pkg-mode-switch` by adding `src/ui/routeSurfaceMode.ts` and wiring `data-surface-mode` on `.app-frame` in `src/ui/App.svelte` (`home` => `appliance`; all other routes => `document`).
 - 2026-04-25: Verification: `npm run test -- src/ui/routeSurfaceMode.test.ts` passed; touched-file lints are clean. Manual visual smoke across home + one non-home route still pending.
+- 2026-04-25: Completed **`pkg-menu-shell`**: added `--surface-menu-flyout`, `--border-menu-flyout`, `--shadow-menu-flyout` on `.app-frame` (appliance overrides shadow to `--shadow-overlay-contrast`); wired `.nav-links` in `src/app.css` and `.home-menu-panel` in `HomeRouteTidePanels.svelte` to those tokens; aligned menu link row colors/hover in `PrimaryNavMenu.svelte` and `HomeRouteTidePanels.svelte` to `--text-primary` / `--surface-overlay-hover` so document-mode header menu stays legible. Manual: open menu on home + 2 document routes; confirm hover/focus still clear.

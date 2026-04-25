@@ -57,6 +57,7 @@
   --text-muted: rgb(148 163 184 / 0.9);
   --text-brand: rgb(196 181 253 / 0.92);
   --border-subtle: rgb(148 163 184 / 0.2);
+  --shadow-menu-flyout: var(--shadow-overlay-contrast);
 }
 
 body {
@@ -71,6 +72,13 @@ a {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /*
+   * Hash-route menu flyouts (header nav-links + home instrument panel): shell only.
+   * Resolves from route mode tokens; appliance uses a deeper drop shadow.
+   */
+  --surface-menu-flyout: var(--surface-panel);
+  --border-menu-flyout: var(--border-subtle);
+  --shadow-menu-flyout: var(--shadow-overlay);
 }
 
 .top-bar {
@@ -216,10 +224,10 @@ a {
   gap: 0.25rem;
   min-width: 12rem;
   padding: 0.5rem;
-  background: var(--surface-panel);
-  border: 1px solid var(--border-subtle);
+  background: var(--surface-menu-flyout);
+  border: 1px solid var(--border-menu-flyout);
   border-radius: 0.375rem;
-  box-shadow: var(--shadow-overlay);
+  box-shadow: var(--shadow-menu-flyout);
   z-index: 10;
 }
 

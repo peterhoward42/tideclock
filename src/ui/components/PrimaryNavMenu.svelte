@@ -100,13 +100,13 @@
   }
 
   .primary-nav-menu__panel :global(.primary-nav-menu__links a) {
-    color: rgb(241 245 249 / 0.92);
+    color: var(--text-primary);
     text-decoration: none;
     padding: 0.35rem 0.5rem;
     border-radius: 0.25rem;
   }
 
   .primary-nav-menu__panel :global(.primary-nav-menu__links a:hover) {
-    background: rgb(148 163 184 / 0.12);
+    background: var(--surface-overlay-hover);
   }
 </style>

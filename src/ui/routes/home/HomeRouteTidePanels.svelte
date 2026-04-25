@@ -366,10 +366,10 @@
     overflow-y: auto;
     overscroll-behavior: contain;
     padding: 0.5rem;
-    background: rgb(2 6 23 / 0.92);
-    border: 1px solid rgb(148 163 184 / 0.2);
+    background: var(--surface-menu-flyout);
+    border: 1px solid var(--border-menu-flyout);
     border-radius: 0.375rem;
-    box-shadow: 0 10px 30px rgb(0 0 0 / 0.45);
+    box-shadow: var(--shadow-menu-flyout);
   }
 
   .home-menu-panel :global(.home-menu-panel__links) {
@@ -379,14 +379,14 @@
   }
 
   .home-menu-panel :global(.home-menu-panel__links a) {
-    color: rgb(241 245 249 / 0.92);
+    color: var(--text-primary);
     text-decoration: none;
     padding: 0.35rem 0.5rem;
     border-radius: 0.25rem;
   }
 
   .home-menu-panel :global(.home-menu-panel__links a:hover) {
-    background: rgb(148 163 184 / 0.12);
+    background: var(--surface-overlay-hover);
   }
 
 </style>
