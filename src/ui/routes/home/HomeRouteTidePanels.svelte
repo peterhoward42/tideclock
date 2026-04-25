@@ -4,7 +4,7 @@
    * DOM refs are bindable so the route’s effects (SVG glue, menu wiring, clock patch) stay in Home.
    */
   import type { TideExtremesAtLocation } from "../../../core-models/TideExtremesAtLocation";
-  import PrimaryNavLinks from "../../components/PrimaryNavLinks.svelte";
+  import PrimaryMenuContent from "../../components/PrimaryMenuContent.svelte";
 
   type TidePredictionsLoadState = {
     readonly status: "loading" | "ready" | "error";
@@ -122,60 +122,21 @@
           bind:this={homeMenuPanelEl}
           style={homeMenuPanelStyle}
         >
-          <button
-            type="button"
-            class="home-menu-panel__action"
-            onclick={onOpenInstallMenu}
-          >
-            Install app
-          </button>
-          {#if homeInstallInfoOpen}
-            <section class="home-menu-panel__install-flow" aria-live="polite">
-              <p class="home-menu-panel__install-title">Install Tideclock</p>
-              <p class="home-menu-panel__install-body">
-                Installing helps Tideclock feel focused and reliable for
-                always-on use.
-              </p>
-              <ul class="home-menu-panel__install-list">
-                {#each homeInstallBenefitLines as line}
-                  <li>{line}</li>
-                {/each}
-              </ul>
-              {#if homeInstallCanPrompt}
-                <button
-                  type="button"
-                  class="home-menu-panel__action"
-                  onclick={onPromptInstall}
-                >
-                  Continue install
-                </button>
-              {:else}
-                <p class="home-menu-panel__install-body">
-                  Your browser does not expose the install prompt right now. You
-                  can still install manually:
-                </p>
-                <ol class="home-menu-panel__install-list">
-                  {#each homeInstallManualSteps as step}
-                    <li>{step}</li>
-                  {/each}
-                </ol>
-              {/if}
-              {#if homeInstallStatusLine !== null}
-                <p class="home-menu-panel__install-status">{homeInstallStatusLine}</p>
-              {/if}
-            </section>
-          {/if}
-          <PrimaryNavLinks
-            className="home-menu-panel__links"
+          <PrimaryMenuContent
+            linksClassName="home-menu-panel__links"
+            installInfoOpen={homeInstallInfoOpen}
+            installCanPrompt={homeInstallCanPrompt}
+            installBenefitLines={homeInstallBenefitLines}
+            installManualSteps={homeInstallManualSteps}
+            installStatusLine={homeInstallStatusLine}
+            onToggleInstallInfo={onOpenInstallMenu}
+            onPromptInstall={onPromptInstall}
             onNavigate={onCloseHomeMenu}
+            fullscreenActionLabel={homeFullscreenActive
+              ? "Exit fullscreen"
+              : "Enter fullscreen"}
+            onToggleFullscreen={onToggleHomeFullscreen}
           />
-          <button
-            type="button"
-            class="home-menu-panel__action"
-            onclick={onToggleHomeFullscreen}
-          >
-            {homeFullscreenActive ? "Exit fullscreen" : "Enter fullscreen"}
-          </button>
         </div>
       {/if}
     </figure>
@@ -424,56 +385,4 @@
     background: rgb(148 163 184 / 0.12);
   }
 
-  .home-menu-panel__action {
-    margin-top: 0.35rem;
-    width: 100%;
-    border: 0;
-    border-radius: 0.25rem;
-    background: rgb(148 163 184 / 0.12);
-    color: rgb(241 245 249 / 0.92);
-    text-align: left;
-    padding: 0.45rem 0.5rem;
-    font: inherit;
-    cursor: pointer;
-  }
-
-  .home-menu-panel__action:hover {
-    background: rgb(148 163 184 / 0.2);
-  }
-
-  .home-menu-panel__install-flow {
-    margin-top: 0.35rem;
-    padding: 0.45rem 0.5rem;
-    border: 1px solid rgb(148 163 184 / 0.2);
-    border-radius: 0.25rem;
-    background: rgb(15 23 42 / 0.68);
-    color: rgb(241 245 249 / 0.92);
-  }
-
-  .home-menu-panel__install-title {
-    margin: 0;
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-
-  .home-menu-panel__install-body {
-    margin: 0.4rem 0 0;
-    font-size: 0.8rem;
-    line-height: 1.35;
-  }
-
-  .home-menu-panel__install-list {
-    margin: 0.45rem 0 0;
-    padding-left: 1rem;
-    display: grid;
-    gap: 0.25rem;
-    font-size: 0.78rem;
-    line-height: 1.3;
-  }
-
-  .home-menu-panel__install-status {
-    margin: 0.45rem 0 0;
-    font-size: 0.76rem;
-    color: rgb(191 219 254 / 0.92);
-  }
 </style>

@@ -135,14 +135,22 @@ fart
 						*  operate on phone
 						*  read code
 						*  particularly platform specifics
+						o  fix menu universality
+						o  fix clipping of menu and install from home route
+
+						This refers to the (only) menu this app has, and more acutely to the "Install App" panel that it brings up. The problem is that the contents of both the menu itself, and for example the InstallApp content is clipped on all platforms. In thinking about this be very careful about the behaviour of the home-route orchestrating the layout for th svg diagram - because that very deliberately fits to the viewport available in a particular way, and that must not change. Don't change anything yet - just analyse the root cause and we can discuss strategies for fixing it.
+
+Duplicating install event wiring in the header menu component is acceptable for now; if you want, we can centralize install state in a shared store/controller in a follow-up.
+
+				o  a pass to replace stores with runes
+
 						o  fixes
 							o  fix copy accuracy
 							o  fix copy tone and feel
-							o  fix colours (global doc)
 
-				o  the menu gets cropped on phone
-					o  so can't see the install app menu item
-					o  nor the menu content because it sits above the menu
+Fix colours (global doc)
+	o  puzzles are menu commonality across routes
+	o  dark background on install app menu body
 
 
 Desktop install offer is a bit hidden (as is subsequent use)
