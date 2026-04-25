@@ -141,12 +141,10 @@ fart
 						*  fix this wording: Your browser does not expose 
 						   the install prompt right now. You can still 
 						   install manually:
+						*  DRY pwa event listeners
+						o  fix colours
 
 
-						o  Duplicating install event wiring in the header menu component is acceptable for now; if you want, we can centralize install state in a shared store/controller in a follow-up.
-						 
-
-o  a pass to replace stores with runes
 
 
 Fix colours (global doc)
