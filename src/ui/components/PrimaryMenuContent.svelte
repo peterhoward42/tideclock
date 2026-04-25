@@ -58,8 +58,7 @@
       </button>
     {:else}
       <p class="primary-menu-content__install-body">
-        Your browser does not expose the install prompt right now. You can still
-        install manually:
+        Install from your browser menu:
       </p>
       <ol class="primary-menu-content__install-list">
         {#each installManualSteps as step}
