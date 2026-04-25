@@ -130,10 +130,19 @@ fart
 					*  tighten plan
 					o  phase 1
 						*  implementation
-						o  operate on mac
-						o  operate on phone
-						o  read code
-						o  particularly platform specifics
+						*  deploy
+						*  operate on mac
+						*  operate on phone
+						*  read code
+						*  particularly platform specifics
+						o  fixes
+							o  fix copy accuracy
+							o  fix copy tone and feel
+							o  fix colours (global doc)
+
+				o  the menu gets cropped on phone
+					o  so can't see the install app menu item
+					o  nor the menu content because it sits above the menu
 
 
 Desktop install offer is a bit hidden (as is subsequent use)

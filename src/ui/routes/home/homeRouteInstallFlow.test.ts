@@ -26,7 +26,7 @@ describe("homeRouteInstallFlow", () => {
 
   it("includes install benefits copy used by the flow", () => {
     expect(HOME_INSTALL_BENEFIT_LINES).toContain(
-      "Fits better on screen with less browser chrome.",
+      "Uses more of the screen, without browser bars taking up space.",
     );
   });
 

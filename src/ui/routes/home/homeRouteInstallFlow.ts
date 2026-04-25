@@ -13,9 +13,9 @@ export type BeforeInstallPromptEventLike = Event & {
 };
 
 export const HOME_INSTALL_BENEFIT_LINES: readonly string[] = [
-  "Fits better on screen with less browser chrome.",
-  "Works better for immersive tide-clock viewing.",
-  "Makes keep-awake behavior easier to use and understand.",
+  "Uses more of the screen, without browser bars taking up space.",
+  "Feels more like a dedicated tide clock than a regular website tab.",
+  "When the device is charging, it can ask to keep the screen awake.",
 ];
 
 export function detectInstallPlatform(userAgent: string): InstallPlatform {
