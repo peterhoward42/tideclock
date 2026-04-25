@@ -90,8 +90,8 @@
     width: 100%;
     border: 0;
     border-radius: 0.25rem;
-    background: rgb(148 163 184 / 0.12);
-    color: rgb(241 245 249 / 0.92);
+    background: var(--surface-menu-content-control);
+    color: var(--text-menu-content-primary);
     text-align: left;
     padding: 0.45rem 0.5rem;
     font: inherit;
@@ -99,16 +99,16 @@
   }
 
   .primary-menu-content__action:hover {
-    background: rgb(148 163 184 / 0.2);
+    background: var(--surface-menu-content-control-hover);
   }
 
   .primary-menu-content__install-flow {
     margin-top: 0.35rem;
     padding: 0.45rem 0.5rem;
-    border: 1px solid rgb(148 163 184 / 0.2);
+    border: 1px solid var(--border-menu-content-inset);
     border-radius: 0.25rem;
-    background: rgb(15 23 42 / 0.68);
-    color: rgb(241 245 249 / 0.92);
+    background: var(--surface-menu-content-inset);
+    color: var(--text-menu-content-primary);
   }
 
   .primary-menu-content__install-title {
@@ -135,6 +135,6 @@
   .primary-menu-content__install-status {
     margin: 0.45rem 0 0;
     font-size: 0.76rem;
-    color: rgb(191 219 254 / 0.92);
+    color: var(--text-menu-content-status);
   }
 </style>

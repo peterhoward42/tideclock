@@ -45,6 +45,14 @@
   --text-muted: #64748b;
   --text-brand: #334155;
   --border-subtle: #e2e8f0;
+
+  /* PrimaryMenuContent: light flyout + conventional text (inherits semantic roles above). */
+  --surface-menu-content-control: var(--surface-overlay);
+  --surface-menu-content-control-hover: var(--surface-overlay-hover);
+  --surface-menu-content-inset: var(--surface-panel);
+  --border-menu-content-inset: var(--border-subtle);
+  --text-menu-content-primary: var(--text-primary);
+  --text-menu-content-status: var(--text-muted);
 }
 
 .app-frame[data-surface-mode="appliance"] {
@@ -58,6 +66,14 @@
   --text-brand: rgb(196 181 253 / 0.92);
   --border-subtle: rgb(148 163 184 / 0.2);
   --shadow-menu-flyout: var(--shadow-overlay-contrast);
+
+  /* PrimaryMenuContent: instrument-integrated chips + dark inset panel. */
+  --surface-menu-content-control: rgb(148 163 184 / 0.12);
+  --surface-menu-content-control-hover: rgb(148 163 184 / 0.2);
+  --surface-menu-content-inset: rgb(15 23 42 / 0.68);
+  --border-menu-content-inset: rgb(148 163 184 / 0.2);
+  --text-menu-content-primary: rgb(241 245 249 / 0.92);
+  --text-menu-content-status: rgb(191 219 254 / 0.92);
 }
 
 body {

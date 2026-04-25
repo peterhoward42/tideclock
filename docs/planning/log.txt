@@ -144,6 +144,8 @@ fart
 						*  DRY pwa event listeners
 						o  fix colours
 
+Read /docs/planning/@docs/planning/appliance-vs-document-surface-plan.md  and proceed with the next phase.
+
 
 
 
