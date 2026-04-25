@@ -50,7 +50,8 @@ export function computeHomeMenuPanelAnchorStyle(
   const figureRect = figure.getBoundingClientRect();
   const triggerRect = trigger.getBoundingClientRect();
   const left = Math.max(0, triggerRect.left - figureRect.left);
-  const bottom = Math.max(0, figureRect.bottom - triggerRect.top + 8);
+  // Keep the panel anchored just above the trigger so it grows upward.
+  const bottom = Math.max(0, figureRect.bottom - triggerRect.bottom + 8);
   return `left: ${left}px; bottom: ${bottom}px;`;
 }
 

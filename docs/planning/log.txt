@@ -135,8 +135,10 @@ fart
 						*  operate on phone
 						*  read code
 						*  particularly platform specifics
-						o  fix menu universality
+						*  fix menu universality
 						o  fix clipping of menu and install from home route
+							o  launch changes for home route only
+							o  go round again for other routes
 
 						This refers to the (only) menu this app has, and more acutely to the "Install App" panel that it brings up. The problem is that the contents of both the menu itself, and for example the InstallApp content is clipped on all platforms. In thinking about this be very careful about the behaviour of the home-route orchestrating the layout for th svg diagram - because that very deliberately fits to the viewport available in a particular way, and that must not change. Don't change anything yet - just analyse the root cause and we can discuss strategies for fixing it.
 

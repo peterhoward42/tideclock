@@ -361,6 +361,10 @@
     transform: translate(-4px, 0);
     z-index: 30;
     min-width: 12rem;
+    max-width: min(24rem, calc(100% - 1rem));
+    max-height: calc(100% - 1rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 0.5rem;
     background: rgb(2 6 23 / 0.92);
     border: 1px solid rgb(148 163 184 / 0.2);
