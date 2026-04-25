@@ -2,26 +2,28 @@
   /**
    * Hash-route primary nav in a details/summary menu (header usage).
    */
+  import { get } from "svelte/store";
   import { onMount } from "svelte";
   import PrimaryMenuContent from "./PrimaryMenuContent.svelte";
   import {
-    detectInstallPlatform,
+    homeInstallObserver,
     HOME_INSTALL_BENEFIT_LINES,
     manualInstallStepsForPlatform,
     promptForInstall,
-    type BeforeInstallPromptEventLike,
   } from "../routes/home/homeRouteInstallFlow";
 
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
   let installInfoOpen = $state(false);
-  let installPlatform = $state<"ios" | "android" | "desktop">("desktop");
-  let installPromptEvent = $state<BeforeInstallPromptEventLike | null>(null);
+  let installObserverSnapshot = $state(get(homeInstallObserver));
+  let installLastSeenAppInstalledCount = $state(0);
   let installStatusLine = $state<string | null>(null);
   const installBenefitLines = $derived(HOME_INSTALL_BENEFIT_LINES);
   const installManualSteps = $derived(
-    manualInstallStepsForPlatform(installPlatform),
+    manualInstallStepsForPlatform(installObserverSnapshot.platform),
   );
-  const installCanPrompt = $derived(installPromptEvent != null);
+  const installCanPrompt = $derived(
+    installObserverSnapshot.promptEvent != null,
+  );
 
   /** Called from parent header (brand / location) so navigation closes the flyout. */
   export function closeMenu(): void {
@@ -40,10 +42,10 @@
   }
 
   async function handleInstallPromptAction(): Promise<void> {
-    const promptEvent = installPromptEvent;
+    const promptEvent = installObserverSnapshot.promptEvent;
     if (promptEvent == null) return;
     const outcome = await promptForInstall(promptEvent);
-    installPromptEvent = null;
+    homeInstallObserver.clearPromptEvent();
     if (outcome === "accepted") {
       installStatusLine = "Install request accepted.";
       return;
@@ -55,29 +57,17 @@
     installStatusLine = "Install dialog closed.";
   }
 
-  onMount(() => {
-    if (typeof navigator !== "undefined") {
-      installPlatform = detectInstallPlatform(navigator.userAgent);
-    }
+  onMount(() =>
+    homeInstallObserver.subscribe(
+      (snapshot) => (installObserverSnapshot = snapshot),
+    ),
+  );
 
-    if (typeof window === "undefined") return;
-    const onBeforeInstallPrompt = (event: Event): void => {
-      const promptEvent = event as BeforeInstallPromptEventLike;
-      event.preventDefault();
-      installPromptEvent = promptEvent;
-    };
-    const onAppInstalled = (): void => {
-      installPromptEvent = null;
-      installStatusLine = "App installed.";
-    };
-
-    window.addEventListener("beforeinstallprompt", onBeforeInstallPrompt);
-    window.addEventListener("appinstalled", onAppInstalled);
-
-    return () => {
-      window.removeEventListener("beforeinstallprompt", onBeforeInstallPrompt);
-      window.removeEventListener("appinstalled", onAppInstalled);
-    };
+  $effect(() => {
+    const installedCount = installObserverSnapshot.appInstalledCount;
+    if (installedCount <= installLastSeenAppInstalledCount) return;
+    installLastSeenAppInstalledCount = installedCount;
+    installStatusLine = "App installed.";
   });
 </script>
 

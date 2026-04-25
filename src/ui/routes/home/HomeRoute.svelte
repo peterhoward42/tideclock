@@ -53,11 +53,10 @@
   import { mountHomeRouteScreenWakeLock } from "./homeRouteScreenWakeLock";
   import { toggleInstrumentFullscreen } from "./homeRouteFullscreen";
   import {
-    detectInstallPlatform,
+    homeInstallObserver,
     HOME_INSTALL_BENEFIT_LINES,
     manualInstallStepsForPlatform,
     promptForInstall,
-    type BeforeInstallPromptEventLike,
   } from "./homeRouteInstallFlow";
 
   let {
@@ -89,8 +88,8 @@
   let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
   let homeFullscreenActive = $state(false);
   let homeInstallInfoOpen = $state(false);
-  let homeInstallPlatform = $state<"ios" | "android" | "desktop">("desktop");
-  let homeInstallPromptEvent = $state<BeforeInstallPromptEventLike | null>(null);
+  let homeInstallObserverSnapshot = $state(get(homeInstallObserver));
+  let homeInstallLastSeenAppInstalledCount = $state(0);
   let homeInstallStatusLine = $state<string | null>(null);
 
   /** Snapshot from {@link displayOptimisation}; sole source for hint device/aspect policy. */
@@ -129,34 +128,17 @@
 
   const homeInstallBenefitLines = $derived(HOME_INSTALL_BENEFIT_LINES);
   const homeInstallManualSteps = $derived(
-    manualInstallStepsForPlatform(homeInstallPlatform),
+    manualInstallStepsForPlatform(homeInstallObserverSnapshot.platform),
   );
-  const homeInstallCanPrompt = $derived(homeInstallPromptEvent != null);
+  const homeInstallCanPrompt = $derived(
+    homeInstallObserverSnapshot.promptEvent != null,
+  );
 
   // Subscriptions and lifecycle (onMount)
   onMount(() => {
-    if (typeof navigator !== "undefined") {
-      homeInstallPlatform = detectInstallPlatform(navigator.userAgent);
-    }
-
-    if (typeof window === "undefined") return;
-    const onBeforeInstallPrompt = (event: Event): void => {
-      const promptEvent = event as BeforeInstallPromptEventLike;
-      event.preventDefault();
-      homeInstallPromptEvent = promptEvent;
-    };
-    const onAppInstalled = (): void => {
-      homeInstallPromptEvent = null;
-      homeInstallStatusLine = "App installed.";
-    };
-
-    window.addEventListener("beforeinstallprompt", onBeforeInstallPrompt);
-    window.addEventListener("appinstalled", onAppInstalled);
-
-    return () => {
-      window.removeEventListener("beforeinstallprompt", onBeforeInstallPrompt);
-      window.removeEventListener("appinstalled", onAppInstalled);
-    };
+    return homeInstallObserver.subscribe(
+      (snapshot) => (homeInstallObserverSnapshot = snapshot),
+    );
   });
 
   onMount(() => {
@@ -333,6 +315,13 @@
   });
 
   $effect(() => {
+    const installedCount = homeInstallObserverSnapshot.appInstalledCount;
+    if (installedCount <= homeInstallLastSeenAppInstalledCount) return;
+    homeInstallLastSeenAppInstalledCount = installedCount;
+    homeInstallStatusLine = "App installed.";
+  });
+
+  $effect(() => {
     if (diagramSvg === "") {
       homeMenuOpen = false;
       return;
@@ -443,10 +432,10 @@
   }
 
   async function handleInstallPromptAction(): Promise<void> {
-    const promptEvent = homeInstallPromptEvent;
+    const promptEvent = homeInstallObserverSnapshot.promptEvent;
     if (promptEvent == null) return;
     const outcome = await promptForInstall(promptEvent);
-    homeInstallPromptEvent = null;
+    homeInstallObserver.clearPromptEvent();
     if (outcome === "accepted") {
       homeInstallStatusLine = "Install request accepted.";
       return;

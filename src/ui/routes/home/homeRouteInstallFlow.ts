@@ -3,6 +3,8 @@
  * Keeps install capability detection and copy selection explicit and testable.
  */
 
+import { writable, type Readable } from "svelte/store";
+
 export type InstallPlatform = "ios" | "android" | "desktop";
 
 export type InstallPromptOutcome = "accepted" | "dismissed" | "unknown";
@@ -10,6 +12,26 @@ export type InstallPromptOutcome = "accepted" | "dismissed" | "unknown";
 export type BeforeInstallPromptEventLike = Event & {
   prompt: () => Promise<void>;
   userChoice: Promise<{ outcome: "accepted" | "dismissed"; platform: string }>;
+};
+
+export type HomeInstallObserverSnapshot = {
+  platform: InstallPlatform;
+  promptEvent: BeforeInstallPromptEventLike | null;
+  appInstalledCount: number;
+};
+
+export type HomeInstallObserverStore = Readable<HomeInstallObserverSnapshot> & {
+  clearPromptEvent: () => void;
+};
+
+type InstallObserverEventTarget = {
+  addEventListener: (type: string, listener: EventListenerOrEventListenerObject) => void;
+  removeEventListener: (type: string, listener: EventListenerOrEventListenerObject) => void;
+};
+
+type HomeInstallObserverEnvironment = {
+  eventTarget: InstallObserverEventTarget | null;
+  userAgent: string | null;
 };
 
 export const HOME_INSTALL_BENEFIT_LINES: readonly string[] = [
@@ -62,3 +84,79 @@ export async function promptForInstall(
     return "unknown";
   }
 }
+
+function initialHomeInstallObserverSnapshot(
+  userAgent: string | null,
+): HomeInstallObserverSnapshot {
+  if (userAgent != null) {
+    return {
+      platform: detectInstallPlatform(userAgent),
+      promptEvent: null,
+      appInstalledCount: 0,
+    };
+  }
+  return {
+    platform: "desktop",
+    promptEvent: null,
+    appInstalledCount: 0,
+  };
+}
+
+function defaultHomeInstallObserverEnvironment(): HomeInstallObserverEnvironment {
+  return {
+    eventTarget: typeof window === "undefined" ? null : window,
+    userAgent: typeof navigator === "undefined" ? null : navigator.userAgent,
+  };
+}
+
+export function createHomeInstallObserverStore(
+  environment: HomeInstallObserverEnvironment = defaultHomeInstallObserverEnvironment(),
+): HomeInstallObserverStore {
+  const store = writable<HomeInstallObserverSnapshot>(
+    initialHomeInstallObserverSnapshot(environment.userAgent),
+    (set, update) => {
+      set(initialHomeInstallObserverSnapshot(environment.userAgent));
+      if (environment.eventTarget == null) return;
+
+      const onBeforeInstallPrompt = (event: Event): void => {
+        const promptEvent = event as BeforeInstallPromptEventLike;
+        event.preventDefault();
+        update((state) => ({ ...state, promptEvent }));
+      };
+
+      const onAppInstalled = (): void => {
+        update((state) => ({
+          ...state,
+          promptEvent: null,
+          appInstalledCount: state.appInstalledCount + 1,
+        }));
+      };
+
+      environment.eventTarget.addEventListener(
+        "beforeinstallprompt",
+        onBeforeInstallPrompt,
+      );
+      environment.eventTarget.addEventListener("appinstalled", onAppInstalled);
+
+      return () => {
+        environment.eventTarget?.removeEventListener(
+          "beforeinstallprompt",
+          onBeforeInstallPrompt,
+        );
+        environment.eventTarget?.removeEventListener(
+          "appinstalled",
+          onAppInstalled,
+        );
+      };
+    },
+  );
+
+  return {
+    subscribe: store.subscribe,
+    clearPromptEvent: (): void => {
+      store.update((state) => ({ ...state, promptEvent: null }));
+    },
+  };
+}
+
+export const homeInstallObserver = createHomeInstallObserverStore();
