@@ -28,16 +28,10 @@
   import Acknowledgements from "./routes/Acknowledgements.svelte";
   import Support from "./routes/Support.svelte";
   import Cookies from "./routes/Cookies.svelte";
+  import { surfaceModeForRoute } from "./routeSurfaceMode";
 
-  /** Mirrors {@link RouteId} in `router.js` for header copy without importing JS typedefs. */
-  type AppRouteId =
-    | "home"
-    | "location2"
-    | "settings"
-    | "about"
-    | "acknowledgements"
-    | "support"
-    | "cookies";
+  /** Mirrors {@link RouteId} in `router.js` for header copy and route surface mode mapping. */
+  type AppRouteId = Parameters<typeof surfaceModeForRoute>[0];
 
   type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
   let tideLoadState = $state<TidePredictionsLoadState>({ status: "ready" });
@@ -231,7 +225,7 @@
   });
 </script>
 
-<div class="app-frame">
+<div class="app-frame" data-surface-mode={surfaceModeForRoute($route)}>
   {#if $route !== "home"}
     <AppHeader
       tone={"light"}

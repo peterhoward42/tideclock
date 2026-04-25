@@ -12,8 +12,8 @@ After completing a package, flip its checkbox and add a short verification note 
 
 ## Current packages (source-of-truth checklist)
 
-- [ ] **`pkg-surface-contract`** — Introduce global semantic surface/text/border/focus tokens.
-- [ ] **`pkg-mode-switch`** — Add deterministic route-level mode marker (`appliance` vs `document`).
+- [x] **`pkg-surface-contract`** — Introduce global semantic surface/text/border/focus tokens.
+- [x] **`pkg-mode-switch`** — Add deterministic route-level mode marker (`appliance` vs `document`).
 - [ ] **`pkg-menu-shell`** — Make home and header menu shells mode-aware via tokens.
 - [ ] **`pkg-menu-content-tokenize`** — Tokenize shared menu content styles (no behavior/copy changes).
 - [ ] **`pkg-home-appliance-pass`** — Align home supporting surfaces to appliance mode; keep diagram palette unchanged.
@@ -30,3 +30,6 @@ After completing a package, flip its checkbox and add a short verification note 
 ## Notes / verification log
 
 - 2026-04-25: Added `appliance-vs-document-surface-plan.md` and this progress tracker. No implementation packages started yet.
+- 2026-04-25: Completed `pkg-surface-contract` in `src/app.css` by introducing semantic role tokens with `appliance`/`document` mode overrides and migrating app-shell/header/menu styles to token usage without changing layout behavior.
+- 2026-04-25: Completed `pkg-mode-switch` by adding `src/ui/routeSurfaceMode.ts` and wiring `data-surface-mode` on `.app-frame` in `src/ui/App.svelte` (`home` => `appliance`; all other routes => `document`).
+- 2026-04-25: Verification: `npm run test -- src/ui/routeSurfaceMode.test.ts` passed; touched-file lints are clean. Manual visual smoke across home + one non-home route still pending.
