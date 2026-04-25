@@ -1,8 +1,8 @@
 :root {
   font-family: system-ui, sans-serif;
   line-height: 1.5;
-  color: #0f172a;
-  background: #f8fafc;
+  color: var(--text-primary);
+  background: var(--surface-page);
 
   /*
    * Semantic surface contract (base defaults).
@@ -23,8 +23,12 @@
   --text-contrast: rgb(241 245 249 / 0.88);
   --text-brand: #334155;
   --text-brand-contrast: rgb(196 181 253 / 0.92);
+  --text-document-emphasis: #111827;
+  --text-document-secondary: #4b5563;
+  --text-link-accent: #1d4ed8;
 
   --border-subtle: #e2e8f0;
+  --border-control: #d1d5db;
   --border-contrast-subtle: rgb(148 163 184 / 0.16);
   --border-contrast-strong: rgb(148 163 184 / 0.2);
   --outline-subtle: rgb(148 163 184 / 0.18);
@@ -44,7 +48,11 @@
   --text-primary: #0f172a;
   --text-muted: #64748b;
   --text-brand: #334155;
+  --text-document-emphasis: #111827;
+  --text-document-secondary: #4b5563;
+  --text-link-accent: #1d4ed8;
   --border-subtle: #e2e8f0;
+  --border-control: #d1d5db;
 
   /* PrimaryMenuContent: light flyout + conventional text (inherits semantic roles above). */
   --surface-menu-content-control: var(--surface-overlay);
@@ -78,7 +86,11 @@
   --text-primary: rgb(241 245 249 / 0.88);
   --text-muted: rgb(148 163 184 / 0.9);
   --text-brand: rgb(196 181 253 / 0.92);
+  --text-document-emphasis: rgb(241 245 249 / 0.92);
+  --text-document-secondary: rgb(191 219 254 / 0.86);
+  --text-link-accent: rgb(191 219 254 / 0.92);
   --border-subtle: rgb(148 163 184 / 0.2);
+  --border-control: rgb(148 163 184 / 0.3);
   --shadow-menu-flyout: var(--shadow-overlay-contrast);
 
   /* PrimaryMenuContent: instrument-integrated chips + dark inset panel. */
@@ -339,7 +351,7 @@ a {
 
 .tide-clock {
   width: min(22rem, 100%);
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .tide-clock svg {
@@ -349,6 +361,6 @@ a {
 }
 
 .clock-readout {
-  fill: #475569;
+  fill: var(--text-muted);
   font-family: ui-monospace, monospace;
 }

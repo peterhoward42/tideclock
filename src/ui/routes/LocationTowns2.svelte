@@ -114,23 +114,23 @@
     margin: 0;
     font-size: 0.92rem;
     line-height: 1.35;
-    color: #4b5563;
+    color: var(--text-document-secondary);
   }
 
   .result-guidance {
     margin: 0;
     font-size: 0.92rem;
     font-weight: 600;
-    color: #111827;
+    color: var(--text-document-emphasis);
   }
 
   .result-guidance--muted {
     font-weight: 400;
-    color: #6b7280;
+    color: var(--text-muted);
   }
 
   .muted {
-    color: #6b7280;
+    color: var(--text-muted);
     font-weight: 400;
   }
 
@@ -150,7 +150,7 @@
     width: 100%;
     max-width: 100%;
     padding: 0.65rem 0.8rem;
-    border: 1px solid #d1d5db;
+    border: 1px solid var(--border-control);
     border-radius: 0.5rem;
     font: inherit;
   }
@@ -170,7 +170,7 @@
     background: none;
     padding: 0;
     font: inherit;
-    color: #1d4ed8;
+    color: var(--text-link-accent);
     text-decoration: underline;
     cursor: pointer;
     font-weight: 600;
