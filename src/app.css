@@ -53,6 +53,20 @@
   --border-menu-content-inset: var(--border-subtle);
   --text-menu-content-primary: var(--text-primary);
   --text-menu-content-status: var(--text-muted);
+  --surface-home-support-card: var(--surface-panel);
+  --border-home-support-card: var(--border-subtle);
+  --text-home-support-accent: #1d4ed8;
+  --text-home-support-primary: var(--text-primary);
+  --text-home-support-secondary: #374151;
+  --surface-home-support-action: #dbeafe;
+  --surface-home-support-action-hover: #bfdbfe;
+  --text-home-support-action: #1d4ed8;
+  --text-home-support-action-hover: #1e40af;
+  --text-home-landscape-hint: rgb(148 163 184 / 0.55);
+  --text-home-panel-muted: #dbeafe;
+  --surface-home-menu-trigger-hover: #191919;
+  --border-home-menu-trigger-hover: #aaa;
+  --text-home-menu-trigger-hover: #fff;
 }
 
 .app-frame[data-surface-mode="appliance"] {
@@ -74,6 +88,20 @@
   --border-menu-content-inset: rgb(148 163 184 / 0.2);
   --text-menu-content-primary: rgb(241 245 249 / 0.92);
   --text-menu-content-status: rgb(191 219 254 / 0.92);
+  --surface-home-support-card: rgb(15 23 42 / 0.72);
+  --border-home-support-card: rgb(148 163 184 / 0.25);
+  --text-home-support-accent: rgb(191 219 254 / 0.92);
+  --text-home-support-primary: rgb(241 245 249 / 0.92);
+  --text-home-support-secondary: rgb(191 219 254 / 0.86);
+  --surface-home-support-action: rgb(148 163 184 / 0.14);
+  --surface-home-support-action-hover: rgb(148 163 184 / 0.22);
+  --text-home-support-action: rgb(241 245 249 / 0.94);
+  --text-home-support-action-hover: rgb(255 255 255 / 0.98);
+  --text-home-landscape-hint: rgb(148 163 184 / 0.55);
+  --text-home-panel-muted: rgb(191 219 254 / 0.92);
+  --surface-home-menu-trigger-hover: #191919;
+  --border-home-menu-trigger-hover: #aaa;
+  --text-home-menu-trigger-hover: #fff;
 }
 
 body {

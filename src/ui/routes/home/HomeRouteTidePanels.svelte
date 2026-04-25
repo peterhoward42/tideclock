@@ -148,7 +148,7 @@
     flex: 1;
     min-height: 0;
     width: 100%;
-    background: #000;
+    background: var(--surface-page);
     display: flex;
     align-items: stretch;
     justify-content: stretch;
@@ -170,15 +170,15 @@
     gap: 0.9rem;
     justify-items: start;
     padding: 1.5rem;
-    border: 1px solid #d1d5db;
+    border: 1px solid var(--border-home-support-card);
     border-radius: 0.875rem;
-    background: #fff;
-    box-shadow: 0 18px 40px rgb(0 0 0 / 0.16);
+    background: var(--surface-home-support-card);
+    box-shadow: var(--shadow-menu-flyout);
   }
 
   .home-empty-state__eyebrow {
     margin: 0;
-    color: #1d4ed8;
+    color: var(--text-home-support-accent);
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -187,7 +187,7 @@
 
   .home-empty-state__title {
     margin: 0;
-    color: #111827;
+    color: var(--text-home-support-primary);
     font-size: clamp(1.8rem, 4vw, 2.4rem);
     line-height: 1.05;
   }
@@ -196,7 +196,7 @@
     margin: 0;
     max-width: 28ch;
     line-height: 1.5;
-    color: #374151;
+    color: var(--text-home-support-secondary);
   }
 
   .home-empty-state__action {
@@ -206,20 +206,20 @@
     min-height: 2.75rem;
     padding: 0.7rem 1rem;
     border-radius: 999px;
-    background: #dbeafe;
-    color: #1d4ed8;
+    background: var(--surface-home-support-action);
+    color: var(--text-home-support-action);
     font-weight: 600;
     text-decoration: none;
-    box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+    box-shadow: var(--shadow-overlay);
   }
 
   .home-empty-state__action:hover {
-    background: #bfdbfe;
-    color: #1e40af;
+    background: var(--surface-home-support-action-hover);
+    color: var(--text-home-support-action-hover);
   }
 
   .home-empty-state__action:focus-visible {
-    outline: 2px solid #1d4ed8;
+    outline: 2px solid var(--focus-ring);
     outline-offset: 3px;
   }
 
@@ -261,8 +261,8 @@
     :global(
       svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover > rect
     ) {
-    fill: #191919;
-    stroke: #aaa;
+    fill: var(--surface-home-menu-trigger-hover);
+    stroke: var(--border-home-menu-trigger-hover);
   }
 
   .home-instrument
@@ -272,7 +272,7 @@
         g[data-name="HomeMenuTriggerLabel"]
         text
     ) {
-    fill: #ffffff;
+    fill: var(--text-home-menu-trigger-hover);
   }
 
   .home-instrument :global(svg) {
@@ -306,7 +306,7 @@
   .home-landscape-hint-strip__text {
     margin: 0;
     max-width: 36ch;
-    color: rgb(148 163 184 / 0.55);
+    color: var(--text-home-landscape-hint);
     font-size: 0.72rem;
     line-height: 1.3;
     font-weight: 500;
@@ -353,7 +353,7 @@
   }
 
   .home-panel .muted {
-    color: #dbeafe;
+    color: var(--text-home-panel-muted);
   }
 
   .home-menu-panel {
