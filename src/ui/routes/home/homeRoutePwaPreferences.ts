@@ -75,3 +75,21 @@ export function writeStandaloneSetupDismissedThisSession(): void {
     // ignore
   }
 }
+
+export function clearStandaloneSetupSessionDismissal(): void {
+  const s = sessionStore();
+  if (s === null) return;
+  try {
+    s.removeItem(SESSION_STANDALONE_SETUP_DISMISSED);
+  } catch {
+    // ignore
+  }
+}
+
+export function clearStandaloneSetupHiddenForeverIn(storage: Storage): void {
+  try {
+    storage.removeItem(V1.standaloneSetupHiddenForever);
+  } catch {
+    // ignore
+  }
+}

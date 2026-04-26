@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import {
   effectiveSearchStringFromLocationParts,
   homeRouteDevDebugFlagsFromSearch,
+  pwaSetupDevPreviewWantedFromSearch,
+  pwaSetupDevResetWantedFromSearch,
 } from "./homeRouteUrlQuery";
 
 describe("effectiveSearchStringFromLocationParts", () => {
@@ -46,5 +48,21 @@ describe("homeRouteDevDebugFlagsFromSearch", () => {
       outline: false,
       previewFrame: false,
     });
+  });
+});
+
+describe("PWA setup dev URL hints", () => {
+  it("detects pwaSetup=1", () => {
+    expect(pwaSetupDevPreviewWantedFromSearch("?pwaSetup=1")).toBe(true);
+    expect(pwaSetupDevPreviewWantedFromSearch("")).toBe(false);
+    expect(pwaSetupDevPreviewWantedFromSearch("?pwaSetup=0")).toBe(false);
+  });
+
+  it("detects pwaReset=1", () => {
+    expect(pwaSetupDevResetWantedFromSearch("?pwaReset=1")).toBe(true);
+    expect(
+      pwaSetupDevResetWantedFromSearch("?pwaSetup=1&pwaReset=1"),
+    ).toBe(true);
+    expect(pwaSetupDevResetWantedFromSearch("")).toBe(false);
   });
 });

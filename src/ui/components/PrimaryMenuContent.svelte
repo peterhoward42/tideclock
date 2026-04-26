@@ -12,6 +12,9 @@
     readonly showBatteryBlurb: boolean;
     readonly onToggleSection: () => void;
     readonly onToggle: (next: boolean) => void;
+    /** Shown in the home diagram menu in standalone: pops the first-run card again. */
+    readonly onShowWelcomeCard?: () => void;
+    readonly showWelcomeCardEntry?: boolean;
   };
 
   interface Props {
@@ -76,6 +79,15 @@
         toggleEnabled={pwaToggleEnabled}
         onToggle={pwa.onToggle}
       />
+      {#if pwa.showWelcomeCardEntry && pwa.onShowWelcomeCard}
+        <button
+          type="button"
+          class="primary-menu-content__pwa-welcome-again"
+          onclick={pwa.onShowWelcomeCard}
+        >
+          Show first-run setup card
+        </button>
+      {/if}
     </section>
   {/if}
 {/if}
@@ -186,5 +198,21 @@
     border: 1px solid var(--border-menu-content-inset);
     border-radius: 0.25rem;
     background: var(--surface-menu-content-inset);
+  }
+
+  .primary-menu-content__pwa-welcome-again {
+    margin-top: 0.45rem;
+    width: 100%;
+    border: 0;
+    background: none;
+    color: var(--text-menu-content-status);
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+    font: inherit;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    cursor: pointer;
+    text-align: left;
+    padding: 0.2rem 0 0;
   }
 </style>

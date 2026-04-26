@@ -131,7 +131,21 @@ fart
 					*  implementation of a coherent system
 					*  improvement of what you see on diagram mode
 					o  next phase of ux improvement plan
+						o  App Display and first use
+							o  No first use pop up anywhere?
+				
+					o  first load of site on phone brings it up in portrait,
+					   if you then go to landscape it doesn't all scale to fit,
+					   and you lose the menu button off the bottom, so may not
+					   know it is there - it appears not to have fitted the
+					   diagram right?
 
+					o  on mobile if the first thing you do while still in
+					portrait is install app, the extra content is clipped at 
+					the top - see screenshot on phone
+
+
+	
 				o  first use choose your location needs same background
 				   treatment as in-diagram menu
 				   	o  any others?

@@ -49,6 +49,8 @@
   import {
     effectiveSearchStringFromLocationParts,
     homeRouteDevDebugFlagsFromSearch,
+    pwaSetupDevPreviewWantedFromSearch,
+    pwaSetupDevResetWantedFromSearch,
   } from "../../homeRouteUrlQuery";
   import { mountHomeRouteOrientationLock } from "./homeRouteOrientationLock";
   import { mountHomeRouteScreenWakeLock } from "./homeRouteScreenWakeLock";
@@ -61,6 +63,8 @@
     tideViewWakePresentationStore,
   } from "./homeRoutePwaUi";
   import {
+    clearStandaloneSetupHiddenForeverIn,
+    clearStandaloneSetupSessionDismissal,
     readStandaloneSetupDismissedThisSession,
     readStandaloneSetupHiddenForever,
     writeStandaloneSetupDismissedThisSession,
@@ -112,6 +116,10 @@
   let pwaTideViewPresentation = $state(get(tideViewWakePresentationStore));
   let pwaDisplaySectionOpen = $state(false);
   let pwaSetupOverlayOpen = $state(false);
+  /** In dev, `?pwaSetup=1` in a non-installed tab. */
+  let pwaDevPreviewInTab = $state(false);
+  /** For menu “show welcome” + first-run; set on mount. */
+  let isStandalonePwa = $state(false);
   /** When true, show battery/heat blurb (off when charging, if we can tell). */
   let pwaShowBatteryBlurb = $state(true);
 
@@ -169,6 +177,12 @@
     },
     onToggle: (next: boolean) => {
       setKeepScreenAwakeUserEnabled(next);
+    },
+    showWelcomeCardEntry: isStandalonePwa,
+    onShowWelcomeCard: () => {
+      pwaSetupOverlayOpen = true;
+      pwaDisplaySectionOpen = false;
+      homeMenuOpen = false;
     },
   });
 
@@ -245,9 +259,31 @@
   });
 
   onMount(() => {
+    if (typeof window === "undefined") return;
+    const search = effectiveSearchStringFromLocationParts(
+      window.location.search,
+      window.location.hash,
+    );
+    isStandalonePwa = isStandaloneDisplayMode();
+
+    if (import.meta.env.DEV) {
+      if (pwaSetupDevResetWantedFromSearch(search)) {
+        clearStandaloneSetupSessionDismissal();
+        if (typeof localStorage !== "undefined") {
+          clearStandaloneSetupHiddenForeverIn(localStorage);
+        }
+      }
+      if (pwaSetupDevPreviewWantedFromSearch(search)) {
+        pwaSetupOverlayOpen = true;
+        pwaDevPreviewInTab = !isStandalonePwa;
+      }
+    }
+
+    if (pwaSetupOverlayOpen) return;
+
     try {
       if (typeof localStorage === "undefined") return;
-      if (!isStandaloneDisplayMode()) return;
+      if (!isStandalonePwa) return;
       if (readStandaloneSetupHiddenForever(localStorage)) return;
       if (readStandaloneSetupDismissedThisSession()) return;
       pwaSetupOverlayOpen = true;
@@ -561,6 +597,7 @@
   {#if pwaSetupOverlayOpen}
     <div class="home-route__pwa-setup">
       <HomePwaStandaloneSetupOverlay
+        devPreviewInTab={pwaDevPreviewInTab}
         apiSupported={isWakeLockApiSupportedRuntime()}
         isHomeRoute={true}
         userWants={pwaUserWants}
@@ -626,10 +663,11 @@
   }
 
   .home-route__pwa-setup {
-    position: absolute;
-    z-index: 25;
+    /* Fixed: avoids clipping in nested flex/overflow; stays above the diagram (see menu z-index). */
+    position: fixed;
+    z-index: 40;
     left: 50%;
-    bottom: 0.75rem;
+    bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
     transform: translateX(-50%);
     max-width: min(22rem, calc(100% - 1.25rem));
     pointer-events: auto;

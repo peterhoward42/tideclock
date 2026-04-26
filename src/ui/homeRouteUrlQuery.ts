@@ -39,3 +39,22 @@ export function homeRouteDevDebugFlagsFromSearch(
     previewFrame: params.has("pf"),
   };
 }
+
+/**
+ * **Development only** — request to show the first-run / standalone PWA setup card
+ * (use when testing in a normal tab; production ignores this in callers).
+ * Example: `http://host:port/?pwaSetup=1` or `#/home?pwaSetup=1`.
+ */
+export function pwaSetupDevPreviewWantedFromSearch(search: string): boolean {
+  const params = new URLSearchParams(search);
+  return params.get("pwaSetup") === "1";
+}
+
+/**
+ * **Development only** — clear "don't show again" + session dismiss so the setup card
+ * can appear again. Use with `?pwaSetup=1&pwaReset=1` for a full first-run re-test.
+ */
+export function pwaSetupDevResetWantedFromSearch(search: string): boolean {
+  const params = new URLSearchParams(search);
+  return params.get("pwaReset") === "1";
+}
