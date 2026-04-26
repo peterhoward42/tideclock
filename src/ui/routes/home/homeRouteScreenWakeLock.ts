@@ -1,7 +1,12 @@
 /**
- * Home-route screen wake lock: keep the display awake while this route is mounted and the
- * document is visible. Progressive enhancement only — failures are console-debug only.
+ * Home-route screen wake lock: keep the display awake while this route is mounted, the
+ * document is visible, and the user has opted in. Progressive enhancement only.
  */
+
+import type { HomeWakeLockPresentation } from "./homeRouteWakeLockPresentation";
+import { isWakeLockApiSupported } from "./homeRouteWakeLockSupport";
+
+export type { HomeWakeLockPresentation } from "./homeRouteWakeLockPresentation";
 
 const LOG_PREFIX = "[home wake-lock]";
 
@@ -13,13 +18,27 @@ function debugLog(message: string, detail?: unknown): void {
   console.debug(LOG_PREFIX, message, detail);
 }
 
+type MountOptions = {
+  shouldRequestLock: () => boolean;
+  onPresentationChange: (p: HomeWakeLockPresentation) => void;
+};
+
 /**
- * Subscribes to visibility and holds a `'screen'` wake lock when the tab is foregrounded.
- * Releases on `visibilityState === 'hidden'` and when the returned disposer runs (route teardown).
+ * Subscribes to visibility and, when the user has opted in, holds a `'screen'` wake lock while
+ * the tab is foregrounded. Call `sync` after `shouldRequestLock` may have changed.
  */
-export function mountHomeRouteScreenWakeLock(): () => void {
+export function mountHomeRouteScreenWakeLock(
+  options: MountOptions,
+): { dispose: () => void; sync: () => void } {
+  const { shouldRequestLock, onPresentationChange } = options;
+  const apiOk = isWakeLockApiSupported();
   let sentinel: WakeLockSentinel | undefined;
   let disposed = false;
+
+  const report = (p: HomeWakeLockPresentation): void => {
+    if (disposed) return;
+    onPresentationChange(p);
+  };
 
   const releaseNow = async (): Promise<void> => {
     if (!sentinel) return;
@@ -33,17 +52,30 @@ export function mountHomeRouteScreenWakeLock(): () => void {
     }
   };
 
-  const scheduleAcquire = (): void => {
-    if (disposed || document.visibilityState !== "visible") return;
-    void obtainLock();
-  };
+  const reconcile = async (): Promise<void> => {
+    if (disposed) return;
 
-  const obtainLock = async (): Promise<void> => {
-    if (disposed || document.visibilityState !== "visible") return;
+    if (!apiOk) {
+      await releaseNow();
+      report({ kind: "not_supported" });
+      return;
+    }
+
+    if (!shouldRequestLock()) {
+      await releaseNow();
+      report({ kind: "inactive", reason: "user_off" });
+      return;
+    }
+
+    if (document.visibilityState !== "visible") {
+      await releaseNow();
+      report({ kind: "inactive", reason: "background" });
+      return;
+    }
 
     const wakeLock = navigator.wakeLock;
     if (!wakeLock?.request) {
-      debugLog("Wake Lock API not available");
+      report({ kind: "not_supported" });
       return;
     }
 
@@ -55,7 +87,6 @@ export function mountHomeRouteScreenWakeLock(): () => void {
         debugLog("WakeLock.request('screen') resolved after teardown; releasing stray sentinel");
         try {
           await acquired.release();
-          debugLog("WakeLock.release() completed (stray sentinel after teardown)");
         } catch (err) {
           debugLog("release after dispose threw", err);
         }
@@ -64,35 +95,43 @@ export function mountHomeRouteScreenWakeLock(): () => void {
 
       sentinel = acquired;
       debugLog("WakeLock.request('screen') resolved; hold active");
+      report({ kind: "active" });
       acquired.addEventListener("release", () => {
         if (sentinel === acquired) sentinel = undefined;
         debugLog("sentinel released (platform or navigation)");
-        if (!disposed && document.visibilityState === "visible") {
-          queueMicrotask(() => scheduleAcquire());
-        }
+        if (disposed) return;
+        void reconcile();
       });
     } catch (err) {
       debugLog("request('screen') failed", err);
+      report({ kind: "inactive", reason: "request_failed" });
     }
   };
 
   const onVisibilityChange = (): void => {
+    if (disposed) return;
     if (document.visibilityState === "hidden") {
       debugLog("document hidden; calling WakeLock.release()");
-      void releaseNow();
-      return;
+    } else {
+      debugLog("document visible; reconciling wake lock");
     }
-    debugLog("document visible; scheduling WakeLock.request('screen')");
-    scheduleAcquire();
+    void reconcile();
   };
 
   document.addEventListener("visibilitychange", onVisibilityChange);
-  scheduleAcquire();
+  void reconcile();
 
-  return () => {
-    disposed = true;
-    document.removeEventListener("visibilitychange", onVisibilityChange);
-    debugLog("home route unmount; calling WakeLock.release()");
-    void releaseNow();
+  const sync = (): void => {
+    void reconcile();
+  };
+
+  return {
+    sync,
+    dispose: () => {
+      disposed = true;
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      debugLog("home route unmount; calling WakeLock.release()");
+      void releaseNow();
+    },
   };
 }

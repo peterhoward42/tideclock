@@ -3,16 +3,7 @@
  * This is progressive enhancement and must fail silently when unavailable.
  */
 
-type NavigatorWithStandalone = Navigator & { standalone?: boolean };
-
-function isStandaloneDisplayMode(): boolean {
-  const runtime = globalThis as typeof globalThis & {
-    matchMedia?: (query: string) => { matches: boolean };
-    navigator?: NavigatorWithStandalone;
-  };
-  if (runtime.matchMedia?.("(display-mode: standalone)").matches) return true;
-  return runtime.navigator?.standalone === true;
-}
+import { isStandaloneDisplayMode } from "./pwaDisplayMode";
 
 function getLandscapeLock(): ((orientation: OrientationLockType) => Promise<void>) | null {
   const runtime = globalThis as typeof globalThis & {

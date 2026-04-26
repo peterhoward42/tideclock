@@ -4,7 +4,9 @@
    * DOM refs are bindable so the route’s effects (SVG glue, menu wiring, clock patch) stay in Home.
    */
   import type { TideExtremesAtLocation } from "../../../core-models/TideExtremesAtLocation";
-  import PrimaryMenuContent from "../../components/PrimaryMenuContent.svelte";
+  import PrimaryMenuContent, {
+    type PwaDisplayMenu,
+  } from "../../components/PrimaryMenuContent.svelte";
 
   type TidePredictionsLoadState = {
     readonly status: "loading" | "ready" | "error";
@@ -29,6 +31,7 @@
     readonly onToggleHomeFullscreen: () => void | Promise<void>;
     readonly onOpenInstallMenu: () => void;
     readonly onPromptInstall: () => void | Promise<void>;
+    readonly pwa: PwaDisplayMenu;
     diagramHostEl?: HTMLElement | undefined;
     homeInstrumentEl?: HTMLElement | undefined;
     homeMenuPanelEl?: HTMLElement | undefined;
@@ -53,6 +56,7 @@
     onToggleHomeFullscreen,
     onOpenInstallMenu,
     onPromptInstall,
+    pwa,
     diagramHostEl = $bindable(),
     homeInstrumentEl = $bindable(),
     homeMenuPanelEl = $bindable(),
@@ -136,6 +140,7 @@
               ? "Exit fullscreen"
               : "Enter fullscreen"}
             onToggleFullscreen={onToggleHomeFullscreen}
+            {pwa}
           />
         </div>
       {/if}

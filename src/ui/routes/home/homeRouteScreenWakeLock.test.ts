@@ -38,7 +38,7 @@ describe("mountHomeRouteScreenWakeLock", () => {
     vi.restoreAllMocks();
   });
 
-  it("requests a screen lock when mounted visible", async () => {
+  it("requests a screen lock when mounted visible and the user wants it", async () => {
     const doc = new FakeDocument();
     doc.visibilityState = "visible";
     const sentinel = createFakeSentinel();
@@ -47,9 +47,29 @@ describe("mountHomeRouteScreenWakeLock", () => {
     vi.stubGlobal("document", doc);
     vi.stubGlobal("navigator", { wakeLock: { request } });
 
-    mountHomeRouteScreenWakeLock();
+    const onP = vi.fn();
+    mountHomeRouteScreenWakeLock({
+      shouldRequestLock: () => true,
+      onPresentationChange: onP,
+    });
     await vi.waitFor(() => expect(request).toHaveBeenCalledTimes(1));
     expect(request).toHaveBeenCalledWith("screen");
+    expect(onP.mock.calls.length).toBeGreaterThan(0);
+  });
+
+  it("does not request when the user has opted out", () => {
+    const doc = new FakeDocument();
+    const request = vi.fn();
+
+    vi.stubGlobal("document", doc);
+    vi.stubGlobal("navigator", { wakeLock: { request } });
+
+    mountHomeRouteScreenWakeLock({
+      shouldRequestLock: () => false,
+      onPresentationChange: () => {},
+    });
+
+    expect(request).not.toHaveBeenCalled();
   });
 
   it("releases when the document becomes hidden", async () => {
@@ -61,7 +81,10 @@ describe("mountHomeRouteScreenWakeLock", () => {
     vi.stubGlobal("document", doc);
     vi.stubGlobal("navigator", { wakeLock: { request } });
 
-    const dispose = mountHomeRouteScreenWakeLock();
+    const { dispose } = mountHomeRouteScreenWakeLock({
+      shouldRequestLock: () => true,
+      onPresentationChange: () => {},
+    });
     await vi.waitFor(() => expect(request).toHaveBeenCalled());
 
     doc.setVisibility("hidden");
@@ -83,7 +106,10 @@ describe("mountHomeRouteScreenWakeLock", () => {
       wakeLock: { request: vi.fn(async () => sentinel) },
     });
 
-    const dispose = mountHomeRouteScreenWakeLock();
+    const { dispose } = mountHomeRouteScreenWakeLock({
+      shouldRequestLock: () => true,
+      onPresentationChange: () => {},
+    });
     await vi.waitFor(() => expect(sentinel.release).not.toHaveBeenCalled());
 
     dispose();

@@ -37,7 +37,7 @@ type HomeInstallObserverEnvironment = {
 export const HOME_INSTALL_BENEFIT_LINES: readonly string[] = [
   "Uses more of the screen, without browser bars taking up space.",
   "Feels more like a dedicated tide clock than a regular website tab.",
-  "When the device is charging, it can ask to keep the screen awake.",
+  "You can turn on “keep screen awake” from the menu (optional; uses more battery if unplugged).",
 ];
 
 export function detectInstallPlatform(userAgent: string): InstallPlatform {

@@ -1,5 +1,18 @@
 <script lang="ts">
   import PrimaryNavLinks from "./PrimaryNavLinks.svelte";
+  import HomePwaDisplaySection from "../routes/home/HomePwaDisplaySection.svelte";
+  import type { HomeWakeLockPresentation } from "../routes/home/homeRouteWakeLockPresentation";
+
+  export type PwaDisplayMenu = {
+    readonly sectionOpen: boolean;
+    readonly apiSupported: boolean;
+    readonly isHomeRoute: boolean;
+    readonly userWants: boolean;
+    readonly homePresentation: HomeWakeLockPresentation | null;
+    readonly showBatteryBlurb: boolean;
+    readonly onToggleSection: () => void;
+    readonly onToggle: (next: boolean) => void;
+  };
 
   interface Props {
     readonly linksClassName: string;
@@ -13,6 +26,8 @@
     readonly onNavigate?: () => void;
     readonly fullscreenActionLabel?: string;
     readonly onToggleFullscreen?: () => void | Promise<void>;
+    /** Optional: keep-awake / “App display” (home route + header menu). */
+    readonly pwa?: PwaDisplayMenu;
   }
 
   let {
@@ -27,7 +42,12 @@
     onNavigate,
     fullscreenActionLabel,
     onToggleFullscreen,
+    pwa = undefined,
   }: Props = $props();
+
+  const pwaToggleEnabled = $derived(
+    pwa === undefined ? false : pwa.apiSupported,
+  );
 </script>
 
 <button
@@ -37,6 +57,28 @@
 >
   Install app
 </button>
+{#if pwa !== undefined}
+  <button
+    type="button"
+    class="primary-menu-content__action"
+    onclick={pwa.onToggleSection}
+  >
+    App display
+  </button>
+  {#if pwa.sectionOpen}
+    <section class="primary-menu-content__pwa" aria-label="App display">
+      <HomePwaDisplaySection
+        apiSupported={pwa.apiSupported}
+        isHomeRoute={pwa.isHomeRoute}
+        userWants={pwa.userWants}
+        homePresentation={pwa.homePresentation}
+        showBatteryBlurb={pwa.showBatteryBlurb}
+        toggleEnabled={pwaToggleEnabled}
+        onToggle={pwa.onToggle}
+      />
+    </section>
+  {/if}
+{/if}
 {#if installInfoOpen}
   <section class="primary-menu-content__install-flow" aria-live="polite">
     <p class="primary-menu-content__install-title">Install Tideclock</p>
@@ -136,5 +178,13 @@
     margin: 0.45rem 0 0;
     font-size: 0.76rem;
     color: var(--text-menu-content-status);
+  }
+
+  .primary-menu-content__pwa {
+    margin-top: 0.35rem;
+    padding: 0.45rem 0.5rem;
+    border: 1px solid var(--border-menu-content-inset);
+    border-radius: 0.25rem;
+    background: var(--surface-menu-content-inset);
   }
 </style>

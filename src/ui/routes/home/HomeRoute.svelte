@@ -37,6 +37,7 @@
   import HomeRouteDevPreviewBanners from "./HomeRouteDevPreviewBanners.svelte";
   import HomeRouteDomDebugPanel from "./HomeRouteDomDebugPanel.svelte";
   import HomeRouteTidePanels from "./HomeRouteTidePanels.svelte";
+  import HomePwaStandaloneSetupOverlay from "./HomePwaStandaloneSetupOverlay.svelte";
   import {
     patchTimeNowReadoutInDiagramHost,
     scheduleDiagramHostSvgDevPresentation,
@@ -51,6 +52,21 @@
   } from "../../homeRouteUrlQuery";
   import { mountHomeRouteOrientationLock } from "./homeRouteOrientationLock";
   import { mountHomeRouteScreenWakeLock } from "./homeRouteScreenWakeLock";
+  import {
+    getKeepScreenAwakeUserEnabled,
+    isWakeLockApiSupportedRuntime,
+    keepScreenAwakeUserEnabledStore,
+    setKeepScreenAwakeUserEnabled,
+    setTideViewWakePresentation,
+    tideViewWakePresentationStore,
+  } from "./homeRoutePwaUi";
+  import {
+    readStandaloneSetupDismissedThisSession,
+    readStandaloneSetupHiddenForever,
+    writeStandaloneSetupDismissedThisSession,
+    writeStandaloneSetupHiddenForever,
+  } from "./homeRoutePwaPreferences";
+  import { isStandaloneDisplayMode } from "./pwaDisplayMode";
   import { toggleInstrumentFullscreen } from "./homeRouteFullscreen";
   import {
     homeInstallObserver,
@@ -91,6 +107,13 @@
   let homeInstallObserverSnapshot = $state(get(homeInstallObserver));
   let homeInstallLastSeenAppInstalledCount = $state(0);
   let homeInstallStatusLine = $state<string | null>(null);
+
+  let pwaUserWants = $state(get(keepScreenAwakeUserEnabledStore));
+  let pwaTideViewPresentation = $state(get(tideViewWakePresentationStore));
+  let pwaDisplaySectionOpen = $state(false);
+  let pwaSetupOverlayOpen = $state(false);
+  /** When true, show battery/heat blurb (off when charging, if we can tell). */
+  let pwaShowBatteryBlurb = $state(true);
 
   /** Snapshot from {@link displayOptimisation}; sole source for hint device/aspect policy. */
   let displaySnapshot = $state(get(displayOptimisation));
@@ -133,6 +156,21 @@
   const homeInstallCanPrompt = $derived(
     homeInstallObserverSnapshot.promptEvent != null,
   );
+
+  const pwaForHomeMenu = $derived({
+    sectionOpen: pwaDisplaySectionOpen,
+    apiSupported: isWakeLockApiSupportedRuntime(),
+    isHomeRoute: true,
+    userWants: pwaUserWants,
+    homePresentation: pwaTideViewPresentation,
+    showBatteryBlurb: pwaShowBatteryBlurb,
+    onToggleSection: () => {
+      pwaDisplaySectionOpen = !pwaDisplaySectionOpen;
+    },
+    onToggle: (next: boolean) => {
+      setKeepScreenAwakeUserEnabled(next);
+    },
+  });
 
   // Subscriptions and lifecycle (onMount)
   onMount(() => {
@@ -179,7 +217,61 @@
 
   onMount(() => displayOptimisation.subscribe((v) => (displaySnapshot = v)));
 
-  onMount(() => mountHomeRouteScreenWakeLock());
+  onMount(() =>
+    keepScreenAwakeUserEnabledStore.subscribe((v) => (pwaUserWants = v)),
+  );
+
+  onMount(() =>
+    tideViewWakePresentationStore.subscribe(
+      (v) => (pwaTideViewPresentation = v),
+    ),
+  );
+
+  onMount(() => {
+    const wake = mountHomeRouteScreenWakeLock({
+      shouldRequestLock: getKeepScreenAwakeUserEnabled,
+      onPresentationChange: (p) => {
+        setTideViewWakePresentation(p);
+      },
+    });
+    const unsubKeep = keepScreenAwakeUserEnabledStore.subscribe(() => {
+      wake.sync();
+    });
+    return () => {
+      unsubKeep();
+      wake.dispose();
+      setTideViewWakePresentation(null);
+    };
+  });
+
+  onMount(() => {
+    try {
+      if (typeof localStorage === "undefined") return;
+      if (!isStandaloneDisplayMode()) return;
+      if (readStandaloneSetupHiddenForever(localStorage)) return;
+      if (readStandaloneSetupDismissedThisSession()) return;
+      pwaSetupOverlayOpen = true;
+    } catch {
+      // ignore
+    }
+  });
+
+  onMount(() => {
+    const nav = navigator as Navigator & {
+      getBattery?: () => Promise<{
+        charging: boolean;
+        addEventListener: (type: string, fn: () => void) => void;
+      }>;
+    };
+    if (!nav.getBattery) return;
+    void nav.getBattery().then((b) => {
+      const apply = (): void => {
+        pwaShowBatteryBlurb = b.charging !== true;
+      };
+      apply();
+      b.addEventListener("chargingchange", apply);
+    });
+  });
 
   onMount(() => {
     const routeRoot = homeRouteEl;
@@ -416,7 +508,24 @@
   function closeHomeMenu(): void {
     homeMenuOpen = false;
     homeInstallInfoOpen = false;
+    pwaDisplaySectionOpen = false;
     homeInstallStatusLine = null;
+  }
+
+  function dismissPwaStandaloneSetupThisSession(): void {
+    writeStandaloneSetupDismissedThisSession();
+    pwaSetupOverlayOpen = false;
+  }
+
+  function dismissPwaStandaloneSetupForever(): void {
+    try {
+      if (typeof localStorage !== "undefined") {
+        writeStandaloneSetupHiddenForever(localStorage);
+      }
+    } catch {
+      // ignore
+    }
+    pwaSetupOverlayOpen = false;
   }
 
   async function handleHomeFullscreenToggle(): Promise<void> {
@@ -449,6 +558,21 @@
 </script>
 
 <main class="home-route" bind:this={homeRouteEl}>
+  {#if pwaSetupOverlayOpen}
+    <div class="home-route__pwa-setup">
+      <HomePwaStandaloneSetupOverlay
+        apiSupported={isWakeLockApiSupportedRuntime()}
+        isHomeRoute={true}
+        userWants={pwaUserWants}
+        homePresentation={pwaTideViewPresentation}
+        showBatteryBlurb={pwaShowBatteryBlurb}
+        toggleEnabled={isWakeLockApiSupportedRuntime()}
+        onToggleKeepAwake={setKeepScreenAwakeUserEnabled}
+        onDismissThisSession={dismissPwaStandaloneSetupThisSession}
+        onDismissForever={dismissPwaStandaloneSetupForever}
+      />
+    </div>
+  {/if}
   <HomeRouteDevPreviewBanners
     diagramPreviewBannerLine={diagramPreviewBannerLine}
     tideUxDevPreviewBannerLine={tideUxDevPreviewBannerLine}
@@ -481,6 +605,7 @@
     onToggleHomeFullscreen={handleHomeFullscreenToggle}
     onOpenInstallMenu={handleHomeInstallEntry}
     onPromptInstall={handleInstallPromptAction}
+    pwa={pwaForHomeMenu}
   />
 </main>
 
@@ -492,11 +617,22 @@
    * - Any visible slack comes only from aspect-ratio fitting in SVG.
    */
   .home-route {
+    position: relative;
     width: 100%;
     flex: 1;
     min-height: 0;
     display: flex;
     flex-direction: column;
+  }
+
+  .home-route__pwa-setup {
+    position: absolute;
+    z-index: 25;
+    left: 50%;
+    bottom: 0.75rem;
+    transform: translateX(-50%);
+    max-width: min(22rem, calc(100% - 1.25rem));
+    pointer-events: auto;
   }
 
 </style>

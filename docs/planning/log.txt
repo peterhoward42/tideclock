@@ -128,15 +128,14 @@ fart
 				o  UX to help people install as app
 					*  get prov plan
 					*  tighten plan
-					o  implementation of a coherent system
-					o  improvement of what you see on diagram mode
+					*  implementation of a coherent system
+					*  improvement of what you see on diagram mode
 					o  next phase of ux improvement plan
-						o  screenshot advice on what will look good
-							o  menu button
-							o  vs menu itself
-							o  vs install app extension
 
-Read /docs/planning/@docs/planning/appliance-vs-document-surface-plan.md  and proceed with the next phase.
+				o  first use choose your location needs same background
+				   treatment as in-diagram menu
+				   	o  any others?
+					o  remove token?
 
 
 
