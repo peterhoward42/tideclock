@@ -39,7 +39,9 @@
   import HomeRouteTidePanels from "./HomeRouteTidePanels.svelte";
   import HomePwaStandaloneSetupOverlay from "./HomePwaStandaloneSetupOverlay.svelte";
   import {
+    computeHomeMenuPanelAnchorStyle,
     patchTimeNowReadoutInDiagramHost,
+    queryHomeMenuTriggerGroupFromDiagramHost,
     scheduleDiagramHostSvgDevPresentation,
   } from "./homeRouteDiagramDom";
   import { mountInstrumentVerticalLetterboxSlackObserver } from "./homeRouteInstrumentLetterboxObserver";
@@ -469,6 +471,24 @@
       scheduleAfterDomReady: (fn) => {
         void tick().then(fn);
       },
+    });
+  });
+
+  /**
+   * When install / PWA “App display” sections grow, the menu height changes. Re-anchored from
+   * the same geometry as the SVG trigger; avoids stale layout on long portrait viewports.
+   */
+  $effect(() => {
+    if (!homeMenuOpen || diagramSvg === "") return;
+    void homeInstallInfoOpen;
+    void pwaDisplaySectionOpen;
+    void tick().then(() => {
+      const figure = homeInstrumentEl;
+      const host = diagramHostEl;
+      if (figure == null || host == null) return;
+      const trigger = queryHomeMenuTriggerGroupFromDiagramHost(host);
+      if (trigger == null) return;
+      homeMenuPanelStyle = computeHomeMenuPanelAnchorStyle(figure, trigger);
     });
   });
 

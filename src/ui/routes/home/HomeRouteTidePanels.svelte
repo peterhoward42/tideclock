@@ -367,7 +367,8 @@
     z-index: 30;
     min-width: 12rem;
     max-width: min(24rem, calc(100% - 1rem));
-    max-height: calc(100% - 1rem);
+    /* dvh: reliable cap on mobile; % alone can resolve wrong inside nested flex (tall open menu). */
+    max-height: min(calc(100% - 1rem), 88dvh);
     overflow-y: auto;
     overscroll-behavior: contain;
     padding: 0.5rem;

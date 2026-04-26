@@ -42,6 +42,8 @@ export function queryHomeMenuTriggerGroupFromDiagramHost(
 /**
  * CSS for absolutely positioning the menu panel relative to the instrument figure,
  * using trigger and figure client rects.
+ * Call when the open menu’s height or layout may have changed (e.g. install block toggled)
+ * so the bottom anchor stays valid on mobile.
  */
 export function computeHomeMenuPanelAnchorStyle(
   figure: HTMLElement,
