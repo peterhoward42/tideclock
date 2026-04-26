@@ -39,22 +39,59 @@ export function queryHomeMenuTriggerGroupFromDiagramHost(
   return diagramHost.querySelector('svg g[data-name="HomeMenuTrigger"]');
 }
 
+/** Optional layout for tests; production uses the browser viewport. */
+export type HomeMenuPanelAnchorOptions = {
+  /** Defaults to `window.innerHeight` when available. */
+  viewInnerHeight?: number;
+  /**
+   * Min distance (px) the menu’s top should stay below the layout viewport’s top, after the
+   * 8px gap above the trigger (see anchor math). Defaults to 8.
+   */
+  topGutterPx?: number;
+};
+
+function readViewInnerHeight(fallback: number, override?: number): number {
+  if (typeof override === "number" && Number.isFinite(override)) {
+    return override;
+  }
+  if (
+    typeof globalThis !== "undefined" &&
+    "innerHeight" in globalThis &&
+    typeof (globalThis as { innerHeight?: number }).innerHeight === "number"
+  ) {
+    return (globalThis as { innerHeight: number }).innerHeight;
+  }
+  return fallback;
+}
+
 /**
  * CSS for absolutely positioning the home-route menu flyout.
  * Positioning context is the diagram host (`.home-panel`), not the instrument `figure` —
  * the flyout is a sibling of the figure so it is not clipped by `overflow: hidden` on the figure.
- * Re-call when open menu height or layout may change (e.g. install block toggled).
+ *
+ * The panel is bottom-anchored and grows upward. `80dvh` alone can be taller than the space
+ * from the viewport top to the menu’s bottom, so the top is clipped. We set `max-height` to
+ * `min(80dvh, <px>)` where that px caps height so the top stays in view. Re-run when the open
+ * menu’s height or layout may change (e.g. install block toggled).
  */
 export function computeHomeMenuPanelAnchorStyle(
   diagramHost: HTMLElement,
   trigger: SVGGElement,
+  options?: HomeMenuPanelAnchorOptions,
 ): string {
   const panelRect = diagramHost.getBoundingClientRect();
   const triggerRect = trigger.getBoundingClientRect();
   const left = Math.max(0, triggerRect.left - panelRect.left);
   // Anchor just above the trigger (8px gap), measured from the host bottom edge.
   const bottom = Math.max(0, panelRect.bottom - triggerRect.bottom + 8);
-  return `left: ${left}px; bottom: ${bottom}px;`;
+  const topGutter = options?.topGutterPx ?? 8;
+  const ih = readViewInnerHeight(900, options?.viewInnerHeight);
+  // Bottom edge of the menu in viewport y (down-positive): `triggerRect.bottom - 8` (same as
+  // host-local `bottom` math). Do not let max-height exceed room above that line minus gutter.
+  const availableFromTop = Math.max(0, triggerRect.bottom - 8 - topGutter);
+  const capFromViewport = Math.min(0.8 * ih, availableFromTop);
+  const maxHeightPx = Math.max(0, Math.floor(capFromViewport));
+  return `left: ${left}px; bottom: ${bottom}px; max-height: min(80dvh, ${maxHeightPx}px);`;
 }
 
 export function scheduleDiagramHostSvgDevPresentation(

@@ -33,9 +33,11 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
         }) as DOMRect,
     } as SVGGElement;
 
-    expect(computeHomeMenuPanelAnchorStyle(diagramHost, trigger)).toBe(
-      "left: 10px; bottom: 18px;",
-    );
+    expect(
+      computeHomeMenuPanelAnchorStyle(diagramHost, trigger, {
+        viewInnerHeight: 1000,
+      }),
+    ).toBe("left: 10px; bottom: 18px; max-height: min(80dvh, 74px);");
   });
 
   it("clamps negative offsets to zero", () => {
@@ -69,9 +71,11 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
         }) as DOMRect,
     } as SVGGElement;
 
-    expect(computeHomeMenuPanelAnchorStyle(diagramHost, trigger)).toBe(
-      "left: 0px; bottom: 18px;",
-    );
+    expect(
+      computeHomeMenuPanelAnchorStyle(diagramHost, trigger, {
+        viewInnerHeight: 1000,
+      }),
+    ).toBe("left: 0px; bottom: 18px; max-height: min(80dvh, 54px);");
   });
 
   it("anchors bottom from the diagram host rect, not an inner clipped box", () => {
@@ -105,8 +109,48 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
         }) as DOMRect,
     } as SVGGElement;
 
-    expect(computeHomeMenuPanelAnchorStyle(diagramHost, trigger)).toBe(
-      "left: 10px; bottom: 38px;",
-    );
+    expect(
+      computeHomeMenuPanelAnchorStyle(diagramHost, trigger, {
+        viewInnerHeight: 1000,
+      }),
+    ).toBe("left: 10px; bottom: 38px; max-height: min(80dvh, 154px);");
+  });
+
+  it("uses the 80% viewport cap when plenty of room above the trigger", () => {
+    const diagramHost = {
+      getBoundingClientRect: () =>
+        ({
+          left: 0,
+          top: 0,
+          right: 100,
+          bottom: 1000,
+          width: 100,
+          height: 1000,
+          x: 0,
+          y: 0,
+          toJSON: () => ({}),
+        }) as DOMRect,
+    } as HTMLElement;
+
+    const trigger = {
+      getBoundingClientRect: () =>
+        ({
+          left: 10,
+          top: 900,
+          right: 40,
+          bottom: 950,
+          width: 30,
+          height: 50,
+          x: 10,
+          y: 900,
+          toJSON: () => ({}),
+        }) as DOMRect,
+    } as SVGGElement;
+
+    expect(
+      computeHomeMenuPanelAnchorStyle(diagramHost, trigger, {
+        viewInnerHeight: 1000,
+      }),
+    ).toBe("left: 10px; bottom: 58px; max-height: min(80dvh, 800px);");
   });
 });
