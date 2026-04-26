@@ -7,3 +7,6 @@
 interface ImportMetaEnv {
   readonly VITE_TIDE_PROXY_BASE_URL: string;
 }
+
+/** Injected by Vite `define` in `vite.config.js`. */
+declare const __TIDECLOCK_BUILD_COMMIT__: string;
