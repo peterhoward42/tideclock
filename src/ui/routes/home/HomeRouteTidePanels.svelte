@@ -123,7 +123,7 @@
           style={homeMenuPanelStyle}
         >
           <PrimaryMenuContent
-            linksClassName="home-menu-panel__links"
+            linksClassName="u-stack-sm u-nav-link-list"
             installInfoOpen={homeInstallInfoOpen}
             installCanPrompt={homeInstallCanPrompt}
             installBenefitLines={homeInstallBenefitLines}
@@ -370,23 +370,6 @@
     border: 1px solid var(--border-menu-flyout);
     border-radius: 0.375rem;
     box-shadow: var(--shadow-menu-flyout);
-  }
-
-  .home-menu-panel :global(.home-menu-panel__links) {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .home-menu-panel :global(.home-menu-panel__links a) {
-    color: var(--text-primary);
-    text-decoration: none;
-    padding: 0.35rem 0.5rem;
-    border-radius: 0.25rem;
-  }
-
-  .home-menu-panel :global(.home-menu-panel__links a:hover) {
-    background: var(--surface-overlay-hover);
   }
 
 </style>

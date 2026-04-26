@@ -37,6 +37,10 @@
 
   --shadow-overlay: 0 8px 24px rgb(15 23 42 / 0.08);
   --shadow-overlay-contrast: 0 10px 30px rgb(0 0 0 / 0.45);
+  --space-1: 0.25rem;
+  --space-2: 0.35rem;
+  --space-3: 0.5rem;
+  --radius-sm: 0.25rem;
 }
 
 .app-frame[data-surface-mode="document"] {
@@ -347,6 +351,33 @@ a {
   margin: 0;
   color: var(--text-muted);
   font-size: 0.95rem;
+}
+
+/*
+ * Enumerated global utilities (intentionally small + token-backed):
+ * - `u-pad-surface-sm`: common panel/chrome inset padding
+ * - `u-stack-sm`: compact vertical list layout
+ * - `u-nav-link-list`: shared primary-nav link row treatment
+ */
+.u-pad-surface-sm {
+  padding: var(--space-3);
+}
+
+.u-stack-sm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.u-nav-link-list a {
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+}
+
+.u-nav-link-list a:hover {
+  background: var(--surface-overlay-hover);
 }
 
 .tide-clock {

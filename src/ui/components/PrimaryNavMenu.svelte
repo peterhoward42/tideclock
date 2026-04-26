@@ -73,9 +73,9 @@
 
 <details class="menu" bind:this={menuDetails}>
   <summary class="menu-toggle" aria-label="Menu">Menu</summary>
-  <div class="nav-links primary-nav-menu__panel">
+  <div class="nav-links u-pad-surface-sm">
     <PrimaryMenuContent
-      linksClassName="primary-nav-menu__links"
+      linksClassName="u-stack-sm u-nav-link-list"
       installInfoOpen={installInfoOpen}
       installCanPrompt={installCanPrompt}
       installBenefitLines={installBenefitLines}
@@ -87,26 +87,3 @@
     />
   </div>
 </details>
-
-<style>
-  .primary-nav-menu__panel {
-    padding: 0.5rem;
-  }
-
-  .primary-nav-menu__panel :global(.primary-nav-menu__links) {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .primary-nav-menu__panel :global(.primary-nav-menu__links a) {
-    color: var(--text-primary);
-    text-decoration: none;
-    padding: 0.35rem 0.5rem;
-    border-radius: 0.25rem;
-  }
-
-  .primary-nav-menu__panel :global(.primary-nav-menu__links a:hover) {
-    background: var(--surface-overlay-hover);
-  }
-</style>

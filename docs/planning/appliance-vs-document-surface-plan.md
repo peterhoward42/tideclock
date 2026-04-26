@@ -260,6 +260,23 @@ Suggested grouping:
 
 ---
 
+## Guardrails for future changes
+
+Use these rules as a compact maintenance checklist now that the migration is in place:
+
+1. **Mode first:** route-level mode (`data-surface-mode`) decides token resolution; do not branch per-component colors when a mode token can express intent.
+2. **Semantic role tokens for component styling:** when styling surfaces/text/borders/focus, prefer existing semantic roles before introducing new literals.
+3. **Shared menu split remains strict:** `PrimaryMenuContent` owns shared content behavior and content-level visuals; container shells own placement/surface treatment.
+4. **Utilities stay constrained:** use only the enumerated global utility set (`u-pad-surface-sm`, `u-stack-sm`, `u-nav-link-list`) unless a repeated pattern clearly justifies extension.
+5. **Home diagram palette remains protected:** appliance-mode support surfaces may evolve, but diagram artwork/internal palette stays out of scope for this surface system.
+
+### Intentional exceptions (recorded)
+
+- Mode token definitions in `src/app.css` intentionally use concrete color literals as source-of-truth values.
+- Home SVG micro-animations (time-now pulse / colon heartbeat) intentionally remain literal behavior styles rather than tokenized design roles.
+
+---
+
 ## Dependency graph (Mermaid)
 
 ```mermaid
@@ -293,12 +310,12 @@ flowchart TD
 
 ## Definition of done (surface system pass)
 
-- [ ] Mode contract exists and is route-driven (`appliance` vs `document`).
-- [ ] Core surface/text/border/focus tokens exist and are used instead of key literals in touched components.
-- [ ] Shared menu content remains single-source while shell appearance is mode-correct.
-- [ ] Home route reads as appliance-integrated without changing diagram palette.
-- [ ] Non-home routes remain coherent with existing low-key document style.
-- [ ] Utility set (if added) is small, enumerated, token-backed, and documented.
-- [ ] Planning/progress docs updated with package completion and verification notes.
+- [x] Mode contract exists and is route-driven (`appliance` vs `document`).
+- [x] Core surface/text/border/focus tokens exist and are used instead of key literals in touched components.
+- [x] Shared menu content remains single-source while shell appearance is mode-correct.
+- [x] Home route reads as appliance-integrated without changing diagram palette.
+- [x] Non-home routes remain coherent with existing low-key document style.
+- [x] Utility set (if added) is small, enumerated, token-backed, and documented.
+- [x] Planning/progress docs updated with package completion and verification notes.
 
 When all boxes are checked, this styling initiative is complete and future sessions can shift from system migration to incremental polish only.
