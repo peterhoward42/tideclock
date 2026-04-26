@@ -1,6 +1,10 @@
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   exitInstrumentFullscreen,
+  getHomeRouteDiagramFullscreenTarget,
   requestInstrumentFullscreen,
   toggleInstrumentFullscreen,
 } from "./homeRouteFullscreen";
@@ -56,5 +60,44 @@ describe("homeRouteFullscreen", () => {
 
     await toggleInstrumentFullscreen({} as HTMLElement);
     expect(exitFullscreen).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("getHomeRouteDiagramFullscreenTarget (home + fullscreen regression)", () => {
+  it("regression: diagram host wraps the figure and menu as siblings, so it must be the fullscreen target", () => {
+    // Mirrors `HomeRouteTidePanels`: host > [figure, .home-menu-panel]; menu is not inside the figure
+    // (avoids `overflow: hidden` clipping), so only `host` is a common ancestor in the top-layer subtree.
+    type Mock = { name: string; children: readonly Mock[] };
+    const contains = (a: Mock, b: Mock): boolean => {
+      if (a === b) return true;
+      return a.children.some((c) => contains(c, b));
+    };
+    const figure: Mock = { name: "figure", children: [] };
+    const menu: Mock = { name: "menu", children: [] };
+    const host: Mock = { name: "diagram-host", children: [figure, menu] };
+    expect(contains(figure, menu)).toBe(false);
+    expect(contains(host, figure) && contains(host, menu)).toBe(true);
+    const target = getHomeRouteDiagramFullscreenTarget(
+      host as unknown as HTMLElement,
+    );
+    expect(target).toBe(host);
+  });
+
+  it("returns null when the diagram host is not mounted yet", () => {
+    expect(getHomeRouteDiagramFullscreenTarget(undefined)).toBeNull();
+  });
+
+  it("HomeRoute requests fullscreen on the diagram host, not the instrument figure", () => {
+    const homeRoutePath = join(
+      dirname(fileURLToPath(import.meta.url)),
+      "HomeRoute.svelte",
+    );
+    const src = readFileSync(homeRoutePath, "utf-8");
+    expect(src).toMatch(
+      /getHomeRouteDiagramFullscreenTarget\s*\(\s*diagramHostEl\s*\)/s,
+    );
+    expect(src).not.toMatch(
+      /toggleInstrumentFullscreen\s*\(\s*homeInstrumentEl/s,
+    );
   });
 });

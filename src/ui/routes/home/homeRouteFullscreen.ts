@@ -58,6 +58,20 @@ export async function exitInstrumentFullscreen(): Promise<void> {
 }
 
 /**
+ * Resolves the DOM node to pass to `toggleInstrumentFullscreen` on the home route.
+ * Must be the diagram host (`.home-panel--diagram-host`), which wraps both the
+ * `figure.home-instrument` and the menu flyout. The flyout is a *sibling* of the figure
+ * (so it is not clipped by `overflow: hidden`). The Fullscreen API only paints the
+ * fullscreen element and its descendants in the top layer—fullscreening the figure
+ * alone would leave the menu behind that layer (regression: installed PWA + fullscreen).
+ */
+export function getHomeRouteDiagramFullscreenTarget(
+  diagramHost: HTMLElement | undefined,
+): HTMLElement | null {
+  return diagramHost ?? null;
+}
+
+/**
  * Toggles fullscreen state for the instrument element.
  */
 export async function toggleInstrumentFullscreen(el: HTMLElement): Promise<void> {

@@ -7,14 +7,13 @@
 
 *  new data fetch paradigm front end work backlog
 *  UX to help people install as app
-
-	
-		o  first use choose your location needs same background
-				   treatment as in-diagram menu
-				   	o  any others?
-					o  remove token?
+*  first use choose your location needs same background
+o  desktop -> install app -> full screen -> menu doesn't activate
 
 
+
+o  all visible copy the tide dial ?
+	o  go back to chatgpt advice
 
 				o  first glance ux assimilation
 					o  first thing someone tried to drag the time now

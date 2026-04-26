@@ -73,7 +73,10 @@
     writeStandaloneSetupHiddenForever,
   } from "./homeRoutePwaPreferences";
   import { isStandaloneDisplayMode } from "./pwaDisplayMode";
-  import { toggleInstrumentFullscreen } from "./homeRouteFullscreen";
+  import {
+    getHomeRouteDiagramFullscreenTarget,
+    toggleInstrumentFullscreen,
+  } from "./homeRouteFullscreen";
   import {
     homeInstallObserver,
     HOME_INSTALL_BENEFIT_LINES,
@@ -583,9 +586,9 @@
   }
 
   async function handleHomeFullscreenToggle(): Promise<void> {
-    const instrument = homeInstrumentEl;
-    if (instrument == null) return;
-    await toggleInstrumentFullscreen(instrument);
+    const host = getHomeRouteDiagramFullscreenTarget(diagramHostEl);
+    if (host == null) return;
+    await toggleInstrumentFullscreen(host);
     homeMenuOpen = false;
   }
 
