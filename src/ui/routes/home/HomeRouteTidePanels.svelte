@@ -367,9 +367,16 @@
     z-index: 30;
     min-width: 12rem;
     max-width: min(24rem, calc(100% - 1rem));
-    /* dvh: reliable cap on mobile; % alone can resolve wrong inside nested flex (tall open menu). */
-    max-height: min(calc(100% - 1rem), 88dvh);
+    min-height: 0;
+    /*
+     * Cap height with dvh *and* the figure (%). In landscape, dvh (shorter edge) is small, so
+     * this dvh term usually wins the min() and inner scroll is obvious. In portrait, dvh is
+     * large, so the % term can win; if the % chain is off, scroll feels wrong. Put dvh first
+     * and use a slightly tighter 80dvh so portrait is less likely to “win” on a bad % only.
+     */
+    max-height: min(80dvh, calc(100% - 1rem));
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
     padding: 0.5rem;
     background: var(--surface-menu-flyout);
