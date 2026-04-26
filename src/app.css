@@ -79,6 +79,13 @@
   --surface-home-menu-trigger-hover: #191919;
   --border-home-menu-trigger-hover: #aaa;
   --text-home-menu-trigger-hover: #fff;
+
+  /* Menu flyout shell (must live on mode block: .app-frame sets these after mode). */
+  --surface-menu-flyout: var(--surface-panel);
+  --border-menu-flyout: var(--border-subtle);
+  --shadow-menu-flyout: var(--shadow-overlay);
+  --text-menu-flyout-nav: var(--text-primary);
+  --surface-menu-flyout-nav-hover: var(--surface-overlay-hover);
 }
 
 .app-frame[data-surface-mode="appliance"] {
@@ -97,13 +104,17 @@
   --border-control: rgb(148 163 184 / 0.3);
   --shadow-menu-flyout: var(--shadow-overlay-contrast);
 
-  /* PrimaryMenuContent: instrument-integrated chips + dark inset panel. */
-  --surface-menu-content-control: rgb(148 163 184 / 0.12);
-  --surface-menu-content-control-hover: rgb(148 163 184 / 0.2);
-  --surface-menu-content-inset: rgb(15 23 42 / 0.68);
-  --border-menu-content-inset: rgb(148 163 184 / 0.2);
-  --text-menu-content-primary: rgb(241 245 249 / 0.92);
-  --text-menu-content-status: rgb(191 219 254 / 0.92);
+  /* Open menu: opaque light panel on black (document-like chrome; trigger stays instrument). */
+  --surface-menu-flyout: #f8fafc;
+  --border-menu-flyout: #e2e8f0;
+  --surface-menu-content-control: #f1f5f9;
+  --surface-menu-content-control-hover: #e2e8f0;
+  --surface-menu-content-inset: #fff;
+  --border-menu-content-inset: #e2e8f0;
+  --text-menu-content-primary: #0f172a;
+  --text-menu-content-status: #64748b;
+  --text-menu-flyout-nav: #0f172a;
+  --surface-menu-flyout-nav-hover: #e2e8f0;
   --surface-home-support-card: rgb(15 23 42 / 0.72);
   --border-home-support-card: rgb(148 163 184 / 0.25);
   --text-home-support-accent: rgb(191 219 254 / 0.92);
@@ -132,13 +143,6 @@ a {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /*
-   * Hash-route menu flyouts (header nav-links + home instrument panel): shell only.
-   * Resolves from route mode tokens; appliance uses a deeper drop shadow.
-   */
-  --surface-menu-flyout: var(--surface-panel);
-  --border-menu-flyout: var(--border-subtle);
-  --shadow-menu-flyout: var(--shadow-overlay);
 }
 
 .top-bar {
@@ -370,14 +374,14 @@ a {
 }
 
 .u-nav-link-list a {
-  color: var(--text-primary);
+  color: var(--text-menu-flyout-nav);
   text-decoration: none;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-sm);
 }
 
 .u-nav-link-list a:hover {
-  background: var(--surface-overlay-hover);
+  background: var(--surface-menu-flyout-nav-hover);
 }
 
 .tide-clock {

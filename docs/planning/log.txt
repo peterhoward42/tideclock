@@ -128,30 +128,19 @@ fart
 				o  UX to help people install as app
 					*  get prov plan
 					*  tighten plan
-					o  phase 1
-						*  implementation
-						*  deploy
-						*  operate on mac
-						*  operate on phone
-						*  read code
-						*  particularly platform specifics
-						*  fix menu universality
-						*  fix clipping of menu and install from home route
-						*  test on deployed mobile
-						*  fix this wording: Your browser does not expose 
-						   the install prompt right now. You can still 
-						   install manually:
-						*  DRY pwa event listeners
-						o  fix colours
+					o  implementation of a coherent system
+					o  improvement of what you see on diagram mode
+					o  next phase of ux improvement plan
+						o  screenshot advice on what will look good
+							o  menu button
+							o  vs menu itself
+							o  vs install app extension
 
 Read /docs/planning/@docs/planning/appliance-vs-document-surface-plan.md  and proceed with the next phase.
 
 
 
 
-Fix colours (global doc)
-	o  puzzles are menu commonality across routes
-	o  dark background on install app menu body
 
 				o  proxy cost risk containment
 					o  how to use real estate better - partic on phone
