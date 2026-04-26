@@ -459,7 +459,6 @@
 
     return mountHomeMenuSvgTriggerWire({
       getDiagramHost: () => diagramHostEl,
-      getInstrumentFigure: () => homeInstrumentEl,
       getMenuPanel: () => homeMenuPanelEl,
       isMenuOpen: () => homeMenuOpen,
       setMenuOpen: (open) => {
@@ -483,12 +482,11 @@
     void homeInstallInfoOpen;
     void pwaDisplaySectionOpen;
     void tick().then(() => {
-      const figure = homeInstrumentEl;
       const host = diagramHostEl;
-      if (figure == null || host == null) return;
+      if (host == null) return;
       const trigger = queryHomeMenuTriggerGroupFromDiagramHost(host);
       if (trigger == null) return;
-      homeMenuPanelStyle = computeHomeMenuPanelAnchorStyle(figure, trigger);
+      homeMenuPanelStyle = computeHomeMenuPanelAnchorStyle(host, trigger);
     });
   });
 

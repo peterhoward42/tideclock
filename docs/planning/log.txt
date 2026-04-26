@@ -144,8 +144,9 @@ fart
 					display rather than below parent
 
 					o  on mobile if the first thing you do while still in
-					portrait is install app, the extra content is clipped at 
-					the top - see screenshot on phone
+					   portrait is install app, the extra content is clipped at 
+					   the top - see screenshot on phone
+						o  think will be fixed now
 
 
 	

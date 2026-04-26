@@ -40,20 +40,20 @@ export function queryHomeMenuTriggerGroupFromDiagramHost(
 }
 
 /**
- * CSS for absolutely positioning the menu panel relative to the instrument figure,
- * using trigger and figure client rects.
- * Call when the open menu’s height or layout may have changed (e.g. install block toggled)
- * so the bottom anchor stays valid on mobile.
+ * CSS for absolutely positioning the home-route menu flyout.
+ * Positioning context is the diagram host (`.home-panel`), not the instrument `figure` —
+ * the flyout is a sibling of the figure so it is not clipped by `overflow: hidden` on the figure.
+ * Re-call when open menu height or layout may change (e.g. install block toggled).
  */
 export function computeHomeMenuPanelAnchorStyle(
-  figure: HTMLElement,
+  diagramHost: HTMLElement,
   trigger: SVGGElement,
 ): string {
-  const figureRect = figure.getBoundingClientRect();
+  const panelRect = diagramHost.getBoundingClientRect();
   const triggerRect = trigger.getBoundingClientRect();
-  const left = Math.max(0, triggerRect.left - figureRect.left);
-  // Keep the panel anchored just above the trigger so it grows upward.
-  const bottom = Math.max(0, figureRect.bottom - triggerRect.bottom + 8);
+  const left = Math.max(0, triggerRect.left - panelRect.left);
+  // Anchor just above the trigger (8px gap), measured from the host bottom edge.
+  const bottom = Math.max(0, panelRect.bottom - triggerRect.bottom + 8);
   return `left: ${left}px; bottom: ${bottom}px;`;
 }
 

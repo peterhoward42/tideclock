@@ -10,7 +10,6 @@ import {
 
 export type HomeMenuSvgTriggerWireHandles = {
   readonly getDiagramHost: () => HTMLElement | undefined;
-  readonly getInstrumentFigure: () => HTMLElement | undefined;
   readonly getMenuPanel: () => HTMLElement | undefined;
   readonly isMenuOpen: () => boolean;
   readonly setMenuOpen: (open: boolean) => void;
@@ -20,12 +19,11 @@ export type HomeMenuSvgTriggerWireHandles = {
 };
 
 function updateAnchorFromDom(handles: HomeMenuSvgTriggerWireHandles): void {
-  const figure = handles.getInstrumentFigure();
   const host = handles.getDiagramHost();
-  if (figure == null || host == null) return;
+  if (host == null) return;
   const trigger = queryHomeMenuTriggerGroupFromDiagramHost(host);
   if (trigger == null) return;
-  handles.setMenuPanelStyle(computeHomeMenuPanelAnchorStyle(figure, trigger));
+  handles.setMenuPanelStyle(computeHomeMenuPanelAnchorStyle(host, trigger));
 }
 
 /**

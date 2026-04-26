@@ -101,7 +101,10 @@
     </p>
   </div>
 {:else if diagramSvg !== ""}
-  <div class="home-panel" bind:this={diagramHostEl}>
+  <div
+    class="home-panel home-panel--diagram-host"
+    bind:this={diagramHostEl}
+  >
     <figure
       class="home-instrument"
       bind:this={homeInstrumentEl}
@@ -120,31 +123,31 @@
           </p>
         </div>
       {/if}
-      {#if homeMenuOpen}
-        <div
-          class="home-menu-panel"
-          bind:this={homeMenuPanelEl}
-          style={homeMenuPanelStyle}
-        >
-          <PrimaryMenuContent
-            linksClassName="u-stack-sm u-nav-link-list"
-            installInfoOpen={homeInstallInfoOpen}
-            installCanPrompt={homeInstallCanPrompt}
-            installBenefitLines={homeInstallBenefitLines}
-            installManualSteps={homeInstallManualSteps}
-            installStatusLine={homeInstallStatusLine}
-            onToggleInstallInfo={onOpenInstallMenu}
-            onPromptInstall={onPromptInstall}
-            onNavigate={onCloseHomeMenu}
-            fullscreenActionLabel={homeFullscreenActive
-              ? "Exit fullscreen"
-              : "Enter fullscreen"}
-            onToggleFullscreen={onToggleHomeFullscreen}
-            {pwa}
-          />
-        </div>
-      {/if}
     </figure>
+    {#if homeMenuOpen}
+      <div
+        class="home-menu-panel"
+        bind:this={homeMenuPanelEl}
+        style={homeMenuPanelStyle}
+      >
+        <PrimaryMenuContent
+          linksClassName="u-stack-sm u-nav-link-list"
+          installInfoOpen={homeInstallInfoOpen}
+          installCanPrompt={homeInstallCanPrompt}
+          installBenefitLines={homeInstallBenefitLines}
+          installManualSteps={homeInstallManualSteps}
+          installStatusLine={homeInstallStatusLine}
+          onToggleInstallInfo={onOpenInstallMenu}
+          onPromptInstall={onPromptInstall}
+          onNavigate={onCloseHomeMenu}
+          fullscreenActionLabel={homeFullscreenActive
+            ? "Exit fullscreen"
+            : "Enter fullscreen"}
+          onToggleFullscreen={onToggleHomeFullscreen}
+          {pwa}
+        />
+      </div>
+    {/if}
   </div>
 {/if}
 
@@ -167,6 +170,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  /* Positioning context for the menu flyout (sibling of figure, not clipped by figure overflow). */
+  .home-panel--diagram-host {
+    position: relative;
   }
 
   .home-empty-state {
@@ -369,7 +377,7 @@
     max-width: min(24rem, calc(100% - 1rem));
     min-height: 0;
     /*
-     * Cap height with dvh *and* the figure (%). In landscape, dvh (shorter edge) is small, so
+     * Cap height with dvh *and* the positioned host (%). In landscape, dvh (shorter edge) is small, so
      * this dvh term usually wins the min() and inner scroll is obvious. In portrait, dvh is
      * large, so the % term can win; if the % chain is off, scroll feels wrong. Put dvh first
      * and use a slightly tighter 80dvh so portrait is less likely to “win” on a bad % only.
