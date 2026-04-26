@@ -60,37 +60,6 @@
 >
   Install app
 </button>
-{#if pwa !== undefined}
-  <button
-    type="button"
-    class="primary-menu-content__action"
-    onclick={pwa.onToggleSection}
-  >
-    App display
-  </button>
-  {#if pwa.sectionOpen}
-    <section class="primary-menu-content__pwa" aria-label="App display">
-      <HomePwaDisplaySection
-        apiSupported={pwa.apiSupported}
-        isHomeRoute={pwa.isHomeRoute}
-        userWants={pwa.userWants}
-        homePresentation={pwa.homePresentation}
-        showBatteryBlurb={pwa.showBatteryBlurb}
-        toggleEnabled={pwaToggleEnabled}
-        onToggle={pwa.onToggle}
-      />
-      {#if pwa.showWelcomeCardEntry && pwa.onShowWelcomeCard}
-        <button
-          type="button"
-          class="primary-menu-content__pwa-welcome-again"
-          onclick={pwa.onShowWelcomeCard}
-        >
-          Show first-run setup card
-        </button>
-      {/if}
-    </section>
-  {/if}
-{/if}
 {#if installInfoOpen}
   <section class="primary-menu-content__install-flow" aria-live="polite">
     <p class="primary-menu-content__install-title">Install Tideclock</p>
@@ -124,6 +93,37 @@
       <p class="primary-menu-content__install-status">{installStatusLine}</p>
     {/if}
   </section>
+{/if}
+{#if pwa !== undefined}
+  <button
+    type="button"
+    class="primary-menu-content__action"
+    onclick={pwa.onToggleSection}
+  >
+    App display
+  </button>
+  {#if pwa.sectionOpen}
+    <section class="primary-menu-content__pwa" aria-label="App display">
+      <HomePwaDisplaySection
+        apiSupported={pwa.apiSupported}
+        isHomeRoute={pwa.isHomeRoute}
+        userWants={pwa.userWants}
+        homePresentation={pwa.homePresentation}
+        showBatteryBlurb={pwa.showBatteryBlurb}
+        toggleEnabled={pwaToggleEnabled}
+        onToggle={pwa.onToggle}
+      />
+      {#if pwa.showWelcomeCardEntry && pwa.onShowWelcomeCard}
+        <button
+          type="button"
+          class="primary-menu-content__pwa-welcome-again"
+          onclick={pwa.onShowWelcomeCard}
+        >
+          Show first-run setup card
+        </button>
+      {/if}
+    </section>
+  {/if}
 {/if}
 
 <PrimaryNavLinks className={linksClassName} {onNavigate} />
