@@ -1,159 +1,23 @@
 
-o  dacia warranty
-	o  .20 Valley Road, Plympton, Plymouth, PL7 1RF
-
 *  main display requirements
 *  main display design
 *  generative code strategy
 *  analysis of api data avail
-
 *  make and deploy the proxy server
 
-o  new data fetch paradigm
-	o  rip out stuff don't want 
-		*   misleading models and logic - can ignore tests
-		*   tell cursor to repair the wreckage
-		*  digression classes vs interfaces
-		*  introduce cursor to the new design metaphor and ask it to start with
-			defining a tide extreme class with simple exposed fields and a
-			constructor that demands non nil params for the field data
-		*  now ask it to provide a fetcher that massages the returned data into 
-		   a new Model called TideEventsForLocation
-		*  define application models
-		*  testable mapping
-		*  helper for which time window is now local
-		*  thence to which window are we on utc wise
-		o  working with chatgpt on interp of 12 hour slot
-			*  put in tide_dial_spec.md into specs dir
-			*  have chatgpt modify the overview spec accordingly
-				*  first pass from it
-				*  me reduce scope
-			*  ditch all obsolete docs - they are confusing
-		*  put in new 24 hour time services
-		*  put in a fetch, transform and store function
-
-		*  now query fn if local data spans the window if so filter it for me
-		*  unhappy with undefined query ressponse as sentinel
-		*  skill to shorten names
-		*  now a fetch via proxy and store followed if new do we have
-		*  bake in a town list with lat lon
-		*  now create a choose your location UI route top down
-		*  have the choice call into the app level change route with logging
-		*  update clock to show days events in some way temp via a view model
-		*  get started with set location orchestration
-		*  sort out view modelling
-		*  introduce at least one civic day tide into the model
-		o  new display concept
-			*  drawexact it
-			*  define the geometry in words alone (some scope)
-			*  work up iteration workflow process to get right as go along
-			*  move on to tick labels
-			*  centre cluster
-			*  tide marker(s)
-			*  stroke widths to clarify preview
-			*  time pointer shape
-			*  fix tide marker text angle
-			*  make tide marker graphic smaller
-			*  make tide marker text smaller
-			*  fix tide marker text locations
-			o  now pointer
-				*  get text going
-				*  bifurcate for larger theta
-				*  dry the branch up 
-				*  avoid time now name clashing
-				*  fix: actual time inputs used
-				*  srp for time now input - beware clash of names
-				*  settle on universal encoding of time as  h:m:s int struct
-				   time input, with utils generation to derive string
-				   representations wherever needed and into float hours in
-				   other places
-				   	*  no need for str repr of times in inputs - all
-					   derivable
-					*  cursor is going for it...
-				*  Model next event time from tide events not input
-				*  Resume tidePointer graphics definition
-				*  Next ptr
-				*  WaitInterval arc
-				*  bring in styling pattern
-				*  in-band migration
-				*  get real integration working
-				*  purge spent docs
-				*  get it big enough to see
-				*  move time now text out to top right of diagram 
-				*  fix: wait time squashed up
-				*  some lines dashed
-				*  ditch preview iter
-
-				*  split timenow into two with seconds having separate style
-				*  purge legacy ref: "is **not** under **CentreCluster**;"
-				*  move time now to bottom right
-				*  force removal of fallback defaults
-				*  make time now animation more eye catching
-				*  ditch centre cluster retaining msg standalone and position it
-				*  fix diagram centering
-				*  ref arc filled
-				*  does contentBounds have any active role?
-				*  move day of week to be part of time now
-				*  rationalise header and messages
-				*  improve change location UX
-				*  standardise header strip colours
-				*  filled boss
-				*  now colours and animation
-				*  might not need the word "now"
-				*  another annular arc just inside markers 0.75
-				*  loop back to fix no more times today
-				*  scrape diag spec for optional / if present errors
-				*  better UX for locations
-				*  hone UI incl mobile and verbosity
-				*  move menu into diagram so that nothing else is there
-				*  come back to UX branch when no location has been stored yet.
-				*  slightly darker grey fills?
-				*  stick brand url in bottom left in diagram = no d
-				*  come back to alternating in/out edge cases  like Bournemouth
-				*  idea for logic triggers for developer visual tests
-				*  big code cleanse thus far - deserves a skill
-				*  sort out if necessary atypical needs for extrema ordering
-				*  location ui verbosity and mobile fit
-				*  extend dev mode to see error presentation
-				*  manual prompt when not landscape
-				*  Home.svelte is too darn long
-				*  tackle wake lock independently next
-				*  deploy it to https://tideclock-eight.vercel.app/#/home
-				*  put in PWA story...
-				*  does new vercel deployment update installed apps? = yes
-				*  proper favicon
-fart
-
-
-				o  UX to help people install as app
-					*  get prov plan
-					*  tighten plan
-					*  implementation of a coherent system
-					*  improvement of what you see on diagram mode
-					*  next phase of ux improvement plan
-						*  App Display and first use
-					*  first load of site on phone brings it up in portrait,
-					   if you then go to landscape it doesn't all scale to fit,
-					   and you lose the menu button off the bottom, so may not
-					   know it is there - it appears not to have fitted the
-					   diagram right?
-
-					o  expandable sections in menu both beneath install and
-					display rather than below parent
-
-					o  on mobile if the first thing you do while still in
-					   portrait is install app, the extra content is clipped at 
-					   the top - see screenshot on phone
-						o  think will be fixed now
-
+*  new data fetch paradigm front end work backlog
+*  UX to help people install as app
 
 	
-				o  first use choose your location needs same background
+		o  first use choose your location needs same background
 				   treatment as in-diagram menu
 				   	o  any others?
 					o  remove token?
 
 
+
+				o  first glance ux assimilation
+					o  first thing someone tried to drag the time now
 
 				o  discover / marketing screen?
 
