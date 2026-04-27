@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { THE_TIDE_DIAL } from "../brand";
   import PrimaryNavLinks from "./PrimaryNavLinks.svelte";
   import HomePwaDisplaySection from "../routes/home/HomePwaDisplaySection.svelte";
   import type { HomeWakeLockPresentation } from "../routes/home/homeRouteWakeLockPresentation";
@@ -62,9 +63,9 @@
 </button>
 {#if installInfoOpen}
   <section class="primary-menu-content__install-flow" aria-live="polite">
-    <p class="primary-menu-content__install-title">Install Tideclock</p>
+    <p class="primary-menu-content__install-title">Install {THE_TIDE_DIAL}</p>
     <p class="primary-menu-content__install-body">
-      Installing helps Tideclock feel focused and reliable for always-on use.
+      Installing helps {THE_TIDE_DIAL} feel focused and reliable for always-on use.
     </p>
     <ul class="primary-menu-content__install-list">
       {#each installBenefitLines as line}

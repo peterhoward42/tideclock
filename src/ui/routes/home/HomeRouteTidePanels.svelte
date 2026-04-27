@@ -3,6 +3,7 @@
    * Main tide route body: loading / error / empty / diagram host and overlay chrome.
    * DOM refs are bindable so the route’s effects (SVG glue, menu wiring, clock patch) stay in Home.
    */
+  import { THE_TIDE_DIAL } from "../../brand";
   import type { TideExtremesAtLocation } from "../../../core-models/TideExtremesAtLocation";
   import PrimaryMenuContent, {
     type PwaDisplayMenu,
@@ -84,7 +85,7 @@
         Choose your location
       </h1>
       <p class="home-empty-state__body">
-        Set a coastal location to see today&apos;s tide clock. You can change
+        Set a coastal location to use {THE_TIDE_DIAL}. You can change
         it later from the menu.
       </p>
       <a class="home-empty-state__action" href="#/location2">Choose location</a>

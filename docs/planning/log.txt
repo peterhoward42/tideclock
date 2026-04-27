@@ -8,11 +8,13 @@
 *  new data fetch paradigm front end work backlog
 *  UX to help people install as app
 *  first use choose your location needs same background
-o  desktop -> install app -> full screen -> menu doesn't activate
+*  desktop -> install app -> full screen -> menu doesn't activate
 
 
 
-o  all visible copy the tide dial ?
+o  avoid tide dial in all visible copy
+	o  note url for completeness
+
 	o  go back to chatgpt advice
 
 				o  first glance ux assimilation

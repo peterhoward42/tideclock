@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { get } from "svelte/store";
+import { THE_TIDE_DIAL } from "../../brand";
 import {
   createHomeInstallObserverStore,
   detectInstallPlatform,
@@ -29,6 +30,9 @@ describe("homeRouteInstallFlow", () => {
   it("includes install benefits copy used by the flow", () => {
     expect(HOME_INSTALL_BENEFIT_LINES).toContain(
       "Uses more of the screen, without browser bars taking up space.",
+    );
+    expect(HOME_INSTALL_BENEFIT_LINES).toContain(
+      `Feels more like using ${THE_TIDE_DIAL} than browsing a regular website tab.`,
     );
   });
 

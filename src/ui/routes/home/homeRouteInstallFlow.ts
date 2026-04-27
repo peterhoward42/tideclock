@@ -5,6 +5,8 @@
 
 import { writable, type Readable } from "svelte/store";
 
+import { THE_TIDE_DIAL } from "../../brand";
+
 export type InstallPlatform = "ios" | "android" | "desktop";
 
 export type InstallPromptOutcome = "accepted" | "dismissed" | "unknown";
@@ -36,7 +38,7 @@ type HomeInstallObserverEnvironment = {
 
 export const HOME_INSTALL_BENEFIT_LINES: readonly string[] = [
   "Uses more of the screen, without browser bars taking up space.",
-  "Feels more like a dedicated tide clock than a regular website tab.",
+  `Feels more like using ${THE_TIDE_DIAL} than browsing a regular website tab.`,
   "You can turn on “keep screen awake” from the menu (optional; uses more battery if unplugged).",
 ];
 

@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Town } from "../../data/townSchema";
+  import { THE_TIDE_DIAL } from "../brand";
   import PrimaryNavMenu from "./PrimaryNavMenu.svelte";
 
   export type HeaderTone = "light" | "dark";
@@ -30,7 +31,12 @@
 
 <header class="top-bar" class:top-bar--dark={tone === "dark"} class:top-bar--light={tone === "light"}>
   <div class="top-bar__left">
-    <a class="brand" href="#/home" onclick={closeHeaderNav} aria-label="Tide Dial home">Tide Dial</a>
+    <a
+      class="brand"
+      href="#/home"
+      onclick={closeHeaderNav}
+      aria-label={`${THE_TIDE_DIAL} home`}
+    >{THE_TIDE_DIAL}</a>
   </div>
 
   <div class="top-bar__center">

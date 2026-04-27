@@ -1,11 +1,11 @@
 {
-  "name": "tideclock",
-  "short_name": "tideclock",
+  "name": "The Tide Dial",
+  "short_name": "The Tide Dial",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "landscape",
-  "description": "Tideclock launches in landscape for installed-app use; browser tab behavior remains unchanged.",
+  "description": "The Tide Dial at thetidedial.page — installed use is landscape-first; a normal tab works like any other site.",
   "theme_color": "#090a0f",
   "background_color": "#090a0f",
   "icons": [

@@ -28,6 +28,7 @@
   import Acknowledgements from "./routes/Acknowledgements.svelte";
   import Support from "./routes/Support.svelte";
   import Cookies from "./routes/Cookies.svelte";
+  import { THE_TIDE_DIAL, TIDE_DIAL_PRODUCTION_ORIGIN } from "./brand";
   import { surfaceModeForRoute } from "./routeSurfaceMode";
 
   /** Mirrors {@link RouteId} in `router.js` for header copy and route surface mode mapping. */
@@ -190,6 +191,11 @@
     }
   }
 
+  function documentTitleForRoute(routeId: AppRouteId): string {
+    const h = headerPlaceholderForRoute(routeId);
+    return h === "" ? THE_TIDE_DIAL : `${h} — ${THE_TIDE_DIAL}`;
+  }
+
   onMount(() => {
     attachHashListener();
     appDiag("app root mounted, hash listener attached");
@@ -224,6 +230,13 @@
     };
   });
 </script>
+
+<svelte:head>
+  <title>{documentTitleForRoute($route)}</title>
+  {#if import.meta.env.PROD}
+    <link rel="canonical" href={`${TIDE_DIAL_PRODUCTION_ORIGIN}/`} />
+  {/if}
+</svelte:head>
 
 <div class="app-frame" data-surface-mode={surfaceModeForRoute($route)}>
   {#if $route !== "home"}
