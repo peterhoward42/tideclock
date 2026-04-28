@@ -41,6 +41,7 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
 - `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** in `**HH:MM:SS`** **other than** `**24:00:00`** (that sentinel is for the RefArc right endpoint only, not for tide events). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
+- `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**smallCircleRadius`** (**k·R**, strictly **> 0**); finite `**pointerPipScale`** (dimensionless, strictly **> 0**); and finite `**pointerTipInset`** (**k·R**, non-negative), the inward radial offset from the RefArc tip used to place the **PointerPip** tip and its dependent radial segments. `**pointerPipScale`** is applied uniformly to all linear dimensions of the pointer-pip silhouette; the divergence angle remains tied to `**tideMarks.tideMarkArrowDivergence`**. Generation fails if hand-derived radial ordering is invalid (see **Hand**, **Radial segments**).
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required string `**timeNowDatePrefix**`, drives **TimeNowDate** and **TimeNowClock**.
 - `**timeDelta`** — **required** plain object; string `**town**`; enum `**tidePhasePair ∈ {"out-low","in-high"}**`; **boolean** `**atypicalTideSummary**` (when `**true**` and a next marker exists, countdown copy follows the atypical branch in **TimeDelta**); **`countdownLines`** — array of **exactly four** plain objects (location, phase, next-event interval, next-event clock stripes), each with finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**); **`emptyMessage`** — plain object with finite `**belowOrigin`** and `**fontHeight**`: when there is no next tide today, the first two empty-day stripes use `**countdownLines[0]`** and `**countdownLines[1]`** for baselines and font heights; the third stripe (**NoMoreTidesToday**) uses `**countdownLines[2].belowOrigin`** for its baseline and `**emptyMessage.fontHeight`** for **FontHeight** (`**emptyMessage.belowOrigin`** is reserved / validated but not used for placement). Per stripe, `**belowOrigin`** is the distance from **Y = 0** toward **−Y** to that stripe’s baseline; **X** is fixed at **0** for all. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
@@ -53,6 +54,7 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
   - TickMarks
   - TickLabels
   - TideMarks
+  - Hand (group; leaves are **BossCircle**, **SmallCircle**, **Extension**, **Projection**, **Arm**; **PointerPip** is a subgroup with leaves **PointerPipSideA**, **PointerPipSideB**, and **PointerPipHeadArc**)
   - TimeNowDate (single **TextElement**; civil date prefix from the host)
   - TimeNowClock (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds** — canonical `HH:MM`, the colon before `SS`, and `SS`)
   - TimeDelta (countdown style-bound leaves: **TimeDeltaLocation**, **TimeDeltaPhase**, **TimeDeltaNext**, **TimeDeltaNextTime**; empty-day leaves: **TimeDeltaLocation**, **TimeDeltaPhase**, **NoMoreTidesToday**)
@@ -164,6 +166,7 @@ of travel.”
 
 - The scene graph at this stage consists of:
   - Arc primitives (for **RefArc** and **TideMarks.TimePointer** head arcs)
+  - Circle primitives (for **Hand.BossCircle** and **Hand.SmallCircle** outlines)
   - One closed circular segment path (for **CentreFrame**: circular arc + straight chord closure)
   - Line segments (for radial segments and tick marks)
   - Text elements
@@ -176,6 +179,9 @@ of travel.”
 - **Line** and **arc** primitives are **one-dimensional** curves in the logical
 model. They are **stroked** along the curve and, for now, **never** treated as
 **filled** regions.
+- **Circle** primitives are also one-dimensional stroked curves in the same sense
+  (full 2π circular outlines; **fill** is none unless a subsection explicitly
+  overrides).
 - Area fills are represented by dedicated closed-region primitives (currently:
 **CentreFrame** closed circular segment and **AnnularBand** annular sector).
 - Where multiple curve primitives are **independent**, they are **topologically**
@@ -469,6 +475,75 @@ For **both** labels:
 - One **arc** primitive: circular arc from **Vertex2** to **Vertex3** with centre **centre** and radius **radius**, choosing the arc that does **not** contain **Vertex1** in its interior (the **head** cap—the arc whose interior points lie on the opposite side of chord **Vertex2–Vertex3** from **Vertex1**). Equivalently: of the two arcs between **Vertex2** and **Vertex3**, use the one that does **not** pass through **Vertex1** along the circle.
 
 **Presentation:** the **TimePointer** subgroup uses **stroke** colour from its leaf style; **fill** is **none** on these primitives. Hosts may set **stroke-linecap** / **stroke-linejoin** so the three curves meet cleanly at **Vertex1**, **Vertex2**, and **Vertex3** (product default: round caps and joins on the **TimePointer** group).
+
+## Hand
+
+**Hand** is a top-level named element tied to global `**timeNow`** via `**θ_now`**
+(**§Global “time now” input**). Layering and paint order follow **Host responsibilities**.
+
+### Scene model
+
+- Emitted as a named group **Hand** (`**hand`** input is required).
+- Direct leaves:
+  - **BossCircle** — stroked circle.
+  - **SmallCircle** — stroked circle.
+  - **Extension** — stroked radial line segment.
+  - **Projection** — stroked radial line segment.
+  - **Arm** — stroked radial line segment.
+- One subgroup **PointerPip** with three stroked leaves:
+  - **PointerPipSideA** — line.
+  - **PointerPipSideB** — line.
+  - **PointerPipHeadArc** — arc.
+- **Hand** primitives are stroked only; **fill** is **none**.
+
+### PointerPip geometry (reuse contract)
+
+- **PointerPip** reuses the exact geometric construction of
+  **TideMarks.TimePointer** (**TimePointer**, **Construction**, and **Scene emission**),
+  with these substitutions:
+  - use `**t = t_now`** / `**θ_now`** instead of marker time;
+  - use `**pointerTipInset`** to move `**Vertex1`** inward along the `**θ_now`** ray
+    from the RefArc by `**pointerTipInset·RefRadius`**;
+  - scale all **linear** quantities in that construction by
+    `**hand.pointerPipScale`**;
+  - keep the divergence angle equal to `**tideMarks.tideMarkArrowDivergence`**
+    (same silhouette angles as tide markers).
+- This is a strict similarity constraint: to a viewer, **PointerPip** has the
+  same shape as a tide-marker pointer and differs only by scale.
+
+### BossCircle
+
+- Center at **O** (`(0,0)`).
+- Radius: `**hand.bossCircleRadius · RefRadius`**.
+
+### SmallCircle
+
+- Radius: `**R_small = hand.smallCircleRadius · RefRadius`**.
+- Center lies on the `**θ_now`** radial line.
+- Let `**C_head`** and `**R_head`** be the centre and radius of
+  **PointerPipHeadArc** from the reused TimePointer construction above.
+- **SmallCircle** is tangent to **PointerPipHeadArc** on the inward side (toward
+  **O**), so centre placement is:
+  - `**|C_head − C_small| = R_head − R_small`**
+  - with `**C_small`** chosen on the inward branch of the `**θ_now`** ray.
+
+### Radial segments
+
+- All three are colinear with the `**θ_now`** ray.
+- Let:
+  - `**r_ref = RefRadius**`
+  - `**r_track = insideTrackRadius · RefRadius**`
+  - `**r_tip = r_ref − hand.pointerTipInset · RefRadius**`
+  - `**r_boss = hand.bossCircleRadius · RefRadius**`
+  - `**r_small_center = |OC_small|**`
+  - `**r_small_inner = r_small_center − R_small**`
+- Segment radii:
+  - **Extension** — from `**r_tip`** to `**r_track`**.
+  - **Projection** — from `**r_track`** to `**r_ref`**.
+  - **Arm** — from `**r_boss`** to `**r_small_inner`**.
+- Validation: generation fails if any segment has non-increasing radius order at
+  emission time (specifically, require `**r_tip < r_track < r_ref**` and
+  `**r_boss < r_small_inner**`).
 
 ## Notes on interpretation
 
