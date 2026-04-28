@@ -34,8 +34,23 @@ import {
 
 /** Per-character scene width heuristic; must match {@link expandBoundsByText} in `toScene.mjs`. */
 const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
-const MAIN_LABEL_PLACEHOLDER = "quick brown fox";
 const MAIN_LABEL_CHAR_WIDTH_EM = 0.6;
+
+/**
+ * Build one-line MainLabel copy from the currently resolved TimeDelta stripes.
+ * TimeDelta is hidden in scene mapping for now, but remains the source of truth for dynamic copy.
+ *
+ * @param {import('../model/tideDiagramModel.mjs').TimeDeltaDiagram} timeDeltaDiagram
+ * @returns {string}
+ */
+function synthesizeMainLabelContentFromTimeDelta(timeDeltaDiagram) {
+  const stripes =
+    timeDeltaDiagram.countdownStripes ?? timeDeltaDiagram.timeDeltaEmptyStripes ?? [];
+  return stripes
+    .map((stripe) => stripe.content.trim())
+    .filter((line) => line.length > 0)
+    .join(" ");
+}
 
 /**
  * Time-now readout: **TimeNowDate** (civil prefix) and **TimeNowClock** (`HH:MM` + `:` + `SS`), right-aligned
@@ -379,6 +394,7 @@ export function buildDiagram(spec) {
     spec,
     refRadius,
     timeToTheta(mainLabelCenterHours, thetaLeft, thetaRight),
+    synthesizeMainLabelContentFromTimeDelta(timeDeltaDiagram),
   );
   const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
 
@@ -474,9 +490,10 @@ function buildInsideTrackFromSpec(spec, refRadius, thetaLeft, sweepRad) {
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
  * @param {number} thetaZeroHour
+ * @param {string} content
  * @returns {import('../model/tideDiagramModel.mjs').MainLabelDiagram}
  */
-function buildMainLabel(spec, refRadius, thetaZeroHour) {
+function buildMainLabel(spec, refRadius, thetaZeroHour, content) {
   const mainLabelRadiusK = requireFiniteNumber(
     spec.mainLabelRadius,
     "spec.mainLabelRadius",
@@ -486,7 +503,6 @@ function buildMainLabel(spec, refRadius, thetaZeroHour) {
   }
   const radius = mainLabelRadiusK * refRadius;
   const fontSize = 0.045 * refRadius;
-  const content = MAIN_LABEL_PLACEHOLDER;
   const arcLength = content.length * fontSize * MAIN_LABEL_CHAR_WIDTH_EM;
   const sweepRad = arcLength / radius;
   return {
