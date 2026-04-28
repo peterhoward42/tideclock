@@ -16,6 +16,9 @@ import {
   text,
 } from "../model/sceneModel.mjs";
 
+// Temporary UI iteration switch: keep generating these models, but do not render them.
+const SHOW_TIME_DELTA_AND_CENTRE_FRAME = false;
+
 /**
  * Deterministic scene-space bounds (x right, y up).
  * Used to derive `scene.meta.previewFrame` from actual primitives, not from legacy spec constants.
@@ -857,8 +860,8 @@ export function tideDiagramToScene(diagram) {
     ticksGroup,
     tideMarksGroup,
     tickLabelsGroup,
-    centreFrameGroup,
-    timeDeltaGroup,
+    SHOW_TIME_DELTA_AND_CENTRE_FRAME ? centreFrameGroup : group("CentreFrame", []),
+    SHOW_TIME_DELTA_AND_CENTRE_FRAME ? timeDeltaGroup : group("TimeDelta", []),
     timeNowDateGroup,
     timeNowClockGroup,
     homeMenuTriggerGroup,

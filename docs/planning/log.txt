@@ -24,7 +24,12 @@ o  try the clock hand idea
 	*  mandate the implementation
 	*  fundamental fixes
 	*  tune geom
-	o  tune tyles
+	*  tune tyles
+
+	o  Move  time now text block
+		o  temp hide TimeDelta and CentreFrame
+		o  clean up orphaned TimeDetla and CentreFrame
+
 	o  check zdepth is working
 	o  normalise the spec after the fact
 	o  merge branch hand
