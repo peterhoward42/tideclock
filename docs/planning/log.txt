@@ -9,18 +9,22 @@
 *  UX to help people install as app
 *  first use choose your location needs same background
 *  desktop -> install app -> full screen -> menu doesn't activate
+*  avoid tide dial in all visible copy
 
+o  try the clock hand idea
+	o  branch hand
+	o  design geom
+	o  toggle switches
+	o  add hand to spec
+	o  implment it
+	o  refine
+	o  clean up
+	o  merge branch hand
 
+o  first glance ux assimilation
+	o  first thing someone tried to drag the time now
 
-o  avoid tide dial in all visible copy
-	o  note url for completeness
-
-	o  go back to chatgpt advice
-
-				o  first glance ux assimilation
-					o  first thing someone tried to drag the time now
-
-				o  discover / marketing screen?
+o  discover / marketing screen?
 
 
 				o  proxy cost risk containment
