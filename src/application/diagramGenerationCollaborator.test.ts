@@ -12,16 +12,20 @@ function minimalExtremesForCollaboratorTest(): TideExtremesAtLocation {
 }
 const FIXTURE_DATE_PREFIX = 'Mon 23 Mar';
 
+function baseSpecForCollaboratorTest() {
+  return buildDiagramGenerationSpec({
+    extremesAtLocation: minimalExtremesForCollaboratorTest(),
+    timeNow: '12:00:00',
+    timeNowDatePrefix: FIXTURE_DATE_PREFIX,
+    utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+    townName: 'Lymington',
+  });
+}
+
 describe('createDiagramGenerationCollaborator', () => {
   it('generates diagram and scene from app runtime code', () => {
     const collaborator = createDiagramGenerationCollaborator();
-    const spec = buildDiagramGenerationSpec({
-      extremesAtLocation: minimalExtremesForCollaboratorTest(),
-      timeNow: '12:00:00',
-      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      townName: 'Lymington',
-    });
+    const spec = baseSpecForCollaboratorTest();
     const output = collaborator.generate(spec);
 
     expect(output.diagram.version).toBe(1);
@@ -32,13 +36,7 @@ describe('createDiagramGenerationCollaborator', () => {
 
   it('InsideTrack is concentric with RefArc at insideTrackRadius·RefRadius', () => {
     const collaborator = createDiagramGenerationCollaborator();
-    const spec = buildDiagramGenerationSpec({
-      extremesAtLocation: minimalExtremesForCollaboratorTest(),
-      timeNow: '12:00:00',
-      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      townName: 'Lymington',
-    });
+    const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
     expect(diagram.insideTrack.sweepRad).toBe(diagram.refArc.sweepRad);
     expect(diagram.insideTrack.thetaLeft).toBe(diagram.refArc.thetaLeft);
@@ -49,13 +47,7 @@ describe('createDiagramGenerationCollaborator', () => {
 
   it('includes AnnularBand from home layout (annularBand.annularBandWidth)', () => {
     const collaborator = createDiagramGenerationCollaborator();
-    const spec = buildDiagramGenerationSpec({
-      extremesAtLocation: minimalExtremesForCollaboratorTest(),
-      timeNow: '12:00:00',
-      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      townName: 'Lymington',
-    });
+    const spec = baseSpecForCollaboratorTest();
     const { diagram, scene } = collaborator.generate(spec);
     expect(diagram.annularBand.rInner).toBe(diagram.refArc.refRadius);
     expect(diagram.annularBand.rOuter).toBeCloseTo(diagram.refArc.refRadius * 1.05);
@@ -69,39 +61,21 @@ describe('createDiagramGenerationCollaborator', () => {
 
   it('throws when spec.annularBand is omitted', () => {
     const collaborator = createDiagramGenerationCollaborator();
-    const base = buildDiagramGenerationSpec({
-      extremesAtLocation: minimalExtremesForCollaboratorTest(),
-      timeNow: '12:00:00',
-      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      townName: 'Lymington',
-    });
+    const base = baseSpecForCollaboratorTest();
     const { annularBand: _omit, ...rest } = base;
     expect(() => collaborator.generate(rest)).toThrow(/annularBand/);
   });
 
   it('throws when annularBandWidth is zero', () => {
     const collaborator = createDiagramGenerationCollaborator();
-    const base = buildDiagramGenerationSpec({
-      extremesAtLocation: minimalExtremesForCollaboratorTest(),
-      timeNow: '12:00:00',
-      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      townName: 'Lymington',
-    });
+    const base = baseSpecForCollaboratorTest();
     const spec = { ...base, annularBand: { annularBandWidth: 0 } };
     expect(() => collaborator.generate(spec)).toThrow(/greater than 0/);
   });
 
   it('aligns time-now readout to annular max X and minimum tick-label Y', () => {
     const collaborator = createDiagramGenerationCollaborator();
-    const spec = buildDiagramGenerationSpec({
-      extremesAtLocation: minimalExtremesForCollaboratorTest(),
-      timeNow: '12:00:00',
-      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      townName: 'Lymington',
-    });
+    const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
     const tickMinY = Math.min(...diagram.tickLabels.map((t) => t.anchor.y));
     const maxX = annularBandMaxX(diagram.annularBand);
@@ -117,15 +91,73 @@ describe('createDiagramGenerationCollaborator', () => {
 
   it('throws when annularBand is present without annularBandWidth', () => {
     const collaborator = createDiagramGenerationCollaborator();
-    const base = buildDiagramGenerationSpec({
-      extremesAtLocation: minimalExtremesForCollaboratorTest(),
-      timeNow: '12:00:00',
-      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      townName: 'Lymington',
-    });
+    const base = baseSpecForCollaboratorTest();
     const spec = { ...base, annularBand: {} };
     expect(() => collaborator.generate(spec)).toThrow(/annularBandWidth/);
+  });
+
+  it('leaves root paint order unchanged when no override is provided', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const { scene } = collaborator.generate(baseSpecForCollaboratorTest());
+    const childNames = scene.root.children
+      .filter((child) => child.kind === 'group')
+      .map((child) => child.name);
+    expect(childNames).toEqual([
+      'AnnularBand',
+      'InsideTrack',
+      'RefArc',
+      'TickMark',
+      'TideMarks',
+      'TickLabel',
+      'CentreFrame',
+      'TimeDelta',
+      'TimeNowDate',
+      'TimeNowClock',
+      'HomeMenuTrigger',
+    ]);
+  });
+
+  it('applies a valid paint-order before override at root level', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const spec = {
+      ...base,
+      paintOrder: {
+        overrides: [{ name: 'TimeDelta', place: 'before' as const, relativeTo: 'RefArc' }],
+      },
+    };
+    const { scene } = collaborator.generate(spec);
+    const childNames = scene.root.children
+      .filter((child) => child.kind === 'group')
+      .map((child) => child.name);
+    expect(childNames.indexOf('TimeDelta')).toBeLessThan(childNames.indexOf('RefArc'));
+  });
+
+  it('throws for unknown paint-order names', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const spec = {
+      ...base,
+      paintOrder: {
+        overrides: [{ name: 'Hand.Projection', place: 'before' as const, relativeTo: 'RefArc' }],
+      },
+    };
+    expect(() => collaborator.generate(spec)).toThrow(/unknown group name "Hand\.Projection"/);
+  });
+
+  it('throws for duplicate paint-order mover names', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const spec = {
+      ...base,
+      paintOrder: {
+        overrides: [
+          { name: 'TimeDelta', place: 'before' as const, relativeTo: 'RefArc' },
+          { name: 'TimeDelta', place: 'after' as const, relativeTo: 'TickLabel' },
+        ],
+      },
+    };
+    expect(() => collaborator.generate(spec)).toThrow(/duplicate paintOrder override/);
   });
 
 });

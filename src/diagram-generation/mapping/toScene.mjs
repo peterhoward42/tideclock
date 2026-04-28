@@ -317,6 +317,198 @@ function mapPoint(p, cx, cy) {
 }
 
 /**
+ * @typedef {{ name: string, place: 'before' | 'after', relativeTo: string }} PaintOrderOverride
+ */
+
+/**
+ * @param {unknown} raw
+ * @returns {PaintOrderOverride[]}
+ */
+function parsePaintOrderOverrides(raw) {
+  if (raw == null) return [];
+  if (typeof raw !== "object") {
+    throw new Error("diagram.paintOrder must be an object when provided");
+  }
+  const paintOrder = /** @type {Record<string, unknown>} */ (raw);
+  if (paintOrder.overrides == null) return [];
+  if (!Array.isArray(paintOrder.overrides)) {
+    throw new Error("diagram.paintOrder.overrides must be an array when provided");
+  }
+  /** @type {Set<string>} */
+  const seenNames = new Set();
+  return paintOrder.overrides.map((entry, i) => {
+    if (entry == null || typeof entry !== "object") {
+      throw new Error(`diagram.paintOrder.overrides[${i}] must be an object`);
+    }
+    const o = /** @type {Record<string, unknown>} */ (entry);
+    if (typeof o.name !== "string" || o.name.trim() === "") {
+      throw new Error(`diagram.paintOrder.overrides[${i}].name must be a non-empty string`);
+    }
+    if (typeof o.relativeTo !== "string" || o.relativeTo.trim() === "") {
+      throw new Error(
+        `diagram.paintOrder.overrides[${i}].relativeTo must be a non-empty string`,
+      );
+    }
+    if (o.place !== "before" && o.place !== "after") {
+      throw new Error(
+        `diagram.paintOrder.overrides[${i}].place must be "before" or "after"`,
+      );
+    }
+    if (o.name === o.relativeTo) {
+      throw new Error(
+        `diagram.paintOrder.overrides[${i}] must not self-reference (${o.name})`,
+      );
+    }
+    if (seenNames.has(o.name)) {
+      throw new Error(`duplicate paintOrder override for "${o.name}"`);
+    }
+    seenNames.add(o.name);
+    return {
+      name: o.name,
+      place: o.place,
+      relativeTo: o.relativeTo,
+    };
+  });
+}
+
+/**
+ * @param {import('../model/sceneModel.mjs').GroupNode} node
+ * @param {Map<string, number>} counts
+ */
+function collectGroupNameCounts(node, counts) {
+  counts.set(node.name, (counts.get(node.name) ?? 0) + 1);
+  for (const child of node.children) {
+    if (child.kind !== "group") continue;
+    collectGroupNameCounts(child, counts);
+  }
+}
+
+/**
+ * @param {string[]} names
+ * @param {PaintOrderOverride[]} overrides
+ */
+function reorderNamesWithOverrides(names, overrides) {
+  if (overrides.length === 0) return names;
+  /** @type {Map<string, Set<string>>} */
+  const outgoing = new Map(names.map((n) => [n, new Set()]));
+  /** @type {Map<string, number>} */
+  const indegree = new Map(names.map((n) => [n, 0]));
+  const addEdge = (from, to) => {
+    const fromEdges = outgoing.get(from);
+    if (!fromEdges || fromEdges.has(to)) return;
+    fromEdges.add(to);
+    indegree.set(to, (indegree.get(to) ?? 0) + 1);
+  };
+  for (const override of overrides) {
+    if (override.place === "before") {
+      addEdge(override.name, override.relativeTo);
+    } else {
+      addEdge(override.relativeTo, override.name);
+    }
+  }
+  const originalIndex = new Map(names.map((name, index) => [name, index]));
+  const queue = names.filter((name) => (indegree.get(name) ?? 0) === 0);
+  /** @type {string[]} */
+  const sorted = [];
+  while (queue.length > 0) {
+    queue.sort((a, b) => (originalIndex.get(a) ?? 0) - (originalIndex.get(b) ?? 0));
+    const name = queue.shift();
+    if (!name) continue;
+    sorted.push(name);
+    for (const next of outgoing.get(name) ?? []) {
+      const nextIn = (indegree.get(next) ?? 0) - 1;
+      indegree.set(next, nextIn);
+      if (nextIn === 0) queue.push(next);
+    }
+  }
+  if (sorted.length !== names.length) {
+    throw new Error("diagram.paintOrder.overrides contains cyclic relationships");
+  }
+  return sorted;
+}
+
+/**
+ * @param {import('../model/sceneModel.mjs').GroupNode} node
+ * @param {PaintOrderOverride[]} overrides
+ * @returns {import('../model/sceneModel.mjs').GroupNode}
+ */
+function applyPaintOrderOverrides(node, overrides) {
+  if (overrides.length === 0) return node;
+  const nameCounts = new Map();
+  collectGroupNameCounts(node, nameCounts);
+  for (const override of overrides) {
+    if (!nameCounts.has(override.name)) {
+      throw new Error(
+        `diagram.paintOrder.overrides references unknown group name "${override.name}"`,
+      );
+    }
+    if (!nameCounts.has(override.relativeTo)) {
+      throw new Error(
+        `diagram.paintOrder.overrides references unknown group name "${override.relativeTo}"`,
+      );
+    }
+  }
+  /** @type {Map<PaintOrderOverride, number>} */
+  const applications = new Map(overrides.map((override) => [override, 0]));
+  /**
+   * @param {import('../model/sceneModel.mjs').GroupNode} groupNode
+   * @returns {import('../model/sceneModel.mjs').GroupNode}
+   */
+  const rewrite = (groupNode) => {
+    const rewrittenChildren = groupNode.children.map((child) =>
+      child.kind === "group" ? rewrite(child) : child,
+    );
+    const childGroups = rewrittenChildren.filter((child) => child.kind === "group");
+    const childNameSet = new Set(childGroups.map((child) => child.name));
+    const localOverrides = overrides.filter(
+      (override) =>
+        childNameSet.has(override.name) && childNameSet.has(override.relativeTo),
+    );
+    if (localOverrides.length === 0) {
+      return group(groupNode.name, rewrittenChildren);
+    }
+    for (const override of localOverrides) {
+      applications.set(override, (applications.get(override) ?? 0) + 1);
+    }
+    const childNames = childGroups.map((child) => child.name);
+    const reorderedNames = reorderNamesWithOverrides(childNames, localOverrides);
+    const groupedByName = new Map(childGroups.map((child) => [child.name, child]));
+    const reorderedGroups = reorderedNames.map((name) => {
+      const next = groupedByName.get(name);
+      if (!next) {
+        throw new Error(
+          `diagram.paintOrder.overrides could not resolve name "${name}" in parent "${groupNode.name}"`,
+        );
+      }
+      return next;
+    });
+    let groupCursor = 0;
+    const mergedChildren = rewrittenChildren.map((child) => {
+      if (child.kind !== "group") return child;
+      const next = reorderedGroups[groupCursor];
+      groupCursor += 1;
+      return next;
+    });
+    return group(groupNode.name, mergedChildren);
+  };
+  const rewritten = rewrite(node);
+  for (const override of overrides) {
+    const count = applications.get(override) ?? 0;
+    if (count === 0) {
+      throw new Error(
+        `diagram.paintOrder.override "${override.name}" could not be applied relative to "${override.relativeTo}"`,
+      );
+    }
+    if (count > 1) {
+      throw new Error(
+        `diagram.paintOrder.override "${override.name}" is ambiguous relative to "${override.relativeTo}"`,
+      );
+    }
+  }
+  return rewritten;
+}
+
+/**
  * @param {import('../model/tideDiagramModel.mjs').CentreFrameDiagram} cf
  * @param {number} cx
  * @param {number} cy
@@ -626,11 +818,15 @@ export function tideDiagramToScene(diagram) {
     timeNowClockGroup,
     homeMenuTriggerGroup,
   ]);
-  meta.previewFrame = computeScenePreviewFrame(root);
+  const orderedRoot = applyPaintOrderOverrides(
+    root,
+    parsePaintOrderOverrides(diagram.paintOrder),
+  );
+  meta.previewFrame = computeScenePreviewFrame(orderedRoot);
 
   return {
     version: 2,
     meta,
-    root,
+    root: orderedRoot,
   };
 }

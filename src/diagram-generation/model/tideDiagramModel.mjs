@@ -124,6 +124,9 @@
  * @typedef {{
  *   version: number,
  *   meta: { title: string, width: number, height: number },
+ *   paintOrder?: {
+ *     overrides?: { name: string, place: 'before' | 'after', relativeTo: string }[],
+ *   },
  *   refArc: RefArcSpec,
  *   insideTrack: InsideTrackDiagram,
  *   tickMarks: TickMarkSpec[],

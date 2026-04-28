@@ -221,6 +221,7 @@ export function buildDiagram(spec) {
   return {
     version: 1,
     meta: { title, width, height },
+    paintOrder: spec.paintOrder,
     refArc: {
       center: { x: 0, y: 0 },
       refRadius,

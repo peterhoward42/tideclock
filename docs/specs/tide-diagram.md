@@ -6,11 +6,12 @@ To specify a specific diagram in terms of a scene graph and input parameters.
 
 ### Host responsibilities
 
-The **diagram generator** does **not** define paint order, z-height ordering, or
-layers. Those topics are handled **outside** the generator. **Named elements**
-(see **Diagram elements**) exist so that an **external** host can bind layering
-and related presentation properties to each entity by name; the mechanics of
-that binding are **not in scope** yet.
+The **diagram generator** defines deterministic scene-child order and supports an
+optional, constrained paint-order override seam (`paintOrder.overrides`) so
+specific named groups can be moved **before**/**after** sibling groups. This
+specification still does **not** introduce a global numeric z-index model.
+**Named elements** (see **Diagram elements**) remain the contract for targeted
+ordering and style behavior by exact name.
 
 Where this specification mentions text or numeric inputs “from outside” or
 “from the host,” supply and policy for those values are host responsibilities.
@@ -37,6 +38,19 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
 
 - `**canvas`** — object with finite `**width`** and `**height`** (px).
 - `**title**` — string (diagram meta).
+- `**paintOrder`** — optional plain object.
+  - Optional `**overrides`** array.
+  - Each override must be a plain object with:
+    - `**name`** — non-empty string (named scene group to move),
+    - `**place`** — exact string `**"before"`** or `**"after"`**,
+    - `**relativeTo`** — non-empty string (sibling named group target).
+  - Validation:
+    - `**name !== relativeTo`**,
+    - duplicate overrides for the same `**name`** are errors,
+    - referenced names must exist in the generated scene tree,
+    - each override must resolve to one unique sibling relationship in the scene tree,
+    - cyclic constraints are errors.
+  - Default behaviour when omitted: preserve current deterministic scene-child order.
 - `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
 - `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
@@ -479,7 +493,8 @@ For **both** labels:
 ## Hand
 
 **Hand** is a top-level named element tied to global `**timeNow`** via `**θ_now`**
-(**§Global “time now” input**). Layering and paint order follow **Host responsibilities**.
+(**§Global “time now” input**). When `paintOrder.overrides` is used, it applies
+using the same exact group names listed here.
 
 ### Scene model
 
@@ -495,6 +510,21 @@ For **both** labels:
   - **PointerPipSideB** — line.
   - **PointerPipHeadArc** — arc.
 - **Hand** primitives are stroked only; **fill** is **none**.
+
+### Paint-order example
+
+To ensure the projection stroke sits underneath overlapping hand geometry, a host
+can place it before the boss-circle leaf:
+
+```json
+{
+  "paintOrder": {
+    "overrides": [
+      { "name": "Hand.Projection", "place": "before", "relativeTo": "Hand.BossCircle" }
+    ]
+  }
+}
+```
 
 ### PointerPip geometry (reuse contract)
 

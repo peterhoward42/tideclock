@@ -122,6 +122,13 @@ type HomeMenuTriggerDiagram = {
 export type TideDiagramDocument = {
   readonly version: number;
   readonly meta: { readonly title: string; readonly width: number; readonly height: number };
+  readonly paintOrder?: {
+    readonly overrides?: ReadonlyArray<{
+      readonly name: string;
+      readonly place: "before" | "after";
+      readonly relativeTo: string;
+    }>;
+  };
   readonly refArc: RefArcSpec;
   readonly insideTrack: InsideTrackDiagram;
   readonly tickMarks: TickMarkSpec[];
