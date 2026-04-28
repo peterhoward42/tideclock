@@ -250,15 +250,6 @@ function expandBoundsByNode(b, node) {
       expandBoundsByPoint(b, node.b);
       expandBoundsByPoint(b, node.c);
       return;
-    case "nowWedgeOutline":
-      expandBoundsByPoint(b, node.vertex);
-      expandBoundsByPoint(b, node.outerArcStart);
-      expandBoundsByArc(b, {
-        center: node.center,
-        start: node.outerArcStart,
-        sweepRad: node.outerArcSweepRad,
-      });
-      return;
     case "arc":
       expandBoundsByArc(b, node);
       return;

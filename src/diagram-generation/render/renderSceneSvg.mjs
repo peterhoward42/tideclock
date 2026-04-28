@@ -297,33 +297,6 @@ function renderNode(node, styleRuntime, leafName) {
       if (d === "") return "";
       return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
     }
-    case "nowWedgeOutline": {
-      assertLeafScoped(node.kind, leafName);
-      const stroke = requireLeafStrokeColor(
-        styleRuntime,
-        leafName,
-        RENDER_DEFAULTS.curveStroke,
-        node.kind,
-      );
-      const fill = requireLeafFillColor(
-        styleRuntime,
-        leafName,
-        RENDER_DEFAULTS.shapeFill,
-        node.kind,
-      );
-      const dash = strokeDashAttrFragmentFromLeaf(
-        styleRuntime,
-        leafName,
-        node.kind,
-      );
-      const d = nowWedgeOutlineToPathD(node);
-      if (d === "") return "";
-      const nowTriClass =
-        leafName === "NowTriangle"
-          ? ' class="home-now-triangle-pulse"'
-          : "";
-      return `    <path d="${escapeAttr(d)}"${nowTriClass} fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
-    }
     case "triangle": {
       assertLeafScoped(node.kind, leafName);
       const { a, b, c } = node;
@@ -533,19 +506,6 @@ function circularSegmentToPathD(center, start, sweepRad) {
 }
 
 /**
- * Now “triangle”: segment vertex→outer start, minor outer arc, close to vertex.
- *
- * @param {import('../model/sceneModel.mjs').NowWedgeOutlinePrimitive} node
- * @returns {string}
- */
-function nowWedgeOutlineToPathD(node) {
-  const { center, vertex, outerArcStart, outerArcSweepRad } = node;
-  const segs = circularArcToPathSegments(center, outerArcStart, outerArcSweepRad);
-  if (segs === "") return "";
-  return `M ${vertex.x} ${vertex.y} L ${outerArcStart.x} ${outerArcStart.y} ${segs} Z`;
-}
-
-/**
  * @param {import('../model/sceneModel.mjs').SceneNode} root
  * @param {SceneRenderStyleRuntime | undefined} styleRuntime
  * @returns {string[]}
@@ -605,6 +565,7 @@ function markerAttrForArc(arcNode, leafName, styleRuntime) {
  * Placement is end-only (see `ArcArrowMeta` in `sceneModel.mjs`).
  *
  * @param {import('../model/sceneModel.mjs').ArcArrowMeta | { lengthK?: number, widthK?: number, insetK?: number, style?: string, scaleWithStroke?: boolean }} raw
+ * @returns {{ at: 'end', lengthK: number, widthK: number, insetK: number, style: 'filled'|'open', scaleWithStroke: boolean }}
  */
 function normalizeArcArrow(raw) {
   return {

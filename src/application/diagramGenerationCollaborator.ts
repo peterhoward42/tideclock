@@ -169,14 +169,6 @@ type SceneTrianglePrimitive = {
   readonly outline?: boolean;
 };
 
-type SceneNowWedgeOutlinePrimitive = {
-  readonly kind: "nowWedgeOutline";
-  readonly center: ScenePoint;
-  readonly vertex: ScenePoint;
-  readonly outerArcStart: ScenePoint;
-  readonly outerArcSweepRad: number;
-};
-
 type SceneCirclePrimitive = {
   readonly kind: "circle";
   readonly center: ScenePoint;
@@ -220,7 +212,6 @@ type SceneNode =
   | SceneLinePrimitive
   | SceneArcPrimitive
   | SceneTrianglePrimitive
-  | SceneNowWedgeOutlinePrimitive
   | SceneCirclePrimitive
   | SceneRoundedRectPrimitive
   | SceneAnnularSectorPrimitive

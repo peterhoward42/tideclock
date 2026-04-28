@@ -16,7 +16,7 @@ o  try the clock hand idea
 	*  design geom
 	o  toggle element switches
 		*  get started
-		o  forgot wait arc
+		*  forgot wait arc
 		o  clean orphaned conditional occlusion logic
 	o  add hand to spec
 	o  implement it

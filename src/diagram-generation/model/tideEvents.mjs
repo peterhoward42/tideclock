@@ -1,5 +1,5 @@
 /**
- * tideEvents.mjs — Next-tide derivation from markers or injected semantics; shared by pointers and TimeDelta.
+ * tideEvents.mjs — Next-tide derivation from markers or injected semantics; shared by TimeDelta and app semantics.
  * Kind: Pure logic. Does not place SVG primitives.
  *
  * Tide event utilities shared across diagram elements.
@@ -8,11 +8,6 @@
 import { parseTideMarksMarkerRowsOrThrow } from "../layout/tideMarks.mjs";
 import { requirePlainObject } from "../layout/specRequire.mjs";
 import { parseCanonicalTimeOrThrow } from "./timeCanonical.mjs";
-
-/** Omit Now label when the gap to the next tide is under this many seconds. */
-const NOW_LABEL_OCCLUSION_CLEARANCE_SECONDS = 60 * 60;
-/** Omit Now radial line only when the gap is very small (near-superimposed). */
-const NOW_RADIAL_LINE_OCCLUSION_CLEARANCE_SECONDS = 5 * 60;
 
 /**
  * Optional `spec.semantic.nextTide` from the application minute-scale service
@@ -98,48 +93,6 @@ export function computeNextTideEventFromSpec(spec, parsedNow) {
     kind: core.kind,
     intervalText: formatIntervalHoursMinutes(forwardSeconds),
   };
-}
-
-/**
- * Whether to drop the **Now label** so it does not clutter the short-final-wait period
- * before the next tide.
- *
- * True only when a qualifying next tide exists and the forward interval from `timeNow`
- * to that event is strictly less than one hour.
- *
- * @param {{ seconds: number }} parsedNow — same shape as `parseCanonicalTimeOrThrow` result
- * @param {{ seconds: number, kind: string } | null} nextCore — result of `computeNextTideEventCore` for the same spec/now
- */
-export function shouldOmitNowWaitVisualsForNextPointerClearance(parsedNow, nextCore) {
-  if (nextCore == null) return false;
-  const forwardSeconds = nextCore.seconds - parsedNow.seconds;
-  return forwardSeconds < NOW_LABEL_OCCLUSION_CLEARANCE_SECONDS;
-}
-
-/**
- * Backward-compatible alias for Now-label occlusion gate.
- *
- * @param {{ seconds: number }} parsedNow
- * @param {{ seconds: number, kind: string } | null} nextCore
- */
-export function shouldOmitNowLabelForNextPointerClearance(parsedNow, nextCore) {
-  return shouldOmitNowWaitVisualsForNextPointerClearance(parsedNow, nextCore);
-}
-
-/**
- * Whether to drop the **Now radial line** only when it is likely to be visually
- * superimposed on **NextPointer**.
- *
- * True only when a qualifying next tide exists and the forward interval from
- * `timeNow` to that event is strictly less than five minutes.
- *
- * @param {{ seconds: number }} parsedNow — same shape as `parseCanonicalTimeOrThrow` result
- * @param {{ seconds: number, kind: string } | null} nextCore — result of `computeNextTideEventCore` for the same spec/now
- */
-export function shouldOmitNowRadialLineForNextPointerClearance(parsedNow, nextCore) {
-  if (nextCore == null) return false;
-  const forwardSeconds = nextCore.seconds - parsedNow.seconds;
-  return forwardSeconds < NOW_RADIAL_LINE_OCCLUSION_CLEARANCE_SECONDS;
 }
 
 /**
