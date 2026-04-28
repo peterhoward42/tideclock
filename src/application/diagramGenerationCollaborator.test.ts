@@ -32,6 +32,11 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(output.scene.version).toBe(2);
     expect(output.scene.root.kind).toBe('group');
     expect(output.styleRuntime.roleColorsByName.size).toBeGreaterThan(0);
+    expect(output.diagram.hand.pointerPip.circle.radius).toBeGreaterThan(0);
+    const hand = output.diagram.hand;
+    const rHeadCenter = Math.hypot(hand.pointerPip.circle.center.x, hand.pointerPip.circle.center.y);
+    const rSmallCenter = Math.hypot(hand.smallCircle.center.x, hand.smallCircle.center.y);
+    expect(rSmallCenter).toBeLessThan(rHeadCenter);
   });
 
   it('InsideTrack is concentric with RefArc at insideTrackRadius·RefRadius', () => {
@@ -51,10 +56,13 @@ describe('createDiagramGenerationCollaborator', () => {
     const { diagram, scene } = collaborator.generate(spec);
     expect(diagram.annularBand.rInner).toBe(diagram.refArc.refRadius);
     expect(diagram.annularBand.rOuter).toBeCloseTo(diagram.refArc.refRadius * 1.05);
-    expect(scene.root.children[0].kind).toBe('group');
-    if (scene.root.children[0].kind === 'group') {
-      expect(scene.root.children[0].name).toBe('AnnularBand');
-      const leaf = scene.root.children[0].children[0];
+    const annularGroup = scene.root.children.find(
+      (child): child is { kind: 'group'; name: string; children: unknown[] } =>
+        child.kind === 'group' && child.name === 'AnnularBand',
+    );
+    expect(annularGroup).toBeDefined();
+    if (annularGroup != null) {
+      const leaf = annularGroup.children[0];
       expect(leaf).toMatchObject({ kind: 'annularSector' });
     }
   });
@@ -98,11 +106,14 @@ describe('createDiagramGenerationCollaborator', () => {
 
   it('leaves root paint order unchanged when no override is provided', () => {
     const collaborator = createDiagramGenerationCollaborator();
-    const { scene } = collaborator.generate(baseSpecForCollaboratorTest());
+    const base = baseSpecForCollaboratorTest();
+    const { paintOrder: _omitPaintOrder, ...withoutPaintOrder } = base;
+    const { scene } = collaborator.generate(withoutPaintOrder);
     const childNames = scene.root.children
       .filter((child) => child.kind === 'group')
       .map((child) => child.name);
     expect(childNames).toEqual([
+      'Hand',
       'AnnularBand',
       'InsideTrack',
       'RefArc',
@@ -131,6 +142,16 @@ describe('createDiagramGenerationCollaborator', () => {
       .filter((child) => child.kind === 'group')
       .map((child) => child.name);
     expect(childNames.indexOf('TimeDelta')).toBeLessThan(childNames.indexOf('RefArc'));
+  });
+
+  it('applies home preset paint-order so Hand sits below all root siblings', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const { scene } = collaborator.generate(baseSpecForCollaboratorTest());
+    const childNames = scene.root.children
+      .filter((child) => child.kind === 'group')
+      .map((child) => child.name);
+    expect(childNames[0]).toBe('Hand');
+    expect(childNames.indexOf('Hand')).toBeLessThan(childNames.indexOf('AnnularBand'));
   });
 
   it('throws for unknown paint-order names', () => {

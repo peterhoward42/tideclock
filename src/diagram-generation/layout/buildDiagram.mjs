@@ -105,6 +105,150 @@ function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaseline
   };
 }
 
+function normalLineIntersection(v1, v2, v3) {
+  const d1x = v2.x - v1.x;
+  const d1y = v2.y - v1.y;
+  const d2x = v3.x - v1.x;
+  const d2y = v3.y - v1.y;
+  const n1x = -d1y;
+  const n1y = d1x;
+  const n2x = -d2y;
+  const n2y = d2x;
+  const denom = n1x * (-n2y) - n1y * (-n2x);
+  if (!Number.isFinite(denom) || Math.abs(denom) < 1e-9) {
+    return { x: 0.5 * (v2.x + v3.x), y: 0.5 * (v2.y + v3.y) };
+  }
+  const bx = v3.x - v2.x;
+  const by = v3.y - v2.y;
+  const t = (bx * (-n2y) - by * (-n2x)) / denom;
+  return { x: v2.x + t * n1x, y: v2.y + t * n1y };
+}
+
+function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
+  const hand = requirePlainObject(spec.hand, "spec.hand");
+  const bossCircleRadiusK = requireFiniteNumber(
+    hand.bossCircleRadius,
+    "spec.hand.bossCircleRadius",
+  );
+  const smallCircleRadiusK = requireFiniteNumber(
+    hand.smallCircleRadius,
+    "spec.hand.smallCircleRadius",
+  );
+  const pointerPipScale = requireFiniteNumber(
+    hand.pointerPipScale,
+    "spec.hand.pointerPipScale",
+  );
+  const pointerTipInsetK = requireFiniteNumber(
+    hand.pointerTipInset,
+    "spec.hand.pointerTipInset",
+  );
+  if (!(bossCircleRadiusK > 0)) {
+    throw new Error("spec.hand.bossCircleRadius must be greater than 0");
+  }
+  if (!(smallCircleRadiusK > 0)) {
+    throw new Error("spec.hand.smallCircleRadius must be greater than 0");
+  }
+  if (!(pointerPipScale > 0)) {
+    throw new Error("spec.hand.pointerPipScale must be greater than 0");
+  }
+  if (!(pointerTipInsetK >= 0)) {
+    throw new Error("spec.hand.pointerTipInset must be greater than or equal to 0");
+  }
+  const tideMarks = requirePlainObject(spec.tideMarks, "spec.tideMarks");
+  const tideMarkArrowDivergence = Math.max(
+    0,
+    requireFiniteNumber(
+      tideMarks.tideMarkArrowDivergence,
+      "spec.tideMarks.tideMarkArrowDivergence",
+    ),
+  );
+  const tideMarkArrowLineLen = Math.max(
+    0,
+    requireFiniteNumber(
+      tideMarks.tideMarkArrowLineLen,
+      "spec.tideMarks.tideMarkArrowLineLen",
+    ),
+  );
+  const insideTrackRadiusK = requireFiniteNumber(
+    spec.insideTrackRadius,
+    "spec.insideTrackRadius",
+  );
+  if (!(insideTrackRadiusK > 0)) {
+    throw new Error("spec.insideTrackRadius must be greater than 0");
+  }
+  const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
+  if (parsedNow.isRightEndpoint) {
+    throw new Error('spec.timeNow cannot be "24:00:00"');
+  }
+  const theta = timeToTheta(parsedNow.hours, thetaLeft, thetaRight);
+  const unit = polar(1, theta);
+  const rRef = refRadius;
+  const rTrack = insideTrackRadiusK * refRadius;
+  const rTip = rRef - pointerTipInsetK * refRadius;
+  const pointerOffsetR = tideMarkArrowLineLen * refRadius * pointerPipScale;
+  const halfAngle = 0.5 * tideMarkArrowDivergence;
+  const v1 = { x: unit.x * rTip, y: unit.y * rTip };
+  const v2Offset = polar(pointerOffsetR, theta + Math.PI + halfAngle);
+  const v3Offset = polar(pointerOffsetR, theta + Math.PI - halfAngle);
+  const v2 = { x: v1.x + v2Offset.x, y: v1.y + v2Offset.y };
+  const v3 = { x: v1.x + v3Offset.x, y: v1.y + v3Offset.y };
+  const pointerHeadCenter = normalLineIntersection(v1, v2, v3);
+  const pointerHeadRadius = Math.hypot(
+    pointerHeadCenter.x - v2.x,
+    pointerHeadCenter.y - v2.y,
+  );
+  const smallCircleRadius = smallCircleRadiusK * refRadius;
+  const headToSmallCenter = pointerHeadRadius + smallCircleRadius;
+  const smallCircleCenterOutward = {
+    x: pointerHeadCenter.x + unit.x * headToSmallCenter,
+    y: pointerHeadCenter.y + unit.y * headToSmallCenter,
+  };
+  const smallCircleCenterInward = {
+    x: pointerHeadCenter.x - unit.x * headToSmallCenter,
+    y: pointerHeadCenter.y - unit.y * headToSmallCenter,
+  };
+  const smallCircleCenter =
+    Math.hypot(smallCircleCenterInward.x, smallCircleCenterInward.y) <=
+    Math.hypot(smallCircleCenterOutward.x, smallCircleCenterOutward.y)
+      ? smallCircleCenterInward
+      : smallCircleCenterOutward;
+  const rSmallCenter = Math.hypot(smallCircleCenter.x, smallCircleCenter.y);
+  const rSmallInner = rSmallCenter - smallCircleRadius;
+  const rBoss = bossCircleRadiusK * refRadius;
+  if (!(rTip < rTrack && rTrack < rRef)) {
+    throw new Error(
+      "spec.hand radial ordering invalid: require r_tip < r_track < r_ref",
+    );
+  }
+  if (!(rBoss < rSmallInner)) {
+    throw new Error(
+      "spec.hand radial ordering invalid: require r_boss < r_small_inner",
+    );
+  }
+  return {
+    timeHours: parsedNow.hours,
+    theta,
+    bossCircle: { center: { x: 0, y: 0 }, radius: rBoss },
+    smallCircle: { center: smallCircleCenter, radius: smallCircleRadius },
+    extension: {
+      start: { x: unit.x * rTip, y: unit.y * rTip },
+      end: { x: unit.x * rTrack, y: unit.y * rTrack },
+    },
+    projection: {
+      start: { x: unit.x * rTrack, y: unit.y * rTrack },
+      end: { x: unit.x * rRef, y: unit.y * rRef },
+    },
+    arm: {
+      start: { x: unit.x * rBoss, y: unit.y * rBoss },
+      end: { x: unit.x * rSmallInner, y: unit.y * rSmallInner },
+    },
+    pointerPip: {
+      triangle: { v1, v2, v3 },
+      circle: { center: pointerHeadCenter, radius: pointerHeadRadius },
+    },
+  };
+}
+
 /**
  * @param {Record<string, unknown>} spec
  * @returns {import('../model/tideDiagramModel.mjs').TideDiagramDocument}
@@ -217,6 +361,7 @@ export function buildDiagram(spec) {
     thetaLeft,
     sweepRad,
   );
+  const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
 
   return {
     version: 1,
@@ -235,6 +380,7 @@ export function buildDiagram(spec) {
     tideMarks,
     annularBand,
     homeMenuTrigger,
+    hand,
     timeDeltaDiagram,
     centreFrameDiagram,
     timeNowDate,

@@ -115,6 +115,22 @@ type HomeMenuTriggerDiagram = {
   readonly label: string;
 };
 
+type DiagramLineSeg = {
+  readonly start: DiagramPoint;
+  readonly end: DiagramPoint;
+};
+
+type HandDiagram = {
+  readonly timeHours: number;
+  readonly theta: number;
+  readonly bossCircle: { readonly center: DiagramPoint; readonly radius: number };
+  readonly smallCircle: { readonly center: DiagramPoint; readonly radius: number };
+  readonly extension: DiagramLineSeg;
+  readonly projection: DiagramLineSeg;
+  readonly arm: DiagramLineSeg;
+  readonly pointerPip: TideTimePointerSpec;
+};
+
 /**
  * Shape returned by {@link buildDiagram} in `buildDiagram.mjs` (see JSDoc on `TideDiagramDocument`
  * in `tideDiagramModel.mjs`). App code treats this as the diagram-generation boundary contract.
@@ -136,6 +152,7 @@ export type TideDiagramDocument = {
   readonly tideMarks: TideMarkDiagram[];
   readonly annularBand: AnnularBandDiagram;
   readonly homeMenuTrigger: HomeMenuTriggerDiagram;
+  readonly hand: HandDiagram;
   readonly timeDeltaDiagram: TimeDeltaDiagram;
   readonly centreFrameDiagram: CentreFrameDiagram;
   readonly timeNowDate: DiagramTextInst;

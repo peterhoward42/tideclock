@@ -8,6 +8,7 @@ import {
   annularSector,
   arc,
   arcSegment,
+  circle,
   group,
   line,
   point,
@@ -642,6 +643,47 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
 }
 
 /**
+ * @param {import('../model/tideDiagramModel.mjs').HandDiagram} hand
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {import('../model/sceneModel.mjs').GroupNode}
+ */
+export function handDiagramToGroup(hand, cx, cy) {
+  const tri = hand.pointerPip.triangle;
+  const circ = hand.pointerPip.circle;
+  const p1 = mapPoint(tri.v1, cx, cy);
+  const p2 = mapPoint(tri.v2, cx, cy);
+  const p3 = mapPoint(tri.v3, cx, cy);
+  const c = mapPoint(circ.center, cx, cy);
+  const headSweep = timePointerHeadArcSweepRad(p1, p2, p3, c);
+  return group("Hand", [
+    group("BossCircle", [
+      circle(mapPoint(hand.bossCircle.center, cx, cy), hand.bossCircle.radius),
+    ]),
+    group("SmallCircle", [
+      circle(mapPoint(hand.smallCircle.center, cx, cy), hand.smallCircle.radius),
+    ]),
+    group("Extension", [
+      line(mapPoint(hand.extension.start, cx, cy), mapPoint(hand.extension.end, cx, cy)),
+    ]),
+    group("Projection", [
+      line(
+        mapPoint(hand.projection.start, cx, cy),
+        mapPoint(hand.projection.end, cx, cy),
+      ),
+    ]),
+    group("Arm", [
+      line(mapPoint(hand.arm.start, cx, cy), mapPoint(hand.arm.end, cx, cy)),
+    ]),
+    group("PointerPip", [
+      group("PointerPipSideA", [line(p1, p2)]),
+      group("PointerPipSideB", [line(p1, p3)]),
+      group("PointerPipHeadArc", [arc(c, p2, headSweep)]),
+    ]),
+  ]);
+}
+
+/**
  * @param {import('../model/tideDiagramModel.mjs').TideDiagramDocument} diagram
  * @returns {import('../model/sceneModel.mjs').SceneDocument}
  */
@@ -657,6 +699,7 @@ export function tideDiagramToScene(diagram) {
     tideMarks,
     annularBand: annularBandDiagram,
     homeMenuTrigger,
+    hand,
     timeNowDate,
     timeNowClock,
   } = diagram;
@@ -725,6 +768,7 @@ export function tideDiagramToScene(diagram) {
     tideMarkDiagramToGroup(m, cx, cy),
   );
   const tideMarksGroup = group("TideMarks", tideMarkGroups);
+  const handGroup = handDiagramToGroup(hand, cx, cy);
 
   const centreFrameGroup = centreFrameDiagramToGroup(
     diagram.centreFrameDiagram,
@@ -806,6 +850,7 @@ export function tideDiagramToScene(diagram) {
   };
 
   const root = group("tideDiagram", [
+    handGroup,
     annularBandGroup,
     insideTrackGroup,
     refArcGroup,

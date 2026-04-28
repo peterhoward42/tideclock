@@ -56,6 +56,19 @@ export type HomeTideDiagramLayoutBase = {
     readonly atypicalTideSummary: boolean;
   };
   readonly annularBand: { readonly annularBandWidth: number };
+  readonly hand: {
+    readonly bossCircleRadius: number;
+    readonly smallCircleRadius: number;
+    readonly pointerPipScale: number;
+    readonly pointerTipInset: number;
+  };
+  readonly paintOrder: {
+    readonly overrides: readonly {
+      readonly name: string;
+      readonly place: "before" | "after";
+      readonly relativeTo: string;
+    }[];
+  };
   readonly homeMenuTrigger: {
     /** k·RefRadius: full width along +X. */
     readonly width: number;

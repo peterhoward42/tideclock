@@ -336,13 +336,7 @@ function renderNode(node, styleRuntime, leafName) {
         leafName,
         node.kind,
       );
-      const fill = requireLeafFillColor(
-        styleRuntime,
-        leafName,
-        RENDER_DEFAULTS.shapeFill,
-        node.kind,
-      );
-      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
+      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="none" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
     }
     case "roundedRect": {
       assertLeafScoped(node.kind, leafName);

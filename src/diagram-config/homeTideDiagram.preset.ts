@@ -18,6 +18,15 @@ export const homeTideDiagramLayoutBase = {
   timeNowLabel: { fontHeight: 0.045, dateAboveTime: 0.05 },
   centreFrame: { frameArcRadius: 0.45 },
   insideTrackRadius: 0.74,
+  hand: {
+    bossCircleRadius: 0.08,
+    smallCircleRadius: 0.012,
+    pointerPipScale: 0.9,
+    pointerTipInset: 0.3,
+  },
+  paintOrder: {
+    overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],
+  },
   timeDelta: {
     countdownLines: [
       { belowOrigin: 0.065, fontHeight: 0.048 },
