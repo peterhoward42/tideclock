@@ -16,9 +16,14 @@ o  try the clock hand idea
 	*  design geom
 	*  toggle element switches
 	o  add hand to spec
-		o  geom only
+		*  geom only
 		o  zdepth rule for ext
-	o  implement it with suggested inputs
+	o  emit to me formal element names we settled on bare, and suggested names for
+		inferred inputs
+	o  implement it 
+		o  
+		o  with these style groupings
+		o  suggest names for inputs and I will give initial values
 	o  tune geom
 	o  sort out styles
 	o  normalise the spec after the fact
