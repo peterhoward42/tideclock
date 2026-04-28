@@ -13,6 +13,7 @@
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
  * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from diagram bounds: left edge at the leftmost tick-label bound, bottom edge at the minimum tick-label-anchor **Y**.
  * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
+ * - `**mainLabelRadius**` is required: finite **k·R** multiplier **> 0**; arcuate label radius for **MainLabel**.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
  */
 import { buildCentreFrameDiagramFromSpec } from "./centreFrame.mjs";
@@ -364,9 +365,9 @@ export function buildDiagram(spec) {
     sweepRad,
   );
   const mainLabel = buildMainLabel(
+    spec,
     refRadius,
     timeToTheta(7, thetaLeft, thetaRight),
-    insideTrack,
   );
   const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
 
@@ -459,21 +460,29 @@ function buildInsideTrackFromSpec(spec, refRadius, thetaLeft, sweepRad) {
 }
 
 /**
+ * @param {Record<string, unknown>} spec
  * @param {number} refRadius
  * @param {number} thetaZeroHour
- * @param {import('../model/tideDiagramModel.mjs').InsideTrackDiagram} insideTrack
  * @returns {import('../model/tideDiagramModel.mjs').MainLabelDiagram}
  */
-function buildMainLabel(refRadius, thetaZeroHour, insideTrack) {
+function buildMainLabel(spec, refRadius, thetaZeroHour) {
+  const mainLabelRadiusK = requireFiniteNumber(
+    spec.mainLabelRadius,
+    "spec.mainLabelRadius",
+  );
+  if (!(mainLabelRadiusK > 0)) {
+    throw new Error("spec.mainLabelRadius must be a finite number greater than 0");
+  }
+  const radius = mainLabelRadiusK * refRadius;
   const fontSize = 0.045 * refRadius;
   const content = MAIN_LABEL_PLACEHOLDER;
   const arcLength = content.length * fontSize * MAIN_LABEL_CHAR_WIDTH_EM;
-  const sweepRad = arcLength / insideTrack.radius;
+  const sweepRad = arcLength / radius;
   return {
     content,
     fontSize,
-    center: insideTrack.center,
-    radius: insideTrack.radius,
+    center: { x: 0, y: 0 },
+    radius,
     thetaStart: thetaZeroHour - 0.5 * sweepRad,
     sweepRad,
   };

@@ -18,6 +18,7 @@ export const homeTideDiagramLayoutBase = {
   timeNowLabel: { fontHeight: 0.045, dateAboveTime: 0.05 },
   centreFrame: { frameArcRadius: 0.45 },
   insideTrackRadius: 0.74,
+  mainLabelRadius: 0.65,
   hand: {
     bossCircleRadius: 0.08,
     smallCircleRadius: 0.012,

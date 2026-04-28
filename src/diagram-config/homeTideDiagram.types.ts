@@ -36,6 +36,8 @@ export type HomeTideDiagramLayoutBase = {
   readonly centreFrame: { readonly frameArcRadius: number };
   /** k·RefRadius; concentric arc inside RefArc, same angular span as RefArc. */
   readonly insideTrackRadius: number;
+  /** k·RefRadius; radius used by the arcuate MainLabel text layout. */
+  readonly mainLabelRadius: number;
   readonly timeDelta: {
     /** Four stripes: location, phase, next-event interval, next-event clock (`at HH:MM`) (see tide-diagram §TimeDelta). */
     readonly countdownLines: readonly {
