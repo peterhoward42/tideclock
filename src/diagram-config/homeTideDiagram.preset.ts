@@ -21,7 +21,7 @@ export const homeTideDiagramLayoutBase = {
   hand: {
     bossCircleRadius: 0.08,
     smallCircleRadius: 0.012,
-    pointerPipScale: 0.9,
+    pointerPipScale: 2.5,
     pointerTipInset: 0.3,
   },
   paintOrder: {

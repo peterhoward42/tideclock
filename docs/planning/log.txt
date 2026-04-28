@@ -22,10 +22,8 @@ o  try the clock hand idea
 	*  for implementaton tell me the input names
 	*  me decide input values and style groupings
 	*  mandate the implementation
-	o  fundamental fixes
-		o  small circle wrong side and filled
-		o  boss filled
-	o  tune geom
+	*  fundamental fixes
+	*  tune geom
 	o  tune tyles
 	o  check zdepth is working
 	o  normalise the spec after the fact
