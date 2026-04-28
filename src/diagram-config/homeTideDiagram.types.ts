@@ -1,8 +1,3 @@
-/**
- * Tunable layout for the Home tide diagram (`DiagramGenerationSpec` / diagram-generation).
- * Open this file to adjust geometry; assembly lives in `application/buildDiagramGenerationSpec`.
- */
-
 /** One row in `tideMarks.markers` consumed by diagram-generation. */
 export type DiagramTideMarkMarker = {
   readonly time: string;
@@ -22,10 +17,10 @@ export type HomeDiagramTideMarks = {
 };
 
 /** Static subset of `spec.tideMarks` (geometry only; `markers` added when building the spec). */
-export type HomeDiagramTideMarksDefaults = Omit<HomeDiagramTideMarks, 'markers'>;
+export type HomeDiagramTideMarksDefaults = Omit<HomeDiagramTideMarks, "markers">;
 
-type HomeTideDiagramLayoutBase = {
-  readonly title: 'home-tide-diagram';
+export type HomeTideDiagramLayoutBase = {
+  readonly title: "home-tide-diagram";
   readonly canvas: { readonly width: number; readonly height: number };
   readonly refRadius: number;
   readonly sweepRad: number;
@@ -39,7 +34,7 @@ type HomeTideDiagramLayoutBase = {
       readonly lengthK: number;
       readonly widthK: number;
       readonly insetK: number;
-      readonly style: 'filled';
+      readonly style: "filled";
       readonly scaleWithStroke: boolean;
     };
   };
@@ -58,12 +53,12 @@ type HomeTideDiagramLayoutBase = {
       readonly fontHeight: number;
     }[];
     /**
-     * Required; `fontHeight` sizes the third centre line (“… tomorrow”) when there is no next tide
+     * Required; `fontHeight` sizes the third centre line ("... tomorrow") when there is no next tide
      * today. `belowOrigin` is validated but layout uses `countdownLines[2].belowOrigin` for that baseline.
      */
     readonly emptyMessage: { readonly belowOrigin: number; readonly fontHeight: number };
     readonly town: string;
-    readonly tidePhasePair: 'out-low' | 'in-high';
+    readonly tidePhasePair: "out-low" | "in-high";
     /**
      * When true, countdown centre copy uses the atypical-pattern lines (see docs/planning/atypical-tide-story.md);
      * next/WaitArc behaviour unchanged. When false, typical phase + next-interval copy.
@@ -82,57 +77,4 @@ type HomeTideDiagramLayoutBase = {
     readonly label: "Menu";
   };
   readonly tideMarksDefaults: HomeDiagramTideMarksDefaults;
-};
-
-/** Static layout/geometry for the Home tide diagram (canonical values live in this object). */
-export const homeTideDiagramLayoutBase: HomeTideDiagramLayoutBase = {
-  title: 'home-tide-diagram',
-  canvas: { width: 420, height: 320 },
-  refRadius: 118,
-  sweepRad: Math.PI,
-  tickLen: 0.02,
-  tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
-  tickLabelSize: 0.04,
-  tickLabelClearance: 0.07,
-  waitArc: {
-    radius: 0.68,
-    arrow: {
-      lengthK: 24,
-      widthK: 10,
-      insetK: 0,
-      style: 'filled',
-      scaleWithStroke: true,
-    },
-  },
-  timeNowLabel: { fontHeight: 0.045, dateAboveTime: 0.05 },
-  centreFrame: { frameArcRadius: 0.45 },
-  insideTrackRadius: 0.74,
-  timeDelta: {
-    countdownLines: [
-      { belowOrigin: 0.065, fontHeight: 0.048 },
-      { belowOrigin: 0.155, fontHeight: 0.045 },
-      { belowOrigin: 0.25, fontHeight: 0.045 },
-      { belowOrigin: 0.35, fontHeight: 0.045 },
-    ],
-    emptyMessage: { belowOrigin: 0.08, fontHeight: 0.038 },
-    town: 'Unset',
-    tidePhasePair: 'out-low',
-    atypicalTideSummary: false,
-  },
-  annularBand: { annularBandWidth: 0.05 },
-  homeMenuTrigger: {
-    width: 0.2,
-    height: 0.13,
-    cornerRadius: 0.038,
-    labelSize: 0.042,
-    label: "Menu",
-  },
-  tideMarksDefaults: {
-    tideHeightLabelRadius: 0.9,
-    tideTimeLabelRadius: 0.821,
-    tideHeightLabelSize: 0.045,
-    tideTimeLabelSize: 0.045,
-    tideMarkArrowDivergence: 0.8,
-    tideMarkArrowLineLen: 0.045,
-  },
 };

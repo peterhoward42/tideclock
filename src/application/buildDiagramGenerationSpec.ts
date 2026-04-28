@@ -4,7 +4,7 @@
  * Does not invoke `buildDiagram` itself. Time-now date/clock placement is derived in diagram-generation
  * from AnnularBand and TickLabels; this module only supplies `timeNowLabel.fontHeight`, `dateAboveTime`, and `timeNowDatePrefix`.
  *
- * Tunable layout numbers live in `diagram-config/homeTideDiagram.ts`.
+ * Tunable layout numbers live in `diagram-config/homeTideDiagram.preset.ts`.
  */
 
 import { homeTideDiagramLayoutBase } from '../diagram-config';
