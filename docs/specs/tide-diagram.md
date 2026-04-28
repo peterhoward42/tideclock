@@ -30,7 +30,7 @@ or missing objects such as the time-now readout inputs (`**timeNowLabel**`, `**t
 The **product** assumes at least **one** tide extreme on the civil day and a **non-empty**
 `**tideMarks.markers`** list describing those extremes. The **only** open-ended case is
 **time navigation**: when there is **no** marker at or after `**timeNow`** on that day
-(e.g. after the last tide), **WaitArc** is **omitted** and **TimeDelta** shows **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (see **Diagram elements**, **TimeDelta**). That omission follows from `**timeNow`** and the marker schedule; it is **not** triggered by missing spec fields.
+(e.g. after the last tide), **TimeDelta** shows **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (see **Diagram elements**, **TimeDelta**). That behavior follows from `**timeNow`** and the marker schedule; it is **not** triggered by missing spec fields.
 
 When `**spec.semantic.nextTide`** is injected, layout may use it for next-tide timing
 instead of scanning markers; `**tideMarks`** remains **required** for drawing **TideMarks**.
@@ -40,7 +40,6 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
 - `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
 - `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
-- `**waitArc`** — **required** plain object. `**radius`** must be a finite **k·R** multiplier **> 0** (**R_wait = WaitArcRadius·RefRadius**). `**arrow`** is **required**: finite `**lengthK`**, `**widthK`**, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a boolean. (Derived behaviour still applies: with no next marker at/after `**timeNow**`, **WaitArc** is omitted; with a qualifying next marker, **WaitArc** geometry remains and arrow metadata is emitted only when the configured arrowhead fits the rendered arc span.)
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** in `**HH:MM:SS`** **other than** `**24:00:00`** (that sentinel is for the RefArc right endpoint only, not for tide events). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required string `**timeNowDatePrefix**`, drives **TimeNowDate** and **TimeNowClock**.
 - `**timeDelta`** — **required** plain object; string `**town**`; enum `**tidePhasePair ∈ {"out-low","in-high"}**`; **boolean** `**atypicalTideSummary**` (when `**true**` and a next marker exists, countdown copy follows the atypical branch in **TimeDelta**); **`countdownLines`** — array of **exactly four** plain objects (location, phase, next-event interval, next-event clock stripes), each with finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**); **`emptyMessage`** — plain object with finite `**belowOrigin`** and `**fontHeight**`: when there is no next tide today, the first two empty-day stripes use `**countdownLines[0]`** and `**countdownLines[1]`** for baselines and font heights; the third stripe (**NoMoreTidesToday**) uses `**countdownLines[2].belowOrigin`** for its baseline and `**emptyMessage.fontHeight`** for **FontHeight** (`**emptyMessage.belowOrigin`** is reserved / validated but not used for placement). Per stripe, `**belowOrigin`** is the distance from **Y = 0** toward **−Y** to that stripe’s baseline; **X** is fixed at **0** for all. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
@@ -54,7 +53,6 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
   - TickMarks
   - TickLabels
   - TideMarks
-  - WaitArc
   - TimeNowDate (single **TextElement**; civil date prefix from the host)
   - TimeNowClock (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds** — canonical `HH:MM`, the colon before `SS`, and `SS`)
   - TimeDelta (countdown style-bound leaves: **TimeDeltaLocation**, **TimeDeltaPhase**, **TimeDeltaNext**, **TimeDeltaNextTime**; empty-day leaves: **TimeDeltaLocation**, **TimeDeltaPhase**, **NoMoreTidesToday**)
@@ -64,7 +62,7 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
   - RefArc
   - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from content bounds so the rectangle left edge aligns to the leftmost tick-label bound and rectangle bottom edge aligns to the minimum tick-label-anchor **Y**; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
 
-When there is **no** tide marker at or after `timeNow` on the same civil day (same “next marker” notion as **WaitArc**), **WaitArc** is **omitted**. **TimeDelta** then carries **three** centre **TextElement**s (see **TimeDelta**, empty-day case): **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (replacing the interval and `**at HH:MM**` stripes), instead of the four countdown stripes. **TimeDelta** and
+When there is **no** tide marker at or after `timeNow` on the same civil day, **TimeDelta** carries **three** centre **TextElement**s (see **TimeDelta**, empty-day case): **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (replacing the interval and `**at HH:MM**` stripes), instead of the four countdown stripes. **TimeDelta** and
 **CentreFrame** are independent named elements (no grouping or parent/child link
 between them in the logical model).
 
@@ -222,53 +220,6 @@ model em-boxes or similar font metrics.
 
 *(Additional primitives may be introduced as required by later elements.)*
 
-## WaitArc
-
-**WaitArc** is a top-level named element representing the waiting interval from
-`timeNow` to the next tide marker on the same civil day.
-
-### Logical structure
-
-- **WaitArc** contributes one arc segment concentric with **RefArc**.
-- Arrowhead rendering is **not** synthesized by diagram generation; when an
-arrow is present, generation carries explicit metadata intent for an arc-end
-arrow, and the downstream renderer is responsible for visual arrowhead
-geometry.
-
-### Time association
-
-- Use the same **next tide marker** definition as **TimeDelta**.
-- Let **θ_now** be from `timeNow` and **θ_next** from the next marker time.
-- **WaitArc** starts at **θ_now** and sweeps CCW to **θ_next**.
-
-### Geometry
-
-- Define input **WaitArcRadius** as **k·R** per **§Sizing**.
-- Radius is **R_wait = WaitArcRadius·R**.
-- Arc centre is **O**, with start angle **θ_now** and sweep
-**max(0, θ_next − θ_now)**.
-- If no next marker exists on the same civil day, **WaitArc** is omitted.
-- If the qualifying next tide marker exists, **WaitArc** geometry is emitted.
-- Arrow metadata is omitted when the configured arrowhead would dominate the
-rendered arc segment (see also **§Strict diagram input → Derived behaviour**).
-
-### Arrow metadata
-
-- **WaitArc** carries arrow metadata only; generator does not synthesize
-arrowhead geometry.
-- Arrow metadata is omitted by the arc-fit rule above (not by the
-Now-line/Now-label 1-hour occlusion threshold).
-- Arrow metadata fields:
-  - **at** — currently fixed to `end` for **WaitArc**.
-  - **lengthK** — arrowhead length multiplier (recommended in stroke-width
-  units for renderer mapping).
-  - **widthK** — arrowhead width multiplier (same unit convention as
-  **lengthK**).
-  - **insetK** — signed tip offset along the tangent at the target endpoint.
-  - **style** — one of `filled` or `open`.
-  - **scaleWithStroke** — boolean; when true, renderer scales marker with
-  stroke width.
-
 ## Time now readout
 
 Two related **top-level** named elements (see **Diagram elements**) show local civil **date** and **clock time** derived from the host’s `**timeNowDatePrefix**` and global canonical `**timeNow**` (`**HH:MM:SS**`). They are positioned **relative to AnnularBand** and **TickLabels** as below (not from free-floating absolute `x`/`y` clock anchors).
@@ -341,7 +292,7 @@ Two related **top-level** named elements (see **Diagram elements**) show local c
   1. **TimeDeltaLocation** — unchanged (`**town**`).
   2. **TimeDeltaPhase** — fixed product line: **Tricky tides today**.
   3. **TimeDeltaNext** — fixed product line: **Use the markers**.
-  4. **TimeDeltaNextTime** — **empty string** (placeholder stripe; vertical tuning is a host/layout concern). No verbal next-interval or `**at HH:MM**` line in this mode. **WaitArc** behaviour is unchanged (see **Derived behaviour** above). When `**atypicalTideSummary`** is `**false**`, the typical countdown copy rules apply. `**atypicalTideSummary`** does **not** alter **NoMoreTidesToday** behaviour.
+  4. **TimeDeltaNextTime** — **empty string** (placeholder stripe; vertical tuning is a host/layout concern). No verbal next-interval or `**at HH:MM**` line in this mode. When `**atypicalTideSummary`** is `**false**`, the typical countdown copy rules apply. `**atypicalTideSummary`** does **not** alter **NoMoreTidesToday** behaviour.
 - **No next marker at or after `timeNow` on the civil day** (e.g. after the last tide; includes the case where every marker is strictly before `**timeNow`**) — **three** **TextElement**s (same leaf names and geometry keys as the first two countdown stripes, plus the tomorrow line):
   1. **TimeDeltaLocation** — `**town**` from `**timeDelta.town**`; **FontHeight** from `**countdownLines[0].fontHeight**`; **Anchor Y** **0 − countdownLines[0].belowOrigin·R**; **Horizontal justification** **centre**; **Baseline polar angle** **0**.
   2. **TimeDeltaPhase** — `**Tide <going out|coming in>**` from `**timeDelta.tidePhasePair**` (same mapping as the countdown case); geometry from `**countdownLines[1]**`.
@@ -416,7 +367,7 @@ the intended appearance—**RefArc** stroke **replacing** the **inner** portion 
 
 - Emitted as a named group **AnnularBand** containing the single closed-region
 primitive (exact-match **style binding name** **AnnularBand**, same indirection
-contract as **RefArc**, **CentreFrame**, **WaitArc**, etc.; concrete `styleName`
+contract as **RefArc**, **CentreFrame**, etc.; concrete `styleName`
 values are **not** fixed in this specification).
 
 ## Tick marks

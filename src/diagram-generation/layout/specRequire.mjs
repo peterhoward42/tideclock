@@ -39,26 +39,3 @@ export function requirePlainObject(value, label) {
   return /** @type {Record<string, unknown>} */ (value);
 }
 
-/**
- * @param {unknown} value
- * @param {string} label
- * @returns {boolean}
- */
-export function requireBoolean(value, label) {
-  if (typeof value !== "boolean") {
-    throw new Error(`${label} must be a boolean`);
-  }
-  return value;
-}
-
-/**
- * @param {unknown} value
- * @param {string} label
- * @returns {'filled' | 'open'}
- */
-export function requireWaitArcArrowStyle(value, label) {
-  if (value !== "filled" && value !== "open") {
-    throw new Error(`${label} must be "filled" or "open"`);
-  }
-  return value;
-}

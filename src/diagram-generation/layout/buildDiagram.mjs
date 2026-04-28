@@ -6,7 +6,7 @@
  * See docs/specs/tide-diagram.md; spec keys mirror the open object passed from the app (diagramGenerationCollaborator.ts).
  *
  * Policies for {@link buildDiagram}:
- * - Throws if `spec.canvas`, `spec.title`, ref arc, tick sizing, tick label sizing, or `spec.waitArc` omit
+ * - Throws if `spec.canvas`, `spec.title`, ref arc, and tick sizing/tick label sizing omit
  *   required fields or supply non-finite numbers (no silent defaults).
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
  * - Sub-builders (`buildTideMarksFromSpec`, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
@@ -14,22 +14,16 @@
  * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from diagram bounds: left edge at the leftmost tick-label bound, bottom edge at the minimum tick-label-anchor **Y**.
  * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
- * - `**waitArc.radius**` must be a finite **k·R** multiplier **> 0** (zero or negative throws).
  */
 import { buildCentreFrameDiagramFromSpec } from "./centreFrame.mjs";
 import { buildTimeDeltaDiagramFromSpec } from "./timeDeltaDiagram.mjs";
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
 import {
-  requireBoolean,
   requireFiniteNumber,
   requirePlainObject,
   requireString,
-  requireWaitArcArrowStyle,
 } from "./specRequire.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
-import {
-  computeNextTideEventCore,
-} from "../model/tideEvents.mjs";
 import {
   annularBandMaxX,
   polar,
@@ -217,7 +211,6 @@ export function buildDiagram(spec) {
     thetaRight,
   );
 
-  const waitArc = buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight);
   const insideTrack = buildInsideTrackFromSpec(
     spec,
     refRadius,
@@ -239,7 +232,6 @@ export function buildDiagram(spec) {
     tickMarks,
     tickLabels,
     tideMarks,
-    waitArc,
     annularBand,
     homeMenuTrigger,
     timeDeltaDiagram,
@@ -388,89 +380,3 @@ function buildHomeMenuTriggerFromSpec(spec, refRadius, leftEdgeX, bottomEdgeY) {
   };
 }
 
-/**
- * Omit WaitArc arrow metadata when the configured marker length would dominate
- * the rendered arc segment.
- *
- * Renderer note: `scaleWithStroke: true` uses marker units in stroke-widths.
- * The current renderer uses a scene stroke width of 1, so `lengthK` maps 1:1
- * to scene units for this fit check.
- *
- * @param {{ radius: number, sweepRad: number, lengthK: number, scaleWithStroke: boolean }} params
- * @returns {boolean}
- */
-function shouldOmitWaitArcArrowForSweepFit(params) {
-  const arcLength = Math.abs(params.sweepRad) * params.radius;
-  const arrowLengthSceneUnits = params.scaleWithStroke ? params.lengthK : params.lengthK;
-  // Arrowheads can still read well when somewhat longer than the arc span.
-  // Omit only when the arc is very short relative to the configured arrow length.
-  return arcLength < 0.5 * arrowLengthSceneUnits;
-}
-
-/**
- * @param {Record<string, unknown>} spec
- * @param {number} refRadius
- * @param {number} thetaLeft
- * @param {number} thetaRight
- * @returns {import('../model/tideDiagramModel.mjs').WaitArcDiagram | null}
- */
-function buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight) {
-  const raw = requirePlainObject(spec.waitArc, "spec.waitArc");
-  const radiusK = requireFiniteNumber(raw.radius, "spec.waitArc.radius");
-  if (!(radiusK > 0)) {
-    throw new Error(
-      "spec.waitArc.radius must be a finite number greater than 0 (RefRadius multiple)",
-    );
-  }
-  const radius = radiusK * refRadius;
-
-  const arrowRaw = requirePlainObject(raw.arrow, "spec.waitArc.arrow");
-  const lengthK = requireFiniteNumber(arrowRaw.lengthK, "spec.waitArc.arrow.lengthK");
-  const widthK = requireFiniteNumber(arrowRaw.widthK, "spec.waitArc.arrow.widthK");
-  const insetK = requireFiniteNumber(arrowRaw.insetK, "spec.waitArc.arrow.insetK");
-  const style = requireWaitArcArrowStyle(
-    arrowRaw.style,
-    "spec.waitArc.arrow.style",
-  );
-  const scaleWithStroke = requireBoolean(
-    arrowRaw.scaleWithStroke,
-    "spec.waitArc.arrow.scaleWithStroke",
-  );
-
-  const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
-  if (parsedNow.isRightEndpoint) {
-    throw new Error('spec.timeNow cannot be "24:00:00"');
-  }
-  const core = computeNextTideEventCore(spec, parsedNow);
-  if (core == null) {
-    return null;
-  }
-  const nowTheta = timeToTheta(parsedNow.hours, thetaLeft, thetaRight);
-  const nextTheta = timeToTheta(core.seconds / 3600, thetaLeft, thetaRight);
-  const sweepRad = Math.max(0, nextTheta - nowTheta);
-  const omitArrowForSweepFit = shouldOmitWaitArcArrowForSweepFit({
-    radius,
-    sweepRad,
-    lengthK,
-    scaleWithStroke,
-  });
-
-  return {
-    center: { x: 0, y: 0 },
-    radius,
-    thetaStart: nowTheta,
-    sweepRad,
-    ...(omitArrowForSweepFit
-      ? {}
-      : {
-          arrow: {
-            at: "end",
-            lengthK,
-            widthK,
-            insetK,
-            style,
-            scaleWithStroke,
-          },
-        }),
-  };
-}

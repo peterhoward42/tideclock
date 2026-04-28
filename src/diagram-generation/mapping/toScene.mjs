@@ -472,7 +472,6 @@ export function tideDiagramToScene(diagram) {
     tickMarks,
     tickLabels,
     tideMarks,
-    waitArc,
     annularBand: annularBandDiagram,
     homeMenuTrigger,
     timeNowDate,
@@ -526,28 +525,6 @@ export function tideDiagramToScene(diagram) {
   const refArcGroup = group("RefArc", [
     arc(arcCenter, arcStart, refArc.sweepRad),
   ]);
-  const waitArcGroup =
-    waitArc != null
-      ? group("WaitArc", [
-          arc(
-            mapPoint(waitArc.center, cx, cy),
-            mapPoint(
-              {
-                x:
-                  waitArc.center.x +
-                  waitArc.radius * Math.cos(waitArc.thetaStart),
-                y:
-                  waitArc.center.y +
-                  waitArc.radius * Math.sin(waitArc.thetaStart),
-              },
-              cx,
-              cy,
-            ),
-            waitArc.sweepRad,
-            waitArc.arrow != null ? { arrow: waitArc.arrow } : undefined,
-          ),
-        ])
-      : null;
   const ticksGroup = group("TickMark", tickChildren);
 
   const tickLabelChildren = tickLabels.map((tl) =>
@@ -649,7 +626,6 @@ export function tideDiagramToScene(diagram) {
     annularBandGroup,
     insideTrackGroup,
     refArcGroup,
-    ...(waitArcGroup != null ? [waitArcGroup] : []),
     ticksGroup,
     tideMarksGroup,
     tickLabelsGroup,

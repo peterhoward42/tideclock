@@ -91,23 +91,6 @@
  *   timePointer: TideTimePointerSpec,
  * }} TideMarkDiagram
  *
- * @typedef {{
- *   at: 'end',
- *   lengthK: number,
- *   widthK: number,
- *   insetK: number,
- *   style: 'filled' | 'open',
- *   scaleWithStroke: boolean,
- * }} ArcArrowMeta
- *
- * @typedef {{
- *   center: DiagramPoint,
- *   radius: number,
- *   thetaStart: number,
- *   sweepRad: number,
- *   arrow?: ArcArrowMeta,
- * }} WaitArcDiagram
- *
  * Annular sector between RefRadius and RefRadius + w (**w** = **annularBandWidth·RefRadius**); same **θ_left** and CCW sweep as RefArc.
  *
  * @typedef {{
@@ -146,7 +129,6 @@
  *   tickMarks: TickMarkSpec[],
  *   tickLabels: TickLabelSpec[],
  *   tideMarks: TideMarkDiagram[],
- *   waitArc: WaitArcDiagram | null,
  *   annularBand: AnnularBandDiagram,
  *   homeMenuTrigger: HomeMenuTriggerDiagram,
  *   timeDeltaDiagram: TimeDeltaDiagram,

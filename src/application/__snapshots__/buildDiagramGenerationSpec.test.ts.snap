@@ -705,23 +705,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "hAlign": "right",
   },
   "version": 1,
-  "waitArc": {
-    "arrow": {
-      "at": "end",
-      "insetK": 0,
-      "lengthK": 24,
-      "scaleWithStroke": true,
-      "style": "filled",
-      "widthK": 10,
-    },
-    "center": {
-      "x": 0,
-      "y": 0,
-    },
-    "radius": 80.24000000000001,
-    "sweepRad": 0.4929464306101492,
-    "thetaStart": 5.67242915205982,
-  },
 }
 `;
 
@@ -792,32 +775,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         ],
         "kind": "group",
         "name": "RefArc",
-      },
-      {
-        "children": [
-          {
-            "arrow": {
-              "at": "end",
-              "insetK": 0,
-              "lengthK": 24,
-              "scaleWithStroke": true,
-              "style": "filled",
-              "widthK": 10,
-            },
-            "center": {
-              "x": 210,
-              "y": 160,
-            },
-            "kind": "arc",
-            "start": {
-              "x": 275.7337800575407,
-              "y": 113.98339691647296,
-            },
-            "sweepRad": 0.4929464306101492,
-          },
-        ],
-        "kind": "group",
-        "name": "WaitArc",
       },
       {
         "children": [

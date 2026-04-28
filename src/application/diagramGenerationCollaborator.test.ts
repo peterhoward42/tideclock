@@ -128,19 +128,4 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(() => collaborator.generate(spec)).toThrow(/annularBandWidth/);
   });
 
-  it('throws when waitArc.radius is zero', () => {
-    const collaborator = createDiagramGenerationCollaborator();
-    const base = buildDiagramGenerationSpec({
-      extremesAtLocation: minimalExtremesForCollaboratorTest(),
-      timeNow: '12:00:00',
-      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      townName: 'Lymington',
-    });
-    const spec = {
-      ...base,
-      waitArc: { ...base.waitArc, radius: 0 },
-    };
-    expect(() => collaborator.generate(spec)).toThrow(/waitArc\.radius/);
-  });
 });

@@ -705,22 +705,5 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "hAlign": "right",
   },
   "version": 1,
-  "waitArc": {
-    "arrow": {
-      "at": "end",
-      "insetK": 0,
-      "lengthK": 7,
-      "scaleWithStroke": true,
-      "style": "filled",
-      "widthK": 5,
-    },
-    "center": {
-      "x": 0,
-      "y": 0,
-    },
-    "radius": 80.24000000000001,
-    "sweepRad": 0.43150173611111065,
-    "thetaStart": 5.552762244273579,
-  },
 }
 `;

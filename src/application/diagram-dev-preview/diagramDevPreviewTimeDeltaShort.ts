@@ -3,7 +3,7 @@
  * Pure clock patching from civil-day extremes; does not touch fetch or stores.
  *
  * Intent: freeze `timeNow` a few minutes before the *next* tide so that
- * short-interval TimeDelta/WaitArc behavior is easy to preview.
+ * short-interval TimeDelta behavior is easy to preview.
  */
 
 import type { TideExtreme } from "../../core-models/TideExtreme";

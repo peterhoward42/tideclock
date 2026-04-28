@@ -91,23 +91,6 @@ type TideMarkDiagram = {
   readonly timePointer: TideTimePointerSpec;
 };
 
-type ArcArrowMeta = {
-  readonly at: "end";
-  readonly lengthK: number;
-  readonly widthK: number;
-  readonly insetK: number;
-  readonly style: "filled" | "open";
-  readonly scaleWithStroke: boolean;
-};
-
-type WaitArcDiagram = {
-  readonly center: DiagramPoint;
-  readonly radius: number;
-  readonly thetaStart: number;
-  readonly sweepRad: number;
-  readonly arrow?: ArcArrowMeta;
-};
-
 type AnnularBandDiagram = {
   readonly center: DiagramPoint;
   readonly rInner: number;
@@ -144,7 +127,6 @@ export type TideDiagramDocument = {
   readonly tickMarks: TickMarkSpec[];
   readonly tickLabels: TickLabelSpec[];
   readonly tideMarks: TideMarkDiagram[];
-  readonly waitArc: WaitArcDiagram | null;
   readonly annularBand: AnnularBandDiagram;
   readonly homeMenuTrigger: HomeMenuTriggerDiagram;
   readonly timeDeltaDiagram: TimeDeltaDiagram;

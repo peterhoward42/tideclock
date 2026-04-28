@@ -34,16 +34,6 @@ type SemanticInjectionDiagramSpec = {
   readonly tickLabelClearance: number;
   readonly timeNow: string;
   readonly timeNowDatePrefix: string;
-  readonly waitArc: {
-    readonly radius: number;
-    readonly arrow: {
-      readonly lengthK: number;
-      readonly widthK: number;
-      readonly insetK: number;
-      readonly style: 'filled';
-      readonly scaleWithStroke: boolean;
-    };
-  };
   readonly tideMarks: {
     readonly tideHeightLabelRadius: number;
     readonly tideTimeLabelRadius: number;
@@ -81,7 +71,7 @@ function buildDiagramFromSpec(spec: DiagramGenerationSpec): TideDiagramDocument 
   return buildDiagram(spec) as TideDiagramDocument;
 }
 
-/** Minimal spec with timeDelta, centreFrame, waitArc, and tide markers. */
+/** Minimal spec with timeDelta, centreFrame, and tide markers. */
 function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
   return {
     title: 'semantic-injection',
@@ -94,16 +84,6 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     tickLabelClearance: 0.07,
     timeNow: '19:20:03',
     timeNowDatePrefix: 'Mon 23 Mar',
-    waitArc: {
-      radius: 0.68,
-      arrow: {
-        lengthK: 7,
-        widthK: 5,
-        insetK: 0,
-        style: 'filled',
-        scaleWithStroke: true,
-      },
-    },
     tideMarks: {
       tideHeightLabelRadius: 0.88,
       tideTimeLabelRadius: 0.8,
@@ -169,7 +149,7 @@ describe('spec.semantic.nextTide injection', () => {
     expect(withSemantic).toEqual(baseline);
   });
 
-  it('after last tide of the day shows NoMoreTidesToday and omits WaitArc', () => {
+  it('after last tide of the day shows NoMoreTidesToday', () => {
     const base = sampleTideDiagramSpec();
     const spec = { ...base, timeNow: '23:59:00' };
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
@@ -201,55 +181,6 @@ describe('spec.semantic.nextTide injection', () => {
     expect(diagram.timeNowClock.hhmm.content).toBe('23:59');
     expect(diagram.timeNowClock.secondsColon.content).toBe(':');
     expect(diagram.timeNowClock.seconds.content).toBe('00');
-    expect(diagram.waitArc).toBeNull();
-  });
-
-  it('keeps WaitArc at exactly 60 minutes', () => {
-    const spec = { ...sampleTideDiagramSpec(), timeNow: '22:06:00' };
-    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.waitArc).not.toBeNull();
-    expect(diagram.waitArc?.arrow).toBeDefined();
-  });
-
-  it('omits WaitArc arrow when configured arrowhead is too long for the arc span', () => {
-    const spec = {
-      ...sampleTideDiagramSpec(),
-      timeNow: '22:06:00',
-      waitArc: {
-        ...sampleTideDiagramSpec().waitArc,
-        arrow: {
-          ...sampleTideDiagramSpec().waitArc.arrow,
-          lengthK: 24,
-        },
-      },
-    };
-    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.waitArc).not.toBeNull();
-    expect(diagram.waitArc?.arrow).toBeUndefined();
-  });
-
-  it('keeps WaitArc arrow when there is enough arc length for the configured marker', () => {
-    const spec = { ...sampleTideDiagramSpec(), timeNow: '20:30:00' };
-    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.waitArc).not.toBeNull();
-    expect(diagram.waitArc?.arrow).toBeDefined();
-  });
-
-  it('keeps WaitArc arrow for medium waits even with large arrow config', () => {
-    const spec = {
-      ...sampleTideDiagramSpec(),
-      timeNow: '21:02:00',
-      waitArc: {
-        ...sampleTideDiagramSpec().waitArc,
-        arrow: {
-          ...sampleTideDiagramSpec().waitArc.arrow,
-          lengthK: 24,
-        },
-      },
-    };
-    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.waitArc).not.toBeNull();
-    expect(diagram.waitArc?.arrow).toBeDefined();
   });
 
   it('rejects malformed injected nextTide', () => {

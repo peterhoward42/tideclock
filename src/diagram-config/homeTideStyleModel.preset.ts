@@ -62,7 +62,6 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "TimeDeltaPhase", roleName: "role.tide.primary" },
     { name: "TimeDeltaNext", roleName: "role.tide.secondary" },
     { name: "TimeDeltaNextTime", roleName: "role.tide.secondary" },
-    { name: "WaitArc", roleName: "role.now.live" },
     { name: "TimePointer", roleName: "role.tide.primary" },
     { name: "TimeLabel", roleName: "role.structure.emphasis" },
     { name: "TickLabel", roleName: "role.structure.emphasis" },

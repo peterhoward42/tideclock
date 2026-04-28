@@ -15,16 +15,6 @@ export const homeTideDiagramLayoutBase = {
   tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
   tickLabelSize: 0.04,
   tickLabelClearance: 0.07,
-  waitArc: {
-    radius: 0.68,
-    arrow: {
-      lengthK: 24,
-      widthK: 10,
-      insetK: 0,
-      style: "filled",
-      scaleWithStroke: true,
-    },
-  },
   timeNowLabel: { fontHeight: 0.045, dateAboveTime: 0.05 },
   centreFrame: { frameArcRadius: 0.45 },
   insideTrackRadius: 0.74,

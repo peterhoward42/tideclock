@@ -97,7 +97,6 @@ describe('buildDiagramGenerationSpec', () => {
       'Use the markers',
       '',
     ]);
-    expect(diagram.waitArc).not.toBeNull();
   });
 
   it('injects semantic.nextTide when derivedSemantics is passed', () => {

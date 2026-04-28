@@ -28,16 +28,6 @@ export type HomeTideDiagramLayoutBase = {
   readonly tickLabelHours: readonly number[];
   readonly tickLabelSize: number;
   readonly tickLabelClearance: number;
-  readonly waitArc: {
-    readonly radius: number;
-    readonly arrow: {
-      readonly lengthK: number;
-      readonly widthK: number;
-      readonly insetK: number;
-      readonly style: "filled";
-      readonly scaleWithStroke: boolean;
-    };
-  };
   readonly timeNowLabel: {
     readonly fontHeight: number;
     /** k·RefRadius: date baseline is this far above (+Y) the clock baseline (tick-label-min Y). */
@@ -61,7 +51,7 @@ export type HomeTideDiagramLayoutBase = {
     readonly tidePhasePair: "out-low" | "in-high";
     /**
      * When true, countdown centre copy uses the atypical-pattern lines (see docs/planning/atypical-tide-story.md);
-     * next/WaitArc behaviour unchanged. When false, typical phase + next-interval copy.
+     * next-tide behaviour unchanged. When false, typical phase + next-interval copy.
      */
     readonly atypicalTideSummary: boolean;
   };
