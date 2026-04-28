@@ -3,7 +3,7 @@
  * Pure clock patching from civil-day extremes; does not touch fetch or stores.
  *
  * Intent: freeze `timeNow` a few minutes before the *next* tide so that
- * occlusion rules on NowPointer / TimeDelta apply (e.g. Now label + radial line omitted).
+ * short-interval TimeDelta/WaitArc behavior is easy to preview.
  */
 
 import type { TideExtreme } from "../../core-models/TideExtreme";
@@ -67,11 +67,10 @@ export type DiagramDevPreviewTimeDeltaShortClock =
 
 /**
  * Builds a frozen local instant a few minutes before the next tide marker so
- * occlusion thresholds (< 1h, < 5min) apply for the countdown / NowPointer.
+ * short-interval countdown behavior is exercised consistently.
  *
  * For now we anchor to the *first* extreme of the civil day and back off by
- * four minutes. This guarantees a < 5 minute interval to that marker, so both
- * Now label and Now radial line are omitted in the diagram semantics.
+ * four minutes. This guarantees a < 5 minute interval to that marker.
  */
 export function buildDiagramDevPreviewTimeDeltaShortClock(params: {
   readonly extremesAtLocation: TideExtremesAtLocation;

@@ -8,10 +8,8 @@ import {
   annularSector,
   arc,
   arcSegment,
-  circle,
   group,
   line,
-  nowWedgeOutline,
   point,
   roundedRect,
   text,
@@ -474,8 +472,6 @@ export function tideDiagramToScene(diagram) {
     tickMarks,
     tickLabels,
     tideMarks,
-    nowPointer,
-    nextPointer,
     waitArc,
     annularBand: annularBandDiagram,
     homeMenuTrigger,
@@ -621,61 +617,6 @@ export function tideDiagramToScene(diagram) {
     ]),
   ]);
 
-  // NowLabel and NowRadialLine have distinct clearance gates:
-  // label hides earlier (nuisance reduction), radial line hides only when near-superimposed.
-  // NowTriangle always stays in the model.
-  const nowPointerGroup = group("NowPointer", [
-    ...(nowPointer.triangle
-      ? [
-          group("NowTriangle", [
-            nowWedgeOutline(
-              mapPoint(nowPointer.triangle.center, cx, cy),
-              mapPoint(nowPointer.triangle.vertex, cx, cy),
-              mapPoint(nowPointer.triangle.outerArcStart, cx, cy),
-              nowPointer.triangle.outerArcSweepRad,
-            ),
-          ]),
-        ]
-      : []),
-    ...(nowPointer.radialLine != null
-      ? [
-          group("NowRadialLine", [
-            line(
-              mapPoint(nowPointer.radialLine.start, cx, cy),
-              mapPoint(nowPointer.radialLine.end, cx, cy),
-            ),
-          ]),
-        ]
-      : []),
-    ...(nowPointer.nowLabel != null
-      ? [
-          group("NowLabel", [
-            text({
-              content: nowPointer.nowLabel.content,
-              size: nowPointer.nowLabel.fontSize,
-              hAlign: "center",
-              angleRad: nowPointer.nowLabel.angleRad,
-              anchor: mapPoint(nowPointer.nowLabel.anchor, cx, cy),
-            }),
-          ]),
-        ]
-      : []),
-  ]);
-
-  const nextPointerGroup =
-    nextPointer != null
-      ? group("NextPointer", [
-          line(
-            mapPoint(nextPointer.radialLine.start, cx, cy),
-            mapPoint(nextPointer.radialLine.end, cx, cy),
-          ),
-          circle(
-            mapPoint(nextPointer.circle.center, cx, cy),
-            nextPointer.circle.radius,
-          ),
-        ])
-      : null;
-
   const menuCenter = mapPoint(homeMenuTrigger.center, cx, cy);
   const homeMenuTriggerGroup = group("HomeMenuTrigger", [
     roundedRect(
@@ -716,8 +657,6 @@ export function tideDiagramToScene(diagram) {
     timeDeltaGroup,
     timeNowDateGroup,
     timeNowClockGroup,
-    nowPointerGroup,
-    ...(nextPointerGroup != null ? [nextPointerGroup] : []),
     homeMenuTriggerGroup,
   ]);
   meta.previewFrame = computeScenePreviewFrame(root);

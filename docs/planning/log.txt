@@ -12,13 +12,14 @@
 *  avoid tide dial in all visible copy
 
 o  try the clock hand idea
-	o  branch hand
-	o  design geom
-	o  toggle switches
+	*  branch hand
+	*  design geom
+	o  toggle element switches
 	o  add hand to spec
-	o  implment it
+	o  implement it
 	o  refine
-	o  clean up
+	o  normalise the spec
+	o  clean up incl orphaned code
 	o  merge branch hand
 
 o  first glance ux assimilation

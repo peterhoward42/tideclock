@@ -65,9 +65,8 @@ export type DiagramNextTideEvent = {
 };
 
 /**
- * One semantic refresh worth of next-event facts for NowPointer, TimeDelta, NextPointer, and WaitArc.
- * When `nextTide` is `null`, layout omits NextPointer and WaitArc; **TimeDelta** shows **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday**; **CentreFrame** is unchanged (see tide-diagram spec). Empty or invalid `tideMarks.markers` is a spec error unless `semantic.nextTide` is injected.
- * When a next tide exists and the gap is under five minutes, diagram-generation omits the Now radial line and Now label (not the Now triangle) so they do not occlude NextPointer.
+ * One semantic refresh worth of next-event facts for TimeDelta and WaitArc.
+ * When `nextTide` is `null`, layout omits WaitArc and **TimeDelta** shows **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (see tide-diagram spec). Empty or invalid `tideMarks.markers` is a spec error unless `semantic.nextTide` is injected.
  * Angular layout uses `timeNow.hours` and `nextTide.secondsSinceMidnight / 3600` with `timeToTheta`.
  */
 export type DerivedNextTideSemantics = {

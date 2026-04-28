@@ -49,66 +49,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "title": "semantic-injection",
     "width": 420,
   },
-  "nextPointer": {
-    "circle": {
-      "center": {
-        "x": 82.32009611712569,
-        "y": -25.367328895001695,
-      },
-      "radius": 1.18,
-    },
-    "radialLine": {
-      "end": {
-        "x": 82.32009611712569,
-        "y": -25.367328895001695,
-      },
-      "start": {
-        "x": 39.46853923423835,
-        "y": -12.162417963356978,
-      },
-    },
-    "theta": 5.984263980384689,
-    "timeHours": 23.1,
-  },
-  "nowPointer": {
-    "nowLabel": {
-      "anchor": {
-        "x": 47.720628478068384,
-        "y": -39.574154667638425,
-      },
-      "angleRad": 11.835947551453165,
-      "content": "now",
-      "fontSize": 4.72,
-    },
-    "nowLabelBranch": "B",
-    "radialLine": {
-      "end": {
-        "x": 61.52809636932595,
-        "y": -55.10946703758746,
-      },
-      "start": {
-        "x": 30.764048184662975,
-        "y": -27.55473351879373,
-      },
-    },
-    "theta": 5.552762244273579,
-    "timeHours": 19.33416666666667,
-    "triangle": {
-      "center": {
-        "x": 0,
-        "y": 0,
-      },
-      "outerArcStart": {
-        "x": 91.23170136260988,
-        "y": -83.833088136389,
-      },
-      "outerArcSweepRad": 0.025476183084954473,
-      "vertex": {
-        "x": 87.8972805276085,
-        "y": -78.72781005369637,
-      },
-    },
-  },
   "refArc": {
     "center": {
       "x": 0,

@@ -33,14 +33,6 @@ type HomeTideDiagramLayoutBase = {
   readonly tickLabelHours: readonly number[];
   readonly tickLabelSize: number;
   readonly tickLabelClearance: number;
-  readonly nowPointer: {
-    readonly radialLine: { readonly outerRadius: number };
-    readonly label: { readonly size: number; readonly normalOffset: number };
-    readonly triangle: { readonly subtendedAngleRad: number };
-  };
-  readonly nextPointer: {
-    readonly radialLine: { readonly outerRadius: number };
-  };
   readonly waitArc: {
     readonly radius: number;
     readonly arrow: {
@@ -102,14 +94,6 @@ export const homeTideDiagramLayoutBase: HomeTideDiagramLayoutBase = {
   tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
   tickLabelSize: 0.04,
   tickLabelClearance: 0.07,
-  nowPointer: {
-    radialLine: { outerRadius: 0.68 },
-    label: { size: 0.045, normalOffset: 0.02 },
-    triangle: { subtendedAngleRad: Math.PI / 5 },
-  },
-  nextPointer: {
-    radialLine: { outerRadius: 0.74 },
-  },
   waitArc: {
     radius: 0.68,
     arrow: {

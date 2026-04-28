@@ -58,11 +58,6 @@ type CentreFrameArcSpec = {
   readonly thetaRight: number;
 };
 
-type DiagramLineSeg = {
-  readonly start: DiagramPoint;
-  readonly end: DiagramPoint;
-};
-
 type TimeDeltaDiagram = {
   readonly countdownStripes: DiagramTextInst[] | null;
   readonly timeDeltaEmptyStripes: DiagramTextInst[] | null;
@@ -94,29 +89,6 @@ type TideMarkDiagram = {
   readonly heightLabel: TideLabelTextInst;
   readonly timeLabel: TideLabelTextInst;
   readonly timePointer: TideTimePointerSpec;
-};
-
-type NowPointerTriangleDiagram = {
-  readonly center: DiagramPoint;
-  readonly vertex: DiagramPoint;
-  readonly outerArcStart: DiagramPoint;
-  readonly outerArcSweepRad: number;
-};
-
-type NowPointerDiagram = {
-  readonly timeHours: number;
-  readonly theta: number;
-  readonly nowLabelBranch: "A" | "B";
-  readonly radialLine: DiagramLineSeg | null;
-  readonly nowLabel: TideLabelTextInst | null;
-  readonly triangle?: NowPointerTriangleDiagram;
-};
-
-type NextPointerDiagram = {
-  readonly timeHours: number;
-  readonly theta: number;
-  readonly radialLine: DiagramLineSeg;
-  readonly circle: { readonly center: DiagramPoint; readonly radius: number };
 };
 
 type ArcArrowMeta = {
@@ -172,8 +144,6 @@ export type TideDiagramDocument = {
   readonly tickMarks: TickMarkSpec[];
   readonly tickLabels: TickLabelSpec[];
   readonly tideMarks: TideMarkDiagram[];
-  readonly nowPointer: NowPointerDiagram;
-  readonly nextPointer: NextPointerDiagram | null;
   readonly waitArc: WaitArcDiagram | null;
   readonly annularBand: AnnularBandDiagram;
   readonly homeMenuTrigger: HomeMenuTriggerDiagram;

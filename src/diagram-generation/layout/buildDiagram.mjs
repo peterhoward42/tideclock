@@ -9,19 +9,15 @@
  * - Throws if `spec.canvas`, `spec.title`, ref arc, tick sizing, tick label sizing, or `spec.waitArc` omit
  *   required fields or supply non-finite numbers (no silent defaults).
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
- * - Sub-builders (`buildTideMarksFromSpec`, pointers, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
- * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0** (defines the Now **triangle** outer radius together with **RefRadius**).
+ * - Sub-builders (`buildTideMarksFromSpec`, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
+ * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
  * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from diagram bounds: left edge at the leftmost tick-label bound, bottom edge at the minimum tick-label-anchor **Y**.
  * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
  * - `**waitArc.radius**` must be a finite **k·R** multiplier **> 0** (zero or negative throws).
- * - `**nowPointer**` and `**nextPointer**` are required plain objects with the nested fields in docs/specs/tide-diagram.md; degenerate radial geometry (outer ≤ inner) throws.
- * - `**nowPointer.triangle.subtendedAngleRad**` is required: literal radians, strictly between **0** and **π** (see spec).
  */
 import { buildCentreFrameDiagramFromSpec } from "./centreFrame.mjs";
 import { buildTimeDeltaDiagramFromSpec } from "./timeDeltaDiagram.mjs";
-import { buildNowPointerFromSpec } from "./nowPointer.mjs";
-import { buildNextPointerFromSpec } from "./nextPointer.mjs";
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
 import {
   requireBoolean,
@@ -221,19 +217,6 @@ export function buildDiagram(spec) {
     thetaRight,
   );
 
-  const nowPointer = buildNowPointerFromSpec(
-    spec,
-    refRadius,
-    thetaLeft,
-    thetaRight,
-  );
-
-  const nextPointer = buildNextPointerFromSpec(
-    spec,
-    refRadius,
-    thetaLeft,
-    thetaRight,
-  );
   const waitArc = buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight);
   const insideTrack = buildInsideTrackFromSpec(
     spec,
@@ -256,8 +239,6 @@ export function buildDiagram(spec) {
     tickMarks,
     tickLabels,
     tideMarks,
-    nowPointer,
-    nextPointer,
     waitArc,
     annularBand,
     homeMenuTrigger,
