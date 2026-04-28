@@ -29,8 +29,8 @@ o  try the clock hand idea
 	o  Move  time now text block
 		*  temp hide TimeDelta and CentreFrame
 		o  get trivial text experiment going inside inner arc
-			o  call it MainLabel
-			o  quick brown fox on lhs centre just
+			*  call it MainLabel
+			*  quick brown fox on lhs centre just
 			o  switch sides according to time
 			o  make it it a new summary status element derived from inputs
 

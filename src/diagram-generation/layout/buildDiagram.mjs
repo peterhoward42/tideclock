@@ -364,10 +364,21 @@ export function buildDiagram(spec) {
     thetaLeft,
     sweepRad,
   );
+  const parsedNowForMainLabel = parseCanonicalTimeOrThrow(
+    spec.timeNow,
+    "spec.timeNow",
+  );
+  if (parsedNowForMainLabel.isRightEndpoint) {
+    throw new Error('spec.timeNow cannot be "24:00:00"');
+  }
+  const mainLabelCenterHours =
+    parsedNowForMainLabel.hours < 12
+      ? (parsedNowForMainLabel.hours + 24) / 2
+      : parsedNowForMainLabel.hours / 2;
   const mainLabel = buildMainLabel(
     spec,
     refRadius,
-    timeToTheta(7, thetaLeft, thetaRight),
+    timeToTheta(mainLabelCenterHours, thetaLeft, thetaRight),
   );
   const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
 

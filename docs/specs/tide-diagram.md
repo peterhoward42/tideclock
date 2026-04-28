@@ -138,9 +138,11 @@ as the **RefArc** (from **θ_left** to **θ_right**).
 - **MainLabel** is an arcuate text element at radius
   **MainLabelRadius × RefRadius** (independent input; concentric with
   **RefArc**/**InsideTrack**). In this first step it uses fixed placeholder content
-  `**"quick brown fox"**` and a temporary angular placement centred on the
-  `**07:00`** time angle (`**θ(7)`** from **§Time and θ(t)**), so the label's angular
-  span is symmetric about that angle.
+  `**"quick brown fox"**` and a policy-driven temporary angular placement centred on
+  `**θ(t_main_label_center)`**, where:
+  - if `**t_now < 12`**, `**t_main_label_center = (t_now + 24) / 2`**;
+  - otherwise (`**t_now >= 12`**), `**t_main_label_center = (0 + t_now) / 2`**.
+  The label's angular span is symmetric about `**θ(t_main_label_center)`**.
 
 ### §Time and θ(t)
 
