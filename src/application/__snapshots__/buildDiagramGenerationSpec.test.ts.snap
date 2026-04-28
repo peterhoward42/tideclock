@@ -24,6 +24,77 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "thetaRight": 6.283185307179586,
     },
   },
+  "hand": {
+    "arm": {
+      "end": {
+        "x": 48.942087362739656,
+        "y": -34.26166282053241,
+      },
+      "start": {
+        "x": 7.73338588912243,
+        "y": -5.41371800982671,
+      },
+    },
+    "bossCircle": {
+      "center": {
+        "x": 0,
+        "y": 0,
+      },
+      "radius": 9.44,
+    },
+    "extension": {
+      "end": {
+        "x": 71.53381947438247,
+        "y": -50.07689159089707,
+      },
+      "start": {
+        "x": 67.66712652982126,
+        "y": -47.370032585983715,
+      },
+    },
+    "pointerPip": {
+      "circle": {
+        "center": {
+          "x": 55.86001063045406,
+          "y": -39.10452031167394,
+        },
+        "radius": 5.612579978749101,
+      },
+      "triangle": {
+        "v1": {
+          "x": 67.66712652982126,
+          "y": -47.370032585983715,
+        },
+        "v2": {
+          "x": 54.68586236038286,
+          "y": -44.59291077316117,
+        },
+        "v3": {
+          "x": 60.61517793476375,
+          "y": -36.123004266793515,
+        },
+      },
+    },
+    "projection": {
+      "end": {
+        "x": 96.66732361403038,
+        "y": -67.67147512283388,
+      },
+      "start": {
+        "x": 71.53381947438247,
+        "y": -50.07689159089707,
+      },
+    },
+    "smallCircle": {
+      "center": {
+        "x": 50.102095246108014,
+        "y": -35.07372052200641,
+      },
+      "radius": 1.416,
+    },
+    "theta": 5.67242915205982,
+    "timeHours": 19.33416666666667,
+  },
   "homeMenuTrigger": {
     "center": {
       "x": -119.652,
@@ -44,10 +115,30 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "sweepRad": 3.141592653589793,
     "thetaLeft": 3.141592653589793,
   },
+  "mainLabel": {
+    "center": {
+      "x": 0,
+      "y": 0,
+    },
+    "content": "quick brown fox",
+    "fontSize": 5.31,
+    "radius": 87.32,
+    "sweepRad": 0.5472972972972973,
+    "thetaStart": 3.7842418622381673,
+  },
   "meta": {
     "height": 320,
     "title": "home-tide-diagram",
     "width": 420,
+  },
+  "paintOrder": {
+    "overrides": [
+      {
+        "name": "Hand",
+        "place": "before",
+        "relativeTo": "AnnularBand",
+      },
+    ],
   },
   "refArc": {
     "center": {
@@ -714,7 +805,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "height": 320,
     "previewFrame": {
       "maxX": 334.9,
-      "maxY": 162.41600000000003,
+      "maxY": 170.44,
       "minX": 77.548,
       "minY": 26.95799999999998,
     },
@@ -723,6 +814,149 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   },
   "root": {
     "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "center": {
+                  "x": 210,
+                  "y": 160,
+                },
+                "kind": "circle",
+                "radius": 9.44,
+              },
+            ],
+            "kind": "group",
+            "name": "BossCircle",
+          },
+          {
+            "children": [
+              {
+                "center": {
+                  "x": 260.10209524610804,
+                  "y": 124.92627947799359,
+                },
+                "kind": "circle",
+                "radius": 1.416,
+              },
+            ],
+            "kind": "group",
+            "name": "SmallCircle",
+          },
+          {
+            "children": [
+              {
+                "end": {
+                  "x": 281.5338194743825,
+                  "y": 109.92310840910292,
+                },
+                "kind": "line",
+                "start": {
+                  "x": 277.66712652982125,
+                  "y": 112.62996741401628,
+                },
+              },
+            ],
+            "kind": "group",
+            "name": "Extension",
+          },
+          {
+            "children": [
+              {
+                "end": {
+                  "x": 306.66732361403035,
+                  "y": 92.32852487716612,
+                },
+                "kind": "line",
+                "start": {
+                  "x": 281.5338194743825,
+                  "y": 109.92310840910292,
+                },
+              },
+            ],
+            "kind": "group",
+            "name": "Projection",
+          },
+          {
+            "children": [
+              {
+                "end": {
+                  "x": 258.94208736273964,
+                  "y": 125.73833717946759,
+                },
+                "kind": "line",
+                "start": {
+                  "x": 217.73338588912242,
+                  "y": 154.5862819901733,
+                },
+              },
+            ],
+            "kind": "group",
+            "name": "Arm",
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "end": {
+                      "x": 264.6858623603829,
+                      "y": 115.40708922683882,
+                    },
+                    "kind": "line",
+                    "start": {
+                      "x": 277.66712652982125,
+                      "y": 112.62996741401628,
+                    },
+                  },
+                ],
+                "kind": "group",
+                "name": "PointerPipSideA",
+              },
+              {
+                "children": [
+                  {
+                    "end": {
+                      "x": 270.6151779347638,
+                      "y": 123.87699573320648,
+                    },
+                    "kind": "line",
+                    "start": {
+                      "x": 277.66712652982125,
+                      "y": 112.62996741401628,
+                    },
+                  },
+                ],
+                "kind": "group",
+                "name": "PointerPipSideB",
+              },
+              {
+                "children": [
+                  {
+                    "center": {
+                      "x": 265.86001063045404,
+                      "y": 120.89547968832606,
+                    },
+                    "kind": "arc",
+                    "start": {
+                      "x": 264.6858623603829,
+                      "y": 115.40708922683882,
+                    },
+                    "sweepRad": -3.9415926535898067,
+                  },
+                ],
+                "kind": "group",
+                "name": "PointerPipHeadArc",
+              },
+            ],
+            "kind": "group",
+            "name": "PointerPip",
+          },
+        ],
+        "kind": "group",
+        "name": "Hand",
+      },
       {
         "children": [
           {
@@ -1484,88 +1718,24 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               "x": 210,
               "y": 160,
             },
-            "kind": "arcSegment",
-            "start": {
-              "x": 156.9,
-              "y": 160,
-            },
-            "sweepRad": 3.141592653589793,
+            "content": "quick brown fox",
+            "kind": "arcText",
+            "radius": 87.32,
+            "size": 5.31,
+            "sweepRad": 0.5472972972972973,
+            "thetaStart": 3.7842418622381673,
           },
         ],
+        "kind": "group",
+        "name": "MainLabel",
+      },
+      {
+        "children": [],
         "kind": "group",
         "name": "CentreFrame",
       },
       {
-        "children": [
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 210,
-                  "y": 152.33,
-                },
-                "angleRad": 0,
-                "content": "Lymington",
-                "hAlign": "center",
-                "kind": "text",
-                "size": 5.664,
-              },
-            ],
-            "kind": "group",
-            "name": "TimeDeltaLocation",
-          },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 210,
-                  "y": 141.71,
-                },
-                "angleRad": 0,
-                "content": "Tide coming in",
-                "hAlign": "center",
-                "kind": "text",
-                "size": 5.31,
-              },
-            ],
-            "kind": "group",
-            "name": "TimeDeltaPhase",
-          },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 210,
-                  "y": 130.5,
-                },
-                "angleRad": 0,
-                "content": "High tide in 3h 45m",
-                "hAlign": "center",
-                "kind": "text",
-                "size": 5.31,
-              },
-            ],
-            "kind": "group",
-            "name": "TimeDeltaNext",
-          },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 210,
-                  "y": 118.7,
-                },
-                "angleRad": 0,
-                "content": "at 23:06",
-                "hAlign": "center",
-                "kind": "text",
-                "size": 5.31,
-              },
-            ],
-            "kind": "group",
-            "name": "TimeDeltaNextTime",
-          },
-        ],
+        "children": [],
         "kind": "group",
         "name": "TimeDelta",
       },

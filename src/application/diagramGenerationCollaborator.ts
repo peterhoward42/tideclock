@@ -106,6 +106,15 @@ type InsideTrackDiagram = {
   readonly sweepRad: number;
 };
 
+type MainLabelDiagram = {
+  readonly content: string;
+  readonly fontSize: number;
+  readonly center: DiagramPoint;
+  readonly radius: number;
+  readonly thetaStart: number;
+  readonly sweepRad: number;
+};
+
 type HomeMenuTriggerDiagram = {
   readonly center: DiagramPoint;
   readonly width: number;
@@ -147,6 +156,7 @@ export type TideDiagramDocument = {
   };
   readonly refArc: RefArcSpec;
   readonly insideTrack: InsideTrackDiagram;
+  readonly mainLabel: MainLabelDiagram;
   readonly tickMarks: TickMarkSpec[];
   readonly tickLabels: TickLabelSpec[];
   readonly tideMarks: TideMarkDiagram[];
@@ -226,6 +236,16 @@ type SceneTextPrimitive = {
   readonly dominantBaseline?: "alphabetic" | "middle";
 };
 
+type SceneArcTextPrimitive = {
+  readonly kind: "arcText";
+  readonly content: string;
+  readonly size: number;
+  readonly center: ScenePoint;
+  readonly radius: number;
+  readonly thetaStart: number;
+  readonly sweepRad: number;
+};
+
 type SceneGroupNode = {
   readonly kind: "group";
   readonly name: string;
@@ -240,6 +260,7 @@ type SceneNode =
   | SceneRoundedRectPrimitive
   | SceneAnnularSectorPrimitive
   | SceneTextPrimitive
+  | SceneArcTextPrimitive
   | SceneGroupNode;
 
 /**

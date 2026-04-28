@@ -75,6 +75,7 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
   - CentreFrame
   - AnnularBand
   - InsideTrack
+  - MainLabel (single arcuate text element; currently placeholder copy)
   - RefArc
   - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from content bounds so the rectangle left edge aligns to the leftmost tick-label bound and rectangle bottom edge aligns to the minimum tick-label-anchor **Y**; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
 
@@ -133,6 +134,11 @@ function of the RefArc.
 **RefArc** (centre **O**), with radius **InsideTrackRadius × RefRadius** (**k·R**;
 see strict inputs). It uses the same **θ_left** and the same CCW **swept angle**
 as the **RefArc** (from **θ_left** to **θ_right**).
+- **MainLabel** is an arcuate text element constrained to the **InsideTrack**
+  radius. In this first step it uses fixed placeholder content
+  `**"quick brown fox"**` and a temporary angular placement centred on the
+  `**07:00`** time angle (`**θ(7)`** from **§Time and θ(t)**), so the label's angular
+  span is symmetric about that angle.
 
 ### §Time and θ(t)
 
@@ -184,6 +190,7 @@ of travel.”
   - One closed circular segment path (for **CentreFrame**: circular arc + straight chord closure)
   - Line segments (for radial segments and tick marks)
   - Text elements
+  - Arc-text elements (text laid out along circular arcs; currently used by **MainLabel**)
   - **Line** segments and **arc** segments for **TideMarks.TimePointer** (two equal sides of the pointer triangle as strokes, head as a circular arc; **fill** is **none**)
   - One **closed annular sector** path (**fill** and **stroke** on the composite
   boundary) introduced by **AnnularBand** (see **AnnularBand**)

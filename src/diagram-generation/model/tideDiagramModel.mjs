@@ -121,6 +121,17 @@
  *   sweepRad: number,
  * }} InsideTrackDiagram
  *
+ * MainLabel is currently a single placeholder line that follows the InsideTrack.
+ *
+ * @typedef {{
+ *   content: string,
+ *   fontSize: number,
+ *   center: DiagramPoint,
+ *   radius: number,
+ *   thetaStart: number,
+ *   sweepRad: number,
+ * }} MainLabelDiagram
+ *
  * Home menu trigger control embedded in the diagram space (rounded rectangle + label).
  *
  * @typedef {{
@@ -140,6 +151,7 @@
  *   },
  *   refArc: RefArcSpec,
  *   insideTrack: InsideTrackDiagram,
+ *   mainLabel: MainLabelDiagram,
  *   tickMarks: TickMarkSpec[],
  *   tickLabels: TickLabelSpec[],
  *   tideMarks: TideMarkDiagram[],

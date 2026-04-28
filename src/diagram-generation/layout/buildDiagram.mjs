@@ -33,6 +33,8 @@ import {
 
 /** Per-character scene width heuristic; must match {@link expandBoundsByText} in `toScene.mjs`. */
 const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
+const MAIN_LABEL_PLACEHOLDER = "quick brown fox";
+const MAIN_LABEL_CHAR_WIDTH_EM = 0.6;
 
 /**
  * Time-now readout: **TimeNowDate** (civil prefix) and **TimeNowClock** (`HH:MM` + `:` + `SS`), right-aligned
@@ -361,6 +363,11 @@ export function buildDiagram(spec) {
     thetaLeft,
     sweepRad,
   );
+  const mainLabel = buildMainLabel(
+    refRadius,
+    timeToTheta(7, thetaLeft, thetaRight),
+    insideTrack,
+  );
   const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
 
   return {
@@ -375,6 +382,7 @@ export function buildDiagram(spec) {
       thetaRight,
     },
     insideTrack,
+    mainLabel,
     tickMarks,
     tickLabels,
     tideMarks,
@@ -446,6 +454,27 @@ function buildInsideTrackFromSpec(spec, refRadius, thetaLeft, sweepRad) {
     center: { x: 0, y: 0 },
     radius: k * refRadius,
     thetaLeft,
+    sweepRad,
+  };
+}
+
+/**
+ * @param {number} refRadius
+ * @param {number} thetaZeroHour
+ * @param {import('../model/tideDiagramModel.mjs').InsideTrackDiagram} insideTrack
+ * @returns {import('../model/tideDiagramModel.mjs').MainLabelDiagram}
+ */
+function buildMainLabel(refRadius, thetaZeroHour, insideTrack) {
+  const fontSize = 0.045 * refRadius;
+  const content = MAIN_LABEL_PLACEHOLDER;
+  const arcLength = content.length * fontSize * MAIN_LABEL_CHAR_WIDTH_EM;
+  const sweepRad = arcLength / insideTrack.radius;
+  return {
+    content,
+    fontSize,
+    center: insideTrack.center,
+    radius: insideTrack.radius,
+    thetaStart: thetaZeroHour - 0.5 * sweepRad,
     sweepRad,
   };
 }

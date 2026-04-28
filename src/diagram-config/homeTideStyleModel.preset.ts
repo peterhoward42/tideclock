@@ -69,6 +69,7 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "TimePointer", roleName: "role.tide.primary" },
     { name: "TimeLabel", roleName: "role.structure.emphasis" },
     { name: "TickLabel", roleName: "role.structure.emphasis" },
+    { name: "MainLabel", roleName: "role.structure.emphasis" },
     { name: "BossCircle", roleName: "role.now.live" },
     { name: "SmallCircle", roleName: "role.now.live" },
     { name: "Extension", roleName: "role.now.live" },

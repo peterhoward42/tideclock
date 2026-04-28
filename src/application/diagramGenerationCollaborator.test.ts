@@ -120,6 +120,7 @@ describe('createDiagramGenerationCollaborator', () => {
       'TickMark',
       'TideMarks',
       'TickLabel',
+      'MainLabel',
       'CentreFrame',
       'TimeDelta',
       'TimeNowDate',
