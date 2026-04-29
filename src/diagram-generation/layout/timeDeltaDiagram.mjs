@@ -22,7 +22,6 @@ export const TIME_DELTA_COUNTDOWN_LINE_COUNT = 4;
 
 /** Centre copy when `timeDelta.atypicalTideSummary` is true (countdown mode only). */
 export const ATYPICAL_TIDE_SUMMARY_PHASE_LINE = "Tricky tides today";
-export const ATYPICAL_TIDE_SUMMARY_STEER_LINE = "Use the markers";
 
 /**
  * @param {string} eventLabel
@@ -113,7 +112,7 @@ export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
       contents = [
         "",
         ATYPICAL_TIDE_SUMMARY_PHASE_LINE,
-        ATYPICAL_TIDE_SUMMARY_STEER_LINE,
+        "",
         "",
       ];
     } else {

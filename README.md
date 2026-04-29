@@ -40,7 +40,7 @@ Changing the hash (or using back/forward) **updates the preview without a full p
 | http://localhost:5173/#/?diagramPreview=no-more-tides-today | After last extreme of the day (“no further tides today” style branch). |
 | http://localhost:5173/#/?diagramPreview=time-delta-short | “Now” frozen shortly before next tide — **both** Now label **and** Now radial line hidden (strictly under five minutes before next). |
 | http://localhost:5173/#/?diagramPreview=time-delta-medium | Now label hidden, radial line still shown (five minutes to one hour before next). |
-| http://localhost:5173/#/?diagramPreview=atypical-tide-day | Synthetic busy day + atypical centre copy (“Tricky tides today” / markers hint). Fetched data unchanged; diagram path only. |
+| http://localhost:5173/#/?diagramPreview=atypical-tide-day | Synthetic busy day + atypical centre copy (“Tricky tides today”). Fetched data unchanged; diagram path only. |
 
 `#/?…` and `#/home?…` both land on Home; use whichever you prefer.
 

@@ -94,7 +94,7 @@ describe('buildDiagramGenerationSpec', () => {
     expect(stripes!.map((s) => s.content)).toEqual([
       '',
       'Tricky tides today',
-      'Use the markers',
+      '',
       '',
     ]);
   });

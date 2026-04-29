@@ -339,7 +339,7 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 - **Atypical civil-day pattern** — `**timeDelta.atypicalTideSummary`** is a **required** boolean. When it is `**true**` and a next marker exists, the generator still emits **four** stripes (same geometry slots and leaf names), but **copy** is:
   1. **TimeDeltaLocation** — **empty string**.
   2. **TimeDeltaPhase** — fixed product line: **Tricky tides today**.
-  3. **TimeDeltaNext** — fixed product line: **Use the markers**.
+  3. **TimeDeltaNext** — **empty string**.
   4. **TimeDeltaNextTime** — **empty string** (placeholder stripe; vertical tuning is a host/layout concern). No verbal next-interval or `**at HH:MM**` line in this mode. When `**atypicalTideSummary`** is `**false**`, the typical countdown copy rules apply. `**atypicalTideSummary`** does **not** alter **NoMoreTidesToday** behaviour.
 - **No next marker at or after `timeNow` on the civil day** (e.g. after the last tide; includes the case where every marker is strictly before `**timeNow`**) — **three** **TextElement**s (same leaf names and geometry keys as the first two countdown stripes, plus the tomorrow line):
   1. **TimeDeltaLocation** — **empty string**; **FontHeight** from `**countdownLines[0].fontHeight**`; **Anchor Y** **0 − countdownLines[0].belowOrigin·R**; **Horizontal justification** **centre**; **Baseline polar angle** **0**.

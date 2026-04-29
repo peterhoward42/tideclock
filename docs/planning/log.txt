@@ -47,11 +47,12 @@ o  try the clock hand idea
 
 		o  clean up orphaned TimeDetla and CentreFrame
 
+o  bottom right text should be bigger for phone
+
 /docs/tide-diagram.md for context.
 
-	o  check zdepth is working
-	o  normalise the spec after the fact
 	o  merge branch hand
+	o  normalise the spec after the fact
 
 o  first glance ux assimilation
 	o  first thing someone tried to drag the time now
