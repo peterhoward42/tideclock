@@ -202,6 +202,21 @@ describe('spec.semantic.nextTide injection', () => {
     expect(diagram.timeNowClock.seconds.content).toBe('00');
   });
 
+  it('after last tide with in-high omits tomorrow line text', () => {
+    const base = sampleTideDiagramSpec();
+    const spec = {
+      ...base,
+      timeNow: '23:59:00',
+      timeDelta: { ...base.timeDelta, tidePhasePair: 'in-high' as const },
+    };
+    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
+    expect(diagram.timeDeltaDiagram.countdownStripes).toBeNull();
+    const emptyStripes = diagram.timeDeltaDiagram.timeDeltaEmptyStripes;
+    expect(emptyStripes).not.toBeNull();
+    expect(emptyStripes?.[1]?.content).toBe('Tide coming in');
+    expect(emptyStripes?.[2]?.content).toBe('');
+  });
+
   it('rejects malformed injected nextTide', () => {
     const spec = sampleTideDiagramSpec();
     expect(() =>

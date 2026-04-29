@@ -46,7 +46,7 @@ export function formatTimeDeltaNextAtLine(nextEventTimeHhmm) {
  * @returns {string}
  */
 export function formatTimeDeltaTomorrowEventLine(tidePhasePair) {
-  return tidePhasePair === "out-low" ? "Low tide tomorrow" : "High tide tomorrow";
+  return tidePhasePair === "out-low" ? "Low tide tomorrow" : "";
 }
 
 /**

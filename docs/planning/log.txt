@@ -41,8 +41,9 @@ o  try the clock hand idea
 				*  ditch location from summary label
 				*  reduce to just low tide in in part
 				*  justify right left
-				o  try out different positions with shorter hand
+				*  try out different positions with shorter hand
 				o  now deal with singularity cases
+					o  go through the special dev-only urls
 
 		o  clean up orphaned TimeDetla and CentreFrame
 
