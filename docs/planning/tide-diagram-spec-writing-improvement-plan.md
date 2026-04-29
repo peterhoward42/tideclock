@@ -15,6 +15,12 @@ This plan is intentionally **semantically lossless**: the document may be restru
 
 This work is expected to span multiple sessions. We will persist phase-by-phase implementation state in this document or a clearly linked sister tracking document in `docs/planning`, updating status, decisions, and open items as each phase is completed.
 
+Current execution status:
+
+- Phase 0 audit: completed (clustered pass) in `docs/planning/tide-diagram-spec-phase0-relevance-audit.md`.
+- Phase 1 semantic inventory: completed in `docs/planning/tide-diagram-spec-phase1-semantic-inventory.md`.
+- Phases 2-5: pending.
+
 ## Non-negotiables
 
 - Keep all normative constraints, validation rules, required/optional fields, and failure cases.
