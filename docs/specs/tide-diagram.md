@@ -63,9 +63,10 @@ see strict inputs). It uses the same **θ_left** and the same CCW **swept angle*
 as the **RefArc** (from **θ_left** to **θ_right**).
 - **MainLabel** is an arcuate text element at radius
   **MainLabelRadius × RefRadius** (independent input; concentric with
-  **RefArc**/**InsideTrack**). In this first step it uses fixed placeholder content
-  `**"quick brown fox"**` and a policy-driven temporary angular placement based on
-  `**t_now`** and `**mainLabelTimeOffsetHours`**:
+  **RefArc**/**InsideTrack**). Its **content** is a single line synthesized from
+  the **TimeDelta** stripe strings for the active branch (countdown or empty-day;
+  see **TimeDelta**), not a separate host-provided string. Angular placement is
+  policy-driven from `**t_now`** and `**mainLabelTimeOffsetHours`**:
   - Let `**Δ = mainLabelTimeOffsetHours`**.
   - Let the two vacant intervals from `**t_now`** to RefArc endpoints be:
     - left interval length `**L_left = t_now − 0`**,
@@ -254,7 +255,7 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
   - CentreFrame
   - AnnularBand
   - InsideTrack
-  - MainLabel (single arcuate text element; currently placeholder copy)
+  - MainLabel (single arcuate text element; content synthesized from **TimeDelta** stripes)
   - RefArc
   - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from content bounds so the rectangle left edge aligns to the leftmost tick-label bound and rectangle bottom edge aligns to the minimum tick-label-anchor **Y**; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
 
