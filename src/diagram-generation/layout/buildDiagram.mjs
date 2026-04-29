@@ -48,6 +48,7 @@ function synthesizeMainLabelContentFromTimeDelta(timeDeltaDiagram) {
     timeDeltaDiagram.countdownStripes ?? timeDeltaDiagram.timeDeltaEmptyStripes ?? [];
   return stripes
     .map((stripe) => stripe.content.trim())
+    .filter((line) => !line.startsWith("at "))
     .filter((line) => line.length > 0)
     .join(" ");
 }

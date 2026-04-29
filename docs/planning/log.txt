@@ -31,8 +31,18 @@ o  try the clock hand idea
 		o  get trivial text experiment going inside inner arc
 			*  call it MainLabel
 			*  quick brown fox on lhs centre just
-			o  switch sides according to time
-			o  make it it a new summary status element derived from inputs
+			*  switch sides according to time
+			*  make it it a new summary status element derived from inputs
+			o  Fiddle with summary text
+				o  remove yellow from timenow readout and colon animation
+				o  flip order of lines time then date
+				o  precede with Location in different style
+				o  Shift to three curved tracks
+				o  shorten redundant "at XYX" part
+				o  does it handle the edge cases?
+				o  Try right/left justifying the text
+				o  Style the 3 curved texts
+				o  Put time readout, including seconds along hand?
 
 		o  clean up orphaned TimeDetla and CentreFrame
 
