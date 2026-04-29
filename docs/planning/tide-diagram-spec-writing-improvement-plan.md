@@ -27,7 +27,8 @@ Latest Phase 2 progress:
 
 - Reader-first TB section order in `docs/specs/tide-diagram.md` is now physically reordered to strict `TB-1` through `TB-7`.
 - Temporary heading-level mapping markers were removed from migrated section headings.
-- Next: execute Phase 3 consolidation by defining repeated rules once in canonical sections and replacing duplicates with short references.
+- Phase 3 batch 1 completed: reduced duplicate wording by replacing repeated canonical-time, style-binding, and marker-time validation statements with references to canonical sections in `docs/specs/tide-diagram.md`.
+- Next: continue Phase 3 consolidation with remaining repeated host-boundary and text-anchor/default references, then run a quick semantic inventory reconciliation pass for modified sections.
 
 ## Non-negotiables
 

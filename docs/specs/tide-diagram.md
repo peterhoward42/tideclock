@@ -228,7 +228,7 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
 - `**mainLabelRadius`** — finite number (**k·R**): radius of **MainLabel** is **MainLabelRadius × RefRadius**. Must be **> 0**. Concentric with **RefArc**/**InsideTrack** (same centre **O**).
 - `**mainLabelTimeOffsetHours`** — finite number in **[0, 12]**: dial-time offset (hours) used to place **MainLabel** angularly away from `**timeNow`** on the chosen side (see **§Polar**, **MainLabel** placement).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
-- `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** in `**HH:MM:SS`** **other than** `**24:00:00`** (that sentinel is for the RefArc right endpoint only, not for tide events). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
+- `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
 - `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**smallCircleRadius`** (**k·R**, strictly **> 0**); finite `**pointerPipScale`** (dimensionless, strictly **> 0**); and finite `**pointerTipInset`** (**k·R**, non-negative), the inward radial offset from the RefArc tip used to place the **PointerPip** tip and its dependent radial segments. `**pointerPipScale`** is applied uniformly to all linear dimensions of the pointer-pip silhouette; the divergence angle remains tied to `**tideMarks.tideMarkArrowDivergence`**. Generation fails if hand-derived radial ordering is invalid (see **Hand**, **Radial segments**).
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
 - `**timeDelta`** — **required** plain object; string `**town**` (required but not rendered in the summary copy; **TimeDeltaLocation** emits an empty string); enum `**tidePhasePair ∈ {"out-low","in-high"}**`; **boolean** `**atypicalTideSummary**` (when `**true**` and a next marker exists, countdown copy follows the atypical branch in **TimeDelta**); **`countdownLines`** — array of **exactly four** plain objects (location, phase, next-event interval, next-event clock stripes), each with finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**); **`emptyMessage`** — plain object with finite `**belowOrigin`** and `**fontHeight**`: when there is no next tide today, the first two empty-day stripes use `**countdownLines[0]`** and `**countdownLines[1]`** for baselines and font heights; the third stripe (**NoMoreTidesToday**) uses `**countdownLines[2].belowOrigin`** for its baseline and `**emptyMessage.fontHeight`** for **FontHeight** (`**emptyMessage.belowOrigin`** is reserved / validated but not used for placement). Per stripe, `**belowOrigin`** is the distance from **Y = 0** toward **−Y** to that stripe’s baseline; **X** is fixed at **0** for all. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
@@ -272,7 +272,7 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ### Time now readout
 
-Three related **top-level** named elements (see **Diagram elements**) show host-local **location name**, host-local civil **date**, and **clock time** derived from `**timeNowLocation**`, `**timeNowDatePrefix**`, and global canonical `**timeNow**` (`**HH:MM:SS**`). They are positioned **relative to AnnularBand** and **TickLabels** as below (not from free-floating absolute `x`/`y` clock anchors).
+Three related **top-level** named elements (see **Diagram elements**) show host-local **location name**, host-local civil **date**, and **clock time** derived from `**timeNowLocation**`, `**timeNowDatePrefix**`, and global canonical `**timeNow**` (format/parsing per **§Time and θ(t)**). They are positioned **relative to AnnularBand** and **TickLabels** as below (not from free-floating absolute `x`/`y` clock anchors).
 
 ### Shared inputs
 
@@ -420,9 +420,8 @@ the intended appearance—**RefArc** stroke **replacing** the **inner** portion 
 ### Scene model
 
 - Emitted as a named group **AnnularBand** containing the single closed-region
-primitive (exact-match **style binding name** **AnnularBand**, same indirection
-contract as **RefArc**, **CentreFrame**, etc.; concrete `styleName`
-values are **not** fixed in this specification).
+primitive (leaf-name matching follows **Style binding names (exact-match contract)**;
+concrete `styleName` values are **not** fixed in this specification).
 
 ### Tick marks
 
@@ -460,9 +459,7 @@ z-order not fixed here).
 - **N** tide markers; count from host input.
 - Each marker provides canonical `**time`** in `**HH:MM:SS`**.
 - Parse marker `**time`** per **§Time and θ(t)** to derive **t** and **θ(t)**.
-- Marker `**time = "24:00:00"`** is **invalid** and must fail generation (that sentinel is reserved for the RefArc right endpoint, not tide extremes).
-- If two retained markers share the same canonical `**time`**, generation must
-fail with an error.
+- Marker-time validity and duplicate-time failures follow **Strict diagram input**.
 - Each marker carries a **kind** flag `**highOrLow ∈ {"High", "Low"}`**, used
 for derived event descriptions (see **TimeDelta**).
 
