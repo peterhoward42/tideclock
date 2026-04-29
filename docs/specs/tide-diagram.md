@@ -324,6 +324,7 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 - **Countdown** — four stripes; stripe *i* uses `**timeDelta.countdownLines[i].belowOrigin`** and `**timeDelta.countdownLines[i].fontHeight`** (**k·R** each). **Anchor X** is **0** for every stripe.
 - **Empty day** — three stripes: baselines and font heights for rows **0** and **1** from `**timeDelta.countdownLines[0]`** and `**countdownLines[1]`**; row **2** baseline from `**countdownLines[2].belowOrigin`** and **FontHeight** from `**emptyMessage.fontHeight`** (**k·R** each). **Anchor X** is **0** for each.
+- Unless a row below overrides it, **TimeDelta** text leaves use **Horizontal justification = centre** and **Baseline polar angle = 0** (per **TextElement defaults**); **Anchor X** is **0**.
 
 ### Scene model
 
@@ -331,8 +332,8 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 ### Copy and layout
 
-- When a **next** marker exists on the civil day — **four** centre-justified **TextElement**s at distinct baselines (no interpuncts between stripes; vertical rhythm is intentional typography):
-  1. **TimeDeltaLocation** — **empty string**; **FontHeight** **k·R** from `**countdownLines[0].fontHeight**`; **Anchor Y** **0 − countdownLines[0].belowOrigin·R**; **Horizontal justification** **centre**; **Baseline polar angle** **0**.
+- When a **next** marker exists on the civil day — **four** **TextElement**s at distinct baselines (no interpuncts between stripes; vertical rhythm is intentional typography):
+  1. **TimeDeltaLocation** — **empty string**; **FontHeight** **k·R** from `**countdownLines[0].fontHeight**`; **Anchor Y** **0 − countdownLines[0].belowOrigin·R**.
   2. **TimeDeltaPhase** — `**Tide <going out|coming in>**` from `**timeDelta.tidePhasePair**` (`"out-low"` → `going out`; `"in-high"` → `coming in`); geometry from `**countdownLines[1]**`.
   3. **TimeDeltaNext** — `**<Low tide|High tide> in <Hh Mm>**` where the low/high label matches the pair (`"out-low"` → `Low tide`; `"in-high"` → `High tide`); `<Hh Mm>` is derived from the interval to the next marker at or after `**timeNow`** on the same civil day; geometry from `**countdownLines[2]**`.
   4. **TimeDeltaNextTime** — `**at <HH:MM>**` where `<HH:MM>` is synthesized from the same next marker’s canonical time (seconds omitted); geometry from `**countdownLines[3]**`.
@@ -348,9 +349,9 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
   3. **TimeDeltaNext** — **empty string**.
   4. **TimeDeltaNextTime** — **empty string** (placeholder stripe; vertical tuning is a host/layout concern). No verbal next-interval or `**at HH:MM**` line in this mode. When `**atypicalTideSummary`** is `**false**`, the typical countdown copy rules apply. `**atypicalTideSummary`** does **not** alter **NoMoreTidesToday** behaviour.
 - **No next marker at or after `timeNow` on the civil day** (e.g. after the last tide; includes the case where every marker is strictly before `**timeNow`**) — **three** **TextElement**s (same leaf names and geometry keys as the first two countdown stripes, plus the tomorrow line):
-  1. **TimeDeltaLocation** — **empty string**; **FontHeight** from `**countdownLines[0].fontHeight**`; **Anchor Y** **0 − countdownLines[0].belowOrigin·R**; **Horizontal justification** **centre**; **Baseline polar angle** **0**.
+  1. **TimeDeltaLocation** — **empty string**; **FontHeight** from `**countdownLines[0].fontHeight**`; **Anchor Y** **0 − countdownLines[0].belowOrigin·R**.
   2. **TimeDeltaPhase** — `**Tide <going out|coming in>**` from `**timeDelta.tidePhasePair**` (same mapping as the countdown case); geometry from `**countdownLines[1]**`.
-  3. **NoMoreTidesToday** — fixed synthesis from `**timeDelta.tidePhasePair`**: `**Low tide tomorrow`** for `"out-low"` and **empty string** for `"in-high"` (not a host override). **FontHeight** — **k·R** from `**emptyMessage.fontHeight**`; **Anchor Y** **0 − countdownLines[2].belowOrigin·R** (the interval stripe’s vertical slot; replaces the verbal interval and `**at HH:MM**` rows). **Horizontal justification** **centre**; **Baseline polar angle** **0**; **Anchor X** **0**.
+  3. **NoMoreTidesToday** — fixed synthesis from `**timeDelta.tidePhasePair**`: `**Low tide tomorrow**` for `"out-low"` and **empty string** for `"in-high"` (not a host override). **FontHeight** — **k·R** from `**emptyMessage.fontHeight**`; **Anchor Y** **0 − countdownLines[2].belowOrigin·R** (the interval stripe’s vertical slot; replaces the verbal interval and `**at HH:MM**` rows).
 - **Layout guidance:** choose each `**countdownLines[i].belowOrigin`** so baselines sit comfortably inside the chord region implied by **`centreFrame.frameArcRadius`** and the ref arc; **CentreFrame** and **TimeDelta** remain independent inputs (no automatic coupling in the generator).
 
 ### CentreFrame
