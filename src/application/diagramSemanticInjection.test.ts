@@ -175,7 +175,7 @@ describe('spec.semantic.nextTide injection', () => {
     const emptyFh = spec.timeDelta.emptyMessage.fontHeight;
     expect(diagram.timeDeltaDiagram.timeDeltaEmptyStripes).toEqual([
       {
-        content: 'Lymington',
+        content: '',
         fontSize: l0.fontHeight * R,
         anchor: { x: 0, y: -l0.belowOrigin * R },
         hAlign: 'center',

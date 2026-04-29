@@ -92,7 +92,7 @@ describe('buildDiagramGenerationSpec', () => {
     const stripes = diagram.timeDeltaDiagram.countdownStripes;
     expect(stripes).not.toBeNull();
     expect(stripes!.map((s) => s.content)).toEqual([
-      'Lymington',
+      '',
       'Tricky tides today',
       'Use the markers',
       '',

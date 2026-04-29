@@ -111,7 +111,7 @@ export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
     let contents;
     if (timeDeltaLayout.atypicalTideSummary === true) {
       contents = [
-        timeDeltaLayout.town,
+        "",
         ATYPICAL_TIDE_SUMMARY_PHASE_LINE,
         ATYPICAL_TIDE_SUMMARY_STEER_LINE,
         "",
@@ -121,7 +121,7 @@ export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
       const direction = isOutLow ? "going out" : "coming in";
       const eventLabel = isOutLow ? "Low tide" : "High tide";
       contents = [
-        timeDeltaLayout.town,
+        "",
         `Tide ${direction}`,
         formatTimeDeltaNextIntervalLine(eventLabel, timeDeltaLayout.interval),
         formatTimeDeltaNextAtLine(timeDeltaLayout.nextEventTimeHhmm),
@@ -140,7 +140,7 @@ export function layoutTimeDeltaDiagram(timeDeltaLayout, refRadius) {
     const tomorrow = formatTimeDeltaTomorrowEventLine(
       timeDeltaLayout.tidePhasePair,
     );
-    const contents = [timeDeltaLayout.town, `Tide ${direction}`, tomorrow];
+    const contents = ["", `Tide ${direction}`, tomorrow];
     timeDeltaEmptyStripes = [0, 1, 2].map((i) => ({
       content: /** @type {string} */ (contents[i]),
       fontSize:
