@@ -34,7 +34,7 @@ o  try the clock hand idea
 			*  switch sides according to time
 			*  make it it a new summary status element derived from inputs
 			o  Fiddle with summary text
-				o  remove yellow from timenow readout and colon animation
+				*  remove yellow from timenow readout and colon animation
 				o  flip order of lines time then date
 				o  precede with Location in different style
 				o  Shift to three curved tracks
@@ -46,6 +46,8 @@ o  try the clock hand idea
 
 		o  clean up orphaned TimeDetla and CentreFrame
 
+/docs/tide-diagram.md for context.
+
 	o  check zdepth is working
 	o  normalise the spec after the fact
 	o  merge branch hand
@@ -54,6 +56,7 @@ o  first glance ux assimilation
 	o  first thing someone tried to drag the time now
 
 o  discover / marketing screen?
+o  cross sell drawexact
 
 
 				o  proxy cost risk containment
