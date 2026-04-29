@@ -1,26 +1,18 @@
 
-*  main display requirements
-*  main display design
-*  generative code strategy
-*  analysis of api data avail
-*  make and deploy the proxy server
+TIDE DIAL
 
-*  new data fetch paradigm front end work backlog
-*  UX to help people install as app
-*  first use choose your location needs same background
-*  desktop -> install app -> full screen -> menu doesn't activate
-*  avoid tide dial in all visible copy
-*  work on spec coherence and redundancy
-
-
-o  bottom right text should be bigger for phone
-o  would main label be better static at bottom?
-	o  or defer to first glance reappraisal
+o  first glance ux assimilation suggestions
+	o  hand must be simple pointer - no circle of reln to tide marker shape
+	o  Low tide in <X> move to bottom edge
+	o  Try out mirrored layout
+		o  bind the radius settings not separate
+		o  tick mark length discriminatio
+		o  labels move to inside the band
+		o  flip tide markers outside the band
+		o  extend hand to inside of band
 
 
-
-o  first glance ux assimilation
-	o  first thing someone tried to drag the time now
+	o  Next tide event more conspicuous than others
 
 o  discover / marketing screen?
 o  cross sell drawexact
