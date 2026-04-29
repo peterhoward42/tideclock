@@ -34,6 +34,7 @@ type SemanticInjectionDiagramSpec = {
   readonly tickLabelClearance: number;
   readonly timeNow: string;
   readonly timeNowDatePrefix: string;
+  readonly timeNowLocation: string;
   readonly tideMarks: {
     readonly tideHeightLabelRadius: number;
     readonly tideTimeLabelRadius: number;
@@ -91,6 +92,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     tickLabelClearance: 0.07,
     timeNow: '19:20:03',
     timeNowDatePrefix: 'Mon 23 Mar',
+    timeNowLocation: 'Lymington',
     tideMarks: {
       tideHeightLabelRadius: 0.88,
       tideTimeLabelRadius: 0.8,
@@ -192,6 +194,7 @@ describe('spec.semantic.nextTide injection', () => {
       },
     ]);
     expect(diagram.timeNowDate.content).toBe('Mon 23 Mar');
+    expect(diagram.timeNowLocation.content).toBe('Lymington');
     expect(diagram.timeNowClock.hhmm.content).toBe('23:59');
     expect(diagram.timeNowClock.secondsColon.content).toBe(':');
     expect(diagram.timeNowClock.seconds.content).toBe('00');

@@ -787,6 +787,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "fontSize": 5.9,
     "hAlign": "right",
   },
+  "timeNowLocation": {
+    "anchor": {
+      "x": 121.532649765169,
+      "y": -125.08000000000001,
+    },
+    "content": "Lymington",
+    "fontSize": 5.9,
+    "hAlign": "right",
+  },
   "version": 1,
 }
 `;

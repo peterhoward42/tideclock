@@ -795,6 +795,15 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "fontSize": 5.31,
     "hAlign": "right",
   },
+  "timeNowLocation": {
+    "anchor": {
+      "x": 123.9,
+      "y": -119.77000000000001,
+    },
+    "content": "Lymington",
+    "fontSize": 5.31,
+    "hAlign": "right",
+  },
   "version": 1,
 }
 `;
@@ -1738,6 +1747,23 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "children": [],
         "kind": "group",
         "name": "TimeDelta",
+      },
+      {
+        "children": [
+          {
+            "anchor": {
+              "x": 333.9,
+              "y": 40.22999999999999,
+            },
+            "angleRad": 0,
+            "content": "Lymington",
+            "hAlign": "right",
+            "kind": "text",
+            "size": 5.31,
+          },
+        ],
+        "kind": "group",
+        "name": "TimeNowLocation",
       },
       {
         "children": [

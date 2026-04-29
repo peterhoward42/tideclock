@@ -54,14 +54,14 @@ function synthesizeMainLabelContentFromTimeDelta(timeDeltaDiagram) {
 }
 
 /**
- * Time-now readout: **TimeNowDate** (civil prefix) and **TimeNowClock** (`HH:MM` + `:` + `SS`), right-aligned
+ * Time-now readout: **TimeNowLocation** (current location name), **TimeNowDate** (civil prefix), and **TimeNowClock** (`HH:MM` + `:` + `SS`), right-aligned
  * to {@link annularBandMaxX}; clock baseline **Y** matches the minimum **Y** among **TickLabels** (see spec).
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
  * @param {number} annularMaxX diagram-space maximum **X** of **AnnularBand**
  * @param {number} clockBaselineY diagram-space **Y** shared by all three clock fragments (tick-label-min rule)
- * @returns {{ timeNowDate: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowClock: import('../model/tideDiagramModel.mjs').DiagramTimeNowClockInst }}
+ * @returns {{ timeNowLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowDate: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowClock: import('../model/tideDiagramModel.mjs').DiagramTimeNowClockInst }}
  */
 function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaselineY) {
   const o = requirePlainObject(spec.timeNowLabel, "spec.timeNowLabel");
@@ -86,15 +86,27 @@ function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaseline
     throw new Error("spec.timeNowDatePrefix must be a string");
   }
   const datePrefix = spec.timeNowDatePrefix.trim();
+  if (typeof spec.timeNowLocation !== "string") {
+    throw new Error("spec.timeNowLocation must be a string");
+  }
+  const locationName = spec.timeNowLocation.trim();
   const fontSize = fontHeightK * refRadius;
   const ax = annularMaxX;
   const timeY = clockBaselineY;
   const dateY = timeY + dateAboveK * refRadius;
+  // Baseline spacing is tuned to typography: one line (FontHeight) above the date baseline.
+  const locationY = dateY + fontSize;
   const canonical = parsedNow.canonical;
   const w = TIME_NOW_LABEL_CHAR_WIDTH_EM * fontSize;
   const secondsWidth = 2 * w;
   const colonWidth = 1 * w;
   return {
+    timeNowLocation: {
+      content: locationName,
+      fontSize,
+      anchor: { x: ax, y: locationY },
+      hAlign: "right",
+    },
     timeNowDate: {
       content: datePrefix,
       fontSize,
@@ -348,7 +360,7 @@ export function buildDiagram(spec) {
     );
   }
   const clockBaselineY = Math.min(...tickLabels.map((tl) => tl.anchor.y));
-  const { timeNowDate, timeNowClock } = buildTimeNowReadoutFromSpec(
+  const { timeNowLocation, timeNowDate, timeNowClock } = buildTimeNowReadoutFromSpec(
     spec,
     refRadius,
     annularMaxX,
@@ -420,6 +432,7 @@ export function buildDiagram(spec) {
     hand,
     timeDeltaDiagram,
     centreFrameDiagram,
+    timeNowLocation,
     timeNowDate,
     timeNowClock,
   };

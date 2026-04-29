@@ -79,6 +79,7 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "PointerPipSideB", roleName: "role.now.live" },
     { name: "PointerPipHeadArc", roleName: "role.now.live" },
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
+    { name: "TimeNowLocation", roleName: "role.structure.emphasis" },
     { name: "TimeNowDate", roleName: "role.structure.emphasis" },
     { name: "TimeNowLabelHms", roleName: "role.structure.emphasis" },
     { name: "TimeNowLabelSecondsColon", roleName: "role.structure.emphasis" },

@@ -731,6 +731,7 @@ export function tideDiagramToScene(diagram) {
     homeMenuTrigger,
     hand,
     mainLabel,
+    timeNowLocation,
     timeNowDate,
     timeNowClock,
   } = diagram;
@@ -822,6 +823,16 @@ export function tideDiagramToScene(diagram) {
     cy,
   );
 
+  const timeNowLocationGroup = group("TimeNowLocation", [
+    text({
+      content: timeNowLocation.content,
+      size: timeNowLocation.fontSize,
+      hAlign: timeNowLocation.hAlign ?? "center",
+      angleRad: 0,
+      anchor: mapPoint(timeNowLocation.anchor, cx, cy),
+    }),
+  ]);
+
   const timeNowDateGroup = group("TimeNowDate", [
     text({
       content: timeNowDate.content,
@@ -901,6 +912,7 @@ export function tideDiagramToScene(diagram) {
     mainLabelGroup,
     SHOW_TIME_DELTA_AND_CENTRE_FRAME ? centreFrameGroup : group("CentreFrame", []),
     SHOW_TIME_DELTA_AND_CENTRE_FRAME ? timeDeltaGroup : group("TimeDelta", []),
+    timeNowLocationGroup,
     timeNowDateGroup,
     timeNowClockGroup,
     homeMenuTriggerGroup,

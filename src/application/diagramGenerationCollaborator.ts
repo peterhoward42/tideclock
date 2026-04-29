@@ -165,6 +165,7 @@ export type TideDiagramDocument = {
   readonly hand: HandDiagram;
   readonly timeDeltaDiagram: TimeDeltaDiagram;
   readonly centreFrameDiagram: CentreFrameDiagram;
+  readonly timeNowLocation: DiagramTextInst;
   readonly timeNowDate: DiagramTextInst;
   readonly timeNowClock: DiagramTimeNowClockInst;
 };

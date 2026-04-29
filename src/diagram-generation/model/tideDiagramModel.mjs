@@ -37,7 +37,8 @@
  *   hAlign?: 'left' | 'center' | 'right',
  * }} DiagramTextInst
  *
- * Civil clock readout: date line (**TimeNowDate**) plus `HH:MM`, `:`, and `SS` (**TimeNowClock** leaves; same baseline on the clock row).
+ * Civil clock readout: location line (**TimeNowLocation**), date line (**TimeNowDate**),
+ * plus `HH:MM`, `:`, and `SS` (**TimeNowClock** leaves; same baseline on the clock row).
  *
  * @typedef {{
  *   hhmm: DiagramTextInst,
@@ -160,6 +161,7 @@
  *   hand: HandDiagram,
  *   timeDeltaDiagram: TimeDeltaDiagram,
  *   centreFrameDiagram: CentreFrameDiagram,
+ *   timeNowLocation: DiagramTextInst,
  *   timeNowDate: DiagramTextInst,
  *   timeNowClock: DiagramTimeNowClockInst,
  * }} TideDiagramDocument

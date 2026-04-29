@@ -90,11 +90,19 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(diagram.timeNowClock.hhmm.anchor.y).toBe(tickMinY);
     expect(diagram.timeNowClock.seconds.anchor.y).toBe(tickMinY);
     expect(diagram.timeNowDate.anchor.x).toBe(maxX);
+    expect(diagram.timeNowLocation.anchor.x).toBe(maxX);
     expect(diagram.timeNowClock.seconds.anchor.x).toBe(maxX);
     const dateAbove =
       (spec.timeNowLabel as { readonly fontHeight: number; readonly dateAboveTime: number }).dateAboveTime *
       diagram.refArc.refRadius;
     expect(diagram.timeNowDate.anchor.y).toBeCloseTo(tickMinY + dateAbove, 6);
+    const fontHeight =
+      (spec.timeNowLabel as { readonly fontHeight: number; readonly dateAboveTime: number }).fontHeight *
+      diagram.refArc.refRadius;
+    expect(diagram.timeNowLocation.anchor.y).toBeCloseTo(
+      tickMinY + dateAbove + fontHeight,
+      6,
+    );
   });
 
   it('throws when annularBand is present without annularBandWidth', () => {
@@ -123,6 +131,7 @@ describe('createDiagramGenerationCollaborator', () => {
       'MainLabel',
       'CentreFrame',
       'TimeDelta',
+      'TimeNowLocation',
       'TimeNowDate',
       'TimeNowClock',
       'HomeMenuTrigger',
