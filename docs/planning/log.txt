@@ -40,7 +40,8 @@ o  try the clock hand idea
 				*  remove  redundant "at XYX" part
 				*  ditch location from summary label
 				*  reduce to just low tide in in part
-				o  justify right left
+				*  justify right left
+				o  try out different positions with shorter hand
 				o  now deal with singularity cases
 
 		o  clean up orphaned TimeDetla and CentreFrame
