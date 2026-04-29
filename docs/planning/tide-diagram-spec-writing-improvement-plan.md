@@ -22,7 +22,7 @@ Current execution status:
 - Phase 2 heading skeleton: completed in `docs/planning/tide-diagram-spec-phase2-heading-skeleton.md`.
 - Phase 3 consolidation: completed.
 - Phase 4 prose tightening: in progress.
-- Phase 5 verification: pending.
+- Phase 5 verification: in progress.
 
 Latest Phase 2 progress:
 
@@ -33,7 +33,9 @@ Latest Phase 2 progress:
 - Phase 3 reconciliation pass completed: Phase 3-touched canonical constraints remain present and semantically aligned with Phase 1 inventory rows (including canonical-time/sentinel policy, style-binding exact-match contract, strict throw behavior, and `TimeDelta` countdown vs empty-day layout/copy branches).
 - Phase 4 batch 1 completed: tightened repeated prose in `Host responsibilities` and `TimeDelta placement` while preserving constraints and branch behavior.
 - Phase 4 batch 2 completed: tightened high-density wording in `Strict diagram input (generator)` and `TimeDelta` copy/layout while preserving branch semantics, naming contracts, and placement formulas.
-- Next: continue Phase 4 constrained tightening on remaining dense element sections, then run Phase 5 semantic-equivalence verification.
+- Phase 4 batch 3 completed: tightened `AnnularBand`, `TideMarks`, and `Hand` prose (including `TimePointer` and `PointerPip` reuse text) while preserving geometry formulas, exact names, and validation constraints.
+- Phase 5 pass 1 completed (manual semantic-equivalence check on Phase 4 batches): no detected drift in sentinel policy, required-input constraints, branch outcomes, element/leaf naming contracts, or hand radial-ordering failure rules.
+- Next: finish any remaining micro-tightening, then complete full Phase 5 inventory-wide reconciliation.
 
 ## Non-negotiables
 

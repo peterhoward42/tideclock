@@ -414,36 +414,32 @@ endpoints of **this** arc at radius **R_frame** (same angular span as the **RefA
 
 ### AnnularBand
 
-**AnnularBand** is a **top-level** named element. It is the region between two
-**concentric** circular arcs sharing the **RefArc**’s centre **O**, **sweep**, and
-angular orientation (**§Polar**), closed at the two angular extremes by **radial
-segments** on the rays at **θ_left** and **θ_right**.
+**AnnularBand** is a top-level named element: the closed region between two
+concentric arcs that share the **RefArc** centre **O**, sweep, and angular
+orientation (**§Polar**), with radial closures at **θ_left** and **θ_right**.
 
 ### Geometry
 
-- **Inner** circular boundary — coincident with the **RefArc**: radius **RefRadius**,
-centre **O**, from **θ_left** to **θ_right** with the same CCW sweep as **§Polar**.
-- **Outer** circular boundary — same centre **O**, same **θ_left**, **θ_right**,
-and CCW sweep; radius **RefRadius + w** where **w = AnnularBandWidth·RefRadius**
-and **AnnularBandWidth** is the dimensionless multiplier supplied as
-`**annularBand.annularBandWidth`** (**§Sizing**: linear quantity **k·R** with
-**k** = **AnnularBandWidth**).
-- **End closures** — two **radial segments**: at **θ_left**, between radii
-**RefRadius** and **RefRadius + w**; at **θ_right**, between the same radii.
+- **Inner boundary**: coincident with **RefArc** (radius **RefRadius**, centre
+  **O**, from **θ_left** to **θ_right** with the same CCW sweep).
+- **Outer boundary**: same centre and angles, radius **RefRadius + w**, where
+  `**w = AnnularBandWidth·RefRadius`** and
+  `**AnnularBandWidth = annularBand.annularBandWidth`** (**§Sizing**, linear
+  **k·R**).
+- **End closures**: radial segments at **θ_left** and **θ_right**, each between
+  radii **RefRadius** and **RefRadius + w**.
 
 Together these four edges form one **closed** region (an **annular sector**).
 
 ### Logical model and presentation
 
-- **AnnularBand** is a **single** drawable with **both** **fill** and **stroke**
-applied to the **entire** closed boundary (inner arc, outer arc, and both radial
-segments).
-- The **RefArc** remains a **separate** top-level stroked arc, **unchanged** by this
-specification (same geometry as the **inner** circular edge of **AnnularBand**).
-- **Paint order** is a **host** responsibility (**Host responsibilities**). For
-the intended appearance—**RefArc** stroke **replacing** the **inner** portion of
-**AnnularBand**’s stroke along the shared curve—the host should paint **RefArc**
-**after** **AnnularBand** so the **RefArc** stroke **wins** at the inner boundary.
+- **AnnularBand** is one drawable with both **fill** and **stroke** on its full
+  closed boundary (inner arc, outer arc, radial closures).
+- **RefArc** remains a separate top-level stroked arc with unchanged geometry
+  (coincident with the AnnularBand inner edge).
+- Paint order remains a host responsibility (**Host responsibilities**). For the
+  intended visual override at the shared inner curve, paint **RefArc** after
+  **AnnularBand** so **RefArc** stroke wins there.
 
 ### Input
 
@@ -483,22 +479,22 @@ implies time **t** and angle **θ(t)** (**§Time and θ(t)**).
 
 ### TideMarks
 
-**TideMarks** describe tide markers under **Diagram elements**. Layering and
-paint order follow **Host responsibilities** (named elements for external binding;
-z-order not fixed here).
+**TideMarks** define tide-marker clusters under **Diagram elements**. Layering
+and paint order remain host-managed (**Host responsibilities**); this spec fixes
+names and geometry, not global z-order.
 
 ### Count and time association
 
-- **N** tide markers; count from host input.
+- Marker count **N** comes from host input.
 - Each marker provides canonical `**time`** in `**HH:MM:SS`**.
 - Parse marker `**time`** per **§Time and θ(t)** to derive **t** and **θ(t)**.
 - Marker-time validity and duplicate-time failures follow **Strict diagram input**.
-- Each marker carries a **kind** flag `**highOrLow ∈ {"High", "Low"}`**, used
-for derived event descriptions (see **TimeDelta**).
+- Each marker carries `**highOrLow ∈ {"High", "Low"}`** for derived event
+  descriptions (see **TimeDelta**).
 
 ### Logical structure
 
-Each marker is a **cluster** with **direct** children:
+Each marker emits one cluster with direct children:
 
 - **Height label** — one **TextElement**.
 - **Time label** — one **TextElement**.
@@ -509,7 +505,7 @@ Each marker is a **cluster** with **direct** children:
 For **both** labels:
 
 - **Horizontal justification** — **centre**.
-- On the marker’s polar axis from **O** at per-kind radius inputs (**§Sizing**):
+- On the marker polar axis from **O** at per-kind radius inputs (**§Sizing**):
   - Height label radius: `**<TideHeightLabelRadius>`·R`.
   - Time label radius: `**<TideTimeLabelRadius>`·R`.
 - **Baseline polar angle** — **θ(t) + π/2** (overrides **TextElement defaults**).
@@ -528,12 +524,15 @@ For **both** labels:
 
 ### TimePointer
 
-**TimePointer** is the tide **time pointer** (map-pin silhouette). Layout derives the same **metric** geometry as before; the scene emits **stroked** primitives only (**no fill** on the pointer itself).
+**TimePointer** is the tide marker pointer (map-pin silhouette). Geometry is
+unchanged; scene emission is stroke-only (**no fill** on pointer primitives).
 
-**Construction** (unchanged; used for vertex positions and the head circle):
+**Construction** (unchanged; defines vertices and head circle):
 
-- Define input `**tideMarkArrowDivergence`** — a non-negative angle in radians (host field on `**tideMarks`**).
-- Define input `**tideMarkArrowLineLen`** — a non-negative float (**k·R** scale; host field on `**tideMarks`**).
+- `**tideMarkArrowDivergence`**: non-negative radians (host field on
+  `**tideMarks`**).
+- `**tideMarkArrowLineLen`**: non-negative float (**k·R** scale; host field on
+  `**tideMarks`**).
 - **Vertex1** is the point on the RefArc corresponding to time **t**.
 - **halfAngle** is **0.5 × tideMarkArrowDivergence**
 - **Vertex2** is located with a polar offset from Vertex1:
@@ -542,23 +541,33 @@ For **both** labels:
 - **Vertex3** is located with a polar offset from Vertex1:
   - **R:** **tideMarkArrowLineLen × RefRadius**
   - **theta:** RadialAngle(t) + π − halfAngle
-- Let **line1** = the segment **Vertex1 → Vertex2** and **line2** = **Vertex1 → Vertex3** (the two equal sides of the isosceles triangle **Vertex1, Vertex2, Vertex3**).
-- Let **radial1** be the line through **Vertex2** perpendicular to **line1**, and **radial2** the line through **Vertex3** perpendicular to **line2**.
+- Let **line1** = segment **Vertex1 → Vertex2** and **line2** =
+  **Vertex1 → Vertex3** (the equal sides of isosceles triangle
+  **Vertex1, Vertex2, Vertex3**).
+- Let **radial1** be the line through **Vertex2** perpendicular to **line1**,
+  and **radial2** the line through **Vertex3** perpendicular to **line2**.
 - Let **centre** = the intersection of **radial1** and **radial2**.
 - Let **radius** = the distance from **centre** to **Vertex2** (equals distance to **Vertex3**; **Vertex1, Vertex2, Vertex3** lie on this circle).
 
-**Scene emission** (outline, same silhouette as the former filled triangle ∪ filled disk):
+**Scene emission** (outline silhouette equivalent to the former filled
+triangle-plus-disk rendering):
 
 - Two **line** primitives: **Vertex1 → Vertex2** and **Vertex1 → Vertex3** (**stroke** only).
-- One **arc** primitive: circular arc from **Vertex2** to **Vertex3** with centre **centre** and radius **radius**, choosing the arc that does **not** contain **Vertex1** in its interior (the **head** cap—the arc whose interior points lie on the opposite side of chord **Vertex2–Vertex3** from **Vertex1**). Equivalently: of the two arcs between **Vertex2** and **Vertex3**, use the one that does **not** pass through **Vertex1** along the circle.
+- One **arc** primitive: circular arc from **Vertex2** to **Vertex3** with
+  centre **centre** and radius **radius**, choosing the arc that does **not**
+  contain **Vertex1** in its interior (the head cap on the opposite side of
+  chord **Vertex2–Vertex3** from **Vertex1**). Equivalently, choose the
+  **Vertex2**-to-**Vertex3** arc that does not pass through **Vertex1**.
 
-**Presentation:** the **TimePointer** subgroup uses **stroke** colour from its leaf style; **fill** is **none** on these primitives. Hosts may set **stroke-linecap** / **stroke-linejoin** so the three curves meet cleanly at **Vertex1**, **Vertex2**, and **Vertex3** (product default: round caps and joins on the **TimePointer** group).
+**Presentation:** **TimePointer** uses leaf-style **stroke** color and no fill.
+Hosts may set `stroke-linecap`/`stroke-linejoin` so curves meet cleanly at
+**Vertex1**, **Vertex2**, and **Vertex3** (product default: round caps/joins).
 
 ### Hand
 
-**Hand** is a top-level named element tied to global `**timeNow`** via `**θ_now`**
-(**§Global “time now” input**). When `paintOrder.overrides` is used, it applies
-using the same exact group names listed here.
+**Hand** is a top-level named element tied to global `**timeNow`** via
+`**θ_now`** (**§Global "time now" input**). `paintOrder.overrides` addresses the
+exact group/leaf names listed here.
 
 ### Scene model
 
@@ -592,9 +601,9 @@ can place it before the boss-circle leaf:
 
 ### PointerPip geometry (reuse contract)
 
-- **PointerPip** reuses the exact geometric construction of
-  **TideMarks.TimePointer** (**TimePointer**, **Construction**, and **Scene emission**),
-  with these substitutions:
+- **PointerPip** reuses the exact **TideMarks.TimePointer** geometric
+  construction (**TimePointer** construction + scene emission), with these
+  substitutions:
   - use `**t = t_now`** / `**θ_now`** instead of marker time;
   - use `**pointerTipInset`** to move `**Vertex1`** inward along the `**θ_now`** ray
     from the RefArc by `**pointerTipInset·RefRadius`**;
