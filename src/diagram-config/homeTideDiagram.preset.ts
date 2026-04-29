@@ -15,7 +15,7 @@ export const homeTideDiagramLayoutBase = {
   tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
   tickLabelSize: 0.04,
   tickLabelClearance: 0.07,
-  timeNowLabel: { fontHeight: 0.035, dateAboveTime: 0.02 },
+  timeNowLabel: { fontHeight: 0.045, dateAboveTime: 0.02 },
   insideTrackRadius: 0.74,
   mainLabelRadius: 0.59,
   mainLabelTimeOffsetHours: 1.2,
