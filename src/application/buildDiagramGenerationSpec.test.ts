@@ -92,12 +92,11 @@ describe('buildDiagramGenerationSpec', () => {
     const stripes = diagram.timeDeltaDiagram.countdownStripes;
     expect(stripes).not.toBeNull();
     expect(stripes!.map((s) => s.content)).toEqual([
-      'Lymington',
+      '',
       'Tricky tides today',
-      'Use the markers',
+      '',
       '',
     ]);
-    expect(diagram.nextPointer).not.toBeNull();
   });
 
   it('injects semantic.nextTide when derivedSemantics is passed', () => {

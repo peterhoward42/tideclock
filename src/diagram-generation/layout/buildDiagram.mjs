@@ -6,34 +6,26 @@
  * See docs/specs/tide-diagram.md; spec keys mirror the open object passed from the app (diagramGenerationCollaborator.ts).
  *
  * Policies for {@link buildDiagram}:
- * - Throws if `spec.canvas`, `spec.title`, ref arc, tick sizing, tick label sizing, or `spec.waitArc` omit
+ * - Throws if `spec.canvas`, `spec.title`, ref arc, and tick sizing/tick label sizing omit
  *   required fields or supply non-finite numbers (no silent defaults).
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
- * - Sub-builders (`buildTideMarksFromSpec`, pointers, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
- * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0** (defines the Now **triangle** outer radius together with **RefRadius**).
+ * - Sub-builders (`buildTideMarksFromSpec`, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
+ * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
  * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from diagram bounds: left edge at the leftmost tick-label bound, bottom edge at the minimum tick-label-anchor **Y**.
  * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
+ * - `**mainLabelRadius**` is required: finite **k·R** multiplier **> 0**; arcuate label radius for **MainLabel**.
+ * - `**mainLabelTimeOffsetHours**` is required: finite hours offset in [0, 12] used to place MainLabel angularly away from `timeNow` toward the larger vacant interval side.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
- * - `**waitArc.radius**` must be a finite **k·R** multiplier **> 0** (zero or negative throws).
- * - `**nowPointer**` and `**nextPointer**` are required plain objects with the nested fields in docs/specs/tide-diagram.md; degenerate radial geometry (outer ≤ inner) throws.
- * - `**nowPointer.triangle.subtendedAngleRad**` is required: literal radians, strictly between **0** and **π** (see spec).
  */
 import { buildCentreFrameDiagramFromSpec } from "./centreFrame.mjs";
 import { buildTimeDeltaDiagramFromSpec } from "./timeDeltaDiagram.mjs";
-import { buildNowPointerFromSpec } from "./nowPointer.mjs";
-import { buildNextPointerFromSpec } from "./nextPointer.mjs";
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
 import {
-  requireBoolean,
   requireFiniteNumber,
   requirePlainObject,
   requireString,
-  requireWaitArcArrowStyle,
 } from "./specRequire.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
-import {
-  computeNextTideEventCore,
-} from "../model/tideEvents.mjs";
 import {
   annularBandMaxX,
   polar,
@@ -43,16 +35,45 @@ import {
 
 /** Per-character scene width heuristic; must match {@link expandBoundsByText} in `toScene.mjs`. */
 const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
+const MAIN_LABEL_CHAR_WIDTH_EM = 0.6;
+const TIME_NOW_DATE_TIME_SEPARATOR_SPACES = 3;
+// TimeNowClock is emitted as `HH:MM` + `:` + `SS`; total mono-char count = 5 + 1 + 2 = 8.
+const TIME_NOW_CLOCK_TOTAL_CHARS = 8;
 
 /**
- * Time-now readout: **TimeNowDate** (civil prefix) and **TimeNowClock** (`HH:MM` + `:` + `SS`), right-aligned
+ * Build one-line MainLabel copy from the currently resolved TimeDelta stripes.
+ * TimeDelta is hidden in scene mapping for now, but remains the source of truth for dynamic copy.
+ *
+ * @param {import('../model/tideDiagramModel.mjs').TimeDeltaDiagram} timeDeltaDiagram
+ * @returns {string}
+ */
+function synthesizeMainLabelContentFromTimeDelta(timeDeltaDiagram) {
+  const stripes =
+    timeDeltaDiagram.countdownStripes ?? timeDeltaDiagram.timeDeltaEmptyStripes ?? [];
+  const lines = stripes.map((stripe) => stripe.content.trim());
+  const nonEmpty = lines.filter((line) => line.length > 0);
+  if (nonEmpty.length === 0) return "";
+
+  // Prefer the countdown summary line `<Low tide|High tide> in <Hh Mm>` when present.
+  const intervalLine = nonEmpty.find(
+    (line) => line.startsWith("Low tide in ") || line.startsWith("High tide in "),
+  );
+  if (intervalLine) return intervalLine;
+
+  // Fallback: join remaining non-empty lines, excluding the explicit `at HH:MM` clock row.
+  return nonEmpty.filter((line) => !line.startsWith("at ")).join(" ");
+}
+
+/**
+ * Time-now readout: **TimeNowLocation** (current location name), and a single merged date+clock row:
+ * **TimeNowDate** (civil prefix) concatenated on the left of **TimeNowClock** (`HH:MM` + `:` + `SS`), right-aligned
  * to {@link annularBandMaxX}; clock baseline **Y** matches the minimum **Y** among **TickLabels** (see spec).
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
  * @param {number} annularMaxX diagram-space maximum **X** of **AnnularBand**
  * @param {number} clockBaselineY diagram-space **Y** shared by all three clock fragments (tick-label-min rule)
- * @returns {{ timeNowDate: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowClock: import('../model/tideDiagramModel.mjs').DiagramTimeNowClockInst }}
+ * @returns {{ timeNowLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowDate: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowClock: import('../model/tideDiagramModel.mjs').DiagramTimeNowClockInst }}
  */
 function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaselineY) {
   const o = requirePlainObject(spec.timeNowLabel, "spec.timeNowLabel");
@@ -77,19 +98,36 @@ function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaseline
     throw new Error("spec.timeNowDatePrefix must be a string");
   }
   const datePrefix = spec.timeNowDatePrefix.trim();
+  if (typeof spec.timeNowLocation !== "string") {
+    throw new Error("spec.timeNowLocation must be a string");
+  }
+  const locationName = spec.timeNowLocation.trim();
   const fontSize = fontHeightK * refRadius;
   const ax = annularMaxX;
   const timeY = clockBaselineY;
-  const dateY = timeY + dateAboveK * refRadius;
+  // Date and clock share a baseline: the 2nd row in the merged time-now readout.
+  const dateY = timeY;
+  // Baseline spacing is tuned to typography: location stays above the merged (date+clock) row.
+  const locationY = dateY + dateAboveK * refRadius + fontSize;
   const canonical = parsedNow.canonical;
   const w = TIME_NOW_LABEL_CHAR_WIDTH_EM * fontSize;
   const secondsWidth = 2 * w;
   const colonWidth = 1 * w;
+  const clockTotalWidth = TIME_NOW_CLOCK_TOTAL_CHARS * w;
+  const separatorWidth = TIME_NOW_DATE_TIME_SEPARATOR_SPACES * w;
+  // TimeNowDate is right-aligned so its right edge stops before the clock and separator.
+  const dateX = ax - clockTotalWidth - separatorWidth;
   return {
+    timeNowLocation: {
+      content: locationName,
+      fontSize,
+      anchor: { x: ax, y: locationY },
+      hAlign: "right",
+    },
     timeNowDate: {
       content: datePrefix,
       fontSize,
-      anchor: { x: ax, y: dateY },
+      anchor: { x: dateX, y: dateY },
       hAlign: "right",
     },
     timeNowClock: {
@@ -111,6 +149,150 @@ function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaseline
         anchor: { x: ax, y: timeY },
         hAlign: "right",
       },
+    },
+  };
+}
+
+function normalLineIntersection(v1, v2, v3) {
+  const d1x = v2.x - v1.x;
+  const d1y = v2.y - v1.y;
+  const d2x = v3.x - v1.x;
+  const d2y = v3.y - v1.y;
+  const n1x = -d1y;
+  const n1y = d1x;
+  const n2x = -d2y;
+  const n2y = d2x;
+  const denom = n1x * (-n2y) - n1y * (-n2x);
+  if (!Number.isFinite(denom) || Math.abs(denom) < 1e-9) {
+    return { x: 0.5 * (v2.x + v3.x), y: 0.5 * (v2.y + v3.y) };
+  }
+  const bx = v3.x - v2.x;
+  const by = v3.y - v2.y;
+  const t = (bx * (-n2y) - by * (-n2x)) / denom;
+  return { x: v2.x + t * n1x, y: v2.y + t * n1y };
+}
+
+function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
+  const hand = requirePlainObject(spec.hand, "spec.hand");
+  const bossCircleRadiusK = requireFiniteNumber(
+    hand.bossCircleRadius,
+    "spec.hand.bossCircleRadius",
+  );
+  const smallCircleRadiusK = requireFiniteNumber(
+    hand.smallCircleRadius,
+    "spec.hand.smallCircleRadius",
+  );
+  const pointerPipScale = requireFiniteNumber(
+    hand.pointerPipScale,
+    "spec.hand.pointerPipScale",
+  );
+  const pointerTipInsetK = requireFiniteNumber(
+    hand.pointerTipInset,
+    "spec.hand.pointerTipInset",
+  );
+  if (!(bossCircleRadiusK > 0)) {
+    throw new Error("spec.hand.bossCircleRadius must be greater than 0");
+  }
+  if (!(smallCircleRadiusK > 0)) {
+    throw new Error("spec.hand.smallCircleRadius must be greater than 0");
+  }
+  if (!(pointerPipScale > 0)) {
+    throw new Error("spec.hand.pointerPipScale must be greater than 0");
+  }
+  if (!(pointerTipInsetK >= 0)) {
+    throw new Error("spec.hand.pointerTipInset must be greater than or equal to 0");
+  }
+  const tideMarks = requirePlainObject(spec.tideMarks, "spec.tideMarks");
+  const tideMarkArrowDivergence = Math.max(
+    0,
+    requireFiniteNumber(
+      tideMarks.tideMarkArrowDivergence,
+      "spec.tideMarks.tideMarkArrowDivergence",
+    ),
+  );
+  const tideMarkArrowLineLen = Math.max(
+    0,
+    requireFiniteNumber(
+      tideMarks.tideMarkArrowLineLen,
+      "spec.tideMarks.tideMarkArrowLineLen",
+    ),
+  );
+  const insideTrackRadiusK = requireFiniteNumber(
+    spec.insideTrackRadius,
+    "spec.insideTrackRadius",
+  );
+  if (!(insideTrackRadiusK > 0)) {
+    throw new Error("spec.insideTrackRadius must be greater than 0");
+  }
+  const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
+  if (parsedNow.isRightEndpoint) {
+    throw new Error('spec.timeNow cannot be "24:00:00"');
+  }
+  const theta = timeToTheta(parsedNow.hours, thetaLeft, thetaRight);
+  const unit = polar(1, theta);
+  const rRef = refRadius;
+  const rTrack = insideTrackRadiusK * refRadius;
+  const rTip = rRef - pointerTipInsetK * refRadius;
+  const pointerOffsetR = tideMarkArrowLineLen * refRadius * pointerPipScale;
+  const halfAngle = 0.5 * tideMarkArrowDivergence;
+  const v1 = { x: unit.x * rTip, y: unit.y * rTip };
+  const v2Offset = polar(pointerOffsetR, theta + Math.PI + halfAngle);
+  const v3Offset = polar(pointerOffsetR, theta + Math.PI - halfAngle);
+  const v2 = { x: v1.x + v2Offset.x, y: v1.y + v2Offset.y };
+  const v3 = { x: v1.x + v3Offset.x, y: v1.y + v3Offset.y };
+  const pointerHeadCenter = normalLineIntersection(v1, v2, v3);
+  const pointerHeadRadius = Math.hypot(
+    pointerHeadCenter.x - v2.x,
+    pointerHeadCenter.y - v2.y,
+  );
+  const smallCircleRadius = smallCircleRadiusK * refRadius;
+  const headToSmallCenter = pointerHeadRadius + smallCircleRadius;
+  const smallCircleCenterOutward = {
+    x: pointerHeadCenter.x + unit.x * headToSmallCenter,
+    y: pointerHeadCenter.y + unit.y * headToSmallCenter,
+  };
+  const smallCircleCenterInward = {
+    x: pointerHeadCenter.x - unit.x * headToSmallCenter,
+    y: pointerHeadCenter.y - unit.y * headToSmallCenter,
+  };
+  const smallCircleCenter =
+    Math.hypot(smallCircleCenterInward.x, smallCircleCenterInward.y) <=
+    Math.hypot(smallCircleCenterOutward.x, smallCircleCenterOutward.y)
+      ? smallCircleCenterInward
+      : smallCircleCenterOutward;
+  const rSmallCenter = Math.hypot(smallCircleCenter.x, smallCircleCenter.y);
+  const rSmallInner = rSmallCenter - smallCircleRadius;
+  const rBoss = bossCircleRadiusK * refRadius;
+  if (!(rTip < rTrack && rTrack < rRef)) {
+    throw new Error(
+      "spec.hand radial ordering invalid: require r_tip < r_track < r_ref",
+    );
+  }
+  if (!(rBoss < rSmallInner)) {
+    throw new Error(
+      "spec.hand radial ordering invalid: require r_boss < r_small_inner",
+    );
+  }
+  return {
+    timeHours: parsedNow.hours,
+    theta,
+    bossCircle: { center: { x: 0, y: 0 }, radius: rBoss },
+    smallCircle: { center: smallCircleCenter, radius: smallCircleRadius },
+    extension: {
+      start: { x: unit.x * rTip, y: unit.y * rTip },
+      end: { x: unit.x * rTrack, y: unit.y * rTrack },
+    },
+    projection: {
+      start: { x: unit.x * rTrack, y: unit.y * rTrack },
+      end: { x: unit.x * rRef, y: unit.y * rRef },
+    },
+    arm: {
+      start: { x: unit.x * rBoss, y: unit.y * rBoss },
+      end: { x: unit.x * rSmallInner, y: unit.y * rSmallInner },
+    },
+    pointerPip: {
+      triangle: { v1, v2, v3 },
+      circle: { center: pointerHeadCenter, radius: pointerHeadRadius },
     },
   };
 }
@@ -195,7 +377,7 @@ export function buildDiagram(spec) {
     );
   }
   const clockBaselineY = Math.min(...tickLabels.map((tl) => tl.anchor.y));
-  const { timeNowDate, timeNowClock } = buildTimeNowReadoutFromSpec(
+  const { timeNowLocation, timeNowDate, timeNowClock } = buildTimeNowReadoutFromSpec(
     spec,
     refRadius,
     annularMaxX,
@@ -221,30 +403,45 @@ export function buildDiagram(spec) {
     thetaRight,
   );
 
-  const nowPointer = buildNowPointerFromSpec(
-    spec,
-    refRadius,
-    thetaLeft,
-    thetaRight,
-  );
-
-  const nextPointer = buildNextPointerFromSpec(
-    spec,
-    refRadius,
-    thetaLeft,
-    thetaRight,
-  );
-  const waitArc = buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight);
   const insideTrack = buildInsideTrackFromSpec(
     spec,
     refRadius,
     thetaLeft,
     sweepRad,
   );
+  const parsedNowForMainLabel = parseCanonicalTimeOrThrow(
+    spec.timeNow,
+    "spec.timeNow",
+  );
+  if (parsedNowForMainLabel.isRightEndpoint) {
+    throw new Error('spec.timeNow cannot be "24:00:00"');
+  }
+  const mainLabelTimeOffsetHours = requireFiniteNumber(
+    spec.mainLabelTimeOffsetHours,
+    "spec.mainLabelTimeOffsetHours",
+  );
+  if (mainLabelTimeOffsetHours < 0 || mainLabelTimeOffsetHours > 12) {
+    throw new Error(
+      "spec.mainLabelTimeOffsetHours must be a finite number from 0 to 12 inclusive",
+    );
+  }
+  const hasLargerRightVacantInterval = parsedNowForMainLabel.hours < 12;
+  const mainLabelAnchorHours = hasLargerRightVacantInterval
+    ? parsedNowForMainLabel.hours + mainLabelTimeOffsetHours
+    : parsedNowForMainLabel.hours - mainLabelTimeOffsetHours;
+  const mainLabel = buildMainLabel(
+    spec,
+    refRadius,
+    timeToTheta(mainLabelAnchorHours, thetaLeft, thetaRight),
+    hasLargerRightVacantInterval ? "left" : "right",
+    synthesizeMainLabelContentFromTimeDelta(timeDeltaDiagram),
+  );
+  const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
 
   return {
     version: 1,
     meta: { title, width, height },
+    paintOrder: spec.paintOrder,
     refArc: {
       center: { x: 0, y: 0 },
       refRadius,
@@ -253,16 +450,16 @@ export function buildDiagram(spec) {
       thetaRight,
     },
     insideTrack,
+    mainLabel,
     tickMarks,
     tickLabels,
     tideMarks,
-    nowPointer,
-    nextPointer,
-    waitArc,
     annularBand,
     homeMenuTrigger,
+    hand,
     timeDeltaDiagram,
     centreFrameDiagram,
+    timeNowLocation,
     timeNowDate,
     timeNowClock,
   };
@@ -327,6 +524,37 @@ function buildInsideTrackFromSpec(spec, refRadius, thetaLeft, sweepRad) {
     radius: k * refRadius,
     thetaLeft,
     sweepRad,
+  };
+}
+
+/**
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @param {number} thetaAnchor
+ * @param {"left" | "right"} hAlign
+ * @param {string} content
+ * @returns {import('../model/tideDiagramModel.mjs').MainLabelDiagram}
+ */
+function buildMainLabel(spec, refRadius, thetaAnchor, hAlign, content) {
+  const mainLabelRadiusK = requireFiniteNumber(
+    spec.mainLabelRadius,
+    "spec.mainLabelRadius",
+  );
+  if (!(mainLabelRadiusK > 0)) {
+    throw new Error("spec.mainLabelRadius must be a finite number greater than 0");
+  }
+  const radius = mainLabelRadiusK * refRadius;
+  const fontSize = 0.045 * refRadius;
+  const arcLength = content.length * fontSize * MAIN_LABEL_CHAR_WIDTH_EM;
+  const sweepRad = arcLength / radius;
+  return {
+    content,
+    fontSize,
+    center: { x: 0, y: 0 },
+    radius,
+    thetaStart: hAlign === "left" ? thetaAnchor : thetaAnchor - sweepRad,
+    sweepRad,
+    hAlign,
   };
 }
 
@@ -407,89 +635,3 @@ function buildHomeMenuTriggerFromSpec(spec, refRadius, leftEdgeX, bottomEdgeY) {
   };
 }
 
-/**
- * Omit WaitArc arrow metadata when the configured marker length would dominate
- * the rendered arc segment.
- *
- * Renderer note: `scaleWithStroke: true` uses marker units in stroke-widths.
- * The current renderer uses a scene stroke width of 1, so `lengthK` maps 1:1
- * to scene units for this fit check.
- *
- * @param {{ radius: number, sweepRad: number, lengthK: number, scaleWithStroke: boolean }} params
- * @returns {boolean}
- */
-function shouldOmitWaitArcArrowForSweepFit(params) {
-  const arcLength = Math.abs(params.sweepRad) * params.radius;
-  const arrowLengthSceneUnits = params.scaleWithStroke ? params.lengthK : params.lengthK;
-  // Arrowheads can still read well when somewhat longer than the arc span.
-  // Omit only when the arc is very short relative to the configured arrow length.
-  return arcLength < 0.5 * arrowLengthSceneUnits;
-}
-
-/**
- * @param {Record<string, unknown>} spec
- * @param {number} refRadius
- * @param {number} thetaLeft
- * @param {number} thetaRight
- * @returns {import('../model/tideDiagramModel.mjs').WaitArcDiagram | null}
- */
-function buildWaitArcFromSpec(spec, refRadius, thetaLeft, thetaRight) {
-  const raw = requirePlainObject(spec.waitArc, "spec.waitArc");
-  const radiusK = requireFiniteNumber(raw.radius, "spec.waitArc.radius");
-  if (!(radiusK > 0)) {
-    throw new Error(
-      "spec.waitArc.radius must be a finite number greater than 0 (RefRadius multiple)",
-    );
-  }
-  const radius = radiusK * refRadius;
-
-  const arrowRaw = requirePlainObject(raw.arrow, "spec.waitArc.arrow");
-  const lengthK = requireFiniteNumber(arrowRaw.lengthK, "spec.waitArc.arrow.lengthK");
-  const widthK = requireFiniteNumber(arrowRaw.widthK, "spec.waitArc.arrow.widthK");
-  const insetK = requireFiniteNumber(arrowRaw.insetK, "spec.waitArc.arrow.insetK");
-  const style = requireWaitArcArrowStyle(
-    arrowRaw.style,
-    "spec.waitArc.arrow.style",
-  );
-  const scaleWithStroke = requireBoolean(
-    arrowRaw.scaleWithStroke,
-    "spec.waitArc.arrow.scaleWithStroke",
-  );
-
-  const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
-  if (parsedNow.isRightEndpoint) {
-    throw new Error('spec.timeNow cannot be "24:00:00"');
-  }
-  const core = computeNextTideEventCore(spec, parsedNow);
-  if (core == null) {
-    return null;
-  }
-  const nowTheta = timeToTheta(parsedNow.hours, thetaLeft, thetaRight);
-  const nextTheta = timeToTheta(core.seconds / 3600, thetaLeft, thetaRight);
-  const sweepRad = Math.max(0, nextTheta - nowTheta);
-  const omitArrowForSweepFit = shouldOmitWaitArcArrowForSweepFit({
-    radius,
-    sweepRad,
-    lengthK,
-    scaleWithStroke,
-  });
-
-  return {
-    center: { x: 0, y: 0 },
-    radius,
-    thetaStart: nowTheta,
-    sweepRad,
-    ...(omitArrowForSweepFit
-      ? {}
-      : {
-          arrow: {
-            at: "end",
-            lengthK,
-            widthK,
-            insetK,
-            style,
-            scaleWithStroke,
-          },
-        }),
-  };
-}

@@ -48,18 +48,6 @@
  *   outline?: boolean,
  * }} TrianglePrimitive
  *
- * Filled closed path for the Now “triangle” (product default: **NowTriangle** fill/stroke palette aligned with tide **TimePointer** stroke colour):
- * vertex on RefArc, two segments to the annulus outer circle, cap = minor arc on that circle.
- * See docs/specs/tide-diagram.md §NowPointer.
- *
- * @typedef {{
- *   kind: 'nowWedgeOutline',
- *   center: Point,
- *   vertex: Point,
- *   outerArcStart: Point,
- *   outerArcSweepRad: number,
- * }} NowWedgeOutlinePrimitive
- *
  * @typedef {{
  *   kind: 'circle',
  *   center: Point,
@@ -100,12 +88,22 @@
  * }} TextPrimitive
  *
  * @typedef {{
+ *   kind: 'arcText',
+ *   content: string,
+ *   size: number,
+ *   center: Point,
+ *   radius: number,
+ *   thetaStart: number,
+ *   sweepRad: number,
+ * }} ArcTextPrimitive
+ *
+ * @typedef {{
  *   kind: 'group',
  *   name: string,
  *   children: SceneNode[],
  * }} GroupNode
  *
- * @typedef { LinePrimitive | ArcPrimitive | ArcSegmentPrimitive | TrianglePrimitive | NowWedgeOutlinePrimitive | CirclePrimitive | RoundedRectPrimitive | AnnularSectorPrimitive | TextPrimitive | GroupNode } SceneNode
+ * @typedef { LinePrimitive | ArcPrimitive | ArcSegmentPrimitive | TrianglePrimitive | CirclePrimitive | RoundedRectPrimitive | AnnularSectorPrimitive | TextPrimitive | ArcTextPrimitive | GroupNode } SceneNode
  *
  * @typedef {{
  *   title: string,
@@ -242,27 +240,6 @@ export function triangle(a, b, c, opts) {
 }
 
 /**
- * @param {Point} center — RefArc centre (diagram space)
- * @param {Point} vertex — on RefArc, wedge tip toward **center**
- * @param {Point} outerArcStart — one intersection of a wedge ray with the annulus outer circle
- * @param {number} outerArcSweepRad — signed CCW sweep on the outer circle to the other ray intersection (minor arc)
- * @returns {NowWedgeOutlinePrimitive}
- */
-export function nowWedgeOutline(center, vertex, outerArcStart, outerArcSweepRad) {
-  assertPoint("center", center);
-  assertPoint("vertex", vertex);
-  assertPoint("outerArcStart", outerArcStart);
-  assertFiniteNumber("outerArcSweepRad", outerArcSweepRad);
-  return {
-    kind: "nowWedgeOutline",
-    center,
-    vertex,
-    outerArcStart,
-    outerArcSweepRad,
-  };
-}
-
-/**
  * @param {Point} center
  * @param {number} radius
  * @returns {CirclePrimitive}
@@ -369,4 +346,39 @@ export function text({ content, size, hAlign, angleRad, anchor, dominantBaseline
     node.dominantBaseline = "middle";
   }
   return node;
+}
+
+/**
+ * Text laid along a circular arc in scene space.
+ *
+ * @param {object} o
+ * @param {string} o.content
+ * @param {number} o.size
+ * @param {Point} o.center
+ * @param {number} o.radius
+ * @param {number} o.thetaStart
+ * @param {number} o.sweepRad
+ * @returns {ArcTextPrimitive}
+ */
+export function arcText({ content, size, center, radius, thetaStart, sweepRad }) {
+  if (typeof content !== "string") {
+    throw new Error("content must be a string");
+  }
+  assertFiniteNumber("size", size);
+  assertPoint("center", center);
+  assertFiniteNumber("radius", radius);
+  assertFiniteNumber("thetaStart", thetaStart);
+  assertFiniteNumber("sweepRad", sweepRad);
+  if (!(radius > 0)) {
+    throw new Error("radius must be greater than 0");
+  }
+  return {
+    kind: "arcText",
+    content,
+    size,
+    center,
+    radius,
+    thetaStart,
+    sweepRad,
+  };
 }

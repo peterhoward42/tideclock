@@ -24,6 +24,77 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "thetaRight": 6.283185307179586,
     },
   },
+  "hand": {
+    "arm": {
+      "end": {
+        "x": 48.942087362739656,
+        "y": -34.26166282053241,
+      },
+      "start": {
+        "x": 7.73338588912243,
+        "y": -5.41371800982671,
+      },
+    },
+    "bossCircle": {
+      "center": {
+        "x": 0,
+        "y": 0,
+      },
+      "radius": 9.44,
+    },
+    "extension": {
+      "end": {
+        "x": 71.53381947438247,
+        "y": -50.07689159089707,
+      },
+      "start": {
+        "x": 67.66712652982126,
+        "y": -47.370032585983715,
+      },
+    },
+    "pointerPip": {
+      "circle": {
+        "center": {
+          "x": 55.86001063045406,
+          "y": -39.10452031167394,
+        },
+        "radius": 5.612579978749101,
+      },
+      "triangle": {
+        "v1": {
+          "x": 67.66712652982126,
+          "y": -47.370032585983715,
+        },
+        "v2": {
+          "x": 54.68586236038286,
+          "y": -44.59291077316117,
+        },
+        "v3": {
+          "x": 60.61517793476375,
+          "y": -36.123004266793515,
+        },
+      },
+    },
+    "projection": {
+      "end": {
+        "x": 96.66732361403038,
+        "y": -67.67147512283388,
+      },
+      "start": {
+        "x": 71.53381947438247,
+        "y": -50.07689159089707,
+      },
+    },
+    "smallCircle": {
+      "center": {
+        "x": 50.102095246108014,
+        "y": -35.07372052200641,
+      },
+      "radius": 1.416,
+    },
+    "theta": 5.67242915205982,
+    "timeHours": 19.33416666666667,
+  },
   "homeMenuTrigger": {
     "center": {
       "x": -119.652,
@@ -44,70 +115,31 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "sweepRad": 3.141592653589793,
     "thetaLeft": 3.141592653589793,
   },
+  "mainLabel": {
+    "center": {
+      "x": 0,
+      "y": 0,
+    },
+    "content": "High tide in 3h 45m",
+    "fontSize": 5.31,
+    "hAlign": "right",
+    "radius": 76.7,
+    "sweepRad": 0.7892307692307691,
+    "thetaStart": 4.752298688929478,
+  },
   "meta": {
     "height": 320,
     "title": "home-tide-diagram",
     "width": 420,
   },
-  "nextPointer": {
-    "circle": {
-      "center": {
-        "x": 86.71473766130416,
-        "y": -10.263365546018383,
+  "paintOrder": {
+    "overrides": [
+      {
+        "name": "Hand",
+        "place": "before",
+        "relativeTo": "AnnularBand",
       },
-      "radius": 1.5171428571428571,
-    },
-    "radialLine": {
-      "end": {
-        "x": 86.71473766130416,
-        "y": -10.263365546018383,
-      },
-      "start": {
-        "x": 52.7319350643066,
-        "y": -6.241235805011181,
-      },
-    },
-    "theta": 6.165375582669969,
-    "timeHours": 23.1,
-  },
-  "nowPointer": {
-    "nowLabel": {
-      "anchor": {
-        "x": 55.97046734438385,
-        "y": -36.30103697212054,
-      },
-      "angleRad": 11.955614459239406,
-      "content": "now",
-      "fontSize": 5.31,
-    },
-    "nowLabelBranch": "B",
-    "radialLine": {
-      "end": {
-        "x": 65.73378005754067,
-        "y": -46.016603083527045,
-      },
-      "start": {
-        "x": 43.50029562631367,
-        "y": -30.452163805275248,
-      },
-    },
-    "theta": 5.67242915205982,
-    "timeHours": 19.33416666666667,
-    "triangle": {
-      "center": {
-        "x": 0,
-        "y": 0,
-      },
-      "outerArcStart": {
-        "x": 100.39196050899673,
-        "y": -72.61311358948907,
-      },
-      "outerArcSweepRad": 0.030868558677253022,
-      "vertex": {
-        "x": 96.66732361403038,
-        "y": -67.67147512283388,
-      },
-    },
+    ],
   },
   "refArc": {
     "center": {
@@ -692,7 +724,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           "x": 0,
           "y": -7.67,
         },
-        "content": "Lymington",
+        "content": "",
         "fontSize": 5.664,
         "hAlign": "center",
       },
@@ -729,11 +761,11 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "timeNowClock": {
     "hhmm": {
       "anchor": {
-        "x": 114.34200000000001,
+        "x": 116.46600000000001,
         "y": -130.98000000000002,
       },
       "content": "19:20",
-      "fontSize": 5.31,
+      "fontSize": 4.130000000000001,
       "hAlign": "right",
     },
     "seconds": {
@@ -742,46 +774,38 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "y": -130.98000000000002,
       },
       "content": "03",
-      "fontSize": 5.31,
+      "fontSize": 4.130000000000001,
       "hAlign": "right",
     },
     "secondsColon": {
       "anchor": {
-        "x": 117.528,
+        "x": 118.944,
         "y": -130.98000000000002,
       },
       "content": ":",
-      "fontSize": 5.31,
+      "fontSize": 4.130000000000001,
       "hAlign": "right",
     },
   },
   "timeNowDate": {
     "anchor": {
-      "x": 123.9,
-      "y": -125.08000000000001,
+      "x": 96.64200000000001,
+      "y": -130.98000000000002,
     },
     "content": "Mon 23 Mar",
-    "fontSize": 5.31,
+    "fontSize": 4.130000000000001,
+    "hAlign": "right",
+  },
+  "timeNowLocation": {
+    "anchor": {
+      "x": 123.9,
+      "y": -124.49000000000001,
+    },
+    "content": "Lymington",
+    "fontSize": 4.130000000000001,
     "hAlign": "right",
   },
   "version": 1,
-  "waitArc": {
-    "arrow": {
-      "at": "end",
-      "insetK": 0,
-      "lengthK": 24,
-      "scaleWithStroke": true,
-      "style": "filled",
-      "widthK": 10,
-    },
-    "center": {
-      "x": 0,
-      "y": 0,
-    },
-    "radius": 80.24000000000001,
-    "sweepRad": 0.4929464306101492,
-    "thetaStart": 5.67242915205982,
-  },
 }
 `;
 
@@ -791,15 +815,158 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "height": 320,
     "previewFrame": {
       "maxX": 334.9,
-      "maxY": 162.41600000000003,
+      "maxY": 170.44,
       "minX": 77.548,
-      "minY": 26.95799999999998,
+      "minY": 27.075999999999983,
     },
     "title": "home-tide-diagram",
     "width": 420,
   },
   "root": {
     "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "center": {
+                  "x": 210,
+                  "y": 160,
+                },
+                "kind": "circle",
+                "radius": 9.44,
+              },
+            ],
+            "kind": "group",
+            "name": "BossCircle",
+          },
+          {
+            "children": [
+              {
+                "center": {
+                  "x": 260.10209524610804,
+                  "y": 124.92627947799359,
+                },
+                "kind": "circle",
+                "radius": 1.416,
+              },
+            ],
+            "kind": "group",
+            "name": "SmallCircle",
+          },
+          {
+            "children": [
+              {
+                "end": {
+                  "x": 281.5338194743825,
+                  "y": 109.92310840910292,
+                },
+                "kind": "line",
+                "start": {
+                  "x": 277.66712652982125,
+                  "y": 112.62996741401628,
+                },
+              },
+            ],
+            "kind": "group",
+            "name": "Extension",
+          },
+          {
+            "children": [
+              {
+                "end": {
+                  "x": 306.66732361403035,
+                  "y": 92.32852487716612,
+                },
+                "kind": "line",
+                "start": {
+                  "x": 281.5338194743825,
+                  "y": 109.92310840910292,
+                },
+              },
+            ],
+            "kind": "group",
+            "name": "Projection",
+          },
+          {
+            "children": [
+              {
+                "end": {
+                  "x": 258.94208736273964,
+                  "y": 125.73833717946759,
+                },
+                "kind": "line",
+                "start": {
+                  "x": 217.73338588912242,
+                  "y": 154.5862819901733,
+                },
+              },
+            ],
+            "kind": "group",
+            "name": "Arm",
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "end": {
+                      "x": 264.6858623603829,
+                      "y": 115.40708922683882,
+                    },
+                    "kind": "line",
+                    "start": {
+                      "x": 277.66712652982125,
+                      "y": 112.62996741401628,
+                    },
+                  },
+                ],
+                "kind": "group",
+                "name": "PointerPipSideA",
+              },
+              {
+                "children": [
+                  {
+                    "end": {
+                      "x": 270.6151779347638,
+                      "y": 123.87699573320648,
+                    },
+                    "kind": "line",
+                    "start": {
+                      "x": 277.66712652982125,
+                      "y": 112.62996741401628,
+                    },
+                  },
+                ],
+                "kind": "group",
+                "name": "PointerPipSideB",
+              },
+              {
+                "children": [
+                  {
+                    "center": {
+                      "x": 265.86001063045404,
+                      "y": 120.89547968832606,
+                    },
+                    "kind": "arc",
+                    "start": {
+                      "x": 264.6858623603829,
+                      "y": 115.40708922683882,
+                    },
+                    "sweepRad": -3.9415926535898067,
+                  },
+                ],
+                "kind": "group",
+                "name": "PointerPipHeadArc",
+              },
+            ],
+            "kind": "group",
+            "name": "PointerPip",
+          },
+        ],
+        "kind": "group",
+        "name": "Hand",
+      },
       {
         "children": [
           {
@@ -852,32 +1019,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         ],
         "kind": "group",
         "name": "RefArc",
-      },
-      {
-        "children": [
-          {
-            "arrow": {
-              "at": "end",
-              "insetK": 0,
-              "lengthK": 24,
-              "scaleWithStroke": true,
-              "style": "filled",
-              "widthK": 10,
-            },
-            "center": {
-              "x": 210,
-              "y": 160,
-            },
-            "kind": "arc",
-            "start": {
-              "x": 275.7337800575407,
-              "y": 113.98339691647296,
-            },
-            "sweepRad": 0.4929464306101492,
-          },
-        ],
-        "kind": "group",
-        "name": "WaitArc",
       },
       {
         "children": [
@@ -1587,88 +1728,24 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               "x": 210,
               "y": 160,
             },
-            "kind": "arcSegment",
-            "start": {
-              "x": 156.9,
-              "y": 160,
-            },
-            "sweepRad": 3.141592653589793,
+            "content": "High tide in 3h 45m",
+            "kind": "arcText",
+            "radius": 76.7,
+            "size": 5.31,
+            "sweepRad": 0.7892307692307691,
+            "thetaStart": 4.752298688929478,
           },
         ],
+        "kind": "group",
+        "name": "MainLabel",
+      },
+      {
+        "children": [],
         "kind": "group",
         "name": "CentreFrame",
       },
       {
-        "children": [
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 210,
-                  "y": 152.33,
-                },
-                "angleRad": 0,
-                "content": "Lymington",
-                "hAlign": "center",
-                "kind": "text",
-                "size": 5.664,
-              },
-            ],
-            "kind": "group",
-            "name": "TimeDeltaLocation",
-          },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 210,
-                  "y": 141.71,
-                },
-                "angleRad": 0,
-                "content": "Tide coming in",
-                "hAlign": "center",
-                "kind": "text",
-                "size": 5.31,
-              },
-            ],
-            "kind": "group",
-            "name": "TimeDeltaPhase",
-          },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 210,
-                  "y": 130.5,
-                },
-                "angleRad": 0,
-                "content": "High tide in 3h 45m",
-                "hAlign": "center",
-                "kind": "text",
-                "size": 5.31,
-              },
-            ],
-            "kind": "group",
-            "name": "TimeDeltaNext",
-          },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 210,
-                  "y": 118.7,
-                },
-                "angleRad": 0,
-                "content": "at 23:06",
-                "hAlign": "center",
-                "kind": "text",
-                "size": 5.31,
-              },
-            ],
-            "kind": "group",
-            "name": "TimeDeltaNextTime",
-          },
-        ],
+        "children": [],
         "kind": "group",
         "name": "TimeDelta",
       },
@@ -1677,13 +1754,30 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           {
             "anchor": {
               "x": 333.9,
-              "y": 34.91999999999999,
+              "y": 35.50999999999999,
+            },
+            "angleRad": 0,
+            "content": "Lymington",
+            "hAlign": "right",
+            "kind": "text",
+            "size": 4.130000000000001,
+          },
+        ],
+        "kind": "group",
+        "name": "TimeNowLocation",
+      },
+      {
+        "children": [
+          {
+            "anchor": {
+              "x": 306.642,
+              "y": 29.019999999999982,
             },
             "angleRad": 0,
             "content": "Mon 23 Mar",
             "hAlign": "right",
             "kind": "text",
-            "size": 5.31,
+            "size": 4.130000000000001,
           },
         ],
         "kind": "group",
@@ -1695,14 +1789,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 324.342,
+                  "x": 326.466,
                   "y": 29.019999999999982,
                 },
                 "angleRad": 0,
                 "content": "19:20",
                 "hAlign": "right",
                 "kind": "text",
-                "size": 5.31,
+                "size": 4.130000000000001,
               },
             ],
             "kind": "group",
@@ -1712,14 +1806,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 327.528,
+                  "x": 328.944,
                   "y": 29.019999999999982,
                 },
                 "angleRad": 0,
                 "content": ":",
                 "hAlign": "right",
                 "kind": "text",
-                "size": 5.31,
+                "size": 4.130000000000001,
               },
             ],
             "kind": "group",
@@ -1736,7 +1830,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "content": "03",
                 "hAlign": "right",
                 "kind": "text",
-                "size": 5.31,
+                "size": 4.130000000000001,
               },
             ],
             "kind": "group",
@@ -1745,93 +1839,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         ],
         "kind": "group",
         "name": "TimeNowClock",
-      },
-      {
-        "children": [
-          {
-            "children": [
-              {
-                "center": {
-                  "x": 210,
-                  "y": 160,
-                },
-                "kind": "nowWedgeOutline",
-                "outerArcStart": {
-                  "x": 310.3919605089967,
-                  "y": 87.38688641051093,
-                },
-                "outerArcSweepRad": 0.030868558677253022,
-                "vertex": {
-                  "x": 306.66732361403035,
-                  "y": 92.32852487716612,
-                },
-              },
-            ],
-            "kind": "group",
-            "name": "NowTriangle",
-          },
-          {
-            "children": [
-              {
-                "end": {
-                  "x": 275.7337800575407,
-                  "y": 113.98339691647296,
-                },
-                "kind": "line",
-                "start": {
-                  "x": 253.5002956263137,
-                  "y": 129.54783619472477,
-                },
-              },
-            ],
-            "kind": "group",
-            "name": "NowRadialLine",
-          },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 265.97046734438385,
-                  "y": 123.69896302787946,
-                },
-                "angleRad": 11.955614459239406,
-                "content": "now",
-                "hAlign": "center",
-                "kind": "text",
-                "size": 5.31,
-              },
-            ],
-            "kind": "group",
-            "name": "NowLabel",
-          },
-        ],
-        "kind": "group",
-        "name": "NowPointer",
-      },
-      {
-        "children": [
-          {
-            "end": {
-              "x": 296.7147376613042,
-              "y": 149.73663445398162,
-            },
-            "kind": "line",
-            "start": {
-              "x": 262.7319350643066,
-              "y": 153.75876419498883,
-            },
-          },
-          {
-            "center": {
-              "x": 296.7147376613042,
-              "y": 149.73663445398162,
-            },
-            "kind": "circle",
-            "radius": 1.5171428571428571,
-          },
-        ],
-        "kind": "group",
-        "name": "NextPointer",
       },
       {
         "children": [

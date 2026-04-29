@@ -37,7 +37,8 @@
  *   hAlign?: 'left' | 'center' | 'right',
  * }} DiagramTextInst
  *
- * Civil clock readout: date line (**TimeNowDate**) plus `HH:MM`, `:`, and `SS` (**TimeNowClock** leaves; same baseline on the clock row).
+ * Civil clock readout: location line (**TimeNowLocation**), date line (**TimeNowDate**),
+ * plus `HH:MM`, `:`, and `SS` (**TimeNowClock** leaves; same baseline on the clock row).
  *
  * @typedef {{
  *   hhmm: DiagramTextInst,
@@ -57,6 +58,17 @@
  *   start: DiagramPoint,
  *   end: DiagramPoint,
  * }} DiagramLineSeg
+ *
+ * @typedef {{
+ *   timeHours: number,
+ *   theta: number,
+ *   bossCircle: { center: DiagramPoint, radius: number },
+ *   smallCircle: { center: DiagramPoint, radius: number },
+ *   extension: DiagramLineSeg,
+ *   projection: DiagramLineSeg,
+ *   arm: DiagramLineSeg,
+ *   pointerPip: TideTimePointerSpec,
+ * }} HandDiagram
  *
  * TimeDeltaDiagram: **countdownStripes** holds four center-justified lines (location, phase, next-event interval, next-event clock) when counting down;
  * **timeDeltaEmptyStripes** holds three lines (location, phase, tomorrow event) when there is no next tide today (**NoMoreTidesToday** third stripe in the spec).
@@ -91,48 +103,6 @@
  *   timePointer: TideTimePointerSpec,
  * }} TideMarkDiagram
  *
- * Now “triangle” in diagram space: wedge tip on RefArc; maps to scene kind `nowWedgeOutline`.
- *
- * @typedef {{
- *   center: DiagramPoint,
- *   vertex: DiagramPoint,
- *   outerArcStart: DiagramPoint,
- *   outerArcSweepRad: number,
- * }} NowPointerTriangleDiagram
- *
- * @typedef {{
- *   timeHours: number,
- *   theta: number,
- *   nowLabelBranch: 'A' | 'B',
- *   radialLine: DiagramLineSeg | null,
- *   nowLabel: TideLabelTextInst | null,
- *   triangle?: NowPointerTriangleDiagram,
- * }} NowPointerDiagram
- *
- * @typedef {{
- *   timeHours: number,
- *   theta: number,
- *   radialLine: DiagramLineSeg,
- *   circle: { center: DiagramPoint, radius: number },
- * }} NextPointerDiagram
- *
- * @typedef {{
- *   at: 'end',
- *   lengthK: number,
- *   widthK: number,
- *   insetK: number,
- *   style: 'filled' | 'open',
- *   scaleWithStroke: boolean,
- * }} ArcArrowMeta
- *
- * @typedef {{
- *   center: DiagramPoint,
- *   radius: number,
- *   thetaStart: number,
- *   sweepRad: number,
- *   arrow?: ArcArrowMeta,
- * }} WaitArcDiagram
- *
  * Annular sector between RefRadius and RefRadius + w (**w** = **annularBandWidth·RefRadius**); same **θ_left** and CCW sweep as RefArc.
  *
  * @typedef {{
@@ -152,6 +122,18 @@
  *   sweepRad: number,
  * }} InsideTrackDiagram
  *
+ * MainLabel is currently a single placeholder line that follows the InsideTrack.
+ *
+ * @typedef {{
+ *   content: string,
+ *   fontSize: number,
+ *   center: DiagramPoint,
+ *   radius: number,
+ *   thetaStart: number,
+ *   sweepRad: number,
+ *   hAlign: 'left' | 'right',
+ * }} MainLabelDiagram
+ *
  * Home menu trigger control embedded in the diagram space (rounded rectangle + label).
  *
  * @typedef {{
@@ -166,18 +148,21 @@
  * @typedef {{
  *   version: number,
  *   meta: { title: string, width: number, height: number },
+ *   paintOrder?: {
+ *     overrides?: { name: string, place: 'before' | 'after', relativeTo: string }[],
+ *   },
  *   refArc: RefArcSpec,
  *   insideTrack: InsideTrackDiagram,
+ *   mainLabel: MainLabelDiagram,
  *   tickMarks: TickMarkSpec[],
  *   tickLabels: TickLabelSpec[],
  *   tideMarks: TideMarkDiagram[],
- *   nowPointer: NowPointerDiagram,
- *   nextPointer: NextPointerDiagram | null,
- *   waitArc: WaitArcDiagram | null,
  *   annularBand: AnnularBandDiagram,
  *   homeMenuTrigger: HomeMenuTriggerDiagram,
+ *   hand: HandDiagram,
  *   timeDeltaDiagram: TimeDeltaDiagram,
  *   centreFrameDiagram: CentreFrameDiagram,
+ *   timeNowLocation: DiagramTextInst,
  *   timeNowDate: DiagramTextInst,
  *   timeNowClock: DiagramTimeNowClockInst,
  * }} TideDiagramDocument

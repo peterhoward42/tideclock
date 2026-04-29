@@ -327,25 +327,7 @@
     letter-spacing: 0.02em;
   }
 
-  /*
-   * Hard-coded pulse for TimeNowLabelSecondsColon only (not in style model).
-   * ~600ms cycle: dip and return reads as a subtle “heartbeat” on the : before SS.
-   */
-  @keyframes home-time-now-colon-heartbeat {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.22;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .home-instrument :global(svg g[data-name="TimeNowLabelSecondsColon"] text) {
-      animation: home-time-now-colon-heartbeat 600ms ease-in-out infinite;
-    }
-  }
+  /* No colon animation: keep the HH:MM:SS clock row stable. */
 
   /*
    * Time-now pointer wedge (rendered as path.home-now-triangle-pulse): 50%→100% opacity in 600ms, full cycle 1s.

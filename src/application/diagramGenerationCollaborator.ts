@@ -58,11 +58,6 @@ type CentreFrameArcSpec = {
   readonly thetaRight: number;
 };
 
-type DiagramLineSeg = {
-  readonly start: DiagramPoint;
-  readonly end: DiagramPoint;
-};
-
 type TimeDeltaDiagram = {
   readonly countdownStripes: DiagramTextInst[] | null;
   readonly timeDeltaEmptyStripes: DiagramTextInst[] | null;
@@ -96,46 +91,6 @@ type TideMarkDiagram = {
   readonly timePointer: TideTimePointerSpec;
 };
 
-type NowPointerTriangleDiagram = {
-  readonly center: DiagramPoint;
-  readonly vertex: DiagramPoint;
-  readonly outerArcStart: DiagramPoint;
-  readonly outerArcSweepRad: number;
-};
-
-type NowPointerDiagram = {
-  readonly timeHours: number;
-  readonly theta: number;
-  readonly nowLabelBranch: "A" | "B";
-  readonly radialLine: DiagramLineSeg | null;
-  readonly nowLabel: TideLabelTextInst | null;
-  readonly triangle?: NowPointerTriangleDiagram;
-};
-
-type NextPointerDiagram = {
-  readonly timeHours: number;
-  readonly theta: number;
-  readonly radialLine: DiagramLineSeg;
-  readonly circle: { readonly center: DiagramPoint; readonly radius: number };
-};
-
-type ArcArrowMeta = {
-  readonly at: "end";
-  readonly lengthK: number;
-  readonly widthK: number;
-  readonly insetK: number;
-  readonly style: "filled" | "open";
-  readonly scaleWithStroke: boolean;
-};
-
-type WaitArcDiagram = {
-  readonly center: DiagramPoint;
-  readonly radius: number;
-  readonly thetaStart: number;
-  readonly sweepRad: number;
-  readonly arrow?: ArcArrowMeta;
-};
-
 type AnnularBandDiagram = {
   readonly center: DiagramPoint;
   readonly rInner: number;
@@ -151,6 +106,16 @@ type InsideTrackDiagram = {
   readonly sweepRad: number;
 };
 
+type MainLabelDiagram = {
+  readonly content: string;
+  readonly fontSize: number;
+  readonly center: DiagramPoint;
+  readonly radius: number;
+  readonly thetaStart: number;
+  readonly sweepRad: number;
+  readonly hAlign: "left" | "right";
+};
+
 type HomeMenuTriggerDiagram = {
   readonly center: DiagramPoint;
   readonly width: number;
@@ -160,6 +125,22 @@ type HomeMenuTriggerDiagram = {
   readonly label: string;
 };
 
+type DiagramLineSeg = {
+  readonly start: DiagramPoint;
+  readonly end: DiagramPoint;
+};
+
+type HandDiagram = {
+  readonly timeHours: number;
+  readonly theta: number;
+  readonly bossCircle: { readonly center: DiagramPoint; readonly radius: number };
+  readonly smallCircle: { readonly center: DiagramPoint; readonly radius: number };
+  readonly extension: DiagramLineSeg;
+  readonly projection: DiagramLineSeg;
+  readonly arm: DiagramLineSeg;
+  readonly pointerPip: TideTimePointerSpec;
+};
+
 /**
  * Shape returned by {@link buildDiagram} in `buildDiagram.mjs` (see JSDoc on `TideDiagramDocument`
  * in `tideDiagramModel.mjs`). App code treats this as the diagram-generation boundary contract.
@@ -167,18 +148,25 @@ type HomeMenuTriggerDiagram = {
 export type TideDiagramDocument = {
   readonly version: number;
   readonly meta: { readonly title: string; readonly width: number; readonly height: number };
+  readonly paintOrder?: {
+    readonly overrides?: ReadonlyArray<{
+      readonly name: string;
+      readonly place: "before" | "after";
+      readonly relativeTo: string;
+    }>;
+  };
   readonly refArc: RefArcSpec;
   readonly insideTrack: InsideTrackDiagram;
+  readonly mainLabel: MainLabelDiagram;
   readonly tickMarks: TickMarkSpec[];
   readonly tickLabels: TickLabelSpec[];
   readonly tideMarks: TideMarkDiagram[];
-  readonly nowPointer: NowPointerDiagram;
-  readonly nextPointer: NextPointerDiagram | null;
-  readonly waitArc: WaitArcDiagram | null;
   readonly annularBand: AnnularBandDiagram;
   readonly homeMenuTrigger: HomeMenuTriggerDiagram;
+  readonly hand: HandDiagram;
   readonly timeDeltaDiagram: TimeDeltaDiagram;
   readonly centreFrameDiagram: CentreFrameDiagram;
+  readonly timeNowLocation: DiagramTextInst;
   readonly timeNowDate: DiagramTextInst;
   readonly timeNowClock: DiagramTimeNowClockInst;
 };
@@ -217,14 +205,6 @@ type SceneTrianglePrimitive = {
   readonly outline?: boolean;
 };
 
-type SceneNowWedgeOutlinePrimitive = {
-  readonly kind: "nowWedgeOutline";
-  readonly center: ScenePoint;
-  readonly vertex: ScenePoint;
-  readonly outerArcStart: ScenePoint;
-  readonly outerArcSweepRad: number;
-};
-
 type SceneCirclePrimitive = {
   readonly kind: "circle";
   readonly center: ScenePoint;
@@ -258,6 +238,16 @@ type SceneTextPrimitive = {
   readonly dominantBaseline?: "alphabetic" | "middle";
 };
 
+type SceneArcTextPrimitive = {
+  readonly kind: "arcText";
+  readonly content: string;
+  readonly size: number;
+  readonly center: ScenePoint;
+  readonly radius: number;
+  readonly thetaStart: number;
+  readonly sweepRad: number;
+};
+
 type SceneGroupNode = {
   readonly kind: "group";
   readonly name: string;
@@ -268,11 +258,11 @@ type SceneNode =
   | SceneLinePrimitive
   | SceneArcPrimitive
   | SceneTrianglePrimitive
-  | SceneNowWedgeOutlinePrimitive
   | SceneCirclePrimitive
   | SceneRoundedRectPrimitive
   | SceneAnnularSectorPrimitive
   | SceneTextPrimitive
+  | SceneArcTextPrimitive
   | SceneGroupNode;
 
 /**

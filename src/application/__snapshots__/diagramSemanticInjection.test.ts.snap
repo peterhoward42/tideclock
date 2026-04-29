@@ -24,6 +24,77 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "thetaRight": 6.08738898038469,
     },
   },
+  "hand": {
+    "arm": {
+      "end": {
+        "x": 40.896446562627986,
+        "y": -36.630117081294884,
+      },
+      "start": {
+        "x": 7.03178244220868,
+        "y": -6.298224804295709,
+      },
+    },
+    "bossCircle": {
+      "center": {
+        "x": 0,
+        "y": 0,
+      },
+      "radius": 9.44,
+    },
+    "extension": {
+      "end": {
+        "x": 65.92296039570638,
+        "y": -59.04585754027227,
+      },
+      "start": {
+        "x": 61.52809636932595,
+        "y": -55.10946703758746,
+      },
+    },
+    "pointerPip": {
+      "circle": {
+        "center": {
+          "x": 49.008294195631926,
+          "y": -43.89573435411901,
+        },
+        "radius": 8.057961725195907,
+      },
+      "triangle": {
+        "v1": {
+          "x": 61.52809636932595,
+          "y": -55.10946703758746,
+        },
+        "v2": {
+          "x": 47.167940948483675,
+          "y": -51.740723015068944,
+        },
+        "v3": {
+          "x": 56.60397163301437,
+          "y": -41.20567275037059,
+        },
+      },
+    },
+    "projection": {
+      "end": {
+        "x": 87.8972805276085,
+        "y": -78.72781005369637,
+      },
+      "start": {
+        "x": 65.92296039570638,
+        "y": -59.04585754027227,
+      },
+    },
+    "smallCircle": {
+      "center": {
+        "x": 41.95121392895929,
+        "y": -37.574850801939235,
+      },
+      "radius": 1.416,
+    },
+    "theta": 5.552762244273579,
+    "timeHours": 19.33416666666667,
+  },
   "homeMenuTrigger": {
     "center": {
       "x": -122.98173403075491,
@@ -44,71 +115,24 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "sweepRad": 2.75,
     "thetaLeft": 3.3373889803846897,
   },
+  "mainLabel": {
+    "center": {
+      "x": 0,
+      "y": 0,
+    },
+    "content": "Low tide in 3h 45m",
+    "fontSize": 5.31,
+    "hAlign": "right",
+    "radius": 88.5,
+    "sweepRad": 0.648,
+    "thetaStart": 4.790178910940246,
+  },
   "meta": {
     "height": 320,
     "title": "semantic-injection",
     "width": 420,
   },
-  "nextPointer": {
-    "circle": {
-      "center": {
-        "x": 82.32009611712569,
-        "y": -25.367328895001695,
-      },
-      "radius": 1.18,
-    },
-    "radialLine": {
-      "end": {
-        "x": 82.32009611712569,
-        "y": -25.367328895001695,
-      },
-      "start": {
-        "x": 39.46853923423835,
-        "y": -12.162417963356978,
-      },
-    },
-    "theta": 5.984263980384689,
-    "timeHours": 23.1,
-  },
-  "nowPointer": {
-    "nowLabel": {
-      "anchor": {
-        "x": 47.720628478068384,
-        "y": -39.574154667638425,
-      },
-      "angleRad": 11.835947551453165,
-      "content": "now",
-      "fontSize": 4.72,
-    },
-    "nowLabelBranch": "B",
-    "radialLine": {
-      "end": {
-        "x": 61.52809636932595,
-        "y": -55.10946703758746,
-      },
-      "start": {
-        "x": 30.764048184662975,
-        "y": -27.55473351879373,
-      },
-    },
-    "theta": 5.552762244273579,
-    "timeHours": 19.33416666666667,
-    "triangle": {
-      "center": {
-        "x": 0,
-        "y": 0,
-      },
-      "outerArcStart": {
-        "x": 91.23170136260988,
-        "y": -83.833088136389,
-      },
-      "outerArcSweepRad": 0.025476183084954473,
-      "vertex": {
-        "x": 87.8972805276085,
-        "y": -78.72781005369637,
-      },
-    },
-  },
+  "paintOrder": undefined,
   "refArc": {
     "center": {
       "x": 0,
@@ -692,7 +716,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
           "x": 0,
           "y": -4.72,
         },
-        "content": "Lymington",
+        "content": "",
         "fontSize": 5.9,
         "hAlign": "center",
       },
@@ -757,30 +781,22 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "timeNowDate": {
     "anchor": {
-      "x": 121.532649765169,
-      "y": -130.98000000000002,
+      "x": 82.592649765169,
+      "y": -136.88000000000002,
     },
     "content": "Mon 23 Mar",
     "fontSize": 5.9,
     "hAlign": "right",
   },
-  "version": 1,
-  "waitArc": {
-    "arrow": {
-      "at": "end",
-      "insetK": 0,
-      "lengthK": 7,
-      "scaleWithStroke": true,
-      "style": "filled",
-      "widthK": 5,
+  "timeNowLocation": {
+    "anchor": {
+      "x": 121.532649765169,
+      "y": -125.08000000000001,
     },
-    "center": {
-      "x": 0,
-      "y": 0,
-    },
-    "radius": 80.24000000000001,
-    "sweepRad": 0.43150173611111065,
-    "thetaStart": 5.552762244273579,
+    "content": "Lymington",
+    "fontSize": 5.9,
+    "hAlign": "right",
   },
+  "version": 1,
 }
 `;

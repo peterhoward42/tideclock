@@ -2,9 +2,10 @@
  * buildDiagramGenerationSpec.ts — Maps domain extremes and local time into `DiagramGenerationSpec` fields.
  * Fed by Home and tests; consumed by diagram-generation. Kind: Pure logic (with injectable time mapping).
  * Does not invoke `buildDiagram` itself. Time-now date/clock placement is derived in diagram-generation
- * from AnnularBand and TickLabels; this module only supplies `timeNowLabel.fontHeight`, `dateAboveTime`, and `timeNowDatePrefix`.
+ * from AnnularBand and TickLabels; this module only supplies `timeNowLabel.fontHeight`, `dateAboveTime`,
+ * and `timeNowLocation`/`timeNowDatePrefix`.
  *
- * Tunable layout numbers live in `diagram-config/homeTideDiagram.ts`.
+ * Tunable layout numbers live in `diagram-config/homeTideDiagram.preset.ts`.
  */
 
 import { homeTideDiagramLayoutBase } from '../diagram-config';
@@ -193,6 +194,7 @@ export function buildDiagramGenerationSpec(
     ...homeTideDiagramSpecLayout,
     timeNow,
     timeNowDatePrefix,
+    timeNowLocation: townName,
     timeDelta,
     tideMarks,
   };

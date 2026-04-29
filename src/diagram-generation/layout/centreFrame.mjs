@@ -1,5 +1,5 @@
 /**
- * centreFrame.mjs — **R_frame** from `spec.centreFrame.frameArcRadius`: CentreFrame arc and Now radial inner (diagram space). Next circle uses **σ·R_frame** (see `nextPointer.mjs`).
+ * centreFrame.mjs — **R_frame** from `spec.centreFrame.frameArcRadius` for the CentreFrame arc in diagram space.
  * Independent of TimeDelta layout; see docs/specs/tide-diagram.md §CentreFrame.
  *
  * Policies for {@link buildCentreFrameDiagramFromSpec}:
@@ -20,7 +20,7 @@ function readFrameArcRadiusK(spec) {
 }
 
 /**
- * **R_frame** in px: same **k·R** as the CentreFrame arc, Now radial inner, and Next circle radius.
+ * **R_frame** in px: same **k·R** as the CentreFrame arc.
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius

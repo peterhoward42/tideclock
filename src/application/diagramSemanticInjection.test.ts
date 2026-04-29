@@ -34,24 +34,7 @@ type SemanticInjectionDiagramSpec = {
   readonly tickLabelClearance: number;
   readonly timeNow: string;
   readonly timeNowDatePrefix: string;
-  readonly nowPointer: {
-    readonly radialLine: { readonly outerRadius: number };
-    readonly label: { readonly size: number; readonly normalOffset: number };
-    readonly triangle: { readonly subtendedAngleRad: number };
-  };
-  readonly nextPointer: {
-    readonly radialLine: { readonly outerRadius: number };
-  };
-  readonly waitArc: {
-    readonly radius: number;
-    readonly arrow: {
-      readonly lengthK: number;
-      readonly widthK: number;
-      readonly insetK: number;
-      readonly style: 'filled';
-      readonly scaleWithStroke: boolean;
-    };
-  };
+  readonly timeNowLocation: string;
   readonly tideMarks: {
     readonly tideHeightLabelRadius: number;
     readonly tideTimeLabelRadius: number;
@@ -67,6 +50,8 @@ type SemanticInjectionDiagramSpec = {
   };
   readonly centreFrame: { readonly frameArcRadius: number };
   readonly insideTrackRadius: number;
+  readonly mainLabelRadius: number;
+  readonly mainLabelTimeOffsetHours: number;
   readonly timeDelta: {
     readonly countdownLines: readonly { readonly belowOrigin: number; readonly fontHeight: number }[];
     readonly emptyMessage: { readonly belowOrigin: number; readonly fontHeight: number };
@@ -75,6 +60,12 @@ type SemanticInjectionDiagramSpec = {
     readonly atypicalTideSummary: boolean;
   };
   readonly annularBand: { readonly annularBandWidth: number };
+  readonly hand: {
+    readonly bossCircleRadius: number;
+    readonly smallCircleRadius: number;
+    readonly pointerPipScale: number;
+    readonly pointerTipInset: number;
+  };
   readonly homeMenuTrigger: {
     readonly width: number;
     readonly height: number;
@@ -89,7 +80,7 @@ function buildDiagramFromSpec(spec: DiagramGenerationSpec): TideDiagramDocument 
   return buildDiagram(spec) as TideDiagramDocument;
 }
 
-/** Minimal spec with timeDelta, centreFrame, nextPointer, waitArc, and tide markers. */
+/** Minimal spec with timeDelta, centreFrame, and tide markers. */
 function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
   return {
     title: 'semantic-injection',
@@ -102,24 +93,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     tickLabelClearance: 0.07,
     timeNow: '19:20:03',
     timeNowDatePrefix: 'Mon 23 Mar',
-    nowPointer: {
-      radialLine: { outerRadius: 0.7 },
-      label: { size: 0.04, normalOffset: 0.02 },
-      triangle: { subtendedAngleRad: Math.PI / 6 },
-    },
-    nextPointer: {
-      radialLine: { outerRadius: 0.73 },
-    },
-    waitArc: {
-      radius: 0.68,
-      arrow: {
-        lengthK: 7,
-        widthK: 5,
-        insetK: 0,
-        style: 'filled',
-        scaleWithStroke: true,
-      },
-    },
+    timeNowLocation: 'Lymington',
     tideMarks: {
       tideHeightLabelRadius: 0.88,
       tideTimeLabelRadius: 0.8,
@@ -137,6 +111,8 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     timeNowLabel: { fontHeight: 0.05, dateAboveTime: 0.05 },
     centreFrame: { frameArcRadius: 0.35 },
     insideTrackRadius: 0.75,
+    mainLabelRadius: 0.75,
+    mainLabelTimeOffsetHours: 1,
     timeDelta: {
       countdownLines: [
         { belowOrigin: 0.04, fontHeight: 0.05 },
@@ -150,6 +126,12 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       atypicalTideSummary: false,
     },
     annularBand: { annularBandWidth: 0.05 },
+    hand: {
+      bossCircleRadius: 0.08,
+      smallCircleRadius: 0.012,
+      pointerPipScale: 2.5,
+      pointerTipInset: 0.3,
+    },
     homeMenuTrigger: {
       width: 0.2,
       height: 0.13,
@@ -185,7 +167,7 @@ describe('spec.semantic.nextTide injection', () => {
     expect(withSemantic).toEqual(baseline);
   });
 
-  it('after last tide of the day shows NoMoreTidesToday and omits NextPointer and WaitArc', () => {
+  it('after last tide of the day shows NoMoreTidesToday', () => {
     const base = sampleTideDiagramSpec();
     const spec = { ...base, timeNow: '23:59:00' };
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
@@ -195,7 +177,7 @@ describe('spec.semantic.nextTide injection', () => {
     const emptyFh = spec.timeDelta.emptyMessage.fontHeight;
     expect(diagram.timeDeltaDiagram.timeDeltaEmptyStripes).toEqual([
       {
-        content: 'Lymington',
+        content: '',
         fontSize: l0.fontHeight * R,
         anchor: { x: 0, y: -l0.belowOrigin * R },
         hAlign: 'center',
@@ -214,88 +196,25 @@ describe('spec.semantic.nextTide injection', () => {
       },
     ]);
     expect(diagram.timeNowDate.content).toBe('Mon 23 Mar');
+    expect(diagram.timeNowLocation.content).toBe('Lymington');
     expect(diagram.timeNowClock.hhmm.content).toBe('23:59');
     expect(diagram.timeNowClock.secondsColon.content).toBe(':');
     expect(diagram.timeNowClock.seconds.content).toBe('00');
-    expect(diagram.nextPointer).toBeNull();
-    expect(diagram.waitArc).toBeNull();
-    expect(diagram.nowPointer?.triangle).toBeDefined();
-    expect(diagram.nowPointer?.radialLine).not.toBeNull();
-    expect(diagram.nowPointer?.nowLabel).not.toBeNull();
   });
 
-  it('omits Now label (but keeps Now radial line) when next tide is under 60 minutes and not near-superimposed', () => {
-    const spec = { ...sampleTideDiagramSpec(), timeNow: '22:07:00' };
-    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.nextPointer).not.toBeNull();
-    expect(diagram.nowPointer?.triangle).toBeDefined();
-    expect(diagram.nowPointer?.radialLine).not.toBeNull();
-    expect(diagram.nowPointer?.nowLabel).toBeNull();
-    expect(diagram.waitArc).not.toBeNull();
-  });
-
-  it('omits both Now radial line and Now label when next tide is under 5 minutes away', () => {
-    const spec = { ...sampleTideDiagramSpec(), timeNow: '23:03:00' };
-    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.nextPointer).not.toBeNull();
-    expect(diagram.nowPointer?.triangle).toBeDefined();
-    expect(diagram.nowPointer?.radialLine).toBeNull();
-    expect(diagram.nowPointer?.nowLabel).toBeNull();
-    expect(diagram.waitArc).not.toBeNull();
-  });
-
-  it('keeps Now radial line and Now label at exactly 60 minutes', () => {
-    const spec = { ...sampleTideDiagramSpec(), timeNow: '22:06:00' };
-    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.nextPointer).not.toBeNull();
-    expect(diagram.nowPointer?.radialLine).not.toBeNull();
-    expect(diagram.nowPointer?.nowLabel).not.toBeNull();
-    expect(diagram.waitArc).not.toBeNull();
-    expect(diagram.waitArc?.arrow).toBeDefined();
-  });
-
-  it('omits WaitArc arrow when configured arrowhead is too long for the arc span', () => {
+  it('after last tide with in-high omits tomorrow line text', () => {
+    const base = sampleTideDiagramSpec();
     const spec = {
-      ...sampleTideDiagramSpec(),
-      timeNow: '22:06:00',
-      waitArc: {
-        ...sampleTideDiagramSpec().waitArc,
-        arrow: {
-          ...sampleTideDiagramSpec().waitArc.arrow,
-          lengthK: 24,
-        },
-      },
+      ...base,
+      timeNow: '23:59:00',
+      timeDelta: { ...base.timeDelta, tidePhasePair: 'in-high' as const },
     };
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.waitArc).not.toBeNull();
-    expect(diagram.waitArc?.arrow).toBeUndefined();
-  });
-
-  it('keeps WaitArc arrow when there is enough arc length for the configured marker', () => {
-    const spec = { ...sampleTideDiagramSpec(), timeNow: '20:30:00' };
-    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.nextPointer).not.toBeNull();
-    expect(diagram.nowPointer?.radialLine).not.toBeNull();
-    expect(diagram.nowPointer?.nowLabel).not.toBeNull();
-    expect(diagram.waitArc).not.toBeNull();
-    expect(diagram.waitArc?.arrow).toBeDefined();
-  });
-
-  it('keeps WaitArc arrow for medium waits even with large arrow config', () => {
-    const spec = {
-      ...sampleTideDiagramSpec(),
-      timeNow: '21:02:00',
-      waitArc: {
-        ...sampleTideDiagramSpec().waitArc,
-        arrow: {
-          ...sampleTideDiagramSpec().waitArc.arrow,
-          lengthK: 24,
-        },
-      },
-    };
-    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.waitArc).not.toBeNull();
-    expect(diagram.waitArc?.arrow).toBeDefined();
+    expect(diagram.timeDeltaDiagram.countdownStripes).toBeNull();
+    const emptyStripes = diagram.timeDeltaDiagram.timeDeltaEmptyStripes;
+    expect(emptyStripes).not.toBeNull();
+    expect(emptyStripes?.[1]?.content).toBe('Tide coming in');
+    expect(emptyStripes?.[2]?.content).toBe('');
   });
 
   it('rejects malformed injected nextTide', () => {
@@ -350,6 +269,20 @@ describe('spec.semantic.nextTide injection', () => {
     const { insideTrackRadius: _omit, ...rest } = sampleTideDiagramSpec();
     expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
       /insideTrackRadius/,
+    );
+  });
+
+  it('throws when spec omits mainLabelRadius', () => {
+    const { mainLabelRadius: _omit, ...rest } = sampleTideDiagramSpec();
+    expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
+      /mainLabelRadius/,
+    );
+  });
+
+  it('throws when spec omits mainLabelTimeOffsetHours', () => {
+    const { mainLabelTimeOffsetHours: _omit, ...rest } = sampleTideDiagramSpec();
+    expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
+      /mainLabelTimeOffsetHours/,
     );
   });
 

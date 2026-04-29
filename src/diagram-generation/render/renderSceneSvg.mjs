@@ -297,33 +297,6 @@ function renderNode(node, styleRuntime, leafName) {
       if (d === "") return "";
       return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
     }
-    case "nowWedgeOutline": {
-      assertLeafScoped(node.kind, leafName);
-      const stroke = requireLeafStrokeColor(
-        styleRuntime,
-        leafName,
-        RENDER_DEFAULTS.curveStroke,
-        node.kind,
-      );
-      const fill = requireLeafFillColor(
-        styleRuntime,
-        leafName,
-        RENDER_DEFAULTS.shapeFill,
-        node.kind,
-      );
-      const dash = strokeDashAttrFragmentFromLeaf(
-        styleRuntime,
-        leafName,
-        node.kind,
-      );
-      const d = nowWedgeOutlineToPathD(node);
-      if (d === "") return "";
-      const nowTriClass =
-        leafName === "NowTriangle"
-          ? ' class="home-now-triangle-pulse"'
-          : "";
-      return `    <path d="${escapeAttr(d)}"${nowTriClass} fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
-    }
     case "triangle": {
       assertLeafScoped(node.kind, leafName);
       const { a, b, c } = node;
@@ -363,13 +336,7 @@ function renderNode(node, styleRuntime, leafName) {
         leafName,
         node.kind,
       );
-      const fill = requireLeafFillColor(
-        styleRuntime,
-        leafName,
-        RENDER_DEFAULTS.shapeFill,
-        node.kind,
-      );
-      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
+      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="none" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
     }
     case "roundedRect": {
       assertLeafScoped(node.kind, leafName);
@@ -404,6 +371,16 @@ function renderNode(node, styleRuntime, leafName) {
         node.kind,
       );
       return renderTextSvg(node, fill);
+    }
+    case "arcText": {
+      assertLeafScoped(node.kind, leafName);
+      const fill = requireLeafFillColor(
+        styleRuntime,
+        leafName,
+        RENDER_DEFAULTS.textFill,
+        node.kind,
+      );
+      return renderArcTextSvg(node, fill);
     }
     default:
       return "";
@@ -533,19 +510,6 @@ function circularSegmentToPathD(center, start, sweepRad) {
 }
 
 /**
- * Now “triangle”: segment vertex→outer start, minor outer arc, close to vertex.
- *
- * @param {import('../model/sceneModel.mjs').NowWedgeOutlinePrimitive} node
- * @returns {string}
- */
-function nowWedgeOutlineToPathD(node) {
-  const { center, vertex, outerArcStart, outerArcSweepRad } = node;
-  const segs = circularArcToPathSegments(center, outerArcStart, outerArcSweepRad);
-  if (segs === "") return "";
-  return `M ${vertex.x} ${vertex.y} L ${outerArcStart.x} ${outerArcStart.y} ${segs} Z`;
-}
-
-/**
  * @param {import('../model/sceneModel.mjs').SceneNode} root
  * @param {SceneRenderStyleRuntime | undefined} styleRuntime
  * @returns {string[]}
@@ -605,6 +569,7 @@ function markerAttrForArc(arcNode, leafName, styleRuntime) {
  * Placement is end-only (see `ArcArrowMeta` in `sceneModel.mjs`).
  *
  * @param {import('../model/sceneModel.mjs').ArcArrowMeta | { lengthK?: number, widthK?: number, insetK?: number, style?: string, scaleWithStroke?: boolean }} raw
+ * @returns {{ at: 'end', lengthK: number, widthK: number, insetK: number, style: 'filled'|'open', scaleWithStroke: boolean }}
  */
 function normalizeArcArrow(raw) {
   return {
@@ -667,6 +632,36 @@ function renderTextSvg(node, fillColor) {
       <text x="${ax}" y="${ay}" font-size="${size}" fill="${fillColor}" text-anchor="${anchorAttr}" dominant-baseline="${baseline}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">${inner}</text>
       </g>
     </g>`;
+}
+
+/** @param {import('../model/sceneModel.mjs').ArcTextPrimitive} node */
+function renderArcTextSvg(node, fillColor) {
+  const glyphs = [];
+  const chars = Array.from(node.content);
+  if (chars.length === 0) return "";
+  const glyphSweep = node.sweepRad / chars.length;
+  for (let i = 0; i < chars.length; i += 1) {
+    const theta = node.thetaStart + (i + 0.5) * glyphSweep;
+    const anchor = {
+      x: node.center.x + node.radius * Math.cos(theta),
+      y: node.center.y + node.radius * Math.sin(theta),
+    };
+    glyphs.push(
+      renderTextSvg(
+        {
+          kind: "text",
+          content: chars[i],
+          size: node.size,
+          hAlign: "center",
+          angleRad: theta + Math.PI / 2,
+          anchor,
+          dominantBaseline: "middle",
+        },
+        fillColor,
+      ),
+    );
+  }
+  return glyphs.join("\n");
 }
 
 /**

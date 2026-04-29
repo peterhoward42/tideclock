@@ -12,19 +12,58 @@
 *  avoid tide dial in all visible copy
 
 o  try the clock hand idea
-	o  branch hand
-	o  design geom
-	o  toggle switches
+	*  branch hand
+	*  design geom
+	*  toggle element switches
 	o  add hand to spec
-	o  implment it
-	o  refine
-	o  clean up
+		*  geom only
+		*  zdepth rule for ext
+
+	*  for implementaton tell me the input names
+	*  me decide input values and style groupings
+	*  mandate the implementation
+	*  fundamental fixes
+	*  tune geom
+	*  tune tyles
+
+	o  Move  time now text block
+		*  temp hide TimeDelta and CentreFrame
+		o  get trivial text experiment going inside inner arc
+			*  call it MainLabel
+			*  quick brown fox on lhs centre just
+			*  switch sides according to time
+			*  make it it a new summary status element derived from inputs
+			o  Fiddle with summary text
+				*  remove yellow from timenow readout and colon animation
+				*  flip order of lines time then date
+				*  precede with Location in different style
+				*  remove  redundant "at XYX" part
+				*  ditch location from summary label
+				*  reduce to just low tide in in part
+				*  justify right left
+				*  try out different positions with shorter hand
+				*  now deal with singularity cases
+
+
 	o  merge branch hand
+	o  do
+	o  deploy / test
+
+o  work on spec coherence and redundancy
+
+
+o  bottom right text should be bigger for phone
+o  would main label be better static at bottom?
+
+/docs/tide-diagram.md for context.
+
+	o  normalise the spec after the fact
 
 o  first glance ux assimilation
 	o  first thing someone tried to drag the time now
 
 o  discover / marketing screen?
+o  cross sell drawexact
 
 
 				o  proxy cost risk containment

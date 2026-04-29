@@ -6,11 +6,12 @@ To specify a specific diagram in terms of a scene graph and input parameters.
 
 ### Host responsibilities
 
-The **diagram generator** does **not** define paint order, z-height ordering, or
-layers. Those topics are handled **outside** the generator. **Named elements**
-(see **Diagram elements**) exist so that an **external** host can bind layering
-and related presentation properties to each entity by name; the mechanics of
-that binding are **not in scope** yet.
+The **diagram generator** defines deterministic scene-child order and supports an
+optional, constrained paint-order override seam (`paintOrder.overrides`) so
+specific named groups can be moved **before**/**after** sibling groups. This
+specification still does **not** introduce a global numeric z-index model.
+**Named elements** (see **Diagram elements**) remain the contract for targeted
+ordering and style behavior by exact name.
 
 Where this specification mentions text or numeric inputs “from outside” or
 “from the host,” supply and policy for those values are host responsibilities.
@@ -23,44 +24,43 @@ The generator **throws** when required host fields are missing or the wrong type
 it does **not** substitute silent numeric defaults for layout keys (`buildDiagram.mjs`
 and layout submodules). Invalid marker rows (including `**24:00:00`** as a marker
 time), degenerate geometry used as configuration (e.g. wait-arc radius **≤ 0**,
-pointer outer radius **≤ R_frame**), or missing objects such as the time-now readout inputs (`**timeNowLabel**`, `**timeNowDatePrefix**`) or `**annularBand`**, are **errors** — not “omit this element” fallbacks.
+or missing objects such as the time-now readout inputs (`**timeNowLabel**`, `**timeNowLocation**`, `**timeNowDatePrefix**`) or `**annularBand`**, are **errors** — not “omit this element” fallbacks.
 
 ### Derived behaviour (civil day vs `timeNow`)
 
 The **product** assumes at least **one** tide extreme on the civil day and a **non-empty**
 `**tideMarks.markers`** list describing those extremes. The **only** open-ended case is
 **time navigation**: when there is **no** marker at or after `**timeNow`** on that day
-(e.g. after the last tide), **NextPointer** and **WaitArc** are **omitted** and
-**TimeDelta** shows **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (see **Diagram elements**, **TimeDelta**). That
-omission follows from `**timeNow`** and the marker schedule; it is **not** triggered by
-missing spec fields.
+(e.g. after the last tide), **TimeDelta** shows **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (see **Diagram elements**, **TimeDelta**). That behavior follows from `**timeNow`** and the marker schedule; it is **not** triggered by missing spec fields.
 
 When `**spec.semantic.nextTide`** is injected, layout may use it for next-tide timing
 instead of scanning markers; `**tideMarks`** remains **required** for drawing **TideMarks**.
 
-For **NextPointer** occlusion clearance, a separate derived rule applies only when
-a next marker exists on the same civil day:
-
-- If the forward interval from `**timeNow`** to that marker is **strictly less
-than 1 hour**, generation omits **NowPointer**’s **Now label**.
-- If that same interval is **strictly less than 5 minutes**, generation also
-omits **NowPointer**’s **Now radial line**.
-- **WaitArc** uses a separate fit rule: geometry is kept whenever a qualifying
-next marker exists, and arrow metadata is omitted whenever the configured
-arrowhead would dominate the rendered arc segment.
-- At **exactly 1 hour**, the Now-label omission does not apply.
-- At **exactly 5 minutes**, the Now-radial-line omission does not apply.
 - `**canvas`** — object with finite `**width`** and `**height`** (px).
 - `**title**` — string (diagram meta).
+- `**paintOrder`** — optional plain object.
+  - Optional `**overrides`** array.
+  - Each override must be a plain object with:
+    - `**name`** — non-empty string (named scene group to move),
+    - `**place`** — exact string `**"before"`** or `**"after"`**,
+    - `**relativeTo`** — non-empty string (sibling named group target).
+  - Validation:
+    - `**name !== relativeTo`**,
+    - duplicate overrides for the same `**name`** are errors,
+    - referenced names must exist in the generated scene tree,
+    - each override must resolve to one unique sibling relationship in the scene tree,
+    - cyclic constraints are errors.
+  - Default behaviour when omitted: preserve current deterministic scene-child order.
 - `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
 - `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
+- `**mainLabelRadius`** — finite number (**k·R**): radius of **MainLabel** is **MainLabelRadius × RefRadius**. Must be **> 0**. Concentric with **RefArc**/**InsideTrack** (same centre **O**).
+- `**mainLabelTimeOffsetHours`** — finite number in **[0, 12]**: dial-time offset (hours) used to place **MainLabel** angularly away from `**timeNow`** on the chosen side (see **§Polar**, **MainLabel** placement).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
-- `**waitArc`** — **required** plain object. `**radius`** must be a finite **k·R** multiplier **> 0** (**R_wait = WaitArcRadius·RefRadius**). `**arrow`** is **required**: finite `**lengthK`**, `**widthK`**, `**insetK**`; `**style**` is `**filled**` or `**open**`; `**scaleWithStroke**` is a boolean. (Derived behaviour still applies: with no next marker at/after `**timeNow**`, **WaitArc** is omitted; with a qualifying next marker, **WaitArc** geometry remains and arrow metadata is emitted only when the configured arrowhead fits the rendered arc span.)
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** in `**HH:MM:SS`** **other than** `**24:00:00`** (that sentinel is for the RefArc right endpoint only, not for tide events). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
-- `**nowPointer**` / `**nextPointer**` — **required** plain objects with the nested fields described under **NowPointer** and **NextPointer** (no legacy flat key fallbacks): **now** — `**radialLine`**, `**label`**, `**triangle**`; next — `**radialLine**` only. `**radialLine.outerRadius`** must be a finite **k·R** multiplier **> 0** and must place the line end **outside** **R_frame** (outer **>** inner). On `**nowPointer.triangle`**, `**subtendedAngleRad`** is required: a literal angle in radians (not a k·R length); see §NowPointer. R_frame from `**centreFrame.frameArcRadius**` supplies the Now radial **inner** radius; the Next filled-circle radius is **σ·R_frame** for fixed **σ** in **§NextPointer** (see **CentreFrame**, **NowPointer**, **NextPointer**). **NextPointer** is omitted from the scene only when there is no qualifying next tide (derived), not when `**nextPointer`** is missing.
-- `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required string `**timeNowDatePrefix**`, drives **TimeNowDate** and **TimeNowClock**.
-- `**timeDelta`** — **required** plain object; string `**town**`; enum `**tidePhasePair ∈ {"out-low","in-high"}**`; **boolean** `**atypicalTideSummary**` (when `**true**` and a next marker exists, countdown copy follows the atypical branch in **TimeDelta**); **`countdownLines`** — array of **exactly four** plain objects (location, phase, next-event interval, next-event clock stripes), each with finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**); **`emptyMessage`** — plain object with finite `**belowOrigin`** and `**fontHeight**`: when there is no next tide today, the first two empty-day stripes use `**countdownLines[0]`** and `**countdownLines[1]`** for baselines and font heights; the third stripe (**NoMoreTidesToday**) uses `**countdownLines[2].belowOrigin`** for its baseline and `**emptyMessage.fontHeight`** for **FontHeight** (`**emptyMessage.belowOrigin`** is reserved / validated but not used for placement). Per stripe, `**belowOrigin`** is the distance from **Y = 0** toward **−Y** to that stripe’s baseline; **X** is fixed at **0** for all. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
-- `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc and the **NowPointer** radial inner endpoint (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
+- `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**smallCircleRadius`** (**k·R**, strictly **> 0**); finite `**pointerPipScale`** (dimensionless, strictly **> 0**); and finite `**pointerTipInset`** (**k·R**, non-negative), the inward radial offset from the RefArc tip used to place the **PointerPip** tip and its dependent radial segments. `**pointerPipScale`** is applied uniformly to all linear dimensions of the pointer-pip silhouette; the divergence angle remains tied to `**tideMarks.tideMarkArrowDivergence`**. Generation fails if hand-derived radial ordering is invalid (see **Hand**, **Radial segments**).
+- `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
+- `**timeDelta`** — **required** plain object; string `**town**` (required but not rendered in the summary copy; **TimeDeltaLocation** emits an empty string); enum `**tidePhasePair ∈ {"out-low","in-high"}**`; **boolean** `**atypicalTideSummary**` (when `**true**` and a next marker exists, countdown copy follows the atypical branch in **TimeDelta**); **`countdownLines`** — array of **exactly four** plain objects (location, phase, next-event interval, next-event clock stripes), each with finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**); **`emptyMessage`** — plain object with finite `**belowOrigin`** and `**fontHeight**`: when there is no next tide today, the first two empty-day stripes use `**countdownLines[0]`** and `**countdownLines[1]`** for baselines and font heights; the third stripe (**NoMoreTidesToday**) uses `**countdownLines[2].belowOrigin`** for its baseline and `**emptyMessage.fontHeight`** for **FontHeight** (`**emptyMessage.belowOrigin`** is reserved / validated but not used for placement). Per stripe, `**belowOrigin`** is the distance from **Y = 0** toward **−Y** to that stripe’s baseline; **X** is fixed at **0** for all. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
+- `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
 - `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
 - `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); and string `**label`** (product default `**Menu**`). Position is derived from diagram content bounds: the trigger’s left edge is anchored to the leftmost tick-label bound, and its bottom edge is anchored to the minimum tick-label-anchor **Y**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
 
@@ -70,21 +70,19 @@ arrowhead would dominate the rendered arc segment.
   - TickMarks
   - TickLabels
   - TideMarks
-  - NowPointer
-  - NextPointer
-  - WaitArc
+  - Hand (group; leaves are **BossCircle**, **SmallCircle**, **Extension**, **Projection**, **Arm**; **PointerPip** is a subgroup with leaves **PointerPipSideA**, **PointerPipSideB**, and **PointerPipHeadArc**)
+  - TimeNowLocation (single **TextElement**; current location name from the host)
   - TimeNowDate (single **TextElement**; civil date prefix from the host)
   - TimeNowClock (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds** — canonical `HH:MM`, the colon before `SS`, and `SS`)
   - TimeDelta (countdown style-bound leaves: **TimeDeltaLocation**, **TimeDeltaPhase**, **TimeDeltaNext**, **TimeDeltaNextTime**; empty-day leaves: **TimeDeltaLocation**, **TimeDeltaPhase**, **NoMoreTidesToday**)
   - CentreFrame
   - AnnularBand
   - InsideTrack
+  - MainLabel (single arcuate text element; currently placeholder copy)
   - RefArc
   - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from content bounds so the rectangle left edge aligns to the leftmost tick-label bound and rectangle bottom edge aligns to the minimum tick-label-anchor **Y**; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
 
-When there is **no** tide marker at or after `timeNow` on the same civil day
-(same “next marker” notion as **WaitArc**), **NextPointer** and **WaitArc** are
-**omitted**. **TimeDelta** then carries **three** centre **TextElement**s (see **TimeDelta**, empty-day case): **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (replacing the interval and `**at HH:MM**` stripes), instead of the four countdown stripes. **TimeDelta** and
+When there is **no** tide marker at or after `timeNow` on the same civil day, **TimeDelta** carries **three** centre **TextElement**s (see **TimeDelta**, empty-day case): **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (replacing the interval and `**at HH:MM**` stripes), instead of the four countdown stripes. **TimeDelta** and
 **CentreFrame** are independent named elements (no grouping or parent/child link
 between them in the logical model).
 
@@ -139,6 +137,25 @@ function of the RefArc.
 **RefArc** (centre **O**), with radius **InsideTrackRadius × RefRadius** (**k·R**;
 see strict inputs). It uses the same **θ_left** and the same CCW **swept angle**
 as the **RefArc** (from **θ_left** to **θ_right**).
+- **MainLabel** is an arcuate text element at radius
+  **MainLabelRadius × RefRadius** (independent input; concentric with
+  **RefArc**/**InsideTrack**). In this first step it uses fixed placeholder content
+  `**"quick brown fox"**` and a policy-driven temporary angular placement based on
+  `**t_now`** and `**mainLabelTimeOffsetHours`**:
+  - Let `**Δ = mainLabelTimeOffsetHours`**.
+  - Let the two vacant intervals from `**t_now`** to RefArc endpoints be:
+    - left interval length `**L_left = t_now − 0`**,
+    - right interval length `**L_right = 24 − t_now`**.
+  - Choose the side with the larger vacant interval:
+    - if `**L_right > L_left`** (equivalently `**t_now < 12`**), use the **right** side;
+    - otherwise use the **left** side.
+  - Define anchor hour `**t_main_label_anchor`**:
+    - right side: `**t_main_label_anchor = t_now + Δ`**;
+    - left side: `**t_main_label_anchor = t_now − Δ`**.
+  - Convert to angle `**θ(t_main_label_anchor)`** via **§Time and θ(t)**.
+  - Arc-text justification policy:
+    - right side (`**L_right > L_left`**) → **left** justification;
+    - otherwise → **right** justification.
 
 ### §Time and θ(t)
 
@@ -186,11 +203,11 @@ of travel.”
 
 - The scene graph at this stage consists of:
   - Arc primitives (for **RefArc** and **TideMarks.TimePointer** head arcs)
+  - Circle primitives (for **Hand.BossCircle** and **Hand.SmallCircle** outlines)
   - One closed circular segment path (for **CentreFrame**: circular arc + straight chord closure)
   - Line segments (for radial segments and tick marks)
   - Text elements
-  - Filled closed paths for the Now **triangle** (annular wedge: two straight segments and a minor arc on the annulus outer circle; **NowPointer**); **fill** and **stroke** use **NowTriangle** leaf styles (product default: **stroke**/**fill** colour aligned with **TideMarks.TimePointer** outline colour)
-  - Filled circles (**NextPointer**)
+  - Arc-text elements (text laid out along circular arcs; currently used by **MainLabel**)
   - **Line** segments and **arc** segments for **TideMarks.TimePointer** (two equal sides of the pointer triangle as strokes, head as a circular arc; **fill** is **none**)
   - One **closed annular sector** path (**fill** and **stroke** on the composite
   boundary) introduced by **AnnularBand** (see **AnnularBand**)
@@ -200,9 +217,11 @@ of travel.”
 - **Line** and **arc** primitives are **one-dimensional** curves in the logical
 model. They are **stroked** along the curve and, for now, **never** treated as
 **filled** regions.
+- **Circle** primitives are also one-dimensional stroked curves in the same sense
+  (full 2π circular outlines; **fill** is none unless a subsection explicitly
+  overrides).
 - Area fills are represented by dedicated closed-region primitives (currently:
-**CentreFrame** closed circular segment, **AnnularBand** annular sector, **NowPointer**
-triangle wedge, and **NextPointer** filled circle).
+**CentreFrame** closed circular segment and **AnnularBand** annular sector).
 - Where multiple curve primitives are **independent**, they are **topologically**
 independent: **not** joined into one path, **not** merged into one composite
 path, and **do not** form a closed region by composition in the logical scene
@@ -212,7 +231,6 @@ graph—even if a viewer perceives closure optically. Distinct primitives may
 stroked curves** unless a subsection adds detail.
 - **AnnularBand** is **not** covered by **Independent stroked curves**: it is one
 closed region with unified **fill** and **stroke** on its boundary (**AnnularBand**).
-- The **NowPointer** Now **triangle** wedge is **not** covered by **Independent stroked curves** for fill semantics: it is one closed path with unified **fill** and **stroke** (see **NowTriangle** vs **TimePointer** under **Scene graph primitives**).
 
 ## Text Element
 
@@ -246,210 +264,32 @@ model em-boxes or similar font metrics.
 
 *(Additional primitives may be introduced as required by later elements.)*
 
-## NowPointer
-
-**NowPointer** is a top-level named element tied to the current time now.
-
-### Logical structure
-
-**NowPointer** comprises three direct parts:
-
-- **Now radial line** — one radial segment on the time-now ray.
-- **Now label** — one **TextElement** with constant text `now`.
-- **Now triangle** — one **filled** closed wedge (**fill** and **stroke** on the composite boundary), geometrically as follows: **vertex** on the **RefArc** at **θ_now**; the wedge **opens outward** along the time-now ray (**away from O**, into **AnnularBand**). Two **equal** straight sides diverge from that outward bisector by **±½·subtendedAngleRad** and meet the **outer** circle of **AnnularBand**; the third boundary is the **minor circular arc** on that outer circle between the two outer endpoints (same centre **O** as the RefArc). Paint uses **NowTriangle** leaf styles (product default: **fill** and **stroke** colour matched to **TideMarks.TimePointer** outline colour for visual consistency).
-
-### Occlusion-clearance rule
-
-- When a qualifying next tide marker exists and is strictly less than
-**1 hour** ahead of `**timeNow`**, **Now label** is omitted.
-- When that interval is strictly less than **5 minutes**, **Now radial line** is
-also omitted.
-- **Now triangle** remains.
-- At **exactly 1 hour**, Now-label omission does not apply.
-- At **exactly 5 minutes**, Now-radial-line omission does not apply.
-
-### Time association
-
-- **NowPointer** is defined relative to the **global** current time:
-  - It uses **t_now** derived from canonical `**timeNow`** and **θ_now = θ(t_now)** from
-  **§Global “time now” input**.
-- All **NowPointer** geometry is defined relative to **θ_now**.
-
-### Geometry (first pass, pending final constants)
-
-Because exact distances and angles are not yet specified, this section defines
-the structure and leaves sizing inputs explicit.
-
-#### Inputs and shared derived quantities
-
-- **R_frame** — from `**centreFrame.frameArcRadius`** as **k·R** (**§Sizing**); same value as **§CentreFrame** (**R_frame**).
-- **NowPointerLineOuterRadius** — line **outer** radius as **k·R** per **§Sizing**.
-- **NowPointerLabelSize** — label **FontHeight** multiplier **k** as **k·R**
-(**§Sizing**).
-- **NowPointerLabelNormalOffset** — signed diagram input **k** as **k·R**
-(**§Sizing**).
-- Let **û_rad = (cos θ_now, sin θ_now)** — unit vector along the time-now ray from
-**O** outward (**§Axes**, **§Polar**).
-- Let **û_n = (−sin θ_now, cos θ_now)** — unit vector perpendicular to **û_rad**,
-from rotating **û_rad** by **+π/2** CCW (**§Polar**).
-- Let **r_inner = R_frame**, **r_outer = NowPointerLineOuterRadius·R**.
-- Let **P** be the midpoint of the **Now radial line** segment between
-**r_inner** and **r_outer** along **û_rad**.
-- Define a **side sign** for label placement:
-  - **side_sign = +1** when **t_now ≤ 12** (midnight through noon inclusive).
-  - **side_sign = −1** when **t_now > 12** (afternoon through midnight).
-
-#### Now radial line
-
-- A radial segment at **θ_now** with:
-  - **r_inner = R_frame** (from `**centreFrame.frameArcRadius`**, not on `**nowPointer.radialLine`**),
-  - **r_outer = NowPointerLineOuterRadius·R**.
-- The **outer** radius multiplier is a **required** host diagram input (nested under `**nowPointer.radialLine.outerRadius`**) interpreted by **§Sizing** when **NowPointer** is included.
-
-#### Now label
-
-- One **TextElement** with:
-  - **Text** = constant `now` (not host text).
-  - **Horizontal justification** = **centre**.
-  - **Baseline polar angle** = **θ_now + π** (overrides **TextElement defaults**).
-  - **FontHeight** = **NowPointerLabelSize·R** (diagram input, **§Sizing**).
-- **Anchor** — **P + side_sign × (k·R)·û_n**, where **k** is
-**NowPointerLabelNormalOffset**:
-  - Positive **k** with **side_sign = +1** places the label on the **left**
-  (CCW) side of the outward radial direction.
-  - For the same **k**, **side_sign = −1** moves it to the **opposite** side.
-
-**Now triangle (filled)**
-
-- **Now triangle (filled)** is still named “triangle” in the input and scene grouping, but its geometry is the **annular wedge** above.
-  - It is tied to **θ_now** and emitted as a **single closed path** with **fill** and **stroke** (see **Scene graph primitives**; **NowTriangle** vs **TimePointer**).
-  - **Required** diagram input on `**nowPointer.triangle`**:
-    - `**subtendedAngleRad`** — **literal** angle in **radians** between the two straight sides at the vertex (**not** a **k·R** value). Must satisfy **0 < subtendedAngleRad < π**.
-  - **Radii** (model units):
-    - **r_ref = RefRadius** — vertex **V = polar(r_ref, θ_now)** lies on the RefArc.
-    - **r_ann_outer = RefRadius + AnnularBandWidth·RefRadius** with **AnnularBandWidth** from `**annularBand.annularBandWidth`** (**§AnnularBand**, **§Sizing**). The straight sides end where they meet the circle of radius **r_ann_outer** about **O**.
-  - **Construction**:
-    - Let **û_rad** be the unit vector from **O** **through V** (**outward** along the time-now ray; same **û_rad** as **§NowPointer** shared quantities). The wedge bisector from **V** into the band follows **û_rad**. The two rays from **V** that bound the wedge are **û_rad** rotated by **±½·subtendedAngleRad** in the diagram plane (CCW positive, **§Polar**), i.e. directions at polar angles **θ_now ± ½·subtendedAngleRad**.
-    - Let **P_a** and **P_b** be the first forward intersections of those rays with the circle **|P − O| = r_ann_outer**.
-    - The closed path is **V → P_a → (minor arc along that circle from P_a to P_b) → V**, with **fill** and **stroke** applied to that path in scene terms (same fill/stroke resolution as filled **TrianglePrimitive** leaves).
-  - **AnnularBand** must be present with **annularBandWidth > 0** whenever **NowPointer** is used, so **r_ann_outer > r_ref** holds (same rule as **§Strict diagram input** for **annularBand**).
-
-## NextPointer
-
-**NextPointer** is a top-level named element tied to the **next** tide marker at or after `timeNow` on the same civil day (see **TimeDelta** and **TideMarks**).
-
-### Logical structure
-
-**NextPointer** comprises two direct parts, both on the ray of the next-tide time:
-
-- **Next radial line** — one radial segment.
-- **Next circle** — one filled circle at the outer end of that radial segment.
-
-### Time association
-
-- Let the **next tide marker** be the same event used by **TimeDelta** (next marker at or after `timeNow`; marker times must not use `24:00:00` — see **Strict diagram input** / **TideMarks**).
-- Let its time be **t_next** in hours, with **θ_next = θ(t_next)** per **§Time and θ(t)**.
-- All **NextPointer** geometry is defined relative to **θ_next**.
-- If no such next marker exists on the same civil day, **NextPointer** is
-omitted from the scene (no radial segment or circle emitted), consistent with
-**WaitArc**.
-
-### Geometry
-
-Inputs and derived quantities:
-
-- **NextPointerLineOuterRadius** — line **outer** radius as **k·R** per **§Sizing**.
-- **R_frame** — from `**centreFrame.frameArcRadius`** as **k·R** (**§Sizing**); same as **§CentreFrame** and **NowPointer** inner radius.
-- **σ** — fixed dimensionless constant **1/35** (not a host input). Scales the Next filled-circle radius relative to **R_frame**.
-- Let:
-  - **r_inner = R_frame**,
-  - **r_outer = NextPointerLineOuterRadius·R**,
-  - **r_circle = σ·R_frame**.
-
-#### Next radial line
-
-- A radial segment at **θ_next** with:
-  - **inner radius** **r_inner** = **R_frame** (same as **NowPointer**),
-  - **outer radius** **r_outer** from **NextPointerLineOuterRadius** (required host input under `**nextPointer.radialLine`**).
-- If **r_outer ≤ r_inner**, generation **throws** (misconfigured outer radius relative to **R_frame**). **NextPointer** is omitted from the scene only when there is no qualifying next tide (derived).
-
-#### Next circle
-
-- The **Next circle** is a filled circle at the **outer** endpoint of the Next radial line:
-  - **Centre** — the point at radius **r_outer** on the ray at **θ_next**.
-  - **Radius** — **r_circle** = **σ·R_frame** (**σ** = **1/35**; **R_frame** from `**centreFrame.frameArcRadius`**; no host field on `**nextPointer`**).
-
-## WaitArc
-
-**WaitArc** is a top-level named element representing the waiting interval from
-`timeNow` to the next tide marker on the same civil day.
-
-### Logical structure
-
-- **WaitArc** contributes one arc segment concentric with **RefArc**.
-- Arrowhead rendering is **not** synthesized by diagram generation; when an
-arrow is present, generation carries explicit metadata intent for an arc-end
-arrow, and the downstream renderer is responsible for visual arrowhead
-geometry.
-
-### Time association
-
-- Use the same **next tide marker** definition as **NextPointer** and
-**TimeDelta**.
-- Let **θ_now** be from `timeNow` and **θ_next** from the next marker time.
-- **WaitArc** starts at **θ_now** and sweeps CCW to **θ_next**.
-
-### Geometry
-
-- Define input **WaitArcRadius** as **k·R** per **§Sizing**.
-- Radius is **R_wait = WaitArcRadius·R**.
-- Arc centre is **O**, with start angle **θ_now** and sweep
-**max(0, θ_next − θ_now)**.
-- If no next marker exists on the same civil day, **WaitArc** is omitted.
-- If the qualifying next tide marker exists, **WaitArc** geometry is emitted.
-- Arrow metadata is omitted when the configured arrowhead would dominate the
-rendered arc segment (see also **§Strict diagram input → Derived behaviour**).
-
-### Arrow metadata
-
-- **WaitArc** carries arrow metadata only; generator does not synthesize
-arrowhead geometry.
-- Arrow metadata is omitted by the arc-fit rule above (not by the
-Now-line/Now-label 1-hour occlusion threshold).
-- Arrow metadata fields:
-  - **at** — currently fixed to `end` for **WaitArc**.
-  - **lengthK** — arrowhead length multiplier (recommended in stroke-width
-  units for renderer mapping).
-  - **widthK** — arrowhead width multiplier (same unit convention as
-  **lengthK**).
-  - **insetK** — signed tip offset along the tangent at the target endpoint.
-  - **style** — one of `filled` or `open`.
-  - **scaleWithStroke** — boolean; when true, renderer scales marker with
-  stroke width.
-
 ## Time now readout
 
-Two related **top-level** named elements (see **Diagram elements**) show local civil **date** and **clock time** derived from the host’s `**timeNowDatePrefix**` and global canonical `**timeNow**` (`**HH:MM:SS**`). They are positioned **relative to AnnularBand** and **TickLabels** as below (not from free-floating absolute `x`/`y` clock anchors).
+Three related **top-level** named elements (see **Diagram elements**) show host-local **location name**, host-local civil **date**, and **clock time** derived from `**timeNowLocation**`, `**timeNowDatePrefix**`, and global canonical `**timeNow**` (`**HH:MM:SS**`). They are positioned **relative to AnnularBand** and **TickLabels** as below (not from free-floating absolute `x`/`y` clock anchors).
 
 ### Shared inputs
 
 - Diagram input object `**timeNowLabel`** — **required** plain object; finite numbers as **k·R** multiples (**§Sizing**):
-  - `**fontHeight`** — **k_font·R**; used as **FontHeight** for **both** **TimeNowDate** and **TimeNowClock** leaves.
-  - `**dateAboveTime`** — non-negative **k·R** gap: the **TimeNowDate** baseline is **`dateAboveTime·R`** **above** (+**Y**) the **TimeNowClock** baseline (same diagram-space **Y** convention as **§Origin**).
+  - `**fontHeight`** — **k_font·R**; used as **FontHeight** for **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock** leaves.
+  - `**dateAboveTime`** — non-negative **k·R** gap: the **TimeNowLocation** baseline is **`dateAboveTime·R`** **above** (+**Y**) the merged **(TimeNowDate + TimeNowClock)** baseline (see **§Vertical placement** below).
+- Diagram input `**timeNowLocation`** — required string for **TimeNowLocation** text (current location name; may be empty after trim).
 - Diagram input `**timeNowDatePrefix`** — required string for **TimeNowDate** text (customary short form such as `**Wed 21 Jun`**; may be empty after trim).
 
 ### Horizontal placement (both elements)
 
 - Let **X_ann_max** be the **maximum diagram-space X** coordinate attained by the closed **AnnularBand** sector (outer/inner arcs and closing radial segments), for the band’s emitted geometry (same centre **O** as **RefArc**).
-- **TimeNowDate** and **TimeNowClock** use **horizontal justification** **right**.
+- **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock** use **horizontal justification** **right**.
 - The **trailing** (rightmost) anchor for the clock row is at **(X_ann_max, y_clock)** so the **TimeNowLabelSeconds** anchor **x** equals **X_ann_max**; **TimeNowLabelSecondsColon** and **TimeNowLabelHms** anchors sit to the left by the same fixed monospace width heuristic as before (**§Scene model** / preview framing).
-- **TimeNowDate** uses the same **x** anchor as that trailing clock anchor (**X_ann_max**) so the date and clock are **right-aligned** to one another at the annular band’s **+X** bound.
+- **TimeNowDate** is shifted left so that its right edge stops before the clock and a fixed separator gap (implemented as spacing equal to several monospace character widths), producing a merged “date + time” single visual row.
+- **TimeNowLocation** uses the same **x** anchor as the annular band’s **+X** bound (so the location remains right-aligned to the full readout).
 
 ### Vertical placement
 
 - Let **y_tick_min** be the **minimum** `**anchor.y**` among all emitted **TickLabels** (same anchor convention as **TickLabels**).
 - **TimeNowClock** — all three fragments share baseline **`y_clock = y_tick_min`** (exact numeric equality).
-- **TimeNowDate** — baseline **`y_date = y_clock + dateAboveTime·R`**.
+- **TimeNowDate** — baseline **`y_date = y_clock`** (same row as the clock).
+- **TimeNowLocation** — baseline **`y_location = y_clock + dateAboveTime·R + fontHeight·R`**.
 
 ### Clock row text (TimeNowClock)
 
@@ -461,6 +301,7 @@ Two related **top-level** named elements (see **Diagram elements**) show local c
 
 ### Scene model
 
+- **TimeNowLocation** — one named group **TimeNowLocation** containing one **TextElement** (leaf/style binding name **TimeNowLocation**).
 - **TimeNowDate** — one named group **TimeNowDate** containing one **TextElement** (leaf/style binding name **TimeNowDate**).
 - **TimeNowClock** — named group **TimeNowClock** containing three child groups (stable leaf names for hosts that patch DOM text):
   - **TimeNowLabelHms** — **TextElement** (leaf name for style binding).
@@ -485,7 +326,7 @@ Two related **top-level** named elements (see **Diagram elements**) show local c
 ### Copy and layout
 
 - When a **next** marker exists on the civil day — **four** centre-justified **TextElement**s at distinct baselines (no interpuncts between stripes; vertical rhythm is intentional typography):
-  1. **TimeDeltaLocation** — `**town**` from `**timeDelta.town**`; **FontHeight** **k·R** from `**countdownLines[0].fontHeight**`; **Anchor Y** **0 − countdownLines[0].belowOrigin·R**; **Horizontal justification** **centre**; **Baseline polar angle** **0**.
+  1. **TimeDeltaLocation** — **empty string**; **FontHeight** **k·R** from `**countdownLines[0].fontHeight**`; **Anchor Y** **0 − countdownLines[0].belowOrigin·R**; **Horizontal justification** **centre**; **Baseline polar angle** **0**.
   2. **TimeDeltaPhase** — `**Tide <going out|coming in>**` from `**timeDelta.tidePhasePair**` (`"out-low"` → `going out`; `"in-high"` → `coming in`); geometry from `**countdownLines[1]**`.
   3. **TimeDeltaNext** — `**<Low tide|High tide> in <Hh Mm>**` where the low/high label matches the pair (`"out-low"` → `Low tide`; `"in-high"` → `High tide`); `<Hh Mm>` is derived from the interval to the next marker at or after `**timeNow`** on the same civil day; geometry from `**countdownLines[2]**`.
   4. **TimeDeltaNextTime** — `**at <HH:MM>**` where `<HH:MM>` is synthesized from the same next marker’s canonical time (seconds omitted); geometry from `**countdownLines[3]**`.
@@ -496,14 +337,14 @@ Two related **top-level** named elements (see **Diagram elements**) show local c
       - if `**height_{i+1} < height_i`**, use `**"out-low"`**.
     - For `**timeNow`** before the first retained event or after the last retained event, treat those as half-defined edge segments and resolve by alternating opposite to the nearest fully defined segment.
 - **Atypical civil-day pattern** — `**timeDelta.atypicalTideSummary`** is a **required** boolean. When it is `**true**` and a next marker exists, the generator still emits **four** stripes (same geometry slots and leaf names), but **copy** is:
-  1. **TimeDeltaLocation** — unchanged (`**town**`).
+  1. **TimeDeltaLocation** — **empty string**.
   2. **TimeDeltaPhase** — fixed product line: **Tricky tides today**.
-  3. **TimeDeltaNext** — fixed product line: **Use the markers**.
-  4. **TimeDeltaNextTime** — **empty string** (placeholder stripe; vertical tuning is a host/layout concern). No verbal next-interval or `**at HH:MM**` line in this mode. **NextPointer** and **WaitArc** behaviour is unchanged (see **Derived behaviour** above). When `**atypicalTideSummary`** is `**false**`, the typical countdown copy rules apply. `**atypicalTideSummary`** does **not** alter **NoMoreTidesToday** behaviour.
+  3. **TimeDeltaNext** — **empty string**.
+  4. **TimeDeltaNextTime** — **empty string** (placeholder stripe; vertical tuning is a host/layout concern). No verbal next-interval or `**at HH:MM**` line in this mode. When `**atypicalTideSummary`** is `**false**`, the typical countdown copy rules apply. `**atypicalTideSummary`** does **not** alter **NoMoreTidesToday** behaviour.
 - **No next marker at or after `timeNow` on the civil day** (e.g. after the last tide; includes the case where every marker is strictly before `**timeNow`**) — **three** **TextElement**s (same leaf names and geometry keys as the first two countdown stripes, plus the tomorrow line):
-  1. **TimeDeltaLocation** — `**town**` from `**timeDelta.town**`; **FontHeight** from `**countdownLines[0].fontHeight**`; **Anchor Y** **0 − countdownLines[0].belowOrigin·R**; **Horizontal justification** **centre**; **Baseline polar angle** **0**.
+  1. **TimeDeltaLocation** — **empty string**; **FontHeight** from `**countdownLines[0].fontHeight**`; **Anchor Y** **0 − countdownLines[0].belowOrigin·R**; **Horizontal justification** **centre**; **Baseline polar angle** **0**.
   2. **TimeDeltaPhase** — `**Tide <going out|coming in>**` from `**timeDelta.tidePhasePair**` (same mapping as the countdown case); geometry from `**countdownLines[1]**`.
-  3. **NoMoreTidesToday** — fixed synthesis from `**timeDelta.tidePhasePair`**: `**Low tide tomorrow`** for `"out-low"` and `**High tide tomorrow`** for `"in-high"` (not a host override). **FontHeight** — **k·R** from `**emptyMessage.fontHeight**`; **Anchor Y** **0 − countdownLines[2].belowOrigin·R** (the interval stripe’s vertical slot; replaces the verbal interval and `**at HH:MM**` rows). **Horizontal justification** **centre**; **Baseline polar angle** **0**; **Anchor X** **0**.
+  3. **NoMoreTidesToday** — fixed synthesis from `**timeDelta.tidePhasePair`**: `**Low tide tomorrow`** for `"out-low"` and **empty string** for `"in-high"` (not a host override). **FontHeight** — **k·R** from `**emptyMessage.fontHeight**`; **Anchor Y** **0 − countdownLines[2].belowOrigin·R** (the interval stripe’s vertical slot; replaces the verbal interval and `**at HH:MM**` rows). **Horizontal justification** **centre**; **Baseline polar angle** **0**; **Anchor X** **0**.
 - **Layout guidance:** choose each `**countdownLines[i].belowOrigin`** so baselines sit comfortably inside the chord region implied by **`centreFrame.frameArcRadius`** and the ref arc; **CentreFrame** and **TimeDelta** remain independent inputs (no automatic coupling in the generator).
 
 ## CentreFrame
@@ -518,7 +359,7 @@ Two related **top-level** named elements (see **Diagram elements**) show local c
 
 **Radius and endpoints**
 
-- **R_frame** = **k·R** for diagram input **k** = `**centreFrame.frameArcRadius`** (**§Sizing**). The same **R_frame** is the **inner** radius of the **NowPointer** radial segment. The **NextPointer** filled-circle radius is **σ·R_frame** (**§NextPointer**).
+- **R_frame** = **k·R** for diagram input **k** = `**centreFrame.frameArcRadius`** (**§Sizing**).
 - The arc uses the **same** centre **(0, 0)**, **sweep**, and angular orientation
 as the **RefArc** (**§Polar**). The **only** geometric quantity that differs
 from the **RefArc** is the circle radius (**R_frame** vs **RefRadius**).
@@ -574,7 +415,7 @@ the intended appearance—**RefArc** stroke **replacing** the **inner** portion 
 
 - Emitted as a named group **AnnularBand** containing the single closed-region
 primitive (exact-match **style binding name** **AnnularBand**, same indirection
-contract as **RefArc**, **CentreFrame**, **WaitArc**, etc.; concrete `styleName`
+contract as **RefArc**, **CentreFrame**, etc.; concrete `styleName`
 values are **not** fixed in this specification).
 
 ## Tick marks
@@ -676,6 +517,91 @@ For **both** labels:
 - One **arc** primitive: circular arc from **Vertex2** to **Vertex3** with centre **centre** and radius **radius**, choosing the arc that does **not** contain **Vertex1** in its interior (the **head** cap—the arc whose interior points lie on the opposite side of chord **Vertex2–Vertex3** from **Vertex1**). Equivalently: of the two arcs between **Vertex2** and **Vertex3**, use the one that does **not** pass through **Vertex1** along the circle.
 
 **Presentation:** the **TimePointer** subgroup uses **stroke** colour from its leaf style; **fill** is **none** on these primitives. Hosts may set **stroke-linecap** / **stroke-linejoin** so the three curves meet cleanly at **Vertex1**, **Vertex2**, and **Vertex3** (product default: round caps and joins on the **TimePointer** group).
+
+## Hand
+
+**Hand** is a top-level named element tied to global `**timeNow`** via `**θ_now`**
+(**§Global “time now” input**). When `paintOrder.overrides` is used, it applies
+using the same exact group names listed here.
+
+### Scene model
+
+- Emitted as a named group **Hand** (`**hand`** input is required).
+- Direct leaves:
+  - **BossCircle** — stroked circle.
+  - **SmallCircle** — stroked circle.
+  - **Extension** — stroked radial line segment.
+  - **Projection** — stroked radial line segment.
+  - **Arm** — stroked radial line segment.
+- One subgroup **PointerPip** with three stroked leaves:
+  - **PointerPipSideA** — line.
+  - **PointerPipSideB** — line.
+  - **PointerPipHeadArc** — arc.
+- **Hand** primitives are stroked only; **fill** is **none**.
+
+### Paint-order example
+
+To ensure the projection stroke sits underneath overlapping hand geometry, a host
+can place it before the boss-circle leaf:
+
+```json
+{
+  "paintOrder": {
+    "overrides": [
+      { "name": "Hand.Projection", "place": "before", "relativeTo": "Hand.BossCircle" }
+    ]
+  }
+}
+```
+
+### PointerPip geometry (reuse contract)
+
+- **PointerPip** reuses the exact geometric construction of
+  **TideMarks.TimePointer** (**TimePointer**, **Construction**, and **Scene emission**),
+  with these substitutions:
+  - use `**t = t_now`** / `**θ_now`** instead of marker time;
+  - use `**pointerTipInset`** to move `**Vertex1`** inward along the `**θ_now`** ray
+    from the RefArc by `**pointerTipInset·RefRadius`**;
+  - scale all **linear** quantities in that construction by
+    `**hand.pointerPipScale`**;
+  - keep the divergence angle equal to `**tideMarks.tideMarkArrowDivergence`**
+    (same silhouette angles as tide markers).
+- This is a strict similarity constraint: to a viewer, **PointerPip** has the
+  same shape as a tide-marker pointer and differs only by scale.
+
+### BossCircle
+
+- Center at **O** (`(0,0)`).
+- Radius: `**hand.bossCircleRadius · RefRadius`**.
+
+### SmallCircle
+
+- Radius: `**R_small = hand.smallCircleRadius · RefRadius`**.
+- Center lies on the `**θ_now`** radial line.
+- Let `**C_head`** and `**R_head`** be the centre and radius of
+  **PointerPipHeadArc** from the reused TimePointer construction above.
+- **SmallCircle** is tangent to **PointerPipHeadArc** on the inward side (toward
+  **O**), so centre placement is:
+  - `**|C_head − C_small| = R_head − R_small`**
+  - with `**C_small`** chosen on the inward branch of the `**θ_now`** ray.
+
+### Radial segments
+
+- All three are colinear with the `**θ_now`** ray.
+- Let:
+  - `**r_ref = RefRadius**`
+  - `**r_track = insideTrackRadius · RefRadius**`
+  - `**r_tip = r_ref − hand.pointerTipInset · RefRadius**`
+  - `**r_boss = hand.bossCircleRadius · RefRadius**`
+  - `**r_small_center = |OC_small|**`
+  - `**r_small_inner = r_small_center − R_small**`
+- Segment radii:
+  - **Extension** — from `**r_tip`** to `**r_track`**.
+  - **Projection** — from `**r_track`** to `**r_ref`**.
+  - **Arm** — from `**r_boss`** to `**r_small_inner`**.
+- Validation: generation fails if any segment has non-increasing radius order at
+  emission time (specifically, require `**r_tip < r_track < r_ref**` and
+  `**r_boss < r_small_inner**`).
 
 ## Notes on interpretation
 
