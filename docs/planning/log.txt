@@ -11,43 +11,6 @@
 *  desktop -> install app -> full screen -> menu doesn't activate
 *  avoid tide dial in all visible copy
 
-o  try the clock hand idea
-	*  branch hand
-	*  design geom
-	*  toggle element switches
-	o  add hand to spec
-		*  geom only
-		*  zdepth rule for ext
-
-	*  for implementaton tell me the input names
-	*  me decide input values and style groupings
-	*  mandate the implementation
-	*  fundamental fixes
-	*  tune geom
-	*  tune tyles
-
-	o  Move  time now text block
-		*  temp hide TimeDelta and CentreFrame
-		o  get trivial text experiment going inside inner arc
-			*  call it MainLabel
-			*  quick brown fox on lhs centre just
-			*  switch sides according to time
-			*  make it it a new summary status element derived from inputs
-			o  Fiddle with summary text
-				*  remove yellow from timenow readout and colon animation
-				*  flip order of lines time then date
-				*  precede with Location in different style
-				*  remove  redundant "at XYX" part
-				*  ditch location from summary label
-				*  reduce to just low tide in in part
-				*  justify right left
-				*  try out different positions with shorter hand
-				*  now deal with singularity cases
-
-
-	o  merge branch hand
-	o  do
-	o  deploy / test
 
 o  work on spec coherence and redundancy
 
