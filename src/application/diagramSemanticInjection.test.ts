@@ -48,17 +48,9 @@ type SemanticInjectionDiagramSpec = {
     readonly fontHeight: number;
     readonly dateAboveTime: number;
   };
-  readonly centreFrame: { readonly frameArcRadius: number };
   readonly insideTrackRadius: number;
   readonly mainLabelRadius: number;
   readonly mainLabelTimeOffsetHours: number;
-  readonly timeDelta: {
-    readonly countdownLines: readonly { readonly belowOrigin: number; readonly fontHeight: number }[];
-    readonly emptyMessage: { readonly belowOrigin: number; readonly fontHeight: number };
-    readonly town: string;
-    readonly tidePhasePair: 'out-low' | 'in-high';
-    readonly atypicalTideSummary: boolean;
-  };
   readonly annularBand: { readonly annularBandWidth: number };
   readonly hand: {
     readonly bossCircleRadius: number;
@@ -80,7 +72,7 @@ function buildDiagramFromSpec(spec: DiagramGenerationSpec): TideDiagramDocument 
   return buildDiagram(spec) as TideDiagramDocument;
 }
 
-/** Minimal spec with timeDelta, centreFrame, and tide markers. */
+/** Minimal spec with tide markers and required geometry. */
 function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
   return {
     title: 'semantic-injection',
@@ -109,22 +101,9 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       ],
     },
     timeNowLabel: { fontHeight: 0.05, dateAboveTime: 0.05 },
-    centreFrame: { frameArcRadius: 0.35 },
     insideTrackRadius: 0.75,
     mainLabelRadius: 0.75,
     mainLabelTimeOffsetHours: 1,
-    timeDelta: {
-      countdownLines: [
-        { belowOrigin: 0.04, fontHeight: 0.05 },
-        { belowOrigin: 0.07, fontHeight: 0.05 },
-        { belowOrigin: 0.1, fontHeight: 0.05 },
-        { belowOrigin: 0.13, fontHeight: 0.05 },
-      ],
-      emptyMessage: { belowOrigin: 0.1, fontHeight: 0.05 },
-      town: 'Lymington',
-      tidePhasePair: 'out-low',
-      atypicalTideSummary: false,
-    },
     annularBand: { annularBandWidth: 0.05 },
     hand: {
       bossCircleRadius: 0.08,
@@ -167,95 +146,14 @@ describe('spec.semantic.nextTide injection', () => {
     expect(withSemantic).toEqual(baseline);
   });
 
-  it('after last tide of the day shows NoMoreTidesToday', () => {
-    const base = sampleTideDiagramSpec();
-    const spec = { ...base, timeNow: '23:59:00' };
+  it('after last tide still renders the time-now readout', () => {
+    const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.timeDeltaDiagram.countdownStripes).toBeNull();
-    const R = spec.refRadius;
-    const [l0, l1, l2] = spec.timeDelta.countdownLines;
-    const emptyFh = spec.timeDelta.emptyMessage.fontHeight;
-    expect(diagram.timeDeltaDiagram.timeDeltaEmptyStripes).toEqual([
-      {
-        content: '',
-        fontSize: l0.fontHeight * R,
-        anchor: { x: 0, y: -l0.belowOrigin * R },
-        hAlign: 'center',
-      },
-      {
-        content: 'Tide going out',
-        fontSize: l1.fontHeight * R,
-        anchor: { x: 0, y: -l1.belowOrigin * R },
-        hAlign: 'center',
-      },
-      {
-        content: 'Low tide tomorrow',
-        fontSize: emptyFh * R,
-        anchor: { x: 0, y: -l2.belowOrigin * R },
-        hAlign: 'center',
-      },
-    ]);
     expect(diagram.timeNowDate.content).toBe('Mon 23 Mar');
     expect(diagram.timeNowLocation.content).toBe('Lymington');
     expect(diagram.timeNowClock.hhmm.content).toBe('23:59');
     expect(diagram.timeNowClock.secondsColon.content).toBe(':');
     expect(diagram.timeNowClock.seconds.content).toBe('00');
-  });
-
-  it('after last tide with in-high omits tomorrow line text', () => {
-    const base = sampleTideDiagramSpec();
-    const spec = {
-      ...base,
-      timeNow: '23:59:00',
-      timeDelta: { ...base.timeDelta, tidePhasePair: 'in-high' as const },
-    };
-    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.timeDeltaDiagram.countdownStripes).toBeNull();
-    const emptyStripes = diagram.timeDeltaDiagram.timeDeltaEmptyStripes;
-    expect(emptyStripes).not.toBeNull();
-    expect(emptyStripes?.[1]?.content).toBe('Tide coming in');
-    expect(emptyStripes?.[2]?.content).toBe('');
-  });
-
-  it('rejects malformed injected nextTide', () => {
-    const spec = sampleTideDiagramSpec();
-    expect(() =>
-      buildDiagramFromSpec({
-        ...spec,
-        semantic: {
-          nextTide: {
-            secondsSinceMidnight: 'x',
-            kind: 'High',
-            timeDeltaIntervalText: '1h 0m',
-          },
-        },
-      } as DiagramGenerationSpec),
-    ).toThrow(/secondsSinceMidnight/);
-  });
-
-  it('throws when spec omits timeDelta', () => {
-    const { timeDelta: _omit, ...rest } = sampleTideDiagramSpec();
-    expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
-      /spec\.timeDelta/,
-    );
-  });
-
-  it('throws when timeDelta.atypicalTideSummary is omitted', () => {
-    const spec = sampleTideDiagramSpec();
-    const { atypicalTideSummary: _omit, ...timeDeltaRest } = spec.timeDelta;
-    expect(() =>
-      buildDiagramFromSpec({
-        ...spec,
-        timeDelta: timeDeltaRest,
-      } as DiagramGenerationSpec),
-    ).toThrow(/atypicalTideSummary/);
-  });
-
-  it('throws when spec omits centreFrame', () => {
-    const { centreFrame: _omit, ...rest } = sampleTideDiagramSpec();
-    expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
-      /spec\.centreFrame/,
-    );
   });
 
   it('throws when spec omits annularBand', () => {

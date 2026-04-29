@@ -10,22 +10,14 @@
 *  first use choose your location needs same background
 *  desktop -> install app -> full screen -> menu doesn't activate
 *  avoid tide dial in all visible copy
-
-
-o  work on spec coherence and redundancy
+*  work on spec coherence and redundancy
 
 
 o  bottom right text should be bigger for phone
 o  would main label be better static at bottom?
+	o  or defer to first glance reappraisal
 
-/docs/tide-diagram.md for context.
 
-See /docs/planning/tide-diagram-spec-writing... for context. Proceed with the next step.
-
-	o  normalise the spec after the fact
-		*  stepping through phases
-		o  when complete scan
-			o  wrong definition for MainLabel (fox)
 
 o  first glance ux assimilation
 	o  first thing someone tried to drag the time now

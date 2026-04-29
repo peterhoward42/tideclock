@@ -12,18 +12,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "sweepRad": 3.141592653589793,
     "thetaLeft": 3.141592653589793,
   },
-  "centreFrameDiagram": {
-    "frameArc": {
-      "center": {
-        "x": 0,
-        "y": 0,
-      },
-      "radius": 53.1,
-      "sweepRad": 3.141592653589793,
-      "thetaLeft": 3.141592653589793,
-      "thetaRight": 6.283185307179586,
-    },
-  },
   "hand": {
     "arm": {
       "end": {
@@ -123,9 +111,9 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "content": "High tide in 3h 45m",
     "fontSize": 5.31,
     "hAlign": "right",
-    "radius": 76.7,
-    "sweepRad": 0.7892307692307691,
-    "thetaStart": 4.752298688929478,
+    "radius": 69.61999999999999,
+    "sweepRad": 0.8694915254237288,
+    "thetaStart": 4.645857993956603,
   },
   "meta": {
     "height": 320,
@@ -717,47 +705,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       },
     },
   ],
-  "timeDeltaDiagram": {
-    "countdownStripes": [
-      {
-        "anchor": {
-          "x": 0,
-          "y": -7.67,
-        },
-        "content": "",
-        "fontSize": 5.664,
-        "hAlign": "center",
-      },
-      {
-        "anchor": {
-          "x": 0,
-          "y": -18.29,
-        },
-        "content": "Tide coming in",
-        "fontSize": 5.31,
-        "hAlign": "center",
-      },
-      {
-        "anchor": {
-          "x": 0,
-          "y": -29.5,
-        },
-        "content": "High tide in 3h 45m",
-        "fontSize": 5.31,
-        "hAlign": "center",
-      },
-      {
-        "anchor": {
-          "x": 0,
-          "y": -41.3,
-        },
-        "content": "at 23:06",
-        "fontSize": 5.31,
-        "hAlign": "center",
-      },
-    ],
-    "timeDeltaEmptyStripes": null,
-  },
   "timeNowClock": {
     "hhmm": {
       "anchor": {
@@ -1730,24 +1677,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             },
             "content": "High tide in 3h 45m",
             "kind": "arcText",
-            "radius": 76.7,
+            "radius": 69.61999999999999,
             "size": 5.31,
-            "sweepRad": 0.7892307692307691,
-            "thetaStart": 4.752298688929478,
+            "sweepRad": 0.8694915254237288,
+            "thetaStart": 4.645857993956603,
           },
         ],
         "kind": "group",
         "name": "MainLabel",
-      },
-      {
-        "children": [],
-        "kind": "group",
-        "name": "CentreFrame",
-      },
-      {
-        "children": [],
-        "kind": "group",
-        "name": "TimeDelta",
       },
       {
         "children": [

@@ -138,8 +138,6 @@ describe('createDiagramGenerationCollaborator', () => {
       'TideMarks',
       'TickLabel',
       'MainLabel',
-      'CentreFrame',
-      'TimeDelta',
       'TimeNowLocation',
       'TimeNowDate',
       'TimeNowClock',
@@ -153,14 +151,14 @@ describe('createDiagramGenerationCollaborator', () => {
     const spec = {
       ...base,
       paintOrder: {
-        overrides: [{ name: 'TimeDelta', place: 'before' as const, relativeTo: 'RefArc' }],
+        overrides: [{ name: 'TimeNowLocation', place: 'before' as const, relativeTo: 'RefArc' }],
       },
     };
     const { scene } = collaborator.generate(spec);
     const childNames = scene.root.children
       .filter((child) => child.kind === 'group')
       .map((child) => child.name);
-    expect(childNames.indexOf('TimeDelta')).toBeLessThan(childNames.indexOf('RefArc'));
+    expect(childNames.indexOf('TimeNowLocation')).toBeLessThan(childNames.indexOf('RefArc'));
   });
 
   it('applies home preset paint-order so Hand sits below all root siblings', () => {
@@ -192,8 +190,8 @@ describe('createDiagramGenerationCollaborator', () => {
       ...base,
       paintOrder: {
         overrides: [
-          { name: 'TimeDelta', place: 'before' as const, relativeTo: 'RefArc' },
-          { name: 'TimeDelta', place: 'after' as const, relativeTo: 'TickLabel' },
+          { name: 'TimeNowLocation', place: 'before' as const, relativeTo: 'RefArc' },
+          { name: 'TimeNowLocation', place: 'after' as const, relativeTo: 'TickLabel' },
         ],
       },
     };

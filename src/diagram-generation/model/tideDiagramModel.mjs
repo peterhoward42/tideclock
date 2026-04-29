@@ -47,14 +47,6 @@
  * }} DiagramTimeNowClockInst
  *
  * @typedef {{
- *   center: DiagramPoint,
- *   radius: number,
- *   sweepRad: number,
- *   thetaLeft: number,
- *   thetaRight: number,
- * }} CentreFrameArcSpec
- *
- * @typedef {{
  *   start: DiagramPoint,
  *   end: DiagramPoint,
  * }} DiagramLineSeg
@@ -69,19 +61,6 @@
  *   arm: DiagramLineSeg,
  *   pointerPip: TideTimePointerSpec,
  * }} HandDiagram
- *
- * TimeDeltaDiagram: **countdownStripes** holds four center-justified lines (location, phase, next-event interval, next-event clock) when counting down;
- * **timeDeltaEmptyStripes** holds three lines (location, phase, tomorrow event) when there is no next tide today (**NoMoreTidesToday** third stripe in the spec).
- * X anchor is fixed at **0** for each stripe; baseline Y follows per-stripe **belowOrigin** on the spec (**k·R**), distance from the origin toward negative Y.
- *
- * @typedef {{
- *   countdownStripes: DiagramTextInst[] | null,
- *   timeDeltaEmptyStripes: DiagramTextInst[] | null,
- * }} TimeDeltaDiagram
- *
- * @typedef {{
- *   frameArc: CentreFrameArcSpec,
- * }} CentreFrameDiagram
  *
  * @typedef {{
  *   content: string,
@@ -160,8 +139,6 @@
  *   annularBand: AnnularBandDiagram,
  *   homeMenuTrigger: HomeMenuTriggerDiagram,
  *   hand: HandDiagram,
- *   timeDeltaDiagram: TimeDeltaDiagram,
- *   centreFrameDiagram: CentreFrameDiagram,
  *   timeNowLocation: DiagramTextInst,
  *   timeNowDate: DiagramTextInst,
  *   timeNowClock: DiagramTimeNowClockInst,

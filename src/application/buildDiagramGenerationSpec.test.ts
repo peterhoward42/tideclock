@@ -3,7 +3,6 @@ import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import {
   buildDiagramGenerationSpec,
-  deriveTimeDeltaTidePhasePair,
   formatTideHeightMetresForDiagram,
   type HomeDiagramTideMarks,
   utcIsoToLocalCanonicalTimeUtc,
@@ -18,17 +17,6 @@ function fixtureExtremesAtLocation(): TideExtremesAtLocation {
     new TideExtreme('high', '2026-03-23T10:45:00.000Z', 4.7),
     new TideExtreme('low', '2026-03-23T16:59:24.000Z', 0.89),
     new TideExtreme('high', '2026-03-23T23:06:00.000Z', 4.8),
-  ]);
-}
-
-/** Fifth extreme triggers `moreThanFourExtrema` in `isAtypicalTideExtremaPattern` (ordered same-day UTC instants). */
-function fixtureAtypicalFiveExtremesAtLocation(): TideExtremesAtLocation {
-  return TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
-    new TideExtreme('low', '2026-03-23T04:15:00.000Z', 0.94),
-    new TideExtreme('high', '2026-03-23T10:45:00.000Z', 4.7),
-    new TideExtreme('low', '2026-03-23T16:59:24.000Z', 0.89),
-    new TideExtreme('high', '2026-03-23T23:06:00.000Z', 4.8),
-    new TideExtreme('low', '2026-03-23T23:50:00.000Z', 0.95),
   ]);
 }
 
@@ -61,9 +49,6 @@ describe('buildDiagramGenerationSpec', () => {
     expect(markers).toEqual(expectedFixtureMarkers);
     expect(spec.timeNow).toBe('19:20:03');
     expect(spec.semantic).toBeUndefined();
-    expect((spec.timeDelta as { atypicalTideSummary: boolean }).atypicalTideSummary).toBe(
-      false,
-    );
   });
 
   it('rejects empty extremes', () => {
@@ -76,27 +61,6 @@ describe('buildDiagramGenerationSpec', () => {
         townName: 'Lymington',
       }),
     ).toThrow(/at least one tide extreme/);
-  });
-
-  it('sets atypicalTideSummary and atypical TimeDelta countdown copy when extrema pattern is atypical', () => {
-    const spec = buildDiagramGenerationSpec({
-      extremesAtLocation: fixtureAtypicalFiveExtremesAtLocation(),
-      timeNow: '19:20:03',
-      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      townName: 'Lymington',
-    });
-    expect((spec.timeDelta as { atypicalTideSummary: boolean }).atypicalTideSummary).toBe(true);
-    const collaborator = createDiagramGenerationCollaborator();
-    const { diagram } = collaborator.generate(spec);
-    const stripes = diagram.timeDeltaDiagram.countdownStripes;
-    expect(stripes).not.toBeNull();
-    expect(stripes!.map((s) => s.content)).toEqual([
-      '',
-      'Tricky tides today',
-      '',
-      '',
-    ]);
   });
 
   it('injects semantic.nextTide when derivedSemantics is passed', () => {
@@ -173,43 +137,5 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
       townName: 'Lymington',
     });
     expect(collaborator.generate(spec).scene).toMatchSnapshot();
-  });
-});
-
-describe('deriveTimeDeltaTidePhasePair', () => {
-  const extremes = fixtureExtremesAtLocation().extremes;
-
-  it('uses segment slope for times between adjacent extremes', () => {
-    expect(
-      deriveTimeDeltaTidePhasePair({
-        extremes,
-        timeNow: '07:00:00',
-        utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      }),
-    ).toBe('in-high');
-    expect(
-      deriveTimeDeltaTidePhasePair({
-        extremes,
-        timeNow: '14:00:00',
-        utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      }),
-    ).toBe('out-low');
-  });
-
-  it('resolves before-first and after-last as alternating half segments', () => {
-    expect(
-      deriveTimeDeltaTidePhasePair({
-        extremes,
-        timeNow: '03:00:00',
-        utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      }),
-    ).toBe('out-low');
-    expect(
-      deriveTimeDeltaTidePhasePair({
-        extremes,
-        timeNow: '23:40:00',
-        utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
-      }),
-    ).toBe('out-low');
   });
 });

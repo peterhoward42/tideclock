@@ -12,18 +12,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "sweepRad": 2.75,
     "thetaLeft": 3.3373889803846897,
   },
-  "centreFrameDiagram": {
-    "frameArc": {
-      "center": {
-        "x": 0,
-        "y": 0,
-      },
-      "radius": 41.3,
-      "sweepRad": 2.75,
-      "thetaLeft": 3.3373889803846897,
-      "thetaRight": 6.08738898038469,
-    },
-  },
   "hand": {
     "arm": {
       "end": {
@@ -120,12 +108,12 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "x": 0,
       "y": 0,
     },
-    "content": "Low tide in 3h 45m",
+    "content": "High tide in 3h 45m",
     "fontSize": 5.31,
     "hAlign": "right",
     "radius": 88.5,
-    "sweepRad": 0.648,
-    "thetaStart": 4.790178910940246,
+    "sweepRad": 0.6839999999999999,
+    "thetaStart": 4.7541789109402455,
   },
   "meta": {
     "height": 320,
@@ -709,47 +697,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       },
     },
   ],
-  "timeDeltaDiagram": {
-    "countdownStripes": [
-      {
-        "anchor": {
-          "x": 0,
-          "y": -4.72,
-        },
-        "content": "",
-        "fontSize": 5.9,
-        "hAlign": "center",
-      },
-      {
-        "anchor": {
-          "x": 0,
-          "y": -8.260000000000002,
-        },
-        "content": "Tide going out",
-        "fontSize": 5.9,
-        "hAlign": "center",
-      },
-      {
-        "anchor": {
-          "x": 0,
-          "y": -11.8,
-        },
-        "content": "Low tide in 3h 45m",
-        "fontSize": 5.9,
-        "hAlign": "center",
-      },
-      {
-        "anchor": {
-          "x": 0,
-          "y": -15.34,
-        },
-        "content": "at 23:06",
-        "fontSize": 5.9,
-        "hAlign": "center",
-      },
-    ],
-    "timeDeltaEmptyStripes": null,
-  },
   "timeNowClock": {
     "hhmm": {
       "anchor": {

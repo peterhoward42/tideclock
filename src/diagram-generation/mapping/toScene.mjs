@@ -8,7 +8,6 @@ import {
   annularSector,
   arc,
   arcText,
-  arcSegment,
   circle,
   group,
   line,
@@ -16,9 +15,6 @@ import {
   roundedRect,
   text,
 } from "../model/sceneModel.mjs";
-
-// Temporary UI iteration switch: keep generating these models, but do not render them.
-const SHOW_TIME_DELTA_AND_CENTRE_FRAME = false;
 
 /**
  * Deterministic scene-space bounds (x right, y up).
@@ -540,94 +536,6 @@ function applyPaintOrderOverrides(node, overrides) {
 }
 
 /**
- * @param {import('../model/tideDiagramModel.mjs').CentreFrameDiagram} cf
- * @param {number} cx
- * @param {number} cy
- * @returns {import('../model/sceneModel.mjs').GroupNode}
- */
-export function centreFrameDiagramToGroup(cf, cx, cy) {
-  const fa = cf.frameArc;
-  const fc = fa.center;
-  const fr = fa.radius;
-  const frameArcStart = mapPoint(
-    {
-      x: fc.x + fr * Math.cos(fa.thetaLeft),
-      y: fc.y + fr * Math.sin(fa.thetaLeft),
-    },
-    cx,
-    cy,
-  );
-  const frameArcCenter = mapPoint(fc, cx, cy);
-  return group("CentreFrame", [
-    arcSegment(frameArcCenter, frameArcStart, fa.sweepRad),
-  ]);
-}
-
-/**
- * @param {import('../model/tideDiagramModel.mjs').TimeDeltaDiagram} td
- * @param {number} cx
- * @param {number} cy
- * @returns {import('../model/sceneModel.mjs').GroupNode}
- */
-export function timeDeltaDiagramToGroup(td, cx, cy) {
-  /** @type {import('../model/sceneModel.mjs').GroupNode[]} */
-  const timeDeltaChildren = [];
-  if (td.countdownStripes != null) {
-    const stripeNames = [
-      "TimeDeltaLocation",
-      "TimeDeltaPhase",
-      "TimeDeltaNext",
-      "TimeDeltaNextTime",
-    ];
-    if (td.countdownStripes.length !== stripeNames.length) {
-      throw new Error(
-        `timeDeltaDiagram.countdownStripes must have length ${stripeNames.length}`,
-      );
-    }
-    for (let i = 0; i < td.countdownStripes.length; i += 1) {
-      const seg = td.countdownStripes[i];
-      const leaf = stripeNames[i];
-      const node = text({
-        content: seg.content,
-        size: seg.fontSize,
-        hAlign: seg.hAlign,
-        angleRad: 0,
-        anchor: mapPoint(seg.anchor, cx, cy),
-      });
-      timeDeltaChildren.push(group(leaf, [node]));
-    }
-  }
-  if (td.timeDeltaEmptyStripes != null) {
-    const emptyStripeNames = [
-      "TimeDeltaLocation",
-      "TimeDeltaPhase",
-      "NoMoreTidesToday",
-    ];
-    if (td.timeDeltaEmptyStripes.length !== emptyStripeNames.length) {
-      throw new Error(
-        `timeDeltaDiagram.timeDeltaEmptyStripes must have length ${emptyStripeNames.length}`,
-      );
-    }
-    for (let i = 0; i < emptyStripeNames.length; i += 1) {
-      const seg = td.timeDeltaEmptyStripes[i];
-      const leaf = emptyStripeNames[i];
-      timeDeltaChildren.push(
-        group(leaf, [
-          text({
-            content: seg.content,
-            size: seg.fontSize,
-            hAlign: seg.hAlign,
-            angleRad: 0,
-            anchor: mapPoint(seg.anchor, cx, cy),
-          }),
-        ]),
-      );
-    }
-  }
-  return group("TimeDelta", timeDeltaChildren);
-}
-
-/**
  * @param {import('../model/tideDiagramModel.mjs').TideMarkDiagram} mark
  * @param {number} cx
  * @param {number} cy
@@ -812,17 +720,6 @@ export function tideDiagramToScene(diagram) {
   const tideMarksGroup = group("TideMarks", tideMarkGroups);
   const handGroup = handDiagramToGroup(hand, cx, cy);
 
-  const centreFrameGroup = centreFrameDiagramToGroup(
-    diagram.centreFrameDiagram,
-    cx,
-    cy,
-  );
-  const timeDeltaGroup = timeDeltaDiagramToGroup(
-    diagram.timeDeltaDiagram,
-    cx,
-    cy,
-  );
-
   const timeNowLocationGroup = group("TimeNowLocation", [
     text({
       content: timeNowLocation.content,
@@ -910,8 +807,6 @@ export function tideDiagramToScene(diagram) {
     tideMarksGroup,
     tickLabelsGroup,
     mainLabelGroup,
-    SHOW_TIME_DELTA_AND_CENTRE_FRAME ? centreFrameGroup : group("CentreFrame", []),
-    SHOW_TIME_DELTA_AND_CENTRE_FRAME ? timeDeltaGroup : group("TimeDelta", []),
     timeNowLocationGroup,
     timeNowDateGroup,
     timeNowClockGroup,

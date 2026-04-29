@@ -50,23 +50,6 @@ type DiagramTimeNowClockInst = {
   readonly seconds: DiagramTextInst;
 };
 
-type CentreFrameArcSpec = {
-  readonly center: DiagramPoint;
-  readonly radius: number;
-  readonly sweepRad: number;
-  readonly thetaLeft: number;
-  readonly thetaRight: number;
-};
-
-type TimeDeltaDiagram = {
-  readonly countdownStripes: DiagramTextInst[] | null;
-  readonly timeDeltaEmptyStripes: DiagramTextInst[] | null;
-};
-
-type CentreFrameDiagram = {
-  readonly frameArc: CentreFrameArcSpec;
-};
-
 type TideLabelTextInst = {
   readonly content: string;
   readonly fontSize: number;
@@ -164,8 +147,6 @@ export type TideDiagramDocument = {
   readonly annularBand: AnnularBandDiagram;
   readonly homeMenuTrigger: HomeMenuTriggerDiagram;
   readonly hand: HandDiagram;
-  readonly timeDeltaDiagram: TimeDeltaDiagram;
-  readonly centreFrameDiagram: CentreFrameDiagram;
   readonly timeNowLocation: DiagramTextInst;
   readonly timeNowDate: DiagramTextInst;
   readonly timeNowClock: DiagramTimeNowClockInst;

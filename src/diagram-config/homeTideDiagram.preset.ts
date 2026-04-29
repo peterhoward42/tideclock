@@ -16,7 +16,6 @@ export const homeTideDiagramLayoutBase = {
   tickLabelSize: 0.04,
   tickLabelClearance: 0.07,
   timeNowLabel: { fontHeight: 0.035, dateAboveTime: 0.02 },
-  centreFrame: { frameArcRadius: 0.45 },
   insideTrackRadius: 0.74,
   mainLabelRadius: 0.59,
   mainLabelTimeOffsetHours: 1.2,
@@ -28,18 +27,6 @@ export const homeTideDiagramLayoutBase = {
   },
   paintOrder: {
     overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],
-  },
-  timeDelta: {
-    countdownLines: [
-      { belowOrigin: 0.065, fontHeight: 0.048 },
-      { belowOrigin: 0.155, fontHeight: 0.045 },
-      { belowOrigin: 0.25, fontHeight: 0.045 },
-      { belowOrigin: 0.35, fontHeight: 0.045 },
-    ],
-    emptyMessage: { belowOrigin: 0.08, fontHeight: 0.038 },
-    town: "Unset",
-    tidePhasePair: "out-low",
-    atypicalTideSummary: false,
   },
   annularBand: { annularBandWidth: 0.05 },
   homeMenuTrigger: {

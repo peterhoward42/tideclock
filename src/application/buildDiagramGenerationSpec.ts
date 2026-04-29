@@ -10,13 +10,9 @@
 
 import { homeTideDiagramLayoutBase } from '../diagram-config';
 import type { DiagramTideMarkMarker, HomeDiagramTideMarks } from '../diagram-config';
-import type { TideExtreme, TideExtremeType } from '../core-models/TideExtreme';
+import type { TideExtremeType } from '../core-models/TideExtreme';
 import type { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import type { TimeOrderedTideExtrema } from '../core-models/TimeOrderedTideExtrema';
-import {
-  isAtypicalTideExtremaPattern,
-  TideExtremaPatternDetection,
-} from '../time-services/isAtypicalTideExtremaPattern';
 import type { DiagramGenerationSpec } from './diagramGenerationCollaborator';
 import type { DerivedNextTideSemantics } from './nextTideSemantics';
 
@@ -47,7 +43,7 @@ export type BuildDiagramGenerationSpecParams = BuildDiagramGenerationSpecTimeInp
    * same conceptual spec). When omitted, layout derives next tide from `tideMarks` as usual.
    */
   readonly derivedSemantics?: Pick<DerivedNextTideSemantics, 'nextTide'>;
-  /** Display town name for the TimeDelta location stripe. */
+  /** Display town name for the TimeNow location line. */
   readonly townName: string;
 };
 
@@ -75,60 +71,6 @@ function tideMarksFromExtremes(
       highOrLow: highOrLowFromExtremeType(e.type),
     })),
   };
-}
-
-type TidePhasePair = 'out-low' | 'in-high';
-
-function canonicalTimeToSeconds(time: string): number {
-  const [hh, mm, ss] = time.split(':').map((part) => Number(part));
-  return hh * 3600 + mm * 60 + ss;
-}
-
-function oppositeTidePhasePair(pair: TidePhasePair): TidePhasePair {
-  return pair === 'in-high' ? 'out-low' : 'in-high';
-}
-
-function phasePairFromSegmentHeightDelta(
-  earlier: TideExtreme,
-  later: TideExtreme,
-): TidePhasePair {
-  return later.heightMetres > earlier.heightMetres ? 'in-high' : 'out-low';
-}
-
-export function deriveTimeDeltaTidePhasePair(params: {
-  readonly extremes: TimeOrderedTideExtrema;
-  readonly timeNow: string;
-  readonly utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime;
-}): TidePhasePair {
-  const { extremes, timeNow, utcIsoToLocalCanonicalTime } = params;
-  if (extremes.length === 0) {
-    throw new Error('deriveTimeDeltaTidePhasePair requires at least one tide extreme');
-  }
-
-  const anchorSegmentPair: TidePhasePair =
-    extremes.length >= 2 ? phasePairFromSegmentHeightDelta(extremes[0], extremes[1]) : 'out-low';
-  if (extremes.length === 1) {
-    return anchorSegmentPair;
-  }
-
-  const markerTimes = extremes.map((e) => canonicalTimeToSeconds(utcIsoToLocalCanonicalTime(e.timeUtc)));
-  const nowSeconds = canonicalTimeToSeconds(timeNow);
-
-  if (nowSeconds < markerTimes[0]) {
-    return oppositeTidePhasePair(anchorSegmentPair);
-  }
-
-  for (let i = 0; i < markerTimes.length - 1; i += 1) {
-    if (nowSeconds < markerTimes[i + 1]) {
-      return phasePairFromSegmentHeightDelta(extremes[i], extremes[i + 1]);
-    }
-  }
-
-  const finalDefinedSegmentPair = phasePairFromSegmentHeightDelta(
-    extremes[extremes.length - 2],
-    extremes[extremes.length - 1],
-  );
-  return oppositeTidePhasePair(finalDefinedSegmentPair);
 }
 
 /** Local civil clock from UTC instant using the runtime timezone (`Date` local fields). */
@@ -175,27 +117,11 @@ export function buildDiagramGenerationSpec(
     ...tideMarksFromExtremes(extremesAtLocation.extremes, utcIsoToLocalCanonicalTime),
   };
 
-  const atypicalTideSummary =
-    isAtypicalTideExtremaPattern(extremesAtLocation.extremes) !==
-    TideExtremaPatternDetection.IsTypical;
-
-  const timeDelta = {
-    ...homeTideDiagramSpecLayout.timeDelta,
-    town: townName,
-    tidePhasePair: deriveTimeDeltaTidePhasePair({
-      extremes: extremesAtLocation.extremes,
-      timeNow,
-      utcIsoToLocalCanonicalTime,
-    }),
-    atypicalTideSummary,
-  };
-
   const spec: DiagramGenerationSpec = {
     ...homeTideDiagramSpecLayout,
     timeNow,
     timeNowDatePrefix,
     timeNowLocation: townName,
-    timeDelta,
     tideMarks,
   };
 

@@ -9,7 +9,7 @@
  * - Throws if `spec.canvas`, `spec.title`, ref arc, and tick sizing/tick label sizing omit
  *   required fields or supply non-finite numbers (no silent defaults).
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
- * - Sub-builders (`buildTideMarksFromSpec`, **timeDelta** / **centreFrame**) enforce their own throw rules; `**timeDelta**` and `**centreFrame**` are required objects on the spec.
+ * - Sub-builders (`buildTideMarksFromSpec`) enforce their own throw rules.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
  * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from diagram bounds: left edge at the leftmost tick-label bound, bottom edge at the minimum tick-label-anchor **Y**.
  * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
@@ -17,8 +17,6 @@
  * - `**mainLabelTimeOffsetHours**` is required: finite hours offset in [0, 12] used to place MainLabel angularly away from `timeNow` toward the larger vacant interval side.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
  */
-import { buildCentreFrameDiagramFromSpec } from "./centreFrame.mjs";
-import { buildTimeDeltaDiagramFromSpec } from "./timeDeltaDiagram.mjs";
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
 import {
   requireFiniteNumber,
@@ -26,6 +24,7 @@ import {
   requireString,
 } from "./specRequire.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
+import { computeNextTideEventFromSpec } from "../model/tideEvents.mjs";
 import {
   annularBandMaxX,
   polar,
@@ -39,30 +38,6 @@ const MAIN_LABEL_CHAR_WIDTH_EM = 0.6;
 const TIME_NOW_DATE_TIME_SEPARATOR_SPACES = 3;
 // TimeNowClock is emitted as `HH:MM` + `:` + `SS`; total mono-char count = 5 + 1 + 2 = 8.
 const TIME_NOW_CLOCK_TOTAL_CHARS = 8;
-
-/**
- * Build one-line MainLabel copy from the currently resolved TimeDelta stripes.
- * TimeDelta is hidden in scene mapping for now, but remains the source of truth for dynamic copy.
- *
- * @param {import('../model/tideDiagramModel.mjs').TimeDeltaDiagram} timeDeltaDiagram
- * @returns {string}
- */
-function synthesizeMainLabelContentFromTimeDelta(timeDeltaDiagram) {
-  const stripes =
-    timeDeltaDiagram.countdownStripes ?? timeDeltaDiagram.timeDeltaEmptyStripes ?? [];
-  const lines = stripes.map((stripe) => stripe.content.trim());
-  const nonEmpty = lines.filter((line) => line.length > 0);
-  if (nonEmpty.length === 0) return "";
-
-  // Prefer the countdown summary line `<Low tide|High tide> in <Hh Mm>` when present.
-  const intervalLine = nonEmpty.find(
-    (line) => line.startsWith("Low tide in ") || line.startsWith("High tide in "),
-  );
-  if (intervalLine) return intervalLine;
-
-  // Fallback: join remaining non-empty lines, excluding the explicit `at HH:MM` clock row.
-  return nonEmpty.filter((line) => !line.startsWith("at ")).join(" ");
-}
 
 /**
  * Time-now readout: **TimeNowLocation** (current location name), and a single merged date+clock row:
@@ -357,13 +332,6 @@ export function buildDiagram(spec) {
     });
   }
 
-  const timeDeltaDiagram = buildTimeDeltaDiagramFromSpec(spec, refRadius);
-  const centreFrameDiagram = buildCentreFrameDiagramFromSpec(
-    spec,
-    refRadius,
-    sweepRad,
-  );
-
   const annularBand = buildAnnularBandFromSpec(
     spec,
     refRadius,
@@ -429,12 +397,20 @@ export function buildDiagram(spec) {
   const mainLabelAnchorHours = hasLargerRightVacantInterval
     ? parsedNowForMainLabel.hours + mainLabelTimeOffsetHours
     : parsedNowForMainLabel.hours - mainLabelTimeOffsetHours;
+  const nextEventForMainLabel = computeNextTideEventFromSpec(
+    spec,
+    parsedNowForMainLabel,
+  );
+  const mainLabelContent =
+    nextEventForMainLabel == null
+      ? ""
+      : `${nextEventForMainLabel.kind} tide in ${nextEventForMainLabel.intervalText}`;
   const mainLabel = buildMainLabel(
     spec,
     refRadius,
     timeToTheta(mainLabelAnchorHours, thetaLeft, thetaRight),
     hasLargerRightVacantInterval ? "left" : "right",
-    synthesizeMainLabelContentFromTimeDelta(timeDeltaDiagram),
+    mainLabelContent,
   );
   const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
 
@@ -457,8 +433,6 @@ export function buildDiagram(spec) {
     annularBand,
     homeMenuTrigger,
     hand,
-    timeDeltaDiagram,
-    centreFrameDiagram,
     timeNowLocation,
     timeNowDate,
     timeNowClock,

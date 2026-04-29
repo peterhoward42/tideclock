@@ -9,13 +9,11 @@ import {
   buildDiagramGenerationSpec,
   utcIsoToLocalCanonicalTimeLocal,
 } from "../buildDiagramGenerationSpec";
-import { createDiagramGenerationCollaborator } from "../diagramGenerationCollaborator";
 import { buildDiagramDevPreviewAtypicalTideDay } from "./diagramDevPreviewAtypicalTideDay";
 import {
   localCanonicalTimeNowFromMs,
   localTimeNowDatePrefixFromMs,
 } from "../localWallClockReadoutFromMs";
-import { deriveNextTideSemantics } from "../nextTideSemantics";
 
 describe("buildDiagramDevPreviewAtypicalTideDay", () => {
   it("produces five strictly ascending extremes that classify as atypical", () => {
@@ -37,7 +35,7 @@ describe("buildDiagramDevPreviewAtypicalTideDay", () => {
     );
   });
 
-  it("hits atypical countdown copy through the same pipeline as Home", () => {
+  it("builds a valid spec through the same pipeline as Home", () => {
     const base = TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
       new TideExtreme("low", "2026-03-23T12:00:00.000Z", 1),
     ]);
@@ -56,26 +54,7 @@ describe("buildDiagramDevPreviewAtypicalTideDay", () => {
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
       townName: "Lymington",
     });
-    expect((spec.timeDelta as { atypicalTideSummary: boolean }).atypicalTideSummary).toBe(
-      true,
-    );
-    const { nextTide } = deriveNextTideSemantics(spec);
-    const withSemantic = buildDiagramGenerationSpec({
-      extremesAtLocation,
-      timeNow,
-      timeNowDatePrefix,
-      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
-      townName: "Lymington",
-      derivedSemantics: { nextTide },
-    });
-    const { diagram } = createDiagramGenerationCollaborator().generate(withSemantic);
-    const stripes = diagram.timeDeltaDiagram.countdownStripes;
-    expect(stripes).not.toBeNull();
-    expect(stripes!.map((s) => s.content)).toEqual([
-      "",
-      "Tricky tides today",
-      "",
-      "",
-    ]);
+    expect(spec.timeNow).toBe(timeNow);
+    expect(spec.timeNowDatePrefix).toBe(timeNowDatePrefix);
   });
 });
