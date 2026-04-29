@@ -38,6 +38,8 @@ export type HomeTideDiagramLayoutBase = {
   readonly insideTrackRadius: number;
   /** k·RefRadius; radius used by the arcuate MainLabel text layout. */
   readonly mainLabelRadius: number;
+  /** Hours on the dial used as angular offset from `timeNow` toward MainLabel's chosen side. */
+  readonly mainLabelTimeOffsetHours: number;
   readonly timeDelta: {
     /** Four stripes: location, phase, next-event interval, next-event clock (`at HH:MM`) (see tide-diagram §TimeDelta). */
     readonly countdownLines: readonly {

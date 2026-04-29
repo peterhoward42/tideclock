@@ -131,6 +131,7 @@
  *   radius: number,
  *   thetaStart: number,
  *   sweepRad: number,
+ *   hAlign: 'left' | 'right',
  * }} MainLabelDiagram
  *
  * Home menu trigger control embedded in the diagram space (rounded rectangle + label).

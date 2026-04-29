@@ -35,14 +35,13 @@ o  try the clock hand idea
 			*  make it it a new summary status element derived from inputs
 			o  Fiddle with summary text
 				*  remove yellow from timenow readout and colon animation
-				o  flip order of lines time then date
-				o  precede with Location in different style
-				o  Shift to three curved tracks
-				o  shorten redundant "at XYX" part
-				o  does it handle the edge cases?
-				o  Try right/left justifying the text
-				o  Style the 3 curved texts
-				o  Put time readout, including seconds along hand?
+				*  flip order of lines time then date
+				*  precede with Location in different style
+				*  remove  redundant "at XYX" part
+				*  ditch location from summary label
+				*  reduce to just low tide in in part
+				o  justify right left
+				o  now deal with singularity cases
 
 		o  clean up orphaned TimeDetla and CentreFrame
 

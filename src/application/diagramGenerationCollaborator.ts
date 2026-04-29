@@ -113,6 +113,7 @@ type MainLabelDiagram = {
   readonly radius: number;
   readonly thetaStart: number;
   readonly sweepRad: number;
+  readonly hAlign: "left" | "right";
 };
 
 type HomeMenuTriggerDiagram = {

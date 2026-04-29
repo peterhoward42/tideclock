@@ -14,6 +14,7 @@
  * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from diagram bounds: left edge at the leftmost tick-label bound, bottom edge at the minimum tick-label-anchor **Y**.
  * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
  * - `**mainLabelRadius**` is required: finite **k·R** multiplier **> 0**; arcuate label radius for **MainLabel**.
+ * - `**mainLabelTimeOffsetHours**` is required: finite hours offset in [0, 12] used to place MainLabel angularly away from `timeNow` toward the larger vacant interval side.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
  */
 import { buildCentreFrameDiagramFromSpec } from "./centreFrame.mjs";
@@ -415,14 +416,24 @@ export function buildDiagram(spec) {
   if (parsedNowForMainLabel.isRightEndpoint) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
-  const mainLabelCenterHours =
-    parsedNowForMainLabel.hours < 12
-      ? (parsedNowForMainLabel.hours + 24) / 2
-      : parsedNowForMainLabel.hours / 2;
+  const mainLabelTimeOffsetHours = requireFiniteNumber(
+    spec.mainLabelTimeOffsetHours,
+    "spec.mainLabelTimeOffsetHours",
+  );
+  if (mainLabelTimeOffsetHours < 0 || mainLabelTimeOffsetHours > 12) {
+    throw new Error(
+      "spec.mainLabelTimeOffsetHours must be a finite number from 0 to 12 inclusive",
+    );
+  }
+  const hasLargerRightVacantInterval = parsedNowForMainLabel.hours < 12;
+  const mainLabelAnchorHours = hasLargerRightVacantInterval
+    ? parsedNowForMainLabel.hours + mainLabelTimeOffsetHours
+    : parsedNowForMainLabel.hours - mainLabelTimeOffsetHours;
   const mainLabel = buildMainLabel(
     spec,
     refRadius,
-    timeToTheta(mainLabelCenterHours, thetaLeft, thetaRight),
+    timeToTheta(mainLabelAnchorHours, thetaLeft, thetaRight),
+    hasLargerRightVacantInterval ? "left" : "right",
     synthesizeMainLabelContentFromTimeDelta(timeDeltaDiagram),
   );
   const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
@@ -519,11 +530,12 @@ function buildInsideTrackFromSpec(spec, refRadius, thetaLeft, sweepRad) {
 /**
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
- * @param {number} thetaZeroHour
+ * @param {number} thetaAnchor
+ * @param {"left" | "right"} hAlign
  * @param {string} content
  * @returns {import('../model/tideDiagramModel.mjs').MainLabelDiagram}
  */
-function buildMainLabel(spec, refRadius, thetaZeroHour, content) {
+function buildMainLabel(spec, refRadius, thetaAnchor, hAlign, content) {
   const mainLabelRadiusK = requireFiniteNumber(
     spec.mainLabelRadius,
     "spec.mainLabelRadius",
@@ -540,8 +552,9 @@ function buildMainLabel(spec, refRadius, thetaZeroHour, content) {
     fontSize,
     center: { x: 0, y: 0 },
     radius,
-    thetaStart: thetaZeroHour - 0.5 * sweepRad,
+    thetaStart: hAlign === "left" ? thetaAnchor : thetaAnchor - sweepRad,
     sweepRad,
+    hAlign,
   };
 }
 

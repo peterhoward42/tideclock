@@ -122,9 +122,10 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     "content": "Low tide in 3h 45m",
     "fontSize": 5.31,
+    "hAlign": "right",
     "radius": 88.5,
     "sweepRad": 0.648,
-    "thetaStart": 4.121075612329134,
+    "thetaStart": 4.790178910940246,
   },
   "meta": {
     "height": 320,

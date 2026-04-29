@@ -54,6 +54,7 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
 - `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
 - `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
 - `**mainLabelRadius`** — finite number (**k·R**): radius of **MainLabel** is **MainLabelRadius × RefRadius**. Must be **> 0**. Concentric with **RefArc**/**InsideTrack** (same centre **O**).
+- `**mainLabelTimeOffsetHours`** — finite number in **[0, 12]**: dial-time offset (hours) used to place **MainLabel** angularly away from `**timeNow`** on the chosen side (see **§Polar**, **MainLabel** placement).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** in `**HH:MM:SS`** **other than** `**24:00:00`** (that sentinel is for the RefArc right endpoint only, not for tide events). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
 - `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**smallCircleRadius`** (**k·R**, strictly **> 0**); finite `**pointerPipScale`** (dimensionless, strictly **> 0**); and finite `**pointerTipInset`** (**k·R**, non-negative), the inward radial offset from the RefArc tip used to place the **PointerPip** tip and its dependent radial segments. `**pointerPipScale`** is applied uniformly to all linear dimensions of the pointer-pip silhouette; the divergence angle remains tied to `**tideMarks.tideMarkArrowDivergence`**. Generation fails if hand-derived radial ordering is invalid (see **Hand**, **Radial segments**).
@@ -139,11 +140,22 @@ as the **RefArc** (from **θ_left** to **θ_right**).
 - **MainLabel** is an arcuate text element at radius
   **MainLabelRadius × RefRadius** (independent input; concentric with
   **RefArc**/**InsideTrack**). In this first step it uses fixed placeholder content
-  `**"quick brown fox"**` and a policy-driven temporary angular placement centred on
-  `**θ(t_main_label_center)`**, where:
-  - if `**t_now < 12`**, `**t_main_label_center = (t_now + 24) / 2`**;
-  - otherwise (`**t_now >= 12`**), `**t_main_label_center = (0 + t_now) / 2`**.
-  The label's angular span is symmetric about `**θ(t_main_label_center)`**.
+  `**"quick brown fox"**` and a policy-driven temporary angular placement based on
+  `**t_now`** and `**mainLabelTimeOffsetHours`**:
+  - Let `**Δ = mainLabelTimeOffsetHours`**.
+  - Let the two vacant intervals from `**t_now`** to RefArc endpoints be:
+    - left interval length `**L_left = t_now − 0`**,
+    - right interval length `**L_right = 24 − t_now`**.
+  - Choose the side with the larger vacant interval:
+    - if `**L_right > L_left`** (equivalently `**t_now < 12`**), use the **right** side;
+    - otherwise use the **left** side.
+  - Define anchor hour `**t_main_label_anchor`**:
+    - right side: `**t_main_label_anchor = t_now + Δ`**;
+    - left side: `**t_main_label_anchor = t_now − Δ`**.
+  - Convert to angle `**θ(t_main_label_anchor)`** via **§Time and θ(t)**.
+  - Arc-text justification policy:
+    - right side (`**L_right > L_left`**) → **left** justification;
+    - otherwise → **right** justification.
 
 ### §Time and θ(t)
 

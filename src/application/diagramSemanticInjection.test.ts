@@ -51,6 +51,7 @@ type SemanticInjectionDiagramSpec = {
   readonly centreFrame: { readonly frameArcRadius: number };
   readonly insideTrackRadius: number;
   readonly mainLabelRadius: number;
+  readonly mainLabelTimeOffsetHours: number;
   readonly timeDelta: {
     readonly countdownLines: readonly { readonly belowOrigin: number; readonly fontHeight: number }[];
     readonly emptyMessage: { readonly belowOrigin: number; readonly fontHeight: number };
@@ -111,6 +112,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     centreFrame: { frameArcRadius: 0.35 },
     insideTrackRadius: 0.75,
     mainLabelRadius: 0.75,
+    mainLabelTimeOffsetHours: 1,
     timeDelta: {
       countdownLines: [
         { belowOrigin: 0.04, fontHeight: 0.05 },
@@ -259,6 +261,13 @@ describe('spec.semantic.nextTide injection', () => {
     const { mainLabelRadius: _omit, ...rest } = sampleTideDiagramSpec();
     expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
       /mainLabelRadius/,
+    );
+  });
+
+  it('throws when spec omits mainLabelTimeOffsetHours', () => {
+    const { mainLabelTimeOffsetHours: _omit, ...rest } = sampleTideDiagramSpec();
+    expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
+      /mainLabelTimeOffsetHours/,
     );
   });
 

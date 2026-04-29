@@ -19,6 +19,7 @@ export const homeTideDiagramLayoutBase = {
   centreFrame: { frameArcRadius: 0.45 },
   insideTrackRadius: 0.74,
   mainLabelRadius: 0.65,
+  mainLabelTimeOffsetHours: 1,
   hand: {
     bossCircleRadius: 0.08,
     smallCircleRadius: 0.012,
