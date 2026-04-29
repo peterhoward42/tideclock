@@ -35,6 +35,9 @@ import {
 /** Per-character scene width heuristic; must match {@link expandBoundsByText} in `toScene.mjs`. */
 const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
 const MAIN_LABEL_CHAR_WIDTH_EM = 0.6;
+const TIME_NOW_DATE_TIME_SEPARATOR_SPACES = 3;
+// TimeNowClock is emitted as `HH:MM` + `:` + `SS`; total mono-char count = 5 + 1 + 2 = 8.
+const TIME_NOW_CLOCK_TOTAL_CHARS = 8;
 
 /**
  * Build one-line MainLabel copy from the currently resolved TimeDelta stripes.
@@ -54,7 +57,8 @@ function synthesizeMainLabelContentFromTimeDelta(timeDeltaDiagram) {
 }
 
 /**
- * Time-now readout: **TimeNowLocation** (current location name), **TimeNowDate** (civil prefix), and **TimeNowClock** (`HH:MM` + `:` + `SS`), right-aligned
+ * Time-now readout: **TimeNowLocation** (current location name), and a single merged date+clock row:
+ * **TimeNowDate** (civil prefix) concatenated on the left of **TimeNowClock** (`HH:MM` + `:` + `SS`), right-aligned
  * to {@link annularBandMaxX}; clock baseline **Y** matches the minimum **Y** among **TickLabels** (see spec).
  *
  * @param {Record<string, unknown>} spec
@@ -93,13 +97,18 @@ function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaseline
   const fontSize = fontHeightK * refRadius;
   const ax = annularMaxX;
   const timeY = clockBaselineY;
-  const dateY = timeY + dateAboveK * refRadius;
-  // Baseline spacing is tuned to typography: one line (FontHeight) above the date baseline.
-  const locationY = dateY + fontSize;
+  // Date and clock share a baseline: the 2nd row in the merged time-now readout.
+  const dateY = timeY;
+  // Baseline spacing is tuned to typography: location stays above the merged (date+clock) row.
+  const locationY = dateY + dateAboveK * refRadius + fontSize;
   const canonical = parsedNow.canonical;
   const w = TIME_NOW_LABEL_CHAR_WIDTH_EM * fontSize;
   const secondsWidth = 2 * w;
   const colonWidth = 1 * w;
+  const clockTotalWidth = TIME_NOW_CLOCK_TOTAL_CHARS * w;
+  const separatorWidth = TIME_NOW_DATE_TIME_SEPARATOR_SPACES * w;
+  // TimeNowDate is right-aligned so its right edge stops before the clock and separator.
+  const dateX = ax - clockTotalWidth - separatorWidth;
   return {
     timeNowLocation: {
       content: locationName,
@@ -110,7 +119,7 @@ function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaseline
     timeNowDate: {
       content: datePrefix,
       fontSize,
-      anchor: { x: ax, y: dateY },
+      anchor: { x: dateX, y: dateY },
       hAlign: "right",
     },
     timeNowClock: {

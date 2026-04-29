@@ -780,8 +780,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "timeNowDate": {
     "anchor": {
-      "x": 121.532649765169,
-      "y": -130.98000000000002,
+      "x": 82.592649765169,
+      "y": -136.88000000000002,
     },
     "content": "Mon 23 Mar",
     "fontSize": 5.9,

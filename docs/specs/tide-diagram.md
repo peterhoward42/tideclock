@@ -260,7 +260,7 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 - Diagram input object `**timeNowLabel`** — **required** plain object; finite numbers as **k·R** multiples (**§Sizing**):
   - `**fontHeight`** — **k_font·R**; used as **FontHeight** for **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock** leaves.
-  - `**dateAboveTime`** — non-negative **k·R** gap: the **TimeNowDate** baseline is **`dateAboveTime·R`** **above** (+**Y**) the **TimeNowClock** baseline (same diagram-space **Y** convention as **§Origin**).
+  - `**dateAboveTime`** — non-negative **k·R** gap: the **TimeNowLocation** baseline is **`dateAboveTime·R`** **above** (+**Y**) the merged **(TimeNowDate + TimeNowClock)** baseline (see **§Vertical placement** below).
 - Diagram input `**timeNowLocation`** — required string for **TimeNowLocation** text (current location name; may be empty after trim).
 - Diagram input `**timeNowDatePrefix`** — required string for **TimeNowDate** text (customary short form such as `**Wed 21 Jun`**; may be empty after trim).
 
@@ -269,15 +269,15 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 - Let **X_ann_max** be the **maximum diagram-space X** coordinate attained by the closed **AnnularBand** sector (outer/inner arcs and closing radial segments), for the band’s emitted geometry (same centre **O** as **RefArc**).
 - **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock** use **horizontal justification** **right**.
 - The **trailing** (rightmost) anchor for the clock row is at **(X_ann_max, y_clock)** so the **TimeNowLabelSeconds** anchor **x** equals **X_ann_max**; **TimeNowLabelSecondsColon** and **TimeNowLabelHms** anchors sit to the left by the same fixed monospace width heuristic as before (**§Scene model** / preview framing).
-- **TimeNowDate** uses the same **x** anchor as that trailing clock anchor (**X_ann_max**) so the date and clock are **right-aligned** to one another at the annular band’s **+X** bound.
-- **TimeNowLocation** uses the same **x** anchor as **TimeNowDate**, so the location, date, and clock are all **right-aligned** at the annular band’s **+X** bound.
+- **TimeNowDate** is shifted left so that its right edge stops before the clock and a fixed separator gap (implemented as spacing equal to several monospace character widths), producing a merged “date + time” single visual row.
+- **TimeNowLocation** uses the same **x** anchor as the annular band’s **+X** bound (so the location remains right-aligned to the full readout).
 
 ### Vertical placement
 
 - Let **y_tick_min** be the **minimum** `**anchor.y**` among all emitted **TickLabels** (same anchor convention as **TickLabels**).
 - **TimeNowClock** — all three fragments share baseline **`y_clock = y_tick_min`** (exact numeric equality).
-- **TimeNowDate** — baseline **`y_date = y_clock + dateAboveTime·R`**.
-- **TimeNowLocation** — baseline **`y_location = y_date + fontHeight·R`** (one **FontHeight** above the date baseline).
+- **TimeNowDate** — baseline **`y_date = y_clock`** (same row as the clock).
+- **TimeNowLocation** — baseline **`y_location = y_clock + dateAboveTime·R + fontHeight·R`**.
 
 ### Clock row text (TimeNowClock)
 

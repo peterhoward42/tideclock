@@ -89,20 +89,29 @@ describe('createDiagramGenerationCollaborator', () => {
     const maxX = annularBandMaxX(diagram.annularBand);
     expect(diagram.timeNowClock.hhmm.anchor.y).toBe(tickMinY);
     expect(diagram.timeNowClock.seconds.anchor.y).toBe(tickMinY);
-    expect(diagram.timeNowDate.anchor.x).toBe(maxX);
     expect(diagram.timeNowLocation.anchor.x).toBe(maxX);
     expect(diagram.timeNowClock.seconds.anchor.x).toBe(maxX);
     const dateAbove =
       (spec.timeNowLabel as { readonly fontHeight: number; readonly dateAboveTime: number }).dateAboveTime *
       diagram.refArc.refRadius;
-    expect(diagram.timeNowDate.anchor.y).toBeCloseTo(tickMinY + dateAbove, 6);
     const fontHeight =
       (spec.timeNowLabel as { readonly fontHeight: number; readonly dateAboveTime: number }).fontHeight *
       diagram.refArc.refRadius;
+    // TimeNowDate shares the same baseline as the clock row; it is only shifted left to create
+    // the merged date+clock appearance.
+    expect(diagram.timeNowDate.anchor.y).toBeCloseTo(tickMinY, 6);
     expect(diagram.timeNowLocation.anchor.y).toBeCloseTo(
       tickMinY + dateAbove + fontHeight,
       6,
     );
+
+    // X shift: date ends before the clock and a 3-char separator gap.
+    const fontSize = diagram.timeNowDate.fontSize;
+    const charW = 0.6 * fontSize; // must match buildDiagram.mjs heuristic
+    const clockWidth = 8 * charW;
+    const separatorWidth = 3 * charW;
+    const expectedDateX = maxX - clockWidth - separatorWidth;
+    expect(diagram.timeNowDate.anchor.x).toBeCloseTo(expectedDateX, 6);
   });
 
   it('throws when annularBand is present without annularBandWidth', () => {

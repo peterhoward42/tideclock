@@ -760,11 +760,11 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "timeNowClock": {
     "hhmm": {
       "anchor": {
-        "x": 114.34200000000001,
+        "x": 116.46600000000001,
         "y": -130.98000000000002,
       },
       "content": "19:20",
-      "fontSize": 5.31,
+      "fontSize": 4.130000000000001,
       "hAlign": "right",
     },
     "seconds": {
@@ -773,35 +773,35 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "y": -130.98000000000002,
       },
       "content": "03",
-      "fontSize": 5.31,
+      "fontSize": 4.130000000000001,
       "hAlign": "right",
     },
     "secondsColon": {
       "anchor": {
-        "x": 117.528,
+        "x": 118.944,
         "y": -130.98000000000002,
       },
       "content": ":",
-      "fontSize": 5.31,
+      "fontSize": 4.130000000000001,
       "hAlign": "right",
     },
   },
   "timeNowDate": {
     "anchor": {
-      "x": 123.9,
-      "y": -125.08000000000001,
+      "x": 96.64200000000001,
+      "y": -130.98000000000002,
     },
     "content": "Mon 23 Mar",
-    "fontSize": 5.31,
+    "fontSize": 4.130000000000001,
     "hAlign": "right",
   },
   "timeNowLocation": {
     "anchor": {
       "x": 123.9,
-      "y": -119.77000000000001,
+      "y": -120.95000000000002,
     },
     "content": "Lymington",
-    "fontSize": 5.31,
+    "fontSize": 4.130000000000001,
     "hAlign": "right",
   },
   "version": 1,
@@ -816,7 +816,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "maxX": 334.9,
       "maxY": 170.44,
       "minX": 77.548,
-      "minY": 26.95799999999998,
+      "minY": 27.075999999999983,
     },
     "title": "home-tide-diagram",
     "width": 420,
@@ -1753,13 +1753,13 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           {
             "anchor": {
               "x": 333.9,
-              "y": 40.22999999999999,
+              "y": 39.04999999999998,
             },
             "angleRad": 0,
             "content": "Lymington",
             "hAlign": "right",
             "kind": "text",
-            "size": 5.31,
+            "size": 4.130000000000001,
           },
         ],
         "kind": "group",
@@ -1769,14 +1769,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "children": [
           {
             "anchor": {
-              "x": 333.9,
-              "y": 34.91999999999999,
+              "x": 306.642,
+              "y": 29.019999999999982,
             },
             "angleRad": 0,
             "content": "Mon 23 Mar",
             "hAlign": "right",
             "kind": "text",
-            "size": 5.31,
+            "size": 4.130000000000001,
           },
         ],
         "kind": "group",
@@ -1788,14 +1788,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 324.342,
+                  "x": 326.466,
                   "y": 29.019999999999982,
                 },
                 "angleRad": 0,
                 "content": "19:20",
                 "hAlign": "right",
                 "kind": "text",
-                "size": 5.31,
+                "size": 4.130000000000001,
               },
             ],
             "kind": "group",
@@ -1805,14 +1805,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 327.528,
+                  "x": 328.944,
                   "y": 29.019999999999982,
                 },
                 "angleRad": 0,
                 "content": ":",
                 "hAlign": "right",
                 "kind": "text",
-                "size": 5.31,
+                "size": 4.130000000000001,
               },
             ],
             "kind": "group",
@@ -1829,7 +1829,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "content": "03",
                 "hAlign": "right",
                 "kind": "text",
-                "size": 5.31,
+                "size": 4.130000000000001,
               },
             ],
             "kind": "group",
