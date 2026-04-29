@@ -42,16 +42,21 @@ o  try the clock hand idea
 				*  reduce to just low tide in in part
 				*  justify right left
 				*  try out different positions with shorter hand
-				o  now deal with singularity cases
-					o  go through the special dev-only urls
+				*  now deal with singularity cases
 
-		o  clean up orphaned TimeDetla and CentreFrame
+
+	o  merge branch hand
+	o  do
+	o  deploy / test
+
+o  work on spec coherence and redundancy
+
 
 o  bottom right text should be bigger for phone
+o  would main label be better static at bottom?
 
 /docs/tide-diagram.md for context.
 
-	o  merge branch hand
 	o  normalise the spec after the fact
 
 o  first glance ux assimilation
