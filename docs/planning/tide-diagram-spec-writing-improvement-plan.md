@@ -22,6 +22,12 @@ Current execution status:
 - Phase 2 heading skeleton: in progress in `docs/planning/tide-diagram-spec-phase2-heading-skeleton.md`.
 - Phases 3-5: pending.
 
+Latest Phase 2 progress:
+
+- Reader-first heading scaffold inserted into `docs/specs/tide-diagram.md` as non-normative placeholders.
+- Phase 3 started: placeholders removed and major sections in `docs/specs/tide-diagram.md` are now TB-keyed with in-place migration mapping markers.
+- Next: complete physical reordering so TB sections appear in strict reader-first order without "mapping" notes.
+
 ## Non-negotiables
 
 - Keep all normative constraints, validation rules, required/optional fields, and failure cases.

@@ -1,6 +1,6 @@
 # Specification for a tide diagram
 
-## Role
+## 1. Role and boundaries (TB-1)
 
 To specify a specific diagram in terms of a scene graph and input parameters.
 
@@ -18,7 +18,9 @@ Where this specification mentions text or numeric inputs “from outside” or
 How the final rendered bounds map into a canvas, viewport, or layout is also
 **not** fixed here.
 
-## Strict diagram input (generator)
+## 3. Global contract (TB-3)
+
+### Strict diagram input (generator)
 
 The generator **throws** when required host fields are missing or the wrong type;
 it does **not** substitute silent numeric defaults for layout keys (`buildDiagram.mjs`
@@ -26,7 +28,7 @@ and layout submodules). Invalid marker rows (including `**24:00:00`** as a marke
 time), degenerate geometry used as configuration (e.g. wait-arc radius **≤ 0**,
 or missing objects such as the time-now readout inputs (`**timeNowLabel**`, `**timeNowLocation**`, `**timeNowDatePrefix**`) or `**annularBand`**, are **errors** — not “omit this element” fallbacks.
 
-### Derived behaviour (civil day vs `timeNow`)
+### Derived behaviour (civil day vs `timeNow`) [behavior branch mapping: TB-6]
 
 The **product** assumes at least **one** tide extreme on the civil day and a **non-empty**
 `**tideMarks.markers`** list describing those extremes. The **only** open-ended case is
@@ -64,7 +66,9 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
 - `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
 - `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); and string `**label`** (product default `**Menu**`). Position is derived from diagram content bounds: the trigger’s left edge is anchored to the leftmost tick-label bound, and its bottom edge is anchored to the minimum tick-label-anchor **Y**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
 
-## Diagram elements
+## 4. Scene model contracts (TB-4)
+
+### Diagram elements
 
 - The diagram has named elements:
   - TickMarks
@@ -94,7 +98,7 @@ between them in the logical model).
 - This specification allocates leaf names **where the corresponding leaf is
 mandated**; it does not maintain a separate exhaustive registry section.
 
-## Conventions
+## 2. Core conventions (TB-2)
 
 Cross-references use the § labels below.
 
@@ -177,7 +181,7 @@ This **θ(t)** is the polar angle for time **t** on the RefArc. It is
 invertible. Any element that “uses time **t**” uses **θ(t)** unless stated
 otherwise.
 
-### §Global “time now” input
+### §Global “time now” input [global contract mapping: TB-3]
 
 - The diagram model uses **one** global canonical input:
   - `**timeNow`** is a host-provided canonical string in `**HH:MM:SS`**.
@@ -190,7 +194,7 @@ otherwise.
 `t_now` and `θ_now`**; the specification does **not** introduce a second,
 independent notion of “now.”
 
-## Radial lines and radial segments
+### Radial lines and radial segments
 
 - A **radial line** (infinite) passes through **O** at a given polar angle
 (**§Polar**, **§Origin**).
@@ -199,7 +203,7 @@ radii **r_inner** and **r_outer** (in model units). It has no inherent “direct
 of travel.”
 - Tick marks are defined as radial segments (**Tick marks**).
 
-## Scene graph primitives (current scope)
+### Scene graph primitives (current scope)
 
 - The scene graph at this stage consists of:
   - Arc primitives (for **RefArc** and **TideMarks.TimePointer** head arcs)
@@ -232,7 +236,7 @@ stroked curves** unless a subsection adds detail.
 - **AnnularBand** is **not** covered by **Independent stroked curves**: it is one
 closed region with unified **fill** and **stroke** on its boundary (**AnnularBand**).
 
-## Text Element
+### Text Element
 
 A **TextElement** is one line of text parameterised by:
 
@@ -264,7 +268,9 @@ model em-boxes or similar font metrics.
 
 *(Additional primitives may be introduced as required by later elements.)*
 
-## Time now readout
+## 5. Element specs (TB-5)
+
+### Time now readout
 
 Three related **top-level** named elements (see **Diagram elements**) show host-local **location name**, host-local civil **date**, and **clock time** derived from `**timeNowLocation**`, `**timeNowDatePrefix**`, and global canonical `**timeNow**` (`**HH:MM:SS**`). They are positioned **relative to AnnularBand** and **TickLabels** as below (not from free-floating absolute `x`/`y` clock anchors).
 
@@ -312,7 +318,7 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 - **`spec.tickLabelHours`** must yield **at least one** tick label when this readout is used; otherwise **y_tick_min** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests the time-now readout — the reference product always lists hours).
 
-## TimeDelta
+### TimeDelta [behavior branch mapping: TB-6]
 
 ### TimeDelta placement
 
@@ -347,7 +353,7 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
   3. **NoMoreTidesToday** — fixed synthesis from `**timeDelta.tidePhasePair`**: `**Low tide tomorrow`** for `"out-low"` and **empty string** for `"in-high"` (not a host override). **FontHeight** — **k·R** from `**emptyMessage.fontHeight**`; **Anchor Y** **0 − countdownLines[2].belowOrigin·R** (the interval stripe’s vertical slot; replaces the verbal interval and `**at HH:MM**` rows). **Horizontal justification** **centre**; **Baseline polar angle** **0**; **Anchor X** **0**.
 - **Layout guidance:** choose each `**countdownLines[i].belowOrigin`** so baselines sit comfortably inside the chord region implied by **`centreFrame.frameArcRadius`** and the ref arc; **CentreFrame** and **TimeDelta** remain independent inputs (no automatic coupling in the generator).
 
-## CentreFrame
+### CentreFrame
 
 **CentreFrame** is a named element whose output is **one closed circular segment**
 (arc boundary plus straight chord closure). It is not defined relative to **TimeDelta**; geometry follows
@@ -373,7 +379,7 @@ endpoints of **this** arc at radius **R_frame** (same angular span as the **RefA
 - Presentation applies both **fill** and **stroke** to this closed boundary.
 - Product style uses the same fill tone as **AnnularBand** by default, while keeping the **CentreFrame** outline stroke independently configurable.
 
-## AnnularBand
+### AnnularBand
 
 **AnnularBand** is a **top-level** named element. It is the region between two
 **concentric** circular arcs sharing the **RefArc**’s centre **O**, **sweep**, and
@@ -418,7 +424,7 @@ primitive (exact-match **style binding name** **AnnularBand**, same indirection
 contract as **RefArc**, **CentreFrame**, etc.; concrete `styleName`
 values are **not** fixed in this specification).
 
-## Tick marks
+### Tick marks
 
 - A tick mark is a (typically short) **radial segment** (**Radial lines and
 radial segments**) on the ray at **θ(t)** (**§Time and θ(t)**).
@@ -430,7 +436,7 @@ radial segments**) on the ray at **θ(t)** (**§Time and θ(t)**).
 - Each at polar angle **θ(t)**.
 - **t = 0** and **t = 24** are **distinct** ticks at the two RefArc endpoints.
 
-## TickLabel
+### TickLabel
 
 - A **TickLabel** is a **TextElement** tied to its **TickMark**; association
 implies time **t** and angle **θ(t)** (**§Time and θ(t)**).
@@ -443,7 +449,7 @@ implies time **t** and angle **θ(t)** (**§Time and θ(t)**).
   - add a polar offset: angle = tick’s **θ(t)**, length = **k·R** (**§Sizing**);
   - add Cartesian offset **(0, −0.5 × FontHeight)**.
 
-## TideMarks
+### TideMarks
 
 **TideMarks** describe tide markers under **Diagram elements**. Layering and
 paint order follow **Host responsibilities** (named elements for external binding;
@@ -518,7 +524,7 @@ For **both** labels:
 
 **Presentation:** the **TimePointer** subgroup uses **stroke** colour from its leaf style; **fill** is **none** on these primitives. Hosts may set **stroke-linecap** / **stroke-linejoin** so the three curves meet cleanly at **Vertex1**, **Vertex2**, and **Vertex3** (product default: round caps and joins on the **TimePointer** group).
 
-## Hand
+### Hand
 
 **Hand** is a top-level named element tied to global `**timeNow`** via `**θ_now`**
 (**§Global “time now” input**). When `paintOrder.overrides` is used, it applies
@@ -603,14 +609,24 @@ can place it before the boss-circle leaf:
   emission time (specifically, require `**r_tip < r_track < r_ref**` and
   `**r_boss < r_small_inner**`).
 
-## Notes on interpretation
+## 6. Behavioral branches (TB-6)
+
+This phase keeps normative branch behavior in-place where originally specified.
+Behavioral branch content is currently defined in:
+
+- `Derived behaviour (civil day vs timeNow)` under `3. Global contract (TB-3)`
+- `TimeDelta [behavior branch mapping: TB-6]` under `5. Element specs (TB-5)`
+
+## 7. Interpretation and deferred topics (TB-7)
+
+### Notes on interpretation
 
 - Standard mathematical conventions for polar coordinates and angles apply
 (**§Polar**).
 - Where ambiguity remains, implementations may follow common conventions
 consistent with the above.
 
-## o  todo
+### o  todo
 
 - collisions
 - truncations
