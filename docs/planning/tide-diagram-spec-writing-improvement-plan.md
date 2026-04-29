@@ -20,8 +20,9 @@ Current execution status:
 - Phase 0 audit: completed (clustered pass) in `docs/planning/tide-diagram-spec-phase0-relevance-audit.md`.
 - Phase 1 semantic inventory: completed in `docs/planning/tide-diagram-spec-phase1-semantic-inventory.md`.
 - Phase 2 heading skeleton: completed in `docs/planning/tide-diagram-spec-phase2-heading-skeleton.md`.
-- Phase 3 consolidation: in progress.
-- Phases 4-5: pending.
+- Phase 3 consolidation: completed.
+- Phase 4 prose tightening: in progress.
+- Phase 5 verification: pending.
 
 Latest Phase 2 progress:
 
@@ -29,7 +30,9 @@ Latest Phase 2 progress:
 - Temporary heading-level mapping markers were removed from migrated section headings.
 - Phase 3 batch 1 completed: reduced duplicate wording by replacing repeated canonical-time, style-binding, and marker-time validation statements with references to canonical sections in `docs/specs/tide-diagram.md`.
 - Phase 3 batch 2 completed: consolidated repeated `TimeDelta` text-default clauses into one canonical local rule and removed repeated per-row defaults while preserving geometry/copy semantics.
-- Next: run a quick semantic inventory reconciliation pass on all Phase 3-touched sections, then proceed to Phase 4 prose tightening.
+- Phase 3 reconciliation pass completed: Phase 3-touched canonical constraints remain present and semantically aligned with Phase 1 inventory rows (including canonical-time/sentinel policy, style-binding exact-match contract, strict throw behavior, and `TimeDelta` countdown vs empty-day layout/copy branches).
+- Phase 4 batch 1 completed: tightened repeated prose in `Host responsibilities` and `TimeDelta placement` while preserving constraints and branch behavior.
+- Next: continue Phase 4 constrained tightening on remaining high-density sections, then run Phase 5 semantic-equivalence verification.
 
 ## Non-negotiables
 

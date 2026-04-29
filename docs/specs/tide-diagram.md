@@ -6,17 +6,17 @@ To specify a specific diagram in terms of a scene graph and input parameters.
 
 ### Host responsibilities
 
-The **diagram generator** defines deterministic scene-child order and supports an
-optional, constrained paint-order override seam (`paintOrder.overrides`) so
-specific named groups can be moved **before**/**after** sibling groups. This
-specification still does **not** introduce a global numeric z-index model.
+The **diagram generator** defines deterministic scene-child order and supports
+an optional, constrained paint-order override seam (`paintOrder.overrides`) so
+specific named groups can be moved **before**/**after** siblings. This
+specification does **not** introduce a global numeric z-index model.
 **Named elements** (see **Diagram elements**) remain the contract for targeted
 ordering and style behavior by exact name.
 
 Where this specification mentions text or numeric inputs “from outside” or
-“from the host,” supply and policy for those values are host responsibilities.
-How the final rendered bounds map into a canvas, viewport, or layout is also
-**not** fixed here.
+“from the host,” value supply and policy are host responsibilities. How final
+rendered bounds map into canvas, viewport, or layout is also **not** fixed
+here.
 
 ## 2. Core conventions (TB-2)
 
@@ -322,9 +322,9 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 ### TimeDelta placement
 
-- **Countdown** — four stripes; stripe *i* uses `**timeDelta.countdownLines[i].belowOrigin`** and `**timeDelta.countdownLines[i].fontHeight`** (**k·R** each). **Anchor X** is **0** for every stripe.
-- **Empty day** — three stripes: baselines and font heights for rows **0** and **1** from `**timeDelta.countdownLines[0]`** and `**countdownLines[1]`**; row **2** baseline from `**countdownLines[2].belowOrigin`** and **FontHeight** from `**emptyMessage.fontHeight`** (**k·R** each). **Anchor X** is **0** for each.
-- Unless a row below overrides it, **TimeDelta** text leaves use **Horizontal justification = centre** and **Baseline polar angle = 0** (per **TextElement defaults**); **Anchor X** is **0**.
+- **Countdown** — four stripes; stripe *i* uses `**timeDelta.countdownLines[i].belowOrigin`** and `**timeDelta.countdownLines[i].fontHeight`** (**k·R** each).
+- **Empty day** — three stripes: rows **0** and **1** use `**timeDelta.countdownLines[0]`** and `**countdownLines[1]`** for baseline and font height; row **2** uses `**countdownLines[2].belowOrigin`** for baseline and `**emptyMessage.fontHeight`** for **FontHeight** (**k·R** each).
+- Unless a row below overrides it, **TimeDelta** text leaves use **Horizontal justification = centre** and **Baseline polar angle = 0** (per **TextElement defaults**). **Anchor X** is **0** for every stripe in both branches.
 
 ### Scene model
 
