@@ -650,7 +650,7 @@ can place it before the boss-circle leaf:
 
 ## 6. Behavioral branches (TB-6)
 
-Behavioral branch behavior is specified in:
+Branch behavior is specified in:
 
 - `Derived behaviour (civil day vs timeNow)` under `3. Global contract (TB-3)`
 - `TimeDelta` under `5. Element specs (TB-5)`
@@ -659,12 +659,10 @@ Behavioral branch behavior is specified in:
 
 ### Notes on interpretation
 
-- Standard mathematical conventions for polar coordinates and angles apply
-(**§Polar**).
-- Where ambiguity remains, implementations may follow common conventions
-consistent with the above.
+- Standard mathematical conventions for polar coordinates and angles apply (**§Polar**).
+- Where ambiguity remains, implementations may follow common conventions consistent with the above.
 
-### o  todo
+### TODO (deferred)
 
 - collisions
 - truncations

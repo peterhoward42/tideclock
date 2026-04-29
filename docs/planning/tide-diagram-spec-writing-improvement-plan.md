@@ -21,8 +21,8 @@ Current execution status:
 - Phase 1 semantic inventory: completed in `docs/planning/tide-diagram-spec-phase1-semantic-inventory.md`.
 - Phase 2 heading skeleton: completed in `docs/planning/tide-diagram-spec-phase2-heading-skeleton.md`.
 - Phase 3 consolidation: completed.
-- Phase 4 prose tightening: in progress.
-- Phase 5 verification: in progress.
+- Phase 4 prose tightening: completed.
+- Phase 5 verification: completed.
 
 Latest Phase 2 progress:
 
@@ -35,7 +35,9 @@ Latest Phase 2 progress:
 - Phase 4 batch 2 completed: tightened high-density wording in `Strict diagram input (generator)` and `TimeDelta` copy/layout while preserving branch semantics, naming contracts, and placement formulas.
 - Phase 4 batch 3 completed: tightened `AnnularBand`, `TideMarks`, and `Hand` prose (including `TimePointer` and `PointerPip` reuse text) while preserving geometry formulas, exact names, and validation constraints.
 - Phase 5 pass 1 completed (manual semantic-equivalence check on Phase 4 batches): no detected drift in sentinel policy, required-input constraints, branch outcomes, element/leaf naming contracts, or hand radial-ordering failure rules.
-- Next: finish any remaining micro-tightening, then complete full Phase 5 inventory-wide reconciliation.
+- Phase 4 batch 4 completed: final micro-tightening pass applied to remaining high-friction wording in behavioral/deferred sections without changing normative behavior.
+- Phase 5 pass 2 completed (inventory-wide reconciliation): retained inventory constraints remain represented in the rewritten spec, including strict throw semantics, canonical-time/sentinel policy, exact-match/case-sensitive naming contract, TimeDelta branch outputs, and hand radial-ordering failure rules.
+- Next: optional follow-up cleanup for deferred non-normative notes only (no normative changes pending).
 
 ## Non-negotiables
 
