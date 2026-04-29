@@ -49,11 +49,18 @@ const TIME_NOW_CLOCK_TOTAL_CHARS = 8;
 function synthesizeMainLabelContentFromTimeDelta(timeDeltaDiagram) {
   const stripes =
     timeDeltaDiagram.countdownStripes ?? timeDeltaDiagram.timeDeltaEmptyStripes ?? [];
-  return stripes
-    .map((stripe) => stripe.content.trim())
-    .filter((line) => !line.startsWith("at "))
-    .filter((line) => line.length > 0)
-    .join(" ");
+  const lines = stripes.map((stripe) => stripe.content.trim());
+  const nonEmpty = lines.filter((line) => line.length > 0);
+  if (nonEmpty.length === 0) return "";
+
+  // Prefer the countdown summary line `<Low tide|High tide> in <Hh Mm>` when present.
+  const intervalLine = nonEmpty.find(
+    (line) => line.startsWith("Low tide in ") || line.startsWith("High tide in "),
+  );
+  if (intervalLine) return intervalLine;
+
+  // Fallback: join remaining non-empty lines, excluding the explicit `at HH:MM` clock row.
+  return nonEmpty.filter((line) => !line.startsWith("at ")).join(" ");
 }
 
 /**
