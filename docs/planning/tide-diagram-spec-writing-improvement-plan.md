@@ -32,7 +32,8 @@ Latest Phase 2 progress:
 - Phase 3 batch 2 completed: consolidated repeated `TimeDelta` text-default clauses into one canonical local rule and removed repeated per-row defaults while preserving geometry/copy semantics.
 - Phase 3 reconciliation pass completed: Phase 3-touched canonical constraints remain present and semantically aligned with Phase 1 inventory rows (including canonical-time/sentinel policy, style-binding exact-match contract, strict throw behavior, and `TimeDelta` countdown vs empty-day layout/copy branches).
 - Phase 4 batch 1 completed: tightened repeated prose in `Host responsibilities` and `TimeDelta placement` while preserving constraints and branch behavior.
-- Next: continue Phase 4 constrained tightening on remaining high-density sections, then run Phase 5 semantic-equivalence verification.
+- Phase 4 batch 2 completed: tightened high-density wording in `Strict diagram input (generator)` and `TimeDelta` copy/layout while preserving branch semantics, naming contracts, and placement formulas.
+- Next: continue Phase 4 constrained tightening on remaining dense element sections, then run Phase 5 semantic-equivalence verification.
 
 ## Non-negotiables
 

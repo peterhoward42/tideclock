@@ -23,6 +23,9 @@ o  would main label be better static at bottom?
 See /docs/planning/tide-diagram-spec-writing... for context. Proceed with the next step.
 
 	o  normalise the spec after the fact
+		o  stepping through phases
+		o  when complete scan
+			o  wrong definition for MainLabel
 
 o  first glance ux assimilation
 	o  first thing someone tried to drag the time now
