@@ -18,86 +18,6 @@ Where this specification mentions text or numeric inputs “from outside” or
 How the final rendered bounds map into a canvas, viewport, or layout is also
 **not** fixed here.
 
-## 3. Global contract (TB-3)
-
-### Strict diagram input (generator)
-
-The generator **throws** when required host fields are missing or the wrong type;
-it does **not** substitute silent numeric defaults for layout keys (`buildDiagram.mjs`
-and layout submodules). Invalid marker rows (including `**24:00:00`** as a marker
-time), degenerate geometry used as configuration (e.g. wait-arc radius **≤ 0**,
-or missing objects such as the time-now readout inputs (`**timeNowLabel**`, `**timeNowLocation**`, `**timeNowDatePrefix**`) or `**annularBand`**, are **errors** — not “omit this element” fallbacks.
-
-### Derived behaviour (civil day vs `timeNow`) [behavior branch mapping: TB-6]
-
-The **product** assumes at least **one** tide extreme on the civil day and a **non-empty**
-`**tideMarks.markers`** list describing those extremes. The **only** open-ended case is
-**time navigation**: when there is **no** marker at or after `**timeNow`** on that day
-(e.g. after the last tide), **TimeDelta** shows **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (see **Diagram elements**, **TimeDelta**). That behavior follows from `**timeNow`** and the marker schedule; it is **not** triggered by missing spec fields.
-
-When `**spec.semantic.nextTide`** is injected, layout may use it for next-tide timing
-instead of scanning markers; `**tideMarks`** remains **required** for drawing **TideMarks**.
-
-- `**canvas`** — object with finite `**width`** and `**height`** (px).
-- `**title**` — string (diagram meta).
-- `**paintOrder`** — optional plain object.
-  - Optional `**overrides`** array.
-  - Each override must be a plain object with:
-    - `**name`** — non-empty string (named scene group to move),
-    - `**place`** — exact string `**"before"`** or `**"after"`**,
-    - `**relativeTo`** — non-empty string (sibling named group target).
-  - Validation:
-    - `**name !== relativeTo`**,
-    - duplicate overrides for the same `**name`** are errors,
-    - referenced names must exist in the generated scene tree,
-    - each override must resolve to one unique sibling relationship in the scene tree,
-    - cyclic constraints are errors.
-  - Default behaviour when omitted: preserve current deterministic scene-child order.
-- `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
-- `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
-- `**mainLabelRadius`** — finite number (**k·R**): radius of **MainLabel** is **MainLabelRadius × RefRadius**. Must be **> 0**. Concentric with **RefArc**/**InsideTrack** (same centre **O**).
-- `**mainLabelTimeOffsetHours`** — finite number in **[0, 12]**: dial-time offset (hours) used to place **MainLabel** angularly away from `**timeNow`** on the chosen side (see **§Polar**, **MainLabel** placement).
-- `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
-- `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** in `**HH:MM:SS`** **other than** `**24:00:00`** (that sentinel is for the RefArc right endpoint only, not for tide events). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
-- `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**smallCircleRadius`** (**k·R**, strictly **> 0**); finite `**pointerPipScale`** (dimensionless, strictly **> 0**); and finite `**pointerTipInset`** (**k·R**, non-negative), the inward radial offset from the RefArc tip used to place the **PointerPip** tip and its dependent radial segments. `**pointerPipScale`** is applied uniformly to all linear dimensions of the pointer-pip silhouette; the divergence angle remains tied to `**tideMarks.tideMarkArrowDivergence`**. Generation fails if hand-derived radial ordering is invalid (see **Hand**, **Radial segments**).
-- `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
-- `**timeDelta`** — **required** plain object; string `**town**` (required but not rendered in the summary copy; **TimeDeltaLocation** emits an empty string); enum `**tidePhasePair ∈ {"out-low","in-high"}**`; **boolean** `**atypicalTideSummary**` (when `**true**` and a next marker exists, countdown copy follows the atypical branch in **TimeDelta**); **`countdownLines`** — array of **exactly four** plain objects (location, phase, next-event interval, next-event clock stripes), each with finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**); **`emptyMessage`** — plain object with finite `**belowOrigin`** and `**fontHeight**`: when there is no next tide today, the first two empty-day stripes use `**countdownLines[0]`** and `**countdownLines[1]`** for baselines and font heights; the third stripe (**NoMoreTidesToday**) uses `**countdownLines[2].belowOrigin`** for its baseline and `**emptyMessage.fontHeight`** for **FontHeight** (`**emptyMessage.belowOrigin`** is reserved / validated but not used for placement). Per stripe, `**belowOrigin`** is the distance from **Y = 0** toward **−Y** to that stripe’s baseline; **X** is fixed at **0** for all. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
-- `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
-- `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
-- `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); and string `**label`** (product default `**Menu**`). Position is derived from diagram content bounds: the trigger’s left edge is anchored to the leftmost tick-label bound, and its bottom edge is anchored to the minimum tick-label-anchor **Y**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
-
-## 4. Scene model contracts (TB-4)
-
-### Diagram elements
-
-- The diagram has named elements:
-  - TickMarks
-  - TickLabels
-  - TideMarks
-  - Hand (group; leaves are **BossCircle**, **SmallCircle**, **Extension**, **Projection**, **Arm**; **PointerPip** is a subgroup with leaves **PointerPipSideA**, **PointerPipSideB**, and **PointerPipHeadArc**)
-  - TimeNowLocation (single **TextElement**; current location name from the host)
-  - TimeNowDate (single **TextElement**; civil date prefix from the host)
-  - TimeNowClock (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds** — canonical `HH:MM`, the colon before `SS`, and `SS`)
-  - TimeDelta (countdown style-bound leaves: **TimeDeltaLocation**, **TimeDeltaPhase**, **TimeDeltaNext**, **TimeDeltaNextTime**; empty-day leaves: **TimeDeltaLocation**, **TimeDeltaPhase**, **NoMoreTidesToday**)
-  - CentreFrame
-  - AnnularBand
-  - InsideTrack
-  - MainLabel (single arcuate text element; currently placeholder copy)
-  - RefArc
-  - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from content bounds so the rectangle left edge aligns to the leftmost tick-label bound and rectangle bottom edge aligns to the minimum tick-label-anchor **Y**; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
-
-When there is **no** tide marker at or after `timeNow` on the same civil day, **TimeDelta** carries **three** centre **TextElement**s (see **TimeDelta**, empty-day case): **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (replacing the interval and `**at HH:MM**` stripes), instead of the four countdown stripes. **TimeDelta** and
-**CentreFrame** are independent named elements (no grouping or parent/child link
-between them in the logical model).
-
-### Style binding names (exact-match contract)
-
-- Style bindings are keyed by **exact** leaf element names.
-- Name matching is **case-sensitive** and has **no aliasing** or fallback.
-- A style binding name must match the emitted leaf element name byte-for-byte.
-- This specification allocates leaf names **where the corresponding leaf is
-mandated**; it does not maintain a separate exhaustive registry section.
-
 ## 2. Core conventions (TB-2)
 
 Cross-references use the § labels below.
@@ -181,7 +101,7 @@ This **θ(t)** is the polar angle for time **t** on the RefArc. It is
 invertible. Any element that “uses time **t**” uses **θ(t)** unless stated
 otherwise.
 
-### §Global “time now” input [global contract mapping: TB-3]
+### §Global “time now” input
 
 - The diagram model uses **one** global canonical input:
   - `**timeNow`** is a host-provided canonical string in `**HH:MM:SS`**.
@@ -268,6 +188,86 @@ model em-boxes or similar font metrics.
 
 *(Additional primitives may be introduced as required by later elements.)*
 
+## 3. Global contract (TB-3)
+
+### Strict diagram input (generator)
+
+The generator **throws** when required host fields are missing or the wrong type;
+it does **not** substitute silent numeric defaults for layout keys (`buildDiagram.mjs`
+and layout submodules). Invalid marker rows (including `**24:00:00`** as a marker
+time), degenerate geometry used as configuration (e.g. wait-arc radius **≤ 0**,
+or missing objects such as the time-now readout inputs (`**timeNowLabel**`, `**timeNowLocation**`, `**timeNowDatePrefix**`) or `**annularBand`**, are **errors** — not “omit this element” fallbacks.
+
+### Derived behaviour (civil day vs `timeNow`)
+
+The **product** assumes at least **one** tide extreme on the civil day and a **non-empty**
+`**tideMarks.markers`** list describing those extremes. The **only** open-ended case is
+**time navigation**: when there is **no** marker at or after `**timeNow`** on that day
+(e.g. after the last tide), **TimeDelta** shows **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (see **Diagram elements**, **TimeDelta**). That behavior follows from `**timeNow`** and the marker schedule; it is **not** triggered by missing spec fields.
+
+When `**spec.semantic.nextTide`** is injected, layout may use it for next-tide timing
+instead of scanning markers; `**tideMarks`** remains **required** for drawing **TideMarks**.
+
+- `**canvas`** — object with finite `**width`** and `**height`** (px).
+- `**title**` — string (diagram meta).
+- `**paintOrder`** — optional plain object.
+  - Optional `**overrides`** array.
+  - Each override must be a plain object with:
+    - `**name`** — non-empty string (named scene group to move),
+    - `**place`** — exact string `**"before"`** or `**"after"`**,
+    - `**relativeTo`** — non-empty string (sibling named group target).
+  - Validation:
+    - `**name !== relativeTo`**,
+    - duplicate overrides for the same `**name`** are errors,
+    - referenced names must exist in the generated scene tree,
+    - each override must resolve to one unique sibling relationship in the scene tree,
+    - cyclic constraints are errors.
+  - Default behaviour when omitted: preserve current deterministic scene-child order.
+- `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
+- `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
+- `**mainLabelRadius`** — finite number (**k·R**): radius of **MainLabel** is **MainLabelRadius × RefRadius**. Must be **> 0**. Concentric with **RefArc**/**InsideTrack** (same centre **O**).
+- `**mainLabelTimeOffsetHours`** — finite number in **[0, 12]**: dial-time offset (hours) used to place **MainLabel** angularly away from `**timeNow`** on the chosen side (see **§Polar**, **MainLabel** placement).
+- `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
+- `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** in `**HH:MM:SS`** **other than** `**24:00:00`** (that sentinel is for the RefArc right endpoint only, not for tide events). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
+- `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**smallCircleRadius`** (**k·R**, strictly **> 0**); finite `**pointerPipScale`** (dimensionless, strictly **> 0**); and finite `**pointerTipInset`** (**k·R**, non-negative), the inward radial offset from the RefArc tip used to place the **PointerPip** tip and its dependent radial segments. `**pointerPipScale`** is applied uniformly to all linear dimensions of the pointer-pip silhouette; the divergence angle remains tied to `**tideMarks.tideMarkArrowDivergence`**. Generation fails if hand-derived radial ordering is invalid (see **Hand**, **Radial segments**).
+- `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
+- `**timeDelta`** — **required** plain object; string `**town**` (required but not rendered in the summary copy; **TimeDeltaLocation** emits an empty string); enum `**tidePhasePair ∈ {"out-low","in-high"}**`; **boolean** `**atypicalTideSummary**` (when `**true**` and a next marker exists, countdown copy follows the atypical branch in **TimeDelta**); **`countdownLines`** — array of **exactly four** plain objects (location, phase, next-event interval, next-event clock stripes), each with finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**); **`emptyMessage`** — plain object with finite `**belowOrigin`** and `**fontHeight**`: when there is no next tide today, the first two empty-day stripes use `**countdownLines[0]`** and `**countdownLines[1]`** for baselines and font heights; the third stripe (**NoMoreTidesToday**) uses `**countdownLines[2].belowOrigin`** for its baseline and `**emptyMessage.fontHeight`** for **FontHeight** (`**emptyMessage.belowOrigin`** is reserved / validated but not used for placement). Per stripe, `**belowOrigin`** is the distance from **Y = 0** toward **−Y** to that stripe’s baseline; **X** is fixed at **0** for all. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
+- `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
+- `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
+- `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); and string `**label`** (product default `**Menu**`). Position is derived from diagram content bounds: the trigger’s left edge is anchored to the leftmost tick-label bound, and its bottom edge is anchored to the minimum tick-label-anchor **Y**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
+
+## 4. Scene model contracts (TB-4)
+
+### Diagram elements
+
+- The diagram has named elements:
+  - TickMarks
+  - TickLabels
+  - TideMarks
+  - Hand (group; leaves are **BossCircle**, **SmallCircle**, **Extension**, **Projection**, **Arm**; **PointerPip** is a subgroup with leaves **PointerPipSideA**, **PointerPipSideB**, and **PointerPipHeadArc**)
+  - TimeNowLocation (single **TextElement**; current location name from the host)
+  - TimeNowDate (single **TextElement**; civil date prefix from the host)
+  - TimeNowClock (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds** — canonical `HH:MM`, the colon before `SS`, and `SS`)
+  - TimeDelta (countdown style-bound leaves: **TimeDeltaLocation**, **TimeDeltaPhase**, **TimeDeltaNext**, **TimeDeltaNextTime**; empty-day leaves: **TimeDeltaLocation**, **TimeDeltaPhase**, **NoMoreTidesToday**)
+  - CentreFrame
+  - AnnularBand
+  - InsideTrack
+  - MainLabel (single arcuate text element; currently placeholder copy)
+  - RefArc
+  - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from content bounds so the rectangle left edge aligns to the leftmost tick-label bound and rectangle bottom edge aligns to the minimum tick-label-anchor **Y**; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
+
+When there is **no** tide marker at or after `timeNow` on the same civil day, **TimeDelta** carries **three** centre **TextElement**s (see **TimeDelta**, empty-day case): **TimeDeltaLocation**, **TimeDeltaPhase**, and **NoMoreTidesToday** (replacing the interval and `**at HH:MM**` stripes), instead of the four countdown stripes. **TimeDelta** and
+**CentreFrame** are independent named elements (no grouping or parent/child link
+between them in the logical model).
+
+### Style binding names (exact-match contract)
+
+- Style bindings are keyed by **exact** leaf element names.
+- Name matching is **case-sensitive** and has **no aliasing** or fallback.
+- A style binding name must match the emitted leaf element name byte-for-byte.
+- This specification allocates leaf names **where the corresponding leaf is
+mandated**; it does not maintain a separate exhaustive registry section.
+
 ## 5. Element specs (TB-5)
 
 ### Time now readout
@@ -318,7 +318,7 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 - **`spec.tickLabelHours`** must yield **at least one** tick label when this readout is used; otherwise **y_tick_min** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests the time-now readout — the reference product always lists hours).
 
-### TimeDelta [behavior branch mapping: TB-6]
+### TimeDelta
 
 ### TimeDelta placement
 
@@ -611,11 +611,10 @@ can place it before the boss-circle leaf:
 
 ## 6. Behavioral branches (TB-6)
 
-This phase keeps normative branch behavior in-place where originally specified.
-Behavioral branch content is currently defined in:
+Behavioral branch behavior is specified in:
 
 - `Derived behaviour (civil day vs timeNow)` under `3. Global contract (TB-3)`
-- `TimeDelta [behavior branch mapping: TB-6]` under `5. Element specs (TB-5)`
+- `TimeDelta` under `5. Element specs (TB-5)`
 
 ## 7. Interpretation and deferred topics (TB-7)
 

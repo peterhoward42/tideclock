@@ -19,14 +19,15 @@ Current execution status:
 
 - Phase 0 audit: completed (clustered pass) in `docs/planning/tide-diagram-spec-phase0-relevance-audit.md`.
 - Phase 1 semantic inventory: completed in `docs/planning/tide-diagram-spec-phase1-semantic-inventory.md`.
-- Phase 2 heading skeleton: in progress in `docs/planning/tide-diagram-spec-phase2-heading-skeleton.md`.
-- Phases 3-5: pending.
+- Phase 2 heading skeleton: completed in `docs/planning/tide-diagram-spec-phase2-heading-skeleton.md`.
+- Phase 3 consolidation: in progress.
+- Phases 4-5: pending.
 
 Latest Phase 2 progress:
 
-- Reader-first heading scaffold inserted into `docs/specs/tide-diagram.md` as non-normative placeholders.
-- Phase 3 started: placeholders removed and major sections in `docs/specs/tide-diagram.md` are now TB-keyed with in-place migration mapping markers.
-- Next: complete physical reordering so TB sections appear in strict reader-first order without "mapping" notes.
+- Reader-first TB section order in `docs/specs/tide-diagram.md` is now physically reordered to strict `TB-1` through `TB-7`.
+- Temporary heading-level mapping markers were removed from migrated section headings.
+- Next: execute Phase 3 consolidation by defining repeated rules once in canonical sections and replacing duplicates with short references.
 
 ## Non-negotiables
 
