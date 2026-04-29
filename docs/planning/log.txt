@@ -20,7 +20,7 @@ o  would main label be better static at bottom?
 
 /docs/tide-diagram.md for context.
 
-/docs/planning/tide-diagram-spec-writing... for context. Proceed with the next step.
+See /docs/planning/tide-diagram-spec-writing... for context. Proceed with the next step.
 
 	o  normalise the spec after the fact
 

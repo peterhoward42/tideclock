@@ -19,7 +19,8 @@ Current execution status:
 
 - Phase 0 audit: completed (clustered pass) in `docs/planning/tide-diagram-spec-phase0-relevance-audit.md`.
 - Phase 1 semantic inventory: completed in `docs/planning/tide-diagram-spec-phase1-semantic-inventory.md`.
-- Phases 2-5: pending.
+- Phase 2 heading skeleton: in progress in `docs/planning/tide-diagram-spec-phase2-heading-skeleton.md`.
+- Phases 3-5: pending.
 
 ## Non-negotiables
 
