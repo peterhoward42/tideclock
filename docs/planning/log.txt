@@ -6,12 +6,10 @@ o  first glance ux assimilation suggestions
 	*  move mainlabel
 	*  attenuate gone tides
 	*  switch main label to say time not height
-		*  make it say the time
-		*  tweak format
-		*  ask what remains for other cases to ensure consistency
-
-	o  put glow /pulsing on next tide marker's time
 	o  move hour labels inside band
+		o  branch inside
+		o  merge branch inside
+
 	o  iconography for high vs low?
 
 	o  Try out mirrored layout
@@ -21,8 +19,7 @@ o  first glance ux assimilation suggestions
 		o  flip tide markers outside the band
 		o  extend hand to inside of band
 
-
-	o  Next tide event more conspicuous than others
+	o  put glow /pulsing on next tide marker's time
 
 
 See /docs/specs/tide-diagram.md for context.
