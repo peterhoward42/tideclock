@@ -82,8 +82,8 @@ export function layoutTideMarks(params) {
     const timeAnchor = polar(rTime, theta);
 
     const v1 = polar(R, theta);
-    const v2Offset = polar(offsetR, theta + Math.PI + halfAngle);
-    const v3Offset = polar(offsetR, theta + Math.PI - halfAngle);
+    const v2Offset = polar(offsetR, theta + halfAngle);
+    const v3Offset = polar(offsetR, theta - halfAngle);
     const v2 = { x: v1.x + v2Offset.x, y: v1.y + v2Offset.y };
     const v3 = { x: v1.x + v3Offset.x, y: v1.y + v3Offset.y };
 

@@ -6,19 +6,13 @@ o  first glance ux assimilation suggestions
 	*  move mainlabel
 	*  attenuate gone tides
 	*  switch main label to say time not height
-	o  move hour labels inside band
-		o  branch inside
-		o  merge branch inside
-
-	o  iconography for high vs low?
+	*  move hour labels inside band
 
 	o  Try out mirrored layout
-		o  bind the radius settings not separate
-		o  tick mark length discriminatio
-		o  labels move to inside the band
-		o  flip tide markers outside the band
-		o  extend hand to inside of band
+		o  branch mirror
+		o  merge branch mirror
 
+	o  iconography for high vs low?
 	o  put glow /pulsing on next tide marker's time
 
 

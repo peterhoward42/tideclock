@@ -488,8 +488,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "timePointer": {
         "circle": {
           "center": {
-            "x": -86.33141357283507,
-            "y": -70.21007481591056,
+            "x": -96.76317199167322,
+            "y": -78.69382955520035,
           },
           "radius": 3.223184690078376,
         },
@@ -499,12 +499,12 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
             "y": -74.45195218555546,
           },
           "v2": {
-            "x": -89.31498575938993,
-            "y": -68.99055993122406,
+            "x": -93.77959980511837,
+            "y": -79.91334443988686,
           },
           "v3": {
-            "x": -85.74556903172049,
-            "y": -73.37957094621294,
+            "x": -97.3490165327878,
+            "y": -75.52433342489797,
           },
         },
       },
@@ -534,10 +534,10 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "timePointer": {
         "circle": {
           "center": {
-            "x": -15.883671841952658,
-            "y": -110.13753467350182,
+            "x": -17.80295730945587,
+            "y": -123.44587872825383,
           },
-          "radius": 3.223184690078367,
+          "radius": 3.2231846900783654,
         },
         "triangle": {
           "v1": {
@@ -545,12 +545,12 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
             "y": -116.79170670087782,
           },
           "v2": {
-            "x": -18.903890962379286,
-            "y": -111.26323268405571,
+            "x": -14.782738189029244,
+            "y": -122.32018071769994,
           },
           "v3": {
-            "x": -13.304598273422043,
-            "y": -112.07074420028941,
+            "x": -20.382030877986487,
+            "y": -121.51266920146624,
           },
         },
       },
@@ -580,8 +580,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "timePointer": {
         "circle": {
           "center": {
-            "x": 60.214432710552245,
-            "y": -93.57771993635039,
+            "x": 67.49037537577829,
+            "y": -104.8850775639204,
           },
           "radius": 3.223184690078361,
         },
@@ -591,12 +591,12 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
             "y": -99.2313987501354,
           },
           "v2": {
-            "x": 58.67191288740065,
-            "y": -96.40783515335833,
+            "x": 69.03289519892988,
+            "y": -102.05496234691246,
           },
           "v3": {
-            "x": 63.42931956662386,
-            "y": -93.34658783340157,
+            "x": 64.27548851970667,
+            "y": -105.11620966686922,
           },
         },
       },
@@ -626,8 +626,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "timePointer": {
         "circle": {
           "center": {
-            "x": 106.3423748438545,
-            "y": -32.76990826518732,
+            "x": 119.19213506607888,
+            "y": -36.729622953995396,
           },
           "radius": 3.223184690078361,
         },
@@ -637,12 +637,12 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
             "y": -34.74976560959136,
           },
           "v2": {
-            "x": 106.98612987524305,
-            "y": -35.92815129033872,
+            "x": 118.54838003469033,
+            "y": -33.571379928843996,
           },
           "v3": {
-            "x": 108.65212238461787,
-            "y": -30.521801095968478,
+            "x": 116.88238752531551,
+            "y": -38.977730123214236,
           },
         },
       },
