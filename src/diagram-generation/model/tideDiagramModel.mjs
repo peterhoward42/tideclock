@@ -97,16 +97,13 @@
  *   sweepRad: number,
  * }} InsideTrackDiagram
  *
- * MainLabel is currently a single placeholder line that follows the InsideTrack.
+ * MainLabel is horizontal text near the lower-left content bounds.
  *
  * @typedef {{
  *   content: string,
  *   fontSize: number,
- *   center: DiagramPoint,
- *   radius: number,
- *   thetaStart: number,
- *   sweepRad: number,
- *   hAlign: 'left' | 'right',
+ *   anchor: DiagramPoint,
+ *   hAlign: 'left',
  * }} MainLabelDiagram
  *
  * Home menu trigger control embedded in the diagram space (rounded rectangle + label).

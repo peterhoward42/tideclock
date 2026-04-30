@@ -36,7 +36,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "homeMenuTrigger": {
     "center": {
       "x": -122.98173403075491,
-      "y": -129.21000000000004,
+      "y": -123.36900000000004,
     },
     "cornerRadius": 4.484,
     "height": 15.34,
@@ -54,16 +54,13 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "thetaLeft": 3.3373889803846897,
   },
   "mainLabel": {
-    "center": {
-      "x": 0,
-      "y": 0,
+    "anchor": {
+      "x": -134.7817340307549,
+      "y": -136.88000000000002,
     },
     "content": "High tide in 3h 45m",
     "fontSize": 5.31,
-    "hAlign": "right",
-    "radius": 88.5,
-    "sweepRad": 0.6839999999999999,
-    "thetaStart": 4.7541789109402455,
+    "hAlign": "left",
   },
   "meta": {
     "height": 320,

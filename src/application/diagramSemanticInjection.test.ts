@@ -49,8 +49,6 @@ type SemanticInjectionDiagramSpec = {
     readonly dateAboveTime: number;
   };
   readonly insideTrackRadius: number;
-  readonly mainLabelRadius: number;
-  readonly mainLabelTimeOffsetHours: number;
   readonly annularBand: { readonly annularBandWidth: number };
   readonly hand: {
     readonly bossCircleRadius: number;
@@ -58,6 +56,7 @@ type SemanticInjectionDiagramSpec = {
   readonly homeMenuTrigger: {
     readonly width: number;
     readonly height: number;
+    readonly gapAboveMainLabel: number;
     readonly cornerRadius: number;
     readonly labelSize: number;
     readonly label: string;
@@ -99,8 +98,6 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     },
     timeNowLabel: { fontHeight: 0.05, dateAboveTime: 0.05 },
     insideTrackRadius: 0.75,
-    mainLabelRadius: 0.75,
-    mainLabelTimeOffsetHours: 1,
     annularBand: { annularBandWidth: 0.05 },
     hand: {
       bossCircleRadius: 0.08,
@@ -108,6 +105,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     homeMenuTrigger: {
       width: 0.2,
       height: 0.13,
+      gapAboveMainLabel: 0.0135,
       cornerRadius: 0.038,
       labelSize: 0.042,
       label: 'Menu',
@@ -161,20 +159,6 @@ describe('spec.semantic.nextTide injection', () => {
     const { insideTrackRadius: _omit, ...rest } = sampleTideDiagramSpec();
     expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
       /insideTrackRadius/,
-    );
-  });
-
-  it('throws when spec omits mainLabelRadius', () => {
-    const { mainLabelRadius: _omit, ...rest } = sampleTideDiagramSpec();
-    expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
-      /mainLabelRadius/,
-    );
-  });
-
-  it('throws when spec omits mainLabelTimeOffsetHours', () => {
-    const { mainLabelTimeOffsetHours: _omit, ...rest } = sampleTideDiagramSpec();
-    expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
-      /mainLabelTimeOffsetHours/,
     );
   });
 

@@ -35,10 +35,6 @@ export type HomeTideDiagramLayoutBase = {
   };
   /** k·RefRadius; concentric arc inside RefArc, same angular span as RefArc. */
   readonly insideTrackRadius: number;
-  /** k·RefRadius; radius used by the arcuate MainLabel text layout. */
-  readonly mainLabelRadius: number;
-  /** Hours on the dial used as angular offset from `timeNow` toward MainLabel's chosen side. */
-  readonly mainLabelTimeOffsetHours: number;
   readonly annularBand: { readonly annularBandWidth: number };
   readonly hand: {
     readonly bossCircleRadius: number;
@@ -55,6 +51,8 @@ export type HomeTideDiagramLayoutBase = {
     readonly width: number;
     /** k·RefRadius: full height along +Y. */
     readonly height: number;
+    /** k·RefRadius: vertical gap from MainLabel top to trigger bottom. */
+    readonly gapAboveMainLabel: number;
     /** k·RefRadius: SVG rx/ry; must be ≤ min(width,height)/2. */
     readonly cornerRadius: number;
     readonly labelSize: number;

@@ -19,8 +19,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "y": -50.07689159089707,
       },
       "start": {
-        "x": 7.73338588912243,
-        "y": -5.41371800982671,
+        "x": 4.833366180701519,
+        "y": -3.3835737561416943,
       },
     },
     "bossCircle": {
@@ -28,7 +28,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "x": 0,
         "y": 0,
       },
-      "radius": 9.44,
+      "radius": 5.9,
     },
     "theta": 5.67242915205982,
     "timeHours": 19.33416666666667,
@@ -36,7 +36,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "homeMenuTrigger": {
     "center": {
       "x": -119.652,
-      "y": -123.31000000000002,
+      "y": -117.46900000000001,
     },
     "cornerRadius": 4.484,
     "height": 15.34,
@@ -54,16 +54,13 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "thetaLeft": 3.141592653589793,
   },
   "mainLabel": {
-    "center": {
-      "x": 0,
-      "y": 0,
+    "anchor": {
+      "x": -131.452,
+      "y": -130.98000000000002,
     },
     "content": "High tide in 3h 45m",
     "fontSize": 5.31,
-    "hAlign": "right",
-    "radius": 69.61999999999999,
-    "sweepRad": 0.8694915254237288,
-    "thetaStart": 4.645857993956603,
+    "hAlign": "left",
   },
   "meta": {
     "height": 320,
@@ -712,7 +709,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "height": 320,
     "previewFrame": {
       "maxX": 334.9,
-      "maxY": 170.44,
+      "maxY": 166.9,
       "minX": 77.548,
       "minY": 26.95799999999998,
     },
@@ -731,7 +728,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   "y": 160,
                 },
                 "kind": "circle",
-                "radius": 9.44,
+                "radius": 5.9,
               },
             ],
             "kind": "group",
@@ -746,8 +743,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 },
                 "kind": "line",
                 "start": {
-                  "x": 217.73338588912242,
-                  "y": 154.5862819901733,
+                  "x": 214.83336618070152,
+                  "y": 156.6164262438583,
                 },
               },
             ],
@@ -1515,16 +1512,15 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       {
         "children": [
           {
-            "center": {
-              "x": 210,
-              "y": 160,
+            "anchor": {
+              "x": 78.548,
+              "y": 29.019999999999982,
             },
+            "angleRad": 0,
             "content": "High tide in 3h 45m",
-            "kind": "arcText",
-            "radius": 69.61999999999999,
+            "hAlign": "left",
+            "kind": "text",
             "size": 5.31,
-            "sweepRad": 0.8694915254237288,
-            "thetaStart": 4.645857993956603,
           },
         ],
         "kind": "group",
@@ -1626,7 +1622,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           {
             "center": {
               "x": 90.348,
-              "y": 36.68999999999998,
+              "y": 42.53099999999999,
             },
             "height": 15.34,
             "kind": "roundedRect",
@@ -1638,7 +1634,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 90.348,
-                  "y": 36.68999999999998,
+                  "y": 42.53099999999999,
                 },
                 "angleRad": 0,
                 "content": "Menu",

@@ -92,11 +92,8 @@ type InsideTrackDiagram = {
 type MainLabelDiagram = {
   readonly content: string;
   readonly fontSize: number;
-  readonly center: DiagramPoint;
-  readonly radius: number;
-  readonly thetaStart: number;
-  readonly sweepRad: number;
-  readonly hAlign: "left" | "right";
+  readonly anchor: DiagramPoint;
+  readonly hAlign: "left";
 };
 
 type HomeMenuTriggerDiagram = {
@@ -215,16 +212,6 @@ type SceneTextPrimitive = {
   readonly dominantBaseline?: "alphabetic" | "middle";
 };
 
-type SceneArcTextPrimitive = {
-  readonly kind: "arcText";
-  readonly content: string;
-  readonly size: number;
-  readonly center: ScenePoint;
-  readonly radius: number;
-  readonly thetaStart: number;
-  readonly sweepRad: number;
-};
-
 type SceneGroupNode = {
   readonly kind: "group";
   readonly name: string;
@@ -239,7 +226,6 @@ type SceneNode =
   | SceneRoundedRectPrimitive
   | SceneAnnularSectorPrimitive
   | SceneTextPrimitive
-  | SceneArcTextPrimitive
   | SceneGroupNode;
 
 /**

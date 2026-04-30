@@ -11,10 +11,9 @@
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
  * - Sub-builders (`buildTideMarksFromSpec`) enforce their own throw rules.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
- * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from diagram bounds: left edge at the leftmost tick-label bound, bottom edge at the minimum tick-label-anchor **Y**.
+ * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from diagram bounds: left edge at the leftmost tick-label bound, bottom edge above **MainLabel** top.
  * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
- * - `**mainLabelRadius**` is required: finite **k·R** multiplier **> 0**; arcuate label radius for **MainLabel**.
- * - `**mainLabelTimeOffsetHours**` is required: finite hours offset in [0, 12] used to place MainLabel angularly away from `timeNow` toward the larger vacant interval side.
+ * - **MainLabel** is horizontal text anchored from content bounds (leftmost tick-label bound and minimum tick-label-anchor **Y**), not curved arc text.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
  */
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
@@ -34,7 +33,6 @@ import {
 
 /** Per-character scene width heuristic; must match {@link expandBoundsByText} in `toScene.mjs`. */
 const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
-const MAIN_LABEL_CHAR_WIDTH_EM = 0.6;
 const TIME_NOW_DATE_TIME_SEPARATOR_SPACES = 3;
 // TimeNowClock is emitted as `HH:MM` + `:` + `SS`; total mono-char count = 5 + 1 + 2 = 8.
 const TIME_NOW_CLOCK_TOTAL_CHARS = 8;
@@ -253,13 +251,6 @@ export function buildDiagram(spec) {
       0.5 * tl.content.length * TIME_NOW_LABEL_CHAR_WIDTH_EM * tl.fontSize,
     ),
   );
-  const homeMenuTrigger = buildHomeMenuTriggerFromSpec(
-    spec,
-    refRadius,
-    leftmostTickLabelX,
-    clockBaselineY,
-  );
-
   const tideMarks = buildTideMarksFromSpec(
     spec,
     refRadius,
@@ -273,40 +264,23 @@ export function buildDiagram(spec) {
     thetaLeft,
     sweepRad,
   );
-  const parsedNowForMainLabel = parseCanonicalTimeOrThrow(
-    spec.timeNow,
-    "spec.timeNow",
-  );
+  const parsedNowForMainLabel = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNowForMainLabel.isRightEndpoint) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
-  const mainLabelTimeOffsetHours = requireFiniteNumber(
-    spec.mainLabelTimeOffsetHours,
-    "spec.mainLabelTimeOffsetHours",
-  );
-  if (mainLabelTimeOffsetHours < 0 || mainLabelTimeOffsetHours > 12) {
-    throw new Error(
-      "spec.mainLabelTimeOffsetHours must be a finite number from 0 to 12 inclusive",
-    );
-  }
-  const hasLargerRightVacantInterval = parsedNowForMainLabel.hours < 12;
-  const mainLabelAnchorHours = hasLargerRightVacantInterval
-    ? parsedNowForMainLabel.hours + mainLabelTimeOffsetHours
-    : parsedNowForMainLabel.hours - mainLabelTimeOffsetHours;
-  const nextEventForMainLabel = computeNextTideEventFromSpec(
-    spec,
-    parsedNowForMainLabel,
-  );
+  const nextEventForMainLabel = computeNextTideEventFromSpec(spec, parsedNowForMainLabel);
   const mainLabelContent =
     nextEventForMainLabel == null
       ? ""
       : `${nextEventForMainLabel.kind} tide in ${nextEventForMainLabel.intervalText}`;
-  const mainLabel = buildMainLabel(
+  const mainLabel = buildMainLabel(leftmostTickLabelX, clockBaselineY, refRadius, mainLabelContent);
+  const mainLabelTopY = mainLabel.anchor.y + 0.8 * mainLabel.fontSize;
+  const homeMenuTriggerGap = readHomeMenuTriggerGapFromSpec(spec, refRadius);
+  const homeMenuTrigger = buildHomeMenuTriggerFromSpec(
     spec,
     refRadius,
-    timeToTheta(mainLabelAnchorHours, thetaLeft, thetaRight),
-    hasLargerRightVacantInterval ? "left" : "right",
-    mainLabelContent,
+    leftmostTickLabelX,
+    mainLabelTopY + homeMenuTriggerGap,
   );
   const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
 
@@ -398,34 +372,37 @@ function buildInsideTrackFromSpec(spec, refRadius, thetaLeft, sweepRad) {
 }
 
 /**
- * @param {Record<string, unknown>} spec
+ * @param {number} anchorX
+ * @param {number} anchorY
  * @param {number} refRadius
- * @param {number} thetaAnchor
- * @param {"left" | "right"} hAlign
  * @param {string} content
  * @returns {import('../model/tideDiagramModel.mjs').MainLabelDiagram}
  */
-function buildMainLabel(spec, refRadius, thetaAnchor, hAlign, content) {
-  const mainLabelRadiusK = requireFiniteNumber(
-    spec.mainLabelRadius,
-    "spec.mainLabelRadius",
-  );
-  if (!(mainLabelRadiusK > 0)) {
-    throw new Error("spec.mainLabelRadius must be a finite number greater than 0");
-  }
-  const radius = mainLabelRadiusK * refRadius;
+function buildMainLabel(anchorX, anchorY, refRadius, content) {
   const fontSize = 0.045 * refRadius;
-  const arcLength = content.length * fontSize * MAIN_LABEL_CHAR_WIDTH_EM;
-  const sweepRad = arcLength / radius;
   return {
     content,
     fontSize,
-    center: { x: 0, y: 0 },
-    radius,
-    thetaStart: hAlign === "left" ? thetaAnchor : thetaAnchor - sweepRad,
-    sweepRad,
-    hAlign,
+    anchor: { x: anchorX, y: anchorY },
+    hAlign: "left",
   };
+}
+
+/**
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @returns {number}
+ */
+function readHomeMenuTriggerGapFromSpec(spec, refRadius) {
+  const o = requirePlainObject(spec.homeMenuTrigger, "spec.homeMenuTrigger");
+  const gapK = requireFiniteNumber(
+    o.gapAboveMainLabel,
+    "spec.homeMenuTrigger.gapAboveMainLabel",
+  );
+  if (gapK < 0) {
+    throw new Error("spec.homeMenuTrigger.gapAboveMainLabel must be >= 0");
+  }
+  return gapK * refRadius;
 }
 
 function buildAnnularBandFromSpec(spec, refRadius, thetaLeft, sweepRad) {

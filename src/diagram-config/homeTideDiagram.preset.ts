@@ -17,8 +17,6 @@ export const homeTideDiagramLayoutBase = {
   tickLabelClearance: 0.07,
   timeNowLabel: { fontHeight: 0.045, dateAboveTime: 0.02 },
   insideTrackRadius: 0.74,
-  mainLabelRadius: 0.59,
-  mainLabelTimeOffsetHours: 1.2,
   hand: {
     bossCircleRadius: 0.05,
   },
@@ -29,6 +27,7 @@ export const homeTideDiagramLayoutBase = {
   homeMenuTrigger: {
     width: 0.2,
     height: 0.13,
+    gapAboveMainLabel: 0.07,
     cornerRadius: 0.038,
     labelSize: 0.042,
     label: "Menu",

@@ -88,22 +88,12 @@
  * }} TextPrimitive
  *
  * @typedef {{
- *   kind: 'arcText',
- *   content: string,
- *   size: number,
- *   center: Point,
- *   radius: number,
- *   thetaStart: number,
- *   sweepRad: number,
- * }} ArcTextPrimitive
- *
- * @typedef {{
  *   kind: 'group',
  *   name: string,
  *   children: SceneNode[],
  * }} GroupNode
  *
- * @typedef { LinePrimitive | ArcPrimitive | ArcSegmentPrimitive | TrianglePrimitive | CirclePrimitive | RoundedRectPrimitive | AnnularSectorPrimitive | TextPrimitive | ArcTextPrimitive | GroupNode } SceneNode
+ * @typedef { LinePrimitive | ArcPrimitive | ArcSegmentPrimitive | TrianglePrimitive | CirclePrimitive | RoundedRectPrimitive | AnnularSectorPrimitive | TextPrimitive | GroupNode } SceneNode
  *
  * @typedef {{
  *   title: string,
@@ -348,37 +338,3 @@ export function text({ content, size, hAlign, angleRad, anchor, dominantBaseline
   return node;
 }
 
-/**
- * Text laid along a circular arc in scene space.
- *
- * @param {object} o
- * @param {string} o.content
- * @param {number} o.size
- * @param {Point} o.center
- * @param {number} o.radius
- * @param {number} o.thetaStart
- * @param {number} o.sweepRad
- * @returns {ArcTextPrimitive}
- */
-export function arcText({ content, size, center, radius, thetaStart, sweepRad }) {
-  if (typeof content !== "string") {
-    throw new Error("content must be a string");
-  }
-  assertFiniteNumber("size", size);
-  assertPoint("center", center);
-  assertFiniteNumber("radius", radius);
-  assertFiniteNumber("thetaStart", thetaStart);
-  assertFiniteNumber("sweepRad", sweepRad);
-  if (!(radius > 0)) {
-    throw new Error("radius must be greater than 0");
-  }
-  return {
-    kind: "arcText",
-    content,
-    size,
-    center,
-    radius,
-    thetaStart,
-    sweepRad,
-  };
-}

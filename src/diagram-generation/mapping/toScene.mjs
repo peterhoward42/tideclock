@@ -7,7 +7,6 @@
 import {
   annularSector,
   arc,
-  arcText,
   circle,
   group,
   line,
@@ -263,9 +262,6 @@ function expandBoundsByNode(b, node) {
     case "text":
       expandBoundsByText(b, node);
       return;
-    case "arcText":
-      expandBoundsByArcText(b, node);
-      return;
     default:
       // Unknown scene node kinds: skip (extensible renderer may add kinds before bounds logic catches up).
       return;
@@ -291,29 +287,6 @@ function expandBoundsByAnnularSector(b, node) {
     },
     sweepRad,
   });
-}
-
-/** @param {{ minX: number, minY: number, maxX: number, maxY: number }} b mutated in place */
-function expandBoundsByArcText(b, node) {
-  const charCount = (node.content ?? "").length;
-  if (charCount === 0) return;
-  const glyphSweep = node.sweepRad / Math.max(1, charCount);
-  for (let i = 0; i < charCount; i += 1) {
-    const theta = node.thetaStart + (i + 0.5) * glyphSweep;
-    const anchor = {
-      x: node.center.x + node.radius * Math.cos(theta),
-      y: node.center.y + node.radius * Math.sin(theta),
-    };
-    expandBoundsByText(b, {
-      kind: "text",
-      content: node.content[i],
-      size: node.size,
-      hAlign: "center",
-      angleRad: theta + Math.PI / 2,
-      anchor,
-      dominantBaseline: "middle",
-    });
-  }
 }
 
 /** @param {import('../model/sceneModel.mjs').GroupNode} root */
@@ -680,13 +653,12 @@ export function tideDiagramToScene(diagram) {
   );
   const tickLabelsGroup = group("TickLabel", tickLabelChildren);
   const mainLabelGroup = group("MainLabel", [
-    arcText({
+    text({
       content: mainLabel.content,
       size: mainLabel.fontSize,
-      center: mapPoint(mainLabel.center, cx, cy),
-      radius: mainLabel.radius,
-      thetaStart: mainLabel.thetaStart,
-      sweepRad: mainLabel.sweepRad,
+      hAlign: mainLabel.hAlign,
+      angleRad: 0,
+      anchor: mapPoint(mainLabel.anchor, cx, cy),
     }),
   ]);
 

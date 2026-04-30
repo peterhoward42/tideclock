@@ -61,28 +61,12 @@ function of the RefArc.
 **RefArc** (centre **O**), with radius **InsideTrackRadius × RefRadius** (**k·R**;
 see strict inputs). It uses the same **θ_left** and the same CCW **swept angle**
 as the **RefArc** (from **θ_left** to **θ_right**).
-- **MainLabel** is an arcuate text element at radius
-  **MainLabelRadius × RefRadius** (independent input; concentric with
-  **RefArc**/**InsideTrack**). Its **content** is one synthesized line:
+- **MainLabel** is a horizontal **TextElement** with **left** justification.
+  Its **content** is one synthesized line:
   `**<Low|High> tide in <Hh Mm>**` when a next marker exists at or after
   `**timeNow`** on the same civil day, otherwise an empty string. Low/high and
   interval text are derived from the next event computed from marker schedule
-  and canonical time parsing (see **TideMarks**, **§Time and θ(t)**). Angular
-  placement is policy-driven from `**t_now`** and `**mainLabelTimeOffsetHours`**:
-  - Let `**Δ = mainLabelTimeOffsetHours`**.
-  - Let the two vacant intervals from `**t_now`** to RefArc endpoints be:
-    - left interval length `**L_left = t_now − 0`**,
-    - right interval length `**L_right = 24 − t_now`**.
-  - Choose the side with the larger vacant interval:
-    - if `**L_right > L_left`** (equivalently `**t_now < 12`**), use the **right** side;
-    - otherwise use the **left** side.
-  - Define anchor hour `**t_main_label_anchor`**:
-    - right side: `**t_main_label_anchor = t_now + Δ`**;
-    - left side: `**t_main_label_anchor = t_now − Δ`**.
-  - Convert to angle `**θ(t_main_label_anchor)`** via **§Time and θ(t)**.
-  - Arc-text justification policy:
-    - right side (`**L_right > L_left`**) → **left** justification;
-    - otherwise → **right** justification.
+  and canonical time parsing (see **TideMarks**, **§Time and θ(t)**).
 
 ### §Time and θ(t)
 
@@ -134,7 +118,6 @@ of travel.”
   - One closed circular segment path (for **CentreFrame**: circular arc + straight chord closure)
   - Line segments (for radial segments and tick marks)
   - Text elements
-  - Arc-text elements (text laid out along circular arcs; currently used by **MainLabel**)
   - **Line** segments and **arc** segments for **TideMarks.TimePointer** (two equal sides of the pointer triangle as strokes, head as a circular arc; **fill** is **none**)
   - One **closed annular sector** path (**fill** and **stroke** on the composite
   boundary) introduced by **AnnularBand** (see **AnnularBand**)
@@ -232,15 +215,13 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
   - Default behaviour when omitted: preserve current deterministic scene-child order.
 - `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
 - `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
-- `**mainLabelRadius`** — finite number (**k·R**): radius of **MainLabel** is **MainLabelRadius × RefRadius**. Must be **> 0**. Concentric with **RefArc**/**InsideTrack** (same centre **O**).
-- `**mainLabelTimeOffsetHours`** — finite number in **[0, 12]**: dial-time offset (hours) used to place **MainLabel** angularly away from `**timeNow`** on the chosen side (see **§Polar**, **MainLabel** placement).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
 - `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**). Generation fails if hand-derived radial ordering is invalid (see **Hand**, **Radial segments**).
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
 - `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
-- `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); and string `**label`** (product default `**Menu**`). Position is derived from diagram content bounds: the trigger’s left edge is anchored to the leftmost tick-label bound, and its bottom edge is anchored to the minimum tick-label-anchor **Y**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
+- `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); finite `**gapAboveMainLabel`** (**k·R**, **≥ 0**); and string `**label`** (product default `**Menu**`). Position is derived from diagram content bounds: the trigger’s left edge is anchored to the leftmost tick-label bound, and its bottom edge is anchored above **MainLabel** top by `**gapAboveMainLabel·RefRadius`**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
 
 ## 4. Scene model contracts (TB-4)
 
@@ -257,9 +238,9 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
   - CentreFrame
   - AnnularBand
   - InsideTrack
-  - MainLabel (single arcuate text element; content synthesized from the next tide event at or after `**timeNow`** on the same civil day)
+  - MainLabel (single horizontal left-justified text element; content synthesized from the next tide event at or after `**timeNow`** on the same civil day)
   - RefArc
-  - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from content bounds so the rectangle left edge aligns to the leftmost tick-label bound and rectangle bottom edge aligns to the minimum tick-label-anchor **Y**; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
+  - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from content bounds so the rectangle left edge aligns to the leftmost tick-label bound and rectangle bottom edge sits above **MainLabel** top with a fixed gap; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
 
 ### Style binding names (exact-match contract)
 
@@ -323,22 +304,14 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 ### MainLabel placement
 
-- **MainLabel** is emitted as one **arc-text** leaf in named group
-  **MainLabel**.
-- Radius is `**mainLabelRadius × refRadius`**; `**mainLabelRadius`** must be a
-  finite number **> 0**.
+- **MainLabel** is emitted as one **text** leaf in named group **MainLabel**.
 - Font height is fixed by the generator at **0.045·RefRadius**.
-- Anchor side and arc-text justification are chosen from `**timeNow`**:
-  - compute `**t_now`** from canonical `**timeNow`** (**§Time and θ(t)**);
-  - compare vacant dial intervals (`**t_now`** to 24 on right, 0 to
-    `**t_now`** on left);
-  - if right interval is larger (`**t_now < 12`**), use **right** side with
-    **left** justification;
-  - otherwise use **left** side with **right** justification.
-- Let `**Δ = mainLabelTimeOffsetHours`** (finite in **[0, 12]**). Anchor hour is:
-  - right side: `**t_main_label_anchor = t_now + Δ`**;
-  - left side: `**t_main_label_anchor = t_now − Δ`**.
-- Convert anchor hour via `**θ(t_main_label_anchor)`** (**§Time and θ(t)**).
+- **MainLabel** uses horizontal justification **left**.
+- Let **x_tick_min** be the leftmost rendered X bound among **TickLabels**
+  (same width heuristic used for other text-derived bounds).
+- Let **y_tick_min** be the minimum `**anchor.y**` among **TickLabels**.
+- MainLabel anchor is `**(x_tick_min, y_tick_min)`**.
+- Baseline polar angle is **0** (horizontal baseline in diagram space).
 
 ### MainLabel copy synthesis
 
