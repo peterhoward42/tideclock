@@ -15,8 +15,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "hand": {
     "arm": {
       "end": {
-        "x": 65.92296039570638,
-        "y": -59.04585754027227,
+        "x": 87.01830772233241,
+        "y": -77.9405319531594,
       },
       "start": {
         "x": 7.03178244220868,
@@ -35,8 +35,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "homeMenuTrigger": {
     "center": {
-      "x": -118.35191880160563,
-      "y": -118.64900000000002,
+      "x": -109.73264976516901,
+      "y": -117.93564875337607,
     },
     "cornerRadius": 4.484,
     "height": 15.34,
@@ -44,19 +44,10 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "labelSize": 4.956,
     "width": 23.6,
   },
-  "insideTrack": {
-    "center": {
-      "x": 0,
-      "y": 0,
-    },
-    "radius": 88.5,
-    "sweepRad": 2.75,
-    "thetaLeft": 3.3373889803846897,
-  },
   "mainLabel": {
     "anchor": {
       "x": -130.15191880160563,
-      "y": -132.16000000000003,
+      "y": -131.44664875337608,
     },
     "content": "High tide at 23:06",
     "fontSize": 5.31,
@@ -488,23 +479,23 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "timePointer": {
         "circle": {
           "center": {
-            "x": -86.33141357283507,
-            "y": -70.21007481591056,
+            "x": -101.34053663078593,
+            "y": -82.41642716447814,
           },
           "radius": 3.223184690078376,
         },
         "triangle": {
           "v1": {
-            "x": -91.54729278225415,
-            "y": -74.45195218555546,
+            "x": -96.12465742136686,
+            "y": -78.17454979483324,
           },
           "v2": {
-            "x": -89.31498575938993,
-            "y": -68.99055993122406,
+            "x": -98.35696444423108,
+            "y": -83.63594204916464,
           },
           "v3": {
-            "x": -85.74556903172049,
-            "y": -73.37957094621294,
+            "x": -101.92638117190052,
+            "y": -79.24693103417576,
           },
         },
       },
@@ -534,23 +525,23 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "timePointer": {
         "circle": {
           "center": {
-            "x": -15.883671841952658,
-            "y": -110.13753467350182,
+            "x": -18.64512303824109,
+            "y": -129.28546406329772,
           },
-          "radius": 3.223184690078367,
+          "radius": 3.223184690078369,
         },
         "triangle": {
           "v1": {
-            "x": -16.843314575704266,
-            "y": -116.79170670087782,
+            "x": -17.68548030448948,
+            "y": -122.63129203592172,
           },
           "v2": {
-            "x": -18.903890962379286,
-            "y": -111.26323268405571,
+            "x": -15.624903917814459,
+            "y": -128.15976605274383,
           },
           "v3": {
-            "x": -13.304598273422043,
-            "y": -112.07074420028941,
+            "x": -21.224196606771706,
+            "y": -127.35225453651013,
           },
         },
       },
@@ -580,23 +571,23 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "timePointer": {
         "circle": {
           "center": {
-            "x": 60.214432710552245,
-            "y": -93.57771993635039,
+            "x": 70.68299557793655,
+            "y": -109.84664750142717,
           },
           "radius": 3.223184690078361,
         },
         "triangle": {
           "v1": {
-            "x": 63.852404043165265,
-            "y": -99.2313987501354,
+            "x": 67.04502424532353,
+            "y": -104.19296868764216,
           },
           "v2": {
-            "x": 58.67191288740065,
-            "y": -96.40783515335833,
+            "x": 72.22551540108815,
+            "y": -107.01653228441923,
           },
           "v3": {
-            "x": 63.42931956662386,
-            "y": -93.34658783340157,
+            "x": 67.46810872186494,
+            "y": -110.07777960437599,
           },
         },
       },
@@ -626,23 +617,23 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "timePointer": {
         "circle": {
           "center": {
-            "x": 106.3423748438545,
-            "y": -32.76990826518732,
+            "x": 124.83049781382722,
+            "y": -38.46711123447497,
           },
           "radius": 3.223184690078361,
         },
         "triangle": {
           "v1": {
-            "x": 112.76725495496669,
-            "y": -34.74976560959136,
+            "x": 118.40561770271503,
+            "y": -36.48725389007093,
           },
           "v2": {
-            "x": 106.98612987524305,
-            "y": -35.92815129033872,
+            "x": 124.18674278243867,
+            "y": -35.30886820932357,
           },
           "v3": {
-            "x": 108.65212238461787,
-            "y": -30.521801095968478,
+            "x": 122.52075027306385,
+            "y": -40.71521840369381,
           },
         },
       },
@@ -651,8 +642,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "timeNowClock": {
     "hhmm": {
       "anchor": {
-        "x": 110.912649765169,
-        "y": -132.16000000000003,
+        "x": 117.43368250390557,
+        "y": -131.3286487533761,
       },
       "content": "19:20",
       "fontSize": 5.9,
@@ -660,8 +651,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     "seconds": {
       "anchor": {
-        "x": 121.532649765169,
-        "y": -132.16000000000003,
+        "x": 128.05368250390558,
+        "y": -131.3286487533761,
       },
       "content": "03",
       "fontSize": 5.9,
@@ -669,8 +660,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     "secondsColon": {
       "anchor": {
-        "x": 114.452649765169,
-        "y": -132.16000000000003,
+        "x": 120.97368250390558,
+        "y": -131.3286487533761,
       },
       "content": ":",
       "fontSize": 5.9,
@@ -679,8 +670,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "timeNowDate": {
     "anchor": {
-      "x": 82.592649765169,
-      "y": -132.16000000000003,
+      "x": 89.11368250390558,
+      "y": -131.3286487533761,
     },
     "content": "Mon 23 Mar",
     "fontSize": 5.9,
@@ -688,8 +679,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "timeNowLocation": {
     "anchor": {
-      "x": 121.532649765169,
-      "y": -120.36000000000001,
+      "x": 128.05368250390558,
+      "y": -119.52864875337607,
     },
     "content": "Lymington",
     "fontSize": 5.9,

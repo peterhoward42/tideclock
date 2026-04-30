@@ -34,6 +34,7 @@ import { requireFiniteNumber, requirePlainObject, requireString } from "./specRe
 /**
  * @typedef {{
  *   refRadius: number,
+ *   annularBandWidth: number,
  *   thetaLeft: number,
  *   thetaRight: number,
  *   tideHeightLabelRadius: number,
@@ -55,6 +56,7 @@ import { requireFiniteNumber, requirePlainObject, requireString } from "./specRe
 export function layoutTideMarks(params) {
   const {
     refRadius,
+    annularBandWidth,
     thetaLeft,
     thetaRight,
     tideHeightLabelRadius,
@@ -66,6 +68,7 @@ export function layoutTideMarks(params) {
     markers,
   } = params;
   const R = refRadius;
+  const outerBandRadius = R * (1 + annularBandWidth);
   const halfAngle = 0.5 * tideMarkArrowDivergence;
   const offsetR = tideMarkArrowLineLen * R;
 
@@ -81,9 +84,9 @@ export function layoutTideMarks(params) {
     const heightAnchor = polar(rHeight, theta);
     const timeAnchor = polar(rTime, theta);
 
-    const v1 = polar(R, theta);
-    const v2Offset = polar(offsetR, theta + Math.PI + halfAngle);
-    const v3Offset = polar(offsetR, theta + Math.PI - halfAngle);
+    const v1 = polar(outerBandRadius, theta);
+    const v2Offset = polar(offsetR, theta + halfAngle);
+    const v3Offset = polar(offsetR, theta - halfAngle);
     const v2 = { x: v1.x + v2Offset.x, y: v1.y + v2Offset.y };
     const v3 = { x: v1.x + v3Offset.x, y: v1.y + v3Offset.y };
 
@@ -227,6 +230,7 @@ export function parseTideMarksMarkerRowsOrThrow(markersRaw) {
  */
 export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const o = requirePlainObject(spec.tideMarks, "spec.tideMarks");
+  const annularBand = requirePlainObject(spec.annularBand, "spec.annularBand");
   const parsedRows = parseTideMarksMarkerRowsOrThrow(o.markers);
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
@@ -263,6 +267,10 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
       "spec.tideMarks.tideMarkArrowLineLen",
     ),
   );
+  const annularBandWidth = requireFiniteNumber(
+    annularBand.annularBandWidth,
+    "spec.annularBand.annularBandWidth",
+  );
 
   const semanticRaw = spec.semantic;
   const semantic =
@@ -289,6 +297,7 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
 
   return layoutTideMarks({
     refRadius,
+    annularBandWidth,
     thetaLeft,
     thetaRight,
     tideHeightLabelRadius,

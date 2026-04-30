@@ -36,8 +36,7 @@ This table is the anti-regression backbone for rewrite phases: each retained nor
 | S014 | error condition | Strict diagram input -> paintOrder | Override validation: each override must resolve uniquely among siblings; cyclic constraints are errors | TB-3 |
 | S015 | derivation | Strict diagram input -> paintOrder | Omitted overrides preserve deterministic scene-child order | TB-3 |
 | S016 | required | Strict diagram input | `refRadius`, `sweepRad`, `tickLabelTickLen`, `tickLabelSize`, `tickLabelClearance` are finite numbers; `tickLabelTickLen` is shorter than `annularBand.annularBandWidth` | TB-3 |
-| S017 | required | Strict diagram input | `insideTrackRadius` finite and > 0; InsideTrack radius is `insideTrackRadius * refRadius` with RefArc center/sweep | TB-5 |
-| S018 | required | Strict diagram input | `mainLabelRadius` finite and > 0; MainLabel radius is `mainLabelRadius * refRadius` concentric with RefArc/InsideTrack | TB-5 |
+| S018 | required | Strict diagram input | `mainLabelRadius` finite and > 0; MainLabel radius is `mainLabelRadius * refRadius` concentric with RefArc | TB-5 |
 | S019 | required | Strict diagram input | `mainLabelTimeOffsetHours` finite and within [0, 12] | TB-3 |
 | S020 | required | Strict diagram input | `tickLabelHours` array entries are integers in 0..24; empty array is syntactically valid | TB-3 |
 | S021 | required | Strict diagram input | `tideMarks` required object with non-empty `markers` array | TB-3 |
@@ -56,7 +55,7 @@ This table is the anti-regression backbone for rewrite phases: each retained nor
 | S034 | required | Strict diagram input -> homeMenuTrigger | `homeMenuTrigger` required object with finite positive `width`, `height`, `cornerRadius`, `labelSize`; required string `label` | TB-3 |
 | S035 | error condition | Strict diagram input -> homeMenuTrigger | `cornerRadius <= min(width,height)/2` required for valid rounded rectangle | TB-3 |
 | S036 | derivation | Strict diagram input -> homeMenuTrigger | Trigger position derived from tick-label bounds: left edge at leftmost tick-label bound, bottom edge at minimum tick-label-anchor Y | TB-5 |
-| S037 | naming contract | Diagram elements | Top-level named elements list is contract (`TickMarks`, `TickLabels`, `TideMarks`, `Hand`, `TimeNow*`, `TimeDelta`, `CentreFrame`, `AnnularBand`, `InsideTrack`, `MainLabel`, `RefArc`, `HomeMenuTrigger`) | TB-4 |
+| S037 | naming contract | Diagram elements | Top-level named elements list is contract (`TickMarks`, `TickLabels`, `TideMarks`, `Hand`, `TimeNow*`, `TimeDelta`, `CentreFrame`, `AnnularBand`, `MainLabel`, `RefArc`, `HomeMenuTrigger`) | TB-4 |
 | S038 | naming contract | Diagram elements -> Hand | Hand subgroup/leaf names are contract (`BossCircle`, `SmallCircle`, `Extension`, `Projection`, `Arm`, `PointerPip*`) | TB-4 |
 | S039 | naming contract | Diagram elements -> TimeNowClock | TimeNowClock leaf names are contract (`TimeNowLabelHms`, `TimeNowLabelSecondsColon`, `TimeNowLabelSeconds`) | TB-4 |
 | S040 | naming contract | Diagram elements -> TimeDelta | TimeDelta countdown and empty-day leaf names are contract (`TimeDeltaLocation`, `TimeDeltaPhase`, `TimeDeltaNext`, `TimeDeltaNextTime`, `NoMoreTidesToday`) | TB-4 |
@@ -69,7 +68,6 @@ This table is the anti-regression backbone for rewrite phases: each retained nor
 | S047 | required | §Polar | RefArc is contiguous circular arc centered at O with input radius and sweep | TB-2 |
 | S048 | required | §Polar | Omitted circle gap centered on +Y; RefArc symmetric about -Y; CCW angle increase | TB-2 |
 | S049 | required | §Polar | RefArc endpoints define `thetaLeft`/`thetaRight`; downstream geometry is RefArc-derived | TB-2 |
-| S050 | required | §Polar -> InsideTrack | InsideTrack uses same O, `thetaLeft`, and sweep as RefArc at `insideTrackRadius * RefRadius` | TB-5 |
 | S051 | derivation | §Polar -> MainLabel | MainLabel uses policy-based anchor side from larger vacant interval around `timeNow` and `mainLabelTimeOffsetHours` | TB-5 |
 | S052 | derivation | §Polar -> MainLabel | Right-side choice when `t_now < 12`; otherwise left; anchor-time formula uses +/- offset | TB-5 |
 | S053 | required | §Time and θ(t) | RefArc represents 24h from 00:00 (left endpoint) to 24:00 (right endpoint) | TB-2 |

@@ -16,9 +16,10 @@ export const homeTideDiagramLayoutBase = {
   tickLabelSize: 0.04,
   tickLabelClearance: 0.023,
   timeNowLabel: { fontHeight: 0.045, dateAboveTime: 0.02 },
-  insideTrackRadius: 0.74,
   hand: {
     bossCircleRadius: 0.05,
+    /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */
+    armRefArcGap: 0.015,
   },
   paintOrder: {
     overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],
@@ -33,8 +34,8 @@ export const homeTideDiagramLayoutBase = {
     label: "Menu",
   },
   tideMarksDefaults: {
-    tideHeightLabelRadius: 0.9,
-    tideTimeLabelRadius: 0.821,
+    tideHeightLabelRadius: 1.27,
+    tideTimeLabelRadius: 1.2,
     tideHeightLabelSize: 0.045,
     tideTimeLabelSize: 0.045,
     tideMarkArrowDivergence: 0.8,

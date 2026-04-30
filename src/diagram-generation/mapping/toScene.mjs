@@ -581,7 +581,6 @@ export function tideDiagramToScene(diagram) {
   const cy = height / 2;
   const {
     refArc,
-    insideTrack,
     tickMarks,
     tickLabels,
     tideMarks,
@@ -606,17 +605,6 @@ export function tideDiagramToScene(diagram) {
   );
   const arcCenter = mapPoint(C, cx, cy);
 
-  const it = insideTrack;
-  const insideTrackStart = mapPoint(
-    {
-      x: it.center.x + it.radius * Math.cos(it.thetaLeft),
-      y: it.center.y + it.radius * Math.sin(it.thetaLeft),
-    },
-    cx,
-    cy,
-  );
-  const insideTrackCenter = mapPoint(it.center, cx, cy);
-
   const tickChildren = tickMarks.map((tm) =>
     line(
       mapPoint(tm.start, cx, cy),
@@ -632,10 +620,6 @@ export function tideDiagramToScene(diagram) {
       annularBandDiagram.thetaLeft,
       annularBandDiagram.sweepRad,
     ),
-  ]);
-
-  const insideTrackGroup = group("InsideTrack", [
-    arc(insideTrackCenter, insideTrackStart, insideTrack.sweepRad),
   ]);
 
   const refArcGroup = group("RefArc", [
@@ -750,7 +734,6 @@ export function tideDiagramToScene(diagram) {
   const root = group("tideDiagram", [
     handGroup,
     annularBandGroup,
-    insideTrackGroup,
     refArcGroup,
     ticksGroup,
     tideMarksGroup,

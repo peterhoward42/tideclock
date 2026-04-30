@@ -36,18 +36,9 @@ describe('createDiagramGenerationCollaborator', () => {
     const rArmStart = Math.hypot(hand.arm.start.x, hand.arm.start.y);
     const rArmEnd = Math.hypot(hand.arm.end.x, hand.arm.end.y);
     expect(rArmStart).toBeCloseTo(hand.bossCircle.radius);
-    expect(rArmEnd).toBeCloseTo(output.diagram.insideTrack.radius);
-  });
-
-  it('InsideTrack is concentric with RefArc at insideTrackRadius·RefRadius', () => {
-    const collaborator = createDiagramGenerationCollaborator();
-    const spec = baseSpecForCollaboratorTest();
-    const { diagram } = collaborator.generate(spec);
-    expect(diagram.insideTrack.sweepRad).toBe(diagram.refArc.sweepRad);
-    expect(diagram.insideTrack.thetaLeft).toBe(diagram.refArc.thetaLeft);
-    expect(diagram.insideTrack.radius).toBeCloseTo(
-      homeTideDiagramLayoutBase.insideTrackRadius * diagram.refArc.refRadius,
-    );
+    const refR = output.diagram.refArc.refRadius;
+    const gapK = homeTideDiagramLayoutBase.hand.armRefArcGap;
+    expect(rArmEnd).toBeCloseTo(refR - gapK * refR);
   });
 
   it('includes AnnularBand from home layout (annularBand.annularBandWidth)', () => {
@@ -83,14 +74,37 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(() => collaborator.generate(spec)).toThrow(/greater than 0/);
   });
 
-  it('aligns time-now readout to annular max X and minimum tick-label Y', () => {
+  it('throws when spec.hand.armRefArcGap is missing', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const { hand, ...rest } = base;
+    const { armRefArcGap: _omit, ...handWithoutGap } = hand as {
+      bossCircleRadius: number;
+      armRefArcGap: number;
+    };
+    expect(() => collaborator.generate({ ...rest, hand: handWithoutGap })).toThrow(
+      /spec\.hand\.armRefArcGap/,
+    );
+  });
+
+  it('throws when hand armRefArcGap makes arm outer radius not past boss circle', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const spec = {
+      ...base,
+      hand: { ...(base.hand as Record<string, unknown>), armRefArcGap: 0.96 },
+    };
+    expect(() => collaborator.generate(spec)).toThrow(/radial ordering invalid/);
+  });
+
+  it('aligns time-now readout and menu trigger to global layout bounds', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
     const tickMinY = Math.min(...diagram.tickLabels.map((t) => t.anchor.y));
     const maxX = annularBandMaxX(diagram.annularBand);
-    expect(diagram.timeNowClock.hhmm.anchor.y).toBe(tickMinY);
-    expect(diagram.timeNowClock.seconds.anchor.y).toBe(tickMinY);
+    expect(diagram.timeNowClock.hhmm.anchor.y).not.toBe(tickMinY);
+    expect(diagram.timeNowClock.seconds.anchor.y).not.toBe(tickMinY);
     expect(diagram.timeNowLocation.anchor.x).toBe(maxX);
     expect(diagram.timeNowClock.seconds.anchor.x).toBe(maxX);
     const dateAbove =
@@ -101,11 +115,24 @@ describe('createDiagramGenerationCollaborator', () => {
       diagram.refArc.refRadius;
     // TimeNowDate shares the same baseline as the clock row; it is only shifted left to create
     // the merged date+clock appearance.
-    expect(diagram.timeNowDate.anchor.y).toBeCloseTo(tickMinY, 6);
+    expect(diagram.timeNowDate.anchor.y).toBeCloseTo(diagram.timeNowClock.hhmm.anchor.y, 6);
     expect(diagram.timeNowLocation.anchor.y).toBeCloseTo(
-      tickMinY + dateAbove + fontHeight,
+      diagram.timeNowClock.hhmm.anchor.y + dateAbove + fontHeight,
       6,
     );
+
+    // MainLabel shares global B_bottom.
+    const clockBottomY = diagram.timeNowClock.hhmm.anchor.y - 0.2 * diagram.timeNowClock.hhmm.fontSize;
+    const menuBottomY = diagram.homeMenuTrigger.center.y - 0.5 * diagram.homeMenuTrigger.height;
+    const mainLabelBottomY = diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
+    expect(mainLabelBottomY).toBeCloseTo(clockBottomY, 6);
+
+    // HomeMenuTrigger sits above MainLabel top by configured gap.
+    const mainLabelTopY = diagram.mainLabel.anchor.y + 0.8 * diagram.mainLabel.fontSize;
+    const expectedGap =
+      (spec.homeMenuTrigger as { readonly gapAboveMainLabel: number }).gapAboveMainLabel *
+      diagram.refArc.refRadius;
+    expect(menuBottomY).toBeCloseTo(mainLabelTopY + expectedGap, 6);
 
     // X shift: date ends before the clock and a 3-char separator gap.
     const fontSize = diagram.timeNowDate.fontSize;
@@ -134,7 +161,6 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(childNames).toEqual([
       'Hand',
       'AnnularBand',
-      'InsideTrack',
       'RefArc',
       'TickMark',
       'TideMarks',

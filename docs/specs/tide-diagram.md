@@ -44,6 +44,43 @@ interpreted as **k·R** (e.g. **0.15** → **0.15·R**).
 mean increasing / decreasing **Y**. **Above** / **below** mean toward **top** /
 **bottom** along **Y** (see **§Origin**).
 
+### §Global layout bounds (single source of truth)
+
+All edge references used by layout consumers MUST be read from this section.
+Sections MUST NOT re-derive edge values from local geometry shortcuts.
+
+Define conceptual variables:
+
+- **B_left**, **B_right**, **B_bottom**, **B_top** — final diagram-space
+  bounding edges.
+
+Two-pass construction:
+
+1) **Day-invariant baseline bounds**
+
+- Let **AnnularBandBounds** be the axis-aligned bounds of emitted **AnnularBand**
+  geometry.
+- Set:
+  - **B_left_base = AnnularBandBounds.left**
+  - **B_right_base = AnnularBandBounds.right**
+  - **B_bottom_base = AnnularBandBounds.bottom**
+- Let **BossTop** be the top extent of **Hand.BossCircle**.
+- Set **B_top_base = BossTop**.
+
+2) **Day-variant marker expansion**
+
+- For each emitted tide-marker cluster in **TideMarks** for the civil day,
+  compute that cluster’s relevant extents (labels + pointer geometry in
+  diagram-space).
+- Expand each baseline edge if any marker exceeds it:
+  - **B_left = min(B_left_base, marker-left extents...)**
+  - **B_right = max(B_right_base, marker-right extents...)**
+  - **B_bottom = min(B_bottom_base, marker-bottom extents...)**
+  - **B_top = max(B_top_base, marker-top extents...)**
+
+The tuple **(B_left, B_right, B_bottom, B_top)** is the global layout-bounds
+contract for all dependent placements in this specification.
+
 ### §Polar — reference arc geometry
 
 - The **RefArc** is a contiguous **circular arc** of radius **RefRadius** centred
@@ -57,10 +94,6 @@ axis; the RefArc spans **symmetrically about the negative Y** axis.
 - Let **θ_left** and **θ_right** be the polar angles of the leftmost and
 rightmost endpoints of the RefArc. The remainder of the diagram geometry is a
 function of the RefArc.
-- **InsideTrack** is a separate stroked **circular arc** concentric with the
-**RefArc** (centre **O**), with radius **InsideTrackRadius × RefRadius** (**k·R**;
-see strict inputs). It uses the same **θ_left** and the same CCW **swept angle**
-as the **RefArc** (from **θ_left** to **θ_right**).
 - **MainLabel** is a horizontal **TextElement** with **left** justification.
   Its **content** is one synthesized line:
   `**Next tide extreme tomorrow**` when no marker exists at or after `**timeNow`**
@@ -219,14 +252,13 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
     - cyclic constraints are errors.
   - Default behaviour when omitted: preserve current deterministic scene-child order.
 - `**refRadius**`, `**sweepRad**`, `**tickLabelTickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key). `**tickLabelTickLen`** must be **> 0** and **strictly less** than `**annularBand.annularBandWidth`**.
-- `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
-- `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**). Generation fails if hand-derived radial ordering is invalid (see **Hand**, **Radial segments**).
+- `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**armRefArcGap`** (**k·R**, **≥ 0**), a radial inset from the **RefArc** so the **Arm** outer end lies slightly inside **RefRadius** (see **Hand**, **Radial segments**). Generation fails if hand-derived radial ordering is invalid.
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
 - `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
-- `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); finite `**gapAboveMainLabel`** (**k·R**, **≥ 0**); and string `**label`** (product default `**Menu**`). Position is derived from diagram content bounds: the trigger’s left edge is anchored to the leftmost tick-label bound, and its bottom edge is anchored above **MainLabel** top by `**gapAboveMainLabel·RefRadius`**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
+- `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); finite `**gapAboveMainLabel`** (**k·R**, **≥ 0**); and string `**label`** (product default `**Menu**`). Position is derived from **§Global layout bounds** plus **MainLabel** placement: the trigger’s left edge is anchored to **B_left**, and its bottom edge is anchored above **MainLabel** top by `**gapAboveMainLabel·RefRadius`**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
 
 ## 4. Scene model contracts (TB-4)
 
@@ -242,10 +274,9 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
   - TimeNowClock (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds** — canonical `HH:MM`, the colon before `SS`, and `SS`)
   - CentreFrame
   - AnnularBand
-  - InsideTrack
   - MainLabel (single horizontal left-justified text element; content synthesized from the next tide event at or after `**timeNow`** on the same civil day)
   - RefArc
-  - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from content bounds so the rectangle left edge aligns to the leftmost tick-label bound and rectangle bottom edge sits above **MainLabel** top with a fixed gap; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
+  - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from **§Global layout bounds** and **MainLabel** placement so the rectangle left edge aligns to **B_left** and rectangle bottom edge sits above **MainLabel** top by configured gap; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
 
 ### Style binding names (exact-match contract)
 
@@ -271,16 +302,15 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 ### Horizontal placement (both elements)
 
-- Let **X_ann_max** be the **maximum diagram-space X** coordinate attained by the closed **AnnularBand** sector (outer/inner arcs and closing radial segments), for the band’s emitted geometry (same centre **O** as **RefArc**).
 - **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock** use **horizontal justification** **right**.
-- The **trailing** (rightmost) anchor for the clock row is at **(X_ann_max, y_clock)** so the **TimeNowLabelSeconds** anchor **x** equals **X_ann_max**; **TimeNowLabelSecondsColon** and **TimeNowLabelHms** anchors sit to the left by the same fixed monospace width heuristic as before (**§Scene model** / preview framing).
+- The **trailing** (rightmost) anchor for the clock row is at **(B_right, y_clock)** so the **TimeNowLabelSeconds** anchor **x** equals **B_right**; **TimeNowLabelSecondsColon** and **TimeNowLabelHms** anchors sit to the left by the same fixed monospace width heuristic as before (**§Scene model** / preview framing).
 - **TimeNowDate** is shifted left so that its right edge stops before the clock and a fixed separator gap (implemented as spacing equal to several monospace character widths), producing a merged “date + time” single visual row.
-- **TimeNowLocation** uses the same **x** anchor as the annular band’s **+X** bound (so the location remains right-aligned to the full readout).
+- **TimeNowLocation** uses **B_right** as its **x** anchor (so the location remains right-aligned to the full readout).
 
 ### Vertical placement
 
-- Let **y_tick_min** be the **minimum** `**anchor.y**` among all emitted **TickLabels** (same anchor convention as **TickLabels**).
-- **TimeNowClock** — all three fragments share baseline **`y_clock = y_tick_min`** (exact numeric equality).
+- Let **B_bottom** be from **§Global layout bounds**.
+- **TimeNowClock** — all three fragments share baseline **`y_clock`**, with the clock row bottom edge aligned to **B_bottom**.
 - **TimeNowDate** — baseline **`y_date = y_clock`** (same row as the clock).
 - **TimeNowLocation** — baseline **`y_location = y_clock + dateAboveTime·R + fontHeight·R`**.
 
@@ -303,7 +333,7 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 ### Generator note
 
-- **`spec.tickLabelHours`** must yield **at least one** tick label when this readout is used; otherwise **y_tick_min** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests the time-now readout — the reference product always lists hours).
+- **`spec.tickLabelHours`** must yield **at least one** tick label when this readout is used; otherwise **MainLabel** placement anchor **`x_tick_min`** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests these placements — the reference product always lists hours).
 
 ### MainLabel
 
@@ -314,8 +344,9 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 - **MainLabel** uses horizontal justification **left**.
 - Let **x_tick_min** be the leftmost rendered X bound among **TickLabels**
   (same width heuristic used for other text-derived bounds).
-- Let **y_tick_min** be the minimum `**anchor.y**` among **TickLabels**.
-- MainLabel anchor is `**(x_tick_min, y_tick_min)`**.
+- Let **B_bottom** be from **§Global layout bounds**.
+- MainLabel baseline anchor **Y** is set so the MainLabel bottom edge aligns to **B_bottom**.
+- MainLabel anchor is `**(x_tick_min, y_mainLabel)`** with that bottom-edge alignment.
 - Baseline polar angle is **0** (horizontal baseline in diagram space).
 
 ### MainLabel copy synthesis
@@ -553,12 +584,12 @@ before **BossCircle**):
 
 - **Arm** is colinear with the `**θ_now`** ray.
 - Let:
-  - `**r_track = insideTrackRadius · RefRadius**`
+  - `**r_arm_outer = RefRadius − hand.armRefArcGap · RefRadius**`
   - `**r_boss = hand.bossCircleRadius · RefRadius**`
 - Segment radii:
-  - **Arm** — from `**r_boss`** to `**r_track`**.
+  - **Arm** — from `**r_boss`** to `**r_arm_outer`** (outer end is on the **RefArc** radius when `**hand.armRefArcGap = 0`**; positive gap shortens the segment so it stops just short of the **RefArc**).
 - Validation: generation fails if radial ordering is invalid at emission time
-  (specifically, require `**r_boss < r_track**`).
+  (specifically, require `**r_boss < r_arm_outer**`).
 
 ## 6. Behavioral branches (TB-6)
 

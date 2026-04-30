@@ -44,12 +44,12 @@
 
 - Radial line on `theta_now`.
 - Inner radius: `PointerPip` tip radius (the `Vertex1` point on the reference arc).
-- Outer radius: inside-track radius (the "existing inner ring", i.e. `InsideTrackRadius * RefRadius`).
+- Outer radius: inner edge of annular band (`RefRadius`).
 
 ### `Projection`
 
 - Radial line on `theta_now`.
-- Inner radius: inside-track radius (`InsideTrackRadius * RefRadius`).
+- Inner radius: inner edge of annular band (`RefRadius`).
 - Outer radius: reference arc radius (`RefRadius`).
 
 ### `Arm`
