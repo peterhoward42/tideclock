@@ -34,8 +34,6 @@ export type HomeTideDiagramLayoutBase = {
     /** k·RefRadius: date baseline is this far above (+Y) the clock baseline (tick-label-min Y). */
     readonly dateAboveTime: number;
   };
-  /** k·RefRadius; concentric arc inside RefArc, same angular span as RefArc. */
-  readonly insideTrackRadius: number;
   readonly annularBand: { readonly annularBandWidth: number };
   readonly hand: {
     readonly bossCircleRadius: number;

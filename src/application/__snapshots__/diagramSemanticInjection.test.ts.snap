@@ -44,15 +44,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "labelSize": 4.956,
     "width": 23.6,
   },
-  "insideTrack": {
-    "center": {
-      "x": 0,
-      "y": 0,
-    },
-    "radius": 88.5,
-    "sweepRad": 2.75,
-    "thetaLeft": 3.3373889803846897,
-  },
   "mainLabel": {
     "anchor": {
       "x": -130.15191880160563,

@@ -57,10 +57,6 @@ axis; the RefArc spans **symmetrically about the negative Y** axis.
 - Let **θ_left** and **θ_right** be the polar angles of the leftmost and
 rightmost endpoints of the RefArc. The remainder of the diagram geometry is a
 function of the RefArc.
-- **InsideTrack** is a separate stroked **circular arc** concentric with the
-**RefArc** (centre **O**), with radius **InsideTrackRadius × RefRadius** (**k·R**;
-see strict inputs). It uses the same **θ_left** and the same CCW **swept angle**
-as the **RefArc** (from **θ_left** to **θ_right**).
 - **MainLabel** is a horizontal **TextElement** with **left** justification.
   Its **content** is one synthesized line:
   `**Next tide extreme tomorrow**` when no marker exists at or after `**timeNow`**
@@ -219,7 +215,6 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
     - cyclic constraints are errors.
   - Default behaviour when omitted: preserve current deterministic scene-child order.
 - `**refRadius**`, `**sweepRad**`, `**tickLabelTickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key). `**tickLabelTickLen`** must be **> 0** and **strictly less** than `**annularBand.annularBandWidth`**.
-- `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
 - `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**armRefArcGap`** (**k·R**, **≥ 0**), a radial inset from the **RefArc** so the **Arm** outer end lies slightly inside **RefRadius** (see **Hand**, **Radial segments**). Generation fails if hand-derived radial ordering is invalid.
@@ -242,7 +237,6 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
   - TimeNowClock (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds** — canonical `HH:MM`, the colon before `SS`, and `SS`)
   - CentreFrame
   - AnnularBand
-  - InsideTrack
   - MainLabel (single horizontal left-justified text element; content synthesized from the next tide event at or after `**timeNow`** on the same civil day)
   - RefArc
   - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from content bounds so the rectangle left edge aligns to the leftmost tick-label bound and rectangle bottom edge sits above **MainLabel** top with a fixed gap; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)

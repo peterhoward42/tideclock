@@ -70,7 +70,6 @@ export const homeTideStyleModel: StyleModelSpec = {
   ],
   bindings: [
     { name: "AnnularBand", roleName: "role.structure.band" },
-    { name: "InsideTrack", roleName: "role.structure.mid" },
     { name: "RefArc", roleName: "role.structure.ref" },
     { name: "TickMark", roleName: "role.structure.ref" },
     { name: "HeightLabelFuture", roleName: "role.tide.primary" },

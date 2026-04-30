@@ -12,7 +12,6 @@
  * - Sub-builders (`buildTideMarksFromSpec`) enforce their own throw rules.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
  * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from diagram bounds: left edge at the leftmost tick-label bound, bottom edge above **MainLabel** top.
- * - `**insideTrackRadius**` is required: finite **k·R** multiplier **> 0**; arc radius **k·RefRadius**, concentric with RefArc, same sweep.
  * - **MainLabel** is horizontal text anchored from content bounds (leftmost tick-label bound and minimum tick-label-anchor **Y**), not curved arc text.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
  */
@@ -292,12 +291,6 @@ export function buildDiagram(spec) {
     thetaRight,
   );
 
-  const insideTrack = buildInsideTrackFromSpec(
-    spec,
-    refRadius,
-    thetaLeft,
-    sweepRad,
-  );
   const parsedNowForMainLabel = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNowForMainLabel.isRightEndpoint) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
@@ -334,7 +327,6 @@ export function buildDiagram(spec) {
       thetaLeft,
       thetaRight,
     },
-    insideTrack,
     mainLabel,
     tickMarks,
     tickLabels,
@@ -396,31 +388,6 @@ function formatEventClockHHMM(secondsSinceMidnight) {
  * @param {number} sweepRad same subtended angle as RefArc (radians)
  * @returns {import('../model/tideDiagramModel.mjs').AnnularBandDiagram}
  */
-/**
- * @param {Record<string, unknown>} spec
- * @param {number} refRadius
- * @param {number} thetaLeft
- * @param {number} sweepRad same subtended angle as RefArc (radians)
- * @returns {import('../model/tideDiagramModel.mjs').InsideTrackDiagram}
- */
-function buildInsideTrackFromSpec(spec, refRadius, thetaLeft, sweepRad) {
-  const k = requireFiniteNumber(
-    spec.insideTrackRadius,
-    "spec.insideTrackRadius",
-  );
-  if (k <= 0) {
-    throw new Error(
-      "spec.insideTrackRadius must be a finite number greater than 0",
-    );
-  }
-  return {
-    center: { x: 0, y: 0 },
-    radius: k * refRadius,
-    thetaLeft,
-    sweepRad,
-  };
-}
-
 /**
  * @param {number} anchorX
  * @param {number} anchorY

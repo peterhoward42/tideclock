@@ -82,13 +82,6 @@ type AnnularBandDiagram = {
   readonly sweepRad: number;
 };
 
-type InsideTrackDiagram = {
-  readonly center: DiagramPoint;
-  readonly radius: number;
-  readonly thetaLeft: number;
-  readonly sweepRad: number;
-};
-
 type MainLabelDiagram = {
   readonly content: string;
   readonly fontSize: number;
@@ -132,7 +125,6 @@ export type TideDiagramDocument = {
     }>;
   };
   readonly refArc: RefArcSpec;
-  readonly insideTrack: InsideTrackDiagram;
   readonly mainLabel: MainLabelDiagram;
   readonly tickMarks: TickMarkSpec[];
   readonly tickLabels: TickLabelSpec[];

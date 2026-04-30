@@ -58,16 +58,15 @@ Apply the fixed element template per section:
 Planned element order:
 
 1. RefArc
-2. InsideTrack
-3. MainLabel
-4. TickMarks
-5. TickLabels
-6. TideMarks
-7. Hand
-8. TimeNow readout (`TimeNowLocation`, `TimeNowDate`, `TimeNowClock`)
-9. CentreFrame
-10. AnnularBand
-11. HomeMenuTrigger
+2. MainLabel
+3. TickMarks
+4. TickLabels
+5. TideMarks
+6. Hand
+7. TimeNow readout (`TimeNowLocation`, `TimeNowDate`, `TimeNowClock`)
+8. CentreFrame
+9. AnnularBand
+10. HomeMenuTrigger
 
 ### 6. Behavioral branches (`TB-6`)
 

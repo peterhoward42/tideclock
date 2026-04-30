@@ -41,17 +41,6 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(rArmEnd).toBeCloseTo(refR - gapK * refR);
   });
 
-  it('InsideTrack is concentric with RefArc at insideTrackRadius·RefRadius', () => {
-    const collaborator = createDiagramGenerationCollaborator();
-    const spec = baseSpecForCollaboratorTest();
-    const { diagram } = collaborator.generate(spec);
-    expect(diagram.insideTrack.sweepRad).toBe(diagram.refArc.sweepRad);
-    expect(diagram.insideTrack.thetaLeft).toBe(diagram.refArc.thetaLeft);
-    expect(diagram.insideTrack.radius).toBeCloseTo(
-      homeTideDiagramLayoutBase.insideTrackRadius * diagram.refArc.refRadius,
-    );
-  });
-
   it('includes AnnularBand from home layout (annularBand.annularBandWidth)', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const spec = baseSpecForCollaboratorTest();
@@ -159,7 +148,6 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(childNames).toEqual([
       'Hand',
       'AnnularBand',
-      'InsideTrack',
       'RefArc',
       'TickMark',
       'TideMarks',

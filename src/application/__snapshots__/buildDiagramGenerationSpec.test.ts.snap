@@ -44,15 +44,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "labelSize": 4.956,
     "width": 23.6,
   },
-  "insideTrack": {
-    "center": {
-      "x": 0,
-      "y": 0,
-    },
-    "radius": 87.32,
-    "sweepRad": 3.141592653589793,
-    "thetaLeft": 3.141592653589793,
-  },
   "mainLabel": {
     "anchor": {
       "x": -125.90599999999999,
@@ -775,24 +766,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         ],
         "kind": "group",
         "name": "AnnularBand",
-      },
-      {
-        "children": [
-          {
-            "center": {
-              "x": 210,
-              "y": 160,
-            },
-            "kind": "arc",
-            "start": {
-              "x": 122.68,
-              "y": 160,
-            },
-            "sweepRad": 3.141592653589793,
-          },
-        ],
-        "kind": "group",
-        "name": "InsideTrack",
       },
       {
         "children": [

@@ -89,15 +89,6 @@
  *   sweepRad: number,
  * }} AnnularBandDiagram
  *
- * Circular arc concentric with RefArc; radius **InsideTrackRadius·RefRadius**; same **θ_left** and CCW sweep as RefArc.
- *
- * @typedef {{
- *   center: DiagramPoint,
- *   radius: number,
- *   thetaLeft: number,
- *   sweepRad: number,
- * }} InsideTrackDiagram
- *
  * MainLabel is horizontal text near the lower-left content bounds.
  *
  * @typedef {{
@@ -125,7 +116,6 @@
  *     overrides?: { name: string, place: 'before' | 'after', relativeTo: string }[],
  *   },
  *   refArc: RefArcSpec,
- *   insideTrack: InsideTrackDiagram,
  *   mainLabel: MainLabelDiagram,
  *   tickMarks: TickMarkSpec[],
  *   tickLabels: TickLabelSpec[],
