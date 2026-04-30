@@ -148,6 +148,21 @@ describe('spec.semantic.nextTide injection', () => {
     expect(diagram.timeNowClock.seconds.content).toBe('00');
   });
 
+  it('shows no-more-tides MainLabel copy when there is no next marker', () => {
+    const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
+    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
+    expect(diagram.mainLabel.content).toBe('Next tide extreme tomorrow');
+  });
+
+  it('shows atypical MainLabel copy when semantic.atypicalTideSummary is true', () => {
+    const spec = sampleTideDiagramSpec();
+    const diagram = buildDiagramFromSpec({
+      ...spec,
+      semantic: { atypicalTideSummary: true },
+    } as DiagramGenerationSpec);
+    expect(diagram.mainLabel.content).toBe('Tricky tides today');
+  });
+
   it('throws when spec omits annularBand', () => {
     const { annularBand: _omit, ...rest } = sampleTideDiagramSpec();
     expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(

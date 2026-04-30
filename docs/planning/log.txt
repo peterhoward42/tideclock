@@ -5,11 +5,10 @@ o  first glance ux assimilation suggestions
 	*  hand must be simple pointer - no circle of reln to tide marker shape
 	*  move mainlabel
 	*  attenuate gone tides
-	o  switch main label to say time not height
-		o  make it say the time
-		o  tweak format
-		o  ask what remains for other cases to ensure consistency
-			o  reintroduce no more times today - is lost
+	*  switch main label to say time not height
+		*  make it say the time
+		*  tweak format
+		*  ask what remains for other cases to ensure consistency
 
 	o  put glow /pulsing on next tide marker's time
 	o  move hour labels inside band

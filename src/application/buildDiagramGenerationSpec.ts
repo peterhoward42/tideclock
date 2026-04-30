@@ -13,6 +13,10 @@ import type { DiagramTideMarkMarker, HomeDiagramTideMarks } from '../diagram-con
 import type { TideExtremeType } from '../core-models/TideExtreme';
 import type { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import type { TimeOrderedTideExtrema } from '../core-models/TimeOrderedTideExtrema';
+import {
+  isAtypicalTideExtremaPattern,
+  TideExtremaPatternDetection,
+} from '../time-services/isAtypicalTideExtremaPattern';
 import type { DiagramGenerationSpec } from './diagramGenerationCollaborator';
 import type { DerivedNextTideSemantics } from './nextTideSemantics';
 
@@ -116,6 +120,9 @@ export function buildDiagramGenerationSpec(
     ...tideMarksDefaults,
     ...tideMarksFromExtremes(extremesAtLocation.extremes, utcIsoToLocalCanonicalTime),
   };
+  const atypicalTideSummary =
+    isAtypicalTideExtremaPattern(extremesAtLocation.extremes) !==
+    TideExtremaPatternDetection.IsTypical;
 
   const spec: DiagramGenerationSpec = {
     ...homeTideDiagramSpecLayout,
@@ -125,9 +132,10 @@ export function buildDiagramGenerationSpec(
     tideMarks,
   };
 
-  if (derivedSemantics !== undefined) {
-    spec.semantic = { nextTide: derivedSemantics.nextTide };
-  }
+  spec.semantic =
+    derivedSemantics === undefined
+      ? { atypicalTideSummary }
+      : { atypicalTideSummary, nextTide: derivedSemantics.nextTide };
 
   return spec;
 }

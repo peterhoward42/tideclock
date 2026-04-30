@@ -48,7 +48,7 @@ describe('buildDiagramGenerationSpec', () => {
     const markers = (spec.tideMarks as HomeDiagramTideMarks).markers;
     expect(markers).toEqual(expectedFixtureMarkers);
     expect(spec.timeNow).toBe('19:20:03');
-    expect(spec.semantic).toBeUndefined();
+    expect(spec.semantic).toEqual({ atypicalTideSummary: false });
   });
 
   it('rejects empty extremes', () => {
@@ -80,7 +80,7 @@ describe('buildDiagramGenerationSpec', () => {
       townName: 'Lymington',
       derivedSemantics: { nextTide },
     });
-    expect(withSemantic.semantic).toEqual({ nextTide });
+    expect(withSemantic.semantic).toEqual({ atypicalTideSummary: false, nextTide });
   });
 });
 

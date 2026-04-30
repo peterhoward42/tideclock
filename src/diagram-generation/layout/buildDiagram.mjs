@@ -126,6 +126,28 @@ function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaseline
   };
 }
 
+/**
+ * Optional `spec.semantic.atypicalTideSummary` switch for MainLabel copy.
+ * - absent semantic / absent key => false (no override)
+ * - present key must be boolean
+ *
+ * @param {Record<string, unknown>} spec
+ * @returns {boolean}
+ */
+function readOptionalAtypicalTideSummary(spec) {
+  const raw = spec.semantic;
+  if (raw == null || typeof raw !== "object") return false;
+  const semantic = /** @type {Record<string, unknown>} */ (raw);
+  if (!Object.prototype.hasOwnProperty.call(semantic, "atypicalTideSummary")) {
+    return false;
+  }
+  const value = semantic.atypicalTideSummary;
+  if (typeof value !== "boolean") {
+    throw new Error("spec.semantic.atypicalTideSummary must be boolean when provided");
+  }
+  return value;
+}
+
 function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const hand = requirePlainObject(spec.hand, "spec.hand");
   const bossCircleRadiusK = requireFiniteNumber(
@@ -269,10 +291,15 @@ export function buildDiagram(spec) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
   const nextEventForMainLabel = computeNextTideEventFromSpec(spec, parsedNowForMainLabel);
-  const mainLabelContent =
-    nextEventForMainLabel == null
-      ? ""
-      : `${nextEventForMainLabel.kind} tide at ${formatEventClockHHMM(nextEventForMainLabel.seconds)}`;
+  const atypicalTideSummary = readOptionalAtypicalTideSummary(spec);
+  let mainLabelContent = "";
+  if (nextEventForMainLabel == null) {
+    mainLabelContent = "Next tide extreme tomorrow";
+  } else if (atypicalTideSummary) {
+    mainLabelContent = "Tricky tides today";
+  } else {
+    mainLabelContent = `${nextEventForMainLabel.kind} tide at ${formatEventClockHHMM(nextEventForMainLabel.seconds)}`;
+  }
   const mainLabel = buildMainLabel(leftmostTickLabelX, clockBaselineY, refRadius, mainLabelContent);
   const mainLabelTopY = mainLabel.anchor.y + 0.8 * mainLabel.fontSize;
   const homeMenuTriggerGap = readHomeMenuTriggerGapFromSpec(spec, refRadius);

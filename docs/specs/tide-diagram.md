@@ -63,10 +63,12 @@ see strict inputs). It uses the same **θ_left** and the same CCW **swept angle*
 as the **RefArc** (from **θ_left** to **θ_right**).
 - **MainLabel** is a horizontal **TextElement** with **left** justification.
   Its **content** is one synthesized line:
-  `**<Low|High> tide at <HH:MM>**` when a next marker exists at or after
-  `**timeNow`** on the same civil day, otherwise an empty string. Low/high and
-  event clock text are derived from the next event computed from marker schedule
-  and canonical time parsing (see **TideMarks**, **§Time and θ(t)**).
+  `**Next tide extreme tomorrow**` when no marker exists at or after `**timeNow`**
+  on the same civil day; otherwise `**Tricky tides today**` when
+  `**spec.semantic.atypicalTideSummary = true`**; otherwise
+  `**<Low|High> tide at <HH:MM>**`. Low/high and event clock text are derived
+  from the next event computed from marker schedule and canonical time parsing
+  (see **TideMarks**, **§Time and θ(t)**).
 
 ### §Time and θ(t)
 
@@ -192,11 +194,14 @@ The **product** assumes at least **one** tide extreme on the civil day and a
 **non-empty** `**tideMarks.markers`** list describing those extremes. The
 open-ended time-navigation case is when there is **no** marker at or after
 `**timeNow`** on that day (for example, after the last tide): **MainLabel**
-content becomes an empty string. This branch is derived from `**timeNow`** and
-the marker schedule; it is **not** triggered by missing spec fields.
+content becomes `**Next tide extreme tomorrow**`. This branch is derived from
+`**timeNow`** and the marker schedule; it is **not** triggered by missing spec
+fields.
 
 When `**spec.semantic.nextTide`** is injected, layout may use it for next-tide timing
 instead of scanning markers; `**tideMarks`** remains **required** for drawing **TideMarks**.
+When `**spec.semantic.atypicalTideSummary`** is injected as boolean true, **MainLabel**
+uses atypical summary copy (`**Tricky tides today**`) whenever a next event exists.
 
 - `**canvas`** — object with finite `**width`** and `**height`** (px).
 - `**title**` — string (diagram meta).
@@ -316,11 +321,14 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 ### MainLabel copy synthesis
 
 - Source data is the marker schedule (`**tideMarks.markers`**) plus canonical
-  `**timeNow`**.
+  `**timeNow`** and optional semantic override `**spec.semantic.atypicalTideSummary`**.
 - Compute the next tide event at or after `**timeNow`** on the same civil day.
-- If next event exists, **MainLabel** content is:
+- If no next event exists, **MainLabel** content is:
+  `**Next tide extreme tomorrow**`.
+- Else if `**spec.semantic.atypicalTideSummary = true`**, **MainLabel** content is:
+  `**Tricky tides today**`.
+- Else (next event exists and atypical summary is not true), **MainLabel** content is:
   `**<Low|High> tide at <HH:MM>**`.
-- If no next event exists, **MainLabel** content is the empty string.
 - No separate host-provided content field exists for **MainLabel**.
 
 ### CentreFrame
