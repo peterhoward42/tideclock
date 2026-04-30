@@ -17,6 +17,8 @@ o  first glance ux assimilation suggestions
 
 		o  merge branch mirror
 
+	o  tidemarker text could be either side of pointer instead of stacked
+
 	o  diagramElements are enumerated - is this also not duplicated?
 	o  under heading derived behaviour it catalogs the input requirements,
 	   cannot these be implied? Also there is no heading?

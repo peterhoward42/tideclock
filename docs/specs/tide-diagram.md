@@ -258,7 +258,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
 - `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
-- `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); finite `**gapAboveMainLabel`** (**k·R**, **≥ 0**); and string `**label`** (product default `**Menu**`). Position is derived from **§Global layout bounds**: the trigger’s left edge is anchored to **B_left**, and its bottom edge is anchored above **MainLabel** top by `**gapAboveMainLabel·RefRadius`**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
+- `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); finite `**gapAboveMainLabel`** (**k·R**, **≥ 0**); and string `**label`** (product default `**Menu**`). Position is derived from **§Global layout bounds** plus **MainLabel** placement: the trigger’s left edge is anchored to **B_left**, and its bottom edge is anchored above **MainLabel** top by `**gapAboveMainLabel·RefRadius`**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
 
 ## 4. Scene model contracts (TB-4)
 
@@ -276,7 +276,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
   - AnnularBand
   - MainLabel (single horizontal left-justified text element; content synthesized from the next tide event at or after `**timeNow`** on the same civil day)
   - RefArc
-  - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from **§Global layout bounds** so the rectangle left edge aligns to **B_left** and rectangle bottom edge sits above **MainLabel** top with a fixed gap; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
+  - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from **§Global layout bounds** and **MainLabel** placement so the rectangle left edge aligns to **B_left** and rectangle bottom edge sits above **MainLabel** top by configured gap; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
 
 ### Style binding names (exact-match contract)
 
@@ -309,8 +309,8 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 ### Vertical placement
 
-- Let **y_tick_min** be the **minimum** `**anchor.y**` among all emitted **TickLabels** (same anchor convention as **TickLabels**).
-- **TimeNowClock** — all three fragments share baseline **`y_clock = y_tick_min`** (exact numeric equality).
+- Let **B_bottom** be from **§Global layout bounds**.
+- **TimeNowClock** — all three fragments share baseline **`y_clock`**, with the clock row bottom edge aligned to **B_bottom**.
 - **TimeNowDate** — baseline **`y_date = y_clock`** (same row as the clock).
 - **TimeNowLocation** — baseline **`y_location = y_clock + dateAboveTime·R + fontHeight·R`**.
 
@@ -333,7 +333,7 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 ### Generator note
 
-- **`spec.tickLabelHours`** must yield **at least one** tick label when this readout is used; otherwise **y_tick_min** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests the time-now readout — the reference product always lists hours).
+- **`spec.tickLabelHours`** must yield **at least one** tick label when this readout is used; otherwise **MainLabel** placement anchor **`x_tick_min`** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests these placements — the reference product always lists hours).
 
 ### MainLabel
 
@@ -344,8 +344,9 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 - **MainLabel** uses horizontal justification **left**.
 - Let **x_tick_min** be the leftmost rendered X bound among **TickLabels**
   (same width heuristic used for other text-derived bounds).
-- Let **y_tick_min** be the minimum `**anchor.y**` among **TickLabels**.
-- MainLabel anchor is `**(x_tick_min, y_tick_min)`**.
+- Let **B_bottom** be from **§Global layout bounds**.
+- MainLabel baseline anchor **Y** is set so the MainLabel bottom edge aligns to **B_bottom**.
+- MainLabel anchor is `**(x_tick_min, y_mainLabel)`** with that bottom-edge alignment.
 - Baseline polar angle is **0** (horizontal baseline in diagram space).
 
 ### MainLabel copy synthesis

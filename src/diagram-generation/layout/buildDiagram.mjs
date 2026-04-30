@@ -11,7 +11,7 @@
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
  * - Sub-builders (`buildTideMarksFromSpec`) enforce their own throw rules.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
- * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from global layout bounds: left edge at layout-bounds left, bottom edge above **MainLabel** top.
+ * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), finite `**gapAboveMainLabel**` (**k·R**, **>= 0**), and string `**label**`. Position is derived from global layout bounds + MainLabel: left edge at layout-bounds left, bottom edge above MainLabel top by the configured gap.
  * - **MainLabel** is horizontal text anchored from content bounds (leftmost tick-label bound and minimum tick-label-anchor **Y**), not curved arc text.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
  */
@@ -41,15 +41,15 @@ const TEXT_DESCENT_EM = 0.2;
 /**
  * Time-now readout: **TimeNowLocation** (current location name), and a single merged date+clock row:
  * **TimeNowDate** (civil prefix) concatenated on the left of **TimeNowClock** (`HH:MM` + `:` + `SS`), right-aligned
- * to global layout-bounds right; clock baseline **Y** matches the minimum **Y** among **TickLabels** (see spec).
+ * to global layout-bounds right; the clock row bottom edge aligns to global layout-bounds bottom (see spec).
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
  * @param {number} layoutBoundsRightX diagram-space right edge of global layout bounds
- * @param {number} clockBaselineY diagram-space **Y** shared by all three clock fragments (tick-label-min rule)
+ * @param {number} layoutBoundsBottomY diagram-space bottom edge of global layout bounds
  * @returns {{ timeNowLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowDate: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowClock: import('../model/tideDiagramModel.mjs').DiagramTimeNowClockInst }}
  */
-function buildTimeNowReadoutFromSpec(spec, refRadius, layoutBoundsRightX, clockBaselineY) {
+function buildTimeNowReadoutFromSpec(spec, refRadius, layoutBoundsRightX, layoutBoundsBottomY) {
   const o = requirePlainObject(spec.timeNowLabel, "spec.timeNowLabel");
   const fontHeightK = o.fontHeight;
   const dateAboveK = o.dateAboveTime;
@@ -78,7 +78,7 @@ function buildTimeNowReadoutFromSpec(spec, refRadius, layoutBoundsRightX, clockB
   const locationName = spec.timeNowLocation.trim();
   const fontSize = fontHeightK * refRadius;
   const ax = layoutBoundsRightX;
-  const timeY = clockBaselineY;
+  const timeY = layoutBoundsBottomY + TEXT_DESCENT_EM * fontSize;
   // Date and clock share a baseline: the 2nd row in the merged time-now readout.
   const dateY = timeY;
   // Baseline spacing is tuned to typography: location stays above the merged (date+clock) row.
@@ -364,12 +364,12 @@ export function buildDiagram(spec) {
       "spec.tickLabelHours must list at least one hour: time-now clock uses the minimum Y among tick label anchors",
     );
   }
-  const clockBaselineY = Math.min(...tickLabels.map((tl) => tl.anchor.y));
+  const tickLabelMinAnchorY = Math.min(...tickLabels.map((tl) => tl.anchor.y));
   const { timeNowLocation, timeNowDate, timeNowClock } = buildTimeNowReadoutFromSpec(
     spec,
     refRadius,
     layoutBounds.maxX,
-    clockBaselineY,
+    layoutBounds.minY,
   );
   const leftmostTickLabelX = Math.min(
     ...tickLabels.map((tl) =>
@@ -392,8 +392,8 @@ export function buildDiagram(spec) {
   } else {
     mainLabelContent = `${nextEventForMainLabel.kind} tide at ${formatEventClockHHMM(nextEventForMainLabel.seconds)}`;
   }
-  const mainLabel = buildMainLabel(leftmostTickLabelX, clockBaselineY, refRadius, mainLabelContent);
-  const mainLabelTopY = mainLabel.anchor.y + 0.8 * mainLabel.fontSize;
+  const mainLabel = buildMainLabel(leftmostTickLabelX, layoutBounds.minY, refRadius, mainLabelContent);
+  const mainLabelTopY = mainLabel.anchor.y + TEXT_ASCENT_EM * mainLabel.fontSize;
   const homeMenuTriggerGap = readHomeMenuTriggerGapFromSpec(spec, refRadius);
   const homeMenuTrigger = buildHomeMenuTriggerFromSpec(
     spec,
@@ -476,17 +476,17 @@ function formatEventClockHHMM(secondsSinceMidnight) {
  */
 /**
  * @param {number} anchorX
- * @param {number} anchorY
+ * @param {number} bottomEdgeY
  * @param {number} refRadius
  * @param {string} content
  * @returns {import('../model/tideDiagramModel.mjs').MainLabelDiagram}
  */
-function buildMainLabel(anchorX, anchorY, refRadius, content) {
+function buildMainLabel(anchorX, bottomEdgeY, refRadius, content) {
   const fontSize = 0.045 * refRadius;
   return {
     content,
     fontSize,
-    anchor: { x: anchorX, y: anchorY },
+    anchor: { x: anchorX, y: bottomEdgeY + TEXT_DESCENT_EM * fontSize },
     hAlign: "left",
   };
 }
