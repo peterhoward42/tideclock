@@ -24,7 +24,8 @@ export type HomeTideDiagramLayoutBase = {
   readonly canvas: { readonly width: number; readonly height: number };
   readonly refRadius: number;
   readonly sweepRad: number;
-  readonly tickLen: number;
+  /** k·RefRadius for ticks at hours that also emit TickLabel; must be shorter than annularBandWidth. */
+  readonly tickLabelTickLen: number;
   readonly tickLabelHours: readonly number[];
   readonly tickLabelSize: number;
   readonly tickLabelClearance: number;

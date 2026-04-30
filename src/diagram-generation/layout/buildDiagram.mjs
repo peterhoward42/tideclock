@@ -6,7 +6,7 @@
  * See docs/specs/tide-diagram.md; spec keys mirror the open object passed from the app (diagramGenerationCollaborator.ts).
  *
  * Policies for {@link buildDiagram}:
- * - Throws if `spec.canvas`, `spec.title`, ref arc, and tick sizing/tick label sizing omit
+ * - Throws if `spec.canvas`, `spec.title`, ref arc, and tick/tick-label sizing omit
  *   required fields or supply non-finite numbers (no silent defaults).
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
  * - Sub-builders (`buildTideMarksFromSpec`) enforce their own throw rules.
@@ -200,7 +200,10 @@ export function buildDiagram(spec) {
 
   const refRadius = requireFiniteNumber(spec.refRadius, "spec.refRadius");
   const sweepRad = requireFiniteNumber(spec.sweepRad, "spec.sweepRad");
-  const tickLen = requireFiniteNumber(spec.tickLen, "spec.tickLen");
+  const tickLabelTickLen = requireFiniteNumber(
+    spec.tickLabelTickLen,
+    "spec.tickLabelTickLen",
+  );
   const tickLabelSize = requireFiniteNumber(
     spec.tickLabelSize,
     "spec.tickLabelSize",
@@ -211,13 +214,29 @@ export function buildDiagram(spec) {
   );
 
   const { thetaLeft, thetaRight } = refArcAngles(sweepRad);
+  const annularBand = buildAnnularBandFromSpec(
+    spec,
+    refRadius,
+    thetaLeft,
+    sweepRad,
+  );
+  const annularBandTickLen = (annularBand.rOuter - annularBand.rInner) / refRadius;
+  if (tickLabelTickLen <= 0 || tickLabelTickLen >= annularBandTickLen) {
+    throw new Error(
+      "spec.tickLabelTickLen must be greater than 0 and shorter than annularBand width (k·RefRadius)",
+    );
+  }
+
+  const labelHours = readTickLabelHours(spec);
+  const tickLabelHoursSet = new Set(labelHours);
   const rInner = 1.0 * refRadius;
-  const rOuter = (1.0 + tickLen) * refRadius;
 
   /** @type {import('../model/tideDiagramModel.mjs').TickMarkSpec[]} */
   const tickMarks = [];
   for (let h = 0; h <= 24; h += 1) {
     const theta = timeToTheta(h, thetaLeft, thetaRight);
+    const tickLen = tickLabelHoursSet.has(h) ? tickLabelTickLen : annularBandTickLen;
+    const rOuter = (1.0 + tickLen) * refRadius;
     tickMarks.push({
       hour: h,
       theta,
@@ -229,7 +248,6 @@ export function buildDiagram(spec) {
   const byHour = new Map(tickMarks.map((tm) => [tm.hour, tm]));
   /** @type {import('../model/tideDiagramModel.mjs').TickLabelSpec[]} */
   const tickLabels = [];
-  const labelHours = readTickLabelHours(spec);
   for (const h of labelHours) {
     const tm = byHour.get(h);
     if (!tm) continue;
@@ -248,12 +266,6 @@ export function buildDiagram(spec) {
     });
   }
 
-  const annularBand = buildAnnularBandFromSpec(
-    spec,
-    refRadius,
-    thetaLeft,
-    sweepRad,
-  );
   const annularMaxX = annularBandMaxX(annularBand);
   if (tickLabels.length === 0) {
     throw new Error(

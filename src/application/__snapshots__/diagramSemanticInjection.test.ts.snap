@@ -35,8 +35,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "homeMenuTrigger": {
     "center": {
-      "x": -122.98173403075491,
-      "y": -123.36900000000004,
+      "x": -118.35191880160563,
+      "y": -118.64900000000002,
     },
     "cornerRadius": 4.484,
     "height": 15.34,
@@ -55,8 +55,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "mainLabel": {
     "anchor": {
-      "x": -134.7817340307549,
-      "y": -136.88000000000002,
+      "x": -130.15191880160563,
+      "y": -132.16000000000003,
     },
     "content": "High tide at 23:06",
     "fontSize": 5.31,
@@ -81,8 +81,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "tickLabels": [
     {
       "anchor": {
-        "x": -131.9497340307549,
-        "y": -28.530557678678534,
+        "x": -127.31991880160562,
+        "y": -27.612292496970515,
       },
       "content": "00",
       "fontSize": 4.72,
@@ -91,8 +91,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "anchor": {
-        "x": -115.41033669513529,
-        "y": -71.46922213363068,
+        "x": -111.36085119706037,
+        "y": -69.04433714648574,
       },
       "content": "03",
       "fontSize": 4.72,
@@ -101,8 +101,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "anchor": {
-        "x": -85.36734440365404,
-        "y": -106.32175695643045,
+        "x": -82.37199898598197,
+        "y": -102.67397601059079,
       },
       "content": "06",
       "fontSize": 4.72,
@@ -111,8 +111,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "anchor": {
-        "x": -45.33593968487351,
-        "y": -129.01023873996255,
+        "x": -43.745204959088476,
+        "y": -124.56637071399895,
       },
       "content": "09",
       "fontSize": 4.72,
@@ -121,8 +121,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "anchor": {
-        "x": -2.4710923113195293e-14,
-        "y": -136.88000000000002,
+        "x": -2.3843873179398966e-14,
+        "y": -132.16000000000003,
       },
       "content": "12",
       "fontSize": 4.72,
@@ -131,8 +131,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "anchor": {
-        "x": 45.33593968487346,
-        "y": -129.01023873996257,
+        "x": 43.745204959088426,
+        "y": -124.56637071399898,
       },
       "content": "15",
       "fontSize": 4.72,
@@ -141,8 +141,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "anchor": {
-        "x": 85.367344403654,
-        "y": -106.32175695643048,
+        "x": 82.37199898598193,
+        "y": -102.67397601059082,
       },
       "content": "18",
       "fontSize": 4.72,
@@ -151,8 +151,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "anchor": {
-        "x": 115.41033669513527,
-        "y": -71.46922213363072,
+        "x": 111.36085119706036,
+        "y": -69.04433714648579,
       },
       "content": "21",
       "fontSize": 4.72,
@@ -163,8 +163,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "tickMarks": [
     {
       "end": {
-        "x": -123.84755737974365,
-        "y": -24.5635936106895,
+        "x": -119.21774215059436,
+        "y": -23.645328428981482,
       },
       "hour": 0,
       "start": {
@@ -175,8 +175,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": -120.22700461163183,
-        "y": -38.56235161546377,
+        "x": -117.97977088057328,
+        "y": -37.841559996483134,
       },
       "hour": 1,
       "start": {
@@ -187,8 +187,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": -115.0296768904105,
-        "y": -52.05536508841103,
+        "x": -112.87958947189816,
+        "y": -51.08236761012297,
       },
       "hour": 2,
       "start": {
@@ -199,8 +199,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": -108.32373707350418,
-        "y": -64.86567340612704,
+        "x": -104.27425157542926,
+        "y": -62.44078841898211,
       },
       "hour": 3,
       "start": {
@@ -211,8 +211,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": -100.19713343821144,
-        "y": -76.82526961075538,
+        "x": -98.32428982254393,
+        "y": -75.3892832628908,
       },
       "hour": 4,
       "start": {
@@ -223,8 +223,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": -90.75644624166642,
-        "y": -87.77730381814831,
+        "x": -89.060064068925,
+        "y": -86.13660655051937,
       },
       "hour": 5,
       "start": {
@@ -235,8 +235,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": -80.12548992272792,
-        "y": -97.57814030121104,
+        "x": -77.13014450505585,
+        "y": -93.93035935537138,
       },
       "hour": 6,
       "start": {
@@ -247,8 +247,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": -68.44368927789192,
-        "y": -106.09924126981957,
+        "x": -67.16436798297805,
+        "y": -104.11607788159866,
       },
       "hour": 7,
       "start": {
@@ -259,8 +259,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": -55.86425090765123,
-        "y": -113.22885264157273,
+        "x": -54.82005930190074,
+        "y": -111.1124254893938,
       },
       "hour": 8,
       "start": {
@@ -271,8 +271,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": -42.552153914749695,
-        "y": -118.87346969452625,
+        "x": -40.96141918896466,
+        "y": -114.42960166856265,
       },
       "hour": 9,
       "start": {
@@ -283,8 +283,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": -28.68198620628481,
-        "y": -122.95906337990091,
+        "x": -28.145874314578553,
+        "y": -120.66076312980931,
       },
       "hour": 10,
       "start": {
@@ -295,8 +295,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": -14.435654776519815,
-        "y": -125.43205121169446,
+        "x": -14.165829453594212,
+        "y": -123.08752688998054,
       },
       "hour": 11,
       "start": {
@@ -307,8 +307,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": -2.3193585729051723e-14,
-        "y": -126.26,
+        "x": -2.2326535795255396e-14,
+        "y": -121.54,
       },
       "hour": 12,
       "start": {
@@ -319,8 +319,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": 14.435654776519657,
-        "y": -125.43205121169447,
+        "x": 14.165829453594057,
+        "y": -123.08752688998055,
       },
       "hour": 13,
       "start": {
@@ -331,8 +331,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": 28.681986206284876,
-        "y": -122.9590633799009,
+        "x": 28.145874314578617,
+        "y": -120.6607631298093,
       },
       "hour": 14,
       "start": {
@@ -343,8 +343,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": 42.55215391474965,
-        "y": -118.87346969452628,
+        "x": 40.96141918896462,
+        "y": -114.42960166856268,
       },
       "hour": 15,
       "start": {
@@ -355,8 +355,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": 55.86425090765119,
-        "y": -113.22885264157274,
+        "x": 54.820059301900706,
+        "y": -111.11242548939381,
       },
       "hour": 16,
       "start": {
@@ -367,8 +367,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": 68.44368927789188,
-        "y": -106.09924126981959,
+        "x": 67.164367982978,
+        "y": -104.11607788159866,
       },
       "hour": 17,
       "start": {
@@ -379,8 +379,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": 80.12548992272788,
-        "y": -97.57814030121106,
+        "x": 77.13014450505581,
+        "y": -93.93035935537141,
       },
       "hour": 18,
       "start": {
@@ -391,8 +391,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": 90.75644624166638,
-        "y": -87.77730381814834,
+        "x": 89.06006406892496,
+        "y": -86.1366065505194,
       },
       "hour": 19,
       "start": {
@@ -403,8 +403,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": 100.19713343821144,
-        "y": -76.82526961075537,
+        "x": 98.32428982254393,
+        "y": -75.38928326289079,
       },
       "hour": 20,
       "start": {
@@ -415,8 +415,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": 108.32373707350416,
-        "y": -64.86567340612709,
+        "x": 104.27425157542925,
+        "y": -62.440788418982144,
       },
       "hour": 21,
       "start": {
@@ -427,8 +427,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": 115.02967689041046,
-        "y": -52.05536508841112,
+        "x": 112.87958947189811,
+        "y": -51.082367610123065,
       },
       "hour": 22,
       "start": {
@@ -439,8 +439,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": 120.22700461163183,
-        "y": -38.562351615463754,
+        "x": 117.97977088057328,
+        "y": -37.84155999648312,
       },
       "hour": 23,
       "start": {
@@ -451,8 +451,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     {
       "end": {
-        "x": 123.84755737974363,
-        "y": -24.563593610689548,
+        "x": 121.532649765169,
+        "y": -24.104461019835536,
       },
       "hour": 24,
       "start": {
@@ -652,7 +652,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "hhmm": {
       "anchor": {
         "x": 110.912649765169,
-        "y": -136.88000000000002,
+        "y": -132.16000000000003,
       },
       "content": "19:20",
       "fontSize": 5.9,
@@ -661,7 +661,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "seconds": {
       "anchor": {
         "x": 121.532649765169,
-        "y": -136.88000000000002,
+        "y": -132.16000000000003,
       },
       "content": "03",
       "fontSize": 5.9,
@@ -670,7 +670,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "secondsColon": {
       "anchor": {
         "x": 114.452649765169,
-        "y": -136.88000000000002,
+        "y": -132.16000000000003,
       },
       "content": ":",
       "fontSize": 5.9,
@@ -680,7 +680,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "timeNowDate": {
     "anchor": {
       "x": 82.592649765169,
-      "y": -136.88000000000002,
+      "y": -132.16000000000003,
     },
     "content": "Mon 23 Mar",
     "fontSize": 5.9,
@@ -689,7 +689,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "timeNowLocation": {
     "anchor": {
       "x": 121.532649765169,
-      "y": -125.08000000000001,
+      "y": -120.36000000000001,
     },
     "content": "Lymington",
     "fontSize": 5.9,

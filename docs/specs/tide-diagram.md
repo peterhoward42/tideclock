@@ -218,7 +218,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
     - each override must resolve to one unique sibling relationship in the scene tree,
     - cyclic constraints are errors.
   - Default behaviour when omitted: preserve current deterministic scene-child order.
-- `**refRadius**`, `**sweepRad**`, `**tickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key).
+- `**refRadius**`, `**sweepRad**`, `**tickLabelTickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key). `**tickLabelTickLen`** must be **> 0** and **strictly less** than `**annularBand.annularBandWidth`**.
 - `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
@@ -401,7 +401,13 @@ concrete `styleName` values are **not** fixed in this specification).
 
 - A tick mark is a (typically short) **radial segment** (**Radial lines and
 radial segments**) on the ray at **θ(t)** (**§Time and θ(t)**).
-- Radii: **1.0·R** and **(1.0 + k)·R** for diagram input **k** (**§Sizing**).
+- Inner radius is always **1.0·R**.
+- Outer radius depends on whether hour **t** is in `**tickLabelHours`**:
+  - For **general** (non-labelled) hours, tick length is **locked by definition** to **AnnularBand** thickness:
+    `**k_general = annularBand.annularBandWidth`** and outer radius **(1.0 + k_general)·R**.
+  - For **labelled** hours (those that emit **TickLabel**), tick length uses
+    input `**tickLabelTickLen`** (`**k_label`**) and outer radius **(1.0 + k_label)·R**.
+- Constraint: `**0 < tickLabelTickLen < annularBand.annularBandWidth`**.
 
 ### Placement
 

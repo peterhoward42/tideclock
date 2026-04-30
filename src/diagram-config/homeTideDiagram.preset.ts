@@ -11,7 +11,7 @@ export const homeTideDiagramLayoutBase = {
   canvas: { width: 420, height: 320 },
   refRadius: 118,
   sweepRad: Math.PI,
-  tickLen: 0.02,
+  tickLabelTickLen: 0.02,
   tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
   tickLabelSize: 0.04,
   tickLabelClearance: 0.023,

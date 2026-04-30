@@ -35,7 +35,7 @@ This table is the anti-regression backbone for rewrite phases: each retained nor
 | S013 | error condition | Strict diagram input -> paintOrder | Override validation: `name !== relativeTo`, no duplicate override names, referenced names must exist | TB-3 |
 | S014 | error condition | Strict diagram input -> paintOrder | Override validation: each override must resolve uniquely among siblings; cyclic constraints are errors | TB-3 |
 | S015 | derivation | Strict diagram input -> paintOrder | Omitted overrides preserve deterministic scene-child order | TB-3 |
-| S016 | required | Strict diagram input | `refRadius`, `sweepRad`, `tickLen`, `tickLabelSize`, `tickLabelClearance` are finite numbers | TB-3 |
+| S016 | required | Strict diagram input | `refRadius`, `sweepRad`, `tickLabelTickLen`, `tickLabelSize`, `tickLabelClearance` are finite numbers; `tickLabelTickLen` is shorter than `annularBand.annularBandWidth` | TB-3 |
 | S017 | required | Strict diagram input | `insideTrackRadius` finite and > 0; InsideTrack radius is `insideTrackRadius * refRadius` with RefArc center/sweep | TB-5 |
 | S018 | required | Strict diagram input | `mainLabelRadius` finite and > 0; MainLabel radius is `mainLabelRadius * refRadius` concentric with RefArc/InsideTrack | TB-5 |
 | S019 | required | Strict diagram input | `mainLabelTimeOffsetHours` finite and within [0, 12] | TB-3 |

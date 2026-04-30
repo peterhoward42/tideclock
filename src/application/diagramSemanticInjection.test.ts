@@ -28,7 +28,7 @@ type SemanticInjectionDiagramSpec = {
   readonly canvas: { readonly width: number; readonly height: number };
   readonly refRadius: number;
   readonly sweepRad: number;
-  readonly tickLen: number;
+  readonly tickLabelTickLen: number;
   readonly tickLabelHours: readonly number[];
   readonly tickLabelSize: number;
   readonly tickLabelClearance: number;
@@ -75,7 +75,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     canvas: { width: 420, height: 320 },
     refRadius: 118,
     sweepRad: 2.75,
-    tickLen: 0.07,
+    tickLabelTickLen: 0.03,
     tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
     tickLabelSize: 0.04,
     tickLabelClearance: 0.07,

@@ -55,7 +55,9 @@ describe('createDiagramGenerationCollaborator', () => {
     const spec = baseSpecForCollaboratorTest();
     const { diagram, scene } = collaborator.generate(spec);
     expect(diagram.annularBand.rInner).toBe(diagram.refArc.refRadius);
-    expect(diagram.annularBand.rOuter).toBeCloseTo(diagram.refArc.refRadius * 1.05);
+    expect(diagram.annularBand.rOuter).toBeCloseTo(
+      diagram.refArc.refRadius * (1 + homeTideDiagramLayoutBase.annularBand.annularBandWidth),
+    );
     const annularGroup = scene.root.children.find(
       (child): child is { kind: 'group'; name: string; children: unknown[] } =>
         child.kind === 'group' && child.name === 'AnnularBand',
