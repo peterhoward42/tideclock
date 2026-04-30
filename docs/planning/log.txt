@@ -2,11 +2,13 @@
 TIDE DIAL
 
 o  first glance ux assimilation suggestions
-	o  hand must be simple pointer - no circle of reln to tide marker shape
-		o  move mainlabel
-		o  attenuate gone tides
+	*  hand must be simple pointer - no circle of reln to tide marker shape
+	*  move mainlabel
+	o  attenuate gone tides
+		o  branch atten
+			o  prompt
+		o  merge branch atten
 
-	o  Low tide in <X> move to bottom edge
 	o  Try out mirrored layout
 		o  bind the radius settings not separate
 		o  tick mark length discriminatio
