@@ -15,8 +15,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "hand": {
     "arm": {
       "end": {
-        "x": 65.92296039570638,
-        "y": -59.04585754027227,
+        "x": 87.01830772233241,
+        "y": -77.9405319531594,
       },
       "start": {
         "x": 7.03178244220868,

@@ -39,6 +39,8 @@ export type HomeTideDiagramLayoutBase = {
   readonly annularBand: { readonly annularBandWidth: number };
   readonly hand: {
     readonly bossCircleRadius: number;
+    /** k·RefRadius inset from RefArc; arm outer radius is RefRadius minus this. */
+    readonly armRefArcGap: number;
   };
   readonly paintOrder: {
     readonly overrides: readonly {

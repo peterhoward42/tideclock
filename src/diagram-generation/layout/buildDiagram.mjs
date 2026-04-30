@@ -157,12 +157,12 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   if (!(bossCircleRadiusK > 0)) {
     throw new Error("spec.hand.bossCircleRadius must be greater than 0");
   }
-  const insideTrackRadiusK = requireFiniteNumber(
-    spec.insideTrackRadius,
-    "spec.insideTrackRadius",
+  const armRefArcGapK = requireFiniteNumber(
+    hand.armRefArcGap,
+    "spec.hand.armRefArcGap",
   );
-  if (!(insideTrackRadiusK > 0)) {
-    throw new Error("spec.insideTrackRadius must be greater than 0");
+  if (!(armRefArcGapK >= 0)) {
+    throw new Error("spec.hand.armRefArcGap must be >= 0");
   }
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
@@ -170,11 +170,11 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   }
   const theta = timeToTheta(parsedNow.hours, thetaLeft, thetaRight);
   const unit = polar(1, theta);
-  const rTrack = insideTrackRadiusK * refRadius;
   const rBoss = bossCircleRadiusK * refRadius;
-  if (!(rBoss < rTrack)) {
+  const rArmOuter = refRadius - armRefArcGapK * refRadius;
+  if (!(rBoss < rArmOuter)) {
     throw new Error(
-      "spec.hand radial ordering invalid: require r_boss < r_track",
+      "spec.hand radial ordering invalid: require r_boss < RefRadius − armRefArcGap·RefRadius",
     );
   }
   return {
@@ -183,7 +183,7 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     bossCircle: { center: { x: 0, y: 0 }, radius: rBoss },
     arm: {
       start: { x: unit.x * rBoss, y: unit.y * rBoss },
-      end: { x: unit.x * rTrack, y: unit.y * rTrack },
+      end: { x: unit.x * rArmOuter, y: unit.y * rArmOuter },
     },
   };
 }

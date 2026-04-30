@@ -52,6 +52,7 @@ type SemanticInjectionDiagramSpec = {
   readonly annularBand: { readonly annularBandWidth: number };
   readonly hand: {
     readonly bossCircleRadius: number;
+    readonly armRefArcGap: number;
   };
   readonly homeMenuTrigger: {
     readonly width: number;
@@ -101,6 +102,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     annularBand: { annularBandWidth: 0.05 },
     hand: {
       bossCircleRadius: 0.08,
+      armRefArcGap: 0.01,
     },
     homeMenuTrigger: {
       width: 0.2,

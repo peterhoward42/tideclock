@@ -222,7 +222,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
 - `**insideTrackRadius`** — finite number (**k·R**): radius of **InsideTrack** is **InsideTrackRadius × RefRadius**. Must be **> 0**. Same centre **O**, **θ_left**, and CCW sweep as **RefArc** (see **§Polar**, **InsideTrack**).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
-- `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**). Generation fails if hand-derived radial ordering is invalid (see **Hand**, **Radial segments**).
+- `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**armRefArcGap`** (**k·R**, **≥ 0**), a radial inset from the **RefArc** so the **Arm** outer end lies slightly inside **RefRadius** (see **Hand**, **Radial segments**). Generation fails if hand-derived radial ordering is invalid.
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
 - `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
@@ -553,12 +553,12 @@ before **BossCircle**):
 
 - **Arm** is colinear with the `**θ_now`** ray.
 - Let:
-  - `**r_track = insideTrackRadius · RefRadius**`
+  - `**r_arm_outer = RefRadius − hand.armRefArcGap · RefRadius**`
   - `**r_boss = hand.bossCircleRadius · RefRadius**`
 - Segment radii:
-  - **Arm** — from `**r_boss`** to `**r_track`**.
+  - **Arm** — from `**r_boss`** to `**r_arm_outer`** (outer end is on the **RefArc** radius when `**hand.armRefArcGap = 0`**; positive gap shortens the segment so it stops just short of the **RefArc**).
 - Validation: generation fails if radial ordering is invalid at emission time
-  (specifically, require `**r_boss < r_track**`).
+  (specifically, require `**r_boss < r_arm_outer**`).
 
 ## 6. Behavioral branches (TB-6)
 

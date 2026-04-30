@@ -36,7 +36,9 @@ describe('createDiagramGenerationCollaborator', () => {
     const rArmStart = Math.hypot(hand.arm.start.x, hand.arm.start.y);
     const rArmEnd = Math.hypot(hand.arm.end.x, hand.arm.end.y);
     expect(rArmStart).toBeCloseTo(hand.bossCircle.radius);
-    expect(rArmEnd).toBeCloseTo(output.diagram.insideTrack.radius);
+    const refR = output.diagram.refArc.refRadius;
+    const gapK = homeTideDiagramLayoutBase.hand.armRefArcGap;
+    expect(rArmEnd).toBeCloseTo(refR - gapK * refR);
   });
 
   it('InsideTrack is concentric with RefArc at insideTrackRadius·RefRadius', () => {
@@ -81,6 +83,29 @@ describe('createDiagramGenerationCollaborator', () => {
     const base = baseSpecForCollaboratorTest();
     const spec = { ...base, annularBand: { annularBandWidth: 0 } };
     expect(() => collaborator.generate(spec)).toThrow(/greater than 0/);
+  });
+
+  it('throws when spec.hand.armRefArcGap is missing', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const { hand, ...rest } = base;
+    const { armRefArcGap: _omit, ...handWithoutGap } = hand as {
+      bossCircleRadius: number;
+      armRefArcGap: number;
+    };
+    expect(() => collaborator.generate({ ...rest, hand: handWithoutGap })).toThrow(
+      /spec\.hand\.armRefArcGap/,
+    );
+  });
+
+  it('throws when hand armRefArcGap makes arm outer radius not past boss circle', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const spec = {
+      ...base,
+      hand: { ...(base.hand as Record<string, unknown>), armRefArcGap: 0.96 },
+    };
+    expect(() => collaborator.generate(spec)).toThrow(/radial ordering invalid/);
   });
 
   it('aligns time-now readout to annular max X and minimum tick-label Y', () => {
