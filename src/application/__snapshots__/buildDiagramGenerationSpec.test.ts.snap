@@ -35,8 +35,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   },
   "homeMenuTrigger": {
     "center": {
-      "x": -114.106,
-      "y": -105.25599999999999,
+      "x": -126.34263847090556,
+      "y": -126.32646132079982,
     },
     "cornerRadius": 4.484,
     "height": 15.34,
@@ -47,7 +47,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "mainLabel": {
     "anchor": {
       "x": -125.90599999999999,
-      "y": -125.434,
+      "y": -146.5044613207998,
     },
     "content": "High tide at 23:06",
     "fontSize": 5.31,
@@ -465,10 +465,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     {
       "heightLabel": {
         "anchor": {
-          "x": -127.26143892357314,
-          "y": -79.13624809846414,
+          "x": -133.22321085031925,
+          "y": -60.50717718363151,
         },
-        "angleRad": 5.268712679457883,
+        "angleRad": 5.138712679457882,
         "content": "0.94 m",
         "fontSize": 5.31,
       },
@@ -477,10 +477,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "timeHours": 4.25,
       "timeLabel": {
         "anchor": {
-          "x": -120.24702890416359,
-          "y": -74.7744076520921,
+          "x": -113.19035731684528,
+          "y": -92.72262620571577,
         },
-        "angleRad": 5.268712679457883,
+        "angleRad": 5.398712679457882,
         "content": "04:15",
         "fontSize": 5.31,
       },
@@ -511,10 +511,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     {
       "heightLabel": {
         "anchor": {
-          "x": -24.411515642913102,
-          "y": -147.85836974624,
+          "x": -42.34846210351421,
+          "y": -140.05766725698103,
         },
-        "angleRad": 6.119560689805118,
+        "angleRad": 5.989560689805118,
         "content": "4.7 m",
         "fontSize": 5.31,
       },
@@ -523,10 +523,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "timeHours": 10.75,
       "timeLabel": {
         "anchor": {
-          "x": -23.065999032673794,
-          "y": -139.70869582321885,
+          "x": -4.919026971092884,
+          "y": -146.2372920074003,
         },
-        "angleRad": 6.119560689805118,
+        "angleRad": 6.249560689805118,
         "content": "10:45",
         "fontSize": 5.31,
       },
@@ -557,10 +557,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     {
       "heightLabel": {
         "anchor": {
-          "x": 91.07328046199501,
-          "y": -119.01124814861326,
+          "x": 73.10812828667481,
+          "y": -126.74677107689607,
         },
-        "angleRad": 6.936374779738464,
+        "angleRad": 6.806374779738464,
         "content": "0.89 m",
         "fontSize": 5.31,
       },
@@ -569,10 +569,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "timeHours": 16.99,
       "timeLabel": {
         "anchor": {
-          "x": 86.05349334991654,
-          "y": -112.45157305380779,
+          "x": 103.23509235541192,
+          "y": -103.69213136188091,
         },
-        "angleRad": 6.936374779738464,
+        "angleRad": 7.066374779738464,
         "content": "16:59",
         "fontSize": 5.31,
       },
@@ -603,10 +603,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     {
       "heightLabel": {
         "anchor": {
-          "x": 148.82123895926526,
-          "y": -17.614154383031554,
+          "x": 141.85021371673886,
+          "y": -35.88954260666338,
         },
-        "angleRad": 7.736171909464866,
+        "angleRad": 7.606171909464866,
         "content": "4.8 m",
         "fontSize": 5.31,
       },
@@ -615,10 +615,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "timeHours": 23.1,
       "timeLabel": {
         "anchor": {
-          "x": 140.61849350481756,
-          "y": -16.643295480029813,
+          "x": 146.30912835257334,
+          "y": 1.78363693340824,
         },
-        "angleRad": 7.736171909464866,
+        "angleRad": 7.866171909464866,
         "content": "23:06",
         "fontSize": 5.31,
       },
@@ -650,8 +650,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "timeNowClock": {
     "hhmm": {
       "anchor": {
-        "x": 117.882,
-        "y": -125.434,
+        "x": 137.91014258497515,
+        "y": -146.5044613207998,
       },
       "content": "19:20",
       "fontSize": 5.31,
@@ -659,8 +659,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     },
     "seconds": {
       "anchor": {
-        "x": 127.44,
-        "y": -125.434,
+        "x": 147.46814258497514,
+        "y": -146.5044613207998,
       },
       "content": "03",
       "fontSize": 5.31,
@@ -668,8 +668,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     },
     "secondsColon": {
       "anchor": {
-        "x": 121.068,
-        "y": -125.434,
+        "x": 141.09614258497515,
+        "y": -146.5044613207998,
       },
       "content": ":",
       "fontSize": 5.31,
@@ -678,8 +678,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   },
   "timeNowDate": {
     "anchor": {
-      "x": 92.394,
-      "y": -125.434,
+      "x": 112.42214258497515,
+      "y": -146.5044613207998,
     },
     "content": "Mon 23 Mar",
     "fontSize": 5.31,
@@ -687,8 +687,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   },
   "timeNowLocation": {
     "anchor": {
-      "x": 127.44,
-      "y": -117.764,
+      "x": 147.46814258497514,
+      "y": -138.8344613207998,
     },
     "content": "Lymington",
     "fontSize": 5.31,
@@ -703,10 +703,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "meta": {
     "height": 320,
     "previewFrame": {
-      "maxX": 361.81206303130307,
-      "maxY": 166.9,
-      "minX": 75.78943584312943,
-      "minY": 8.796352589497971,
+      "maxX": 358.46814258497517,
+      "maxY": 170.7609908819561,
+      "minX": 70.85736152909445,
+      "minY": 11.433538679200195,
     },
     "title": "home-tide-diagram",
     "width": 420,
@@ -1114,10 +1114,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "children": [
                   {
                     "anchor": {
-                      "x": 82.73856107642686,
-                      "y": 80.86375190153586,
+                      "x": 76.77678914968075,
+                      "y": 99.49282281636849,
                     },
-                    "angleRad": 5.268712679457883,
+                    "angleRad": 5.138712679457882,
                     "content": "0.94 m",
                     "hAlign": "center",
                     "kind": "text",
@@ -1131,10 +1131,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "children": [
                   {
                     "anchor": {
-                      "x": 89.75297109583641,
-                      "y": 85.2255923479079,
+                      "x": 96.80964268315472,
+                      "y": 67.27737379428423,
                     },
-                    "angleRad": 5.268712679457883,
+                    "angleRad": 5.398712679457882,
                     "content": "04:15",
                     "hAlign": "center",
                     "kind": "text",
@@ -1194,10 +1194,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "children": [
                   {
                     "anchor": {
-                      "x": 185.58848435708688,
-                      "y": 12.141630253760013,
+                      "x": 167.6515378964858,
+                      "y": 19.942332743018966,
                     },
-                    "angleRad": 6.119560689805118,
+                    "angleRad": 5.989560689805118,
                     "content": "4.7 m",
                     "hAlign": "center",
                     "kind": "text",
@@ -1211,10 +1211,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "children": [
                   {
                     "anchor": {
-                      "x": 186.9340009673262,
-                      "y": 20.291304176781154,
+                      "x": 205.08097302890712,
+                      "y": 13.762707992599701,
                     },
-                    "angleRad": 6.119560689805118,
+                    "angleRad": 6.249560689805118,
                     "content": "10:45",
                     "hAlign": "center",
                     "kind": "text",
@@ -1274,10 +1274,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "children": [
                   {
                     "anchor": {
-                      "x": 301.073280461995,
-                      "y": 40.98875185138674,
+                      "x": 283.1081282866748,
+                      "y": 33.25322892310393,
                     },
-                    "angleRad": 6.936374779738464,
+                    "angleRad": 6.806374779738464,
                     "content": "0.89 m",
                     "hAlign": "center",
                     "kind": "text",
@@ -1291,10 +1291,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "children": [
                   {
                     "anchor": {
-                      "x": 296.05349334991655,
-                      "y": 47.54842694619221,
+                      "x": 313.2350923554119,
+                      "y": 56.30786863811909,
                     },
-                    "angleRad": 6.936374779738464,
+                    "angleRad": 7.066374779738464,
                     "content": "16:59",
                     "hAlign": "center",
                     "kind": "text",
@@ -1354,10 +1354,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "children": [
                   {
                     "anchor": {
-                      "x": 358.82123895926526,
-                      "y": 142.38584561696845,
+                      "x": 351.85021371673884,
+                      "y": 124.11045739333662,
                     },
-                    "angleRad": 7.736171909464866,
+                    "angleRad": 7.606171909464866,
                     "content": "4.8 m",
                     "hAlign": "center",
                     "kind": "text",
@@ -1371,10 +1371,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "children": [
                   {
                     "anchor": {
-                      "x": 350.6184935048176,
-                      "y": 143.35670451997018,
+                      "x": 356.30912835257334,
+                      "y": 161.78363693340825,
                     },
-                    "angleRad": 7.736171909464866,
+                    "angleRad": 7.866171909464866,
                     "content": "23:06",
                     "hAlign": "center",
                     "kind": "text",
@@ -1491,7 +1491,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           {
             "anchor": {
               "x": 84.09400000000001,
-              "y": 34.566,
+              "y": 13.495538679200195,
             },
             "angleRad": 0,
             "content": "High tide at 23:06",
@@ -1507,8 +1507,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "children": [
           {
             "anchor": {
-              "x": 337.44,
-              "y": 42.236000000000004,
+              "x": 357.4681425849751,
+              "y": 21.16553867920021,
             },
             "angleRad": 0,
             "content": "Lymington",
@@ -1524,8 +1524,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "children": [
           {
             "anchor": {
-              "x": 302.394,
-              "y": 34.566,
+              "x": 322.4221425849752,
+              "y": 13.495538679200195,
             },
             "angleRad": 0,
             "content": "Mon 23 Mar",
@@ -1543,8 +1543,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 327.882,
-                  "y": 34.566,
+                  "x": 347.9101425849751,
+                  "y": 13.495538679200195,
                 },
                 "angleRad": 0,
                 "content": "19:20",
@@ -1560,8 +1560,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 331.068,
-                  "y": 34.566,
+                  "x": 351.09614258497515,
+                  "y": 13.495538679200195,
                 },
                 "angleRad": 0,
                 "content": ":",
@@ -1577,8 +1577,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 337.44,
-                  "y": 34.566,
+                  "x": 357.4681425849751,
+                  "y": 13.495538679200195,
                 },
                 "angleRad": 0,
                 "content": "03",
@@ -1598,8 +1598,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "children": [
           {
             "center": {
-              "x": 95.894,
-              "y": 54.744000000000014,
+              "x": 83.65736152909444,
+              "y": 33.67353867920018,
             },
             "height": 15.34,
             "kind": "roundedRect",
@@ -1610,8 +1610,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 95.894,
-                  "y": 54.744000000000014,
+                  "x": 83.65736152909444,
+                  "y": 33.67353867920018,
                 },
                 "angleRad": 0,
                 "content": "Menu",

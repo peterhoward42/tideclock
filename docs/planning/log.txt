@@ -7,14 +7,11 @@ o  first glance ux assimilation suggestions
 	*  attenuate gone tides
 	*  switch main label to say time not height
 	*  move hour labels inside band
+	*  Try out mirrored layout
 
-	o  Try out mirrored layout
-		o  branch mirror
-			o  new diag bounds
-				o  speaks of maximum diagram-space X 
-				o  TimeNowLocation uses the same x anchor as the annular band’s +X 
-				o  home menu trigger uses tick labels
-		o  merge branch mirror
+	o  Try out flatter /arcuate tide marker text
+		o  branch flatmarkertxt
+		o  merge branch flatmarkertxt
 
 	o  tidemarker text could be either side of pointer instead of stacked
 

@@ -36,8 +36,8 @@ type SemanticInjectionDiagramSpec = {
   readonly timeNowDatePrefix: string;
   readonly timeNowLocation: string;
   readonly tideMarks: {
-    readonly tideHeightLabelRadius: number;
-    readonly tideTimeLabelRadius: number;
+    readonly tideLabelRadius: number;
+    readonly tideLabelArcSeparationRad: number;
     readonly tideHeightLabelSize: number;
     readonly tideTimeLabelSize: number;
     readonly tideMarkArrowDivergence: number;
@@ -83,8 +83,8 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     timeNowDatePrefix: 'Mon 23 Mar',
     timeNowLocation: 'Lymington',
     tideMarks: {
-      tideHeightLabelRadius: 0.88,
-      tideTimeLabelRadius: 0.8,
+      tideLabelRadius: 0.84,
+      tideLabelArcSeparationRad: 0.26,
       tideHeightLabelSize: 0.046,
       tideTimeLabelSize: 0.04,
       tideMarkArrowDivergence: 1.0,

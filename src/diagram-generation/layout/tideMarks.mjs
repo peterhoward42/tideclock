@@ -37,8 +37,8 @@ import { requireFiniteNumber, requirePlainObject, requireString } from "./specRe
  *   annularBandWidth: number,
  *   thetaLeft: number,
  *   thetaRight: number,
- *   tideHeightLabelRadius: number,
- *   tideTimeLabelRadius: number,
+ *   tideLabelRadius: number,
+ *   tideLabelArcSeparationRad: number,
  *   heightLabelSizeK: number,
  *   timeLabelSizeK: number,
  *   tideMarkArrowDivergence: number,
@@ -59,8 +59,8 @@ export function layoutTideMarks(params) {
     annularBandWidth,
     thetaLeft,
     thetaRight,
-    tideHeightLabelRadius,
-    tideTimeLabelRadius,
+    tideLabelRadius,
+    tideLabelArcSeparationRad,
     heightLabelSizeK,
     timeLabelSizeK,
     tideMarkArrowDivergence,
@@ -77,12 +77,12 @@ export function layoutTideMarks(params) {
   for (const m of markers) {
     const t = m.t;
     const theta = timeToTheta(t, thetaLeft, thetaRight);
-    const baselineAngle = theta + Math.PI / 2;
-
-    const rHeight = tideHeightLabelRadius * R;
-    const rTime = tideTimeLabelRadius * R;
-    const heightAnchor = polar(rHeight, theta);
-    const timeAnchor = polar(rTime, theta);
+    const rLabel = tideLabelRadius * R;
+    const halfArcSeparation = 0.5 * tideLabelArcSeparationRad;
+    const heightTheta = theta - halfArcSeparation;
+    const timeTheta = theta + halfArcSeparation;
+    const heightAnchor = polar(rLabel, heightTheta);
+    const timeAnchor = polar(rLabel, timeTheta);
 
     const v1 = polar(outerBandRadius, theta);
     const v2Offset = polar(offsetR, theta + halfAngle);
@@ -101,13 +101,13 @@ export function layoutTideMarks(params) {
         content: m.heightText,
         fontSize: heightLabelSizeK * R,
         anchor: heightAnchor,
-        angleRad: baselineAngle,
+        angleRad: heightTheta + Math.PI / 2,
       },
       timeLabel: {
         content: m.timeText,
         fontSize: timeLabelSizeK * R,
         anchor: timeAnchor,
-        angleRad: baselineAngle,
+        angleRad: timeTheta + Math.PI / 2,
       },
       timePointer: {
         triangle: { v1, v2, v3 },
@@ -237,13 +237,16 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
 
-  const tideHeightLabelRadius = requireFiniteNumber(
-    o.tideHeightLabelRadius,
-    "spec.tideMarks.tideHeightLabelRadius",
+  const tideLabelRadius = requireFiniteNumber(
+    o.tideLabelRadius,
+    "spec.tideMarks.tideLabelRadius",
   );
-  const tideTimeLabelRadius = requireFiniteNumber(
-    o.tideTimeLabelRadius,
-    "spec.tideMarks.tideTimeLabelRadius",
+  const tideLabelArcSeparationRad = Math.max(
+    0,
+    requireFiniteNumber(
+      o.tideLabelArcSeparationRad,
+      "spec.tideMarks.tideLabelArcSeparationRad",
+    ),
   );
   const heightLabelSizeK = requireFiniteNumber(
     o.tideHeightLabelSize,
@@ -300,8 +303,8 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     annularBandWidth,
     thetaLeft,
     thetaRight,
-    tideHeightLabelRadius,
-    tideTimeLabelRadius,
+    tideLabelRadius,
+    tideLabelArcSeparationRad,
     heightLabelSizeK,
     timeLabelSizeK,
     tideMarkArrowDivergence,

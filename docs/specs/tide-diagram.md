@@ -253,7 +253,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
   - Default behaviour when omitted: preserve current deterministic scene-child order.
 - `**refRadius**`, `**sweepRad**`, `**tickLabelTickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key). `**tickLabelTickLen`** must be **> 0** and **strictly less** than `**annularBand.annularBandWidth`**.
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
-- `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
+- `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideLabelRadius**`, `**tideLabelArcSeparationRad**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
 - `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**armRefArcGap`** (**k·R**, **≥ 0**), a radial inset from the **RefArc** so the **Arm** outer end lies slightly inside **RefRadius** (see **Hand**, **Radial segments**). Generation fails if hand-derived radial ordering is invalid.
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
@@ -487,10 +487,14 @@ Each marker emits one cluster with direct children:
 For **both** labels:
 
 - **Horizontal justification** — **centre**.
-- On the marker polar axis from **O** at per-kind radius inputs (**§Sizing**):
-  - Height label radius: `**<TideHeightLabelRadius>`·R`.
-  - Time label radius: `**<TideTimeLabelRadius>`·R`.
-- **Baseline polar angle** — **θ(t) + π/2** (overrides **TextElement defaults**).
+- Both labels share one anchor radius from **O**:
+  - Label radius: `**<TideLabelRadius>·R`**.
+- Label anchors sit on either side of the marker radial line along the concentric arc at that radius:
+  - Height label anchor angle: **θ(t) − 0.5·tideLabelArcSeparationRad**.
+  - Time label anchor angle: **θ(t) + 0.5·tideLabelArcSeparationRad**.
+- **Baseline polar angle** follows the local tangent at each anchor:
+  - Height label baseline angle: **(θ(t) − 0.5·tideLabelArcSeparationRad) + π/2**.
+  - Time label baseline angle: **(θ(t) + 0.5·tideLabelArcSeparationRad) + π/2**.
 
 **FontHeight** (per kind, **k·R**):
 
