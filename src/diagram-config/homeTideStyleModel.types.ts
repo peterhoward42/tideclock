@@ -2,6 +2,7 @@ export type RoleColorProps = {
   readonly color?: string;
   readonly strokeColor?: string;
   readonly fillColor?: string;
+  readonly strokeWidth?: number;
 };
 
 export type SemanticRole = {

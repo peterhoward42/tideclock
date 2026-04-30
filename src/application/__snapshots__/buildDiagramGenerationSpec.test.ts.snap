@@ -15,8 +15,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "hand": {
     "arm": {
       "end": {
-        "x": 48.942087362739656,
-        "y": -34.26166282053241,
+        "x": 71.53381947438247,
+        "y": -50.07689159089707,
       },
       "start": {
         "x": 7.73338588912243,
@@ -29,56 +29,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "y": 0,
       },
       "radius": 9.44,
-    },
-    "extension": {
-      "end": {
-        "x": 71.53381947438247,
-        "y": -50.07689159089707,
-      },
-      "start": {
-        "x": 67.66712652982126,
-        "y": -47.370032585983715,
-      },
-    },
-    "pointerPip": {
-      "circle": {
-        "center": {
-          "x": 55.86001063045406,
-          "y": -39.10452031167394,
-        },
-        "radius": 5.612579978749101,
-      },
-      "triangle": {
-        "v1": {
-          "x": 67.66712652982126,
-          "y": -47.370032585983715,
-        },
-        "v2": {
-          "x": 54.68586236038286,
-          "y": -44.59291077316117,
-        },
-        "v3": {
-          "x": 60.61517793476375,
-          "y": -36.123004266793515,
-        },
-      },
-    },
-    "projection": {
-      "end": {
-        "x": 96.66732361403038,
-        "y": -67.67147512283388,
-      },
-      "start": {
-        "x": 71.53381947438247,
-        "y": -50.07689159089707,
-      },
-    },
-    "smallCircle": {
-      "center": {
-        "x": 50.102095246108014,
-        "y": -35.07372052200641,
-      },
-      "radius": 1.416,
     },
     "theta": 5.67242915205982,
     "timeHours": 19.33416666666667,
@@ -708,11 +658,11 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "timeNowClock": {
     "hhmm": {
       "anchor": {
-        "x": 116.46600000000001,
+        "x": 114.34200000000001,
         "y": -130.98000000000002,
       },
       "content": "19:20",
-      "fontSize": 4.130000000000001,
+      "fontSize": 5.31,
       "hAlign": "right",
     },
     "seconds": {
@@ -721,35 +671,35 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "y": -130.98000000000002,
       },
       "content": "03",
-      "fontSize": 4.130000000000001,
+      "fontSize": 5.31,
       "hAlign": "right",
     },
     "secondsColon": {
       "anchor": {
-        "x": 118.944,
+        "x": 117.528,
         "y": -130.98000000000002,
       },
       "content": ":",
-      "fontSize": 4.130000000000001,
+      "fontSize": 5.31,
       "hAlign": "right",
     },
   },
   "timeNowDate": {
     "anchor": {
-      "x": 96.64200000000001,
+      "x": 88.85400000000001,
       "y": -130.98000000000002,
     },
     "content": "Mon 23 Mar",
-    "fontSize": 4.130000000000001,
+    "fontSize": 5.31,
     "hAlign": "right",
   },
   "timeNowLocation": {
     "anchor": {
       "x": 123.9,
-      "y": -124.49000000000001,
+      "y": -123.31,
     },
     "content": "Lymington",
-    "fontSize": 4.130000000000001,
+    "fontSize": 5.31,
     "hAlign": "right",
   },
   "version": 1,
@@ -764,7 +714,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "maxX": 334.9,
       "maxY": 170.44,
       "minX": 77.548,
-      "minY": 27.075999999999983,
+      "minY": 26.95799999999998,
     },
     "title": "home-tide-diagram",
     "width": 420,
@@ -790,57 +740,9 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           {
             "children": [
               {
-                "center": {
-                  "x": 260.10209524610804,
-                  "y": 124.92627947799359,
-                },
-                "kind": "circle",
-                "radius": 1.416,
-              },
-            ],
-            "kind": "group",
-            "name": "SmallCircle",
-          },
-          {
-            "children": [
-              {
                 "end": {
                   "x": 281.5338194743825,
                   "y": 109.92310840910292,
-                },
-                "kind": "line",
-                "start": {
-                  "x": 277.66712652982125,
-                  "y": 112.62996741401628,
-                },
-              },
-            ],
-            "kind": "group",
-            "name": "Extension",
-          },
-          {
-            "children": [
-              {
-                "end": {
-                  "x": 306.66732361403035,
-                  "y": 92.32852487716612,
-                },
-                "kind": "line",
-                "start": {
-                  "x": 281.5338194743825,
-                  "y": 109.92310840910292,
-                },
-              },
-            ],
-            "kind": "group",
-            "name": "Projection",
-          },
-          {
-            "children": [
-              {
-                "end": {
-                  "x": 258.94208736273964,
-                  "y": 125.73833717946759,
                 },
                 "kind": "line",
                 "start": {
@@ -851,64 +753,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             ],
             "kind": "group",
             "name": "Arm",
-          },
-          {
-            "children": [
-              {
-                "children": [
-                  {
-                    "end": {
-                      "x": 264.6858623603829,
-                      "y": 115.40708922683882,
-                    },
-                    "kind": "line",
-                    "start": {
-                      "x": 277.66712652982125,
-                      "y": 112.62996741401628,
-                    },
-                  },
-                ],
-                "kind": "group",
-                "name": "PointerPipSideA",
-              },
-              {
-                "children": [
-                  {
-                    "end": {
-                      "x": 270.6151779347638,
-                      "y": 123.87699573320648,
-                    },
-                    "kind": "line",
-                    "start": {
-                      "x": 277.66712652982125,
-                      "y": 112.62996741401628,
-                    },
-                  },
-                ],
-                "kind": "group",
-                "name": "PointerPipSideB",
-              },
-              {
-                "children": [
-                  {
-                    "center": {
-                      "x": 265.86001063045404,
-                      "y": 120.89547968832606,
-                    },
-                    "kind": "arc",
-                    "start": {
-                      "x": 264.6858623603829,
-                      "y": 115.40708922683882,
-                    },
-                    "sweepRad": -3.9415926535898067,
-                  },
-                ],
-                "kind": "group",
-                "name": "PointerPipHeadArc",
-              },
-            ],
-            "kind": "group",
-            "name": "PointerPip",
           },
         ],
         "kind": "group",
@@ -1691,13 +1535,13 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           {
             "anchor": {
               "x": 333.9,
-              "y": 35.50999999999999,
+              "y": 36.69,
             },
             "angleRad": 0,
             "content": "Lymington",
             "hAlign": "right",
             "kind": "text",
-            "size": 4.130000000000001,
+            "size": 5.31,
           },
         ],
         "kind": "group",
@@ -1707,14 +1551,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "children": [
           {
             "anchor": {
-              "x": 306.642,
+              "x": 298.85400000000004,
               "y": 29.019999999999982,
             },
             "angleRad": 0,
             "content": "Mon 23 Mar",
             "hAlign": "right",
             "kind": "text",
-            "size": 4.130000000000001,
+            "size": 5.31,
           },
         ],
         "kind": "group",
@@ -1726,14 +1570,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 326.466,
+                  "x": 324.342,
                   "y": 29.019999999999982,
                 },
                 "angleRad": 0,
                 "content": "19:20",
                 "hAlign": "right",
                 "kind": "text",
-                "size": 4.130000000000001,
+                "size": 5.31,
               },
             ],
             "kind": "group",
@@ -1743,14 +1587,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "anchor": {
-                  "x": 328.944,
+                  "x": 327.528,
                   "y": 29.019999999999982,
                 },
                 "angleRad": 0,
                 "content": ":",
                 "hAlign": "right",
                 "kind": "text",
-                "size": 4.130000000000001,
+                "size": 5.31,
               },
             ],
             "kind": "group",
@@ -1767,7 +1611,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "content": "03",
                 "hAlign": "right",
                 "kind": "text",
-                "size": 4.130000000000001,
+                "size": 5.31,
               },
             ],
             "kind": "group",

@@ -20,8 +20,12 @@ export const homeTideStyleModel: StyleModelSpec = {
       colors: { color: "#0FFF50" }, // bright neon green
     },
     {
-      name: "role.now.projection",
-      colors: { color: "#555" }, 
+      name: "role.hand.arm",
+      colors: { color: "#0FFF50", strokeWidth: 4.0 }, // hand arm stroke
+    },
+    {
+      name: "role.hand.bossCircle",
+      colors: { color: "#0FFF50", strokeWidth: 4.0 }, // hand boss circle stroke
     },
     {
       name: "role.structure.band",
@@ -70,14 +74,8 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "TimeLabel", roleName: "role.structure.emphasis" },
     { name: "TickLabel", roleName: "role.structure.emphasis" },
     { name: "MainLabel", roleName: "role.now.live" },
-    { name: "BossCircle", roleName: "role.now.live" },
-    { name: "SmallCircle", roleName: "role.now.live" },
-    { name: "Extension", roleName: "role.now.live" },
-    { name: "Projection", roleName: "role.now.projection" },
-    { name: "Arm", roleName: "role.now.live" },
-    { name: "PointerPipSideA", roleName: "role.now.live" },
-    { name: "PointerPipSideB", roleName: "role.now.live" },
-    { name: "PointerPipHeadArc", roleName: "role.now.live" },
+    { name: "BossCircle", roleName: "role.hand.bossCircle" },
+    { name: "Arm", roleName: "role.hand.arm" },
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
     { name: "TimeNowLocation", roleName: "role.structure.emphasis" },
     { name: "TimeNowDate", roleName: "role.structure.text" },

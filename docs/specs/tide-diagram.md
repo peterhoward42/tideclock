@@ -128,7 +128,7 @@ of travel.”
 
 - The scene graph at this stage consists of:
   - Arc primitives (for **RefArc** and **TideMarks.TimePointer** head arcs)
-  - Circle primitives (for **Hand.BossCircle** and **Hand.SmallCircle** outlines)
+  - Circle primitives (for **Hand.BossCircle** outlines)
   - One closed circular segment path (for **CentreFrame**: circular arc + straight chord closure)
   - Line segments (for radial segments and tick marks)
   - Text elements
@@ -232,7 +232,7 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
 - `**mainLabelTimeOffsetHours`** — finite number in **[0, 12]**: dial-time offset (hours) used to place **MainLabel** angularly away from `**timeNow`** on the chosen side (see **§Polar**, **MainLabel** placement).
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideHeightLabelRadius**`, `**tideTimeLabelRadius**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
-- `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**smallCircleRadius`** (**k·R**, strictly **> 0**); finite `**pointerPipScale`** (dimensionless, strictly **> 0**); and finite `**pointerTipInset`** (**k·R**, non-negative), the inward radial offset from the RefArc tip used to place the **PointerPip** tip and its dependent radial segments. `**pointerPipScale`** is applied uniformly to all linear dimensions of the pointer-pip silhouette; the divergence angle remains tied to `**tideMarks.tideMarkArrowDivergence`**. Generation fails if hand-derived radial ordering is invalid (see **Hand**, **Radial segments**).
+- `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**). Generation fails if hand-derived radial ordering is invalid (see **Hand**, **Radial segments**).
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
 - `**timeDelta`** — **required** plain object; string `**town**` (required but not rendered in the summary copy; **TimeDeltaLocation** emits an empty string); enum `**tidePhasePair ∈ {"out-low","in-high"}**`; **boolean** `**atypicalTideSummary**` (when `**true**` and a next marker exists, countdown copy follows the atypical branch in **TimeDelta**); **`countdownLines`** — array of **exactly four** plain objects (location, phase, next-event interval, next-event clock stripes), each with finite `**belowOrigin`** and `**fontHeight`** (**k·R** per **§Sizing**); **`emptyMessage`** — plain object with finite `**belowOrigin`** and `**fontHeight**`: when there is no next tide today, the first two empty-day stripes use `**countdownLines[0]`** and `**countdownLines[1]`** for baselines and font heights; the third stripe (**NoMoreTidesToday**) uses `**countdownLines[2].belowOrigin`** for its baseline and `**emptyMessage.fontHeight`** for **FontHeight** (`**emptyMessage.belowOrigin`** is reserved / validated but not used for placement). Per stripe, `**belowOrigin`** is the distance from **Y = 0** toward **−Y** to that stripe’s baseline; **X** is fixed at **0** for all. Supplies **TimeDelta** layout/copy inputs only (see **TimeDelta**).
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
@@ -247,7 +247,7 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
   - TickMarks
   - TickLabels
   - TideMarks
-  - Hand (group; leaves are **BossCircle**, **SmallCircle**, **Extension**, **Projection**, **Arm**; **PointerPip** is a subgroup with leaves **PointerPipSideA**, **PointerPipSideB**, and **PointerPipHeadArc**)
+  - Hand (group; leaves are **BossCircle**, **Arm**)
   - TimeNowLocation (single **TextElement**; current location name from the host)
   - TimeNowDate (single **TextElement**; civil date prefix from the host)
   - TimeNowClock (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds** — canonical `HH:MM`, the colon before `SS`, and `SS`)
@@ -575,79 +575,40 @@ exact group/leaf names listed here.
 - Emitted as a named group **Hand** (`**hand`** input is required).
 - Direct leaves:
   - **BossCircle** — stroked circle.
-  - **SmallCircle** — stroked circle.
-  - **Extension** — stroked radial line segment.
-  - **Projection** — stroked radial line segment.
   - **Arm** — stroked radial line segment.
-- One subgroup **PointerPip** with three stroked leaves:
-  - **PointerPipSideA** — line.
-  - **PointerPipSideB** — line.
-  - **PointerPipHeadArc** — arc.
 - **Hand** primitives are stroked only; **fill** is **none**.
+- **Arm** should render with a slightly wider stroke width than the default diagram stroke.
 
 ### Paint-order example
 
-To ensure the projection stroke sits underneath overlapping hand geometry, a host
-can place it before the boss-circle leaf:
+Hosts can target Hand leaves directly for ordering (for example, placing **Arm**
+before **BossCircle**):
 
 ```json
 {
   "paintOrder": {
     "overrides": [
-      { "name": "Hand.Projection", "place": "before", "relativeTo": "Hand.BossCircle" }
+      { "name": "Arm", "place": "before", "relativeTo": "BossCircle" }
     ]
   }
 }
 ```
-
-### PointerPip geometry (reuse contract)
-
-- **PointerPip** reuses the exact **TideMarks.TimePointer** geometric
-  construction (**TimePointer** construction + scene emission), with these
-  substitutions:
-  - use `**t = t_now`** / `**θ_now`** instead of marker time;
-  - use `**pointerTipInset`** to move `**Vertex1`** inward along the `**θ_now`** ray
-    from the RefArc by `**pointerTipInset·RefRadius`**;
-  - scale all **linear** quantities in that construction by
-    `**hand.pointerPipScale`**;
-  - keep the divergence angle equal to `**tideMarks.tideMarkArrowDivergence`**
-    (same silhouette angles as tide markers).
-- This is a strict similarity constraint: to a viewer, **PointerPip** has the
-  same shape as a tide-marker pointer and differs only by scale.
 
 ### BossCircle
 
 - Center at **O** (`(0,0)`).
 - Radius: `**hand.bossCircleRadius · RefRadius`**.
 
-### SmallCircle
-
-- Radius: `**R_small = hand.smallCircleRadius · RefRadius`**.
-- Center lies on the `**θ_now`** radial line.
-- Let `**C_head`** and `**R_head`** be the centre and radius of
-  **PointerPipHeadArc** from the reused TimePointer construction above.
-- **SmallCircle** is tangent to **PointerPipHeadArc** on the inward side (toward
-  **O**), so centre placement is:
-  - `**|C_head − C_small| = R_head − R_small`**
-  - with `**C_small`** chosen on the inward branch of the `**θ_now`** ray.
-
 ### Radial segments
 
-- All three are colinear with the `**θ_now`** ray.
+- **Arm** is colinear with the `**θ_now`** ray.
 - Let:
-  - `**r_ref = RefRadius**`
   - `**r_track = insideTrackRadius · RefRadius**`
-  - `**r_tip = r_ref − hand.pointerTipInset · RefRadius**`
   - `**r_boss = hand.bossCircleRadius · RefRadius**`
-  - `**r_small_center = |OC_small|**`
-  - `**r_small_inner = r_small_center − R_small**`
 - Segment radii:
-  - **Extension** — from `**r_tip`** to `**r_track`**.
-  - **Projection** — from `**r_track`** to `**r_ref`**.
-  - **Arm** — from `**r_boss`** to `**r_small_inner`**.
-- Validation: generation fails if any segment has non-increasing radius order at
-  emission time (specifically, require `**r_tip < r_track < r_ref**` and
-  `**r_boss < r_small_inner**`).
+  - **Arm** — from `**r_boss`** to `**r_track`**.
+- Validation: generation fails if radial ordering is invalid at emission time
+  (specifically, require `**r_boss < r_track**`).
 
 ## 6. Behavioral branches (TB-6)
 

@@ -17,7 +17,7 @@ const RENDER_DEFAULTS = {
 };
 
 /**
- * @typedef {{ color?: string, strokeColor?: string, fillColor?: string }} SceneRenderRoleColorProps
+ * @typedef {{ color?: string, strokeColor?: string, fillColor?: string, strokeWidth?: number }} SceneRenderRoleColorProps
  *
  * @typedef {{
  *   roleColorsByName: Map<string, SceneRenderRoleColorProps>,
@@ -223,7 +223,8 @@ function renderNode(node, styleRuntime, leafName) {
         leafName,
         node.kind,
       );
-      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none"${dash} />`;
+      const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
+      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none"${dash} />`;
     }
     case "arc": {
       assertLeafScoped(node.kind, leafName);
@@ -239,6 +240,7 @@ function renderNode(node, styleRuntime, leafName) {
         leafName,
         node.kind,
       );
+      const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
       if (node.facetedPreview === true) {
         const pts = circularArcToFacetedPoints(
           node.center,
@@ -246,10 +248,10 @@ function renderNode(node, styleRuntime, leafName) {
           node.sweepRad,
         );
         if (pts === "") return "";
-        return `    <polyline points="${escapeAttr(pts)}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round"${dash}${arrowAttr} />`;
+        return `    <polyline points="${escapeAttr(pts)}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round"${dash}${arrowAttr} />`;
       }
       const d = circularArcToPathD(node.center, node.start, node.sweepRad);
-      return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${dash}${arrowAttr} />`;
+      return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${dash}${arrowAttr} />`;
     }
     case "arcSegment": {
       assertLeafScoped(node.kind, leafName);
@@ -270,9 +272,10 @@ function renderNode(node, styleRuntime, leafName) {
         leafName,
         node.kind,
       );
+      const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
       const d = circularSegmentToPathD(node.center, node.start, node.sweepRad);
       if (d === "") return "";
-      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
+      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
     }
     case "annularSector": {
       assertLeafScoped(node.kind, leafName);
@@ -293,9 +296,10 @@ function renderNode(node, styleRuntime, leafName) {
         leafName,
         node.kind,
       );
+      const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
       const d = annularSectorToPathD(node);
       if (d === "") return "";
-      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
+      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
     }
     case "triangle": {
       assertLeafScoped(node.kind, leafName);
@@ -312,6 +316,7 @@ function renderNode(node, styleRuntime, leafName) {
         leafName,
         node.kind,
       );
+      const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
       const fillAttr = node.outline
         ? "none"
           : requireLeafFillColor(
@@ -320,7 +325,7 @@ function renderNode(node, styleRuntime, leafName) {
             RENDER_DEFAULTS.shapeFill,
             node.kind,
           );
-      return `    <polygon points="${escapeAttr(pts)}" fill="${fillAttr}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
+      return `    <polygon points="${escapeAttr(pts)}" fill="${fillAttr}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
     }
     case "circle": {
       assertLeafScoped(node.kind, leafName);
@@ -336,7 +341,8 @@ function renderNode(node, styleRuntime, leafName) {
         leafName,
         node.kind,
       );
-      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="none" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
+      const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
+      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="none" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
     }
     case "roundedRect": {
       assertLeafScoped(node.kind, leafName);
@@ -352,6 +358,7 @@ function renderNode(node, styleRuntime, leafName) {
         leafName,
         node.kind,
       );
+      const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
       const fill = requireLeafFillColor(
         styleRuntime,
         leafName,
@@ -360,7 +367,7 @@ function renderNode(node, styleRuntime, leafName) {
       );
       const x = center.x - 0.5 * width;
       const y = center.y - 0.5 * height;
-      return `    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${rx}" ry="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="${SCENE_STROKE_WIDTH}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
+      return `    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${rx}" ry="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
     }
     case "text": {
       assertLeafScoped(node.kind, leafName);
@@ -744,6 +751,22 @@ function strokeDashAttrFragmentFromLeaf(styleRuntime, leafName, primitiveKind) {
   const lineStyle =
     leafName && styleRuntime ? styleRuntime.lineStyleByName.get(leafName) : undefined;
   return svgStrokeDasharrayAttrFragment(lineStyle);
+}
+
+/**
+ * Optional stroke width scale from external leaf-level line-style binding.
+ *
+ * @param {SceneRenderStyleRuntime | undefined} styleRuntime
+ * @param {string | null} leafName
+ * @returns {number}
+ */
+function strokeWidthFromLeaf(styleRuntime, leafName) {
+  if (!leafName || !styleRuntime) return SCENE_STROKE_WIDTH;
+  const roleName = styleRuntime.nameToRole.get(leafName);
+  if (!roleName) return SCENE_STROKE_WIDTH;
+  const role = styleRuntime.roleColorsByName.get(roleName);
+  if (!role || typeof role.strokeWidth !== "number") return SCENE_STROKE_WIDTH;
+  return role.strokeWidth;
 }
 
 /**

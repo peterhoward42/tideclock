@@ -117,11 +117,7 @@ type HandDiagram = {
   readonly timeHours: number;
   readonly theta: number;
   readonly bossCircle: { readonly center: DiagramPoint; readonly radius: number };
-  readonly smallCircle: { readonly center: DiagramPoint; readonly radius: number };
-  readonly extension: DiagramLineSeg;
-  readonly projection: DiagramLineSeg;
   readonly arm: DiagramLineSeg;
-  readonly pointerPip: TideTimePointerSpec;
 };
 
 /**
@@ -271,7 +267,12 @@ export type DiagramGenerationSpec = Record<string, unknown>;
 export type DiagramGenerationStyleRuntime = {
   readonly roleColorsByName: Map<
     string,
-    { readonly color?: string; readonly strokeColor?: string; readonly fillColor?: string }
+    {
+      readonly color?: string;
+      readonly strokeColor?: string;
+      readonly fillColor?: string;
+      readonly strokeWidth?: number;
+    }
   >;
   readonly nameToRole: Map<string, string>;
   readonly lineStyleByName: Map<string, string>;

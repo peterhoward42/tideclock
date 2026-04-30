@@ -42,9 +42,6 @@ export type HomeTideDiagramLayoutBase = {
   readonly annularBand: { readonly annularBandWidth: number };
   readonly hand: {
     readonly bossCircleRadius: number;
-    readonly smallCircleRadius: number;
-    readonly pointerPipScale: number;
-    readonly pointerTipInset: number;
   };
   readonly paintOrder: {
     readonly overrides: readonly {

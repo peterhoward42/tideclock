@@ -20,10 +20,7 @@ export const homeTideDiagramLayoutBase = {
   mainLabelRadius: 0.59,
   mainLabelTimeOffsetHours: 1.2,
   hand: {
-    bossCircleRadius: 0.08,
-    smallCircleRadius: 0.012,
-    pointerPipScale: 2.5,
-    pointerTipInset: 0.3,
+    bossCircleRadius: 0.05,
   },
   paintOrder: {
     overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],

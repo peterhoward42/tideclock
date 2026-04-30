@@ -55,11 +55,7 @@
  *   timeHours: number,
  *   theta: number,
  *   bossCircle: { center: DiagramPoint, radius: number },
- *   smallCircle: { center: DiagramPoint, radius: number },
- *   extension: DiagramLineSeg,
- *   projection: DiagramLineSeg,
  *   arm: DiagramLineSeg,
- *   pointerPip: TideTimePointerSpec,
  * }} HandDiagram
  *
  * @typedef {{

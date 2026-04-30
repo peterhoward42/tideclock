@@ -54,9 +54,6 @@ type SemanticInjectionDiagramSpec = {
   readonly annularBand: { readonly annularBandWidth: number };
   readonly hand: {
     readonly bossCircleRadius: number;
-    readonly smallCircleRadius: number;
-    readonly pointerPipScale: number;
-    readonly pointerTipInset: number;
   };
   readonly homeMenuTrigger: {
     readonly width: number;
@@ -107,9 +104,6 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     annularBand: { annularBandWidth: 0.05 },
     hand: {
       bossCircleRadius: 0.08,
-      smallCircleRadius: 0.012,
-      pointerPipScale: 2.5,
-      pointerTipInset: 0.3,
     },
     homeMenuTrigger: {
       width: 0.2,

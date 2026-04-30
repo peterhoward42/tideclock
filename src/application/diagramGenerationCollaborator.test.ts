@@ -32,11 +32,11 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(output.scene.version).toBe(2);
     expect(output.scene.root.kind).toBe('group');
     expect(output.styleRuntime.roleColorsByName.size).toBeGreaterThan(0);
-    expect(output.diagram.hand.pointerPip.circle.radius).toBeGreaterThan(0);
     const hand = output.diagram.hand;
-    const rHeadCenter = Math.hypot(hand.pointerPip.circle.center.x, hand.pointerPip.circle.center.y);
-    const rSmallCenter = Math.hypot(hand.smallCircle.center.x, hand.smallCircle.center.y);
-    expect(rSmallCenter).toBeLessThan(rHeadCenter);
+    const rArmStart = Math.hypot(hand.arm.start.x, hand.arm.start.y);
+    const rArmEnd = Math.hypot(hand.arm.end.x, hand.arm.end.y);
+    expect(rArmStart).toBeCloseTo(hand.bossCircle.radius);
+    expect(rArmEnd).toBeCloseTo(output.diagram.insideTrack.radius);
   });
 
   it('InsideTrack is concentric with RefArc at insideTrackRadius·RefRadius', () => {
@@ -177,10 +177,10 @@ describe('createDiagramGenerationCollaborator', () => {
     const spec = {
       ...base,
       paintOrder: {
-        overrides: [{ name: 'Hand.Projection', place: 'before' as const, relativeTo: 'RefArc' }],
+        overrides: [{ name: 'Hand.MissingLeaf', place: 'before' as const, relativeTo: 'RefArc' }],
       },
     };
-    expect(() => collaborator.generate(spec)).toThrow(/unknown group name "Hand\.Projection"/);
+    expect(() => collaborator.generate(spec)).toThrow(/unknown group name "Hand\.MissingLeaf"/);
   });
 
   it('throws for duplicate paint-order mover names', () => {

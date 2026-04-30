@@ -3,6 +3,9 @@ TIDE DIAL
 
 o  first glance ux assimilation suggestions
 	o  hand must be simple pointer - no circle of reln to tide marker shape
+		o  use branch simplerhand
+			o  try adding time now to the hand
+		o  merge branch simplerhand
 	o  Low tide in <X> move to bottom edge
 	o  Try out mirrored layout
 		o  bind the radius settings not separate
