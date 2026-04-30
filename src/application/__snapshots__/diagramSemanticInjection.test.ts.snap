@@ -35,7 +35,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "homeMenuTrigger": {
     "center": {
-      "x": -118.35191880160563,
+      "x": -109.73264976516901,
       "y": -118.64900000000002,
     },
     "cornerRadius": 4.484,
@@ -642,7 +642,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "timeNowClock": {
     "hhmm": {
       "anchor": {
-        "x": 110.912649765169,
+        "x": 117.43368250390557,
         "y": -132.16000000000003,
       },
       "content": "19:20",
@@ -651,7 +651,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     "seconds": {
       "anchor": {
-        "x": 121.532649765169,
+        "x": 128.05368250390558,
         "y": -132.16000000000003,
       },
       "content": "03",
@@ -660,7 +660,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     "secondsColon": {
       "anchor": {
-        "x": 114.452649765169,
+        "x": 120.97368250390558,
         "y": -132.16000000000003,
       },
       "content": ":",
@@ -670,7 +670,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "timeNowDate": {
     "anchor": {
-      "x": 82.592649765169,
+      "x": 89.11368250390558,
       "y": -132.16000000000003,
     },
     "content": "Mon 23 Mar",
@@ -679,7 +679,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "timeNowLocation": {
     "anchor": {
-      "x": 121.532649765169,
+      "x": 128.05368250390558,
       "y": -120.36000000000001,
     },
     "content": "Lymington",

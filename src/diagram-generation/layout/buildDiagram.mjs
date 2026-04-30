@@ -11,7 +11,7 @@
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
  * - Sub-builders (`buildTideMarksFromSpec`) enforce their own throw rules.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
- * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from diagram bounds: left edge at the leftmost tick-label bound, bottom edge above **MainLabel** top.
+ * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), and string `**label**`. Position is derived from global layout bounds: left edge at layout-bounds left, bottom edge above **MainLabel** top.
  * - **MainLabel** is horizontal text anchored from content bounds (leftmost tick-label bound and minimum tick-label-anchor **Y**), not curved arc text.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
  */
@@ -24,7 +24,7 @@ import {
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import { computeNextTideEventFromSpec } from "../model/tideEvents.mjs";
 import {
-  annularBandMaxX,
+  annularBandBounds,
   polar,
   refArcAngles,
   timeToTheta,
@@ -35,19 +35,21 @@ const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
 const TIME_NOW_DATE_TIME_SEPARATOR_SPACES = 3;
 // TimeNowClock is emitted as `HH:MM` + `:` + `SS`; total mono-char count = 5 + 1 + 2 = 8.
 const TIME_NOW_CLOCK_TOTAL_CHARS = 8;
+const TEXT_ASCENT_EM = 0.8;
+const TEXT_DESCENT_EM = 0.2;
 
 /**
  * Time-now readout: **TimeNowLocation** (current location name), and a single merged date+clock row:
  * **TimeNowDate** (civil prefix) concatenated on the left of **TimeNowClock** (`HH:MM` + `:` + `SS`), right-aligned
- * to {@link annularBandMaxX}; clock baseline **Y** matches the minimum **Y** among **TickLabels** (see spec).
+ * to global layout-bounds right; clock baseline **Y** matches the minimum **Y** among **TickLabels** (see spec).
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
- * @param {number} annularMaxX diagram-space maximum **X** of **AnnularBand**
+ * @param {number} layoutBoundsRightX diagram-space right edge of global layout bounds
  * @param {number} clockBaselineY diagram-space **Y** shared by all three clock fragments (tick-label-min rule)
  * @returns {{ timeNowLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowDate: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowClock: import('../model/tideDiagramModel.mjs').DiagramTimeNowClockInst }}
  */
-function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaselineY) {
+function buildTimeNowReadoutFromSpec(spec, refRadius, layoutBoundsRightX, clockBaselineY) {
   const o = requirePlainObject(spec.timeNowLabel, "spec.timeNowLabel");
   const fontHeightK = o.fontHeight;
   const dateAboveK = o.dateAboveTime;
@@ -75,7 +77,7 @@ function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaseline
   }
   const locationName = spec.timeNowLocation.trim();
   const fontSize = fontHeightK * refRadius;
-  const ax = annularMaxX;
+  const ax = layoutBoundsRightX;
   const timeY = clockBaselineY;
   // Date and clock share a baseline: the 2nd row in the merged time-now readout.
   const dateY = timeY;
@@ -123,6 +125,78 @@ function buildTimeNowReadoutFromSpec(spec, refRadius, annularMaxX, clockBaseline
       },
     },
   };
+}
+
+function emptyBounds() {
+  return { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity };
+}
+
+function includePoint(bounds, p) {
+  if (p.x < bounds.minX) bounds.minX = p.x;
+  if (p.x > bounds.maxX) bounds.maxX = p.x;
+  if (p.y < bounds.minY) bounds.minY = p.y;
+  if (p.y > bounds.maxY) bounds.maxY = p.y;
+}
+
+function includeRect(bounds, minX, maxX, minY, maxY) {
+  if (minX < bounds.minX) bounds.minX = minX;
+  if (maxX > bounds.maxX) bounds.maxX = maxX;
+  if (minY < bounds.minY) bounds.minY = minY;
+  if (maxY > bounds.maxY) bounds.maxY = maxY;
+}
+
+function includeDiagramTextBounds(bounds, textInst) {
+  const size = textInst.fontSize;
+  const len = textInst.content.length;
+  const width = len * size * TIME_NOW_LABEL_CHAR_WIDTH_EM;
+  let x0 = textInst.anchor.x;
+  let x1 = textInst.anchor.x;
+  if (textInst.hAlign === "left") {
+    x1 = x0 + width;
+  } else if (textInst.hAlign === "right") {
+    x0 = x0 - width;
+  } else {
+    x0 = x0 - 0.5 * width;
+    x1 = x1 + 0.5 * width;
+  }
+  const y0 = textInst.anchor.y - TEXT_DESCENT_EM * size;
+  const y1 = textInst.anchor.y + TEXT_ASCENT_EM * size;
+  const angle = textInst.angleRad ?? 0;
+  if (Math.abs(angle) < 1e-12) {
+    includeRect(bounds, x0, x1, y0, y1);
+    return;
+  }
+  const c = Math.cos(angle);
+  const s = Math.sin(angle);
+  const ax = textInst.anchor.x;
+  const ay = textInst.anchor.y;
+  const corners = [
+    { x: x0, y: y0 },
+    { x: x1, y: y0 },
+    { x: x1, y: y1 },
+    { x: x0, y: y1 },
+  ];
+  for (const corner of corners) {
+    const dx = corner.x - ax;
+    const dy = corner.y - ay;
+    includePoint(bounds, { x: ax + dx * c - dy * s, y: ay + dx * s + dy * c });
+  }
+}
+
+function extendBoundsByTideMarker(bounds, marker) {
+  includeDiagramTextBounds(bounds, marker.heightLabel);
+  includeDiagramTextBounds(bounds, marker.timeLabel);
+  includePoint(bounds, marker.timePointer.triangle.v1);
+  includePoint(bounds, marker.timePointer.triangle.v2);
+  includePoint(bounds, marker.timePointer.triangle.v3);
+  const { center, radius } = marker.timePointer.circle;
+  includeRect(
+    bounds,
+    center.x - radius,
+    center.x + radius,
+    center.y - radius,
+    center.y + radius,
+  );
 }
 
 /**
@@ -265,7 +339,26 @@ export function buildDiagram(spec) {
     });
   }
 
-  const annularMaxX = annularBandMaxX(annularBand);
+  const tideMarks = buildTideMarksFromSpec(
+    spec,
+    refRadius,
+    thetaLeft,
+    thetaRight,
+  );
+  const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
+  const annularBounds = annularBandBounds(annularBand);
+  const layoutBounds = emptyBounds();
+  includeRect(
+    layoutBounds,
+    annularBounds.minX,
+    annularBounds.maxX,
+    annularBounds.minY,
+    annularBounds.maxY,
+  );
+  includePoint(layoutBounds, { x: 0, y: hand.bossCircle.radius });
+  for (const marker of tideMarks) {
+    extendBoundsByTideMarker(layoutBounds, marker);
+  }
   if (tickLabels.length === 0) {
     throw new Error(
       "spec.tickLabelHours must list at least one hour: time-now clock uses the minimum Y among tick label anchors",
@@ -275,7 +368,7 @@ export function buildDiagram(spec) {
   const { timeNowLocation, timeNowDate, timeNowClock } = buildTimeNowReadoutFromSpec(
     spec,
     refRadius,
-    annularMaxX,
+    layoutBounds.maxX,
     clockBaselineY,
   );
   const leftmostTickLabelX = Math.min(
@@ -283,12 +376,6 @@ export function buildDiagram(spec) {
       tl.anchor.x -
       0.5 * tl.content.length * TIME_NOW_LABEL_CHAR_WIDTH_EM * tl.fontSize,
     ),
-  );
-  const tideMarks = buildTideMarksFromSpec(
-    spec,
-    refRadius,
-    thetaLeft,
-    thetaRight,
   );
 
   const parsedNowForMainLabel = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
@@ -311,10 +398,9 @@ export function buildDiagram(spec) {
   const homeMenuTrigger = buildHomeMenuTriggerFromSpec(
     spec,
     refRadius,
-    leftmostTickLabelX,
+    layoutBounds.minX,
     mainLabelTopY + homeMenuTriggerGap,
   );
-  const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
 
   return {
     version: 1,

@@ -10,7 +10,18 @@ o  first glance ux assimilation suggestions
 
 	o  Try out mirrored layout
 		o  branch mirror
+			o  new diag bounds
+				o  speaks of maximum diagram-space X 
+				o  TimeNowLocation uses the same x anchor as the annular band’s +X 
+				o  home menu trigger uses tick labels
+
 		o  merge branch mirror
+
+	o  diagramElements are enumerated - is this also not duplicated?
+	o  under heading derived behaviour it catalogs the input requirements,
+	   cannot these be implied? Also there is no heading?
+
+	o  the word centreFrame still appears in the spec?
 
 	o  iconography for high vs low?
 	o  put glow /pulsing on next tide marker's time

@@ -44,6 +44,43 @@ interpreted as **k·R** (e.g. **0.15** → **0.15·R**).
 mean increasing / decreasing **Y**. **Above** / **below** mean toward **top** /
 **bottom** along **Y** (see **§Origin**).
 
+### §Global layout bounds (single source of truth)
+
+All edge references used by layout consumers MUST be read from this section.
+Sections MUST NOT re-derive edge values from local geometry shortcuts.
+
+Define conceptual variables:
+
+- **B_left**, **B_right**, **B_bottom**, **B_top** — final diagram-space
+  bounding edges.
+
+Two-pass construction:
+
+1) **Day-invariant baseline bounds**
+
+- Let **AnnularBandBounds** be the axis-aligned bounds of emitted **AnnularBand**
+  geometry.
+- Set:
+  - **B_left_base = AnnularBandBounds.left**
+  - **B_right_base = AnnularBandBounds.right**
+  - **B_bottom_base = AnnularBandBounds.bottom**
+- Let **BossTop** be the top extent of **Hand.BossCircle**.
+- Set **B_top_base = BossTop**.
+
+2) **Day-variant marker expansion**
+
+- For each emitted tide-marker cluster in **TideMarks** for the civil day,
+  compute that cluster’s relevant extents (labels + pointer geometry in
+  diagram-space).
+- Expand each baseline edge if any marker exceeds it:
+  - **B_left = min(B_left_base, marker-left extents...)**
+  - **B_right = max(B_right_base, marker-right extents...)**
+  - **B_bottom = min(B_bottom_base, marker-bottom extents...)**
+  - **B_top = max(B_top_base, marker-top extents...)**
+
+The tuple **(B_left, B_right, B_bottom, B_top)** is the global layout-bounds
+contract for all dependent placements in this specification.
+
 ### §Polar — reference arc geometry
 
 - The **RefArc** is a contiguous **circular arc** of radius **RefRadius** centred
@@ -221,7 +258,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
 - `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
-- `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); finite `**gapAboveMainLabel`** (**k·R**, **≥ 0**); and string `**label`** (product default `**Menu**`). Position is derived from diagram content bounds: the trigger’s left edge is anchored to the leftmost tick-label bound, and its bottom edge is anchored above **MainLabel** top by `**gapAboveMainLabel·RefRadius`**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
+- `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); finite `**gapAboveMainLabel`** (**k·R**, **≥ 0**); and string `**label`** (product default `**Menu**`). Position is derived from **§Global layout bounds**: the trigger’s left edge is anchored to **B_left**, and its bottom edge is anchored above **MainLabel** top by `**gapAboveMainLabel·RefRadius`**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
 
 ## 4. Scene model contracts (TB-4)
 
@@ -239,7 +276,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
   - AnnularBand
   - MainLabel (single horizontal left-justified text element; content synthesized from the next tide event at or after `**timeNow`** on the same civil day)
   - RefArc
-  - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from content bounds so the rectangle left edge aligns to the leftmost tick-label bound and rectangle bottom edge sits above **MainLabel** top with a fixed gap; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
+  - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from **§Global layout bounds** so the rectangle left edge aligns to **B_left** and rectangle bottom edge sits above **MainLabel** top with a fixed gap; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
 
 ### Style binding names (exact-match contract)
 
@@ -265,11 +302,10 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 ### Horizontal placement (both elements)
 
-- Let **X_ann_max** be the **maximum diagram-space X** coordinate attained by the closed **AnnularBand** sector (outer/inner arcs and closing radial segments), for the band’s emitted geometry (same centre **O** as **RefArc**).
 - **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock** use **horizontal justification** **right**.
-- The **trailing** (rightmost) anchor for the clock row is at **(X_ann_max, y_clock)** so the **TimeNowLabelSeconds** anchor **x** equals **X_ann_max**; **TimeNowLabelSecondsColon** and **TimeNowLabelHms** anchors sit to the left by the same fixed monospace width heuristic as before (**§Scene model** / preview framing).
+- The **trailing** (rightmost) anchor for the clock row is at **(B_right, y_clock)** so the **TimeNowLabelSeconds** anchor **x** equals **B_right**; **TimeNowLabelSecondsColon** and **TimeNowLabelHms** anchors sit to the left by the same fixed monospace width heuristic as before (**§Scene model** / preview framing).
 - **TimeNowDate** is shifted left so that its right edge stops before the clock and a fixed separator gap (implemented as spacing equal to several monospace character widths), producing a merged “date + time” single visual row.
-- **TimeNowLocation** uses the same **x** anchor as the annular band’s **+X** bound (so the location remains right-aligned to the full readout).
+- **TimeNowLocation** uses **B_right** as its **x** anchor (so the location remains right-aligned to the full readout).
 
 ### Vertical placement
 

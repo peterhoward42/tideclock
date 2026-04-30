@@ -137,14 +137,31 @@
  * @returns {number}
  */
 export function annularBandMaxX(annular) {
+  return annularBandBounds(annular).maxX;
+}
+
+/**
+ * Axis-aligned bounds of the closed **AnnularBand** sector in diagram space.
+ *
+ * @param {{ center: DiagramPoint, rInner: number, rOuter: number, thetaLeft: number, sweepRad: number }} annular
+ * @returns {{ minX: number, maxX: number, minY: number, maxY: number }}
+ */
+export function annularBandBounds(annular) {
   const { center, rInner, rOuter, thetaLeft, sweepRad } = annular;
   const thetaRight = thetaLeft + sweepRad;
   const lo = Math.min(thetaLeft, thetaRight);
   const hi = Math.max(thetaLeft, thetaRight);
+  let minX = Infinity;
   let maxX = -Infinity;
+  let minY = Infinity;
+  let maxY = -Infinity;
   const consider = (theta, r) => {
     const x = center.x + r * Math.cos(theta);
+    const y = center.y + r * Math.sin(theta);
+    if (x < minX) minX = x;
     if (x > maxX) maxX = x;
+    if (y < minY) minY = y;
+    if (y > maxY) maxY = y;
   };
   for (const r of [rInner, rOuter]) {
     consider(thetaLeft, r);
@@ -157,7 +174,7 @@ export function annularBandMaxX(annular) {
       consider(th, rOuter);
     }
   }
-  return maxX;
+  return { minX, maxX, minY, maxY };
 }
 
 /** @param {string} label @param {number} value */
