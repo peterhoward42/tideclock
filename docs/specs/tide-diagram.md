@@ -486,15 +486,17 @@ Each marker emits one cluster with direct children:
 
 For **both** labels:
 
-- **Horizontal justification** — **centre**.
+- **Horizontal justification** is side-specific:
+  - Earlier-side label (time label at **θ(t) − 0.5·tideLabelArcSeparationRad**) uses **right** justification.
+  - Later-side label (height label at **θ(t) + 0.5·tideLabelArcSeparationRad**) uses **left** justification.
 - Both labels share one anchor radius from **O**:
   - Label radius: `**<TideLabelRadius>·R`**.
 - Label anchors sit on either side of the marker radial line along the concentric arc at that radius:
-  - Height label anchor angle: **θ(t) − 0.5·tideLabelArcSeparationRad**.
-  - Time label anchor angle: **θ(t) + 0.5·tideLabelArcSeparationRad**.
+  - Time label anchor angle: **θ(t) − 0.5·tideLabelArcSeparationRad**.
+  - Height label anchor angle: **θ(t) + 0.5·tideLabelArcSeparationRad**.
 - **Baseline polar angle** follows the local tangent at each anchor:
-  - Height label baseline angle: **(θ(t) − 0.5·tideLabelArcSeparationRad) + π/2**.
-  - Time label baseline angle: **(θ(t) + 0.5·tideLabelArcSeparationRad) + π/2**.
+  - Time label baseline angle: **(θ(t) − 0.5·tideLabelArcSeparationRad) + π/2**.
+  - Height label baseline angle: **(θ(t) + 0.5·tideLabelArcSeparationRad) + π/2**.
 
 **FontHeight** (per kind, **k·R**):
 

@@ -79,8 +79,8 @@ export function layoutTideMarks(params) {
     const theta = timeToTheta(t, thetaLeft, thetaRight);
     const rLabel = tideLabelRadius * R;
     const halfArcSeparation = 0.5 * tideLabelArcSeparationRad;
-    const heightTheta = theta - halfArcSeparation;
-    const timeTheta = theta + halfArcSeparation;
+    const timeTheta = theta - halfArcSeparation;
+    const heightTheta = theta + halfArcSeparation;
     const heightAnchor = polar(rLabel, heightTheta);
     const timeAnchor = polar(rLabel, timeTheta);
 

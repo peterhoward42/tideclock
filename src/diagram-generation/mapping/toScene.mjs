@@ -537,7 +537,7 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
       text({
         content: hl.content,
         size: hl.fontSize,
-        hAlign: "center",
+        hAlign: "left",
         angleRad: hl.angleRad,
         anchor: mapPoint(hl.anchor, cx, cy),
       }),
@@ -546,7 +546,7 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
       text({
         content: tl.content,
         size: tl.fontSize,
-        hAlign: "center",
+        hAlign: "right",
         angleRad: tl.angleRad,
         anchor: mapPoint(tl.anchor, cx, cy),
       }),

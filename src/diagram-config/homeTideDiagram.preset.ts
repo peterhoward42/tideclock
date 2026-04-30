@@ -34,8 +34,8 @@ export const homeTideDiagramLayoutBase = {
     label: "Menu",
   },
   tideMarksDefaults: {
-    tideLabelRadius: 1.24,
-    tideLabelArcSeparationRad: 0.26,
+    tideLabelRadius: 1.17,
+    tideLabelArcSeparationRad: 0.07,
     tideHeightLabelSize: 0.045,
     tideTimeLabelSize: 0.045,
     tideMarkArrowDivergence: 0.8,

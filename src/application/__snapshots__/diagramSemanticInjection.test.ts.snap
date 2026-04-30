@@ -457,10 +457,10 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     {
       "heightLabel": {
         "anchor": {
-          "x": -84.35811046619969,
-          "y": -52.04309366834805,
+          "x": -68.14356528646555,
+          "y": -71.98075374743728,
         },
-        "angleRad": 5.265164473846253,
+        "angleRad": 5.525164473846253,
         "content": "0.94 m",
         "fontSize": 5.428,
       },
@@ -469,10 +469,10 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "timeHours": 4.25,
       "timeLabel": {
         "anchor": {
-          "x": -68.14356528646555,
-          "y": -71.98075374743728,
+          "x": -84.35811046619969,
+          "y": -52.04309366834805,
         },
-        "angleRad": 5.525164473846253,
+        "angleRad": 5.265164473846253,
         "content": "04:15",
         "fontSize": 4.72,
       },
@@ -503,10 +503,10 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     {
       "heightLabel": {
         "anchor": {
-          "x": -26.746760594717827,
-          "y": -95.44309926699178,
+          "x": -1.311236752442451,
+          "y": -99.11132658873578,
         },
-        "angleRad": 6.00995614051292,
+        "angleRad": 6.26995614051292,
         "content": "4.7 m",
         "fontSize": 5.428,
       },
@@ -515,10 +515,10 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "timeHours": 10.75,
       "timeLabel": {
         "anchor": {
-          "x": -1.311236752442451,
-          "y": -99.11132658873578,
+          "x": -26.746760594717827,
+          "y": -95.44309926699178,
         },
-        "angleRad": 6.26995614051292,
+        "angleRad": 6.00995614051292,
         "content": "10:45",
         "fontSize": 4.72,
       },
@@ -549,10 +549,10 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     {
       "heightLabel": {
         "anchor": {
-          "x": 42.37786003361894,
-          "y": -89.60408126291459,
+          "x": 63.98900589413605,
+          "y": -75.69796248697992,
         },
-        "angleRad": 6.72495614051292,
+        "angleRad": 6.98495614051292,
         "content": "0.89 m",
         "fontSize": 5.428,
       },
@@ -561,10 +561,10 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "timeHours": 16.99,
       "timeLabel": {
         "anchor": {
-          "x": 63.98900589413605,
-          "y": -75.69796248697992,
+          "x": 42.37786003361894,
+          "y": -89.60408126291459,
         },
-        "angleRad": 6.98495614051292,
+        "angleRad": 6.72495614051292,
         "content": "16:59",
         "fontSize": 4.72,
       },
@@ -595,10 +595,10 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     {
       "heightLabel": {
         "anchor": {
-          "x": 90.14120371294949,
-          "y": -41.22302503675024,
+          "x": 97.70919391228784,
+          "y": -16.663967865155342,
         },
-        "angleRad": 7.425060307179586,
+        "angleRad": 7.685060307179586,
         "content": "4.8 m",
         "fontSize": 5.428,
       },
@@ -607,10 +607,10 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "timeHours": 23.1,
       "timeLabel": {
         "anchor": {
-          "x": 97.70919391228784,
-          "y": -16.663967865155342,
+          "x": 90.14120371294949,
+          "y": -41.22302503675024,
         },
-        "angleRad": 7.685060307179586,
+        "angleRad": 7.425060307179586,
         "content": "23:06",
         "fontSize": 4.72,
       },
