@@ -36,7 +36,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "homeMenuTrigger": {
     "center": {
       "x": -119.652,
-      "y": -117.46900000000001,
+      "y": -110.802,
     },
     "cornerRadius": 4.484,
     "height": 15.34,
@@ -481,6 +481,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "content": "0.94 m",
         "fontSize": 5.31,
       },
+      "temporalClass": "past",
       "theta": 3.6979163526629857,
       "timeHours": 4.25,
       "timeLabel": {
@@ -526,6 +527,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "content": "4.7 m",
         "fontSize": 5.31,
       },
+      "temporalClass": "past",
       "theta": 4.548764363010221,
       "timeHours": 10.75,
       "timeLabel": {
@@ -571,6 +573,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "content": "0.89 m",
         "fontSize": 5.31,
       },
+      "temporalClass": "past",
       "theta": 5.365578452943567,
       "timeHours": 16.99,
       "timeLabel": {
@@ -616,6 +619,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "content": "4.8 m",
         "fontSize": 5.31,
       },
+      "temporalClass": "future",
       "theta": 6.165375582669969,
       "timeHours": 23.1,
       "timeLabel": {
@@ -1131,7 +1135,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "TimePointer",
+                "name": "TimePointerPast",
               },
               {
                 "children": [
@@ -1148,7 +1152,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "HeightLabel",
+                "name": "HeightLabelPast",
               },
               {
                 "children": [
@@ -1165,7 +1169,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "TimeLabel",
+                "name": "TimeLabelPast",
               },
             ],
             "kind": "group",
@@ -1211,7 +1215,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "TimePointer",
+                "name": "TimePointerPast",
               },
               {
                 "children": [
@@ -1228,7 +1232,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "HeightLabel",
+                "name": "HeightLabelPast",
               },
               {
                 "children": [
@@ -1245,7 +1249,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "TimeLabel",
+                "name": "TimeLabelPast",
               },
             ],
             "kind": "group",
@@ -1291,7 +1295,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "TimePointer",
+                "name": "TimePointerPast",
               },
               {
                 "children": [
@@ -1308,7 +1312,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "HeightLabel",
+                "name": "HeightLabelPast",
               },
               {
                 "children": [
@@ -1325,7 +1329,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "TimeLabel",
+                "name": "TimeLabelPast",
               },
             ],
             "kind": "group",
@@ -1371,7 +1375,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "TimePointer",
+                "name": "TimePointerFuture",
               },
               {
                 "children": [
@@ -1388,7 +1392,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "HeightLabel",
+                "name": "HeightLabelFuture",
               },
               {
                 "children": [
@@ -1405,7 +1409,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "TimeLabel",
+                "name": "TimeLabelFuture",
               },
             ],
             "kind": "group",
@@ -1622,7 +1626,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           {
             "center": {
               "x": 90.348,
-              "y": 42.53099999999999,
+              "y": 49.19799999999999,
             },
             "height": 15.34,
             "kind": "roundedRect",
@@ -1634,7 +1638,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 90.348,
-                  "y": 42.53099999999999,
+                  "y": 49.19799999999999,
                 },
                 "angleRad": 0,
                 "content": "Menu",

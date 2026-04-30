@@ -27,6 +27,7 @@ import { requireFiniteNumber, requirePlainObject, requireString } from "./specRe
  *   canonicalTime: string,
  *   heightText: string,
  *   timeText: string,
+ *   isFuture: boolean,
  * }} LayoutTideMarkInput
  */
 
@@ -92,6 +93,7 @@ export function layoutTideMarks(params) {
     out.push({
       timeHours: t,
       theta,
+      temporalClass: m.isFuture ? "future" : "past",
       heightLabel: {
         content: m.heightText,
         fontSize: heightLabelSizeK * R,
@@ -226,6 +228,10 @@ export function parseTideMarksMarkerRowsOrThrow(markersRaw) {
 export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const o = requirePlainObject(spec.tideMarks, "spec.tideMarks");
   const parsedRows = parseTideMarksMarkerRowsOrThrow(o.markers);
+  const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
+  if (parsedNow.isRightEndpoint) {
+    throw new Error('spec.timeNow cannot be "24:00:00"');
+  }
 
   const tideHeightLabelRadius = requireFiniteNumber(
     o.tideHeightLabelRadius,
@@ -258,12 +264,27 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     ),
   );
 
+  const semanticRaw = spec.semantic;
+  const semantic =
+    semanticRaw != null && typeof semanticRaw === "object"
+      ? /** @type {Record<string, unknown>} */ (semanticRaw)
+      : null;
+  const hasExplicitNoNextTide =
+    semantic != null &&
+    Object.prototype.hasOwnProperty.call(semantic, "nextTide") &&
+    semantic.nextTide === null;
+  const hasAnyMarkerAtOrAfterNow = parsedRows.some(
+    (row) => row.seconds >= parsedNow.seconds,
+  );
+  const shouldForceAllFuture = hasExplicitNoNextTide || !hasAnyMarkerAtOrAfterNow;
+
   /** @type {LayoutTideMarkInput[]} */
   const markers = parsedRows.map((row) => ({
     t: row.hours,
     canonicalTime: row.canonicalTime,
     heightText: row.heightText,
     timeText: formatCanonicalHHMM(row.canonicalTime),
+    isFuture: shouldForceAllFuture || row.seconds >= parsedNow.seconds,
   }));
 
   return layoutTideMarks({

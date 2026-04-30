@@ -18,7 +18,7 @@
 
 import { assertKnownLineStyleToken } from "./lineStyleRendering.mjs";
 
-/** @typedef {{ color?: string, strokeColor?: string, fillColor?: string, strokeWidth?: number }} RoleColorProps */
+/** @typedef {{ color?: string, strokeColor?: string, fillColor?: string, strokeWidth?: number, opacity?: number }} RoleColorProps */
 
 /** @typedef {{ name: string, colors: RoleColorProps }} SemanticRole */
 
@@ -261,6 +261,15 @@ function normalizeRoleColorProps(raw, context) {
       throw new Error(`${context}.strokeWidth must be greater than 0`);
     }
     out.strokeWidth = raw.strokeWidth;
+  }
+  if (raw.opacity !== undefined) {
+    if (typeof raw.opacity !== "number" || !Number.isFinite(raw.opacity)) {
+      throw new Error(`${context}.opacity must be a finite number`);
+    }
+    if (raw.opacity < 0 || raw.opacity > 1) {
+      throw new Error(`${context}.opacity must be between 0 and 1 inclusive`);
+    }
+    out.opacity = raw.opacity;
   }
   return out;
 }

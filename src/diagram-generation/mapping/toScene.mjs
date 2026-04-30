@@ -518,12 +518,13 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
   const tp = mark.timePointer;
   const tri = tp.triangle;
   const circ = tp.circle;
+  const styleSuffix = mark.temporalClass === "past" ? "Past" : "Future";
   const p1 = mapPoint(tri.v1, cx, cy);
   const p2 = mapPoint(tri.v2, cx, cy);
   const p3 = mapPoint(tri.v3, cx, cy);
   const c = mapPoint(circ.center, cx, cy);
   const headSweep = timePointerHeadArcSweepRad(p1, p2, p3, c);
-  const timePointerGroup = group("TimePointer", [
+  const timePointerGroup = group(`TimePointer${styleSuffix}`, [
     line(p1, p2),
     line(p1, p3),
     arc(c, p2, headSweep),
@@ -532,7 +533,7 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
   const tl = mark.timeLabel;
   return group("TideMark", [
     timePointerGroup,
-    group("HeightLabel", [
+    group(`HeightLabel${styleSuffix}`, [
       text({
         content: hl.content,
         size: hl.fontSize,
@@ -541,7 +542,7 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
         anchor: mapPoint(hl.anchor, cx, cy),
       }),
     ]),
-    group("TimeLabel", [
+    group(`TimeLabel${styleSuffix}`, [
       text({
         content: tl.content,
         size: tl.fontSize,

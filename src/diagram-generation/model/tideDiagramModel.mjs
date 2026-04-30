@@ -73,6 +73,7 @@
  * @typedef {{
  *   timeHours: number,
  *   theta: number,
+ *   temporalClass: 'future' | 'past',
  *   heightLabel: TideLabelTextInst,
  *   timeLabel: TideLabelTextInst,
  *   timePointer: TideTimePointerSpec,

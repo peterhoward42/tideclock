@@ -473,6 +473,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "content": "0.94 m",
         "fontSize": 5.428,
       },
+      "temporalClass": "past",
       "theta": 3.824368147051356,
       "timeHours": 4.25,
       "timeLabel": {
@@ -518,6 +519,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "content": "4.7 m",
         "fontSize": 5.428,
       },
+      "temporalClass": "past",
       "theta": 4.569159813718024,
       "timeHours": 10.75,
       "timeLabel": {
@@ -563,6 +565,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "content": "0.89 m",
         "fontSize": 5.428,
       },
+      "temporalClass": "past",
       "theta": 5.2841598137180235,
       "timeHours": 16.99,
       "timeLabel": {
@@ -608,6 +611,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "content": "4.8 m",
         "fontSize": 5.428,
       },
+      "temporalClass": "future",
       "theta": 5.984263980384689,
       "timeHours": 23.1,
       "timeLabel": {

@@ -12,6 +12,10 @@ export const homeTideStyleModel: StyleModelSpec = {
       colors: { color: "#bf94e4" }, // bright lavender
     },
     {
+      name: "role.tide.primary.past",
+      colors: { color: "#bf94e4", opacity: 0.62 }, // same hue, lower contrast for already-passed tides
+    },
+    {
       name: "role.tide.secondary",
       colors: { color: "#AAA" },
     },
@@ -48,6 +52,10 @@ export const homeTideStyleModel: StyleModelSpec = {
       colors: { color: "#AAA" },
     },
     {
+      name: "role.structure.emphasis.past",
+      colors: { color: "#AAA", opacity: 0.62 }, // softened emphasis for past tide labels
+    },
+    {
       name: "role.surface.centre-frame",
       colors: { strokeColor: "#555", fillColor: "#151515" },
     },
@@ -65,13 +73,16 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "InsideTrack", roleName: "role.structure.mid" },
     { name: "RefArc", roleName: "role.structure.ref" },
     { name: "TickMark", roleName: "role.structure.ref" },
-    { name: "HeightLabel", roleName: "role.tide.primary" },
+    { name: "HeightLabelFuture", roleName: "role.tide.primary" },
+    { name: "HeightLabelPast", roleName: "role.tide.primary.past" },
     { name: "TimeDeltaLocation", roleName: "role.text.primary" },
     { name: "TimeDeltaPhase", roleName: "role.tide.primary" },
     { name: "TimeDeltaNext", roleName: "role.tide.secondary" },
     { name: "TimeDeltaNextTime", roleName: "role.tide.secondary" },
-    { name: "TimePointer", roleName: "role.tide.primary" },
-    { name: "TimeLabel", roleName: "role.structure.emphasis" },
+    { name: "TimePointerFuture", roleName: "role.tide.primary" },
+    { name: "TimePointerPast", roleName: "role.tide.primary.past" },
+    { name: "TimeLabelFuture", roleName: "role.structure.emphasis" },
+    { name: "TimeLabelPast", roleName: "role.structure.emphasis.past" },
     { name: "TickLabel", roleName: "role.structure.emphasis" },
     { name: "MainLabel", roleName: "role.tide.primary" },
     { name: "BossCircle", roleName: "role.hand.bossCircle" },

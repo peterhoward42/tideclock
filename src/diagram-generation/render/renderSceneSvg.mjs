@@ -17,7 +17,7 @@ const RENDER_DEFAULTS = {
 };
 
 /**
- * @typedef {{ color?: string, strokeColor?: string, fillColor?: string, strokeWidth?: number }} SceneRenderRoleColorProps
+ * @typedef {{ color?: string, strokeColor?: string, fillColor?: string, strokeWidth?: number, opacity?: number }} SceneRenderRoleColorProps
  *
  * @typedef {{
  *   roleColorsByName: Map<string, SceneRenderRoleColorProps>,
@@ -201,7 +201,7 @@ function renderNode(node, styleRuntime, leafName) {
   switch (node.kind) {
     case "group": {
       const strokeJoinAttrs =
-        node.name === "TimePointer"
+        node.name.startsWith("TimePointer")
           ? ' stroke-linecap="round" stroke-linejoin="round"'
           : "";
       const body = node.children
@@ -224,7 +224,8 @@ function renderNode(node, styleRuntime, leafName) {
         node.kind,
       );
       const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
-      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none"${dash} />`;
+      const opacityAttr = opacityAttrFragmentFromLeaf(styleRuntime, leafName, node.kind);
+      return `    <line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none"${dash}${opacityAttr} />`;
     }
     case "arc": {
       assertLeafScoped(node.kind, leafName);
@@ -241,6 +242,7 @@ function renderNode(node, styleRuntime, leafName) {
         node.kind,
       );
       const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
+      const opacityAttr = opacityAttrFragmentFromLeaf(styleRuntime, leafName, node.kind);
       if (node.facetedPreview === true) {
         const pts = circularArcToFacetedPoints(
           node.center,
@@ -248,10 +250,10 @@ function renderNode(node, styleRuntime, leafName) {
           node.sweepRad,
         );
         if (pts === "") return "";
-        return `    <polyline points="${escapeAttr(pts)}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round"${dash}${arrowAttr} />`;
+        return `    <polyline points="${escapeAttr(pts)}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" stroke-linejoin="round" stroke-linecap="round"${dash}${arrowAttr}${opacityAttr} />`;
       }
       const d = circularArcToPathD(node.center, node.start, node.sweepRad);
-      return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${dash}${arrowAttr} />`;
+      return `    <path d="${escapeAttr(d)}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} fill="none" shape-rendering="geometricPrecision"${dash}${arrowAttr}${opacityAttr} />`;
     }
     case "arcSegment": {
       assertLeafScoped(node.kind, leafName);
@@ -273,9 +275,10 @@ function renderNode(node, styleRuntime, leafName) {
         node.kind,
       );
       const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
+      const opacityAttr = opacityAttrFragmentFromLeaf(styleRuntime, leafName, node.kind);
       const d = circularSegmentToPathD(node.center, node.start, node.sweepRad);
       if (d === "") return "";
-      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
+      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash}${opacityAttr} />`;
     }
     case "annularSector": {
       assertLeafScoped(node.kind, leafName);
@@ -297,9 +300,10 @@ function renderNode(node, styleRuntime, leafName) {
         node.kind,
       );
       const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
+      const opacityAttr = opacityAttrFragmentFromLeaf(styleRuntime, leafName, node.kind);
       const d = annularSectorToPathD(node);
       if (d === "") return "";
-      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash} />`;
+      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash}${opacityAttr} />`;
     }
     case "triangle": {
       assertLeafScoped(node.kind, leafName);
@@ -317,6 +321,7 @@ function renderNode(node, styleRuntime, leafName) {
         node.kind,
       );
       const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
+      const opacityAttr = opacityAttrFragmentFromLeaf(styleRuntime, leafName, node.kind);
       const fillAttr = node.outline
         ? "none"
           : requireLeafFillColor(
@@ -325,7 +330,7 @@ function renderNode(node, styleRuntime, leafName) {
             RENDER_DEFAULTS.shapeFill,
             node.kind,
           );
-      return `    <polygon points="${escapeAttr(pts)}" fill="${fillAttr}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
+      return `    <polygon points="${escapeAttr(pts)}" fill="${fillAttr}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR}${dash}${opacityAttr} />`;
     }
     case "circle": {
       assertLeafScoped(node.kind, leafName);
@@ -342,7 +347,8 @@ function renderNode(node, styleRuntime, leafName) {
         node.kind,
       );
       const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
-      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="none" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
+      const opacityAttr = opacityAttrFragmentFromLeaf(styleRuntime, leafName, node.kind);
+      return `    <circle cx="${center.x}" cy="${center.y}" r="${radius}" fill="none" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR}${dash}${opacityAttr} />`;
     }
     case "roundedRect": {
       assertLeafScoped(node.kind, leafName);
@@ -365,9 +371,10 @@ function renderNode(node, styleRuntime, leafName) {
         RENDER_DEFAULTS.shapeFill,
         node.kind,
       );
+      const opacityAttr = opacityAttrFragmentFromLeaf(styleRuntime, leafName, node.kind);
       const x = center.x - 0.5 * width;
       const y = center.y - 0.5 * height;
-      return `    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${rx}" ry="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR}${dash} />`;
+      return `    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${rx}" ry="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR}${dash}${opacityAttr} />`;
     }
     case "text": {
       assertLeafScoped(node.kind, leafName);
@@ -377,7 +384,8 @@ function renderNode(node, styleRuntime, leafName) {
         RENDER_DEFAULTS.textFill,
         node.kind,
       );
-      return renderTextSvg(node, fill);
+      const opacity = opacityFromLeaf(styleRuntime, leafName, node.kind);
+      return renderTextSvg(node, fill, opacity);
     }
     default:
       return "";
@@ -613,7 +621,7 @@ function markerDefFromSpec(id, spec, strokeColor) {
 }
 
 /** @param {import('../model/sceneModel.mjs').TextPrimitive} node */
-function renderTextSvg(node, fillColor) {
+function renderTextSvg(node, fillColor, opacity) {
   const { anchor, content, size, hAlign, angleRad } = node;
   const ax = anchor.x;
   const ay = anchor.y;
@@ -622,11 +630,12 @@ function renderTextSvg(node, fillColor) {
   const inner = escapeHtml(content);
   const baseline =
     node.dominantBaseline === "middle" ? "middle" : "alphabetic";
+  const opacityAttr = typeof opacity === "number" ? ` opacity="${opacity}"` : "";
   // Scene->SVG uses scale(1,-1) on the root; that flips glyph outlines. A local scale(1,-1)
   // around the anchor restores upright text without changing the anchor position.
   return `    <g transform="translate(${ax}, ${ay}) scale(1,-1) translate(${-ax}, ${-ay})">
       <g transform="rotate(${deg}, ${ax}, ${ay})">
-      <text x="${ax}" y="${ay}" font-size="${size}" fill="${fillColor}" text-anchor="${anchorAttr}" dominant-baseline="${baseline}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">${inner}</text>
+      <text x="${ax}" y="${ay}" font-size="${size}" fill="${fillColor}" text-anchor="${anchorAttr}" dominant-baseline="${baseline}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"${opacityAttr}>${inner}</text>
       </g>
     </g>`;
 }
@@ -727,6 +736,37 @@ function strokeWidthFromLeaf(styleRuntime, leafName) {
   const role = styleRuntime.roleColorsByName.get(roleName);
   if (!role || typeof role.strokeWidth !== "number") return SCENE_STROKE_WIDTH;
   return role.strokeWidth;
+}
+
+/**
+ * Optional opacity from a role bound to a leaf group.
+ *
+ * @param {SceneRenderStyleRuntime | undefined} styleRuntime
+ * @param {string | null} leafName
+ * @param {string} primitiveKind
+ * @returns {number | undefined}
+ */
+function opacityFromLeaf(styleRuntime, leafName, primitiveKind) {
+  const styleProps = resolveLeafRoleColorProps(
+    styleRuntime,
+    leafName,
+    primitiveKind,
+  );
+  if (!styleProps) return undefined;
+  return typeof styleProps.opacity === "number" ? styleProps.opacity : undefined;
+}
+
+/**
+ * Optional SVG opacity attribute from a bound leaf role.
+ *
+ * @param {SceneRenderStyleRuntime | undefined} styleRuntime
+ * @param {string | null} leafName
+ * @param {string} primitiveKind
+ * @returns {string}
+ */
+function opacityAttrFragmentFromLeaf(styleRuntime, leafName, primitiveKind) {
+  const opacity = opacityFromLeaf(styleRuntime, leafName, primitiveKind);
+  return typeof opacity === "number" ? ` opacity="${opacity}"` : "";
 }
 
 /**

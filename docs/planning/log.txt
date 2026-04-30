@@ -8,6 +8,10 @@ o  first glance ux assimilation suggestions
 		o  branch atten
 			o  prompt
 		o  merge branch atten
+	o  switch main label to say time not height
+	o  put glow /pulsing on next tide marker's time
+	o  move hour labels inside band
+	o  iconography for high vs low?
 
 	o  Try out mirrored layout
 		o  bind the radius settings not separate
