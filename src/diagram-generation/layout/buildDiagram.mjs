@@ -272,7 +272,7 @@ export function buildDiagram(spec) {
   const mainLabelContent =
     nextEventForMainLabel == null
       ? ""
-      : `${nextEventForMainLabel.kind} tide in ${nextEventForMainLabel.intervalText}`;
+      : `${nextEventForMainLabel.kind} tide at ${formatEventClockHHMM(nextEventForMainLabel.seconds)}`;
   const mainLabel = buildMainLabel(leftmostTickLabelX, clockBaselineY, refRadius, mainLabelContent);
   const mainLabelTopY = mainLabel.anchor.y + 0.8 * mainLabel.fontSize;
   const homeMenuTriggerGap = readHomeMenuTriggerGapFromSpec(spec, refRadius);
@@ -337,6 +337,17 @@ function readTickLabelHours(spec) {
  */
 function formatHourDigits(h) {
   return String(h).padStart(2, "0");
+}
+
+/**
+ * @param {number} secondsSinceMidnight
+ * @returns {string}
+ */
+function formatEventClockHHMM(secondsSinceMidnight) {
+  const clampedSeconds = Math.max(0, Math.min(24 * 3600 - 1, Math.floor(secondsSinceMidnight)));
+  const hours = Math.floor(clampedSeconds / 3600);
+  const minutes = Math.floor((clampedSeconds % 3600) / 60);
+  return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
 }
 
 /**

@@ -63,9 +63,9 @@ see strict inputs). It uses the same **θ_left** and the same CCW **swept angle*
 as the **RefArc** (from **θ_left** to **θ_right**).
 - **MainLabel** is a horizontal **TextElement** with **left** justification.
   Its **content** is one synthesized line:
-  `**<Low|High> tide in <Hh Mm>**` when a next marker exists at or after
+  `**<Low|High> tide at <HH:MM>**` when a next marker exists at or after
   `**timeNow`** on the same civil day, otherwise an empty string. Low/high and
-  interval text are derived from the next event computed from marker schedule
+  event clock text are derived from the next event computed from marker schedule
   and canonical time parsing (see **TideMarks**, **§Time and θ(t)**).
 
 ### §Time and θ(t)
@@ -319,7 +319,7 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
   `**timeNow`**.
 - Compute the next tide event at or after `**timeNow`** on the same civil day.
 - If next event exists, **MainLabel** content is:
-  `**<Low|High> tide in <Hh Mm>**`.
+  `**<Low|High> tide at <HH:MM>**`.
 - If no next event exists, **MainLabel** content is the empty string.
 - No separate host-provided content field exists for **MainLabel**.
 

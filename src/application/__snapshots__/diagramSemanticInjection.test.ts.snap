@@ -58,7 +58,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "x": -134.7817340307549,
       "y": -136.88000000000002,
     },
-    "content": "High tide in 3h 45m",
+    "content": "High tide at 23:06",
     "fontSize": 5.31,
     "hAlign": "left",
   },
