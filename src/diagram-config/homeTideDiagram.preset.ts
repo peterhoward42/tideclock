@@ -20,7 +20,7 @@ export const homeTideDiagramLayoutBase = {
   hand: {
     bossCircleRadius: 0.05,
     /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */
-    armRefArcGap: 0.015,
+    armRefArcGap: 0.020,
   },
   paintOrder: {
     overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],
