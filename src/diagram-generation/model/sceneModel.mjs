@@ -77,6 +77,19 @@
  *   sweepRad: number,
  * }} AnnularSectorPrimitive
  *
+ * Closed map-pin silhouette for **TimePointer**: tip **v1**, sides **v1→v2** and **v1→v3**,
+ * head arc from **v2** to **v3** on the circle centred at **headCenter** with signed **headSweepRad**
+ * (same arc selection as the former independent line/arc trio). See docs/specs/tide-diagram.md §TimePointer.
+ *
+ * @typedef {{
+ *   kind: 'timePointerPath',
+ *   v1: Point,
+ *   v2: Point,
+ *   v3: Point,
+ *   headCenter: Point,
+ *   headSweepRad: number,
+ * }} TimePointerPathPrimitive
+ *
  * @typedef {{
  *   kind: 'text',
  *   content: string,
@@ -107,7 +120,7 @@
  *   children: SceneNode[],
  * }} GroupNode
  *
- * @typedef { LinePrimitive | ArcPrimitive | ArcSegmentPrimitive | TrianglePrimitive | CirclePrimitive | RoundedRectPrimitive | AnnularSectorPrimitive | TextPrimitive | ArcTextPrimitive | GroupNode } SceneNode
+ * @typedef { LinePrimitive | ArcPrimitive | ArcSegmentPrimitive | TrianglePrimitive | CirclePrimitive | RoundedRectPrimitive | AnnularSectorPrimitive | TimePointerPathPrimitive | TextPrimitive | ArcTextPrimitive | GroupNode } SceneNode
  *
  * @typedef {{
  *   title: string,
@@ -314,6 +327,32 @@ export function annularSector(center, rInner, rOuter, thetaStart, sweepRad) {
     rOuter,
     thetaStart,
     sweepRad,
+  };
+}
+
+/**
+ * Closed **TimePointer** boundary (fill + stroke). Geometry matches the former line–line–arc trio.
+ *
+ * @param {Point} v1 — tip on RefArc
+ * @param {Point} v2
+ * @param {Point} v3
+ * @param {Point} headCenter — head-circle centre
+ * @param {number} headSweepRad — signed CCW sweep from **v2** to **v3** on that circle (excludes **v1**)
+ * @returns {TimePointerPathPrimitive}
+ */
+export function timePointerPath(v1, v2, v3, headCenter, headSweepRad) {
+  assertPoint("v1", v1);
+  assertPoint("v2", v2);
+  assertPoint("v3", v3);
+  assertPoint("headCenter", headCenter);
+  assertFiniteNumber("headSweepRad", headSweepRad);
+  return {
+    kind: "timePointerPath",
+    v1,
+    v2,
+    v3,
+    headCenter,
+    headSweepRad,
   };
 }
 

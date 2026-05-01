@@ -148,14 +148,14 @@ of travel.”
 ### Scene graph primitives (current scope)
 
 - The scene graph at this stage consists of:
-  - Arc primitives (for **RefArc** and **TideMarks.TimePointer** head arcs)
+  - Arc primitives (for **RefArc**)
   - Circle primitives (for **Hand.BossCircle** outlines)
   - One closed circular segment path (for **CentreFrame**: circular arc + straight chord closure)
   - Line segments (for radial segments and tick marks)
   - Text elements
-  - **Line** segments and **arc** segments for **TideMarks.TimePointer** (two equal sides of the pointer triangle as strokes, head as a circular arc; **fill** is **none**)
+  - One **closed path** for **TideMarks.TimePointer** (tip **Vertex1**, sides **Vertex1 → Vertex2** and **Vertex1 → Vertex3**, head arc **Vertex2 → Vertex3** as a single composite boundary; **fill** and **stroke** on that path; see **TimePointer**)
   - One **closed annular sector** path (**fill** and **stroke** on the composite
-  boundary) introduced by **AnnularBand** (see **AnnularBand**)
+    boundary) introduced by **AnnularBand** (see **AnnularBand**)
 
 ### Independent stroked curves
 
@@ -166,16 +166,16 @@ model. They are **stroked** along the curve and, for now, **never** treated as
   (full 2π circular outlines; **fill** is none unless a subsection explicitly
   overrides).
 - Area fills are represented by dedicated closed-region primitives (currently:
-**CentreFrame** closed circular segment and **AnnularBand** annular sector).
+**CentreFrame** closed circular segment, **AnnularBand** annular sector, and
+**TimePointer** when the host supplies a **fill** for that leaf).
 - Where multiple curve primitives are **independent**, they are **topologically**
 independent: **not** joined into one path, **not** merged into one composite
 path, and **do not** form a closed region by composition in the logical scene
 graph—even if a viewer perceives closure optically. Distinct primitives may
 **coincide** at a point (e.g. at **O**) without becoming one logical path.
-- Subgroups that emit several curves (e.g. **TimePointer**) satisfy **Independent
-stroked curves** unless a subsection adds detail.
-- **AnnularBand** is **not** covered by **Independent stroked curves**: it is one
-closed region with unified **fill** and **stroke** on its boundary (**AnnularBand**).
+- **AnnularBand** and **TimePointer** are **not** covered by **Independent
+stroked curves**: each is one closed region with unified **fill** and **stroke**
+on its boundary (see those subsections).
 
 ### Text Element
 
@@ -492,10 +492,12 @@ Each marker emits one cluster with direct children:
 
 ### TimePointer
 
-**TimePointer** is the tide marker pointer (map-pin silhouette). Geometry is
-unchanged; scene emission is stroke-only (**no fill** on pointer primitives).
+**TimePointer** is the tide marker pointer (map-pin silhouette). **Construction**
+(vertices and head circle) is unchanged; scene emission is one **closed path**
+with the same boundary as the former trio of two **line** primitives and one
+**arc** primitive.
 
-**Construction** (unchanged; defines vertices and head circle):
+**Construction** (defines vertices and head circle):
 
 - `**tideMarkArrowDivergence`**: non-negative radians (host field on
   `**tideMarks`**).
@@ -517,19 +519,23 @@ unchanged; scene emission is stroke-only (**no fill** on pointer primitives).
 - Let **centre** = the intersection of **radial1** and **radial2**.
 - Let **radius** = the distance from **centre** to **Vertex2** (equals distance to **Vertex3**; **Vertex1, Vertex2, Vertex3** lie on this circle).
 
-**Scene emission** (outline silhouette equivalent to the former filled
-triangle-plus-disk rendering):
+**Scene emission** (single closed path; boundary identical to the former
+independent **line**/**line**/**arc** trio):
 
-- Two **line** primitives: **Vertex1 → Vertex2** and **Vertex1 → Vertex3** (**stroke** only).
-- One **arc** primitive: circular arc from **Vertex2** to **Vertex3** with
-  centre **centre** and radius **radius**, choosing the arc that does **not**
-  contain **Vertex1** in its interior (the head cap on the opposite side of
-  chord **Vertex2–Vertex3** from **Vertex1**). Equivalently, choose the
-  **Vertex2**-to-**Vertex3** arc that does not pass through **Vertex1**.
+- Subpath: **Vertex1** → **Vertex2** → circular arc **Vertex2** → **Vertex3**
+  → close to **Vertex1**.
+- Head arc: centre **centre**, radius **radius**, endpoints **Vertex2** and
+  **Vertex3**, choosing the arc that does **not** contain **Vertex1** in its
+  interior (the head cap on the opposite side of chord **Vertex2–Vertex3** from
+  **Vertex1**). Equivalently, choose the **Vertex2**-to-**Vertex3** arc that
+  does not pass through **Vertex1**.
 
-**Presentation:** **TimePointer** uses leaf-style **stroke** color and no fill.
-Hosts may set `stroke-linecap`/`stroke-linejoin` so curves meet cleanly at
-**Vertex1**, **Vertex2**, and **Vertex3** (product default: round caps/joins).
+**Presentation:** **TimePointer** uses leaf-style **stroke** color from the
+bound role. **Fill** is **none** unless the host sets an explicit **fill** colour
+on that **TimePointer** leaf’s style role (**fillColor**); the outline shape is
+unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
+**TimePointer** group so the path meets cleanly at **Vertex1**, **Vertex2**, and
+**Vertex3** (product default: round caps/joins).
 
 ### Hand
 

@@ -280,6 +280,26 @@ function renderNode(node, styleRuntime, leafName) {
       if (d === "") return "";
       return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash}${opacityAttr} />`;
     }
+    case "timePointerPath": {
+      assertLeafScoped(node.kind, leafName);
+      const stroke = requireLeafStrokeColor(
+        styleRuntime,
+        leafName,
+        RENDER_DEFAULTS.curveStroke,
+        node.kind,
+      );
+      const fill = leafFillColorExplicitOrNone(styleRuntime, leafName, node.kind);
+      const dash = strokeDashAttrFragmentFromLeaf(
+        styleRuntime,
+        leafName,
+        node.kind,
+      );
+      const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
+      const opacityAttr = opacityAttrFragmentFromLeaf(styleRuntime, leafName, node.kind);
+      const d = timePointerPathToPathD(node);
+      if (d === "") return "";
+      return `    <path d="${escapeAttr(d)}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR} shape-rendering="geometricPrecision"${dash}${opacityAttr} />`;
+    }
     case "annularSector": {
       assertLeafScoped(node.kind, leafName);
       const stroke = requireLeafStrokeColor(
@@ -523,6 +543,38 @@ function circularSegmentToPathD(center, start, sweepRad) {
   const arcPath = circularArcToPathD(center, start, sweepRad);
   if (arcPath === "") return "";
   return `${arcPath} Z`;
+}
+
+/**
+ * Closed **TimePointer** boundary: **v1** → **v2** → head arc to **v3** → close to **v1**.
+ *
+ * @param {import('../model/sceneModel.mjs').TimePointerPathPrimitive} node
+ * @returns {string}
+ */
+function timePointerPathToPathD(node) {
+  const { v1, v2, headCenter, headSweepRad } = node;
+  const segs = circularArcToPathSegments(headCenter, v2, headSweepRad);
+  if (segs === "") return "";
+  return `M ${v1.x} ${v1.y} L ${v2.x} ${v2.y} ${segs} Z`;
+}
+
+/**
+ * Fill for **timePointerPath**: only when the bound role sets **fillColor**; otherwise **none**
+ * (stroke still uses **color** / **strokeColor**, preserving the former hollow-pin default).
+ *
+ * @param {SceneRenderStyleRuntime | undefined} styleRuntime
+ * @param {string | null} leafName
+ * @param {string} primitiveKind
+ */
+function leafFillColorExplicitOrNone(styleRuntime, leafName, primitiveKind) {
+  const styleProps = resolveLeafRoleColorProps(
+    styleRuntime,
+    leafName,
+    primitiveKind,
+  );
+  if (!styleProps) return "none";
+  if (typeof styleProps.fillColor === "string") return styleProps.fillColor;
+  return "none";
 }
 
 /**
