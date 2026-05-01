@@ -457,14 +457,14 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     {
       "heightLabel": {
         "anchor": {
-          "x": -84.80108981359385,
-          "y": -51.3181212285367,
+          "x": -82.68108048707198,
+          "y": -54.66821132514144,
         },
         "arcCenter": {
           "x": 0,
           "y": 0,
         },
-        "arcSweepRad": 0.2771428571428572,
+        "arcSweepRad": 0.19714285714285718,
         "content": "0.94 m",
         "fontSize": 5.428,
       },
@@ -498,14 +498,14 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     {
       "heightLabel": {
         "anchor": {
-          "x": -25.99603264764479,
-          "y": -95.65030416356544,
+          "x": -22.15024661603891,
+          "y": -96.61335815946289,
         },
         "arcCenter": {
           "x": 0,
           "y": 0,
         },
-        "arcSweepRad": 0.24428571428571427,
+        "arcSweepRad": 0.16428571428571428,
         "content": "4.7 m",
         "fontSize": 5.428,
       },
@@ -539,14 +539,14 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     {
       "heightLabel": {
         "anchor": {
-          "x": 41.608277727656294,
-          "y": -89.96402405705416,
+          "x": 45.1725969662457,
+          "y": -88.22817511047776,
         },
         "arcCenter": {
           "x": 0,
           "y": 0,
         },
-        "arcSweepRad": 0.2771428571428572,
+        "arcSweepRad": 0.19714285714285718,
         "content": "0.89 m",
         "fontSize": 5.428,
       },
@@ -580,14 +580,14 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     {
       "heightLabel": {
         "anchor": {
-          "x": 90.46231317158777,
-          "y": -40.51350757026077,
+          "x": 92.01006116314917,
+          "y": -36.86357341270032,
         },
         "arcCenter": {
           "x": 0,
           "y": 0,
         },
-        "arcSweepRad": 0.24428571428571427,
+        "arcSweepRad": 0.16428571428571428,
         "content": "4.8 m",
         "fontSize": 5.428,
       },

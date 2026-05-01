@@ -652,7 +652,9 @@ function renderTextSvg(node, fillColor, opacity) {
 }
 
 /**
- * Curved label: one rotated **text** per code point on the arc (same approach as the former arcuate MainLabel).
+ * Curved label: one {@link renderTextSvg} per code point on the arc (tangential rotation). Using SVG
+ * **textPath** under the scene root’s **scale(1,-1)** breaks path–text mapping if a local mirror is applied
+ * to the **text** only; per-glyph placement matches the annular geometry and keeps glyphs upright.
  *
  * @param {import('../model/sceneModel.mjs').ArcTextPrimitive} node
  */

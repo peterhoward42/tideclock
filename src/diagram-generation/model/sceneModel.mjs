@@ -87,8 +87,9 @@
  *   dominantBaseline?: 'alphabetic' | 'middle',
  * }} TextPrimitive
  *
- * Text along a circular arc: each code point is a separate {@link text} with tangential rotation
- * (**θ + π/2**), matching the former MainLabel “arcuate” implementation (no SVG **textPath**).
+ * Text along a circular arc: each code point is a separate {@link text} with tangential rotation; spacing is
+ * uniform in angle (see layout **arcSweepRad**). Avoid SVG **textPath** under the scene Y-flip without mirroring
+ * the path—mirroring **text** alone warps **textPath** geometry by dial position.
  *
  * @typedef {{
  *   kind: 'arcText',

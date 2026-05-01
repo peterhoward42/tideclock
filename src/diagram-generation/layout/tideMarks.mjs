@@ -74,7 +74,7 @@ export function layoutTideMarks(params) {
     const charW = 0.6;
     const estChord =
       Math.max(1, m.heightText.length) * heightLabelSizeK * R * charW;
-    const arcSweepRad = Math.max(0.12, Math.min(1.15, estChord / rLabel + 0.08));
+    const arcSweepRad = Math.max(0.12, Math.min(1.15, estChord / rLabel));
     const heightThetaStart = theta - 0.5 * arcSweepRad;
     const heightAnchor = polar(rLabel, heightThetaStart);
 
