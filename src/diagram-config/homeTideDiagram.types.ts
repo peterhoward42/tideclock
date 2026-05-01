@@ -32,6 +32,10 @@ export type HomeTideDiagramLayoutBase = {
   readonly tickLabelHours: readonly number[];
   readonly tickLabelSize: number;
   readonly tickLabelClearance: number;
+  /**
+   * Optional k·RefRadius: pass 3 global layout bounds — extends B_bottom downward; omit for 0.
+   */
+  readonly layoutBoundsBottomMargin?: number;
   readonly timeNowLabel: {
     readonly fontHeight: number;
     /** k·RefRadius: date baseline is this far above (+Y) the clock baseline (tick-label-min Y). */

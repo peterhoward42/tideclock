@@ -11,6 +11,7 @@
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
  * - Sub-builders (`buildTideMarksFromSpec`) enforce their own throw rules.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
+ * - Optional `**layoutBoundsBottomMargin**` (**k·R**, **>= 0**): pass 3 of global layout bounds; extends **B_bottom** downward; when omitted, **0**.
  * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), finite `**gapAboveMainLabel**` (**k·R**, **>= 0**), and string `**label**`. Position is derived from global layout bounds + MainLabel: left edge at layout-bounds left, bottom edge above MainLabel top by the configured gap.
  * - **MainLabel** is horizontal text anchored from content bounds (leftmost tick-label bound and minimum tick-label-anchor **Y**), not curved arc text.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
@@ -398,6 +399,8 @@ export function buildDiagram(spec) {
   for (const marker of tideMarks) {
     extendBoundsByTideMarker(layoutBounds, marker);
   }
+  const layoutBoundsBottomMarginK = readLayoutBoundsBottomMarginKFromSpec(spec);
+  layoutBounds.minY -= layoutBoundsBottomMarginK * refRadius;
   if (tickLabels.length === 0) {
     throw new Error(
       "spec.tickLabelHours must list at least one hour: time-now clock uses the minimum Y among tick label anchors",
@@ -535,6 +538,24 @@ function buildMainLabel(anchorX, bottomEdgeY, refRadius, content) {
  * @param {number} refRadius
  * @returns {number}
  */
+/**
+ * Optional **k·R** margin extending global layout **B_bottom** downward (see tide-diagram spec pass 3).
+ *
+ * @param {Record<string, unknown>} spec
+ * @returns {number} dimensionless k (multiply by refRadius for model units)
+ */
+function readLayoutBoundsBottomMarginKFromSpec(spec) {
+  const raw = spec.layoutBoundsBottomMargin;
+  if (raw === undefined || raw === null) {
+    return 0;
+  }
+  const k = requireFiniteNumber(raw, "spec.layoutBoundsBottomMargin");
+  if (k < 0) {
+    throw new Error("spec.layoutBoundsBottomMargin must be >= 0");
+  }
+  return k;
+}
+
 function readHomeMenuTriggerGapFromSpec(spec, refRadius) {
   const o = requirePlainObject(spec.homeMenuTrigger, "spec.homeMenuTrigger");
   const gapK = requireFiniteNumber(

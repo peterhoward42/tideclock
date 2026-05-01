@@ -54,7 +54,7 @@ Define conceptual variables:
 - **B_left**, **B_right**, **B_bottom**, **B_top** — final diagram-space
   bounding edges.
 
-Two-pass construction:
+Three-pass construction:
 
 1) **Day-invariant baseline bounds**
 
@@ -78,7 +78,16 @@ Two-pass construction:
   - **B_bottom = min(B_bottom_base, marker-bottom extents...)**
   - **B_top = max(B_top_base, marker-top extents...)**
 
-The tuple **(B_left, B_right, B_bottom, B_top)** is the global layout-bounds
+3) **Layout bottom margin**
+
+- Diagram input **`layoutBoundsBottomMargin`**: finite **k·R** multiplier (**§Sizing**),
+  **≥ 0**; when omitted, **0** (see **Strict diagram input**).
+- **B_bottom** is further extended **downward** along **§Axes** (toward smaller **Y**)
+  by a fixed amount in all cases:
+  - **B_bottom := B_bottom − layoutBoundsBottomMargin·RefRadius**
+- **B_left**, **B_right**, and **B_top** are unchanged by this pass.
+
+The tuple **(B_left, B_right, B_bottom, B_top)** after pass **3** is the global layout-bounds
 contract for all dependent placements in this specification.
 
 ### §Polar — reference arc geometry
@@ -252,6 +261,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
     - cyclic constraints are errors.
   - Default behaviour when omitted: preserve current deterministic scene-child order.
 - `**refRadius**`, `**sweepRad**`, `**tickLabelTickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key). `**tickLabelTickLen`** must be **> 0** and **strictly less** than `**annularBand.annularBandWidth`**.
+- Optional `**layoutBoundsBottomMargin`** (**k·R**, **≥ 0**): added pass **3** of **§Global layout bounds** — extends **B_bottom** downward by **`layoutBoundsBottomMargin·RefRadius`**; when omitted, **0**.
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours). The reference home tide diagram lists **every hour in 1..23** and omits **0** and **24** (no labels at the **00:00** or **24:00** RefArc endpoints).
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideLabelRadius**`, `**tideHeightLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Optional signed `**tideMarkOuterBandGap`** (**k·R**): added to the **AnnularBand** outer radius for **TimePointer** **Vertex1** (see **TimePointer**); when omitted, **0** (tip flush with the outer boundary). Values **less** than `**−annularBand.annularBandWidth`** are errors (tip would lie inside the **RefArc**). Duplicate canonical marker times are errors.
 - `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**armRefArcGap`** (**k·R**, **≥ 0**), a radial inset from the **RefArc** so the **Arm** outer end lies slightly inside **RefRadius** (see **Hand**, **Radial segments**). Generation fails if hand-derived radial ordering is invalid.

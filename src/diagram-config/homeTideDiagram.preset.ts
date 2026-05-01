@@ -10,6 +10,7 @@ export const homeTideDiagramLayoutBase = {
   title: "home-tide-diagram",
   canvas: { width: 420, height: 320 },
   refRadius: 118,
+  layoutBoundsBottomMargin: 0.05,
   sweepRad: Math.PI,
   tickLabelTickLen: 0.02,
   /** Every integer hour on the dial except midnight and the 24:00 endpoint (labels 01–23). */

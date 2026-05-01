@@ -143,6 +143,28 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(diagram.timeNowDate.anchor.x).toBeCloseTo(expectedDateX, 6);
   });
 
+  it('applies layoutBoundsBottomMargin by extending B_bottom (clock row and MainLabel shift down)', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const without = collaborator.generate(base).diagram;
+    const k = 0.03;
+    const withMargin = collaborator.generate({ ...base, layoutBoundsBottomMargin: k }).diagram;
+    const delta = k * withMargin.refArc.refRadius;
+    expect(withMargin.timeNowClock.hhmm.anchor.y - without.timeNowClock.hhmm.anchor.y).toBeCloseTo(
+      -delta,
+      6,
+    );
+    expect(withMargin.mainLabel.anchor.y - without.mainLabel.anchor.y).toBeCloseTo(-delta, 6);
+  });
+
+  it('throws when layoutBoundsBottomMargin is negative', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    expect(() => collaborator.generate({ ...base, layoutBoundsBottomMargin: -0.01 })).toThrow(
+      /layoutBoundsBottomMargin must be >= 0/,
+    );
+  });
+
   it('throws when annularBand is present without annularBandWidth', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const base = baseSpecForCollaboratorTest();
