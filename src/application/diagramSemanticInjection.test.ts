@@ -37,9 +37,7 @@ type SemanticInjectionDiagramSpec = {
   readonly timeNowLocation: string;
   readonly tideMarks: {
     readonly tideLabelRadius: number;
-    readonly tideLabelArcSeparationRad: number;
     readonly tideHeightLabelSize: number;
-    readonly tideTimeLabelSize: number;
     readonly tideMarkArrowDivergence: number;
     readonly tideMarkArrowLineLen: number;
     readonly markers: readonly SemanticInjectionTideMark[];
@@ -84,9 +82,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     timeNowLocation: 'Lymington',
     tideMarks: {
       tideLabelRadius: 0.84,
-      tideLabelArcSeparationRad: 0.26,
       tideHeightLabelSize: 0.046,
-      tideTimeLabelSize: 0.04,
       tideMarkArrowDivergence: 1.0,
       tideMarkArrowLineLen: 0.05,
       markers: [

@@ -8,10 +8,7 @@ export type DiagramTideMarkMarker = {
 /** Layout constants plus marker rows for the Home tide diagram `spec.tideMarks` object. */
 export type HomeDiagramTideMarks = {
   readonly tideLabelRadius: number;
-  /** Radians between the two label anchors around the marker angle. */
-  readonly tideLabelArcSeparationRad: number;
   readonly tideHeightLabelSize: number;
-  readonly tideTimeLabelSize: number;
   readonly tideMarkArrowDivergence: number;
   readonly tideMarkArrowLineLen: number;
   readonly markers: readonly DiagramTideMarkMarker[];

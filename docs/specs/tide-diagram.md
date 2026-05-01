@@ -253,7 +253,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
   - Default behaviour when omitted: preserve current deterministic scene-child order.
 - `**refRadius**`, `**sweepRad**`, `**tickLabelTickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key). `**tickLabelTickLen`** must be **> 0** and **strictly less** than `**annularBand.annularBandWidth`**.
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
-- `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideLabelRadius**`, `**tideLabelArcSeparationRad**`, `**tideHeightLabelSize**`, `**tideTimeLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
+- `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideLabelRadius**`, `**tideHeightLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
 - `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**armRefArcGap`** (**k·R**, **≥ 0**), a radial inset from the **RefArc** so the **Arm** outer end lies slightly inside **RefRadius** (see **Hand**, **Radial segments**). Generation fails if hand-derived radial ordering is invalid.
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
@@ -478,37 +478,17 @@ names and geometry, not global z-order.
 
 Each marker emits one cluster with direct children:
 
-- **Height label** — one **TextElement**.
-- **Time label** — one **TextElement**.
+- **Height label** — one **arcText** primitive (tide height along a circular path at label radius; see layout below).
 - **Time pointer** — one **TimePointer** subgroup (below).
 
-### Height label and time label (layout)
+### Height label (layout)
 
-For **both** labels:
-
-- **Horizontal justification** is side-specific:
-  - Earlier-side label (time label at **θ(t) − 0.5·tideLabelArcSeparationRad**) uses **right** justification.
-  - Later-side label (height label at **θ(t) + 0.5·tideLabelArcSeparationRad**) uses **left** justification.
-- Both labels share one anchor radius from **O**:
-  - Label radius: `**<TideLabelRadius>·R`**.
-- Label anchors sit on either side of the marker radial line along the concentric arc at that radius:
-  - Time label anchor angle: **θ(t) − 0.5·tideLabelArcSeparationRad**.
-  - Height label anchor angle: **θ(t) + 0.5·tideLabelArcSeparationRad**.
-- **Baseline polar angle** follows the local tangent at each anchor:
-  - Time label baseline angle: **(θ(t) − 0.5·tideLabelArcSeparationRad) + π/2**.
-  - Height label baseline angle: **(θ(t) + 0.5·tideLabelArcSeparationRad) + π/2**.
-
-**FontHeight** (per kind, **k·R**):
-
-- Height label — `**<TideHeightLabelSize>`·R**.
-- Time label — `**<TideTimeLabelSize>`·R**.
-
-**Text** rules:
-
-- Height label text is from the host.
-- Time label text is synthesized from canonical marker `**time`** as
-`**HH:MM`** (seconds omitted; no host override).
-- Other **Text Element** rules apply unless overridden.
+- **Label radius** from **O**: `**<TideLabelRadius>·R`** (same concentric circle for all markers).
+- The string follows that circle (per-glyph tangential layout; **arcText** in the scene model). **Horizontal justification along the arc** is **center**: the **angular midpoint** of the glyph run lies on the marker radial **θ(t)** (the same angle as **TimePointer** vertex **Vertex1** on the RefArc).
+- Implementation equivalence: choose a CCW angular span **sweep** for the string from estimated chord length and font size; place the span so **θ(t)** bisects it (start angle **θ(t) − sweep/2** on the label circle when **sweep** is positive CCW).
+- **FontHeight** (**k·R**): height label uses `**<TideHeightLabelSize>`·R**.
+- **Text**: height label content is from the host (`**heightText`**). Marker `**time`** is not rendered on the marker cluster; it is used for **θ(t)**, **MainLabel**, temporal class, and related logic only.
+- Other **Text Element** rules apply where they match **arcText** emission unless overridden above.
 
 ### TimePointer
 

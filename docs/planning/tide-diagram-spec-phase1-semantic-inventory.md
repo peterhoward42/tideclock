@@ -42,7 +42,7 @@ This table is the anti-regression backbone for rewrite phases: each retained nor
 | S021 | required | Strict diagram input | `tideMarks` required object with non-empty `markers` array | TB-3 |
 | S022 | required | Strict diagram input -> tide markers | Marker row requires `heightText`, `highOrLow` in `{High,Low}`, canonical `time` | TB-5 |
 | S023 | error condition | Strict diagram input -> tide markers | Marker time `24:00:00` is forbidden; sentinel reserved for RefArc endpoint only | TB-3 |
-| S024 | required | Strict diagram input -> tide marks numeric | `tideHeightLabelRadius`, `tideTimeLabelRadius`, `tideHeightLabelSize`, `tideTimeLabelSize`, `tideMarkArrowDivergence`, `tideMarkArrowLineLen` are required finite numbers | TB-3 |
+| S024 | required | Strict diagram input -> tide marks numeric | `tideLabelRadius`, `tideHeightLabelSize`, `tideMarkArrowDivergence`, `tideMarkArrowLineLen` are required finite numbers | TB-3 |
 | S025 | error condition | Strict diagram input -> tide markers | Duplicate canonical marker times are errors | TB-3 |
 | S026 | required | Strict diagram input -> hand | `hand` required object with finite positive `bossCircleRadius`, `smallCircleRadius`, `pointerPipScale`, and finite non-negative `pointerTipInset` | TB-3 |
 | S027 | error condition | Strict diagram input -> hand | Generation fails when hand radial ordering constraints are violated | TB-5 |
@@ -125,10 +125,10 @@ This table is the anti-regression backbone for rewrite phases: each retained nor
 | S105 | required | TideMarks -> Count/time association | Marker count comes from host input; marker time parsed by canonical rules to derive `t` and `theta(t)` | TB-5 |
 | S106 | error condition | TideMarks -> Count/time association | Marker `24:00:00` forbidden; duplicate canonical marker times error | TB-3 |
 | S107 | required | TideMarks -> Count/time association | Marker `highOrLow` enum informs derived event descriptions (TimeDelta coupling) | TB-6 |
-| S108 | required | TideMarks -> Logical structure | Each marker cluster emits direct children: height label, time label, time pointer subgroup | TB-4 |
+| S108 | required | TideMarks -> Logical structure | Each marker cluster emits direct children: height label (arcText), time pointer subgroup | TB-4 |
 | S109 | required | TideMarks -> Label layout | Both labels center-justified on marker polar axis at configured radii; baseline angle `theta + pi/2` | TB-5 |
-| S110 | required | TideMarks -> Label layout | Label font heights use `tideHeightLabelSize` and `tideTimeLabelSize` multipliers | TB-5 |
-| S111 | required | TideMarks -> Text rules | Height label text from host; time label synthesized `HH:MM` from canonical marker time | TB-5 |
+| S110 | required | TideMarks -> Label layout | Height label font height uses `tideHeightLabelSize`; arc span is centered on marker radial θ(t) | TB-5 |
+| S111 | required | TideMarks -> Text rules | Height label text from host (`heightText`); marker time is not rendered on the cluster | TB-5 |
 | S112 | required | TimePointer | TimePointer construction uses divergence, line length, and circle-from-vertex geometry definitions | TB-5 |
 | S113 | required | TimePointer -> Scene emission | Scene emits two side lines and one head arc choosing the arc not containing tip vertex | TB-5 |
 | S114 | required | TimePointer -> presentation | TimePointer uses stroke-only primitives; fill is none | TB-4 |

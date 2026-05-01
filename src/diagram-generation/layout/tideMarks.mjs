@@ -34,7 +34,6 @@ import { requireFiniteNumber, requirePlainObject, requireString } from "./specRe
  *   thetaLeft: number,
  *   thetaRight: number,
  *   tideLabelRadius: number,
- *   tideLabelArcSeparationRad: number,
  *   heightLabelSizeK: number,
  *   tideMarkArrowDivergence: number,
  *   tideMarkArrowLineLen: number,
@@ -55,7 +54,6 @@ export function layoutTideMarks(params) {
     thetaLeft,
     thetaRight,
     tideLabelRadius,
-    tideLabelArcSeparationRad,
     heightLabelSizeK,
     tideMarkArrowDivergence,
     tideMarkArrowLineLen,
@@ -72,14 +70,13 @@ export function layoutTideMarks(params) {
     const t = m.t;
     const theta = timeToTheta(t, thetaLeft, thetaRight);
     const rLabel = tideLabelRadius * R;
-    const halfArcSeparation = 0.5 * tideLabelArcSeparationRad;
-    const heightTheta = theta + halfArcSeparation;
-    const heightAnchor = polar(rLabel, heightTheta);
     const arcCenter = { x: 0, y: 0 };
     const charW = 0.6;
     const estChord =
       Math.max(1, m.heightText.length) * heightLabelSizeK * R * charW;
     const arcSweepRad = Math.max(0.12, Math.min(1.15, estChord / rLabel + 0.08));
+    const heightThetaStart = theta - 0.5 * arcSweepRad;
+    const heightAnchor = polar(rLabel, heightThetaStart);
 
     const v1 = polar(outerBandRadius, theta);
     const v2Offset = polar(offsetR, theta + halfAngle);
@@ -233,18 +230,10 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     o.tideLabelRadius,
     "spec.tideMarks.tideLabelRadius",
   );
-  const tideLabelArcSeparationRad = Math.max(
-    0,
-    requireFiniteNumber(
-      o.tideLabelArcSeparationRad,
-      "spec.tideMarks.tideLabelArcSeparationRad",
-    ),
-  );
   const heightLabelSizeK = requireFiniteNumber(
     o.tideHeightLabelSize,
     "spec.tideMarks.tideHeightLabelSize",
   );
-  requireFiniteNumber(o.tideTimeLabelSize, "spec.tideMarks.tideTimeLabelSize");
   const tideMarkArrowDivergence = Math.max(
     0,
     requireFiniteNumber(
@@ -292,7 +281,6 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     thetaLeft,
     thetaRight,
     tideLabelRadius,
-    tideLabelArcSeparationRad,
     heightLabelSizeK,
     tideMarkArrowDivergence,
     tideMarkArrowLineLen,

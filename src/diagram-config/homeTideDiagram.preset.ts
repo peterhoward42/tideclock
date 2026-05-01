@@ -35,9 +35,7 @@ export const homeTideDiagramLayoutBase = {
   },
   tideMarksDefaults: {
     tideLabelRadius: 1.17,
-    tideLabelArcSeparationRad: 0.07,
     tideHeightLabelSize: 0.045,
-    tideTimeLabelSize: 0.045,
     tideMarkArrowDivergence: 0.8,
     tideMarkArrowLineLen: 0.045,
   },
