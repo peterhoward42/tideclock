@@ -146,9 +146,10 @@ describe('createDiagramGenerationCollaborator', () => {
   it('applies layoutBoundsBottomMargin by extending B_bottom (clock row and MainLabel shift down)', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const base = baseSpecForCollaboratorTest();
-    const without = collaborator.generate(base).diagram;
+    const { layoutBoundsBottomMargin: _presetMargin, ...baseNoBottomMargin } = base;
+    const without = collaborator.generate(baseNoBottomMargin).diagram;
     const k = 0.03;
-    const withMargin = collaborator.generate({ ...base, layoutBoundsBottomMargin: k }).diagram;
+    const withMargin = collaborator.generate({ ...baseNoBottomMargin, layoutBoundsBottomMargin: k }).diagram;
     const delta = k * withMargin.refArc.refRadius;
     expect(withMargin.timeNowClock.hhmm.anchor.y - without.timeNowClock.hhmm.anchor.y).toBeCloseTo(
       -delta,

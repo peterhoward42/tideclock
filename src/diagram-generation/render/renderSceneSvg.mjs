@@ -30,8 +30,6 @@ const RENDER_DEFAULTS = {
  *   version?: number,
  *   meta?: {
  *     title?: string,
- *     width?: number,
- *     height?: number,
  *     previewFrame?: unknown,
  *   },
  *   root?: import('../model/sceneModel.mjs').SceneNode,
@@ -75,11 +73,11 @@ export function renderSceneSvg(scene, opts = {}) {
  * @throws {Error} v2 scene graph without a finite positive `meta.previewFrame` AABB
  */
 function computeViewBox(scene) {
-  const w = Number(scene.meta?.width) || 400;
-  const h = Number(scene.meta?.height) || 300;
   const useV2 =
     scene.version >= 2 && scene.root != null && scene.root.kind === "group";
   if (!useV2) {
+    const w = Number(scene.meta?.width) || 400;
+    const h = Number(scene.meta?.height) || 300;
     return { vbX: 0, vbY: 0, vbW: w, vbH: h, canvasH: h };
   }
   const pf = scene.meta?.previewFrame;
@@ -88,11 +86,12 @@ function computeViewBox(scene) {
       "v2 scene.meta.previewFrame is required: { minX, maxX, minY, maxY } in scene space (computed from scene primitives in toScene)",
     );
   }
+  const canvasH = pf.maxY + VIEW_BOX_PAD;
   const vbX = pf.minX - VIEW_BOX_PAD;
-  const vbY = h - pf.maxY - VIEW_BOX_PAD;
+  const vbY = canvasH - pf.maxY - VIEW_BOX_PAD;
   const vbW = pf.maxX - pf.minX + 2 * VIEW_BOX_PAD;
   const vbH = pf.maxY - pf.minY + 2 * VIEW_BOX_PAD;
-  return { vbX, vbY, vbW, vbH, canvasH: h };
+  return { vbX, vbY, vbW, vbH, canvasH };
 }
 
 /**
@@ -122,12 +121,12 @@ function isValidPreviewFrame(pf) {
  * @param {RenderSceneSvgOptions} opts
  */
 function sceneToSvgInline(scene, vb, opts) {
-  const w = Number(scene.meta?.width) || 400;
-  const h = Number(scene.meta?.height) || 300;
   const useV2 =
     scene.version >= 2 && scene.root != null && scene.root.kind === "group";
 
   if (!useV2) {
+    const w = Number(scene.meta?.width) || 400;
+    const h = Number(scene.meta?.height) || 300;
     return legacySceneToSvg(scene, w, h);
   }
 

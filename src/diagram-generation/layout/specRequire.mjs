@@ -5,7 +5,7 @@
 
 /**
  * @param {unknown} value
- * @param {string} label — dotted path for error messages (e.g. `spec.canvas.width`)
+ * @param {string} label — dotted path for error messages (e.g. `spec.refRadius`)
  * @returns {number}
  */
 export function requireFiniteNumber(value, label) {

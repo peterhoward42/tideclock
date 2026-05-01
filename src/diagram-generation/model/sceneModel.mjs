@@ -125,8 +125,6 @@
  *
  * @typedef {{
  *   title: string,
- *   width: number,
- *   height: number,
  *   previewFrame: { minX: number, maxX: number, minY: number, maxY: number },
  * }} SceneMeta
  *

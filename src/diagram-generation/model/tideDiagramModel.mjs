@@ -116,7 +116,7 @@
  *
  * @typedef {{
  *   version: number,
- *   meta: { title: string, width: number, height: number },
+ *   meta: { title: string },
  *   paintOrder?: {
  *     overrides?: { name: string, place: 'before' | 'after', relativeTo: string }[],
  *   },

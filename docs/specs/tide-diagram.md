@@ -245,8 +245,8 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
 When `**spec.semantic.atypicalTideSummary`** is injected as boolean true, **MainLabel**
 uses atypical summary copy (`**Tricky tides today**`) whenever a next event exists.
 
-- `**canvas`** — object with finite `**width`** and `**height`** (px).
 - `**title**` — string (diagram meta).
+- **SVG framing** — not part of strict diagram input. `**tideDiagramToScene**` / `**renderSceneSvg**` derive viewBox and the y-down flip baseline from the computed scene `**meta.previewFrame**` (bounds of primitives in scene space), not from host pixel `**canvas**`.
 - `**paintOrder`** — optional plain object.
   - Optional `**overrides`** array.
   - Each override must be a plain object with:

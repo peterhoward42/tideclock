@@ -8,7 +8,6 @@ import type { HomeTideDiagramLayoutBase } from "./homeTideDiagram.types";
 /** Static layout/geometry for the Home tide diagram (canonical values live in this object). */
 export const homeTideDiagramLayoutBase = {
   title: "home-tide-diagram",
-  canvas: { width: 420, height: 320 },
   refRadius: 118,
   layoutBoundsBottomMargin: 0.05,
   sweepRad: Math.PI,

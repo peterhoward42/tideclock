@@ -118,7 +118,7 @@ type HandDiagram = {
  */
 export type TideDiagramDocument = {
   readonly version: number;
-  readonly meta: { readonly title: string; readonly width: number; readonly height: number };
+  readonly meta: { readonly title: string };
   readonly paintOrder?: {
     readonly overrides?: ReadonlyArray<{
       readonly name: string;
@@ -230,8 +230,6 @@ export type TideSceneDocument = {
   readonly version: number;
   readonly meta: {
     readonly title: string;
-    readonly width: number;
-    readonly height: number;
     readonly previewFrame: {
       readonly minX: number;
       readonly maxX: number;

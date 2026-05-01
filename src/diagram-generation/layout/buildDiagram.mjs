@@ -6,7 +6,7 @@
  * See docs/specs/tide-diagram.md; spec keys mirror the open object passed from the app (diagramGenerationCollaborator.ts).
  *
  * Policies for {@link buildDiagram}:
- * - Throws if `spec.canvas`, `spec.title`, ref arc, and tick/tick-label sizing omit
+ * - Throws if `spec.title`, ref arc, and tick/tick-label sizing omit
  *   required fields or supply non-finite numbers (no silent defaults).
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
  * - Sub-builders (`buildTideMarksFromSpec`) enforce their own throw rules.
@@ -300,9 +300,6 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
  * @returns {import('../model/tideDiagramModel.mjs').TideDiagramDocument}
  */
 export function buildDiagram(spec) {
-  const canvas = requirePlainObject(spec.canvas, "spec.canvas");
-  const width = requireFiniteNumber(canvas.width, "spec.canvas.width");
-  const height = requireFiniteNumber(canvas.height, "spec.canvas.height");
   const title = requireString(spec.title, "spec.title");
 
   const refRadius = requireFiniteNumber(spec.refRadius, "spec.refRadius");
@@ -446,7 +443,7 @@ export function buildDiagram(spec) {
 
   return {
     version: 1,
-    meta: { title, width, height },
+    meta: { title },
     paintOrder: spec.paintOrder,
     refArc: {
       center: { x: 0, y: 0 },

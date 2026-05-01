@@ -605,9 +605,10 @@ export function handDiagramToGroup(hand, cx, cy) {
  * @returns {import('../model/sceneModel.mjs').SceneDocument}
  */
 export function tideDiagramToScene(diagram) {
-  const { width, height, title } = diagram.meta;
-  const cx = width / 2;
-  const cy = height / 2;
+  const { title } = diagram.meta;
+  // Scene coords use diagram space as-is; SVG viewBox and y-flip baseline come from `previewFrame` in render.
+  const cx = 0;
+  const cy = 0;
   const {
     refArc,
     tickMarks,
@@ -808,8 +809,6 @@ export function tideDiagramToScene(diagram) {
 
   const meta = {
     title,
-    width,
-    height,
     // previewFrame computed from actual primitives (scene space).
     previewFrame: null,
   };

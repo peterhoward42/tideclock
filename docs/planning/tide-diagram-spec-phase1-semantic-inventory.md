@@ -28,7 +28,7 @@ This table is the anti-regression backbone for rewrite phases: each retained nor
 | S006 | required | Strict diagram input -> Derived behaviour | Product requires at least one tide extreme and non-empty `tideMarks.markers` | TB-3 |
 | S007 | derivation | Strict diagram input -> Derived behaviour | `NoMoreTidesToday` branch is triggered by `timeNow` vs marker schedule, not by missing spec fields | TB-6 |
 | S008 | required | Strict diagram input -> Derived behaviour | Optional `spec.semantic.nextTide` may drive next-tide timing; `tideMarks` remains required for TideMarks drawing | TB-3 |
-| S009 | required | Strict diagram input | `canvas` must be object with finite `width` and `height` | TB-3 |
+| S009 | required | Strict diagram input | SVG framing is derived from scene `previewFrame` in mapping/render; host does not supply pixel `canvas` on the diagram spec | TB-3 |
 | S010 | required | Strict diagram input | `title` must be string | TB-3 |
 | S011 | required | Strict diagram input -> paintOrder | `paintOrder` optional object; `overrides` optional array of override objects | TB-3 |
 | S012 | required | Strict diagram input -> paintOrder | Override row: `name` non-empty string, `place` in `before|after`, `relativeTo` non-empty string | TB-3 |

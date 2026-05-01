@@ -14,10 +14,10 @@ When a phase is finished, **add it under Phases done** and **remove it from Phas
 ### Phases done
 
 - Phase A
+- Phase B
 
 ### Phases remaining
 
-- Phase B
 - Phase C (optional)
 
 ## 3. Terminology (no mystery “V2”)
