@@ -15,7 +15,7 @@ o  first glance ux assimilation suggestions
 		*  show only height not time
 		*  go back to the tide height aligning with the marker
 		*  fix glyph spacing for tide height text
-		o  would the tide marker shape be okk smaller if it were filled?
+		*  would the tide marker shape be okk smaller if it were filled?
 		o  label every hour
 		o  short tick either side of label
 
