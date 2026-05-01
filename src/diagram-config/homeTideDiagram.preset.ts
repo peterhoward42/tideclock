@@ -25,7 +25,7 @@ export const homeTideDiagramLayoutBase = {
   paintOrder: {
     overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],
   },
-  annularBand: { annularBandWidth: 0.08 },
+  annularBand: { annularBandWidth: 0.10 },
   homeMenuTrigger: {
     width: 0.2,
     height: 0.13,

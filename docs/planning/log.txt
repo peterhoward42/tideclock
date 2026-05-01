@@ -16,8 +16,9 @@ o  first glance ux assimilation suggestions
 		*  go back to the tide height aligning with the marker
 		*  fix glyph spacing for tide height text
 		*  would the tide marker shape be okk smaller if it were filled?
-		o  label every hour
-		o  short tick either side of label
+		*  label every hour
+		o  make annulus thicker
+		o  ticks also on outside of labels
 
 	o  Need padding at bottom of bounding rect
 		o  Or other coping mechanism for 12:00 and near tides
