@@ -74,7 +74,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     refRadius: 118,
     sweepRad: 2.75,
     tickLabelTickLen: 0.03,
-    tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
+    tickLabelHours: Array.from({ length: 24 }, (_, h) => h),
     tickLabelSize: 0.04,
     tickLabelClearance: 0.07,
     timeNow: '19:20:03',

@@ -14,6 +14,7 @@ import {
   roundedRect,
   text,
   arcText,
+  timePointerPath,
 } from "../model/sceneModel.mjs";
 
 /**
@@ -278,6 +279,16 @@ function expandBoundsByNode(b, node) {
       return;
     case "arcSegment":
       expandBoundsByArc(b, node);
+      return;
+    case "timePointerPath":
+      expandBoundsByPoint(b, node.v1);
+      expandBoundsByPoint(b, node.v2);
+      expandBoundsByPoint(b, node.v3);
+      expandBoundsByArc(b, {
+        center: node.headCenter,
+        start: node.v2,
+        sweepRad: node.headSweepRad,
+      });
       return;
     case "annularSector":
       expandBoundsByAnnularSector(b, node);
@@ -551,9 +562,7 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
   const c = mapPoint(circ.center, cx, cy);
   const headSweep = timePointerHeadArcSweepRad(p1, p2, p3, c);
   const timePointerGroup = group(`TimePointer${styleSuffix}`, [
-    line(p1, p2),
-    line(p1, p3),
-    arc(c, p2, headSweep),
+    timePointerPath(p1, p2, p3, c, headSweep),
   ]);
   const hl = mark.heightLabel;
   const ac = hl.arcCenter;
@@ -625,12 +634,16 @@ export function tideDiagramToScene(diagram) {
   );
   const arcCenter = mapPoint(C, cx, cy);
 
-  const tickChildren = tickMarks.map((tm) =>
+  const tickChildren = tickMarks.flatMap((tm) => [
     line(
       mapPoint(tm.start, cx, cy),
       mapPoint(tm.end, cx, cy),
     ),
-  );
+    line(
+      mapPoint(tm.bandOuterInward.start, cx, cy),
+      mapPoint(tm.bandOuterInward.end, cx, cy),
+    ),
+  ]);
 
   const annularBandGroup = group("AnnularBand", [
     annularSector(

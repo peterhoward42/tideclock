@@ -148,14 +148,14 @@ of travel.”
 ### Scene graph primitives (current scope)
 
 - The scene graph at this stage consists of:
-  - Arc primitives (for **RefArc** and **TideMarks.TimePointer** head arcs)
+  - Arc primitives (for **RefArc**)
   - Circle primitives (for **Hand.BossCircle** outlines)
   - One closed circular segment path (for **CentreFrame**: circular arc + straight chord closure)
   - Line segments (for radial segments and tick marks)
   - Text elements
-  - **Line** segments and **arc** segments for **TideMarks.TimePointer** (two equal sides of the pointer triangle as strokes, head as a circular arc; **fill** is **none**)
+  - One **closed path** for **TideMarks.TimePointer** (tip **Vertex1**, sides **Vertex1 → Vertex2** and **Vertex1 → Vertex3**, head arc **Vertex2 → Vertex3** as a single composite boundary; **fill** and **stroke** on that path; see **TimePointer**)
   - One **closed annular sector** path (**fill** and **stroke** on the composite
-  boundary) introduced by **AnnularBand** (see **AnnularBand**)
+    boundary) introduced by **AnnularBand** (see **AnnularBand**)
 
 ### Independent stroked curves
 
@@ -166,16 +166,16 @@ model. They are **stroked** along the curve and, for now, **never** treated as
   (full 2π circular outlines; **fill** is none unless a subsection explicitly
   overrides).
 - Area fills are represented by dedicated closed-region primitives (currently:
-**CentreFrame** closed circular segment and **AnnularBand** annular sector).
+**CentreFrame** closed circular segment, **AnnularBand** annular sector, and
+**TimePointer** when the host supplies a **fill** for that leaf).
 - Where multiple curve primitives are **independent**, they are **topologically**
 independent: **not** joined into one path, **not** merged into one composite
 path, and **do not** form a closed region by composition in the logical scene
 graph—even if a viewer perceives closure optically. Distinct primitives may
 **coincide** at a point (e.g. at **O**) without becoming one logical path.
-- Subgroups that emit several curves (e.g. **TimePointer**) satisfy **Independent
-stroked curves** unless a subsection adds detail.
-- **AnnularBand** is **not** covered by **Independent stroked curves**: it is one
-closed region with unified **fill** and **stroke** on its boundary (**AnnularBand**).
+- **AnnularBand** and **TimePointer** are **not** covered by **Independent
+stroked curves**: each is one closed region with unified **fill** and **stroke**
+on its boundary (see those subsections).
 
 ### Text Element
 
@@ -252,7 +252,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
     - cyclic constraints are errors.
   - Default behaviour when omitted: preserve current deterministic scene-child order.
 - `**refRadius**`, `**sweepRad**`, `**tickLabelTickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key). `**tickLabelTickLen`** must be **> 0** and **strictly less** than `**annularBand.annularBandWidth`**.
-- `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours).
+- `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours). The reference home tide diagram lists **every hour in 0..23** and omits **24** (no separate label at the **24:00** RefArc endpoint).
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideLabelRadius**`, `**tideHeightLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
 - `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**armRefArcGap`** (**k·R**, **≥ 0**), a radial inset from the **RefArc** so the **Arm** outer end lies slightly inside **RefRadius** (see **Hand**, **Radial segments**). Generation fails if hand-derived radial ordering is invalid.
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
@@ -333,7 +333,7 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 ### Generator note
 
-- **`spec.tickLabelHours`** must yield **at least one** tick label when this readout is used; otherwise **MainLabel** placement anchor **`x_tick_min`** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests these placements — the reference product always lists hours).
+- **`spec.tickLabelHours`** must yield **at least one** tick label when this readout is used; otherwise **MainLabel** placement anchor **`x_tick_min`** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests these placements — the reference product lists **0..23**).
 
 ### MainLabel
 
@@ -454,7 +454,7 @@ implies time **t** and angle **θ(t)** (**§Time and θ(t)**).
 - **Horizontal justification** — **centre**.
 - **FontHeight** — **k·R** for input **k** (**§Sizing**).
 - **Baseline polar angle** — **0** (**TextElement defaults**).
-- Generated only for hours in a host-chosen subset of **{0, 1, …, 24}**.
+- Generated only for hours listed in **`tickLabelHours`** (integers in **{0, 1, …, 24}**). The reference diagram labels **0..23** only (see **Strict diagram input** for **`tickLabelHours`**).
 - Anchor: start at the **outer** end of the associated tick, then:
   - add a polar offset: angle = tick’s **θ(t)**, length = **k·R** (**§Sizing**);
   - add Cartesian offset **(0, −0.5 × FontHeight)**.
@@ -492,10 +492,12 @@ Each marker emits one cluster with direct children:
 
 ### TimePointer
 
-**TimePointer** is the tide marker pointer (map-pin silhouette). Geometry is
-unchanged; scene emission is stroke-only (**no fill** on pointer primitives).
+**TimePointer** is the tide marker pointer (map-pin silhouette). **Construction**
+(vertices and head circle) is unchanged; scene emission is one **closed path**
+with the same boundary as the former trio of two **line** primitives and one
+**arc** primitive.
 
-**Construction** (unchanged; defines vertices and head circle):
+**Construction** (defines vertices and head circle):
 
 - `**tideMarkArrowDivergence`**: non-negative radians (host field on
   `**tideMarks`**).
@@ -517,19 +519,23 @@ unchanged; scene emission is stroke-only (**no fill** on pointer primitives).
 - Let **centre** = the intersection of **radial1** and **radial2**.
 - Let **radius** = the distance from **centre** to **Vertex2** (equals distance to **Vertex3**; **Vertex1, Vertex2, Vertex3** lie on this circle).
 
-**Scene emission** (outline silhouette equivalent to the former filled
-triangle-plus-disk rendering):
+**Scene emission** (single closed path; boundary identical to the former
+independent **line**/**line**/**arc** trio):
 
-- Two **line** primitives: **Vertex1 → Vertex2** and **Vertex1 → Vertex3** (**stroke** only).
-- One **arc** primitive: circular arc from **Vertex2** to **Vertex3** with
-  centre **centre** and radius **radius**, choosing the arc that does **not**
-  contain **Vertex1** in its interior (the head cap on the opposite side of
-  chord **Vertex2–Vertex3** from **Vertex1**). Equivalently, choose the
-  **Vertex2**-to-**Vertex3** arc that does not pass through **Vertex1**.
+- Subpath: **Vertex1** → **Vertex2** → circular arc **Vertex2** → **Vertex3**
+  → close to **Vertex1**.
+- Head arc: centre **centre**, radius **radius**, endpoints **Vertex2** and
+  **Vertex3**, choosing the arc that does **not** contain **Vertex1** in its
+  interior (the head cap on the opposite side of chord **Vertex2–Vertex3** from
+  **Vertex1**). Equivalently, choose the **Vertex2**-to-**Vertex3** arc that
+  does not pass through **Vertex1**.
 
-**Presentation:** **TimePointer** uses leaf-style **stroke** color and no fill.
-Hosts may set `stroke-linecap`/`stroke-linejoin` so curves meet cleanly at
-**Vertex1**, **Vertex2**, and **Vertex3** (product default: round caps/joins).
+**Presentation:** **TimePointer** uses leaf-style **stroke** color from the
+bound role. **Fill** is **none** unless the host sets an explicit **fill** colour
+on that **TimePointer** leaf’s style role (**fillColor**); the outline shape is
+unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
+**TimePointer** group so the path meets cleanly at **Vertex1**, **Vertex2**, and
+**Vertex3** (product default: round caps/joins).
 
 ### Hand
 

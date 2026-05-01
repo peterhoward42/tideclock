@@ -12,7 +12,8 @@ export const homeTideDiagramLayoutBase = {
   refRadius: 118,
   sweepRad: Math.PI,
   tickLabelTickLen: 0.02,
-  tickLabelHours: [0, 3, 6, 9, 12, 15, 18, 21],
+  /** Every integer hour on the dial except the 24:00 endpoint (labels 00–23). */
+  tickLabelHours: Array.from({ length: 24 }, (_, h) => h),
   tickLabelSize: 0.04,
   tickLabelClearance: 0.023,
   timeNowLabel: { fontHeight: 0.045, dateAboveTime: 0.02 },
@@ -24,7 +25,7 @@ export const homeTideDiagramLayoutBase = {
   paintOrder: {
     overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],
   },
-  annularBand: { annularBandWidth: 0.08 },
+  annularBand: { annularBandWidth: 0.10 },
   homeMenuTrigger: {
     width: 0.2,
     height: 0.13,
