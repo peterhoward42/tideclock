@@ -48,56 +48,10 @@ const RENDER_DEFAULTS = {
  *   styleRuntime?: SceneRenderStyleRuntime,
  *   debug?: { previewFrame?: boolean },
  * }} RenderSceneSvgOptions
- *
- * @typedef {{ styleRuntime?: SceneRenderStyleRuntime }} RenderSceneHtmlOptions
  */
 
 /** Padding inside viewBox units (scene pixels) around computed content. */
 const VIEW_BOX_PAD = 0;
-const SCENE_HTML_PAD_PX = 16;
-
-/**
- * Render a scene model into HTML with inline SVG.
- * v2 scenes require `scene.meta.previewFrame` (scene-space AABB).
- *
- * @param {SceneRenderInput} scene
- * @param {RenderSceneHtmlOptions} [opts]
- * @returns {string}
- * @throws {Error} v2 scene without a valid `meta.previewFrame` (see {@link computeViewBox})
- */
-export function renderSceneHtml(scene, opts = {}) {
-  const vb = computeViewBox(scene);
-  const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>${escapeHtml(String(scene.meta?.title ?? "scene"))}</title>
-  <style>
-    html, body { height: 100%; margin: 0; background: #000; }
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-      padding: ${SCENE_HTML_PAD_PX / 2}px;
-    }
-    svg {
-      display: block;
-      flex-shrink: 0;
-      width: min(calc(100vw - ${SCENE_HTML_PAD_PX}px), calc((100vh - ${SCENE_HTML_PAD_PX}px) * ${vb.vbW} / ${vb.vbH}));
-      height: auto;
-      max-height: calc(100vh - ${SCENE_HTML_PAD_PX}px);
-    }
-  </style>
-</head>
-<body>
-${sceneToSvgInline(scene, vb, opts)}
-</body>
-</html>
-`;
-  return html;
-}
 
 /**
  * Render a scene model into inline SVG only (no HTML wrapper).

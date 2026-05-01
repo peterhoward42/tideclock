@@ -7,7 +7,20 @@
 - Optionally collapse the renderer to a **single scene shape** (group-root + `previewFrame`) so internal “version” branches are easier to reason about.
 - Align **`docs/specs/tide-diagram.md`** and the semantic inventory with the new contract once behaviour is defined.
 
-## 2. Terminology (no mystery “V2”)
+## 2. Progress (multi-session)
+
+When a phase is finished, **add it under Phases done** and **remove it from Phases remaining**. One line per phase is enough for a prompt such as “continue the canvas / scene cleanup plan where we left off.”
+
+### Phases done
+
+- Phase A
+
+### Phases remaining
+
+- Phase B
+- Phase C (optional)
+
+## 3. Terminology (no mystery “V2”)
 
 The codebase overloads “version” in two unrelated ways:
 
@@ -22,12 +35,12 @@ The tide app path is only the second row: `tideDiagramToScene` in `toScene.mjs` 
 
 So: there is **no separate “V1 tide diagram”** in production—only an **unused renderer fallback** for an old **scene file** layout.
 
-## 3. What the live app actually uses
+## 4. What the live app actually uses
 
 - **Layout aspect and bounds**: CSS fills the figure (`HomeRouteTidePanels.svelte`: SVG `width`/`height` 100%, `inset: 0`) and `preserveAspectRatio="xMidYMid meet"` on the emitted SVG; **content** bounds come from **`meta.previewFrame`**, not from preset `canvas`.
 - **Preset `canvas` today**: Fed through `spec` → `buildDiagram` → `TideDiagramDocument.meta.width/height` → `toScene` → `scene.meta`; **`renderSceneSvg`’s group-root path** uses **`meta.height`** only for **`vbY`** and **`canvasH`** in the y-flip transform; **`meta.width`** is unused on that path. So the fixed **420×320** pair is mostly historical noise; **height** still participates in math until we derive it from bounds.
 
-## 4. Phase A — Remove standalone HTML helper (low risk)
+## 5. Phase A — Remove standalone HTML helper (low risk)
 
 **Remove**
 
@@ -49,7 +62,7 @@ So: there is **no separate “V1 tide diagram”** in production—only an **unu
 
 - If any README or comments claim a standalone HTML preview entrypoint, delete or reword (optional grep for “renderSceneHtml” / “standalone”).
 
-## 5. Phase B — Eliminate host-supplied `spec.canvas` (core cleanup)
+## 6. Phase B — Eliminate host-supplied `spec.canvas` (core cleanup)
 
 **Intent**: `buildDiagram` / `DiagramGenerationSpec` should not require **`spec.canvas`**. All pixel framing needed for SVG should be derived **after** layout is known—ideally from **`previewFrame`** (and the same rules the renderer already uses for `vbW` / `vbH`).
 
@@ -75,7 +88,7 @@ So: there is **no separate “V1 tide diagram”** in production—only an **unu
 
 **Risk note**: Changing **`canvasH`** / **`vbY`** math without care can shift or clip the graphic. Treat **golden SVG/scene snapshots** and a **manual Home route check** as mandatory gates.
 
-## 6. Phase C — Optional: single scene format in `renderSceneSvg` (deletion of rect-list path)
+## 7. Phase C — Optional: single scene format in `renderSceneSvg` (deletion of rect-list path)
 
 **Remove** (only after confirming no external consumers rely on rect-list scenes—currently none in-repo):
 
@@ -88,13 +101,13 @@ So: there is **no separate “V1 tide diagram”** in production—only an **unu
 
 This phase is **not** required for Phase A or B but reduces confusion and matches how the product actually works.
 
-## 7. Suggested order of work
+## 8. Suggested order of work
 
 1. Phase A (isolated delete + grep).
 2. Phase B (behaviour + types + spec + snapshots).
 3. Phase C (optional hardening / dead-code removal in renderer).
 
-## 8. Done criteria
+## 9. Done criteria
 
 - No `canvas` on home preset or strict spec requirement for host px size unless the spec explicitly reintroduces an optional host override with documented semantics.
 - No `renderSceneHtml` or HTML-only padding constant left behind unused.
