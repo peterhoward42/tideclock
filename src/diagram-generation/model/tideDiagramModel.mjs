@@ -58,12 +58,17 @@
  *   arm: DiagramLineSeg,
  * }} HandDiagram
  *
+ * Tide mark height label: **anchor** lies on the label circle at the start angle; **arcCenter** is the
+ * RefArc centre; **arcSweepRad** is the total CCW angular span used to space glyphs along that circle
+ * (see **arcText** in the scene model).
+ *
  * @typedef {{
  *   content: string,
  *   fontSize: number,
  *   anchor: DiagramPoint,
- *   angleRad: number,
- * }} TideLabelTextInst
+ *   arcCenter: DiagramPoint,
+ *   arcSweepRad: number,
+ * }} TideHeightLabelDiagram
  *
  * @typedef {{
  *   triangle: { v1: DiagramPoint, v2: DiagramPoint, v3: DiagramPoint },
@@ -74,8 +79,7 @@
  *   timeHours: number,
  *   theta: number,
  *   temporalClass: 'future' | 'past',
- *   heightLabel: TideLabelTextInst,
- *   timeLabel: TideLabelTextInst,
+ *   heightLabel: TideHeightLabelDiagram,
  *   timePointer: TideTimePointerSpec,
  * }} TideMarkDiagram
  *

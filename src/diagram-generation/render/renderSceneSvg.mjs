@@ -387,6 +387,17 @@ function renderNode(node, styleRuntime, leafName) {
       const opacity = opacityFromLeaf(styleRuntime, leafName, node.kind);
       return renderTextSvg(node, fill, opacity);
     }
+    case "arcText": {
+      assertLeafScoped(node.kind, leafName);
+      const fill = requireLeafFillColor(
+        styleRuntime,
+        leafName,
+        RENDER_DEFAULTS.textFill,
+        node.kind,
+      );
+      const opacity = opacityFromLeaf(styleRuntime, leafName, node.kind);
+      return renderArcTextSvg(node, fill, opacity);
+    }
     default:
       return "";
   }
@@ -638,6 +649,41 @@ function renderTextSvg(node, fillColor, opacity) {
       <text x="${ax}" y="${ay}" font-size="${size}" fill="${fillColor}" text-anchor="${anchorAttr}" dominant-baseline="${baseline}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"${opacityAttr}>${inner}</text>
       </g>
     </g>`;
+}
+
+/**
+ * Curved label: one rotated **text** per code point on the arc (same approach as the former arcuate MainLabel).
+ *
+ * @param {import('../model/sceneModel.mjs').ArcTextPrimitive} node
+ */
+function renderArcTextSvg(node, fillColor, opacity) {
+  const glyphs = [];
+  const chars = Array.from(node.content);
+  if (chars.length === 0) return "";
+  const glyphSweep = node.sweepRad / chars.length;
+  for (let i = 0; i < chars.length; i += 1) {
+    const theta = node.thetaStart + (i + 0.5) * glyphSweep;
+    const anchor = {
+      x: node.center.x + node.radius * Math.cos(theta),
+      y: node.center.y + node.radius * Math.sin(theta),
+    };
+    glyphs.push(
+      renderTextSvg(
+        {
+          kind: "text",
+          content: chars[i],
+          size: node.size,
+          hAlign: "center",
+          angleRad: theta + Math.PI / 2,
+          anchor,
+          dominantBaseline: "middle",
+        },
+        fillColor,
+        opacity,
+      ),
+    );
+  }
+  return glyphs.join("\n");
 }
 
 /**

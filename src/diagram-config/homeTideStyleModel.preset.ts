@@ -80,8 +80,6 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "TimeDeltaNextTime", roleName: "role.tide.secondary" },
     { name: "TimePointerFuture", roleName: "role.tide.primary" },
     { name: "TimePointerPast", roleName: "role.tide.primary.past" },
-    { name: "TimeLabelFuture", roleName: "role.structure.emphasis" },
-    { name: "TimeLabelPast", roleName: "role.structure.emphasis.past" },
     { name: "TickLabel", roleName: "role.structure.emphasis" },
     { name: "MainLabel", roleName: "role.tide.primary" },
     { name: "BossCircle", roleName: "role.hand.bossCircle" },

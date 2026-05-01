@@ -159,8 +159,16 @@ function includeDiagramTextBounds(bounds, textInst) {
     x0 = x0 - 0.5 * width;
     x1 = x1 + 0.5 * width;
   }
-  const y0 = textInst.anchor.y - TEXT_DESCENT_EM * size;
-  const y1 = textInst.anchor.y + TEXT_ASCENT_EM * size;
+  let y0;
+  let y1;
+  if (textInst.dominantBaseline === "middle") {
+    const halfEm = 0.52 * size;
+    y0 = textInst.anchor.y - halfEm;
+    y1 = textInst.anchor.y + halfEm;
+  } else {
+    y0 = textInst.anchor.y - TEXT_DESCENT_EM * size;
+    y1 = textInst.anchor.y + TEXT_ASCENT_EM * size;
+  }
   const angle = textInst.angleRad ?? 0;
   if (Math.abs(angle) < 1e-12) {
     includeRect(bounds, x0, x1, y0, y1);
@@ -183,9 +191,34 @@ function includeDiagramTextBounds(bounds, textInst) {
   }
 }
 
+function includeTideHeightLabelArcBounds(bounds, label) {
+  const { anchor, arcCenter, arcSweepRad, fontSize, content } = label;
+  const cx = arcCenter.x;
+  const cy = arcCenter.y;
+  const r = Math.hypot(anchor.x - cx, anchor.y - cy);
+  const thetaStart = Math.atan2(anchor.y - cy, anchor.x - cx);
+  const chars = Array.from(content);
+  if (chars.length === 0) return;
+  const glyphSweep = arcSweepRad / chars.length;
+  for (let i = 0; i < chars.length; i += 1) {
+    const theta = thetaStart + (i + 0.5) * glyphSweep;
+    const p = {
+      x: cx + r * Math.cos(theta),
+      y: cy + r * Math.sin(theta),
+    };
+    includeDiagramTextBounds(bounds, {
+      content: chars[i],
+      fontSize,
+      anchor: p,
+      angleRad: theta + Math.PI / 2,
+      hAlign: "center",
+      dominantBaseline: "middle",
+    });
+  }
+}
+
 function extendBoundsByTideMarker(bounds, marker) {
-  includeDiagramTextBounds(bounds, marker.heightLabel);
-  includeDiagramTextBounds(bounds, marker.timeLabel);
+  includeTideHeightLabelArcBounds(bounds, marker.heightLabel);
   includePoint(bounds, marker.timePointer.triangle.v1);
   includePoint(bounds, marker.timePointer.triangle.v2);
   includePoint(bounds, marker.timePointer.triangle.v3);

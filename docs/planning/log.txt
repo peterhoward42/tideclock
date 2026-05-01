@@ -10,16 +10,26 @@ o  first glance ux assimilation suggestions
 	*  Try out mirrored layout
 
 	o  Try out flatter /arcuate tide marker text
-		o  branch flatmarkertxt
-		o  merge branch flatmarkertxt
+		*  basics
+		*  they are not on a curved path !!!!
+		*  show only height not time
+		o  fix kerning and spacing for height text
+		o  label every hour
+		o  short tick either side of label
 
-	o  tidemarker text could be either side of pointer instead of stacked
+	o  Need padding at bottom of bounding rect
+		o  Or other coping mechanism for 12:00 and near tides
+
+	o  Rule on outside of annualus
+	o  Subtle fill for tide marker radial space annulus?
+
 
 	o  diagramElements are enumerated - is this also not duplicated?
 	o  under heading derived behaviour it catalogs the input requirements,
 	   cannot these be implied? Also there is no heading?
 
 	o  the word centreFrame still appears in the spec?
+	o  what to do when tricky tides occlude each other?
 
 	o  iconography for high vs low?
 	o  put glow /pulsing on next tide marker's time

@@ -13,10 +13,7 @@
  */
 
 import { polar, timeToTheta } from "../model/tideDiagramModel.mjs";
-import {
-  formatCanonicalHHMM,
-  parseCanonicalTimeOrThrow,
-} from "../model/timeCanonical.mjs";
+import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import { requireFiniteNumber, requirePlainObject, requireString } from "./specRequire.mjs";
 
 /**
@@ -26,7 +23,6 @@ import { requireFiniteNumber, requirePlainObject, requireString } from "./specRe
  *   t: number,
  *   canonicalTime: string,
  *   heightText: string,
- *   timeText: string,
  *   isFuture: boolean,
  * }} LayoutTideMarkInput
  */
@@ -40,7 +36,6 @@ import { requireFiniteNumber, requirePlainObject, requireString } from "./specRe
  *   tideLabelRadius: number,
  *   tideLabelArcSeparationRad: number,
  *   heightLabelSizeK: number,
- *   timeLabelSizeK: number,
  *   tideMarkArrowDivergence: number,
  *   tideMarkArrowLineLen: number,
  *   markers: LayoutTideMarkInput[],
@@ -62,7 +57,6 @@ export function layoutTideMarks(params) {
     tideLabelRadius,
     tideLabelArcSeparationRad,
     heightLabelSizeK,
-    timeLabelSizeK,
     tideMarkArrowDivergence,
     tideMarkArrowLineLen,
     markers,
@@ -79,10 +73,13 @@ export function layoutTideMarks(params) {
     const theta = timeToTheta(t, thetaLeft, thetaRight);
     const rLabel = tideLabelRadius * R;
     const halfArcSeparation = 0.5 * tideLabelArcSeparationRad;
-    const timeTheta = theta - halfArcSeparation;
     const heightTheta = theta + halfArcSeparation;
     const heightAnchor = polar(rLabel, heightTheta);
-    const timeAnchor = polar(rLabel, timeTheta);
+    const arcCenter = { x: 0, y: 0 };
+    const charW = 0.6;
+    const estChord =
+      Math.max(1, m.heightText.length) * heightLabelSizeK * R * charW;
+    const arcSweepRad = Math.max(0.12, Math.min(1.15, estChord / rLabel + 0.08));
 
     const v1 = polar(outerBandRadius, theta);
     const v2Offset = polar(offsetR, theta + halfAngle);
@@ -101,13 +98,8 @@ export function layoutTideMarks(params) {
         content: m.heightText,
         fontSize: heightLabelSizeK * R,
         anchor: heightAnchor,
-        angleRad: heightTheta + Math.PI / 2,
-      },
-      timeLabel: {
-        content: m.timeText,
-        fontSize: timeLabelSizeK * R,
-        anchor: timeAnchor,
-        angleRad: timeTheta + Math.PI / 2,
+        arcCenter,
+        arcSweepRad,
       },
       timePointer: {
         triangle: { v1, v2, v3 },
@@ -252,10 +244,7 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     o.tideHeightLabelSize,
     "spec.tideMarks.tideHeightLabelSize",
   );
-  const timeLabelSizeK = requireFiniteNumber(
-    o.tideTimeLabelSize,
-    "spec.tideMarks.tideTimeLabelSize",
-  );
+  requireFiniteNumber(o.tideTimeLabelSize, "spec.tideMarks.tideTimeLabelSize");
   const tideMarkArrowDivergence = Math.max(
     0,
     requireFiniteNumber(
@@ -294,7 +283,6 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     t: row.hours,
     canonicalTime: row.canonicalTime,
     heightText: row.heightText,
-    timeText: formatCanonicalHHMM(row.canonicalTime),
     isFuture: shouldForceAllFuture || row.seconds >= parsedNow.seconds,
   }));
 
@@ -306,7 +294,6 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     tideLabelRadius,
     tideLabelArcSeparationRad,
     heightLabelSizeK,
-    timeLabelSizeK,
     tideMarkArrowDivergence,
     tideMarkArrowLineLen,
     markers,

@@ -50,11 +50,12 @@ type DiagramTimeNowClockInst = {
   readonly seconds: DiagramTextInst;
 };
 
-type TideLabelTextInst = {
+type TideHeightLabelDiagram = {
   readonly content: string;
   readonly fontSize: number;
   readonly anchor: DiagramPoint;
-  readonly angleRad: number;
+  readonly arcCenter: DiagramPoint;
+  readonly arcSweepRad: number;
 };
 
 type TideTimePointerSpec = {
@@ -69,8 +70,7 @@ type TideTimePointerSpec = {
 type TideMarkDiagram = {
   readonly timeHours: number;
   readonly theta: number;
-  readonly heightLabel: TideLabelTextInst;
-  readonly timeLabel: TideLabelTextInst;
+  readonly heightLabel: TideHeightLabelDiagram;
   readonly timePointer: TideTimePointerSpec;
 };
 

@@ -13,6 +13,7 @@ import {
   point,
   roundedRect,
   text,
+  arcText,
 } from "../model/sceneModel.mjs";
 
 /**
@@ -214,6 +215,28 @@ function expandBoundsByText(b, node) {
 }
 
 /** @param {{ minX: number, minY: number, maxX: number, maxY: number }} b mutated in place */
+function expandBoundsByArcText(b, node) {
+  const chars = Array.from(node.content);
+  if (chars.length === 0) return;
+  const glyphSweep = node.sweepRad / chars.length;
+  for (let i = 0; i < chars.length; i += 1) {
+    const theta = node.thetaStart + (i + 0.5) * glyphSweep;
+    const anchor = {
+      x: node.center.x + node.radius * Math.cos(theta),
+      y: node.center.y + node.radius * Math.sin(theta),
+    };
+    expandBoundsByText(b, {
+      content: chars[i],
+      size: node.size,
+      hAlign: "center",
+      angleRad: theta + Math.PI / 2,
+      anchor,
+      dominantBaseline: "middle",
+    });
+  }
+}
+
+/** @param {{ minX: number, minY: number, maxX: number, maxY: number }} b mutated in place */
 function expandBoundsByNode(b, node) {
   switch (node.kind) {
     case "group":
@@ -261,6 +284,9 @@ function expandBoundsByNode(b, node) {
       return;
     case "text":
       expandBoundsByText(b, node);
+      return;
+    case "arcText":
+      expandBoundsByArcText(b, node);
       return;
     default:
       // Unknown scene node kinds: skip (extensible renderer may add kinds before bounds logic catches up).
@@ -530,25 +556,19 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
     arc(c, p2, headSweep),
   ]);
   const hl = mark.heightLabel;
-  const tl = mark.timeLabel;
+  const ac = hl.arcCenter;
+  const thetaStart = Math.atan2(hl.anchor.y - ac.y, hl.anchor.x - ac.x);
+  const radius = Math.hypot(hl.anchor.x - ac.x, hl.anchor.y - ac.y);
   return group("TideMark", [
     timePointerGroup,
     group(`HeightLabel${styleSuffix}`, [
-      text({
+      arcText({
         content: hl.content,
         size: hl.fontSize,
-        hAlign: "left",
-        angleRad: hl.angleRad,
-        anchor: mapPoint(hl.anchor, cx, cy),
-      }),
-    ]),
-    group(`TimeLabel${styleSuffix}`, [
-      text({
-        content: tl.content,
-        size: tl.fontSize,
-        hAlign: "right",
-        angleRad: tl.angleRad,
-        anchor: mapPoint(tl.anchor, cx, cy),
+        center: mapPoint(ac, cx, cy),
+        radius,
+        thetaStart,
+        sweepRad: hl.arcSweepRad,
       }),
     ]),
   ]);
