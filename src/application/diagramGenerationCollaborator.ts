@@ -14,6 +14,11 @@ import {
 /** Matches `tideDiagramModel.mjs` diagram-space coordinates. */
 type DiagramPoint = { readonly x: number; readonly y: number };
 
+type DiagramLineSeg = {
+  readonly start: DiagramPoint;
+  readonly end: DiagramPoint;
+};
+
 type RefArcSpec = {
   readonly center: DiagramPoint;
   readonly refRadius: number;
@@ -27,6 +32,8 @@ type TickMarkSpec = {
   readonly theta: number;
   readonly start: DiagramPoint;
   readonly end: DiagramPoint;
+  /** Same radial length as RefArc→outward tick; from annular band outer edge inward. */
+  readonly bandOuterInward: DiagramLineSeg;
 };
 
 type TickLabelSpec = {
@@ -96,11 +103,6 @@ type HomeMenuTriggerDiagram = {
   readonly cornerRadius: number;
   readonly labelSize: number;
   readonly label: string;
-};
-
-type DiagramLineSeg = {
-  readonly start: DiagramPoint;
-  readonly end: DiagramPoint;
 };
 
 type HandDiagram = {

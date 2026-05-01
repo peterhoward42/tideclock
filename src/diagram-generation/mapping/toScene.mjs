@@ -634,12 +634,16 @@ export function tideDiagramToScene(diagram) {
   );
   const arcCenter = mapPoint(C, cx, cy);
 
-  const tickChildren = tickMarks.map((tm) =>
+  const tickChildren = tickMarks.flatMap((tm) => [
     line(
       mapPoint(tm.start, cx, cy),
       mapPoint(tm.end, cx, cy),
     ),
-  );
+    line(
+      mapPoint(tm.bandOuterInward.start, cx, cy),
+      mapPoint(tm.bandOuterInward.end, cx, cy),
+    ),
+  ]);
 
   const annularBandGroup = group("AnnularBand", [
     annularSector(

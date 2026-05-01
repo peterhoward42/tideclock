@@ -16,10 +16,16 @@
  * }} RefArcSpec
  *
  * @typedef {{
+ *   start: DiagramPoint,
+ *   end: DiagramPoint,
+ * }} DiagramLineSeg
+ *
+ * @typedef {{
  *   hour: number,
  *   theta: number,
  *   start: DiagramPoint,
  *   end: DiagramPoint,
+ *   bandOuterInward: DiagramLineSeg,
  * }} TickMarkSpec
  *
  * @typedef {{
@@ -45,11 +51,6 @@
  *   secondsColon: DiagramTextInst,
  *   seconds: DiagramTextInst,
  * }} DiagramTimeNowClockInst
- *
- * @typedef {{
- *   start: DiagramPoint,
- *   end: DiagramPoint,
- * }} DiagramLineSeg
  *
  * @typedef {{
  *   timeHours: number,

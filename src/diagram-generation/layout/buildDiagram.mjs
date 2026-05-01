@@ -336,6 +336,7 @@ export function buildDiagram(spec) {
   const labelHours = readTickLabelHours(spec);
   const tickLabelHoursSet = new Set(labelHours);
   const rInner = 1.0 * refRadius;
+  const rBandOuter = annularBand.rOuter;
 
   /** @type {import('../model/tideDiagramModel.mjs').TickMarkSpec[]} */
   const tickMarks = [];
@@ -343,11 +344,16 @@ export function buildDiagram(spec) {
     const theta = timeToTheta(h, thetaLeft, thetaRight);
     const tickLen = tickLabelHoursSet.has(h) ? tickLabelTickLen : annularBandTickLen;
     const rOuter = (1.0 + tickLen) * refRadius;
+    const deltaR = tickLen * refRadius;
     tickMarks.push({
       hour: h,
       theta,
       start: polar(rInner, theta),
       end: polar(rOuter, theta),
+      bandOuterInward: {
+        start: polar(rBandOuter, theta),
+        end: polar(rBandOuter - deltaR, theta),
+      },
     });
   }
 
