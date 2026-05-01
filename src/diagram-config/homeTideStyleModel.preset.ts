@@ -32,8 +32,8 @@ export const homeTideStyleModel: StyleModelSpec = {
       colors: { color: "#0FFF50", strokeWidth: 4.0 }, // hand boss circle stroke
     },
     {
-      name: "role.structure.band",
-      colors: { color: "#222" },
+      name: "role.structure.annular-band",
+      colors: { strokeColor: "#888", fillColor: "#222" },
     },
     {
       name: "role.structure.mid",
@@ -69,7 +69,7 @@ export const homeTideStyleModel: StyleModelSpec = {
     },
   ],
   bindings: [
-    { name: "AnnularBand", roleName: "role.structure.band" },
+    { name: "AnnularBand", roleName: "role.structure.annular-band" },
     { name: "RefArc", roleName: "role.structure.ref" },
     { name: "TickMark", roleName: "role.structure.ref" },
     { name: "HeightLabelFuture", roleName: "role.tide.primary" },

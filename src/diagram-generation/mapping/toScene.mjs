@@ -645,13 +645,63 @@ export function tideDiagramToScene(diagram) {
     ),
   ]);
 
+  const abC = annularBandDiagram.center;
+  const aThetaLeft = annularBandDiagram.thetaLeft;
+  const aThetaRight = annularBandDiagram.thetaLeft + annularBandDiagram.sweepRad;
+  const annularCenterScene = mapPoint(abC, cx, cy);
+  const outerArcStart = mapPoint(
+    {
+      x: abC.x + annularBandDiagram.rOuter * Math.cos(aThetaLeft),
+      y: abC.y + annularBandDiagram.rOuter * Math.sin(aThetaLeft),
+    },
+    cx,
+    cy,
+  );
   const annularBandGroup = group("AnnularBand", [
     annularSector(
-      mapPoint(annularBandDiagram.center, cx, cy),
+      annularCenterScene,
       annularBandDiagram.rInner,
       annularBandDiagram.rOuter,
       annularBandDiagram.thetaLeft,
       annularBandDiagram.sweepRad,
+      { fillOnly: true },
+    ),
+    arc(annularCenterScene, outerArcStart, annularBandDiagram.sweepRad),
+    line(
+      mapPoint(
+        {
+          x: abC.x + annularBandDiagram.rInner * Math.cos(aThetaLeft),
+          y: abC.y + annularBandDiagram.rInner * Math.sin(aThetaLeft),
+        },
+        cx,
+        cy,
+      ),
+      mapPoint(
+        {
+          x: abC.x + annularBandDiagram.rOuter * Math.cos(aThetaLeft),
+          y: abC.y + annularBandDiagram.rOuter * Math.sin(aThetaLeft),
+        },
+        cx,
+        cy,
+      ),
+    ),
+    line(
+      mapPoint(
+        {
+          x: abC.x + annularBandDiagram.rInner * Math.cos(aThetaRight),
+          y: abC.y + annularBandDiagram.rInner * Math.sin(aThetaRight),
+        },
+        cx,
+        cy,
+      ),
+      mapPoint(
+        {
+          x: abC.x + annularBandDiagram.rOuter * Math.cos(aThetaRight),
+          y: abC.y + annularBandDiagram.rOuter * Math.sin(aThetaRight),
+        },
+        cx,
+        cy,
+      ),
     ),
   ]);
 

@@ -194,6 +194,7 @@ type SceneAnnularSectorPrimitive = {
   readonly rOuter: number;
   readonly thetaStart: number;
   readonly sweepRad: number;
+  readonly fillOnly?: boolean;
 };
 
 type SceneTextPrimitive = {

@@ -302,12 +302,15 @@ function renderNode(node, styleRuntime, leafName) {
     }
     case "annularSector": {
       assertLeafScoped(node.kind, leafName);
-      const stroke = requireLeafStrokeColor(
-        styleRuntime,
-        leafName,
-        RENDER_DEFAULTS.curveStroke,
-        node.kind,
-      );
+      const stroke =
+        node.fillOnly === true
+          ? "none"
+          : requireLeafStrokeColor(
+            styleRuntime,
+            leafName,
+            RENDER_DEFAULTS.curveStroke,
+            node.kind,
+          );
       const fill = requireLeafFillColor(
         styleRuntime,
         leafName,

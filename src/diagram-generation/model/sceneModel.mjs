@@ -75,6 +75,7 @@
  *   rOuter: number,
  *   thetaStart: number,
  *   sweepRad: number,
+ *   fillOnly?: boolean,
  * }} AnnularSectorPrimitive
  *
  * Closed map-pin silhouette for **TimePointer**: tip **v1**, sides **v1→v2** and **v1→v3**,
@@ -305,10 +306,11 @@ export function roundedRect(center, width, height, rx) {
  * @param {number} rOuter
  * @param {number} thetaStart radians (CCW from +x), inner arc start angle
  * @param {number} sweepRad signed CCW sweep for the inner arc (same subtended angle as RefArc)
+ * @param {{ fillOnly?: boolean }} [opts] when **fillOnly**, render fill without stroke (pair with separate rim strokes).
  * @returns {AnnularSectorPrimitive}
  * @throws {Error} invalid geometry
  */
-export function annularSector(center, rInner, rOuter, thetaStart, sweepRad) {
+export function annularSector(center, rInner, rOuter, thetaStart, sweepRad, opts) {
   assertPoint("center", center);
   assertFiniteNumber("rInner", rInner);
   assertFiniteNumber("rOuter", rOuter);
@@ -320,7 +322,7 @@ export function annularSector(center, rInner, rOuter, thetaStart, sweepRad) {
   if (rOuter <= rInner) {
     throw new Error("rOuter must be greater than rInner");
   }
-  return {
+  const node = {
     kind: "annularSector",
     center,
     rInner,
@@ -328,6 +330,10 @@ export function annularSector(center, rInner, rOuter, thetaStart, sweepRad) {
     thetaStart,
     sweepRad,
   };
+  if (opts?.fillOnly === true) {
+    node.fillOnly = true;
+  }
+  return node;
 }
 
 /**
