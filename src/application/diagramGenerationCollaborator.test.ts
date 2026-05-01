@@ -226,4 +226,29 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(() => collaborator.generate(spec)).toThrow(/duplicate paintOrder override/);
   });
 
+  it('moves TimePointer tip inward when tideMarkOuterBandGap is more negative', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const refR = base.refRadius as number;
+    const tideMarks = base.tideMarks as Record<string, unknown>;
+    const specFlush = { ...base, tideMarks: { ...tideMarks, tideMarkOuterBandGap: 0 } };
+    const specInset = { ...base, tideMarks: { ...tideMarks, tideMarkOuterBandGap: -0.05 } };
+    const tipR = (spec: typeof base) => {
+      const v = collaborator.generate(spec).diagram.tideMarks[0].timePointer.triangle.v1;
+      return Math.hypot(v.x, v.y);
+    };
+    expect(tipR(specFlush) - tipR(specInset)).toBeCloseTo(0.05 * refR, 6);
+  });
+
+  it('throws when tideMarkOuterBandGap is below -annularBandWidth', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const tideMarks = base.tideMarks as Record<string, unknown>;
+    const spec = {
+      ...base,
+      tideMarks: { ...tideMarks, tideMarkOuterBandGap: -0.2 },
+    };
+    expect(() => collaborator.generate(spec)).toThrow(/tideMarkOuterBandGap must not be less than/);
+  });
+
 });

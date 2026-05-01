@@ -11,6 +11,11 @@ export type HomeDiagramTideMarks = {
   readonly tideHeightLabelSize: number;
   readonly tideMarkArrowDivergence: number;
   readonly tideMarkArrowLineLen: number;
+  /**
+   * k·RefRadius: signed radial offset added to AnnularBand outer radius for TimePointer tip.
+   * Negative insets (clearance from outer edge); positive extends past the outer boundary.
+   */
+  readonly tideMarkOuterBandGap: number;
   readonly markers: readonly DiagramTideMarkMarker[];
 };
 

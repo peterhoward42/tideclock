@@ -8,7 +8,8 @@
  * - `spec.tideMarks` is required (plain object); `markers` must be a non-empty array.
  * - Each marker row must be an object with string `heightText`, `highOrLow` ∈ {`High`,`Low`}, and `time` in strict
  *   canonical `HH:MM:SS` other than `24:00:00` (that sentinel is invalid for tide markers).
- * - Numeric layout keys on `tideMarks` are required (finite numbers; see spec).
+ * - Numeric layout keys on `tideMarks` are required (finite numbers; see spec), except
+ *   `tideMarkOuterBandGap` which defaults to **0** when omitted.
  * - Duplicate canonical marker times throw.
  */
 
@@ -37,6 +38,7 @@ import { requireFiniteNumber, requirePlainObject, requireString } from "./specRe
  *   heightLabelSizeK: number,
  *   tideMarkArrowDivergence: number,
  *   tideMarkArrowLineLen: number,
+ *   tideMarkOuterBandGap: number,
  *   markers: LayoutTideMarkInput[],
  * }} LayoutTideMarksParams
  */
@@ -57,10 +59,12 @@ export function layoutTideMarks(params) {
     heightLabelSizeK,
     tideMarkArrowDivergence,
     tideMarkArrowLineLen,
+    tideMarkOuterBandGap,
     markers,
   } = params;
   const R = refRadius;
   const outerBandRadius = R * (1 + annularBandWidth);
+  const pointerTipRadius = outerBandRadius + tideMarkOuterBandGap * R;
   const halfAngle = 0.5 * tideMarkArrowDivergence;
   const offsetR = tideMarkArrowLineLen * R;
 
@@ -78,7 +82,7 @@ export function layoutTideMarks(params) {
     const heightThetaStart = theta - 0.5 * arcSweepRad;
     const heightAnchor = polar(rLabel, heightThetaStart);
 
-    const v1 = polar(outerBandRadius, theta);
+    const v1 = polar(pointerTipRadius, theta);
     const v2Offset = polar(offsetR, theta + halfAngle);
     const v3Offset = polar(offsetR, theta - halfAngle);
     const v2 = { x: v1.x + v2Offset.x, y: v1.y + v2Offset.y };
@@ -252,6 +256,18 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     annularBand.annularBandWidth,
     "spec.annularBand.annularBandWidth",
   );
+  const tideMarkOuterBandGap =
+    o.tideMarkOuterBandGap === undefined || o.tideMarkOuterBandGap === null
+      ? 0
+      : requireFiniteNumber(
+          o.tideMarkOuterBandGap,
+          "spec.tideMarks.tideMarkOuterBandGap",
+        );
+  if (tideMarkOuterBandGap < -annularBandWidth) {
+    throw new Error(
+      "spec.tideMarks.tideMarkOuterBandGap must not be less than -spec.annularBand.annularBandWidth",
+    );
+  }
 
   const semanticRaw = spec.semantic;
   const semantic =
@@ -284,6 +300,7 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     heightLabelSizeK,
     tideMarkArrowDivergence,
     tideMarkArrowLineLen,
+    tideMarkOuterBandGap,
     markers,
   });
 }

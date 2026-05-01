@@ -35,9 +35,11 @@ export const homeTideDiagramLayoutBase = {
     label: "Menu",
   },
   tideMarksDefaults: {
-    tideLabelRadius: 1.17,
+    tideLabelRadius: 1.22,
     tideHeightLabelSize: 0.045,
     tideMarkArrowDivergence: 0.8,
     tideMarkArrowLineLen: 0.045,
+    /** Negative k·R: inset tip from AnnularBand outer edge (clearance). */
+    tideMarkOuterBandGap: 0.012,
   },
 } satisfies HomeTideDiagramLayoutBase;
