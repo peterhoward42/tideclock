@@ -46,7 +46,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   },
   "mainLabel": {
     "anchor": {
-      "x": -125.90599999999999,
+      "x": -124.85308486872034,
       "y": -139.0027051483589,
     },
     "content": "High tide at 23:06",
@@ -78,16 +78,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "thetaRight": 6.283185307179586,
   },
   "tickLabels": [
-    {
-      "anchor": {
-        "x": -123.074,
-        "y": -2.3599999999999848,
-      },
-      "content": "00",
-      "fontSize": 4.72,
-      "hour": 0,
-      "theta": 3.141592653589793,
-    },
     {
       "anchor": {
         "x": -122.02108486872035,
@@ -323,8 +313,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     {
       "bandOuterInward": {
         "end": {
-          "x": -127.44000000000001,
-          "y": 1.560689880833387e-14,
+          "x": -118,
+          "y": 1.4450832229938766e-14,
         },
         "start": {
           "x": -129.8,
@@ -332,8 +322,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         },
       },
       "end": {
-        "x": -120.36,
-        "y": 1.4739848874537543e-14,
+        "x": -129.8,
+        "y": 1.5895915452932646e-14,
       },
       "hour": 0,
       "start": {
@@ -1214,7 +1204,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "children": [
           {
             "end": {
-              "x": 89.64,
+              "x": 80.19999999999999,
               "y": 160.00000000000003,
             },
             "kind": "line",
@@ -1225,7 +1215,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           },
           {
             "end": {
-              "x": 82.55999999999999,
+              "x": 92,
               "y": 160.00000000000003,
             },
             "kind": "line",
@@ -1976,17 +1966,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "children": [
           {
             "anchor": {
-              "x": 86.926,
-              "y": 157.64000000000001,
-            },
-            "angleRad": 0,
-            "content": "00",
-            "hAlign": "center",
-            "kind": "text",
-            "size": 4.72,
-          },
-          {
-            "anchor": {
               "x": 87.97891513127965,
               "y": 141.5756194187094,
             },
@@ -2246,7 +2225,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "children": [
           {
             "anchor": {
-              "x": 84.09400000000001,
+              "x": 85.14691513127966,
               "y": 20.9972948516411,
             },
             "angleRad": 0,

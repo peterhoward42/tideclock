@@ -46,7 +46,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "mainLabel": {
     "anchor": {
-      "x": -130.15191880160563,
+      "x": -126.42985520821964,
       "y": -131.44664875337608,
     },
     "content": "High tide at 23:06",
@@ -70,16 +70,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "thetaRight": 6.08738898038469,
   },
   "tickLabels": [
-    {
-      "anchor": {
-        "x": -127.31991880160562,
-        "y": -27.612292496970515,
-      },
-      "content": "00",
-      "fontSize": 4.72,
-      "hour": 0,
-      "theta": 3.3373889803846897,
-    },
     {
       "anchor": {
         "x": -123.59785520821964,
@@ -315,8 +305,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     {
       "bandOuterInward": {
         "end": {
-          "x": -118.06028834330702,
-          "y": -23.415762133554477,
+          "x": -115.74538072873239,
+          "y": -22.95662954270047,
         },
         "start": {
           "x": -121.53264976516901,
@@ -324,8 +314,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         },
       },
       "end": {
-        "x": -119.21774215059436,
-        "y": -23.645328428981482,
+        "x": -121.53264976516901,
+        "y": -24.104461019835494,
       },
       "hour": 0,
       "start": {

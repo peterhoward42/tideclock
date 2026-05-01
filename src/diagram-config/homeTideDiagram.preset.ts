@@ -12,8 +12,8 @@ export const homeTideDiagramLayoutBase = {
   refRadius: 118,
   sweepRad: Math.PI,
   tickLabelTickLen: 0.02,
-  /** Every integer hour on the dial except the 24:00 endpoint (labels 00–23). */
-  tickLabelHours: Array.from({ length: 24 }, (_, h) => h),
+  /** Every integer hour on the dial except midnight and the 24:00 endpoint (labels 01–23). */
+  tickLabelHours: Array.from({ length: 23 }, (_, i) => i + 1),
   tickLabelSize: 0.04,
   tickLabelClearance: 0.023,
   timeNowLabel: { fontHeight: 0.045, dateAboveTime: 0.02 },

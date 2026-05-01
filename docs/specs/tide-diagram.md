@@ -252,7 +252,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
     - cyclic constraints are errors.
   - Default behaviour when omitted: preserve current deterministic scene-child order.
 - `**refRadius**`, `**sweepRad**`, `**tickLabelTickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key). `**tickLabelTickLen`** must be **> 0** and **strictly less** than `**annularBand.annularBandWidth`**.
-- `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours). The reference home tide diagram lists **every hour in 0..23** and omits **24** (no separate label at the **24:00** RefArc endpoint).
+- `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours). The reference home tide diagram lists **every hour in 1..23** and omits **0** and **24** (no labels at the **00:00** or **24:00** RefArc endpoints).
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideLabelRadius**`, `**tideHeightLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Duplicate canonical marker times are errors.
 - `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**armRefArcGap`** (**k·R**, **≥ 0**), a radial inset from the **RefArc** so the **Arm** outer end lies slightly inside **RefRadius** (see **Hand**, **Radial segments**). Generation fails if hand-derived radial ordering is invalid.
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
@@ -333,7 +333,7 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
 
 ### Generator note
 
-- **`spec.tickLabelHours`** must yield **at least one** tick label when this readout is used; otherwise **MainLabel** placement anchor **`x_tick_min`** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests these placements — the reference product lists **0..23**).
+- **`spec.tickLabelHours`** must yield **at least one** tick label when this readout is used; otherwise **MainLabel** placement anchor **`x_tick_min`** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests these placements — the reference product lists **1..23**).
 
 ### MainLabel
 
@@ -454,7 +454,7 @@ implies time **t** and angle **θ(t)** (**§Time and θ(t)**).
 - **Horizontal justification** — **centre**.
 - **FontHeight** — **k·R** for input **k** (**§Sizing**).
 - **Baseline polar angle** — **0** (**TextElement defaults**).
-- Generated only for hours listed in **`tickLabelHours`** (integers in **{0, 1, …, 24}**). The reference diagram labels **0..23** only (see **Strict diagram input** for **`tickLabelHours`**).
+- Generated only for hours listed in **`tickLabelHours`** (integers in **{0, 1, …, 24}**). The reference diagram labels **1..23** only (see **Strict diagram input** for **`tickLabelHours`**).
 - Anchor: start at the **outer** end of the associated tick, then:
   - add a polar offset: angle = tick’s **θ(t)**, length = **k·R** (**§Sizing**);
   - add Cartesian offset **(0, −0.5 × FontHeight)**.
