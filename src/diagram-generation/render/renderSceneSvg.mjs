@@ -13,7 +13,6 @@ const RENDER_DEFAULTS = {
   curveStroke: "#335",
   shapeFill: "#335",
   textFill: "#223",
-  legacyRectFill: "#e8eef5",
 };
 
 /**
@@ -25,7 +24,7 @@ const RENDER_DEFAULTS = {
  *   lineStyleByName: Map<string, string>,
  * }} SceneRenderStyleRuntime
  *
- * Scene input for the public render entrypoints: v1 rects in `elements`, or v2 (`version >= 2`) with group `root` and valid `meta.previewFrame` for the tight viewBox.
+ * Scene input for the public render entrypoints: group-root graph (`version >= 2`, `root.kind === "group"`) and valid `meta.previewFrame` for the tight viewBox. Build via `tideDiagramToScene` / the diagram pipeline.
  * @typedef {{
  *   version?: number,
  *   meta?: {
@@ -33,13 +32,6 @@ const RENDER_DEFAULTS = {
  *     previewFrame?: unknown,
  *   },
  *   root?: import('../model/sceneModel.mjs').SceneNode,
- *   elements?: ReadonlyArray<{
- *     kind: string,
- *     x?: number,
- *     y?: number,
- *     width?: number,
- *     height?: number,
- *   }>,
  * }} SceneRenderInput
  *
  * @typedef {{
@@ -57,7 +49,7 @@ const VIEW_BOX_PAD = 0;
  * @param {SceneRenderInput} scene
  * @param {RenderSceneSvgOptions} [opts]
  * @returns {string}
- * @throws {Error} v2 scene without a valid `meta.previewFrame`, or v2 primitive without `styleRuntime` / leaf style binding (see {@link computeViewBox}, {@link resolveLeafNamedStyleProps})
+ * @throws {Error} invalid group-root scene shape, missing `meta.previewFrame`, or primitive without `styleRuntime` / leaf style binding (see {@link computeViewBox}, {@link resolveLeafRoleColorProps})
  */
 export function renderSceneSvg(scene, opts = {}) {
   const vb = computeViewBox(scene);
@@ -70,20 +62,14 @@ export function renderSceneSvg(scene, opts = {}) {
  *
  * @param {SceneRenderInput} scene
  * @returns {{ vbX: number, vbY: number, vbW: number, vbH: number, canvasH: number }}
- * @throws {Error} v2 scene graph without a finite positive `meta.previewFrame` AABB
+ * @throws {Error} group-root scene without a finite positive `meta.previewFrame` AABB
  */
 function computeViewBox(scene) {
-  const useV2 =
-    scene.version >= 2 && scene.root != null && scene.root.kind === "group";
-  if (!useV2) {
-    const w = Number(scene.meta?.width) || 400;
-    const h = Number(scene.meta?.height) || 300;
-    return { vbX: 0, vbY: 0, vbW: w, vbH: h, canvasH: h };
-  }
+  requireGroupRootScene(scene);
   const pf = scene.meta?.previewFrame;
   if (!isValidPreviewFrame(pf)) {
     throw new Error(
-      "v2 scene.meta.previewFrame is required: { minX, maxX, minY, maxY } in scene space (computed from scene primitives in toScene)",
+      "scene.meta.previewFrame is required: { minX, maxX, minY, maxY } in scene space (computed from scene primitives in toScene / tideDiagramToScene)",
     );
   }
   const canvasH = pf.maxY + VIEW_BOX_PAD;
@@ -121,15 +107,6 @@ function isValidPreviewFrame(pf) {
  * @param {RenderSceneSvgOptions} opts
  */
 function sceneToSvgInline(scene, vb, opts) {
-  const useV2 =
-    scene.version >= 2 && scene.root != null && scene.root.kind === "group";
-
-  if (!useV2) {
-    const w = Number(scene.meta?.width) || 400;
-    const h = Number(scene.meta?.height) || 300;
-    return legacySceneToSvg(scene, w, h);
-  }
-
   const markerDefs = collectArcArrowMarkers(scene.root, opts.styleRuntime);
   const defs = markerDefs.length > 0 ? `\n  <defs>\n${markerDefs.join("\n")}\n  </defs>` : "";
   const inner = renderNode(scene.root, opts.styleRuntime, null);
@@ -707,7 +684,7 @@ function renderArcTextSvg(node, fillColor, opacity) {
 function resolveLeafRoleColorProps(styleRuntime, leafName, primitiveKind) {
   if (!styleRuntime) {
     throw new Error(
-      `styleRuntime is required for v2 scenes (while rendering ${primitiveKind})`,
+      `styleRuntime is required for group-root scenes (while rendering ${primitiveKind})`,
     );
   }
   if (!leafName) {
@@ -847,20 +824,20 @@ function textAnchorFor(h) {
 }
 
 /**
- * v1 scene.json: `elements` rects in SVG coordinates (no y-flip).
  * @param {SceneRenderInput} scene
  */
-function legacySceneToSvg(scene, w, h) {
-  const rects = (scene.elements ?? []).filter((e) => e.kind === "rect");
-  const rectsSvg = rects
-    .map(
-      (r) =>
-        `<rect x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" fill="${RENDER_DEFAULTS.legacyRectFill}" stroke="${RENDER_DEFAULTS.lineStroke}" stroke-width="1" ${SVG_NON_SCALING_STROKE_ATTR} />`,
-    )
-    .join("\n    ");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-  ${rectsSvg}
-</svg>`;
+function requireGroupRootScene(scene) {
+  if (
+    typeof scene.version === "number" &&
+    scene.version >= 2 &&
+    scene.root != null &&
+    scene.root.kind === "group"
+  ) {
+    return;
+  }
+  throw new Error(
+    'renderSceneSvg expects a group-root scene (version >= 2, root.kind === "group"). Build one with tideDiagramToScene / the diagram pipeline; legacy rect-list scenes are not supported.',
+  );
 }
 
 function escapeHtml(s) {

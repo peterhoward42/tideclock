@@ -15,10 +15,11 @@ When a phase is finished, **add it under Phases done** and **remove it from Phas
 
 - Phase A
 - Phase B
+- Phase C (optional)
 
 ### Phases remaining
 
-- Phase C (optional)
+_(none — plan complete)_
 
 ## 3. Terminology (no mystery “V2”)
 
@@ -27,13 +28,13 @@ The codebase overloads “version” in two unrelated ways:
 | Name | Where | Meaning today |
 |------|--------|----------------|
 | **Tide diagram document `version`** | `buildDiagram.mjs` → `TideDiagramDocument.version` | Numeric **diagram document** schema (currently `1`). Unrelated to SVG/scene rendering. |
-| **Scene graph branch in `renderSceneSvg.mjs`** | `scene.version`, `scene.root`, `scene.elements` | **Presentation-only** fork: either a **legacy rect-list** scene (`elements` + implicit y-down SVG) or the **current** **group-root scene** (`root` kind `"group"`, `version >= 2`, **`meta.previewFrame`** from `tideDiagramToScene`). |
+| **Scene shape in `renderSceneSvg.mjs`** | `scene.version`, `scene.root`, `scene.meta.previewFrame` | **Group-root scene only**: `root` kind `"group"`, `version >= 2`, **`meta.previewFrame`** from `tideDiagramToScene`. Legacy rect-list input was removed in Phase C. |
 
 The tide app path is only the second row: `tideDiagramToScene` in `toScene.mjs` always returns `version: 2`, a `root` group, and a `previewFrame` computed from primitives (see comment: “not from legacy spec constants”).
 
-**Legacy rect-list scenes** (`legacySceneToSvg` in `renderSceneSvg.mjs`) are **not** produced by the current pipeline; they are a leftover path for an old `scene.json`-style object with `elements` rectangles. Nothing in this repository’s tests or app code emits that shape today (grep shows only `buildDiagram`’s document `version: 1`, which is a different field).
+**Legacy rect-list scenes** (old `scene.json`-style objects with `elements` rectangles) were never produced by the current pipeline; the renderer fallback for them was removed in Phase C. Note: `buildDiagram`’s document `version: 1` is a **different** field (diagram document schema), not scene graph version.
 
-So: there is **no separate “V1 tide diagram”** in production—only an **unused renderer fallback** for an old **scene file** layout.
+So: there is **no separate “V1 tide diagram”** in production, and **`renderSceneSvg`** now accepts only the group-root scene shape from `tideDiagramToScene`.
 
 ## 4. What the live app actually uses
 
