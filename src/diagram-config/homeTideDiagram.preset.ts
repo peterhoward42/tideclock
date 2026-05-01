@@ -5,6 +5,15 @@
 
 import type { HomeTideDiagramLayoutBase } from "./homeTideDiagram.types";
 
+const tideMarksDefaults = {
+  tideLabelRadius: 1.22,
+  tideHeightLabelSize: 0.045,
+  tideMarkArrowDivergence: 0.8,
+  tideMarkArrowLineLen: 0.045,
+  /** Negative k·R: inset tip from AnnularBand outer edge (clearance). */
+  tideMarkOuterBandGap: 0.012,
+} as const;
+
 /** Static layout/geometry for the Home tide diagram (canonical values live in this object). */
 export const homeTideDiagramLayoutBase = {
   title: "home-tide-diagram",
@@ -26,6 +35,8 @@ export const homeTideDiagramLayoutBase = {
     overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],
   },
   annularBand: { annularBandWidth: 0.10 },
+  /** k·refRadius: stroked arc concentric with RefArc, same sweep. */
+  dividorArc: { radiusK: 1.25 },
   homeMenuTrigger: {
     width: 0.2,
     height: 0.13,
@@ -34,12 +45,5 @@ export const homeTideDiagramLayoutBase = {
     labelSize: 0.042,
     label: "Menu",
   },
-  tideMarksDefaults: {
-    tideLabelRadius: 1.22,
-    tideHeightLabelSize: 0.045,
-    tideMarkArrowDivergence: 0.8,
-    tideMarkArrowLineLen: 0.045,
-    /** Negative k·R: inset tip from AnnularBand outer edge (clearance). */
-    tideMarkOuterBandGap: 0.012,
-  },
+  tideMarksDefaults,
 } satisfies HomeTideDiagramLayoutBase;

@@ -74,6 +74,13 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(() => collaborator.generate(spec)).toThrow(/greater than 0/);
   });
 
+  it('throws when spec.dividorArc is omitted', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const { dividorArc: _omit, ...rest } = base;
+    expect(() => collaborator.generate(rest)).toThrow(/spec\.dividorArc/);
+  });
+
   it('throws when spec.hand.armRefArcGap is missing', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const base = baseSpecForCollaboratorTest();
@@ -185,6 +192,7 @@ describe('createDiagramGenerationCollaborator', () => {
       'Hand',
       'AnnularBand',
       'RefArc',
+      'Dividor',
       'TickMark',
       'TideMarks',
       'TickLabel',

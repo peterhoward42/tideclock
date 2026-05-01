@@ -48,6 +48,10 @@ export const homeTideStyleModel: StyleModelSpec = {
       colors: { color: "#888" },
     },
     {
+      name: "role.structure.dividor",
+      colors: { color: "#777" },
+    },
+    {
       name: "role.structure.emphasis",
       colors: { color: "#AAA" },
     },
@@ -71,6 +75,7 @@ export const homeTideStyleModel: StyleModelSpec = {
   bindings: [
     { name: "AnnularBand", roleName: "role.structure.annular-band" },
     { name: "RefArc", roleName: "role.structure.ref" },
+    { name: "Dividor", roleName: "role.structure.dividor" },
     { name: "TickMark", roleName: "role.structure.ref" },
     { name: "HeightLabelFuture", roleName: "role.tide.primary" },
     { name: "HeightLabelPast", roleName: "role.tide.primary.past" },

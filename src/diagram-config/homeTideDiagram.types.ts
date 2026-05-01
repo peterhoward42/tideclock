@@ -41,6 +41,8 @@ export type HomeTideDiagramLayoutBase = {
     readonly dateAboveTime: number;
   };
   readonly annularBand: { readonly annularBandWidth: number };
+  /** Stroked arc concentric with RefArc, same sweep; radius is **radiusK·refRadius** (see tide-diagram spec §Sizing). */
+  readonly dividorArc: { readonly radiusK: number };
   readonly hand: {
     readonly bossCircleRadius: number;
     /** k·RefRadius inset from RefArc; arm outer radius is RefRadius minus this. */

@@ -15,6 +15,12 @@
  *   thetaRight: number,
  * }} RefArcSpec
  *
+ * Stroked arc concentric with **RefArc**, same centre and CCW sweep; radius is **radiusK·RefRadius** (**§Sizing**).
+ *
+ * @typedef {{
+ *   radiusK: number,
+ * }} DividorArcSpec
+ *
  * @typedef {{
  *   start: DiagramPoint,
  *   end: DiagramPoint,
@@ -121,6 +127,7 @@
  *     overrides?: { name: string, place: 'before' | 'after', relativeTo: string }[],
  *   },
  *   refArc: RefArcSpec,
+ *   dividorArc: DividorArcSpec,
  *   mainLabel: MainLabelDiagram,
  *   tickMarks: TickMarkSpec[],
  *   tickLabels: TickLabelSpec[],

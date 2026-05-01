@@ -22,14 +22,11 @@ o  first glance ux assimilation suggestions
 		*  stroke the outside of the annular band
 
 	*  Need padding at bottom of bounding rect
-
-	o  What the hell is this in the inputs:   canvas: { width: 420, height: 320 },
-		*  it is orphaned by entangled
-		*  plan removal phases A,B,C
-		o  chomp throught the phases
+	*  What the hell is this in the inputs:   canvas: { width: 420, height: 320 },
 
 
 	o  Subtle fill for tide marker radial space annulus?
+		o  or stroked arc?
 
 
 	o  diagramElements are enumerated - is this also not duplicated?

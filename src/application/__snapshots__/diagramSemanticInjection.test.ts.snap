@@ -12,6 +12,9 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "sweepRad": 2.75,
     "thetaLeft": 3.3373889803846897,
   },
+  "dividorArc": {
+    "radiusK": 0.8653,
+  },
   "hand": {
     "arm": {
       "end": {

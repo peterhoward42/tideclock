@@ -157,7 +157,7 @@ of travel.”
 ### Scene graph primitives (current scope)
 
 - The scene graph at this stage consists of:
-  - Arc primitives (for **RefArc**)
+  - Arc primitives (for **RefArc** and **Dividor**)
   - Circle primitives (for **Hand.BossCircle** outlines)
   - One closed circular segment path (for **CentreFrame**: circular arc + straight chord closure)
   - Line segments (for radial segments and tick marks)
@@ -227,7 +227,7 @@ does **not** apply silent numeric defaults for layout keys (`buildDiagram.mjs`
 and layout submodules). Invalid marker rows (including marker `**24:00:00`**),
 degenerate geometry inputs (for example wait-arc radius **<= 0**), and missing
 required objects (including `**timeNowLabel**`, `**timeNowLocation**`,
-`**timeNowDatePrefix**`, and `**annularBand`**) are **errors**, not
+`**timeNowDatePrefix**`, `**annularBand**`, and `**dividorArc**`) are **errors**, not
 "omit-this-element" fallbacks.
 
 ### Derived behaviour (civil day vs `timeNow`)
@@ -268,6 +268,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
 - `**timeNowLabel`** — **required** plain object; finite `**fontHeight**` and `**dateAboveTime**` (k·R multiples; see **Time now readout**). Together with required strings `**timeNowLocation**` and `**timeNowDatePrefix**`, drives **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock**.
 - `**centreFrame`** — **required** plain object; finite `**frameArcRadius`** (**k·R**). Defines **R_frame** = **k·R** for the **CentreFrame** arc (**§CentreFrame**). Uses top-level `**refRadius`** and `**sweepRad`** (required above).
 - `**annularBand**` — **required** plain object; `**annularBandWidth`** must be a finite **k·R** multiplier **> 0** (**AnnularBandWidth·RefRadius** is the band thickness). **AnnularBandWidth ≤ 0** is an error.
+- `**dividorArc**` — **required** plain object; finite `**radiusK`** (**§Sizing**), strictly **> 0**. Arc radius in model space is **`radiusK·RefRadius`**. Defines **Dividor** (see **Dividor**).
 - `**homeMenuTrigger`** — **required** plain object for the home-route instrument trigger: finite `**width`**, `**height`**, and `**cornerRadius`** (each **k·R**, strictly **> 0**), with `**cornerRadius**` ≤ **min(width,height)/2** (so the rounded rectangle is valid); finite `**labelSize`** (**k·R**, strictly **> 0**); finite `**gapAboveMainLabel`** (**k·R**, **≥ 0**); and string `**label`** (product default `**Menu**`). Position is derived from **§Global layout bounds** plus **MainLabel** placement: the trigger’s left edge is anchored to **B_left**, and its bottom edge is anchored above **MainLabel** top by `**gapAboveMainLabel·RefRadius`**. Layout emits a **roundedRect** and centred **label** at that derived position (see **HomeMenuTrigger** under diagram elements).
 
 ## 4. Scene model contracts (TB-4)
@@ -286,6 +287,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
   - AnnularBand
   - MainLabel (single horizontal left-justified text element; content synthesized from the next tide event at or after `**timeNow`** on the same civil day)
   - RefArc
+  - Dividor (one stroked **arc** concentric with **RefArc**, same centre **O** and CCW sweep; radius **`dividorArc.radiusK·RefRadius`**)
   - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from **§Global layout bounds** and **MainLabel** placement so the rectangle left edge aligns to **B_left** and rectangle bottom edge sits above **MainLabel** top by configured gap; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
 
 ### Style binding names (exact-match contract)
@@ -437,6 +439,25 @@ Together these four edges form one **closed** region (an **annular sector**).
 - Emitted as a named group **AnnularBand** containing the single closed-region
 primitive (leaf-name matching follows **Style binding names (exact-match contract)**;
 concrete `styleName` values are **not** fixed in this specification).
+
+### Dividor
+
+**Dividor** is a top-level named element: one **independent stroked arc** (**Independent stroked curves**) concentric with the **RefArc**.
+
+### Input
+
+- Diagram input object `**dividorArc**` (see **Strict diagram input**): **required**; `**radiusK`** must be finite and strictly **> 0** (**§Sizing**). Model radius = **`radiusK·RefRadius`**.
+
+### Geometry
+
+- **Centre** — **O** (same as **RefArc**, **§Origin**).
+- **Sweep** — same subtended angle and CCW orientation as **RefArc** (**§Polar**): from **θ_left** at the left endpoint to **θ_right** at the right endpoint.
+- **Radius** — **`dividorArc.radiusK·RefRadius`** (not necessarily equal to **RefRadius**).
+
+### Scene model
+
+- Emitted as a named group **Dividor** containing one **arc** primitive (leaf-level style binding name **Dividor** per **Style binding names (exact-match contract)**).
+- Default scene-child order places **Dividor** immediately after **RefArc** among root siblings; hosts may use **`paintOrder`** to adjust stacking.
 
 ### Tick marks
 

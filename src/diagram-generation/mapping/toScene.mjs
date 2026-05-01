@@ -611,6 +611,7 @@ export function tideDiagramToScene(diagram) {
   const cy = 0;
   const {
     refArc,
+    dividorArc,
     tickMarks,
     tickLabels,
     tideMarks,
@@ -634,6 +635,16 @@ export function tideDiagramToScene(diagram) {
     cy,
   );
   const arcCenter = mapPoint(C, cx, cy);
+
+  const dividorR = dividorArc.radiusK * R;
+  const dividorArcStart = mapPoint(
+    {
+      x: C.x + dividorR * Math.cos(refArc.thetaLeft),
+      y: C.y + dividorR * Math.sin(refArc.thetaLeft),
+    },
+    cx,
+    cy,
+  );
 
   const tickChildren = tickMarks.flatMap((tm) => [
     line(
@@ -708,6 +719,9 @@ export function tideDiagramToScene(diagram) {
 
   const refArcGroup = group("RefArc", [
     arc(arcCenter, arcStart, refArc.sweepRad),
+  ]);
+  const dividorArcGroup = group("Dividor", [
+    arc(arcCenter, dividorArcStart, refArc.sweepRad),
   ]);
   const ticksGroup = group("TickMark", tickChildren);
 
@@ -817,6 +831,7 @@ export function tideDiagramToScene(diagram) {
     handGroup,
     annularBandGroup,
     refArcGroup,
+    dividorArcGroup,
     ticksGroup,
     tideMarksGroup,
     tickLabelsGroup,

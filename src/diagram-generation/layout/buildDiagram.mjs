@@ -12,6 +12,7 @@
  * - Sub-builders (`buildTideMarksFromSpec`) enforce their own throw rules.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
  * - Optional `**layoutBoundsBottomMargin**` (**k·R**, **>= 0**): pass 3 of global layout bounds; extends **B_bottom** downward; when omitted, **0**.
+ * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
  * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), finite `**gapAboveMainLabel**` (**k·R**, **>= 0**), and string `**label**`. Position is derived from global layout bounds + MainLabel: left edge at layout-bounds left, bottom edge above MainLabel top by the configured gap.
  * - **MainLabel** is horizontal text anchored from content bounds (leftmost tick-label bound and minimum tick-label-anchor **Y**), not curved arc text.
  * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
@@ -255,6 +256,21 @@ function readOptionalAtypicalTideSummary(spec) {
   return value;
 }
 
+/**
+ * **Dividor** arc radius as dimensionless **k** (**k·RefRadius**).
+ *
+ * @param {Record<string, unknown>} spec
+ * @returns {number}
+ */
+function readDividorArcRadiusKFromSpec(spec) {
+  const o = requirePlainObject(spec.dividorArc, "spec.dividorArc");
+  const radiusK = requireFiniteNumber(o.radiusK, "spec.dividorArc.radiusK");
+  if (!(radiusK > 0)) {
+    throw new Error("spec.dividorArc.radiusK must be greater than 0");
+  }
+  return radiusK;
+}
+
 function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const hand = requirePlainObject(spec.hand, "spec.hand");
   const bossCircleRadiusK = requireFiniteNumber(
@@ -318,6 +334,7 @@ export function buildDiagram(spec) {
   );
 
   const { thetaLeft, thetaRight } = refArcAngles(sweepRad);
+  const dividorArcRadiusK = readDividorArcRadiusKFromSpec(spec);
   const annularBand = buildAnnularBandFromSpec(
     spec,
     refRadius,
@@ -452,6 +469,7 @@ export function buildDiagram(spec) {
       thetaLeft,
       thetaRight,
     },
+    dividorArc: { radiusK: dividorArcRadiusK },
     mainLabel,
     tickMarks,
     tickLabels,

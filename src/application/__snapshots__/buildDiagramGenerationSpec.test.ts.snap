@@ -12,6 +12,9 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "sweepRad": 3.141592653589793,
     "thetaLeft": 3.141592653589793,
   },
+  "dividorArc": {
+    "radiusK": 1.245,
+  },
   "hand": {
     "arm": {
       "end": {
@@ -1080,9 +1083,9 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
 {
   "meta": {
     "previewFrame": {
-      "maxX": 147.47494638192518,
+      "maxX": 147.91000000000003,
       "maxY": 6.9,
-      "minX": -130.8,
+      "minX": -147.91000000000003,
       "minY": -152.82531036313537,
     },
     "title": "home-tide-diagram",
@@ -1195,6 +1198,24 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         ],
         "kind": "group",
         "name": "RefArc",
+      },
+      {
+        "children": [
+          {
+            "center": {
+              "x": 0,
+              "y": 0,
+            },
+            "kind": "arc",
+            "start": {
+              "x": -146.91000000000003,
+              "y": 1.799128612627377e-14,
+            },
+            "sweepRad": 3.141592653589793,
+          },
+        ],
+        "kind": "group",
+        "name": "Dividor",
       },
       {
         "children": [

@@ -27,6 +27,11 @@ type RefArcSpec = {
   readonly thetaRight: number;
 };
 
+type DividorArcSpec = {
+  /** Dimensionless k: arc radius is radiusK × refRadius. */
+  readonly radiusK: number;
+};
+
 type TickMarkSpec = {
   readonly hour: number;
   readonly theta: number;
@@ -127,6 +132,7 @@ export type TideDiagramDocument = {
     }>;
   };
   readonly refArc: RefArcSpec;
+  readonly dividorArc: DividorArcSpec;
   readonly mainLabel: MainLabelDiagram;
   readonly tickMarks: TickMarkSpec[];
   readonly tickLabels: TickLabelSpec[];

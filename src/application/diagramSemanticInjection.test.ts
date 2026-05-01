@@ -46,6 +46,7 @@ type SemanticInjectionDiagramSpec = {
     readonly dateAboveTime: number;
   };
   readonly annularBand: { readonly annularBandWidth: number };
+  readonly dividorArc: { readonly radiusK: number };
   readonly hand: {
     readonly bossCircleRadius: number;
     readonly armRefArcGap: number;
@@ -92,6 +93,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     },
     timeNowLabel: { fontHeight: 0.05, dateAboveTime: 0.05 },
     annularBand: { annularBandWidth: 0.05 },
+    dividorArc: { radiusK: 0.8653 },
     hand: {
       bossCircleRadius: 0.08,
       armRefArcGap: 0.01,
