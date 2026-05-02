@@ -22,17 +22,18 @@ function fixtureExtremesAtLocation(): TideExtremesAtLocation {
 
 const expectedFixtureMarkers = [
   { time: '04:15:00', heightText: '0.94 m', highOrLow: 'Low' },
-  { time: '10:45:00', heightText: '4.7 m', highOrLow: 'High' },
+  { time: '10:45:00', heightText: '4.70 m', highOrLow: 'High' },
   { time: '16:59:24', heightText: '0.89 m', highOrLow: 'Low' },
-  { time: '23:06:00', heightText: '4.8 m', highOrLow: 'High' },
+  { time: '23:06:00', heightText: '4.80 m', highOrLow: 'High' },
 ];
 const FIXTURE_DATE_PREFIX = 'Mon 23 Mar';
 
 describe('formatTideHeightMetresForDiagram', () => {
-  it('formats like existing diagram examples', () => {
+  it('always uses two decimal places after centimetre rounding', () => {
     expect(formatTideHeightMetresForDiagram(0.94)).toBe('0.94 m');
-    expect(formatTideHeightMetresForDiagram(4.7)).toBe('4.7 m');
-    expect(formatTideHeightMetresForDiagram(3)).toBe('3 m');
+    expect(formatTideHeightMetresForDiagram(4.7)).toBe('4.70 m');
+    expect(formatTideHeightMetresForDiagram(3)).toBe('3.00 m');
+    expect(formatTideHeightMetresForDiagram(1)).toBe('1.00 m');
   });
 });
 

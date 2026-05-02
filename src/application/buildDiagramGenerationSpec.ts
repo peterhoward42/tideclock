@@ -55,13 +55,10 @@ function highOrLowFromExtremeType(type: TideExtremeType): string {
   return type === 'high' ? 'High' : 'Low';
 }
 
-/** Tide height labels for the diagram (e.g. "4.7 m", "0.94 m"). */
+/** Tide height labels for the diagram (e.g. "4.70 m", "1.00 m"). Always two decimal places. */
 export function formatTideHeightMetresForDiagram(metres: number): string {
   const rounded = Math.round(metres * 100) / 100;
-  const text = Number.isInteger(rounded)
-    ? String(rounded)
-    : rounded.toFixed(2).replace(/\.?0+$/, '');
-  return `${text} m`;
+  return `${rounded.toFixed(2)} m`;
 }
 
 function tideMarksFromExtremes(

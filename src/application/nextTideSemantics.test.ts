@@ -13,7 +13,7 @@ function specWithMarkers(
     tideMarks: {
       markers: markers.map((m) => ({
         time: m.time,
-        heightText: '0 m',
+        heightText: '0.00 m',
         highOrLow: m.highOrLow,
       })),
     },
@@ -67,7 +67,7 @@ describe('deriveNextTideSemantics', () => {
         {
           timeNow: '99:00:00',
           tideMarks: {
-            markers: [{ time: '12:00:00', heightText: '0 m', highOrLow: 'High' }],
+            markers: [{ time: '12:00:00', heightText: '0.00 m', highOrLow: 'High' }],
           },
         },
         { timeNowLabel: 'clock.now' },

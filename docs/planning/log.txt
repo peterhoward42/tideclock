@@ -24,28 +24,8 @@ o  first glance ux assimilation suggestions
 	*  Need padding at bottom of bounding rect
 	*  What the hell is this in the inputs:   canvas: { width: 420, height: 320 },
 	*  Subtle fill for tide marker radial space annulus?
+	*  spec cleaning
 
-	o  spec cleaning
-		o  next up
-
-		Global contract
-			o  want it to be implicit
-				o  so for each that duplicates implicit constraint ditch it
-					o  global contract
-						*  canvas, title, paint order
-						*  each entry must be an integer 
-						centreframe
-
-
-
-
-
-
-		o  diagramElements are enumerated - is this also not duplicated?
-		o  under heading derived behaviour it catalogs the input requirements,
-		   cannot these be implied? Also there is no heading?
-		o  the word centreFrame still appears in the spec?
-		o  what to do when tricky tides occlude each other?
 
 	o  generalise bottom right stuff to being a stack of rows
 	o  ask advice for
@@ -56,6 +36,8 @@ o  first glance ux assimilation suggestions
 		o  Folding in Main label (duff name)
 		o  But keep location
 		o  Branding under menu
+
+	o  what to do when tricky tides occlude each other?
 
 	o  fix menu position
 	o  do we now need liveness hint(s)?

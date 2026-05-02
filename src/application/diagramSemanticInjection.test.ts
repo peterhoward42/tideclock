@@ -86,9 +86,9 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       tideMarkArrowLineLen: 0.05,
       markers: [
         { time: '04:15:00', heightText: '0.94 m', highOrLow: 'Low' },
-        { time: '10:45:00', heightText: '4.7 m', highOrLow: 'High' },
+        { time: '10:45:00', heightText: '4.70 m', highOrLow: 'High' },
         { time: '16:59:24', heightText: '0.89 m', highOrLow: 'Low' },
-        { time: '23:06:00', heightText: '4.8 m', highOrLow: 'High' },
+        { time: '23:06:00', heightText: '4.80 m', highOrLow: 'High' },
       ],
     },
     timeNowLabel: { fontHeight: 0.05, dateAboveTime: 0.05 },

@@ -899,15 +899,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     {
       "heightLabel": {
         "anchor": {
-          "x": -22.15024661603891,
-          "y": -96.61335815946289,
+          "x": -23.73440558864872,
+          "y": -96.2364400388622,
         },
         "arcCenter": {
           "x": 0,
           "y": 0,
         },
-        "arcSweepRad": 0.16428571428571428,
-        "content": "4.7 m",
+        "arcSweepRad": 0.19714285714285718,
+        "content": "4.70 m",
         "fontSize": 5.428,
       },
       "temporalClass": "past",
@@ -981,15 +981,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     {
       "heightLabel": {
         "anchor": {
-          "x": 92.01006116314917,
-          "y": -36.86357341270032,
+          "x": 91.3920561716729,
+          "y": -38.370124689838846,
         },
         "arcCenter": {
           "x": 0,
           "y": 0,
         },
-        "arcSweepRad": 0.16428571428571428,
-        "content": "4.8 m",
+        "arcSweepRad": 0.19714285714285718,
+        "content": "4.80 m",
         "fontSize": 5.428,
       },
       "temporalClass": "future",
