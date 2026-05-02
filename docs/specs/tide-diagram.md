@@ -264,20 +264,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
 
 ### Diagram elements
 
-- The diagram has named elements:
-  - TickMarks
-  - TickLabels
-  - TideMarks
-  - Hand (group; leaves are **BossCircle**, **Arm**)
-  - TimeNowLocation (single **TextElement**; current location name from the host)
-  - TimeNowDate (single **TextElement**; civil date prefix from the host)
-  - TimeNowClock (group; style-bound leaves are **TimeNowLabelHms**, **TimeNowLabelSecondsColon**, and **TimeNowLabelSeconds** — canonical `HH:MM`, the colon before `SS`, and `SS`)
-  - CentreFrame
-  - AnnularBand
-  - MainLabel (single horizontal left-justified text element; content synthesized from the next tide event at or after `**timeNow`** on the same civil day)
-  - RefArc
-  - Dividor (one stroked **arc** concentric with **RefArc**, same centre **O** and CCW sweep; radius **`dividorArc.radiusK·RefRadius`**)
-  - HomeMenuTrigger (named group: **roundedRect** with **width**, **height**, and **cornerRadius** (k·R); center is derived from **§Global layout bounds** and **MainLabel** placement so the rectangle left edge aligns to **B_left** and rectangle bottom edge sits above **MainLabel** top by configured gap; **HomeMenuTriggerLabel** carries the **label** at that same centre with vertical alignment chosen so the cap height is centred in the control)
+- The diagram has named elements. E.g.  - TickMarks and - TickLabels etc.
 
 ### Style binding names (exact-match contract)
 
