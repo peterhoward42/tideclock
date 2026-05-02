@@ -159,7 +159,6 @@ of travel.”
 - The scene graph at this stage consists of:
   - Arc primitives (for **RefArc** and **Dividor**)
   - Circle primitives (for **Hand.BossCircle** outlines)
-  - One closed circular segment path (for **CentreFrame**: circular arc + straight chord closure)
   - Line segments (for radial segments and tick marks)
   - Text elements
   - One **closed path** for **TideMarks.TimePointer** (tip **Vertex1**, sides **Vertex1 → Vertex2** and **Vertex1 → Vertex3**, head arc **Vertex2 → Vertex3** as a single composite boundary; **fill** and **stroke** on that path; see **TimePointer**)
@@ -175,7 +174,6 @@ model. They are **stroked** along the curve and, for now, **never** treated as
   (full 2π circular outlines; **fill** is none unless a subsection explicitly
   overrides).
 - Area fills are represented by dedicated closed-region primitives (currently:
-**CentreFrame** closed circular segment, **AnnularBand** annular sector, and
 **TimePointer** when the host supplies a **fill** for that leaf).
 - Where multiple curve primitives are **independent**, they are **topologically**
 independent: **not** joined into one path, **not** merged into one composite
@@ -350,31 +348,6 @@ Three related **top-level** named elements (see **Diagram elements**) show host-
   `**<Low|High> tide at <HH:MM>**`.
 - No separate host-provided content field exists for **MainLabel**.
 
-### CentreFrame
-
-**CentreFrame** is a named element whose output is **one closed circular segment**
-(arc boundary plus straight chord closure). Geometry follows **§Polar** and the
-inputs below.
-
-### Scene model
-
-- Emitted as a named group **CentreFrame** ( `**centreFrame`** input is required). The group contains one closed circular-segment primitive.
-
-**Radius and endpoints**
-
-- **R_frame** = **k·R** for diagram input **k** = `**centreFrame.frameArcRadius`** (**§Sizing**).
-- The arc uses the **same** centre **(0, 0)**, **sweep**, and angular orientation
-as the **RefArc** (**§Polar**). The **only** geometric quantity that differs
-from the **RefArc** is the circle radius (**R_frame** vs **RefRadius**).
-- **θ_left** and **θ_right** are the polar angles of the leftmost and rightmost
-endpoints of **this** arc at radius **R_frame** (same angular span as the **RefArc**).
-
-**Closed segment boundary**
-
-- The curved boundary is one arc at radius **R_frame**, with **θ_left** and **θ_right** as above.
-- The arc endpoints are joined by one straight chord, yielding a closed region.
-- Presentation applies both **fill** and **stroke** to this closed boundary.
-- Product style uses the same fill tone as **AnnularBand** by default, while keeping the **CentreFrame** outline stroke independently configurable.
 
 ### AnnularBand
 

@@ -33,7 +33,8 @@ o  first glance ux assimilation suggestions
 				o  so for each that duplicates implicit constraint ditch it
 					o  global contract
 						*  canvas, title, paint order
-						each entry must be an integer 
+						*  each entry must be an integer 
+						centreframe
 
 
 
