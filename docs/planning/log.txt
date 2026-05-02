@@ -31,10 +31,9 @@ o  first glance ux assimilation suggestions
 	*  Improve role and clarity of spec for bottom right stuff
 	*  Decide what contents to put bottom right
 	*  Specify it with a view to it being generic
-
-	o  Separate seconds on hand and style colours
-	o  Make menu smaller and move to right
+	*  Separate seconds on hand and style colours
 	o  The concentric rings could give the tide markers more space now
+	o  Make menu smaller and move to right
 	o  Style BLHC
 	o  Branding on bottom left
 	o  ChatGPT usability / assimilation advice
