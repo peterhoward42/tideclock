@@ -245,8 +245,6 @@ instead of scanning markers; `**tideMarks`** remains **required** for drawing **
 When `**spec.semantic.atypicalTideSummary`** is injected as boolean true, **MainLabel**
 uses atypical summary copy (`**Tricky tides today**`) whenever a next event exists.
 
-- `**title**` — string (diagram meta).
-- **SVG framing** — not part of strict diagram input. `**tideDiagramToScene**` / `**renderSceneSvg**` derive viewBox and the y-down flip baseline from the computed scene `**meta.previewFrame**` (bounds of primitives in scene space), not from host pixel `**canvas**`.
 - `**paintOrder`** — optional plain object.
   - Optional `**overrides`** array.
   - Each override must be a plain object with:
@@ -261,7 +259,7 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
     - cyclic constraints are errors.
   - Default behaviour when omitted: preserve current deterministic scene-child order.
 - `**refRadius**`, `**sweepRad**`, `**tickLabelTickLen**`, `**tickLabelSize**`, `**tickLabelClearance**` — finite numbers (**k·R** or px as documented per key). `**tickLabelTickLen`** must be **> 0** and **strictly less** than `**annularBand.annularBandWidth`**.
-- Optional `**layoutBoundsBottomMargin`** (**k·R**, **≥ 0**): added pass **3** of **§Global layout bounds** — extends **B_bottom** downward by **`layoutBoundsBottomMargin·RefRadius`**; when omitted, **0**.
+- `**layoutBoundsBottomMargin`** (**k·R**, **≥ 0**): added pass **3** of **§Global layout bounds** — extends **B_bottom** downward by **`layoutBoundsBottomMargin·RefRadius`**; when omitted, **0**.
 - `**tickLabelHours`** — array; each entry must be an integer in **0..24** (inclusive). An empty array is valid (explicit “no tick labels” for listed hours). The reference home tide diagram lists **every hour in 1..23** and omits **0** and **24** (no labels at the **00:00** or **24:00** RefArc endpoints).
 - `**tideMarks`** — **required** plain object with **non-empty** `**markers`** array. Each marker row must supply string `**heightText`**, `**highOrLow ∈ {"High","Low"}`**, and canonical `**time`** per **§Time and θ(t)** (including reserved-sentinel policy). These finite numbers are required on `**tideMarks`**: `**tideLabelRadius**`, `**tideHeightLabelSize**`, `**tideMarkArrowDivergence**`, `**tideMarkArrowLineLen**`. Optional signed `**tideMarkOuterBandGap`** (**k·R**): added to the **AnnularBand** outer radius for **TimePointer** **Vertex1** (see **TimePointer**); when omitted, **0** (tip flush with the outer boundary). Values **less** than `**−annularBand.annularBandWidth`** are errors (tip would lie inside the **RefArc**). Duplicate canonical marker times are errors.
 - `**hand`** — **required** plain object for the top-level **Hand** element: finite `**bossCircleRadius`** (**k·R**, strictly **> 0**); finite `**armRefArcGap`** (**k·R**, **≥ 0**), a radial inset from the **RefArc** so the **Arm** outer end lies slightly inside **RefRadius** (see **Hand**, **Radial segments**). Generation fails if hand-derived radial ordering is invalid.
@@ -425,9 +423,6 @@ Together these four edges form one **closed** region (an **annular sector**).
   closed boundary (inner arc, outer arc, radial closures).
 - **RefArc** remains a separate top-level stroked arc with unchanged geometry
   (coincident with the AnnularBand inner edge).
-- Paint order remains a host responsibility (**Host responsibilities**). For the
-  intended visual override at the shared inner curve, paint **RefArc** after
-  **AnnularBand** so **RefArc** stroke wins there.
 
 ### Input
 
@@ -457,7 +452,6 @@ concrete `styleName` values are **not** fixed in this specification).
 ### Scene model
 
 - Emitted as a named group **Dividor** containing one **arc** primitive (leaf-level style binding name **Dividor** per **Style binding names (exact-match contract)**).
-- Default scene-child order places **Dividor** immediately after **RefArc** among root siblings; hosts may use **`paintOrder`** to adjust stacking.
 
 ### Tick marks
 
@@ -492,9 +486,7 @@ implies time **t** and angle **θ(t)** (**§Time and θ(t)**).
 
 ### TideMarks
 
-**TideMarks** define tide-marker clusters under **Diagram elements**. Layering
-and paint order remain host-managed (**Host responsibilities**); this spec fixes
-names and geometry, not global z-order.
+**TideMarks** define tide-marker clusters under **Diagram elements**. 
 
 ### Count and time association
 
@@ -572,8 +564,7 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 ### Hand
 
 **Hand** is a top-level named element tied to global `**timeNow`** via
-`**θ_now`** (**§Global "time now" input**). `paintOrder.overrides` addresses the
-exact group/leaf names listed here.
+`**θ_now`** (**§Global "time now" input**). 
 
 ### Scene model
 
@@ -584,20 +575,6 @@ exact group/leaf names listed here.
 - **Hand** primitives are stroked only; **fill** is **none**.
 - **Arm** should render with a slightly wider stroke width than the default diagram stroke.
 
-### Paint-order example
-
-Hosts can target Hand leaves directly for ordering (for example, placing **Arm**
-before **BossCircle**):
-
-```json
-{
-  "paintOrder": {
-    "overrides": [
-      { "name": "Arm", "place": "before", "relativeTo": "BossCircle" }
-    ]
-  }
-}
-```
 
 ### BossCircle
 
