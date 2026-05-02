@@ -354,7 +354,6 @@
 
   .home-menu-panel {
     position: absolute;
-    transform: translate(-4px, 0);
     z-index: 30;
     min-width: 12rem;
     max-width: min(24rem, calc(100% - 1rem));

@@ -37,20 +37,20 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
       computeHomeMenuPanelAnchorStyle(diagramHost, trigger, {
         viewInnerHeight: 1000,
       }),
-    ).toBe("left: 10px; bottom: 18px; max-height: min(80dvh, 74px);");
+    ).toBe("right: 64px; bottom: 18px; max-height: min(80dvh, 74px);");
   });
 
-  it("clamps negative offsets to zero", () => {
+  it("clamps negative right inset to zero when the trigger extends past the host", () => {
     const diagramHost = {
       getBoundingClientRect: () =>
         ({
-          left: 50,
+          left: 0,
           top: 0,
-          right: 150,
+          right: 100,
           bottom: 80,
           width: 100,
           height: 80,
-          x: 50,
+          x: 0,
           y: 0,
           toJSON: () => ({}),
         }) as DOMRect,
@@ -59,13 +59,13 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
     const trigger = {
       getBoundingClientRect: () =>
         ({
-          left: 40,
+          left: 80,
           top: 60,
-          right: 60,
+          right: 110,
           bottom: 70,
-          width: 20,
+          width: 30,
           height: 10,
-          x: 40,
+          x: 80,
           y: 60,
           toJSON: () => ({}),
         }) as DOMRect,
@@ -75,7 +75,7 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
       computeHomeMenuPanelAnchorStyle(diagramHost, trigger, {
         viewInnerHeight: 1000,
       }),
-    ).toBe("left: 0px; bottom: 18px; max-height: min(80dvh, 54px);");
+    ).toBe("right: 0px; bottom: 18px; max-height: min(80dvh, 54px);");
   });
 
   it("anchors bottom from the diagram host rect, not an inner clipped box", () => {
@@ -113,7 +113,7 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
       computeHomeMenuPanelAnchorStyle(diagramHost, trigger, {
         viewInnerHeight: 1000,
       }),
-    ).toBe("left: 10px; bottom: 38px; max-height: min(80dvh, 154px);");
+    ).toBe("right: 64px; bottom: 38px; max-height: min(80dvh, 154px);");
   });
 
   it("uses the 80% viewport cap when plenty of room above the trigger", () => {
@@ -151,6 +151,6 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
       computeHomeMenuPanelAnchorStyle(diagramHost, trigger, {
         viewInnerHeight: 1000,
       }),
-    ).toBe("left: 10px; bottom: 58px; max-height: min(80dvh, 800px);");
+    ).toBe("right: 64px; bottom: 58px; max-height: min(80dvh, 800px);");
   });
 });
