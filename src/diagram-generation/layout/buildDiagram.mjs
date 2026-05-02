@@ -12,6 +12,7 @@
  * - Sub-builders (`buildTideMarksFromSpec`) enforce their own throw rules.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
  * - Optional `**layoutBoundsBottomMargin**` (**k·R**, **>= 0**): pass 3 of global layout bounds; extends **B_bottom** downward; when omitted, **0**.
+ * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **HandArmTimeLabel**) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
  * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), finite `**gapAboveMainLabel**` (**k·R**, **>= 0**), and string `**label**`. Position is derived from global layout bounds + MainLabel: left edge at layout-bounds left, bottom edge above MainLabel top by the configured gap.
  * - **MainLabel** is horizontal text anchored from content bounds (leftmost tick-label bound and minimum tick-label-anchor **Y**), not curved arc text.
@@ -23,6 +24,10 @@ import {
   requirePlainObject,
   requireString,
 } from "./specRequire.mjs";
+import {
+  parseCivilHalfDayLayoutOrThrow,
+  resolveCivilHalfDayIsBeforeNoon,
+} from "../model/civilHalfDayLayout.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import { computeNextTideEventFromSpec } from "../model/tideEvents.mjs";
 import {
@@ -319,7 +324,8 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const earlierAlongArcX = sinT;
   const earlierAlongArcY = -cosT;
   const offsetR = 0.05 * refRadius;
-  const beforeNoon = parsedNow.hours <= 12;
+  const halfDayMode = parseCivilHalfDayLayoutOrThrow(spec.civilHalfDayLayout);
+  const beforeNoon = resolveCivilHalfDayIsBeforeNoon(halfDayMode, parsedNow.hours);
   const offX = beforeNoon
     ? earlierAlongArcX * offsetR
     : -earlierAlongArcX * offsetR;

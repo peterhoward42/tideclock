@@ -17,6 +17,9 @@ const tideMarksDefaults = {
 /** Static layout/geometry for the Home tide diagram (canonical values live in this object). */
 export const homeTideDiagramLayoutBase = {
   title: "home-tide-diagram",
+  /** Defaults to auto. Or cite beforeNoon, afterNoon to force one or the other for testing.
+   */
+  civilHalfDayLayout: "auto",
   refRadius: 118,
   layoutBoundsBottomMargin: 0.05,
   sweepRad: Math.PI,

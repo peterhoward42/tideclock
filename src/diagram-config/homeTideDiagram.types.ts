@@ -22,9 +22,20 @@ export type HomeDiagramTideMarks = {
 /** Static subset of `spec.tideMarks` (geometry only; `markers` added when building the spec). */
 export type HomeDiagramTideMarksDefaults = Omit<HomeDiagramTideMarks, "markers">;
 
+/**
+ * Which civil half-day presentation branch to use for layout tied to “before noon” vs “after noon”.
+ * Does not change `timeNow` or hand angle; see tide-diagram spec §Global civil half-day layout.
+ */
+export type CivilHalfDayLayoutMode = "auto" | "beforeNoon" | "afterNoon";
+
 export type HomeTideDiagramLayoutBase = {
   readonly title: "home-tide-diagram";
   readonly refRadius: number;
+  /**
+   * When `"auto"`, branches follow **t_now** (`t_now ≤ 12` vs `> 12`). Otherwise forces that branch
+   * for all spec-defined half-day presentation (e.g. **HandArmTimeLabel** offset and baseline rotation).
+   */
+  readonly civilHalfDayLayout: CivilHalfDayLayoutMode;
   readonly sweepRad: number;
   /** k·RefRadius for ticks at hours that also emit TickLabel; must be shorter than annularBandWidth. */
   readonly tickLabelTickLen: number;

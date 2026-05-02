@@ -58,6 +58,7 @@ o  first glance ux assimilation suggestions
 		o  Branding under menu
 
 	o  what to do when tricky tides occlude each other?
+	o  clarify home screen clipping on phone until you scroll
 
 	o  fix menu position
 	o  do we now need liveness hint(s)?

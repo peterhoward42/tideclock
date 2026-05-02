@@ -188,6 +188,32 @@ describe('createDiagramGenerationCollaborator', () => {
     );
   });
 
+  it('forces HandArmTimeLabel half-day layout via civilHalfDayLayout without moving the hand angle', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = buildDiagramGenerationSpec({
+      extremesAtLocation: minimalExtremesForCollaboratorTest(),
+      timeNow: '15:00:00',
+      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+      townName: 'Lymington',
+    });
+    const auto = collaborator.generate(base).diagram;
+    const forcedAm = collaborator.generate({ ...base, civilHalfDayLayout: 'beforeNoon' }).diagram;
+    expect(auto.hand.armTimeLabel.angleRad).toBeCloseTo(auto.hand.theta, 6);
+    expect(forcedAm.hand.armTimeLabel.angleRad).toBeCloseTo(auto.hand.theta + Math.PI, 6);
+    expect(auto.hand.theta).toBeCloseTo(forcedAm.hand.theta, 6);
+    expect(auto.hand.arm.end.x).toBeCloseTo(forcedAm.hand.arm.end.x, 6);
+    expect(auto.hand.arm.end.y).toBeCloseTo(forcedAm.hand.arm.end.y, 6);
+  });
+
+  it('throws when civilHalfDayLayout is invalid', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    expect(() => collaborator.generate({ ...base, civilHalfDayLayout: 'morning' })).toThrow(
+      /civilHalfDayLayout/,
+    );
+  });
+
   it('throws when annularBand is present without annularBandWidth', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const base = baseSpecForCollaboratorTest();

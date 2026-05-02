@@ -145,6 +145,14 @@ otherwise.
 `t_now` and `θ_now`**; the specification does **not** introduce a second,
 independent notion of “now.”
 
+### §Global civil half-day layout
+
+- Optional top-level diagram input **`civilHalfDayLayout`** — exact string, one of:
+  - **`"auto"`** (default when the field is omitted) — any presentation rule in this specification that branches on **before noon** vs **after noon** uses the same condition as **`t_now`**: the **t_now ≤ 12** branch when **`t_now ≤ 12`**, else the **`t_now > 12`** branch (**t_now** per **§Global “time now” input**).
+  - **`"beforeNoon"`** — force the **t_now ≤ 12** presentation branch everywhere this specification defines such a split, **regardless of** the numeric value of **`t_now`**.
+  - **`"afterNoon"`** — force the **`t_now > 12`** presentation branch everywhere this specification defines such a split, **regardless of** **`t_now`**.
+- **`civilHalfDayLayout` does not change** **`timeNow`**, **`t_now`**, **`θ_now`**, hand position along the dial, tide markers, **MainLabel** tide copy, or any semantics derived from the marker schedule. It affects **only** layout/presentation branches keyed to civil half-day (currently **HandArmTimeLabel** anchor offset and baseline rotation; additional elements MUST use this same input if they gain a half-day split later).
+
 ### Radial lines and radial segments
 
 - A **radial line** (infinite) passes through **O** at a given polar angle
@@ -227,6 +235,7 @@ degenerate geometry inputs (for example wait-arc radius **<= 0**), and missing
 required objects (including `**timeNowLabel**`, `**timeNowLocation**`,
 `**timeNowDatePrefix**`, `**annularBand**`, and `**dividorArc**`) are **errors**, not
 "omit-this-element" fallbacks.
+- Optional `**civilHalfDayLayout**` — see **§Global civil half-day layout**; invalid values are **errors**; when omitted, behaviour matches **`"auto"`**.
 
 ### Derived behaviour (civil day vs `timeNow`)
 
@@ -551,6 +560,6 @@ This is **not** the **Time now readout** block (**TimeNowLocation** / **TimeNowD
 - Emitted as a named group **HandArmTimeLabel** (child of **Arm**), containing one **text** primitive. Hosts may target it for live updates (e.g. patch the text node under this group without regenerating the full scene).
 - **Text** — exactly the canonical **`timeNow`** string (second resolution; no reformatting beyond what the host supplies in that canonical form).
 - **Horizontal justification** — **centre** on the rotated baseline.
-- Anchor placement uses the midpoint of the **Arm** segment (between **`r_boss`** and **`r_arm_outer`**, **§Radial segments**), then shifts by **0.05·RefRadius** along the **RefArc** tangent at **`θ_now`** that points toward **decreasing θ** (earlier clock time along the arc) when **`t_now ≤ 12`** hours, and **opposite** that tangent when **`t_now > 12`** hours (**t_now** as in **§Global “time now” input**).
-- **Baseline rotation** (radians, same convention as other rotated diagram **text**): **`θ_now + π`** when **`t_now ≤ 12`**, else **`θ_now`**, so the string runs along the arm with a consistent reading sense across morning and afternoon.
+- Anchor placement uses the midpoint of the **Arm** segment (between **`r_boss`** and **`r_arm_outer`**, **§Radial segments**), then shifts by **0.05·RefRadius** along the **RefArc** tangent at **`θ_now`** that points toward **decreasing θ** (earlier clock time along the arc) when the **before-noon** presentation branch applies, and **opposite** that tangent when the **after-noon** branch applies. With **`civilHalfDayLayout = "auto"`**, the before-noon branch is **`t_now ≤ 12`** and the after-noon branch is **`t_now > 12`** (**t_now** per **§Global “time now” input**). With **`"beforeNoon"`** or **`"afterNoon"`**, the branch is forced per **§Global civil half-day layout** without changing **`θ_now`**.
+- **Baseline rotation** (radians, same convention as other rotated diagram **text**): **`θ_now + π`** on the **before-noon** branch, else **`θ_now`**, so the string runs along the arm with a consistent reading sense across morning and afternoon. Branch selection matches the preceding bullet (**§Global civil half-day layout** when not **`"auto"`**).
 - **Dominant baseline** — **middle** (anchor is the nominal centre of the line’s em box in the host).
