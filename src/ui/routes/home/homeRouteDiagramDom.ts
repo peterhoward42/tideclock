@@ -10,7 +10,7 @@ import {
 
 /**
  * Patch live date prefix and arm time readout inside injected SVG; host must contain the current diagram.
- * Callers subscribe to `nowMs` (~1 Hz) so **BLHCDate** and **HandArmTimeLabel** stay in sync.
+ * Callers subscribe to `nowMs` (~1 Hz) so **BLHCDate** and **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** stay in sync.
  */
 export function patchBlhcBundleInDiagramHost(
   host: HTMLElement,
@@ -21,11 +21,15 @@ export function patchBlhcBundleInDiagramHost(
   const dateEl = host.querySelector(
     'svg g[data-name="BLHCDate"] text',
   ) as SVGTextElement | null;
-  const handArmTimeEl = host.querySelector(
-    'svg g[data-name="HandArmTimeLabel"] text',
+  const handClockEl = host.querySelector(
+    'svg g[data-name="Hand.TimeReadout"] text',
+  ) as SVGTextElement | null;
+  const handSecondsEl = host.querySelector(
+    'svg g[data-name="Hand.TimeReadoutSeconds"] text',
   ) as SVGTextElement | null;
   if (dateEl !== null) dateEl.textContent = datePrefix;
-  if (handArmTimeEl !== null) handArmTimeEl.textContent = canonical;
+  if (handClockEl !== null) handClockEl.textContent = canonical.slice(0, 6);
+  if (handSecondsEl !== null) handSecondsEl.textContent = canonical.slice(6);
 }
 
 export function queryHomeMenuTriggerGroupFromDiagramHost(

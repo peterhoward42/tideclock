@@ -104,7 +104,7 @@ type HomeMenuTriggerDiagram = {
   readonly label: string;
 };
 
-type HandArmTimeLabelDiagram = {
+type HandTimeReadoutPartDiagram = {
   readonly content: string;
   readonly fontSize: number;
   readonly anchor: DiagramPoint;
@@ -116,7 +116,10 @@ type HandDiagram = {
   readonly theta: number;
   readonly bossCircle: { readonly center: DiagramPoint; readonly radius: number };
   readonly arm: DiagramLineSeg;
-  readonly armTimeLabel: HandArmTimeLabelDiagram;
+  readonly armTimeReadout: {
+    readonly clock: HandTimeReadoutPartDiagram;
+    readonly seconds: HandTimeReadoutPartDiagram;
+  };
 };
 
 /**

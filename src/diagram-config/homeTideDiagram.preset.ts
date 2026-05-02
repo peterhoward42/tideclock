@@ -33,7 +33,7 @@ export const homeTideDiagramLayoutBase = {
     bossCircleRadius: 0.05,
     /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */
     armRefArcGap: 0.020,
-    /** k·RefRadius: font height for **HandArmTimeLabel** (canonical `timeNow` along the arm). */
+    /** k·RefRadius: font height for **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** (canonical `timeNow` along the arm). */
     armTimeLabelFontHeight: 0.04,
   },
   paintOrder: {

@@ -85,7 +85,7 @@ Three-pass construction:
   - the stroked **RefArc** (radius **RefRadius**, centre **O**, sweep from **θ_left** to **θ_right**),
   - the stroked **Dividor** arc (radius **`dividorArc.radiusK·RefRadius`**, same centre and sweep),
   - **TickLabels** (text bounds; monospace width heuristic consistent with other diagram text),
-  - **HandArmTimeLabel** (rotated text along the **Hand**).
+  - **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** (rotated text along the **Hand**; see **§Hand time readout**).
 - **BLHCBundle** is positioned using **B_right** and **B_bottom** from this pass (and pass **3**); bundle rows are **right**-justified to **B_right**. After bundle placement, generation includes bundle text bounds when finalizing axis-aligned bounds for framing if needed. Other elements (e.g. **HomeMenuTrigger**) may still use **B_left**.
 
 3) **Layout bottom margin**
@@ -161,7 +161,7 @@ independent notion of “now.”
   - **`"auto"`** (default when the field is omitted) — any presentation rule in this specification that branches on **before noon** vs **after noon** uses the same condition as **`t_now`**: the **t_now ≤ 12** branch when **`t_now ≤ 12`**, else the **`t_now > 12`** branch (**t_now** per **§Global “time now” input**).
   - **`"beforeNoon"`** — force the **t_now ≤ 12** presentation branch everywhere this specification defines such a split, **regardless of** the numeric value of **`t_now`**.
   - **`"afterNoon"`** — force the **`t_now > 12`** presentation branch everywhere this specification defines such a split, **regardless of** **`t_now`**.
-- **`civilHalfDayLayout` does not change** **`timeNow`**, **`t_now`**, **`θ_now`**, hand position along the dial, tide markers, **MainLabel** tide copy, or any semantics derived from the marker schedule. It affects **only** layout/presentation branches keyed to civil half-day (currently **HandArmTimeLabel** anchor offset and baseline rotation; additional elements MUST use this same input if they gain a half-day split later).
+- **`civilHalfDayLayout` does not change** **`timeNow`**, **`t_now`**, **`θ_now`**, hand position along the dial, tide markers, **MainLabel** tide copy, or any semantics derived from the marker schedule. It affects **only** layout/presentation branches keyed to civil half-day (currently **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** anchor offset and baseline rotation; additional elements MUST use this same input if they gain a half-day split later).
 
 ### Radial lines and radial segments
 
@@ -291,7 +291,7 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ### BLHCBundle
 
-**BLHCBundle** is a **top-level** named group (see **Diagram elements**) containing the bottom-anchored stack of named text rows: synthesized **MainLabel** (tide summary) on the bottom row, then host-local civil **date prefix**, then host-local **location**, together with `**blhcLocation**` and `**blhcDatePrefix**`. Rows are laid out upward from **B_bottom** (see **§Vertical placement**). Live wall-clock readout uses global canonical `**timeNow**` on **HandArmTimeLabel** only (**§HandArmTimeLabel**). The bundle may gain additional rows later; hosts should treat **BLHCBundle** as the collective contract for this corner of the diagram, distinct from **HandArmTimeLabel**.
+**BLHCBundle** is a **top-level** named group (see **Diagram elements**) containing the bottom-anchored stack of named text rows: synthesized **MainLabel** (tide summary) on the bottom row, then host-local civil **date prefix**, then host-local **location**, together with `**blhcLocation**` and `**blhcDatePrefix**`. Rows are laid out upward from **B_bottom** (see **§Vertical placement**). Live wall-clock readout uses global canonical `**timeNow**` on **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** only (**§Hand time readout**). The bundle may gain additional rows later; hosts should treat **BLHCBundle** as the collective contract for this corner of the diagram, distinct from the **Hand** readout.
 
 ### Shared inputs
 
@@ -522,7 +522,7 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 - **BossCircle** — named group containing one stroked **circle** (see below).
 - **Arm** — named group containing:
   - the stroked radial **line** segment (**Arm** geometry below), and
-  - **HandArmTimeLabel** — clock readout along the arm (see below).
+  - **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** — clock readout along the arm (see below).
 - **Hand** curve primitives (**BossCircle** outline, **Arm** segment) are stroked only; **fill** is **none**.
 - **Arm** should render with a slightly wider stroke width than the default diagram stroke.
 
@@ -542,14 +542,13 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 - Validation: generation fails if radial ordering is invalid at emission time
   (specifically, require `**r_boss < r_arm_outer**`).
 
-### HandArmTimeLabel
+### Hand time readout (`Hand.TimeReadout` / `Hand.TimeReadoutSeconds`)
 
-This is **not** **BLHCBundle** (**MainLabel** / **BLHCDate** / **BLHCLocation**): that bundle’s rows use **B_right** and **B_bottom** (**§Global layout bounds**). **HandArmTimeLabel** is a separate, single-line **text** readout of the same global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**.
+This is **not** **BLHCBundle** (**MainLabel** / **BLHCDate** / **BLHCLocation**): that bundle’s rows use **B_right** and **B_bottom** (**§Global layout bounds**). The **Hand** readout is a single visual line of the same global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**, emitted as **two** sibling named groups (each with one **text** primitive) so hosts may bind styles per leaf: **`Hand.TimeReadout`** carries **`HH:MM:`** and **`Hand.TimeReadoutSeconds`** carries **`SS`**.
 
-- Required diagram input **`hand.armTimeLabelFontHeight`**: finite dimensionless **k > 0** (**§Sizing**). **FontHeight** is **`hand.armTimeLabelFontHeight · RefRadius`**. This is independent of **TickLabel** sizing.
-- Emitted as a named group **HandArmTimeLabel** (child of **Arm**), containing one **text** primitive. Hosts may target it for live updates (e.g. patch the text node under this group without regenerating the full scene).
-- **Text** — exactly the canonical **`timeNow`** string (second resolution; no reformatting beyond what the host supplies in that canonical form).
-- **Horizontal justification** — **centre** on the rotated baseline.
+- Required diagram input **`hand.armTimeLabelFontHeight`**: finite dimensionless **k > 0** (**§Sizing**). **FontHeight** is **`hand.armTimeLabelFontHeight · RefRadius`**. This is independent of **TickLabel** sizing; it applies to **both** readout texts (identical **font-size** unless a host overrides via style).
+- **Text** — concatenation of the two leaves reproduces the canonical **`timeNow`** string (second resolution; no reformatting beyond what the host supplies in that canonical form).
+- **Horizontal justification** — **centre** on the rotated baseline for each **text**; anchors are offset along the advance direction so the pair’s combined centroid matches the nominal single-line placement (monospace **0.6 em** per code unit width heuristic, consistent with diagram-wide text bounds).
 - Anchor placement uses the midpoint of the **Arm** segment (between **`r_boss`** and **`r_arm_outer`**, **§Radial segments**), then shifts by **0.05·RefRadius** along the **RefArc** tangent at **`θ_now`** that points toward **decreasing θ** (earlier clock time along the arc) when the **before-noon** presentation branch applies, and **opposite** that tangent when the **after-noon** branch applies. With **`civilHalfDayLayout = "auto"`**, the before-noon branch is **`t_now ≤ 12`** and the after-noon branch is **`t_now > 12`** (**t_now** per **§Global “time now” input**). With **`"beforeNoon"`** or **`"afterNoon"`**, the branch is forced per **§Global civil half-day layout** without changing **`θ_now`**.
 - **Baseline rotation** (radians, same convention as other rotated diagram **text**): **`θ_now + π`** on the **before-noon** branch, else **`θ_now`**, so the string runs along the arm with a consistent reading sense across morning and afternoon. Branch selection matches the preceding bullet (**§Global civil half-day layout** when not **`"auto"`**).
 - **Dominant baseline** — **middle** (anchor is the nominal centre of the line’s em box in the host).

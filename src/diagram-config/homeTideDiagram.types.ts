@@ -33,7 +33,7 @@ export type HomeTideDiagramLayoutBase = {
   readonly refRadius: number;
   /**
    * When `"auto"`, branches follow **t_now** (`t_now ≤ 12` vs `> 12`). Otherwise forces that branch
-   * for all spec-defined half-day presentation (e.g. **HandArmTimeLabel** offset and baseline rotation).
+   * for all spec-defined half-day presentation (e.g. **Hand.TimeReadout** offset and baseline rotation).
    */
   readonly civilHalfDayLayout: CivilHalfDayLayoutMode;
   readonly sweepRad: number;
@@ -58,7 +58,7 @@ export type HomeTideDiagramLayoutBase = {
     readonly bossCircleRadius: number;
     /** k·RefRadius inset from RefArc; arm outer radius is RefRadius minus this. */
     readonly armRefArcGap: number;
-    /** k·RefRadius: **HandArmTimeLabel** font height (independent of tick-label sizing). */
+    /** k·RefRadius: **Hand** arm time readout font height (independent of tick-label sizing). */
     readonly armTimeLabelFontHeight: number;
   };
   readonly paintOrder: {

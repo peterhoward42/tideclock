@@ -12,7 +12,7 @@
  * - Sub-builders (`buildTideMarksFromSpec`) enforce their own throw rules.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
  * - Optional `**layoutBoundsBottomMargin**` (**k·R**, **>= 0**): pass 3 of global layout bounds; extends **B_bottom** downward; when omitted, **0**.
- * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **HandArmTimeLabel**) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
+ * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **Hand.TimeReadout** placement) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
  * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height**`, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), finite `**gapAboveMainLabel**` (**k·R**, **>= 0**), and string `**label**`. Position is derived from global layout-bounds **B_left** + **MainLabel**: trigger left edge at **B_left**, bottom edge above MainLabel top by the configured gap.
  * - **MainLabel** is horizontal text inside **BLHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
@@ -165,7 +165,7 @@ function includeArcSweepAxisBounds(bounds, cx, cy, r, thetaLeft, sweepRad) {
  * @param {{ minX: number, maxX: number, minY: number, maxY: number }} bounds
  * @param {{
  *   tickLabels: import('../model/tideDiagramModel.mjs').TickLabelSpec[],
- *   armTimeLabel: import('../model/tideDiagramModel.mjs').HandArmTimeLabelDiagram,
+ *   armTimeReadout: import('../model/tideDiagramModel.mjs').HandDiagram['armTimeReadout'],
  *   refRadius: number,
  *   dividorRadius: number,
  *   thetaLeft: number,
@@ -183,14 +183,16 @@ function extendLayoutBoundsForDiagramExtent(bounds, p) {
   }
   includeArcSweepAxisBounds(bounds, 0, 0, p.refRadius, p.thetaLeft, p.sweepRad);
   includeArcSweepAxisBounds(bounds, 0, 0, p.dividorRadius, p.thetaLeft, p.sweepRad);
-  includeDiagramTextBounds(bounds, {
-    content: p.armTimeLabel.content,
-    fontSize: p.armTimeLabel.fontSize,
-    anchor: p.armTimeLabel.anchor,
-    hAlign: "center",
-    angleRad: p.armTimeLabel.angleRad,
-    dominantBaseline: "middle",
-  });
+  for (const part of [p.armTimeReadout.clock, p.armTimeReadout.seconds]) {
+    includeDiagramTextBounds(bounds, {
+      content: part.content,
+      fontSize: part.fontSize,
+      anchor: part.anchor,
+      hAlign: "center",
+      angleRad: part.angleRad,
+      dominantBaseline: "middle",
+    });
+  }
 }
 
 function includeDiagramTextBounds(bounds, textInst) {
@@ -375,16 +377,32 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     : -earlierAlongArcY * offsetR;
   /** Inline axis toward origin (a.m.) vs outward (p.m.); see tide-diagram Hand arm label. */
   const angleRad = beforeNoon ? theta + Math.PI : theta;
+  const timeNow = /** @type {string} */ (spec.timeNow);
+  const fontSize = armTimeLabelFontHeightK * refRadius;
+  const charW = BLHC_LABEL_CHAR_WIDTH_EM * fontSize;
+  const wClock = 6 * charW;
+  const wSec = 2 * charW;
+  const u = { x: Math.cos(angleRad), y: Math.sin(angleRad) };
+  const ax = mid.x + offX;
+  const ay = mid.y + offY;
   return {
     timeHours: parsedNow.hours,
     theta,
     bossCircle: { center: { x: 0, y: 0 }, radius: rBoss },
     arm: { start: armStart, end: armEnd },
-    armTimeLabel: {
-      content: /** @type {string} */ (spec.timeNow),
-      fontSize: armTimeLabelFontHeightK * refRadius,
-      anchor: { x: mid.x + offX, y: mid.y + offY },
-      angleRad,
+    armTimeReadout: {
+      clock: {
+        content: timeNow.slice(0, 6),
+        fontSize,
+        anchor: { x: ax - u.x * (wSec / 2), y: ay - u.y * (wSec / 2) },
+        angleRad,
+      },
+      seconds: {
+        content: timeNow.slice(6),
+        fontSize,
+        anchor: { x: ax + u.x * (wClock / 2), y: ay + u.y * (wClock / 2) },
+        angleRad,
+      },
     },
   };
 }
@@ -501,7 +519,7 @@ export function buildDiagram(spec) {
 
   extendLayoutBoundsForDiagramExtent(layoutBounds, {
     tickLabels,
-    armTimeLabel: hand.armTimeLabel,
+    armTimeReadout: hand.armTimeReadout,
     refRadius,
     dividorRadius: dividorArcRadiusK * refRadius,
     thetaLeft,
