@@ -265,10 +265,10 @@
     :global(
       svg
         g[data-name="HomeMenuTrigger"]
-        g[data-name="HomeMenuTriggerLabel"]
-        text
+        g[data-name="HomeMenuTriggerIcon"]
+        line
     ) {
-    transition: fill 120ms ease-out;
+    transition: stroke 120ms ease-out;
   }
 
   .home-instrument
@@ -283,10 +283,10 @@
     :global(
       svg
         g[data-name="HomeMenuTrigger"].home-menu-trigger--hover
-        g[data-name="HomeMenuTriggerLabel"]
-        text
+        g[data-name="HomeMenuTriggerIcon"]
+        line
     ) {
-    fill: var(--text-home-menu-trigger-hover);
+    stroke: var(--text-home-menu-trigger-hover);
   }
 
   .home-instrument :global(svg) {

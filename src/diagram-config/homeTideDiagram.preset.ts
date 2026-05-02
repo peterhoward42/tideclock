@@ -41,12 +41,10 @@ export const homeTideDiagramLayoutBase = {
   /** k·refRadius: stroked arc concentric with RefArc, same sweep. */
   dividorArc: { radiusK: 1.32 },
   homeMenuTrigger: {
-    width: 0.2,
-    height: 0.13,
-    gapAboveMainLabel: 0.07,
-    cornerRadius: 0.038,
-    labelSize: 0.042,
-    label: "Menu",
+    diameter: 0.18,
+    gapAboveLocation: 0.070,
+    iconBarLength: 0.09,
+    iconBarGap: 0.025,
   },
   tideMarksDefaults,
 } satisfies HomeTideDiagramLayoutBase;

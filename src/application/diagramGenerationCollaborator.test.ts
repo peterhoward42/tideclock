@@ -119,7 +119,7 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(() => collaborator.generate(spec)).toThrow(/radial ordering invalid/);
   });
 
-  it('aligns BLHCBundle and menu trigger to global layout bounds', () => {
+  it('right-aligns BLHCBundle to B_right and stacks HomeMenuTrigger above BLHCLocation (excluded from B_*)', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
@@ -146,14 +146,14 @@ describe('createDiagramGenerationCollaborator', () => {
       6,
     );
 
-    const menuBottomY = diagram.homeMenuTrigger.center.y - 0.5 * diagram.homeMenuTrigger.height;
-
-    // HomeMenuTrigger sits above MainLabel top by configured gap.
-    const mainLabelTopY = diagram.mainLabel.anchor.y + 0.8 * diagram.mainLabel.fontSize;
-    const expectedGap =
-      (spec.homeMenuTrigger as { readonly gapAboveMainLabel: number }).gapAboveMainLabel *
+    const d = diagram.homeMenuTrigger.diameter;
+    expect(diagram.homeMenuTrigger.center.x).toBeCloseTo(bundleRightX - 0.5 * d, 6);
+    const locTop =
+      diagram.blhcLocation.anchor.y + 0.8 * diagram.blhcLocation.fontSize;
+    const gap =
+      (spec.homeMenuTrigger as { readonly gapAboveLocation: number }).gapAboveLocation *
       diagram.refArc.refRadius;
-    expect(menuBottomY).toBeCloseTo(mainLabelTopY + expectedGap, 6);
+    expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(locTop + gap + 0.5 * d, 6);
   });
 
   it('applies layoutBoundsBottomMargin by extending B_bottom (date row and MainLabel shift down)', () => {
@@ -229,7 +229,6 @@ describe('createDiagramGenerationCollaborator', () => {
       'TideMarks',
       'TickLabel',
       'BLHCBundle',
-      'HomeMenuTrigger',
     ]);
   });
 

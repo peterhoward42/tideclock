@@ -69,16 +69,14 @@ export type HomeTideDiagramLayoutBase = {
     }[];
   };
   readonly homeMenuTrigger: {
-    /** k·RefRadius: full width along +X. */
-    readonly width: number;
-    /** k·RefRadius: full height along +Y. */
-    readonly height: number;
-    /** k·RefRadius: vertical gap from MainLabel top to trigger bottom. */
-    readonly gapAboveMainLabel: number;
-    /** k·RefRadius: SVG rx/ry; must be ≤ min(width,height)/2. */
-    readonly cornerRadius: number;
-    readonly labelSize: number;
-    readonly label: "Menu";
+    /** k·RefRadius: circular control diameter. */
+    readonly diameter: number;
+    /** k·RefRadius: gap from BLHCLocation visual top to bottom of the circular trigger. */
+    readonly gapAboveLocation: number;
+    /** k·RefRadius: full width of each hamburger bar. */
+    readonly iconBarLength: number;
+    /** k·RefRadius: distance between adjacent bar centerlines (middle bar is on trigger centre). */
+    readonly iconBarGap: number;
   };
   readonly tideMarksDefaults: HomeDiagramTideMarksDefaults;
 };

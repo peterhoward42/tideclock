@@ -69,7 +69,11 @@ export const homeTideStyleModel: StyleModelSpec = {
     },
     {
       name: "role.menu.trigger",
-      colors: { strokeColor: "#888", fillColor: "#111" },
+      colors: { strokeColor: "#555", fillColor: "#111" },
+    },
+    {
+      name: "role.menu.trigger.icon",
+      colors: { color: "#555", strokeWidth: 2.25 },
     },
   ],
   bindings: [
@@ -96,7 +100,7 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "BLHCDate", roleName: "role.structure.text" },
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
     { name: "HomeMenuTrigger", roleName: "role.menu.trigger" },
-      { name: "HomeMenuTriggerLabel", roleName: "role.structure.emphasis" },
+    { name: "HomeMenuTriggerIcon", roleName: "role.menu.trigger.icon" },
     ],
   lineStyles: [],
 };

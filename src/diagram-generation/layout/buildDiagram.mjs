@@ -14,7 +14,7 @@
  * - Optional `**layoutBoundsBottomMargin**` (**k·R**, **>= 0**): pass 3 of global layout bounds; extends **B_bottom** downward; when omitted, **0**.
  * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **Hand.TimeReadout** placement) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
- * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height**`, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), finite `**gapAboveMainLabel**` (**k·R**, **>= 0**), and string `**label**`. Position is derived from global layout-bounds **B_left** + **MainLabel**: trigger left edge at **B_left**, bottom edge above MainLabel top by the configured gap.
+ * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**gapAboveLocation**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; gaps **>= 0**). Placed as the top row of **BLHCBundle**: trailing edge at **B_right**, above **BLHCLocation**. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
  * - **MainLabel** is horizontal text inside **BLHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
  * - `**blhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**blhcDatePrefix**` is a required string (see spec).
  */
@@ -58,6 +58,7 @@ const MAIN_LABEL_FONT_HEIGHT_K = 0.045;
  *   mainLabel: import('../model/tideDiagramModel.mjs').MainLabelDiagram,
  *   blhcLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst,
  *   blhcDate: import('../model/tideDiagramModel.mjs').DiagramTextInst,
+ *   homeMenuTrigger: import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram,
  * }}
  */
 function buildBlhcBundleFromSpec(
@@ -97,6 +98,13 @@ function buildBlhcBundleFromSpec(
   const dateY = mainLabelBaselineY + dateAboveK * refRadius + mainLabelFontSize;
   const locationY = dateY + dateAboveK * refRadius + fontSize;
   const mainLabel = buildMainLabel(ax, mainLabelBaselineY, refRadius, mainLabelContent);
+  const homeMenuTrigger = buildHomeMenuTriggerInBundleFromSpec(
+    spec,
+    refRadius,
+    ax,
+    locationY,
+    fontSize,
+  );
   return {
     mainLabel,
     blhcLocation: {
@@ -111,6 +119,7 @@ function buildBlhcBundleFromSpec(
       anchor: { x: ax, y: dateY },
       hAlign: "right",
     },
+    homeMenuTrigger,
   };
 }
 
@@ -541,7 +550,7 @@ export function buildDiagram(spec) {
     mainLabelContent = `${nextEventForMainLabel.kind} tide at ${formatEventClockHHMM(nextEventForMainLabel.seconds)}`;
   }
 
-  const { mainLabel, blhcLocation, blhcDate } = buildBlhcBundleFromSpec(
+  const { mainLabel, blhcLocation, blhcDate, homeMenuTrigger } = buildBlhcBundleFromSpec(
     spec,
     refRadius,
     layoutBounds.maxX,
@@ -554,14 +563,7 @@ export function buildDiagram(spec) {
     anchor: mainLabel.anchor,
     hAlign: "right",
   });
-  const mainLabelTopY = mainLabel.anchor.y + TEXT_ASCENT_EM * mainLabel.fontSize;
-  const homeMenuTriggerGap = readHomeMenuTriggerGapFromSpec(spec, refRadius);
-  const homeMenuTrigger = buildHomeMenuTriggerFromSpec(
-    spec,
-    refRadius,
-    layoutBounds.minX,
-    mainLabelTopY + homeMenuTriggerGap,
-  );
+  // Intentionally omit homeMenuTrigger from layoutBounds — spec: menu geometry must not expand B_*.
 
   return {
     version: 1,
@@ -675,16 +677,54 @@ function readLayoutBoundsBottomMarginKFromSpec(spec) {
   return k;
 }
 
-function readHomeMenuTriggerGapFromSpec(spec, refRadius) {
+/**
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @param {number} rightEdgeX **B_right** (trailing edge for right-aligned bundle rows)
+ * @param {number} locationBaselineY **BLHCLocation** baseline **Y**
+ * @param {number} locationFontSize **BLHCLocation** font size (diagram units)
+ * @returns {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram}
+ */
+function buildHomeMenuTriggerInBundleFromSpec(
+  spec,
+  refRadius,
+  rightEdgeX,
+  locationBaselineY,
+  locationFontSize,
+) {
   const o = requirePlainObject(spec.homeMenuTrigger, "spec.homeMenuTrigger");
-  const gapK = requireFiniteNumber(
-    o.gapAboveMainLabel,
-    "spec.homeMenuTrigger.gapAboveMainLabel",
+  const diameterK = requireFiniteNumber(o.diameter, "spec.homeMenuTrigger.diameter");
+  const gapAboveLocationK = requireFiniteNumber(
+    o.gapAboveLocation,
+    "spec.homeMenuTrigger.gapAboveLocation",
   );
-  if (gapK < 0) {
-    throw new Error("spec.homeMenuTrigger.gapAboveMainLabel must be >= 0");
+  const iconBarLengthK = requireFiniteNumber(
+    o.iconBarLength,
+    "spec.homeMenuTrigger.iconBarLength",
+  );
+  const iconBarGapK = requireFiniteNumber(o.iconBarGap, "spec.homeMenuTrigger.iconBarGap");
+  if (!(diameterK > 0)) {
+    throw new Error("spec.homeMenuTrigger.diameter must be greater than 0");
   }
-  return gapK * refRadius;
+  if (gapAboveLocationK < 0) {
+    throw new Error("spec.homeMenuTrigger.gapAboveLocation must be >= 0");
+  }
+  if (!(iconBarLengthK > 0)) {
+    throw new Error("spec.homeMenuTrigger.iconBarLength must be greater than 0");
+  }
+  if (iconBarGapK < 0) {
+    throw new Error("spec.homeMenuTrigger.iconBarGap must be >= 0");
+  }
+  const diameter = diameterK * refRadius;
+  const locationTopY = locationBaselineY + TEXT_ASCENT_EM * locationFontSize;
+  const centerY = locationTopY + gapAboveLocationK * refRadius + 0.5 * diameter;
+  const centerX = rightEdgeX - 0.5 * diameter;
+  return {
+    center: { x: centerX, y: centerY },
+    diameter,
+    iconBarHalfLength: 0.5 * iconBarLengthK * refRadius,
+    iconBarCenterSpacing: iconBarGapK * refRadius,
+  };
 }
 
 function buildAnnularBandFromSpec(spec, refRadius, thetaLeft, sweepRad) {
@@ -707,60 +747,3 @@ function buildAnnularBandFromSpec(spec, refRadius, thetaLeft, sweepRad) {
     sweepRad,
   };
 }
-
-/**
- * @param {Record<string, unknown>} spec
- * @param {number} refRadius
- * @param {number} leftEdgeX
- * @param {number} bottomEdgeY
- * @returns {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram}
- */
-function buildHomeMenuTriggerFromSpec(spec, refRadius, leftEdgeX, bottomEdgeY) {
-  const o = requirePlainObject(spec.homeMenuTrigger, "spec.homeMenuTrigger");
-  const widthK = requireFiniteNumber(
-    o.width,
-    "spec.homeMenuTrigger.width",
-  );
-  const heightK = requireFiniteNumber(
-    o.height,
-    "spec.homeMenuTrigger.height",
-  );
-  const cornerRadiusK = requireFiniteNumber(
-    o.cornerRadius,
-    "spec.homeMenuTrigger.cornerRadius",
-  );
-  const labelSizeK = requireFiniteNumber(
-    o.labelSize,
-    "spec.homeMenuTrigger.labelSize",
-  );
-  const label = requireString(o.label, "spec.homeMenuTrigger.label");
-  if (!(widthK > 0)) {
-    throw new Error("spec.homeMenuTrigger.width must be greater than 0");
-  }
-  if (!(heightK > 0)) {
-    throw new Error("spec.homeMenuTrigger.height must be greater than 0");
-  }
-  if (!(cornerRadiusK > 0)) {
-    throw new Error("spec.homeMenuTrigger.cornerRadius must be greater than 0");
-  }
-  const maxCornerK = 0.5 * Math.min(widthK, heightK);
-  if (cornerRadiusK > maxCornerK + 1e-9) {
-    throw new Error(
-      "spec.homeMenuTrigger.cornerRadius must not exceed half the smaller of width and height (k·R)",
-    );
-  }
-  if (labelSizeK <= 0) {
-    throw new Error("spec.homeMenuTrigger.labelSize must be greater than 0");
-  }
-  const width = widthK * refRadius;
-  const height = heightK * refRadius;
-  return {
-    center: { x: leftEdgeX + 0.5 * width, y: bottomEdgeY + 0.5 * height },
-    width,
-    height,
-    cornerRadius: cornerRadiusK * refRadius,
-    labelSize: labelSizeK * refRadius,
-    label,
-  };
-}
-

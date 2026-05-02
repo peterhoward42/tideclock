@@ -86,7 +86,8 @@ Three-pass construction:
   - the stroked **Dividor** arc (radius **`dividorArc.radiusK·RefRadius`**, same centre and sweep),
   - **TickLabels** (text bounds; monospace width heuristic consistent with other diagram text),
   - **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** (rotated text along the **Hand**; see **§Hand time readout**).
-- **BLHCBundle** is positioned using **B_right** and **B_bottom** from this pass (and pass **3**); bundle rows are **right**-justified to **B_right**. After bundle placement, generation includes bundle text bounds when finalizing axis-aligned bounds for framing if needed. Other elements (e.g. **HomeMenuTrigger**) may still use **B_left**.
+- **BLHCBundle** is positioned using **B_right** and **B_bottom** from this pass (and pass **3**); bundle rows are **right**-justified to **B_right**. After bundle placement, generation includes bundle text bounds when finalizing axis-aligned bounds for framing if needed.
+- **HomeMenuTrigger** is **not** part of the layout-bounds construction: its geometry **must not** expand **B_left**, **B_right**, **B_bottom**, or **B_top**. The tuple **(B_left, B_right, B_bottom, B_top)** is defined **without** reference to the menu control. The trigger may be placed using those edges (and may extend outside the resulting rectangle); hosts and generators **must not** fold the trigger’s axis-aligned bounds into framing or preview-rectangle logic.
 
 3) **Layout bottom margin**
 
@@ -242,6 +243,7 @@ The generator **throws** when required host fields are missing or wrong-type; it
 does **not** apply silent numeric defaults for layout keys 
 
 - Optional `**civilHalfDayLayout**` — see **§Global civil half-day layout**; invalid values are **errors**; when omitted, behaviour matches **`"auto"`**.
+- Required `**homeMenuTrigger**` — plain object: **`diameter`**, **`gapAboveLocation`**, **`iconBarLength`**, **`iconBarGap`** — each a finite **k·R** number; **`diameter`** and **`iconBarLength`** must be **> 0**; **`gapAboveLocation`** and **`iconBarGap`** must be **≥ 0**. See **§BLHCBundle** vertical placement and **HomeMenuTrigger** scene model.
 
 ### Derived behaviour (civil day vs `timeNow`)
 
@@ -291,7 +293,7 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ### BLHCBundle
 
-**BLHCBundle** is a **top-level** named group (see **Diagram elements**) containing the bottom-anchored stack of named text rows: synthesized **MainLabel** (tide summary) on the bottom row, then host-local civil **date prefix**, then host-local **location**, together with `**blhcLocation**` and `**blhcDatePrefix**`. Rows are laid out upward from **B_bottom** (see **§Vertical placement**). Live wall-clock readout uses global canonical `**timeNow**` on **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** only (**§Hand time readout**). The bundle may gain additional rows later; hosts should treat **BLHCBundle** as the collective contract for this corner of the diagram, distinct from the **Hand** readout.
+**BLHCBundle** is a **top-level** named group (see **Diagram elements**) containing the bottom-anchored stack: synthesized **MainLabel** (tide summary) on the bottom row, then host-local civil **date prefix**, then host-local **location**, then **HomeMenuTrigger** (circular menu control with hamburger icon) as the top row — together with `**blhcLocation**` and `**blhcDatePrefix**`. Text rows are laid out upward from **B_bottom** (see **§Vertical placement**). Live wall-clock readout uses global canonical `**timeNow**` on **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** only (**§Hand time readout**). Hosts should treat **BLHCBundle** as the collective contract for this corner of the diagram, distinct from the **Hand** readout. **HomeMenuTrigger** shares the bundle’s **B_right** alignment policy but remains **excluded** from **§Global layout bounds** (it does not influence **B_left** … **B_top**).
 
 ### Shared inputs
 
@@ -304,6 +306,7 @@ mandated**; it does not maintain a separate exhaustive registry section.
 ### Horizontal placement (bundle rows)
 
 - **MainLabel**, **BLHCLocation**, and **BLHCDate** use **horizontal justification** **right**: each row’s trailing anchor **x** is **B_right** (after **§Global layout bounds**, passes **2b** and **3**).
+- **HomeMenuTrigger** is a circular control whose **trailing** edge meets **B_right**: centre **`x = B_right − diameter/2`** (after the same passes).
 - The bundle is **right-aligned to the diagram’s global right edge** **B_right** after **§Global layout bounds** (including pass **2b**), not to the **AnnularBand** sector alone.
 
 ### Vertical placement
@@ -312,13 +315,15 @@ mandated**; it does not maintain a separate exhaustive registry section.
 - **MainLabel** — baseline **`y_mainLabel`**, with the tide-summary row bottom edge aligned to **B_bottom** (descent uses **MainLabel** **FontHeight** per **Text anchor Y (global)**).
 - **BLHCDate** — baseline **`y_date = y_mainLabel + dateAboveTime·R + k_main·R`** (row between **MainLabel** and **BLHCLocation**).
 - **BLHCLocation** — baseline **`y_location = y_date + dateAboveTime·R + fontHeight·R`**.
+- **HomeMenuTrigger** — circular control of diagram-space **diameter** (**k·R** input); centre **`y = y_location + a_em·fontHeight + gapAboveLocation·R + diameter/2`**, where **`a_em·fontHeight`** is the same ascent heuristic used elsewhere for monospace bundle text (**≈ 0.8·fontHeight** in the reference generator), and **`gapAboveLocation·R`** is diagram input **`spec.homeMenuTrigger.gapAboveLocation`**. Icon bars are generator-derived from **`spec.homeMenuTrigger.iconBarLength`** and **`spec.homeMenuTrigger.iconBarGap`** (**k·R**).
 
 ### Scene model
 
-- **BLHCBundle** — named group **BLHCBundle** containing, in deterministic generator order: **MainLabel**, **BLHCDate**, **BLHCLocation** (sibling order is part of the scene contract for paint order; see **TB-1**).
+- **BLHCBundle** — named group **BLHCBundle** containing, in deterministic generator order: **MainLabel**, **BLHCDate**, **BLHCLocation**, **HomeMenuTrigger** (sibling order is part of the scene contract for paint order; see **TB-1**). **`paintOrder.overrides`** apply only among **direct sibling** named groups; moving **HomeMenuTrigger** relative to another group requires both to be children of the same parent.
 - **MainLabel** — named group **MainLabel** containing one **TextElement** (leaf/style binding name **MainLabel**).
 - **BLHCLocation** — one named group **BLHCLocation** containing one **TextElement** (leaf/style binding name **BLHCLocation**).
 - **BLHCDate** — one named group **BLHCDate** containing one **TextElement** (leaf/style binding name **BLHCDate**).
+- **HomeMenuTrigger** — named group **HomeMenuTrigger** (**child of** **BLHCBundle**): one filled rounded square with **`rx = ry = diameter/2`** (circular silhouette) plus named subgroup **HomeMenuTriggerIcon** with three horizontal **line** primitives (hamburger). Style bindings use leaf group names **HomeMenuTrigger** and **HomeMenuTriggerIcon**.
 
 ### Generator note
 

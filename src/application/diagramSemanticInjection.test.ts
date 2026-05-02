@@ -53,12 +53,10 @@ type SemanticInjectionDiagramSpec = {
     readonly armTimeLabelFontHeight: number;
   };
   readonly homeMenuTrigger: {
-    readonly width: number;
-    readonly height: number;
-    readonly gapAboveMainLabel: number;
-    readonly cornerRadius: number;
-    readonly labelSize: number;
-    readonly label: string;
+    readonly diameter: number;
+    readonly gapAboveLocation: number;
+    readonly iconBarLength: number;
+    readonly iconBarGap: number;
   };
 };
 
@@ -101,12 +99,10 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       armTimeLabelFontHeight: 0.0288,
     },
     homeMenuTrigger: {
-      width: 0.2,
-      height: 0.13,
-      gapAboveMainLabel: 0.0135,
-      cornerRadius: 0.038,
-      labelSize: 0.042,
-      label: 'Menu',
+      diameter: 0.11,
+      gapAboveLocation: 0.038,
+      iconBarLength: 0.048,
+      iconBarGap: 0.015,
     },
   };
 }

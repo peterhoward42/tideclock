@@ -76,14 +76,12 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "homeMenuTrigger": {
     "center": {
-      "x": -114.62985520821964,
-      "y": -118.53099999999999,
+      "x": 121.56368250390558,
+      "y": -93.338,
     },
-    "cornerRadius": 4.484,
-    "height": 15.34,
-    "label": "Menu",
-    "labelSize": 4.956,
-    "width": 23.6,
+    "diameter": 12.98,
+    "iconBarCenterSpacing": 1.77,
+    "iconBarHalfLength": 2.832,
   },
   "mainLabel": {
     "anchor": {

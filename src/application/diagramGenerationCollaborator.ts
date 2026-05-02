@@ -97,11 +97,12 @@ type MainLabelDiagram = {
 
 type HomeMenuTriggerDiagram = {
   readonly center: DiagramPoint;
-  readonly width: number;
-  readonly height: number;
-  readonly cornerRadius: number;
-  readonly labelSize: number;
-  readonly label: string;
+  /** Circular control diameter (diagram units). */
+  readonly diameter: number;
+  /** Half-length of each hamburger bar along X. */
+  readonly iconBarHalfLength: number;
+  /** Distance between adjacent bar centerlines along Y. */
+  readonly iconBarCenterSpacing: number;
 };
 
 type HandTimeReadoutPartDiagram = {

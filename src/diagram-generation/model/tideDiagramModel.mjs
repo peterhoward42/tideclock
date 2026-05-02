@@ -112,15 +112,13 @@
  *   hAlign: 'right',
  * }} MainLabelDiagram
  *
- * Home menu trigger control embedded in the diagram space (rounded rectangle + label).
+ * Home menu trigger: circular control + hamburger icon; child of **BLHCBundle** in scene order.
  *
  * @typedef {{
  *   center: DiagramPoint,
- *   width: number,
- *   height: number,
- *   cornerRadius: number,
- *   labelSize: number,
- *   label: string,
+ *   diameter: number,
+ *   iconBarHalfLength: number,
+ *   iconBarCenterSpacing: number,
  * }} HomeMenuTriggerDiagram
  *
  * @typedef {{

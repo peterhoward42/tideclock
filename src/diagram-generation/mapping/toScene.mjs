@@ -622,6 +622,32 @@ export function handDiagramToGroup(hand, cx, cy) {
 }
 
 /**
+ * Circular menu control + three-bar icon; nested under **BLHCBundle**.
+ *
+ * @param {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram} hm
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {import('../model/sceneModel.mjs').GroupNode}
+ */
+function homeMenuTriggerDiagramToGroup(hm, cx, cy) {
+  const c = mapPoint(hm.center, cx, cy);
+  const d = hm.diameter;
+  const h = hm.iconBarHalfLength;
+  const g = hm.iconBarCenterSpacing;
+  const yTop = c.y + g;
+  const yMid = c.y;
+  const yBot = c.y - g;
+  return group("HomeMenuTrigger", [
+    roundedRect(c, d, d, 0.5 * d),
+    group("HomeMenuTriggerIcon", [
+      line({ x: c.x - h, y: yTop }, { x: c.x + h, y: yTop }),
+      line({ x: c.x - h, y: yMid }, { x: c.x + h, y: yMid }),
+      line({ x: c.x - h, y: yBot }, { x: c.x + h, y: yBot }),
+    ]),
+  ]);
+}
+
+/**
  * @param {import('../model/tideDiagramModel.mjs').TideDiagramDocument} diagram
  * @returns {import('../model/sceneModel.mjs').SceneDocument}
  */
@@ -791,30 +817,12 @@ export function tideDiagramToScene(diagram) {
     }),
   ]);
 
+  const homeMenuTriggerGroup = homeMenuTriggerDiagramToGroup(homeMenuTrigger, cx, cy);
   const blhcBundleGroup = group("BLHCBundle", [
     mainLabelGroup,
     blhcDateGroup,
     blhcLocationGroup,
-  ]);
-
-  const menuCenter = mapPoint(homeMenuTrigger.center, cx, cy);
-  const homeMenuTriggerGroup = group("HomeMenuTrigger", [
-    roundedRect(
-      menuCenter,
-      homeMenuTrigger.width,
-      homeMenuTrigger.height,
-      homeMenuTrigger.cornerRadius,
-    ),
-    group("HomeMenuTriggerLabel", [
-      text({
-        content: homeMenuTrigger.label,
-        size: homeMenuTrigger.labelSize,
-        hAlign: "center",
-        angleRad: 0,
-        anchor: menuCenter,
-        dominantBaseline: "middle",
-      }),
-    ]),
+    homeMenuTriggerGroup,
   ]);
 
   const meta = {
@@ -832,7 +840,6 @@ export function tideDiagramToScene(diagram) {
     tideMarksGroup,
     tickLabelsGroup,
     blhcBundleGroup,
-    homeMenuTriggerGroup,
   ]);
   const orderedRoot = applyPaintOrderOverrides(
     root,
