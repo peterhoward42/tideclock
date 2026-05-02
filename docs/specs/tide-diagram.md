@@ -78,6 +78,17 @@ Three-pass construction:
   - **B_bottom = min(B_bottom_base, marker-bottom extents...)**
   - **B_top = max(B_top_base, marker-top extents...)**
 
+2b) **Diagram-wide extent (excluding BLHCBundle)**
+
+- Generation then expands **B_left**, **B_right**, **B_bottom**, and **B_top** if
+  needed so the axis-aligned bounds also contain:
+  - the stroked **RefArc** (radius **RefRadius**, centre **O**, sweep from **θ_left** to **θ_right**),
+  - the stroked **Dividor** arc (radius **`dividorArc.radiusK·RefRadius`**, same centre and sweep),
+  - **TickLabels** (text bounds; same monospace width heuristic as **MainLabel**’s **x_tick_min**),
+  - **MainLabel** (synthesized copy; font height **0.045·RefRadius**; placement per **MainLabel placement**),
+  - **HandArmTimeLabel** (rotated text along the **Hand**).
+- **MainLabel** copy and anchor are resolved **before** **BLHCBundle** placement so this pass can include **MainLabel** geometry.
+
 3) **Layout bottom margin**
 
 - Diagram input **`layoutBoundsBottomMargin`**: finite **k·R** multiplier (**§Sizing**),
@@ -294,6 +305,7 @@ mandated**; it does not maintain a separate exhaustive registry section.
 ### Horizontal placement (bundle rows)
 
 - **BLHCLocation**, **BLHCDate**, and **BLHCClock** use **horizontal justification** **right**.
+- The bundle is **right-aligned to the diagram’s global right edge** **B_right** after **§Global layout bounds** (including pass **2b**), not to the **AnnularBand** sector alone.
 - The **trailing** (rightmost) anchor for the clock row is at **(B_right, y_clock)** so the **BLHCLabelSeconds** anchor **x** equals **B_right**; **BLHCLabelSecondsColon** and **BLHCLabelHms** anchors sit to the left by the same fixed monospace width heuristic as before (**§Scene model** / preview framing).
 - **BLHCDate** is shifted left so that its right edge stops before the clock and a fixed separator gap (implemented as spacing equal to several monospace character widths), producing a merged “date + time” single visual row.
 - **BLHCLocation** uses **B_right** as its **x** anchor (so the location remains right-aligned to the full bundle).
@@ -550,7 +562,7 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 
 ### HandArmTimeLabel
 
-This is **not** **BLHCBundle** (**BLHCLocation** / **BLHCDate** / **BLHCClock**): those rows are anchored to global layout bounds and the annular region. **HandArmTimeLabel** is a separate, single-line **text** readout of the same global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**.
+This is **not** **BLHCBundle** (**BLHCLocation** / **BLHCDate** / **BLHCClock**): those rows are anchored to **B_right** / **B_bottom** (**§Global layout bounds**). **HandArmTimeLabel** is a separate, single-line **text** readout of the same global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**.
 
 - Required diagram input **`hand.armTimeLabelFontHeight`**: finite dimensionless **k > 0** (**§Sizing**). **FontHeight** is **`hand.armTimeLabelFontHeight · RefRadius`**. This is independent of **TickLabel** sizing.
 - Emitted as a named group **HandArmTimeLabel** (child of **Arm**), containing one **text** primitive. Hosts may target it for live updates (e.g. patch the text node under this group without regenerating the full scene).

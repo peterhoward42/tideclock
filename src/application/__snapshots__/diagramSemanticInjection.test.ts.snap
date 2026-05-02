@@ -16,7 +16,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "hhmm": {
       "anchor": {
         "x": 117.43368250390557,
-        "y": -131.3286487533761,
+        "y": -131.924,
       },
       "content": "19:20",
       "fontSize": 5.9,
@@ -25,7 +25,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "seconds": {
       "anchor": {
         "x": 128.05368250390558,
-        "y": -131.3286487533761,
+        "y": -131.924,
       },
       "content": "03",
       "fontSize": 5.9,
@@ -34,7 +34,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "secondsColon": {
       "anchor": {
         "x": 120.97368250390558,
-        "y": -131.3286487533761,
+        "y": -131.924,
       },
       "content": ":",
       "fontSize": 5.9,
@@ -44,7 +44,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "blhcDate": {
     "anchor": {
       "x": 89.11368250390558,
-      "y": -131.3286487533761,
+      "y": -131.924,
     },
     "content": "Mon 23 Mar",
     "fontSize": 5.9,
@@ -53,7 +53,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "blhcLocation": {
     "anchor": {
       "x": 128.05368250390558,
-      "y": -119.52864875337607,
+      "y": -120.124,
     },
     "content": "Lymington",
     "fontSize": 5.9,
@@ -94,7 +94,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "homeMenuTrigger": {
     "center": {
-      "x": -109.73264976516901,
+      "x": -114.62985520821964,
       "y": -117.93564875337607,
     },
     "cornerRadius": 4.484,

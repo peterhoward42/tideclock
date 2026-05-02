@@ -151,7 +151,6 @@
 
 /**
  * Maximum diagram-space **X** over the closed **AnnularBand** sector (same geometry as layout).
- * Used to right-align **BLHCBundle** rows to the band’s **+X** extent.
  *
  * @param {{ center: DiagramPoint, rInner: number, rOuter: number, thetaLeft: number, sweepRad: number }} annular
  * @returns {number}

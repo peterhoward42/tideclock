@@ -52,7 +52,7 @@ const TEXT_DESCENT_EM = 0.2;
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
- * @param {number} layoutBoundsRightX diagram-space right edge of global layout bounds
+ * @param {number} layoutBoundsRightX diagram-space **B_right** (global layout bounds after diagram-wide extent pass; see spec)
  * @param {number} layoutBoundsBottomY diagram-space bottom edge of global layout bounds
  * @returns {{ blhcLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst, blhcDate: import('../model/tideDiagramModel.mjs').DiagramTextInst, blhcClock: import('../model/tideDiagramModel.mjs').DiagramBlhcClockInst }}
  */
@@ -150,6 +150,74 @@ function includeRect(bounds, minX, maxX, minY, maxY) {
   if (maxX > bounds.maxX) bounds.maxX = maxX;
   if (minY < bounds.minY) bounds.minY = minY;
   if (maxY > bounds.maxY) bounds.maxY = maxY;
+}
+
+/**
+ * Axis-aligned extrema of a circular arc centred at **(cx, cy)** with radius **r** from **thetaLeft** CCW by **sweepRad**.
+ * Matches the sampling policy of {@link annularBandBounds} (endpoints plus interior cardinal angles).
+ *
+ * @param {{ minX: number, maxX: number, minY: number, maxY: number }} bounds
+ * @param {number} cx
+ * @param {number} cy
+ * @param {number} r
+ * @param {number} thetaLeft
+ * @param {number} sweepRad
+ */
+function includeArcSweepAxisBounds(bounds, cx, cy, r, thetaLeft, sweepRad) {
+  const thetaRight = thetaLeft + sweepRad;
+  const lo = Math.min(thetaLeft, thetaRight);
+  const hi = Math.max(thetaLeft, thetaRight);
+  const consider = (theta) => {
+    includePoint(bounds, { x: cx + r * Math.cos(theta), y: cy + r * Math.sin(theta) });
+  };
+  consider(thetaLeft);
+  consider(thetaRight);
+  for (let n = -12; n <= 12; n += 1) {
+    const th = n * Math.PI;
+    if (th > lo && th < hi) consider(th);
+  }
+}
+
+/**
+ * Expands **bounds** so **B_right** (and other edges) reflect diagram-wide geometry used for **BLHCBundle** alignment,
+ * excluding **BLHCBundle** itself.
+ *
+ * @param {{ minX: number, maxX: number, minY: number, maxY: number }} bounds
+ * @param {{
+ *   tickLabels: import('../model/tideDiagramModel.mjs').TickLabelSpec[],
+ *   mainLabel: import('../model/tideDiagramModel.mjs').MainLabelDiagram,
+ *   armTimeLabel: import('../model/tideDiagramModel.mjs').HandArmTimeLabelDiagram,
+ *   refRadius: number,
+ *   dividorRadius: number,
+ *   thetaLeft: number,
+ *   sweepRad: number,
+ * }} p
+ */
+function extendLayoutBoundsForDiagramExtent(bounds, p) {
+  for (const tl of p.tickLabels) {
+    includeDiagramTextBounds(bounds, {
+      content: tl.content,
+      fontSize: tl.fontSize,
+      anchor: tl.anchor,
+      hAlign: "center",
+    });
+  }
+  includeArcSweepAxisBounds(bounds, 0, 0, p.refRadius, p.thetaLeft, p.sweepRad);
+  includeArcSweepAxisBounds(bounds, 0, 0, p.dividorRadius, p.thetaLeft, p.sweepRad);
+  includeDiagramTextBounds(bounds, {
+    content: p.mainLabel.content,
+    fontSize: p.mainLabel.fontSize,
+    anchor: p.mainLabel.anchor,
+    hAlign: "left",
+  });
+  includeDiagramTextBounds(bounds, {
+    content: p.armTimeLabel.content,
+    fontSize: p.armTimeLabel.fontSize,
+    anchor: p.armTimeLabel.anchor,
+    hAlign: "center",
+    angleRad: p.armTimeLabel.angleRad,
+    dominantBaseline: "middle",
+  });
 }
 
 function includeDiagramTextBounds(bounds, textInst) {
@@ -457,13 +525,6 @@ export function buildDiagram(spec) {
       "spec.tickLabelHours must list at least one hour: BLHCBundle clock row uses the minimum Y among tick label anchors",
     );
   }
-  const tickLabelMinAnchorY = Math.min(...tickLabels.map((tl) => tl.anchor.y));
-  const { blhcLocation, blhcDate, blhcClock } = buildBlhcBundleFromSpec(
-    spec,
-    refRadius,
-    layoutBounds.maxX,
-    layoutBounds.minY,
-  );
   const leftmostTickLabelX = Math.min(
     ...tickLabels.map((tl) =>
       tl.anchor.x -
@@ -486,6 +547,23 @@ export function buildDiagram(spec) {
     mainLabelContent = `${nextEventForMainLabel.kind} tide at ${formatEventClockHHMM(nextEventForMainLabel.seconds)}`;
   }
   const mainLabel = buildMainLabel(leftmostTickLabelX, layoutBounds.minY, refRadius, mainLabelContent);
+
+  extendLayoutBoundsForDiagramExtent(layoutBounds, {
+    tickLabels,
+    mainLabel,
+    armTimeLabel: hand.armTimeLabel,
+    refRadius,
+    dividorRadius: dividorArcRadiusK * refRadius,
+    thetaLeft,
+    sweepRad,
+  });
+
+  const { blhcLocation, blhcDate, blhcClock } = buildBlhcBundleFromSpec(
+    spec,
+    refRadius,
+    layoutBounds.maxX,
+    layoutBounds.minY,
+  );
   const mainLabelTopY = mainLabel.anchor.y + TEXT_ASCENT_EM * mainLabel.fontSize;
   const homeMenuTriggerGap = readHomeMenuTriggerGapFromSpec(spec, refRadius);
   const homeMenuTrigger = buildHomeMenuTriggerFromSpec(

@@ -124,11 +124,12 @@ describe('createDiagramGenerationCollaborator', () => {
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
     const tickMinY = Math.min(...diagram.tickLabels.map((t) => t.anchor.y));
-    const maxX = annularBandMaxX(diagram.annularBand);
+    const annularMaxX = annularBandMaxX(diagram.annularBand);
+    const bundleRightX = diagram.blhcClock.seconds.anchor.x;
     expect(diagram.blhcClock.hhmm.anchor.y).not.toBe(tickMinY);
     expect(diagram.blhcClock.seconds.anchor.y).not.toBe(tickMinY);
-    expect(diagram.blhcLocation.anchor.x).toBe(maxX);
-    expect(diagram.blhcClock.seconds.anchor.x).toBe(maxX);
+    expect(diagram.blhcLocation.anchor.x).toBe(bundleRightX);
+    expect(bundleRightX).toBeGreaterThanOrEqual(annularMaxX);
     const dateAbove =
       (spec.blhcBundle as { readonly fontHeight: number; readonly dateAboveTime: number }).dateAboveTime *
       diagram.refArc.refRadius;
@@ -161,7 +162,7 @@ describe('createDiagramGenerationCollaborator', () => {
     const charW = 0.6 * fontSize; // must match buildDiagram.mjs heuristic
     const clockWidth = 8 * charW;
     const separatorWidth = 3 * charW;
-    const expectedDateX = maxX - clockWidth - separatorWidth;
+    const expectedDateX = bundleRightX - clockWidth - separatorWidth;
     expect(diagram.blhcDate.anchor.x).toBeCloseTo(expectedDateX, 6);
   });
 
