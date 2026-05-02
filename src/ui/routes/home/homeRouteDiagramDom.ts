@@ -9,8 +9,8 @@ import {
 } from "../../../application/localWallClockReadoutFromMs";
 
 /**
- * Patch live clock text inside injected SVG; host must contain the current diagram.
- * Callers subscribe to `nowMs` (~1 Hz) so **BLHCBundle** text and **HandArmTimeLabel** stay in sync.
+ * Patch live date prefix and arm time readout inside injected SVG; host must contain the current diagram.
+ * Callers subscribe to `nowMs` (~1 Hz) so **BLHCDate** and **HandArmTimeLabel** stay in sync.
  */
 export function patchBlhcBundleInDiagramHost(
   host: HTMLElement,
@@ -21,22 +21,10 @@ export function patchBlhcBundleInDiagramHost(
   const dateEl = host.querySelector(
     'svg g[data-name="BLHCDate"] text',
   ) as SVGTextElement | null;
-  const hhmmEl = host.querySelector(
-    'svg g[data-name="BLHCLabelHms"] text',
-  ) as SVGTextElement | null;
-  const colonEl = host.querySelector(
-    'svg g[data-name="BLHCLabelSecondsColon"] text',
-  ) as SVGTextElement | null;
-  const secEl = host.querySelector(
-    'svg g[data-name="BLHCLabelSeconds"] text',
-  ) as SVGTextElement | null;
   const handArmTimeEl = host.querySelector(
     'svg g[data-name="HandArmTimeLabel"] text',
   ) as SVGTextElement | null;
   if (dateEl !== null) dateEl.textContent = datePrefix;
-  if (hhmmEl !== null) hhmmEl.textContent = canonical.slice(0, 5);
-  if (colonEl !== null) colonEl.textContent = canonical.slice(5, 6);
-  if (secEl !== null) secEl.textContent = canonical.slice(6);
   if (handArmTimeEl !== null) handArmTimeEl.textContent = canonical;
 }
 

@@ -125,9 +125,8 @@ describe('createDiagramGenerationCollaborator', () => {
     const { diagram } = collaborator.generate(spec);
     const tickMinY = Math.min(...diagram.tickLabels.map((t) => t.anchor.y));
     const annularMaxX = annularBandMaxX(diagram.annularBand);
-    const bundleRightX = diagram.blhcClock.seconds.anchor.x;
-    expect(diagram.blhcClock.hhmm.anchor.y).not.toBe(tickMinY);
-    expect(diagram.blhcClock.seconds.anchor.y).not.toBe(tickMinY);
+    const bundleRightX = diagram.blhcDate.anchor.x;
+    expect(diagram.mainLabel.anchor.y).not.toBe(tickMinY);
     expect(diagram.blhcLocation.anchor.x).toBe(bundleRightX);
     expect(bundleRightX).toBeGreaterThanOrEqual(annularMaxX);
     const dateAbove =
@@ -136,17 +135,14 @@ describe('createDiagramGenerationCollaborator', () => {
     const fontHeight =
       (spec.blhcBundle as { readonly fontHeight: number; readonly dateAboveTime: number }).fontHeight *
       diagram.refArc.refRadius;
-    // BLHCDate shares the same baseline as the clock row; it is only shifted left to create
-    // the merged date+clock appearance.
-    expect(diagram.blhcDate.anchor.y).toBeCloseTo(diagram.blhcClock.hhmm.anchor.y, 6);
     const mainLabelFontSize = 0.045 * diagram.refArc.refRadius;
     expect(diagram.mainLabel.anchor.x).toBe(bundleRightX);
-    expect(diagram.mainLabel.anchor.y).toBeCloseTo(
-      diagram.blhcClock.hhmm.anchor.y + dateAbove + mainLabelFontSize,
+    expect(diagram.blhcDate.anchor.y).toBeCloseTo(
+      diagram.mainLabel.anchor.y + dateAbove + mainLabelFontSize,
       6,
     );
     expect(diagram.blhcLocation.anchor.y).toBeCloseTo(
-      diagram.mainLabel.anchor.y + dateAbove + fontHeight,
+      diagram.blhcDate.anchor.y + dateAbove + fontHeight,
       6,
     );
 
@@ -158,17 +154,9 @@ describe('createDiagramGenerationCollaborator', () => {
       (spec.homeMenuTrigger as { readonly gapAboveMainLabel: number }).gapAboveMainLabel *
       diagram.refArc.refRadius;
     expect(menuBottomY).toBeCloseTo(mainLabelTopY + expectedGap, 6);
-
-    // X shift: date ends before the clock and a 3-char separator gap.
-    const fontSize = diagram.blhcDate.fontSize;
-    const charW = 0.6 * fontSize; // must match buildDiagram.mjs heuristic
-    const clockWidth = 8 * charW;
-    const separatorWidth = 3 * charW;
-    const expectedDateX = bundleRightX - clockWidth - separatorWidth;
-    expect(diagram.blhcDate.anchor.x).toBeCloseTo(expectedDateX, 6);
   });
 
-  it('applies layoutBoundsBottomMargin by extending B_bottom (clock row and MainLabel shift down)', () => {
+  it('applies layoutBoundsBottomMargin by extending B_bottom (date row and MainLabel shift down)', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const base = baseSpecForCollaboratorTest();
     const { layoutBoundsBottomMargin: _presetMargin, ...baseNoBottomMargin } = base;
@@ -176,10 +164,7 @@ describe('createDiagramGenerationCollaborator', () => {
     const k = 0.03;
     const withMargin = collaborator.generate({ ...baseNoBottomMargin, layoutBoundsBottomMargin: k }).diagram;
     const delta = k * withMargin.refArc.refRadius;
-    expect(withMargin.blhcClock.hhmm.anchor.y - without.blhcClock.hhmm.anchor.y).toBeCloseTo(
-      -delta,
-      6,
-    );
+    expect(withMargin.blhcDate.anchor.y - without.blhcDate.anchor.y).toBeCloseTo(-delta, 6);
     expect(withMargin.mainLabel.anchor.y - without.mainLabel.anchor.y).toBeCloseTo(-delta, 6);
   });
 

@@ -37,11 +37,8 @@ import {
   timeToTheta,
 } from "../model/tideDiagramModel.mjs";
 
-/** Per-character scene width heuristic for monospace-ish labels; must match `0.6` in {@link expandBoundsByText} (`toScene.mjs`). */
+/** Per-character scene width heuristic for monospace-ish labels; must match `0.6` in scene preview framing (`toScene.mjs`). */
 const BLHC_LABEL_CHAR_WIDTH_EM = 0.6;
-const BLHC_DATE_TIME_SEPARATOR_SPACES = 3;
-// BLHCClock is emitted as `HH:MM` + `:` + `SS`; total mono-char count = 5 + 1 + 2 = 8.
-const BLHC_CLOCK_TOTAL_CHARS = 8;
 const TEXT_ASCENT_EM = 0.8;
 const TEXT_DESCENT_EM = 0.2;
 
@@ -49,8 +46,8 @@ const TEXT_DESCENT_EM = 0.2;
 const MAIN_LABEL_FONT_HEIGHT_K = 0.045;
 
 /**
- * **BLHCBundle**: **MainLabel** (tide summary), **BLHCLocation**, merged **BLHCDate** + **BLHCClock** row — each row
- * **right**-justified to **B_right**; **Y** baselines are independent per row (see spec).
+ * **BLHCBundle**: **MainLabel** (tide summary, bottom row), **BLHCDate**, **BLHCLocation** — each row **right**-justified to **B_right**;
+ * **Y** baselines are independent per row (see spec).
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
@@ -61,7 +58,6 @@ const MAIN_LABEL_FONT_HEIGHT_K = 0.045;
  *   mainLabel: import('../model/tideDiagramModel.mjs').MainLabelDiagram,
  *   blhcLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst,
  *   blhcDate: import('../model/tideDiagramModel.mjs').DiagramTextInst,
- *   blhcClock: import('../model/tideDiagramModel.mjs').DiagramBlhcClockInst,
  * }}
  */
 function buildBlhcBundleFromSpec(
@@ -85,10 +81,6 @@ function buildBlhcBundleFromSpec(
       "spec.blhcBundle requires finite numbers fontHeight and dateAboveTime (RefRadius multiples); dateAboveTime must be >= 0",
     );
   }
-  const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
-  if (parsedNow.isRightEndpoint) {
-    throw new Error('spec.timeNow cannot be "24:00:00"');
-  }
   if (typeof spec.blhcDatePrefix !== "string") {
     throw new Error("spec.blhcDatePrefix must be a string");
   }
@@ -100,20 +92,10 @@ function buildBlhcBundleFromSpec(
   const fontSize = fontHeightK * refRadius;
   const mainLabelFontSize = MAIN_LABEL_FONT_HEIGHT_K * refRadius;
   const ax = layoutBoundsRightX;
-  const timeY = layoutBoundsBottomY + TEXT_DESCENT_EM * fontSize;
-  // Date and clock share a baseline on the bottom row (clock row bottom aligns to B_bottom).
-  const dateY = timeY;
-  // MainLabel: own baseline between clock row and location (right-aligned like all bundle rows).
-  const mainLabelBaselineY = timeY + dateAboveK * refRadius + mainLabelFontSize;
-  const locationY = mainLabelBaselineY + dateAboveK * refRadius + fontSize;
-  const canonical = parsedNow.canonical;
-  const w = BLHC_LABEL_CHAR_WIDTH_EM * fontSize;
-  const secondsWidth = 2 * w;
-  const colonWidth = 1 * w;
-  const clockTotalWidth = BLHC_CLOCK_TOTAL_CHARS * w;
-  const separatorWidth = BLHC_DATE_TIME_SEPARATOR_SPACES * w;
-  // BLHCDate is right-aligned so its right edge stops before the clock and separator.
-  const dateX = ax - clockTotalWidth - separatorWidth;
+  // **MainLabel** bottom row: baseline aligns so the row sits on **B_bottom** (see spec).
+  const mainLabelBaselineY = layoutBoundsBottomY + TEXT_DESCENT_EM * mainLabelFontSize;
+  const dateY = mainLabelBaselineY + dateAboveK * refRadius + mainLabelFontSize;
+  const locationY = dateY + dateAboveK * refRadius + fontSize;
   const mainLabel = buildMainLabel(ax, mainLabelBaselineY, refRadius, mainLabelContent);
   return {
     mainLabel,
@@ -126,28 +108,8 @@ function buildBlhcBundleFromSpec(
     blhcDate: {
       content: datePrefix,
       fontSize,
-      anchor: { x: dateX, y: dateY },
+      anchor: { x: ax, y: dateY },
       hAlign: "right",
-    },
-    blhcClock: {
-      hhmm: {
-        content: canonical.slice(0, 5),
-        fontSize,
-        anchor: { x: ax - secondsWidth - colonWidth, y: timeY },
-        hAlign: "right",
-      },
-      secondsColon: {
-        content: canonical.slice(5, 6),
-        fontSize,
-        anchor: { x: ax - secondsWidth, y: timeY },
-        hAlign: "right",
-      },
-      seconds: {
-        content: canonical.slice(6),
-        fontSize,
-        anchor: { x: ax, y: timeY },
-        hAlign: "right",
-      },
     },
   };
 }
@@ -561,7 +523,7 @@ export function buildDiagram(spec) {
     mainLabelContent = `${nextEventForMainLabel.kind} tide at ${formatEventClockHHMM(nextEventForMainLabel.seconds)}`;
   }
 
-  const { mainLabel, blhcLocation, blhcDate, blhcClock } = buildBlhcBundleFromSpec(
+  const { mainLabel, blhcLocation, blhcDate } = buildBlhcBundleFromSpec(
     spec,
     refRadius,
     layoutBounds.maxX,
@@ -604,7 +566,6 @@ export function buildDiagram(spec) {
     hand,
     blhcLocation,
     blhcDate,
-    blhcClock,
   };
 }
 

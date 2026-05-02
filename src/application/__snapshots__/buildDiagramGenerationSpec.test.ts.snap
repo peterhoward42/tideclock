@@ -12,39 +12,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "sweepRad": 3.141592653589793,
     "thetaLeft": 3.141592653589793,
   },
-  "blhcClock": {
-    "hhmm": {
-      "anchor": {
-        "x": 137.942,
-        "y": -150.871833526524,
-      },
-      "content": "19:20",
-      "fontSize": 5.31,
-      "hAlign": "right",
-    },
-    "seconds": {
-      "anchor": {
-        "x": 147.5,
-        "y": -150.871833526524,
-      },
-      "content": "03",
-      "fontSize": 5.31,
-      "hAlign": "right",
-    },
-    "secondsColon": {
-      "anchor": {
-        "x": 141.12800000000001,
-        "y": -150.871833526524,
-      },
-      "content": ":",
-      "fontSize": 5.31,
-      "hAlign": "right",
-    },
-  },
   "blhcDate": {
     "anchor": {
-      "x": 112.45400000000001,
-      "y": -150.871833526524,
+      "x": 147.5,
+      "y": -143.20183352652398,
     },
     "content": "Mon 23 Mar",
     "fontSize": 5.31,
@@ -95,7 +66,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "homeMenuTrigger": {
     "center": {
       "x": -135.7,
-      "y": -123.023833526524,
+      "y": -130.69383352652403,
     },
     "cornerRadius": 4.484,
     "height": 15.34,
@@ -106,7 +77,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "mainLabel": {
     "anchor": {
       "x": 147.5,
-      "y": -143.20183352652398,
+      "y": -150.871833526524,
     },
     "content": "High tide at 23:06",
     "fontSize": 5.31,
@@ -2272,7 +2243,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": 147.5,
-                  "y": -143.20183352652398,
+                  "y": -150.871833526524,
                 },
                 "angleRad": 0,
                 "content": "High tide at 23:06",
@@ -2283,6 +2254,23 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             ],
             "kind": "group",
             "name": "MainLabel",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 147.5,
+                  "y": -143.20183352652398,
+                },
+                "angleRad": 0,
+                "content": "Mon 23 Mar",
+                "hAlign": "right",
+                "kind": "text",
+                "size": 5.31,
+              },
+            ],
+            "kind": "group",
+            "name": "BLHCDate",
           },
           {
             "children": [
@@ -2301,80 +2289,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "kind": "group",
             "name": "BLHCLocation",
           },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 112.45400000000001,
-                  "y": -150.871833526524,
-                },
-                "angleRad": 0,
-                "content": "Mon 23 Mar",
-                "hAlign": "right",
-                "kind": "text",
-                "size": 5.31,
-              },
-            ],
-            "kind": "group",
-            "name": "BLHCDate",
-          },
-          {
-            "children": [
-              {
-                "children": [
-                  {
-                    "anchor": {
-                      "x": 137.942,
-                      "y": -150.871833526524,
-                    },
-                    "angleRad": 0,
-                    "content": "19:20",
-                    "hAlign": "right",
-                    "kind": "text",
-                    "size": 5.31,
-                  },
-                ],
-                "kind": "group",
-                "name": "BLHCLabelHms",
-              },
-              {
-                "children": [
-                  {
-                    "anchor": {
-                      "x": 141.12800000000001,
-                      "y": -150.871833526524,
-                    },
-                    "angleRad": 0,
-                    "content": ":",
-                    "hAlign": "right",
-                    "kind": "text",
-                    "size": 5.31,
-                  },
-                ],
-                "kind": "group",
-                "name": "BLHCLabelSecondsColon",
-              },
-              {
-                "children": [
-                  {
-                    "anchor": {
-                      "x": 147.5,
-                      "y": -150.871833526524,
-                    },
-                    "angleRad": 0,
-                    "content": "03",
-                    "hAlign": "right",
-                    "kind": "text",
-                    "size": 5.31,
-                  },
-                ],
-                "kind": "group",
-                "name": "BLHCLabelSeconds",
-              },
-            ],
-            "kind": "group",
-            "name": "BLHCClock",
-          },
         ],
         "kind": "group",
         "name": "BLHCBundle",
@@ -2384,7 +2298,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           {
             "center": {
               "x": -135.7,
-              "y": -123.023833526524,
+              "y": -130.69383352652403,
             },
             "height": 15.34,
             "kind": "roundedRect",
@@ -2396,7 +2310,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": -135.7,
-                  "y": -123.023833526524,
+                  "y": -130.69383352652403,
                 },
                 "angleRad": 0,
                 "content": "Menu",

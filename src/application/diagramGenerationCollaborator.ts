@@ -56,12 +56,6 @@ type DiagramTextInst = {
   readonly hAlign?: "left" | "center" | "right";
 };
 
-type DiagramBlhcClockInst = {
-  readonly hhmm: DiagramTextInst;
-  readonly secondsColon: DiagramTextInst;
-  readonly seconds: DiagramTextInst;
-};
-
 type TideHeightLabelDiagram = {
   readonly content: string;
   readonly fontSize: number;
@@ -150,7 +144,6 @@ export type TideDiagramDocument = {
   readonly hand: HandDiagram;
   readonly blhcLocation: DiagramTextInst;
   readonly blhcDate: DiagramTextInst;
-  readonly blhcClock: DiagramBlhcClockInst;
 };
 
 type ScenePoint = { readonly x: number; readonly y: number };

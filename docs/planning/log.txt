@@ -32,7 +32,8 @@ o  first glance ux assimilation suggestions
 	o  Improve role and clarity of spec for bottom right stuff
 		*  Rename it and explain why
 		*  First fix right to diagram edge
-		o  Pull MainLabel into it
+		*  Pull MainLabel into it
+
 		o  brainstorm contents
 			o  Location
 			o  The word tide

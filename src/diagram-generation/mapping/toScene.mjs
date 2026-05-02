@@ -632,7 +632,6 @@ export function tideDiagramToScene(diagram) {
     mainLabel,
     blhcLocation,
     blhcDate,
-    blhcClock,
   } = diagram;
   const R = refArc.refRadius;
   const C = refArc.center;
@@ -782,41 +781,10 @@ export function tideDiagramToScene(diagram) {
     }),
   ]);
 
-  const blhcClockGroup = group("BLHCClock", [
-    group("BLHCLabelHms", [
-      text({
-        content: blhcClock.hhmm.content,
-        size: blhcClock.hhmm.fontSize,
-        hAlign: blhcClock.hhmm.hAlign ?? "center",
-        angleRad: 0,
-        anchor: mapPoint(blhcClock.hhmm.anchor, cx, cy),
-      }),
-    ]),
-    group("BLHCLabelSecondsColon", [
-      text({
-        content: blhcClock.secondsColon.content,
-        size: blhcClock.secondsColon.fontSize,
-        hAlign: blhcClock.secondsColon.hAlign ?? "center",
-        angleRad: 0,
-        anchor: mapPoint(blhcClock.secondsColon.anchor, cx, cy),
-      }),
-    ]),
-    group("BLHCLabelSeconds", [
-      text({
-        content: blhcClock.seconds.content,
-        size: blhcClock.seconds.fontSize,
-        hAlign: blhcClock.seconds.hAlign ?? "center",
-        angleRad: 0,
-        anchor: mapPoint(blhcClock.seconds.anchor, cx, cy),
-      }),
-    ]),
-  ]);
-
   const blhcBundleGroup = group("BLHCBundle", [
     mainLabelGroup,
-    blhcLocationGroup,
     blhcDateGroup,
-    blhcClockGroup,
+    blhcLocationGroup,
   ]);
 
   const menuCenter = mapPoint(homeMenuTrigger.center, cx, cy);

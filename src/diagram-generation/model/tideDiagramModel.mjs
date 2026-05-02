@@ -49,14 +49,7 @@
  *   hAlign?: 'left' | 'center' | 'right',
  * }} DiagramTextInst
  *
- * **BLHCBundle** (scene group): **MainLabel** (tide summary), location (**BLHCLocation**), date (**BLHCDate**),
- * plus `HH:MM`, `:`, and `SS` (**BLHCClock** leaves; date+clock share **y_clock**).
- *
- * @typedef {{
- *   hhmm: DiagramTextInst,
- *   secondsColon: DiagramTextInst,
- *   seconds: DiagramTextInst,
- * }} DiagramBlhcClockInst
+ * **BLHCBundle** (scene group): **MainLabel** (tide summary, bottom row), **BLHCDate**, **BLHCLocation**.
  *
  * @typedef {{
  *   content: string,
@@ -145,7 +138,6 @@
  *   hand: HandDiagram,
  *   blhcLocation: DiagramTextInst,
  *   blhcDate: DiagramTextInst,
- *   blhcClock: DiagramBlhcClockInst,
  * }} TideDiagramDocument
  */
 
