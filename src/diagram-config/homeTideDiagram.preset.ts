@@ -32,9 +32,8 @@ export const homeTideDiagramLayoutBase = {
   hand: {
     bossCircleRadius: 0.05,
     /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */
-    armRefArcGap: 0.020,
-    /** k·RefRadius: font height for **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** (canonical `timeNow` along the arm). */
-    armTimeLabelFontHeight: 0.04,
+    armRefArcGap: 0.040,
+    armTimeLabelFontHeight: 0.045,
   },
   paintOrder: {
     overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],
