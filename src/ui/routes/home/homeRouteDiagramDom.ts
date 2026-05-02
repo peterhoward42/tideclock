@@ -5,30 +5,30 @@
 
 import {
   localCanonicalTimeNowFromMs,
-  localTimeNowDatePrefixFromMs,
+  localBlhcDatePrefixFromMs,
 } from "../../../application/localWallClockReadoutFromMs";
 
 /**
  * Patch live clock text inside injected SVG; host must contain the current diagram.
- * Callers subscribe to `nowMs` (~1 Hz) so TimeNow readout and **HandArmTimeLabel** stay in sync.
+ * Callers subscribe to `nowMs` (~1 Hz) so **BLHCBundle** text and **HandArmTimeLabel** stay in sync.
  */
-export function patchTimeNowReadoutInDiagramHost(
+export function patchBlhcBundleInDiagramHost(
   host: HTMLElement,
   ms: number,
 ): void {
   const canonical = localCanonicalTimeNowFromMs(ms);
-  const datePrefix = localTimeNowDatePrefixFromMs(ms);
+  const datePrefix = localBlhcDatePrefixFromMs(ms);
   const dateEl = host.querySelector(
-    'svg g[data-name="TimeNowDate"] text',
+    'svg g[data-name="BLHCDate"] text',
   ) as SVGTextElement | null;
   const hhmmEl = host.querySelector(
-    'svg g[data-name="TimeNowLabelHms"] text',
+    'svg g[data-name="BLHCLabelHms"] text',
   ) as SVGTextElement | null;
   const colonEl = host.querySelector(
-    'svg g[data-name="TimeNowLabelSecondsColon"] text',
+    'svg g[data-name="BLHCLabelSecondsColon"] text',
   ) as SVGTextElement | null;
   const secEl = host.querySelector(
-    'svg g[data-name="TimeNowLabelSeconds"] text',
+    'svg g[data-name="BLHCLabelSeconds"] text',
   ) as SVGTextElement | null;
   const handArmTimeEl = host.querySelector(
     'svg g[data-name="HandArmTimeLabel"] text',

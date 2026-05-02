@@ -229,12 +229,8 @@ model em-boxes or similar font metrics.
 ### Strict diagram input (generator)
 
 The generator **throws** when required host fields are missing or wrong-type; it
-does **not** apply silent numeric defaults for layout keys (`buildDiagram.mjs`
-and layout submodules). Invalid marker rows (including marker `**24:00:00`**),
-degenerate geometry inputs (for example wait-arc radius **<= 0**), and missing
-required objects (including `**timeNowLabel**`, `**timeNowLocation**`,
-`**timeNowDatePrefix**`, `**annularBand**`, and `**dividorArc**`) are **errors**, not
-"omit-this-element" fallbacks.
+does **not** apply silent numeric defaults for layout keys 
+
 - Optional `**civilHalfDayLayout**` — see **§Global civil half-day layout**; invalid values are **errors**; when omitted, behaviour matches **`"auto"`**.
 
 ### Derived behaviour (civil day vs `timeNow`)
@@ -283,52 +279,52 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ## 5. Element specs (TB-5)
 
-### Time now readout
+### BLHCBundle
 
-Three related **top-level** named elements (see **Diagram elements**) show host-local **location name**, host-local civil **date**, and **clock time** derived from `**timeNowLocation**`, `**timeNowDatePrefix**`, and global canonical `**timeNow**` (format/parsing per **§Time and θ(t)**). They are positioned **relative to AnnularBand** and **TickLabels** as below (not from free-floating absolute `x`/`y` clock anchors).
+**BLHCBundle** is the bottom-anchored stack of **top-level** named text rows (see **Diagram elements**): host-local **location**, host-local civil **date prefix**, and a **clock row** whose digits come from global canonical `**timeNow**` (format/parsing per **§Time and θ(t)**), together with `**blhcLocation**` and `**blhcDatePrefix**`. Rows are laid out upward from **B_bottom** (see **§Vertical placement**). The bundle may gain additional rows later; hosts should treat **BLHCBundle** as the collective contract for this corner of the diagram, distinct from **HandArmTimeLabel** (**§HandArmTimeLabel**).
 
 ### Shared inputs
 
-- Diagram input object `**timeNowLabel`** — **required** plain object; finite numbers as **k·R** multiples (**§Sizing**):
-  - `**fontHeight`** — **k_font·R**; used as **FontHeight** for **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock** leaves.
-  - `**dateAboveTime`** — non-negative **k·R** gap: the **TimeNowLocation** baseline is **`dateAboveTime·R`** **above** (+**Y**) the merged **(TimeNowDate + TimeNowClock)** baseline (see **§Vertical placement** below).
-- Diagram input `**timeNowLocation`** — required string for **TimeNowLocation** text (current location name; may be empty after trim).
-- Diagram input `**timeNowDatePrefix`** — required string for **TimeNowDate** text (customary short form such as `**Wed 21 Jun`**; may be empty after trim).
+- Diagram input object `**blhcBundle`** — **required** plain object; finite numbers as **k·R** multiples (**§Sizing**):
+  - `**fontHeight`** — **k_font·R**; used as **FontHeight** for **BLHCLocation**, **BLHCDate**, and **BLHCClock** leaves.
+  - `**dateAboveTime`** — non-negative **k·R** gap: the **BLHCLocation** baseline is **`dateAboveTime·R`** **above** (+**Y**) the merged **(BLHCDate + BLHCClock)** baseline (see **§Vertical placement** below).
+- Diagram input `**blhcLocation`** — required string for **BLHCLocation** text (current location name; may be empty after trim).
+- Diagram input `**blhcDatePrefix`** — required string for **BLHCDate** text (customary short form such as `**Wed 21 Jun`**; may be empty after trim).
 
-### Horizontal placement (both elements)
+### Horizontal placement (bundle rows)
 
-- **TimeNowLocation**, **TimeNowDate**, and **TimeNowClock** use **horizontal justification** **right**.
-- The **trailing** (rightmost) anchor for the clock row is at **(B_right, y_clock)** so the **TimeNowLabelSeconds** anchor **x** equals **B_right**; **TimeNowLabelSecondsColon** and **TimeNowLabelHms** anchors sit to the left by the same fixed monospace width heuristic as before (**§Scene model** / preview framing).
-- **TimeNowDate** is shifted left so that its right edge stops before the clock and a fixed separator gap (implemented as spacing equal to several monospace character widths), producing a merged “date + time” single visual row.
-- **TimeNowLocation** uses **B_right** as its **x** anchor (so the location remains right-aligned to the full readout).
+- **BLHCLocation**, **BLHCDate**, and **BLHCClock** use **horizontal justification** **right**.
+- The **trailing** (rightmost) anchor for the clock row is at **(B_right, y_clock)** so the **BLHCLabelSeconds** anchor **x** equals **B_right**; **BLHCLabelSecondsColon** and **BLHCLabelHms** anchors sit to the left by the same fixed monospace width heuristic as before (**§Scene model** / preview framing).
+- **BLHCDate** is shifted left so that its right edge stops before the clock and a fixed separator gap (implemented as spacing equal to several monospace character widths), producing a merged “date + time” single visual row.
+- **BLHCLocation** uses **B_right** as its **x** anchor (so the location remains right-aligned to the full bundle).
 
 ### Vertical placement
 
 - Let **B_bottom** be from **§Global layout bounds**.
-- **TimeNowClock** — all three fragments share baseline **`y_clock`**, with the clock row bottom edge aligned to **B_bottom**.
-- **TimeNowDate** — baseline **`y_date = y_clock`** (same row as the clock).
-- **TimeNowLocation** — baseline **`y_location = y_clock + dateAboveTime·R + fontHeight·R`**.
+- **BLHCClock** — all three fragments share baseline **`y_clock`**, with the clock row bottom edge aligned to **B_bottom**.
+- **BLHCDate** — baseline **`y_date = y_clock`** (same row as the clock).
+- **BLHCLocation** — baseline **`y_location = y_clock + dateAboveTime·R + fontHeight·R`**.
 
-### Clock row text (TimeNowClock)
+### Clock row text (BLHCClock)
 
 - Three **TextElement**s on one line (same **FontHeight** and **`y_clock`**):
-  - **TimeNowLabelHms** — canonical `**HH:MM**` only (no date, no literal `" - "`).
-  - **TimeNowLabelSecondsColon** — a single literal `**:`**.
-  - **TimeNowLabelSeconds** — canonical `**SS`**.
+  - **BLHCLabelHms** — canonical `**HH:MM**` only (no date, no literal `" - "`).
+  - **BLHCLabelSecondsColon** — a single literal `**:`**.
+  - **BLHCLabelSeconds** — canonical `**SS`**.
 - **Baseline polar angle** — **0** (**TextElement defaults**).
 
 ### Scene model
 
-- **TimeNowLocation** — one named group **TimeNowLocation** containing one **TextElement** (leaf/style binding name **TimeNowLocation**).
-- **TimeNowDate** — one named group **TimeNowDate** containing one **TextElement** (leaf/style binding name **TimeNowDate**).
-- **TimeNowClock** — named group **TimeNowClock** containing three child groups (stable leaf names for hosts that patch DOM text):
-  - **TimeNowLabelHms** — **TextElement** (leaf name for style binding).
-  - **TimeNowLabelSecondsColon** — **TextElement** (leaf name for style binding).
-  - **TimeNowLabelSeconds** — **TextElement** (leaf name for style binding).
+- **BLHCLocation** — one named group **BLHCLocation** containing one **TextElement** (leaf/style binding name **BLHCLocation**).
+- **BLHCDate** — one named group **BLHCDate** containing one **TextElement** (leaf/style binding name **BLHCDate**).
+- **BLHCClock** — named group **BLHCClock** containing three child groups (stable leaf names for hosts that patch DOM text):
+  - **BLHCLabelHms** — **TextElement** (leaf name for style binding).
+  - **BLHCLabelSecondsColon** — **TextElement** (leaf name for style binding).
+  - **BLHCLabelSeconds** — **TextElement** (leaf name for style binding).
 
 ### Generator note
 
-- **`spec.tickLabelHours`** must yield **at least one** tick label when this readout is used; otherwise **MainLabel** placement anchor **`x_tick_min`** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests these placements — the reference product lists **1..23**).
+- **`spec.tickLabelHours`** must yield **at least one** tick label when **BLHCBundle** is used; otherwise **MainLabel** placement anchor **`x_tick_min`** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests these placements — the reference product lists **1..23**).
 
 ### MainLabel
 
@@ -554,7 +550,7 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 
 ### HandArmTimeLabel
 
-This is **not** the **Time now readout** block (**TimeNowLocation** / **TimeNowDate** / **TimeNowClock**): those are anchored to global layout bounds and the annular region. **HandArmTimeLabel** is a separate, single-line **text** readout of the same global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**.
+This is **not** **BLHCBundle** (**BLHCLocation** / **BLHCDate** / **BLHCClock**): those rows are anchored to global layout bounds and the annular region. **HandArmTimeLabel** is a separate, single-line **text** readout of the same global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**.
 
 - Required diagram input **`hand.armTimeLabelFontHeight`**: finite dimensionless **k > 0** (**§Sizing**). **FontHeight** is **`hand.armTimeLabelFontHeight · RefRadius`**. This is independent of **TickLabel** sizing.
 - Emitted as a named group **HandArmTimeLabel** (child of **Arm**), containing one **text** primitive. Hosts may target it for live updates (e.g. patch the text node under this group without regenerating the full scene).

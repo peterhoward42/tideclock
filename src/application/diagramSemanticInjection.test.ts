@@ -32,8 +32,8 @@ type SemanticInjectionDiagramSpec = {
   readonly tickLabelSize: number;
   readonly tickLabelClearance: number;
   readonly timeNow: string;
-  readonly timeNowDatePrefix: string;
-  readonly timeNowLocation: string;
+  readonly blhcDatePrefix: string;
+  readonly blhcLocation: string;
   readonly tideMarks: {
     readonly tideLabelRadius: number;
     readonly tideHeightLabelSize: number;
@@ -41,7 +41,7 @@ type SemanticInjectionDiagramSpec = {
     readonly tideMarkArrowLineLen: number;
     readonly markers: readonly SemanticInjectionTideMark[];
   };
-  readonly timeNowLabel: {
+  readonly blhcBundle: {
     readonly fontHeight: number;
     readonly dateAboveTime: number;
   };
@@ -78,8 +78,8 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     tickLabelSize: 0.04,
     tickLabelClearance: 0.07,
     timeNow: '19:20:03',
-    timeNowDatePrefix: 'Mon 23 Mar',
-    timeNowLocation: 'Lymington',
+    blhcDatePrefix: 'Mon 23 Mar',
+    blhcLocation: 'Lymington',
     tideMarks: {
       tideLabelRadius: 0.84,
       tideHeightLabelSize: 0.046,
@@ -92,7 +92,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
         { time: '23:06:00', heightText: '4.80 m', highOrLow: 'High' },
       ],
     },
-    timeNowLabel: { fontHeight: 0.05, dateAboveTime: 0.05 },
+    blhcBundle: { fontHeight: 0.05, dateAboveTime: 0.05 },
     annularBand: { annularBandWidth: 0.05 },
     dividorArc: { radiusK: 0.8653 },
     hand: {
@@ -136,14 +136,14 @@ describe('spec.semantic.nextTide injection', () => {
     expect(withSemantic).toEqual(baseline);
   });
 
-  it('after last tide still renders the time-now readout', () => {
+  it('after last tide still renders BLHCBundle text', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.timeNowDate.content).toBe('Mon 23 Mar');
-    expect(diagram.timeNowLocation.content).toBe('Lymington');
-    expect(diagram.timeNowClock.hhmm.content).toBe('23:59');
-    expect(diagram.timeNowClock.secondsColon.content).toBe(':');
-    expect(diagram.timeNowClock.seconds.content).toBe('00');
+    expect(diagram.blhcDate.content).toBe('Mon 23 Mar');
+    expect(diagram.blhcLocation.content).toBe('Lymington');
+    expect(diagram.blhcClock.hhmm.content).toBe('23:59');
+    expect(diagram.blhcClock.secondsColon.content).toBe(':');
+    expect(diagram.blhcClock.seconds.content).toBe('00');
   });
 
   it('shows no-more-tides MainLabel copy when there is no next marker', () => {

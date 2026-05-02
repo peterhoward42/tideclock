@@ -16,7 +16,7 @@
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
  * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), finite `**gapAboveMainLabel**` (**k·R**, **>= 0**), and string `**label**`. Position is derived from global layout bounds + MainLabel: left edge at layout-bounds left, bottom edge above MainLabel top by the configured gap.
  * - **MainLabel** is horizontal text anchored from content bounds (leftmost tick-label bound and minimum tick-label-anchor **Y**), not curved arc text.
- * - `**timeNowLabel**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**timeNowDatePrefix**` is a required string (see spec).
+ * - `**blhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**blhcDatePrefix**` is a required string (see spec).
  */
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
 import {
@@ -37,27 +37,27 @@ import {
   timeToTheta,
 } from "../model/tideDiagramModel.mjs";
 
-/** Per-character scene width heuristic; must match {@link expandBoundsByText} in `toScene.mjs`. */
-const TIME_NOW_LABEL_CHAR_WIDTH_EM = 0.6;
-const TIME_NOW_DATE_TIME_SEPARATOR_SPACES = 3;
-// TimeNowClock is emitted as `HH:MM` + `:` + `SS`; total mono-char count = 5 + 1 + 2 = 8.
-const TIME_NOW_CLOCK_TOTAL_CHARS = 8;
+/** Per-character scene width heuristic for monospace-ish labels; must match `0.6` in {@link expandBoundsByText} (`toScene.mjs`). */
+const BLHC_LABEL_CHAR_WIDTH_EM = 0.6;
+const BLHC_DATE_TIME_SEPARATOR_SPACES = 3;
+// BLHCClock is emitted as `HH:MM` + `:` + `SS`; total mono-char count = 5 + 1 + 2 = 8.
+const BLHC_CLOCK_TOTAL_CHARS = 8;
 const TEXT_ASCENT_EM = 0.8;
 const TEXT_DESCENT_EM = 0.2;
 
 /**
- * Time-now readout: **TimeNowLocation** (current location name), and a single merged date+clock row:
- * **TimeNowDate** (civil prefix) concatenated on the left of **TimeNowClock** (`HH:MM` + `:` + `SS`), right-aligned
+ * **BLHCBundle**: **BLHCLocation** (current location name), and a single merged date+clock row:
+ * **BLHCDate** (civil prefix) concatenated on the left of **BLHCClock** (`HH:MM` + `:` + `SS`), right-aligned
  * to global layout-bounds right; the clock row bottom edge aligns to global layout-bounds bottom (see spec).
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
  * @param {number} layoutBoundsRightX diagram-space right edge of global layout bounds
  * @param {number} layoutBoundsBottomY diagram-space bottom edge of global layout bounds
- * @returns {{ timeNowLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowDate: import('../model/tideDiagramModel.mjs').DiagramTextInst, timeNowClock: import('../model/tideDiagramModel.mjs').DiagramTimeNowClockInst }}
+ * @returns {{ blhcLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst, blhcDate: import('../model/tideDiagramModel.mjs').DiagramTextInst, blhcClock: import('../model/tideDiagramModel.mjs').DiagramBlhcClockInst }}
  */
-function buildTimeNowReadoutFromSpec(spec, refRadius, layoutBoundsRightX, layoutBoundsBottomY) {
-  const o = requirePlainObject(spec.timeNowLabel, "spec.timeNowLabel");
+function buildBlhcBundleFromSpec(spec, refRadius, layoutBoundsRightX, layoutBoundsBottomY) {
+  const o = requirePlainObject(spec.blhcBundle, "spec.blhcBundle");
   const fontHeightK = o.fontHeight;
   const dateAboveK = o.dateAboveTime;
   if (
@@ -68,50 +68,50 @@ function buildTimeNowReadoutFromSpec(spec, refRadius, layoutBoundsRightX, layout
     dateAboveK < 0
   ) {
     throw new Error(
-      "spec.timeNowLabel requires finite numbers fontHeight and dateAboveTime (RefRadius multiples); dateAboveTime must be >= 0",
+      "spec.blhcBundle requires finite numbers fontHeight and dateAboveTime (RefRadius multiples); dateAboveTime must be >= 0",
     );
   }
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
   }
-  if (typeof spec.timeNowDatePrefix !== "string") {
-    throw new Error("spec.timeNowDatePrefix must be a string");
+  if (typeof spec.blhcDatePrefix !== "string") {
+    throw new Error("spec.blhcDatePrefix must be a string");
   }
-  const datePrefix = spec.timeNowDatePrefix.trim();
-  if (typeof spec.timeNowLocation !== "string") {
-    throw new Error("spec.timeNowLocation must be a string");
+  const datePrefix = spec.blhcDatePrefix.trim();
+  if (typeof spec.blhcLocation !== "string") {
+    throw new Error("spec.blhcLocation must be a string");
   }
-  const locationName = spec.timeNowLocation.trim();
+  const locationName = spec.blhcLocation.trim();
   const fontSize = fontHeightK * refRadius;
   const ax = layoutBoundsRightX;
   const timeY = layoutBoundsBottomY + TEXT_DESCENT_EM * fontSize;
-  // Date and clock share a baseline: the 2nd row in the merged time-now readout.
+  // Date and clock share a baseline: the 2nd row in the BLHCBundle (above B_bottom).
   const dateY = timeY;
   // Baseline spacing is tuned to typography: location stays above the merged (date+clock) row.
   const locationY = dateY + dateAboveK * refRadius + fontSize;
   const canonical = parsedNow.canonical;
-  const w = TIME_NOW_LABEL_CHAR_WIDTH_EM * fontSize;
+  const w = BLHC_LABEL_CHAR_WIDTH_EM * fontSize;
   const secondsWidth = 2 * w;
   const colonWidth = 1 * w;
-  const clockTotalWidth = TIME_NOW_CLOCK_TOTAL_CHARS * w;
-  const separatorWidth = TIME_NOW_DATE_TIME_SEPARATOR_SPACES * w;
-  // TimeNowDate is right-aligned so its right edge stops before the clock and separator.
+  const clockTotalWidth = BLHC_CLOCK_TOTAL_CHARS * w;
+  const separatorWidth = BLHC_DATE_TIME_SEPARATOR_SPACES * w;
+  // BLHCDate is right-aligned so its right edge stops before the clock and separator.
   const dateX = ax - clockTotalWidth - separatorWidth;
   return {
-    timeNowLocation: {
+    blhcLocation: {
       content: locationName,
       fontSize,
       anchor: { x: ax, y: locationY },
       hAlign: "right",
     },
-    timeNowDate: {
+    blhcDate: {
       content: datePrefix,
       fontSize,
       anchor: { x: dateX, y: dateY },
       hAlign: "right",
     },
-    timeNowClock: {
+    blhcClock: {
       hhmm: {
         content: canonical.slice(0, 5),
         fontSize,
@@ -155,7 +155,7 @@ function includeRect(bounds, minX, maxX, minY, maxY) {
 function includeDiagramTextBounds(bounds, textInst) {
   const size = textInst.fontSize;
   const len = textInst.content.length;
-  const width = len * size * TIME_NOW_LABEL_CHAR_WIDTH_EM;
+  const width = len * size * BLHC_LABEL_CHAR_WIDTH_EM;
   let x0 = textInst.anchor.x;
   let x1 = textInst.anchor.x;
   if (textInst.hAlign === "left") {
@@ -454,11 +454,11 @@ export function buildDiagram(spec) {
   layoutBounds.minY -= layoutBoundsBottomMarginK * refRadius;
   if (tickLabels.length === 0) {
     throw new Error(
-      "spec.tickLabelHours must list at least one hour: time-now clock uses the minimum Y among tick label anchors",
+      "spec.tickLabelHours must list at least one hour: BLHCBundle clock row uses the minimum Y among tick label anchors",
     );
   }
   const tickLabelMinAnchorY = Math.min(...tickLabels.map((tl) => tl.anchor.y));
-  const { timeNowLocation, timeNowDate, timeNowClock } = buildTimeNowReadoutFromSpec(
+  const { blhcLocation, blhcDate, blhcClock } = buildBlhcBundleFromSpec(
     spec,
     refRadius,
     layoutBounds.maxX,
@@ -467,7 +467,7 @@ export function buildDiagram(spec) {
   const leftmostTickLabelX = Math.min(
     ...tickLabels.map((tl) =>
       tl.anchor.x -
-      0.5 * tl.content.length * TIME_NOW_LABEL_CHAR_WIDTH_EM * tl.fontSize,
+      0.5 * tl.content.length * BLHC_LABEL_CHAR_WIDTH_EM * tl.fontSize,
     ),
   );
 
@@ -514,9 +514,9 @@ export function buildDiagram(spec) {
     annularBand,
     homeMenuTrigger,
     hand,
-    timeNowLocation,
-    timeNowDate,
-    timeNowClock,
+    blhcLocation,
+    blhcDate,
+    blhcClock,
   };
 }
 

@@ -10,7 +10,7 @@ import type { TideExtreme } from "../../core-models/TideExtreme";
 import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
 import type { TimeOrderedTideExtrema } from "../../core-models/TimeOrderedTideExtrema";
 import type { UtcIsoToLocalCanonicalTime } from "../buildDiagramGenerationSpec";
-import { localTimeNowDatePrefixFromMs } from "../localWallClockReadoutFromMs";
+import { localBlhcDatePrefixFromMs } from "../localWallClockReadoutFromMs";
 
 const FIVE_MINUTES_SECONDS = 5 * 60;
 const FOUR_MINUTES_SECONDS = 4 * 60;
@@ -55,10 +55,10 @@ function earliestExtremeByLocalMarker(params: {
 export type DiagramDevPreviewTimeDeltaShortClock =
   | {
       readonly kind: "active";
-      /** Wall-clock instant aligned with `timeNow` / `timeNowDatePrefix` on the civil day of the chosen next extreme. */
+      /** Wall-clock instant aligned with `timeNow` / `blhcDatePrefix` on the civil day of the chosen next extreme. */
       readonly frozenEpochMs: number;
       readonly timeNow: string;
-      readonly timeNowDatePrefix: string;
+      readonly blhcDatePrefix: string;
     }
   | {
       readonly kind: "inactive";
@@ -111,7 +111,7 @@ export function buildDiagramDevPreviewTimeDeltaShortClock(params: {
     kind: "active",
     frozenEpochMs,
     timeNow: daySecondsToCanonical(candidateSeconds),
-    timeNowDatePrefix: localTimeNowDatePrefixFromMs(frozenEpochMs),
+    blhcDatePrefix: localBlhcDatePrefixFromMs(frozenEpochMs),
   };
 }
 

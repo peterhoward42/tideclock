@@ -28,7 +28,7 @@ export const homeTideDiagramLayoutBase = {
   tickLabelHours: Array.from({ length: 23 }, (_, i) => i + 1),
   tickLabelSize: 0.04,
   tickLabelClearance: 0.023,
-  timeNowLabel: { fontHeight: 0.045, dateAboveTime: 0.02 },
+  blhcBundle: { fontHeight: 0.045, dateAboveTime: 0.02 },
   hand: {
     bossCircleRadius: 0.05,
     /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */

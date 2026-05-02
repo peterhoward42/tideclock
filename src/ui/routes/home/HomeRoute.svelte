@@ -24,7 +24,7 @@
   } from "../../../application/diagram-dev-preview/diagramDevPreviewResolveForHome";
   import {
     localCanonicalTimeNowFromMs,
-    localTimeNowDatePrefixFromMs,
+    localBlhcDatePrefixFromMs,
   } from "../../../application/localWallClockReadoutFromMs";
   import {
     createDiagramGenerationCollaborator,
@@ -40,7 +40,7 @@
   import HomePwaStandaloneSetupOverlay from "./HomePwaStandaloneSetupOverlay.svelte";
   import {
     computeHomeMenuPanelAnchorStyle,
-    patchTimeNowReadoutInDiagramHost,
+    patchBlhcBundleInDiagramHost,
     queryHomeMenuTriggerGroupFromDiagramHost,
     scheduleDiagramHostSvgDevPresentation,
   } from "./homeRouteDiagramDom";
@@ -104,7 +104,7 @@
 
   let diagramSvg = $state("");
   let diagramError = $state<string | undefined>(undefined);
-  /** Container for injected SVG; patches TimeNow readout + HandArmTimeLabel on ~1 Hz without full scene regen. */
+  /** Container for injected SVG; patches **BLHCBundle** + HandArmTimeLabel on ~1 Hz without full scene regen. */
   let diagramHostEl = $state<HTMLElement | undefined>(undefined);
   let homeRouteEl = $state<HTMLElement | undefined>(undefined);
   let homeInstrumentEl = $state<HTMLElement | undefined>(undefined);
@@ -367,11 +367,11 @@
       const nowMsValue =
         preview.state === "frozen" ? preview.frozenEpochMs : Date.now();
       const timeNow = localCanonicalTimeNowFromMs(nowMsValue);
-      const timeNowDatePrefix = localTimeNowDatePrefixFromMs(nowMsValue);
+      const blhcDatePrefix = localBlhcDatePrefixFromMs(nowMsValue);
       const baseSpec = buildDiagramGenerationSpec({
         extremesAtLocation: extremesForSpec,
         timeNow,
-        timeNowDatePrefix,
+        blhcDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
         townName,
       });
@@ -379,7 +379,7 @@
       const spec = buildDiagramGenerationSpec({
         extremesAtLocation: extremesForSpec,
         timeNow,
-        timeNowDatePrefix,
+        blhcDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
         townName,
         derivedSemantics: { nextTide: derived.nextTide },
@@ -433,12 +433,12 @@
     let cancelled = false;
     const unsub = nowMs.subscribe((ms) => {
       if (!cancelled)
-        patchTimeNowReadoutInDiagramHost(host, frozenClockMs ?? ms);
+        patchBlhcBundleInDiagramHost(host, frozenClockMs ?? ms);
     });
 
     void tick().then(() => {
       if (!cancelled)
-        patchTimeNowReadoutInDiagramHost(host, frozenClockMs ?? Date.now());
+        patchBlhcBundleInDiagramHost(host, frozenClockMs ?? Date.now());
     });
 
     return () => {

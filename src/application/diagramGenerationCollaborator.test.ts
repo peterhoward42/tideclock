@@ -16,7 +16,7 @@ function baseSpecForCollaboratorTest() {
   return buildDiagramGenerationSpec({
     extremesAtLocation: minimalExtremesForCollaboratorTest(),
     timeNow: '12:00:00',
-    timeNowDatePrefix: FIXTURE_DATE_PREFIX,
+    blhcDatePrefix: FIXTURE_DATE_PREFIX,
     utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     townName: 'Lymington',
   });
@@ -119,32 +119,32 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(() => collaborator.generate(spec)).toThrow(/radial ordering invalid/);
   });
 
-  it('aligns time-now readout and menu trigger to global layout bounds', () => {
+  it('aligns BLHCBundle and menu trigger to global layout bounds', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
     const tickMinY = Math.min(...diagram.tickLabels.map((t) => t.anchor.y));
     const maxX = annularBandMaxX(diagram.annularBand);
-    expect(diagram.timeNowClock.hhmm.anchor.y).not.toBe(tickMinY);
-    expect(diagram.timeNowClock.seconds.anchor.y).not.toBe(tickMinY);
-    expect(diagram.timeNowLocation.anchor.x).toBe(maxX);
-    expect(diagram.timeNowClock.seconds.anchor.x).toBe(maxX);
+    expect(diagram.blhcClock.hhmm.anchor.y).not.toBe(tickMinY);
+    expect(diagram.blhcClock.seconds.anchor.y).not.toBe(tickMinY);
+    expect(diagram.blhcLocation.anchor.x).toBe(maxX);
+    expect(diagram.blhcClock.seconds.anchor.x).toBe(maxX);
     const dateAbove =
-      (spec.timeNowLabel as { readonly fontHeight: number; readonly dateAboveTime: number }).dateAboveTime *
+      (spec.blhcBundle as { readonly fontHeight: number; readonly dateAboveTime: number }).dateAboveTime *
       diagram.refArc.refRadius;
     const fontHeight =
-      (spec.timeNowLabel as { readonly fontHeight: number; readonly dateAboveTime: number }).fontHeight *
+      (spec.blhcBundle as { readonly fontHeight: number; readonly dateAboveTime: number }).fontHeight *
       diagram.refArc.refRadius;
-    // TimeNowDate shares the same baseline as the clock row; it is only shifted left to create
+    // BLHCDate shares the same baseline as the clock row; it is only shifted left to create
     // the merged date+clock appearance.
-    expect(diagram.timeNowDate.anchor.y).toBeCloseTo(diagram.timeNowClock.hhmm.anchor.y, 6);
-    expect(diagram.timeNowLocation.anchor.y).toBeCloseTo(
-      diagram.timeNowClock.hhmm.anchor.y + dateAbove + fontHeight,
+    expect(diagram.blhcDate.anchor.y).toBeCloseTo(diagram.blhcClock.hhmm.anchor.y, 6);
+    expect(diagram.blhcLocation.anchor.y).toBeCloseTo(
+      diagram.blhcClock.hhmm.anchor.y + dateAbove + fontHeight,
       6,
     );
 
     // MainLabel shares global B_bottom.
-    const clockBottomY = diagram.timeNowClock.hhmm.anchor.y - 0.2 * diagram.timeNowClock.hhmm.fontSize;
+    const clockBottomY = diagram.blhcClock.hhmm.anchor.y - 0.2 * diagram.blhcClock.hhmm.fontSize;
     const menuBottomY = diagram.homeMenuTrigger.center.y - 0.5 * diagram.homeMenuTrigger.height;
     const mainLabelBottomY = diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
     expect(mainLabelBottomY).toBeCloseTo(clockBottomY, 6);
@@ -157,12 +157,12 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(menuBottomY).toBeCloseTo(mainLabelTopY + expectedGap, 6);
 
     // X shift: date ends before the clock and a 3-char separator gap.
-    const fontSize = diagram.timeNowDate.fontSize;
+    const fontSize = diagram.blhcDate.fontSize;
     const charW = 0.6 * fontSize; // must match buildDiagram.mjs heuristic
     const clockWidth = 8 * charW;
     const separatorWidth = 3 * charW;
     const expectedDateX = maxX - clockWidth - separatorWidth;
-    expect(diagram.timeNowDate.anchor.x).toBeCloseTo(expectedDateX, 6);
+    expect(diagram.blhcDate.anchor.x).toBeCloseTo(expectedDateX, 6);
   });
 
   it('applies layoutBoundsBottomMargin by extending B_bottom (clock row and MainLabel shift down)', () => {
@@ -173,7 +173,7 @@ describe('createDiagramGenerationCollaborator', () => {
     const k = 0.03;
     const withMargin = collaborator.generate({ ...baseNoBottomMargin, layoutBoundsBottomMargin: k }).diagram;
     const delta = k * withMargin.refArc.refRadius;
-    expect(withMargin.timeNowClock.hhmm.anchor.y - without.timeNowClock.hhmm.anchor.y).toBeCloseTo(
+    expect(withMargin.blhcClock.hhmm.anchor.y - without.blhcClock.hhmm.anchor.y).toBeCloseTo(
       -delta,
       6,
     );
@@ -193,7 +193,7 @@ describe('createDiagramGenerationCollaborator', () => {
     const base = buildDiagramGenerationSpec({
       extremesAtLocation: minimalExtremesForCollaboratorTest(),
       timeNow: '15:00:00',
-      timeNowDatePrefix: FIXTURE_DATE_PREFIX,
+      blhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
     });
@@ -238,9 +238,9 @@ describe('createDiagramGenerationCollaborator', () => {
       'TideMarks',
       'TickLabel',
       'MainLabel',
-      'TimeNowLocation',
-      'TimeNowDate',
-      'TimeNowClock',
+      'BLHCLocation',
+      'BLHCDate',
+      'BLHCClock',
       'HomeMenuTrigger',
     ]);
   });
@@ -251,14 +251,14 @@ describe('createDiagramGenerationCollaborator', () => {
     const spec = {
       ...base,
       paintOrder: {
-        overrides: [{ name: 'TimeNowLocation', place: 'before' as const, relativeTo: 'RefArc' }],
+        overrides: [{ name: 'BLHCLocation', place: 'before' as const, relativeTo: 'RefArc' }],
       },
     };
     const { scene } = collaborator.generate(spec);
     const childNames = scene.root.children
       .filter((child) => child.kind === 'group')
       .map((child) => child.name);
-    expect(childNames.indexOf('TimeNowLocation')).toBeLessThan(childNames.indexOf('RefArc'));
+    expect(childNames.indexOf('BLHCLocation')).toBeLessThan(childNames.indexOf('RefArc'));
   });
 
   it('applies home preset paint-order so Hand sits below all root siblings', () => {
@@ -290,8 +290,8 @@ describe('createDiagramGenerationCollaborator', () => {
       ...base,
       paintOrder: {
         overrides: [
-          { name: 'TimeNowLocation', place: 'before' as const, relativeTo: 'RefArc' },
-          { name: 'TimeNowLocation', place: 'after' as const, relativeTo: 'TickLabel' },
+          { name: 'BLHCLocation', place: 'before' as const, relativeTo: 'RefArc' },
+          { name: 'BLHCLocation', place: 'after' as const, relativeTo: 'TickLabel' },
         ],
       },
     };

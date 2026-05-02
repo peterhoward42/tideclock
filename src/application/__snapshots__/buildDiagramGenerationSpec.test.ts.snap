@@ -12,6 +12,53 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "sweepRad": 3.141592653589793,
     "thetaLeft": 3.141592653589793,
   },
+  "blhcClock": {
+    "hhmm": {
+      "anchor": {
+        "x": 136.97636352531228,
+        "y": -150.871833526524,
+      },
+      "content": "19:20",
+      "fontSize": 5.31,
+      "hAlign": "right",
+    },
+    "seconds": {
+      "anchor": {
+        "x": 146.53436352531227,
+        "y": -150.871833526524,
+      },
+      "content": "03",
+      "fontSize": 5.31,
+      "hAlign": "right",
+    },
+    "secondsColon": {
+      "anchor": {
+        "x": 140.1623635253123,
+        "y": -150.871833526524,
+      },
+      "content": ":",
+      "fontSize": 5.31,
+      "hAlign": "right",
+    },
+  },
+  "blhcDate": {
+    "anchor": {
+      "x": 111.48836352531228,
+      "y": -150.871833526524,
+    },
+    "content": "Mon 23 Mar",
+    "fontSize": 5.31,
+    "hAlign": "right",
+  },
+  "blhcLocation": {
+    "anchor": {
+      "x": 146.53436352531227,
+      "y": -143.20183352652398,
+    },
+    "content": "Lymington",
+    "fontSize": 5.31,
+    "hAlign": "right",
+  },
   "dividorArc": {
     "radiusK": 1.25,
   },
@@ -1037,53 +1084,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       },
     },
   ],
-  "timeNowClock": {
-    "hhmm": {
-      "anchor": {
-        "x": 136.97636352531228,
-        "y": -150.871833526524,
-      },
-      "content": "19:20",
-      "fontSize": 5.31,
-      "hAlign": "right",
-    },
-    "seconds": {
-      "anchor": {
-        "x": 146.53436352531227,
-        "y": -150.871833526524,
-      },
-      "content": "03",
-      "fontSize": 5.31,
-      "hAlign": "right",
-    },
-    "secondsColon": {
-      "anchor": {
-        "x": 140.1623635253123,
-        "y": -150.871833526524,
-      },
-      "content": ":",
-      "fontSize": 5.31,
-      "hAlign": "right",
-    },
-  },
-  "timeNowDate": {
-    "anchor": {
-      "x": 111.48836352531228,
-      "y": -150.871833526524,
-    },
-    "content": "Mon 23 Mar",
-    "fontSize": 5.31,
-    "hAlign": "right",
-  },
-  "timeNowLocation": {
-    "anchor": {
-      "x": 146.53436352531227,
-      "y": -143.20183352652398,
-    },
-    "content": "Lymington",
-    "fontSize": 5.31,
-    "hAlign": "right",
-  },
   "version": 1,
 }
 `;
@@ -2297,7 +2297,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           },
         ],
         "kind": "group",
-        "name": "TimeNowLocation",
+        "name": "BLHCLocation",
       },
       {
         "children": [
@@ -2314,7 +2314,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           },
         ],
         "kind": "group",
-        "name": "TimeNowDate",
+        "name": "BLHCDate",
       },
       {
         "children": [
@@ -2333,7 +2333,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               },
             ],
             "kind": "group",
-            "name": "TimeNowLabelHms",
+            "name": "BLHCLabelHms",
           },
           {
             "children": [
@@ -2350,7 +2350,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               },
             ],
             "kind": "group",
-            "name": "TimeNowLabelSecondsColon",
+            "name": "BLHCLabelSecondsColon",
           },
           {
             "children": [
@@ -2367,11 +2367,11 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               },
             ],
             "kind": "group",
-            "name": "TimeNowLabelSeconds",
+            "name": "BLHCLabelSeconds",
           },
         ],
         "kind": "group",
-        "name": "TimeNowClock",
+        "name": "BLHCClock",
       },
       {
         "children": [

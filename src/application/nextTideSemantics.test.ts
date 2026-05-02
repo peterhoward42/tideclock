@@ -70,7 +70,7 @@ describe('deriveNextTideSemantics', () => {
             markers: [{ time: '12:00:00', heightText: '0.00 m', highOrLow: 'High' }],
           },
         },
-        { timeNowLabel: 'clock.now' },
+        { timeNowFieldLabelForErrors: 'clock.now' },
       ),
     ).toThrow(/clock\.now/);
   });

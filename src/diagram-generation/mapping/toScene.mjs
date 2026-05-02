@@ -630,9 +630,9 @@ export function tideDiagramToScene(diagram) {
     homeMenuTrigger,
     hand,
     mainLabel,
-    timeNowLocation,
-    timeNowDate,
-    timeNowClock,
+    blhcLocation,
+    blhcDate,
+    blhcClock,
   } = diagram;
   const R = refArc.refRadius;
   const C = refArc.center;
@@ -762,52 +762,52 @@ export function tideDiagramToScene(diagram) {
   const tideMarksGroup = group("TideMarks", tideMarkGroups);
   const handGroup = handDiagramToGroup(hand, cx, cy);
 
-  const timeNowLocationGroup = group("TimeNowLocation", [
+  const blhcLocationGroup = group("BLHCLocation", [
     text({
-      content: timeNowLocation.content,
-      size: timeNowLocation.fontSize,
-      hAlign: timeNowLocation.hAlign ?? "center",
+      content: blhcLocation.content,
+      size: blhcLocation.fontSize,
+      hAlign: blhcLocation.hAlign ?? "center",
       angleRad: 0,
-      anchor: mapPoint(timeNowLocation.anchor, cx, cy),
+      anchor: mapPoint(blhcLocation.anchor, cx, cy),
     }),
   ]);
 
-  const timeNowDateGroup = group("TimeNowDate", [
+  const blhcDateGroup = group("BLHCDate", [
     text({
-      content: timeNowDate.content,
-      size: timeNowDate.fontSize,
-      hAlign: timeNowDate.hAlign ?? "center",
+      content: blhcDate.content,
+      size: blhcDate.fontSize,
+      hAlign: blhcDate.hAlign ?? "center",
       angleRad: 0,
-      anchor: mapPoint(timeNowDate.anchor, cx, cy),
+      anchor: mapPoint(blhcDate.anchor, cx, cy),
     }),
   ]);
 
-  const timeNowClockGroup = group("TimeNowClock", [
-    group("TimeNowLabelHms", [
+  const blhcClockGroup = group("BLHCClock", [
+    group("BLHCLabelHms", [
       text({
-        content: timeNowClock.hhmm.content,
-        size: timeNowClock.hhmm.fontSize,
-        hAlign: timeNowClock.hhmm.hAlign ?? "center",
+        content: blhcClock.hhmm.content,
+        size: blhcClock.hhmm.fontSize,
+        hAlign: blhcClock.hhmm.hAlign ?? "center",
         angleRad: 0,
-        anchor: mapPoint(timeNowClock.hhmm.anchor, cx, cy),
+        anchor: mapPoint(blhcClock.hhmm.anchor, cx, cy),
       }),
     ]),
-    group("TimeNowLabelSecondsColon", [
+    group("BLHCLabelSecondsColon", [
       text({
-        content: timeNowClock.secondsColon.content,
-        size: timeNowClock.secondsColon.fontSize,
-        hAlign: timeNowClock.secondsColon.hAlign ?? "center",
+        content: blhcClock.secondsColon.content,
+        size: blhcClock.secondsColon.fontSize,
+        hAlign: blhcClock.secondsColon.hAlign ?? "center",
         angleRad: 0,
-        anchor: mapPoint(timeNowClock.secondsColon.anchor, cx, cy),
+        anchor: mapPoint(blhcClock.secondsColon.anchor, cx, cy),
       }),
     ]),
-    group("TimeNowLabelSeconds", [
+    group("BLHCLabelSeconds", [
       text({
-        content: timeNowClock.seconds.content,
-        size: timeNowClock.seconds.fontSize,
-        hAlign: timeNowClock.seconds.hAlign ?? "center",
+        content: blhcClock.seconds.content,
+        size: blhcClock.seconds.fontSize,
+        hAlign: blhcClock.seconds.hAlign ?? "center",
         angleRad: 0,
-        anchor: mapPoint(timeNowClock.seconds.anchor, cx, cy),
+        anchor: mapPoint(blhcClock.seconds.anchor, cx, cy),
       }),
     ]),
   ]);
@@ -847,9 +847,9 @@ export function tideDiagramToScene(diagram) {
     tideMarksGroup,
     tickLabelsGroup,
     mainLabelGroup,
-    timeNowLocationGroup,
-    timeNowDateGroup,
-    timeNowClockGroup,
+    blhcLocationGroup,
+    blhcDateGroup,
+    blhcClockGroup,
     homeMenuTriggerGroup,
   ]);
   const orderedRoot = applyPaintOrderOverrides(

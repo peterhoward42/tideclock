@@ -94,17 +94,17 @@ function diagramParsedTimeNowFromParser(
  */
 export function deriveNextTideSemantics(
   spec: DeriveNextTideSemanticsSpec,
-  options?: { readonly timeNowLabel?: string },
+  options?: { readonly timeNowFieldLabelForErrors?: string },
 ): DerivedNextTideSemantics;
 export function deriveNextTideSemantics(
   spec: DiagramGenerationSpec,
-  options?: { readonly timeNowLabel?: string },
+  options?: { readonly timeNowFieldLabelForErrors?: string },
 ): DerivedNextTideSemantics;
 export function deriveNextTideSemantics(
   spec: DeriveNextTideSemanticsSpec | DiagramGenerationSpec,
-  options?: { readonly timeNowLabel?: string },
+  options?: { readonly timeNowFieldLabelForErrors?: string },
 ): DerivedNextTideSemantics {
-  const label = options?.timeNowLabel ?? 'spec.timeNow';
+  const label = options?.timeNowFieldLabelForErrors ?? 'spec.timeNow';
   const parsedRaw = parseCanonicalTimeOrThrow(spec.timeNow, label);
   const timeNow = diagramParsedTimeNowFromParser(parsedRaw);
   const core = computeNextTideEventCore(

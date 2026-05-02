@@ -49,14 +49,14 @@
  *   hAlign?: 'left' | 'center' | 'right',
  * }} DiagramTextInst
  *
- * Civil clock readout: location line (**TimeNowLocation**), date line (**TimeNowDate**),
- * plus `HH:MM`, `:`, and `SS` (**TimeNowClock** leaves; same baseline on the clock row).
+ * **BLHCBundle** (bottom-anchored text stack): location row (**BLHCLocation**), date row (**BLHCDate**),
+ * plus `HH:MM`, `:`, and `SS` (**BLHCClock** leaves; same baseline on the clock row).
  *
  * @typedef {{
  *   hhmm: DiagramTextInst,
  *   secondsColon: DiagramTextInst,
  *   seconds: DiagramTextInst,
- * }} DiagramTimeNowClockInst
+ * }} DiagramBlhcClockInst
  *
  * @typedef {{
  *   content: string,
@@ -143,15 +143,15 @@
  *   annularBand: AnnularBandDiagram,
  *   homeMenuTrigger: HomeMenuTriggerDiagram,
  *   hand: HandDiagram,
- *   timeNowLocation: DiagramTextInst,
- *   timeNowDate: DiagramTextInst,
- *   timeNowClock: DiagramTimeNowClockInst,
+ *   blhcLocation: DiagramTextInst,
+ *   blhcDate: DiagramTextInst,
+ *   blhcClock: DiagramBlhcClockInst,
  * }} TideDiagramDocument
  */
 
 /**
  * Maximum diagram-space **X** over the closed **AnnularBand** sector (same geometry as layout).
- * Used to right-align the time-now readout to the band’s **+X** extent.
+ * Used to right-align **BLHCBundle** rows to the band’s **+X** extent.
  *
  * @param {{ center: DiagramPoint, rInner: number, rOuter: number, thetaLeft: number, sweepRad: number }} annular
  * @returns {number}

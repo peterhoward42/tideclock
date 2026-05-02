@@ -2,8 +2,8 @@
  * buildDiagramGenerationSpec.ts — Maps domain extremes and local time into `DiagramGenerationSpec` fields.
  * Fed by Home and tests; consumed by diagram-generation. Kind: Pure logic (with injectable time mapping).
  * Does not invoke `buildDiagram` itself. Time-now date/clock placement is derived in diagram-generation
- * from AnnularBand and TickLabels; this module only supplies `timeNowLabel.fontHeight`, `dateAboveTime`,
- * and `timeNowLocation`/`timeNowDatePrefix`.
+ * from AnnularBand and TickLabels; this module only supplies `blhcBundle.fontHeight`, `dateAboveTime`,
+ * and `blhcLocation`/`blhcDatePrefix`.
  *
  * Tunable layout numbers live in `diagram-config/homeTideDiagram.preset.ts`.
  */
@@ -34,8 +34,8 @@ export type UtcIsoToLocalCanonicalTime = (timeUtcIso: string) => string;
  */
 export type BuildDiagramGenerationSpecTimeInput = {
   readonly timeNow: string;
-  /** Local civil-day prefix for the TimeNowDate element (e.g. "Wed 21 Jun"). */
-  readonly timeNowDatePrefix: string;
+  /** Local civil-day prefix for the **BLHCDate** row (e.g. "Wed 21 Jun"). */
+  readonly blhcDatePrefix: string;
   readonly utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime;
 };
 
@@ -47,7 +47,7 @@ export type BuildDiagramGenerationSpecParams = BuildDiagramGenerationSpecTimeInp
    * same conceptual spec). When omitted, layout derives next tide from `tideMarks` as usual.
    */
   readonly derivedSemantics?: Pick<DerivedNextTideSemantics, 'nextTide'>;
-  /** Display town name for the TimeNow location line. */
+  /** Display town name for the **BLHCLocation** row. */
   readonly townName: string;
 };
 
@@ -102,7 +102,7 @@ export function buildDiagramGenerationSpec(
   const {
     extremesAtLocation,
     timeNow,
-    timeNowDatePrefix,
+    blhcDatePrefix,
     utcIsoToLocalCanonicalTime,
     derivedSemantics,
     townName,
@@ -124,8 +124,8 @@ export function buildDiagramGenerationSpec(
   const spec: DiagramGenerationSpec = {
     ...homeTideDiagramSpecLayout,
     timeNow,
-    timeNowDatePrefix,
-    timeNowLocation: townName,
+    blhcDatePrefix,
+    blhcLocation: townName,
     tideMarks,
   };
 

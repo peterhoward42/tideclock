@@ -26,13 +26,15 @@ o  first glance ux assimilation suggestions
 	*  Subtle fill for tide marker radial space annulus?
 	*  spec cleaning
 
-	o  render time now with seconds along the arm
-		*  basics
-		o  Fix: Font size: 0.72 × tickLabelSize × RefRadius (same k·R style as other labels). should not refer
-		   to tickLabelSize, and check the const is a param
-		o  Tune size to mobile
+	*  render time now with seconds along the arm
+	*  Put in a new dev preview mode to show times < 12
 
-	o  Put in a new dev preview mode to show times < 12
+	o  Improve role and clarity of spec for bottom right stuff
+		o  Rename it and explain why
+		o  First fix right to diagram edge
+
+	o  Decide what contents to put bottom right
+	o  Specify it with a view to it being generic
 
 	o  Revisting time now on hand
 		o  seconds only a different colour?
