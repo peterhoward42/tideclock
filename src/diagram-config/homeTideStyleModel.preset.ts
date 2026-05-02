@@ -9,11 +9,11 @@ export const homeTideStyleModel: StyleModelSpec = {
   roles: [
     {
       name: "role.tide.primary",
-      colors: { color: "#bf94e4", fillColor: "#bf94e4" }, // bright lavender
+      colors: { color: "#bf94e4", fillColor: "#dab3f5" }, // bright lavender
     },
     {
       name: "role.tide.primary.past",
-      colors: { color: "#bf94e4", fillColor: "#bf94e4",opacity: 0.62 }, // same hue, lower contrast for already-passed tides
+      colors: { color: "#bf94e4", fillColor: "#dab3f5",opacity: 0.62 }, // same hue, lower contrast for already-passed tides
     },
     {
       name: "role.tide.secondary",

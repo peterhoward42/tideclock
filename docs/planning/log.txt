@@ -33,13 +33,10 @@ o  first glance ux assimilation suggestions
 	*  Specify it with a view to it being generic
 	*  Separate seconds on hand and style colours
 	*  The concentric rings could give the tide markers more space now
-	o  Make menu smaller and move to right
-		*  basics
-		o  make big enough to see on mobile
-		o  flyout must now go left from home route only
-	o  Style BLHC
-	o  Branding on bottom left
+	*  Make menu smaller and move to right
+	*  Style BLHC
 	o  ChatGPT outline pips?
+	o  Branding on bottom left
 	o  ChatGPT usability / assimilation advice
 
 
