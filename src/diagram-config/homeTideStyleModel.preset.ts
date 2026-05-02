@@ -89,6 +89,7 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "MainLabel", roleName: "role.tide.primary" },
     { name: "BossCircle", roleName: "role.hand.bossCircle" },
     { name: "Arm", roleName: "role.hand.arm" },
+    { name: "HandArmTimeLabel", roleName: "role.now.live" },
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
     { name: "TimeNowLocation", roleName: "role.structure.emphasis" },
     { name: "TimeNowDate", roleName: "role.structure.text" },

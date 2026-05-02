@@ -8,7 +8,10 @@ import {
   localTimeNowDatePrefixFromMs,
 } from "../../../application/localWallClockReadoutFromMs";
 
-/** Patch live clock text inside injected SVG; host must contain the current diagram. */
+/**
+ * Patch live clock text inside injected SVG; host must contain the current diagram.
+ * Callers subscribe to `nowMs` (~1 Hz) so TimeNow readout and **HandArmTimeLabel** stay in sync.
+ */
 export function patchTimeNowReadoutInDiagramHost(
   host: HTMLElement,
   ms: number,
@@ -27,10 +30,14 @@ export function patchTimeNowReadoutInDiagramHost(
   const secEl = host.querySelector(
     'svg g[data-name="TimeNowLabelSeconds"] text',
   ) as SVGTextElement | null;
+  const handArmTimeEl = host.querySelector(
+    'svg g[data-name="HandArmTimeLabel"] text',
+  ) as SVGTextElement | null;
   if (dateEl !== null) dateEl.textContent = datePrefix;
   if (hhmmEl !== null) hhmmEl.textContent = canonical.slice(0, 5);
   if (colonEl !== null) colonEl.textContent = canonical.slice(5, 6);
   if (secEl !== null) secEl.textContent = canonical.slice(6);
+  if (handArmTimeEl !== null) handArmTimeEl.textContent = canonical;
 }
 
 export function queryHomeMenuTriggerGroupFromDiagramHost(

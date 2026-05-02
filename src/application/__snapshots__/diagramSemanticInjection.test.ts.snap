@@ -26,6 +26,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "y": -6.298224804295709,
       },
     },
+    "armTimeLabel": {
+      "anchor": {
+        "x": 50.96143558495536,
+        "y": -37.72451435234713,
+      },
+      "angleRad": 5.552762244273579,
+      "content": "19:20:03",
+      "fontSize": 3.3984,
+    },
     "bossCircle": {
       "center": {
         "x": 0,

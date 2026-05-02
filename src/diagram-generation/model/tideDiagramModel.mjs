@@ -59,10 +59,18 @@
  * }} DiagramTimeNowClockInst
  *
  * @typedef {{
+ *   content: string,
+ *   fontSize: number,
+ *   anchor: DiagramPoint,
+ *   angleRad: number,
+ * }} HandArmTimeLabelDiagram
+ *
+ * @typedef {{
  *   timeHours: number,
  *   theta: number,
  *   bossCircle: { center: DiagramPoint, radius: number },
  *   arm: DiagramLineSeg,
+ *   armTimeLabel: HandArmTimeLabelDiagram,
  * }} HandDiagram
  *
  * Tide mark height label: **anchor** lies on the label circle at the **start** of the arc span (angular

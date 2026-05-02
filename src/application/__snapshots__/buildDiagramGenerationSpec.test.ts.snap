@@ -26,6 +26,15 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "y": -3.3835737561416943,
       },
     },
+    "armTimeLabel": {
+      "anchor": {
+        "x": 53.16724541736734,
+        "y": -30.017443507557935,
+      },
+      "angleRad": 5.67242915205982,
+      "content": "19:20:03",
+      "fontSize": 3.3984,
+    },
     "bossCircle": {
       "center": {
         "x": 0,
@@ -1120,6 +1129,24 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   "x": 4.833366180701519,
                   "y": -3.3835737561416943,
                 },
+              },
+              {
+                "children": [
+                  {
+                    "anchor": {
+                      "x": 53.16724541736734,
+                      "y": -30.017443507557935,
+                    },
+                    "angleRad": 5.67242915205982,
+                    "content": "19:20:03",
+                    "dominantBaseline": "middle",
+                    "hAlign": "center",
+                    "kind": "text",
+                    "size": 3.3984,
+                  },
+                ],
+                "kind": "group",
+                "name": "HandArmTimeLabel",
               },
             ],
             "kind": "group",

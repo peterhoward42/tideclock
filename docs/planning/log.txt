@@ -26,8 +26,23 @@ o  first glance ux assimilation suggestions
 	*  Subtle fill for tide marker radial space annulus?
 	*  spec cleaning
 
+	o  render time now with seconds along the arm
+		o  branch tonarm
+			o  basics
+			o  Font size: 0.72 × tickLabelSize × RefRadius (same k·R style as other labels). should not refer
+			   to tickLabelSize, and check the const is a param
+			o  See if existing dev test case shows earlier times to check algigment switch
+			o  Tune size to mobile
+			o  Consider seconds only a different colour
+		o  merge tonarm
 
 	o  generalise bottom right stuff to being a stack of rows
+		o  decide independently on merit of showing time now at all
+		o  general case requirements
+			o  
+
+		o  think about singularaities
+
 	o  ask advice for
 		o  do we need low tide at etc
 		o  then may not need singularities

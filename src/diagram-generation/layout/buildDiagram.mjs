@@ -271,7 +271,7 @@ function readDividorArcRadiusKFromSpec(spec) {
   return radiusK;
 }
 
-function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
+function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight, tickLabelSize) {
   const hand = requirePlainObject(spec.hand, "spec.hand");
   const bossCircleRadiusK = requireFiniteNumber(
     hand.bossCircleRadius,
@@ -300,13 +300,38 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
       "spec.hand radial ordering invalid: require r_boss < RefRadius − armRefArcGap·RefRadius",
     );
   }
+  const armStart = { x: unit.x * rBoss, y: unit.y * rBoss };
+  const armEnd = { x: unit.x * rArmOuter, y: unit.y * rArmOuter };
+  const mid = {
+    x: 0.5 * (armStart.x + armEnd.x),
+    y: 0.5 * (armStart.y + armEnd.y),
+  };
+  const sinT = Math.sin(theta);
+  const cosT = Math.cos(theta);
+  /** Unit tangent along RefArc toward **earlier** time (decreasing θ). */
+  const earlierAlongArcX = sinT;
+  const earlierAlongArcY = -cosT;
+  const offsetR = 0.05 * refRadius;
+  const beforeNoon = parsedNow.hours <= 12;
+  const offX = beforeNoon
+    ? earlierAlongArcX * offsetR
+    : -earlierAlongArcX * offsetR;
+  const offY = beforeNoon
+    ? earlierAlongArcY * offsetR
+    : -earlierAlongArcY * offsetR;
+  /** Inline axis toward origin (a.m.) vs outward (p.m.); see tide-diagram Hand arm label. */
+  const angleRad = beforeNoon ? theta + Math.PI : theta;
+  const armTimeLabelFontK = tickLabelSize * 0.72;
   return {
     timeHours: parsedNow.hours,
     theta,
     bossCircle: { center: { x: 0, y: 0 }, radius: rBoss },
-    arm: {
-      start: { x: unit.x * rBoss, y: unit.y * rBoss },
-      end: { x: unit.x * rArmOuter, y: unit.y * rArmOuter },
+    arm: { start: armStart, end: armEnd },
+    armTimeLabel: {
+      content: /** @type {string} */ (spec.timeNow),
+      fontSize: armTimeLabelFontK * refRadius,
+      anchor: { x: mid.x + offX, y: mid.y + offY },
+      angleRad,
     },
   };
 }
@@ -399,7 +424,13 @@ export function buildDiagram(spec) {
     thetaLeft,
     thetaRight,
   );
-  const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
+  const hand = buildHandFromSpec(
+    spec,
+    refRadius,
+    thetaLeft,
+    thetaRight,
+    tickLabelSize,
+  );
   const annularBounds = annularBandBounds(annularBand);
   const layoutBounds = emptyBounds();
   includeRect(

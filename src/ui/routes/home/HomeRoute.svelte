@@ -104,7 +104,7 @@
 
   let diagramSvg = $state("");
   let diagramError = $state<string | undefined>(undefined);
-  /** Container for injected SVG; patches TimeNowDate and TimeNowClock text without regenerating the scene. */
+  /** Container for injected SVG; patches TimeNow readout + HandArmTimeLabel on ~1 Hz without full scene regen. */
   let diagramHostEl = $state<HTMLElement | undefined>(undefined);
   let homeRouteEl = $state<HTMLElement | undefined>(undefined);
   let homeInstrumentEl = $state<HTMLElement | undefined>(undefined);
