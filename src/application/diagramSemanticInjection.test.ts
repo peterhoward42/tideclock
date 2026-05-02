@@ -50,6 +50,7 @@ type SemanticInjectionDiagramSpec = {
   readonly hand: {
     readonly bossCircleRadius: number;
     readonly armRefArcGap: number;
+    readonly armTimeLabelFontHeight: number;
   };
   readonly homeMenuTrigger: {
     readonly width: number;
@@ -97,6 +98,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     hand: {
       bossCircleRadius: 0.08,
       armRefArcGap: 0.01,
+      armTimeLabelFontHeight: 0.0288,
     },
     homeMenuTrigger: {
       width: 0.2,

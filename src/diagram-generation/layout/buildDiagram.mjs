@@ -271,7 +271,7 @@ function readDividorArcRadiusKFromSpec(spec) {
   return radiusK;
 }
 
-function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight, tickLabelSize) {
+function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const hand = requirePlainObject(spec.hand, "spec.hand");
   const bossCircleRadiusK = requireFiniteNumber(
     hand.bossCircleRadius,
@@ -286,6 +286,13 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight, tickLabelSize
   );
   if (!(armRefArcGapK >= 0)) {
     throw new Error("spec.hand.armRefArcGap must be >= 0");
+  }
+  const armTimeLabelFontHeightK = requireFiniteNumber(
+    hand.armTimeLabelFontHeight,
+    "spec.hand.armTimeLabelFontHeight",
+  );
+  if (!(armTimeLabelFontHeightK > 0)) {
+    throw new Error("spec.hand.armTimeLabelFontHeight must be greater than 0");
   }
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
@@ -321,7 +328,6 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight, tickLabelSize
     : -earlierAlongArcY * offsetR;
   /** Inline axis toward origin (a.m.) vs outward (p.m.); see tide-diagram Hand arm label. */
   const angleRad = beforeNoon ? theta + Math.PI : theta;
-  const armTimeLabelFontK = tickLabelSize * 0.72;
   return {
     timeHours: parsedNow.hours,
     theta,
@@ -329,7 +335,7 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight, tickLabelSize
     arm: { start: armStart, end: armEnd },
     armTimeLabel: {
       content: /** @type {string} */ (spec.timeNow),
-      fontSize: armTimeLabelFontK * refRadius,
+      fontSize: armTimeLabelFontHeightK * refRadius,
       anchor: { x: mid.x + offX, y: mid.y + offY },
       angleRad,
     },
@@ -424,13 +430,7 @@ export function buildDiagram(spec) {
     thetaLeft,
     thetaRight,
   );
-  const hand = buildHandFromSpec(
-    spec,
-    refRadius,
-    thetaLeft,
-    thetaRight,
-    tickLabelSize,
-  );
+  const hand = buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight);
   const annularBounds = annularBandBounds(annularBand);
   const layoutBounds = emptyBounds();
   includeRect(

@@ -88,9 +88,24 @@ describe('createDiagramGenerationCollaborator', () => {
     const { armRefArcGap: _omit, ...handWithoutGap } = hand as {
       bossCircleRadius: number;
       armRefArcGap: number;
+      armTimeLabelFontHeight: number;
     };
     expect(() => collaborator.generate({ ...rest, hand: handWithoutGap })).toThrow(
       /spec\.hand\.armRefArcGap/,
+    );
+  });
+
+  it('throws when spec.hand.armTimeLabelFontHeight is missing', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const { hand, ...rest } = base;
+    const { armTimeLabelFontHeight: _omit, ...handWithoutArmLabelFont } = hand as {
+      bossCircleRadius: number;
+      armRefArcGap: number;
+      armTimeLabelFontHeight: number;
+    };
+    expect(() => collaborator.generate({ ...rest, hand: handWithoutArmLabelFont })).toThrow(
+      /spec\.hand\.armTimeLabelFontHeight/,
     );
   });
 

@@ -520,12 +520,12 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 ### Scene model
 
 - Emitted as a named group **Hand** (`**hand`** input is required).
-- Direct leaves:
-  - **BossCircle** — stroked circle.
-  - **Arm** — stroked radial line segment.
-- **Hand** primitives are stroked only; **fill** is **none**.
+- **BossCircle** — named group containing one stroked **circle** (see below).
+- **Arm** — named group containing:
+  - the stroked radial **line** segment (**Arm** geometry below), and
+  - **HandArmTimeLabel** — clock readout along the arm (see below).
+- **Hand** curve primitives (**BossCircle** outline, **Arm** segment) are stroked only; **fill** is **none**.
 - **Arm** should render with a slightly wider stroke width than the default diagram stroke.
-
 
 ### BossCircle
 
@@ -542,3 +542,15 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
   - **Arm** — from `**r_boss`** to `**r_arm_outer`** (outer end is on the **RefArc** radius when `**hand.armRefArcGap = 0`**; positive gap shortens the segment so it stops just short of the **RefArc**).
 - Validation: generation fails if radial ordering is invalid at emission time
   (specifically, require `**r_boss < r_arm_outer**`).
+
+### HandArmTimeLabel
+
+This is **not** the **Time now readout** block (**TimeNowLocation** / **TimeNowDate** / **TimeNowClock**): those are anchored to global layout bounds and the annular region. **HandArmTimeLabel** is a separate, single-line **text** readout of the same global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**.
+
+- Required diagram input **`hand.armTimeLabelFontHeight`**: finite dimensionless **k > 0** (**§Sizing**). **FontHeight** is **`hand.armTimeLabelFontHeight · RefRadius`**. This is independent of **TickLabel** sizing.
+- Emitted as a named group **HandArmTimeLabel** (child of **Arm**), containing one **text** primitive. Hosts may target it for live updates (e.g. patch the text node under this group without regenerating the full scene).
+- **Text** — exactly the canonical **`timeNow`** string (second resolution; no reformatting beyond what the host supplies in that canonical form).
+- **Horizontal justification** — **centre** on the rotated baseline.
+- Anchor placement uses the midpoint of the **Arm** segment (between **`r_boss`** and **`r_arm_outer`**, **§Radial segments**), then shifts by **0.05·RefRadius** along the **RefArc** tangent at **`θ_now`** that points toward **decreasing θ** (earlier clock time along the arc) when **`t_now ≤ 12`** hours, and **opposite** that tangent when **`t_now > 12`** hours (**t_now** as in **§Global “time now” input**).
+- **Baseline rotation** (radians, same convention as other rotated diagram **text**): **`θ_now + π`** when **`t_now ≤ 12`**, else **`θ_now`**, so the string runs along the arm with a consistent reading sense across morning and afternoon.
+- **Dominant baseline** — **middle** (anchor is the nominal centre of the line’s em box in the host).

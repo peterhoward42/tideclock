@@ -27,14 +27,19 @@ o  first glance ux assimilation suggestions
 	*  spec cleaning
 
 	o  render time now with seconds along the arm
-		o  branch tonarm
-			o  basics
-			o  Font size: 0.72 × tickLabelSize × RefRadius (same k·R style as other labels). should not refer
-			   to tickLabelSize, and check the const is a param
-			o  See if existing dev test case shows earlier times to check algigment switch
-			o  Tune size to mobile
-			o  Consider seconds only a different colour
-		o  merge tonarm
+		*  basics
+		o  Fix: Font size: 0.72 × tickLabelSize × RefRadius (same k·R style as other labels). should not refer
+		   to tickLabelSize, and check the const is a param
+		o  Tune size to mobile
+
+	o  Put in a new dev preview mode to show times < 12
+
+	o  Revisting time now on hand
+		o  seconds only a different colour?
+
+	o  Remove the other time now in every way, making sure that the one
+	   on the hand does not depend on any of it. Also remove now redundant 
+	   orphans. Final stack should be from bottom row up.
 
 	o  generalise bottom right stuff to being a stack of rows
 		o  decide independently on merit of showing time now at all

@@ -47,6 +47,8 @@ export type HomeTideDiagramLayoutBase = {
     readonly bossCircleRadius: number;
     /** k·RefRadius inset from RefArc; arm outer radius is RefRadius minus this. */
     readonly armRefArcGap: number;
+    /** k·RefRadius: **HandArmTimeLabel** font height (independent of tick-label sizing). */
+    readonly armTimeLabelFontHeight: number;
   };
   readonly paintOrder: {
     readonly overrides: readonly {
