@@ -31,7 +31,9 @@ o  first glance ux assimilation suggestions
 		Global contract
 			o  want it to be implicit
 				o  so for each that duplicates implicit constraint ditch it
-					*  canvas, title, paint order
+					o  global contract
+						*  canvas, title, paint order
+						each entry must be an integer 
 
 
 
