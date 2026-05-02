@@ -168,10 +168,10 @@ describe('spec.semantic.nextTide injection', () => {
     );
   });
 
-  it('throws when tickLabelHours is empty (clock baseline needs tick labels)', () => {
+  it('throws when tickLabelHours is empty', () => {
     const spec = { ...sampleTideDiagramSpec(), tickLabelHours: [] };
     expect(() => buildDiagramFromSpec(spec as DiagramGenerationSpec)).toThrow(
-      /tick label anchors/,
+      /spec\.tickLabelHours must list at least one hour/,
     );
   });
 

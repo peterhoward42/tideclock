@@ -53,7 +53,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "blhcLocation": {
     "anchor": {
       "x": 147.5,
-      "y": -143.20183352652398,
+      "y": -135.53183352652397,
     },
     "content": "Lymington",
     "fontSize": 5.31,
@@ -95,7 +95,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "homeMenuTrigger": {
     "center": {
       "x": -135.7,
-      "y": -130.69383352652403,
+      "y": -123.023833526524,
     },
     "cornerRadius": 4.484,
     "height": 15.34,
@@ -105,12 +105,12 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   },
   "mainLabel": {
     "anchor": {
-      "x": -124.85308486872034,
-      "y": -150.871833526524,
+      "x": 147.5,
+      "y": -143.20183352652398,
     },
     "content": "High tide at 23:06",
     "fontSize": 5.31,
-    "hAlign": "left",
+    "hAlign": "right",
   },
   "meta": {
     "title": "home-tide-diagram",
@@ -2268,117 +2268,123 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       {
         "children": [
           {
-            "anchor": {
-              "x": -124.85308486872034,
-              "y": -150.871833526524,
-            },
-            "angleRad": 0,
-            "content": "High tide at 23:06",
-            "hAlign": "left",
-            "kind": "text",
-            "size": 5.31,
-          },
-        ],
-        "kind": "group",
-        "name": "MainLabel",
-      },
-      {
-        "children": [
-          {
-            "anchor": {
-              "x": 147.5,
-              "y": -143.20183352652398,
-            },
-            "angleRad": 0,
-            "content": "Lymington",
-            "hAlign": "right",
-            "kind": "text",
-            "size": 5.31,
-          },
-        ],
-        "kind": "group",
-        "name": "BLHCLocation",
-      },
-      {
-        "children": [
-          {
-            "anchor": {
-              "x": 112.45400000000001,
-              "y": -150.871833526524,
-            },
-            "angleRad": 0,
-            "content": "Mon 23 Mar",
-            "hAlign": "right",
-            "kind": "text",
-            "size": 5.31,
-          },
-        ],
-        "kind": "group",
-        "name": "BLHCDate",
-      },
-      {
-        "children": [
-          {
             "children": [
               {
                 "anchor": {
-                  "x": 137.942,
-                  "y": -150.871833526524,
+                  "x": 147.5,
+                  "y": -143.20183352652398,
                 },
                 "angleRad": 0,
-                "content": "19:20",
+                "content": "High tide at 23:06",
                 "hAlign": "right",
                 "kind": "text",
                 "size": 5.31,
               },
             ],
             "kind": "group",
-            "name": "BLHCLabelHms",
-          },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 141.12800000000001,
-                  "y": -150.871833526524,
-                },
-                "angleRad": 0,
-                "content": ":",
-                "hAlign": "right",
-                "kind": "text",
-                "size": 5.31,
-              },
-            ],
-            "kind": "group",
-            "name": "BLHCLabelSecondsColon",
+            "name": "MainLabel",
           },
           {
             "children": [
               {
                 "anchor": {
                   "x": 147.5,
-                  "y": -150.871833526524,
+                  "y": -135.53183352652397,
                 },
                 "angleRad": 0,
-                "content": "03",
+                "content": "Lymington",
                 "hAlign": "right",
                 "kind": "text",
                 "size": 5.31,
               },
             ],
             "kind": "group",
-            "name": "BLHCLabelSeconds",
+            "name": "BLHCLocation",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 112.45400000000001,
+                  "y": -150.871833526524,
+                },
+                "angleRad": 0,
+                "content": "Mon 23 Mar",
+                "hAlign": "right",
+                "kind": "text",
+                "size": 5.31,
+              },
+            ],
+            "kind": "group",
+            "name": "BLHCDate",
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "anchor": {
+                      "x": 137.942,
+                      "y": -150.871833526524,
+                    },
+                    "angleRad": 0,
+                    "content": "19:20",
+                    "hAlign": "right",
+                    "kind": "text",
+                    "size": 5.31,
+                  },
+                ],
+                "kind": "group",
+                "name": "BLHCLabelHms",
+              },
+              {
+                "children": [
+                  {
+                    "anchor": {
+                      "x": 141.12800000000001,
+                      "y": -150.871833526524,
+                    },
+                    "angleRad": 0,
+                    "content": ":",
+                    "hAlign": "right",
+                    "kind": "text",
+                    "size": 5.31,
+                  },
+                ],
+                "kind": "group",
+                "name": "BLHCLabelSecondsColon",
+              },
+              {
+                "children": [
+                  {
+                    "anchor": {
+                      "x": 147.5,
+                      "y": -150.871833526524,
+                    },
+                    "angleRad": 0,
+                    "content": "03",
+                    "hAlign": "right",
+                    "kind": "text",
+                    "size": 5.31,
+                  },
+                ],
+                "kind": "group",
+                "name": "BLHCLabelSeconds",
+              },
+            ],
+            "kind": "group",
+            "name": "BLHCClock",
           },
         ],
         "kind": "group",
-        "name": "BLHCClock",
+        "name": "BLHCBundle",
       },
       {
         "children": [
           {
             "center": {
               "x": -135.7,
-              "y": -130.69383352652403,
+              "y": -123.023833526524,
             },
             "height": 15.34,
             "kind": "roundedRect",
@@ -2390,7 +2396,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": -135.7,
-                  "y": -130.69383352652403,
+                  "y": -123.023833526524,
                 },
                 "angleRad": 0,
                 "content": "Menu",

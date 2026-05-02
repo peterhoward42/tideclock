@@ -53,7 +53,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "blhcLocation": {
     "anchor": {
       "x": 128.05368250390558,
-      "y": -120.124,
+      "y": -108.91399999999999,
     },
     "content": "Lymington",
     "fontSize": 5.9,
@@ -95,7 +95,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "homeMenuTrigger": {
     "center": {
       "x": -114.62985520821964,
-      "y": -117.93564875337607,
+      "y": -107.20299999999999,
     },
     "cornerRadius": 4.484,
     "height": 15.34,
@@ -105,12 +105,12 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "mainLabel": {
     "anchor": {
-      "x": -126.42985520821964,
-      "y": -131.44664875337608,
+      "x": 128.05368250390558,
+      "y": -120.714,
     },
     "content": "High tide at 23:06",
     "fontSize": 5.31,
-    "hAlign": "left",
+    "hAlign": "right",
   },
   "meta": {
     "title": "semantic-injection",

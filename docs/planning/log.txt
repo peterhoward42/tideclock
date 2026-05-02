@@ -30,8 +30,14 @@ o  first glance ux assimilation suggestions
 	*  Put in a new dev preview mode to show times < 12
 
 	o  Improve role and clarity of spec for bottom right stuff
-		o  Rename it and explain why
-		o  First fix right to diagram edge
+		*  Rename it and explain why
+		*  First fix right to diagram edge
+		o  Pull MainLabel into it
+		o  brainstorm contents
+			o  Location
+			o  The word tide
+			o  Date
+			o  Main message
 
 	o  Decide what contents to put bottom right
 	o  Specify it with a view to it being generic
@@ -59,6 +65,7 @@ o  first glance ux assimilation suggestions
 		o  But keep location
 		o  Branding under menu
 
+	o  menu is a bit Mr Blobby on desktop?
 	o  what to do when tricky tides occlude each other?
 	o  clarify home screen clipping on phone until you scroll
 
@@ -66,6 +73,7 @@ o  first glance ux assimilation suggestions
 	o  do we now need liveness hint(s)?
 
 	o  iconography for high vs low?
+
 
 
 See /docs/specs/tide-diagram.md for context.

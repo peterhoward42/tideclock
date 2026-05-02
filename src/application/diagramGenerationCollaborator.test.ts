@@ -139,16 +139,18 @@ describe('createDiagramGenerationCollaborator', () => {
     // BLHCDate shares the same baseline as the clock row; it is only shifted left to create
     // the merged date+clock appearance.
     expect(diagram.blhcDate.anchor.y).toBeCloseTo(diagram.blhcClock.hhmm.anchor.y, 6);
+    const mainLabelFontSize = 0.045 * diagram.refArc.refRadius;
+    expect(diagram.mainLabel.anchor.x).toBe(bundleRightX);
+    expect(diagram.mainLabel.anchor.y).toBeCloseTo(
+      diagram.blhcClock.hhmm.anchor.y + dateAbove + mainLabelFontSize,
+      6,
+    );
     expect(diagram.blhcLocation.anchor.y).toBeCloseTo(
-      diagram.blhcClock.hhmm.anchor.y + dateAbove + fontHeight,
+      diagram.mainLabel.anchor.y + dateAbove + fontHeight,
       6,
     );
 
-    // MainLabel shares global B_bottom.
-    const clockBottomY = diagram.blhcClock.hhmm.anchor.y - 0.2 * diagram.blhcClock.hhmm.fontSize;
     const menuBottomY = diagram.homeMenuTrigger.center.y - 0.5 * diagram.homeMenuTrigger.height;
-    const mainLabelBottomY = diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
-    expect(mainLabelBottomY).toBeCloseTo(clockBottomY, 6);
 
     // HomeMenuTrigger sits above MainLabel top by configured gap.
     const mainLabelTopY = diagram.mainLabel.anchor.y + 0.8 * diagram.mainLabel.fontSize;
@@ -238,10 +240,7 @@ describe('createDiagramGenerationCollaborator', () => {
       'TickMark',
       'TideMarks',
       'TickLabel',
-      'MainLabel',
-      'BLHCLocation',
-      'BLHCDate',
-      'BLHCClock',
+      'BLHCBundle',
       'HomeMenuTrigger',
     ]);
   });
@@ -252,14 +251,14 @@ describe('createDiagramGenerationCollaborator', () => {
     const spec = {
       ...base,
       paintOrder: {
-        overrides: [{ name: 'BLHCLocation', place: 'before' as const, relativeTo: 'RefArc' }],
+        overrides: [{ name: 'BLHCBundle', place: 'before' as const, relativeTo: 'RefArc' }],
       },
     };
     const { scene } = collaborator.generate(spec);
     const childNames = scene.root.children
       .filter((child) => child.kind === 'group')
       .map((child) => child.name);
-    expect(childNames.indexOf('BLHCLocation')).toBeLessThan(childNames.indexOf('RefArc'));
+    expect(childNames.indexOf('BLHCBundle')).toBeLessThan(childNames.indexOf('RefArc'));
   });
 
   it('applies home preset paint-order so Hand sits below all root siblings', () => {
@@ -291,8 +290,8 @@ describe('createDiagramGenerationCollaborator', () => {
       ...base,
       paintOrder: {
         overrides: [
-          { name: 'BLHCLocation', place: 'before' as const, relativeTo: 'RefArc' },
-          { name: 'BLHCLocation', place: 'after' as const, relativeTo: 'TickLabel' },
+          { name: 'BLHCBundle', place: 'before' as const, relativeTo: 'RefArc' },
+          { name: 'BLHCBundle', place: 'after' as const, relativeTo: 'TickLabel' },
         ],
       },
     };

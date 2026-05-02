@@ -812,6 +812,13 @@ export function tideDiagramToScene(diagram) {
     ]),
   ]);
 
+  const blhcBundleGroup = group("BLHCBundle", [
+    mainLabelGroup,
+    blhcLocationGroup,
+    blhcDateGroup,
+    blhcClockGroup,
+  ]);
+
   const menuCenter = mapPoint(homeMenuTrigger.center, cx, cy);
   const homeMenuTriggerGroup = group("HomeMenuTrigger", [
     roundedRect(
@@ -846,10 +853,7 @@ export function tideDiagramToScene(diagram) {
     ticksGroup,
     tideMarksGroup,
     tickLabelsGroup,
-    mainLabelGroup,
-    blhcLocationGroup,
-    blhcDateGroup,
-    blhcClockGroup,
+    blhcBundleGroup,
     homeMenuTriggerGroup,
   ]);
   const orderedRoot = applyPaintOrderOverrides(

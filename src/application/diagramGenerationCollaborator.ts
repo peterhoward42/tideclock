@@ -98,7 +98,7 @@ type MainLabelDiagram = {
   readonly content: string;
   readonly fontSize: number;
   readonly anchor: DiagramPoint;
-  readonly hAlign: "left";
+  readonly hAlign: "right";
 };
 
 type HomeMenuTriggerDiagram = {

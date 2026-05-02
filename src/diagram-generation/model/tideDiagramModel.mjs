@@ -49,8 +49,8 @@
  *   hAlign?: 'left' | 'center' | 'right',
  * }} DiagramTextInst
  *
- * **BLHCBundle** (bottom-anchored text stack): location row (**BLHCLocation**), date row (**BLHCDate**),
- * plus `HH:MM`, `:`, and `SS` (**BLHCClock** leaves; same baseline on the clock row).
+ * **BLHCBundle** (scene group): **MainLabel** (tide summary), location (**BLHCLocation**), date (**BLHCDate**),
+ * plus `HH:MM`, `:`, and `SS` (**BLHCClock** leaves; date+clock share **y_clock**).
  *
  * @typedef {{
  *   hhmm: DiagramTextInst,
@@ -108,13 +108,13 @@
  *   sweepRad: number,
  * }} AnnularBandDiagram
  *
- * MainLabel is horizontal text near the lower-left content bounds.
+ * MainLabel: horizontal tide-summary text, right-justified to **B_right**; baseline **Y** per bundle vertical rules.
  *
  * @typedef {{
  *   content: string,
  *   fontSize: number,
  *   anchor: DiagramPoint,
- *   hAlign: 'left',
+ *   hAlign: 'right',
  * }} MainLabelDiagram
  *
  * Home menu trigger control embedded in the diagram space (rounded rectangle + label).

@@ -14,8 +14,8 @@
  * - Optional `**layoutBoundsBottomMargin**` (**k·R**, **>= 0**): pass 3 of global layout bounds; extends **B_bottom** downward; when omitted, **0**.
  * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **HandArmTimeLabel**) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
- * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height`**, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), finite `**gapAboveMainLabel**` (**k·R**, **>= 0**), and string `**label**`. Position is derived from global layout bounds + MainLabel: left edge at layout-bounds left, bottom edge above MainLabel top by the configured gap.
- * - **MainLabel** is horizontal text anchored from content bounds (leftmost tick-label bound and minimum tick-label-anchor **Y**), not curved arc text.
+ * - `**homeMenuTrigger**` is required: plain object with finite `**width`**, `**height**`, `**cornerRadius**` (all **k·R**; each strictly **> 0**; cornerRadius ≤ half the smaller of width and height), finite `**labelSize**` (**k·R**, **> 0**), finite `**gapAboveMainLabel**` (**k·R**, **>= 0**), and string `**label**`. Position is derived from global layout-bounds **B_left** + **MainLabel**: trigger left edge at **B_left**, bottom edge above MainLabel top by the configured gap.
+ * - **MainLabel** is horizontal text inside **BLHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
  * - `**blhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**blhcDatePrefix**` is a required string (see spec).
  */
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
@@ -45,18 +45,32 @@ const BLHC_CLOCK_TOTAL_CHARS = 8;
 const TEXT_ASCENT_EM = 0.8;
 const TEXT_DESCENT_EM = 0.2;
 
+/** Fixed **k·R** font-height multiple for **MainLabel** (see tide-diagram spec). */
+const MAIN_LABEL_FONT_HEIGHT_K = 0.045;
+
 /**
- * **BLHCBundle**: **BLHCLocation** (current location name), and a single merged date+clock row:
- * **BLHCDate** (civil prefix) concatenated on the left of **BLHCClock** (`HH:MM` + `:` + `SS`), right-aligned
- * to global layout-bounds right; the clock row bottom edge aligns to global layout-bounds bottom (see spec).
+ * **BLHCBundle**: **MainLabel** (tide summary), **BLHCLocation**, merged **BLHCDate** + **BLHCClock** row — each row
+ * **right**-justified to **B_right**; **Y** baselines are independent per row (see spec).
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
  * @param {number} layoutBoundsRightX diagram-space **B_right** (global layout bounds after diagram-wide extent pass; see spec)
  * @param {number} layoutBoundsBottomY diagram-space bottom edge of global layout bounds
- * @returns {{ blhcLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst, blhcDate: import('../model/tideDiagramModel.mjs').DiagramTextInst, blhcClock: import('../model/tideDiagramModel.mjs').DiagramBlhcClockInst }}
+ * @param {string} mainLabelContent synthesized **MainLabel** line
+ * @returns {{
+ *   mainLabel: import('../model/tideDiagramModel.mjs').MainLabelDiagram,
+ *   blhcLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst,
+ *   blhcDate: import('../model/tideDiagramModel.mjs').DiagramTextInst,
+ *   blhcClock: import('../model/tideDiagramModel.mjs').DiagramBlhcClockInst,
+ * }}
  */
-function buildBlhcBundleFromSpec(spec, refRadius, layoutBoundsRightX, layoutBoundsBottomY) {
+function buildBlhcBundleFromSpec(
+  spec,
+  refRadius,
+  layoutBoundsRightX,
+  layoutBoundsBottomY,
+  mainLabelContent,
+) {
   const o = requirePlainObject(spec.blhcBundle, "spec.blhcBundle");
   const fontHeightK = o.fontHeight;
   const dateAboveK = o.dateAboveTime;
@@ -84,12 +98,14 @@ function buildBlhcBundleFromSpec(spec, refRadius, layoutBoundsRightX, layoutBoun
   }
   const locationName = spec.blhcLocation.trim();
   const fontSize = fontHeightK * refRadius;
+  const mainLabelFontSize = MAIN_LABEL_FONT_HEIGHT_K * refRadius;
   const ax = layoutBoundsRightX;
   const timeY = layoutBoundsBottomY + TEXT_DESCENT_EM * fontSize;
-  // Date and clock share a baseline: the 2nd row in the BLHCBundle (above B_bottom).
+  // Date and clock share a baseline on the bottom row (clock row bottom aligns to B_bottom).
   const dateY = timeY;
-  // Baseline spacing is tuned to typography: location stays above the merged (date+clock) row.
-  const locationY = dateY + dateAboveK * refRadius + fontSize;
+  // MainLabel: own baseline between clock row and location (right-aligned like all bundle rows).
+  const mainLabelBaselineY = timeY + dateAboveK * refRadius + mainLabelFontSize;
+  const locationY = mainLabelBaselineY + dateAboveK * refRadius + fontSize;
   const canonical = parsedNow.canonical;
   const w = BLHC_LABEL_CHAR_WIDTH_EM * fontSize;
   const secondsWidth = 2 * w;
@@ -98,7 +114,9 @@ function buildBlhcBundleFromSpec(spec, refRadius, layoutBoundsRightX, layoutBoun
   const separatorWidth = BLHC_DATE_TIME_SEPARATOR_SPACES * w;
   // BLHCDate is right-aligned so its right edge stops before the clock and separator.
   const dateX = ax - clockTotalWidth - separatorWidth;
+  const mainLabel = buildMainLabel(ax, mainLabelBaselineY, refRadius, mainLabelContent);
   return {
+    mainLabel,
     blhcLocation: {
       content: locationName,
       fontSize,
@@ -185,7 +203,6 @@ function includeArcSweepAxisBounds(bounds, cx, cy, r, thetaLeft, sweepRad) {
  * @param {{ minX: number, maxX: number, minY: number, maxY: number }} bounds
  * @param {{
  *   tickLabels: import('../model/tideDiagramModel.mjs').TickLabelSpec[],
- *   mainLabel: import('../model/tideDiagramModel.mjs').MainLabelDiagram,
  *   armTimeLabel: import('../model/tideDiagramModel.mjs').HandArmTimeLabelDiagram,
  *   refRadius: number,
  *   dividorRadius: number,
@@ -204,12 +221,6 @@ function extendLayoutBoundsForDiagramExtent(bounds, p) {
   }
   includeArcSweepAxisBounds(bounds, 0, 0, p.refRadius, p.thetaLeft, p.sweepRad);
   includeArcSweepAxisBounds(bounds, 0, 0, p.dividorRadius, p.thetaLeft, p.sweepRad);
-  includeDiagramTextBounds(bounds, {
-    content: p.mainLabel.content,
-    fontSize: p.mainLabel.fontSize,
-    anchor: p.mainLabel.anchor,
-    hAlign: "left",
-  });
   includeDiagramTextBounds(bounds, {
     content: p.armTimeLabel.content,
     fontSize: p.armTimeLabel.fontSize,
@@ -522,15 +533,18 @@ export function buildDiagram(spec) {
   layoutBounds.minY -= layoutBoundsBottomMarginK * refRadius;
   if (tickLabels.length === 0) {
     throw new Error(
-      "spec.tickLabelHours must list at least one hour: BLHCBundle clock row uses the minimum Y among tick label anchors",
+      "spec.tickLabelHours must list at least one hour (reference product lists 1..23)",
     );
   }
-  const leftmostTickLabelX = Math.min(
-    ...tickLabels.map((tl) =>
-      tl.anchor.x -
-      0.5 * tl.content.length * BLHC_LABEL_CHAR_WIDTH_EM * tl.fontSize,
-    ),
-  );
+
+  extendLayoutBoundsForDiagramExtent(layoutBounds, {
+    tickLabels,
+    armTimeLabel: hand.armTimeLabel,
+    refRadius,
+    dividorRadius: dividorArcRadiusK * refRadius,
+    thetaLeft,
+    sweepRad,
+  });
 
   const parsedNowForMainLabel = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNowForMainLabel.isRightEndpoint) {
@@ -546,24 +560,20 @@ export function buildDiagram(spec) {
   } else {
     mainLabelContent = `${nextEventForMainLabel.kind} tide at ${formatEventClockHHMM(nextEventForMainLabel.seconds)}`;
   }
-  const mainLabel = buildMainLabel(leftmostTickLabelX, layoutBounds.minY, refRadius, mainLabelContent);
 
-  extendLayoutBoundsForDiagramExtent(layoutBounds, {
-    tickLabels,
-    mainLabel,
-    armTimeLabel: hand.armTimeLabel,
-    refRadius,
-    dividorRadius: dividorArcRadiusK * refRadius,
-    thetaLeft,
-    sweepRad,
-  });
-
-  const { blhcLocation, blhcDate, blhcClock } = buildBlhcBundleFromSpec(
+  const { mainLabel, blhcLocation, blhcDate, blhcClock } = buildBlhcBundleFromSpec(
     spec,
     refRadius,
     layoutBounds.maxX,
     layoutBounds.minY,
+    mainLabelContent,
   );
+  includeDiagramTextBounds(layoutBounds, {
+    content: mainLabel.content,
+    fontSize: mainLabel.fontSize,
+    anchor: mainLabel.anchor,
+    hAlign: "right",
+  });
   const mainLabelTopY = mainLabel.anchor.y + TEXT_ASCENT_EM * mainLabel.fontSize;
   const homeMenuTriggerGap = readHomeMenuTriggerGapFromSpec(spec, refRadius);
   const homeMenuTrigger = buildHomeMenuTriggerFromSpec(
@@ -647,19 +657,19 @@ function formatEventClockHHMM(secondsSinceMidnight) {
  * @returns {import('../model/tideDiagramModel.mjs').AnnularBandDiagram}
  */
 /**
- * @param {number} anchorX
- * @param {number} bottomEdgeY
+ * @param {number} anchorRightX trailing edge **B_right**
+ * @param {number} baselineY text baseline in diagram space
  * @param {number} refRadius
  * @param {string} content
  * @returns {import('../model/tideDiagramModel.mjs').MainLabelDiagram}
  */
-function buildMainLabel(anchorX, bottomEdgeY, refRadius, content) {
-  const fontSize = 0.045 * refRadius;
+function buildMainLabel(anchorRightX, baselineY, refRadius, content) {
+  const fontSize = MAIN_LABEL_FONT_HEIGHT_K * refRadius;
   return {
     content,
     fontSize,
-    anchor: { x: anchorX, y: bottomEdgeY + TEXT_DESCENT_EM * fontSize },
-    hAlign: "left",
+    anchor: { x: anchorRightX, y: baselineY },
+    hAlign: "right",
   };
 }
 

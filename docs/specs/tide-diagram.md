@@ -84,10 +84,9 @@ Three-pass construction:
   needed so the axis-aligned bounds also contain:
   - the stroked **RefArc** (radius **RefRadius**, centre **O**, sweep from **θ_left** to **θ_right**),
   - the stroked **Dividor** arc (radius **`dividorArc.radiusK·RefRadius`**, same centre and sweep),
-  - **TickLabels** (text bounds; same monospace width heuristic as **MainLabel**’s **x_tick_min**),
-  - **MainLabel** (synthesized copy; font height **0.045·RefRadius**; placement per **MainLabel placement**),
+  - **TickLabels** (text bounds; monospace width heuristic consistent with other diagram text),
   - **HandArmTimeLabel** (rotated text along the **Hand**).
-- **MainLabel** copy and anchor are resolved **before** **BLHCBundle** placement so this pass can include **MainLabel** geometry.
+- **BLHCBundle** is positioned using **B_right** and **B_bottom** from this pass (and pass **3**); bundle rows are **right**-justified to **B_right**. After bundle placement, generation includes bundle text bounds when finalizing axis-aligned bounds for framing if needed. Other elements (e.g. **HomeMenuTrigger**) may still use **B_left**.
 
 3) **Layout bottom margin**
 
@@ -114,7 +113,7 @@ axis; the RefArc spans **symmetrically about the negative Y** axis.
 - Let **θ_left** and **θ_right** be the polar angles of the leftmost and
 rightmost endpoints of the RefArc. The remainder of the diagram geometry is a
 function of the RefArc.
-- **MainLabel** is a horizontal **TextElement** with **left** justification.
+- **MainLabel** is a horizontal **TextElement** with **right** justification (bundle alignment; **§BLHCBundle**).
   Its **content** is one synthesized line:
   `**Next tide extreme tomorrow**` when no marker exists at or after `**timeNow`**
   on the same civil day; otherwise `**Tricky tides today**` when
@@ -292,7 +291,7 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ### BLHCBundle
 
-**BLHCBundle** is the bottom-anchored stack of **top-level** named text rows (see **Diagram elements**): host-local **location**, host-local civil **date prefix**, and a **clock row** whose digits come from global canonical `**timeNow**` (format/parsing per **§Time and θ(t)**), together with `**blhcLocation**` and `**blhcDatePrefix**`. Rows are laid out upward from **B_bottom** (see **§Vertical placement**). The bundle may gain additional rows later; hosts should treat **BLHCBundle** as the collective contract for this corner of the diagram, distinct from **HandArmTimeLabel** (**§HandArmTimeLabel**).
+**BLHCBundle** is a **top-level** named group (see **Diagram elements**) containing the bottom-anchored stack of named text rows: synthesized **MainLabel** (tide summary), host-local **location**, host-local civil **date prefix**, and a **clock row** whose digits come from global canonical `**timeNow**` (format/parsing per **§Time and θ(t)**), together with `**blhcLocation**` and `**blhcDatePrefix**`. Rows are laid out upward from **B_bottom** (see **§Vertical placement**). The bundle may gain additional rows later; hosts should treat **BLHCBundle** as the collective contract for this corner of the diagram, distinct from **HandArmTimeLabel** (**§HandArmTimeLabel**).
 
 ### Shared inputs
 
@@ -304,7 +303,7 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ### Horizontal placement (bundle rows)
 
-- **BLHCLocation**, **BLHCDate**, and **BLHCClock** use **horizontal justification** **right**.
+- **MainLabel**, **BLHCLocation**, **BLHCDate**, and **BLHCClock** use **horizontal justification** **right**: each row’s trailing anchor **x** is laid out from **B_right** (after **§Global layout bounds**, passes **2b** and **3**).
 - The bundle is **right-aligned to the diagram’s global right edge** **B_right** after **§Global layout bounds** (including pass **2b**), not to the **AnnularBand** sector alone.
 - The **trailing** (rightmost) anchor for the clock row is at **(B_right, y_clock)** so the **BLHCLabelSeconds** anchor **x** equals **B_right**; **BLHCLabelSecondsColon** and **BLHCLabelHms** anchors sit to the left by the same fixed monospace width heuristic as before (**§Scene model** / preview framing).
 - **BLHCDate** is shifted left so that its right edge stops before the clock and a fixed separator gap (implemented as spacing equal to several monospace character widths), producing a merged “date + time” single visual row.
@@ -312,10 +311,11 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ### Vertical placement
 
-- Let **B_bottom** be from **§Global layout bounds**.
+- Let **B_bottom** be from **§Global layout bounds**; let **`fontHeight·R`** be **`blhcBundle.fontHeight·RefRadius`** and **`k_main·R`** be **MainLabel** font height (**0.045·RefRadius**).
 - **BLHCClock** — all three fragments share baseline **`y_clock`**, with the clock row bottom edge aligned to **B_bottom**.
 - **BLHCDate** — baseline **`y_date = y_clock`** (same row as the clock).
-- **BLHCLocation** — baseline **`y_location = y_clock + dateAboveTime·R + fontHeight·R`**.
+- **MainLabel** — baseline **`y_mainLabel = y_clock + dateAboveTime·R + k_main·R`** (own row between the clock row and **BLHCLocation**; **Y** is independent of the other rows’ baselines beyond this spacing rule).
+- **BLHCLocation** — baseline **`y_location = y_mainLabel + dateAboveTime·R + fontHeight·R`**.
 
 ### Clock row text (BLHCClock)
 
@@ -327,6 +327,8 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ### Scene model
 
+- **BLHCBundle** — named group **BLHCBundle** containing, in deterministic generator order: **MainLabel**, **BLHCLocation**, **BLHCDate**, **BLHCClock** (sibling order is part of the scene contract for paint order; see **TB-1**).
+- **MainLabel** — named group **MainLabel** containing one **TextElement** (leaf/style binding name **MainLabel**).
 - **BLHCLocation** — one named group **BLHCLocation** containing one **TextElement** (leaf/style binding name **BLHCLocation**).
 - **BLHCDate** — one named group **BLHCDate** containing one **TextElement** (leaf/style binding name **BLHCDate**).
 - **BLHCClock** — named group **BLHCClock** containing three child groups (stable leaf names for hosts that patch DOM text):
@@ -336,20 +338,16 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ### Generator note
 
-- **`spec.tickLabelHours`** must yield **at least one** tick label when **BLHCBundle** is used; otherwise **MainLabel** placement anchor **`x_tick_min`** is undefined and generation **throws** (empty tick-label arrays remain valid for other diagram modes only if the product never requests these placements — the reference product lists **1..23**).
+- **`spec.tickLabelHours`** must yield **at least one** tick label when this diagram mode is used (the reference product lists **1..23**); an empty list is an error.
 
 ### MainLabel
 
 ### MainLabel placement
 
-- **MainLabel** is emitted as one **text** leaf in named group **MainLabel**.
+- **MainLabel** is emitted as one **text** leaf in named group **MainLabel**, **child of** named group **BLHCBundle** (see **§BLHCBundle** scene model).
 - Font height is fixed by the generator at **0.045·RefRadius**.
-- **MainLabel** uses horizontal justification **left**.
-- Let **x_tick_min** be the leftmost rendered X bound among **TickLabels**
-  (same width heuristic used for other text-derived bounds).
-- Let **B_bottom** be from **§Global layout bounds**.
-- MainLabel baseline anchor **Y** is set so the MainLabel bottom edge aligns to **B_bottom**.
-- MainLabel anchor is `**(x_tick_min, y_mainLabel)`** with that bottom-edge alignment.
+- **MainLabel** uses horizontal justification **right**; trailing anchor **`x = B_right`** (see **§Horizontal placement (bundle rows)**).
+- MainLabel baseline **`y_mainLabel`** per **§Vertical placement** (independent **Y** from other bundle rows).
 - Baseline polar angle is **0** (horizontal baseline in diagram space).
 
 ### MainLabel copy synthesis
@@ -562,7 +560,7 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 
 ### HandArmTimeLabel
 
-This is **not** **BLHCBundle** (**BLHCLocation** / **BLHCDate** / **BLHCClock**): those rows are anchored to **B_right** / **B_bottom** (**§Global layout bounds**). **HandArmTimeLabel** is a separate, single-line **text** readout of the same global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**.
+This is **not** **BLHCBundle** (**MainLabel** / **BLHCLocation** / **BLHCDate** / **BLHCClock**): that bundle’s rows use **B_right** and **B_bottom** (**§Global layout bounds**). **HandArmTimeLabel** is a separate, single-line **text** readout of the same global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**.
 
 - Required diagram input **`hand.armTimeLabelFontHeight`**: finite dimensionless **k > 0** (**§Sizing**). **FontHeight** is **`hand.armTimeLabelFontHeight · RefRadius`**. This is independent of **TickLabel** sizing.
 - Emitted as a named group **HandArmTimeLabel** (child of **Arm**), containing one **text** primitive. Hosts may target it for live updates (e.g. patch the text node under this group without regenerating the full scene).
