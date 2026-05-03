@@ -38,7 +38,11 @@ o  first glance ux assimilation suggestions
 	*  ChatGPT outline pips?
 
 	*  Branding on bottom left
-	o  Move menu over to left
+	*  Move menu over to left
+		*  basics
+		o  fly out right
+	o  More prominent location
+	o  Fix BLHCBundle name
 
 	o  ChatGPT usability / assimilation advice
 

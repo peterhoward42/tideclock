@@ -110,7 +110,7 @@
   let homeInstrumentEl = $state<HTMLElement | undefined>(undefined);
   let homeMenuPanelEl = $state<HTMLElement | undefined>(undefined);
   let homeMenuOpen = $state(false);
-  let homeMenuPanelStyle = $state("right: 0px; bottom: 0px;");
+  let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
   let homeFullscreenActive = $state(false);
   let homeInstallInfoOpen = $state(false);
   let homeInstallObserverSnapshot = $state(get(homeInstallObserver));

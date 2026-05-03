@@ -37,20 +37,20 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
       computeHomeMenuPanelAnchorStyle(diagramHost, trigger, {
         viewInnerHeight: 1000,
       }),
-    ).toBe("right: 64px; bottom: 18px; max-height: min(80dvh, 74px);");
+    ).toBe("left: 14px; bottom: 18px; max-height: min(80dvh, 74px);");
   });
 
-  it("clamps negative right inset to zero when the trigger extends past the host", () => {
+  it("clamps left inset to zero when the trigger’s left edge is past the host’s left", () => {
     const diagramHost = {
       getBoundingClientRect: () =>
         ({
-          left: 0,
+          left: 20,
           top: 0,
-          right: 100,
+          right: 120,
           bottom: 80,
           width: 100,
           height: 80,
-          x: 0,
+          x: 20,
           y: 0,
           toJSON: () => ({}),
         }) as DOMRect,
@@ -59,13 +59,13 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
     const trigger = {
       getBoundingClientRect: () =>
         ({
-          left: 80,
+          left: 10,
           top: 60,
-          right: 110,
+          right: 50,
           bottom: 70,
-          width: 30,
+          width: 40,
           height: 10,
-          x: 80,
+          x: 10,
           y: 60,
           toJSON: () => ({}),
         }) as DOMRect,
@@ -75,7 +75,7 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
       computeHomeMenuPanelAnchorStyle(diagramHost, trigger, {
         viewInnerHeight: 1000,
       }),
-    ).toBe("right: 0px; bottom: 18px; max-height: min(80dvh, 54px);");
+    ).toBe("left: 0px; bottom: 18px; max-height: min(80dvh, 54px);");
   });
 
   it("anchors bottom from the diagram host rect, not an inner clipped box", () => {
@@ -113,7 +113,7 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
       computeHomeMenuPanelAnchorStyle(diagramHost, trigger, {
         viewInnerHeight: 1000,
       }),
-    ).toBe("right: 64px; bottom: 38px; max-height: min(80dvh, 154px);");
+    ).toBe("left: 14px; bottom: 38px; max-height: min(80dvh, 154px);");
   });
 
   it("uses the 80% viewport cap when plenty of room above the trigger", () => {
@@ -151,6 +151,6 @@ describe("computeHomeMenuPanelAnchorStyle", () => {
       computeHomeMenuPanelAnchorStyle(diagramHost, trigger, {
         viewInnerHeight: 1000,
       }),
-    ).toBe("right: 64px; bottom: 58px; max-height: min(80dvh, 800px);");
+    ).toBe("left: 14px; bottom: 58px; max-height: min(80dvh, 800px);");
   });
 });
