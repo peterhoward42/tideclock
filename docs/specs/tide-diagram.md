@@ -46,60 +46,13 @@ mean increasing / decreasing **Y**. **Above** / **below** mean toward **top** /
 
 ### §Global layout bounds (single source of truth)
 
-All edge references used by layout consumers MUST be read from this section.
-Sections MUST NOT re-derive edge values from local geometry shortcuts.
+- The bounding box of the diagram is modeled as four conceptual variables: 
+B_left, B_right, B_top, and B_bottom.
 
-Define conceptual variables:
-
-- **B_left**, **B_right**, **B_bottom**, **B_top** — final diagram-space
-  bounding edges.
-
-Three-pass construction:
-
-1) **Day-invariant baseline bounds**
-
-- Let **AnnularBandBounds** be the axis-aligned bounds of emitted **AnnularBand**
-  geometry.
-- Set:
-  - **B_left_base = AnnularBandBounds.left**
-  - **B_right_base = AnnularBandBounds.right**
-  - **B_bottom_base = AnnularBandBounds.bottom**
-- Let **BossTop** be the top extent of **Hand.BossCircle**.
-- Set **B_top_base = BossTop**.
-
-2) **Day-variant marker expansion**
-
-- For each emitted tide-marker cluster in **TideMarks** for the civil day,
-  compute that cluster’s relevant extents (labels + pointer geometry in
-  diagram-space).
-- Expand each baseline edge if any marker exceeds it:
-  - **B_left = min(B_left_base, marker-left extents...)**
-  - **B_right = max(B_right_base, marker-right extents...)**
-  - **B_bottom = min(B_bottom_base, marker-bottom extents...)**
-  - **B_top = max(B_top_base, marker-top extents...)**
-
-2b) **Diagram-wide extent (excluding BRHCBundle)**
-
-- Generation then expands **B_left**, **B_right**, **B_bottom**, and **B_top** if
-  needed so the axis-aligned bounds also contain:
-  - the stroked **RefArc** (radius **RefRadius**, centre **O**, sweep from **θ_left** to **θ_right**),
-  - the stroked **Dividor** arc (radius **`dividorArc.radiusK·RefRadius`**, same centre and sweep),
-  - **TickLabels** (text bounds; monospace width heuristic consistent with other diagram text),
-  - **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** (rotated text along the **Hand**; see **§Hand time readout**).
-- **BRHCBundle** is positioned using **B_right** and **B_bottom** from this pass (and pass **3**); each bundle row is **right**-justified to **B_right**. How those rows participate in later bounds accumulation in the reference generator is spelled out in **§BRHCBundle** (distinct from scene **`meta.previewFrame`**, which reflects all emitted primitives).
-- **HomeMenuTrigger** is **not** part of the layout-bounds construction: its geometry **must not** expand **B_left**, **B_right**, **B_bottom**, or **B_top**. The tuple **(B_left, B_right, B_bottom, B_top)** is defined **without** reference to the menu control. The trigger may be placed using those edges (and may extend outside the resulting rectangle); hosts and generators **must not** fold the trigger’s axis-aligned bounds into framing or preview-rectangle logic.
-
-3) **Layout bottom margin**
-
-- Diagram input **`layoutBoundsBottomMargin`**: finite **k·R** multiplier (**§Sizing**),
-  **≥ 0**; when omitted, **0** (see **Strict diagram input**).
-- **B_bottom** is further extended **downward** along **§Axes** (toward smaller **Y**)
-  by a fixed amount in all cases:
-  - **B_bottom := B_bottom − layoutBoundsBottomMargin·RefRadius**
-- **B_left**, **B_right**, and **B_top** are unchanged by this pass.
-
-The tuple **(B_left, B_right, B_bottom, B_top)** after pass **3** is the global layout-bounds
-contract for all dependent placements in this specification.
+- These are initialised to accomodate the AnnularBand.
+- Then B_top is overwritten with the max_y point of the Hand.BossCircle
+- The box is then extended if necessary to accomodate any part of each TideMarker
+- Then B_bottom is extended incrementally by the layoutBoundsBottomMargin * RefRadius
 
 ### §Polar — reference arc geometry
 
@@ -235,8 +188,6 @@ The generator **throws** when required host fields are missing or wrong-type; it
 does **not** apply silent numeric defaults for layout keys 
 
 - Optional `**civilHalfDayLayout**` — see **§Global civil half-day layout**; invalid values are **errors**; when omitted, behaviour matches **`"auto"`**.
-- Required `**brandFontHeight`** — finite **k·R** **> 0**; **FontHeight** for the fixed-content **Brand** line (**left** at **B_left**, baseline derived from **B_bottom** per **§HomeMenuTrigger** / reference generator).
-- Required `**homeMenuTrigger**` — plain object: **`diameter`**, **`menuLeftPadding`**, **`menuAboveBrand`**, **`iconBarLength`**, **`iconBarGap`** — each a finite **k·R** number; **`diameter`** and **`iconBarLength`** must be **> 0**; **`menuLeftPadding`**, **`menuAboveBrand`**, and **`iconBarGap`** must be **≥ 0**. See **§HomeMenuTrigger**.
 - Required `**tickLabelHours`** — non-empty array; each element must be an integer in **{0, 1, …, 24}** (otherwise an error). **TickLabel** rows are emitted for those hours in list order; the reference product lists **1..23**.
 
 ### Derived behaviour (civil day vs `timeNow`)
@@ -298,23 +249,40 @@ then host-supplied place name (**BRHCLocation**).
 **Vertical placement**: Each of the rows receives its height above the bottom of
 the diagram from a dedicated input - one per row.
 
-### HomeMenuTrigger
+## HomeMenuTrigger
 
-**HomeMenuTrigger** is a **top-level** named group (**not** a child of **BRHCBundle**). Its geometry **must not** expand **§Global layout bounds** (**TB-2**); hosts **must not** fold its axis-aligned bounds into framing or preview-rectangle logic.
+- HomeMenuTrigger is a top-level named group.
 
-**Placement** (after **§Global layout bounds** passes **2b** and **3**):
+- It comprises three horizontal lines centred inside a circle
+- Sizing and positioning paramters are taken from the following inputs:
 
-- Let **`h_brand = brandFontHeight·R`**. Let **`y_brand`** be the **Brand** text baseline: **`y_brand = B_bottom + d_em·h_brand`**, where **`d_em`** is the descent heuristic used for diagram text (**≈ 0.2** in the reference generator), matching **Brand** **left** alignment at **`B_left`**.
-- Let **`y_brand_top = y_brand + a_em·h_brand`** with the ascent heuristic **`a_em`** used elsewhere (**≈ 0.8** in the reference generator).
-- Circular control diameter **`d = spec.homeMenuTrigger.diameter·R`**. **Leading** (left) edge at **`B_left + menuLeftPadding·R`**; centre **`x = B_left + menuLeftPadding·R + d/2`** (**`menuLeftPadding·R`** = **`spec.homeMenuTrigger.menuLeftPadding·R`**).
-- **Bottom** of the circular control at **`y_brand_top + menuAboveBrand·R`**; centre **`y = y_brand_top + menuAboveBrand·R + d/2`** (**`menuAboveBrand·R`** = **`spec.homeMenuTrigger.menuAboveBrand·R`**).
-- Hamburger icon bars: generator-derived from **`spec.homeMenuTrigger.iconBarLength`** and **`spec.homeMenuTrigger.iconBarGap`** (**k·R**).
+```
+homeMenuTrigger: {
+    diameter: 0.18,
+    menuLeftPadding: 0, // from B_left
+    menuAboveBottom: 0.070, 
+    iconBarLength: 0.09,
+    iconBarGap: 0.025,
+}
+```
 
-**Scene model**
+## Brand
 
-- Default deterministic **root** sibling order (when **`paintOrder`** is omitted) ends with **`…`**, **BRHCBundle**, **Brand**, **HomeMenuTrigger** so the control paints above **Brand** by default.
-- **HomeMenuTrigger** — named group **HomeMenuTrigger** (**direct child** of the diagram root): one filled rounded square with **`rx = ry = diameter/2`** (circular silhouette) plus named subgroup **HomeMenuTriggerIcon** with three horizontal **line** primitives (hamburger). Style bindings use leaf group names **HomeMenuTrigger** and **HomeMenuTriggerIcon**.
-- **Brand** — named group **Brand** (**direct child** of the diagram root): three **TextElement** leaves in nested leaf groups **`Brand.tides`**, **`Brand.separator`**, **`Brand.domain`** (exact names for **Style binding names**). Fixed copy: **`tides`**, then a middle-dot separator (**`·`**, U+00B7), then **`thetidedial.page`**. The word run and the domain run share the **alphabetic** baseline **`y_brand`** and **left**-justify in sequence from **`B_left`**: the separator uses **horizontal justification** **left** with a small gap (**k_gap·FontHeight** on each side of the dot in the reference generator) and **`dominant-baseline` `middle`**, with anchor **`Y`** at the vertical midpoint of the brand em-box (**≈ `y_brand + 0.3·FontHeight`** in the reference generator) so the dot sits at mid-height of the line. **Typography** (colour, **font-weight** **400** vs **700**, opacity) is supplied only via **semantic roles** bound to those leaf names, not via diagram input; the reference style model uses **700** for **`Brand.tides`** and **400** for **`Brand.separator`** and **`Brand.domain`**. SVG text accepts the same numeric **`font-weight`** presentation values as CSS (**400**, **700**).
+- Visually a single horizontal string
+- But composed from the concatenation of:
+	- A BrandTitle string "tides"
+	- A mid-height dot character
+	- A BrandURL string "thetidedial.page"
+- Uniform font height - taken from an input parameter
+- The two strings should each get their own named style mappings
+- The preset style for the BrandTitle should use a dedicated BrandTitle style
+  specifying one of the already used grey colours, and a fontWeight of 700
+- The preset style for the BranURL should use a dedicated BrandURL style
+  specifying one of the already used grey colours, and not specifying a
+  fontWeight.
+
+- The composed string should be left aligned to the B_left, and take it's y
+  position from an input specifying how far above B_bottom it is.
 
 ### MainLabel
 

@@ -64,10 +64,16 @@ o  first glance ux assimilation suggestions
 	o  challenge spec sillyness again in respect of
 		* BLHCBundle
 		* MainLabel
-
-		o MainLabel font height from input ONLY - no 0.045 consts
+		* MainLabel font height from input ONLY - no 0.045 consts
+		* Global layout bounds
 
 		HomeMenuTrigger
+			o  give it explicit dist from bottom and left
+
+		Rewrite Brand
+			o  give it explicit dist from bottom and left
+
+	o  tell it update behaviour for homemenutrigger and brand
 
 
 	o  what to do when tricky tides occlude each other?
