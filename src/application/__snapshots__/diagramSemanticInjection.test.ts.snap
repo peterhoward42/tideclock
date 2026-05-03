@@ -26,7 +26,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         },
         "content": "tides",
         "hAlign": "left",
-        "leafName": "Brand.tides",
+        "leafName": "BrandTitle",
       },
       {
         "anchor": {
@@ -45,7 +45,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         },
         "content": "thetidedial.page",
         "hAlign": "left",
-        "leafName": "Brand.domain",
+        "leafName": "BrandURL",
       },
     ],
   },
@@ -114,7 +114,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "homeMenuTrigger": {
     "center": {
       "x": -119.93985520821964,
-      "y": -118.59000000000003,
+      "y": -118.59000000000002,
     },
     "diameter": 12.98,
     "iconBarCenterSpacing": 1.77,

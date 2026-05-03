@@ -46,6 +46,7 @@ type SemanticInjectionDiagramSpec = {
     readonly dateAboveTime: number;
   };
   readonly brandFontHeight: number;
+  readonly brandAboveBottom: number;
   readonly annularBand: { readonly annularBandWidth: number };
   readonly dividorArc: { readonly radiusK: number };
   readonly hand: {
@@ -56,7 +57,7 @@ type SemanticInjectionDiagramSpec = {
   readonly homeMenuTrigger: {
     readonly diameter: number;
     readonly menuLeftPadding: number;
-    readonly menuAboveBrand: number;
+    readonly menuAboveBottom: number;
     readonly iconBarLength: number;
     readonly iconBarGap: number;
   };
@@ -94,6 +95,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     },
     brhcBundle: { fontHeight: 0.05, dateAboveTime: 0.05 },
     brandFontHeight: 0.03,
+    brandAboveBottom: 0.006,
     annularBand: { annularBandWidth: 0.05 },
     dividorArc: { radiusK: 0.8653 },
     hand: {
@@ -104,7 +106,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     homeMenuTrigger: {
       diameter: 0.11,
       menuLeftPadding: 0,
-      menuAboveBrand: 0.038,
+      menuAboveBottom: 0.068,
       iconBarLength: 0.048,
       iconBarGap: 0.015,
     },

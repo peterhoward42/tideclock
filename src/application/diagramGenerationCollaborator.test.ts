@@ -89,6 +89,16 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(() => collaborator.generate(rest)).toThrow(/spec\.brandFontHeight/);
   });
 
+  it('throws when spec.brandAboveBottom is omitted', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const { brandAboveBottom: _omit, ...rest } = base as { brandAboveBottom: number } & Record<
+      string,
+      unknown
+    >;
+    expect(() => collaborator.generate(rest)).toThrow(/spec\.brandAboveBottom/);
+  });
+
   it('throws when spec.dividorArc is omitted', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const base = baseSpecForCollaboratorTest();
@@ -134,21 +144,22 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(() => collaborator.generate(spec)).toThrow(/radial ordering invalid/);
   });
 
-  it('places Brand at B_left and B_bottom with spec brandFontHeight', () => {
+  it('places Brand at B_left using spec brandFontHeight and brandAboveBottom', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
     const k = (spec as { brandFontHeight: number }).brandFontHeight;
+    const aboveK = (spec as { brandAboveBottom: number }).brandAboveBottom;
     expect(diagram.brand.segments.map((s) => s.content).join('')).toBe('tides·thetidedial.page');
     expect(diagram.brand.segments[0]?.hAlign).toBe('left');
     expect(diagram.brand.fontSize).toBeCloseTo(k * diagram.refArc.refRadius, 6);
     const bBottom =
       diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
-    expect(diagram.brand.anchor.y - 0.2 * diagram.brand.fontSize).toBeCloseTo(bBottom, 6);
+    expect(diagram.brand.anchor.y).toBeCloseTo(bBottom + aboveK * diagram.refArc.refRadius, 6);
     expect(diagram.brand.segments[1]?.dominantBaseline).toBe('middle');
   });
 
-  it('renders Brand.tides with font-weight 700 from the home style model', () => {
+  it('renders BrandTitle with font-weight 700 from the home style model', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const { scene, styleRuntime } = collaborator.generate(baseSpecForCollaboratorTest());
     const svg = renderSceneSvg(scene, { styleRuntime });
@@ -166,7 +177,7 @@ describe('createDiagramGenerationCollaborator', () => {
     ).toThrow(/fontWeight must be 400 or 700/);
   });
 
-  it('right-aligns BRHCBundle to B_right and places HomeMenuTrigger inset from B_left above Brand (excluded from B_*)', () => {
+  it('right-aligns BRHCBundle to B_right and places HomeMenuTrigger at menuAboveBottom from B_bottom (excluded from B_*)', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
@@ -198,11 +209,10 @@ describe('createDiagramGenerationCollaborator', () => {
     const bLeft = diagram.brand.anchor.x;
     const padK = (spec.homeMenuTrigger as { readonly menuLeftPadding: number }).menuLeftPadding;
     expect(diagram.homeMenuTrigger.center.x).toBeCloseTo(bLeft + padK * R + 0.5 * d, 6);
-    const brandTop =
-      diagram.brand.anchor.y + 0.8 * diagram.brand.fontSize;
-    const gap =
-      (spec.homeMenuTrigger as { readonly menuAboveBrand: number }).menuAboveBrand * R;
-    expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(brandTop + gap + 0.5 * d, 6);
+    const bBottom =
+      diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
+    const menuAboveK = (spec.homeMenuTrigger as { readonly menuAboveBottom: number }).menuAboveBottom;
+    expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(bBottom + menuAboveK * R + 0.5 * d, 6);
   });
 
   it('applies layoutBoundsBottomMargin by extending B_bottom (date row and MainLabel shift down)', () => {

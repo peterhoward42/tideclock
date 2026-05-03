@@ -51,8 +51,10 @@ export type HomeTideDiagramLayoutBase = {
     /** k·RefRadius: date baseline is this far above (+Y) the clock baseline (tick-label-min Y). */
     readonly dateAboveTime: number;
   };
-  /** k·RefRadius: **Brand** text font height (fixed copy `tides·thetidedial.page`, left/bottom aligned; see tide-diagram spec). */
+  /** k·RefRadius: **Brand** uniform font height (BrandTitle + BrandURL; see tide-diagram spec). */
   readonly brandFontHeight: number;
+  /** k·RefRadius: **Brand** alphabetic baseline offset upward from **B_bottom** (see tide-diagram spec §Brand). */
+  readonly brandAboveBottom: number;
   readonly annularBand: { readonly annularBandWidth: number };
   /** Stroked arc concentric with RefArc, same sweep; radius is **radiusK·refRadius** (see tide-diagram spec §Sizing). */
   readonly dividorArc: { readonly radiusK: number };
@@ -75,8 +77,8 @@ export type HomeTideDiagramLayoutBase = {
     readonly diameter: number;
     /** k·RefRadius: inset from **B_left** to the leading (left) edge of the circular control. */
     readonly menuLeftPadding: number;
-    /** k·RefRadius: vertical gap between **Brand** ascent top and the bottom of the circular control. */
-    readonly menuAboveBrand: number;
+    /** k·RefRadius: distance from **B_bottom** up to the bottom of the circular control (see tide-diagram spec §HomeMenuTrigger). */
+    readonly menuAboveBottom: number;
     /** k·RefRadius: full width of each hamburger bar. */
     readonly iconBarLength: number;
     /** k·RefRadius: distance between adjacent bar centerlines (middle bar is on trigger centre). */

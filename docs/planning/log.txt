@@ -67,13 +67,9 @@ o  first glance ux assimilation suggestions
 		* MainLabel font height from input ONLY - no 0.045 consts
 		* Global layout bounds
 
-		HomeMenuTrigger
-			o  give it explicit dist from bottom and left
-
-		Rewrite Brand
-			o  give it explicit dist from bottom and left
-
-	o  tell it update behaviour for homemenutrigger and brand
+		o  HomeMenuTrigger & Rewrite Brand
+			*  rewrite specs
+			o  ask it to make impl match
 
 
 	o  what to do when tricky tides occlude each other?

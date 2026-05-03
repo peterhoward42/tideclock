@@ -14,10 +14,11 @@
  * - Optional `**layoutBoundsBottomMargin**` (**k·R**, **>= 0**): pass 3 of global layout bounds; extends **B_bottom** downward; when omitted, **0**.
  * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **Hand.TimeReadout** placement) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
- * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**menuLeftPadding**`, `**menuAboveBrand**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; paddings and **iconBarGap** **>= 0**). Placed as a **top-level** scene sibling (**not** inside **BRHCBundle**): leading edge inset from **B_left** by **`menuLeftPadding·R`**, with vertical gap **`menuAboveBrand·R`** between **Brand**’s ascent top and the bottom of the circular control. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
+ * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**menuLeftPadding**`, `**menuAboveBottom**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; paddings and **iconBarGap** **>= 0**). Placed as a **top-level** scene sibling (**not** inside **BRHCBundle**): leading edge inset from **B_left** by **`menuLeftPadding·R`**; the **bottom** of the circular control lies **`menuAboveBottom·R`** above **B_bottom** (**Y** upward). Independent of **Brand** placement. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
  * - **MainLabel** is horizontal text inside **BRHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
  * - `**brhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**brhcDatePrefix**` is a required string (see spec).
- * - `**brandFontHeight**` is required: finite **k·R** **> 0** for fixed-content **Brand** line (**`tides` · `thetidedial.page`**; **left** / **B_bottom** alignment).
+ * - `**brandFontHeight**` is required: finite **k·R** **> 0** for **Brand** uniform font height (**BrandTitle** / **BrandURL**; see tide-diagram spec §Brand).
+ * - `**brandAboveBottom**` is required: finite **k·R** **>= 0**; **Brand** alphabetic baseline **`y = B_bottom + brandAboveBottom·R`**.
  */
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
 import {
@@ -43,11 +44,11 @@ const BRHC_LABEL_CHAR_WIDTH_EM = 0.6;
 const TEXT_ASCENT_EM = 0.8;
 const TEXT_DESCENT_EM = 0.2;
 
-/** Fixed **Brand** copy (**`Brand`** group); diagram input supplies **FontHeight** only. */
-const BRAND_WORD = "tides";
+/** Fixed **Brand** copy (**`Brand`** group): **BrandTitle** / separator / **BrandURL**. */
+const BRAND_TITLE = "tides";
 /** U+00B7 middle dot; separator anchor uses **dominant-baseline** **middle** at em-mid **Y**. */
 const BRAND_SEPARATOR = "\u00B7";
-const BRAND_DOMAIN = "thetidedial.page";
+const BRAND_URL = "thetidedial.page";
 /** Horizontal gap (**·FontHeight**) between word, dot, and domain (reference generator). */
 const BRAND_SEP_GAP_EM = 0.22;
 
@@ -561,25 +562,26 @@ export function buildDiagram(spec) {
   });
 
   const brandFontHeightK = readBrandFontHeightKFromSpec(spec);
+  const brandAboveBottomK = readBrandAboveBottomKFromSpec(spec);
   const brandFontSize = brandFontHeightK * refRadius;
-  const brandBaselineY = layoutBounds.minY + TEXT_DESCENT_EM * brandFontSize;
+  const brandBaselineY = layoutBounds.minY + brandAboveBottomK * refRadius;
   const brandLeadingX = layoutBounds.minX;
   const brandCharWidth = brandFontSize * BRHC_LABEL_CHAR_WIDTH_EM;
   const brandSepY =
     brandBaselineY +
     0.5 * (TEXT_ASCENT_EM - TEXT_DESCENT_EM) * brandFontSize;
-  const wTides = Array.from(BRAND_WORD).length * brandCharWidth;
+  const wTitle = Array.from(BRAND_TITLE).length * brandCharWidth;
   const wSep = Array.from(BRAND_SEPARATOR).length * brandCharWidth;
   const sideGap = BRAND_SEP_GAP_EM * brandFontSize;
-  const xSep = brandLeadingX + wTides + sideGap;
-  const xDomain = xSep + wSep + sideGap;
+  const xSep = brandLeadingX + wTitle + sideGap;
+  const xUrl = xSep + wSep + sideGap;
   const brand = {
     fontSize: brandFontSize,
     anchor: { x: brandLeadingX, y: brandBaselineY },
     segments: [
       {
-        leafName: "Brand.tides",
-        content: BRAND_WORD,
+        leafName: "BrandTitle",
+        content: BRAND_TITLE,
         anchor: { x: brandLeadingX, y: brandBaselineY },
         hAlign: "left",
       },
@@ -591,9 +593,9 @@ export function buildDiagram(spec) {
         dominantBaseline: "middle",
       },
       {
-        leafName: "Brand.domain",
-        content: BRAND_DOMAIN,
-        anchor: { x: xDomain, y: brandBaselineY },
+        leafName: "BrandURL",
+        content: BRAND_URL,
+        anchor: { x: xUrl, y: brandBaselineY },
         hAlign: "left",
       },
     ],
@@ -602,8 +604,7 @@ export function buildDiagram(spec) {
     spec,
     refRadius,
     layoutBounds.minX,
-    brandBaselineY,
-    brandFontSize,
+    layoutBounds.minY,
   );
   // Intentionally omit homeMenuTrigger from layoutBounds — spec: menu geometry must not expand B_*.
   for (const seg of brand.segments) {
@@ -743,29 +744,36 @@ function readBrandFontHeightKFromSpec(spec) {
 }
 
 /**
+ * **k·R** offset from **B_bottom** to **Brand** alphabetic baseline (see tide-diagram spec §Brand).
+ *
+ * @param {Record<string, unknown>} spec
+ * @returns {number} dimensionless k
+ */
+function readBrandAboveBottomKFromSpec(spec) {
+  const k = requireFiniteNumber(spec.brandAboveBottom, "spec.brandAboveBottom");
+  if (k < 0) {
+    throw new Error("spec.brandAboveBottom must be >= 0");
+  }
+  return k;
+}
+
+/**
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
- * @param {number} leftEdgeX **B_left** (leading edge for **Brand** / inset reference)
- * @param {number} brandBaselineY **Brand** text baseline **Y**
- * @param {number} brandFontSize **Brand** font size (diagram units)
+ * @param {number} leftEdgeX **B_left** (inset reference for the circular control)
+ * @param {number} bBottom **B_bottom** (global layout min **Y**)
  * @returns {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram}
  */
-function buildHomeMenuTriggerFromSpec(
-  spec,
-  refRadius,
-  leftEdgeX,
-  brandBaselineY,
-  brandFontSize,
-) {
+function buildHomeMenuTriggerFromSpec(spec, refRadius, leftEdgeX, bBottom) {
   const o = requirePlainObject(spec.homeMenuTrigger, "spec.homeMenuTrigger");
   const diameterK = requireFiniteNumber(o.diameter, "spec.homeMenuTrigger.diameter");
   const menuLeftPaddingK = requireFiniteNumber(
     o.menuLeftPadding,
     "spec.homeMenuTrigger.menuLeftPadding",
   );
-  const menuAboveBrandK = requireFiniteNumber(
-    o.menuAboveBrand,
-    "spec.homeMenuTrigger.menuAboveBrand",
+  const menuAboveBottomK = requireFiniteNumber(
+    o.menuAboveBottom,
+    "spec.homeMenuTrigger.menuAboveBottom",
   );
   const iconBarLengthK = requireFiniteNumber(
     o.iconBarLength,
@@ -778,8 +786,8 @@ function buildHomeMenuTriggerFromSpec(
   if (menuLeftPaddingK < 0) {
     throw new Error("spec.homeMenuTrigger.menuLeftPadding must be >= 0");
   }
-  if (menuAboveBrandK < 0) {
-    throw new Error("spec.homeMenuTrigger.menuAboveBrand must be >= 0");
+  if (menuAboveBottomK < 0) {
+    throw new Error("spec.homeMenuTrigger.menuAboveBottom must be >= 0");
   }
   if (!(iconBarLengthK > 0)) {
     throw new Error("spec.homeMenuTrigger.iconBarLength must be greater than 0");
@@ -788,8 +796,7 @@ function buildHomeMenuTriggerFromSpec(
     throw new Error("spec.homeMenuTrigger.iconBarGap must be >= 0");
   }
   const diameter = diameterK * refRadius;
-  const brandTopY = brandBaselineY + TEXT_ASCENT_EM * brandFontSize;
-  const menuBottomY = brandTopY + menuAboveBrandK * refRadius;
+  const menuBottomY = bBottom + menuAboveBottomK * refRadius;
   const centerY = menuBottomY + 0.5 * diameter;
   const centerX = leftEdgeX + menuLeftPaddingK * refRadius + 0.5 * diameter;
   return {

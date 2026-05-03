@@ -28,8 +28,10 @@ export const homeTideDiagramLayoutBase = {
   tickLabelSize: 0.04,
   tickLabelClearance: 0.042,
   brhcBundle: { fontHeight: 0.045, dateAboveTime: 0.02 },
-  /** k·RefRadius: bottom-left brand line (`tides·thetidedial.page`). */
+  /** k·RefRadius: Brand uniform font height (BrandTitle + BrandURL). */
   brandFontHeight: 0.04,
+  /** k·RefRadius: Brand alphabetic baseline above **B_bottom**. */
+  brandAboveBottom: 0.008,
   hand: {
     bossCircleRadius: 0.05,
     /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */
@@ -45,7 +47,8 @@ export const homeTideDiagramLayoutBase = {
   homeMenuTrigger: {
     diameter: 0.18,
     menuLeftPadding: 0,
-    menuAboveBrand: 0.070,
+    /** k·R: bottom edge of trigger circle above **B_bottom**. */
+    menuAboveBottom: 0.11,
     iconBarLength: 0.09,
     iconBarGap: 0.025,
   },

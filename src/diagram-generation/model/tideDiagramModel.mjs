@@ -121,7 +121,7 @@
  *   iconBarCenterSpacing: number,
  * }} HomeMenuTriggerDiagram
  *
- * **Brand**: fixed **`tides` · `thetidedial.page`** line (**Brand.tides** / **Brand.separator** / **Brand.domain**); **left** from **B_left**, baseline on **B_bottom** (see spec).
+ * **Brand**: fixed **`tides` · `thetidedial.page`** line (**BrandTitle** / **Brand.separator** / **BrandURL**); **left** from **B_left**, baseline **`B_bottom + brandAboveBottom·R`** (see spec §Brand).
  *
  * @typedef {{
  *   leafName: string,

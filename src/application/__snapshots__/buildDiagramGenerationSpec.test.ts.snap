@@ -26,7 +26,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         },
         "content": "tides",
         "hAlign": "left",
-        "leafName": "Brand.tides",
+        "leafName": "BrandTitle",
       },
       {
         "anchor": {
@@ -45,7 +45,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         },
         "content": "thetidedial.page",
         "hAlign": "left",
-        "leafName": "Brand.domain",
+        "leafName": "BrandURL",
       },
     ],
   },
@@ -2374,7 +2374,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               },
             ],
             "kind": "group",
-            "name": "Brand.tides",
+            "name": "BrandTitle",
           },
           {
             "children": [
@@ -2409,7 +2409,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               },
             ],
             "kind": "group",
-            "name": "Brand.domain",
+            "name": "BrandURL",
           },
         ],
         "kind": "group",
