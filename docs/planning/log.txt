@@ -63,6 +63,10 @@ o  first glance ux assimilation suggestions
 
 	o  challenge spec sillyness again in respect of
 		BLHCBundle
+			*  ask for a from-implementation rewrite
+			*  its is lousy
+			o  write my own and ask for why can't be this simple
+
 		HomeMenuTrigger
 		MainLabel says font size fixed at...
 

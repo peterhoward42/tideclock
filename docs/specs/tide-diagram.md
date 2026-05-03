@@ -294,32 +294,24 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ## 5. Element specs (TB-5)
 
+fart1
+
 ### BRHCBundle
 
-**BRHCBundle** is a **top-level** named group (**direct child** of the diagram root; see **TB-1** / **Diagram elements**) that holds three **horizontal** text rows, stacked **upward** along **+Y** from **B_bottom**: tide summary (**MainLabel**), then host-supplied civil date text (**BRHCDate**), then host-supplied place name (**BRHCLocation**). It is **not** part of **Hand** geometry and does **not** show live **`timeNow`** clock digits — that role is **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** (**§Hand time readout**). **HomeMenuTrigger** is also **not** inside this group (**§HomeMenuTrigger**).
+**BRHCBundle** is a **top-level** named group of the diagram root; that holds
+three **horizontal** text rows, stacked **upward** along **+Y** from **B_bottom**:
+tide summary (**MainLabel**), then host-supplied civil date text (**BRHCDate**),
+then host-supplied place name (**BRHCLocation**). 
 
-**Inputs** (all required by the reference generator):
+**Other Inputs** 
 
-- `**brhcBundle**` — plain object with finite **`fontHeight`** and **`dateAboveTime`** (**k·R** per **§Sizing**). **`dateAboveTime`** must be **≥ 0**.
-- `**brhcLocation`** — string; content for **BRHCLocation** after **trim** (may be empty).
-- `**brhcDatePrefix`** — string; content for **BRHCDate** after **trim** (may be empty).
+- `**brhcBundle**` — plain object with finite **`fontHeight`**
 
-**Typography**: **MainLabel** uses fixed **FontHeight** **0.045·RefRadius** (see **MainLabel** below). **BRHCDate** and **BRHCLocation** use **`brhcBundle.fontHeight·RefRadius`**.
+**Horizontal placement**: All three rows use **right** justification: each anchor
+**x** is **B_right** from **§Global layout bounds** 
 
-**Horizontal placement**: All three rows use **right** justification: each anchor **x** is **B_right** from **§Global layout bounds** (after passes **2b** and **3**), i.e. the global diagram right edge, not a local annular-sector edge alone.
-
-**Vertical placement**: Let **`B_bottom`** be from **§Global layout bounds** (after pass **3**). Let **`h_main = 0.045·RefRadius`**, **`h_brhc = brhcBundle.fontHeight·RefRadius`**, and **`g = brhcBundle.dateAboveTime·RefRadius`**. Let **`d_em`** be the same descent fraction used elsewhere for alphabetic text in the reference generator (**≈ 0.2**, consistent with **Brand** / **Text anchor Y (global)**): the **MainLabel** alphabetic baseline is **`y_main = B_bottom + d_em·h_main`**, so the row’s lower ink extent meets **`B_bottom`**. Then:
-
-- **`y_date = y_main + g + h_main`**
-- **`y_location = y_date + g + h_brhc`**
-
-So **`dateAboveTime`** names an extra **g** added **between** consecutive baselines **in addition to** the full em height of the row **below** the step ( **`h_main`** after **MainLabel**, **`h_brhc`** after **BRHCDate**). The historical label “date above time” does **not** mean spacing is **`g`** alone between **BRHCDate** and **BRHCLocation**.
-
-**Scene graph**: Group **`BRHCBundle`** contains, in this **deterministic** order (sibling order is part of the paint contract): nested group **`MainLabel`** → **`BRHCDate`** → **`BRHCLocation`**. Each nested group wraps exactly one **text** primitive; **style binding** leaf names are **`MainLabel`**, **`BRHCDate`**, **`BRHCLocation`**. Baseline polar angle **0** for all three.
-
-**`paintOrder.overrides`**: May reorder **BRHCBundle** relative to other **direct** root named groups only (same rule as **TB-1**).
-
-**Reference `buildDiagram` vs scene framing**: After computing **`(B_left, B_right, B_bottom, B_top)`**, the reference generator places the bundle using **`B_right`** and **`B_bottom`**, then merges **MainLabel** text bounds into its internal **`layoutBounds`** accumulator (used for subsequent steps such as **Brand**). **BRHCDate** and **BRHCLocation** are **not** added to that same accumulator; they still appear in the emitted scene, and the scene’s **`meta.previewFrame`** includes **all** primitives (including those rows).
+**Vertical placement**: Each of the rows receives its height above the bottom of
+the diagram from a dedicated input - one per row.
 
 ### HomeMenuTrigger
 
