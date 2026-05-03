@@ -52,7 +52,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "brhcDate": {
     "anchor": {
       "x": 128.05368250390558,
-      "y": -120.832,
+      "y": -120.124,
     },
     "content": "Mon 23 Mar",
     "fontSize": 5.9,
@@ -61,7 +61,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "brhcLocation": {
     "anchor": {
       "x": 128.05368250390558,
-      "y": -109.03199999999998,
+      "y": -108.32399999999998,
     },
     "content": "Lymington",
     "fontSize": 5.9,
@@ -123,10 +123,10 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "mainLabel": {
     "anchor": {
       "x": 128.05368250390558,
-      "y": -132.042,
+      "y": -131.924,
     },
     "content": "High tide at 23:06",
-    "fontSize": 5.31,
+    "fontSize": 5.9,
     "hAlign": "right",
   },
   "meta": {

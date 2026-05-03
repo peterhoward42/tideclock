@@ -281,8 +281,6 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ## 5. Element specs (TB-5)
 
-fart1
-
 ### BRHCBundle
 
 **BRHCBundle** is a **top-level** named group of the diagram root; that holds
@@ -292,7 +290,7 @@ then host-supplied place name (**BRHCLocation**).
 
 **Other Inputs** 
 
-- `**brhcBundle**` — plain object with finite **`fontHeight`**
+- `**brhcBundle**` — plain object with finite **`fontHeight`** (**k·R**, **§Sizing**): **FontHeight** shared by **MainLabel**, **BRHCDate**, and **BRHCLocation**
 
 **Horizontal placement**: All three rows use **right** justification: each anchor
 **x** is **B_right** from **§Global layout bounds** 
@@ -323,7 +321,7 @@ the diagram from a dedicated input - one per row.
 ### MainLabel placement
 
 - **MainLabel** is emitted as one **text** leaf in named group **MainLabel**, **child of** named group **BRHCBundle** (see **§BRHCBundle** scene model).
-- Font height is fixed by the generator at **0.045·RefRadius**.
+- **MainLabel** **FontHeight** is **`brhcBundle.fontHeight·RefRadius`** (same as the other **BRHCBundle** text rows; **§Sizing**).
 - **MainLabel** uses horizontal justification **right**; trailing anchor **`x = B_right`** (see **§Horizontal placement (bundle rows)**).
 - MainLabel baseline **`y_mainLabel`** per **§Vertical placement** (independent **Y** from other bundle rows).
 - Baseline polar angle is **0** (horizontal baseline in diagram space).

@@ -43,9 +43,6 @@ const BRHC_LABEL_CHAR_WIDTH_EM = 0.6;
 const TEXT_ASCENT_EM = 0.8;
 const TEXT_DESCENT_EM = 0.2;
 
-/** Fixed **k·R** font-height multiple for **MainLabel** (see tide-diagram spec). */
-const MAIN_LABEL_FONT_HEIGHT_K = 0.045;
-
 /** Fixed **Brand** copy (**`Brand`** group); diagram input supplies **FontHeight** only. */
 const BRAND_WORD = "tides";
 /** U+00B7 middle dot; separator anchor uses **dominant-baseline** **middle** at em-mid **Y**. */
@@ -99,13 +96,12 @@ function buildBrhcBundleFromSpec(
   }
   const locationName = spec.brhcLocation.trim();
   const fontSize = fontHeightK * refRadius;
-  const mainLabelFontSize = MAIN_LABEL_FONT_HEIGHT_K * refRadius;
   const ax = layoutBoundsRightX;
   // **MainLabel** bottom row: baseline aligns so the row sits on **B_bottom** (see spec).
-  const mainLabelBaselineY = layoutBoundsBottomY + TEXT_DESCENT_EM * mainLabelFontSize;
-  const dateY = mainLabelBaselineY + dateAboveK * refRadius + mainLabelFontSize;
+  const mainLabelBaselineY = layoutBoundsBottomY + TEXT_DESCENT_EM * fontSize;
+  const dateY = mainLabelBaselineY + dateAboveK * refRadius + fontSize;
   const locationY = dateY + dateAboveK * refRadius + fontSize;
-  const mainLabel = buildMainLabel(ax, mainLabelBaselineY, refRadius, mainLabelContent);
+  const mainLabel = buildMainLabel(ax, mainLabelBaselineY, fontSize, mainLabelContent);
   return {
     mainLabel,
     brhcLocation: {
@@ -696,12 +692,11 @@ function formatEventClockHHMM(secondsSinceMidnight) {
 /**
  * @param {number} anchorRightX trailing edge **B_right**
  * @param {number} baselineY text baseline in diagram space
- * @param {number} refRadius
+ * @param {number} fontSize diagram-space **FontHeight** (**`brhcBundle.fontHeight·RefRadius`**)
  * @param {string} content
  * @returns {import('../model/tideDiagramModel.mjs').MainLabelDiagram}
  */
-function buildMainLabel(anchorRightX, baselineY, refRadius, content) {
-  const fontSize = MAIN_LABEL_FONT_HEIGHT_K * refRadius;
+function buildMainLabel(anchorRightX, baselineY, fontSize, content) {
   return {
     content,
     fontSize,

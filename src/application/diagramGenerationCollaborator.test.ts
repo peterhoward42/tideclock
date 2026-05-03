@@ -182,10 +182,10 @@ describe('createDiagramGenerationCollaborator', () => {
     const fontHeight =
       (spec.brhcBundle as { readonly fontHeight: number; readonly dateAboveTime: number }).fontHeight *
       diagram.refArc.refRadius;
-    const mainLabelFontSize = 0.045 * diagram.refArc.refRadius;
     expect(diagram.mainLabel.anchor.x).toBe(bundleRightX);
+    expect(diagram.mainLabel.fontSize).toBeCloseTo(fontHeight, 6);
     expect(diagram.brhcDate.anchor.y).toBeCloseTo(
-      diagram.mainLabel.anchor.y + dateAbove + mainLabelFontSize,
+      diagram.mainLabel.anchor.y + dateAbove + fontHeight,
       6,
     );
     expect(diagram.brhcLocation.anchor.y).toBeCloseTo(
