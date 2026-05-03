@@ -56,6 +56,10 @@ export const homeTideStyleModel: StyleModelSpec = {
       colors: { color: "#AAA" },
     },
     {
+      name: "brand",
+      colors: { color: "#777" },
+    },
+    {
       name: "role.structure.emphasis.past",
       colors: { color: "#AAA", opacity: 0.62 }, // softened emphasis for past tide labels
     },
@@ -98,6 +102,7 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
     { name: "BLHCLocation", roleName: "role.structure.emphasis" },
     { name: "BLHCDate", roleName: "role.structure.text" },
+    { name: "Brand", roleName: "brand" },
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
     { name: "HomeMenuTrigger", roleName: "role.menu.trigger" },
     { name: "HomeMenuTriggerIcon", roleName: "role.menu.trigger.icon" },

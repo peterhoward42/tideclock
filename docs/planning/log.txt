@@ -35,8 +35,11 @@ o  first glance ux assimilation suggestions
 	*  The concentric rings could give the tide markers more space now
 	*  Make menu smaller and move to right
 	*  Style BLHC
-	o  ChatGPT outline pips?
-	o  Branding on bottom left
+	*  ChatGPT outline pips?
+
+	*  Branding on bottom left
+	o  Move menu over to left
+
 	o  ChatGPT usability / assimilation advice
 
 

@@ -148,6 +148,8 @@ export type TideDiagramDocument = {
   readonly hand: HandDiagram;
   readonly blhcLocation: DiagramTextInst;
   readonly blhcDate: DiagramTextInst;
+  /** Fixed URL line; **left** at **B_left**, baseline on **B_bottom** (font size from spec `brandFontHeight`). */
+  readonly brand: DiagramTextInst;
 };
 
 type ScenePoint = { readonly x: number; readonly y: number };

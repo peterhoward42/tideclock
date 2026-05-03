@@ -17,6 +17,7 @@
  * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**gapAboveLocation**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; gaps **>= 0**). Placed as the top row of **BLHCBundle**: trailing edge at **B_right**, above **BLHCLocation**. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
  * - **MainLabel** is horizontal text inside **BLHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
  * - `**blhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**blhcDatePrefix**` is a required string (see spec).
+ * - `**brandFontHeight**` is required: finite **k·R** **> 0** for fixed-content **Brand** text (**left** / **B_bottom** alignment).
  */
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
 import {
@@ -44,6 +45,9 @@ const TEXT_DESCENT_EM = 0.2;
 
 /** Fixed **k·R** font-height multiple for **MainLabel** (see tide-diagram spec). */
 const MAIN_LABEL_FONT_HEIGHT_K = 0.045;
+
+/** Fixed **Brand** line (host URL); diagram input supplies **FontHeight** only. */
+const BRAND_TEXT = "thetideclock.page";
 
 /**
  * **BLHCBundle**: **MainLabel** (tide summary, bottom row), **BLHCDate**, **BLHCLocation** — each row **right**-justified to **B_right**;
@@ -565,6 +569,22 @@ export function buildDiagram(spec) {
   });
   // Intentionally omit homeMenuTrigger from layoutBounds — spec: menu geometry must not expand B_*.
 
+  const brandFontHeightK = readBrandFontHeightKFromSpec(spec);
+  const brandFontSize = brandFontHeightK * refRadius;
+  const brandBaselineY = layoutBounds.minY + TEXT_DESCENT_EM * brandFontSize;
+  const brand = {
+    content: BRAND_TEXT,
+    fontSize: brandFontSize,
+    anchor: { x: layoutBounds.minX, y: brandBaselineY },
+    hAlign: "left",
+  };
+  includeDiagramTextBounds(layoutBounds, {
+    content: brand.content,
+    fontSize: brand.fontSize,
+    anchor: brand.anchor,
+    hAlign: "left",
+  });
+
   return {
     version: 1,
     meta: { title },
@@ -586,6 +606,7 @@ export function buildDiagram(spec) {
     hand,
     blhcLocation,
     blhcDate,
+    brand,
   };
 }
 
@@ -673,6 +694,20 @@ function readLayoutBoundsBottomMarginKFromSpec(spec) {
   const k = requireFiniteNumber(raw, "spec.layoutBoundsBottomMargin");
   if (k < 0) {
     throw new Error("spec.layoutBoundsBottomMargin must be >= 0");
+  }
+  return k;
+}
+
+/**
+ * **k·R** font height for **Brand** (fixed URL line; see tide-diagram spec).
+ *
+ * @param {Record<string, unknown>} spec
+ * @returns {number} dimensionless k
+ */
+function readBrandFontHeightKFromSpec(spec) {
+  const k = requireFiniteNumber(spec.brandFontHeight, "spec.brandFontHeight");
+  if (!(k > 0)) {
+    throw new Error("spec.brandFontHeight must be greater than 0");
   }
   return k;
 }

@@ -74,6 +74,16 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(() => collaborator.generate(spec)).toThrow(/greater than 0/);
   });
 
+  it('throws when spec.brandFontHeight is omitted', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const { brandFontHeight: _omit, ...rest } = base as { brandFontHeight: number } & Record<
+      string,
+      unknown
+    >;
+    expect(() => collaborator.generate(rest)).toThrow(/spec\.brandFontHeight/);
+  });
+
   it('throws when spec.dividorArc is omitted', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const base = baseSpecForCollaboratorTest();
@@ -117,6 +127,19 @@ describe('createDiagramGenerationCollaborator', () => {
       hand: { ...(base.hand as Record<string, unknown>), armRefArcGap: 0.96 },
     };
     expect(() => collaborator.generate(spec)).toThrow(/radial ordering invalid/);
+  });
+
+  it('places Brand at B_left and B_bottom with spec brandFontHeight', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const spec = baseSpecForCollaboratorTest();
+    const { diagram } = collaborator.generate(spec);
+    const k = (spec as { brandFontHeight: number }).brandFontHeight;
+    expect(diagram.brand.content).toBe('thetideclock.page');
+    expect(diagram.brand.hAlign).toBe('left');
+    expect(diagram.brand.fontSize).toBeCloseTo(k * diagram.refArc.refRadius, 6);
+    const bBottom =
+      diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
+    expect(diagram.brand.anchor.y - 0.2 * diagram.brand.fontSize).toBeCloseTo(bBottom, 6);
   });
 
   it('right-aligns BLHCBundle to B_right and stacks HomeMenuTrigger above BLHCLocation (excluded from B_*)', () => {
@@ -229,6 +252,7 @@ describe('createDiagramGenerationCollaborator', () => {
       'TideMarks',
       'TickLabel',
       'BLHCBundle',
+      'Brand',
     ]);
   });
 

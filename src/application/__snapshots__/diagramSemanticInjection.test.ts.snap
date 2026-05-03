@@ -30,6 +30,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "fontSize": 5.9,
     "hAlign": "right",
   },
+  "brand": {
+    "anchor": {
+      "x": -126.42985520821964,
+      "y": -132.39600000000002,
+    },
+    "content": "thetideclock.page",
+    "fontSize": 3.54,
+    "hAlign": "left",
+  },
   "dividorArc": {
     "radiusK": 0.8653,
   },

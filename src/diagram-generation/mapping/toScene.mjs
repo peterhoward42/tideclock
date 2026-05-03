@@ -668,6 +668,7 @@ export function tideDiagramToScene(diagram) {
     mainLabel,
     blhcLocation,
     blhcDate,
+    brand,
   } = diagram;
   const R = refArc.refRadius;
   const C = refArc.center;
@@ -818,6 +819,15 @@ export function tideDiagramToScene(diagram) {
   ]);
 
   const homeMenuTriggerGroup = homeMenuTriggerDiagramToGroup(homeMenuTrigger, cx, cy);
+  const brandGroup = group("Brand", [
+    text({
+      content: brand.content,
+      size: brand.fontSize,
+      hAlign: brand.hAlign ?? "left",
+      angleRad: 0,
+      anchor: mapPoint(brand.anchor, cx, cy),
+    }),
+  ]);
   const blhcBundleGroup = group("BLHCBundle", [
     mainLabelGroup,
     blhcDateGroup,
@@ -840,6 +850,7 @@ export function tideDiagramToScene(diagram) {
     tideMarksGroup,
     tickLabelsGroup,
     blhcBundleGroup,
+    brandGroup,
   ]);
   const orderedRoot = applyPaintOrderOverrides(
     root,

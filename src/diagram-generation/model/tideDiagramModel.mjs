@@ -121,6 +121,8 @@
  *   iconBarCenterSpacing: number,
  * }} HomeMenuTriggerDiagram
  *
+ * **Brand**: fixed URL line, **left**-justified to **B_left**, baseline on **B_bottom** (see spec).
+ *
  * @typedef {{
  *   version: number,
  *   meta: { title: string },
@@ -138,6 +140,7 @@
  *   hand: HandDiagram,
  *   blhcLocation: DiagramTextInst,
  *   blhcDate: DiagramTextInst,
+ *   brand: DiagramTextInst,
  * }} TideDiagramDocument
  */
 

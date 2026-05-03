@@ -28,6 +28,8 @@ export const homeTideDiagramLayoutBase = {
   tickLabelSize: 0.04,
   tickLabelClearance: 0.042,
   blhcBundle: { fontHeight: 0.045, dateAboveTime: 0.02 },
+  /** k·RefRadius: bottom-left brand line (`thetideclock.page`). */
+  brandFontHeight: 0.04,
   hand: {
     bossCircleRadius: 0.05,
     /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */

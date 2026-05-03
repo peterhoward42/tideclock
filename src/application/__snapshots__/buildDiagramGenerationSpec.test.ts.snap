@@ -30,6 +30,15 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "fontSize": 5.31,
     "hAlign": "right",
   },
+  "brand": {
+    "anchor": {
+      "x": -155.76000000000002,
+      "y": -158.27203550303113,
+    },
+    "content": "thetideclock.page",
+    "fontSize": 3.3040000000000003,
+    "hAlign": "left",
+  },
   "dividorArc": {
     "radiusK": 1.32,
   },
@@ -76,12 +85,12 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   },
   "homeMenuTrigger": {
     "center": {
-      "x": 149.27,
-      "y": -127.30883550303109,
+      "x": 145.14000000000001,
+      "y": -119.4028355030311,
     },
-    "diameter": 12.98,
-    "iconBarCenterSpacing": 1.77,
-    "iconBarHalfLength": 2.832,
+    "diameter": 21.24,
+    "iconBarCenterSpacing": 2.95,
+    "iconBarHalfLength": 5.31,
   },
   "mainLabel": {
     "anchor": {
@@ -2320,47 +2329,47 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "children": [
               {
                 "center": {
-                  "x": 149.27,
-                  "y": -127.30883550303109,
+                  "x": 145.14000000000001,
+                  "y": -119.4028355030311,
                 },
-                "height": 12.98,
+                "height": 21.24,
                 "kind": "roundedRect",
-                "rx": 6.49,
-                "width": 12.98,
+                "rx": 10.62,
+                "width": 21.24,
               },
               {
                 "children": [
                   {
                     "end": {
-                      "x": 152.102,
-                      "y": -125.5388355030311,
+                      "x": 150.45000000000002,
+                      "y": -116.4528355030311,
                     },
                     "kind": "line",
                     "start": {
-                      "x": 146.43800000000002,
-                      "y": -125.5388355030311,
+                      "x": 139.83,
+                      "y": -116.4528355030311,
                     },
                   },
                   {
                     "end": {
-                      "x": 152.102,
-                      "y": -127.30883550303109,
+                      "x": 150.45000000000002,
+                      "y": -119.4028355030311,
                     },
                     "kind": "line",
                     "start": {
-                      "x": 146.43800000000002,
-                      "y": -127.30883550303109,
+                      "x": 139.83,
+                      "y": -119.4028355030311,
                     },
                   },
                   {
                     "end": {
-                      "x": 152.102,
-                      "y": -129.0788355030311,
+                      "x": 150.45000000000002,
+                      "y": -122.3528355030311,
                     },
                     "kind": "line",
                     "start": {
-                      "x": 146.43800000000002,
-                      "y": -129.0788355030311,
+                      "x": 139.83,
+                      "y": -122.3528355030311,
                     },
                   },
                 ],
@@ -2374,6 +2383,23 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         ],
         "kind": "group",
         "name": "BLHCBundle",
+      },
+      {
+        "children": [
+          {
+            "anchor": {
+              "x": -155.76000000000002,
+              "y": -158.27203550303113,
+            },
+            "angleRad": 0,
+            "content": "thetideclock.page",
+            "hAlign": "left",
+            "kind": "text",
+            "size": 3.3040000000000003,
+          },
+        ],
+        "kind": "group",
+        "name": "Brand",
       },
     ],
     "kind": "group",
