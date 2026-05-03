@@ -32,8 +32,8 @@ type SemanticInjectionDiagramSpec = {
   readonly tickLabelSize: number;
   readonly tickLabelClearance: number;
   readonly timeNow: string;
-  readonly blhcDatePrefix: string;
-  readonly blhcLocation: string;
+  readonly brhcDatePrefix: string;
+  readonly brhcLocation: string;
   readonly tideMarks: {
     readonly tideLabelRadius: number;
     readonly tideHeightLabelSize: number;
@@ -41,7 +41,7 @@ type SemanticInjectionDiagramSpec = {
     readonly tideMarkArrowLineLen: number;
     readonly markers: readonly SemanticInjectionTideMark[];
   };
-  readonly blhcBundle: {
+  readonly brhcBundle: {
     readonly fontHeight: number;
     readonly dateAboveTime: number;
   };
@@ -78,8 +78,8 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     tickLabelSize: 0.04,
     tickLabelClearance: 0.07,
     timeNow: '19:20:03',
-    blhcDatePrefix: 'Mon 23 Mar',
-    blhcLocation: 'Lymington',
+    brhcDatePrefix: 'Mon 23 Mar',
+    brhcLocation: 'Lymington',
     tideMarks: {
       tideLabelRadius: 0.84,
       tideHeightLabelSize: 0.046,
@@ -92,7 +92,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
         { time: '23:06:00', heightText: '4.80 m', highOrLow: 'High' },
       ],
     },
-    blhcBundle: { fontHeight: 0.05, dateAboveTime: 0.05 },
+    brhcBundle: { fontHeight: 0.05, dateAboveTime: 0.05 },
     brandFontHeight: 0.03,
     annularBand: { annularBandWidth: 0.05 },
     dividorArc: { radiusK: 0.8653 },
@@ -136,11 +136,11 @@ describe('spec.semantic.nextTide injection', () => {
     expect(withSemantic).toEqual(baseline);
   });
 
-  it('after last tide still renders BLHCBundle text', () => {
+  it('after last tide still renders BRHCBundle text', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
-    expect(diagram.blhcDate.content).toBe('Mon 23 Mar');
-    expect(diagram.blhcLocation.content).toBe('Lymington');
+    expect(diagram.brhcDate.content).toBe('Mon 23 Mar');
+    expect(diagram.brhcLocation.content).toBe('Lymington');
     expect(diagram.hand.armTimeReadout.clock.content).toBe('23:59:');
     expect(diagram.hand.armTimeReadout.seconds.content).toBe('00');
   });

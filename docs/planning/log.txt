@@ -34,15 +34,13 @@ o  first glance ux assimilation suggestions
 	*  Separate seconds on hand and style colours
 	*  The concentric rings could give the tide markers more space now
 	*  Make menu smaller and move to right
-	*  Style BLHC
+	*  Style BRHC
 	*  ChatGPT outline pips?
 
 	*  Branding on bottom left
 	*  Move menu over to left
-		*  basics
-		o  fly out right
 	o  More prominent location
-	o  Fix BLHCBundle name
+	o  Fix BRHCBundle name
 
 	o  ChatGPT usability / assimilation advice
 

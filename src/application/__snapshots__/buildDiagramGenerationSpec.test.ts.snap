@@ -12,24 +12,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "sweepRad": 3.141592653589793,
     "thetaLeft": 3.141592653589793,
   },
-  "blhcDate": {
-    "anchor": {
-      "x": 155.76000000000002,
-      "y": -150.2008355030311,
-    },
-    "content": "Mon 23 Mar",
-    "fontSize": 5.31,
-    "hAlign": "right",
-  },
-  "blhcLocation": {
-    "anchor": {
-      "x": 155.76000000000002,
-      "y": -142.53083550303108,
-    },
-    "content": "Lymington",
-    "fontSize": 5.31,
-    "hAlign": "right",
-  },
   "brand": {
     "anchor": {
       "x": -155.76000000000002,
@@ -38,6 +20,24 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
     "content": "thetideclock.page",
     "fontSize": 4.72,
     "hAlign": "left",
+  },
+  "brhcDate": {
+    "anchor": {
+      "x": 155.76000000000002,
+      "y": -150.2008355030311,
+    },
+    "content": "Mon 23 Mar",
+    "fontSize": 5.31,
+    "hAlign": "right",
+  },
+  "brhcLocation": {
+    "anchor": {
+      "x": 155.76000000000002,
+      "y": -142.53083550303108,
+    },
+    "content": "Lymington",
+    "fontSize": 5.31,
+    "hAlign": "right",
   },
   "dividorArc": {
     "radiusK": 1.32,
@@ -2306,7 +2306,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               },
             ],
             "kind": "group",
-            "name": "BLHCDate",
+            "name": "BRHCDate",
           },
           {
             "children": [
@@ -2323,11 +2323,11 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               },
             ],
             "kind": "group",
-            "name": "BLHCLocation",
+            "name": "BRHCLocation",
           },
         ],
         "kind": "group",
-        "name": "BLHCBundle",
+        "name": "BRHCBundle",
       },
       {
         "children": [

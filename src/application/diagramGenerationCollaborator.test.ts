@@ -16,7 +16,7 @@ function baseSpecForCollaboratorTest() {
   return buildDiagramGenerationSpec({
     extremesAtLocation: minimalExtremesForCollaboratorTest(),
     timeNow: '12:00:00',
-    blhcDatePrefix: FIXTURE_DATE_PREFIX,
+    brhcDatePrefix: FIXTURE_DATE_PREFIX,
     utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     townName: 'Lymington',
   });
@@ -142,30 +142,30 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(diagram.brand.anchor.y - 0.2 * diagram.brand.fontSize).toBeCloseTo(bBottom, 6);
   });
 
-  it('right-aligns BLHCBundle to B_right and places HomeMenuTrigger inset from B_left above Brand (excluded from B_*)', () => {
+  it('right-aligns BRHCBundle to B_right and places HomeMenuTrigger inset from B_left above Brand (excluded from B_*)', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
     const tickMinY = Math.min(...diagram.tickLabels.map((t) => t.anchor.y));
     const annularMaxX = annularBandMaxX(diagram.annularBand);
-    const bundleRightX = diagram.blhcDate.anchor.x;
+    const bundleRightX = diagram.brhcDate.anchor.x;
     expect(diagram.mainLabel.anchor.y).not.toBe(tickMinY);
-    expect(diagram.blhcLocation.anchor.x).toBe(bundleRightX);
+    expect(diagram.brhcLocation.anchor.x).toBe(bundleRightX);
     expect(bundleRightX).toBeGreaterThanOrEqual(annularMaxX);
     const dateAbove =
-      (spec.blhcBundle as { readonly fontHeight: number; readonly dateAboveTime: number }).dateAboveTime *
+      (spec.brhcBundle as { readonly fontHeight: number; readonly dateAboveTime: number }).dateAboveTime *
       diagram.refArc.refRadius;
     const fontHeight =
-      (spec.blhcBundle as { readonly fontHeight: number; readonly dateAboveTime: number }).fontHeight *
+      (spec.brhcBundle as { readonly fontHeight: number; readonly dateAboveTime: number }).fontHeight *
       diagram.refArc.refRadius;
     const mainLabelFontSize = 0.045 * diagram.refArc.refRadius;
     expect(diagram.mainLabel.anchor.x).toBe(bundleRightX);
-    expect(diagram.blhcDate.anchor.y).toBeCloseTo(
+    expect(diagram.brhcDate.anchor.y).toBeCloseTo(
       diagram.mainLabel.anchor.y + dateAbove + mainLabelFontSize,
       6,
     );
-    expect(diagram.blhcLocation.anchor.y).toBeCloseTo(
-      diagram.blhcDate.anchor.y + dateAbove + fontHeight,
+    expect(diagram.brhcLocation.anchor.y).toBeCloseTo(
+      diagram.brhcDate.anchor.y + dateAbove + fontHeight,
       6,
     );
 
@@ -189,7 +189,7 @@ describe('createDiagramGenerationCollaborator', () => {
     const k = 0.03;
     const withMargin = collaborator.generate({ ...baseNoBottomMargin, layoutBoundsBottomMargin: k }).diagram;
     const delta = k * withMargin.refArc.refRadius;
-    expect(withMargin.blhcDate.anchor.y - without.blhcDate.anchor.y).toBeCloseTo(-delta, 6);
+    expect(withMargin.brhcDate.anchor.y - without.brhcDate.anchor.y).toBeCloseTo(-delta, 6);
     expect(withMargin.mainLabel.anchor.y - without.mainLabel.anchor.y).toBeCloseTo(-delta, 6);
   });
 
@@ -206,7 +206,7 @@ describe('createDiagramGenerationCollaborator', () => {
     const base = buildDiagramGenerationSpec({
       extremesAtLocation: minimalExtremesForCollaboratorTest(),
       timeNow: '15:00:00',
-      blhcDatePrefix: FIXTURE_DATE_PREFIX,
+      brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
     });
@@ -253,7 +253,7 @@ describe('createDiagramGenerationCollaborator', () => {
       'TickMark',
       'TideMarks',
       'TickLabel',
-      'BLHCBundle',
+      'BRHCBundle',
       'Brand',
       'HomeMenuTrigger',
     ]);
@@ -265,14 +265,14 @@ describe('createDiagramGenerationCollaborator', () => {
     const spec = {
       ...base,
       paintOrder: {
-        overrides: [{ name: 'BLHCBundle', place: 'before' as const, relativeTo: 'RefArc' }],
+        overrides: [{ name: 'BRHCBundle', place: 'before' as const, relativeTo: 'RefArc' }],
       },
     };
     const { scene } = collaborator.generate(spec);
     const childNames = scene.root.children
       .filter((child) => child.kind === 'group')
       .map((child) => child.name);
-    expect(childNames.indexOf('BLHCBundle')).toBeLessThan(childNames.indexOf('RefArc'));
+    expect(childNames.indexOf('BRHCBundle')).toBeLessThan(childNames.indexOf('RefArc'));
   });
 
   it('applies home preset paint-order so Hand sits below all root siblings', () => {
@@ -304,8 +304,8 @@ describe('createDiagramGenerationCollaborator', () => {
       ...base,
       paintOrder: {
         overrides: [
-          { name: 'BLHCBundle', place: 'before' as const, relativeTo: 'RefArc' },
-          { name: 'BLHCBundle', place: 'after' as const, relativeTo: 'TickLabel' },
+          { name: 'BRHCBundle', place: 'before' as const, relativeTo: 'RefArc' },
+          { name: 'BRHCBundle', place: 'after' as const, relativeTo: 'TickLabel' },
         ],
       },
     };

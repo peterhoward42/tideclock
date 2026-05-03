@@ -49,7 +49,7 @@
  *   hAlign?: 'left' | 'center' | 'right',
  * }} DiagramTextInst
  *
- * **BLHCBundle** (scene group): **MainLabel** (tide summary, bottom row), **BLHCDate**, **BLHCLocation**.
+ * **BRHCBundle** (scene group): **MainLabel** (tide summary, bottom row), **BRHCDate**, **BRHCLocation**.
  *
  * **Hand** arm clock readout: two scene groups (**Hand.TimeReadout** = `HH:MM:`, **Hand.TimeReadoutSeconds** = `SS`).
  *
@@ -112,7 +112,7 @@
  *   hAlign: 'right',
  * }} MainLabelDiagram
  *
- * Home menu trigger: circular control + hamburger icon; top-level scene sibling (not inside **BLHCBundle**).
+ * Home menu trigger: circular control + hamburger icon; top-level scene sibling (not inside **BRHCBundle**).
  *
  * @typedef {{
  *   center: DiagramPoint,
@@ -138,8 +138,8 @@
  *   annularBand: AnnularBandDiagram,
  *   homeMenuTrigger: HomeMenuTriggerDiagram,
  *   hand: HandDiagram,
- *   blhcLocation: DiagramTextInst,
- *   blhcDate: DiagramTextInst,
+ *   brhcLocation: DiagramTextInst,
+ *   brhcDate: DiagramTextInst,
  *   brand: DiagramTextInst,
  * }} TideDiagramDocument
  */

@@ -24,7 +24,7 @@ describe('buildDiagramDevPreviewNoMoreTidesTodayClock', () => {
     const spec = buildDiagramGenerationSpec({
       extremesAtLocation: extremes,
       timeNow: preview.timeNow,
-      blhcDatePrefix: preview.blhcDatePrefix,
+      brhcDatePrefix: preview.brhcDatePrefix,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Test',
     });

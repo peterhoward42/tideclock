@@ -12,24 +12,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "sweepRad": 2.75,
     "thetaLeft": 3.3373889803846897,
   },
-  "blhcDate": {
-    "anchor": {
-      "x": 128.05368250390558,
-      "y": -120.832,
-    },
-    "content": "Mon 23 Mar",
-    "fontSize": 5.9,
-    "hAlign": "right",
-  },
-  "blhcLocation": {
-    "anchor": {
-      "x": 128.05368250390558,
-      "y": -109.03199999999998,
-    },
-    "content": "Lymington",
-    "fontSize": 5.9,
-    "hAlign": "right",
-  },
   "brand": {
     "anchor": {
       "x": -126.42985520821964,
@@ -38,6 +20,24 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "content": "thetideclock.page",
     "fontSize": 3.54,
     "hAlign": "left",
+  },
+  "brhcDate": {
+    "anchor": {
+      "x": 128.05368250390558,
+      "y": -120.832,
+    },
+    "content": "Mon 23 Mar",
+    "fontSize": 5.9,
+    "hAlign": "right",
+  },
+  "brhcLocation": {
+    "anchor": {
+      "x": 128.05368250390558,
+      "y": -109.03199999999998,
+    },
+    "content": "Lymington",
+    "fontSize": 5.9,
+    "hAlign": "right",
   },
   "dividorArc": {
     "radiusK": 0.8653,

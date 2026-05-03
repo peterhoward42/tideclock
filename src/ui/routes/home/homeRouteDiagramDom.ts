@@ -5,21 +5,21 @@
 
 import {
   localCanonicalTimeNowFromMs,
-  localBlhcDatePrefixFromMs,
+  localBrhcDatePrefixFromMs,
 } from "../../../application/localWallClockReadoutFromMs";
 
 /**
  * Patch live date prefix and arm time readout inside injected SVG; host must contain the current diagram.
- * Callers subscribe to `nowMs` (~1 Hz) so **BLHCDate** and **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** stay in sync.
+ * Callers subscribe to `nowMs` (~1 Hz) so **BRHCDate** and **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** stay in sync.
  */
-export function patchBlhcBundleInDiagramHost(
+export function patchBrhcBundleInDiagramHost(
   host: HTMLElement,
   ms: number,
 ): void {
   const canonical = localCanonicalTimeNowFromMs(ms);
-  const datePrefix = localBlhcDatePrefixFromMs(ms);
+  const datePrefix = localBrhcDatePrefixFromMs(ms);
   const dateEl = host.querySelector(
-    'svg g[data-name="BLHCDate"] text',
+    'svg g[data-name="BRHCDate"] text',
   ) as SVGTextElement | null;
   const handClockEl = host.querySelector(
     'svg g[data-name="Hand.TimeReadout"] text',

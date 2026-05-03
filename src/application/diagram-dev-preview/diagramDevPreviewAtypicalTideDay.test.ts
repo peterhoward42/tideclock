@@ -12,7 +12,7 @@ import {
 import { buildDiagramDevPreviewAtypicalTideDay } from "./diagramDevPreviewAtypicalTideDay";
 import {
   localCanonicalTimeNowFromMs,
-  localBlhcDatePrefixFromMs,
+  localBrhcDatePrefixFromMs,
 } from "../localWallClockReadoutFromMs";
 
 describe("buildDiagramDevPreviewAtypicalTideDay", () => {
@@ -46,15 +46,15 @@ describe("buildDiagramDevPreviewAtypicalTideDay", () => {
     if (material.kind !== "active") return;
     const { extremesAtLocation, frozenEpochMs } = material;
     const timeNow = localCanonicalTimeNowFromMs(frozenEpochMs);
-    const blhcDatePrefix = localBlhcDatePrefixFromMs(frozenEpochMs);
+    const brhcDatePrefix = localBrhcDatePrefixFromMs(frozenEpochMs);
     const spec = buildDiagramGenerationSpec({
       extremesAtLocation,
       timeNow,
-      blhcDatePrefix,
+      brhcDatePrefix,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
       townName: "Lymington",
     });
     expect(spec.timeNow).toBe(timeNow);
-    expect(spec.blhcDatePrefix).toBe(blhcDatePrefix);
+    expect(spec.brhcDatePrefix).toBe(brhcDatePrefix);
   });
 });

@@ -622,7 +622,7 @@ export function handDiagramToGroup(hand, cx, cy) {
 }
 
 /**
- * Circular menu control + three-bar icon; **top-level** scene sibling (not under **BLHCBundle**).
+ * Circular menu control + three-bar icon; **top-level** scene sibling (not under **BRHCBundle**).
  *
  * @param {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram} hm
  * @param {number} cx
@@ -666,8 +666,8 @@ export function tideDiagramToScene(diagram) {
     homeMenuTrigger,
     hand,
     mainLabel,
-    blhcLocation,
-    blhcDate,
+    brhcLocation,
+    brhcDate,
     brand,
   } = diagram;
   const R = refArc.refRadius;
@@ -798,23 +798,23 @@ export function tideDiagramToScene(diagram) {
   const tideMarksGroup = group("TideMarks", tideMarkGroups);
   const handGroup = handDiagramToGroup(hand, cx, cy);
 
-  const blhcLocationGroup = group("BLHCLocation", [
+  const brhcLocationGroup = group("BRHCLocation", [
     text({
-      content: blhcLocation.content,
-      size: blhcLocation.fontSize,
-      hAlign: blhcLocation.hAlign ?? "center",
+      content: brhcLocation.content,
+      size: brhcLocation.fontSize,
+      hAlign: brhcLocation.hAlign ?? "center",
       angleRad: 0,
-      anchor: mapPoint(blhcLocation.anchor, cx, cy),
+      anchor: mapPoint(brhcLocation.anchor, cx, cy),
     }),
   ]);
 
-  const blhcDateGroup = group("BLHCDate", [
+  const brhcDateGroup = group("BRHCDate", [
     text({
-      content: blhcDate.content,
-      size: blhcDate.fontSize,
-      hAlign: blhcDate.hAlign ?? "center",
+      content: brhcDate.content,
+      size: brhcDate.fontSize,
+      hAlign: brhcDate.hAlign ?? "center",
       angleRad: 0,
-      anchor: mapPoint(blhcDate.anchor, cx, cy),
+      anchor: mapPoint(brhcDate.anchor, cx, cy),
     }),
   ]);
 
@@ -828,10 +828,10 @@ export function tideDiagramToScene(diagram) {
       anchor: mapPoint(brand.anchor, cx, cy),
     }),
   ]);
-  const blhcBundleGroup = group("BLHCBundle", [
+  const brhcBundleGroup = group("BRHCBundle", [
     mainLabelGroup,
-    blhcDateGroup,
-    blhcLocationGroup,
+    brhcDateGroup,
+    brhcLocationGroup,
   ]);
 
   const meta = {
@@ -848,7 +848,7 @@ export function tideDiagramToScene(diagram) {
     ticksGroup,
     tideMarksGroup,
     tickLabelsGroup,
-    blhcBundleGroup,
+    brhcBundleGroup,
     brandGroup,
     homeMenuTriggerGroup,
   ]);

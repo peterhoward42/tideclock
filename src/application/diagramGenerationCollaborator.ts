@@ -146,8 +146,8 @@ export type TideDiagramDocument = {
   readonly annularBand: AnnularBandDiagram;
   readonly homeMenuTrigger: HomeMenuTriggerDiagram;
   readonly hand: HandDiagram;
-  readonly blhcLocation: DiagramTextInst;
-  readonly blhcDate: DiagramTextInst;
+  readonly brhcLocation: DiagramTextInst;
+  readonly brhcDate: DiagramTextInst;
   /** Fixed URL line; **left** at **B_left**, baseline on **B_bottom** (font size from spec `brandFontHeight`). */
   readonly brand: DiagramTextInst;
 };

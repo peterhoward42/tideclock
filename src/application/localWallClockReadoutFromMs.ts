@@ -1,5 +1,5 @@
 /**
- * localWallClockReadoutFromMs.ts — Local civil clock strings for the diagram (global `timeNow` and **BLHCBundle** date prefix).
+ * localWallClockReadoutFromMs.ts — Local civil clock strings for the diagram (global `timeNow` and **BRHCBundle** date prefix).
  * Shared by Home and dev preview helpers so frozen previews stay aligned with patched SVG text.
  */
 
@@ -11,7 +11,7 @@ export function localCanonicalTimeNowFromMs(ms: number): string {
   return `${hh}:${mm}:${ss}`;
 }
 
-export function localBlhcDatePrefixFromMs(ms: number): string {
+export function localBrhcDatePrefixFromMs(ms: number): string {
   const d = new Date(ms);
   const weekday = d.toLocaleDateString(undefined, { weekday: 'short' });
   const day = String(d.getDate()).padStart(2, '0');

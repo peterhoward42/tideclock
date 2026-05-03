@@ -7,7 +7,7 @@ import type { TideExtreme } from "../../core-models/TideExtreme";
 import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
 import type { TimeOrderedTideExtrema } from "../../core-models/TimeOrderedTideExtrema";
 import type { UtcIsoToLocalCanonicalTime } from "../buildDiagramGenerationSpec";
-import { localBlhcDatePrefixFromMs } from "../localWallClockReadoutFromMs";
+import { localBrhcDatePrefixFromMs } from "../localWallClockReadoutFromMs";
 
 const CIVIL_DAY_LAST_SECOND = 23 * 3600 + 59 * 60 + 59;
 
@@ -49,10 +49,10 @@ function lastExtremeByLatestLocalMarker(params: {
 export type DiagramDevPreviewNoMoreTidesTodayClock =
   | {
       readonly kind: "active";
-      /** Wall-clock instant aligned with `timeNow` / `blhcDatePrefix` on the last extreme's local civil day. */
+      /** Wall-clock instant aligned with `timeNow` / `brhcDatePrefix` on the last extreme's local civil day. */
       readonly frozenEpochMs: number;
       readonly timeNow: string;
-      readonly blhcDatePrefix: string;
+      readonly brhcDatePrefix: string;
     }
   | {
       readonly kind: "inactive";
@@ -97,6 +97,6 @@ export function buildDiagramDevPreviewNoMoreTidesTodayClock(params: {
     kind: "active",
     frozenEpochMs,
     timeNow: daySecondsToCanonical(candidateSeconds),
-    blhcDatePrefix: localBlhcDatePrefixFromMs(frozenEpochMs),
+    brhcDatePrefix: localBrhcDatePrefixFromMs(frozenEpochMs),
   };
 }

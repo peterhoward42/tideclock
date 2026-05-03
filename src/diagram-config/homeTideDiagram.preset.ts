@@ -27,7 +27,7 @@ export const homeTideDiagramLayoutBase = {
   tickLabelHours: Array.from({ length: 23 }, (_, i) => i + 1),
   tickLabelSize: 0.04,
   tickLabelClearance: 0.042,
-  blhcBundle: { fontHeight: 0.045, dateAboveTime: 0.02 },
+  brhcBundle: { fontHeight: 0.045, dateAboveTime: 0.02 },
   /** k·RefRadius: bottom-left brand line (`thetideclock.page`). */
   brandFontHeight: 0.04,
   hand: {

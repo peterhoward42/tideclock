@@ -78,7 +78,7 @@ Three-pass construction:
   - **B_bottom = min(B_bottom_base, marker-bottom extents...)**
   - **B_top = max(B_top_base, marker-top extents...)**
 
-2b) **Diagram-wide extent (excluding BLHCBundle)**
+2b) **Diagram-wide extent (excluding BRHCBundle)**
 
 - Generation then expands **B_left**, **B_right**, **B_bottom**, and **B_top** if
   needed so the axis-aligned bounds also contain:
@@ -86,7 +86,7 @@ Three-pass construction:
   - the stroked **Dividor** arc (radius **`dividorArc.radiusK·RefRadius`**, same centre and sweep),
   - **TickLabels** (text bounds; monospace width heuristic consistent with other diagram text),
   - **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** (rotated text along the **Hand**; see **§Hand time readout**).
-- **BLHCBundle** is positioned using **B_right** and **B_bottom** from this pass (and pass **3**); bundle rows are **right**-justified to **B_right**. After bundle placement, generation includes bundle text bounds when finalizing axis-aligned bounds for framing if needed.
+- **BRHCBundle** is positioned using **B_right** and **B_bottom** from this pass (and pass **3**); bundle rows are **right**-justified to **B_right**. After bundle placement, generation includes bundle text bounds when finalizing axis-aligned bounds for framing if needed.
 - **HomeMenuTrigger** is **not** part of the layout-bounds construction: its geometry **must not** expand **B_left**, **B_right**, **B_bottom**, or **B_top**. The tuple **(B_left, B_right, B_bottom, B_top)** is defined **without** reference to the menu control. The trigger may be placed using those edges (and may extend outside the resulting rectangle); hosts and generators **must not** fold the trigger’s axis-aligned bounds into framing or preview-rectangle logic.
 
 3) **Layout bottom margin**
@@ -114,7 +114,7 @@ axis; the RefArc spans **symmetrically about the negative Y** axis.
 - Let **θ_left** and **θ_right** be the polar angles of the leftmost and
 rightmost endpoints of the RefArc. The remainder of the diagram geometry is a
 function of the RefArc.
-- **MainLabel** is a horizontal **TextElement** with **right** justification (bundle alignment; **§BLHCBundle**).
+- **MainLabel** is a horizontal **TextElement** with **right** justification (bundle alignment; **§BRHCBundle**).
   Its **content** is one synthesized line:
   `**Next tide extreme tomorrow**` when no marker exists at or after `**timeNow`**
   on the same civil day; otherwise `**Tricky tides today**` when
@@ -292,36 +292,36 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ## 5. Element specs (TB-5)
 
-### BLHCBundle
+### BRHCBundle
 
-**BLHCBundle** is a **top-level** named group (see **Diagram elements**) containing the bottom-anchored stack: synthesized **MainLabel** (tide summary) on the bottom row, then host-local civil **date prefix**, then host-local **location** — together with `**blhcLocation**` and `**blhcDatePrefix**`. Text rows are laid out upward from **B_bottom** (see **§Vertical placement**). **HomeMenuTrigger** is **not** part of this group (see **§HomeMenuTrigger**). Live wall-clock readout uses global canonical `**timeNow**` on **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** only (**§Hand time readout**). Hosts should treat **BLHCBundle** as the collective contract for this corner of the diagram, distinct from the **Hand** readout.
+**BRHCBundle** is a **top-level** named group (see **Diagram elements**) containing the bottom-anchored stack: synthesized **MainLabel** (tide summary) on the bottom row, then host-local civil **date prefix**, then host-local **location** — together with `**brhcLocation**` and `**brhcDatePrefix**`. Text rows are laid out upward from **B_bottom** (see **§Vertical placement**). **HomeMenuTrigger** is **not** part of this group (see **§HomeMenuTrigger**). Live wall-clock readout uses global canonical `**timeNow**` on **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** only (**§Hand time readout**). Hosts should treat **BRHCBundle** as the collective contract for this corner of the diagram, distinct from the **Hand** readout.
 
 ### Shared inputs
 
-- Diagram input object `**blhcBundle`** — **required** plain object; finite numbers as **k·R** multiples (**§Sizing**):
-  - `**fontHeight`** — **k_font·R**; used as **FontHeight** for **BLHCLocation** and **BLHCDate** leaves.
-  - `**dateAboveTime`** — non-negative **k·R** gap: the **BLHCLocation** baseline is **`dateAboveTime·R`** **above** (+**Y**) the **BLHCDate** baseline (see **§Vertical placement** below).
-- Diagram input `**blhcLocation`** — required string for **BLHCLocation** text (current location name; may be empty after trim).
-- Diagram input `**blhcDatePrefix`** — required string for **BLHCDate** text (customary short form such as `**Wed 21 Jun`**; may be empty after trim).
+- Diagram input object `**brhcBundle`** — **required** plain object; finite numbers as **k·R** multiples (**§Sizing**):
+  - `**fontHeight`** — **k_font·R**; used as **FontHeight** for **BRHCLocation** and **BRHCDate** leaves.
+  - `**dateAboveTime`** — non-negative **k·R** gap: the **BRHCLocation** baseline is **`dateAboveTime·R`** **above** (+**Y**) the **BRHCDate** baseline (see **§Vertical placement** below).
+- Diagram input `**brhcLocation`** — required string for **BRHCLocation** text (current location name; may be empty after trim).
+- Diagram input `**brhcDatePrefix`** — required string for **BRHCDate** text (customary short form such as `**Wed 21 Jun`**; may be empty after trim).
 
 ### Horizontal placement (bundle rows)
 
-- **MainLabel**, **BLHCLocation**, and **BLHCDate** use **horizontal justification** **right**: each row’s trailing anchor **x** is **B_right** (after **§Global layout bounds**, passes **2b** and **3**).
+- **MainLabel**, **BRHCLocation**, and **BRHCDate** use **horizontal justification** **right**: each row’s trailing anchor **x** is **B_right** (after **§Global layout bounds**, passes **2b** and **3**).
 - The bundle is **right-aligned to the diagram’s global right edge** **B_right** after **§Global layout bounds** (including pass **2b**), not to the **AnnularBand** sector alone.
 
 ### Vertical placement
 
-- Let **B_bottom** be from **§Global layout bounds**; let **`fontHeight·R`** be **`blhcBundle.fontHeight·RefRadius`** and **`k_main·R`** be **MainLabel** font height (**0.045·RefRadius**).
+- Let **B_bottom** be from **§Global layout bounds**; let **`fontHeight·R`** be **`brhcBundle.fontHeight·RefRadius`** and **`k_main·R`** be **MainLabel** font height (**0.045·RefRadius**).
 - **MainLabel** — baseline **`y_mainLabel`**, with the tide-summary row bottom edge aligned to **B_bottom** (descent uses **MainLabel** **FontHeight** per **Text anchor Y (global)**).
-- **BLHCDate** — baseline **`y_date = y_mainLabel + dateAboveTime·R + k_main·R`** (row between **MainLabel** and **BLHCLocation**).
-- **BLHCLocation** — baseline **`y_location = y_date + dateAboveTime·R + fontHeight·R`**.
+- **BRHCDate** — baseline **`y_date = y_mainLabel + dateAboveTime·R + k_main·R`** (row between **MainLabel** and **BRHCLocation**).
+- **BRHCLocation** — baseline **`y_location = y_date + dateAboveTime·R + fontHeight·R`**.
 
 ### Scene model
 
-- **BLHCBundle** — named group **BLHCBundle** containing, in deterministic generator order: **MainLabel**, **BLHCDate**, **BLHCLocation** (sibling order is part of the scene contract for paint order; see **TB-1**). **`paintOrder.overrides`** apply only among **direct sibling** named groups.
+- **BRHCBundle** — named group **BRHCBundle** containing, in deterministic generator order: **MainLabel**, **BRHCDate**, **BRHCLocation** (sibling order is part of the scene contract for paint order; see **TB-1**). **`paintOrder.overrides`** apply only among **direct sibling** named groups.
 - **MainLabel** — named group **MainLabel** containing one **TextElement** (leaf/style binding name **MainLabel**).
-- **BLHCLocation** — one named group **BLHCLocation** containing one **TextElement** (leaf/style binding name **BLHCLocation**).
-- **BLHCDate** — one named group **BLHCDate** containing one **TextElement** (leaf/style binding name **BLHCDate**).
+- **BRHCLocation** — one named group **BRHCLocation** containing one **TextElement** (leaf/style binding name **BRHCLocation**).
+- **BRHCDate** — one named group **BRHCDate** containing one **TextElement** (leaf/style binding name **BRHCDate**).
 
 ### Generator note
 
@@ -329,7 +329,7 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ### HomeMenuTrigger
 
-**HomeMenuTrigger** is a **top-level** named group (**not** a child of **BLHCBundle**). Its geometry **must not** expand **§Global layout bounds** (**TB-2**); hosts **must not** fold its axis-aligned bounds into framing or preview-rectangle logic.
+**HomeMenuTrigger** is a **top-level** named group (**not** a child of **BRHCBundle**). Its geometry **must not** expand **§Global layout bounds** (**TB-2**); hosts **must not** fold its axis-aligned bounds into framing or preview-rectangle logic.
 
 **Placement** (after **§Global layout bounds** passes **2b** and **3**):
 
@@ -341,7 +341,7 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 **Scene model**
 
-- Default deterministic **root** sibling order (when **`paintOrder`** is omitted) ends with **`…`**, **BLHCBundle**, **Brand**, **HomeMenuTrigger** so the control paints above **Brand** by default.
+- Default deterministic **root** sibling order (when **`paintOrder`** is omitted) ends with **`…`**, **BRHCBundle**, **Brand**, **HomeMenuTrigger** so the control paints above **Brand** by default.
 - **HomeMenuTrigger** — named group **HomeMenuTrigger** (**direct child** of the diagram root): one filled rounded square with **`rx = ry = diameter/2`** (circular silhouette) plus named subgroup **HomeMenuTriggerIcon** with three horizontal **line** primitives (hamburger). Style bindings use leaf group names **HomeMenuTrigger** and **HomeMenuTriggerIcon**.
 - **Brand** — named group **Brand** (**direct child** of the diagram root): one **TextElement** for the fixed URL line; **horizontal justification** **left**; trailing placement uses **`B_left`** and **`y_brand`** above.
 
@@ -349,7 +349,7 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 ### MainLabel placement
 
-- **MainLabel** is emitted as one **text** leaf in named group **MainLabel**, **child of** named group **BLHCBundle** (see **§BLHCBundle** scene model).
+- **MainLabel** is emitted as one **text** leaf in named group **MainLabel**, **child of** named group **BRHCBundle** (see **§BRHCBundle** scene model).
 - Font height is fixed by the generator at **0.045·RefRadius**.
 - **MainLabel** uses horizontal justification **right**; trailing anchor **`x = B_right`** (see **§Horizontal placement (bundle rows)**).
 - MainLabel baseline **`y_mainLabel`** per **§Vertical placement** (independent **Y** from other bundle rows).
@@ -565,7 +565,7 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 
 ### Hand time readout (`Hand.TimeReadout` / `Hand.TimeReadoutSeconds`)
 
-This is **not** **BLHCBundle** (**MainLabel** / **BLHCDate** / **BLHCLocation**): that bundle’s rows use **B_right** and **B_bottom** (**§Global layout bounds**). The **Hand** readout is a single visual line of the same global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**, emitted as **two** sibling named groups (each with one **text** primitive) so hosts may bind styles per leaf: **`Hand.TimeReadout`** carries **`HH:MM:`** and **`Hand.TimeReadoutSeconds`** carries **`SS`**.
+This is **not** **BRHCBundle** (**MainLabel** / **BRHCDate** / **BRHCLocation**): that bundle’s rows use **B_right** and **B_bottom** (**§Global layout bounds**). The **Hand** readout is a single visual line of the same global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**, emitted as **two** sibling named groups (each with one **text** primitive) so hosts may bind styles per leaf: **`Hand.TimeReadout`** carries **`HH:MM:`** and **`Hand.TimeReadoutSeconds`** carries **`SS`**.
 
 - Required diagram input **`hand.armTimeLabelFontHeight`**: finite dimensionless **k > 0** (**§Sizing**). **FontHeight** is **`hand.armTimeLabelFontHeight · RefRadius`**. This is independent of **TickLabel** sizing; it applies to **both** readout texts (identical **font-size** unless a host overrides via style).
 - **Text** — concatenation of the two leaves reproduces the canonical **`timeNow`** string (second resolution; no reformatting beyond what the host supplies in that canonical form).

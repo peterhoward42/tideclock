@@ -42,7 +42,7 @@ describe('buildDiagramGenerationSpec', () => {
     const spec = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
-      blhcDatePrefix: FIXTURE_DATE_PREFIX,
+      brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
     });
@@ -57,7 +57,7 @@ describe('buildDiagramGenerationSpec', () => {
       buildDiagramGenerationSpec({
         extremesAtLocation: TideExtremesAtLocation.fromPossiblyUnordered(1, 2, []),
         timeNow: '12:00:00',
-        blhcDatePrefix: FIXTURE_DATE_PREFIX,
+        brhcDatePrefix: FIXTURE_DATE_PREFIX,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
         townName: 'Lymington',
       }),
@@ -68,7 +68,7 @@ describe('buildDiagramGenerationSpec', () => {
     const base = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
-      blhcDatePrefix: FIXTURE_DATE_PREFIX,
+      brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
     });
@@ -76,7 +76,7 @@ describe('buildDiagramGenerationSpec', () => {
     const withSemantic = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
-      blhcDatePrefix: FIXTURE_DATE_PREFIX,
+      brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
       derivedSemantics: { nextTide },
@@ -91,7 +91,7 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
     const baseSpec = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
-      blhcDatePrefix: FIXTURE_DATE_PREFIX,
+      brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
     });
@@ -100,7 +100,7 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
     const injected = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
-      blhcDatePrefix: FIXTURE_DATE_PREFIX,
+      brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
       derivedSemantics: { nextTide },
@@ -113,14 +113,14 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
     const baseSpec = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
-      blhcDatePrefix: FIXTURE_DATE_PREFIX,
+      brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
     });
     const spec = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
-      blhcDatePrefix: FIXTURE_DATE_PREFIX,
+      brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
       derivedSemantics: deriveNextTideSemantics(baseSpec),
@@ -133,7 +133,7 @@ describe('buildDiagramGenerationSpec + createDiagramGenerationCollaborator', () 
     const spec = buildDiagramGenerationSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
       timeNow: '19:20:03',
-      blhcDatePrefix: FIXTURE_DATE_PREFIX,
+      brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
     });
