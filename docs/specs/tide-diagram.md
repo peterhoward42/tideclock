@@ -114,14 +114,6 @@ axis; the RefArc spans **symmetrically about the negative Y** axis.
 - Let **θ_left** and **θ_right** be the polar angles of the leftmost and
 rightmost endpoints of the RefArc. The remainder of the diagram geometry is a
 function of the RefArc.
-- **MainLabel** is a horizontal **TextElement** with **right** justification (bundle alignment; **§BRHCBundle**).
-  Its **content** is one synthesized line:
-  `**Next tide extreme tomorrow**` when no marker exists at or after `**timeNow`**
-  on the same civil day; otherwise `**Tricky tides today**` when
-  `**spec.semantic.atypicalTideSummary = true`**; otherwise
-  `**<Low|High> tide at <HH:MM>**`. Low/high and event clock text are derived
-  from the next event computed from marker schedule and canonical time parsing
-  (see **TideMarks**, **§Time and θ(t)**).
 
 ### §Time and θ(t)
 
@@ -250,12 +242,7 @@ does **not** apply silent numeric defaults for layout keys
 ### Derived behaviour (civil day vs `timeNow`)
 
 The **product** assumes at least **one** tide extreme on the civil day and a
-**non-empty** `**tideMarks.markers`** list describing those extremes. The
-open-ended time-navigation case is when there is **no** marker at or after
-`**timeNow`** on that day (for example, after the last tide): **MainLabel**
-content becomes `**Next tide extreme tomorrow**`. This branch is derived from
-`**timeNow`** and the marker schedule; it is **not** triggered by missing spec
-fields.
+**non-empty** `**tideMarks.markers`** list describing those extremes. 
 
 When `**spec.semantic.nextTide`** is injected, layout may use it for next-tide timing
 instead of scanning markers; `**tideMarks`** remains **required** for drawing **TideMarks**.
@@ -467,7 +454,7 @@ Each marker emits one cluster with direct children:
 - The string follows that circle (per-glyph tangential layout; **arcText** in the scene model). **Horizontal justification along the arc** is **center**: the **angular midpoint** of the glyph run lies on the marker radial **θ(t)** (the same angle as **TimePointer** vertex **Vertex1** on the RefArc).
 - Implementation equivalence: choose a CCW angular span **sweep** for the string from estimated chord length and font size; place the span so **θ(t)** bisects it (start angle **θ(t) − sweep/2** on the label circle when **sweep** is positive CCW).
 - **FontHeight** (**k·R**): height label uses `**<TideHeightLabelSize>`·R**.
-- **Text**: height label content is from the host (`**heightText`**). Marker `**time`** is not rendered on the marker cluster; it is used for **θ(t)**, **MainLabel**, temporal class, and related logic only.
+- **Text**: height label content is from the host (`**heightText`**). Marker `**time`** is not rendered on the marker cluster; it is used for **θ(t)**
 - Other **Text Element** rules apply where they match **arcText** emission unless overridden above.
 
 ### TimePointer
@@ -551,7 +538,12 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 
 ### Hand time readout (`Hand.TimeReadout` / `Hand.TimeReadoutSeconds`)
 
-This is **not** **BRHCBundle** (**MainLabel** / **BRHCDate** / **BRHCLocation**): that bundle’s rows use **B_right** and **B_bottom** (**§Global layout bounds**). The **Hand** readout is a single visual line of the same global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**, emitted as **two** sibling named groups (each with one **text** primitive) so hosts may bind styles per leaf: **`Hand.TimeReadout`** carries **`HH:MM:`** and **`Hand.TimeReadoutSeconds`** carries **`SS`**.
+A single visual line of the global canonical
+**`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input** / **§Time and
+θ(t)**), positioned along the **Hand** so it moves with **`θ_now`**, emitted as
+**two** sibling named groups (each with one **text** primitive) so hosts may bind
+styles per leaf: **`Hand.TimeReadout`** carries **`HH:MM:`** and
+**`Hand.TimeReadoutSeconds`** carries **`SS`**.
 
 - Required diagram input **`hand.armTimeLabelFontHeight`**: finite dimensionless **k > 0** (**§Sizing**). **FontHeight** is **`hand.armTimeLabelFontHeight · RefRadius`**. This is independent of **TickLabel** sizing; it applies to **both** readout texts (identical **font-size** unless a host overrides via style).
 - **Text** — concatenation of the two leaves reproduces the canonical **`timeNow`** string (second resolution; no reformatting beyond what the host supplies in that canonical form).

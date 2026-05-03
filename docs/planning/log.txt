@@ -62,10 +62,12 @@ o  first glance ux assimilation suggestions
 		o  styles or append/prepend for brhc?
 
 	o  challenge spec sillyness again in respect of
-		BLHCBundle
-			*  ask for a from-implementation rewrite
-			*  its is lousy
-			o  write my own and ask for why can't be this simple
+		* BLHCBundle
+		* MainLabel
+		o MainLabel font height from input ONLY - no 0.045 consts
+
+		There should be no constants in the spec like this
+			FontHeight 0.045·RefRadius
 
 		HomeMenuTrigger
 		MainLabel says font size fixed at...
