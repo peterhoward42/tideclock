@@ -33,10 +33,10 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "brand": {
     "anchor": {
       "x": -155.76000000000002,
-      "y": -158.27203550303113,
+      "y": -157.98883550303114,
     },
     "content": "thetideclock.page",
-    "fontSize": 3.3040000000000003,
+    "fontSize": 4.72,
     "hAlign": "left",
   },
   "dividorArc": {
@@ -85,8 +85,8 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   },
   "homeMenuTrigger": {
     "center": {
-      "x": 145.14000000000001,
-      "y": -119.4028355030311,
+      "x": -145.14000000000001,
+      "y": -135.33283550303113,
     },
     "diameter": 21.24,
     "iconBarCenterSpacing": 2.95,
@@ -2325,61 +2325,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
             "kind": "group",
             "name": "BLHCLocation",
           },
-          {
-            "children": [
-              {
-                "center": {
-                  "x": 145.14000000000001,
-                  "y": -119.4028355030311,
-                },
-                "height": 21.24,
-                "kind": "roundedRect",
-                "rx": 10.62,
-                "width": 21.24,
-              },
-              {
-                "children": [
-                  {
-                    "end": {
-                      "x": 150.45000000000002,
-                      "y": -116.4528355030311,
-                    },
-                    "kind": "line",
-                    "start": {
-                      "x": 139.83,
-                      "y": -116.4528355030311,
-                    },
-                  },
-                  {
-                    "end": {
-                      "x": 150.45000000000002,
-                      "y": -119.4028355030311,
-                    },
-                    "kind": "line",
-                    "start": {
-                      "x": 139.83,
-                      "y": -119.4028355030311,
-                    },
-                  },
-                  {
-                    "end": {
-                      "x": 150.45000000000002,
-                      "y": -122.3528355030311,
-                    },
-                    "kind": "line",
-                    "start": {
-                      "x": 139.83,
-                      "y": -122.3528355030311,
-                    },
-                  },
-                ],
-                "kind": "group",
-                "name": "HomeMenuTriggerIcon",
-              },
-            ],
-            "kind": "group",
-            "name": "HomeMenuTrigger",
-          },
         ],
         "kind": "group",
         "name": "BLHCBundle",
@@ -2389,17 +2334,72 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           {
             "anchor": {
               "x": -155.76000000000002,
-              "y": -158.27203550303113,
+              "y": -157.98883550303114,
             },
             "angleRad": 0,
             "content": "thetideclock.page",
             "hAlign": "left",
             "kind": "text",
-            "size": 3.3040000000000003,
+            "size": 4.72,
           },
         ],
         "kind": "group",
         "name": "Brand",
+      },
+      {
+        "children": [
+          {
+            "center": {
+              "x": -145.14000000000001,
+              "y": -135.33283550303113,
+            },
+            "height": 21.24,
+            "kind": "roundedRect",
+            "rx": 10.62,
+            "width": 21.24,
+          },
+          {
+            "children": [
+              {
+                "end": {
+                  "x": -139.83,
+                  "y": -132.38283550303115,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -150.45000000000002,
+                  "y": -132.38283550303115,
+                },
+              },
+              {
+                "end": {
+                  "x": -139.83,
+                  "y": -135.33283550303113,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -150.45000000000002,
+                  "y": -135.33283550303113,
+                },
+              },
+              {
+                "end": {
+                  "x": -139.83,
+                  "y": -138.28283550303112,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -150.45000000000002,
+                  "y": -138.28283550303112,
+                },
+              },
+            ],
+            "kind": "group",
+            "name": "HomeMenuTriggerIcon",
+          },
+        ],
+        "kind": "group",
+        "name": "HomeMenuTrigger",
       },
     ],
     "kind": "group",

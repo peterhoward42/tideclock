@@ -14,7 +14,7 @@
  * - Optional `**layoutBoundsBottomMargin**` (**k·R**, **>= 0**): pass 3 of global layout bounds; extends **B_bottom** downward; when omitted, **0**.
  * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **Hand.TimeReadout** placement) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
- * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**gapAboveLocation**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; gaps **>= 0**). Placed as the top row of **BLHCBundle**: trailing edge at **B_right**, above **BLHCLocation**. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
+ * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**menuLeftPadding**`, `**menuAboveBrand**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; paddings and **iconBarGap** **>= 0**). Placed as a **top-level** scene sibling (**not** inside **BLHCBundle**): leading edge inset from **B_left** by **`menuLeftPadding·R`**, with vertical gap **`menuAboveBrand·R`** between **Brand**’s ascent top and the bottom of the circular control. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
  * - **MainLabel** is horizontal text inside **BLHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
  * - `**blhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**blhcDatePrefix**` is a required string (see spec).
  * - `**brandFontHeight**` is required: finite **k·R** **> 0** for fixed-content **Brand** text (**left** / **B_bottom** alignment).
@@ -62,7 +62,6 @@ const BRAND_TEXT = "thetideclock.page";
  *   mainLabel: import('../model/tideDiagramModel.mjs').MainLabelDiagram,
  *   blhcLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst,
  *   blhcDate: import('../model/tideDiagramModel.mjs').DiagramTextInst,
- *   homeMenuTrigger: import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram,
  * }}
  */
 function buildBlhcBundleFromSpec(
@@ -102,13 +101,6 @@ function buildBlhcBundleFromSpec(
   const dateY = mainLabelBaselineY + dateAboveK * refRadius + mainLabelFontSize;
   const locationY = dateY + dateAboveK * refRadius + fontSize;
   const mainLabel = buildMainLabel(ax, mainLabelBaselineY, refRadius, mainLabelContent);
-  const homeMenuTrigger = buildHomeMenuTriggerInBundleFromSpec(
-    spec,
-    refRadius,
-    ax,
-    locationY,
-    fontSize,
-  );
   return {
     mainLabel,
     blhcLocation: {
@@ -123,7 +115,6 @@ function buildBlhcBundleFromSpec(
       anchor: { x: ax, y: dateY },
       hAlign: "right",
     },
-    homeMenuTrigger,
   };
 }
 
@@ -554,7 +545,7 @@ export function buildDiagram(spec) {
     mainLabelContent = `${nextEventForMainLabel.kind} tide at ${formatEventClockHHMM(nextEventForMainLabel.seconds)}`;
   }
 
-  const { mainLabel, blhcLocation, blhcDate, homeMenuTrigger } = buildBlhcBundleFromSpec(
+  const { mainLabel, blhcLocation, blhcDate } = buildBlhcBundleFromSpec(
     spec,
     refRadius,
     layoutBounds.maxX,
@@ -567,7 +558,6 @@ export function buildDiagram(spec) {
     anchor: mainLabel.anchor,
     hAlign: "right",
   });
-  // Intentionally omit homeMenuTrigger from layoutBounds — spec: menu geometry must not expand B_*.
 
   const brandFontHeightK = readBrandFontHeightKFromSpec(spec);
   const brandFontSize = brandFontHeightK * refRadius;
@@ -578,6 +568,14 @@ export function buildDiagram(spec) {
     anchor: { x: layoutBounds.minX, y: brandBaselineY },
     hAlign: "left",
   };
+  const homeMenuTrigger = buildHomeMenuTriggerFromSpec(
+    spec,
+    refRadius,
+    layoutBounds.minX,
+    brandBaselineY,
+    brandFontSize,
+  );
+  // Intentionally omit homeMenuTrigger from layoutBounds — spec: menu geometry must not expand B_*.
   includeDiagramTextBounds(layoutBounds, {
     content: brand.content,
     fontSize: brand.fontSize,
@@ -715,23 +713,27 @@ function readBrandFontHeightKFromSpec(spec) {
 /**
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
- * @param {number} rightEdgeX **B_right** (trailing edge for right-aligned bundle rows)
- * @param {number} locationBaselineY **BLHCLocation** baseline **Y**
- * @param {number} locationFontSize **BLHCLocation** font size (diagram units)
+ * @param {number} leftEdgeX **B_left** (leading edge for **Brand** / inset reference)
+ * @param {number} brandBaselineY **Brand** text baseline **Y**
+ * @param {number} brandFontSize **Brand** font size (diagram units)
  * @returns {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram}
  */
-function buildHomeMenuTriggerInBundleFromSpec(
+function buildHomeMenuTriggerFromSpec(
   spec,
   refRadius,
-  rightEdgeX,
-  locationBaselineY,
-  locationFontSize,
+  leftEdgeX,
+  brandBaselineY,
+  brandFontSize,
 ) {
   const o = requirePlainObject(spec.homeMenuTrigger, "spec.homeMenuTrigger");
   const diameterK = requireFiniteNumber(o.diameter, "spec.homeMenuTrigger.diameter");
-  const gapAboveLocationK = requireFiniteNumber(
-    o.gapAboveLocation,
-    "spec.homeMenuTrigger.gapAboveLocation",
+  const menuLeftPaddingK = requireFiniteNumber(
+    o.menuLeftPadding,
+    "spec.homeMenuTrigger.menuLeftPadding",
+  );
+  const menuAboveBrandK = requireFiniteNumber(
+    o.menuAboveBrand,
+    "spec.homeMenuTrigger.menuAboveBrand",
   );
   const iconBarLengthK = requireFiniteNumber(
     o.iconBarLength,
@@ -741,8 +743,11 @@ function buildHomeMenuTriggerInBundleFromSpec(
   if (!(diameterK > 0)) {
     throw new Error("spec.homeMenuTrigger.diameter must be greater than 0");
   }
-  if (gapAboveLocationK < 0) {
-    throw new Error("spec.homeMenuTrigger.gapAboveLocation must be >= 0");
+  if (menuLeftPaddingK < 0) {
+    throw new Error("spec.homeMenuTrigger.menuLeftPadding must be >= 0");
+  }
+  if (menuAboveBrandK < 0) {
+    throw new Error("spec.homeMenuTrigger.menuAboveBrand must be >= 0");
   }
   if (!(iconBarLengthK > 0)) {
     throw new Error("spec.homeMenuTrigger.iconBarLength must be greater than 0");
@@ -751,9 +756,10 @@ function buildHomeMenuTriggerInBundleFromSpec(
     throw new Error("spec.homeMenuTrigger.iconBarGap must be >= 0");
   }
   const diameter = diameterK * refRadius;
-  const locationTopY = locationBaselineY + TEXT_ASCENT_EM * locationFontSize;
-  const centerY = locationTopY + gapAboveLocationK * refRadius + 0.5 * diameter;
-  const centerX = rightEdgeX - 0.5 * diameter;
+  const brandTopY = brandBaselineY + TEXT_ASCENT_EM * brandFontSize;
+  const menuBottomY = brandTopY + menuAboveBrandK * refRadius;
+  const centerY = menuBottomY + 0.5 * diameter;
+  const centerX = leftEdgeX + menuLeftPaddingK * refRadius + 0.5 * diameter;
   return {
     center: { x: centerX, y: centerY },
     diameter,

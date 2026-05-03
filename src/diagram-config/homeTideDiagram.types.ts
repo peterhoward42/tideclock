@@ -73,8 +73,10 @@ export type HomeTideDiagramLayoutBase = {
   readonly homeMenuTrigger: {
     /** k·RefRadius: circular control diameter. */
     readonly diameter: number;
-    /** k·RefRadius: gap from BLHCLocation visual top to bottom of the circular trigger. */
-    readonly gapAboveLocation: number;
+    /** k·RefRadius: inset from **B_left** to the leading (left) edge of the circular control. */
+    readonly menuLeftPadding: number;
+    /** k·RefRadius: vertical gap between **Brand** ascent top and the bottom of the circular control. */
+    readonly menuAboveBrand: number;
     /** k·RefRadius: full width of each hamburger bar. */
     readonly iconBarLength: number;
     /** k·RefRadius: distance between adjacent bar centerlines (middle bar is on trigger centre). */

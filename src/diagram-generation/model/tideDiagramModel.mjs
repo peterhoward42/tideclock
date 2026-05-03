@@ -112,7 +112,7 @@
  *   hAlign: 'right',
  * }} MainLabelDiagram
  *
- * Home menu trigger: circular control + hamburger icon; child of **BLHCBundle** in scene order.
+ * Home menu trigger: circular control + hamburger icon; top-level scene sibling (not inside **BLHCBundle**).
  *
  * @typedef {{
  *   center: DiagramPoint,

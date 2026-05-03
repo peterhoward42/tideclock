@@ -44,7 +44,8 @@ export const homeTideDiagramLayoutBase = {
   dividorArc: { radiusK: 1.32 },
   homeMenuTrigger: {
     diameter: 0.18,
-    gapAboveLocation: 0.070,
+    menuLeftPadding: 0,
+    menuAboveBrand: 0.070,
     iconBarLength: 0.09,
     iconBarGap: 0.025,
   },

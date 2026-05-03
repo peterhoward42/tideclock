@@ -142,7 +142,7 @@ describe('createDiagramGenerationCollaborator', () => {
     expect(diagram.brand.anchor.y - 0.2 * diagram.brand.fontSize).toBeCloseTo(bBottom, 6);
   });
 
-  it('right-aligns BLHCBundle to B_right and stacks HomeMenuTrigger above BLHCLocation (excluded from B_*)', () => {
+  it('right-aligns BLHCBundle to B_right and places HomeMenuTrigger inset from B_left above Brand (excluded from B_*)', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
@@ -170,13 +170,15 @@ describe('createDiagramGenerationCollaborator', () => {
     );
 
     const d = diagram.homeMenuTrigger.diameter;
-    expect(diagram.homeMenuTrigger.center.x).toBeCloseTo(bundleRightX - 0.5 * d, 6);
-    const locTop =
-      diagram.blhcLocation.anchor.y + 0.8 * diagram.blhcLocation.fontSize;
+    const R = diagram.refArc.refRadius;
+    const bLeft = diagram.brand.anchor.x;
+    const padK = (spec.homeMenuTrigger as { readonly menuLeftPadding: number }).menuLeftPadding;
+    expect(diagram.homeMenuTrigger.center.x).toBeCloseTo(bLeft + padK * R + 0.5 * d, 6);
+    const brandTop =
+      diagram.brand.anchor.y + 0.8 * diagram.brand.fontSize;
     const gap =
-      (spec.homeMenuTrigger as { readonly gapAboveLocation: number }).gapAboveLocation *
-      diagram.refArc.refRadius;
-    expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(locTop + gap + 0.5 * d, 6);
+      (spec.homeMenuTrigger as { readonly menuAboveBrand: number }).menuAboveBrand * R;
+    expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(brandTop + gap + 0.5 * d, 6);
   });
 
   it('applies layoutBoundsBottomMargin by extending B_bottom (date row and MainLabel shift down)', () => {
@@ -253,6 +255,7 @@ describe('createDiagramGenerationCollaborator', () => {
       'TickLabel',
       'BLHCBundle',
       'Brand',
+      'HomeMenuTrigger',
     ]);
   });
 

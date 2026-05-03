@@ -622,7 +622,7 @@ export function handDiagramToGroup(hand, cx, cy) {
 }
 
 /**
- * Circular menu control + three-bar icon; nested under **BLHCBundle**.
+ * Circular menu control + three-bar icon; **top-level** scene sibling (not under **BLHCBundle**).
  *
  * @param {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram} hm
  * @param {number} cx
@@ -832,7 +832,6 @@ export function tideDiagramToScene(diagram) {
     mainLabelGroup,
     blhcDateGroup,
     blhcLocationGroup,
-    homeMenuTriggerGroup,
   ]);
 
   const meta = {
@@ -851,6 +850,7 @@ export function tideDiagramToScene(diagram) {
     tickLabelsGroup,
     blhcBundleGroup,
     brandGroup,
+    homeMenuTriggerGroup,
   ]);
   const orderedRoot = applyPaintOrderOverrides(
     root,
