@@ -4,6 +4,8 @@ export type RoleColorProps = {
   readonly fillColor?: string;
   readonly strokeWidth?: number;
   readonly opacity?: number;
+  /** SVG/CSS numeric weight for text when the role is bound to a text leaf. */
+  readonly fontWeight?: 400 | 700;
 };
 
 export type SemanticRole = {

@@ -819,15 +819,23 @@ export function tideDiagramToScene(diagram) {
   ]);
 
   const homeMenuTriggerGroup = homeMenuTriggerDiagramToGroup(homeMenuTrigger, cx, cy);
-  const brandGroup = group("Brand", [
-    text({
-      content: brand.content,
-      size: brand.fontSize,
-      hAlign: brand.hAlign ?? "left",
-      angleRad: 0,
-      anchor: mapPoint(brand.anchor, cx, cy),
-    }),
-  ]);
+  const brandGroup = group(
+    "Brand",
+    brand.segments.map((seg) =>
+      group(seg.leafName, [
+        text({
+          content: seg.content,
+          size: brand.fontSize,
+          hAlign: seg.hAlign ?? "left",
+          angleRad: 0,
+          anchor: mapPoint(seg.anchor, cx, cy),
+          ...(seg.dominantBaseline === "middle"
+            ? { dominantBaseline: "middle" }
+            : {}),
+        }),
+      ]),
+    ),
+  );
   const brhcBundleGroup = group("BRHCBundle", [
     mainLabelGroup,
     brhcDateGroup,

@@ -51,7 +51,7 @@ export type HomeTideDiagramLayoutBase = {
     /** k·RefRadius: date baseline is this far above (+Y) the clock baseline (tick-label-min Y). */
     readonly dateAboveTime: number;
   };
-  /** k·RefRadius: **Brand** text font height (fixed copy `thetideclock.page`, left/bottom aligned; see tide-diagram spec). */
+  /** k·RefRadius: **Brand** text font height (fixed copy `tides·thetidedial.page`, left/bottom aligned; see tide-diagram spec). */
   readonly brandFontHeight: number;
   readonly annularBand: { readonly annularBandWidth: number };
   /** Stroked arc concentric with RefArc, same sweep; radius is **radiusK·refRadius** (see tide-diagram spec §Sizing). */

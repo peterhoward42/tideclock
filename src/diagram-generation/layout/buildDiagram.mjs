@@ -17,7 +17,7 @@
  * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**menuLeftPadding**`, `**menuAboveBrand**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; paddings and **iconBarGap** **>= 0**). Placed as a **top-level** scene sibling (**not** inside **BRHCBundle**): leading edge inset from **B_left** by **`menuLeftPadding·R`**, with vertical gap **`menuAboveBrand·R`** between **Brand**’s ascent top and the bottom of the circular control. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
  * - **MainLabel** is horizontal text inside **BRHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
  * - `**brhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**brhcDatePrefix**` is a required string (see spec).
- * - `**brandFontHeight**` is required: finite **k·R** **> 0** for fixed-content **Brand** text (**left** / **B_bottom** alignment).
+ * - `**brandFontHeight**` is required: finite **k·R** **> 0** for fixed-content **Brand** line (**`tides` · `thetidedial.page`**; **left** / **B_bottom** alignment).
  */
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
 import {
@@ -46,8 +46,13 @@ const TEXT_DESCENT_EM = 0.2;
 /** Fixed **k·R** font-height multiple for **MainLabel** (see tide-diagram spec). */
 const MAIN_LABEL_FONT_HEIGHT_K = 0.045;
 
-/** Fixed **Brand** line (host URL); diagram input supplies **FontHeight** only. */
-const BRAND_TEXT = "thetideclock.page";
+/** Fixed **Brand** copy (**`Brand`** group); diagram input supplies **FontHeight** only. */
+const BRAND_WORD = "tides";
+/** U+00B7 middle dot; separator anchor uses **dominant-baseline** **middle** at em-mid **Y**. */
+const BRAND_SEPARATOR = "\u00B7";
+const BRAND_DOMAIN = "thetidedial.page";
+/** Horizontal gap (**·FontHeight**) between word, dot, and domain (reference generator). */
+const BRAND_SEP_GAP_EM = 0.22;
 
 /**
  * **BRHCBundle**: **MainLabel** (tide summary, bottom row), **BRHCDate**, **BRHCLocation** — each row **right**-justified to **B_right**;
@@ -562,11 +567,40 @@ export function buildDiagram(spec) {
   const brandFontHeightK = readBrandFontHeightKFromSpec(spec);
   const brandFontSize = brandFontHeightK * refRadius;
   const brandBaselineY = layoutBounds.minY + TEXT_DESCENT_EM * brandFontSize;
+  const brandLeadingX = layoutBounds.minX;
+  const brandCharWidth = brandFontSize * BRHC_LABEL_CHAR_WIDTH_EM;
+  const brandSepY =
+    brandBaselineY +
+    0.5 * (TEXT_ASCENT_EM - TEXT_DESCENT_EM) * brandFontSize;
+  const wTides = Array.from(BRAND_WORD).length * brandCharWidth;
+  const wSep = Array.from(BRAND_SEPARATOR).length * brandCharWidth;
+  const sideGap = BRAND_SEP_GAP_EM * brandFontSize;
+  const xSep = brandLeadingX + wTides + sideGap;
+  const xDomain = xSep + wSep + sideGap;
   const brand = {
-    content: BRAND_TEXT,
     fontSize: brandFontSize,
-    anchor: { x: layoutBounds.minX, y: brandBaselineY },
-    hAlign: "left",
+    anchor: { x: brandLeadingX, y: brandBaselineY },
+    segments: [
+      {
+        leafName: "Brand.tides",
+        content: BRAND_WORD,
+        anchor: { x: brandLeadingX, y: brandBaselineY },
+        hAlign: "left",
+      },
+      {
+        leafName: "Brand.separator",
+        content: BRAND_SEPARATOR,
+        anchor: { x: xSep, y: brandSepY },
+        hAlign: "left",
+        dominantBaseline: "middle",
+      },
+      {
+        leafName: "Brand.domain",
+        content: BRAND_DOMAIN,
+        anchor: { x: xDomain, y: brandBaselineY },
+        hAlign: "left",
+      },
+    ],
   };
   const homeMenuTrigger = buildHomeMenuTriggerFromSpec(
     spec,
@@ -576,12 +610,15 @@ export function buildDiagram(spec) {
     brandFontSize,
   );
   // Intentionally omit homeMenuTrigger from layoutBounds — spec: menu geometry must not expand B_*.
-  includeDiagramTextBounds(layoutBounds, {
-    content: brand.content,
-    fontSize: brand.fontSize,
-    anchor: brand.anchor,
-    hAlign: "left",
-  });
+  for (const seg of brand.segments) {
+    includeDiagramTextBounds(layoutBounds, {
+      content: seg.content,
+      fontSize: brand.fontSize,
+      anchor: seg.anchor,
+      hAlign: seg.hAlign,
+      dominantBaseline: seg.dominantBaseline,
+    });
+  }
 
   return {
     version: 1,

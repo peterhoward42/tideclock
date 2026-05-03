@@ -17,9 +17,37 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "x": -126.42985520821964,
       "y": -132.39600000000002,
     },
-    "content": "thetideclock.page",
     "fontSize": 3.54,
-    "hAlign": "left",
+    "segments": [
+      {
+        "anchor": {
+          "x": -126.42985520821964,
+          "y": -132.39600000000002,
+        },
+        "content": "tides",
+        "hAlign": "left",
+        "leafName": "Brand.tides",
+      },
+      {
+        "anchor": {
+          "x": -115.03105520821963,
+          "y": -131.334,
+        },
+        "content": "·",
+        "dominantBaseline": "middle",
+        "hAlign": "left",
+        "leafName": "Brand.separator",
+      },
+      {
+        "anchor": {
+          "x": -112.12825520821963,
+          "y": -132.39600000000002,
+        },
+        "content": "thetidedial.page",
+        "hAlign": "left",
+        "leafName": "Brand.domain",
+      },
+    ],
   },
   "brhcDate": {
     "anchor": {

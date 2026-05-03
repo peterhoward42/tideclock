@@ -3,7 +3,12 @@ import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import { homeTideDiagramLayoutBase } from '../diagram-config';
 import { buildDiagramGenerationSpec, utcIsoToLocalCanonicalTimeUtc } from './buildDiagramGenerationSpec';
-import { annularBandMaxX, createDiagramGenerationCollaborator } from './diagramGenerationCollaborator';
+import { loadStyleModel } from '../diagram-generation/index.mjs';
+import {
+  annularBandMaxX,
+  createDiagramGenerationCollaborator,
+  renderSceneSvg,
+} from './diagramGenerationCollaborator';
 
 function minimalExtremesForCollaboratorTest(): TideExtremesAtLocation {
   return TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
@@ -134,12 +139,31 @@ describe('createDiagramGenerationCollaborator', () => {
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
     const k = (spec as { brandFontHeight: number }).brandFontHeight;
-    expect(diagram.brand.content).toBe('thetideclock.page');
-    expect(diagram.brand.hAlign).toBe('left');
+    expect(diagram.brand.segments.map((s) => s.content).join('')).toBe('tides·thetidedial.page');
+    expect(diagram.brand.segments[0]?.hAlign).toBe('left');
     expect(diagram.brand.fontSize).toBeCloseTo(k * diagram.refArc.refRadius, 6);
     const bBottom =
       diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
     expect(diagram.brand.anchor.y - 0.2 * diagram.brand.fontSize).toBeCloseTo(bBottom, 6);
+    expect(diagram.brand.segments[1]?.dominantBaseline).toBe('middle');
+  });
+
+  it('renders Brand.tides with font-weight 700 from the home style model', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const { scene, styleRuntime } = collaborator.generate(baseSpecForCollaboratorTest());
+    const svg = renderSceneSvg(scene, { styleRuntime });
+    expect(svg).toContain('font-weight="700"');
+    expect(svg).toContain('>tides<');
+    expect(svg).toContain('>thetidedial.page<');
+  });
+
+  it('rejects style role fontWeight other than 400 or 700', () => {
+    expect(() =>
+      loadStyleModel({
+        roles: [{ name: 'r', colors: { color: '#333', fontWeight: 600 } }],
+        bindings: [{ name: 'X', roleName: 'r' }],
+      }),
+    ).toThrow(/fontWeight must be 400 or 700/);
   });
 
   it('right-aligns BRHCBundle to B_right and places HomeMenuTrigger inset from B_left above Brand (excluded from B_*)', () => {

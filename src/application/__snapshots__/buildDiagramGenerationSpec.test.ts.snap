@@ -17,9 +17,37 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "x": -155.76000000000002,
       "y": -157.98883550303114,
     },
-    "content": "thetideclock.page",
     "fontSize": 4.72,
-    "hAlign": "left",
+    "segments": [
+      {
+        "anchor": {
+          "x": -155.76000000000002,
+          "y": -157.98883550303114,
+        },
+        "content": "tides",
+        "hAlign": "left",
+        "leafName": "Brand.tides",
+      },
+      {
+        "anchor": {
+          "x": -140.56160000000003,
+          "y": -156.57283550303114,
+        },
+        "content": "·",
+        "dominantBaseline": "middle",
+        "hAlign": "left",
+        "leafName": "Brand.separator",
+      },
+      {
+        "anchor": {
+          "x": -136.69120000000004,
+          "y": -157.98883550303114,
+        },
+        "content": "thetidedial.page",
+        "hAlign": "left",
+        "leafName": "Brand.domain",
+      },
+    ],
   },
   "brhcDate": {
     "anchor": {
@@ -1084,7 +1112,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       "maxX": 156.76000000000002,
       "maxY": 6.9,
       "minX": -156.76000000000002,
-      "minY": -159.93283550303113,
+      "minY": -160.02723550303114,
     },
     "title": "home-tide-diagram",
   },
@@ -2332,15 +2360,56 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       {
         "children": [
           {
-            "anchor": {
-              "x": -155.76000000000002,
-              "y": -157.98883550303114,
-            },
-            "angleRad": 0,
-            "content": "thetideclock.page",
-            "hAlign": "left",
-            "kind": "text",
-            "size": 4.72,
+            "children": [
+              {
+                "anchor": {
+                  "x": -155.76000000000002,
+                  "y": -157.98883550303114,
+                },
+                "angleRad": 0,
+                "content": "tides",
+                "hAlign": "left",
+                "kind": "text",
+                "size": 4.72,
+              },
+            ],
+            "kind": "group",
+            "name": "Brand.tides",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": -140.56160000000003,
+                  "y": -156.57283550303114,
+                },
+                "angleRad": 0,
+                "content": "·",
+                "dominantBaseline": "middle",
+                "hAlign": "left",
+                "kind": "text",
+                "size": 4.72,
+              },
+            ],
+            "kind": "group",
+            "name": "Brand.separator",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": -136.69120000000004,
+                  "y": -157.98883550303114,
+                },
+                "angleRad": 0,
+                "content": "thetidedial.page",
+                "hAlign": "left",
+                "kind": "text",
+                "size": 4.72,
+              },
+            ],
+            "kind": "group",
+            "name": "Brand.domain",
           },
         ],
         "kind": "group",

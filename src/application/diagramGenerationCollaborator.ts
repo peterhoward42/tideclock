@@ -56,6 +56,21 @@ type DiagramTextInst = {
   readonly hAlign?: "left" | "center" | "right";
 };
 
+type BrandDiagramSegment = {
+  readonly leafName: string;
+  readonly content: string;
+  readonly anchor: DiagramPoint;
+  readonly hAlign: "left";
+  readonly dominantBaseline?: "alphabetic" | "middle";
+};
+
+/** Fixed **`tides` · `thetidedial.page`** line; **anchor** is the leading baseline at **B_left**. */
+type BrandDiagram = {
+  readonly fontSize: number;
+  readonly anchor: DiagramPoint;
+  readonly segments: readonly BrandDiagramSegment[];
+};
+
 type TideHeightLabelDiagram = {
   readonly content: string;
   readonly fontSize: number;
@@ -148,8 +163,8 @@ export type TideDiagramDocument = {
   readonly hand: HandDiagram;
   readonly brhcLocation: DiagramTextInst;
   readonly brhcDate: DiagramTextInst;
-  /** Fixed URL line; **left** at **B_left**, baseline on **B_bottom** (font size from spec `brandFontHeight`). */
-  readonly brand: DiagramTextInst;
+  /** Fixed brand line (**`Brand.*`** leaves); **left** at **B_left**, baseline on **B_bottom** (font size from spec `brandFontHeight`). */
+  readonly brand: BrandDiagram;
 };
 
 type ScenePoint = { readonly x: number; readonly y: number };
@@ -264,6 +279,8 @@ export type DiagramGenerationStyleRuntime = {
       readonly strokeColor?: string;
       readonly fillColor?: string;
       readonly strokeWidth?: number;
+      readonly opacity?: number;
+      readonly fontWeight?: 400 | 700;
     }
   >;
   readonly nameToRole: Map<string, string>;

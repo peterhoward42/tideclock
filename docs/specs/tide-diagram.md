@@ -86,7 +86,7 @@ Three-pass construction:
   - the stroked **Dividor** arc (radius **`dividorArc.radiusK·RefRadius`**, same centre and sweep),
   - **TickLabels** (text bounds; monospace width heuristic consistent with other diagram text),
   - **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** (rotated text along the **Hand**; see **§Hand time readout**).
-- **BRHCBundle** is positioned using **B_right** and **B_bottom** from this pass (and pass **3**); bundle rows are **right**-justified to **B_right**. After bundle placement, generation includes bundle text bounds when finalizing axis-aligned bounds for framing if needed.
+- **BRHCBundle** is positioned using **B_right** and **B_bottom** from this pass (and pass **3**); each bundle row is **right**-justified to **B_right**. How those rows participate in later bounds accumulation in the reference generator is spelled out in **§BRHCBundle** (distinct from scene **`meta.previewFrame`**, which reflects all emitted primitives).
 - **HomeMenuTrigger** is **not** part of the layout-bounds construction: its geometry **must not** expand **B_left**, **B_right**, **B_bottom**, or **B_top**. The tuple **(B_left, B_right, B_bottom, B_top)** is defined **without** reference to the menu control. The trigger may be placed using those edges (and may extend outside the resulting rectangle); hosts and generators **must not** fold the trigger’s axis-aligned bounds into framing or preview-rectangle logic.
 
 3) **Layout bottom margin**
@@ -243,8 +243,9 @@ The generator **throws** when required host fields are missing or wrong-type; it
 does **not** apply silent numeric defaults for layout keys 
 
 - Optional `**civilHalfDayLayout**` — see **§Global civil half-day layout**; invalid values are **errors**; when omitted, behaviour matches **`"auto"`**.
-- Required `**brandFontHeight`** — finite **k·R** **> 0**; **FontHeight** for the fixed-content **Brand** URL line (**left** at **B_left**, baseline derived from **B_bottom** per **§HomeMenuTrigger** / reference generator).
+- Required `**brandFontHeight`** — finite **k·R** **> 0**; **FontHeight** for the fixed-content **Brand** line (**left** at **B_left**, baseline derived from **B_bottom** per **§HomeMenuTrigger** / reference generator).
 - Required `**homeMenuTrigger**` — plain object: **`diameter`**, **`menuLeftPadding`**, **`menuAboveBrand`**, **`iconBarLength`**, **`iconBarGap`** — each a finite **k·R** number; **`diameter`** and **`iconBarLength`** must be **> 0**; **`menuLeftPadding`**, **`menuAboveBrand`**, and **`iconBarGap`** must be **≥ 0**. See **§HomeMenuTrigger**.
+- Required `**tickLabelHours`** — non-empty array; each element must be an integer in **{0, 1, …, 24}** (otherwise an error). **TickLabel** rows are emitted for those hours in list order; the reference product lists **1..23**.
 
 ### Derived behaviour (civil day vs `timeNow`)
 
@@ -289,43 +290,36 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
 - A style binding name must match the emitted leaf element name byte-for-byte.
 - This specification allocates leaf names **where the corresponding leaf is
 mandated**; it does not maintain a separate exhaustive registry section.
+- Optional role property **`fontWeight`**: when present on a bound role, must be **400** or **700**; hosts apply it to **text** primitives as SVG/CSS **`font-weight`**. When omitted, presentation uses the user agent default weight.
 
 ## 5. Element specs (TB-5)
 
 ### BRHCBundle
 
-**BRHCBundle** is a **top-level** named group (see **Diagram elements**) containing the bottom-anchored stack: synthesized **MainLabel** (tide summary) on the bottom row, then host-local civil **date prefix**, then host-local **location** — together with `**brhcLocation**` and `**brhcDatePrefix**`. Text rows are laid out upward from **B_bottom** (see **§Vertical placement**). **HomeMenuTrigger** is **not** part of this group (see **§HomeMenuTrigger**). Live wall-clock readout uses global canonical `**timeNow**` on **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** only (**§Hand time readout**). Hosts should treat **BRHCBundle** as the collective contract for this corner of the diagram, distinct from the **Hand** readout.
+**BRHCBundle** is a **top-level** named group (**direct child** of the diagram root; see **TB-1** / **Diagram elements**) that holds three **horizontal** text rows, stacked **upward** along **+Y** from **B_bottom**: tide summary (**MainLabel**), then host-supplied civil date text (**BRHCDate**), then host-supplied place name (**BRHCLocation**). It is **not** part of **Hand** geometry and does **not** show live **`timeNow`** clock digits — that role is **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** (**§Hand time readout**). **HomeMenuTrigger** is also **not** inside this group (**§HomeMenuTrigger**).
 
-### Shared inputs
+**Inputs** (all required by the reference generator):
 
-- Diagram input object `**brhcBundle`** — **required** plain object; finite numbers as **k·R** multiples (**§Sizing**):
-  - `**fontHeight`** — **k_font·R**; used as **FontHeight** for **BRHCLocation** and **BRHCDate** leaves.
-  - `**dateAboveTime`** — non-negative **k·R** gap: the **BRHCLocation** baseline is **`dateAboveTime·R`** **above** (+**Y**) the **BRHCDate** baseline (see **§Vertical placement** below).
-- Diagram input `**brhcLocation`** — required string for **BRHCLocation** text (current location name; may be empty after trim).
-- Diagram input `**brhcDatePrefix`** — required string for **BRHCDate** text (customary short form such as `**Wed 21 Jun`**; may be empty after trim).
+- `**brhcBundle**` — plain object with finite **`fontHeight`** and **`dateAboveTime`** (**k·R** per **§Sizing**). **`dateAboveTime`** must be **≥ 0**.
+- `**brhcLocation`** — string; content for **BRHCLocation** after **trim** (may be empty).
+- `**brhcDatePrefix`** — string; content for **BRHCDate** after **trim** (may be empty).
 
-### Horizontal placement (bundle rows)
+**Typography**: **MainLabel** uses fixed **FontHeight** **0.045·RefRadius** (see **MainLabel** below). **BRHCDate** and **BRHCLocation** use **`brhcBundle.fontHeight·RefRadius`**.
 
-- **MainLabel**, **BRHCLocation**, and **BRHCDate** use **horizontal justification** **right**: each row’s trailing anchor **x** is **B_right** (after **§Global layout bounds**, passes **2b** and **3**).
-- The bundle is **right-aligned to the diagram’s global right edge** **B_right** after **§Global layout bounds** (including pass **2b**), not to the **AnnularBand** sector alone.
+**Horizontal placement**: All three rows use **right** justification: each anchor **x** is **B_right** from **§Global layout bounds** (after passes **2b** and **3**), i.e. the global diagram right edge, not a local annular-sector edge alone.
 
-### Vertical placement
+**Vertical placement**: Let **`B_bottom`** be from **§Global layout bounds** (after pass **3**). Let **`h_main = 0.045·RefRadius`**, **`h_brhc = brhcBundle.fontHeight·RefRadius`**, and **`g = brhcBundle.dateAboveTime·RefRadius`**. Let **`d_em`** be the same descent fraction used elsewhere for alphabetic text in the reference generator (**≈ 0.2**, consistent with **Brand** / **Text anchor Y (global)**): the **MainLabel** alphabetic baseline is **`y_main = B_bottom + d_em·h_main`**, so the row’s lower ink extent meets **`B_bottom`**. Then:
 
-- Let **B_bottom** be from **§Global layout bounds**; let **`fontHeight·R`** be **`brhcBundle.fontHeight·RefRadius`** and **`k_main·R`** be **MainLabel** font height (**0.045·RefRadius**).
-- **MainLabel** — baseline **`y_mainLabel`**, with the tide-summary row bottom edge aligned to **B_bottom** (descent uses **MainLabel** **FontHeight** per **Text anchor Y (global)**).
-- **BRHCDate** — baseline **`y_date = y_mainLabel + dateAboveTime·R + k_main·R`** (row between **MainLabel** and **BRHCLocation**).
-- **BRHCLocation** — baseline **`y_location = y_date + dateAboveTime·R + fontHeight·R`**.
+- **`y_date = y_main + g + h_main`**
+- **`y_location = y_date + g + h_brhc`**
 
-### Scene model
+So **`dateAboveTime`** names an extra **g** added **between** consecutive baselines **in addition to** the full em height of the row **below** the step ( **`h_main`** after **MainLabel**, **`h_brhc`** after **BRHCDate**). The historical label “date above time” does **not** mean spacing is **`g`** alone between **BRHCDate** and **BRHCLocation**.
 
-- **BRHCBundle** — named group **BRHCBundle** containing, in deterministic generator order: **MainLabel**, **BRHCDate**, **BRHCLocation** (sibling order is part of the scene contract for paint order; see **TB-1**). **`paintOrder.overrides`** apply only among **direct sibling** named groups.
-- **MainLabel** — named group **MainLabel** containing one **TextElement** (leaf/style binding name **MainLabel**).
-- **BRHCLocation** — one named group **BRHCLocation** containing one **TextElement** (leaf/style binding name **BRHCLocation**).
-- **BRHCDate** — one named group **BRHCDate** containing one **TextElement** (leaf/style binding name **BRHCDate**).
+**Scene graph**: Group **`BRHCBundle`** contains, in this **deterministic** order (sibling order is part of the paint contract): nested group **`MainLabel`** → **`BRHCDate`** → **`BRHCLocation`**. Each nested group wraps exactly one **text** primitive; **style binding** leaf names are **`MainLabel`**, **`BRHCDate`**, **`BRHCLocation`**. Baseline polar angle **0** for all three.
 
-### Generator note
+**`paintOrder.overrides`**: May reorder **BRHCBundle** relative to other **direct** root named groups only (same rule as **TB-1**).
 
-- **`spec.tickLabelHours`** must yield **at least one** tick label when this diagram mode is used (the reference product lists **1..23**); an empty list is an error.
+**Reference `buildDiagram` vs scene framing**: After computing **`(B_left, B_right, B_bottom, B_top)`**, the reference generator places the bundle using **`B_right`** and **`B_bottom`**, then merges **MainLabel** text bounds into its internal **`layoutBounds`** accumulator (used for subsequent steps such as **Brand**). **BRHCDate** and **BRHCLocation** are **not** added to that same accumulator; they still appear in the emitted scene, and the scene’s **`meta.previewFrame`** includes **all** primitives (including those rows).
 
 ### HomeMenuTrigger
 
@@ -343,7 +337,7 @@ mandated**; it does not maintain a separate exhaustive registry section.
 
 - Default deterministic **root** sibling order (when **`paintOrder`** is omitted) ends with **`…`**, **BRHCBundle**, **Brand**, **HomeMenuTrigger** so the control paints above **Brand** by default.
 - **HomeMenuTrigger** — named group **HomeMenuTrigger** (**direct child** of the diagram root): one filled rounded square with **`rx = ry = diameter/2`** (circular silhouette) plus named subgroup **HomeMenuTriggerIcon** with three horizontal **line** primitives (hamburger). Style bindings use leaf group names **HomeMenuTrigger** and **HomeMenuTriggerIcon**.
-- **Brand** — named group **Brand** (**direct child** of the diagram root): one **TextElement** for the fixed URL line; **horizontal justification** **left**; trailing placement uses **`B_left`** and **`y_brand`** above.
+- **Brand** — named group **Brand** (**direct child** of the diagram root): three **TextElement** leaves in nested leaf groups **`Brand.tides`**, **`Brand.separator`**, **`Brand.domain`** (exact names for **Style binding names**). Fixed copy: **`tides`**, then a middle-dot separator (**`·`**, U+00B7), then **`thetidedial.page`**. The word run and the domain run share the **alphabetic** baseline **`y_brand`** and **left**-justify in sequence from **`B_left`**: the separator uses **horizontal justification** **left** with a small gap (**k_gap·FontHeight** on each side of the dot in the reference generator) and **`dominant-baseline` `middle`**, with anchor **`Y`** at the vertical midpoint of the brand em-box (**≈ `y_brand + 0.3·FontHeight`** in the reference generator) so the dot sits at mid-height of the line. **Typography** (colour, **font-weight** **400** vs **700**, opacity) is supplied only via **semantic roles** bound to those leaf names, not via diagram input; the reference style model uses **700** for **`Brand.tides`** and **400** for **`Brand.separator`** and **`Brand.domain`**. SVG text accepts the same numeric **`font-weight`** presentation values as CSS (**400**, **700**).
 
 ### MainLabel
 

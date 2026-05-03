@@ -34,15 +34,37 @@ o  first glance ux assimilation suggestions
 	*  Separate seconds on hand and style colours
 	*  The concentric rings could give the tide markers more space now
 	*  Make menu smaller and move to right
-	*  Style BRHC
+	*  Style BLHC
 	*  ChatGPT outline pips?
 
 	*  Branding on bottom left
 	*  Move menu over to left
-	o  More prominent location
-	o  Fix BRHCBundle name
+	*  More prominent location
+	*  Fix BLHCBundle name
+
+	o  pick off the usability notes below
+		*  brand
+		o  upgrade location in brhc to have "tides for" prefix
 
 	o  ChatGPT usability / assimilation advice
+		o  leverage brand or tides  .  thetidedial.page
+			o  first part stronger using only font weight
+		o  pulse the hand or boss
+			o  boss
+			o  radius
+			o  maybe opacity
+			o  4 to 6 second period - sine in / sine out
+			o  phase shifted away from the 1Hz time seconds update
+			o  maybe drop green on seconds readout
+		o  stronger ticks at key times
+		o  put "now" into the time string
+			o  HH:MM (now) - no longer need seconds
+		o  styles or append/prepend for brhc?
+
+	o  challenge spec sillyness again in respect of
+		BLHCBundle
+		HomeMenuTrigger
+		MainLabel says font size fixed at...
 
 
 	o  what to do when tricky tides occlude each other?

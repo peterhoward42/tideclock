@@ -121,7 +121,21 @@
  *   iconBarCenterSpacing: number,
  * }} HomeMenuTriggerDiagram
  *
- * **Brand**: fixed URL line, **left**-justified to **B_left**, baseline on **B_bottom** (see spec).
+ * **Brand**: fixed **`tides` · `thetidedial.page`** line (**Brand.tides** / **Brand.separator** / **Brand.domain**); **left** from **B_left**, baseline on **B_bottom** (see spec).
+ *
+ * @typedef {{
+ *   leafName: string,
+ *   content: string,
+ *   anchor: DiagramPoint,
+ *   hAlign: 'left' | 'center' | 'right',
+ *   dominantBaseline?: 'alphabetic' | 'middle',
+ * }} BrandSegmentDiagram
+ *
+ * @typedef {{
+ *   fontSize: number,
+ *   anchor: DiagramPoint,
+ *   segments: BrandSegmentDiagram[],
+ * }} BrandLineDiagram
  *
  * @typedef {{
  *   version: number,
@@ -140,7 +154,7 @@
  *   hand: HandDiagram,
  *   brhcLocation: DiagramTextInst,
  *   brhcDate: DiagramTextInst,
- *   brand: DiagramTextInst,
+ *   brand: BrandLineDiagram,
  * }} TideDiagramDocument
  */
 

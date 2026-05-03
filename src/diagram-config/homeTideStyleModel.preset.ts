@@ -56,8 +56,16 @@ export const homeTideStyleModel: StyleModelSpec = {
       colors: { color: "#AAA" },
     },
     {
-      name: "brand",
-      colors: { color: "#777" },
+      name: "brand.word",
+      colors: { color: "#777", fontWeight: 700 },
+    },
+    {
+      name: "brand.separator",
+      colors: { color: "#777", fontWeight: 400 },
+    },
+    {
+      name: "brand.domain",
+      colors: { color: "#777", fontWeight: 400 },
     },
     {
       name: "role.structure.emphasis.past",
@@ -102,7 +110,9 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
     { name: "BRHCLocation", roleName: "role.structure.emphasis" },
     { name: "BRHCDate", roleName: "role.structure.text" },
-    { name: "Brand", roleName: "brand" },
+    { name: "Brand.tides", roleName: "brand.word" },
+    { name: "Brand.separator", roleName: "brand.separator" },
+    { name: "Brand.domain", roleName: "brand.domain" },
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
     { name: "HomeMenuTrigger", roleName: "role.menu.trigger" },
     { name: "HomeMenuTriggerIcon", roleName: "role.menu.trigger.icon" },

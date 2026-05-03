@@ -8,6 +8,7 @@
  * - Bindings are directional: scene leaf name → semantic role name.
  * - Duplicate leaf names throw; unknown roleName in a binding throws.
  * - `color`/`strokeColor`/`fillColor` allow CSS named colors and 3/6-digit hex (#abc, #aabbcc).
+ * - Optional `fontWeight` on a role: **400** or **700** (SVG/CSS numeric weights for text).
  * - Optional line styles are externalized from color roles: leaf name → lineStyle token.
  *
  * `loadStyleModel` returns maps used when resolving SVG attributes from scene nodes;
@@ -18,7 +19,7 @@
 
 import { assertKnownLineStyleToken } from "./lineStyleRendering.mjs";
 
-/** @typedef {{ color?: string, strokeColor?: string, fillColor?: string, strokeWidth?: number, opacity?: number }} RoleColorProps */
+/** @typedef {{ color?: string, strokeColor?: string, fillColor?: string, strokeWidth?: number, opacity?: number, fontWeight?: 400 | 700 }} RoleColorProps */
 
 /** @typedef {{ name: string, colors: RoleColorProps }} SemanticRole */
 
@@ -270,6 +271,12 @@ function normalizeRoleColorProps(raw, context) {
       throw new Error(`${context}.opacity must be between 0 and 1 inclusive`);
     }
     out.opacity = raw.opacity;
+  }
+  if (raw.fontWeight !== undefined) {
+    if (raw.fontWeight !== 400 && raw.fontWeight !== 700) {
+      throw new Error(`${context}.fontWeight must be 400 or 700 when set`);
+    }
+    out.fontWeight = raw.fontWeight;
   }
   return out;
 }

@@ -28,7 +28,7 @@ export const homeTideDiagramLayoutBase = {
   tickLabelSize: 0.04,
   tickLabelClearance: 0.042,
   brhcBundle: { fontHeight: 0.045, dateAboveTime: 0.02 },
-  /** k·RefRadius: bottom-left brand line (`thetideclock.page`). */
+  /** k·RefRadius: bottom-left brand line (`tides·thetidedial.page`). */
   brandFontHeight: 0.04,
   hand: {
     bossCircleRadius: 0.05,

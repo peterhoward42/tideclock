@@ -16,7 +16,7 @@ const RENDER_DEFAULTS = {
 };
 
 /**
- * @typedef {{ color?: string, strokeColor?: string, fillColor?: string, strokeWidth?: number, opacity?: number }} SceneRenderRoleColorProps
+ * @typedef {{ color?: string, strokeColor?: string, fillColor?: string, strokeWidth?: number, opacity?: number, fontWeight?: 400 | 700 }} SceneRenderRoleColorProps
  *
  * @typedef {{
  *   roleColorsByName: Map<string, SceneRenderRoleColorProps>,
@@ -338,7 +338,8 @@ function renderNode(node, styleRuntime, leafName) {
         node.kind,
       );
       const opacity = opacityFromLeaf(styleRuntime, leafName, node.kind);
-      return renderTextSvg(node, fill, opacity);
+      const fontWeight = fontWeightFromLeaf(styleRuntime, leafName, node.kind);
+      return renderTextSvg(node, fill, opacity, fontWeight);
     }
     case "arcText": {
       assertLeafScoped(node.kind, leafName);
@@ -616,8 +617,11 @@ function markerDefFromSpec(id, spec, strokeColor) {
     </marker>`;
 }
 
-/** @param {import('../model/sceneModel.mjs').TextPrimitive} node */
-function renderTextSvg(node, fillColor, opacity) {
+/**
+ * @param {import('../model/sceneModel.mjs').TextPrimitive} node
+ * @param {400 | 700 | undefined} fontWeight from bound role when set
+ */
+function renderTextSvg(node, fillColor, opacity, fontWeight) {
   const { anchor, content, size, hAlign, angleRad } = node;
   const ax = anchor.x;
   const ay = anchor.y;
@@ -627,11 +631,15 @@ function renderTextSvg(node, fillColor, opacity) {
   const baseline =
     node.dominantBaseline === "middle" ? "middle" : "alphabetic";
   const opacityAttr = typeof opacity === "number" ? ` opacity="${opacity}"` : "";
+  const weightAttr =
+    fontWeight === 400 || fontWeight === 700
+      ? ` font-weight="${fontWeight}"`
+      : "";
   // Scene->SVG uses scale(1,-1) on the root; that flips glyph outlines. A local scale(1,-1)
   // around the anchor restores upright text without changing the anchor position.
   return `    <g transform="translate(${ax}, ${ay}) scale(1,-1) translate(${-ax}, ${-ay})">
       <g transform="rotate(${deg}, ${ax}, ${ay})">
-      <text x="${ax}" y="${ay}" font-size="${size}" fill="${fillColor}" text-anchor="${anchorAttr}" dominant-baseline="${baseline}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"${opacityAttr}>${inner}</text>
+      <text x="${ax}" y="${ay}" font-size="${size}" fill="${fillColor}" text-anchor="${anchorAttr}" dominant-baseline="${baseline}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"${weightAttr}${opacityAttr}>${inner}</text>
       </g>
     </g>`;
 }
@@ -667,6 +675,7 @@ function renderArcTextSvg(node, fillColor, opacity) {
         },
         fillColor,
         opacity,
+        undefined,
       ),
     );
   }
@@ -699,6 +708,24 @@ function resolveLeafRoleColorProps(styleRuntime, leafName, primitiveKind) {
     );
   }
   return styleRuntime.roleColorsByName.get(roleName);
+}
+
+/**
+ * @param {SceneRenderStyleRuntime | undefined} styleRuntime
+ * @param {string | null} leafName
+ * @param {string} primitiveKind
+ * @returns {400 | 700 | undefined}
+ */
+function fontWeightFromLeaf(styleRuntime, leafName, primitiveKind) {
+  const props = resolveLeafRoleColorProps(
+    styleRuntime,
+    leafName,
+    primitiveKind,
+  );
+  if (!props) return undefined;
+  const w = props.fontWeight;
+  if (w === 400 || w === 700) return w;
+  return undefined;
 }
 
 /**
