@@ -82,24 +82,13 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       },
     },
     "armTimeReadout": {
-      "clock": {
-        "anchor": {
-          "x": 49.59055444364821,
-          "y": -27.51359892801308,
-        },
-        "angleRad": 5.67242915205982,
-        "content": "19:20:",
-        "fontSize": 5.31,
+      "anchor": {
+        "x": 52.20057218122703,
+        "y": -29.340728756329597,
       },
-      "seconds": {
-        "anchor": {
-          "x": 60.03062539396349,
-          "y": -34.82211824127914,
-        },
-        "angleRad": 5.67242915205982,
-        "content": "03",
-        "fontSize": 5.31,
-      },
+      "angleRad": 5.67242915205982,
+      "content": "19:20",
+      "fontSize": 5.31,
     },
     "bossCircle": {
       "center": {
@@ -1151,11 +1140,11 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "children": [
                   {
                     "anchor": {
-                      "x": 49.59055444364821,
-                      "y": -27.51359892801308,
+                      "x": 52.20057218122703,
+                      "y": -29.340728756329597,
                     },
                     "angleRad": 5.67242915205982,
-                    "content": "19:20:",
+                    "content": "19:20",
                     "dominantBaseline": "middle",
                     "hAlign": "center",
                     "kind": "text",
@@ -1164,24 +1153,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 ],
                 "kind": "group",
                 "name": "Hand.TimeReadout",
-              },
-              {
-                "children": [
-                  {
-                    "anchor": {
-                      "x": 60.03062539396349,
-                      "y": -34.82211824127914,
-                    },
-                    "angleRad": 5.67242915205982,
-                    "content": "03",
-                    "dominantBaseline": "middle",
-                    "hAlign": "center",
-                    "kind": "text",
-                    "size": 5.31,
-                  },
-                ],
-                "kind": "group",
-                "name": "Hand.TimeReadoutSeconds",
               },
             ],
             "kind": "group",

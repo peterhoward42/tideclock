@@ -2,13 +2,12 @@
   /**
    * Home route orchestration — civil-day tide diagram: props and stores in, diagram SVG and chrome out.
    * Skim order below: inputs → collaborator → state → derived readouts → effects → handlers.
-   * Minute cadence drives full regen; sub-second cadence only patches the live clock inside SVG.
+   * Minute cadence drives full diagram regeneration (BRHC bundle + hand readout embedded in fresh SVG).
    * Does not own proxy fetch (receives extremes from the shell).
    */
   import { get } from "svelte/store";
   import { onMount, tick } from "svelte";
 
-  import { nowMs } from "../../../application/appClock.js";
   import {
     buildDiagramGenerationSpec,
     utcIsoToLocalCanonicalTimeLocal,
@@ -40,7 +39,6 @@
   import HomePwaStandaloneSetupOverlay from "./HomePwaStandaloneSetupOverlay.svelte";
   import {
     computeHomeMenuPanelAnchorStyle,
-    patchBrhcBundleInDiagramHost,
     queryHomeMenuTriggerGroupFromDiagramHost,
     scheduleDiagramHostSvgDevPresentation,
   } from "./homeRouteDiagramDom";
@@ -104,7 +102,7 @@
 
   let diagramSvg = $state("");
   let diagramError = $state<string | undefined>(undefined);
-  /** Container for injected SVG; patches **BRHCBundle** + hand clock (**Hand.TimeReadout** / **Hand.TimeReadoutSeconds**) on ~1 Hz without full scene regen. */
+  /** Container for injected SVG; diagram text updates each minute via full scene regen (see minute cadence below). */
   let diagramHostEl = $state<HTMLElement | undefined>(undefined);
   let homeRouteEl = $state<HTMLElement | undefined>(undefined);
   let homeInstrumentEl = $state<HTMLElement | undefined>(undefined);
@@ -342,7 +340,7 @@
     };
   });
 
-  // Reactive effects ($effect) — diagram regen, SVG glue, measurement, clock patch, menu wiring
+  // Reactive effects ($effect) — diagram regen, SVG glue, measurement, menu wiring
   $effect(() => {
     if (!diagramPreviewLive) {
       void semanticMinuteEpoch;
@@ -364,10 +362,10 @@
       const preview = homeDiagramDevPreview;
       const extremesForSpec =
         preview.state === "frozen" ? preview.extremesAtLocation : extremes;
-      const nowMsValue =
+      const wallClockMs =
         preview.state === "frozen" ? preview.frozenEpochMs : Date.now();
-      const timeNow = localCanonicalTimeNowFromMs(nowMsValue);
-      const brhcDatePrefix = localBrhcDatePrefixFromMs(nowMsValue);
+      const timeNow = localCanonicalTimeNowFromMs(wallClockMs);
+      const brhcDatePrefix = localBrhcDatePrefixFromMs(wallClockMs);
       const baseSpec = buildDiagramGenerationSpec({
         extremesAtLocation: extremesForSpec,
         timeNow,
@@ -418,33 +416,6 @@
     return mountInstrumentVerticalLetterboxSlackObserver(figure, (px) => {
       verticalLetterboxSlackPx = px;
     });
-  });
-
-  $effect(() => {
-    const host = diagramHostEl;
-    const svg = diagramSvg;
-    if (host == null || svg === "") return;
-
-    const frozenClockMs =
-      homeDiagramDevPreview.state === "frozen"
-        ? homeDiagramDevPreview.frozenEpochMs
-        : null;
-
-    let cancelled = false;
-    const unsub = nowMs.subscribe((ms) => {
-      if (!cancelled)
-        patchBrhcBundleInDiagramHost(host, frozenClockMs ?? ms);
-    });
-
-    void tick().then(() => {
-      if (!cancelled)
-        patchBrhcBundleInDiagramHost(host, frozenClockMs ?? Date.now());
-    });
-
-    return () => {
-      cancelled = true;
-      unsub();
-    };
   });
 
   $effect(() => {

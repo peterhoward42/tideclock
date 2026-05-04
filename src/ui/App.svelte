@@ -7,7 +7,7 @@
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
   import type { Town } from "../data/townSchema";
-  import { nowMs } from "../application/appClock.js";
+  import { subscribeSemanticMinuteCadence } from "../application/semanticMinuteCadence";
   import { decideCivilDayRolloverTideRefresh } from "../application/civilDayRolloverTick";
   import { createTideExtremesRefreshController } from "../application/tideExtremesRefreshController";
   import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
@@ -221,11 +221,11 @@
         window.removeEventListener("popstate", onUrlChange);
       };
     }
-    const unsubNow = nowMs.subscribe(() => {
+    const unsubMinute = subscribeSemanticMinuteCadence(() => {
       maybeRefreshTideAfterLocalMidnightRollover();
     });
     return () => {
-      unsubNow();
+      unsubMinute();
       devUrlCleanup?.();
     };
   });

@@ -171,7 +171,7 @@ function includeArcSweepAxisBounds(bounds, cx, cy, r, thetaLeft, sweepRad) {
  * @param {{ minX: number, maxX: number, minY: number, maxY: number }} bounds
  * @param {{
  *   tickLabels: import('../model/tideDiagramModel.mjs').TickLabelSpec[],
- *   armTimeReadout: import('../model/tideDiagramModel.mjs').HandDiagram['armTimeReadout'],
+ *   armTimeReadout: import('../model/tideDiagramModel.mjs').HandTimeReadoutPartDiagram,
  *   refRadius: number,
  *   dividorRadius: number,
  *   thetaLeft: number,
@@ -189,16 +189,15 @@ function extendLayoutBoundsForDiagramExtent(bounds, p) {
   }
   includeArcSweepAxisBounds(bounds, 0, 0, p.refRadius, p.thetaLeft, p.sweepRad);
   includeArcSweepAxisBounds(bounds, 0, 0, p.dividorRadius, p.thetaLeft, p.sweepRad);
-  for (const part of [p.armTimeReadout.clock, p.armTimeReadout.seconds]) {
-    includeDiagramTextBounds(bounds, {
-      content: part.content,
-      fontSize: part.fontSize,
-      anchor: part.anchor,
-      hAlign: "center",
-      angleRad: part.angleRad,
-      dominantBaseline: "middle",
-    });
-  }
+  const ar = p.armTimeReadout;
+  includeDiagramTextBounds(bounds, {
+    content: ar.content,
+    fontSize: ar.fontSize,
+    anchor: ar.anchor,
+    hAlign: "center",
+    angleRad: ar.angleRad,
+    dominantBaseline: "middle",
+  });
 }
 
 function includeDiagramTextBounds(bounds, textInst) {
@@ -385,10 +384,6 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   const angleRad = beforeNoon ? theta + Math.PI : theta;
   const timeNow = /** @type {string} */ (spec.timeNow);
   const fontSize = armTimeLabelFontHeightK * refRadius;
-  const charW = BRHC_LABEL_CHAR_WIDTH_EM * fontSize;
-  const wClock = 6 * charW;
-  const wSec = 2 * charW;
-  const u = { x: Math.cos(angleRad), y: Math.sin(angleRad) };
   const ax = mid.x + offX;
   const ay = mid.y + offY;
   return {
@@ -397,18 +392,10 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     bossCircle: { center: { x: 0, y: 0 }, radius: rBoss },
     arm: { start: armStart, end: armEnd },
     armTimeReadout: {
-      clock: {
-        content: timeNow.slice(0, 6),
-        fontSize,
-        anchor: { x: ax - u.x * (wSec / 2), y: ay - u.y * (wSec / 2) },
-        angleRad,
-      },
-      seconds: {
-        content: timeNow.slice(6),
-        fontSize,
-        anchor: { x: ax + u.x * (wClock / 2), y: ay + u.y * (wClock / 2) },
-        angleRad,
-      },
+      content: timeNow.slice(0, 5),
+      fontSize,
+      anchor: { x: ax, y: ay },
+      angleRad,
     },
   };
 }

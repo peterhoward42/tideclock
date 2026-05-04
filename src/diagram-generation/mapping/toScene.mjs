@@ -597,7 +597,7 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
  * @returns {import('../model/sceneModel.mjs').GroupNode}
  */
 export function handDiagramToGroup(hand, cx, cy) {
-  const { clock, seconds } = hand.armTimeReadout;
+  const ar = hand.armTimeReadout;
   return group("Hand", [
     group("BossCircle", [
       circle(mapPoint(hand.bossCircle.center, cx, cy), hand.bossCircle.radius),
@@ -606,21 +606,11 @@ export function handDiagramToGroup(hand, cx, cy) {
       line(mapPoint(hand.arm.start, cx, cy), mapPoint(hand.arm.end, cx, cy)),
       group("Hand.TimeReadout", [
         text({
-          content: clock.content,
-          size: clock.fontSize,
+          content: ar.content,
+          size: ar.fontSize,
           hAlign: "center",
-          angleRad: clock.angleRad,
-          anchor: mapPoint(clock.anchor, cx, cy),
-          dominantBaseline: "middle",
-        }),
-      ]),
-      group("Hand.TimeReadoutSeconds", [
-        text({
-          content: seconds.content,
-          size: seconds.fontSize,
-          hAlign: "center",
-          angleRad: seconds.angleRad,
-          anchor: mapPoint(seconds.anchor, cx, cy),
+          angleRad: ar.angleRad,
+          anchor: mapPoint(ar.anchor, cx, cy),
           dominantBaseline: "middle",
         }),
       ]),

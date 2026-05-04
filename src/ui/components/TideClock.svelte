@@ -1,10 +1,11 @@
 <script lang="ts">
   /**
-   * TideClock.svelte — Main clock card: local time from `nowMs`, dial from `ClockSceneModel`, load state chrome.
+   * TideClock.svelte — Main clock card: local wall time (minute resolution, `subscribeSemanticMinuteCadence`), dial from `ClockSceneModel`, load state chrome.
    * Kind: Presentation. Does not fetch tides or run diagram-generation.
    */
+  import { onMount } from "svelte";
   import type { ClockSceneModel } from "../../clock-presentation/clockSceneModel";
-  import { nowMs } from "../../application/appClock.js";
+  import { subscribeSemanticMinuteCadence } from "../../application/semanticMinuteCadence";
   import ClockDivisionDial from "./ClockDivisionDial.svelte";
 
   type TidePredictionsLoadState = { readonly status: "loading" | "ready" | "error" };
@@ -16,11 +17,19 @@
 
   let { clockScene, tideLoadState }: Props = $props();
 
+  /** Wall-clock ms; bumps on each local minute boundary (same cadence as the home tide diagram). */
+  let wallClockMs = $state(Date.now());
+
+  onMount(() => {
+    return subscribeSemanticMinuteCadence(() => {
+      wallClockMs = Date.now();
+    });
+  });
+
   function formatTime(ms: number): string {
     return new Date(ms).toLocaleTimeString(undefined, {
       hour: "2-digit",
       minute: "2-digit",
-      second: "2-digit",
     });
   }
 </script>
@@ -29,7 +38,7 @@
   <ClockDivisionDial {clockScene} />
   <p class="muted">Local time</p>
   <p style="font-family: ui-monospace, monospace; margin: 0; font-size: 1.25rem;">
-    {formatTime($nowMs)}
+    {formatTime(wallClockMs)}
   </p>
 
   {#if tideLoadState.status === "loading"}

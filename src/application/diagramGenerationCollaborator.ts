@@ -132,10 +132,7 @@ type HandDiagram = {
   readonly theta: number;
   readonly bossCircle: { readonly center: DiagramPoint; readonly radius: number };
   readonly arm: DiagramLineSeg;
-  readonly armTimeReadout: {
-    readonly clock: HandTimeReadoutPartDiagram;
-    readonly seconds: HandTimeReadoutPartDiagram;
-  };
+  readonly armTimeReadout: HandTimeReadoutPartDiagram;
 };
 
 /**

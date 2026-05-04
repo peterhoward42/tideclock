@@ -49,20 +49,22 @@ o  first glance ux assimilation suggestions
 
 	o  ChatGPT usability / assimilation advice
 		*  leverage brand or tides  .  thetidedial.page
-		o  stronger ticks at key times
+		*  stronger ticks at key times
+
+		o  ditch seconds from time (and seconds timer cycle)
+
 		o  pulse the hand or boss
 			o  boss
 			o  radius
 			o  maybe opacity
 			o  4 to 6 second period - sine in / sine out
 			o  phase shifted away from the 1Hz time seconds update
-			o  maybe drop green on seconds readout
 		o  put "now" into the time string
 			o  HH:MM (now) - no longer need seconds
 		o  styles or append/prepend for brhc?
 
-	o  can ditch seconds scheduling
 
+	o  ditch duplicate schedulers if possible
 	o  problem with the location
 		Whaling berth historic Aberdeen
 

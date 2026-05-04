@@ -51,7 +51,7 @@
  *
  * **BRHCBundle** (scene group): **MainLabel** (tide summary, bottom row), **BRHCDate**, **BRHCLocation**.
  *
- * **Hand** arm clock readout: two scene groups (**Hand.TimeReadout** = `HH:MM:`, **Hand.TimeReadoutSeconds** = `SS`).
+ * **Hand** arm clock readout: one scene group (**Hand.TimeReadout** = `HH:MM`, first five characters of canonical **`timeNow`**).
  *
  * @typedef {{
  *   content: string,
@@ -65,7 +65,7 @@
  *   theta: number,
  *   bossCircle: { center: DiagramPoint, radius: number },
  *   arm: DiagramLineSeg,
- *   armTimeReadout: { clock: HandTimeReadoutPartDiagram, seconds: HandTimeReadoutPartDiagram },
+ *   armTimeReadout: HandTimeReadoutPartDiagram,
  * }} HandDiagram
  *
  * Tide mark height label: **anchor** lies on the label circle at the **start** of the arc span (angular

@@ -246,8 +246,8 @@ describe('createDiagramGenerationCollaborator', () => {
     });
     const auto = collaborator.generate(base).diagram;
     const forcedAm = collaborator.generate({ ...base, civilHalfDayLayout: 'beforeNoon' }).diagram;
-    expect(auto.hand.armTimeReadout.clock.angleRad).toBeCloseTo(auto.hand.theta, 6);
-    expect(forcedAm.hand.armTimeReadout.clock.angleRad).toBeCloseTo(
+    expect(auto.hand.armTimeReadout.angleRad).toBeCloseTo(auto.hand.theta, 6);
+    expect(forcedAm.hand.armTimeReadout.angleRad).toBeCloseTo(
       auto.hand.theta + Math.PI,
       6,
     );

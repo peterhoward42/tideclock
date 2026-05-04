@@ -1,36 +1,7 @@
 /**
  * Imperative DOM helpers for the home-route tide diagram host (injected SVG).
- * Keeps query selectors and paint scheduling in one place so Home.svelte effects stay thin.
+ * Keeps menu trigger lookup, flyout anchor math, and dev-only diagram presentation in one place.
  */
-
-import {
-  localCanonicalTimeNowFromMs,
-  localBrhcDatePrefixFromMs,
-} from "../../../application/localWallClockReadoutFromMs";
-
-/**
- * Patch live date prefix and arm time readout inside injected SVG; host must contain the current diagram.
- * Callers subscribe to `nowMs` (~1 Hz) so **BRHCDate** and **Hand.TimeReadout** / **Hand.TimeReadoutSeconds** stay in sync.
- */
-export function patchBrhcBundleInDiagramHost(
-  host: HTMLElement,
-  ms: number,
-): void {
-  const canonical = localCanonicalTimeNowFromMs(ms);
-  const datePrefix = localBrhcDatePrefixFromMs(ms);
-  const dateEl = host.querySelector(
-    'svg g[data-name="BRHCDate"] text',
-  ) as SVGTextElement | null;
-  const handClockEl = host.querySelector(
-    'svg g[data-name="Hand.TimeReadout"] text',
-  ) as SVGTextElement | null;
-  const handSecondsEl = host.querySelector(
-    'svg g[data-name="Hand.TimeReadoutSeconds"] text',
-  ) as SVGTextElement | null;
-  if (dateEl !== null) dateEl.textContent = datePrefix;
-  if (handClockEl !== null) handClockEl.textContent = canonical.slice(0, 6);
-  if (handSecondsEl !== null) handSecondsEl.textContent = canonical.slice(6);
-}
 
 export function queryHomeMenuTriggerGroupFromDiagramHost(
   diagramHost: HTMLElement,

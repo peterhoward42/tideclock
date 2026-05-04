@@ -1,6 +1,7 @@
 /**
  * semanticMinuteCadence.ts — Local wall-clock minute boundary subscription with optional immediate tick.
- * Home uses this for diagram regeneration cadence. Kind: Service (timers). Does not derive tide semantics.
+ * HomeRoute uses this for full tide-diagram regeneration; App uses it for civil-day rollover checks after midnight;
+ * TideClock uses it for the card’s local time readout. Kind: Service (timers). Does not derive tide semantics.
  */
 
 const MS_PER_MINUTE = 60_000;
