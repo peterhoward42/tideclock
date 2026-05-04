@@ -17,7 +17,7 @@ export const HAND_BOSS_LIVE_PULSE_RELATIVE_AMPLITUDE = 0.03;
  * Same phase as radius: **opacity(t) = opacity₀ (1 + k sin(ωt))**, clamped to **[0, 1]**.
  * **k** = this constant (slightly weaker than radius so the stroke does not “disappear”).
  */
-export const HAND_BOSS_LIVE_PULSE_OPACITY_RELATIVE_AMPLITUDE = 0.20;
+export const HAND_BOSS_LIVE_PULSE_OPACITY_RELATIVE_AMPLITUDE = 0.30;
 
 /** Upper envelope for layout / viewBox so the stroked boss is not clipped at peak radius. */
 export function handBossCircleMaxRadiusForLayout(baseRadius) {

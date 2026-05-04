@@ -53,11 +53,11 @@ o  first glance ux assimilation suggestions
 		*  ditch seconds from time (and seconds timer cycle)
 
 		o  pulse the hand or boss
-			o  boss
-			o  radius
-			o  maybe opacity
-			o  4 to 6 second period - sine in / sine out
-			o  phase shifted away from the 1Hz time seconds update
+			*  basics
+			o  what about spec
+			o  what about const being in presets
+
+
 		o  put "now" into the time string
 			o  HH:MM (now) - no longer need seconds
 		o  styles or append/prepend for brhc?
