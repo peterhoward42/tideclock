@@ -56,6 +56,14 @@ export const homeTideStyleModel: StyleModelSpec = {
       colors: { color: "#AAA" },
     },
     {
+      name: "role.structure.dialTick.endpoint",
+      colors: { color: "white", strokeWidth: 2.35 },
+    },
+    {
+      name: "role.structure.dialTick.quarter",
+      colors: { color: "white", strokeWidth: 2.35 },
+    },
+    {
       name: "BrandTitle",
       colors: { color: "#777", fontWeight: 700 },
     },
@@ -93,6 +101,8 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "RefArc", roleName: "role.structure.ref" },
     { name: "Dividor", roleName: "role.structure.dividor" },
     { name: "TickMark", roleName: "role.structure.ref" },
+    { name: "TickMark.Endpoint", roleName: "role.structure.dialTick.endpoint" },
+    { name: "TickMark.Quarter", roleName: "role.structure.dialTick.quarter" },
     { name: "HeightLabelFuture", roleName: "role.tide.primary" },
     { name: "HeightLabelPast", roleName: "role.tide.primary.past" },
     { name: "TimeDeltaLocation", roleName: "role.text.primary" },

@@ -17,6 +17,13 @@ import {
   timePointerPath,
 } from "../model/sceneModel.mjs";
 
+/** Style-binding leaf names for tick segments (nested under scene group `TickMark`). */
+function tickMarkStyleLeafGroup(hour) {
+  if (hour === 0 || hour === 24) return "TickMark.Endpoint";
+  if (hour === 6 || hour === 12 || hour === 18) return "TickMark.Quarter";
+  return "TickMark";
+}
+
 /**
  * Deterministic scene-space bounds (x right, y up).
  * Used to derive `scene.meta.previewFrame` from actual primitives, not from legacy spec constants.
@@ -693,16 +700,18 @@ export function tideDiagramToScene(diagram) {
     cy,
   );
 
-  const tickChildren = tickMarks.flatMap((tm) => [
-    line(
-      mapPoint(tm.start, cx, cy),
-      mapPoint(tm.end, cx, cy),
-    ),
-    line(
-      mapPoint(tm.bandOuterInward.start, cx, cy),
-      mapPoint(tm.bandOuterInward.end, cx, cy),
-    ),
-  ]);
+  const tickChildren = tickMarks.map((tm) =>
+    group(tickMarkStyleLeafGroup(tm.hour), [
+      line(
+        mapPoint(tm.start, cx, cy),
+        mapPoint(tm.end, cx, cy),
+      ),
+      line(
+        mapPoint(tm.bandOuterInward.start, cx, cy),
+        mapPoint(tm.bandOuterInward.end, cx, cy),
+      ),
+    ]),
+  );
 
   const abC = annularBandDiagram.center;
   const aThetaLeft = annularBandDiagram.thetaLeft;
