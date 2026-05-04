@@ -52,6 +52,11 @@
  *   kind: 'circle',
  *   center: Point,
  *   radius: number,
+ *   radiusOscillation?: {
+ *     relativeAmplitude: number,
+ *     periodSeconds: number,
+ *     opacityRelativeAmplitude: number,
+ *   },
  * }} CirclePrimitive
  *
  * Axis-aligned rounded rectangle in scene space (**y** upward), centred on **center**:
@@ -258,16 +263,21 @@ export function triangle(a, b, c, opts) {
 /**
  * @param {Point} center
  * @param {number} radius
+ * @param {{ radiusOscillation?: { relativeAmplitude: number, periodSeconds: number, opacityRelativeAmplitude: number } }} [opts]
  * @returns {CirclePrimitive}
  * @throws {Error} `center` is not a finite point or `radius` is not a finite non-negative number
  */
-export function circle(center, radius) {
+export function circle(center, radius, opts) {
   assertPoint("center", center);
   assertFiniteNumber("radius", radius);
   if (radius < 0) {
     throw new Error("radius must be non-negative");
   }
-  return { kind: "circle", center, radius };
+  const node = /** @type {CirclePrimitive} */ ({ kind: "circle", center, radius });
+  if (opts?.radiusOscillation != null) {
+    node.radiusOscillation = opts.radiusOscillation;
+  }
+  return node;
 }
 
 /**

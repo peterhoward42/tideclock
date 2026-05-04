@@ -1099,7 +1099,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "meta": {
     "previewFrame": {
       "maxX": 156.76000000000002,
-      "maxY": 6.9,
+      "maxY": 7.077000000000001,
       "minX": -156.76000000000002,
       "minY": -160.02723550303114,
     },
@@ -1118,6 +1118,11 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 },
                 "kind": "circle",
                 "radius": 5.9,
+                "radiusOscillation": {
+                  "opacityRelativeAmplitude": 0.04,
+                  "periodSeconds": 4,
+                  "relativeAmplitude": 0.03,
+                },
               },
             ],
             "kind": "group",

@@ -50,8 +50,7 @@ o  first glance ux assimilation suggestions
 	o  ChatGPT usability / assimilation advice
 		*  leverage brand or tides  .  thetidedial.page
 		*  stronger ticks at key times
-
-		o  ditch seconds from time (and seconds timer cycle)
+		*  ditch seconds from time (and seconds timer cycle)
 
 		o  pulse the hand or boss
 			o  boss

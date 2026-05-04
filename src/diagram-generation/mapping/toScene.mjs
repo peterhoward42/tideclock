@@ -16,6 +16,12 @@ import {
   arcText,
   timePointerPath,
 } from "../model/sceneModel.mjs";
+import {
+  HAND_BOSS_LIVE_PULSE_OPACITY_RELATIVE_AMPLITUDE,
+  HAND_BOSS_LIVE_PULSE_PERIOD_S,
+  HAND_BOSS_LIVE_PULSE_RELATIVE_AMPLITUDE,
+  handBossCircleMaxRadiusForLayout,
+} from "../layout/handBossLivePulse.mjs";
 
 /** Style-binding leaf names for tick segments (nested under scene group `TickMark`). */
 function tickMarkStyleLeafGroup(hour) {
@@ -254,15 +260,20 @@ function expandBoundsByNode(b, node) {
       expandBoundsByPoint(b, node.start);
       expandBoundsByPoint(b, node.end);
       return;
-    case "circle":
+    case "circle": {
+      const r =
+        node.radiusOscillation != null
+          ? handBossCircleMaxRadiusForLayout(node.radius)
+          : node.radius;
       expandBoundsByRect(
         b,
-        node.center.x - node.radius,
-        node.center.y - node.radius,
-        node.center.x + node.radius,
-        node.center.y + node.radius,
+        node.center.x - r,
+        node.center.y - r,
+        node.center.x + r,
+        node.center.y + r,
       );
       return;
+    }
     case "roundedRect": {
       const { center, width, height } = node;
       const hw = 0.5 * width;
@@ -600,7 +611,13 @@ export function handDiagramToGroup(hand, cx, cy) {
   const ar = hand.armTimeReadout;
   return group("Hand", [
     group("BossCircle", [
-      circle(mapPoint(hand.bossCircle.center, cx, cy), hand.bossCircle.radius),
+      circle(mapPoint(hand.bossCircle.center, cx, cy), hand.bossCircle.radius, {
+        radiusOscillation: {
+          relativeAmplitude: HAND_BOSS_LIVE_PULSE_RELATIVE_AMPLITUDE,
+          periodSeconds: HAND_BOSS_LIVE_PULSE_PERIOD_S,
+          opacityRelativeAmplitude: HAND_BOSS_LIVE_PULSE_OPACITY_RELATIVE_AMPLITUDE,
+        },
+      }),
     ]),
     group("Arm", [
       line(mapPoint(hand.arm.start, cx, cy), mapPoint(hand.arm.end, cx, cy)),

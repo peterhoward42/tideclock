@@ -30,6 +30,7 @@ import {
   parseCivilHalfDayLayoutOrThrow,
   resolveCivilHalfDayIsBeforeNoon,
 } from "../model/civilHalfDayLayout.mjs";
+import { handBossCircleMaxRadiusForLayout } from "./handBossLivePulse.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import { computeNextTideEventFromSpec } from "../model/tideEvents.mjs";
 import {
@@ -498,7 +499,10 @@ export function buildDiagram(spec) {
     annularBounds.minY,
     annularBounds.maxY,
   );
-  includePoint(layoutBounds, { x: 0, y: hand.bossCircle.radius });
+  includePoint(layoutBounds, {
+    x: 0,
+    y: handBossCircleMaxRadiusForLayout(hand.bossCircle.radius),
+  });
   for (const marker of tideMarks) {
     extendBoundsByTideMarker(layoutBounds, marker);
   }
