@@ -17,9 +17,6 @@ import {
   timePointerPath,
 } from "../model/sceneModel.mjs";
 import {
-  HAND_BOSS_LIVE_PULSE_OPACITY_RELATIVE_AMPLITUDE,
-  HAND_BOSS_LIVE_PULSE_PERIOD_S,
-  HAND_BOSS_LIVE_PULSE_RELATIVE_AMPLITUDE,
   handBossCircleMaxRadiusForLayout,
 } from "../layout/handBossLivePulse.mjs";
 
@@ -263,7 +260,10 @@ function expandBoundsByNode(b, node) {
     case "circle": {
       const r =
         node.radiusOscillation != null
-          ? handBossCircleMaxRadiusForLayout(node.radius)
+          ? handBossCircleMaxRadiusForLayout(
+              node.radius,
+              node.radiusOscillation.relativeAmplitude,
+            )
           : node.radius;
       expandBoundsByRect(
         b,
@@ -630,9 +630,9 @@ export function handDiagramToGroup(hand, cx, cy) {
     group("BossCircle", [
       circle(mapPoint(hand.bossCircle.center, cx, cy), hand.bossCircle.radius, {
         radiusOscillation: {
-          relativeAmplitude: HAND_BOSS_LIVE_PULSE_RELATIVE_AMPLITUDE,
-          periodSeconds: HAND_BOSS_LIVE_PULSE_PERIOD_S,
-          opacityRelativeAmplitude: HAND_BOSS_LIVE_PULSE_OPACITY_RELATIVE_AMPLITUDE,
+          relativeAmplitude: hand.livePulse.radiusRelativeAmplitude,
+          periodSeconds: hand.livePulse.periodSeconds,
+          opacityRelativeAmplitude: hand.livePulse.opacityRelativeAmplitude,
         },
       }),
     ]),

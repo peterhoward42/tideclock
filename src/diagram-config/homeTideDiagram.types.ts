@@ -66,6 +66,18 @@ export type HomeTideDiagramLayoutBase = {
     readonly armTimeLabelFontHeight: number;
     /** k·RefRadius: centered **Hand.BossLabel** font height. */
     readonly bossLabelFontHeight: number;
+    /**
+     * Tunables for subtle **Hand.Boss** pulse animation.
+     * Kept in diagram layout config because these values affect scene geometry and bounds.
+     */
+    readonly livePulse: {
+      /** Wall-clock seconds for one full pulse cycle. */
+      readonly periodSeconds: number;
+      /** Fractional radius deviation from the nominal boss radius. */
+      readonly radiusRelativeAmplitude: number;
+      /** Fractional opacity deviation from base style opacity. */
+      readonly opacityRelativeAmplitude: number;
+    };
   };
   readonly paintOrder: {
     readonly overrides: readonly {

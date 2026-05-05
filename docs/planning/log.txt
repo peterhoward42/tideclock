@@ -47,10 +47,7 @@ o  first glance ux assimilation suggestions
 	*  ChatGPT usability / assimilation advice
 	*  put "Tides" inside the boss
 	*  Remove tides from brand
-	o  Make tide marker pointers
-		o  all same opacity
-		o  filled or not according to non ambig h/l
-		o  or all filled when tricky
+	*  Mark tide marker pointers as high or low
 
 	o  the search screen should seperate the name from the county
 

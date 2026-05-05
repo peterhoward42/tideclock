@@ -87,6 +87,11 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "content": "Tides",
       "fontSize": 3.54,
     },
+    "livePulse": {
+      "opacityRelativeAmplitude": 0.3,
+      "periodSeconds": 4,
+      "radiusRelativeAmplitude": 0.03,
+    },
     "theta": 5.552762244273579,
     "timeHours": 19.33416666666667,
   },
