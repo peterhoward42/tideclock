@@ -45,6 +45,7 @@ const BRHC_LABEL_CHAR_WIDTH_EM = 0.6;
 const TEXT_ASCENT_EM = 0.8;
 const TEXT_DESCENT_EM = 0.2;
 const HAND_NOW_TAG_TEXT = "(now)";
+const HAND_BOSS_LABEL_TEXT = "Tides";
 
 /** Fixed **Brand** copy (**`Brand`** group): **BrandTitle** / separator / **BrandURL**. */
 const BRAND_TITLE = "tides";
@@ -349,6 +350,13 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   if (!(armTimeLabelFontHeightK > 0)) {
     throw new Error("spec.hand.armTimeLabelFontHeight must be greater than 0");
   }
+  const bossLabelFontHeightK = requireFiniteNumber(
+    hand.bossLabelFontHeight,
+    "spec.hand.bossLabelFontHeight",
+  );
+  if (!(bossLabelFontHeightK > 0)) {
+    throw new Error("spec.hand.bossLabelFontHeight must be greater than 0");
+  }
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
@@ -392,6 +400,11 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     timeHours: parsedNow.hours,
     theta,
     bossCircle: { center: { x: 0, y: 0 }, radius: rBoss },
+    bossLabel: {
+      content: HAND_BOSS_LABEL_TEXT,
+      fontSize: bossLabelFontHeightK * refRadius,
+      anchor: { x: 0, y: 0 },
+    },
     arm: { start: armStart, end: armEnd },
     armTimeReadout: {
       timeContent: timeNow.slice(0, 5),

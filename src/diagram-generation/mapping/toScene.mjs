@@ -609,6 +609,7 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
  */
 export function handDiagramToGroup(hand, cx, cy) {
   const ar = hand.armTimeReadout;
+  const bossLabel = hand.bossLabel;
   const composedPrefix = `${ar.timeContent} `;
   const charWidth = ar.fontSize * 0.6;
   const totalWidth =
@@ -632,6 +633,16 @@ export function handDiagramToGroup(hand, cx, cy) {
           periodSeconds: HAND_BOSS_LIVE_PULSE_PERIOD_S,
           opacityRelativeAmplitude: HAND_BOSS_LIVE_PULSE_OPACITY_RELATIVE_AMPLITUDE,
         },
+      }),
+    ]),
+    group("BossLabel", [
+      text({
+        content: bossLabel.content,
+        size: bossLabel.fontSize,
+        hAlign: "center",
+        angleRad: 0,
+        anchor: mapPoint(bossLabel.anchor, cx, cy),
+        dominantBaseline: "middle",
       }),
     ]),
     group("Arm", [

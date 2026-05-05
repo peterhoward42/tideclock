@@ -114,6 +114,7 @@ describe('createDiagramGenerationCollaborator', () => {
       bossCircleRadius: number;
       armRefArcGap: number;
       armTimeLabelFontHeight: number;
+      bossLabelFontHeight: number;
     };
     expect(() => collaborator.generate({ ...rest, hand: handWithoutGap })).toThrow(
       /spec\.hand\.armRefArcGap/,
@@ -128,6 +129,7 @@ describe('createDiagramGenerationCollaborator', () => {
       bossCircleRadius: number;
       armRefArcGap: number;
       armTimeLabelFontHeight: number;
+      bossLabelFontHeight: number;
     };
     expect(() => collaborator.generate({ ...rest, hand: handWithoutArmLabelFont })).toThrow(
       /spec\.hand\.armTimeLabelFontHeight/,
@@ -142,6 +144,21 @@ describe('createDiagramGenerationCollaborator', () => {
       hand: { ...(base.hand as Record<string, unknown>), armRefArcGap: 0.96 },
     };
     expect(() => collaborator.generate(spec)).toThrow(/radial ordering invalid/);
+  });
+
+  it('throws when spec.hand.bossLabelFontHeight is missing', () => {
+    const collaborator = createDiagramGenerationCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const { hand, ...rest } = base;
+    const { bossLabelFontHeight: _omit, ...handWithoutBossLabelFont } = hand as {
+      bossCircleRadius: number;
+      armRefArcGap: number;
+      armTimeLabelFontHeight: number;
+      bossLabelFontHeight: number;
+    };
+    expect(() => collaborator.generate({ ...rest, hand: handWithoutBossLabelFont })).toThrow(
+      /spec\.hand\.bossLabelFontHeight/,
+    );
   });
 
   it('places Brand at B_left using spec brandFontHeight and brandAboveBottom', () => {

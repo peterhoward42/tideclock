@@ -64,6 +64,8 @@ export type HomeTideDiagramLayoutBase = {
     readonly armRefArcGap: number;
     /** k·RefRadius: **Hand** arm time readout font height (independent of tick-label sizing). */
     readonly armTimeLabelFontHeight: number;
+    /** k·RefRadius: centered **Hand.BossLabel** font height. */
+    readonly bossLabelFontHeight: number;
   };
   readonly paintOrder: {
     readonly overrides: readonly {

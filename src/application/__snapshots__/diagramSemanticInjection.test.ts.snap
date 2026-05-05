@@ -98,6 +98,14 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       },
       "radius": 9.44,
     },
+    "bossLabel": {
+      "anchor": {
+        "x": 0,
+        "y": 0,
+      },
+      "content": "Tides",
+      "fontSize": 3.54,
+    },
     "theta": 5.552762244273579,
     "timeHours": 19.33416666666667,
   },

@@ -63,9 +63,16 @@
  * }} HandTimeReadoutPartDiagram
  *
  * @typedef {{
+ *   content: string,
+ *   fontSize: number,
+ *   anchor: DiagramPoint,
+ * }} HandBossLabelDiagram
+ *
+ * @typedef {{
  *   timeHours: number,
  *   theta: number,
  *   bossCircle: { center: DiagramPoint, radius: number },
+ *   bossLabel: HandBossLabelDiagram,
  *   arm: DiagramLineSeg,
  *   armTimeReadout: HandTimeReadoutPartDiagram,
  * }} HandDiagram

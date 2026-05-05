@@ -33,10 +33,12 @@ export const homeTideDiagramLayoutBase = {
   /** k·RefRadius: Brand alphabetic baseline above **B_bottom**. */
   brandAboveBottom: 0.008,
   hand: {
-    bossCircleRadius: 0.05,
+    bossCircleRadius: 0.1,
     /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */
     armRefArcGap: 0.040,
     armTimeLabelFontHeight: 0.045,
+    /** k·RefRadius: centered label inside the hand boss circle ("Tides"). */
+    bossLabelFontHeight: 0.048,
   },
   paintOrder: {
     overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],

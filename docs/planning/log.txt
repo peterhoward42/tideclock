@@ -43,24 +43,19 @@ o  first glance ux assimilation suggestions
 	*  Fix BLHCBundle name
 	*  challenge spec sillyness again in respect of
 	*  fix: bounds - use: dividor, boss, and tide marker height field
+	*  Brand / URL
+	*  ChatGPT usability / assimilation advice
 
-	o  pick off the usability notes below
-		*  brand
+	*  put "Tides" inside the boss
 
-	o  ChatGPT usability / assimilation advice
-		*  leverage brand or tides  .  thetidedial.page
-		*  stronger ticks at key times
-		*  ditch seconds from time (and seconds timer cycle)
-		*  pulse the hand or boss
+	o  Remove tides from brand
 
-
-		o  put "now" into the time string
-			o  HH:MM (now) - no longer need seconds
-		o  styles or append/prepend for brhc?
+	o  ditch Tides in brand?
+	o  the search screen should seperate the name from the county
 
 
 	o  ditch duplicate schedulers if possible
-	o  problem with the location
+	o  problem with this location
 		Whaling berth historic Aberdeen
 
 

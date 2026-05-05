@@ -128,10 +128,17 @@ type HandTimeReadoutPartDiagram = {
   readonly angleRad: number;
 };
 
+type HandBossLabelDiagram = {
+  readonly content: string;
+  readonly fontSize: number;
+  readonly anchor: DiagramPoint;
+};
+
 type HandDiagram = {
   readonly timeHours: number;
   readonly theta: number;
   readonly bossCircle: { readonly center: DiagramPoint; readonly radius: number };
+  readonly bossLabel: HandBossLabelDiagram;
   readonly arm: DiagramLineSeg;
   readonly armTimeReadout: HandTimeReadoutPartDiagram;
 };

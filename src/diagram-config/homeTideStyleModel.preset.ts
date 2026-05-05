@@ -32,6 +32,10 @@ export const homeTideStyleModel: StyleModelSpec = {
       colors: { color: "#0FFF50", strokeWidth: 4.0 }, // hand boss circle stroke
     },
     {
+      name: "role.hand.bossLabel",
+      colors: { color: "#0FFF50" },
+    },
+    {
       name: "role.structure.annular-band",
       colors: { strokeColor: "#888", fillColor: "#222" },
     },
@@ -114,6 +118,7 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "TickLabel", roleName: "role.structure.emphasis" },
     { name: "MainLabel", roleName: "role.tide.primary" },
     { name: "BossCircle", roleName: "role.hand.bossCircle" },
+    { name: "BossLabel", roleName: "role.hand.bossLabel" },
     { name: "Arm", roleName: "role.hand.arm" },
     { name: "Hand.TimeReadout", roleName: "role.structure.emphasis" },
     { name: "Hand.TimeReadoutNowTag", roleName: "role.structure.text" },
