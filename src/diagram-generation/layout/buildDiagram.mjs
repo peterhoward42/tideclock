@@ -44,7 +44,7 @@ import {
 const BRHC_LABEL_CHAR_WIDTH_EM = 0.6;
 const TEXT_ASCENT_EM = 0.8;
 const TEXT_DESCENT_EM = 0.2;
-const HAND_NOW_TAG_TEXT = "(now)";
+const HAND_NOW_TAG_TEXT = "time now";
 const HAND_BOSS_LABEL_TEXT = "Tides";
 
 /** Fixed **Brand** copy (**`Brand`** group). */
@@ -189,7 +189,7 @@ function extendLayoutBoundsForDiagramExtent(bounds, p) {
   includeArcSweepAxisBounds(bounds, 0, 0, p.dividorRadius, p.thetaLeft, p.sweepRad);
   const ar = p.armTimeReadout;
   includeDiagramTextBounds(bounds, {
-    content: `${ar.timeContent} ${ar.nowTagContent}`,
+    content: `${ar.nowTagContent} ${ar.timeContent}`,
     fontSize: ar.fontSize,
     anchor: ar.anchor,
     hAlign: "center",

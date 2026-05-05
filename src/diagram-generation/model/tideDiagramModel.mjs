@@ -52,7 +52,7 @@
  * **BRHCBundle** (scene group): **MainLabel** (tide summary, bottom row), **BRHCDate**, **BRHCLocation**.
  *
  * **Hand** arm clock readout: one composed scene group built from
- * `HH:MM` and a separate `(now)` tag.
+ * literal **`time now`** and **`HH:MM`** (tag precedes time along the arm).
  *
  * @typedef {{
  *   timeContent: string,

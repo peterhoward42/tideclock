@@ -69,7 +69,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       },
       "angleRad": 5.67242915205982,
       "fontSize": 5.31,
-      "nowTagContent": "(now)",
+      "nowTagContent": "time now",
       "timeContent": "19:20",
     },
     "bossCircle": {
@@ -86,6 +86,11 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
       },
       "content": "Tides",
       "fontSize": 5.664,
+    },
+    "livePulse": {
+      "opacityRelativeAmplitude": 0.4,
+      "periodSeconds": 4,
+      "radiusRelativeAmplitude": 0.04,
     },
     "theta": 5.67242915205982,
     "timeHours": 19.33416666666667,
@@ -1093,7 +1098,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "meta": {
     "previewFrame": {
       "maxX": 156.76000000000002,
-      "maxY": 13.154000000000002,
+      "maxY": 13.272000000000002,
       "minX": -156.76000000000002,
       "minY": -159.93283550303113,
     },
@@ -1113,9 +1118,9 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                 "kind": "circle",
                 "radius": 11.8,
                 "radiusOscillation": {
-                  "opacityRelativeAmplitude": 0.3,
+                  "opacityRelativeAmplitude": 0.4,
                   "periodSeconds": 4,
-                  "relativeAmplitude": 0.03,
+                  "relativeAmplitude": 0.04,
                 },
               },
             ],
@@ -1156,26 +1161,14 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "children": [
                   {
-                    "anchor": {
-                      "x": 40.262157714894286,
-                      "y": -20.98330157865961,
-                    },
-                    "angleRad": 5.67242915205982,
-                    "content": "19:20",
-                    "dominantBaseline": "middle",
-                    "hAlign": "left",
-                    "kind": "text",
-                    "size": 5.31,
-                  },
-                  {
                     "children": [
                       {
                         "anchor": {
-                          "x": 55.922264140367204,
-                          "y": -31.946080548558697,
+                          "x": 36.34713110852606,
+                          "y": -18.24260683618484,
                         },
                         "angleRad": 5.67242915205982,
-                        "content": "(now)",
+                        "content": "time now",
                         "dominantBaseline": "middle",
                         "hAlign": "left",
                         "kind": "text",
@@ -1184,6 +1177,18 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                     ],
                     "kind": "group",
                     "name": "Hand.TimeReadoutNowTag",
+                  },
+                  {
+                    "anchor": {
+                      "x": 59.837290746735434,
+                      "y": -34.68677529103347,
+                    },
+                    "angleRad": 5.67242915205982,
+                    "content": "19:20",
+                    "dominantBaseline": "middle",
+                    "hAlign": "left",
+                    "kind": "text",
+                    "size": 5.31,
                   },
                 ],
                 "kind": "group",

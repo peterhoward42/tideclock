@@ -478,7 +478,7 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 - **BossCircle** — named group containing one stroked **circle** (see below).
 - **Arm** — named group containing:
   - the stroked radial **line** segment (**Arm** geometry below), and
-- **Hand.TimeReadout** — composed readout along the arm (time plus now-tag; see below).
+- **Hand.TimeReadout** — composed readout along the arm (**`time now`** then **`HH:MM`**; see below).
 - **Hand** curve primitives (**BossCircle** outline, **Arm** segment) are stroked only; **fill** is **none**.
 - **Arm** should render with a slightly wider stroke width than the default diagram stroke.
 
@@ -500,19 +500,20 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 
 ### Hand time readout (`Hand.TimeReadout`)
 
-A single visual line showing **`HH:MM (now)`**. The time part is derived from
-the global canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input**
+A single visual line showing **`time now HH:MM`** (literal **`time now`**, a
+space, then the clock readout). The time part is derived from the global
+canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input**
 / **§Time and θ(t)**): the first two fields only (five characters:
-**`HH:MM`**, no trailing colon in the display string), followed by a literal
-space and **`(now)`**. It is positioned along the **Hand** so it moves with
-**`θ_now`**, emitted as **one** named group with two text leaves:
-**`Hand.TimeReadout`** (time part) and **`Hand.TimeReadoutNowTag`** (literal tag)
-to allow dedicated style binding for the tag.
+**`HH:MM`**, no trailing colon in the display string). It is positioned along
+the **Hand** so it moves with **`θ_now`**, emitted as **one** named group
+**`Hand.TimeReadout`** containing **`Hand.TimeReadoutNowTag`** (literal
+**`time now`**) and a sibling **text** leaf for **`HH:MM`**, to allow dedicated
+style binding for the tag.
 
 - Required diagram input **`hand.armTimeLabelFontHeight`**: finite dimensionless **k > 0** (**§Sizing**). **FontHeight** is **`hand.armTimeLabelFontHeight · RefRadius`**. This is independent of **TickLabel** sizing.
 - **Text** — the first five characters of the canonical **`timeNow`** string (the hours and minutes fields and their delimiters; no seconds).
 - **Horizontal justification** — **centre** on the rotated baseline for the
-  composed line **`HH:MM (now)`** (monospace **0.6 em** per code unit width
+  composed line **`time now HH:MM`** (monospace **0.6 em** per code unit width
   heuristic, consistent with diagram-wide text bounds).
 - Anchor placement uses the midpoint of the **Arm** segment (between **`r_boss`** and **`r_arm_outer`**, **§Radial segments**), then shifts by **0.05·RefRadius** along the **RefArc** tangent at **`θ_now`** that points toward **decreasing θ** (earlier clock time along the arc) when the **before-noon** presentation branch applies, and **opposite** that tangent when the **after-noon** branch applies. With **`civilHalfDayLayout = "auto"`**, the before-noon branch is **`t_now ≤ 12`** and the after-noon branch is **`t_now > 12`** (**t_now** per **§Global “time now” input**). With **`"beforeNoon"`** or **`"afterNoon"`**, the branch is forced per **§Global civil half-day layout** without changing **`θ_now`**.
 - **Baseline rotation** (radians, same convention as other rotated diagram **text**): **`θ_now + π`** on the **before-noon** branch, else **`θ_now`**, so the string runs along the arm with a consistent reading sense across morning and afternoon. Branch selection matches the preceding bullet (**§Global civil half-day layout** when not **`"auto"`**).

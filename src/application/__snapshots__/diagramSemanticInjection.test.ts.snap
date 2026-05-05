@@ -69,7 +69,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       },
       "angleRad": 5.552762244273579,
       "fontSize": 3.3984,
-      "nowTagContent": "(now)",
+      "nowTagContent": "time now",
       "timeContent": "19:20",
     },
     "bossCircle": {

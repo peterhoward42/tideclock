@@ -156,7 +156,7 @@ describe('spec.semantic.nextTide injection', () => {
     expect(diagram.brhcDate.content).toBe('Mon 23 Mar');
     expect(diagram.brhcLocation.content).toBe('Lymington');
     expect(diagram.hand.armTimeReadout.timeContent).toBe('23:59');
-    expect(diagram.hand.armTimeReadout.nowTagContent).toBe('(now)');
+    expect(diagram.hand.armTimeReadout.nowTagContent).toBe('time now');
   });
 
   it('shows no-more-tides MainLabel copy when there is no next marker', () => {

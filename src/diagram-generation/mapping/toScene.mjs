@@ -611,10 +611,10 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
 export function handDiagramToGroup(hand, cx, cy) {
   const ar = hand.armTimeReadout;
   const bossLabel = hand.bossLabel;
-  const composedPrefix = `${ar.timeContent} `;
+  const tagPrefix = `${ar.nowTagContent} `;
   const charWidth = ar.fontSize * 0.6;
   const totalWidth =
-    (composedPrefix.length + ar.nowTagContent.length) * charWidth;
+    (tagPrefix.length + ar.timeContent.length) * charWidth;
   // Lay out both fragments along the rotated baseline so they read as one line.
   const ux = Math.cos(ar.angleRad);
   const uy = Math.sin(ar.angleRad);
@@ -622,9 +622,9 @@ export function handDiagramToGroup(hand, cx, cy) {
     x: ar.anchor.x - 0.5 * totalWidth * ux,
     y: ar.anchor.y - 0.5 * totalWidth * uy,
   };
-  const nowTagAnchor = {
-    x: firstAnchor.x + composedPrefix.length * charWidth * ux,
-    y: firstAnchor.y + composedPrefix.length * charWidth * uy,
+  const timeFragmentAnchor = {
+    x: firstAnchor.x + tagPrefix.length * charWidth * ux,
+    y: firstAnchor.y + tagPrefix.length * charWidth * uy,
   };
   return group("Hand", [
     group("BossCircle", [
@@ -649,24 +649,24 @@ export function handDiagramToGroup(hand, cx, cy) {
     group("Arm", [
       line(mapPoint(hand.arm.start, cx, cy), mapPoint(hand.arm.end, cx, cy)),
       group("Hand.TimeReadout", [
-        text({
-          content: ar.timeContent,
-          size: ar.fontSize,
-          hAlign: "left",
-          angleRad: ar.angleRad,
-          anchor: mapPoint(firstAnchor, cx, cy),
-          dominantBaseline: "middle",
-        }),
         group("Hand.TimeReadoutNowTag", [
           text({
             content: ar.nowTagContent,
             size: ar.fontSize,
             hAlign: "left",
             angleRad: ar.angleRad,
-            anchor: mapPoint(nowTagAnchor, cx, cy),
+            anchor: mapPoint(firstAnchor, cx, cy),
             dominantBaseline: "middle",
           }),
         ]),
+        text({
+          content: ar.timeContent,
+          size: ar.fontSize,
+          hAlign: "left",
+          angleRad: ar.angleRad,
+          anchor: mapPoint(timeFragmentAnchor, cx, cy),
+          dominantBaseline: "middle",
+        }),
       ]),
     ]),
   ]);
