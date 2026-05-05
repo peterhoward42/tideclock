@@ -44,6 +44,7 @@ import {
 const BRHC_LABEL_CHAR_WIDTH_EM = 0.6;
 const TEXT_ASCENT_EM = 0.8;
 const TEXT_DESCENT_EM = 0.2;
+const HAND_NOW_TAG_TEXT = "(now)";
 
 /** Fixed **Brand** copy (**`Brand`** group): **BrandTitle** / separator / **BrandURL**. */
 const BRAND_TITLE = "tides";
@@ -192,7 +193,7 @@ function extendLayoutBoundsForDiagramExtent(bounds, p) {
   includeArcSweepAxisBounds(bounds, 0, 0, p.dividorRadius, p.thetaLeft, p.sweepRad);
   const ar = p.armTimeReadout;
   includeDiagramTextBounds(bounds, {
-    content: ar.content,
+    content: `${ar.timeContent} ${ar.nowTagContent}`,
     fontSize: ar.fontSize,
     anchor: ar.anchor,
     hAlign: "center",
@@ -393,7 +394,8 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     bossCircle: { center: { x: 0, y: 0 }, radius: rBoss },
     arm: { start: armStart, end: armEnd },
     armTimeReadout: {
-      content: timeNow.slice(0, 5),
+      timeContent: timeNow.slice(0, 5),
+      nowTagContent: HAND_NOW_TAG_TEXT,
       fontSize,
       anchor: { x: ax, y: ay },
       angleRad,
@@ -574,20 +576,20 @@ export function buildDiagram(spec) {
         leafName: "BrandTitle",
         content: BRAND_TITLE,
         anchor: { x: brandLeadingX, y: brandBaselineY },
-        hAlign: "left",
+        hAlign: /** @type {const} */ ("left"),
       },
       {
         leafName: "Brand.separator",
         content: BRAND_SEPARATOR,
         anchor: { x: xSep, y: brandSepY },
-        hAlign: "left",
-        dominantBaseline: "middle",
+        hAlign: /** @type {const} */ ("left"),
+        dominantBaseline: /** @type {const} */ ("middle"),
       },
       {
         leafName: "BrandURL",
         content: BRAND_URL,
         anchor: { x: xUrl, y: brandBaselineY },
-        hAlign: "left",
+        hAlign: /** @type {const} */ ("left"),
       },
     ],
   };

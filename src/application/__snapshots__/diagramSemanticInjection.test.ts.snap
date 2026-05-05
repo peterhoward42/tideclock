@@ -87,8 +87,9 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "y": -37.72451435234713,
       },
       "angleRad": 5.552762244273579,
-      "content": "19:20",
       "fontSize": 3.3984,
+      "nowTagContent": "(now)",
+      "timeContent": "19:20",
     },
     "bossCircle": {
       "center": {

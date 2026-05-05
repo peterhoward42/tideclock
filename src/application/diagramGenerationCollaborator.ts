@@ -121,7 +121,8 @@ type HomeMenuTriggerDiagram = {
 };
 
 type HandTimeReadoutPartDiagram = {
-  readonly content: string;
+  readonly timeContent: string;
+  readonly nowTagContent: string;
   readonly fontSize: number;
   readonly anchor: DiagramPoint;
   readonly angleRad: number;

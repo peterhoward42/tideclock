@@ -51,10 +51,12 @@
  *
  * **BRHCBundle** (scene group): **MainLabel** (tide summary, bottom row), **BRHCDate**, **BRHCLocation**.
  *
- * **Hand** arm clock readout: one scene group (**Hand.TimeReadout** = `HH:MM`, first five characters of canonical **`timeNow`**).
+ * **Hand** arm clock readout: one composed scene group built from
+ * `HH:MM` and a separate `(now)` tag.
  *
  * @typedef {{
- *   content: string,
+ *   timeContent: string,
+ *   nowTagContent: string,
  *   fontSize: number,
  *   anchor: DiagramPoint,
  *   angleRad: number,

@@ -116,6 +116,7 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "BossCircle", roleName: "role.hand.bossCircle" },
     { name: "Arm", roleName: "role.hand.arm" },
     { name: "Hand.TimeReadout", roleName: "role.structure.emphasis" },
+    { name: "Hand.TimeReadoutNowTag", roleName: "role.structure.text" },
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
     { name: "BRHCLocation", roleName: "role.structure.emphasis" },
     { name: "BRHCDate", roleName: "role.structure.text" },

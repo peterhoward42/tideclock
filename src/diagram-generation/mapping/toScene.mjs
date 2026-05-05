@@ -609,6 +609,21 @@ export function tideMarkDiagramToGroup(mark, cx, cy) {
  */
 export function handDiagramToGroup(hand, cx, cy) {
   const ar = hand.armTimeReadout;
+  const composedPrefix = `${ar.timeContent} `;
+  const charWidth = ar.fontSize * 0.6;
+  const totalWidth =
+    (composedPrefix.length + ar.nowTagContent.length) * charWidth;
+  // Lay out both fragments along the rotated baseline so they read as one line.
+  const ux = Math.cos(ar.angleRad);
+  const uy = Math.sin(ar.angleRad);
+  const firstAnchor = {
+    x: ar.anchor.x - 0.5 * totalWidth * ux,
+    y: ar.anchor.y - 0.5 * totalWidth * uy,
+  };
+  const nowTagAnchor = {
+    x: firstAnchor.x + composedPrefix.length * charWidth * ux,
+    y: firstAnchor.y + composedPrefix.length * charWidth * uy,
+  };
   return group("Hand", [
     group("BossCircle", [
       circle(mapPoint(hand.bossCircle.center, cx, cy), hand.bossCircle.radius, {
@@ -623,13 +638,23 @@ export function handDiagramToGroup(hand, cx, cy) {
       line(mapPoint(hand.arm.start, cx, cy), mapPoint(hand.arm.end, cx, cy)),
       group("Hand.TimeReadout", [
         text({
-          content: ar.content,
+          content: ar.timeContent,
           size: ar.fontSize,
-          hAlign: "center",
+          hAlign: "left",
           angleRad: ar.angleRad,
-          anchor: mapPoint(ar.anchor, cx, cy),
+          anchor: mapPoint(firstAnchor, cx, cy),
           dominantBaseline: "middle",
         }),
+        group("Hand.TimeReadoutNowTag", [
+          text({
+            content: ar.nowTagContent,
+            size: ar.fontSize,
+            hAlign: "left",
+            angleRad: ar.angleRad,
+            anchor: mapPoint(nowTagAnchor, cx, cy),
+            dominantBaseline: "middle",
+          }),
+        ]),
       ]),
     ]),
   ]);

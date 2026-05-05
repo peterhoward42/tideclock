@@ -143,7 +143,8 @@ describe('spec.semantic.nextTide injection', () => {
     const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
     expect(diagram.brhcDate.content).toBe('Mon 23 Mar');
     expect(diagram.brhcLocation.content).toBe('Lymington');
-    expect(diagram.hand.armTimeReadout.content).toBe('23:59');
+    expect(diagram.hand.armTimeReadout.timeContent).toBe('23:59');
+    expect(diagram.hand.armTimeReadout.nowTagContent).toBe('(now)');
   });
 
   it('shows no-more-tides MainLabel copy when there is no next marker', () => {

@@ -42,7 +42,7 @@ o  first glance ux assimilation suggestions
 	*  More prominent location
 	*  Fix BLHCBundle name
 	*  challenge spec sillyness again in respect of
-	o  fix: bounds - use: dividor, boss, and tide marker height field
+	*  fix: bounds - use: dividor, boss, and tide marker height field
 
 	o  pick off the usability notes below
 		*  brand
@@ -51,11 +51,7 @@ o  first glance ux assimilation suggestions
 		*  leverage brand or tides  .  thetidedial.page
 		*  stronger ticks at key times
 		*  ditch seconds from time (and seconds timer cycle)
-
-		o  pulse the hand or boss
-			*  basics
-			o  what about spec
-			o  what about const being in presets
+		*  pulse the hand or boss
 
 
 		o  put "now" into the time string
