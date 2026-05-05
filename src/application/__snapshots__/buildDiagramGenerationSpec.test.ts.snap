@@ -24,25 +24,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           "x": -155.76000000000002,
           "y": -157.98883550303114,
         },
-        "content": "tides",
-        "hAlign": "left",
-        "leafName": "BrandTitle",
-      },
-      {
-        "anchor": {
-          "x": -140.56160000000003,
-          "y": -156.57283550303114,
-        },
-        "content": "·",
-        "dominantBaseline": "middle",
-        "hAlign": "left",
-        "leafName": "Brand.separator",
-      },
-      {
-        "anchor": {
-          "x": -136.69120000000004,
-          "y": -157.98883550303114,
-        },
         "content": "thetidedial.page",
         "hAlign": "left",
         "leafName": "BrandURL",
@@ -77,25 +58,34 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "y": -64.96461611792053,
       },
       "start": {
-        "x": 4.833366180701519,
-        "y": -3.3835737561416943,
+        "x": 9.666732361403039,
+        "y": -6.767147512283389,
       },
     },
     "armTimeReadout": {
       "anchor": {
-        "x": 52.20057218122703,
-        "y": -29.340728756329597,
+        "x": 54.61725527157779,
+        "y": -31.03251563440044,
       },
       "angleRad": 5.67242915205982,
-      "content": "19:20",
       "fontSize": 5.31,
+      "nowTagContent": "(now)",
+      "timeContent": "19:20",
     },
     "bossCircle": {
       "center": {
         "x": 0,
         "y": 0,
       },
-      "radius": 5.9,
+      "radius": 11.8,
+    },
+    "bossLabel": {
+      "anchor": {
+        "x": 0,
+        "y": 0,
+      },
+      "content": "Tides",
+      "fontSize": 5.664,
     },
     "theta": 5.67242915205982,
     "timeHours": 19.33416666666667,
@@ -939,6 +929,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "content": "0.94 m",
         "fontSize": 5.31,
       },
+      "pointerFillStyle": "outline",
       "temporalClass": "past",
       "theta": 3.6979163526629857,
       "timeHours": 4.25,
@@ -980,6 +971,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "content": "4.70 m",
         "fontSize": 5.31,
       },
+      "pointerFillStyle": "filled",
       "temporalClass": "past",
       "theta": 4.548764363010221,
       "timeHours": 10.75,
@@ -1021,6 +1013,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "content": "0.89 m",
         "fontSize": 5.31,
       },
+      "pointerFillStyle": "outline",
       "temporalClass": "past",
       "theta": 5.365578452943567,
       "timeHours": 16.99,
@@ -1062,6 +1055,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
         "content": "4.80 m",
         "fontSize": 5.31,
       },
+      "pointerFillStyle": "filled",
       "temporalClass": "future",
       "theta": 6.165375582669969,
       "timeHours": 23.1,
@@ -1099,9 +1093,9 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
   "meta": {
     "previewFrame": {
       "maxX": 156.76000000000002,
-      "maxY": 7.077000000000001,
+      "maxY": 13.154000000000002,
       "minX": -156.76000000000002,
-      "minY": -160.02723550303114,
+      "minY": -159.93283550303113,
     },
     "title": "home-tide-diagram",
   },
@@ -1117,9 +1111,9 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   "y": 0,
                 },
                 "kind": "circle",
-                "radius": 5.9,
+                "radius": 11.8,
                 "radiusOscillation": {
-                  "opacityRelativeAmplitude": 0.04,
+                  "opacityRelativeAmplitude": 0.3,
                   "periodSeconds": 4,
                   "relativeAmplitude": 0.03,
                 },
@@ -1131,29 +1125,65 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
           {
             "children": [
               {
+                "anchor": {
+                  "x": 0,
+                  "y": 0,
+                },
+                "angleRad": 0,
+                "content": "Tides",
+                "dominantBaseline": "middle",
+                "hAlign": "center",
+                "kind": "text",
+                "size": 5.664,
+              },
+            ],
+            "kind": "group",
+            "name": "BossLabel",
+          },
+          {
+            "children": [
+              {
                 "end": {
                   "x": 92.80063066946916,
                   "y": -64.96461611792053,
                 },
                 "kind": "line",
                 "start": {
-                  "x": 4.833366180701519,
-                  "y": -3.3835737561416943,
+                  "x": 9.666732361403039,
+                  "y": -6.767147512283389,
                 },
               },
               {
                 "children": [
                   {
                     "anchor": {
-                      "x": 52.20057218122703,
-                      "y": -29.340728756329597,
+                      "x": 40.262157714894286,
+                      "y": -20.98330157865961,
                     },
                     "angleRad": 5.67242915205982,
                     "content": "19:20",
                     "dominantBaseline": "middle",
-                    "hAlign": "center",
+                    "hAlign": "left",
                     "kind": "text",
                     "size": 5.31,
+                  },
+                  {
+                    "children": [
+                      {
+                        "anchor": {
+                          "x": 55.922264140367204,
+                          "y": -31.946080548558697,
+                        },
+                        "angleRad": 5.67242915205982,
+                        "content": "(now)",
+                        "dominantBaseline": "middle",
+                        "hAlign": "left",
+                        "kind": "text",
+                        "size": 5.31,
+                      },
+                    ],
+                    "kind": "group",
+                    "name": "Hand.TimeReadoutNowTag",
                   },
                 ],
                 "kind": "group",
@@ -1989,7 +2019,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "TimePointerPast",
+                "name": "TimePointerOutline",
               },
               {
                 "children": [
@@ -2007,7 +2037,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "HeightLabelPast",
+                "name": "HeightLabel",
               },
             ],
             "kind": "group",
@@ -2039,7 +2069,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "TimePointerPast",
+                "name": "TimePointerFilled",
               },
               {
                 "children": [
@@ -2057,7 +2087,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "HeightLabelPast",
+                "name": "HeightLabel",
               },
             ],
             "kind": "group",
@@ -2089,7 +2119,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "TimePointerPast",
+                "name": "TimePointerOutline",
               },
               {
                 "children": [
@@ -2107,7 +2137,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "HeightLabelPast",
+                "name": "HeightLabel",
               },
             ],
             "kind": "group",
@@ -2139,7 +2169,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "TimePointerFuture",
+                "name": "TimePointerFilled",
               },
               {
                 "children": [
@@ -2157,7 +2187,7 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
                   },
                 ],
                 "kind": "group",
-                "name": "HeightLabelFuture",
+                "name": "HeightLabel",
               },
             ],
             "kind": "group",
@@ -2490,41 +2520,6 @@ exports[`buildDiagramGenerationSpec + createDiagramGenerationCollaborator > gold
               {
                 "anchor": {
                   "x": -155.76000000000002,
-                  "y": -157.98883550303114,
-                },
-                "angleRad": 0,
-                "content": "tides",
-                "hAlign": "left",
-                "kind": "text",
-                "size": 4.72,
-              },
-            ],
-            "kind": "group",
-            "name": "BrandTitle",
-          },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": -140.56160000000003,
-                  "y": -156.57283550303114,
-                },
-                "angleRad": 0,
-                "content": "·",
-                "dominantBaseline": "middle",
-                "hAlign": "left",
-                "kind": "text",
-                "size": 4.72,
-              },
-            ],
-            "kind": "group",
-            "name": "Brand.separator",
-          },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": -136.69120000000004,
                   "y": -157.98883550303114,
                 },
                 "angleRad": 0,

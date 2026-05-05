@@ -98,6 +98,7 @@
  *   timeHours: number,
  *   theta: number,
  *   temporalClass: 'future' | 'past',
+ *   pointerFillStyle: 'filled' | 'outline',
  *   heightLabel: TideHeightLabelDiagram,
  *   timePointer: TideTimePointerSpec,
  * }} TideMarkDiagram

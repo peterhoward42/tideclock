@@ -45,12 +45,13 @@ o  first glance ux assimilation suggestions
 	*  fix: bounds - use: dividor, boss, and tide marker height field
 	*  Brand / URL
 	*  ChatGPT usability / assimilation advice
-
 	*  put "Tides" inside the boss
+	*  Remove tides from brand
+	o  Make tide marker pointers
+		o  all same opacity
+		o  filled or not according to non ambig h/l
+		o  or all filled when tricky
 
-	o  Remove tides from brand
-
-	o  ditch Tides in brand?
 	o  the search screen should seperate the name from the county
 
 

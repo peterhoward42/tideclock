@@ -11,10 +11,7 @@ export const homeTideStyleModel: StyleModelSpec = {
       name: "role.tide.primary",
       colors: { color: "#bf94e4", fillColor: "#dab3f5" }, // bright lavender
     },
-    {
-      name: "role.tide.primary.past",
-      colors: { color: "#bf94e4", fillColor: "#dab3f5",opacity: 0.62 }, // same hue, lower contrast for already-passed tides
-    },
+    { name: "role.tide.outline", colors: { color: "#bf94e4" } },
     {
       name: "role.tide.secondary",
       colors: { color: "#AAA" },
@@ -72,10 +69,6 @@ export const homeTideStyleModel: StyleModelSpec = {
       colors: { color: "#777" },
     },
     {
-      name: "role.structure.emphasis.past",
-      colors: { color: "#AAA", opacity: 0.62 }, // softened emphasis for past tide labels
-    },
-    {
       name: "role.surface.centre-frame",
       colors: { strokeColor: "#555", fillColor: "#151515" },
     },
@@ -99,14 +92,13 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "TickMark", roleName: "role.structure.ref" },
     { name: "TickMark.Endpoint", roleName: "role.structure.dialTick.endpoint" },
     { name: "TickMark.Quarter", roleName: "role.structure.dialTick.quarter" },
-    { name: "HeightLabelFuture", roleName: "role.tide.primary" },
-    { name: "HeightLabelPast", roleName: "role.tide.primary.past" },
+    { name: "HeightLabel", roleName: "role.tide.primary" },
     { name: "TimeDeltaLocation", roleName: "role.text.primary" },
     { name: "TimeDeltaPhase", roleName: "role.tide.primary" },
     { name: "TimeDeltaNext", roleName: "role.tide.secondary" },
     { name: "TimeDeltaNextTime", roleName: "role.tide.secondary" },
-    { name: "TimePointerFuture", roleName: "role.tide.primary" },
-    { name: "TimePointerPast", roleName: "role.tide.primary.past" },
+    { name: "TimePointerFilled", roleName: "role.tide.primary" },
+    { name: "TimePointerOutline", roleName: "role.tide.outline" },
     { name: "TickLabel", roleName: "role.structure.emphasis" },
     { name: "MainLabel", roleName: "role.tide.primary" },
     { name: "BossCircle", roleName: "role.hand.bossCircle" },

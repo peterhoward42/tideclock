@@ -24,7 +24,9 @@ import { requireFiniteNumber, requirePlainObject, requireString } from "./specRe
  *   t: number,
  *   canonicalTime: string,
  *   heightText: string,
+ *   kind: "High" | "Low",
  *   isFuture: boolean,
+ *   pointerFillStyle: "filled" | "outline",
  * }} LayoutTideMarkInput
  */
 
@@ -95,6 +97,7 @@ export function layoutTideMarks(params) {
       timeHours: t,
       theta,
       temporalClass: m.isFuture ? "future" : "past",
+      pointerFillStyle: m.pointerFillStyle,
       heightLabel: {
         content: m.heightText,
         fontSize: heightLabelSizeK * R,
@@ -274,6 +277,14 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     semanticRaw != null && typeof semanticRaw === "object"
       ? /** @type {Record<string, unknown>} */ (semanticRaw)
       : null;
+  const atypicalTideSummary =
+    semantic != null &&
+    Object.prototype.hasOwnProperty.call(semantic, "atypicalTideSummary")
+      ? semantic.atypicalTideSummary
+      : false;
+  if (typeof atypicalTideSummary !== "boolean") {
+    throw new Error("spec.semantic.atypicalTideSummary must be boolean when provided");
+  }
   const hasExplicitNoNextTide =
     semantic != null &&
     Object.prototype.hasOwnProperty.call(semantic, "nextTide") &&
@@ -288,7 +299,10 @@ export function buildTideMarksFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     t: row.hours,
     canonicalTime: row.canonicalTime,
     heightText: row.heightText,
+    kind: /** @type {"High" | "Low"} */ (row.kind),
     isFuture: shouldForceAllFuture || row.seconds >= parsedNow.seconds,
+    pointerFillStyle:
+      !atypicalTideSummary && row.kind === "Low" ? "outline" : "filled",
   }));
 
   return layoutTideMarks({
