@@ -167,21 +167,19 @@ describe('createDiagramGenerationCollaborator', () => {
     const { diagram } = collaborator.generate(spec);
     const k = (spec as { brandFontHeight: number }).brandFontHeight;
     const aboveK = (spec as { brandAboveBottom: number }).brandAboveBottom;
-    expect(diagram.brand.segments.map((s) => s.content).join('')).toBe('tides·thetidedial.page');
+    expect(diagram.brand.segments.map((s) => s.content).join('')).toBe('thetidedial.page');
+    expect(diagram.brand.segments).toHaveLength(1);
     expect(diagram.brand.segments[0]?.hAlign).toBe('left');
     expect(diagram.brand.fontSize).toBeCloseTo(k * diagram.refArc.refRadius, 6);
     const bBottom =
       diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
     expect(diagram.brand.anchor.y).toBeCloseTo(bBottom + aboveK * diagram.refArc.refRadius, 6);
-    expect(diagram.brand.segments[1]?.dominantBaseline).toBe('middle');
   });
 
-  it('renders BrandTitle with font-weight 700 from the home style model', () => {
+  it('renders BrandURL from the home style model', () => {
     const collaborator = createDiagramGenerationCollaborator();
     const { scene, styleRuntime } = collaborator.generate(baseSpecForCollaboratorTest());
     const svg = renderSceneSvg(scene, { styleRuntime });
-    expect(svg).toContain('font-weight="700"');
-    expect(svg).toContain('>tides<');
     expect(svg).toContain('>thetidedial.page<');
   });
 

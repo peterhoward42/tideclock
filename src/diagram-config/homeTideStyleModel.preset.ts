@@ -68,14 +68,6 @@ export const homeTideStyleModel: StyleModelSpec = {
       colors: { color: "white", strokeWidth: 2.35 },
     },
     {
-      name: "BrandTitle",
-      colors: { color: "#777", fontWeight: 700 },
-    },
-    {
-      name: "BrandSeparator",
-      colors: { color: "#777" },
-    },
-    {
       name: "BrandURL",
       colors: { color: "#777" },
     },
@@ -125,8 +117,6 @@ export const homeTideStyleModel: StyleModelSpec = {
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
     { name: "BRHCLocation", roleName: "role.structure.emphasis" },
     { name: "BRHCDate", roleName: "role.structure.text" },
-    { name: "BrandTitle", roleName: "BrandTitle" },
-    { name: "Brand.separator", roleName: "BrandSeparator" },
     { name: "BrandURL", roleName: "BrandURL" },
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
     { name: "HomeMenuTrigger", roleName: "role.menu.trigger" },

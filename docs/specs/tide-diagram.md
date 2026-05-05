@@ -269,15 +269,11 @@ homeMenuTrigger: {
 ## Brand
 
 - Visually a single horizontal string
-- But composed from the concatenation of:
-	- A BrandTitle string "tides"
-	- A mid-height dot character
+- Content is fixed to one string:
 	- A BrandURL string "thetidedial.page"
 - Uniform font height - taken from an input parameter
-- The two strings should each get their own named style mappings
-- The preset style for the BrandTitle should use a dedicated BrandTitle style
-  specifying one of the already used grey colours, and a fontWeight of 700
-- The preset style for the BranURL should use a dedicated BrandURL style
+- The string should get its own named style mapping
+- The preset style for the BrandURL should use a dedicated BrandURL style
   specifying one of the already used grey colours, and not specifying a
   fontWeight.
 

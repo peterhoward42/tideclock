@@ -64,7 +64,7 @@ type BrandDiagramSegment = {
   readonly dominantBaseline?: "alphabetic" | "middle";
 };
 
-/** Fixed **BrandTitle** · **BrandURL** line (with **Brand.separator**); **anchor** is the leading baseline at **B_left**. */
+/** Fixed **BrandURL** line; **anchor** is the leading baseline at **B_left**. */
 type BrandDiagram = {
   readonly fontSize: number;
   readonly anchor: DiagramPoint;
@@ -168,7 +168,7 @@ export type TideDiagramDocument = {
   readonly hand: HandDiagram;
   readonly brhcLocation: DiagramTextInst;
   readonly brhcDate: DiagramTextInst;
-  /** Fixed brand line (**BrandTitle** / **Brand.separator** / **BrandURL**); **left** at **B_left**; baseline **`B_bottom + brandAboveBottom·R`**; font size from **`brandFontHeight`** (see tide-diagram spec §Brand). */
+  /** Fixed brand line (**BrandURL**); **left** at **B_left**; baseline **`B_bottom + brandAboveBottom·R`**; font size from **`brandFontHeight`** (see tide-diagram spec §Brand). */
   readonly brand: BrandDiagram;
 };
 
