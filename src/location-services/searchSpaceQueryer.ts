@@ -17,6 +17,38 @@ export type SearchSpaceQueryResult = {
   resultKeys: string[];
 };
 
+export type SearchSpaceQueryProfileState =
+  | 'focused'
+  | 'broad'
+  | 'ambiguous'
+  | 'broad_ambiguous';
+
+export type SearchSpaceQueryProfile = {
+  /** Lowercased query terms after trim/split normalization. */
+  terms: string[];
+  /** Same as `terms.length`. */
+  termCount: number;
+};
+
+/** Profile-first response shape used by new callers. */
+export type SearchSpaceProfiledQueryResult = {
+  /** Visible rows and aligned metadata (same semantics as legacy result). */
+  rows: SearchSpaceQueryResult & {
+    /** Full number of matched rows across the whole search space. */
+    matchesTotal: number;
+    /** `matchesTotal - visibleCount` (never negative). */
+    overflowCount: number;
+    /** Same as `count`, included to keep row metrics self-describing. */
+    visibleCount: number;
+  };
+  profile: SearchSpaceQueryProfile;
+  /**
+   * Coarse state for policy branching. Collisions are not yet modeled in this
+   * first migration step, so state is overflow-driven only.
+   */
+  state: SearchSpaceQueryProfileState;
+};
+
 /** Same row pairing as {@link SearchSpaceQueryResult}, plus total-match metadata for UX copy. */
 export type SearchSpaceQueryWithTotalCap = SearchSpaceQueryResult & {
   /**
@@ -75,27 +107,41 @@ export class SearchSpaceQueryer {
     if (maxResults < 0) {
       throw new RangeError('maxResults must be non-negative');
     }
-    const fragments = splitQueryIntoSearchFragments(queryString).map((f) =>
-      f.toLowerCase(),
-    );
-    return this.queryByFragments(fragments, maxResults);
+    const profiled = this.queryProfiled(queryString, maxResults);
+    return {
+      results: profiled.rows.results,
+      count: profiled.rows.count,
+      displayNames: profiled.rows.displayNames,
+      resultKeys: profiled.rows.resultKeys,
+    };
   }
 
   /**
-   * Returns rows from the search space that contain all fragments, stopping as soon
-   * as `maxResults` matches have been collected.
+   * Canonical profiled query path: always scans the full search space to
+   * produce both visible rows and full-match totals from one pass.
    */
-  private queryByFragments(
-    lowerFragments: readonly string[],
+  queryProfiled(
+    queryString: string,
     maxResults: number,
-  ): SearchSpaceQueryResult {
+  ): SearchSpaceProfiledQueryResult {
+    if (maxResults < 0) {
+      throw new RangeError('maxResults must be non-negative');
+    }
+    const terms = splitQueryIntoSearchFragments(queryString).map((f) =>
+      f.toLowerCase(),
+    );
     const results: string[] = [];
     const displayNames: string[] = [];
     const resultKeys: string[] = [];
+    let matchesTotal = 0;
 
-    for (let i = 0; i < this.searchSpace.length && results.length < maxResults; i += 1) {
+    for (let i = 0; i < this.searchSpace.length; i += 1) {
       const haystack = this.searchSpaceLower[i];
-      if (lowerFragments.every((frag) => haystack.includes(frag))) {
+      if (!terms.every((frag) => haystack.includes(frag))) {
+        continue;
+      }
+      matchesTotal += 1;
+      if (results.length < maxResults) {
         results.push(this.searchSpace[i]);
         displayNames.push(this.displaySpace[i]);
         if (this.keySpace !== undefined) {
@@ -104,11 +150,24 @@ export class SearchSpaceQueryer {
       }
     }
 
+    const visibleCount = results.length;
+    const overflowCount = Math.max(0, matchesTotal - visibleCount);
+
     return {
-      results,
-      count: results.length,
-      displayNames,
-      resultKeys,
+      rows: {
+        results,
+        count: visibleCount,
+        displayNames,
+        resultKeys,
+        visibleCount,
+        matchesTotal,
+        overflowCount,
+      },
+      profile: {
+        terms,
+        termCount: terms.length,
+      },
+      state: overflowCount > 0 ? 'broad' : 'focused',
     };
   }
 
@@ -128,39 +187,15 @@ export class SearchSpaceQueryer {
     if (matchCountCeiling < maxResults) {
       throw new RangeError('matchCountCeiling must be >= maxResults');
     }
-    const fragments = splitQueryIntoSearchFragments(queryString).map((f) =>
-      f.toLowerCase(),
-    );
-    const results: string[] = [];
-    const displayNames: string[] = [];
-    const resultKeys: string[] = [];
-    let totalMatchingRows = 0;
-    let totalHitCountCeiling = false;
-
-    for (let i = 0; i < this.searchSpace.length; i += 1) {
-      const haystack = this.searchSpaceLower[i];
-      if (!fragments.every((frag) => haystack.includes(frag))) {
-        continue;
-      }
-      totalMatchingRows += 1;
-      if (results.length < maxResults) {
-        results.push(this.searchSpace[i]);
-        displayNames.push(this.displaySpace[i]);
-        if (this.keySpace !== undefined) {
-          resultKeys.push(this.keySpace[i]);
-        }
-      }
-      if (totalMatchingRows >= matchCountCeiling) {
-        totalHitCountCeiling = true;
-        break;
-      }
-    }
+    const profiled = this.queryProfiled(queryString, maxResults);
+    const totalMatchingRows = Math.min(profiled.rows.matchesTotal, matchCountCeiling);
+    const totalHitCountCeiling = profiled.rows.matchesTotal >= matchCountCeiling;
 
     return {
-      results,
-      count: results.length,
-      displayNames,
-      resultKeys,
+      results: profiled.rows.results,
+      count: profiled.rows.count,
+      displayNames: profiled.rows.displayNames,
+      resultKeys: profiled.rows.resultKeys,
       totalMatchingRows,
       totalHitCountCeiling,
     };

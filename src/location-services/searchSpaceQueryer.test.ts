@@ -129,4 +129,33 @@ describe('SearchSpaceQueryer', () => {
     expect(r.totalHitCountCeiling).toBe(true);
     expect(r.resultKeys).toEqual([]);
   });
+
+  it('queryProfiled returns visible rows plus full-match totals', () => {
+    const q = new SearchSpaceQueryer(
+      ['alpha one', 'alpha two', 'alpha three', 'beta'],
+      ['a1', 'a2', 'a3', 'b1'],
+      ['k1', 'k2', 'k3', 'k4'],
+    );
+    expect(q.queryProfiled('alpha', 2)).toEqual({
+      rows: {
+        results: ['alpha one', 'alpha two'],
+        count: 2,
+        displayNames: ['a1', 'a2'],
+        resultKeys: ['k1', 'k2'],
+        visibleCount: 2,
+        matchesTotal: 3,
+        overflowCount: 1,
+      },
+      profile: {
+        terms: ['alpha'],
+        termCount: 1,
+      },
+      state: 'broad',
+    });
+  });
+
+  it('queryProfiled derives focused state when there is no overflow', () => {
+    const q = new SearchSpaceQueryer(['alpha one', 'beta'], ['a1', 'b1']);
+    expect(q.queryProfiled('alpha', 5).state).toBe('focused');
+  });
 });
