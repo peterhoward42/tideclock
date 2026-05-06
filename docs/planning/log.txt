@@ -57,13 +57,8 @@ o  first glance ux assimilation suggestions
 
 	o  improved search
 		o  BRANCH disamb
-			o  upgrade query service to characterise the search space
-				o  not early return semantics won't work any more and need to assess
-				   performance
-				o  it may be that we always work on fully evaled qry across entire search space
-				o  request - including signature and type honesty
-				o  will work in branch to back out - commit and get a feel for it
-					o  no better substitute
+			*  upgrade query service to characterise the search space
+			o  analyse behaviour opportunties
 		o  merge BRANCH disamb
 
 
