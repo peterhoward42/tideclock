@@ -60,8 +60,8 @@ o  first glance ux assimilation suggestions
 			*  upgrade query service to characterise the search space
 			*  analyse behaviour opportunties
 			*  decide no long lists and non clickable if overflow
-			o  more greyed out looking when not clickable
-			o  "piece"?
+			*  more greyed out looking when not clickable
+			*  "piece" -> part
 			o  "and others" or more
 			o  illustrative?
 			o  when not truncated order by common root e.g. Looe

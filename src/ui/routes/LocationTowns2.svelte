@@ -72,7 +72,9 @@
 </script>
 
 <main class="route">
-  <p class="search-prompt">Start typing short pieces, with spaces between</p>
+  <p class="search-prompt">
+    Start typing short parts of the place name, with spaces between
+  </p>
 
   <label class="search-label" for="town2-search">Search places</label>
   <input
@@ -93,9 +95,9 @@
         (queryPack.state === "focused" && queryPack.rows.matchesTotal > 1)}
     >
       {#if queryPack.rows.matchesTotal === 0}
-        No matches — try other pieces or fewer.
+        No matches — try other parts or fewer.
       {:else if queryPack.rows.overflowCount > 0}
-        {queryPack.rows.matchesTotal} matches — first {MAX_VISIBLE_RESULTS} shown for reference only. Add a piece to narrow, then pick one.
+        {queryPack.rows.matchesTotal} matches — first {MAX_VISIBLE_RESULTS} shown as a sample. Add another part to narrow, then pick one.
       {:else}
         {queryPack.rows.matchesTotal} matches — pick one.
       {/if}
@@ -116,6 +118,9 @@
         </li>
       {/each}
     </ul>
+    {#if queryPack.rows.overflowCount > 0}
+      <p class="results-overflow-tail">And more</p>
+    {/if}
   {/if}
 </main>
 
@@ -194,5 +199,12 @@
     font-weight: 400;
     color: var(--text-muted);
     text-align: left;
+  }
+
+  .results-overflow-tail {
+    margin: 0.1rem 0 0;
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: var(--text-muted);
   }
 </style>
