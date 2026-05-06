@@ -120,6 +120,123 @@ Possible target split:
 
 ---
 
+## Service-level implementation plan (detailed)
+
+This section translates the strategy into concrete service/API changes against the current `SearchSpaceQueryer`-based flow.
+
+### A. Contract upgrade: return rows + profile together
+
+Current contract variants:
+
+- `query(queryString, maxResults)` stops as soon as visible rows are filled.
+- `queryWithResultCapAndMatchCeiling(queryString, maxResults, matchCountCeiling)` scans farther, but may still stop at a ceiling.
+
+Target contract direction:
+
+- Add a profile-first response shape that always includes:
+  - visible rows (`results`, `displayNames`, `resultKeys`),
+  - full-match totals (`matchesTotal`, derived `overflowCount`),
+  - full-match and visible collision characterization,
+  - derived state (`focused | broad | ambiguous | broad_ambiguous`).
+- Keep legacy methods temporarily as wrappers/adapters to de-risk rollout, but make the new profiled method the canonical implementation path.
+
+Illustrative response shape:
+
+- `rows.visible[]`
+- `rows.visibleCount`
+- `rows.matchesTotal`
+- `rows.overflowCount`
+- `profile.query` (`terms`, `termCount`)
+- `profile.visiblePrimaryCollisions`
+- `profile.fullPrimaryCollisions`
+- `profile.exactPrimaryCollisionGroups`
+- `profile.collisionDensityVisible`
+- `profile.collisionDensityFull`
+- `profile.termSelectivity[]`
+- `state` (derived universal characterization)
+
+### B. Required search-loop behavior change
+
+To support full characterization, scanning must no longer stop when visible rows are filled or when a match ceiling is reached in the profiled path.
+
+Decision:
+
+- For profiled queries, run the full matching loop over the search space each time.
+- Compute visible slice and full profile from one pass (or one pass + pure post-processing), so the profile is complete and trustworthy.
+
+Rationale:
+
+- Early-stop behavior makes `matchesTotal`, full collision groups, and selectivity metrics approximate or unknown.
+- The strategy depends on complete characterization; approximate values reintroduce ad-hoc logic and hidden ambiguity.
+
+### C. Responsibility split inside existing services
+
+Recommended internal decomposition:
+
+1. **Matching pass (query service core):**
+   - normalize query fragments;
+   - determine the full matched index set for all terms.
+2. **Projection pass (query service core):**
+   - produce visible rows by applying `maxVisible` slice to matched indices;
+   - produce full/visible row key collections.
+3. **Profile builder (pure module):**
+   - compute all profile metrics from query terms + visible/full key sets + town lookup;
+   - derive characterization state.
+4. **Presentation mapper (existing disambiguation layer):**
+   - map profile/state + rows to labels/guidance directives for UI.
+
+This keeps route code thin while preserving deterministic testable logic in services.
+
+### D. API migration plan for callers
+
+Incremental migration steps:
+
+1. Introduce a new method on `SearchSpaceQueryer` (or replacement service) that returns the profiled response.
+2. Update `LocationTowns2.svelte` to consume profiled payload, not `totalHitCountCeiling`.
+3. Replace guidance copy conditions to rely on:
+   - `overflowCount`,
+   - ambiguity/collision metrics,
+   - derived state.
+4. Keep existing method signatures available for a short transition period.
+5. Remove legacy ceiling-based method once all callers move to profile-first contract.
+
+### E. Performance posture for this branch
+
+Accepted for this phase:
+
+- Full scans may be slower than current early-stop behavior.
+- Correctness/completeness of characterization is intentionally prioritized over current micro-optimizations.
+
+Guardrails to include during implementation (without changing strategy):
+
+- Keep normalization and matching operations allocation-light.
+- Build visible rows during the same full pass to avoid duplicate scans.
+- Add lightweight timing instrumentation in dev mode to measure real-world impact before optimization decisions.
+
+Potential later optimizations (post-UX validation only):
+
+- pre-indexed token maps,
+- cached term-selectivity stats,
+- prefix/fuzzy index structures,
+- incremental query refinement reusing prior result sets.
+
+### F. Test plan additions
+
+Add explicit service tests for:
+
+- parity of visible rows vs old behavior for common queries (except intentional policy differences),
+- correctness of `matchesTotal` and `overflowCount` under formerly ceiling-hit scenarios,
+- collision metrics correctness when colliding rows are partly outside visible slice,
+- state derivation thresholds across the four states,
+- term-selectivity outputs on multi-fragment queries.
+
+Add route-level behavior tests for:
+
+- guidance text/state decisions driven by profile (not ceiling flags),
+- disambiguation labeling behavior when full-set collisions exceed visible collisions.
+
+---
+
 ## Non-goals
 
 - Do not introduce tide-equivalence semantics.
