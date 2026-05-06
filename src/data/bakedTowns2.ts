@@ -7,6 +7,7 @@
 
 import { SearchSpaceQueryer } from '../location-services/searchSpaceQueryer';
 import { hydrateTownsCompact, type Town } from './townSchema';
+import { formatTownPickerQualified } from './townPickerDisplay';
 import towns2CompactJson from './towns2.compact.json';
 import towns2SearchLinesJson from './towns2-search-lines.json';
 
@@ -33,9 +34,7 @@ if (searchLines.length !== bakedTowns2.length) {
   );
 }
 
-const displaySpace = bakedTowns2.map(
-  (t) => `${t.name} (${t.county}, ${t.country})`,
-);
+const displaySpace = bakedTowns2.map((t) => formatTownPickerQualified(t));
 const keySpace = bakedTowns2.map((t) => t.id);
 
 export const towns2SearchSpaceQueryer = new SearchSpaceQueryer(

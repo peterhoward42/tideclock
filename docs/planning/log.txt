@@ -50,12 +50,18 @@ o  first glance ux assimilation suggestions
 	*  Mark tide marker pointers as high or low
 
 	o  the search screen should seperate the name from the county
+		*  now have a plan in planning/locat...
+		o  do the refactor part
+		o  provide the logic service
+		o  update the UI
 
 
 
 	o  ditch duplicate schedulers if possible
-	o  problem with this location
+
+	o  interference problem with these locations
 		Whaling berth historic Aberdeen
+		Donmouth local nature reserve
 
 
 	o  what to do when tricky tides occlude each other?
