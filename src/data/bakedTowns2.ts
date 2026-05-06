@@ -36,11 +36,13 @@ if (searchLines.length !== bakedTowns2.length) {
 
 const displaySpace = bakedTowns2.map((t) => formatTownPickerQualified(t));
 const keySpace = bakedTowns2.map((t) => t.id);
+const primarySpace = bakedTowns2.map((t) => t.name);
 
 export const towns2SearchSpaceQueryer = new SearchSpaceQueryer(
   searchLines,
   displaySpace,
   keySpace,
+  primarySpace,
 );
 
 export const towns2ByTownId: ReadonlyMap<string, Town> = new Map(

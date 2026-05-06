@@ -14,6 +14,12 @@ describe('SearchSpaceQueryer', () => {
     ).toThrowError(RangeError);
   });
 
+  it('rejects primarySpace when its length does not match searchSpace', () => {
+    expect(
+      () => new SearchSpaceQueryer(['a', 'b'], ['A', 'B'], ['k0', 'k1'], ['p0']),
+    ).toThrowError(RangeError);
+  });
+
   it('rejects negative maxResults', () => {
     const q = new SearchSpaceQueryer(['a'], ['A']);
     expect(() => q.query('a', -1)).toThrowError(RangeError);
@@ -149,6 +155,20 @@ describe('SearchSpaceQueryer', () => {
       profile: {
         terms: ['alpha'],
         termCount: 1,
+        visiblePrimaryCollisions: {
+          duplicateNormalizedPrimaryCount: 0,
+          collidingRowCount: 0,
+          rowCount: 2,
+        },
+        fullPrimaryCollisions: {
+          duplicateNormalizedPrimaryCount: 0,
+          collidingRowCount: 0,
+          rowCount: 3,
+        },
+        exactPrimaryCollisionGroups: [],
+        collisionDensityVisible: 0,
+        collisionDensityFull: 0,
+        termSelectivity: [{ termIndex: 0, term: 'alpha', cumulativeMatchCount: 3 }],
       },
       state: 'broad',
     });
@@ -157,5 +177,36 @@ describe('SearchSpaceQueryer', () => {
   it('queryProfiled derives focused state when there is no overflow', () => {
     const q = new SearchSpaceQueryer(['alpha one', 'beta'], ['a1', 'b1']);
     expect(q.queryProfiled('alpha', 5).state).toBe('focused');
+  });
+
+  it('queryProfiled marks ambiguous when duplicate primaries appear in full match set', () => {
+    const q = new SearchSpaceQueryer(
+      ['x a', 'y a', 'z'],
+      ['d0', 'd1', 'd2'],
+      ['k0', 'k1', 'k2'],
+      ['Dup', 'Dup', 'Solo'],
+    );
+    const r = q.queryProfiled('a', 5);
+    expect(r.rows.matchesTotal).toBe(2);
+    expect(r.profile.fullPrimaryCollisions).toEqual({
+      duplicateNormalizedPrimaryCount: 1,
+      collidingRowCount: 2,
+      rowCount: 2,
+    });
+    expect(r.profile.collisionDensityFull).toBe(1);
+    expect(r.state).toBe('ambiguous');
+  });
+
+  it('queryProfiled is broad_ambiguous when overflow hides duplicate primaries', () => {
+    const q = new SearchSpaceQueryer(
+      ['hit a', 'hit a', 'hit a', 'hit b'],
+      ['d0', 'd1', 'd2', 'd3'],
+      undefined,
+      ['Same', 'Same', 'Same', 'Other'],
+    );
+    const r = q.queryProfiled('hit', 2);
+    expect(r.rows.overflowCount).toBe(2);
+    expect(r.profile.fullPrimaryCollisions.collidingRowCount).toBe(3);
+    expect(r.state).toBe('broad_ambiguous');
   });
 });

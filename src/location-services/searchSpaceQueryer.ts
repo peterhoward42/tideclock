@@ -3,6 +3,13 @@
  * Kind: Pure location/search helper; holds search and display columns in lockstep.
  */
 
+import {
+  buildSearchSpaceQueryProfile,
+  deriveSearchProfileState,
+  type SearchSpaceQueryProfile,
+  type SearchSpaceQueryProfileState,
+} from './searchSpaceQueryProfile';
+
 export type SearchSpaceQueryResult = {
   /** Matched lines from the search space (same order as returned). */
   results: string[];
@@ -17,18 +24,7 @@ export type SearchSpaceQueryResult = {
   resultKeys: string[];
 };
 
-export type SearchSpaceQueryProfileState =
-  | 'focused'
-  | 'broad'
-  | 'ambiguous'
-  | 'broad_ambiguous';
-
-export type SearchSpaceQueryProfile = {
-  /** Lowercased query terms after trim/split normalization. */
-  terms: string[];
-  /** Same as `terms.length`. */
-  termCount: number;
-};
+export type { SearchSpaceQueryProfile, SearchSpaceQueryProfileState };
 
 /** Profile-first response shape used by new callers. */
 export type SearchSpaceProfiledQueryResult = {
@@ -42,10 +38,7 @@ export type SearchSpaceProfiledQueryResult = {
     visibleCount: number;
   };
   profile: SearchSpaceQueryProfile;
-  /**
-   * Coarse state for policy branching. Collisions are not yet modeled in this
-   * first migration step, so state is overflow-driven only.
-   */
+  /** Derived from {@link SearchSpaceQueryProfile} + overflow (see strategy doc). */
   state: SearchSpaceQueryProfileState;
 };
 
@@ -78,10 +71,17 @@ export class SearchSpaceQueryer {
 
   private readonly keySpace: readonly string[] | undefined;
 
+  /**
+   * Optional aligned primary labels (e.g. {@link Town} names) for collision / ambiguity
+   * metrics in {@link SearchSpaceQueryer.queryProfiled}.
+   */
+  private readonly primarySpace: readonly string[] | undefined;
+
   constructor(
     searchSpace: readonly string[],
     displaySpace: readonly string[],
     keySpace?: readonly string[],
+    primarySpace?: readonly string[],
   ) {
     if (searchSpace.length !== displaySpace.length) {
       throw new RangeError(
@@ -93,10 +93,16 @@ export class SearchSpaceQueryer {
         `keySpace must match searchSpace length (got ${keySpace.length} and ${searchSpace.length})`,
       );
     }
+    if (primarySpace !== undefined && primarySpace.length !== searchSpace.length) {
+      throw new RangeError(
+        `primarySpace must match searchSpace length (got ${primarySpace.length} and ${searchSpace.length})`,
+      );
+    }
     this.searchSpace = searchSpace;
     this.searchSpaceLower = searchSpace.map((line) => line.toLowerCase());
     this.displaySpace = displaySpace;
     this.keySpace = keySpace;
+    this.primarySpace = primarySpace;
   }
 
   /**
@@ -133,14 +139,14 @@ export class SearchSpaceQueryer {
     const results: string[] = [];
     const displayNames: string[] = [];
     const resultKeys: string[] = [];
-    let matchesTotal = 0;
+    const fullMatchIndices: number[] = [];
 
     for (let i = 0; i < this.searchSpace.length; i += 1) {
       const haystack = this.searchSpaceLower[i];
       if (!terms.every((frag) => haystack.includes(frag))) {
         continue;
       }
-      matchesTotal += 1;
+      fullMatchIndices.push(i);
       if (results.length < maxResults) {
         results.push(this.searchSpace[i]);
         displayNames.push(this.displaySpace[i]);
@@ -150,8 +156,18 @@ export class SearchSpaceQueryer {
       }
     }
 
+    const matchesTotal = fullMatchIndices.length;
     const visibleCount = results.length;
     const overflowCount = Math.max(0, matchesTotal - visibleCount);
+    const visibleMatchIndices = fullMatchIndices.slice(0, maxResults);
+
+    const profile = buildSearchSpaceQueryProfile({
+      terms,
+      searchSpaceLower: this.searchSpaceLower,
+      fullMatchIndices,
+      visibleMatchIndices,
+      primarySpace: this.primarySpace,
+    });
 
     return {
       rows: {
@@ -163,11 +179,8 @@ export class SearchSpaceQueryer {
         matchesTotal,
         overflowCount,
       },
-      profile: {
-        terms,
-        termCount: terms.length,
-      },
-      state: overflowCount > 0 ? 'broad' : 'focused',
+      profile,
+      state: deriveSearchProfileState(overflowCount, profile.collisionDensityFull, matchesTotal),
     };
   }
 
