@@ -62,8 +62,8 @@ o  first glance ux assimilation suggestions
 			*  decide no long lists and non clickable if overflow
 			*  more greyed out looking when not clickable
 			*  "piece" -> part
-			o  "and others" or more
-			o  illustrative?
+			*  "and others" or more
+			*  illustrative?
 			o  when not truncated order by common root e.g. Looe
 		o  merge BRANCH disamb
 

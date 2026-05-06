@@ -11,7 +11,8 @@
   } from "../../data/bakedTowns2";
   import {
     buildTownPickerVisiblePresentation,
-    buildVisibleTownRowsFromKeys
+    buildVisibleTownRowsFromKeys,
+    sortTownPickerExhaustiveResultKeys
   } from "../../location-services/townPickerDisambiguation";
 
   interface Props {
@@ -39,12 +40,24 @@
     };
   });
 
+  /** Raw keys from the queryer (scan order); reordered only for exhaustive shortlists. */
+  const pickerResultKeys = $derived.by(() => {
+    if (queryPack.kind !== "run") {
+      return [] as string[];
+    }
+    const keys = queryPack.rows.resultKeys;
+    if (queryPack.rows.overflowCount !== 0) {
+      return [...keys];
+    }
+    return sortTownPickerExhaustiveResultKeys(keys, towns2ByTownId);
+  });
+
   const visibleRowLabels = $derived.by(() => {
     if (queryPack.kind !== "run") {
       return [] as string[];
     }
     const visibleRows = buildVisibleTownRowsFromKeys(
-      queryPack.rows.resultKeys,
+      pickerResultKeys,
       towns2ByTownId
     );
     return buildTownPickerVisiblePresentation(visibleRows).labels;
@@ -106,7 +119,7 @@
 
   {#if queryPack.kind === "run" && queryPack.rows.matchesTotal > 0}
     <ul class="results">
-      {#each queryPack.rows.resultKeys as townId, i (townId)}
+      {#each pickerResultKeys as townId, i (townId)}
         <li class="results__item">
           {#if resultsAreSelectable}
             <button type="button" class="place-button" onclick={() => chooseByKey(townId)}>
