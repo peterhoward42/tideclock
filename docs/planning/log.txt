@@ -58,7 +58,13 @@ o  first glance ux assimilation suggestions
 	o  improved search
 		o  BRANCH disamb
 			*  upgrade query service to characterise the search space
-			o  analyse behaviour opportunties
+			*  analyse behaviour opportunties
+			*  decide no long lists and non clickable if overflow
+			o  more greyed out looking when not clickable
+			o  "piece"?
+			o  "and others" or more
+			o  illustrative?
+			o  when not truncated order by common root e.g. Looe
 		o  merge BRANCH disamb
 
 

@@ -4,6 +4,7 @@
 
 - Read **`docs/specs/elevator-pitch.md`** for product framing.
 - **Current implementation:** **`src/ui/routes/LocationTowns2.svelte`** — location search and selection. Data comes from **`src/data/bakedTowns2.ts`** (built from the towns2 pipeline; see **`tools/towns2/pipeline-source-of-truth.md`**).
+- **Picker policies:** at most **6** rows shown; if there are more matches than that, the list is **preview only** until the user narrows the query so every match fits in the cap — see **`docs/planning/location-search-problem-space.md`**.
 - **Routing:** the app uses route id **`location2`** (hash **`#/location2`**). **`#/location`** may still normalize to the same screen for bookmark compatibility — see **`src/infrastructure/router.js`**.
 
 ## Dataset and search

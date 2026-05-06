@@ -1,97 +1,46 @@
-# Location search: problem space (for review)
+# Location search: problem space
 
-This document inventories **user-facing failure modes** around location search and disambiguation: confusion, dissatisfaction, or **unwitting mistaken choices**. It extends the two concrete conundrums in [`loc-disambig.md`](./loc-disambig.md) and ties optional profile levers to [`location-search-profile-strategy.md`](./location-search-profile-strategy.md).
-
-**Purpose:** narrow the problem space. Please edit this file in place with your observations (strike items, add “ignore because…”, priority tags, etc.); we can discuss from that marked-up version.
+Failure modes we still care about after matching: confusion, wrong place chosen, or **unwitting mistaken choices**. Ties to disambiguation rules in [`loc-disambig.md`](./loc-disambig.md) and profiling in [`location-search-profile-strategy.md`](./location-search-profile-strategy.md).
 
 ---
 
-## Documented conundrums (baseline)
+## UX policies (fixed)
 
-| ID | Summary | Notes |
-|----|---------|--------|
-| **P1** | **Overflow / discovery** — Many whole-space matches; capped visible slice; user cannot inspect hidden rows without guessing extra fragments; no hint what fragment would help. | Formalized as `overflowCount`, `broad` (and related) states. Example flavour: `beach corn tre`. |
-| **P2** | **Exact-name / wrong-click** — Multiple rows share the same display primary; short queries invite a confident wrong pick; partial matches can dominate the list. | `exactPrimaryCollisionGroups`, `ambiguous` / `broad_ambiguous`. Example flavour: `seaton`. |
+These are not negotiable for the towns2 picker:
 
----
+1. **Short list only** — At most **6** rows are ever shown (same order of magnitude as older product versions). There is no “show all” or long scroll of matches.
+2. **No commitment on a truncated list** — If there are more matches than fit in that cap (`overflowCount > 0`), the rows are **preview only** (not buttons / not links). The user must add fragments until the full match set fits in the cap, then choose.
 
-## Additional problem classes (candidate list)
-
-Use the **ID** when commenting. Items are not equally likely or equally fixable; several are expectation gaps rather than picker bugs.
-
-### A. Truncation × ambiguity
-
-| ID | Problem |
-|----|---------|
-| **A1** | **Hidden collisions** — Visible slice looks distinct, but duplicate primaries (or exact-name groups) exist only in the overflow tail. User overconfident or never discovers ambiguity until (if) they reveal all. |
-| **A2** | **Reveal changes the problem** — After expanding the list, collision density and need for qualifiers can jump. Can feel inconsistent if the user thought the short list was “the whole story”. |
-
-### B. Profile shape vs mental model
-
-| ID | Problem |
-|----|---------|
-| **B1** | **`focused` ≠ safe** — Low overflow and low collision metrics reduce *label* ambiguity, not necessarily *geographic* or *intent* ambiguity (similar names, wrong region, colloquial vs official). |
-| **B2** | **`broad` without ambiguity** — Many matches but distinct primaries: scan fatigue and first-result bias; user may not read qualifiers. |
-| **B3** | **`broad_ambiguous`** — High overflow and high ambiguity together: cognitive overload; risk of random narrowing, picking “least bad” visible row, or abandoning. |
-
-### C. Matching semantics (AND, substrings, haystack)
-
-| ID | Problem |
-|----|---------|
-| **C1** | **Over-narrowing** — ANDed fragments; an extra token can eliminate the true row. User may not know failure is over-constraint vs missing data. |
-| **C2** | **Under-specificity** — Very broad tokens (`beach`, `bay`, …) yield huge sets; user may not know which added token actually discriminates (selectivity is partly a UX/data problem). |
-| **C3** | **Substring noise** — Short or generic fragments match inside many tokens; irrelevant-looking hits erode trust. |
-| **C4** | **Order myth** — Fragments are order-insensitive logically; users may believe order matters and misattribute different result sets. |
-
-### D. Disambiguation display limits
-
-| ID | Problem |
-|----|---------|
-| **D1** | **Qualifier collision** — Same primary and identical disambiguation suffix: rows still indistinguishable in the list (needs another axis or data fix). Already noted as open in `loc-disambig.md`. |
-| **D2** | **Normalization surprises** — Case, punctuation, `St.` / `Saint`, etc. can create false merge or false split of primaries; behaviour is invisible to the user. |
-
-### E. Post-selection and memory
-
-| ID | Problem |
-|----|---------|
-| **E1** | **Short home headline** — Reminder uses primary-only (pre-parenthesis); colliding names (`Seaton`) make it easy to forget which place was chosen after leaving the picker. |
-
-### F. Data and coverage expectations
-
-| ID | Problem |
-|----|---------|
-| **F1** | **“Not in list”** — User infers wrong spelling, or assumes wider geographic/topic coverage than the embedded dataset provides. |
-| **F2** | **Near-duplicate rows** — Subtle duplicates or odd pairs in data create false choice or duplicate-looking lines without a clear mental model. |
-
-### G. Out of scope by design (expectation gaps)
-
-| ID | Problem |
-|----|---------|
-| **G1** | **Tide equivalence** — User assumes nearby / same estuary implies same tides; product explicitly avoids tide-equivalence semantics for disambiguation. |
-| **G2** | **Intent type (“best” station)** — Rich names surface beaches, cliffs, harbours; user may want a default “main” tide context when several rows match; profile does not encode intent type. |
+Together, this removes a large class of errors where someone picks from a list that did not represent the whole match space.
 
 ---
 
-## Profile levers (reference for later UX work)
+## Remaining problem classes
 
-Not every row in the tables above is addressable by profiling alone. Rough mapping:
-
-| User pain (examples) | Profile / contract hints |
-|----------------------|---------------------------|
-| Hidden duplicates, false calm | `fullPrimaryCollisions` vs visible, `exactPrimaryCollisionGroups`, `overflowCount` |
-| Wrong confident pick | `exactPrimaryCollisionGroups`, `collisionDensityFull`, `termCount` |
-| Hard to narrow | `overflowCount`, `termSelectivity[]`, state `broad*` |
-| Overwhelming list | `matchesTotal`, `broad` / `broad_ambiguous` + cost of reveal |
-| Identical lines after qualifiers | Not solved by profile alone — **D1** |
+| ID | Problem |
+|----|---------|
+| **P1** | **Narrowing discovery** — Many whole-space matches; preview shows a slice only. User may not know which extra fragment helps (selectivity / guidance is still relevant). |
+| **P2** | **Exact-name / wrong pick** — When the full set is visible (≤6) but several rows share the same display primary, a wrong click remains possible. Mitigated by disambiguation qualifiers (`loc-disambig.md`). |
+| **B1** | **`focused` ≠ geographically safe** — Low overflow and low collision in the profile do not guarantee the right region or intent (colloquial vs official, similar names). |
+| **C1** | **Over-narrowing** — ANDed fragments; an extra token can eliminate the true row. |
+| **C2** | **Under-specificity** — Very broad tokens (`beach`, `bay`, …) still produce huge sets; user only ever sees six previews until they narrow. |
+| **C3** | **Substring noise** — Short or generic fragments match inside many tokens; irrelevant-looking previews erode trust. |
+| **C4** | **Order myth** — Fragments are order-insensitive; users may think order matters. |
+| **D1** | **Qualifier collision** — Same primary and identical suffix: rows still indistinguishable (data or another axis). See `loc-disambig.md`. |
+| **D2** | **Normalization surprises** — Case, punctuation, `St.` / `Saint`, etc. |
+| **E1** | **Short home headline** — Home uses primary-only; colliding names make it easy to forget which place was chosen. |
+| **F1** | **“Not in list”** — Dataset coverage and spelling assumptions. |
+| **F2** | **Near-duplicate rows** — Odd pairs in data. |
+| **G1** | **Tide equivalence** — Out of scope by design. |
+| **G2** | **Intent type (“best” station)** — Out of scope; profile does not encode intent. |
 
 ---
 
-## Suggested review markings (optional)
+## Profile levers (for guidance and copy)
 
-You can use any convention you like, for example:
-
-- `<!-- drop: reason -->` or a short line under an item.
-- `**REVIEW:** …` paragraphs.
-- Strike-through for items you consider closed or irrelevant.
-
-No need to preserve formatting perfection; rough notes are enough for discussion.
+| User pain | Profile hints |
+|-----------|----------------|
+| Hidden ambiguity in full set | `fullPrimaryCollisions`, `exactPrimaryCollisionGroups`, `collisionDensityFull` |
+| Wrong pick among visible dupes | `exactPrimaryCollisionGroups`, `collisionDensityVisible`, `termCount` |
+| Hard to narrow | `overflowCount`, `termSelectivity[]`, states `broad*` / `ambiguous` |
+| Indistinguishable lines | Not profiling alone — **D1** |

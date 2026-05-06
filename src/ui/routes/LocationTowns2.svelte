@@ -50,6 +50,11 @@
     return buildTownPickerVisiblePresentation(visibleRows).labels;
   });
 
+  /** Selectable only when the visible list is the full match set (see planning/location-search-problem-space.md). */
+  const resultsAreSelectable = $derived(
+    queryPack.kind === "run" && queryPack.rows.overflowCount === 0
+  );
+
   function chooseByKey(townId: string): void {
     const town = towns2ByTownId.get(townId);
     if (town === undefined) {
@@ -90,7 +95,7 @@
       {#if queryPack.rows.matchesTotal === 0}
         No matches — try other pieces or fewer.
       {:else if queryPack.rows.overflowCount > 0}
-        {queryPack.rows.matchesTotal} matches — first {MAX_VISIBLE_RESULTS} shown. Add a piece to narrow.
+        {queryPack.rows.matchesTotal} matches — first {MAX_VISIBLE_RESULTS} shown for reference only. Add a piece to narrow, then pick one.
       {:else}
         {queryPack.rows.matchesTotal} matches — pick one.
       {/if}
@@ -101,9 +106,13 @@
     <ul class="results">
       {#each queryPack.rows.resultKeys as townId, i (townId)}
         <li class="results__item">
-          <button type="button" class="place-button" onclick={() => chooseByKey(townId)}>
-            {visibleRowLabels[i]}
-          </button>
+          {#if resultsAreSelectable}
+            <button type="button" class="place-button" onclick={() => chooseByKey(townId)}>
+              {visibleRowLabels[i]}
+            </button>
+          {:else}
+            <span class="place-preview">{visibleRowLabels[i]}</span>
+          {/if}
         </li>
       {/each}
     </ul>
@@ -176,6 +185,14 @@
     text-decoration: underline;
     cursor: pointer;
     font-weight: 600;
+    text-align: left;
+  }
+
+  .place-preview {
+    display: block;
+    font: inherit;
+    font-weight: 400;
+    color: var(--text-muted);
     text-align: left;
   }
 </style>

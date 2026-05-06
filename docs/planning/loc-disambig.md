@@ -17,7 +17,7 @@ The implementation should **reuse** what the repo already provides:
 - **`SearchSpaceQueryer`** ([`src/location-services/searchSpaceQueryer.ts`](../../src/location-services/searchSpaceQueryer.ts)) for fragment-AND matching and aligned `results` / `displayNames` / `resultKeys`.
 - **`Town`** and compact hydration ([`src/data/townSchema.ts`](../../src/data/townSchema.ts)).
 - **`bakedTowns2`** ([`src/data/bakedTowns2.ts`](../../src/data/bakedTowns2.ts)) for parallel `searchLines`, display column, and `towns2ByTownId`.
-- **`LocationTowns2.svelte`** ([`src/ui/routes/LocationTowns2.svelte`](../../src/ui/routes/LocationTowns2.svelte)) as the eventual consumer; it already calls `queryWithResultCapAndMatchCeiling` and iterates `resultKeys` with `displayNames`.
+- **`LocationTowns2.svelte`** ([`src/ui/routes/LocationTowns2.svelte`](../../src/ui/routes/LocationTowns2.svelte)) consumes **`SearchSpaceQueryer.queryProfiled`** (cap 6). When results are **truncated** (`overflowCount > 0`), rows are preview-only and not selectable; qualification rules still apply to how those preview lines read.
 
 **Deliberate sequencing:** add the logical services and tests **first**; **do not** wire the behaviour into the Svelte UI until that layer is stable (see [Phased execution](#phased-execution)).
 
@@ -103,40 +103,11 @@ Formatting (two-line rows, muted secondary text, link styling, etc.) can follow 
 
 ---
 
-## UX conundrum 1: overflow with no guidance (query: `beach corn tre`)
+## UX conundrum 1: overflow and narrowing (query: `beach corn tre`)
 
-Observation from testing:
-
-- Retrieval quality is generally good in this case.
-- The user can often click immediately if their intended place appears in the shown subset.
-- The current friction is when results are truncated (e.g. "8 matches, first 6 shown") and the user wants to inspect hidden rows.
-- Today, the only path is adding another query piece, but the UI gives no clue what extra piece would be useful.
-
-Interpretation:
-
-- This is primarily a discovery/interaction gap, not a matching-quality gap.
-- The system has enough candidates; the user lacks a low-effort way to explore remainder candidates.
-
-Likely user next-step scenarios:
-
-1. **Target visible:** user confidently clicks a shown row (works well; preserve this fast path).
-2. **Target not visible but expected:** user feels blocked and must guess another fragment.
-3. **User wants hidden rows only:** user needs a direct reveal path, not a query rewrite.
-4. **User unsure how to narrow:** random extra fragments can degrade relevance and confidence.
-
-Candidate UX responses (ordered smallest to larger change):
-
-1. **Small-overflow auto-expand:** if total matches are only slightly above the display cap, show all rows.
-2. **Explicit reveal control:** keep cap by default, but add a one-click "Show all N".
-3. **Progressive reveal:** "Show more" / "Show next K" instead of immediate full expansion.
-4. **Token suggestions from hidden rows:** suggest additional fragments derived from hidden matches (e.g. "Try adding: dock, cove").
-5. **Category/count hints:** surface compact type hints (e.g. Beach/Bay/Cove counts) to guide narrowing.
-
-Recommended direction for this conundrum:
-
-- Implement an immediate reveal affordance (`Show all N` or equivalent), especially effective for small overflows.
-- Consider follow-up hinting for "what to type next" when overflow remains large.
-- Keep current scanning-first behaviour (top subset shown first) while removing the blind-guess trap.
+- Many whole-space matches; the UI shows at most **six** as **previews** until the query narrows enough that every match fits in that cap.
+- The user cannot commit from a truncated list, so wrong picks driven by hidden rows are avoided.
+- Remaining friction: guessing **which** extra fragment helps. Future work might add hints (e.g. suggested tokens or selectivity surfaced in copy); there is **no** “show all matches” path by design.
 
 ---
 
@@ -170,11 +141,5 @@ Candidate UX responses (ordered by impact):
 
 Recommended direction for this conundrum:
 
-- Introduce an "ambiguous exact-name" state for short queries when multiple rows share the same normalized primary and match exactly.
-- In that state, pin exact-primary collisions to the top and force disambiguation text on those rows.
-- Keep the broader match list available beneath, preserving current retrieval breadth while protecting against wrong confident picks.
-
-Cross-conundrum synthesis:
-
-- Combine this exact-name guardrail with conundrum 1's reveal affordance (`Show all N` / progressive reveal).
-- Together, they address both blind narrowing and wrong-place selection without changing core matching semantics.
+- When the **full** match set is visible (≤6 rows), wrong confident clicks among same-primary rows are still a risk — address with this document’s qualification rule, ordering, and concise ambiguity copy where useful.
+- When the set is **truncated**, previews are not selectable; the user must narrow until exact-name collisions (if any) are all on screen before choosing.
