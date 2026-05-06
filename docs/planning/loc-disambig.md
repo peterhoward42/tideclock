@@ -4,6 +4,8 @@ This document records the **display logic** for optional disambiguation material
 
 **Status:** experiment / design spec for behaviour; **execution** is phased (see [Phased execution](#phased-execution)). Typography, layout, and other presentation polish are out of scope until the visibility rule exists in code.
 
+**See also:** [`location-search-profile-strategy.md`](./location-search-profile-strategy.md) for the query/result-shape strategy that generalizes overflow and ambiguity handling beyond visible-slice disambiguation.
+
 ---
 
 ## Mission (session intent)
