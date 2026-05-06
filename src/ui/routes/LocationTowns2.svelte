@@ -18,10 +18,8 @@
     readonly setCurrentLocation: (town: Town) => void;
   }
 
-  /** Shown rows; match counting uses MATCH_COUNT_CEILING. */
+  /** Cap on listed rows; the profiled query still reports exact total matches. */
   const MAX_VISIBLE_RESULTS = 6;
-  /** Stop counting matches here so we can say “more than {MATCH_COUNT_CEILING - 1}”. */
-  const MATCH_COUNT_CEILING = 51;
 
   let { setCurrentLocation }: Props = $props();
   let searchText = $state("");
@@ -34,10 +32,9 @@
     }
     return {
       kind: "run" as const,
-      ...towns2SearchSpaceQueryer.queryWithResultCapAndMatchCeiling(
+      ...towns2SearchSpaceQueryer.queryProfiled(
         trimmedQuery,
-        MAX_VISIBLE_RESULTS,
-        MATCH_COUNT_CEILING
+        MAX_VISIBLE_RESULTS
       )
     };
   });
@@ -47,7 +44,7 @@
       return [] as string[];
     }
     const visibleRows = buildVisibleTownRowsFromKeys(
-      queryPack.resultKeys,
+      queryPack.rows.resultKeys,
       towns2ByTownId
     );
     return buildTownPickerVisiblePresentation(visibleRows).labels;
@@ -84,30 +81,25 @@
     enterkeyhint="search"
   />
 
-  {#if queryPack.kind === "run" && queryPack.totalMatchingRows !== 1}
+  {#if queryPack.kind === "run" && queryPack.rows.matchesTotal !== 1}
     <p
       class="result-guidance"
-      class:result-guidance--muted={queryPack.totalMatchingRows === 0 ||
-        (queryPack.totalMatchingRows > 1 &&
-          queryPack.totalMatchingRows <= MAX_VISIBLE_RESULTS &&
-          !queryPack.totalHitCountCeiling)}
+      class:result-guidance--muted={queryPack.rows.matchesTotal === 0 ||
+        (queryPack.state === "focused" && queryPack.rows.matchesTotal > 1)}
     >
-      {#if queryPack.totalMatchingRows === 0}
+      {#if queryPack.rows.matchesTotal === 0}
         No matches — try other pieces or fewer.
-      {:else if queryPack.totalHitCountCeiling}
-        {MATCH_COUNT_CEILING - 1}+ matches — add another piece.<span class="muted">
-          First {MAX_VISIBLE_RESULTS} listed.</span>
-      {:else if queryPack.totalMatchingRows > MAX_VISIBLE_RESULTS}
-        {queryPack.totalMatchingRows} matches — first {MAX_VISIBLE_RESULTS} shown. Add a piece to narrow.
+      {:else if queryPack.rows.overflowCount > 0}
+        {queryPack.rows.matchesTotal} matches — first {MAX_VISIBLE_RESULTS} shown. Add a piece to narrow.
       {:else}
-        {queryPack.totalMatchingRows} matches — pick one.
+        {queryPack.rows.matchesTotal} matches — pick one.
       {/if}
     </p>
   {/if}
 
-  {#if queryPack.kind === "run" && queryPack.totalMatchingRows > 0}
+  {#if queryPack.kind === "run" && queryPack.rows.matchesTotal > 0}
     <ul class="results">
-      {#each queryPack.resultKeys as townId, i (townId)}
+      {#each queryPack.rows.resultKeys as townId, i (townId)}
         <li class="results__item">
           <button type="button" class="place-button" onclick={() => chooseByKey(townId)}>
             {visibleRowLabels[i]}
@@ -142,11 +134,6 @@
   .result-guidance--muted {
     font-weight: 400;
     color: var(--text-muted);
-  }
-
-  .muted {
-    color: var(--text-muted);
-    font-weight: 400;
   }
 
   .search-label {
