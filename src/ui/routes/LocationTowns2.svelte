@@ -9,6 +9,10 @@
     towns2SearchSpaceQueryer,
     towns2ByTownId
   } from "../../data/bakedTowns2";
+  import {
+    buildTownPickerVisiblePresentation,
+    buildVisibleTownRowsFromKeys
+  } from "../../location-services/townPickerDisambiguation";
 
   interface Props {
     readonly setCurrentLocation: (town: Town) => void;
@@ -36,6 +40,17 @@
         MATCH_COUNT_CEILING
       )
     };
+  });
+
+  const visibleRowLabels = $derived.by(() => {
+    if (queryPack.kind !== "run") {
+      return [] as string[];
+    }
+    const visibleRows = buildVisibleTownRowsFromKeys(
+      queryPack.resultKeys,
+      towns2ByTownId
+    );
+    return buildTownPickerVisiblePresentation(visibleRows).labels;
   });
 
   function chooseByKey(townId: string): void {
@@ -95,7 +110,7 @@
       {#each queryPack.resultKeys as townId, i (townId)}
         <li class="results__item">
           <button type="button" class="place-button" onclick={() => chooseByKey(townId)}>
-            {queryPack.displayNames[i]}
+            {visibleRowLabels[i]}
           </button>
         </li>
       {/each}

@@ -98,3 +98,81 @@ This refactor is **not** a change to search-line generation unless a later goal 
 ## Relation to later work
 
 Formatting (two-line rows, muted secondary text, link styling, etc.) can follow once this visibility rule is in place in the UI (phase 3).
+
+---
+
+## UX conundrum 1: overflow with no guidance (query: `beach corn tre`)
+
+Observation from testing:
+
+- Retrieval quality is generally good in this case.
+- The user can often click immediately if their intended place appears in the shown subset.
+- The current friction is when results are truncated (e.g. "8 matches, first 6 shown") and the user wants to inspect hidden rows.
+- Today, the only path is adding another query piece, but the UI gives no clue what extra piece would be useful.
+
+Interpretation:
+
+- This is primarily a discovery/interaction gap, not a matching-quality gap.
+- The system has enough candidates; the user lacks a low-effort way to explore remainder candidates.
+
+Likely user next-step scenarios:
+
+1. **Target visible:** user confidently clicks a shown row (works well; preserve this fast path).
+2. **Target not visible but expected:** user feels blocked and must guess another fragment.
+3. **User wants hidden rows only:** user needs a direct reveal path, not a query rewrite.
+4. **User unsure how to narrow:** random extra fragments can degrade relevance and confidence.
+
+Candidate UX responses (ordered smallest to larger change):
+
+1. **Small-overflow auto-expand:** if total matches are only slightly above the display cap, show all rows.
+2. **Explicit reveal control:** keep cap by default, but add a one-click "Show all N".
+3. **Progressive reveal:** "Show more" / "Show next K" instead of immediate full expansion.
+4. **Token suggestions from hidden rows:** suggest additional fragments derived from hidden matches (e.g. "Try adding: dock, cove").
+5. **Category/count hints:** surface compact type hints (e.g. Beach/Bay/Cove counts) to guide narrowing.
+
+Recommended direction for this conundrum:
+
+- Implement an immediate reveal affordance (`Show all N` or equivalent), especially effective for small overflows.
+- Consider follow-up hinting for "what to type next" when overflow remains large.
+- Keep current scanning-first behaviour (top subset shown first) while removing the blind-guess trap.
+
+---
+
+## UX conundrum 2: exact-name ambiguity with high wrong-click risk (query: `seaton`)
+
+Observation from testing:
+
+- A single-token query (`seaton`) returns many rows, including distinct places that share the same canonical town name.
+- In the southwest UK context, there are at least two relevant "Seaton" locations (Devon and Cornwall), both plausible user intent targets.
+- If one bare "Seaton" appears as an apparently sufficient option, users can confidently pick the wrong place.
+
+Interpretation:
+
+- This is not only a discovery problem; it is an accuracy/safety problem caused by ambiguous exact names.
+- The UX must reduce false confidence when exact primary collisions exist for a short query.
+
+Likely user next-step scenarios:
+
+1. **Intent is specific but user lacks county detail:** user expects the app to help choose correctly between same-name places.
+2. **User clicks first plausible exact-name row:** risk of selecting wrong location with high confidence.
+3. **User notices many partial rows (foreshore/cliffs/etc.):** disoriented because broad matches can visually drown exact-name choices.
+4. **User adds random extra fragment:** may help, but is an unreliable burden shift to user memory.
+
+Candidate UX responses (ordered by impact):
+
+1. **Exact-match priority group:** list exact primary matches before broader partial matches.
+2. **Forced qualifier on exact collisions:** always show county/country for each exact-name collision row.
+3. **Ambiguity hint copy:** short message such as "Seaton matches multiple places; choose county/country."
+4. **Optional quick chips for exact collisions:** one-click filters for each colliding canonical place.
+5. **Retain broader matches below:** keep discoverability of nearby/features rows, but clearly secondary.
+
+Recommended direction for this conundrum:
+
+- Introduce an "ambiguous exact-name" state for short queries when multiple rows share the same normalized primary and match exactly.
+- In that state, pin exact-primary collisions to the top and force disambiguation text on those rows.
+- Keep the broader match list available beneath, preserving current retrieval breadth while protecting against wrong confident picks.
+
+Cross-conundrum synthesis:
+
+- Combine this exact-name guardrail with conundrum 1's reveal affordance (`Show all N` / progressive reveal).
+- Together, they address both blind narrowing and wrong-place selection without changing core matching semantics.

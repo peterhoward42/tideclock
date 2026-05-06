@@ -51,9 +51,11 @@ o  first glance ux assimilation suggestions
 
 	o  the search screen should seperate the name from the county
 		*  now have a plan in planning/locat...
-		o  do the refactor part
-		o  provide the logic service
-		o  update the UI
+		*  do the refactor part
+		*  provide the logic service
+		*  update the UI
+		o  deal with glitches
+			o  see query-newux-flaw image
 
 
 
