@@ -22,7 +22,7 @@
   import { getCurrentTideClockCivilDayDisplayWindowFromSystemClock } from "../time-services/getCurrentTideClockCivilDayDisplayWindow";
   import AppHeader from "./components/AppHeader.svelte";
   import Home from "./routes/Home.svelte";
-  import LocationTowns2 from "./routes/LocationTowns2.svelte";
+  import LocationTowns2Stepback from "./routes/LocationTowns2Stepback.svelte";
   import Settings from "./routes/Settings.svelte";
   import About from "./routes/About.svelte";
   import Acknowledgements from "./routes/Acknowledgements.svelte";
@@ -259,7 +259,7 @@
         tideUxDevPreviewBannerLine={tideUxDevPreviewBannerLine}
       />
     {:else if $route === "location2"}
-      <LocationTowns2 setCurrentLocation={setCurrentLocation} />
+      <LocationTowns2Stepback setCurrentLocation={setCurrentLocation} />
     {:else if $route === "settings"}
       <Settings />
     {:else if $route === "about"}
