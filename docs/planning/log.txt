@@ -64,8 +64,14 @@ o  first glance ux assimilation suggestions
 			*  "piece" -> part
 			*  "and others" or more
 			*  illustrative?
-			o  when not truncated order by common root e.g. Looe
+			*  when not truncated order by common root e.g. Looe
+			o  TAKE STOCK
+				o  Seaton on its own will never be pickable
+				o  Maybe Lat/Lon group reduction to most common root
+
 		o  merge BRANCH disamb
+
+	o  rethink based on clusters
 
 
 
