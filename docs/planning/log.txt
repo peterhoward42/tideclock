@@ -4,20 +4,17 @@ TIDE DIAL
 
 *  ditch obsolete docs
 *  ditch orhphaned location UI and servic helpers
-o  rename pass on new location stuff?
-
-Read docs/planning/shorten-names-js and proceed with the execution of the next not-started phase.
-
-
-o  on android browser offers open - which opens prior installed app, why not cache
+*  rename pass on new location stuff?
+*  ditch duplicate schedulers if possible
+*  on android browser offers open - which opens prior installed app, why not cache
    refreshed? 
 
 
-o  ditch duplicate schedulers if possible
 
 o  interference problem with these locations
 		Whaling berth historic Aberdeen
 		Donmouth local nature reserve
+	o  max len is 23
 
 
 o  what to do when tricky tides occlude each other?
