@@ -13,6 +13,7 @@ describe('bakedTowns2 step-back query', () => {
     expect(result.bucket).toBe('need_input');
     expect(result.totalMatches).toBe(0);
     expect(result.visibleTownIds).toEqual([]);
+    expect(result.narrowingAppends).toEqual([]);
   });
 
   it('filters by exact normalized county and canonical name prefix', () => {
@@ -36,6 +37,20 @@ describe('bakedTowns2 step-back query', () => {
     expect(result.bucket).toBe('no_matches');
     expect(result.totalMatches).toBe(0);
     expect(result.visibleTownIds).toEqual([]);
+    expect(result.narrowingAppends).toEqual([]);
+  });
+
+  it('includes deterministic lexical append suggestions for broad sets', () => {
+    const result = queryTowns2ByCountyAndNamePrefix('Cornwall', 'port');
+    expect(result.bucket === 'many_matches' || result.bucket === 'too_many_matches').toBe(true);
+    expect(result.narrowingAppends.length).toBeGreaterThan(0);
+    expect(result.narrowingAppends.length).toBeLessThanOrEqual(5);
+    expect(new Set(result.narrowingAppends).size).toBe(result.narrowingAppends.length);
+    expect(result.narrowingAppends.every((append) => append.length > 0)).toBe(true);
+    expect(
+      result.narrowingAppends.every((append) => /^ [^\s]+$|^[^\s]$/.test(append)),
+    ).toBe(true);
+    expect(result.narrowingAppends.some((append) => append.startsWith(' '))).toBe(true);
   });
 });
 

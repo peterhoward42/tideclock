@@ -64,11 +64,15 @@ o  first glance ux assimilation suggestions
 			*  Beach
 			o  Cardiff in cardiff (!!!)
 			*  Liverpool
-			o  A county has two place names the same?  (!!!)
+			*  A county has two place names the same? 
 			*  Single frags from Looe Falmouth Beach Christchurch
 			*  Short fragments
-			o  No matches
-		o  Change placeholder place to "loo"
+			*  No matches with decent prefix
+		*  Change placeholder place to "loo"
+		o  What issues remain?
+			o  How to provide hints for qualification in the general case
+			o  Does it help with cardiff town in cardiff county?
+
 		o  Diff between many and too_many
 
 	o  improved search

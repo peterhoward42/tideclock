@@ -67,10 +67,16 @@ export type TownPrefixQueryResult = {
   readonly totalMatches: number;
   readonly bucket: TownPrefixBucket;
   readonly visibleTownIds: readonly string[];
+  /**
+   * Literal query suffixes that can be appended to `normalizedPrefix` to narrow broad results.
+   * Items may begin with a space (for multi-word place names).
+   */
+  readonly narrowingAppends: readonly string[];
 };
 
 const DEFAULT_MIN_PREFIX_LENGTH = 2;
 const DEFAULT_MAX_VISIBLE_MATCHES = 12;
+const DEFAULT_MAX_NARROWING_APPENDS = 5;
 
 type IndexedTown = {
   readonly town: Town;
@@ -80,6 +86,35 @@ type IndexedTown = {
 
 function normalizeTownSearchText(input: string): string {
   return input.trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+function suggestionAppendFromNameSuffix(suffix: string): string | null {
+  if (suffix.length === 0) {
+    return null;
+  }
+  if (suffix.startsWith(' ')) {
+    const wordMatch = suffix.match(/^ (\S+)/);
+    if (wordMatch === null) {
+      return null;
+    }
+    return ` ${wordMatch[1]}`;
+  }
+  return suffix[0] ?? null;
+}
+
+function rankNarrowingAppends(
+  appendCounts: ReadonlyMap<string, number>,
+  maxSuggestions: number,
+): readonly string[] {
+  return [...appendCounts.entries()]
+    .sort((a, b) => {
+      if (b[1] !== a[1]) {
+        return b[1] - a[1];
+      }
+      return a[0].localeCompare(b[0]);
+    })
+    .slice(0, maxSuggestions)
+    .map(([append]) => append);
 }
 
 const indexedTowns: readonly IndexedTown[] = bakedTowns2.map((town) => ({
@@ -123,10 +158,12 @@ export function queryTowns2ByCountyAndNamePrefix(
       totalMatches: 0,
       bucket: 'need_input',
       visibleTownIds: [],
+      narrowingAppends: [],
     };
   }
 
   const visibleTownIds: string[] = [];
+  const narrowingAppendCounts = new Map<string, number>();
   let totalMatches = 0;
   for (const row of indexedTowns) {
     if (normalizedCounty !== null && row.normalizedCounty !== normalizedCounty) {
@@ -138,6 +175,11 @@ export function queryTowns2ByCountyAndNamePrefix(
     totalMatches += 1;
     if (visibleTownIds.length < maxVisibleMatches) {
       visibleTownIds.push(row.town.id);
+    }
+    const suffix = row.normalizedName.slice(normalizedPrefix.length);
+    const append = suggestionAppendFromNameSuffix(suffix);
+    if (append !== null) {
+      narrowingAppendCounts.set(append, (narrowingAppendCounts.get(append) ?? 0) + 1);
     }
   }
 
@@ -151,6 +193,10 @@ export function queryTowns2ByCountyAndNamePrefix(
           : totalMatches <= 80
             ? 'many_matches'
             : 'too_many_matches';
+  const narrowingAppends =
+    bucket === 'many_matches' || bucket === 'too_many_matches'
+      ? rankNarrowingAppends(narrowingAppendCounts, DEFAULT_MAX_NARROWING_APPENDS)
+      : [];
 
   return {
     normalizedPrefix,
@@ -159,5 +205,6 @@ export function queryTowns2ByCountyAndNamePrefix(
     totalMatches,
     bucket,
     visibleTownIds,
+    narrowingAppends,
   };
 }

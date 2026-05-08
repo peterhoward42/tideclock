@@ -41,6 +41,10 @@
     navigate("home");
   }
 
+  function applyNarrowingAppend(append: string): void {
+    placePrefix = `${query.normalizedPrefix}${append}`;
+  }
+
   const guidance = $derived.by(() => {
     if (query.bucket === "need_input") {
       return `Choose a county or type at least ${query.minPrefixLength} letters from the start of the place name.`;
@@ -98,6 +102,24 @@
   <p class="guidance">{guidance}</p>
   {#if query.bucket === "many_matches" || query.bucket === "too_many_matches"}
     <p class="guidance-detail">{query.totalMatches} places</p>
+  {/if}
+  {#if query.normalizedCounty !== null &&
+    (query.bucket === "many_matches" || query.bucket === "too_many_matches") &&
+    query.narrowingAppends.length > 0}
+    <div class="narrowing-suggestions">
+      <p class="guidance-detail">Not sure what to type next? Try:</p>
+      <div class="narrowing-suggestions__chips">
+        {#each query.narrowingAppends as append (append)}
+          <button
+            type="button"
+            class="narrowing-chip"
+            onclick={() => applyNarrowingAppend(append)}
+          >
+            {query.normalizedPrefix}{append}...
+          </button>
+        {/each}
+      </div>
+    </div>
   {/if}
 
   {#if query.bucket === "single_match" && visibleRows.length === 1}
@@ -162,6 +184,33 @@
     margin: -0.2rem 0 0.1rem;
     font-size: 0.82rem;
     color: var(--text-document-secondary);
+  }
+
+  .narrowing-suggestions {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .narrowing-suggestions__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .narrowing-chip {
+    border: 1px solid var(--border-control);
+    border-radius: 999px;
+    background: var(--surface-page-background);
+    color: var(--text-document-default);
+    font: inherit;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.55rem;
+    cursor: pointer;
+  }
+
+  .narrowing-chip:hover {
+    border-color: var(--text-link-accent);
+    color: var(--text-link-accent);
   }
 
   .results {
