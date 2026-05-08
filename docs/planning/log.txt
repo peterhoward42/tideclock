@@ -54,6 +54,19 @@ o  first glance ux assimilation suggestions
 		*  do the refactor part
 		*  provide the logic service
 		*  update the UI
+		o  Supplementary too many number
+		o  what is still not great?
+			o  Right Seaton
+			o  Wrong Seaton
+			o  Looe
+			o  Swansea
+			o  Cardiff
+			o  Liverpool
+			o  Single frags from Looe Falmouth Beach Christchurch
+			o  Short fragments
+			o  No matches
+		o  Better example than sea
+		o  Diff between many and too_many
 
 	o  improved search
 		o  BRANCH disamb

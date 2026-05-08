@@ -59,27 +59,17 @@
     }
     if (query.bucket === "many_matches") {
       if (query.normalizedCounty === null) {
-        return "Too many matches. Choose county or type a bit more.";
+        return "Too many places. Choose county or type a bit more.";
       }
-      return "Too many matches. Type 1-2 more letters to narrow.";
+      return "Too many places. Type 1-2 more letters to narrow.";
     }
-    return "Too many matches. Choose county first.";
+    return "Too many places. Choose county first.";
   });
 </script>
 
 <main class="route">
   <label class="field">
-    <span class="field__label">County (optional)</span>
-    <select bind:value={selectedCounty} class="field__control">
-      <option value="">All counties</option>
-      {#each towns2Counties as county (county)}
-        <option value={county}>{county}</option>
-      {/each}
-    </select>
-  </label>
-
-  <label class="field">
-    <span class="field__label">Start of place name</span>
+    <span class="field__label">Start typing a place name</span>
     <input
       type="search"
       bind:value={placePrefix}
@@ -91,7 +81,24 @@
     />
   </label>
 
+  <label
+    class="field"
+    class:field--emphasized={query.bucket === "many_matches" ||
+      query.bucket === "too_many_matches"}
+  >
+    <span class="field__label">County (optional)</span>
+    <select bind:value={selectedCounty} class="field__control">
+      <option value="">All counties</option>
+      {#each towns2Counties as county (county)}
+        <option value={county}>{county}</option>
+      {/each}
+    </select>
+  </label>
+
   <p class="guidance">{guidance}</p>
+  {#if query.bucket === "many_matches" || query.bucket === "too_many_matches"}
+    <p class="guidance-detail">{query.totalMatches} places</p>
+  {/if}
 
   {#if query.bucket === "single_match" && visibleRows.length === 1}
     <button type="button" class="match-button" onclick={() => chooseTown(visibleRows[0].town)}>
@@ -122,6 +129,13 @@
     gap: 0.3rem;
   }
 
+  .field--emphasized {
+    padding: 0.5rem;
+    border: 1px solid var(--border-control);
+    border-radius: 0.5rem;
+    background: var(--surface-page-background);
+  }
+
   .field__label {
     font-size: 0.92rem;
     color: var(--text-document-secondary);
@@ -142,6 +156,12 @@
     margin: 0.15rem 0 0.1rem;
     font-size: 0.92rem;
     color: var(--text-muted);
+  }
+
+  .guidance-detail {
+    margin: -0.2rem 0 0.1rem;
+    font-size: 0.82rem;
+    color: var(--text-document-secondary);
   }
 
   .results {
