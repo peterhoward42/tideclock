@@ -3,7 +3,7 @@ TIDE DIAL
 
 
 *  ditch obsolete docs
-o  ditch orhphaned location UI and servic helpers
+*  ditch orhphaned location UI and servic helpers
 o  rename pass on new location stuff?
 o  ditch duplicate schedulers if possible
 
