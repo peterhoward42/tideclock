@@ -74,7 +74,7 @@
       type="search"
       bind:value={placePrefix}
       class="field__control"
-      placeholder="e.g. sea"
+      placeholder="loo"
       spellcheck="false"
       autocomplete="off"
       enterkeyhint="search"

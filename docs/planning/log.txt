@@ -56,16 +56,19 @@ o  first glance ux assimilation suggestions
 		*  update the UI
 		o  Supplementary too many number
 		o  what is still not great?
-			o  Right Seaton
-			o  Wrong Seaton
-			o  Looe
-			o  Swansea
-			o  Cardiff
-			o  Liverpool
-			o  Single frags from Looe Falmouth Beach Christchurch
-			o  Short fragments
+			*  Seaton in Devon
+			*  Seaton in Cornwall
+			*  Wrong Seaton by mistake
+			*  Looe
+			*  Mumbles
+			*  Beach
+			o  Cardiff in cardiff (!!!)
+			*  Liverpool
+			o  A county has two place names the same?  (!!!)
+			*  Single frags from Looe Falmouth Beach Christchurch
+			*  Short fragments
 			o  No matches
-		o  Better example than sea
+		o  Change placeholder place to "loo"
 		o  Diff between many and too_many
 
 	o  improved search
@@ -87,6 +90,7 @@ o  first glance ux assimilation suggestions
 	o  rethink based on clusters
 
 
+	o  scarborough to whitby coverage is bad
 
 	o  ditch duplicate schedulers if possible
 
