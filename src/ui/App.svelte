@@ -7,19 +7,19 @@
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
   import type { Town } from "../data/townSchema";
-  import { subscribeSemanticMinuteCadence } from "../application/semanticMinuteCadence";
-  import { decideCivilDayRolloverTideRefresh } from "../application/civilDayRolloverTick";
-  import { createTideExtremesRefreshController } from "../application/tideExtremesRefreshController";
-  import { loadTideExtremesForCurrentCivilDayQuery } from "../application/tideExtremesForCivilDayQuery";
-  import { loadCurrentLocation, storeCurrentLocation } from "../data-pipelines/currentLocation";
+  import { subscribeMinuteCadence } from "../application/minuteCadence";
+  import { decideRolloverTideRefresh } from "../application/civilDayRolloverTick";
+  import { createTideRefreshController } from "../application/tideRefreshController";
+  import { loadCivilDayExtremes } from "../application/civilDayExtremesQuery";
+  import { loadTownPick, storeTownPick } from "../data-pipelines/townPick";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import {
-    tideUxDevPreviewIdFromSearch,
-    tideUxDevPreviewMaybeOverrideLoad,
-    tideUxDevPreviewShortHeadline,
-    type TideUxDevPreviewId,
-  } from "../application/tide-ux-dev-preview/tideUxDevPreviewCatalog";
-  import { getCurrentTideClockCivilDayDisplayWindowFromSystemClock } from "../time-services/getCurrentTideClockCivilDayDisplayWindow";
+    tidePreviewIdFromSearch,
+    tidePreviewMaybeOverrideLoad,
+    tidePreviewShortHeadline,
+    type TidePreviewId,
+  } from "../application/tide-dev-preview/previewCatalog";
+  import { civilDayWindowFromHostClock } from "../time-services/currentCivilDayWindow";
   import AppHeader from "./components/AppHeader.svelte";
   import Home from "./routes/Home.svelte";
   import LocationTowns2Stepback from "./routes/LocationTowns2Stepback.svelte";
@@ -40,21 +40,21 @@
   let lastSuccessfulTideExtremes = $state<TideExtremesAtLocation | undefined>(undefined);
   /** Local civil-day window start (ms) after the last successful load completed; drives midnight rollover detection. */
   let civilDayWindowStartMsAtLastSuccessfulLoad = $state<number | undefined>(undefined);
-  /** After a failed rollover fetch, suppress re-entry for the same civil day (see `decideCivilDayRolloverTideRefresh`). */
+  /** After a failed rollover fetch, suppress re-entry for the same civil day (see `decideRolloverTideRefresh`). */
   let lastRolloverAttemptCivilDayStartMs = $state<number | undefined>(undefined);
   let currentTown = $state<Town | undefined>(undefined);
 
   /** Dev-only: `?tideUxPreview=<id>` — simulates Category-B tide load outcomes. */
-  let tideUxDevPreviewIdFromUrl = $state<TideUxDevPreviewId | null>(null);
+  let tidePreviewIdFromUrl = $state<TidePreviewId | null>(null);
 
-  const tideUxDevPreviewBannerLine = $derived.by(() => {
-    if (!import.meta.env.DEV || tideUxDevPreviewIdFromUrl === null) {
+  const tidePreviewBannerLine = $derived.by(() => {
+    if (!import.meta.env.DEV || tidePreviewIdFromUrl === null) {
       return null;
     }
-    return `Preview: ${tideUxDevPreviewShortHeadline(tideUxDevPreviewIdFromUrl)}`;
+    return `Preview: ${tidePreviewShortHeadline(tidePreviewIdFromUrl)}`;
   });
 
-  function readTideUxDevPreviewIdFromLocation(): TideUxDevPreviewId | null {
+  function readTidePreviewIdFromLocation(): TidePreviewId | null {
     if (!import.meta.env.DEV) return null;
     if (typeof window === "undefined") return null;
     const search =
@@ -62,7 +62,7 @@
       (window.location.hash.includes("?")
         ? window.location.hash.slice(window.location.hash.indexOf("?"))
         : "");
-    return tideUxDevPreviewIdFromSearch(search);
+    return tidePreviewIdFromSearch(search);
   }
 
   function appDiag(...args: unknown[]) {
@@ -79,8 +79,8 @@
     longitude: number
   ): Promise<TideExtremesAtLocation | undefined> {
     appDiag("loadTideExtremesForCurrentCivilDay invoked", { latitude, longitude });
-    const devOverride = tideUxDevPreviewMaybeOverrideLoad(
-      tideUxDevPreviewIdFromUrl,
+    const devOverride = tidePreviewMaybeOverrideLoad(
+      tidePreviewIdFromUrl,
       latitude,
       longitude,
     );
@@ -88,7 +88,7 @@
       return await devOverride;
     }
     try {
-      const result = await loadTideExtremesForCurrentCivilDayQuery(latitude, longitude, {
+      const result = await loadCivilDayExtremes(latitude, longitude, {
         loader: localStorage,
         storer: localStorage,
         baseUrl: import.meta.env.VITE_TIDE_PROXY_BASE_URL
@@ -106,11 +106,11 @@
     }
   }
 
-  const { refreshTideExtremesForTown } = createTideExtremesRefreshController(
+  const { refreshTidesForTown } = createTideRefreshController(
     {
       loadTideExtremesForCurrentCivilDay,
       civilDayWindowStartMsAfterSuccessfulLoad: () =>
-        getCurrentTideClockCivilDayDisplayWindowFromSystemClock().startLocal.getTime(),
+        civilDayWindowFromHostClock().startLocal.getTime(),
     },
     {
       onLoading: () => {
@@ -126,7 +126,7 @@
         tideLoadState = { status: "error" };
       },
       onLoadRejected: (e) => {
-        appDiag("refreshTideExtremesForTown error", e);
+        appDiag("refreshTidesForTown error", e);
       },
     }
   );
@@ -147,16 +147,16 @@
     civilDayWindowStartMsAtLastSuccessfulLoad = undefined;
     lastRolloverAttemptCivilDayStartMs = undefined;
     currentTown = town;
-    storeCurrentLocation(town, { storer: localStorage });
+    storeTownPick(town, { storer: localStorage });
     appDiag("setCurrentLocation stored town in localStorage", { townId: town.id });
-    refreshTideExtremesForTown(town);
+    refreshTidesForTown(town);
   }
 
   function maybeRefreshTideAfterLocalMidnightRollover(): void {
-    const town = loadCurrentLocation({ loader: localStorage });
+    const town = loadTownPick({ loader: localStorage });
     currentTown = town;
-    const currentStart = getCurrentTideClockCivilDayDisplayWindowFromSystemClock().startLocal.getTime();
-    const decision = decideCivilDayRolloverTideRefresh({
+    const currentStart = civilDayWindowFromHostClock().startLocal.getTime();
+    const decision = decideRolloverTideRefresh({
       town,
       tideLoadIsLoading: tideLoadState.status === "loading",
       currentCivilDayStartMs: currentStart,
@@ -167,7 +167,7 @@
       return;
     }
     lastRolloverAttemptCivilDayStartMs = decision.markRolloverAttemptCivilDayStartMs;
-    refreshTideExtremesForTown(decision.town);
+    refreshTidesForTown(decision.town);
   }
 
   function headerPlaceholderForRoute(routeId: AppRouteId): string {
@@ -199,19 +199,19 @@
   onMount(() => {
     attachHashListener();
     appDiag("app root mounted, hash listener attached");
-    tideUxDevPreviewIdFromUrl = readTideUxDevPreviewIdFromLocation();
-    const town = loadCurrentLocation({ loader: localStorage });
+    tidePreviewIdFromUrl = readTidePreviewIdFromLocation();
+    const town = loadTownPick({ loader: localStorage });
     if (town !== undefined) {
       currentTown = town;
-      refreshTideExtremesForTown(town);
+      refreshTidesForTown(town);
     }
     let devUrlCleanup: (() => void) | undefined;
     if (import.meta.env.DEV) {
       const onUrlChange = (): void => {
-        tideUxDevPreviewIdFromUrl = readTideUxDevPreviewIdFromLocation();
-        const t = currentTown ?? loadCurrentLocation({ loader: localStorage });
+        tidePreviewIdFromUrl = readTidePreviewIdFromLocation();
+        const t = currentTown ?? loadTownPick({ loader: localStorage });
         if (t !== undefined) {
-          refreshTideExtremesForTown(t);
+          refreshTidesForTown(t);
         }
       };
       window.addEventListener("hashchange", onUrlChange);
@@ -221,7 +221,7 @@
         window.removeEventListener("popstate", onUrlChange);
       };
     }
-    const unsubMinute = subscribeSemanticMinuteCadence(() => {
+    const unsubMinute = subscribeMinuteCadence(() => {
       maybeRefreshTideAfterLocalMidnightRollover();
     });
     return () => {
@@ -256,7 +256,7 @@
         tideLoadState={tideLoadState}
         tideExtremes={lastSuccessfulTideExtremes}
         townName={currentTown?.name ?? "Unknown"}
-        tideUxDevPreviewBannerLine={tideUxDevPreviewBannerLine}
+        tidePreviewBannerLine={tidePreviewBannerLine}
       />
     {:else if $route === "location2"}
       <LocationTowns2Stepback setCurrentLocation={setCurrentLocation} />

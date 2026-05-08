@@ -1,14 +1,14 @@
 /**
  * civilDayRolloverTick.ts — Host tick: map shell snapshot to a rollover refresh decision.
- * Composes {@link shouldTriggerCivilDayRolloverRefresh}; no I/O. Kind: Application policy.
+ * Composes {@link shouldTriggerRolloverRefresh}; no I/O. Kind: Application policy.
  */
 import type { Town } from "../data/townSchema";
 import {
-  shouldTriggerCivilDayRolloverRefresh,
-  type CivilDayRolloverRefreshInput,
+  shouldTriggerRolloverRefresh,
+  type RolloverRefreshInput,
 } from "./civilDayRolloverRefresh";
 
-export type CivilDayRolloverTickSnapshot = {
+export type RolloverTickSnapshot = {
   readonly town: Town | undefined;
   readonly tideLoadIsLoading: boolean;
   readonly currentCivilDayStartMs: number;
@@ -16,7 +16,7 @@ export type CivilDayRolloverTickSnapshot = {
   readonly lastRolloverAttemptCivilDayStartMs: number | undefined;
 };
 
-export type CivilDayRolloverTickDecision =
+export type RolloverTickDecision =
   | { readonly action: "none" }
   | {
       readonly action: "refresh";
@@ -26,22 +26,22 @@ export type CivilDayRolloverTickDecision =
 
 /**
  * Decide whether the clock tick should start a civil-day rollover tide reload.
- * Caller keeps storage subscription and {@link createTideExtremesRefreshController} refresh wiring.
+ * Caller keeps storage subscription and {@link createTideRefreshController} refresh wiring.
  */
-export function decideCivilDayRolloverTideRefresh(
-  snapshot: CivilDayRolloverTickSnapshot
-): CivilDayRolloverTickDecision {
+export function decideRolloverTideRefresh(
+  snapshot: RolloverTickSnapshot
+): RolloverTickDecision {
   if (snapshot.town === undefined) {
     return { action: "none" };
   }
-  const rolloverInput: CivilDayRolloverRefreshInput = {
+  const rolloverInput: RolloverRefreshInput = {
     hasSelectedTown: true,
     tideLoadIsLoading: snapshot.tideLoadIsLoading,
     currentCivilDayStartMs: snapshot.currentCivilDayStartMs,
     lastSuccessfulLoadCivilDayStartMs: snapshot.civilDayWindowStartMsAtLastSuccessfulLoad,
     lastRolloverAttemptCivilDayStartMs: snapshot.lastRolloverAttemptCivilDayStartMs,
   };
-  if (!shouldTriggerCivilDayRolloverRefresh(rolloverInput)) {
+  if (!shouldTriggerRolloverRefresh(rolloverInput)) {
     return { action: "none" };
   }
   return {

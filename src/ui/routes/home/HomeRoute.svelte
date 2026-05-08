@@ -9,59 +9,59 @@
   import { onMount, tick } from "svelte";
 
   import {
-    buildDiagramGenerationSpec,
+    buildDiagramSpec,
     utcIsoToLocalCanonicalTimeLocal,
-  } from "../../../application/buildDiagramGenerationSpec";
+  } from "../../../application/buildDiagramSpec";
   import {
-    diagramDevPreviewIdFromSearch,
-    type DiagramDevPreviewId,
-  } from "../../../application/diagram-dev-preview/diagramDevPreviewCatalog";
+    diagramPreviewIdFromSearch,
+    type DiagramPreviewId,
+  } from "../../../application/diagram-dev-preview/previewCatalog";
   import {
-    formatDiagramDevPreviewBannerLine,
-    homeDiagramDevPreviewIsFrozen,
-    resolveHomeDiagramDevPreview,
-  } from "../../../application/diagram-dev-preview/diagramDevPreviewResolveForHome";
+    formatDiagramPreviewBanner,
+    homeDiagramPreviewIsFrozen,
+    resolveHomeDiagramPreview,
+  } from "../../../application/diagram-dev-preview/resolveForHome";
   import {
-    localCanonicalTimeNowFromMs,
-    localBrhcDatePrefixFromMs,
-  } from "../../../application/localWallClockReadoutFromMs";
+    localCanonicalTimeNow,
+    localBrhcDatePrefix,
+  } from "../../../application/localTimeStrings";
   import {
-    createDiagramGenerationCollaborator,
+    createDiagramCollaborator,
     renderSceneSvg,
-    type DiagramGenerationCollaborator,
-  } from "../../../application/diagramGenerationCollaborator";
+    type DiagramCollaborator,
+  } from "../../../application/diagramCollaborator";
   import { deriveNextTideSemantics } from "../../../application/nextTideSemantics";
-  import { subscribeSemanticMinuteCadence } from "../../../application/semanticMinuteCadence";
+  import { subscribeMinuteCadence } from "../../../application/minuteCadence";
   import { displayOptimisation } from "../../displayOptimisation";
   import HomeRouteDevPreviewBanners from "./HomeRouteDevPreviewBanners.svelte";
   import HomeRouteDomDebugPanel from "./HomeRouteDomDebugPanel.svelte";
   import HomeRouteTidePanels from "./HomeRouteTidePanels.svelte";
   import HomePwaStandaloneSetupOverlay from "./HomePwaStandaloneSetupOverlay.svelte";
   import {
-    computeHomeMenuPanelAnchorStyle,
-    queryHomeMenuTriggerGroupFromDiagramHost,
-    scheduleDiagramHostSvgDevPresentation,
-  } from "./homeRouteDiagramDom";
-  import { mountInstrumentVerticalLetterboxSlackObserver } from "./homeRouteInstrumentLetterboxObserver";
-  import { mountHomeMenuSvgTriggerWire } from "./homeRouteMenuSvgTriggerWire";
-  import type { HomeRouteProps } from "./homeRouteProps";
+    computeMenuPanelAnchorStyle,
+    queryMenuTriggerGroup,
+    scheduleDiagramDevPresentation,
+  } from "./diagramDom";
+  import { mountLetterboxSlackObserver } from "./instrumentLetterboxObserver";
+  import { mountMenuSvgTriggerWire } from "./menuSvgTriggerWire";
+  import type { RouteProps } from "./routeProps";
   import { shouldShowHomeLandscapeHint } from "../../homeLandscapeHint";
   import {
-    effectiveSearchStringFromLocationParts,
-    homeRouteDevDebugFlagsFromSearch,
-    pwaSetupDevPreviewWantedFromSearch,
-    pwaSetupDevResetWantedFromSearch,
-  } from "../../homeRouteUrlQuery";
-  import { mountHomeRouteOrientationLock } from "./homeRouteOrientationLock";
-  import { mountHomeRouteScreenWakeLock } from "./homeRouteScreenWakeLock";
+    effectiveSearchFromLocation,
+    homeDevDebugFlagsFromSearch,
+    pwaSetupDevPreviewWanted,
+    pwaSetupDevResetWanted,
+  } from "../../homeUrlQuery";
+  import { mountOrientationLock } from "./orientationLock";
+  import { mountScreenWakeLock } from "./screenWakeLock";
   import {
-    getKeepScreenAwakeUserEnabled,
-    isWakeLockApiSupportedRuntime,
-    keepScreenAwakeUserEnabledStore,
-    setKeepScreenAwakeUserEnabled,
-    setTideViewWakePresentation,
-    tideViewWakePresentationStore,
-  } from "./homeRoutePwaUi";
+    getKeepAwakeUserEnabled,
+    keepAwakeUserStore,
+    setKeepAwakeUserEnabled,
+    setTideWakePresentation,
+    tideWakePresentationStore,
+  } from "./pwaUi";
+  import { isWakeLockApiSupported } from "./wakeLockSupport";
   import {
     clearStandaloneSetupHiddenForeverIn,
     clearStandaloneSetupSessionDismissal,
@@ -69,36 +69,35 @@
     readStandaloneSetupHiddenForever,
     writeStandaloneSetupDismissedThisSession,
     writeStandaloneSetupHiddenForever,
-  } from "./homeRoutePwaPreferences";
+  } from "./pwaPreferences";
   import { isStandaloneDisplayMode } from "./pwaDisplayMode";
   import {
-    getHomeRouteDiagramFullscreenTarget,
+    getDiagramFullscreenTarget,
     toggleInstrumentFullscreen,
-  } from "./homeRouteFullscreen";
+  } from "./fullscreen";
   import {
-    homeInstallObserver,
+    installObserver,
     HOME_INSTALL_BENEFIT_LINES,
     manualInstallStepsForPlatform,
     promptForInstall,
-  } from "./homeRouteInstallFlow";
+  } from "./installFlow";
 
   let {
     tideLoadState,
     tideExtremes,
     townName,
-    tideUxDevPreviewBannerLine,
-  }: HomeRouteProps = $props();
+    tidePreviewBannerLine,
+  }: RouteProps = $props();
 
   // Diagram generation collaborator (generate + render entry; owns no DOM)
-  const collaborator: DiagramGenerationCollaborator =
-    createDiagramGenerationCollaborator();
+  const collaborator: DiagramCollaborator = createDiagramCollaborator();
 
   // Mutable route state ($state)
   /** Drives Loop B: bumps only on local minute rollover (aligned scheduler), not every second. */
-  let semanticMinuteEpoch = $state(Math.floor(Date.now() / 60_000));
+  let minuteEpoch = $state(Math.floor(Date.now() / 60_000));
 
   /** Dev-only: `?diagramPreview=<id>` (see docs/planning/diagram-dev-preview-catalog.md). */
-  let diagramPreviewIdFromUrl = $state<DiagramDevPreviewId | null>(null);
+  let diagramPreviewIdFromUrl = $state<DiagramPreviewId | null>(null);
 
   let diagramSvg = $state("");
   let diagramError = $state<string | undefined>(undefined);
@@ -111,12 +110,12 @@
   let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
   let homeFullscreenActive = $state(false);
   let homeInstallInfoOpen = $state(false);
-  let homeInstallObserverSnapshot = $state(get(homeInstallObserver));
+  let installObserverSnapshot = $state(get(installObserver));
   let homeInstallLastSeenAppInstalledCount = $state(0);
   let homeInstallStatusLine = $state<string | null>(null);
 
-  let pwaUserWants = $state(get(keepScreenAwakeUserEnabledStore));
-  let pwaTideViewPresentation = $state(get(tideViewWakePresentationStore));
+  let pwaUserWants = $state(get(keepAwakeUserStore));
+  let pwaTideViewPresentation = $state(get(tideWakePresentationStore));
   let pwaDisplaySectionOpen = $state(false);
   let pwaSetupOverlayOpen = $state(false);
   /** In dev, `?pwaSetup=1` in a non-installed tab. */
@@ -143,8 +142,8 @@
       shouldShowHomeLandscapeHint(displaySnapshot, verticalLetterboxSlackPx),
   );
 
-  const homeDiagramDevPreview = $derived.by(() =>
-    resolveHomeDiagramDevPreview({
+  const homeDiagramPreview = $derived.by(() =>
+    resolveHomeDiagramPreview({
       dev: import.meta.env.DEV,
       previewId: diagramPreviewIdFromUrl,
       tideExtremes,
@@ -153,24 +152,24 @@
   );
 
   const diagramPreviewLive = $derived(
-    homeDiagramDevPreviewIsFrozen(homeDiagramDevPreview),
+    homeDiagramPreviewIsFrozen(homeDiagramPreview),
   );
 
   const diagramPreviewBannerLine = $derived(
-    formatDiagramDevPreviewBannerLine(homeDiagramDevPreview),
+    formatDiagramPreviewBanner(homeDiagramPreview),
   );
 
   const homeInstallBenefitLines = $derived(HOME_INSTALL_BENEFIT_LINES);
   const homeInstallManualSteps = $derived(
-    manualInstallStepsForPlatform(homeInstallObserverSnapshot.platform),
+    manualInstallStepsForPlatform(installObserverSnapshot.platform),
   );
   const homeInstallCanPrompt = $derived(
-    homeInstallObserverSnapshot.promptEvent != null,
+    installObserverSnapshot.promptEvent != null,
   );
 
   const pwaForHomeMenu = $derived({
     sectionOpen: pwaDisplaySectionOpen,
-    apiSupported: isWakeLockApiSupportedRuntime(),
+    apiSupported: isWakeLockApiSupported(),
     isHomeRoute: true,
     userWants: pwaUserWants,
     homePresentation: pwaTideViewPresentation,
@@ -179,7 +178,7 @@
       pwaDisplaySectionOpen = !pwaDisplaySectionOpen;
     },
     onToggle: (next: boolean) => {
-      setKeepScreenAwakeUserEnabled(next);
+      setKeepAwakeUserEnabled(next);
     },
     showWelcomeCardEntry: isStandalonePwa,
     onShowWelcomeCard: () => {
@@ -191,15 +190,15 @@
 
   // Subscriptions and lifecycle (onMount)
   onMount(() => {
-    return homeInstallObserver.subscribe(
-      (snapshot) => (homeInstallObserverSnapshot = snapshot),
+    return installObserver.subscribe(
+      (snapshot) => (installObserverSnapshot = snapshot),
     );
   });
 
   onMount(() => {
     if (!import.meta.env.DEV) return;
     try {
-      const debugFlags = homeRouteDevDebugFlagsFromSearch(
+      const debugFlags = homeDevDebugFlagsFromSearch(
         window.location.search,
       );
       domDumpEnabled = debugFlags.domDump;
@@ -224,9 +223,9 @@
   });
 
   onMount(() =>
-    subscribeSemanticMinuteCadence(
+    subscribeMinuteCadence(
       (epoch) => {
-        semanticMinuteEpoch = epoch;
+        minuteEpoch = epoch;
       },
       { fireImmediately: false },
     ),
@@ -235,48 +234,48 @@
   onMount(() => displayOptimisation.subscribe((v) => (displaySnapshot = v)));
 
   onMount(() =>
-    keepScreenAwakeUserEnabledStore.subscribe((v) => (pwaUserWants = v)),
+    keepAwakeUserStore.subscribe((v) => (pwaUserWants = v)),
   );
 
   onMount(() =>
-    tideViewWakePresentationStore.subscribe(
+    tideWakePresentationStore.subscribe(
       (v) => (pwaTideViewPresentation = v),
     ),
   );
 
   onMount(() => {
-    const wake = mountHomeRouteScreenWakeLock({
-      shouldRequestLock: getKeepScreenAwakeUserEnabled,
+    const wake = mountScreenWakeLock({
+      shouldRequestLock: getKeepAwakeUserEnabled,
       onPresentationChange: (p) => {
-        setTideViewWakePresentation(p);
+        setTideWakePresentation(p);
       },
     });
-    const unsubKeep = keepScreenAwakeUserEnabledStore.subscribe(() => {
+    const unsubKeep = keepAwakeUserStore.subscribe(() => {
       wake.sync();
     });
     return () => {
       unsubKeep();
       wake.dispose();
-      setTideViewWakePresentation(null);
+      setTideWakePresentation(null);
     };
   });
 
   onMount(() => {
     if (typeof window === "undefined") return;
-    const search = effectiveSearchStringFromLocationParts(
+    const search = effectiveSearchFromLocation(
       window.location.search,
       window.location.hash,
     );
     isStandalonePwa = isStandaloneDisplayMode();
 
     if (import.meta.env.DEV) {
-      if (pwaSetupDevResetWantedFromSearch(search)) {
+      if (pwaSetupDevResetWanted(search)) {
         clearStandaloneSetupSessionDismissal();
         if (typeof localStorage !== "undefined") {
           clearStandaloneSetupHiddenForeverIn(localStorage);
         }
       }
-      if (pwaSetupDevPreviewWantedFromSearch(search)) {
+      if (pwaSetupDevPreviewWanted(search)) {
         pwaSetupOverlayOpen = true;
         pwaDevPreviewInTab = !isStandalonePwa;
       }
@@ -315,7 +314,7 @@
   onMount(() => {
     const routeRoot = homeRouteEl;
     if (routeRoot == null) return;
-    return mountHomeRouteOrientationLock(routeRoot);
+    return mountOrientationLock(routeRoot);
   });
 
   onMount(() => {
@@ -343,7 +342,7 @@
   // Reactive effects ($effect) — diagram regen, SVG glue, measurement, menu wiring
   $effect(() => {
     if (!diagramPreviewLive) {
-      void semanticMinuteEpoch;
+      void minuteEpoch;
     }
     const extremes = tideExtremes;
     const load = tideLoadState;
@@ -359,14 +358,14 @@
     }
 
     try {
-      const preview = homeDiagramDevPreview;
+      const preview = homeDiagramPreview;
       const extremesForSpec =
         preview.state === "frozen" ? preview.extremesAtLocation : extremes;
       const wallClockMs =
         preview.state === "frozen" ? preview.frozenEpochMs : Date.now();
-      const timeNow = localCanonicalTimeNowFromMs(wallClockMs);
-      const brhcDatePrefix = localBrhcDatePrefixFromMs(wallClockMs);
-      const baseSpec = buildDiagramGenerationSpec({
+      const timeNow = localCanonicalTimeNow(wallClockMs);
+      const brhcDatePrefix = localBrhcDatePrefix(wallClockMs);
+      const baseSpec = buildDiagramSpec({
         extremesAtLocation: extremesForSpec,
         timeNow,
         brhcDatePrefix,
@@ -374,7 +373,7 @@
         townName,
       });
       const derived = deriveNextTideSemantics(baseSpec);
-      const spec = buildDiagramGenerationSpec({
+      const spec = buildDiagramSpec({
         extremesAtLocation: extremesForSpec,
         timeNow,
         brhcDatePrefix,
@@ -400,7 +399,7 @@
 
     // The diagram SVG should scale via CSS (`width/height: 100%`) + preserveAspectRatio.
     // Keep only tiny debug affordances here (outline, summary refresh).
-    scheduleDiagramHostSvgDevPresentation(diagramHostEl, {
+    scheduleDiagramDevPresentation(diagramHostEl, {
       outlineEnabled,
       onAfterPaint: refreshDomSummary,
     });
@@ -413,13 +412,13 @@
       return;
     }
 
-    return mountInstrumentVerticalLetterboxSlackObserver(figure, (px) => {
+    return mountLetterboxSlackObserver(figure, (px) => {
       verticalLetterboxSlackPx = px;
     });
   });
 
   $effect(() => {
-    const installedCount = homeInstallObserverSnapshot.appInstalledCount;
+    const installedCount = installObserverSnapshot.appInstalledCount;
     if (installedCount <= homeInstallLastSeenAppInstalledCount) return;
     homeInstallLastSeenAppInstalledCount = installedCount;
     homeInstallStatusLine = "App installed.";
@@ -431,7 +430,7 @@
       return;
     }
 
-    return mountHomeMenuSvgTriggerWire({
+    return mountMenuSvgTriggerWire({
       getDiagramHost: () => diagramHostEl,
       getMenuPanel: () => homeMenuPanelEl,
       isMenuOpen: () => homeMenuOpen,
@@ -458,21 +457,21 @@
     void tick().then(() => {
       const host = diagramHostEl;
       if (host == null) return;
-      const trigger = queryHomeMenuTriggerGroupFromDiagramHost(host);
+      const trigger = queryMenuTriggerGroup(host);
       if (trigger == null) return;
-      homeMenuPanelStyle = computeHomeMenuPanelAnchorStyle(host, trigger);
+      homeMenuPanelStyle = computeMenuPanelAnchorStyle(host, trigger);
     });
   });
 
   // Event handlers & imperative helpers (onMount, $effect, template)
-  function readDiagramPreviewIdFromLocation(): DiagramDevPreviewId | null {
+  function readDiagramPreviewIdFromLocation(): DiagramPreviewId | null {
     if (!import.meta.env.DEV) return null;
     if (typeof window === "undefined") return null;
-    const search = effectiveSearchStringFromLocationParts(
+    const search = effectiveSearchFromLocation(
       window.location.search,
       window.location.hash,
     );
-    return diagramDevPreviewIdFromSearch(search);
+    return diagramPreviewIdFromSearch(search);
   }
 
   function refreshDomSummary(): void {
@@ -557,7 +556,7 @@
   }
 
   async function handleHomeFullscreenToggle(): Promise<void> {
-    const host = getHomeRouteDiagramFullscreenTarget(diagramHostEl);
+    const host = getDiagramFullscreenTarget(diagramHostEl);
     if (host == null) return;
     await toggleInstrumentFullscreen(host);
     homeMenuOpen = false;
@@ -569,10 +568,10 @@
   }
 
   async function handleInstallPromptAction(): Promise<void> {
-    const promptEvent = homeInstallObserverSnapshot.promptEvent;
+    const promptEvent = installObserverSnapshot.promptEvent;
     if (promptEvent == null) return;
     const outcome = await promptForInstall(promptEvent);
-    homeInstallObserver.clearPromptEvent();
+    installObserver.clearPromptEvent();
     if (outcome === "accepted") {
       homeInstallStatusLine = "Install request accepted.";
       return;
@@ -590,13 +589,13 @@
     <div class="home-route__pwa-setup">
       <HomePwaStandaloneSetupOverlay
         devPreviewInTab={pwaDevPreviewInTab}
-        apiSupported={isWakeLockApiSupportedRuntime()}
+        apiSupported={isWakeLockApiSupported()}
         isHomeRoute={true}
         userWants={pwaUserWants}
         homePresentation={pwaTideViewPresentation}
         showBatteryBlurb={pwaShowBatteryBlurb}
-        toggleEnabled={isWakeLockApiSupportedRuntime()}
-        onToggleKeepAwake={setKeepScreenAwakeUserEnabled}
+        toggleEnabled={isWakeLockApiSupported()}
+        onToggleKeepAwake={setKeepAwakeUserEnabled}
         onDismissThisSession={dismissPwaStandaloneSetupThisSession}
         onDismissForever={dismissPwaStandaloneSetupForever}
       />
@@ -604,7 +603,7 @@
   {/if}
   <HomeRouteDevPreviewBanners
     diagramPreviewBannerLine={diagramPreviewBannerLine}
-    tideUxDevPreviewBannerLine={tideUxDevPreviewBannerLine}
+    tidePreviewBannerLine={tidePreviewBannerLine}
   />
   {#if domDumpEnabled}
     <HomeRouteDomDebugPanel

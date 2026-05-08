@@ -4,19 +4,19 @@
    * {@link import("./home/HomeRoute.svelte")}.
    */
   import HomeRoute from "./home/HomeRoute.svelte";
-  import type { HomeRouteProps } from "./home/homeRouteProps";
+  import type { RouteProps } from "./home/routeProps";
 
   let {
     tideLoadState,
     tideExtremes,
     townName,
-    tideUxDevPreviewBannerLine,
-  }: HomeRouteProps = $props();
+    tidePreviewBannerLine,
+  }: RouteProps = $props();
 </script>
 
 <HomeRoute
   {tideLoadState}
   {tideExtremes}
   {townName}
-  {tideUxDevPreviewBannerLine}
+  {tidePreviewBannerLine}
 />

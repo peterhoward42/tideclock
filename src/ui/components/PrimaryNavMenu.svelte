@@ -7,24 +7,24 @@
   import { route } from "../../infrastructure/router.js";
   import PrimaryMenuContent from "./PrimaryMenuContent.svelte";
   import {
-    homeInstallObserver,
+    installObserver,
     HOME_INSTALL_BENEFIT_LINES,
     manualInstallStepsForPlatform,
     promptForInstall,
-  } from "../routes/home/homeRouteInstallFlow";
+  } from "../routes/home/installFlow";
   import {
-    isWakeLockApiSupportedRuntime,
-    keepScreenAwakeUserEnabledStore,
-    setKeepScreenAwakeUserEnabled,
-    tideViewWakePresentationStore,
-  } from "../routes/home/homeRoutePwaUi";
+    keepAwakeUserStore,
+    setKeepAwakeUserEnabled,
+    tideWakePresentationStore,
+  } from "../routes/home/pwaUi";
+  import { isWakeLockApiSupported } from "../routes/home/wakeLockSupport";
 
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
   let installInfoOpen = $state(false);
   let pwaDisplaySectionOpen = $state(false);
-  let pwaUserWants = $state(get(keepScreenAwakeUserEnabledStore));
-  let pwaTideViewPresentation = $state(get(tideViewWakePresentationStore));
-  let installObserverSnapshot = $state(get(homeInstallObserver));
+  let pwaUserWants = $state(get(keepAwakeUserStore));
+  let pwaTideViewPresentation = $state(get(tideWakePresentationStore));
+  let installObserverSnapshot = $state(get(installObserver));
   let installLastSeenAppInstalledCount = $state(0);
   let installStatusLine = $state<string | null>(null);
   const installBenefitLines = $derived(HOME_INSTALL_BENEFIT_LINES);
@@ -39,7 +39,7 @@
 
   const pwaForMenu = $derived({
     sectionOpen: pwaDisplaySectionOpen,
-    apiSupported: isWakeLockApiSupportedRuntime(),
+    apiSupported: isWakeLockApiSupported(),
     isHomeRoute: pwaIsHome,
     userWants: pwaUserWants,
     homePresentation: pwaIsHome ? pwaTideViewPresentation : null,
@@ -48,7 +48,7 @@
       pwaDisplaySectionOpen = !pwaDisplaySectionOpen;
     },
     onToggle: (next: boolean) => {
-      setKeepScreenAwakeUserEnabled(next);
+      setKeepAwakeUserEnabled(next);
     },
   });
 
@@ -73,7 +73,7 @@
     const promptEvent = installObserverSnapshot.promptEvent;
     if (promptEvent == null) return;
     const outcome = await promptForInstall(promptEvent);
-    homeInstallObserver.clearPromptEvent();
+    installObserver.clearPromptEvent();
     if (outcome === "accepted") {
       installStatusLine = "Install request accepted.";
       return;
@@ -86,17 +86,17 @@
   }
 
   onMount(() =>
-    homeInstallObserver.subscribe(
+    installObserver.subscribe(
       (snapshot) => (installObserverSnapshot = snapshot),
     ),
   );
 
   onMount(() =>
-    keepScreenAwakeUserEnabledStore.subscribe((v) => (pwaUserWants = v)),
+    keepAwakeUserStore.subscribe((v) => (pwaUserWants = v)),
   );
 
   onMount(() =>
-    tideViewWakePresentationStore.subscribe(
+    tideWakePresentationStore.subscribe(
       (v) => (pwaTideViewPresentation = v),
     ),
   );

@@ -3,7 +3,7 @@
    * Skippable first-launch card in installed (standalone) mode for keep-awake and display.
    */
   import HomePwaDisplaySection from "./HomePwaDisplaySection.svelte";
-  import type { HomeWakeLockPresentation } from "./homeRouteWakeLockPresentation";
+  import type { WakeLockPresentation } from "./wakeLockPresentation";
 
   interface Props {
     /** In dev, a normal tab can still open this card via `?pwaSetup=1` — use distinct copy. */
@@ -11,7 +11,7 @@
     readonly apiSupported: boolean;
     readonly isHomeRoute: true;
     readonly userWants: boolean;
-    readonly homePresentation: HomeWakeLockPresentation | null;
+    readonly homePresentation: WakeLockPresentation | null;
     readonly showBatteryBlurb: boolean;
     readonly toggleEnabled: boolean;
     onToggleKeepAwake: (next: boolean) => void;

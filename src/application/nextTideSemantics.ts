@@ -6,10 +6,10 @@
 
 import {
   computeNextTideEventCore,
-  type DiagramGenerationSpec,
+  type DiagramSpec,
   formatIntervalHoursMinutes,
   parseCanonicalTimeOrThrow,
-} from './diagramGenerationCollaborator';
+} from './diagramCollaborator';
 
 /**
  * Minute-scale next-tide semantics: single derivation per tick, consumed by diagram layout
@@ -28,7 +28,7 @@ export type DeriveNextTideSemanticsMarker = {
 
 /**
  * Spec subset required for {@link deriveNextTideSemantics}. Values from
- * {@link buildDiagramGenerationSpec} satisfy this; {@link DiagramGenerationSpec} is accepted for
+ * {@link buildDiagramSpec} satisfy this; {@link DiagramSpec} is accepted for
  * callers that assemble the full diagram object as a generic record.
  */
 export type DeriveNextTideSemanticsSpec = {
@@ -97,11 +97,11 @@ export function deriveNextTideSemantics(
   options?: { readonly timeNowFieldLabelForErrors?: string },
 ): DerivedNextTideSemantics;
 export function deriveNextTideSemantics(
-  spec: DiagramGenerationSpec,
+  spec: DiagramSpec,
   options?: { readonly timeNowFieldLabelForErrors?: string },
 ): DerivedNextTideSemantics;
 export function deriveNextTideSemantics(
-  spec: DeriveNextTideSemanticsSpec | DiagramGenerationSpec,
+  spec: DeriveNextTideSemanticsSpec | DiagramSpec,
   options?: { readonly timeNowFieldLabelForErrors?: string },
 ): DerivedNextTideSemantics {
   const label = options?.timeNowFieldLabelForErrors ?? 'spec.timeNow';

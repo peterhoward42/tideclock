@@ -5,9 +5,9 @@
  */
 
 import type {
-  DiagramGenerationCollaborator,
-  DiagramGenerationSpec,
-} from '../application/diagramGenerationCollaborator';
+  DiagramCollaborator,
+  DiagramSpec,
+} from '../application/diagramCollaborator';
 
 /**
  * Route-level presentation bundle for Home (diagram + surrounding chrome in later iterations).
@@ -15,16 +15,16 @@ import type {
  * **Boundaries**
  * - This module lives in clock-presentation: it describes what the Home route needs from the app,
  *   not how diagrams are built.
- * - {@link DiagramGenerationCollaborator} is defined in the application layer; Home receives a
- *   ready collaborator (typically from {@link createDiagramGenerationCollaborator}) rather than
+ * - {@link DiagramCollaborator} is defined in the application layer; Home receives a
+ *   ready collaborator (typically from {@link createDiagramCollaborator}) rather than
  *   importing diagram-generation internals.
  */
 export type HomeScreenModel = {
-  readonly diagramGeneration: DiagramGenerationCollaborator;
+  readonly diagramGeneration: DiagramCollaborator;
 };
 
-const uninitializedDiagramCollaborator: DiagramGenerationCollaborator = {
-  generate(_spec: DiagramGenerationSpec): never {
+const uninitializedDiagramCollaborator: DiagramCollaborator = {
+  generate(_spec: DiagramSpec): never {
     throw new Error('homeScreenModel.diagramGeneration is not initialized');
   },
 };

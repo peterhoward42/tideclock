@@ -24,7 +24,7 @@ Keeping status in **this same file** gives a persistent, grep-friendly ledger.
 
 ### Phase 0 — Ground rules (once)
 
-- [ ] Skim the **shorten-names-js** Cursor skill (`shorten-names-js/SKILL.md` in your skills directory) before each batch; prefer dropping **redundant** words over cryptic abbreviations.
+- [x] Skim the **shorten-names-js** Cursor skill (`shorten-names-js/SKILL.md` in your skills directory) before each batch; prefer dropping **redundant** words over cryptic abbreviations. (2026-05-08)
 - [ ] After each batch: full test run; fix imports; avoid renaming **generated** or **tool-contract** paths unless tooling is updated in the same change.
 - [ ] Skip or defer: framework-mandated names, string keys used in persisted data, unless you migrate data.
 
@@ -32,20 +32,21 @@ Keeping status in **this same file** gives a persistent, grep-friendly ledger.
 
 Complete in **separate commits/PRs** if preferred; order is suggestion only.
 
-- [ ] **Time services window API** — `getCurrentTideClockCivilDayDisplayWindow(.test).ts`, `TideClockCivilDayDisplayWindow.ts`, `isAtypicalTideExtremaPattern(.test).ts`: shorten **file basename + primary export(s)** together; grep for imports from `@/` or relative paths after renames.
-- [ ] **`src/application/diagram-dev-preview/`** — `diagramDevPreview*` files (~7 modules): folder already says “diagram-dev-preview”; shorten **prefix** on files and exported symbols consistently (collision check with `diagramGeneration*` nearby).
-- [ ] **`src/ui/routes/home/homeRoute*`** — long `homeRoute*` basenames (`InstrumentLetterboxObserver`, `WakeLockPresentation`, `MenuSvgTriggerWire`, etc.): `routes/home/` supplies context; shorten to **route-local** names (e.g. drop repeated `Home`/`Route` where path makes it obvious).
-- [ ] **Application tide/civil naming** — `tideExtremesForCivilDayQuery`, `tideExtremesRefreshController`, `civilDayRollover*`, `semanticMinuteCadence`, `localWallClockReadoutFromMs`, `buildDiagramGenerationSpec`: shorten symbols + files as **families**; watch for cross-imports between `application/` and `time-services/` / `data-pipelines/`.
-- [ ] **`src/data-pipelines/`** — review `fetchStoreExtremes`, `civilDayExtremes`, `buildFromProxy`, `currentLocationSnapshot`, etc.: directory context may allow shorter module names **without** losing distinction from similarly named concepts in `application/`.
-- [ ] **`src/diagram-config/`** — `homeTideDiagram*` / `homeTideStyleModel*`: shorten only where **config preset vs types** split stays clear.
-- [ ] **`src/application/tide-ux-dev-preview/`** — align with whichever convention you choose for `*-dev-preview` folders.
-- [ ] **`tools/` + root configs** — only if basename length is a problem; low priority unless editing those areas anyway.
+- [x] **Time services window API** (2026-05-08) — `civilDayWindow.ts` (`CivilDayWindow`), `currentCivilDayWindow.ts` (`getCurrentCivilDayWindow`, `civilDayWindowFromHostClock`), `extremaPattern.ts` (`classifyExtremaPattern`, `ExtremaPatternDetection`); imports and tests updated.
+- [x] **`src/application/diagram-dev-preview/`** (2026-05-08) — dropped redundant `diagramDevPreview`/long basenames in favour of `previewCatalog.ts`, scenario modules (`noMoreTidesToday.ts`, …), `resolveForHome.ts`; public symbols now `DiagramPreviewId`, `resolveHomeDiagramPreview`, etc.; kept **`Diagram`/preview** wording so `diagramGeneration*` stays distinct.
+- [x] **`src/ui/routes/home/` route modules** (2026-05-08) — removed `homeRoute*` filename prefix in favour of route-local modules (`diagramDom.ts`, `screenWakeLock.ts`, `installFlow.ts`, …); shortened paired symbols (`RouteProps`, `WakeLockPresentation`, `mountScreenWakeLock`, `installObserver`, `getDiagramFullscreenTarget`, menu/diagram helpers, etc.); URL/query helpers moved to `src/ui/homeUrlQuery.ts` in a follow-up batch.
+- [x] **Application tide/civil naming** (2026-05-08) — renamed `tideExtremesForCivilDayQuery` → `civilDayExtremesQuery` (`loadCivilDayExtremes`), `tideExtremesRefreshController` → `tideRefreshController` (`createTideRefreshController`, `refreshTidesForTown`), `semanticMinuteCadence` → `minuteCadence` (`subscribeMinuteCadence`), `localWallClockReadoutFromMs` → `localTimeStrings` (`localCanonicalTimeNow`, `localBrhcDatePrefix`), `buildDiagramGenerationSpec` → `buildDiagramSpec` (`formatTideHeightMetres`); civilDayRollover files retained but symbols dropped redundant `CivilDay` prefix (`shouldTriggerRolloverRefresh`, `decideRolloverTideRefresh`, `RolloverRefreshInput`/`Tick…`); `utcIsoToLocalCanonicalTime*` impls left intact (stable contract).
+- [x] **`src/data-pipelines/`** (2026-05-08) — `fetchStoreExtremes` → `fetchPersistExtremes` (`FetchPersistExtremesInput`); `buildExtremesFromProxy` → `extremesFromProxyWire` (`FromProxyWireInput`); civil-day slice API `extremesInCivilWindow` / `loadStoredCivilExtremes` / param types; town selection persistence `townPick.ts` + `townPickSerde.ts` (`storeTownPick`, `loadTownPick`, `CURRENT_LOCATION_KEY` unchanged).
+- [x] **`src/diagram-config/`** (2026-05-08) — `homeLayout.*` (`homeLayoutBase`, `HomeLayoutBase`, `TideMarkMarker`, `HomeTideMarks`); `homeStyleModel.preset.ts` / `styleModel.types.ts`; preset vs generic style types split preserved.
+- [x] **`src/application/tide-dev-preview/`** (2026-05-08) — aligned with `diagram-dev-preview`: `previewCatalog.ts`, `TidePreviewId` / `tidePreviewIdFromSearch` / `tidePreviewMaybeOverrideLoad`; shell props `tidePreviewBannerLine`; kept query param **`tideUxPreview`** for bookmark stability.
+- [x] **`tools/` + root configs** (2026-05-08) — `build-towns2-compact.mjs` → `buildCompact.mjs` under `tools/towns2/` (directory supplies `towns2`); `package.json` script target + doc/comment references updated; root config basenames left as framework defaults.
+- [x] **`src/ui/homeUrlQuery`** (2026-05-08) — `homeRouteUrlQuery.ts` → `homeUrlQuery.ts`; exports shortened (`effectiveSearchFromLocation`, `HomeDevDebugFlags`, `homeDevDebugFlagsFromSearch`, `pwaSetupDevPreviewWanted`, `pwaSetupDevResetWanted`); `HomeRoute.svelte` + tests updated.
 
 ### Phase 2 — Symbols-only clean-up (optional, after Phase 1)
 
 Use when filenames are acceptable but **exports** remain over soft max (~28 chars).
 
-- [ ] Grep/longest-export pass: prioritize **public-ish** exports reused across packages; rename **internals** second.
+- [x] Grep/longest-export pass: prioritize **public-ish** exports reused across packages; rename **internals** second. (2026-05-08) — `diagramGenerationCollaborator` → `diagramCollaborator` / `DiagramSpec` / `DiagramBundle` / `createDiagramCollaborator`; PWA `keepAwakeUserStore`, `readKeepAwakeEnabled`, `wakeLockSupport` inlined where `isWakeLockApiSupportedRuntime` wrapped it; `ExtremesQueryCoreDeps`, `LoadStoredExtremesParams`.
 - [ ] Ensure **tests** stay readable per skill — do not shorten `it(...)` descriptions just to hit length targets.
 
 ### Phase 3 — Directory names (only if clearly redundant)
@@ -72,4 +73,4 @@ Rough ordering by basename length helps pick Phase 1 order; regenerate with:
 
 `find src -type f \( -name '*.ts' -o -name '*.mjs' \) | while read f; do b=$(basename "$f"); echo "${#b} $b"; done | sort -rn | head`
 
-Examples that motivated Phase 1: `getCurrentTideClockCivilDayDisplayWindow*`, `diagramDevPreviewNoMoreTidesToday*`, `homeRouteInstrumentLetterboxObserver`, etc.
+Examples that motivated Phase 1: `getCurrentTideClockCivilDayDisplayWindow*`, `diagramDevPreviewNoMoreTidesToday*`, `instrumentLetterboxObserver` (formerly `homeRouteInstrumentLetterboxObserver`), etc.

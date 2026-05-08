@@ -1,5 +1,5 @@
 /**
- * index.mjs — Public barrel for diagram-generation consumed via `diagramGenerationCollaborator.ts`.
+ * index.mjs — Public barrel for diagram-generation consumed via `diagramCollaborator.ts`.
  * Re-exports are the stable cross-package contract; keep names and shapes unchanged.
  * Kind: Adapter / boundary (module surface). Does not implement layout itself.
  *

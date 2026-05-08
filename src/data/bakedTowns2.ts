@@ -1,6 +1,6 @@
 /**
  * bakedTowns2.ts — Coastal place rows baked from tools/towns2/coastal-geocoded/*.tsv.
- * Regenerate JSON via `node tools/towns2/build-towns2-compact.mjs`.
+ * Regenerate JSON via `node tools/towns2/buildCompact.mjs`.
  * Kind: Definition + county/prefix query for the step-back location picker. Does not persist selection.
  */
 

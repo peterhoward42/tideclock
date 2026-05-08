@@ -5,6 +5,14 @@ TIDE DIAL
 *  ditch obsolete docs
 *  ditch orhphaned location UI and servic helpers
 o  rename pass on new location stuff?
+
+Read docs/planning/shorten-names-js and proceed with the execution of the next not-started phase.
+
+
+o  on android browser offers open - which opens prior installed app, why not cache
+   refreshed? 
+
+
 o  ditch duplicate schedulers if possible
 
 o  interference problem with these locations

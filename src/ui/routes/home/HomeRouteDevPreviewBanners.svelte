@@ -4,10 +4,10 @@
    */
   interface Props {
     readonly diagramPreviewBannerLine: string | null;
-    readonly tideUxDevPreviewBannerLine: string | null;
+    readonly tidePreviewBannerLine: string | null;
   }
 
-  let { diagramPreviewBannerLine, tideUxDevPreviewBannerLine }: Props = $props();
+  let { diagramPreviewBannerLine, tidePreviewBannerLine }: Props = $props();
 </script>
 
 {#if import.meta.env.DEV && diagramPreviewBannerLine !== null}
@@ -15,9 +15,9 @@
     {diagramPreviewBannerLine}
   </div>
 {/if}
-{#if import.meta.env.DEV && tideUxDevPreviewBannerLine !== null}
-  <div class="home-tide-ux-preview-banner" role="status">
-    {tideUxDevPreviewBannerLine}
+{#if import.meta.env.DEV && tidePreviewBannerLine !== null}
+  <div class="home-tide-preview-banner" role="status">
+    {tidePreviewBannerLine}
   </div>
 {/if}
 
@@ -32,7 +32,7 @@
     border-bottom: 1px solid rgb(251 191 36 / 0.35);
   }
 
-  .home-tide-ux-preview-banner {
+  .home-tide-preview-banner {
     flex: 0 0 auto;
     padding: 0.35rem 0.75rem;
     background: #172554;

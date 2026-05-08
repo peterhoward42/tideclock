@@ -14,7 +14,7 @@
  * `loadStyleModel` returns maps used when resolving SVG attributes from scene nodes;
  * pass `null`/`undefined` for an empty registry (no styles), otherwise an object shaped
  * like {@link StyleModelSpec} (validated field-by-field; throws on bad data).
- * Declarative product defaults: `src/diagram-config/homeTideStyleModel.preset.ts`.
+ * Declarative product defaults: `src/diagram-config/homeStyleModel.preset.ts`.
  */
 
 import { assertKnownLineStyleToken } from "./lineStyleRendering.mjs";

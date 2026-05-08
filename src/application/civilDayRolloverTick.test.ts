@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { decideCivilDayRolloverTideRefresh } from "./civilDayRolloverTick";
+import { decideRolloverTideRefresh } from "./civilDayRolloverTick";
 import type { Town } from "../data/townSchema";
 
 const aTown = {
@@ -14,10 +14,10 @@ const aTown = {
   country: "UK",
 } satisfies Town;
 
-describe("decideCivilDayRolloverTideRefresh", () => {
+describe("decideRolloverTideRefresh", () => {
   it("returns none when no town is selected", () => {
     expect(
-      decideCivilDayRolloverTideRefresh({
+      decideRolloverTideRefresh({
         town: undefined,
         tideLoadIsLoading: false,
         currentCivilDayStartMs: 2,
@@ -29,7 +29,7 @@ describe("decideCivilDayRolloverTideRefresh", () => {
 
   it("returns none when civil day has not advanced since last successful load", () => {
     expect(
-      decideCivilDayRolloverTideRefresh({
+      decideRolloverTideRefresh({
         town: aTown,
         tideLoadIsLoading: false,
         currentCivilDayStartMs: 1,
@@ -41,7 +41,7 @@ describe("decideCivilDayRolloverTideRefresh", () => {
 
   it("returns refresh with suppression mark when rollover should run", () => {
     expect(
-      decideCivilDayRolloverTideRefresh({
+      decideRolloverTideRefresh({
         town: aTown,
         tideLoadIsLoading: false,
         currentCivilDayStartMs: 2,

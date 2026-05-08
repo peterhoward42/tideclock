@@ -8,8 +8,8 @@ import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import {
   type CivilDayLocalInterval,
   type TimeNowProvider
-} from '../time-services/TideClockCivilDayDisplayWindow';
-import { getCurrentTideClockCivilDayDisplayWindow } from '../time-services/getCurrentTideClockCivilDayDisplayWindow';
+} from '../time-services/civilDayWindow';
+import { getCurrentCivilDayWindow } from '../time-services/currentCivilDayWindow';
 import {
   deserializeExtremesSnapshot,
   type ExtremesLoader
@@ -23,22 +23,22 @@ function civilDayExtremesDiag(...args: unknown[]): void {
 }
 
 /** Coordinates, persisted snapshot, and the local civil-day window used to slice extremes. */
-export interface ExtremesForCivilDayInWindowParams {
+export interface CivilWindowExtremesParams {
   readonly requiredLatitude: number;
   readonly requiredLongitude: number;
   readonly stored: TideExtremesAtLocation;
   readonly civilDayDisplayWindow: CivilDayLocalInterval;
 }
 
-/** Same coordinates and snapshot as {@link extremesForCivilDayInWindow}; window from `timeNowProvider`. */
-export interface ExtremesForCurrentCivilDayParams {
+/** Same coordinates and snapshot as {@link extremesInCivilWindow}; window from `timeNowProvider`. */
+export interface LiveCivilExtremesParams {
   readonly requiredLatitude: number;
   readonly requiredLongitude: number;
   readonly stored: TideExtremesAtLocation;
   readonly timeNowProvider: TimeNowProvider;
 }
 
-export interface LoadCivilDayExtremesParams {
+export interface LoadStoredExtremesParams {
   readonly requiredLatitude: number;
   readonly requiredLongitude: number;
   readonly loader: ExtremesLoader;
@@ -50,12 +50,12 @@ export interface LoadCivilDayExtremesParams {
  * Keeps extremes that fall in `[startLocal, endLocalExclusive)` and rejects the snapshot
  * unless bookending extremes exist strictly before start and at/after end (same rules as before).
  */
-export function extremesForCivilDayInWindow({
+export function extremesInCivilWindow({
   requiredLatitude,
   requiredLongitude,
   stored,
   civilDayDisplayWindow
-}: ExtremesForCivilDayInWindowParams): TideExtremesAtLocation | undefined {
+}: CivilWindowExtremesParams): TideExtremesAtLocation | undefined {
   if (stored.latitude !== requiredLatitude || stored.longitude !== requiredLongitude) {
     civilDayExtremesDiag('snapshot rejected — location mismatch', {
       requiredLatitude,
@@ -116,9 +116,9 @@ export function extremesForCurrentCivilDay({
   requiredLongitude,
   stored,
   timeNowProvider
-}: ExtremesForCurrentCivilDayParams): TideExtremesAtLocation | undefined {
-  const window = getCurrentTideClockCivilDayDisplayWindow(timeNowProvider);
-  return extremesForCivilDayInWindow({
+}: LiveCivilExtremesParams): TideExtremesAtLocation | undefined {
+  const window = getCurrentCivilDayWindow(timeNowProvider);
+  return extremesInCivilWindow({
     requiredLatitude,
     requiredLongitude,
     stored,
@@ -126,13 +126,13 @@ export function extremesForCurrentCivilDay({
   });
 }
 
-export function loadExtremesForCurrentCivilDay({
+export function loadStoredCivilExtremes({
   requiredLatitude,
   requiredLongitude,
   loader,
   storageKey,
   timeNowProvider
-}: LoadCivilDayExtremesParams): TideExtremesAtLocation | undefined {
+}: LoadStoredExtremesParams): TideExtremesAtLocation | undefined {
   const rawSnapshot = loader.getItem(storageKey);
   if (rawSnapshot === null) {
     return undefined;

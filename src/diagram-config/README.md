@@ -8,5 +8,5 @@ This directory contains human-editable, product-level diagram tuning data.
 
 Current presets:
 
-- `homeTideDiagram.preset.ts`: Home diagram layout geometry.
-- `homeTideStyleModel.preset.ts`: Home diagram color roles and leaf bindings.
+- `homeLayout.preset.ts`: Home diagram layout geometry.
+- `homeStyleModel.preset.ts`: Home diagram color roles and leaf bindings.

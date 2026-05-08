@@ -2,14 +2,14 @@
   /**
    * Keep-screen-awake preference + one-line status (menu panel or standalone setup).
    */
-  import type { HomeWakeLockPresentation } from "./homeRouteWakeLockPresentation";
-  import { formatPwaWakeStatusLine } from "./homeRoutePwaUi";
+  import type { WakeLockPresentation } from "./wakeLockPresentation";
+  import { formatPwaWakeStatusLine } from "./pwaUi";
 
   interface Props {
     readonly apiSupported: boolean;
     readonly isHomeRoute: boolean;
     readonly userWants: boolean;
-    readonly homePresentation: HomeWakeLockPresentation | null;
+    readonly homePresentation: WakeLockPresentation | null;
     readonly showBatteryBlurb: boolean;
     /** When false, the toggle is non-interactive (e.g. API missing). */
     readonly toggleEnabled: boolean;

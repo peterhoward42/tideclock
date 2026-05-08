@@ -2,13 +2,13 @@ import { describe, expect, it } from 'vitest';
 import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import {
-  TideClockCivilDayDisplayWindow,
+  CivilDayWindow,
   type TimeNowProvider
-} from '../time-services/TideClockCivilDayDisplayWindow';
+} from '../time-services/civilDayWindow';
 import {
-  extremesForCivilDayInWindow,
   extremesForCurrentCivilDay,
-  loadExtremesForCurrentCivilDay
+  extremesInCivilWindow,
+  loadStoredCivilExtremes
 } from './civilDayExtremes';
 import { EXTREMES_SNAPSHOT_KEY, type ExtremesLoader } from './extremesSnapshot';
 
@@ -124,8 +124,8 @@ describe('extremesForCurrentCivilDay', () => {
     );
   });
 
-  it('matches explicit civil-day window when passed to extremesForCivilDayInWindow', () => {
-    const civilDay = new TideClockCivilDayDisplayWindow(
+  it('matches explicit civil-day window when passed to extremesInCivilWindow', () => {
+    const civilDay = new CivilDayWindow(
       new Date(2026, 2, 23, 0, 0, 0, 0),
       new Date(2026, 2, 24, 0, 0, 0, 0)
     );
@@ -136,7 +136,7 @@ describe('extremesForCurrentCivilDay', () => {
 
     const stored = TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [beforeStart, atStart, midDay, afterEnd]);
 
-    const result = extremesForCivilDayInWindow({
+    const result = extremesInCivilWindow({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       stored,
@@ -147,7 +147,7 @@ describe('extremesForCurrentCivilDay', () => {
   });
 });
 
-describe('loadExtremesForCurrentCivilDay', () => {
+describe('loadStoredCivilExtremes', () => {
   const nowProvider = new FakeTimeNowProvider(new Date(2026, 2, 23, 10, 30, 0, 0));
 
   it('returns undefined when there is no stored snapshot', () => {
@@ -155,7 +155,7 @@ describe('loadExtremesForCurrentCivilDay', () => {
       [EXTREMES_SNAPSHOT_KEY]: null
     });
 
-    const result = loadExtremesForCurrentCivilDay({
+    const result = loadStoredCivilExtremes({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       loader,
@@ -171,7 +171,7 @@ describe('loadExtremesForCurrentCivilDay', () => {
       [EXTREMES_SNAPSHOT_KEY]: '{this is not json'
     });
 
-    const result = loadExtremesForCurrentCivilDay({
+    const result = loadStoredCivilExtremes({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       loader,
@@ -196,7 +196,7 @@ describe('loadExtremesForCurrentCivilDay', () => {
       })
     });
 
-    const result = loadExtremesForCurrentCivilDay({
+    const result = loadStoredCivilExtremes({
       requiredLatitude: 50.8,
       requiredLongitude: -1.1,
       loader,

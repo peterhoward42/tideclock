@@ -1,21 +1,21 @@
 import { describe, expect, it } from 'vitest';
 import {
-  type CivilDayRolloverRefreshInput,
-  shouldTriggerCivilDayRolloverRefresh,
+  type RolloverRefreshInput,
+  shouldTriggerRolloverRefresh,
 } from './civilDayRolloverRefresh';
 
-describe('shouldTriggerCivilDayRolloverRefresh', () => {
+describe('shouldTriggerRolloverRefresh', () => {
   const base = {
     hasSelectedTown: true,
     tideLoadIsLoading: false,
     currentCivilDayStartMs: 2,
     lastSuccessfulLoadCivilDayStartMs: 1,
     lastRolloverAttemptCivilDayStartMs: undefined,
-  } satisfies CivilDayRolloverRefreshInput;
+  } satisfies RolloverRefreshInput;
 
   it('returns false when no town', () => {
     expect(
-      shouldTriggerCivilDayRolloverRefresh({
+      shouldTriggerRolloverRefresh({
         ...base,
         hasSelectedTown: false,
       })
@@ -24,7 +24,7 @@ describe('shouldTriggerCivilDayRolloverRefresh', () => {
 
   it('returns false while loading', () => {
     expect(
-      shouldTriggerCivilDayRolloverRefresh({
+      shouldTriggerRolloverRefresh({
         ...base,
         tideLoadIsLoading: true,
       })
@@ -33,7 +33,7 @@ describe('shouldTriggerCivilDayRolloverRefresh', () => {
 
   it('returns false before any successful load baseline exists', () => {
     expect(
-      shouldTriggerCivilDayRolloverRefresh({
+      shouldTriggerRolloverRefresh({
         ...base,
         lastSuccessfulLoadCivilDayStartMs: undefined,
       })
@@ -42,7 +42,7 @@ describe('shouldTriggerCivilDayRolloverRefresh', () => {
 
   it('returns false when civil day matches last successful load', () => {
     expect(
-      shouldTriggerCivilDayRolloverRefresh({
+      shouldTriggerRolloverRefresh({
         ...base,
         currentCivilDayStartMs: 1,
         lastSuccessfulLoadCivilDayStartMs: 1,
@@ -51,12 +51,12 @@ describe('shouldTriggerCivilDayRolloverRefresh', () => {
   });
 
   it('returns true when civil day advanced since last successful load', () => {
-    expect(shouldTriggerCivilDayRolloverRefresh(base)).toBe(true);
+    expect(shouldTriggerRolloverRefresh(base)).toBe(true);
   });
 
   it('returns false when a rollover attempt for this civil day already ran', () => {
     expect(
-      shouldTriggerCivilDayRolloverRefresh({
+      shouldTriggerRolloverRefresh({
         ...base,
         lastRolloverAttemptCivilDayStartMs: 2,
       })

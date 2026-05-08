@@ -1,5 +1,5 @@
 /**
- * buildFromProxy.ts — Validates Tide Proxy v1 JSON and builds {@link TideExtremesAtLocation}.
+ * buildFromProxy.ts — Validates Tide Proxy v1 JSON wire and maps to {@link TideExtremesAtLocation}.
  * Kind: Adapter / boundary (wire → domain). Does not perform HTTP.
  */
 
@@ -14,7 +14,7 @@ export class ProxyV1BuildError extends Error {
 }
 
 /** Proxy JSON body before this module has validated shape and field types. */
-export interface BuildExtremesFromProxyParams {
+export interface FromProxyWireInput {
   latitude: number;
   longitude: number;
   response: unknown;
@@ -111,11 +111,11 @@ function mapOneExtreme(extreme: unknown, index: number): TideExtreme {
   return new TideExtreme(type, timeUtc, heightMetres);
 }
 
-export function buildExtremesFromProxy({
+export function extremesFromProxyWire({
   latitude,
   longitude,
   response
-}: BuildExtremesFromProxyParams): TideExtremesAtLocation {
+}: FromProxyWireInput): TideExtremesAtLocation {
   assertValidCoordinates(latitude, longitude);
   validateResponseShape(response);
 

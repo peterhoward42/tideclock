@@ -2,14 +2,14 @@
   import { THE_TIDE_DIAL } from "../brand";
   import PrimaryNavLinks from "./PrimaryNavLinks.svelte";
   import HomePwaDisplaySection from "../routes/home/HomePwaDisplaySection.svelte";
-  import type { HomeWakeLockPresentation } from "../routes/home/homeRouteWakeLockPresentation";
+  import type { WakeLockPresentation } from "../routes/home/wakeLockPresentation";
 
   export type PwaDisplayMenu = {
     readonly sectionOpen: boolean;
     readonly apiSupported: boolean;
     readonly isHomeRoute: boolean;
     readonly userWants: boolean;
-    readonly homePresentation: HomeWakeLockPresentation | null;
+    readonly homePresentation: WakeLockPresentation | null;
     readonly showBatteryBlurb: boolean;
     readonly onToggleSection: () => void;
     readonly onToggle: (next: boolean) => void;

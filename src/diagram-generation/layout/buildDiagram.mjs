@@ -3,7 +3,7 @@
  * Fed by the app collaborator; downstream: `toScene` and SVG render. Kind: Orchestrator / coordinator.
  * Does not emit SVG strings.
  *
- * See docs/specs/tide-diagram.md; spec keys mirror the open object passed from the app (diagramGenerationCollaborator.ts).
+ * See docs/specs/tide-diagram.md; spec keys mirror the open object passed from the app (`diagramCollaborator.ts`).
  *
  * Policies for {@link buildDiagram}:
  * - Throws if `spec.title`, ref arc, and tick/tick-label sizing omit

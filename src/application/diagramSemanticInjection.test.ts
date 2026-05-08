@@ -1,16 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildDiagram,
-  type DiagramGenerationSpec,
+  type DiagramSpec,
   type TideDiagramDocument,
-} from './diagramGenerationCollaborator';
+} from './diagramCollaborator';
 import { deriveNextTideSemantics } from './nextTideSemantics';
 
 /**
  * These tests pin the seam between application-layer {@link deriveNextTideSemantics} and
  * diagram-generation {@link buildDiagram}: when `spec.semantic.nextTide` matches the derived value,
  * layout output is identical to letting layout scan `tideMarks` itself. The fixture type is
- * stricter than {@link DiagramGenerationSpec}; it is cast only at the diagram-generation boundary.
+ * stricter than {@link DiagramSpec}; it is cast only at the diagram-generation boundary.
  */
 
 type SemanticInjectionTideMark = {
@@ -70,7 +70,7 @@ type SemanticInjectionDiagramSpec = {
 };
 
 /** `buildDiagram` is implemented in `.mjs`; align returns with {@link TideDiagramDocument}. */
-function buildDiagramFromSpec(spec: DiagramGenerationSpec): TideDiagramDocument {
+function buildDiagramFromSpec(spec: DiagramSpec): TideDiagramDocument {
   return buildDiagram(spec) as TideDiagramDocument;
 }
 
@@ -128,31 +128,31 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
 describe('spec.semantic.nextTide injection', () => {
   it('matches buildDiagram output when derived via deriveNextTideSemantics', () => {
     const spec = sampleTideDiagramSpec();
-    const baseline = buildDiagramFromSpec(spec as DiagramGenerationSpec);
+    const baseline = buildDiagramFromSpec(spec as DiagramSpec);
     const { nextTide } = deriveNextTideSemantics(spec);
     expect(nextTide).not.toBeNull();
     const withSemantic = buildDiagramFromSpec({
       ...spec,
       semantic: { nextTide },
-    } as DiagramGenerationSpec);
+    } as DiagramSpec);
     expect(withSemantic).toEqual(baseline);
   });
 
   it('matches when semantic.nextTide is null (no qualifying marker)', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
-    const baseline = buildDiagramFromSpec(spec as DiagramGenerationSpec);
+    const baseline = buildDiagramFromSpec(spec as DiagramSpec);
     const { nextTide } = deriveNextTideSemantics(spec);
     expect(nextTide).toBeNull();
     const withSemantic = buildDiagramFromSpec({
       ...spec,
       semantic: { nextTide: null },
-    } as DiagramGenerationSpec);
+    } as DiagramSpec);
     expect(withSemantic).toEqual(baseline);
   });
 
   it('after last tide still renders BRHCBundle text', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
-    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
+    const diagram = buildDiagramFromSpec(spec as DiagramSpec);
     expect(diagram.brhcDate.content).toBe('Mon 23 Mar');
     expect(diagram.brhcLocation.content).toBe('Lymington');
     expect(diagram.hand.armTimeReadout.timeContent).toBe('23:59');
@@ -161,7 +161,7 @@ describe('spec.semantic.nextTide injection', () => {
 
   it('shows no-more-tides MainLabel copy when there is no next marker', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
-    const diagram = buildDiagramFromSpec(spec as DiagramGenerationSpec);
+    const diagram = buildDiagramFromSpec(spec as DiagramSpec);
     expect(diagram.mainLabel.content).toBe('Next tide extreme tomorrow');
   });
 
@@ -170,20 +170,20 @@ describe('spec.semantic.nextTide injection', () => {
     const diagram = buildDiagramFromSpec({
       ...spec,
       semantic: { atypicalTideSummary: true },
-    } as DiagramGenerationSpec);
+    } as DiagramSpec);
     expect(diagram.mainLabel.content).toBe('Tricky tides today');
   });
 
   it('throws when spec omits annularBand', () => {
     const { annularBand: _omit, ...rest } = sampleTideDiagramSpec();
-    expect(() => buildDiagramFromSpec(rest as DiagramGenerationSpec)).toThrow(
+    expect(() => buildDiagramFromSpec(rest as DiagramSpec)).toThrow(
       /spec\.annularBand/,
     );
   });
 
   it('throws when tickLabelHours is empty', () => {
     const spec = { ...sampleTideDiagramSpec(), tickLabelHours: [] };
-    expect(() => buildDiagramFromSpec(spec as DiagramGenerationSpec)).toThrow(
+    expect(() => buildDiagramFromSpec(spec as DiagramSpec)).toThrow(
       /spec\.tickLabelHours must list at least one hour/,
     );
   });
@@ -195,7 +195,7 @@ describe('spec.semantic.nextTide injection', () => {
     const diagram = buildDiagramFromSpec({
       ...spec,
       semantic: { nextTide },
-    } as DiagramGenerationSpec);
+    } as DiagramSpec);
     expect(diagram).toMatchSnapshot();
   });
 });

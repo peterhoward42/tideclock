@@ -1,11 +1,11 @@
 <script lang="ts">
   /**
-   * TideClock.svelte — Main clock card: local wall time (minute resolution, `subscribeSemanticMinuteCadence`), dial from `ClockSceneModel`, load state chrome.
+   * TideClock.svelte — Main clock card: local wall time (minute resolution, `subscribeMinuteCadence`), dial from `ClockSceneModel`, load state chrome.
    * Kind: Presentation. Does not fetch tides or run diagram-generation.
    */
   import { onMount } from "svelte";
   import type { ClockSceneModel } from "../../clock-presentation/clockSceneModel";
-  import { subscribeSemanticMinuteCadence } from "../../application/semanticMinuteCadence";
+  import { subscribeMinuteCadence } from "../../application/minuteCadence";
   import ClockDivisionDial from "./ClockDivisionDial.svelte";
 
   type TidePredictionsLoadState = { readonly status: "loading" | "ready" | "error" };
@@ -21,7 +21,7 @@
   let wallClockMs = $state(Date.now());
 
   onMount(() => {
-    return subscribeSemanticMinuteCadence(() => {
+    return subscribeMinuteCadence(() => {
       wallClockMs = Date.now();
     });
   });

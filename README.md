@@ -53,7 +53,7 @@ More detail: [`docs/planning/diagram-dev-preview-catalog.md`](docs/planning/diag
 **Param name:** `tideUxPreview`  
 **What it does:** skips the real storage/proxy load in the shell and returns a **fixed outcome** so Home shows the same panels as real network / empty-data cases.  
 **On screen:** **blue** banner on Home.  
-**Code:** [`src/application/tide-ux-dev-preview/tideUxDevPreviewCatalog.ts`](src/application/tide-ux-dev-preview/tideUxDevPreviewCatalog.ts).
+**Code:** [`src/application/tide-dev-preview/previewCatalog.ts`](src/application/tide-dev-preview/previewCatalog.ts).
 
 | Paste this URL (dev server) | What you should see on Home |
 | --- | --- |
@@ -65,7 +65,7 @@ More detail: [`docs/planning/diagram-dev-preview-catalog.md`](docs/planning/diag
 
 ### Adding a new scenario later
 
-1. **Diagram:** add an id to [`src/application/diagram-dev-preview/diagramDevPreviewCatalog.ts`](src/application/diagram-dev-preview/diagramDevPreviewCatalog.ts), implement the patch/freeze in a small module under that folder, and wire it in [`diagramDevPreviewResolveForHome.ts`](src/application/diagram-dev-preview/diagramDevPreviewResolveForHome.ts).  
-2. **Tide load:** add an id and branch in [`tideUxDevPreviewCatalog.ts`](src/application/tide-ux-dev-preview/tideUxDevPreviewCatalog.ts); the shell already calls `tideUxDevPreviewMaybeOverrideLoad` from `App.svelte`.
+1. **Diagram:** add an id to [`src/application/diagram-dev-preview/previewCatalog.ts`](src/application/diagram-dev-preview/previewCatalog.ts), implement the patch/freeze in a small module under that folder, and wire it in [`resolveForHome.ts`](src/application/diagram-dev-preview/resolveForHome.ts).  
+2. **Tide load:** add an id and branch in [`previewCatalog.ts`](src/application/tide-dev-preview/previewCatalog.ts); the shell already calls `tidePreviewMaybeOverrideLoad` from `App.svelte`.
 
 Then add one README row and (for diagram work) extend the planning doc if you keep using it.

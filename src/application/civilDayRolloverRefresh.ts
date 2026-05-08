@@ -9,7 +9,7 @@
  * load (no baseline day), or after a failed rollover attempt for the same civil
  * day (avoids hammering the proxy every second on persistent error).
  */
-export type CivilDayRolloverRefreshInput = {
+export type RolloverRefreshInput = {
   readonly hasSelectedTown: boolean;
   readonly tideLoadIsLoading: boolean;
   readonly currentCivilDayStartMs: number;
@@ -18,13 +18,13 @@ export type CivilDayRolloverRefreshInput = {
 };
 
 /** True when civil day advanced since last success and no rollover attempt yet for the current day. */
-export function shouldTriggerCivilDayRolloverRefresh({
+export function shouldTriggerRolloverRefresh({
   hasSelectedTown,
   tideLoadIsLoading,
   currentCivilDayStartMs,
   lastSuccessfulLoadCivilDayStartMs,
   lastRolloverAttemptCivilDayStartMs,
-}: CivilDayRolloverRefreshInput): boolean {
+}: RolloverRefreshInput): boolean {
   if (!hasSelectedTown || tideLoadIsLoading) {
     return false;
   }

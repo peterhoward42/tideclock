@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
-import { buildExtremesFromProxy, ProxyV1BuildError } from './buildFromProxy';
+import { extremesFromProxyWire, ProxyV1BuildError } from './buildFromProxy';
 import type { TideProxyV1Response } from './proxyV1Types';
 
 function makeResponse(overrides?: Partial<TideProxyV1Response>): TideProxyV1Response {
@@ -17,9 +17,9 @@ function makeResponse(overrides?: Partial<TideProxyV1Response>): TideProxyV1Resp
   };
 }
 
-describe('buildExtremesFromProxy', () => {
+describe('extremesFromProxyWire', () => {
   it('builds a TideExtremesAtLocation from a valid proxy payload', () => {
-    const result = buildExtremesFromProxy({
+    const result = extremesFromProxyWire({
       latitude: 50.8,
       longitude: -1.1,
       response: makeResponse()
@@ -35,7 +35,7 @@ describe('buildExtremesFromProxy', () => {
   });
 
   it('canonicalizes proxy rows into ascending UTC order', () => {
-    const result = buildExtremesFromProxy({
+    const result = extremesFromProxyWire({
       latitude: 50.8,
       longitude: -1.1,
       response: makeResponse({
@@ -54,7 +54,7 @@ describe('buildExtremesFromProxy', () => {
 
   it('throws when latitude is invalid', () => {
     expect(() =>
-      buildExtremesFromProxy({
+      extremesFromProxyWire({
         latitude: 100,
         longitude: -1.1,
         response: makeResponse()
@@ -64,7 +64,7 @@ describe('buildExtremesFromProxy', () => {
 
   it('throws when tides is not an array', () => {
     expect(() =>
-      buildExtremesFromProxy({
+      extremesFromProxyWire({
         latitude: 50.8,
         longitude: -1.1,
         response: {
@@ -79,7 +79,7 @@ describe('buildExtremesFromProxy', () => {
 
   it('throws when an extreme type is not supported', () => {
     expect(() =>
-      buildExtremesFromProxy({
+      extremesFromProxyWire({
         latitude: 50.8,
         longitude: -1.1,
         response: makeResponse({
@@ -93,7 +93,7 @@ describe('buildExtremesFromProxy', () => {
 
   it('throws when an extreme timestamp is malformed', () => {
     expect(() =>
-      buildExtremesFromProxy({
+      extremesFromProxyWire({
         latitude: 50.8,
         longitude: -1.1,
         response: makeResponse({
@@ -109,7 +109,7 @@ describe('buildExtremesFromProxy', () => {
 
   it('throws when an extreme height is not finite', () => {
     expect(() =>
-      buildExtremesFromProxy({
+      extremesFromProxyWire({
         latitude: 50.8,
         longitude: -1.1,
         response: makeResponse({
@@ -125,7 +125,7 @@ describe('buildExtremesFromProxy', () => {
 
   it('throws when a tide entry is not an object', () => {
     expect(() =>
-      buildExtremesFromProxy({
+      extremesFromProxyWire({
         latitude: 50.8,
         longitude: -1.1,
         response: makeResponse({
