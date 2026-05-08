@@ -2,7 +2,7 @@
 TIDE DIAL
 
 
-o  ditch obsolete docs
+*  ditch obsolete docs
 o  ditch orhphaned location UI and servic helpers
 o  rename pass on new location stuff?
 o  ditch duplicate schedulers if possible
@@ -32,6 +32,7 @@ o  improve scarborough to whitby coverage is bad
 
 
 				o  other pages
+				o  how can it be free?
 				o  what about marketing route or separate app?
 				o  QR code in auxilliary route
 				o  report bugs and suggestions

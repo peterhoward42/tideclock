@@ -1,7 +1,6 @@
 /**
  * Aggregates tools/towns2/coastal-geocoded/*.tsv into shipped app JSON:
  * - src/data/towns2.compact.json — compact Town rows (see src/data/townSchema.ts)
- * - src/data/towns2-search-lines.json — parallel search strings (same row order)
  *
  * Run: node tools/towns2/build-towns2-compact.mjs
  */
@@ -13,7 +12,6 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const geocodedDir = path.join(__dirname, 'coastal-geocoded');
 const outCompact = path.join(__dirname, '../../src/data/towns2.compact.json');
-const outSearch = path.join(__dirname, '../../src/data/towns2-search-lines.json');
 
 function titleCaseToken(s) {
   if (s.length === 0) return s;
@@ -48,14 +46,6 @@ function parseTsv(text) {
   return { header, rows };
 }
 
-function buildSearchLine(placeName, countyHuman, countyStem, featureKind, country) {
-  const stemSpaced = countyStem.replaceAll('-', ' ');
-  const parts = [placeName, countyHuman, stemSpaced, featureKind, country].filter(
-    (p) => typeof p === 'string' && p.trim() !== '',
-  );
-  return parts.join(' ').toLowerCase();
-}
-
 const files = fs.readdirSync(geocodedDir).filter((f) => f.endsWith('.tsv')).sort();
 
 const columns = [
@@ -71,7 +61,6 @@ const columns = [
 ];
 
 const rows = [];
-const searchLines = [];
 
 for (const file of files) {
   const text = fs.readFileSync(path.join(geocodedDir, file), 'utf8');
@@ -110,19 +99,11 @@ for (const file of files) {
       '',
       country,
     ]);
-    searchLines.push(
-      buildSearchLine(placeName, countyHuman, stem, featureKind, country),
-    );
   }
-}
-
-if (rows.length !== searchLines.length) {
-  throw new Error('internal: row/search length mismatch');
 }
 
 const doc = { v: 1, columns, rows };
 fs.writeFileSync(outCompact, `${JSON.stringify(doc)}\n`, 'utf8');
-fs.writeFileSync(outSearch, `${JSON.stringify({ lines: searchLines })}\n`, 'utf8');
 
 console.log(
   `Wrote ${rows.length} towns from ${files.length} TSV files -> ${path.relative(process.cwd(), outCompact)}`,
