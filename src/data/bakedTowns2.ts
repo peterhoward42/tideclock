@@ -67,6 +67,8 @@ export type TownPrefixQueryResult = {
   readonly totalMatches: number;
   readonly bucket: TownPrefixBucket;
   readonly visibleTownIds: readonly string[];
+  /** First row whose canonical normalized name equals `normalizedPrefix`, if any. */
+  readonly exactPrefixTownId: string | null;
   /**
    * Literal query suffixes that can be appended to `normalizedPrefix` to narrow broad results.
    * Items may begin with a space (for multi-word place names).
@@ -158,11 +160,13 @@ export function queryTowns2ByCountyAndNamePrefix(
       totalMatches: 0,
       bucket: 'need_input',
       visibleTownIds: [],
+      exactPrefixTownId: null,
       narrowingAppends: [],
     };
   }
 
   const visibleTownIds: string[] = [];
+  let exactPrefixTownId: string | null = null;
   const narrowingAppendCounts = new Map<string, number>();
   let totalMatches = 0;
   for (const row of indexedTowns) {
@@ -173,6 +177,9 @@ export function queryTowns2ByCountyAndNamePrefix(
       continue;
     }
     totalMatches += 1;
+    if (exactPrefixTownId === null && row.normalizedName === normalizedPrefix) {
+      exactPrefixTownId = row.town.id;
+    }
     if (visibleTownIds.length < maxVisibleMatches) {
       visibleTownIds.push(row.town.id);
     }
@@ -205,6 +212,7 @@ export function queryTowns2ByCountyAndNamePrefix(
     totalMatches,
     bucket,
     visibleTownIds,
+    exactPrefixTownId,
     narrowingAppends,
   };
 }

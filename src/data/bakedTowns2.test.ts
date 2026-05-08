@@ -13,6 +13,7 @@ describe('bakedTowns2 step-back query', () => {
     expect(result.bucket).toBe('need_input');
     expect(result.totalMatches).toBe(0);
     expect(result.visibleTownIds).toEqual([]);
+    expect(result.exactPrefixTownId).toBeNull();
     expect(result.narrowingAppends).toEqual([]);
   });
 
@@ -37,6 +38,7 @@ describe('bakedTowns2 step-back query', () => {
     expect(result.bucket).toBe('no_matches');
     expect(result.totalMatches).toBe(0);
     expect(result.visibleTownIds).toEqual([]);
+    expect(result.exactPrefixTownId).toBeNull();
     expect(result.narrowingAppends).toEqual([]);
   });
 
@@ -51,6 +53,16 @@ describe('bakedTowns2 step-back query', () => {
       result.narrowingAppends.every((append) => /^ [^\s]+$|^[^\s]$/.test(append)),
     ).toBe(true);
     expect(result.narrowingAppends.some((append) => append.startsWith(' '))).toBe(true);
+  });
+
+  it('surfaces an exact prefix town id even when the set is broad', () => {
+    const result = queryTowns2ByCountyAndNamePrefix('Newport', 'newport');
+    expect(result.bucket).toBe('many_matches');
+    expect(result.exactPrefixTownId).not.toBeNull();
+    const town = towns2ByTownId.get(result.exactPrefixTownId!);
+    expect(town).toBeDefined();
+    expect(town?.name.toLowerCase()).toBe('newport');
+    expect(town?.county).toBe('Newport');
   });
 });
 

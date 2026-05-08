@@ -103,6 +103,14 @@
   {#if query.bucket === "many_matches" || query.bucket === "too_many_matches"}
     <p class="guidance-detail">{query.totalMatches} places</p>
   {/if}
+  {#if query.exactPrefixTownId !== null}
+    {@const exactTown = towns2ByTownId.get(query.exactPrefixTownId)}
+    {#if exactTown !== undefined}
+      <button type="button" class="match-button" onclick={() => chooseTown(exactTown)}>
+        Use {exactTown.name}
+      </button>
+    {/if}
+  {/if}
   {#if query.normalizedCounty !== null &&
     (query.bucket === "many_matches" || query.bucket === "too_many_matches") &&
     query.narrowingAppends.length > 0}
