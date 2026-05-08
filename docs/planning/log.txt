@@ -1,109 +1,20 @@
 
 TIDE DIAL
 
-o  first glance ux assimilation suggestions
-	*  hand must be simple pointer - no circle of reln to tide marker shape
-	*  move mainlabel
-	*  attenuate gone tides
-	*  switch main label to say time not height
-	*  move hour labels inside band
-	*  Try out mirrored layout
 
-	*  Try out flatter /arcuate tide marker text
-		*  basics
-		*  they are not on a curved path !!!!
-		*  show only height not time
-		*  go back to the tide height aligning with the marker
-		*  fix glyph spacing for tide height text
-		*  would the tide marker shape be okk smaller if it were filled?
-		*  label every hour
-		*  make annulus thicker
-		*  ticks also on outside of labels
-		*  stroke the outside of the annular band
+o  ditch obsolete docs
+o  ditch orhphaned location UI and servic helpers
+o  rename pass on new location stuff?
+o  ditch duplicate schedulers if possible
 
-	*  Need padding at bottom of bounding rect
-	*  What the hell is this in the inputs:   canvas: { width: 420, height: 320 },
-	*  Subtle fill for tide marker radial space annulus?
-	*  spec cleaning
-
-	*  render time now with seconds along the arm
-	*  Put in a new dev preview mode to show times < 12
-	*  Improve role and clarity of spec for bottom right stuff
-	*  Decide what contents to put bottom right
-	*  Specify it with a view to it being generic
-	*  Separate seconds on hand and style colours
-	*  The concentric rings could give the tide markers more space now
-	*  Make menu smaller and move to right
-	*  Style BLHC
-	*  ChatGPT outline pips?
-
-	*  Branding on bottom left
-	*  Move menu over to left
-	*  More prominent location
-	*  Fix BLHCBundle name
-	*  challenge spec sillyness again in respect of
-	*  fix: bounds - use: dividor, boss, and tide marker height field
-	*  Brand / URL
-	*  ChatGPT usability / assimilation advice
-	*  put "Tides" inside the boss
-	*  Remove tides from brand
-	*  Mark tide marker pointers as high or low
-
-	o  the search screen should seperate the name from the county
-		*  now have a plan in planning/locat...
-		*  do the refactor part
-		*  provide the logic service
-		*  update the UI
-		o  Supplementary too many number
-		o  what is still not great?
-			*  Seaton in Devon
-			*  Seaton in Cornwall
-			*  Wrong Seaton by mistake
-			*  Looe
-			*  Mumbles
-			*  Beach
-			o  Cardiff in cardiff (!!!)
-			*  Liverpool
-			*  A county has two place names the same? 
-			*  Single frags from Looe Falmouth Beach Christchurch
-			*  Short fragments
-			*  No matches with decent prefix
-		*  Change placeholder place to "loo"
-		o  What issues remain?
-			o  How to provide hints for qualification in the general case
-			o  Does it help with cardiff town in cardiff county?
-
-		o  Diff between many and too_many
-
-	o  improved search
-		o  BRANCH disamb
-			*  upgrade query service to characterise the search space
-			*  analyse behaviour opportunties
-			*  decide no long lists and non clickable if overflow
-			*  more greyed out looking when not clickable
-			*  "piece" -> part
-			*  "and others" or more
-			*  illustrative?
-			*  when not truncated order by common root e.g. Looe
-			o  TAKE STOCK
-				o  Seaton on its own will never be pickable
-				o  Maybe Lat/Lon group reduction to most common root
-
-		o  merge BRANCH disamb
-
-	o  rethink based on clusters
-
-
-	o  scarborough to whitby coverage is bad
-
-	o  ditch duplicate schedulers if possible
-
-	o  interference problem with these locations
+o  interference problem with these locations
 		Whaling berth historic Aberdeen
 		Donmouth local nature reserve
 
 
-	o  what to do when tricky tides occlude each other?
+o  what to do when tricky tides occlude each other?
+
+o  review and plan other pages
 
 
 See /docs/specs/tide-diagram.md for context.
@@ -116,9 +27,8 @@ o  cross sell drawexact
 					o  how to use real estate better - partic on phone
 						o  aspect ratio sensitivity in diagram and outer?
 
+o  improve scarborough to whitby coverage is bad
 
-
-				o  falmouth estuary and south west extents poor coverage
 
 
 				o  other pages
