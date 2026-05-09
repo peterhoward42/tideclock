@@ -8,24 +8,22 @@ TIDE DIAL
 *  ditch duplicate schedulers if possible
 *  on android browser offers open - which opens prior installed app, why not cache
    refreshed? 
+*  fix  problem with long location names
 
+o  location picker nasty on mobile landscape
 
-
-o  interference problem with these locations
-		Whaling berth historic Aberdeen
-		Donmouth local nature reserve
-	o  max len is 23
-
-
-o  what to do when tricky tides occlude each other?
 
 o  review and plan other pages
+	o  catalogue and review merit
+	o  main ctas vs the rest
+	o  two levels of hierachy
 
 
 See /docs/specs/tide-diagram.md for context.
 
 o  discover / marketing screen?
 o  cross sell drawexact
+o  cross sell me
 
 
 				o  proxy cost risk containment
