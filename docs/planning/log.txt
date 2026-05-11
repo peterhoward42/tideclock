@@ -12,6 +12,17 @@ TIDE DIAL
 
 o  location picker nasty on mobile landscape
 
+	*  change first use policy to default to Looe and pop up to say change
+	   it in the menu, then menu is only entry point
+
+	o  present pwa as menu option for stand alone always on
+
+	o  advise to use portrait if visit locations route only if
+		o  on mobile (not tablet)
+		o  in landscape
+	o  ditch old landscape route and code if not already
+
+
 
 o  review and plan other pages
 	o  catalogue and review merit

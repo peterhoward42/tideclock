@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { get } from "svelte/store";
+  import { onMount } from "svelte";
   import { navigate } from "../../infrastructure/router.js";
   import type { Town } from "../../data/townSchema";
   import {
@@ -7,12 +9,28 @@
     towns2Counties,
     towns2StepbackLabelsByTownId
   } from "../../data/bakedTowns2";
+  import { displayOptimisation } from "../displayOptimisation";
 
   interface Props {
     readonly setCurrentLocation: (town: Town) => void;
   }
 
   let { setCurrentLocation }: Props = $props();
+
+  /** Snapshot from {@link displayOptimisation}; phone-vs-slate + aspect for location-route landscape gate. */
+  let displaySnapshot = $state(get(displayOptimisation));
+
+  const blockPhoneLandscapeChooser = $derived(
+    displaySnapshot.likelyHandheldPhoneFormFactor && displaySnapshot.aspectClass === "landscape"
+  );
+
+  onMount(() => {
+    const unsub = displayOptimisation.subscribe((v) => {
+      displaySnapshot = v;
+    });
+    return unsub;
+  });
+
   let selectedCounty = $state("");
   let placePrefix = $state("");
 
@@ -72,6 +90,11 @@
 </script>
 
 <main class="route">
+  {#if blockPhoneLandscapeChooser}
+    <p class="phone-landscape-only-message">
+      On phones, switch to portrait orientation to use this screen to change location.
+    </p>
+  {:else}
   <label class="field">
     <span class="field__label">Start typing a place name</span>
     <input
@@ -145,6 +168,7 @@
       {/each}
     </ul>
   {/if}
+  {/if}
 </main>
 
 <style>
@@ -152,6 +176,14 @@
     display: grid;
     gap: 0.75rem;
     max-width: 34rem;
+  }
+
+  .phone-landscape-only-message {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: var(--text-document-default);
+    max-width: 28rem;
   }
 
   .field {

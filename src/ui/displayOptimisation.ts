@@ -1,10 +1,17 @@
 /**
- * displayOptimisation.ts — Single place for viewport-derived display policy (device class, aspect class).
- * Downstream layout and diagram tuning should read from here rather than re-implementing breakpoints.
+ * displayOptimisation.ts — Single place for viewport-derived display policy (device class, aspect class,
+ * handheld phone vs slate). Downstream layout should read from here rather than re-implementing breakpoints.
  * Kind: UI policy + thin browser adapter (`displayOptimisation` store). Pure core is testable without `window`.
  */
 
 import { readable, type Readable } from "svelte/store";
+
+/**
+ * Inclusive upper bound for the shorter `window.screen` edge (CSS px) to count as a handheld phone.
+ * Independent of landscape viewport width (which can exceed {@link DISPLAY_DEVICE_BREAKPOINTS_CSS_PX.mobileMaxWidth}).
+ * Typical tablets are ≥ ~744 on the short edge.
+ */
+export const PHONE_HANDHELD_MAX_MIN_SCREEN_EDGE_CSS_PX = 640;
 
 /** Width buckets use CSS pixels of the layout viewport (`window.innerWidth` in the browser adapter). */
 export const DISPLAY_DEVICE_BREAKPOINTS_CSS_PX = {
@@ -33,6 +40,11 @@ export interface DisplayOptimisationInput {
    * this flag is the extra signal that home landscape encouragement must stay off.
    */
   readonly primaryInputFineAndHoverCapable?: boolean;
+  /** `window.screen` dimensions in CSS px; short edge distinguishes phone from typical tablet. */
+  readonly screenWidthCssPx: number;
+  readonly screenHeightCssPx: number;
+  /** `matchMedia("(pointer: coarse)").matches` — handheld touch primary input. */
+  readonly primaryInputCoarse: boolean;
 }
 
 export interface DisplayOptimisationSnapshot {
@@ -47,6 +59,11 @@ export interface DisplayOptimisationSnapshot {
    * (`(hover: hover)` and `(pointer: fine)`), regardless of width bucket.
    */
   readonly homeLandscapeEncouragementPrimaryInputInScope: boolean;
+  /**
+   * Coarse primary pointer and a small physical screen (short edge ≤ {@link PHONE_HANDHELD_MAX_MIN_SCREEN_EDGE_CSS_PX}).
+   * Unlike {@link DeviceClass}, does not flip to `"tablet"` when a phone is held landscape (wide viewport).
+   */
+  readonly likelyHandheldPhoneFormFactor: boolean;
 }
 
 export function deviceClassFromViewportWidthPx(viewportWidthPx: number): DeviceClass {
@@ -75,16 +92,51 @@ export function aspectClassFromViewportPx(viewportWidthPx: number, viewportHeigh
 }
 
 /**
+ * Handheld phone (not typical slate): touch-first and small screen short edge.
+ * @throws RangeError when screen dimensions are non-finite or non-positive
+ */
+export function likelyHandheldPhoneFormFactorFromScreenAndPointer(input: {
+  readonly screenWidthCssPx: number;
+  readonly screenHeightCssPx: number;
+  readonly primaryInputCoarse: boolean;
+}): boolean {
+  const { screenWidthCssPx, screenHeightCssPx, primaryInputCoarse } = input;
+  if (!primaryInputCoarse) {
+    return false;
+  }
+  if (!Number.isFinite(screenWidthCssPx) || !Number.isFinite(screenHeightCssPx)) {
+    throw new RangeError("likelyHandheldPhoneFormFactorFromScreenAndPointer: screen dimensions must be finite");
+  }
+  if (screenWidthCssPx <= 0 || screenHeightCssPx <= 0) {
+    throw new RangeError("likelyHandheldPhoneFormFactorFromScreenAndPointer: screen dimensions must be positive");
+  }
+  const minEdge = Math.min(screenWidthCssPx, screenHeightCssPx);
+  return minEdge <= PHONE_HANDHELD_MAX_MIN_SCREEN_EDGE_CSS_PX;
+}
+
+/**
  * Derives the full snapshot used by UI and future diagram layout policy.
  * @throws RangeError when dimensions are non-finite or non-positive
  */
 export function deriveDisplayOptimisation(input: DisplayOptimisationInput): DisplayOptimisationSnapshot {
-  const { viewportWidthPx, viewportHeightPx, primaryInputFineAndHoverCapable } = input;
+  const {
+    viewportWidthPx,
+    viewportHeightPx,
+    primaryInputFineAndHoverCapable,
+    screenWidthCssPx,
+    screenHeightCssPx,
+    primaryInputCoarse
+  } = input;
   const deviceClass = deviceClassFromViewportWidthPx(viewportWidthPx);
   const aspectClass = aspectClassFromViewportPx(viewportWidthPx, viewportHeightPx);
   const aspectRatio = viewportWidthPx / viewportHeightPx;
   const homeLandscapeEncouragementPrimaryInputInScope =
     primaryInputFineAndHoverCapable !== true;
+  const likelyHandheldPhoneFormFactor = likelyHandheldPhoneFormFactorFromScreenAndPointer({
+    screenWidthCssPx,
+    screenHeightCssPx,
+    primaryInputCoarse
+  });
   return {
     viewportWidthPx,
     viewportHeightPx,
@@ -92,6 +144,7 @@ export function deriveDisplayOptimisation(input: DisplayOptimisationInput): Disp
     aspectClass,
     aspectRatio,
     homeLandscapeEncouragementPrimaryInputInScope,
+    likelyHandheldPhoneFormFactor
   };
 }
 
@@ -107,14 +160,29 @@ function readPrimaryInputFineAndHoverCapable(): boolean {
   }
 }
 
+function readPrimaryInputCoarse(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.matchMedia("(pointer: coarse)").matches;
+  } catch {
+    return false;
+  }
+}
+
 function readDisplayOptimisationFromInnerDimensions(
   viewportWidthPx: number,
   viewportHeightPx: number,
 ): DisplayOptimisationSnapshot {
+  const hasWindow = typeof window !== "undefined";
+  const screenWidthCssPx = hasWindow ? window.screen.width : viewportWidthPx;
+  const screenHeightCssPx = hasWindow ? window.screen.height : viewportHeightPx;
   return deriveDisplayOptimisation({
     viewportWidthPx,
     viewportHeightPx,
-    primaryInputFineAndHoverCapable: readPrimaryInputFineAndHoverCapable(),
+    primaryInputFineAndHoverCapable: hasWindow ? readPrimaryInputFineAndHoverCapable() : false,
+    screenWidthCssPx,
+    screenHeightCssPx,
+    primaryInputCoarse: hasWindow ? readPrimaryInputCoarse() : false
   });
 }
 
@@ -136,11 +204,14 @@ export const displayOptimisation: Readable<DisplayOptimisationSnapshot> = readab
     const onMediaChange = (): void => {
       update();
     };
+    let mqlCoarse: MediaQueryList | null = null;
     try {
       mqlHover = window.matchMedia("(hover: hover)");
       mqlPointer = window.matchMedia("(pointer: fine)");
+      mqlCoarse = window.matchMedia("(pointer: coarse)");
       mqlHover.addEventListener("change", onMediaChange);
       mqlPointer.addEventListener("change", onMediaChange);
+      mqlCoarse.addEventListener("change", onMediaChange);
     } catch {
       // ignore (very old engines): resize/orientation still refresh dimensions
     }
@@ -154,6 +225,9 @@ export const displayOptimisation: Readable<DisplayOptimisationSnapshot> = readab
       }
       if (mqlPointer !== null) {
         mqlPointer.removeEventListener("change", onMediaChange);
+      }
+      if (mqlCoarse !== null) {
+        mqlCoarse.removeEventListener("change", onMediaChange);
       }
     };
   }

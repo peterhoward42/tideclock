@@ -11,6 +11,7 @@
   import { decideRolloverTideRefresh } from "../application/civilDayRolloverTick";
   import { createTideRefreshController } from "../application/tideRefreshController";
   import { loadCivilDayExtremes } from "../application/civilDayExtremesQuery";
+  import { defaultTideLocationTown } from "../data/bakedTowns2";
   import { loadTownPick, storeTownPick } from "../data-pipelines/townPick";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import {
@@ -42,10 +43,32 @@
   let civilDayWindowStartMsAtLastSuccessfulLoad = $state<number | undefined>(undefined);
   /** After a failed rollover fetch, suppress re-entry for the same civil day (see `decideRolloverTideRefresh`). */
   let lastRolloverAttemptCivilDayStartMs = $state<number | undefined>(undefined);
-  let currentTown = $state<Town | undefined>(undefined);
-
   /** Dev-only: `?tideUxPreview=<id>` — simulates Category-B tide load outcomes. */
   let tidePreviewIdFromUrl = $state<TidePreviewId | null>(null);
+
+  function readStoredTownPickBrowser(): Town | undefined {
+    try {
+      if (typeof localStorage === "undefined") return undefined;
+      return loadTownPick({ loader: localStorage });
+    } catch {
+      return undefined;
+    }
+  }
+
+  const initialStoredTown = readStoredTownPickBrowser();
+  const canAccessLocationStorage = typeof localStorage !== "undefined";
+
+  let currentTown = $state<Town | undefined>(
+    initialStoredTown ?? (canAccessLocationStorage ? defaultTideLocationTown : undefined),
+  );
+
+  /**
+   * True when no town was in storage at boot: modal explains the Looe default until dismissed
+   * (dismissal persists Looe).
+   */
+  let showDefaultLocationExplainer = $state(
+    canAccessLocationStorage && initialStoredTown === undefined,
+  );
 
   const tidePreviewBannerLine = $derived.by(() => {
     if (!import.meta.env.DEV || tidePreviewIdFromUrl === null) {
@@ -149,11 +172,20 @@
     currentTown = town;
     storeTownPick(town, { storer: localStorage });
     appDiag("setCurrentLocation stored town in localStorage", { townId: town.id });
+    showDefaultLocationExplainer = false;
     refreshTidesForTown(town);
   }
 
+  function dismissDefaultLocationExplainer(): void {
+    storeTownPick(defaultTideLocationTown, { storer: localStorage });
+    showDefaultLocationExplainer = false;
+    appDiag("default location explainer dismissed; Looe persisted", {
+      townId: defaultTideLocationTown.id,
+    });
+  }
+
   function maybeRefreshTideAfterLocalMidnightRollover(): void {
-    const town = loadTownPick({ loader: localStorage });
+    const town = loadTownPick({ loader: localStorage }) ?? currentTown;
     currentTown = town;
     const currentStart = civilDayWindowFromHostClock().startLocal.getTime();
     const decision = decideRolloverTideRefresh({
@@ -200,10 +232,8 @@
     attachHashListener();
     appDiag("app root mounted, hash listener attached");
     tidePreviewIdFromUrl = readTidePreviewIdFromLocation();
-    const town = loadTownPick({ loader: localStorage });
-    if (town !== undefined) {
-      currentTown = town;
-      refreshTidesForTown(town);
+    if (currentTown !== undefined) {
+      refreshTidesForTown(currentTown);
     }
     let devUrlCleanup: (() => void) | undefined;
     if (import.meta.env.DEV) {
@@ -257,6 +287,8 @@
         tideExtremes={lastSuccessfulTideExtremes}
         townName={currentTown?.name ?? "Unknown"}
         tidePreviewBannerLine={tidePreviewBannerLine}
+        defaultLocationExplainerOpen={showDefaultLocationExplainer}
+        onDismissDefaultLocationExplainer={dismissDefaultLocationExplainer}
       />
     {:else if $route === "location2"}
       <LocationTowns2Stepback setCurrentLocation={setCurrentLocation} />

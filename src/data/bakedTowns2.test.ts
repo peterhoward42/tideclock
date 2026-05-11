@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   bakedTowns2,
+  defaultTideLocationTown,
   queryTowns2ByCountyAndNamePrefix,
   towns2ByTownId,
   towns2Counties,
@@ -67,6 +68,12 @@ describe('bakedTowns2 step-back query', () => {
 });
 
 describe('bakedTowns2 step-back supporting data', () => {
+  it('pins Looe, Cornwall as the default tide location', () => {
+    expect(defaultTideLocationTown.name).toBe('Looe');
+    expect(defaultTideLocationTown.county).toBe('Cornwall');
+    expect(towns2ByTownId.get(defaultTideLocationTown.id)).toEqual(defaultTideLocationTown);
+  });
+
   it('exposes sorted non-empty county options', () => {
     expect(towns2Counties.length).toBeGreaterThan(0);
     expect(towns2Counties.every((county) => county.trim() !== '')).toBe(true);

@@ -36,6 +36,7 @@
   import HomeRouteDevPreviewBanners from "./HomeRouteDevPreviewBanners.svelte";
   import HomeRouteDomDebugPanel from "./HomeRouteDomDebugPanel.svelte";
   import HomeRouteTidePanels from "./HomeRouteTidePanels.svelte";
+  import HomeDefaultLocationExplainerOverlay from "./HomeDefaultLocationExplainerOverlay.svelte";
   import HomePwaStandaloneSetupOverlay from "./HomePwaStandaloneSetupOverlay.svelte";
   import {
     computeMenuPanelAnchorStyle,
@@ -87,6 +88,8 @@
     tideExtremes,
     townName,
     tidePreviewBannerLine,
+    defaultLocationExplainerOpen,
+    onDismissDefaultLocationExplainer,
   }: RouteProps = $props();
 
   // Diagram generation collaborator (generate + render entry; owns no DOM)
@@ -166,6 +169,22 @@
   const homeInstallCanPrompt = $derived(
     installObserverSnapshot.promptEvent != null,
   );
+
+  /**
+   * Wait for Looe tides + diagram paint before opening the modal so “showing tides for …”
+   * is not ahead of the async fetch / SVG generation.
+   */
+  const defaultLocationExplainerVisible = $derived.by(() => {
+    if (!defaultLocationExplainerOpen) return false;
+    if (tideLoadState.status !== "ready" || tideExtremes === undefined) {
+      return false;
+    }
+    if (diagramError !== undefined) return false;
+    if (tideExtremes.extremes.length === 0) {
+      return true;
+    }
+    return diagramSvg !== "";
+  });
 
   const pwaForHomeMenu = $derived({
     sectionOpen: pwaDisplaySectionOpen,
@@ -600,6 +619,11 @@
         onDismissForever={dismissPwaStandaloneSetupForever}
       />
     </div>
+  {/if}
+  {#if defaultLocationExplainerVisible}
+    <HomeDefaultLocationExplainerOverlay
+      onDismiss={onDismissDefaultLocationExplainer}
+    />
   {/if}
   <HomeRouteDevPreviewBanners
     diagramPreviewBannerLine={diagramPreviewBannerLine}

@@ -3,7 +3,6 @@
    * Main tide route body: loading / error / empty / diagram host and overlay chrome.
    * DOM refs are bindable so the route’s effects (SVG glue, menu wiring, clock patch) stay in Home.
    */
-  import { THE_TIDE_DIAL } from "../../brand";
   import type { TideExtremesAtLocation } from "../../../core-models/TideExtremesAtLocation";
   import PrimaryMenuContent, {
     type PwaDisplayMenu,
@@ -64,7 +63,7 @@
   }: Props = $props();
 </script>
 
-{#if tideLoadState.status === "loading"}
+{#if tideLoadState.status === "loading" || (tideLoadState.status === "ready" && tideExtremes === undefined)}
   <div class="home-panel" aria-live="polite">
     <p class="muted" role="status">Loading tides…</p>
   </div>
@@ -73,23 +72,6 @@
     <p class="muted" role="alert">
       Tides could not be loaded. Check the connection and try again.
     </p>
-  </div>
-{:else if tideExtremes === undefined}
-  <div class="home-panel home-panel--corner-nav-host">
-    <section
-      class="home-empty-state"
-      aria-labelledby="home-empty-state-title"
-    >
-      <p class="home-empty-state__eyebrow">First use</p>
-      <h1 id="home-empty-state-title" class="home-empty-state__title">
-        Choose your location
-      </h1>
-      <p class="home-empty-state__body">
-        Set a coastal location to use {THE_TIDE_DIAL}. You can change
-        it later from the menu.
-      </p>
-      <a class="home-empty-state__action" href="#/location2">Choose location</a>
-    </section>
   </div>
 {:else if tideExtremes.extremes.length === 0}
   <div class="home-panel" aria-live="polite">
@@ -166,75 +148,9 @@
     box-sizing: border-box;
   }
 
-  .home-panel--corner-nav-host {
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
   /* Positioning context for the menu flyout (sibling of figure, not clipped by figure overflow). */
   .home-panel--diagram-host {
     position: relative;
-  }
-
-  .home-empty-state {
-    width: min(28rem, calc(100% - 2rem));
-    display: grid;
-    gap: 0.9rem;
-    justify-items: start;
-    padding: 1.5rem;
-    border: 1px solid var(--border-home-support-card);
-    border-radius: 0.875rem;
-    background: var(--surface-home-support-card);
-    box-shadow: var(--shadow-menu-flyout);
-  }
-
-  .home-empty-state__eyebrow {
-    margin: 0;
-    color: var(--text-home-support-accent);
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .home-empty-state__title {
-    margin: 0;
-    color: var(--text-home-support-primary);
-    font-size: clamp(1.8rem, 4vw, 2.4rem);
-    line-height: 1.05;
-  }
-
-  .home-empty-state__body {
-    margin: 0;
-    max-width: 28ch;
-    line-height: 1.5;
-    color: var(--text-home-support-secondary);
-  }
-
-  .home-empty-state__action {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 2.75rem;
-    padding: 0.7rem 1rem;
-    border-radius: 999px;
-    background: var(--surface-home-support-action);
-    color: var(--text-home-support-action);
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: var(--shadow-overlay);
-  }
-
-  .home-empty-state__action:hover {
-    background: var(--surface-home-support-action-hover);
-    color: var(--text-home-support-action-hover);
-  }
-
-  .home-empty-state__action:focus-visible {
-    outline: 2px solid var(--focus-ring);
-    outline-offset: 3px;
   }
 
   .home-instrument {

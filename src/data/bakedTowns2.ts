@@ -18,6 +18,19 @@ export const towns2ByTownId: ReadonlyMap<string, Town> = new Map(
   bakedTowns2.map((t) => [t.id, t]),
 );
 
+/** Canonical default when no town is persisted (`current-location` in `townPickSerde.ts`). */
+const DEFAULT_TIDE_LOCATION_TOWN_ID = 't2:cornwall:166';
+
+export const defaultTideLocationTown: Town = (() => {
+  const town = towns2ByTownId.get(DEFAULT_TIDE_LOCATION_TOWN_ID);
+  if (town === undefined) {
+    throw new Error(
+      `default tide location ${DEFAULT_TIDE_LOCATION_TOWN_ID} missing from towns2 corpus`,
+    );
+  }
+  return town;
+})();
+
 export type TownPrefixBucket =
   | 'need_input'
   | 'no_matches'
