@@ -5,11 +5,20 @@
 
 import { isStandaloneDisplayMode } from "./pwaDisplayMode";
 
-function getLandscapeLock(): ((orientation: OrientationLockType) => Promise<void>) | null {
+type ScreenOrientationApi = {
+  lock?: (orientation: OrientationLockType) => Promise<void>;
+  unlock?: () => void;
+};
+
+function getScreenOrientation(): ScreenOrientationApi | null {
   const runtime = globalThis as typeof globalThis & {
-    screen?: { orientation?: { lock?: (orientation: OrientationLockType) => Promise<void> } };
+    screen?: { orientation?: ScreenOrientationApi };
   };
-  const orientation = runtime.screen?.orientation;
+  return runtime.screen?.orientation ?? null;
+}
+
+function getLandscapeLock(): ((orientation: OrientationLockType) => Promise<void>) | null {
+  const orientation = getScreenOrientation();
   if (!orientation?.lock) return null;
   return orientation.lock.bind(orientation);
 }
@@ -26,6 +35,20 @@ export async function requestLandscapeOrientationLock(): Promise<void> {
     await lock("landscape");
   } catch {
     // Silent by design: this API frequently rejects on unsupported devices/contexts.
+  }
+}
+
+/**
+ * Releases a prior `lock()` so the user can rotate (e.g. installed app on the location route,
+ * which needs portrait on phones). Silent when unsupported or nothing is locked.
+ */
+export function requestOrientationUnlock(): void {
+  const orientation = getScreenOrientation();
+  if (typeof orientation?.unlock !== "function") return;
+  try {
+    orientation.unlock();
+  } catch {
+    // Silent by design.
   }
 }
 

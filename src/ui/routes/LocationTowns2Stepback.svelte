@@ -10,6 +10,7 @@
     towns2StepbackLabelsByTownId
   } from "../../data/bakedTowns2";
   import { displayOptimisation } from "../displayOptimisation";
+  import { requestOrientationUnlock } from "./home/orientationLock";
 
   interface Props {
     readonly setCurrentLocation: (town: Town) => void;
@@ -25,6 +26,7 @@
   );
 
   onMount(() => {
+    requestOrientationUnlock();
     const unsub = displayOptimisation.subscribe((v) => {
       displaySnapshot = v;
     });

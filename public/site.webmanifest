@@ -4,8 +4,8 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "orientation": "landscape",
-  "description": "The Tide Dial at thetidedial.page — installed use is landscape-first; a normal tab works like any other site.",
+  "orientation": "any",
+  "description": "The Tide Dial at thetidedial.page — home screen prefers landscape after you tap; change-location on phones needs portrait. A normal tab works like any other site.",
   "theme_color": "#090a0f",
   "background_color": "#090a0f",
   "icons": [

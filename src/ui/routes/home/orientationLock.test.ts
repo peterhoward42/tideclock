@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   mountOrientationLock,
   requestLandscapeOrientationLock,
+  requestOrientationUnlock,
 } from "./orientationLock";
 
 function setNavigatorStandalone(value: boolean): void {
@@ -53,6 +54,37 @@ describe("requestLandscapeOrientationLock", () => {
     setNavigatorStandalone(false);
 
     await expect(requestLandscapeOrientationLock()).resolves.toBeUndefined();
+  });
+});
+
+describe("requestOrientationUnlock", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  it("calls unlock when available", () => {
+    const unlock = vi.fn();
+    vi.stubGlobal("screen", { orientation: { unlock } });
+
+    requestOrientationUnlock();
+
+    expect(unlock).toHaveBeenCalledTimes(1);
+  });
+
+  it("no-ops when unlock is missing", () => {
+    vi.stubGlobal("screen", { orientation: {} });
+
+    expect(() => requestOrientationUnlock()).not.toThrow();
+  });
+
+  it("swallows unlock failures", () => {
+    const unlock = vi.fn(() => {
+      throw new Error("denied");
+    });
+    vi.stubGlobal("screen", { orientation: { unlock } });
+
+    expect(() => requestOrientationUnlock()).not.toThrow();
   });
 });
 
