@@ -17,24 +17,17 @@ o  location picker nasty on mobile landscape
 	*  advise to use portrait if visit locations route only if
 	*  tune menu
 	*  conundrum for demanding portrait for location if installed
-
 	*  present pwa as menu option for stand alone always on
-		*  test deployed
-
-	o  seeing two different behaviours for install
-		o  sometimes single shot install button
-		o  sometiimes manual steps
-		o  sometimes hit the button - shows single shot  works but menu has then
-		   been opeed with the manual instructions?
-
-
-
+	*  vastly pare back interference with pws install process
 
 	o  change back menu to the diagram with Home
+		o  and fix order again
 
 
 	o  ditch old landscape route and code if not already
-	o  copy can be more of an orientation / intro not just about location
+		o  i.e. why is it location2
+
+	o  first load copy can be more of an orientation / intro not just about location
 
 
 

@@ -30,9 +30,8 @@ export function manualInstallStepsForPlatform(
     ];
   }
   return [
-    "Open browser menu.",
-    "Choose Install app.",
-    "Confirm Install.",
+    "Look for an Install or Open in App button inside the address bar, usually at the right end.",
+    "You can also find it in the browser menu (⋯ or ☰) under Install…, Create shortcut, or similar.",
   ];
 }
 

@@ -4,21 +4,34 @@
    */
   import { TIDECLOCK_BUILD_COMMIT } from "../../buildCommit";
 
+  type NavPart = "all" | "prefix" | "suffix";
+
   interface Props {
     readonly className?: string;
     readonly onNavigate?: () => void;
+    /** `prefix` / `suffix`: link fragments only (parent supplies `<nav>`). */
+    readonly part?: NavPart;
   }
 
-  let { className = "nav-links", onNavigate }: Props = $props();
+  let {
+    className = "nav-links",
+    onNavigate,
+    part = "all",
+  }: Props = $props();
 
   function handleNavigate(): void {
     onNavigate?.();
   }
 </script>
 
-<nav class={className} aria-label="Primary">
+{#snippet prefixLinks()}
   <a href="#/home" onclick={handleNavigate}>Home</a>
-  <a href="#/location2" onclick={handleNavigate}>Set <span class="primary-nav-links__emph-your">your</span> location</a>
+  <a href="#/location2" onclick={handleNavigate}
+    >Set <span class="primary-nav-links__emph-your">your</span> location</a
+  >
+{/snippet}
+
+{#snippet suffixLinks()}
   <a href="#/settings" onclick={handleNavigate}>Settings</a>
   <div class="primary-nav-links__about-row">
     <a href="#/about" onclick={handleNavigate}>About</a>
@@ -32,7 +45,18 @@
   <a href="#/acknowledgements" onclick={handleNavigate}>Acknowledgements</a>
   <a href="#/support" onclick={handleNavigate}>Support</a>
   <a href="#/cookies" onclick={handleNavigate}>Cookies</a>
-</nav>
+{/snippet}
+
+{#if part === "all"}
+  <nav class={className} aria-label="Primary">
+    {@render prefixLinks()}
+    {@render suffixLinks()}
+  </nav>
+{:else if part === "prefix"}
+  {@render prefixLinks()}
+{:else}
+  {@render suffixLinks()}
+{/if}
 
 <style>
   .primary-nav-links__emph-your {

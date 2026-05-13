@@ -45,35 +45,37 @@
   );
 </script>
 
-<PrimaryNavLinks className={linksClassName} {onNavigate} />
-
-<button
-  type="button"
-  class="primary-menu-content__action primary-menu-content__install-entry"
-  aria-expanded={installInfoOpen}
-  onclick={onToggleInstallInfo}
->
-  Install as always-on display
-  <span class="primary-menu-content__install-entry-hint">
-    Designed to be left running on a kitchen tablet or wall-mounted screen.
-  </span>
-</button>
-{#if installInfoOpen}
-  <section
-    class="primary-menu-content__install-flow"
-    aria-label="How to install"
-    aria-live="polite"
+<nav class={linksClassName} aria-label="Primary">
+  <PrimaryNavLinks part="prefix" {onNavigate} />
+  <button
+    type="button"
+    class="primary-menu-content__action primary-menu-content__install-entry"
+    aria-expanded={installInfoOpen}
+    onclick={onToggleInstallInfo}
   >
-    <p class="primary-menu-content__install-body">
-      Use your browser’s add or install option (exact wording varies):
-    </p>
-    <ol class="primary-menu-content__install-list">
-      {#each installManualSteps as step}
-        <li>{step}</li>
-      {/each}
-    </ol>
-  </section>
-{/if}
+    Install as always-on display
+    <span class="primary-menu-content__install-entry-hint">
+      Designed to be left running on a kitchen tablet or wall-mounted screen.
+    </span>
+  </button>
+  {#if installInfoOpen}
+    <section
+      class="primary-menu-content__install-flow"
+      aria-label="How to install"
+      aria-live="polite"
+    >
+      <p class="primary-menu-content__install-body">
+        Use your browser’s add or install option (exact wording varies):
+      </p>
+      <ol class="primary-menu-content__install-list">
+        {#each installManualSteps as step}
+          <li>{step}</li>
+        {/each}
+      </ol>
+    </section>
+  {/if}
+  <PrimaryNavLinks part="suffix" {onNavigate} />
+</nav>
 {#if pwa !== undefined}
   <button
     type="button"
