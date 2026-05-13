@@ -1,38 +1,9 @@
 /**
- * Home-route install flow helpers.
- * Keeps install capability detection and copy selection explicit and testable.
+ * Browser-led install advice only: platform-specific hints for the menu.
+ * Does not intercept `beforeinstallprompt` or call `prompt()` — the browser owns add/install UX.
  */
 
-import { writable, type Readable } from "svelte/store";
-
 export type InstallPlatform = "ios" | "android" | "desktop";
-
-export type InstallPromptOutcome = "accepted" | "dismissed" | "unknown";
-
-export type BeforeInstallPromptEventLike = Event & {
-  prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: "accepted" | "dismissed"; platform: string }>;
-};
-
-export type InstallObserverSnapshot = {
-  platform: InstallPlatform;
-  promptEvent: BeforeInstallPromptEventLike | null;
-  appInstalledCount: number;
-};
-
-export type InstallObserverStore = Readable<InstallObserverSnapshot> & {
-  clearPromptEvent: () => void;
-};
-
-type InstallObserverEventTarget = {
-  addEventListener: (type: string, listener: EventListenerOrEventListenerObject) => void;
-  removeEventListener: (type: string, listener: EventListenerOrEventListenerObject) => void;
-};
-
-type InstallObserverEnvironment = {
-  eventTarget: InstallObserverEventTarget | null;
-  userAgent: string | null;
-};
 
 export function detectInstallPlatform(userAgent: string): InstallPlatform {
   const ua = userAgent.toLowerCase();
@@ -65,92 +36,12 @@ export function manualInstallStepsForPlatform(
   ];
 }
 
-export async function promptForInstall(
-  promptEvent: BeforeInstallPromptEventLike,
-): Promise<InstallPromptOutcome> {
-  await promptEvent.prompt();
-  try {
-    const result = await promptEvent.userChoice;
-    if (result.outcome === "accepted") return "accepted";
-    if (result.outcome === "dismissed") return "dismissed";
-    return "unknown";
-  } catch {
-    return "unknown";
-  }
-}
-
-function initialInstallObserverSnapshot(
+/** Steps for in-app install help, from `navigator.userAgent` or null (defaults to desktop copy). */
+export function manualInstallStepsFromUserAgent(
   userAgent: string | null,
-): InstallObserverSnapshot {
-  if (userAgent != null) {
-    return {
-      platform: detectInstallPlatform(userAgent),
-      promptEvent: null,
-      appInstalledCount: 0,
-    };
+): readonly string[] {
+  if (userAgent != null && userAgent !== "") {
+    return manualInstallStepsForPlatform(detectInstallPlatform(userAgent));
   }
-  return {
-    platform: "desktop",
-    promptEvent: null,
-    appInstalledCount: 0,
-  };
+  return manualInstallStepsForPlatform("desktop");
 }
-
-function defaultInstallObserverEnvironment(): InstallObserverEnvironment {
-  return {
-    eventTarget: typeof window === "undefined" ? null : window,
-    userAgent: typeof navigator === "undefined" ? null : navigator.userAgent,
-  };
-}
-
-export function createInstallObserverStore(
-  environment: InstallObserverEnvironment = defaultInstallObserverEnvironment(),
-): InstallObserverStore {
-  const store = writable<InstallObserverSnapshot>(
-    initialInstallObserverSnapshot(environment.userAgent),
-    (set, update) => {
-      set(initialInstallObserverSnapshot(environment.userAgent));
-      if (environment.eventTarget == null) return;
-
-      const onBeforeInstallPrompt = (event: Event): void => {
-        const promptEvent = event as BeforeInstallPromptEventLike;
-        event.preventDefault();
-        update((state) => ({ ...state, promptEvent }));
-      };
-
-      const onAppInstalled = (): void => {
-        update((state) => ({
-          ...state,
-          promptEvent: null,
-          appInstalledCount: state.appInstalledCount + 1,
-        }));
-      };
-
-      environment.eventTarget.addEventListener(
-        "beforeinstallprompt",
-        onBeforeInstallPrompt,
-      );
-      environment.eventTarget.addEventListener("appinstalled", onAppInstalled);
-
-      return () => {
-        environment.eventTarget?.removeEventListener(
-          "beforeinstallprompt",
-          onBeforeInstallPrompt,
-        );
-        environment.eventTarget?.removeEventListener(
-          "appinstalled",
-          onAppInstalled,
-        );
-      };
-    },
-  );
-
-  return {
-    subscribe: store.subscribe,
-    clearPromptEvent: (): void => {
-      store.update((state) => ({ ...state, promptEvent: null }));
-    },
-  };
-}
-
-export const installObserver = createInstallObserverStore();

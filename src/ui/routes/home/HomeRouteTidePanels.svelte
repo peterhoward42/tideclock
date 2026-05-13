@@ -23,13 +23,10 @@
     readonly homeMenuPanelStyle: string;
     readonly homeFullscreenActive: boolean;
     readonly homeInstallInfoOpen: boolean;
-    readonly homeInstallCanPrompt: boolean;
     readonly homeInstallManualSteps: readonly string[];
-    readonly homeInstallStatusLine: string | null;
     readonly onCloseHomeMenu: () => void;
     readonly onToggleHomeFullscreen: () => void | Promise<void>;
     readonly onOpenInstallMenu: () => void;
-    readonly onPromptInstall: () => void | Promise<void>;
     readonly pwa: PwaDisplayMenu;
     diagramHostEl?: HTMLElement | undefined;
     homeInstrumentEl?: HTMLElement | undefined;
@@ -47,13 +44,10 @@
     homeMenuPanelStyle,
     homeFullscreenActive,
     homeInstallInfoOpen,
-    homeInstallCanPrompt,
     homeInstallManualSteps,
-    homeInstallStatusLine,
     onCloseHomeMenu,
     onToggleHomeFullscreen,
     onOpenInstallMenu,
-    onPromptInstall,
     pwa,
     diagramHostEl = $bindable(),
     homeInstrumentEl = $bindable(),
@@ -114,11 +108,8 @@
         <PrimaryMenuContent
           linksClassName="u-stack-sm u-nav-link-list"
           installInfoOpen={homeInstallInfoOpen}
-          installCanPrompt={homeInstallCanPrompt}
           installManualSteps={homeInstallManualSteps}
-          installStatusLine={homeInstallStatusLine}
           onToggleInstallInfo={onOpenInstallMenu}
-          onPromptInstall={onPromptInstall}
           onNavigate={onCloseHomeMenu}
           fullscreenActionLabel={homeFullscreenActive
             ? "Exit fullscreen"

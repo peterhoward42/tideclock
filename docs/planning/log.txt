@@ -18,7 +18,18 @@ o  location picker nasty on mobile landscape
 	*  tune menu
 	*  conundrum for demanding portrait for location if installed
 
-	o  present pwa as menu option for stand alone always on
+	*  present pwa as menu option for stand alone always on
+		*  test deployed
+
+	o  seeing two different behaviours for install
+		o  sometimes single shot install button
+		o  sometiimes manual steps
+		o  sometimes hit the button - shows single shot  works but menu has then
+		   been opeed with the manual instructions?
+
+
+
+
 	o  change back menu to the diagram with Home
 
 

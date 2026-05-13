@@ -20,11 +20,8 @@
   interface Props {
     readonly linksClassName: string;
     readonly installInfoOpen: boolean;
-    readonly installCanPrompt: boolean;
     readonly installManualSteps: readonly string[];
-    readonly installStatusLine: string | null;
     readonly onToggleInstallInfo: () => void;
-    readonly onPromptInstall: () => void | Promise<void>;
     readonly onNavigate?: () => void;
     readonly fullscreenActionLabel?: string;
     readonly onToggleFullscreen?: () => void | Promise<void>;
@@ -35,11 +32,8 @@
   let {
     linksClassName,
     installInfoOpen,
-    installCanPrompt,
     installManualSteps,
-    installStatusLine,
     onToggleInstallInfo,
-    onPromptInstall,
     onNavigate,
     fullscreenActionLabel,
     onToggleFullscreen,
@@ -70,27 +64,14 @@
     aria-label="How to install"
     aria-live="polite"
   >
-    {#if installCanPrompt}
-      <button
-        type="button"
-        class="primary-menu-content__action"
-        onclick={onPromptInstall}
-      >
-        Install
-      </button>
-    {:else}
-      <p class="primary-menu-content__install-body">
-        Install from your browser menu:
-      </p>
-      <ol class="primary-menu-content__install-list">
-        {#each installManualSteps as step}
-          <li>{step}</li>
-        {/each}
-      </ol>
-    {/if}
-    {#if installStatusLine !== null}
-      <p class="primary-menu-content__install-status">{installStatusLine}</p>
-    {/if}
+    <p class="primary-menu-content__install-body">
+      Use your browser’s add or install option (exact wording varies):
+    </p>
+    <ol class="primary-menu-content__install-list">
+      {#each installManualSteps as step}
+        <li>{step}</li>
+      {/each}
+    </ol>
   </section>
 {/if}
 {#if pwa !== undefined}
@@ -189,12 +170,6 @@
     gap: 0.25rem;
     font-size: 0.78rem;
     line-height: 1.3;
-  }
-
-  .primary-menu-content__install-status {
-    margin: 0.45rem 0 0;
-    font-size: 0.76rem;
-    color: var(--text-menu-content-status);
   }
 
   .primary-menu-content__pwa {

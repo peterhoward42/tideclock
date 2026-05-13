@@ -1,11 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { get } from "svelte/store";
 import {
-  createInstallObserverStore,
   detectInstallPlatform,
   manualInstallStepsForPlatform,
-  promptForInstall,
-  type BeforeInstallPromptEventLike,
+  manualInstallStepsFromUserAgent,
 } from "./installFlow";
 
 describe("installFlow", () => {
@@ -25,68 +22,15 @@ describe("installFlow", () => {
     ]);
   });
 
-  it("returns accepted when install prompt is accepted", async () => {
-    const promptEvent = {
-      prompt: async () => {},
-      userChoice: Promise.resolve({ outcome: "accepted", platform: "web" }),
-    } as BeforeInstallPromptEventLike;
-
-    await expect(promptForInstall(promptEvent)).resolves.toBe("accepted");
+  it("manualInstallStepsFromUserAgent maps UA to steps", () => {
+    expect(
+      manualInstallStepsFromUserAgent("Mozilla/5.0 (Android 15)"),
+    ).toEqual(manualInstallStepsForPlatform("android"));
   });
 
-  it("captures and clears beforeinstallprompt via shared observer store", () => {
-    const eventTarget = new EventTarget();
-    const observer = createInstallObserverStore({
-      eventTarget,
-      userAgent: "Mozilla/5.0 (Android 15)",
-    });
-    let snapshot = get(observer);
-    const unsubscribe = observer.subscribe((value) => {
-      snapshot = value;
-    });
-    const promptEvent = Object.assign(
-      new Event("beforeinstallprompt", { cancelable: true }),
-      {
-        prompt: async () => {},
-        userChoice: Promise.resolve({ outcome: "dismissed", platform: "web" }),
-      },
-    ) as BeforeInstallPromptEventLike;
-
-    eventTarget.dispatchEvent(promptEvent);
-
-    expect(promptEvent.defaultPrevented).toBe(true);
-    expect(snapshot.promptEvent).toBe(promptEvent);
-
-    observer.clearPromptEvent();
-    expect(snapshot.promptEvent).toBeNull();
-
-    unsubscribe();
-  });
-
-  it("increments install count and clears prompt event on appinstalled", () => {
-    const eventTarget = new EventTarget();
-    const observer = createInstallObserverStore({
-      eventTarget,
-      userAgent: "Mozilla/5.0 (Android 15)",
-    });
-    let snapshot = get(observer);
-    const unsubscribe = observer.subscribe((value) => {
-      snapshot = value;
-    });
-
-    const promptEvent = Object.assign(
-      new Event("beforeinstallprompt", { cancelable: true }),
-      {
-        prompt: async () => {},
-        userChoice: Promise.resolve({ outcome: "accepted", platform: "web" }),
-      },
-    ) as BeforeInstallPromptEventLike;
-    eventTarget.dispatchEvent(promptEvent);
-    eventTarget.dispatchEvent(new Event("appinstalled"));
-
-    expect(snapshot.promptEvent).toBeNull();
-    expect(snapshot.appInstalledCount).toBe(1);
-
-    unsubscribe();
+  it("manualInstallStepsFromUserAgent uses desktop copy when UA missing", () => {
+    expect(manualInstallStepsFromUserAgent(null)).toEqual(
+      manualInstallStepsForPlatform("desktop"),
+    );
   });
 });

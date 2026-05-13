@@ -76,11 +76,7 @@
     getDiagramFullscreenTarget,
     toggleInstrumentFullscreen,
   } from "./fullscreen";
-  import {
-    installObserver,
-    manualInstallStepsForPlatform,
-    promptForInstall,
-  } from "./installFlow";
+  import { manualInstallStepsFromUserAgent } from "./installFlow";
 
   let {
     tideLoadState,
@@ -112,9 +108,6 @@
   let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
   let homeFullscreenActive = $state(false);
   let homeInstallInfoOpen = $state(false);
-  let installObserverSnapshot = $state(get(installObserver));
-  let homeInstallLastSeenAppInstalledCount = $state(0);
-  let homeInstallStatusLine = $state<string | null>(null);
 
   let pwaUserWants = $state(get(keepAwakeUserStore));
   let pwaTideViewPresentation = $state(get(tideWakePresentationStore));
@@ -162,10 +155,9 @@
   );
 
   const homeInstallManualSteps = $derived(
-    manualInstallStepsForPlatform(installObserverSnapshot.platform),
-  );
-  const homeInstallCanPrompt = $derived(
-    installObserverSnapshot.promptEvent != null,
+    manualInstallStepsFromUserAgent(
+      typeof navigator !== "undefined" ? navigator.userAgent : null,
+    ),
   );
 
   /**
@@ -206,12 +198,6 @@
   });
 
   // Subscriptions and lifecycle (onMount)
-  onMount(() => {
-    return installObserver.subscribe(
-      (snapshot) => (installObserverSnapshot = snapshot),
-    );
-  });
-
   onMount(() => {
     if (!import.meta.env.DEV) return;
     try {
@@ -435,13 +421,6 @@
   });
 
   $effect(() => {
-    const installedCount = installObserverSnapshot.appInstalledCount;
-    if (installedCount <= homeInstallLastSeenAppInstalledCount) return;
-    homeInstallLastSeenAppInstalledCount = installedCount;
-    homeInstallStatusLine = "App installed.";
-  });
-
-  $effect(() => {
     if (diagramSvg === "") {
       homeMenuOpen = false;
       return;
@@ -553,7 +532,6 @@
     homeMenuOpen = false;
     homeInstallInfoOpen = false;
     pwaDisplaySectionOpen = false;
-    homeInstallStatusLine = null;
   }
 
   function dismissPwaStandaloneSetupThisSession(): void {
@@ -581,23 +559,6 @@
 
   function handleHomeInstallEntry(): void {
     homeInstallInfoOpen = !homeInstallInfoOpen;
-    homeInstallStatusLine = null;
-  }
-
-  async function handleInstallPromptAction(): Promise<void> {
-    const promptEvent = installObserverSnapshot.promptEvent;
-    if (promptEvent == null) return;
-    const outcome = await promptForInstall(promptEvent);
-    installObserver.clearPromptEvent();
-    if (outcome === "accepted") {
-      homeInstallStatusLine = "Install request accepted.";
-      return;
-    }
-    if (outcome === "dismissed") {
-      homeInstallStatusLine = "Install dismissed. You can try again from this menu.";
-      return;
-    }
-    homeInstallStatusLine = "Install dialog closed.";
   }
 </script>
 
@@ -647,13 +608,10 @@
     {homeMenuPanelStyle}
     {homeFullscreenActive}
     {homeInstallInfoOpen}
-    {homeInstallCanPrompt}
     {homeInstallManualSteps}
-    {homeInstallStatusLine}
     onCloseHomeMenu={closeHomeMenu}
     onToggleHomeFullscreen={handleHomeFullscreenToggle}
     onOpenInstallMenu={handleHomeInstallEntry}
-    onPromptInstall={handleInstallPromptAction}
     pwa={pwaForHomeMenu}
   />
 </main>
