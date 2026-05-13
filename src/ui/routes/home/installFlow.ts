@@ -37,9 +37,9 @@ type InstallObserverEnvironment = {
 };
 
 export const HOME_INSTALL_BENEFIT_LINES: readonly string[] = [
-  "Uses more of the screen, without browser bars taking up space.",
-  `Feels more like using ${THE_TIDE_DIAL} than browsing a regular website tab.`,
-  "You can turn on “keep screen awake” from the menu (optional; uses more battery if unplugged).",
+  "Full screen without browser bars—easier to read at a glance when the display stays open.",
+  `Feels more like ${THE_TIDE_DIAL} than browsing another website tab.`,
+  "Optional “keep screen awake” under App display (uses more battery if unplugged).",
 ];
 
 export function detectInstallPlatform(userAgent: string): InstallPlatform {

@@ -58,16 +58,21 @@
 
 <button
   type="button"
-  class="primary-menu-content__action"
+  class="primary-menu-content__action primary-menu-content__install-entry"
+  aria-expanded={installInfoOpen}
   onclick={onToggleInstallInfo}
 >
-  Install app
+  <span class="primary-menu-content__install-entry-label">Install as always-on display</span>
+  <span class="primary-menu-content__install-entry-hint">
+    Designed to be left running on a kitchen tablet or wall-mounted screen.
+  </span>
 </button>
 {#if installInfoOpen}
   <section class="primary-menu-content__install-flow" aria-live="polite">
-    <p class="primary-menu-content__install-title">Install {THE_TIDE_DIAL}</p>
+    <p class="primary-menu-content__install-title">What you get</p>
     <p class="primary-menu-content__install-body">
-      Installing helps {THE_TIDE_DIAL} feel focused and reliable for always-on use.
+      Same {THE_TIDE_DIAL} as in the browser, in a calmer full-screen shell—easy to
+      leave open at home, in guest space, or on a small retail display.
     </p>
     <ul class="primary-menu-content__install-list">
       {#each installBenefitLines as line}
@@ -80,7 +85,7 @@
         class="primary-menu-content__action"
         onclick={onPromptInstall}
       >
-        Continue install
+        Install
       </button>
     {:else}
       <p class="primary-menu-content__install-body">
@@ -155,6 +160,24 @@
 
   .primary-menu-content__action:hover {
     background: var(--surface-menu-content-control-hover);
+  }
+
+  .primary-menu-content__install-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .primary-menu-content__install-entry-label {
+    font-weight: 600;
+  }
+
+  .primary-menu-content__install-entry-hint {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    font-weight: 400;
+    color: var(--text-menu-content-status);
   }
 
   .primary-menu-content__install-flow {

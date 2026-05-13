@@ -16,13 +16,7 @@ o  location picker nasty on mobile landscape
 	   it in the menu, then menu is only entry point
 	*  advise to use portrait if visit locations route only if
 	*  tune menu
-
-
-
-	o  conundrum for demanding portrait for location if installed
-		*  write policy
-		*  update it with true pwa behaviour
-		o  consult cursor
+	*  conundrum for demanding portrait for location if installed
 
 	o  present pwa as menu option for stand alone always on
 	o  change back menu to the diagram with Home

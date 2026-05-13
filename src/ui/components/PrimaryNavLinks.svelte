@@ -17,7 +17,7 @@
 </script>
 
 <nav class={className} aria-label="Primary">
-  <a href="#/home" onclick={handleNavigate}>Back to the diagram</a>
+  <a href="#/home" onclick={handleNavigate}>Home</a>
   <a href="#/location2" onclick={handleNavigate}>Set <span class="primary-nav-links__emph-your">your</span> location</a>
   <a href="#/settings" onclick={handleNavigate}>Settings</a>
   <div class="primary-nav-links__about-row">

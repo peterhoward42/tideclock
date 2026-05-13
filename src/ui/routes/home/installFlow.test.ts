@@ -29,10 +29,10 @@ describe("installFlow", () => {
 
   it("includes install benefits copy used by the flow", () => {
     expect(HOME_INSTALL_BENEFIT_LINES).toContain(
-      "Uses more of the screen, without browser bars taking up space.",
+      "Full screen without browser bars—easier to read at a glance when the display stays open.",
     );
     expect(HOME_INSTALL_BENEFIT_LINES).toContain(
-      `Feels more like using ${THE_TIDE_DIAL} than browsing a regular website tab.`,
+      `Feels more like ${THE_TIDE_DIAL} than browsing another website tab.`,
     );
   });
 
