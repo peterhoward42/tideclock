@@ -14,13 +14,25 @@ o  location picker nasty on mobile landscape
 
 	*  change first use policy to default to Looe and pop up to say change
 	   it in the menu, then menu is only entry point
+	*  advise to use portrait if visit locations route only if
 
 	o  present pwa as menu option for stand alone always on
+	o  conundrum for demanding portrait for location if installed
 
-	o  advise to use portrait if visit locations route only if
-		o  on mobile (not tablet)
-		o  in landscape
+In some recent commits we settled on a policy for when the app is used in
+landscape vs portrait orientation. It is the home route that is used by the user
+the vast majority of the time, and that route is designed specifically for a
+landscape orientation. On mobile, we encoure the user to switch to landscape on
+the home route - with an in-page message in the letterbox free space to tell them
+the "The diagram will be bigger...". The next most used route is for the user to
+set or change their own location. This UI is infeasible at mobile sizes on
+landscape, so in this case we tell them they HAVE to switch to portrait to change
+the location. I very much like the end result of these decisions, but it leaves
+us with one main problem when the user chooses to install the app using PWA. We
+encourage that.
+
 	o  ditch old landscape route and code if not already
+	o  copy can be more of an orientation / intro not just about location
 
 
 

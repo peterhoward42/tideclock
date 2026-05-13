@@ -54,6 +54,8 @@
   );
 </script>
 
+<PrimaryNavLinks className={linksClassName} {onNavigate} />
+
 <button
   type="button"
   class="primary-menu-content__action"
@@ -126,8 +128,6 @@
     </section>
   {/if}
 {/if}
-
-<PrimaryNavLinks className={linksClassName} {onNavigate} />
 
 {#if fullscreenActionLabel !== undefined && onToggleFullscreen !== undefined}
   <button
