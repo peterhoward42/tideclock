@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { THE_TIDE_DIAL } from "../brand";
   import PrimaryNavLinks from "./PrimaryNavLinks.svelte";
   import HomePwaDisplaySection from "../routes/home/HomePwaDisplaySection.svelte";
   import type { WakeLockPresentation } from "../routes/home/wakeLockPresentation";
@@ -22,7 +21,6 @@
     readonly linksClassName: string;
     readonly installInfoOpen: boolean;
     readonly installCanPrompt: boolean;
-    readonly installBenefitLines: readonly string[];
     readonly installManualSteps: readonly string[];
     readonly installStatusLine: string | null;
     readonly onToggleInstallInfo: () => void;
@@ -38,7 +36,6 @@
     linksClassName,
     installInfoOpen,
     installCanPrompt,
-    installBenefitLines,
     installManualSteps,
     installStatusLine,
     onToggleInstallInfo,
@@ -62,23 +59,17 @@
   aria-expanded={installInfoOpen}
   onclick={onToggleInstallInfo}
 >
-  <span class="primary-menu-content__install-entry-label">Install as always-on display</span>
+  Install as always-on display
   <span class="primary-menu-content__install-entry-hint">
     Designed to be left running on a kitchen tablet or wall-mounted screen.
   </span>
 </button>
 {#if installInfoOpen}
-  <section class="primary-menu-content__install-flow" aria-live="polite">
-    <p class="primary-menu-content__install-title">What you get</p>
-    <p class="primary-menu-content__install-body">
-      Same {THE_TIDE_DIAL} as in the browser, in a calmer full-screen shell—easy to
-      leave open at home, in guest space, or on a small retail display.
-    </p>
-    <ul class="primary-menu-content__install-list">
-      {#each installBenefitLines as line}
-        <li>{line}</li>
-      {/each}
-    </ul>
+  <section
+    class="primary-menu-content__install-flow"
+    aria-label="How to install"
+    aria-live="polite"
+  >
     {#if installCanPrompt}
       <button
         type="button"
@@ -169,10 +160,6 @@
     gap: 0.25rem;
   }
 
-  .primary-menu-content__install-entry-label {
-    font-weight: 600;
-  }
-
   .primary-menu-content__install-entry-hint {
     font-size: 0.72rem;
     line-height: 1.35;
@@ -187,12 +174,6 @@
     border-radius: 0.25rem;
     background: var(--surface-menu-content-inset);
     color: var(--text-menu-content-primary);
-  }
-
-  .primary-menu-content__install-title {
-    margin: 0;
-    font-size: 0.9rem;
-    font-weight: 600;
   }
 
   .primary-menu-content__install-body {

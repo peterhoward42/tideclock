@@ -1,10 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { get } from "svelte/store";
-import { THE_TIDE_DIAL } from "../../brand";
 import {
   createInstallObserverStore,
   detectInstallPlatform,
-  HOME_INSTALL_BENEFIT_LINES,
   manualInstallStepsForPlatform,
   promptForInstall,
   type BeforeInstallPromptEventLike,
@@ -25,15 +23,6 @@ describe("installFlow", () => {
       "Choose Install app or Add to Home screen.",
       "Confirm Install.",
     ]);
-  });
-
-  it("includes install benefits copy used by the flow", () => {
-    expect(HOME_INSTALL_BENEFIT_LINES).toContain(
-      "Full screen without browser bars—easier to read at a glance when the display stays open.",
-    );
-    expect(HOME_INSTALL_BENEFIT_LINES).toContain(
-      `Feels more like ${THE_TIDE_DIAL} than browsing another website tab.`,
-    );
   });
 
   it("returns accepted when install prompt is accepted", async () => {

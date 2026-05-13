@@ -24,7 +24,6 @@
     readonly homeFullscreenActive: boolean;
     readonly homeInstallInfoOpen: boolean;
     readonly homeInstallCanPrompt: boolean;
-    readonly homeInstallBenefitLines: readonly string[];
     readonly homeInstallManualSteps: readonly string[];
     readonly homeInstallStatusLine: string | null;
     readonly onCloseHomeMenu: () => void;
@@ -49,7 +48,6 @@
     homeFullscreenActive,
     homeInstallInfoOpen,
     homeInstallCanPrompt,
-    homeInstallBenefitLines,
     homeInstallManualSteps,
     homeInstallStatusLine,
     onCloseHomeMenu,
@@ -117,7 +115,6 @@
           linksClassName="u-stack-sm u-nav-link-list"
           installInfoOpen={homeInstallInfoOpen}
           installCanPrompt={homeInstallCanPrompt}
-          installBenefitLines={homeInstallBenefitLines}
           installManualSteps={homeInstallManualSteps}
           installStatusLine={homeInstallStatusLine}
           onToggleInstallInfo={onOpenInstallMenu}

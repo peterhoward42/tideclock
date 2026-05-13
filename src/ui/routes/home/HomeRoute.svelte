@@ -78,7 +78,6 @@
   } from "./fullscreen";
   import {
     installObserver,
-    HOME_INSTALL_BENEFIT_LINES,
     manualInstallStepsForPlatform,
     promptForInstall,
   } from "./installFlow";
@@ -162,7 +161,6 @@
     formatDiagramPreviewBanner(homeDiagramPreview),
   );
 
-  const homeInstallBenefitLines = $derived(HOME_INSTALL_BENEFIT_LINES);
   const homeInstallManualSteps = $derived(
     manualInstallStepsForPlatform(installObserverSnapshot.platform),
   );
@@ -650,7 +648,6 @@
     {homeFullscreenActive}
     {homeInstallInfoOpen}
     {homeInstallCanPrompt}
-    {homeInstallBenefitLines}
     {homeInstallManualSteps}
     {homeInstallStatusLine}
     onCloseHomeMenu={closeHomeMenu}

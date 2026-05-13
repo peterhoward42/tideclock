@@ -5,8 +5,6 @@
 
 import { writable, type Readable } from "svelte/store";
 
-import { THE_TIDE_DIAL } from "../../brand";
-
 export type InstallPlatform = "ios" | "android" | "desktop";
 
 export type InstallPromptOutcome = "accepted" | "dismissed" | "unknown";
@@ -35,12 +33,6 @@ type InstallObserverEnvironment = {
   eventTarget: InstallObserverEventTarget | null;
   userAgent: string | null;
 };
-
-export const HOME_INSTALL_BENEFIT_LINES: readonly string[] = [
-  "Full screen without browser bars—easier to read at a glance when the display stays open.",
-  `Feels more like ${THE_TIDE_DIAL} than browsing another website tab.`,
-  "Optional “keep screen awake” under App display (uses more battery if unplugged).",
-];
 
 export function detectInstallPlatform(userAgent: string): InstallPlatform {
   const ua = userAgent.toLowerCase();

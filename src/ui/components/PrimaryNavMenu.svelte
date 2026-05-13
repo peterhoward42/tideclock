@@ -8,7 +8,6 @@
   import PrimaryMenuContent from "./PrimaryMenuContent.svelte";
   import {
     installObserver,
-    HOME_INSTALL_BENEFIT_LINES,
     manualInstallStepsForPlatform,
     promptForInstall,
   } from "../routes/home/installFlow";
@@ -27,7 +26,6 @@
   let installObserverSnapshot = $state(get(installObserver));
   let installLastSeenAppInstalledCount = $state(0);
   let installStatusLine = $state<string | null>(null);
-  const installBenefitLines = $derived(HOME_INSTALL_BENEFIT_LINES);
   const installManualSteps = $derived(
     manualInstallStepsForPlatform(installObserverSnapshot.platform),
   );
@@ -116,7 +114,6 @@
       linksClassName="u-stack-sm u-nav-link-list"
       installInfoOpen={installInfoOpen}
       installCanPrompt={installCanPrompt}
-      installBenefitLines={installBenefitLines}
       installManualSteps={installManualSteps}
       installStatusLine={installStatusLine}
       onToggleInstallInfo={handleInstallEntry}
