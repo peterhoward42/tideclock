@@ -9,7 +9,7 @@
 import { writable } from 'svelte/store'
 
 /**
- * @typedef {'home' | 'location2' | 'settings' | 'about' | 'acknowledgements' | 'support' | 'cookies'} RouteId
+ * @typedef {'home' | 'location' | 'settings' | 'about' | 'acknowledgements' | 'support' | 'cookies'} RouteId
  */
 
 /** @type {import('svelte/store').Writable<RouteId>} */
@@ -18,8 +18,9 @@ export const route = writable('home')
 /**
  * @param {string} hash
  * @returns {RouteId} Unknown segments map to `home` (defensive default for arbitrary `#/...` input).
+ * `location2` is accepted as a legacy hash segment (same screen as `location`).
  */
-function parseHash(hash) {
+export function parseHash(hash) {
   const raw = hash.replace(/^#\/?/, '').trim()
   switch (raw) {
     case '':
@@ -28,9 +29,8 @@ function parseHash(hash) {
     case 'settings':
       return 'settings'
     case 'location':
-      return 'location2'
     case 'location2':
-      return 'location2'
+      return 'location'
     case 'about':
       return 'about'
     case 'acknowledgements':
@@ -46,12 +46,22 @@ function parseHash(hash) {
 
 /**
  * Sync store from {@link window.location.hash}.
+ * Rewrites legacy `#/location2` to `#/location` via {@link history.replaceState} (no extra history entry).
  */
 export function syncRouteFromHash() {
   if (typeof window === 'undefined') {
     return
   }
-  route.set(parseHash(window.location.hash))
+  const hash = window.location.hash
+  const raw = hash.replace(/^#\/?/, '').trim()
+  const id = parseHash(hash)
+  route.set(id)
+
+  if (raw === 'location2' && id === 'location') {
+    const url = new URL(window.location.href)
+    url.hash = `/${id}`
+    history.replaceState(null, '', url.href)
+  }
 }
 
 /**

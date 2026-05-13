@@ -19,9 +19,7 @@ o  location picker nasty on mobile landscape
 	*  conundrum for demanding portrait for location if installed
 	*  present pwa as menu option for stand alone always on
 	*  vastly pare back interference with pws install process
-
-	o  change back menu to the diagram with Home
-		o  and fix order again
+	*  change back menu to the diagram with Home
 
 
 	o  ditch old landscape route and code if not already
@@ -29,6 +27,20 @@ o  location picker nasty on mobile landscape
 
 	o  first load copy can be more of an orientation / intro not just about location
 
+
+	Current
+		Showing tides for Looe, Cornwall
+		Start here and then set your own location from the menu.
+
+	Aspiration content (additions)
+		o  The Tide Dial shows you today's live tide times for where you are.
+		o  It rolls over automatically each day.
+
+		o  The clock-like scale is today's 24 hour clock
+		o  The green arrow is the clock's hand - showing the time now
+
+		o  The purple markers tell you when the low tides and high tides happen -
+		and their height in metres.
 
 
 o  review and plan other pages

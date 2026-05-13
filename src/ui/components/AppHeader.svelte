@@ -43,7 +43,7 @@
     {#if center.kind === "location"}
       <a
         class="center-control center-control--location"
-        href="#/location2"
+        href="#/location"
         onclick={closeHeaderNav}
         aria-label="Change location"
       >

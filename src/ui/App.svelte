@@ -23,7 +23,7 @@
   import { civilDayWindowFromHostClock } from "../time-services/currentCivilDayWindow";
   import AppHeader from "./components/AppHeader.svelte";
   import Home from "./routes/Home.svelte";
-  import LocationTowns2Stepback from "./routes/LocationTowns2Stepback.svelte";
+  import LocationRoute from "./routes/LocationRoute.svelte";
   import Settings from "./routes/Settings.svelte";
   import About from "./routes/About.svelte";
   import Acknowledgements from "./routes/Acknowledgements.svelte";
@@ -204,7 +204,7 @@
 
   function headerPlaceholderForRoute(routeId: AppRouteId): string {
     switch (routeId) {
-      case "location2":
+      case "location":
         return "Location";
       case "settings":
         return "Settings";
@@ -290,8 +290,8 @@
         defaultLocationExplainerOpen={showDefaultLocationExplainer}
         onDismissDefaultLocationExplainer={dismissDefaultLocationExplainer}
       />
-    {:else if $route === "location2"}
-      <LocationTowns2Stepback setCurrentLocation={setCurrentLocation} />
+    {:else if $route === "location"}
+      <LocationRoute setCurrentLocation={setCurrentLocation} />
     {:else if $route === "settings"}
       <Settings />
     {:else if $route === "about"}

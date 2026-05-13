@@ -26,7 +26,7 @@
 
 {#snippet prefixLinks()}
   <a href="#/home" onclick={handleNavigate}>Home</a>
-  <a href="#/location2" onclick={handleNavigate}
+  <a href="#/location" onclick={handleNavigate}
     >Set <span class="primary-nav-links__emph-your">your</span> location</a
   >
 {/snippet}

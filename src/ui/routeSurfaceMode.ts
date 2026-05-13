@@ -4,7 +4,7 @@
  */
 export type AppRouteId =
   | "home"
-  | "location2"
+  | "location"
   | "settings"
   | "about"
   | "acknowledgements"

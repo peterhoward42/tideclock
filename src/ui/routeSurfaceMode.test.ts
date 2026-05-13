@@ -9,7 +9,7 @@ describe("surfaceModeForRoute", () => {
 
   it("maps all non-home routes to document mode", () => {
     const documentRoutes: AppRouteId[] = [
-      "location2",
+      "location",
       "settings",
       "about",
       "acknowledgements",
