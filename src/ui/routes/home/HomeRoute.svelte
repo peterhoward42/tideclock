@@ -110,6 +110,7 @@
   let homeMenuOpen = $state(false);
   let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
   let homeFullscreenActive = $state(false);
+  let homeContactOpen = $state(false);
   let homeInstallInfoOpen = $state(false);
 
   let pwaUserWants = $state(get(keepAwakeUserStore));
@@ -455,6 +456,7 @@
    */
   $effect(() => {
     if (!homeMenuOpen || diagramSvg === "") return;
+    void homeContactOpen;
     void homeInstallInfoOpen;
     void pwaDisplaySectionOpen;
     void tick().then(() => {
@@ -537,6 +539,7 @@
 
   function closeHomeMenu(): void {
     homeMenuOpen = false;
+    homeContactOpen = false;
     homeInstallInfoOpen = false;
     pwaDisplaySectionOpen = false;
   }
@@ -566,6 +569,10 @@
 
   function handleHomeInstallEntry(): void {
     homeInstallInfoOpen = !homeInstallInfoOpen;
+  }
+
+  function handleHomeContactEntry(): void {
+    homeContactOpen = !homeContactOpen;
   }
 </script>
 
@@ -612,10 +619,12 @@
     {homeMenuOpen}
     {homeMenuPanelStyle}
     {homeFullscreenActive}
+    {homeContactOpen}
     {homeInstallInfoOpen}
     {homeInstallManualSteps}
     onCloseHomeMenu={closeHomeMenu}
     onToggleHomeFullscreen={handleHomeFullscreenToggle}
+    onToggleHomeContact={handleHomeContactEntry}
     onOpenInstallMenu={handleHomeInstallEntry}
     pwa={pwaForHomeMenu}
   />

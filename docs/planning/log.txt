@@ -11,15 +11,18 @@ o  review and plan other pages
 	o  plan sequence
 		*  ditch redundant routes and deps
 		o  work top down from suggestions below
-			o  about the app
-				o  document it
-					o  version
-					o  source ack
-					o  safety
-					o  cookie
+			*  about the app
+			o  contact
+				o  menu item wording = Contact
+				o  menu item position, after About
+				o  content
 
-					o  common header 
-					o  good for mobile too
+
+Questions, bug reports, thoughtful suggestions.
+
+This app is personally designed and maintained by me, so responses may occasionally be slow, but I do read everything.
+
+peterhoward42@gmail.com
 
 
 Catalogue

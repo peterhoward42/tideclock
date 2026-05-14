@@ -26,9 +26,11 @@
     readonly homeMenuOpen: boolean;
     readonly homeMenuPanelStyle: string;
     readonly homeFullscreenActive: boolean;
+    readonly homeContactOpen: boolean;
     readonly homeInstallInfoOpen: boolean;
     readonly homeInstallManualSteps: readonly string[];
     readonly onCloseHomeMenu: () => void;
+    readonly onToggleHomeContact: () => void;
     readonly onToggleHomeFullscreen: () => void | Promise<void>;
     readonly onOpenInstallMenu: () => void;
     readonly pwa: PwaDisplayMenu;
@@ -50,9 +52,11 @@
     homeMenuOpen,
     homeMenuPanelStyle,
     homeFullscreenActive,
+    homeContactOpen,
     homeInstallInfoOpen,
     homeInstallManualSteps,
     onCloseHomeMenu,
+    onToggleHomeContact,
     onToggleHomeFullscreen,
     onOpenInstallMenu,
     pwa,
@@ -127,6 +131,8 @@
       >
         <PrimaryMenuContent
           linksClassName="u-stack-sm u-nav-link-list"
+          contactOpen={homeContactOpen}
+          onToggleContact={onToggleHomeContact}
           installInfoOpen={homeInstallInfoOpen}
           installManualSteps={homeInstallManualSteps}
           onToggleInstallInfo={onOpenInstallMenu}

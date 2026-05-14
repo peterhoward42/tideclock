@@ -15,6 +15,7 @@
   import { isWakeLockApiSupported } from "../routes/home/wakeLockSupport";
 
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
+  let contactOpen = $state(false);
   let installInfoOpen = $state(false);
   let pwaDisplaySectionOpen = $state(false);
   let pwaUserWants = $state(get(keepAwakeUserStore));
@@ -45,6 +46,7 @@
   /** Called from parent header (brand / location) so navigation closes the flyout. */
   export function closeMenu(): void {
     menuDetails?.removeAttribute("open");
+    contactOpen = false;
     installInfoOpen = false;
     pwaDisplaySectionOpen = false;
   }
@@ -55,6 +57,10 @@
 
   function handleInstallEntry(): void {
     installInfoOpen = !installInfoOpen;
+  }
+
+  function handleContactEntry(): void {
+    contactOpen = !contactOpen;
   }
 
   onMount(() =>
@@ -73,6 +79,8 @@
   <div class="nav-links u-pad-surface-sm">
     <PrimaryMenuContent
       linksClassName="u-stack-sm u-nav-link-list"
+      contactOpen={contactOpen}
+      onToggleContact={handleContactEntry}
       installInfoOpen={installInfoOpen}
       installManualSteps={installManualSteps}
       onToggleInstallInfo={handleInstallEntry}

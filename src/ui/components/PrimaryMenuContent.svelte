@@ -19,6 +19,8 @@
 
   interface Props {
     readonly linksClassName: string;
+    readonly contactOpen: boolean;
+    readonly onToggleContact: () => void;
     readonly installInfoOpen: boolean;
     readonly installManualSteps: readonly string[];
     readonly onToggleInstallInfo: () => void;
@@ -31,6 +33,8 @@
 
   let {
     linksClassName,
+    contactOpen,
+    onToggleContact,
     installInfoOpen,
     installManualSteps,
     onToggleInstallInfo,
@@ -47,6 +51,36 @@
 
 <nav class={linksClassName} aria-label="Primary">
   <PrimaryNavLinks {onNavigate} />
+  <button
+    type="button"
+    class="primary-menu-content__action"
+    aria-expanded={contactOpen}
+    aria-controls="primary-menu-contact-panel"
+    onclick={onToggleContact}
+  >
+    Contact
+  </button>
+  {#if contactOpen}
+    <section
+      id="primary-menu-contact-panel"
+      class="primary-menu-content__contact-panel"
+      aria-label="Contact"
+      aria-live="polite"
+    >
+      <p class="primary-menu-content__contact-body">
+        Questions, bug reports, thoughtful suggestions.
+      </p>
+      <p class="primary-menu-content__contact-body">
+        This app is personally designed and maintained by me, so responses may
+        occasionally be slow, but I do read everything.
+      </p>
+      <p class="primary-menu-content__contact-email">
+        <a
+          href="mailto:peterhoward42@gmail.com"
+          onclick={() => onNavigate?.()}>peterhoward42@gmail.com</a>
+      </p>
+    </section>
+  {/if}
   <button
     type="button"
     class="primary-menu-content__action primary-menu-content__install-entry"
@@ -156,6 +190,35 @@
     border: 1px solid var(--border-menu-content-inset);
     border-radius: 0.25rem;
     background: var(--surface-menu-content-inset);
+    color: var(--text-menu-content-primary);
+  }
+
+  .primary-menu-content__contact-panel {
+    margin-top: 0.35rem;
+    padding: 0.45rem 0.5rem;
+    border: 1px solid var(--border-menu-content-inset);
+    border-radius: 0.25rem;
+    background: var(--surface-menu-content-inset);
+    color: var(--text-menu-content-primary);
+  }
+
+  .primary-menu-content__contact-body {
+    margin: 0.4rem 0 0;
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .primary-menu-content__contact-body:first-child {
+    margin-top: 0;
+  }
+
+  .primary-menu-content__contact-email {
+    margin: 0.45rem 0 0;
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .primary-menu-content__contact-email a {
     color: var(--text-menu-content-primary);
   }
 
