@@ -8,14 +8,7 @@ describe("surfaceModeForRoute", () => {
   });
 
   it("maps all non-home routes to document mode", () => {
-    const documentRoutes: AppRouteId[] = [
-      "location",
-      "settings",
-      "about",
-      "acknowledgements",
-      "support",
-      "cookies",
-    ];
+    const documentRoutes: AppRouteId[] = ["location"];
     for (const routeId of documentRoutes) {
       expect(surfaceModeForRoute(routeId)).toBe("document");
     }

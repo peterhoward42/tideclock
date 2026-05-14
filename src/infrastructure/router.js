@@ -8,8 +8,17 @@
 
 import { writable } from 'svelte/store'
 
+/** @type {readonly string[]} */
+const LEGACY_PLACEHOLDER_HASHES = [
+  'settings',
+  'about',
+  'acknowledgements',
+  'support',
+  'cookies',
+]
+
 /**
- * @typedef {'home' | 'location' | 'settings' | 'about' | 'acknowledgements' | 'support' | 'cookies'} RouteId
+ * @typedef {'home' | 'location'} RouteId
  */
 
 /** @type {import('svelte/store').Writable<RouteId>} */
@@ -26,19 +35,9 @@ export function parseHash(hash) {
     case '':
     case 'home':
       return 'home'
-    case 'settings':
-      return 'settings'
     case 'location':
     case 'location2':
       return 'location'
-    case 'about':
-      return 'about'
-    case 'acknowledgements':
-      return 'acknowledgements'
-    case 'support':
-      return 'support'
-    case 'cookies':
-      return 'cookies'
     default:
       return 'home'
   }
@@ -60,6 +59,10 @@ export function syncRouteFromHash() {
   if (raw === 'location2' && id === 'location') {
     const url = new URL(window.location.href)
     url.hash = `/${id}`
+    history.replaceState(null, '', url.href)
+  } else if (LEGACY_PLACEHOLDER_HASHES.includes(raw) && id === 'home') {
+    const url = new URL(window.location.href)
+    url.hash = '/home'
     history.replaceState(null, '', url.href)
   }
 }

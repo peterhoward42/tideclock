@@ -74,7 +74,8 @@
   --surface-home-support-action-hover: #bfdbfe;
   --text-home-support-action: #1d4ed8;
   --text-home-support-action-hover: #1e40af;
-  --text-home-landscape-hint: rgb(148 163 184 / 0.55);
+  /* Portrait letterbox hint: readable on light chrome, still below primary UI. */
+  --text-home-landscape-hint: rgb(71 85 105 / 0.95);
   --text-home-panel-muted: #dbeafe;
   --surface-home-menu-trigger-hover: #191919;
   --border-home-menu-trigger-hover: #aaa;
@@ -125,7 +126,8 @@
   --surface-home-support-action-hover: #bfdbfe;
   --text-home-support-action: #1d4ed8;
   --text-home-support-action-hover: #1e40af;
-  --text-home-landscape-hint: rgb(148 163 184 / 0.55);
+  /* Same hint on black letterbox: higher contrast so it scans as guidance, not metadata. */
+  --text-home-landscape-hint: rgb(226 232 240 / 0.92);
   --text-home-panel-muted: rgb(191 219 254 / 0.92);
   --surface-home-menu-trigger-hover: #191919;
   --border-home-menu-trigger-hover: #aaa;

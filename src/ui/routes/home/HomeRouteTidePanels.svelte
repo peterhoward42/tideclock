@@ -243,12 +243,13 @@
 
   .home-landscape-hint-strip__text {
     margin: 0;
-    max-width: 36ch;
+    max-width: min(36ch, calc(100% - 0.5rem));
     color: var(--text-home-landscape-hint);
-    font-size: 0.72rem;
-    line-height: 1.3;
-    font-weight: 500;
-    letter-spacing: 0.02em;
+    /* Mobile-first: large enough to read at arm’s length; clamp keeps it secondary vs the dial. */
+    font-size: clamp(0.8125rem, 0.72rem + 1.25vw, 0.875rem);
+    line-height: 1.35;
+    font-weight: 600;
+    letter-spacing: 0.01em;
   }
 
   /* No colon animation: keep the HH:MM:SS clock row stable. */

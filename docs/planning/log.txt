@@ -2,89 +2,81 @@
 TIDE DIAL
 
 
-*  ditch obsolete docs
-*  ditch orhphaned location UI and servic helpers
-*  rename pass on new location stuff?
-*  ditch duplicate schedulers if possible
-*  on android browser offers open - which opens prior installed app, why not cache
-   refreshed? 
-*  fix  problem with long location names
-
-o  location picker nasty on mobile landscape
-
-	*  change first use policy to default to Looe and pop up to say change
-	   it in the menu, then menu is only entry point
-	*  advise to use portrait if visit locations route only if
-	*  tune menu
-	*  conundrum for demanding portrait for location if installed
-	*  present pwa as menu option for stand alone always on
-	*  vastly pare back interference with pws install process
-	*  change back menu to the diagram with Home
-	*  ditch old landscape route and code if not already
-	*  first load copy can be more of an orientation / intro not just about 
-	   location
-
-	o  the diagram will be bigger if you rotate your phone - bolder
-
-
-
-
-Tides for Looe, Cornwall
-Start here, then set your own location from the menu.
-
-Today’s 24 hour tide dial
-Green hand = time now
-Purple markers = tides and heights
-
+o  remove routine keep screen awake menu and internals, but retain in pwa
 
 o  review and plan other pages
-	o  catalogue and review merit
-	o  main ctas vs the rest
-	o  two levels of hierachy
+	*  catalogue and review merit
+	*  main ctas vs the rest
+	*  two levels of hierachy
+	o  plan sequence
+		o  ditch redundant routes and deps
+		o  work top down from suggestions below
+
+
+Catalogue
+	*  safety
+	*  acknowledgements to global tide data
+	*  support / contact
+	*  cookies
+	*  full screen (really full) (keep in menu)
+	*  cross sell drawexact / and or me / services
+	*  qr code keep in menu under share
+	*  donate
+	*  source code
+	*  tide trivia
+
+o  Ideas for bucket pages
+	o  About app
+		o  git hash
+		o  ack
+		o  safety
+		o  cookies
+
+	o  Contact
+		o  help / support / suggestons
+
+	o  Meet the author
+		o  say hello
+		o  donate?
+		o  meet me / software services
+		o  draw exact
+
+	o  Nerd page
+		o  tide nerdyness
+		o  software nerdyness
+
+	fart
 
 
 See /docs/specs/tide-diagram.md for context.
 
-o  discover / marketing screen?
-o  cross sell drawexact
-o  cross sell me
 
 
-				o  proxy cost risk containment
-					o  how to use real estate better - partic on phone
-						o  aspect ratio sensitivity in diagram and outer?
+o  proxy cost risk containment 
 
-o  improve scarborough to whitby coverage is bad
+o  scarborough to whitby coverage is bad for some reason?
 
 
 
-				o  other pages
-				o  how can it be free?
-				o  what about marketing route or separate app?
 				o  QR code in auxilliary route
 				o  report bugs and suggestions
 				o  donate?
 				o  see the source
 				o  see a funny tide
 				o  learn about tides
-				o  stories about tides:w
-				o  marketing route?
-				o  branding
-				o  deploy
-				o  leave it running to spot errors / null in log
-				o  say suggest use landscape
-				o  older browsers
-				o  network hits observability
+				o  stories about tides
+				o  real DNS 
+				o  older browsers and old tablet?
+				o  network hits observability on vercel?
 				o  say hello
 				o  give feedback
 				o  donate
 				o  buy my software / my skills
+fart
 				o  learn about tides
 				o  acks and source
 				o  safety
 				o  tide joke / image for human
-				o  how hide browser apparatus at top?
-				o  facilitate user reporting errors
 				
 
 o  don't forget
@@ -95,3 +87,4 @@ o  don't forget
 	o  about me, gis a job
 	o  learn about tides
 	o  hire me
+o  github housekeeping incl readme

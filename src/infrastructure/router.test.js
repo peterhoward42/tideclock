@@ -21,6 +21,14 @@ describe("parseHash", () => {
   it("maps unknown segments to home", () => {
     expect(parseHash("#/nope")).toBe("home");
   });
+
+  it("maps removed placeholder route hashes to home", () => {
+    expect(parseHash("#/settings")).toBe("home");
+    expect(parseHash("#/about")).toBe("home");
+    expect(parseHash("#/acknowledgements")).toBe("home");
+    expect(parseHash("#/support")).toBe("home");
+    expect(parseHash("#/cookies")).toBe("home");
+  });
 });
 
 describe("syncRouteFromHash", () => {
@@ -49,6 +57,25 @@ describe("syncRouteFromHash", () => {
     expect(replaceState).toHaveBeenCalledOnce();
     expect(replaceState.mock.calls[0][2]).toBe(
       "http://localhost:5173/#/location",
+    );
+  });
+
+  it("rewrites legacy placeholder hashes to #/home via replaceState", () => {
+    const replaceState = vi.fn();
+    vi.stubGlobal("history", { replaceState });
+    vi.stubGlobal("window", {
+      location: {
+        hash: "#/about",
+        href: "http://localhost:5173/#/about",
+      },
+    });
+
+    syncRouteFromHash();
+
+    expect(get(route)).toBe("home");
+    expect(replaceState).toHaveBeenCalledOnce();
+    expect(replaceState.mock.calls[0][2]).toBe(
+      "http://localhost:5173/#/home",
     );
   });
 

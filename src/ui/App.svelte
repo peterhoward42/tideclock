@@ -24,11 +24,6 @@
   import AppHeader from "./components/AppHeader.svelte";
   import Home from "./routes/Home.svelte";
   import LocationRoute from "./routes/LocationRoute.svelte";
-  import Settings from "./routes/Settings.svelte";
-  import About from "./routes/About.svelte";
-  import Acknowledgements from "./routes/Acknowledgements.svelte";
-  import Support from "./routes/Support.svelte";
-  import Cookies from "./routes/Cookies.svelte";
   import { THE_TIDE_DIAL, TIDE_DIAL_PRODUCTION_ORIGIN } from "./brand";
   import { surfaceModeForRoute } from "./routeSurfaceMode";
 
@@ -212,16 +207,6 @@
     switch (routeId) {
       case "location":
         return "Location";
-      case "settings":
-        return "Settings";
-      case "about":
-        return "About";
-      case "acknowledgements":
-        return "Acknowledgements";
-      case "support":
-        return "Support";
-      case "cookies":
-        return "Cookies";
       case "home":
         return "";
       default:
@@ -299,16 +284,6 @@
       />
     {:else if $route === "location"}
       <LocationRoute setCurrentLocation={setCurrentLocation} />
-    {:else if $route === "settings"}
-      <Settings />
-    {:else if $route === "about"}
-      <About />
-    {:else if $route === "acknowledgements"}
-      <Acknowledgements />
-    {:else if $route === "support"}
-      <Support />
-    {:else if $route === "cookies"}
-      <Cookies />
     {/if}
   </section>
 </div>

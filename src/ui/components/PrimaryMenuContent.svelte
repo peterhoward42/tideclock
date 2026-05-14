@@ -46,7 +46,7 @@
 </script>
 
 <nav class={linksClassName} aria-label="Primary">
-  <PrimaryNavLinks part="prefix" {onNavigate} />
+  <PrimaryNavLinks {onNavigate} />
   <button
     type="button"
     class="primary-menu-content__action primary-menu-content__install-entry"
@@ -74,7 +74,6 @@
       </ol>
     </section>
   {/if}
-  <PrimaryNavLinks part="suffix" {onNavigate} />
 </nav>
 {#if pwa !== undefined}
   <button
