@@ -11,14 +11,13 @@ import { writable } from 'svelte/store'
 /** @type {readonly string[]} */
 const LEGACY_PLACEHOLDER_HASHES = [
   'settings',
-  'about',
   'acknowledgements',
   'support',
   'cookies',
 ]
 
 /**
- * @typedef {'home' | 'location'} RouteId
+ * @typedef {'home' | 'location' | 'about' | 'meet-the-author'} RouteId
  */
 
 /** @type {import('svelte/store').Writable<RouteId>} */
@@ -30,7 +29,8 @@ export const route = writable('home')
  * `location2` is accepted as a legacy hash segment (same screen as `location`).
  */
 export function parseHash(hash) {
-  const raw = hash.replace(/^#\/?/, '').trim()
+  const tail = hash.replace(/^#\/?/, '').trim()
+  const raw = tail.split('#')[0].split('?')[0].trim()
   switch (raw) {
     case '':
     case 'home':
@@ -38,6 +38,10 @@ export function parseHash(hash) {
     case 'location':
     case 'location2':
       return 'location'
+    case 'about':
+      return 'about'
+    case 'meet-the-author':
+      return 'meet-the-author'
     default:
       return 'home'
   }
@@ -52,7 +56,8 @@ export function syncRouteFromHash() {
     return
   }
   const hash = window.location.hash
-  const raw = hash.replace(/^#\/?/, '').trim()
+  const tail = hash.replace(/^#\/?/, '').trim()
+  const raw = tail.split('#')[0].split('?')[0].trim()
   const id = parseHash(hash)
   route.set(id)
 

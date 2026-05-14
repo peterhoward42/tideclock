@@ -9,8 +9,17 @@ o  review and plan other pages
 	*  main ctas vs the rest
 	*  two levels of hierachy
 	o  plan sequence
-		o  ditch redundant routes and deps
+		*  ditch redundant routes and deps
 		o  work top down from suggestions below
+			o  about the app
+				o  document it
+					o  version
+					o  source ack
+					o  safety
+					o  cookie
+
+					o  common header 
+					o  good for mobile too
 
 
 Catalogue

@@ -22,12 +22,22 @@ describe("parseHash", () => {
     expect(parseHash("#/nope")).toBe("home");
   });
 
-  it("maps removed placeholder route hashes to home", () => {
+  it("maps legacy placeholder route hashes to home", () => {
     expect(parseHash("#/settings")).toBe("home");
-    expect(parseHash("#/about")).toBe("home");
     expect(parseHash("#/acknowledgements")).toBe("home");
     expect(parseHash("#/support")).toBe("home");
     expect(parseHash("#/cookies")).toBe("home");
+  });
+
+  it("maps about and about with trailing fragment", () => {
+    expect(parseHash("#/about")).toBe("about");
+    expect(parseHash("about")).toBe("about");
+    expect(parseHash("#/about#meet-the-author")).toBe("about");
+  });
+
+  it("maps meet-the-author route", () => {
+    expect(parseHash("#/meet-the-author")).toBe("meet-the-author");
+    expect(parseHash("meet-the-author")).toBe("meet-the-author");
   });
 });
 
@@ -60,7 +70,26 @@ describe("syncRouteFromHash", () => {
     );
   });
 
-  it("rewrites legacy placeholder hashes to #/home via replaceState", () => {
+  it("rewrites legacy #/settings placeholder to #/home via replaceState", () => {
+    const replaceState = vi.fn();
+    vi.stubGlobal("history", { replaceState });
+    vi.stubGlobal("window", {
+      location: {
+        hash: "#/settings",
+        href: "http://localhost:5173/#/settings",
+      },
+    });
+
+    syncRouteFromHash();
+
+    expect(get(route)).toBe("home");
+    expect(replaceState).toHaveBeenCalledOnce();
+    expect(replaceState.mock.calls[0][2]).toBe(
+      "http://localhost:5173/#/home",
+    );
+  });
+
+  it("does not replaceState for canonical #/about", () => {
     const replaceState = vi.fn();
     vi.stubGlobal("history", { replaceState });
     vi.stubGlobal("window", {
@@ -72,11 +101,8 @@ describe("syncRouteFromHash", () => {
 
     syncRouteFromHash();
 
-    expect(get(route)).toBe("home");
-    expect(replaceState).toHaveBeenCalledOnce();
-    expect(replaceState.mock.calls[0][2]).toBe(
-      "http://localhost:5173/#/home",
-    );
+    expect(get(route)).toBe("about");
+    expect(replaceState).not.toHaveBeenCalled();
   });
 
   it("does not replaceState for canonical #/location", () => {

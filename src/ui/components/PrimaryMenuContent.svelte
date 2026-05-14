@@ -74,38 +74,39 @@
       </ol>
     </section>
   {/if}
-</nav>
-{#if pwa !== undefined}
-  <button
-    type="button"
-    class="primary-menu-content__action"
-    onclick={pwa.onToggleSection}
-  >
-    App display
-  </button>
-  {#if pwa.sectionOpen}
-    <section class="primary-menu-content__pwa" aria-label="App display">
-      <HomePwaDisplaySection
-        apiSupported={pwa.apiSupported}
-        isHomeRoute={pwa.isHomeRoute}
-        userWants={pwa.userWants}
-        homePresentation={pwa.homePresentation}
-        showBatteryBlurb={pwa.showBatteryBlurb}
-        toggleEnabled={pwaToggleEnabled}
-        onToggle={pwa.onToggle}
-      />
-      {#if pwa.showWelcomeCardEntry && pwa.onShowWelcomeCard}
-        <button
-          type="button"
-          class="primary-menu-content__pwa-welcome-again"
-          onclick={pwa.onShowWelcomeCard}
-        >
-          Show first-run setup card
-        </button>
-      {/if}
-    </section>
+  {#if pwa !== undefined}
+    <button
+      type="button"
+      class="primary-menu-content__action"
+      onclick={pwa.onToggleSection}
+    >
+      App display
+    </button>
+    {#if pwa.sectionOpen}
+      <section class="primary-menu-content__pwa" aria-label="App display">
+        <HomePwaDisplaySection
+          apiSupported={pwa.apiSupported}
+          isHomeRoute={pwa.isHomeRoute}
+          userWants={pwa.userWants}
+          homePresentation={pwa.homePresentation}
+          showBatteryBlurb={pwa.showBatteryBlurb}
+          toggleEnabled={pwaToggleEnabled}
+          onToggle={pwa.onToggle}
+        />
+        {#if pwa.showWelcomeCardEntry && pwa.onShowWelcomeCard}
+          <button
+            type="button"
+            class="primary-menu-content__pwa-welcome-again"
+            onclick={pwa.onShowWelcomeCard}
+          >
+            Show first-run setup card
+          </button>
+        {/if}
+      </section>
+    {/if}
   {/if}
-{/if}
+  <a href="#/meet-the-author" onclick={() => onNavigate?.()}>Meet the author</a>
+</nav>
 
 {#if fullscreenActionLabel !== undefined && onToggleFullscreen !== undefined}
   <button
