@@ -7,6 +7,7 @@
   import PrimaryMenuContent, {
     type PwaDisplayMenu,
   } from "../../components/PrimaryMenuContent.svelte";
+  import HomeDefaultLocationExplainerOverlay from "./HomeDefaultLocationExplainerOverlay.svelte";
 
   type TidePredictionsLoadState = {
     readonly status: "loading" | "ready" | "error";
@@ -19,6 +20,9 @@
     readonly diagramSvg: string;
     readonly showLandscapeHint: boolean;
     readonly verticalLetterboxSlackPx: number;
+    readonly showDefaultLocationExplainer: boolean;
+    readonly defaultLocationExplainerPlaceLine: string;
+    readonly onDismissDefaultLocationExplainer: () => void;
     readonly homeMenuOpen: boolean;
     readonly homeMenuPanelStyle: string;
     readonly homeFullscreenActive: boolean;
@@ -40,6 +44,9 @@
     diagramSvg,
     showLandscapeHint,
     verticalLetterboxSlackPx,
+    showDefaultLocationExplainer,
+    defaultLocationExplainerPlaceLine,
+    onDismissDefaultLocationExplainer,
     homeMenuOpen,
     homeMenuPanelStyle,
     homeFullscreenActive,
@@ -68,6 +75,13 @@
 {:else if tideExtremes.extremes.length === 0}
   <div class="home-panel" aria-live="polite">
     <p class="muted" role="status">No tide extremes for this day.</p>
+    {#if showDefaultLocationExplainer}
+      <HomeDefaultLocationExplainerOverlay
+        placeLine={defaultLocationExplainerPlaceLine}
+        onDismiss={onDismissDefaultLocationExplainer}
+        useViewportFixed={true}
+      />
+    {/if}
   </div>
 {:else if diagramError !== undefined}
   <div class="home-panel" aria-live="polite">
@@ -97,6 +111,12 @@
             The diagram will be bigger if you turn your phone
           </p>
         </div>
+      {/if}
+      {#if showDefaultLocationExplainer}
+        <HomeDefaultLocationExplainerOverlay
+          placeLine={defaultLocationExplainerPlaceLine}
+          onDismiss={onDismissDefaultLocationExplainer}
+        />
       {/if}
     </figure>
     {#if homeMenuOpen}

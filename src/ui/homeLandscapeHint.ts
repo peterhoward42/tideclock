@@ -57,6 +57,22 @@ export function homeLandscapeHintDisplayPolicyAllows(
   );
 }
 
+/**
+ * When true, defer the default-location + conceptual-key onboarding until the user is not in
+ * portrait on a touch-classed phone/tablet viewport — same scope as the rotation encouragement.
+ * @see docs/planning/onboarding.md
+ */
+export function onboardingDeferDefaultLocationExplainerToLandscape(
+  snap: Pick<
+    DisplayOptimisationSnapshot,
+    | "aspectClass"
+    | "deviceClass"
+    | "homeLandscapeEncouragementPrimaryInputInScope"
+  >,
+): boolean {
+  return homeLandscapeHintDisplayPolicyAllows(snap);
+}
+
 export function shouldShowHomeLandscapeHint(
   snap: Pick<
     DisplayOptimisationSnapshot,

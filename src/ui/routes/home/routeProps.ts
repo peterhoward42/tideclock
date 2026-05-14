@@ -11,7 +11,9 @@ export interface RouteProps {
   readonly townName: string;
   /** Dev-only copy from shell when `?tideUxPreview=` is active; null in production or when idle. */
   readonly tidePreviewBannerLine: string | null;
-  /** First visit with no persisted town: modal explains the Looe default until dismissed. */
+  /** First visit with no persisted town: caption explains the shipped default until dismissed. */
   readonly defaultLocationExplainerOpen: boolean;
+  /** Place line for the orientation layer, e.g. `Looe, Cornwall`. */
+  readonly defaultLocationExplainerPlaceLine: string;
   readonly onDismissDefaultLocationExplainer: () => void;
 }

@@ -36,7 +36,6 @@
   import HomeRouteDevPreviewBanners from "./HomeRouteDevPreviewBanners.svelte";
   import HomeRouteDomDebugPanel from "./HomeRouteDomDebugPanel.svelte";
   import HomeRouteTidePanels from "./HomeRouteTidePanels.svelte";
-  import HomeDefaultLocationExplainerOverlay from "./HomeDefaultLocationExplainerOverlay.svelte";
   import HomePwaStandaloneSetupOverlay from "./HomePwaStandaloneSetupOverlay.svelte";
   import {
     computeMenuPanelAnchorStyle,
@@ -46,7 +45,10 @@
   import { mountLetterboxSlackObserver } from "./instrumentLetterboxObserver";
   import { mountMenuSvgTriggerWire } from "./menuSvgTriggerWire";
   import type { RouteProps } from "./routeProps";
-  import { shouldShowHomeLandscapeHint } from "../../homeLandscapeHint";
+  import {
+    onboardingDeferDefaultLocationExplainerToLandscape,
+    shouldShowHomeLandscapeHint,
+  } from "../../homeLandscapeHint";
   import {
     effectiveSearchFromLocation,
     homeDevDebugFlagsFromSearch,
@@ -84,6 +86,7 @@
     townName,
     tidePreviewBannerLine,
     defaultLocationExplainerOpen,
+    defaultLocationExplainerPlaceLine,
     onDismissDefaultLocationExplainer,
   }: RouteProps = $props();
 
@@ -161,11 +164,15 @@
   );
 
   /**
-   * Wait for Looe tides + diagram paint before opening the modal so “showing tides for …”
-   * is not ahead of the async fetch / SVG generation.
+   * Wait for tides + diagram paint before showing the caption so “showing tides for …”
+   * is not ahead of the async fetch / SVG generation. Portrait touch phone/tablet: defer until
+   * landscape so only the rotation encouragement shows (see docs/planning/onboarding.md).
    */
   const defaultLocationExplainerVisible = $derived.by(() => {
     if (!defaultLocationExplainerOpen) return false;
+    if (onboardingDeferDefaultLocationExplainerToLandscape(displaySnapshot)) {
+      return false;
+    }
     if (tideLoadState.status !== "ready" || tideExtremes === undefined) {
       return false;
     }
@@ -579,11 +586,6 @@
       />
     </div>
   {/if}
-  {#if defaultLocationExplainerVisible}
-    <HomeDefaultLocationExplainerOverlay
-      onDismiss={onDismissDefaultLocationExplainer}
-    />
-  {/if}
   <HomeRouteDevPreviewBanners
     diagramPreviewBannerLine={diagramPreviewBannerLine}
     tidePreviewBannerLine={tidePreviewBannerLine}
@@ -604,6 +606,9 @@
     {diagramSvg}
     {showLandscapeHint}
     {verticalLetterboxSlackPx}
+    showDefaultLocationExplainer={defaultLocationExplainerVisible}
+    defaultLocationExplainerPlaceLine={defaultLocationExplainerPlaceLine}
+    onDismissDefaultLocationExplainer={onDismissDefaultLocationExplainer}
     {homeMenuOpen}
     {homeMenuPanelStyle}
     {homeFullscreenActive}

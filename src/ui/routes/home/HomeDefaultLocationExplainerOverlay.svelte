@@ -1,29 +1,38 @@
 <script lang="ts">
   /**
-   * First-run panel when no coastal place is stored yet: tides use the shipped default (Looe)
-   * until the visitor dismisses; dismissal persists that default like a normal menu pick.
+   * First-run caption when no coastal place is stored yet: orientation (why this place) plus a
+   * minimal conceptual key, anchored lower-left like an instrument label (not a centred modal).
+   * @see docs/planning/onboarding.md
    */
   interface Props {
-    onDismiss: () => void;
+    /** e.g. `Looe, Cornwall` — shown after “Showing tides for”. */
+    readonly placeLine: string;
+    readonly onDismiss: () => void;
+    /** When not inside the instrument figure (e.g. no extremes to draw), pin to the viewport instead. */
+    readonly useViewportFixed?: boolean;
   }
 
-  let { onDismiss }: Props = $props();
+  let { placeLine, onDismiss, useViewportFixed = false }: Props = $props();
 </script>
 
-<div class="default-loc-explainer" role="presentation">
-  <div
-    class="default-loc-explainer__card"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="default-loc-explainer-title"
-  >
-    <p class="default-loc-explainer__eyebrow">Welcome</p>
-    <h2 id="default-loc-explainer-title" class="default-loc-explainer__title">
-      Showing tides for Looe, Cornwall
+<div
+  class="default-loc-explainer"
+  class:default-loc-explainer--viewport-fixed={useViewportFixed}
+  role="region"
+  aria-label="About this tide diagram"
+>
+  <div class="default-loc-explainer__card">
+    <h2 class="default-loc-explainer__title">
+      Showing tides for {placeLine}
     </h2>
     <p class="default-loc-explainer__body">
       Start here, then set your own location from the menu.
     </p>
+    <ul class="default-loc-explainer__key" aria-label="Diagram key">
+      <li>Today’s 24 hour clock</li>
+      <li>Green hand = time now</li>
+      <li>Purple markers = tides and heights</li>
+    </ul>
     <button type="button" class="default-loc-explainer__btn" onclick={onDismiss}>
       Continue
     </button>
@@ -32,66 +41,73 @@
 
 <style>
   .default-loc-explainer {
-    position: fixed;
-    inset: 0;
-    z-index: 45;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: max(0.75rem, env(safe-area-inset-top, 0.75rem))
-      max(0.75rem, env(safe-area-inset-right, 0.75rem))
-      max(0.75rem, env(safe-area-inset-bottom, 0.75rem))
-      max(0.75rem, env(safe-area-inset-left, 0.75rem));
+    position: absolute;
+    z-index: 20;
+    left: max(0.45rem, env(safe-area-inset-left, 0.45rem));
+    bottom: max(0.45rem, env(safe-area-inset-bottom, 0.45rem));
+    max-width: min(19rem, calc(100% - 0.9rem));
     box-sizing: border-box;
-    background: rgba(15, 23, 42, 0.48);
-    pointer-events: auto;
+    pointer-events: none;
+  }
+
+  .default-loc-explainer--viewport-fixed {
+    position: fixed;
   }
 
   .default-loc-explainer__card {
-    width: min(22rem, 100%);
+    pointer-events: auto;
     margin: 0;
-    padding: 0.85rem 0.95rem;
-    background: var(--surface-menu-flyout);
+    padding: 0.55rem 0.65rem 0.6rem;
+    background: color-mix(in srgb, var(--surface-menu-flyout) 92%, transparent);
     color: var(--text-menu-content-primary);
     border: 1px solid var(--border-menu-flyout);
-    border-radius: 0.375rem;
+    border-radius: 0.3rem;
     box-shadow: var(--shadow-menu-flyout);
+    backdrop-filter: blur(6px);
   }
 
-  .default-loc-explainer__eyebrow {
-    margin: 0 0 0.25rem;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--text-menu-content-status);
+  @supports not (backdrop-filter: blur(1px)) {
+    .default-loc-explainer__card {
+      background: var(--surface-menu-flyout);
+    }
   }
 
   .default-loc-explainer__title {
-    margin: 0 0 0.35rem;
-    font-size: 0.95rem;
+    margin: 0 0 0.3rem;
+    font-size: 0.78rem;
     font-weight: 600;
     line-height: 1.25;
   }
 
   .default-loc-explainer__body {
-    margin: 0;
-    font-size: 0.78rem;
+    margin: 0 0 0.45rem;
+    font-size: 0.68rem;
+    line-height: 1.4;
+    color: var(--text-menu-content-primary);
+  }
+
+  .default-loc-explainer__key {
+    margin: 0 0 0.45rem;
+    padding-left: 1rem;
+    font-size: 0.65rem;
     line-height: 1.45;
     color: var(--text-menu-content-primary);
   }
 
+  .default-loc-explainer__key li {
+    margin: 0.1em 0;
+  }
+
   .default-loc-explainer__btn {
-    margin-top: 0.65rem;
     width: 100%;
-    min-height: 2.35rem;
-    padding: 0.45rem 0.6rem;
-    border-radius: 0.3rem;
+    min-height: 2.1rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 0.28rem;
     border: 1px solid var(--border-menu-flyout);
     background: var(--surface-menu-content-control);
     color: var(--text-menu-content-primary);
     font: inherit;
-    font-size: 0.82rem;
+    font-size: 0.76rem;
     font-weight: 600;
     cursor: pointer;
   }

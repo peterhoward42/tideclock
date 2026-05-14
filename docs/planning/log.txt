@@ -21,9 +21,10 @@ o  location picker nasty on mobile landscape
 	*  vastly pare back interference with pws install process
 	*  change back menu to the diagram with Home
 	*  ditch old landscape route and code if not already
-
-	o  first load copy can be more of an orientation / intro not just about 
+	*  first load copy can be more of an orientation / intro not just about 
 	   location
+
+	o  the diagram will be bigger if you rotate your phone - bolder
 
 
 

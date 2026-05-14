@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   HOME_LANDSCAPE_HINT_MIN_VERTICAL_SLACK_CSS_PX,
   homeLandscapeHintDisplayPolicyAllows,
+  onboardingDeferDefaultLocationExplainerToLandscape,
   shouldShowHomeLandscapeHint,
   verticalLetterboxSlackMidMeetPx,
 } from "./homeLandscapeHint";
@@ -69,6 +70,17 @@ describe("homeLandscapeHintDisplayPolicyAllows", () => {
         homeLandscapeEncouragementPrimaryInputInScope: false,
       }),
     ).toBe(false);
+  });
+
+  it("matches onboardingDeferDefaultLocationExplainerToLandscape (alias for policy)", () => {
+    const snap = {
+      aspectClass: "portrait" as const,
+      deviceClass: "mobile" as const,
+      homeLandscapeEncouragementPrimaryInputInScope: true,
+    };
+    expect(onboardingDeferDefaultLocationExplainerToLandscape(snap)).toBe(
+      homeLandscapeHintDisplayPolicyAllows(snap),
+    );
   });
 });
 

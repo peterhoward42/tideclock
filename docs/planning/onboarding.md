@@ -70,10 +70,16 @@ It should not be merged into the conceptual decoding material.
 Preferred structure:
 
 ### Orientation layer
+
+This already exists, and shows:
+
 Showing tides for Looe, Cornwall  
 Start here, then set your own location from the menu.
 
 ### Conceptual key
+
+This does not yet exist.
+
 - Today’s 24 hour clock
 - Green hand = time now
 - Purple markers = tides and heights
@@ -109,7 +115,7 @@ Therefore:
 
 ## Portrait first visit behaviour on mobile
 
-Show only the rotation encouragement.
+Show only the rotation encouragement. (that already exists)
 
 Example:
 > The diagram will be bigger if you turn your phone

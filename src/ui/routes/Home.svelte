@@ -12,6 +12,7 @@
     townName,
     tidePreviewBannerLine,
     defaultLocationExplainerOpen,
+    defaultLocationExplainerPlaceLine,
     onDismissDefaultLocationExplainer,
   }: RouteProps = $props();
 </script>
@@ -22,5 +23,6 @@
   {townName}
   {tidePreviewBannerLine}
   {defaultLocationExplainerOpen}
+  {defaultLocationExplainerPlaceLine}
   {onDismissDefaultLocationExplainer}
 />

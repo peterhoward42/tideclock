@@ -63,8 +63,8 @@
   );
 
   /**
-   * True when no town was in storage at boot: modal explains the Looe default until dismissed
-   * (dismissal persists Looe).
+   * True when no town was in storage at boot: lower-left caption explains the shipped default until dismissed
+   * (dismissal persists that default like a normal menu pick).
    */
   let showDefaultLocationExplainer = $state(
     canAccessLocationStorage && initialStoredTown === undefined,
@@ -75,6 +75,12 @@
       return null;
     }
     return `Preview: ${tidePreviewShortHeadline(tidePreviewIdFromUrl)}`;
+  });
+
+  const defaultLocationExplainerPlaceLine = $derived.by(() => {
+    const town = currentTown;
+    if (town === undefined) return "Unknown";
+    return town.county !== "" ? `${town.name}, ${town.county}` : town.name;
   });
 
   function readTidePreviewIdFromLocation(): TidePreviewId | null {
@@ -288,6 +294,7 @@
         townName={currentTown?.name ?? "Unknown"}
         tidePreviewBannerLine={tidePreviewBannerLine}
         defaultLocationExplainerOpen={showDefaultLocationExplainer}
+        defaultLocationExplainerPlaceLine={defaultLocationExplainerPlaceLine}
         onDismissDefaultLocationExplainer={dismissDefaultLocationExplainer}
       />
     {:else if $route === "location"}
