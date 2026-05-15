@@ -12,17 +12,60 @@ o  review and plan other pages
 		*  ditch redundant routes and deps
 		o  work top down from suggestions below
 			*  about the app
-			o  contact
-				o  menu item wording = Contact
-				o  menu item position, after About
-				o  content
+			*  contact
+			o  story
+				o  basics
+				o  caption
+				o  add to please me to drawexact
+				o  no need to de-emph drawexact
+				o  test links out
+					o  make drawexact link open another tab
+					o  don't use mail to, point to contact page
+				o  fix links in from about
+				o  test on mobile
 
 
-Questions, bug reports, thoughtful suggestions.
+fart
 
-This app is personally designed and maintained by me, so responses may occasionally be slow, but I do read everything.
+The Tide Dial is the result of a recipe made up with ingredients drawn from my
+career, my life interests and enthusiathasms, and me moving to live in a place
+much influenced by tides.
 
-peterhoward42@gmail.com
+The bridge spanning the river I cross to leave my house at certain tide times
+is completely underwater. So I go there to Kayak. At other times it is clear -
+so I drive over it to pop out for a pint of milk. Choosing the wrong time for
+either activity is doomed.
+
+If you are unused to tides they can be a source of delight and interest if you
+visit a tidal place. Tides bring colour and an inexorable rythm to life. The
+fishing fleet returning to port, not when they please, but when the tide is
+high. People letting their dogs have fun charging around the exposed shore at
+low tides. You'll notice the tide times creeping forward by just under an hour
+each day. You'll wonder why some are huge and some are tame. Fascinating to
+some.
+
+You can look up tide times quite easily but you have to make the effort,
+sometimes wait for an advert they make you watch first, and then you just see
+numbers. If you want to know how long it is before the bridge will be open
+again - you have to start doing mental arithmetic.
+
+Most of my 40 year career as a software engineer has been about bringing alive
+information through diagrams - engineering design systems, physics
+simulations, the circuit inside a computer chip, and a visualisation of how
+you mix and dilute chemicals with microscropic accuracy for your reasearch
+into DNA. 
+
+I can't myself - I have always created software because I enjoy it so much.
+Until recently people employed me or contracted me to do it. But now I'm semi
+retired I'm still at it - because it's still fun. But now I can make software
+systems to please me. The Tide Dial is exactly that. I rather hope it will
+please you too.
+
+Feel free to get in touch if you're interested in the code behind The Tide
+Dial - I'd enjoy that - and in some situations might be useful to you.
+
+fart
+
 
 
 Catalogue
@@ -63,6 +106,10 @@ o  Ideas for bucket pages
 See /docs/specs/tide-diagram.md for context.
 
 
+
+o  what the heck is the picture: running-in-the-installed-app?
+	o  never seen it before
+	o  clicked on a vercel dashboard link and this came up?
 
 o  proxy cost risk containment 
 

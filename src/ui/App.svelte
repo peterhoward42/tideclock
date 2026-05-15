@@ -25,7 +25,7 @@
   import Home from "./routes/Home.svelte";
   import LocationRoute from "./routes/LocationRoute.svelte";
   import AboutRoute from "./routes/AboutRoute.svelte";
-  import MeetTheAuthorRoute from "./routes/MeetTheAuthorRoute.svelte";
+  import StoryRoute from "./routes/StoryRoute.svelte";
   import { THE_TIDE_DIAL, TIDE_DIAL_PRODUCTION_ORIGIN } from "./brand";
   import { surfaceModeForRoute } from "./routeSurfaceMode";
 
@@ -211,8 +211,8 @@
         return "Location";
       case "about":
         return "About";
-      case "meet-the-author":
-        return "Meet the author";
+      case "story":
+        return "Story";
       case "home":
         return "";
       default:
@@ -292,8 +292,8 @@
       <LocationRoute setCurrentLocation={setCurrentLocation} />
     {:else if $route === "about"}
       <AboutRoute />
-    {:else if $route === "meet-the-author"}
-      <MeetTheAuthorRoute />
+    {:else if $route === "story"}
+      <StoryRoute />
     {/if}
   </section>
 </div>

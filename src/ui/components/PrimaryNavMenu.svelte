@@ -3,8 +3,9 @@
    * Hash-route primary nav in a details/summary menu (header usage).
    */
   import { get } from "svelte/store";
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
   import { route } from "../../infrastructure/router.js";
+  import { effectiveSearchFromLocation } from "../homeUrlQuery";
   import PrimaryMenuContent from "./PrimaryMenuContent.svelte";
   import { manualInstallStepsFromUserAgent } from "../routes/home/installFlow";
   import {
@@ -62,6 +63,30 @@
   function handleContactEntry(): void {
     contactOpen = !contactOpen;
   }
+
+  /** `#/home?contact=1` opens the menu with Contact expanded (e.g. from Story). */
+  $effect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+    if ($route !== "home") {
+      return;
+    }
+    const search = effectiveSearchFromLocation(
+      window.location.search,
+      window.location.hash,
+    );
+    if (new URLSearchParams(search).get("contact") !== "1") {
+      return;
+    }
+    contactOpen = true;
+    void tick().then(() => {
+      menuDetails?.setAttribute("open");
+      const url = new URL(window.location.href);
+      url.hash = "/home";
+      history.replaceState(null, "", url.href);
+    });
+  });
 
   onMount(() =>
     keepAwakeUserStore.subscribe((v) => (pwaUserWants = v)),

@@ -23,15 +23,13 @@
     </p>
   </section>
 
-  <section class="about-route__section" aria-labelledby="about-author-heading">
-    <h2 class="about-route__h" id="about-author-heading">Meet the author</h2>
+  <section class="about-route__section" aria-labelledby="about-story-heading">
+    <h2 class="about-route__h" id="about-story-heading">Story</h2>
     <p class="about-route__p">
       {THE_TIDE_DIAL} has been created by Pete Howard.
     </p>
     <p class="about-route__p">
-      You can read more in the dedicated <a class="about-route__link" href="#/meet-the-author"
-        >Meet the author</a
-      >
+      You can read more in the dedicated <a class="about-route__link" href="#/story">Story</a>
       entry in the main menu (below <strong>App display</strong>).
     </p>
   </section>

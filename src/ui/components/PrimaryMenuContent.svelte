@@ -139,7 +139,7 @@
       </section>
     {/if}
   {/if}
-  <a href="#/meet-the-author" onclick={() => onNavigate?.()}>Meet the author</a>
+  <a href="#/story" onclick={() => onNavigate?.()}>Story</a>
 </nav>
 
 {#if fullscreenActionLabel !== undefined && onToggleFullscreen !== undefined}

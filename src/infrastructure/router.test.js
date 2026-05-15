@@ -9,6 +9,7 @@ describe("parseHash", () => {
     expect(parseHash("#")).toBe("home");
     expect(parseHash("#/")).toBe("home");
     expect(parseHash("#/home")).toBe("home");
+    expect(parseHash("#/home?contact=1")).toBe("home");
   });
 
   it("maps location and legacy location2 to location", () => {
@@ -35,9 +36,14 @@ describe("parseHash", () => {
     expect(parseHash("#/about#meet-the-author")).toBe("about");
   });
 
-  it("maps meet-the-author route", () => {
-    expect(parseHash("#/meet-the-author")).toBe("meet-the-author");
-    expect(parseHash("meet-the-author")).toBe("meet-the-author");
+  it("maps story route", () => {
+    expect(parseHash("#/story")).toBe("story");
+    expect(parseHash("story")).toBe("story");
+  });
+
+  it("maps unknown meet-the-author segment to home", () => {
+    expect(parseHash("#/meet-the-author")).toBe("home");
+    expect(parseHash("meet-the-author")).toBe("home");
   });
 });
 
@@ -102,6 +108,22 @@ describe("syncRouteFromHash", () => {
     syncRouteFromHash();
 
     expect(get(route)).toBe("about");
+    expect(replaceState).not.toHaveBeenCalled();
+  });
+
+  it("does not replaceState for canonical #/story", () => {
+    const replaceState = vi.fn();
+    vi.stubGlobal("history", { replaceState });
+    vi.stubGlobal("window", {
+      location: {
+        hash: "#/story",
+        href: "http://localhost:5173/#/story",
+      },
+    });
+
+    syncRouteFromHash();
+
+    expect(get(route)).toBe("story");
     expect(replaceState).not.toHaveBeenCalled();
   });
 

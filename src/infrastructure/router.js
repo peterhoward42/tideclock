@@ -17,7 +17,7 @@ const LEGACY_PLACEHOLDER_HASHES = [
 ]
 
 /**
- * @typedef {'home' | 'location' | 'about' | 'meet-the-author'} RouteId
+ * @typedef {'home' | 'location' | 'about' | 'story'} RouteId
  */
 
 /** @type {import('svelte/store').Writable<RouteId>} */
@@ -40,8 +40,8 @@ export function parseHash(hash) {
       return 'location'
     case 'about':
       return 'about'
-    case 'meet-the-author':
-      return 'meet-the-author'
+    case 'story':
+      return 'story'
     default:
       return 'home'
   }
