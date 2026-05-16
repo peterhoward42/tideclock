@@ -57,9 +57,9 @@
   <section class="onwall-route__section" aria-labelledby="onwall-offer-heading">
     <h2 class="onwall-route__h" id="onwall-offer-heading">Wall display</h2>
     <p class="onwall-route__p">
-      Install on the device you plan to leave on display. The dial fills the screen, and in the
-      main menu <strong>Keep screen awake</strong> while
-      <strong>Enter fullscreen</strong> gives a clean edge-to-edge view.
+      Install on the device you plan to leave on display. The dial fills the screen;
+      <strong>Keep screen awake</strong> and <strong>Enter fullscreen</strong> give an edge-to-edge
+      view that stays on.
     </p>
   </section>
 

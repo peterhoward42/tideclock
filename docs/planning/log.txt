@@ -20,12 +20,14 @@ o  review and plan other pages
 		o  improve pre existing entries we are going to keep
 			*  put it on wall
 			*  screen awake
-			o  enter fullscreen
+			o  enter fullscreen -> really fullscreen
 
 		o  exploit the new pictures in the about + elevator pitch in about
 		o  fix the way about refers to story x ref
 		o  express clearer the data provenance and make the form part look like a callout
 		o  make ref to world tides open in a new tab (there are a few)
+		o  did we stop updating tests?
+		o  stick it on wall - doesn't properly introduce the install essence
 		o  the nerd page
 		o  fun page
 

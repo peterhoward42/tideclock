@@ -35,14 +35,14 @@
     <p class="pwa-setup__title">First-run setup card (browser tab)</p>
     <p class="pwa-setup__lede">
       A real <strong>installed</strong> PWA or iOS &ldquo;Add to Home Screen&rdquo; session sees this
-      once automatically. The controls below are the same as in the installed app. Remove
+      once automatically. Same controls as in the installed app. Remove
       <code class="pwa-setup__code">?pwaSetup=1</code> from the URL when done.
     </p>
   {:else}
     <p class="pwa-setup__title">Running in the installed app</p>
     <p class="pwa-setup__lede">
       A quick tip: you can keep the tide view from sleeping while the app stays open. Change this
-      anytime from <strong>Menu</strong> → <strong>Keep screen awake</strong>.
+      anytime in the menu.
     </p>
   {/if}
   <HomePwaDisplaySection
