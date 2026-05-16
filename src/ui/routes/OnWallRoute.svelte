@@ -12,7 +12,7 @@
     width: 1024,
     height: 1024,
     alt: "Wall-mounted screen in a guest house reception showing the tide dial above a welcome desk.",
-    caption: "Guest house reception — for visitors passing by",
+    caption: "Guest house reception — for visitors going out for the day",
   } as const;
 
   const wallPlaces = [
@@ -55,29 +55,32 @@
   </figure>
 
   <section class="onwall-route__section" aria-labelledby="onwall-offer-heading">
-    <h2 class="onwall-route__h" id="onwall-offer-heading">Wall display</h2>
+    <h2 class="onwall-route__h" id="onwall-offer-heading">For the screen that stays there</h2>
     <p class="onwall-route__p">
-      Install on the device you plan to leave on display. The dial fills the screen;
+      You can use the dial on your phone as usual — but it has been designed with care for a device
+      you leave in place — on a kitchen shelf, at a reception desk, or on the wall. It fills the
+      display; once it is running there,
       <strong>Keep screen awake</strong> and <strong>Enter fullscreen</strong> give an edge-to-edge
-      view that stays on.
+      view that stays on, more like a clock in the room than a site you keep reopening.
     </p>
   </section>
 
   <section class="onwall-route__section" aria-labelledby="onwall-install-heading">
     <h2 class="onwall-route__h" id="onwall-install-heading">How to install</h2>
     <p class="onwall-route__p">
-      Install on the device you will leave on the wall — not necessarily the phone you are reading
-      this on.
+      Do this on the device that will stay on the wall — not necessarily the phone you are reading
+      this on. Save the site on that device so it opens from its own icon, like a simple app,
+      rather than a bookmark you have to hunt for.
     </p>
-    <p class="onwall-route__p">Details vary by device and browser.</p>
-    <p class="onwall-route__p">
-      Use your browser&rsquo;s add or install option (wording varies):
-    </p>
+    <p class="onwall-route__p">Details vary by device and browser. In your browser menu, look for:</p>
     <ol class="onwall-route__list">
       {#each installSteps as step}
         <li>{step}</li>
       {/each}
     </ol>
+    <p class="onwall-route__p onwall-route__p--aside">
+      Browsers call this installing or adding to the home screen — the same idea.
+    </p>
   </section>
 
   <section class="onwall-route__section" aria-labelledby="onwall-places-heading">
@@ -125,6 +128,11 @@
     font-size: 0.95rem;
     line-height: 1.5;
     color: var(--text-document-default);
+  }
+
+  .onwall-route__p--aside {
+    font-size: 0.88rem;
+    color: var(--text-document-secondary);
   }
 
   .onwall-route__figure {
