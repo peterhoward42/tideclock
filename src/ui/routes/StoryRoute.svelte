@@ -36,9 +36,15 @@
       You'll wonder why some tides are huge and some are tame.
     </p>
     <p>
-      You can look up tide times quite easily but you have to make the effort, sometimes wait for an
-      advert they make you watch first, and then you just see numbers. If you want to know how long
-      it is before the bridge will be open again, you have to start doing mental arithmetic.
+      Whether you live by the tide or you are only here for the week, you rarely want a timetable to
+      study. You want to know where you are in today — and what comes next — without turning it into
+      homework.
+    </p>
+    <p>
+      What is easy to find is usually a list of times. Sometimes there is an advert first. You get
+      the numbers, but not the relationship between now and the next high or low — and if you want to
+      know how long until the bridge is passable, or the beach is back, you are doing the arithmetic
+      yourself.
     </p>
     <p>
       Most of my 40 year career as a software engineer has been about bringing alive information
@@ -52,6 +58,20 @@
       just as much fun as it always has been. But now I can make software systems to please
       <strong>me</strong>. {THE_TIDE_DIAL} is exactly that.
     </p>
+
+    <figure class="story-route__figure">
+      <img
+        class="story-route__img"
+        src="/story-phone-ramsgate.jpg"
+        width="1024"
+        height="1024"
+        alt="Someone holding a phone in landscape at a rocky beach; the screen shows The Tide Dial for Ramsgate with the time hand and today's tide markers."
+      />
+      <figcaption class="story-route__caption">
+        Ramsgate on the screen — a visitor at the coast
+      </figcaption>
+    </figure>
+
     <p>
       {THE_TIDE_DIAL} is ultimately the product of a long career spent making complicated systems
       easier to see and think about. If that overlaps with your world too, feel free to reach out via

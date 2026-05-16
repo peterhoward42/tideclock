@@ -17,13 +17,17 @@ o  review and plan other pages
 			*  about the app
 			*  contact
 			*  story
-		o  improve pre existing entries we are going to keep
+		*  improve pre existing entries we are going to keep
 			*  put it on wall
 			*  screen awake
-			o  enter fullscreen -> really fullscreen
-			o  reorder fullscreen?
+			*  enter fullscreen -> really fullscreen
+			*  reorder fullscreen?
 
 		o  exploit the new pictures in the about + elevator pitch in about
+			o  ask chatgpt if given screenshot of newbie, and stick it on the wall,
+			   is there merit in a repurposed elevator pitch in-app anywhere? And for the mobile
+			   picture, or even one of the other pics
+
 		o  fix the way about refers to story x ref
 		o  express clearer the data provenance and make the form part look like a callout
 		o  make ref to world tides open in a new tab (there are a few)
@@ -31,6 +35,8 @@ o  review and plan other pages
 		o  stick it on wall - doesn't properly introduce the install essence
 		o  the nerd page
 		o  fun page
+
+o  showing tides for looe panel should scale to be big enough on desktop
 
 
 
