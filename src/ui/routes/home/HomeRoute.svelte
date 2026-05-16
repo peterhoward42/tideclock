@@ -118,9 +118,6 @@
   let pwaDevPreviewInTab = $state(false);
   /** For menu “show welcome” + first-run; set on mount. */
   let isStandalonePwa = $state(false);
-  /** When true, show battery/heat blurb (off when charging, if we can tell). */
-  let pwaShowBatteryBlurb = $state(true);
-
   /** Snapshot from {@link displayOptimisation}; sole source for hint device/aspect policy. */
   let displaySnapshot = $state(get(displayOptimisation));
   /** Vertical letterbox slack (px) for `xMidYMid meet` fit of the diagram SVG inside the instrument. */
@@ -181,7 +178,6 @@
     isHomeRoute: true,
     userWants: pwaUserWants,
     homePresentation: pwaTideViewPresentation,
-    showBatteryBlurb: pwaShowBatteryBlurb,
     onToggleSection: () => {
       pwaDisplaySectionOpen = !pwaDisplaySectionOpen;
     },
@@ -294,23 +290,6 @@
     } catch {
       // ignore
     }
-  });
-
-  onMount(() => {
-    const nav = navigator as Navigator & {
-      getBattery?: () => Promise<{
-        charging: boolean;
-        addEventListener: (type: string, fn: () => void) => void;
-      }>;
-    };
-    if (!nav.getBattery) return;
-    void nav.getBattery().then((b) => {
-      const apply = (): void => {
-        pwaShowBatteryBlurb = b.charging !== true;
-      };
-      apply();
-      b.addEventListener("chargingchange", apply);
-    });
   });
 
   onMount(() => {
@@ -442,7 +421,7 @@
   });
 
   /**
-   * When Contact / PWA “App display” sections grow, the menu height changes. Re-anchored from
+   * When Contact / keep-awake sections grow, the menu height changes. Re-anchored from
    * the same geometry as the SVG trigger; avoids stale layout on long portrait viewports.
    */
   $effect(() => {
@@ -566,11 +545,9 @@
     <div class="home-route__pwa-setup">
       <HomePwaStandaloneSetupOverlay
         devPreviewInTab={pwaDevPreviewInTab}
-        apiSupported={isWakeLockApiSupported()}
         isHomeRoute={true}
         userWants={pwaUserWants}
         homePresentation={pwaTideViewPresentation}
-        showBatteryBlurb={pwaShowBatteryBlurb}
         toggleEnabled={isWakeLockApiSupported()}
         onToggleKeepAwake={setKeepAwakeUserEnabled}
         onDismissThisSession={dismissPwaStandaloneSetupThisSession}

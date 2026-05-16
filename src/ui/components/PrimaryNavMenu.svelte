@@ -27,7 +27,6 @@
     isHomeRoute: pwaIsHome,
     userWants: pwaUserWants,
     homePresentation: pwaIsHome ? pwaTideViewPresentation : null,
-    showBatteryBlurb: false,
     onToggleSection: () => {
       pwaDisplaySectionOpen = !pwaDisplaySectionOpen;
     },

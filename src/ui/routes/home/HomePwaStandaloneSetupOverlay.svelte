@@ -8,11 +8,9 @@
   interface Props {
     /** In dev, a normal tab can still open this card via `?pwaSetup=1` — use distinct copy. */
     readonly devPreviewInTab: boolean;
-    readonly apiSupported: boolean;
     readonly isHomeRoute: true;
     readonly userWants: boolean;
     readonly homePresentation: WakeLockPresentation | null;
-    readonly showBatteryBlurb: boolean;
     readonly toggleEnabled: boolean;
     onToggleKeepAwake: (next: boolean) => void;
     onDismissThisSession: () => void;
@@ -21,11 +19,9 @@
 
   let {
     devPreviewInTab,
-    apiSupported,
     isHomeRoute,
     userWants,
     homePresentation,
-    showBatteryBlurb,
     toggleEnabled,
     onToggleKeepAwake,
     onDismissThisSession,
@@ -33,7 +29,7 @@
   }: Props = $props();
 </script>
 
-<section class="pwa-setup" aria-label="App display settings" aria-live="polite">
+<section class="pwa-setup" aria-label="Keep screen awake" aria-live="polite">
   {#if devPreviewInTab}
     <p class="pwa-setup__eyebrow">Development preview</p>
     <p class="pwa-setup__title">First-run setup card (browser tab)</p>
@@ -46,15 +42,13 @@
     <p class="pwa-setup__title">Running in the installed app</p>
     <p class="pwa-setup__lede">
       A quick tip: you can keep the tide view from sleeping while the app stays open. Change this
-      anytime from <strong>Menu</strong> → <strong>App display</strong>.
+      anytime from <strong>Menu</strong> → <strong>Keep screen awake</strong>.
     </p>
   {/if}
   <HomePwaDisplaySection
-    {apiSupported}
     {isHomeRoute}
     {userWants}
     {homePresentation}
-    {showBatteryBlurb}
     {toggleEnabled}
     onToggle={onToggleKeepAwake}
   />

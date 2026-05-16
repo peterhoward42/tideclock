@@ -30,7 +30,7 @@
     </p>
     <p class="about-route__p">
       You can read more in the dedicated <a class="about-route__link" href="#/story">Story</a>
-      entry in the main menu (below <strong>App display</strong>).
+      entry in the main menu (below <strong>Keep screen awake</strong>).
     </p>
   </section>
 

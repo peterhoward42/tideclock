@@ -9,7 +9,6 @@
     readonly isHomeRoute: boolean;
     readonly userWants: boolean;
     readonly homePresentation: WakeLockPresentation | null;
-    readonly showBatteryBlurb: boolean;
     readonly onToggleSection: () => void;
     readonly onToggle: (next: boolean) => void;
     /** Shown in the home diagram menu in standalone: pops the first-run card again. */
@@ -24,7 +23,7 @@
     readonly onNavigate?: () => void;
     readonly fullscreenActionLabel?: string;
     readonly onToggleFullscreen?: () => void | Promise<void>;
-    /** Optional: keep-awake / “App display” (home route + header menu). */
+    /** Optional: keep screen awake (home route + header menu). */
     readonly pwa?: PwaDisplayMenu;
   }
 
@@ -82,16 +81,14 @@
       class="primary-menu-content__action"
       onclick={pwa.onToggleSection}
     >
-      App display
+      Keep screen awake
     </button>
     {#if pwa.sectionOpen}
-      <section class="primary-menu-content__pwa" aria-label="App display">
+      <section class="primary-menu-content__pwa" aria-label="Keep screen awake">
         <HomePwaDisplaySection
-          apiSupported={pwa.apiSupported}
           isHomeRoute={pwa.isHomeRoute}
           userWants={pwa.userWants}
           homePresentation={pwa.homePresentation}
-          showBatteryBlurb={pwa.showBatteryBlurb}
           toggleEnabled={pwaToggleEnabled}
           onToggle={pwa.onToggle}
         />

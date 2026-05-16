@@ -1,5 +1,5 @@
 /**
- * PWA “App display / keep awake” UI state: user preference, live home-route wake line, and status copy.
+ * Keep-screen-awake UI state: user preference, live home-route wake line, and status copy.
  */
 import { get, writable, type Readable } from "svelte/store";
 import {
