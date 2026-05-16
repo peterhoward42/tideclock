@@ -46,6 +46,13 @@ describe("parseHash", () => {
     expect(parseHash("story")).toBe("story");
   });
 
+  it("maps nerd routes", () => {
+    expect(parseHash("#/tidenerd")).toBe("tidenerd");
+    expect(parseHash("tidenerd")).toBe("tidenerd");
+    expect(parseHash("#/softwarenerd")).toBe("softwarenerd");
+    expect(parseHash("softwarenerd")).toBe("softwarenerd");
+  });
+
   it("maps unknown meet-the-author segment to home", () => {
     expect(parseHash("#/meet-the-author")).toBe("home");
     expect(parseHash("meet-the-author")).toBe("home");
@@ -145,6 +152,22 @@ describe("syncRouteFromHash", () => {
     syncRouteFromHash();
 
     expect(get(route)).toBe("story");
+    expect(replaceState).not.toHaveBeenCalled();
+  });
+
+  it("does not replaceState for canonical nerd routes", () => {
+    const replaceState = vi.fn();
+    vi.stubGlobal("history", { replaceState });
+    vi.stubGlobal("window", {
+      location: {
+        hash: "#/tidenerd",
+        href: "http://localhost:5173/#/tidenerd",
+      },
+    });
+
+    syncRouteFromHash();
+
+    expect(get(route)).toBe("tidenerd");
     expect(replaceState).not.toHaveBeenCalled();
   });
 

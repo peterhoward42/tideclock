@@ -25,8 +25,7 @@ o  review and plan other pages
 		*  exploit the new pictures in the about + elevator pitch in about
 		*  make ref to world tides open in a new tab (there are a few)
 		*  did we stop updating tests?
-
-		o  stick it on wall - doesn't properly introduce the install essence
+		*  stick it on wall - doesn't properly introduce the install essence
 
 		o  the nerd page
 		o  fun page

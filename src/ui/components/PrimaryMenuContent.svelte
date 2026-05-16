@@ -18,6 +18,8 @@
 
   interface Props {
     readonly linksClassName: string;
+    readonly nerdsOpen: boolean;
+    readonly onToggleNerds: () => void;
     readonly contactOpen: boolean;
     readonly onToggleContact: () => void;
     readonly onNavigate?: () => void;
@@ -29,6 +31,8 @@
 
   let {
     linksClassName,
+    nerdsOpen,
+    onToggleNerds,
     contactOpen,
     onToggleContact,
     onNavigate,
@@ -87,6 +91,25 @@
   <button
     type="button"
     class="primary-menu-content__action"
+    aria-expanded={nerdsOpen}
+    aria-controls="primary-menu-nerds-panel"
+    onclick={onToggleNerds}
+  >
+    For nerds
+  </button>
+  {#if nerdsOpen}
+    <section
+      id="primary-menu-nerds-panel"
+      class="primary-menu-content__nerds-panel"
+      aria-label="For nerds"
+    >
+      <a href="#/tidenerd" onclick={() => onNavigate?.()}>Tide Nerd</a>
+      <a href="#/softwarenerd" onclick={() => onNavigate?.()}>Software Nerd</a>
+    </section>
+  {/if}
+  <button
+    type="button"
+    class="primary-menu-content__action"
     aria-expanded={contactOpen}
     aria-controls="primary-menu-contact-panel"
     onclick={onToggleContact}
@@ -131,6 +154,28 @@
 
   .primary-menu-content__action:hover {
     background: var(--surface-menu-content-control-hover);
+  }
+
+  .primary-menu-content__nerds-panel {
+    margin-top: 0.35rem;
+    padding: 0.45rem 0.5rem;
+    border: 1px solid var(--border-menu-content-inset);
+    border-radius: 0.25rem;
+    background: var(--surface-menu-content-inset);
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .primary-menu-content__nerds-panel a {
+    color: var(--text-menu-content-primary);
+    font-size: 0.85rem;
+    line-height: 1.35;
+    text-decoration: none;
+  }
+
+  .primary-menu-content__nerds-panel a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
   }
 
   .primary-menu-content__contact-panel {

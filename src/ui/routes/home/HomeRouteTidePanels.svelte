@@ -26,8 +26,10 @@
     readonly homeMenuOpen: boolean;
     readonly homeMenuPanelStyle: string;
     readonly homeFullscreenActive: boolean;
+    readonly homeNerdsOpen: boolean;
     readonly homeContactOpen: boolean;
     readonly onCloseHomeMenu: () => void;
+    readonly onToggleHomeNerds: () => void;
     readonly onToggleHomeContact: () => void;
     readonly onToggleHomeFullscreen: () => void | Promise<void>;
     readonly pwa: PwaDisplayMenu;
@@ -49,8 +51,10 @@
     homeMenuOpen,
     homeMenuPanelStyle,
     homeFullscreenActive,
+    homeNerdsOpen,
     homeContactOpen,
     onCloseHomeMenu,
+    onToggleHomeNerds,
     onToggleHomeContact,
     onToggleHomeFullscreen,
     pwa,
@@ -125,6 +129,8 @@
       >
         <PrimaryMenuContent
           linksClassName="u-stack-sm u-nav-link-list"
+          nerdsOpen={homeNerdsOpen}
+          onToggleNerds={onToggleHomeNerds}
           contactOpen={homeContactOpen}
           onToggleContact={onToggleHomeContact}
           onNavigate={onCloseHomeMenu}

@@ -109,6 +109,7 @@
   let homeMenuOpen = $state(false);
   let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
   let homeFullscreenActive = $state(false);
+  let homeNerdsOpen = $state(false);
   let homeContactOpen = $state(false);
   let pwaUserWants = $state(get(keepAwakeUserStore));
   let pwaTideViewPresentation = $state(get(tideWakePresentationStore));
@@ -426,6 +427,7 @@
    */
   $effect(() => {
     if (!homeMenuOpen || diagramSvg === "") return;
+    void homeNerdsOpen;
     void homeContactOpen;
     void pwaDisplaySectionOpen;
     void tick().then(() => {
@@ -508,6 +510,7 @@
 
   function closeHomeMenu(): void {
     homeMenuOpen = false;
+    homeNerdsOpen = false;
     homeContactOpen = false;
     pwaDisplaySectionOpen = false;
   }
@@ -533,6 +536,10 @@
     if (host == null) return;
     await toggleInstrumentFullscreen(host);
     homeMenuOpen = false;
+  }
+
+  function handleHomeNerdsEntry(): void {
+    homeNerdsOpen = !homeNerdsOpen;
   }
 
   function handleHomeContactEntry(): void {
@@ -581,9 +588,11 @@
     {homeMenuOpen}
     {homeMenuPanelStyle}
     {homeFullscreenActive}
+    {homeNerdsOpen}
     {homeContactOpen}
     onCloseHomeMenu={closeHomeMenu}
     onToggleHomeFullscreen={handleHomeFullscreenToggle}
+    onToggleHomeNerds={handleHomeNerdsEntry}
     onToggleHomeContact={handleHomeContactEntry}
     pwa={pwaForHomeMenu}
   />

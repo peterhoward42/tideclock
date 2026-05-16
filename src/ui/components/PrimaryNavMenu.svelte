@@ -15,6 +15,7 @@
   import { isWakeLockApiSupported } from "../routes/home/wakeLockSupport";
 
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
+  let nerdsOpen = $state(false);
   let contactOpen = $state(false);
   let pwaDisplaySectionOpen = $state(false);
   let pwaUserWants = $state(get(keepAwakeUserStore));
@@ -38,12 +39,17 @@
   /** Called from parent header (brand / location) so navigation closes the flyout. */
   export function closeMenu(): void {
     menuDetails?.removeAttribute("open");
+    nerdsOpen = false;
     contactOpen = false;
     pwaDisplaySectionOpen = false;
   }
 
   function closeFromLink(): void {
     closeMenu();
+  }
+
+  function handleNerdsEntry(): void {
+    nerdsOpen = !nerdsOpen;
   }
 
   function handleContactEntry(): void {
@@ -90,6 +96,8 @@
   <div class="nav-links u-pad-surface-sm">
     <PrimaryMenuContent
       linksClassName="u-stack-sm u-nav-link-list"
+      nerdsOpen={nerdsOpen}
+      onToggleNerds={handleNerdsEntry}
       contactOpen={contactOpen}
       onToggleContact={handleContactEntry}
       onNavigate={closeFromLink}

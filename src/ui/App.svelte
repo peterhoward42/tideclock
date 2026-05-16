@@ -27,6 +27,8 @@
   import AboutRoute from "./routes/AboutRoute.svelte";
   import OnWallRoute from "./routes/OnWallRoute.svelte";
   import StoryRoute from "./routes/StoryRoute.svelte";
+  import TideNerdRoute from "./routes/TideNerdRoute.svelte";
+  import SoftwareNerdRoute from "./routes/SoftwareNerdRoute.svelte";
   import { THE_TIDE_DIAL, TIDE_DIAL_PRODUCTION_ORIGIN } from "./brand";
   import { surfaceModeForRoute } from "./routeSurfaceMode";
 
@@ -216,6 +218,10 @@
         return "Stick it on the wall";
       case "story":
         return "Story";
+      case "tidenerd":
+        return "Tide Nerd";
+      case "softwarenerd":
+        return "Software Nerd";
       case "home":
         return "";
       default:
@@ -299,6 +305,10 @@
       <OnWallRoute />
     {:else if $route === "story"}
       <StoryRoute />
+    {:else if $route === "tidenerd"}
+      <TideNerdRoute />
+    {:else if $route === "softwarenerd"}
+      <SoftwareNerdRoute />
     {/if}
   </section>
 </div>
