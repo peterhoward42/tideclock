@@ -18,6 +18,10 @@ o  review and plan other pages
 			*  contact
 			*  story
 		o  improve pre existing entries we are going to keep
+			*  put it on wall
+			o  basics
+			o  image(s)
+
 		o  fix the way about refers to story x ref
 		o  express clearer the data provenance and make the form part look like a callout
 		o  make ref to world tides open in a new tab (there are a few)
@@ -54,6 +58,7 @@ o  Ideas for bucket pages
 See /docs/specs/tide-diagram.md for context.
 
 
+o  Set your own location rather than set your location
 
 o  what the heck is the picture: running-in-the-installed-app?
 	o  never seen it before

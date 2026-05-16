@@ -7,7 +7,6 @@
   import { route } from "../../infrastructure/router.js";
   import { effectiveSearchFromLocation } from "../homeUrlQuery";
   import PrimaryMenuContent from "./PrimaryMenuContent.svelte";
-  import { manualInstallStepsFromUserAgent } from "../routes/home/installFlow";
   import {
     keepAwakeUserStore,
     setKeepAwakeUserEnabled,
@@ -17,16 +16,9 @@
 
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
   let contactOpen = $state(false);
-  let installInfoOpen = $state(false);
   let pwaDisplaySectionOpen = $state(false);
   let pwaUserWants = $state(get(keepAwakeUserStore));
   let pwaTideViewPresentation = $state(get(tideWakePresentationStore));
-  const installManualSteps = $derived(
-    manualInstallStepsFromUserAgent(
-      typeof navigator !== "undefined" ? navigator.userAgent : null,
-    ),
-  );
-
   const pwaIsHome = $derived($route === "home");
 
   const pwaForMenu = $derived({
@@ -48,16 +40,11 @@
   export function closeMenu(): void {
     menuDetails?.removeAttribute("open");
     contactOpen = false;
-    installInfoOpen = false;
     pwaDisplaySectionOpen = false;
   }
 
   function closeFromLink(): void {
     closeMenu();
-  }
-
-  function handleInstallEntry(): void {
-    installInfoOpen = !installInfoOpen;
   }
 
   function handleContactEntry(): void {
@@ -106,9 +93,6 @@
       linksClassName="u-stack-sm u-nav-link-list"
       contactOpen={contactOpen}
       onToggleContact={handleContactEntry}
-      installInfoOpen={installInfoOpen}
-      installManualSteps={installManualSteps}
-      onToggleInstallInfo={handleInstallEntry}
       onNavigate={closeFromLink}
       pwa={pwaForMenu}
     />

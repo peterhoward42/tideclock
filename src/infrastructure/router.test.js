@@ -36,6 +36,11 @@ describe("parseHash", () => {
     expect(parseHash("#/about#meet-the-author")).toBe("about");
   });
 
+  it("maps onwall route", () => {
+    expect(parseHash("#/onwall")).toBe("onwall");
+    expect(parseHash("onwall")).toBe("onwall");
+  });
+
   it("maps story route", () => {
     expect(parseHash("#/story")).toBe("story");
     expect(parseHash("story")).toBe("story");
@@ -108,6 +113,22 @@ describe("syncRouteFromHash", () => {
     syncRouteFromHash();
 
     expect(get(route)).toBe("about");
+    expect(replaceState).not.toHaveBeenCalled();
+  });
+
+  it("does not replaceState for canonical #/onwall", () => {
+    const replaceState = vi.fn();
+    vi.stubGlobal("history", { replaceState });
+    vi.stubGlobal("window", {
+      location: {
+        hash: "#/onwall",
+        href: "http://localhost:5173/#/onwall",
+      },
+    });
+
+    syncRouteFromHash();
+
+    expect(get(route)).toBe("onwall");
     expect(replaceState).not.toHaveBeenCalled();
   });
 

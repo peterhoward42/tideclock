@@ -21,9 +21,6 @@
     readonly linksClassName: string;
     readonly contactOpen: boolean;
     readonly onToggleContact: () => void;
-    readonly installInfoOpen: boolean;
-    readonly installManualSteps: readonly string[];
-    readonly onToggleInstallInfo: () => void;
     readonly onNavigate?: () => void;
     readonly fullscreenActionLabel?: string;
     readonly onToggleFullscreen?: () => void | Promise<void>;
@@ -35,9 +32,6 @@
     linksClassName,
     contactOpen,
     onToggleContact,
-    installInfoOpen,
-    installManualSteps,
-    onToggleInstallInfo,
     onNavigate,
     fullscreenActionLabel,
     onToggleFullscreen,
@@ -81,33 +75,7 @@
       </p>
     </section>
   {/if}
-  <button
-    type="button"
-    class="primary-menu-content__action primary-menu-content__install-entry"
-    aria-expanded={installInfoOpen}
-    onclick={onToggleInstallInfo}
-  >
-    Install as always-on display
-    <span class="primary-menu-content__install-entry-hint">
-      Designed to be left running on a kitchen tablet or wall-mounted screen.
-    </span>
-  </button>
-  {#if installInfoOpen}
-    <section
-      class="primary-menu-content__install-flow"
-      aria-label="How to install"
-      aria-live="polite"
-    >
-      <p class="primary-menu-content__install-body">
-        Use your browser’s add or install option (exact wording varies):
-      </p>
-      <ol class="primary-menu-content__install-list">
-        {#each installManualSteps as step}
-          <li>{step}</li>
-        {/each}
-      </ol>
-    </section>
-  {/if}
+  <a href="#/onwall" onclick={() => onNavigate?.()}>Stick it on the wall</a>
   {#if pwa !== undefined}
     <button
       type="button"
@@ -170,29 +138,6 @@
     background: var(--surface-menu-content-control-hover);
   }
 
-  .primary-menu-content__install-entry {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
-
-  .primary-menu-content__install-entry-hint {
-    font-size: 0.72rem;
-    line-height: 1.35;
-    font-weight: 400;
-    color: var(--text-menu-content-status);
-  }
-
-  .primary-menu-content__install-flow {
-    margin-top: 0.35rem;
-    padding: 0.45rem 0.5rem;
-    border: 1px solid var(--border-menu-content-inset);
-    border-radius: 0.25rem;
-    background: var(--surface-menu-content-inset);
-    color: var(--text-menu-content-primary);
-  }
-
   .primary-menu-content__contact-panel {
     margin-top: 0.35rem;
     padding: 0.45rem 0.5rem;
@@ -220,21 +165,6 @@
 
   .primary-menu-content__contact-email a {
     color: var(--text-menu-content-primary);
-  }
-
-  .primary-menu-content__install-body {
-    margin: 0.4rem 0 0;
-    font-size: 0.8rem;
-    line-height: 1.35;
-  }
-
-  .primary-menu-content__install-list {
-    margin: 0.45rem 0 0;
-    padding-left: 1rem;
-    display: grid;
-    gap: 0.25rem;
-    font-size: 0.78rem;
-    line-height: 1.3;
   }
 
   .primary-menu-content__pwa {

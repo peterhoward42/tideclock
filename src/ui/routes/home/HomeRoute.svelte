@@ -78,7 +78,6 @@
     getDiagramFullscreenTarget,
     toggleInstrumentFullscreen,
   } from "./fullscreen";
-  import { manualInstallStepsFromUserAgent } from "./installFlow";
 
   let {
     tideLoadState,
@@ -111,8 +110,6 @@
   let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
   let homeFullscreenActive = $state(false);
   let homeContactOpen = $state(false);
-  let homeInstallInfoOpen = $state(false);
-
   let pwaUserWants = $state(get(keepAwakeUserStore));
   let pwaTideViewPresentation = $state(get(tideWakePresentationStore));
   let pwaDisplaySectionOpen = $state(false);
@@ -156,12 +153,6 @@
 
   const diagramPreviewBannerLine = $derived(
     formatDiagramPreviewBanner(homeDiagramPreview),
-  );
-
-  const homeInstallManualSteps = $derived(
-    manualInstallStepsFromUserAgent(
-      typeof navigator !== "undefined" ? navigator.userAgent : null,
-    ),
   );
 
   /**
@@ -451,13 +442,12 @@
   });
 
   /**
-   * When install / PWA “App display” sections grow, the menu height changes. Re-anchored from
+   * When Contact / PWA “App display” sections grow, the menu height changes. Re-anchored from
    * the same geometry as the SVG trigger; avoids stale layout on long portrait viewports.
    */
   $effect(() => {
     if (!homeMenuOpen || diagramSvg === "") return;
     void homeContactOpen;
-    void homeInstallInfoOpen;
     void pwaDisplaySectionOpen;
     void tick().then(() => {
       const host = diagramHostEl;
@@ -540,7 +530,6 @@
   function closeHomeMenu(): void {
     homeMenuOpen = false;
     homeContactOpen = false;
-    homeInstallInfoOpen = false;
     pwaDisplaySectionOpen = false;
   }
 
@@ -565,10 +554,6 @@
     if (host == null) return;
     await toggleInstrumentFullscreen(host);
     homeMenuOpen = false;
-  }
-
-  function handleHomeInstallEntry(): void {
-    homeInstallInfoOpen = !homeInstallInfoOpen;
   }
 
   function handleHomeContactEntry(): void {
@@ -620,12 +605,9 @@
     {homeMenuPanelStyle}
     {homeFullscreenActive}
     {homeContactOpen}
-    {homeInstallInfoOpen}
-    {homeInstallManualSteps}
     onCloseHomeMenu={closeHomeMenu}
     onToggleHomeFullscreen={handleHomeFullscreenToggle}
     onToggleHomeContact={handleHomeContactEntry}
-    onOpenInstallMenu={handleHomeInstallEntry}
     pwa={pwaForHomeMenu}
   />
 </main>

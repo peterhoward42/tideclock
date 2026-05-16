@@ -25,6 +25,7 @@
   import Home from "./routes/Home.svelte";
   import LocationRoute from "./routes/LocationRoute.svelte";
   import AboutRoute from "./routes/AboutRoute.svelte";
+  import OnWallRoute from "./routes/OnWallRoute.svelte";
   import StoryRoute from "./routes/StoryRoute.svelte";
   import { THE_TIDE_DIAL, TIDE_DIAL_PRODUCTION_ORIGIN } from "./brand";
   import { surfaceModeForRoute } from "./routeSurfaceMode";
@@ -211,6 +212,8 @@
         return "Location";
       case "about":
         return "About";
+      case "onwall":
+        return "Stick it on the wall";
       case "story":
         return "Story";
       case "home":
@@ -292,6 +295,8 @@
       <LocationRoute setCurrentLocation={setCurrentLocation} />
     {:else if $route === "about"}
       <AboutRoute />
+    {:else if $route === "onwall"}
+      <OnWallRoute />
     {:else if $route === "story"}
       <StoryRoute />
     {/if}

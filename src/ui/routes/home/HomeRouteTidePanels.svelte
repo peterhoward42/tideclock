@@ -27,12 +27,9 @@
     readonly homeMenuPanelStyle: string;
     readonly homeFullscreenActive: boolean;
     readonly homeContactOpen: boolean;
-    readonly homeInstallInfoOpen: boolean;
-    readonly homeInstallManualSteps: readonly string[];
     readonly onCloseHomeMenu: () => void;
     readonly onToggleHomeContact: () => void;
     readonly onToggleHomeFullscreen: () => void | Promise<void>;
-    readonly onOpenInstallMenu: () => void;
     readonly pwa: PwaDisplayMenu;
     diagramHostEl?: HTMLElement | undefined;
     homeInstrumentEl?: HTMLElement | undefined;
@@ -53,12 +50,9 @@
     homeMenuPanelStyle,
     homeFullscreenActive,
     homeContactOpen,
-    homeInstallInfoOpen,
-    homeInstallManualSteps,
     onCloseHomeMenu,
     onToggleHomeContact,
     onToggleHomeFullscreen,
-    onOpenInstallMenu,
     pwa,
     diagramHostEl = $bindable(),
     homeInstrumentEl = $bindable(),
@@ -133,9 +127,6 @@
           linksClassName="u-stack-sm u-nav-link-list"
           contactOpen={homeContactOpen}
           onToggleContact={onToggleHomeContact}
-          installInfoOpen={homeInstallInfoOpen}
-          installManualSteps={homeInstallManualSteps}
-          onToggleInstallInfo={onOpenInstallMenu}
           onNavigate={onCloseHomeMenu}
           fullscreenActionLabel={homeFullscreenActive
             ? "Exit fullscreen"
