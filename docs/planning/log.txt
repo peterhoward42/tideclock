@@ -19,8 +19,9 @@ o  review and plan other pages
 			*  story
 		o  improve pre existing entries we are going to keep
 			*  put it on wall
-			o  basics
+			*  basics
 			o  image(s)
+			o  make a phone one too
 
 		o  fix the way about refers to story x ref
 		o  express clearer the data provenance and make the form part look like a callout
