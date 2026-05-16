@@ -21,6 +21,7 @@ o  review and plan other pages
 			*  put it on wall
 			*  screen awake
 			o  enter fullscreen -> really fullscreen
+			o  reorder fullscreen?
 
 		o  exploit the new pictures in the about + elevator pitch in about
 		o  fix the way about refers to story x ref

@@ -44,36 +44,6 @@
 
 <nav class={linksClassName} aria-label="Primary">
   <PrimaryNavLinks {onNavigate} />
-  <button
-    type="button"
-    class="primary-menu-content__action"
-    aria-expanded={contactOpen}
-    aria-controls="primary-menu-contact-panel"
-    onclick={onToggleContact}
-  >
-    Contact
-  </button>
-  {#if contactOpen}
-    <section
-      id="primary-menu-contact-panel"
-      class="primary-menu-content__contact-panel"
-      aria-label="Contact"
-      aria-live="polite"
-    >
-      <p class="primary-menu-content__contact-body">
-        Questions, bug reports, thoughtful suggestions.
-      </p>
-      <p class="primary-menu-content__contact-body">
-        This app is personally designed and maintained by me, so responses may
-        occasionally be slow, but I do read everything.
-      </p>
-      <p class="primary-menu-content__contact-email">
-        <a
-          href="mailto:peterhoward42@gmail.com"
-          onclick={() => onNavigate?.()}>peterhoward42@gmail.com</a>
-      </p>
-    </section>
-  {/if}
   <a href="#/onwall" onclick={() => onNavigate?.()}>Stick it on the wall</a>
   {#if pwa !== undefined}
     <button
@@ -104,18 +74,46 @@
       </section>
     {/if}
   {/if}
+  {#if fullscreenActionLabel !== undefined && onToggleFullscreen !== undefined}
+    <button
+      type="button"
+      class="primary-menu-content__action"
+      onclick={onToggleFullscreen}
+    >
+      {fullscreenActionLabel}
+    </button>
+  {/if}
   <a href="#/story" onclick={() => onNavigate?.()}>Story</a>
-</nav>
-
-{#if fullscreenActionLabel !== undefined && onToggleFullscreen !== undefined}
   <button
     type="button"
     class="primary-menu-content__action"
-    onclick={onToggleFullscreen}
+    aria-expanded={contactOpen}
+    aria-controls="primary-menu-contact-panel"
+    onclick={onToggleContact}
   >
-    {fullscreenActionLabel}
+    Contact
   </button>
-{/if}
+  {#if contactOpen}
+    <section
+      id="primary-menu-contact-panel"
+      class="primary-menu-content__contact-panel"
+      aria-label="Contact"
+      aria-live="polite"
+    >
+      <p class="primary-menu-content__contact-body">
+        Questions, bug reports, thoughtful suggestions.
+      </p>
+      <p class="primary-menu-content__contact-body">
+        This app is personally designed and maintained by me, so responses may
+        occasionally be slow, but I do read everything.
+      </p>
+      <p class="primary-menu-content__contact-email">
+        <a href="mailto:peterhoward42@gmail.com" onclick={() => onNavigate?.()}
+          >peterhoward42@gmail.com</a>
+      </p>
+    </section>
+  {/if}
+</nav>
 
 <style>
   .primary-menu-content__action {

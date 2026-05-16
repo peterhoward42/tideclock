@@ -130,7 +130,7 @@
           onNavigate={onCloseHomeMenu}
           fullscreenActionLabel={homeFullscreenActive
             ? "Exit fullscreen"
-            : "Enter fullscreen"}
+            : "Really fullscreen"}
           onToggleFullscreen={onToggleHomeFullscreen}
           {pwa}
         />
