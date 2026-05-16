@@ -38,18 +38,29 @@
     <h2 class="about-route__h" id="about-data-heading">Tide data and copyright</h2>
     <p class="about-route__p">
       Tidal data retrieved from
-      <a class="about-route__link" href="https://www.worldtides.info/">www.worldtides.info</a>.
+      <a
+        class="about-route__link"
+        href="https://www.worldtides.info/"
+        target="_blank"
+        rel="noopener noreferrer">www.worldtides.info</a
+      >.
       Copyright © 2014-2026 Brainware LLC. Licensed for use of individual spatial coordinates by an
       end-user. NO GUARANTEES ARE MADE ABOUT THE CORRECTNESS OF THIS TIDAL DATA. You may not use
       this data if anyone or anything could come to harm as a result of using it (e.g. for
       navigational purposes). Tidal data is obtained from various sources and is covered in part or
       whole by various copyrights. For details see:
-      <a class="about-route__link" href="https://www.worldtides.info/copyright"
-        >www.worldtides.info/copyright</a
+      <a
+        class="about-route__link"
+        href="https://www.worldtides.info/copyright"
+        target="_blank"
+        rel="noopener noreferrer">www.worldtides.info/copyright</a
       >
       (required notice per
-      <a class="about-route__link" href="https://www.worldtides.info/terms"
-        >WorldTides terms — Additional provisions</a
+      <a
+        class="about-route__link"
+        href="https://www.worldtides.info/terms"
+        target="_blank"
+        rel="noopener noreferrer">WorldTides terms — Additional provisions</a
       >).
     </p>
   </section>
