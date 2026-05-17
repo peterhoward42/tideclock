@@ -8,12 +8,15 @@ TIDE DIAL
 *  showing tides for looe panel should scale to be big enough on desktop
 
 o  Buy me a coffee (I have no violent objection)
-	*  first stab
-	*  review
-	*  setup account
-	o  capture link
-		https://ko-fi.com/petehowardtides
-	o  polish it
+	o  Basics
+	o  Don't like ko fi and Stripe doesn't like me
+	o  Read ko-fi vs buymeacoffee vs stripe direct
+	o  Put in buy me a coffee instead
+		o  https://buymeacoffee.com/petehoward
+	o  if good wean off ko-fi
+		o  stripe identity
+		o  ko-fi account
+	o  make the callout bit more prominent wrt rest of page
 
 o  proxy cost risk containment 
 
