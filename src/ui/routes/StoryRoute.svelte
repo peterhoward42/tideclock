@@ -77,10 +77,11 @@
       <p>
         Thanks for spending time with {THE_TIDE_DIAL}. And if you feel inclined to buy me a
         <a
-          class="story-route__link"
+          class="story-route__support-link"
           href={VIRTUAL_COFFEE_URL}
           target="_blank"
-          rel="noopener noreferrer">virtual coffee</a>, I will raise no great objection.
+          rel="noopener noreferrer">virtual coffee</a>
+        I will raise no great objection.
       </p>
     </aside>
 
@@ -154,11 +155,13 @@
   }
 
   .story-route__support {
-    margin: 0.35rem 0;
-    padding: 0.45rem 0.5rem;
-    border: 1px solid var(--border-subtle);
-    border-radius: 0.25rem;
-    background: var(--surface-panel);
+    margin: 0.65rem 0 1rem;
+    padding: 0.9rem 1rem 0.95rem;
+    border: 1px solid color-mix(in srgb, #d97706 28%, var(--border-subtle));
+    border-left: 3px solid #d97706;
+    border-radius: 0.35rem;
+    background: color-mix(in srgb, #fef3c7 42%, var(--surface-panel));
+    box-shadow: 0 1px 4px rgb(15 23 42 / 0.07);
     display: grid;
     gap: 0.4rem;
   }
@@ -166,7 +169,23 @@
   .story-route__support p {
     margin: 0;
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.55;
     color: var(--text-document-default);
+  }
+
+  .story-route__support-link {
+    font-weight: 600;
+    color: #92400e;
+    text-decoration: none;
+    padding: 0.12em 0.42em;
+    border-radius: 0.2em;
+    background: color-mix(in srgb, #fff 75%, #fef3c7);
+    border: 1px solid color-mix(in srgb, #d97706 35%, transparent);
+  }
+
+  .story-route__support-link:hover {
+    color: #78350f;
+    background: #fff;
+    border-color: color-mix(in srgb, #d97706 55%, transparent);
   }
 </style>
