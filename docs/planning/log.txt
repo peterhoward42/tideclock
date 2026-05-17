@@ -5,63 +5,32 @@ TIDE DIAL
 *  remove routine keep screen awake menu and internals, but retain in pwa
 *  sort out thetidedial.page DNS
 *  review and plan other pages
+*  showing tides for looe panel should scale to be big enough on desktop
 
-o  showing tides for looe panel should scale to be big enough on desktop
-	o  make mobile and desky images
-
-o  say is open source berkely licence both repos
 
 o  sanitise github for pub scrutiny
+	o  say is open source berkely licence both repos
 
-o  About page should start with elevator pitch
-
-	fart
-
-
-See /docs/specs/tide-diagram.md for context.
-
-
-o  Set your own location rather than set your location
 
 o  Buy me a coffee (I have no violent objection)
-o  what the heck is the picture: running-in-the-installed-app?
-	o  never seen it before
-	o  clicked on a vercel dashboard link and this came up?
 
 o  proxy cost risk containment 
-o  paid for service to get next day access
+
 
 o  scarborough to whitby coverage is bad for some reason?
 
 
 
 				o  QR code in auxilliary route
-				o  report bugs and suggestions
 				o  donate?
-				o  see the source
-				o  see a funny tide
-				o  learn about tides
-				o  stories about tides
-				o  real DNS 
-				o  older browsers and old tablet?
 				o  network hits observability on vercel?
-				o  say hello
-				o  give feedback
 				o  donate
-				o  buy my software / my skills
-fart
-				o  learn about tides
-				o  acks and source
-				o  safety
-				o  tide joke / image for human
 				
 
 o  don't forget
 	o  proxy api should come from envar?
 	o  policy for excections
 	o  price cap control on worldtimes costs
-	o  safety and accuracy disclaimer
-	o  about me, gis a job
-	o  learn about tides
-	o  hire me
 o  github housekeeping incl readme
+o  futures
+	o  paid for service to get next day access
