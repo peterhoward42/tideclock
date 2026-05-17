@@ -1,5 +1,6 @@
 <script lang="ts">
   import { THE_TIDE_DIAL } from "../brand";
+  import { VIRTUAL_COFFEE_URL } from "../../support";
 
   const contactInMenuHref = "#/home?contact=1";
 </script>
@@ -72,6 +73,20 @@
       </figcaption>
     </figure>
 
+    <aside class="story-route__support" aria-label="Optional support">
+      <p>
+        If you like how this turned out — I have no great objection to you buying me a
+        <a
+          class="story-route__link"
+          href={VIRTUAL_COFFEE_URL}
+          target="_blank"
+          rel="noopener noreferrer">virtual coffee</a>.
+      </p>
+      <p class="story-route__support-note">
+        No ads, no account, and entirely optional — the dial is complete either way.
+      </p>
+    </aside>
+
     <p>
       {THE_TIDE_DIAL} is ultimately the product of a long career spent making complicated systems
       easier to see and think about. If that overlaps with your world too, feel free to reach out via
@@ -139,5 +154,28 @@
     color: var(--text-link-accent);
     text-decoration: underline;
     text-underline-offset: 0.12em;
+  }
+
+  .story-route__support {
+    margin: 0;
+    padding: 0.45rem 0.5rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.25rem;
+    background: var(--surface-panel);
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .story-route__support p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-document-default);
+  }
+
+  .story-route__support-note {
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: var(--text-document-secondary);
   }
 </style>

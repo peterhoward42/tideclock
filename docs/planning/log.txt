@@ -22,6 +22,7 @@ o  scarborough to whitby coverage is bad for some reason?
 
 
 				o  QR code in auxilliary route
+					o  or more generally how to encourage sharing
 				o  donate?
 				o  network hits observability on vercel?
 				o  donate

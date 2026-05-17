@@ -85,6 +85,7 @@ The menu still exposes **Keep screen awake** for people already on home; this ro
 
 - Trust and humanity without putting a memoir on the dial.
 - A natural path to **Contact** (the menu panel, or `#/home?contact=1` from a link on this page).
+- Optional **virtual coffee** support in a short inset after the Ramsgate photo (appreciation before conversation; see `docs/planning/fundme.md`) — not in the main menu.
 - Optional mention of other work (e.g. DrawExact) for the right reader, without making the app a portfolio site.
 
 Software Nerd explicitly points readers here for author intent rather than architecture.
