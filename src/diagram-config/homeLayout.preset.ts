@@ -28,10 +28,14 @@ export const homeLayoutBase = {
   tickLabelSize: 0.04,
   tickLabelClearance: 0.042,
   brhcBundle: { fontHeight: 0.045, dateAboveTime: 0.02 },
-  /** k·RefRadius: Brand uniform font height (BrandTitle + BrandURL). */
+  /** k·RefRadius: BrandURL font height. */
   brandFontHeight: 0.04,
-  /** k·RefRadius: Brand alphabetic baseline above **B_bottom**. */
+  /** k·RefRadius: BrandURL alphabetic baseline above **B_bottom**. */
   brandAboveBottom: 0.008,
+  /** k·RefRadius: gap between BrandURL text and BrandQR. */
+  brandQrGap: 0.012,
+  /** k·RefRadius: BrandQR square side (similar scale to **homeMenuTrigger.diameter**). */
+  brandQrSize: 0.18,
   hand: {
     bossCircleRadius: 0.1,
     /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */

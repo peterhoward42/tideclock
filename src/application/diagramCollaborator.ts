@@ -56,19 +56,25 @@ type DiagramTextInst = {
   readonly hAlign?: "left" | "center" | "right";
 };
 
-type BrandDiagramSegment = {
-  readonly leafName: string;
+type BrandUrlDiagram = {
   readonly content: string;
-  readonly anchor: DiagramPoint;
-  readonly hAlign: "left";
-  readonly dominantBaseline?: "alphabetic" | "middle";
-};
-
-/** Fixed **BrandURL** line; **anchor** is the leading baseline at **B_left**. */
-type BrandDiagram = {
   readonly fontSize: number;
   readonly anchor: DiagramPoint;
-  readonly segments: readonly BrandDiagramSegment[];
+  readonly hAlign: "left";
+};
+
+type BrandQrDiagram = {
+  readonly payload: string;
+  readonly origin: DiagramPoint;
+  readonly moduleSize: number;
+  readonly moduleCount: number;
+  readonly cells: readonly boolean[];
+};
+
+/** **Brand** compound: **BrandURL** + **BrandQR** (see tide-diagram spec §Brand). */
+type BrandCompoundDiagram = {
+  readonly brandUrl: BrandUrlDiagram;
+  readonly brandQr: BrandQrDiagram;
 };
 
 type TideHeightLabelDiagram = {
@@ -168,8 +174,8 @@ export type TideDiagramDocument = {
   readonly hand: HandDiagram;
   readonly brhcLocation: DiagramTextInst;
   readonly brhcDate: DiagramTextInst;
-  /** Fixed brand line (**BrandURL**); **left** at **B_left**; baseline **`B_bottom + brandAboveBottom·R`**; font size from **`brandFontHeight`** (see tide-diagram spec §Brand). */
-  readonly brand: BrandDiagram;
+  /** **Brand** compound (**BrandURL** + **BrandQR**); see tide-diagram spec §Brand. */
+  readonly brand: BrandCompoundDiagram;
 };
 
 type ScenePoint = { readonly x: number; readonly y: number };

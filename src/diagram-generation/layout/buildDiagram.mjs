@@ -17,10 +17,13 @@
  * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**menuLeftPadding**`, `**menuAboveBottom**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; paddings and **iconBarGap** **>= 0**). Placed as a **top-level** scene sibling (**not** inside **BRHCBundle**): leading edge inset from **B_left** by **`menuLeftPadding·R`**; the **bottom** of the circular control lies **`menuAboveBottom·R`** above **B_bottom** (**Y** upward). Independent of **Brand** placement. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
  * - **MainLabel** is horizontal text inside **BRHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
  * - `**brhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**brhcDatePrefix**` is a required string (see spec).
- * - `**brandFontHeight**` is required: finite **k·R** **> 0** for **Brand** font height (**BrandURL**; see tide-diagram spec §Brand).
- * - `**brandAboveBottom**` is required: finite **k·R** **>= 0**; **Brand** alphabetic baseline **`y = B_bottom + brandAboveBottom·R`**.
+ * - `**brandFontHeight**` is required: finite **k·R** **> 0** for **BrandURL** font height (see tide-diagram spec §Brand).
+ * - `**brandAboveBottom**` is required: finite **k·R** **>= 0**; **BrandURL** alphabetic baseline **`y = B_bottom + brandAboveBottom·R`**.
+ * - `**brandQrGap**` is required: finite **k·R** **>= 0**; horizontal gap between URL text and **BrandQR**.
+ * - `**brandQrSize**` is required: finite **k·R** **> 0**; **BrandQR** square side (independent of **`brandFontHeight`**).
  */
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
+import { encodeQrMatrix } from "../qr/encodeQrMatrix.mjs";
 import {
   requireFiniteNumber,
   requirePlainObject,
@@ -47,8 +50,10 @@ const TEXT_DESCENT_EM = 0.2;
 const HAND_NOW_TAG_TEXT = "time now";
 const HAND_BOSS_LABEL_TEXT = "Tides";
 
-/** Fixed **Brand** copy (**`Brand`** group). */
+/** Fixed **BrandURL** display copy. */
 const BRAND_URL = "thetidedial.page";
+/** Fixed **BrandQR** scannable payload (full URL). */
+const BRAND_QR_PAYLOAD = "https://thetidedial.page";
 
 /**
  * **BRHCBundle**: **MainLabel** (tide summary, bottom row), **BRHCDate**, **BRHCLocation** — each row **right**-justified to **B_right**;
@@ -594,20 +599,36 @@ export function buildDiagram(spec) {
 
   const brandFontHeightK = readBrandFontHeightKFromSpec(spec);
   const brandAboveBottomK = readBrandAboveBottomKFromSpec(spec);
+  const brandQrGapK = readBrandQrGapKFromSpec(spec);
+  const brandQrSizeK = readBrandQrSizeKFromSpec(spec);
   const brandFontSize = brandFontHeightK * refRadius;
   const brandBaselineY = layoutBounds.minY + brandAboveBottomK * refRadius;
   const brandLeadingX = layoutBounds.minX;
+  const brandUrlTextWidth = BRAND_URL.length * brandFontSize * BRHC_LABEL_CHAR_WIDTH_EM;
+  const brandQrGap = brandQrGapK * refRadius;
+  const brandQrSide = brandQrSizeK * refRadius;
+  const textEmCenterY =
+    brandBaselineY + 0.5 * (TEXT_ASCENT_EM - TEXT_DESCENT_EM) * brandFontSize;
+  const qrEncoded = encodeQrMatrix(BRAND_QR_PAYLOAD);
+  const brandQrOrigin = {
+    x: brandLeadingX + brandUrlTextWidth + brandQrGap,
+    y: textEmCenterY - 0.5 * brandQrSide,
+  };
+  const brandQrModuleSize = brandQrSide / qrEncoded.moduleCount;
   const brand = {
-    fontSize: brandFontSize,
-    anchor: { x: brandLeadingX, y: brandBaselineY },
-    segments: [
-      {
-        leafName: "BrandURL",
-        content: BRAND_URL,
-        anchor: { x: brandLeadingX, y: brandBaselineY },
-        hAlign: /** @type {const} */ ("left"),
-      },
-    ],
+    brandUrl: {
+      content: BRAND_URL,
+      fontSize: brandFontSize,
+      anchor: { x: brandLeadingX, y: brandBaselineY },
+      hAlign: /** @type {const} */ ("left"),
+    },
+    brandQr: {
+      payload: BRAND_QR_PAYLOAD,
+      origin: brandQrOrigin,
+      moduleSize: brandQrModuleSize,
+      moduleCount: qrEncoded.moduleCount,
+      cells: qrEncoded.cells,
+    },
   };
   const homeMenuTrigger = buildHomeMenuTriggerFromSpec(
     spec,
@@ -616,15 +637,13 @@ export function buildDiagram(spec) {
     layoutBounds.minY,
   );
   // Intentionally omit homeMenuTrigger from layoutBounds — spec: menu geometry must not expand B_*.
-  for (const seg of brand.segments) {
-    includeDiagramTextBounds(layoutBounds, {
-      content: seg.content,
-      fontSize: brand.fontSize,
-      anchor: seg.anchor,
-      hAlign: seg.hAlign,
-      dominantBaseline: seg.dominantBaseline,
-    });
-  }
+  includeDiagramTextBounds(layoutBounds, {
+    content: brand.brandUrl.content,
+    fontSize: brand.brandUrl.fontSize,
+    anchor: brand.brandUrl.anchor,
+    hAlign: brand.brandUrl.hAlign,
+  });
+  includeQrMatrixBounds(layoutBounds, brand.brandQr);
 
   return {
     version: 1,
@@ -764,6 +783,41 @@ function readBrandAboveBottomKFromSpec(spec) {
     throw new Error("spec.brandAboveBottom must be >= 0");
   }
   return k;
+}
+
+/**
+ * **k·R** horizontal gap between **BrandURL** text and **BrandQR** (see tide-diagram spec §Brand).
+ *
+ * @param {Record<string, unknown>} spec
+ */
+function readBrandQrGapKFromSpec(spec) {
+  const k = requireFiniteNumber(spec.brandQrGap, "spec.brandQrGap");
+  if (k < 0) {
+    throw new Error("spec.brandQrGap must be >= 0");
+  }
+  return k;
+}
+
+/**
+ * **k·R** **BrandQR** square side (see tide-diagram spec §Brand).
+ *
+ * @param {Record<string, unknown>} spec
+ */
+function readBrandQrSizeKFromSpec(spec) {
+  const k = requireFiniteNumber(spec.brandQrSize, "spec.brandQrSize");
+  if (!(k > 0)) {
+    throw new Error("spec.brandQrSize must be greater than 0");
+  }
+  return k;
+}
+
+/**
+ * @param {{ minX: number, maxX: number, minY: number, maxY: number }} bounds
+ * @param {import('../model/tideDiagramModel.mjs').BrandQrDiagram} qr
+ */
+function includeQrMatrixBounds(bounds, qr) {
+  const side = qr.moduleCount * qr.moduleSize;
+  includeRect(bounds, qr.origin.x, qr.origin.x + side, qr.origin.y, qr.origin.y + side);
 }
 
 /**

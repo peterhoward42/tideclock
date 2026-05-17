@@ -399,6 +399,17 @@ function renderNode(node, styleRuntime, leafName) {
       const opacity = opacityFromLeaf(styleRuntime, leafName, node.kind);
       return renderArcTextSvg(node, fill, opacity);
     }
+    case "qrMatrix": {
+      assertLeafScoped(node.kind, leafName);
+      const fill = requireLeafFillColor(
+        styleRuntime,
+        leafName,
+        RENDER_DEFAULTS.textFill,
+        node.kind,
+      );
+      const opacityAttr = opacityAttrFragmentFromLeaf(styleRuntime, leafName, node.kind);
+      return renderQrMatrixSvg(node, fill, opacityAttr);
+    }
     default:
       return "";
   }
@@ -698,6 +709,28 @@ function renderTextSvg(node, fillColor, opacity, fontWeight) {
  *
  * @param {import('../model/sceneModel.mjs').ArcTextPrimitive} node
  */
+/**
+ * @param {import('../model/sceneModel.mjs').QrMatrixPrimitive} node
+ * @param {string} fillColor
+ * @param {string} opacityAttr
+ */
+function renderQrMatrixSvg(node, fillColor, opacityAttr) {
+  const { origin, moduleSize, moduleCount, cells } = node;
+  const parts = [];
+  for (let row = 0; row < moduleCount; row += 1) {
+    for (let col = 0; col < moduleCount; col += 1) {
+      if (!cells[row * moduleCount + col]) continue;
+      const x = origin.x + col * moduleSize;
+      const y = origin.y + (moduleCount - 1 - row) * moduleSize;
+      parts.push(
+        `M ${x} ${y} h ${moduleSize} v ${moduleSize} h ${-moduleSize} Z`,
+      );
+    }
+  }
+  if (parts.length === 0) return "";
+  return `    <path d="${escapeAttr(parts.join(" "))}" fill="${fillColor}" stroke="none"${opacityAttr} />`;
+}
+
 function renderArcTextSvg(node, fillColor, opacity) {
   const glyphs = [];
   const chars = Array.from(node.content);

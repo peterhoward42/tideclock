@@ -53,8 +53,12 @@ export type HomeLayoutBase = {
   };
   /** k·RefRadius: **Brand** uniform font height (BrandTitle + BrandURL; see tide-diagram spec). */
   readonly brandFontHeight: number;
-  /** k·RefRadius: **Brand** alphabetic baseline offset upward from **B_bottom** (see tide-diagram spec §Brand). */
+  /** k·RefRadius: **BrandURL** alphabetic baseline offset upward from **B_bottom** (see tide-diagram spec §Brand). */
   readonly brandAboveBottom: number;
+  /** k·RefRadius: horizontal gap between **BrandURL** text and **BrandQR** (see tide-diagram spec §Brand). */
+  readonly brandQrGap: number;
+  /** k·RefRadius: **BrandQR** square side (see tide-diagram spec §Brand). */
+  readonly brandQrSize: number;
   readonly annularBand: { readonly annularBandWidth: number };
   /** Stroked arc concentric with RefArc, same sweep; radius is **radiusK·refRadius** (see tide-diagram spec §Sizing). */
   readonly dividorArc: { readonly radiusK: number };
