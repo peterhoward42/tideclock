@@ -19,7 +19,6 @@
 <a href="#/location" onclick={handleNavigate}
   >Set <span class="primary-nav-links__emph-your">your</span> location</a
 >
-<a href="#/about" onclick={handleNavigate}>About</a>
 
 <style>
   .primary-nav-links__emph-your {

@@ -107,6 +107,7 @@
       <a href="#/softwarenerd" onclick={() => onNavigate?.()}>Software Nerd</a>
     </section>
   {/if}
+  <a href="#/about" onclick={() => onNavigate?.()}>About</a>
   <button
     type="button"
     class="primary-menu-content__action"

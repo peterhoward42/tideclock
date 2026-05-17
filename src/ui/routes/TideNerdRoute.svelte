@@ -121,8 +121,7 @@
     <p class="tide-nerd-route__p">
       Twice a year the sun crosses the equator and, for a moment, day and night pretend to be equals.
       Around those weeks the sun’s tidal shove lines up more neatly with places that are not being
-      cheeky about latitude, and spring tides can pack an extra punch — the “equinoctial” grumble you
-      hear in harbours when someone’s pontoon looks a few inches more offended than usual. At Looe,
+      cheeky about latitude, and spring tides can pack an extra punch. At Looe,
       on one or two days a year, you can walk across to Looe Island knee-deep at low water; the town
       treats it as a bit of a festival rather than a geology lecture.
     </p>
