@@ -59,6 +59,8 @@ export type HomeLayoutBase = {
   readonly brandQrGap: number;
   /** k·RefRadius: **BrandQR** square side (see tide-diagram spec §Brand). */
   readonly brandQrSize: number;
+  /** k·RefRadius: **BrandQRPlate** `roundedRect` corner radius (see tide-diagram spec §Brand). */
+  readonly brandQrPlateCornerRx: number;
   readonly annularBand: { readonly annularBandWidth: number };
   /** Stroked arc concentric with RefArc, same sweep; radius is **radiusK·refRadius** (see tide-diagram spec §Sizing). */
   readonly dividorArc: { readonly radiusK: number };

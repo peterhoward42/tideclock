@@ -290,8 +290,9 @@ homeMenuTrigger: {
 - **Size** — square side **`brandQrSize·R`** from diagram input **`brandQrSize`** (**k·R**, independent of **`brandFontHeight`**).
 - **Gap** — horizontal clearance **`brandQrGap·R`** between the **right** edge of the QR bounding box and the **left** edge of the URL text bounding box (monospace **0.6 em** per code unit, same heuristic as **BRHCBundle**).
 - **Origin** — bottom-left corner of the QR bounding box at **`(B_left, B_bottom)`**.
-- **Style binding** — leaf group **`BrandQR`**; preset role **BrandQR** fills dark modules with the same grey as **BrandURL** (no **`fontWeight`**).
-- Scene emission uses one **`qrMatrix`** primitive (dark modules only; background transparent).
+- **Plate** — leaf group **`BrandQRPlate`**: one **`roundedRect`** coincident with the QR square (same width/height as **`brandQrSize·R`**, corner radius **`brandQrPlateCornerRx·R`**), centred on the QR box, drawn **behind** the modules. Preset surface matches **`role.menu.trigger`** (**`#111`** fill, **`#555`** stroke) so the symbol sits on a calm quiet-zone field rather than bare page black.
+- **Modules** — leaf group **`BrandQR`**: one **`qrMatrix`** primitive (dark modules only; plate provides the light margin).
+- **Style binding** — **`BrandQR`** module fill uses grey **`#666`** on the plate (no **`fontWeight`**); **`BrandURL`** unchanged.
 
 #### Layout bounds
 
@@ -303,10 +304,11 @@ homeMenuTrigger: {
 - **`brandAboveBottom`** — required finite **k·R** **>= 0** (retained for host/spec compatibility; **Brand** vertical placement uses **B_bottom** bottom alignment and does not apply this offset).
 - **`brandQrGap`** — required finite **k·R** **>= 0**.
 - **`brandQrSize`** — required finite **k·R** **> 0** (QR square side; independent of **`brandFontHeight`**).
+- **`brandQrPlateCornerRx`** — required finite **k·R** **>= 0**; **`roundedRect`** corner radius for **`BrandQRPlate`**.
 
 #### Scene model
 
-- Top-level group **`Brand`** with children **`BrandQR`** (one **`qrMatrix`** leaf) then **`BrandURL`** (one **text** leaf).
+- Top-level group **`Brand`** with children **`BrandQRPlate`** (**`roundedRect`**), **`BrandQR`** (**`qrMatrix`**), then **`BrandURL`** (**text**).
 
 ### MainLabel
 

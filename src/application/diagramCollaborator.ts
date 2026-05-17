@@ -63,12 +63,20 @@ type BrandUrlDiagram = {
   readonly hAlign: "left";
 };
 
+type BrandQrPlateDiagram = {
+  readonly center: DiagramPoint;
+  readonly width: number;
+  readonly height: number;
+  readonly rx: number;
+};
+
 type BrandQrDiagram = {
   readonly payload: string;
   readonly origin: DiagramPoint;
   readonly moduleSize: number;
   readonly moduleCount: number;
   readonly cells: readonly boolean[];
+  readonly plate: BrandQrPlateDiagram;
 };
 
 /** **Brand** compound: **BrandURL** + **BrandQR** (see tide-diagram spec §Brand). */

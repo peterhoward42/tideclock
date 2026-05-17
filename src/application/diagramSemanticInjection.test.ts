@@ -49,6 +49,7 @@ type SemanticInjectionDiagramSpec = {
   readonly brandAboveBottom: number;
   readonly brandQrGap: number;
   readonly brandQrSize: number;
+  readonly brandQrPlateCornerRx: number;
   readonly annularBand: { readonly annularBandWidth: number };
   readonly dividorArc: { readonly radiusK: number };
   readonly hand: {
@@ -106,6 +107,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     brandAboveBottom: 0.006,
     brandQrGap: 0.01,
     brandQrSize: 0.11,
+    brandQrPlateCornerRx: 0.01,
     annularBand: { annularBandWidth: 0.05 },
     dividorArc: { radiusK: 0.8653 },
     hand: {

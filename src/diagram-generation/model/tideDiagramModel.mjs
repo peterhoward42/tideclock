@@ -146,11 +146,19 @@
  * }} BrandUrlDiagram
  *
  * @typedef {{
+ *   center: DiagramPoint,
+ *   width: number,
+ *   height: number,
+ *   rx: number,
+ * }} BrandQrPlateDiagram
+ *
+ * @typedef {{
  *   payload: string,
  *   origin: DiagramPoint,
  *   moduleSize: number,
  *   moduleCount: number,
  *   cells: boolean[],
+ *   plate: BrandQrPlateDiagram,
  * }} BrandQrDiagram
  *
  * @typedef {{

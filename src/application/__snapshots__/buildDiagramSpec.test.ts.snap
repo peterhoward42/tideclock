@@ -648,10 +648,19 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
         "y": -158.93283550303113,
       },
       "payload": "https://thetidedial.page",
+      "plate": {
+        "center": {
+          "x": -145.14000000000001,
+          "y": -148.31283550303112,
+        },
+        "height": 21.24,
+        "rx": 1.6520000000000001,
+        "width": 21.24,
+      },
     },
     "brandUrl": {
       "anchor": {
-        "x": -133.104,
+        "x": -127.44000000000001,
         "y": -157.98883550303114,
       },
       "content": "thetidedial.page",
@@ -727,7 +736,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   "homeMenuTrigger": {
     "center": {
       "x": -145.14000000000001,
-      "y": -135.33283550303113,
+      "y": -119.99283550303113,
     },
     "diameter": 21.24,
     "iconBarCenterSpacing": 2.95,
@@ -3152,6 +3161,22 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
           {
             "children": [
               {
+                "center": {
+                  "x": -145.14000000000001,
+                  "y": -148.31283550303112,
+                },
+                "height": 21.24,
+                "kind": "roundedRect",
+                "rx": 1.6520000000000001,
+                "width": 21.24,
+              },
+            ],
+            "kind": "group",
+            "name": "BrandQRPlate",
+          },
+          {
+            "children": [
+              {
                 "cells": [
                   true,
                   true,
@@ -3795,7 +3820,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "anchor": {
-                  "x": -133.104,
+                  "x": -127.44000000000001,
                   "y": -157.98883550303114,
                 },
                 "angleRad": 0,
@@ -3817,7 +3842,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
           {
             "center": {
               "x": -145.14000000000001,
-              "y": -135.33283550303113,
+              "y": -119.99283550303113,
             },
             "height": 21.24,
             "kind": "roundedRect",
@@ -3829,34 +3854,34 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
               {
                 "end": {
                   "x": -139.83,
-                  "y": -132.38283550303115,
+                  "y": -117.04283550303113,
                 },
                 "kind": "line",
                 "start": {
                   "x": -150.45000000000002,
-                  "y": -132.38283550303115,
+                  "y": -117.04283550303113,
                 },
               },
               {
                 "end": {
                   "x": -139.83,
-                  "y": -135.33283550303113,
+                  "y": -119.99283550303113,
                 },
                 "kind": "line",
                 "start": {
                   "x": -150.45000000000002,
-                  "y": -135.33283550303113,
+                  "y": -119.99283550303113,
                 },
               },
               {
                 "end": {
                   "x": -139.83,
-                  "y": -138.28283550303112,
+                  "y": -122.94283550303113,
                 },
                 "kind": "line",
                 "start": {
                   "x": -150.45000000000002,
-                  "y": -138.28283550303112,
+                  "y": -122.94283550303113,
                 },
               },
             ],

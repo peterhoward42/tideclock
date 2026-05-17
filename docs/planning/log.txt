@@ -13,10 +13,11 @@ o  Branch Sharing
 	*  First vertical stripe
 	*  Scrutinise code  before proceeding
 	*  Commit
-	o  Next refinement pass
+	*  Next refinement pass
 
 	o  Merge sharing
 
+o  are menu items spaced further apart than necessary?
 o  proxy cost risk containment 
 
 

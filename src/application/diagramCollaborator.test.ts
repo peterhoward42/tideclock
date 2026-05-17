@@ -113,6 +113,16 @@ describe('createDiagramCollaborator', () => {
     expect(() => collaborator.generate(rest)).toThrow(/spec\.brandQrSize/);
   });
 
+  it('throws when spec.brandQrPlateCornerRx is omitted', () => {
+    const collaborator = createDiagramCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const { brandQrPlateCornerRx: _omit, ...rest } = base as { brandQrPlateCornerRx: number } & Record<
+      string,
+      unknown
+    >;
+    expect(() => collaborator.generate(rest)).toThrow(/spec\.brandQrPlateCornerRx/);
+  });
+
   it('throws when spec.dividorArc is omitted', () => {
     const collaborator = createDiagramCollaborator();
     const base = baseSpecForCollaboratorTest();
@@ -200,12 +210,14 @@ describe('createDiagramCollaborator', () => {
     );
   });
 
-  it('renders BrandURL and BrandQR from the home style model', () => {
+  it('renders BrandURL, BrandQRPlate, and BrandQR from the home style model', () => {
     const collaborator = createDiagramCollaborator();
     const { scene, styleRuntime } = collaborator.generate(baseSpecForCollaboratorTest());
     const svg = renderSceneSvg(scene, { styleRuntime });
     expect(svg).toContain('>thetidedial.page<');
+    expect(svg).toContain('data-name="BrandQRPlate"');
     expect(svg).toContain('data-name="BrandQR"');
+    expect(svg).toMatch(/<rect[^>]+fill="#111"[^>]+stroke="#555"/);
     expect(svg).toMatch(/<path d="M [^"]+ h [^"]+ v [^"]+ h [^"]+ Z/);
   });
 

@@ -21,6 +21,7 @@
  * - `**brandAboveBottom**` is required: finite **k·R** **>= 0** (validated; **Brand** bottoms align to **B_bottom** per spec, offset not applied).
  * - `**brandQrGap**` is required: finite **k·R** **>= 0**; horizontal gap between URL text and **BrandQR**.
  * - `**brandQrSize**` is required: finite **k·R** **> 0**; **BrandQR** square side (independent of **`brandFontHeight`**).
+ * - `**brandQrPlateCornerRx**` is required: finite **k·R** **>= 0**; **BrandQRPlate** corner radius.
  */
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
 import { encodeQrMatrix } from "../qr/encodeQrMatrix.mjs";
@@ -601,6 +602,7 @@ export function buildDiagram(spec) {
   readBrandAboveBottomKFromSpec(spec);
   const brandQrGapK = readBrandQrGapKFromSpec(spec);
   const brandQrSizeK = readBrandQrSizeKFromSpec(spec);
+  const brandQrPlateCornerRxK = readBrandQrPlateCornerRxKFromSpec(spec);
   const brandFontSize = brandFontHeightK * refRadius;
   const bBottom = layoutBounds.minY;
   const brandLeadingX = layoutBounds.minX;
@@ -614,6 +616,11 @@ export function buildDiagram(spec) {
     y: bBottom,
   };
   const brandQrModuleSize = brandQrSide / qrEncoded.moduleCount;
+  const brandQrPlateCenter = {
+    x: brandLeadingX + 0.5 * brandQrSide,
+    y: bBottom + 0.5 * brandQrSide,
+  };
+  const brandQrPlateRx = brandQrPlateCornerRxK * refRadius;
   const brand = {
     brandUrl: {
       content: BRAND_URL,
@@ -627,6 +634,12 @@ export function buildDiagram(spec) {
       moduleSize: brandQrModuleSize,
       moduleCount: qrEncoded.moduleCount,
       cells: qrEncoded.cells,
+      plate: {
+        center: brandQrPlateCenter,
+        width: brandQrSide,
+        height: brandQrSide,
+        rx: brandQrPlateRx,
+      },
     },
   };
   const homeMenuTrigger = buildHomeMenuTriggerFromSpec(
@@ -806,6 +819,19 @@ function readBrandQrSizeKFromSpec(spec) {
   const k = requireFiniteNumber(spec.brandQrSize, "spec.brandQrSize");
   if (!(k > 0)) {
     throw new Error("spec.brandQrSize must be greater than 0");
+  }
+  return k;
+}
+
+/**
+ * **k·R** corner radius for **BrandQRPlate** (see tide-diagram spec §Brand).
+ *
+ * @param {Record<string, unknown>} spec
+ */
+function readBrandQrPlateCornerRxKFromSpec(spec) {
+  const k = requireFiniteNumber(spec.brandQrPlateCornerRx, "spec.brandQrPlateCornerRx");
+  if (k < 0) {
+    throw new Error("spec.brandQrPlateCornerRx must be >= 0");
   }
   return k;
 }

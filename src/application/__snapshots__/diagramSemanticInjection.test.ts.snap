@@ -648,6 +648,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "y": -133.104,
       },
       "payload": "https://thetidedial.page",
+      "plate": {
+        "center": {
+          "x": -119.93985520821964,
+          "y": -126.61400000000002,
+        },
+        "height": 12.98,
+        "rx": 1.18,
+        "width": 12.98,
+      },
     },
     "brandUrl": {
       "anchor": {

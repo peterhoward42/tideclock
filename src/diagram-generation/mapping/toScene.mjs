@@ -873,7 +873,17 @@ export function tideDiagramToScene(diagram) {
   ]);
 
   const homeMenuTriggerGroup = homeMenuTriggerDiagramToGroup(homeMenuTrigger, cx, cy);
+  const brandPlate = brand.brandQr.plate;
+  const brandPlateCenter = mapPoint(brandPlate.center, cx, cy);
   const brandGroup = group("Brand", [
+    group("BrandQRPlate", [
+      roundedRect(
+        brandPlateCenter,
+        brandPlate.width,
+        brandPlate.height,
+        brandPlate.rx,
+      ),
+    ]),
     group("BrandQR", [
       qrMatrix({
         origin: mapPoint(brand.brandQr.origin, cx, cy),

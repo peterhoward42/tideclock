@@ -36,6 +36,8 @@ export const homeLayoutBase = {
   brandQrGap: 0.06,
   /** k·RefRadius: BrandQR square side  */
   brandQrSize: 0.18,
+  /** k·RefRadius: rounded corners on **BrandQRPlate** (menu-adjacent chip). */
+  brandQrPlateCornerRx: 0.014,
   hand: {
     bossCircleRadius: 0.1,
     /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */
