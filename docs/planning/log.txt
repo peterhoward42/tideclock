@@ -4,59 +4,16 @@ TIDE DIAL
 
 *  remove routine keep screen awake menu and internals, but retain in pwa
 *  sort out thetidedial.page DNS
-
-
-
-o  review and plan other pages
-	*  catalogue and review merit
-	*  main ctas vs the rest
-	*  two levels of hierachy
-	o  plan sequence
-		*  ditch redundant routes and deps
-		o  work top down from suggestions below
-			*  about the app
-			*  contact
-			*  story
-		*  improve pre existing entries we are going to keep
-			*  put it on wall
-			*  screen awake
-			*  enter fullscreen -> really fullscreen
-			*  reorder fullscreen?
-		*  exploit the new pictures in the about + elevator pitch in about
-		*  make ref to world tides open in a new tab (there are a few)
-		*  did we stop updating tests?
-		*  stick it on wall - doesn't properly introduce the install essence
-
-		o  the nerd page
-			*  software
-			o  tides
-		o  fun page
+*  review and plan other pages
 
 o  showing tides for looe panel should scale to be big enough on desktop
+	o  make mobile and desky images
 
+o  say is open source berkely licence both repos
 
+o  sanitise github for pub scrutiny
 
-Catalogue
-	*  safety
-	*  acknowledgements to global tide data
-	*  support / contact
-	*  cookies
-	*  full screen (really full) (keep in menu)
-	*  cross sell drawexact / and or me / services
-	*  qr code keep in menu under share
-	*  donate
-	*  source code
-	*  tide trivia
-
-o  Ideas for bucket pages
-	*  About app
-	*  Contact
-	*  Story the author
-
-	o  About page should start with elevator pitch
-	o  Nerd page
-		o  tide nerdyness
-		o  software nerdyness
+o  About page should start with elevator pitch
 
 	fart
 
@@ -66,6 +23,7 @@ See /docs/specs/tide-diagram.md for context.
 
 o  Set your own location rather than set your location
 
+o  Buy me a coffee (I have no violent objection)
 o  what the heck is the picture: running-in-the-installed-app?
 	o  never seen it before
 	o  clicked on a vercel dashboard link and this came up?
