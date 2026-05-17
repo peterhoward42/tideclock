@@ -8,10 +8,16 @@ TIDE DIAL
 *  showing tides for looe panel should scale to be big enough on desktop
 *  Buy me a coffee (I have no violent objection)
 o  Branch Sharing
-	o  Tell cursor to update the spec and impl to extend branding to be compound
+	*  Tell cursor to update the spec and impl to extend branding to be compound
 	   and assemble left to right the existing brand then a QR code 
+	*  First vertical stripe
+	*  Scrutinise code  before proceeding
+	*  Commit
+	*  Next refinement pass
+
 	o  Merge sharing
 
+o  are menu items spaced further apart than necessary?
 o  proxy cost risk containment 
 
 

@@ -99,6 +99,30 @@ describe('createDiagramCollaborator', () => {
     expect(() => collaborator.generate(rest)).toThrow(/spec\.brandAboveBottom/);
   });
 
+  it('throws when spec.brandQrGap is omitted', () => {
+    const collaborator = createDiagramCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const { brandQrGap: _omit, ...rest } = base as { brandQrGap: number } & Record<string, unknown>;
+    expect(() => collaborator.generate(rest)).toThrow(/spec\.brandQrGap/);
+  });
+
+  it('throws when spec.brandQrSize is omitted', () => {
+    const collaborator = createDiagramCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const { brandQrSize: _omit, ...rest } = base as { brandQrSize: number } & Record<string, unknown>;
+    expect(() => collaborator.generate(rest)).toThrow(/spec\.brandQrSize/);
+  });
+
+  it('throws when spec.brandQrPlateCornerRx is omitted', () => {
+    const collaborator = createDiagramCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const { brandQrPlateCornerRx: _omit, ...rest } = base as { brandQrPlateCornerRx: number } & Record<
+      string,
+      unknown
+    >;
+    expect(() => collaborator.generate(rest)).toThrow(/spec\.brandQrPlateCornerRx/);
+  });
+
   it('throws when spec.dividorArc is omitted', () => {
     const collaborator = createDiagramCollaborator();
     const base = baseSpecForCollaboratorTest();
@@ -161,26 +185,40 @@ describe('createDiagramCollaborator', () => {
     );
   });
 
-  it('places Brand at B_left using spec brandFontHeight and brandAboveBottom', () => {
+  it('places BrandQR at B_left on B_bottom and BrandURL to its right', () => {
     const collaborator = createDiagramCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
+    const R = diagram.refArc.refRadius;
     const k = (spec as { brandFontHeight: number }).brandFontHeight;
-    const aboveK = (spec as { brandAboveBottom: number }).brandAboveBottom;
-    expect(diagram.brand.segments.map((s) => s.content).join('')).toBe('thetidedial.page');
-    expect(diagram.brand.segments).toHaveLength(1);
-    expect(diagram.brand.segments[0]?.hAlign).toBe('left');
-    expect(diagram.brand.fontSize).toBeCloseTo(k * diagram.refArc.refRadius, 6);
-    const bBottom =
-      diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
-    expect(diagram.brand.anchor.y).toBeCloseTo(bBottom + aboveK * diagram.refArc.refRadius, 6);
+    const gapK = (spec as { brandQrGap: number }).brandQrGap;
+    const qrSizeK = (spec as { brandQrSize: number }).brandQrSize;
+    expect(diagram.brand.brandUrl.content).toBe('thetidedial.page');
+    expect(diagram.brand.brandUrl.hAlign).toBe('left');
+    expect(diagram.brand.brandUrl.fontSize).toBeCloseTo(k * R, 6);
+    const bBottom = diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
+    expect(diagram.brand.brandQr.origin.y).toBeCloseTo(bBottom, 6);
+    expect(diagram.brand.brandUrl.anchor.y).toBeCloseTo(bBottom + 0.2 * diagram.brand.brandUrl.fontSize, 6);
+    const bLeft = diagram.brand.brandQr.origin.x;
+    expect(diagram.brand.brandQr.origin.x).toBeCloseTo(bLeft, 6);
+    expect(diagram.brand.brandUrl.anchor.x).toBeCloseTo(bLeft + qrSizeK * R + gapK * R, 6);
+    expect(diagram.brand.brandQr.payload).toBe('https://thetidedial.page');
+    expect(diagram.brand.brandQr.moduleCount).toBeGreaterThan(0);
+    expect(diagram.brand.brandQr.moduleCount * diagram.brand.brandQr.moduleSize).toBeCloseTo(
+      qrSizeK * R,
+      6,
+    );
   });
 
-  it('renders BrandURL from the home style model', () => {
+  it('renders BrandURL, BrandQRPlate, and BrandQR from the home style model', () => {
     const collaborator = createDiagramCollaborator();
     const { scene, styleRuntime } = collaborator.generate(baseSpecForCollaboratorTest());
     const svg = renderSceneSvg(scene, { styleRuntime });
     expect(svg).toContain('>thetidedial.page<');
+    expect(svg).toContain('data-name="BrandQRPlate"');
+    expect(svg).toContain('data-name="BrandQR"');
+    expect(svg).toMatch(/<rect[^>]+fill="#111"[^>]+stroke="#555"/);
+    expect(svg).toMatch(/<path d="M [^"]+ h [^"]+ v [^"]+ h [^"]+ Z/);
   });
 
   it('rejects style role fontWeight other than 400 or 700', () => {
@@ -221,7 +259,7 @@ describe('createDiagramCollaborator', () => {
 
     const d = diagram.homeMenuTrigger.diameter;
     const R = diagram.refArc.refRadius;
-    const bLeft = diagram.brand.anchor.x;
+    const bLeft = diagram.brand.brandQr.origin.x;
     const padK = (spec.homeMenuTrigger as { readonly menuLeftPadding: number }).menuLeftPadding;
     expect(diagram.homeMenuTrigger.center.x).toBeCloseTo(bLeft + padK * R + 0.5 * d, 6);
     const bBottom =

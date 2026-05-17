@@ -120,13 +120,24 @@
  *   sweepRad: number,
  * }} ArcTextPrimitive
  *
+ * QR symbol in scene space: **origin** is the bottom-left corner of the full module grid;
+ * **moduleSize** is one module edge length; **cells** is row-major with row **0** at the top of the symbol.
+ *
+ * @typedef {{
+ *   kind: 'qrMatrix',
+ *   origin: Point,
+ *   moduleSize: number,
+ *   moduleCount: number,
+ *   cells: boolean[],
+ * }} QrMatrixPrimitive
+ *
  * @typedef {{
  *   kind: 'group',
  *   name: string,
  *   children: SceneNode[],
  * }} GroupNode
  *
- * @typedef { LinePrimitive | ArcPrimitive | ArcSegmentPrimitive | TrianglePrimitive | CirclePrimitive | RoundedRectPrimitive | AnnularSectorPrimitive | TimePointerPathPrimitive | TextPrimitive | ArcTextPrimitive | GroupNode } SceneNode
+ * @typedef { LinePrimitive | ArcPrimitive | ArcSegmentPrimitive | TrianglePrimitive | CirclePrimitive | RoundedRectPrimitive | AnnularSectorPrimitive | TimePointerPathPrimitive | TextPrimitive | ArcTextPrimitive | QrMatrixPrimitive | GroupNode } SceneNode
  *
  * @typedef {{
  *   title: string,
@@ -437,6 +448,37 @@ export function arcText({ content, size, center, radius, thetaStart, sweepRad })
     radius,
     thetaStart,
     sweepRad,
+  };
+}
+
+/**
+ * @param {object} o
+ * @param {Point} o.origin bottom-left of the QR bounding box in scene space (**y** up)
+ * @param {number} o.moduleSize edge length of one module
+ * @param {number} o.moduleCount modules per side
+ * @param {boolean[]} o.cells row-major dark flags, length **moduleCount²**
+ * @returns {QrMatrixPrimitive}
+ */
+export function qrMatrix({ origin, moduleSize, moduleCount, cells }) {
+  assertPoint("origin", origin);
+  assertFiniteNumber("moduleSize", moduleSize);
+  assertFiniteNumber("moduleCount", moduleCount);
+  if (!(moduleSize > 0)) {
+    throw new Error("moduleSize must be greater than 0");
+  }
+  if (!Number.isInteger(moduleCount) || moduleCount < 1) {
+    throw new Error("moduleCount must be a positive integer");
+  }
+  const expected = moduleCount * moduleCount;
+  if (!Array.isArray(cells) || cells.length !== expected) {
+    throw new Error(`cells must be a boolean[${expected}] array`);
+  }
+  return {
+    kind: "qrMatrix",
+    origin,
+    moduleSize,
+    moduleCount,
+    cells,
   };
 }
 

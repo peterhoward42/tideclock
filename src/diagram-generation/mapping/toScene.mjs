@@ -15,6 +15,7 @@ import {
   text,
   arcText,
   timePointerPath,
+  qrMatrix,
 } from "../model/sceneModel.mjs";
 import {
   handBossCircleMaxRadiusForLayout,
@@ -872,23 +873,35 @@ export function tideDiagramToScene(diagram) {
   ]);
 
   const homeMenuTriggerGroup = homeMenuTriggerDiagramToGroup(homeMenuTrigger, cx, cy);
-  const brandGroup = group(
-    "Brand",
-    brand.segments.map((seg) =>
-      group(seg.leafName, [
-        text({
-          content: seg.content,
-          size: brand.fontSize,
-          hAlign: seg.hAlign ?? "left",
-          angleRad: 0,
-          anchor: mapPoint(seg.anchor, cx, cy),
-          ...(seg.dominantBaseline === "middle"
-            ? { dominantBaseline: "middle" }
-            : {}),
-        }),
-      ]),
-    ),
-  );
+  const brandPlate = brand.brandQr.plate;
+  const brandPlateCenter = mapPoint(brandPlate.center, cx, cy);
+  const brandGroup = group("Brand", [
+    group("BrandQRPlate", [
+      roundedRect(
+        brandPlateCenter,
+        brandPlate.width,
+        brandPlate.height,
+        brandPlate.rx,
+      ),
+    ]),
+    group("BrandQR", [
+      qrMatrix({
+        origin: mapPoint(brand.brandQr.origin, cx, cy),
+        moduleSize: brand.brandQr.moduleSize,
+        moduleCount: brand.brandQr.moduleCount,
+        cells: brand.brandQr.cells,
+      }),
+    ]),
+    group("BrandURL", [
+      text({
+        content: brand.brandUrl.content,
+        size: brand.brandUrl.fontSize,
+        hAlign: brand.brandUrl.hAlign,
+        angleRad: 0,
+        anchor: mapPoint(brand.brandUrl.anchor, cx, cy),
+      }),
+    ]),
+  ]);
   const brhcBundleGroup = group("BRHCBundle", [
     mainLabelGroup,
     brhcDateGroup,

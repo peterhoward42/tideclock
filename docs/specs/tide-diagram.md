@@ -266,19 +266,49 @@ homeMenuTrigger: {
 }
 ```
 
-## Brand
+### Brand
 
-- Visually a single horizontal string
-- Content is fixed to one string:
-	- A BrandURL string "thetidedial.page"
-- Uniform font height - taken from an input parameter
-- The string should get its own named style mapping
-- The preset style for the BrandURL should use a dedicated BrandURL style
-  specifying one of the already used grey colours, and not specifying a
-  fontWeight.
+**Brand** is a **top-level** named **compound** group: a QR code (**BrandQR**) at the **left**, then the fixed URL line (**BrandURL**) immediately to its **right**. Visually the URL line matches the former single-string **Brand** (same copy and preset styling intent).
 
-- The composed string should be left aligned to the B_left, and take it's y
-  position from an input specifying how far above B_bottom it is.
+#### Placement (shared)
+
+- **Bottom alignment** — the **bottom** of the **BrandQR** bounding box and the **bottom** of the **BrandURL** em box (alphabetic descent) lie on **`B_bottom`**.
+- **Horizontal** — **BrandQR** leading edge at **`B_left`**; **BrandURL** leading anchor at **`B_left + brandQrSize·R + brandQrGap·R`**.
+
+#### BrandURL (text)
+
+- **Content** is fixed: **`thetidedial.page`**.
+- **FontHeight** from diagram input **`brandFontHeight`** (**k·R**, **§Sizing**).
+- **Horizontal justification** — **left**; leading anchor **`x`** per **Placement (shared)** above.
+- **Baseline** **`y = B_bottom + TEXT_DESCENT·brandFontHeight·R`** so the em-box bottom sits on **`B_bottom`** (descent **0.2** em per layout heuristic).
+- **Style binding** — leaf group **`BrandURL`**; preset role **BrandURL** uses an existing grey, with **no** **`fontWeight`**.
+
+#### BrandQR (matrix)
+
+- **Payload** is fixed: **`https://thetidedial.page`** (scannable URL; display copy remains hostless **`thetidedial.page`** on **BrandURL**).
+- **Module grid** — square modules from a standard QR encoder (error correction **M**); includes the symbol quiet zone in the module count.
+- **Size** — square side **`brandQrSize·R`** from diagram input **`brandQrSize`** (**k·R**, independent of **`brandFontHeight`**).
+- **Gap** — horizontal clearance **`brandQrGap·R`** between the **right** edge of the QR bounding box and the **left** edge of the URL text bounding box (monospace **0.6 em** per code unit, same heuristic as **BRHCBundle**).
+- **Origin** — bottom-left corner of the QR bounding box at **`(B_left, B_bottom)`**.
+- **Plate** — leaf group **`BrandQRPlate`**: one **`roundedRect`** coincident with the QR square (same width/height as **`brandQrSize·R`**, corner radius **`brandQrPlateCornerRx·R`**), centred on the QR box, drawn **behind** the modules. Preset surface matches **`role.menu.trigger`** (**`#111`** fill, **`#555`** stroke) so the symbol sits on a calm quiet-zone field rather than bare page black.
+- **Modules** — leaf group **`BrandQR`**: one **`qrMatrix`** primitive (dark modules only; plate provides the light margin).
+- **Style binding** — **`BrandQR`** module fill uses grey **`#666`** on the plate (no **`fontWeight`**); **`BrandURL`** unchanged.
+
+#### Layout bounds
+
+- **`B_left`**, **`B_right`**, and **`B_bottom`** extend to include **BrandURL** and **BrandQR** geometry (same text-bounds rules as other horizontal labels for the URL; axis-aligned box for the QR).
+
+#### Diagram inputs
+
+- **`brandFontHeight`** — required finite **k·R** **> 0**.
+- **`brandAboveBottom`** — required finite **k·R** **>= 0** (retained for host/spec compatibility; **Brand** vertical placement uses **B_bottom** bottom alignment and does not apply this offset).
+- **`brandQrGap`** — required finite **k·R** **>= 0**.
+- **`brandQrSize`** — required finite **k·R** **> 0** (QR square side; independent of **`brandFontHeight`**).
+- **`brandQrPlateCornerRx`** — required finite **k·R** **>= 0**; **`roundedRect`** corner radius for **`BrandQRPlate`**.
+
+#### Scene model
+
+- Top-level group **`Brand`** with children **`BrandQRPlate`** (**`roundedRect`**), **`BrandQR`** (**`qrMatrix`**), then **`BrandURL`** (**text**).
 
 ### MainLabel
 

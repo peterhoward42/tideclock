@@ -69,6 +69,10 @@ export const homeStyleModel: StyleModelSpec = {
       colors: { color: "#777" },
     },
     {
+      name: "BrandQR",
+      colors: { fillColor: "#666" },
+    },
+    {
       name: "role.surface.centre-frame",
       colors: { strokeColor: "#555", fillColor: "#151515" },
     },
@@ -110,6 +114,8 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "BRHCLocation", roleName: "role.structure.emphasis" },
     { name: "BRHCDate", roleName: "role.structure.text" },
     { name: "BrandURL", roleName: "BrandURL" },
+    { name: "BrandQRPlate", roleName: "role.menu.trigger" },
+    { name: "BrandQR", roleName: "BrandQR" },
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
     { name: "HomeMenuTrigger", roleName: "role.menu.trigger" },
     { name: "HomeMenuTriggerIcon", roleName: "role.menu.trigger.icon" },

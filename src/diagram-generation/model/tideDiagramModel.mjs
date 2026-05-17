@@ -136,21 +136,35 @@
  *   iconBarCenterSpacing: number,
  * }} HomeMenuTriggerDiagram
  *
- * **Brand**: fixed **`thetidedial.page`** line (**BrandURL**); **left** from **B_left**, baseline **`B_bottom + brandAboveBottom·R`** (see spec §Brand).
+ * **Brand** compound: **BrandURL** text + **BrandQR** matrix (see spec §Brand).
  *
  * @typedef {{
- *   leafName: string,
  *   content: string,
- *   anchor: DiagramPoint,
- *   hAlign: 'left' | 'center' | 'right',
- *   dominantBaseline?: 'alphabetic' | 'middle',
- * }} BrandSegmentDiagram
- *
- * @typedef {{
  *   fontSize: number,
  *   anchor: DiagramPoint,
- *   segments: BrandSegmentDiagram[],
- * }} BrandLineDiagram
+ *   hAlign: 'left',
+ * }} BrandUrlDiagram
+ *
+ * @typedef {{
+ *   center: DiagramPoint,
+ *   width: number,
+ *   height: number,
+ *   rx: number,
+ * }} BrandQrPlateDiagram
+ *
+ * @typedef {{
+ *   payload: string,
+ *   origin: DiagramPoint,
+ *   moduleSize: number,
+ *   moduleCount: number,
+ *   cells: boolean[],
+ *   plate: BrandQrPlateDiagram,
+ * }} BrandQrDiagram
+ *
+ * @typedef {{
+ *   brandUrl: BrandUrlDiagram,
+ *   brandQr: BrandQrDiagram,
+ * }} BrandCompoundDiagram
  *
  * @typedef {{
  *   version: number,
@@ -169,7 +183,7 @@
  *   hand: HandDiagram,
  *   brhcLocation: DiagramTextInst,
  *   brhcDate: DiagramTextInst,
- *   brand: BrandLineDiagram,
+ *   brand: BrandCompoundDiagram,
  * }} TideDiagramDocument
  */
 
