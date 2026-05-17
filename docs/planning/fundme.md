@@ -80,7 +80,7 @@ A plain text link may fit the atmosphere better than a large support button.
 - **Not** a main-menu item — would add weight to every menu open and signal monetisation too early in the journey.
 - **Story route** (`#/story`), immediately after the Ramsgate product photo and **before** the Contact paragraph and DrawExact epilogue.
 - **Pattern:** a short inset aside (bordered panel), not a heading or provider widget; one outbound link via `VIRTUAL_COFFEE_URL` in [`src/support.ts`](../../src/support.ts).
-- Copy leads with the “no great objection … virtual coffee” line; a second line notes no ads, no account, entirely optional.
+- Copy thanks the reader for time with the dial, then offers a plain “virtual coffee” link with “no great objection” framing (single short paragraph in the aside).
 
 ## Future paid features
 

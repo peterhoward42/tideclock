@@ -75,15 +75,12 @@
 
     <aside class="story-route__support" aria-label="Optional support">
       <p>
-        If you like how this turned out — I have no great objection to you buying me a
+        Thanks for spending time with {THE_TIDE_DIAL}. And if you feel inclined to buy me a
         <a
           class="story-route__link"
           href={VIRTUAL_COFFEE_URL}
           target="_blank"
-          rel="noopener noreferrer">virtual coffee</a>.
-      </p>
-      <p class="story-route__support-note">
-        No ads, no account, and entirely optional — the dial is complete either way.
+          rel="noopener noreferrer">virtual coffee</a>, I will raise no great objection.
       </p>
     </aside>
 
@@ -132,7 +129,7 @@
   }
 
   .story-route__caption {
-    margin: 0.4rem 0 0;
+    margin: 0.4rem 0 0.55rem;
     font-size: 0.88rem;
     line-height: 1.4;
     color: var(--text-document-secondary);
@@ -157,7 +154,7 @@
   }
 
   .story-route__support {
-    margin: 0;
+    margin: 0.35rem 0;
     padding: 0.45rem 0.5rem;
     border: 1px solid var(--border-subtle);
     border-radius: 0.25rem;
@@ -171,11 +168,5 @@
     font-size: 0.95rem;
     line-height: 1.5;
     color: var(--text-document-default);
-  }
-
-  .story-route__support-note {
-    font-size: 0.88rem;
-    line-height: 1.4;
-    color: var(--text-document-secondary);
   }
 </style>

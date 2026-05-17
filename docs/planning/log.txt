@@ -7,12 +7,10 @@ TIDE DIAL
 *  review and plan other pages
 *  showing tides for looe panel should scale to be big enough on desktop
 
-
-o  sanitise github for pub scrutiny
-	o  say is open source berkely licence both repos
-
-
 o  Buy me a coffee (I have no violent objection)
+	*  first stab
+	o  review
+	o  setup account
 
 o  proxy cost risk containment 
 
@@ -27,6 +25,8 @@ o  scarborough to whitby coverage is bad for some reason?
 				o  network hits observability on vercel?
 				o  donate
 				
+o  sanitise github for pub scrutiny
+	o  say is open source berkely licence both repos
 
 o  don't forget
 	o  proxy api should come from envar?
