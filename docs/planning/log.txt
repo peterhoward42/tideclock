@@ -6,19 +6,11 @@ TIDE DIAL
 *  sort out thetidedial.page DNS
 *  review and plan other pages
 *  showing tides for looe panel should scale to be big enough on desktop
-
-o  Buy me a coffee (I have no violent objection)
-	o  Basics
-	o  Don't like ko fi and Stripe doesn't like me
-	o  Read ko-fi vs buymeacoffee vs stripe direct
-	o  Put in buy me a coffee instead
-		*  https://buymeacoffee.com/petehoward
-		o  tuning
-	o  if good wean off ko-fi
-		*  stripe identity
-		*  ko-fi account
-		o  sderc
-	o  make the callout bit more prominent wrt rest of page
+*  Buy me a coffee (I have no violent objection)
+o  Branch Sharing
+	o  Tell cursor to update the spec and impl to extend branding to be compound
+	   and assemble left to right the existing brand then a QR code 
+	o  Merge sharing
 
 o  proxy cost risk containment 
 
