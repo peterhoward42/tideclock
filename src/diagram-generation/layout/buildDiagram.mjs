@@ -18,7 +18,7 @@
  * - **MainLabel** is horizontal text inside **BRHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
  * - `**brhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**brhcDatePrefix**` is a required string (see spec).
  * - `**brandFontHeight**` is required: finite **k·R** **> 0** for **BrandURL** font height (see tide-diagram spec §Brand).
- * - `**brandAboveBottom**` is required: finite **k·R** **>= 0**; **BrandURL** alphabetic baseline **`y = B_bottom + brandAboveBottom·R`**.
+ * - `**brandAboveBottom**` is required: finite **k·R** **>= 0** (validated; **Brand** bottoms align to **B_bottom** per spec, offset not applied).
  * - `**brandQrGap**` is required: finite **k·R** **>= 0**; horizontal gap between URL text and **BrandQR**.
  * - `**brandQrSize**` is required: finite **k·R** **> 0**; **BrandQR** square side (independent of **`brandFontHeight`**).
  */
@@ -598,28 +598,27 @@ export function buildDiagram(spec) {
   });
 
   const brandFontHeightK = readBrandFontHeightKFromSpec(spec);
-  const brandAboveBottomK = readBrandAboveBottomKFromSpec(spec);
+  readBrandAboveBottomKFromSpec(spec);
   const brandQrGapK = readBrandQrGapKFromSpec(spec);
   const brandQrSizeK = readBrandQrSizeKFromSpec(spec);
   const brandFontSize = brandFontHeightK * refRadius;
-  const brandBaselineY = layoutBounds.minY + brandAboveBottomK * refRadius;
+  const bBottom = layoutBounds.minY;
   const brandLeadingX = layoutBounds.minX;
-  const brandUrlTextWidth = BRAND_URL.length * brandFontSize * BRHC_LABEL_CHAR_WIDTH_EM;
   const brandQrGap = brandQrGapK * refRadius;
   const brandQrSide = brandQrSizeK * refRadius;
-  const textEmCenterY =
-    brandBaselineY + 0.5 * (TEXT_ASCENT_EM - TEXT_DESCENT_EM) * brandFontSize;
+  const brandBaselineY = bBottom + TEXT_DESCENT_EM * brandFontSize;
+  const brandUrlLeadingX = brandLeadingX + brandQrSide + brandQrGap;
   const qrEncoded = encodeQrMatrix(BRAND_QR_PAYLOAD);
   const brandQrOrigin = {
-    x: brandLeadingX + brandUrlTextWidth + brandQrGap,
-    y: textEmCenterY - 0.5 * brandQrSide,
+    x: brandLeadingX,
+    y: bBottom,
   };
   const brandQrModuleSize = brandQrSide / qrEncoded.moduleCount;
   const brand = {
     brandUrl: {
       content: BRAND_URL,
       fontSize: brandFontSize,
-      anchor: { x: brandLeadingX, y: brandBaselineY },
+      anchor: { x: brandUrlLeadingX, y: brandBaselineY },
       hAlign: /** @type {const} */ ("left"),
     },
     brandQr: {

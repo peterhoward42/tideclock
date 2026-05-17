@@ -874,6 +874,14 @@ export function tideDiagramToScene(diagram) {
 
   const homeMenuTriggerGroup = homeMenuTriggerDiagramToGroup(homeMenuTrigger, cx, cy);
   const brandGroup = group("Brand", [
+    group("BrandQR", [
+      qrMatrix({
+        origin: mapPoint(brand.brandQr.origin, cx, cy),
+        moduleSize: brand.brandQr.moduleSize,
+        moduleCount: brand.brandQr.moduleCount,
+        cells: brand.brandQr.cells,
+      }),
+    ]),
     group("BrandURL", [
       text({
         content: brand.brandUrl.content,
@@ -881,14 +889,6 @@ export function tideDiagramToScene(diagram) {
         hAlign: brand.brandUrl.hAlign,
         angleRad: 0,
         anchor: mapPoint(brand.brandUrl.anchor, cx, cy),
-      }),
-    ]),
-    group("BrandQR", [
-      qrMatrix({
-        origin: mapPoint(brand.brandQr.origin, cx, cy),
-        moduleSize: brand.brandQr.moduleSize,
-        moduleCount: brand.brandQr.moduleCount,
-        cells: brand.brandQr.cells,
       }),
     ]),
   ]);

@@ -268,14 +268,19 @@ homeMenuTrigger: {
 
 ### Brand
 
-**Brand** is a **top-level** named **compound** group: a fixed URL line (**BrandURL**) with a QR code (**BrandQR**) immediately to its **right**. Visually the URL line matches the former single-string **Brand** (same copy, placement, and preset styling intent).
+**Brand** is a **top-level** named **compound** group: a QR code (**BrandQR**) at the **left**, then the fixed URL line (**BrandURL**) immediately to its **right**. Visually the URL line matches the former single-string **Brand** (same copy and preset styling intent).
+
+#### Placement (shared)
+
+- **Bottom alignment** — the **bottom** of the **BrandQR** bounding box and the **bottom** of the **BrandURL** em box (alphabetic descent) lie on **`B_bottom`**.
+- **Horizontal** — **BrandQR** leading edge at **`B_left`**; **BrandURL** leading anchor at **`B_left + brandQrSize·R + brandQrGap·R`**.
 
 #### BrandURL (text)
 
 - **Content** is fixed: **`thetidedial.page`**.
 - **FontHeight** from diagram input **`brandFontHeight`** (**k·R**, **§Sizing**).
-- **Horizontal justification** — **left**; leading anchor **`x = B_left`**.
-- **Baseline** **`y = B_bottom + brandAboveBottom·R`** (alphabetic; **§Text Element** defaults).
+- **Horizontal justification** — **left**; leading anchor **`x`** per **Placement (shared)** above.
+- **Baseline** **`y = B_bottom + TEXT_DESCENT·brandFontHeight·R`** so the em-box bottom sits on **`B_bottom`** (descent **0.2** em per layout heuristic).
 - **Style binding** — leaf group **`BrandURL`**; preset role **BrandURL** uses an existing grey, with **no** **`fontWeight`**.
 
 #### BrandQR (matrix)
@@ -283,8 +288,8 @@ homeMenuTrigger: {
 - **Payload** is fixed: **`https://thetidedial.page`** (scannable URL; display copy remains hostless **`thetidedial.page`** on **BrandURL**).
 - **Module grid** — square modules from a standard QR encoder (error correction **M**); includes the symbol quiet zone in the module count.
 - **Size** — square side **`brandQrSize·R`** from diagram input **`brandQrSize`** (**k·R**, independent of **`brandFontHeight`**).
-- **Gap** — horizontal clearance **`brandQrGap·R`** between the URL text bounding box (monospace **0.6 em** per code unit, same heuristic as **BRHCBundle**) and the **left** edge of the QR bounding box.
-- **Vertical alignment** — the QR square is centred on the URL em box (between alphabetic descent and ascent for **`brandFontHeight`**).
+- **Gap** — horizontal clearance **`brandQrGap·R`** between the **right** edge of the QR bounding box and the **left** edge of the URL text bounding box (monospace **0.6 em** per code unit, same heuristic as **BRHCBundle**).
+- **Origin** — bottom-left corner of the QR bounding box at **`(B_left, B_bottom)`**.
 - **Style binding** — leaf group **`BrandQR`**; preset role **BrandQR** fills dark modules with the same grey as **BrandURL** (no **`fontWeight`**).
 - Scene emission uses one **`qrMatrix`** primitive (dark modules only; background transparent).
 
@@ -295,13 +300,13 @@ homeMenuTrigger: {
 #### Diagram inputs
 
 - **`brandFontHeight`** — required finite **k·R** **> 0**.
-- **`brandAboveBottom`** — required finite **k·R** **>= 0**.
+- **`brandAboveBottom`** — required finite **k·R** **>= 0** (retained for host/spec compatibility; **Brand** vertical placement uses **B_bottom** bottom alignment and does not apply this offset).
 - **`brandQrGap`** — required finite **k·R** **>= 0**.
 - **`brandQrSize`** — required finite **k·R** **> 0** (QR square side; independent of **`brandFontHeight`**).
 
 #### Scene model
 
-- Top-level group **`Brand`** with children **`BrandURL`** (one **text** leaf) and **`BrandQR`** (one **`qrMatrix`** leaf).
+- Top-level group **`Brand`** with children **`BrandQR`** (one **`qrMatrix`** leaf) then **`BrandURL`** (one **text** leaf).
 
 ### MainLabel
 

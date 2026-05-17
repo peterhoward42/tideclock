@@ -30,11 +30,11 @@ export const homeLayoutBase = {
   brhcBundle: { fontHeight: 0.045, dateAboveTime: 0.02 },
   /** k·RefRadius: BrandURL font height. */
   brandFontHeight: 0.04,
-  /** k·RefRadius: BrandURL alphabetic baseline above **B_bottom**. */
-  brandAboveBottom: 0.008,
+  /** k·RefRadius: retained; Brand bottoms align to **B_bottom** (see tide-diagram spec §Brand). */
+  brandAboveBottom: 0,
   /** k·RefRadius: gap between BrandURL text and BrandQR. */
-  brandQrGap: 0.012,
-  /** k·RefRadius: BrandQR square side (similar scale to **homeMenuTrigger.diameter**). */
+  brandQrGap: 0.06,
+  /** k·RefRadius: BrandQR square side  */
   brandQrSize: 0.18,
   hand: {
     bossCircleRadius: 0.1,
@@ -63,7 +63,7 @@ export const homeLayoutBase = {
     diameter: 0.18,
     menuLeftPadding: 0,
     /** k·R: bottom edge of trigger circle above **B_bottom**. */
-    menuAboveBottom: 0.11,
+    menuAboveBottom: 0.24,
     iconBarLength: 0.09,
     iconBarGap: 0.025,
   },

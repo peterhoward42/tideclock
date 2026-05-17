@@ -11,8 +11,8 @@ o  Branch Sharing
 	*  Tell cursor to update the spec and impl to extend branding to be compound
 	   and assemble left to right the existing brand then a QR code 
 	*  First vertical stripe
-	o  Scrutinise code  before proceeding
-	o  Commit
+	*  Scrutinise code  before proceeding
+	*  Commit
 	o  Next refinement pass
 
 	o  Merge sharing

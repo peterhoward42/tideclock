@@ -644,14 +644,14 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
       "moduleCount": 25,
       "moduleSize": 0.8495999999999999,
       "origin": {
-        "x": -109.03200000000002,
-        "y": -167.19283550303115,
+        "x": -155.76000000000002,
+        "y": -158.93283550303113,
       },
       "payload": "https://thetidedial.page",
     },
     "brandUrl": {
       "anchor": {
-        "x": -155.76000000000002,
+        "x": -133.104,
         "y": -157.98883550303114,
       },
       "content": "thetidedial.page",
@@ -3152,23 +3152,6 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
           {
             "children": [
               {
-                "anchor": {
-                  "x": -155.76000000000002,
-                  "y": -157.98883550303114,
-                },
-                "angleRad": 0,
-                "content": "thetidedial.page",
-                "hAlign": "left",
-                "kind": "text",
-                "size": 4.72,
-              },
-            ],
-            "kind": "group",
-            "name": "BrandURL",
-          },
-          {
-            "children": [
-              {
                 "cells": [
                   true,
                   true,
@@ -3800,13 +3783,30 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
                 "moduleCount": 25,
                 "moduleSize": 0.8495999999999999,
                 "origin": {
-                  "x": -109.03200000000002,
-                  "y": -167.19283550303115,
+                  "x": -155.76000000000002,
+                  "y": -158.93283550303113,
                 },
               },
             ],
             "kind": "group",
             "name": "BrandQR",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": -133.104,
+                  "y": -157.98883550303114,
+                },
+                "angleRad": 0,
+                "content": "thetidedial.page",
+                "hAlign": "left",
+                "kind": "text",
+                "size": 4.72,
+              },
+            ],
+            "kind": "group",
+            "name": "BrandURL",
           },
         ],
         "kind": "group",

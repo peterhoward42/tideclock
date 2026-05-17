@@ -175,26 +175,23 @@ describe('createDiagramCollaborator', () => {
     );
   });
 
-  it('places BrandURL at B_left and BrandQR to its right', () => {
+  it('places BrandQR at B_left on B_bottom and BrandURL to its right', () => {
     const collaborator = createDiagramCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
     const R = diagram.refArc.refRadius;
     const k = (spec as { brandFontHeight: number }).brandFontHeight;
-    const aboveK = (spec as { brandAboveBottom: number }).brandAboveBottom;
     const gapK = (spec as { brandQrGap: number }).brandQrGap;
     const qrSizeK = (spec as { brandQrSize: number }).brandQrSize;
     expect(diagram.brand.brandUrl.content).toBe('thetidedial.page');
     expect(diagram.brand.brandUrl.hAlign).toBe('left');
     expect(diagram.brand.brandUrl.fontSize).toBeCloseTo(k * R, 6);
     const bBottom = diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
-    expect(diagram.brand.brandUrl.anchor.y).toBeCloseTo(bBottom + aboveK * R, 6);
-    const textWidth =
-      diagram.brand.brandUrl.content.length * diagram.brand.brandUrl.fontSize * 0.6;
-    expect(diagram.brand.brandQr.origin.x).toBeCloseTo(
-      diagram.brand.brandUrl.anchor.x + textWidth + gapK * R,
-      6,
-    );
+    expect(diagram.brand.brandQr.origin.y).toBeCloseTo(bBottom, 6);
+    expect(diagram.brand.brandUrl.anchor.y).toBeCloseTo(bBottom + 0.2 * diagram.brand.brandUrl.fontSize, 6);
+    const bLeft = diagram.brand.brandQr.origin.x;
+    expect(diagram.brand.brandQr.origin.x).toBeCloseTo(bLeft, 6);
+    expect(diagram.brand.brandUrl.anchor.x).toBeCloseTo(bLeft + qrSizeK * R + gapK * R, 6);
     expect(diagram.brand.brandQr.payload).toBe('https://thetidedial.page');
     expect(diagram.brand.brandQr.moduleCount).toBeGreaterThan(0);
     expect(diagram.brand.brandQr.moduleCount * diagram.brand.brandQr.moduleSize).toBeCloseTo(
@@ -250,7 +247,7 @@ describe('createDiagramCollaborator', () => {
 
     const d = diagram.homeMenuTrigger.diameter;
     const R = diagram.refArc.refRadius;
-    const bLeft = diagram.brand.brandUrl.anchor.x;
+    const bLeft = diagram.brand.brandQr.origin.x;
     const padK = (spec.homeMenuTrigger as { readonly menuLeftPadding: number }).menuLeftPadding;
     expect(diagram.homeMenuTrigger.center.x).toBeCloseTo(bLeft + padK * R + 0.5 * d, 6);
     const bBottom =

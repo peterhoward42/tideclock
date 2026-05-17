@@ -644,14 +644,14 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "moduleCount": 25,
       "moduleSize": 0.5192,
       "origin": {
-        "x": -91.26585520821962,
-        "y": -137.824,
+        "x": -126.42985520821964,
+        "y": -133.104,
       },
       "payload": "https://thetidedial.page",
     },
     "brandUrl": {
       "anchor": {
-        "x": -126.42985520821964,
+        "x": -112.26985520821962,
         "y": -132.39600000000002,
       },
       "content": "thetidedial.page",
