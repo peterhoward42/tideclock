@@ -9,8 +9,11 @@ TIDE DIAL
 
 o  Buy me a coffee (I have no violent objection)
 	*  first stab
-	o  review
-	o  setup account
+	*  review
+	*  setup account
+	o  capture link
+		https://ko-fi.com/petehowardtides
+	o  polish it
 
 o  proxy cost risk containment 
 
