@@ -28,6 +28,8 @@ o  review and plan other pages
 		*  stick it on wall - doesn't properly introduce the install essence
 
 		o  the nerd page
+			*  software
+			o  tides
 		o  fun page
 
 o  showing tides for looe panel should scale to be big enough on desktop
