@@ -10,7 +10,10 @@
   import { subscribeMinuteCadence } from "../application/minuteCadence";
   import { decideRolloverTideRefresh } from "../application/civilDayRolloverTick";
   import { createTideRefreshController } from "../application/tideRefreshController";
-  import { loadCivilDayExtremes } from "../application/civilDayExtremesQuery";
+  import {
+    createQuotaSessionGate,
+    loadCivilDayExtremes,
+  } from "../application/civilDayExtremesQuery";
   import { defaultTideLocationTown } from "../data/bakedTowns2";
   import { loadTownPick, storeTownPick } from "../data-pipelines/townPick";
   import { attachHashListener, route } from "../infrastructure/router.js";
@@ -45,6 +48,8 @@
   let lastRolloverAttemptCivilDayStartMs = $state<number | undefined>(undefined);
   /** Dev-only: `?tideUxPreview=<id>` — simulates Category-B tide load outcomes. */
   let tidePreviewIdFromUrl = $state<TidePreviewId | null>(null);
+  /** Session-only: after proxy quota exhaustion, load path bypasses persisted extremes (Stage 3 clears on success). */
+  const tideQuotaSession = createQuotaSessionGate();
 
   function readStoredTownPickBrowser(): Town | undefined {
     try {
@@ -120,7 +125,8 @@
       const result = await loadCivilDayExtremes(latitude, longitude, {
         loader: localStorage,
         storer: localStorage,
-        baseUrl: import.meta.env.VITE_TIDE_PROXY_BASE_URL
+        baseUrl: import.meta.env.VITE_TIDE_PROXY_BASE_URL,
+        quotaSession: tideQuotaSession,
       });
       appDiag("loadTideExtremesForCurrentCivilDay finished", {
         latitude,

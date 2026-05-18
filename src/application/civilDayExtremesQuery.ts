@@ -10,6 +10,7 @@ import {
   loadStoredCivilExtremes
 } from '../data-pipelines/civilDayExtremes';
 import { fetchPersistExtremes } from '../data-pipelines/fetchPersistExtremes';
+import { ProxyQuotaExhaustedError } from '../data-pipelines/proxyV1Types';
 import {
   EXTREMES_SNAPSHOT_KEY,
   type ExtremesLoader,
@@ -46,8 +47,26 @@ export interface CivilDayExtremesQuerySeams {
   readonly timeNowProvider?: TimeNowProvider;
 }
 
+/** Session-scoped gate: after quota exhaustion, bypass store until the shell clears on success. */
+export interface QuotaSessionGate {
+  readonly isSessionQuotaExhausted: () => boolean;
+  readonly setSessionQuotaExhausted: () => void;
+}
+
+export function createQuotaSessionGate(): QuotaSessionGate {
+  let sessionQuotaExhausted = false;
+  return {
+    isSessionQuotaExhausted: () => sessionQuotaExhausted,
+    setSessionQuotaExhausted: () => {
+      sessionQuotaExhausted = true;
+    }
+  };
+}
+
 export type CivilDayExtremesQueryDeps = ExtremesQueryCoreDeps &
-  CivilDayExtremesQuerySeams;
+  CivilDayExtremesQuerySeams & {
+    readonly quotaSession: QuotaSessionGate;
+  };
 
 function resolveQuerySeams(
   seams: CivilDayExtremesQuerySeams
@@ -74,54 +93,67 @@ export async function loadCivilDayExtremes(
   longitude: number,
   deps: CivilDayExtremesQueryDeps
 ): Promise<TideExtremesAtLocation | undefined> {
-  const { loader, storer, baseUrl } = deps;
+  const { loader, storer, baseUrl, quotaSession } = deps;
   const { fetchImpl, storageKey, timeNowProvider } = resolveQuerySeams(deps);
 
   queryDiag('start', {
     latitude,
     longitude,
     storageKey,
-    baseUrl
+    baseUrl,
+    sessionQuotaExhausted: quotaSession.isSessionQuotaExhausted()
   });
 
-  const fromStore = loadStoredCivilExtremes({
-    requiredLatitude: latitude,
-    requiredLongitude: longitude,
-    loader,
-    storageKey,
-    timeNowProvider
-  });
-  if (fromStore !== undefined) {
-    queryDiag('store hit — using persisted snapshot for civil day', {
-      extremeCount: fromStore.extremes.length
+  // When quota was detected this session, always fetch so recovery is a real 200.
+  if (!quotaSession.isSessionQuotaExhausted()) {
+    const fromStore = loadStoredCivilExtremes({
+      requiredLatitude: latitude,
+      requiredLongitude: longitude,
+      loader,
+      storageKey,
+      timeNowProvider
     });
-    return fromStore;
+    if (fromStore !== undefined) {
+      queryDiag('store hit — using persisted snapshot for civil day', {
+        extremeCount: fromStore.extremes.length
+      });
+      return fromStore;
+    }
+  } else {
+    queryDiag('quota session — bypassing persisted snapshot');
   }
 
-  queryDiag('store miss — fetching proxy and replacing snapshot');
+  queryDiag('store miss or quota bypass — fetching proxy');
 
-  const fullSnapshot = await fetchPersistExtremes({
-    lat: latitude,
-    lon: longitude,
-    baseUrl,
-    fetchImpl,
-    storer,
-    storageKey
-  });
+  try {
+    const fullSnapshot = await fetchPersistExtremes({
+      lat: latitude,
+      lon: longitude,
+      baseUrl,
+      fetchImpl,
+      storer,
+      storageKey
+    });
 
-  queryDiag('fetch stored — full snapshot extreme count', fullSnapshot.extremes.length);
+    queryDiag('fetch stored — full snapshot extreme count', fullSnapshot.extremes.length);
 
-  const sliced = extremesForCurrentCivilDay({
-    requiredLatitude: latitude,
-    requiredLongitude: longitude,
-    stored: fullSnapshot,
-    timeNowProvider
-  });
+    const sliced = extremesForCurrentCivilDay({
+      requiredLatitude: latitude,
+      requiredLongitude: longitude,
+      stored: fullSnapshot,
+      timeNowProvider
+    });
 
-  queryDiag('civil-day slice after fetch', {
-    extremeCount: sliced?.extremes.length ?? null,
-    defined: sliced !== undefined
-  });
+    queryDiag('civil-day slice after fetch', {
+      extremeCount: sliced?.extremes.length ?? null,
+      defined: sliced !== undefined
+    });
 
-  return sliced;
+    return sliced;
+  } catch (error) {
+    if (error instanceof ProxyQuotaExhaustedError) {
+      quotaSession.setSessionQuotaExhausted();
+    }
+    throw error;
+  }
 }

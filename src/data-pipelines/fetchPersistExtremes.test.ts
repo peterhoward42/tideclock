@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { fetchPersistExtremes } from './fetchPersistExtremes';
-import type { TideProxyV1Response } from './proxyV1Types';
+import { ProxyQuotaExhaustedError, type TideProxyV1Response } from './proxyV1Types';
 import { EXTREMES_SNAPSHOT_KEY, type ExtremesStorer } from './extremesSnapshot';
 
 class FakeExtremesStorer implements ExtremesStorer {
@@ -92,5 +92,33 @@ describe('fetchPersistExtremes', () => {
 
     expect(storer.writes).toHaveLength(1);
     expect(storer.writes[0]?.key).toBe('custom-key');
+  });
+
+  it('propagates ProxyQuotaExhaustedError without persisting a snapshot', async () => {
+    const storer = new FakeExtremesStorer();
+    const fetchImpl = vi.fn<typeof fetch>(async () => {
+      return new Response(
+        JSON.stringify({
+          error: {
+            code: 'UPSTREAM_CREDITS_EXHAUSTED',
+            message: 'Monthly API credits exhausted'
+          }
+        }),
+        { status: 503, headers: { 'Content-Type': 'application/json' } }
+      );
+    });
+
+    await expect(
+      fetchPersistExtremes({
+        lat: 50.8,
+        lon: -1.1,
+        baseUrl: 'https://example.test',
+        fetchImpl,
+        storer,
+        storageKey: EXTREMES_SNAPSHOT_KEY
+      })
+    ).rejects.toBeInstanceOf(ProxyQuotaExhaustedError);
+
+    expect(storer.writes).toHaveLength(0);
   });
 });

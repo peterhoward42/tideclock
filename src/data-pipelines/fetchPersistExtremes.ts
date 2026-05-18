@@ -34,6 +34,7 @@ export async function fetchPersistExtremes({
   storer,
   storageKey
 }: FetchPersistExtremesInput): Promise<TideExtremesAtLocation> {
+  // ProxyQuotaExhaustedError propagates unchanged; no snapshot is written.
   const tideProxyResponse = await fetchProxyV1Tides({
     lat,
     lon,
