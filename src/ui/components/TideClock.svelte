@@ -8,14 +8,14 @@
   import { subscribeMinuteCadence } from "../../application/minuteCadence";
   import ClockDivisionDial from "./ClockDivisionDial.svelte";
 
-  type TidePredictionsLoadState = { readonly status: "loading" | "ready" | "error" };
+  import type { TidePresentation } from "../routes/home/routeProps";
 
   interface Props {
     readonly clockScene: ClockSceneModel;
-    readonly tideLoadState: TidePredictionsLoadState;
+    readonly tidePresentation: TidePresentation;
   }
 
-  let { clockScene, tideLoadState }: Props = $props();
+  let { clockScene, tidePresentation }: Props = $props();
 
   /** Wall-clock ms; bumps on each local minute boundary (same cadence as the home tide diagram). */
   let wallClockMs = $state(Date.now());
@@ -41,9 +41,9 @@
     {formatTime(wallClockMs)}
   </p>
 
-  {#if tideLoadState.status === "loading"}
+  {#if tidePresentation.kind === "loading"}
     <p class="muted" role="status">Loading tides…</p>
-  {:else if tideLoadState.status === "error"}
+  {:else if tidePresentation.kind === "loadFailed"}
     <p class="muted" role="alert">Tides could not be loaded. Check the connection and try again.</p>
   {:else if clockScene.tideEvents.length > 0}
     <p class="muted" role="status">

@@ -5,6 +5,7 @@
  */
 import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
 import type { Town } from "../data/townSchema";
+import { ProxyQuotaExhaustedError } from "../data-pipelines/proxyV1Types";
 
 export type TideRefreshControllerDeps = {
   readonly loadTideExtremesForCurrentCivilDay: (
@@ -21,7 +22,9 @@ export type TideRefreshCallbacks = {
     readonly extremes: TideExtremesAtLocation;
     readonly civilDayWindowStartMs: number;
   }) => void;
-  readonly onError: () => void;
+  readonly onLoadFailed: () => void;
+  /** Operator upstream quota exhausted; not a generic load failure. */
+  readonly onQuotaExhausted?: () => void;
   /** Only when the in-flight load is still current; not called for stale completions. */
   readonly onLoadRejected?: (error: unknown) => void;
 };
@@ -51,14 +54,18 @@ export function createTideRefreshController(
             civilDayWindowStartMs: deps.civilDayWindowStartMsAfterSuccessfulLoad(),
           });
         } else {
-          callbacks.onError();
+          callbacks.onLoadFailed();
         }
       } catch (e) {
         if (serial !== tideLoadSerial) {
           return;
         }
         callbacks.onLoadRejected?.(e);
-        callbacks.onError();
+        if (e instanceof ProxyQuotaExhaustedError) {
+          callbacks.onQuotaExhausted?.();
+        } else {
+          callbacks.onLoadFailed();
+        }
       }
     })();
   }

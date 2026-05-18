@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import { createTideRefreshController } from "./tideRefreshController";
 import { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
 import type { Town } from "../data/townSchema";
+import { ProxyQuotaExhaustedError } from "../data-pipelines/proxyV1Types";
 
 const aTown = {
   id: "t1",
@@ -37,13 +38,13 @@ describe("createTideRefreshController", () => {
     const civilDay = vi.fn().mockReturnValue(99);
     const onLoading = vi.fn();
     const onSuccess = vi.fn();
-    const onError = vi.fn();
+    const onLoadFailed = vi.fn();
     const { refreshTidesForTown } = createTideRefreshController(
       {
         loadTideExtremesForCurrentCivilDay: load,
         civilDayWindowStartMsAfterSuccessfulLoad: civilDay,
       },
-      { onLoading, onSuccess, onError }
+      { onLoading, onSuccess, onLoadFailed }
     );
     refreshTidesForTown(aTown);
     expect(onLoading).toHaveBeenCalledTimes(1);
@@ -53,42 +54,67 @@ describe("createTideRefreshController", () => {
         civilDayWindowStartMs: 99,
       });
     });
-    expect(onError).not.toHaveBeenCalled();
+    expect(onLoadFailed).not.toHaveBeenCalled();
     expect(load).toHaveBeenCalledWith(10, 20);
     expect(civilDay).toHaveBeenCalledTimes(1);
   });
 
-  it("calls onError when load resolves undefined", async () => {
+  it("calls onLoadFailed when load resolves undefined", async () => {
     const load = vi.fn().mockResolvedValue(undefined);
     const onSuccess = vi.fn();
-    const onError = vi.fn();
+    const onLoadFailed = vi.fn();
     const { refreshTidesForTown } = createTideRefreshController(
       {
         loadTideExtremesForCurrentCivilDay: load,
         civilDayWindowStartMsAfterSuccessfulLoad: () => 1,
       },
-      { onLoading: () => {}, onSuccess, onError }
+      { onLoading: () => {}, onSuccess, onLoadFailed }
     );
     refreshTidesForTown(aTown);
-    await vi.waitFor(() => expect(onError).toHaveBeenCalledTimes(1));
+    await vi.waitFor(() => expect(onLoadFailed).toHaveBeenCalledTimes(1));
     expect(onSuccess).not.toHaveBeenCalled();
   });
 
-  it("calls onLoadRejected then onError when load throws", async () => {
+  it("calls onLoadRejected then onLoadFailed when load throws", async () => {
     const err = new Error("network");
     const load = vi.fn().mockRejectedValue(err);
     const onLoadRejected = vi.fn();
-    const onError = vi.fn();
+    const onLoadFailed = vi.fn();
     const { refreshTidesForTown } = createTideRefreshController(
       {
         loadTideExtremesForCurrentCivilDay: load,
         civilDayWindowStartMsAfterSuccessfulLoad: () => 1,
       },
-      { onLoading: () => {}, onSuccess: () => {}, onError, onLoadRejected }
+      { onLoading: () => {}, onSuccess: () => {}, onLoadFailed, onLoadRejected }
     );
     refreshTidesForTown(aTown);
-    await vi.waitFor(() => expect(onError).toHaveBeenCalledTimes(1));
+    await vi.waitFor(() => expect(onLoadFailed).toHaveBeenCalledTimes(1));
     expect(onLoadRejected).toHaveBeenCalledWith(err);
+  });
+
+  it("calls onQuotaExhausted but not onLoadFailed when load throws ProxyQuotaExhaustedError", async () => {
+    const err = new ProxyQuotaExhaustedError();
+    const load = vi.fn().mockRejectedValue(err);
+    const onLoadRejected = vi.fn();
+    const onLoadFailed = vi.fn();
+    const onQuotaExhausted = vi.fn();
+    const { refreshTidesForTown } = createTideRefreshController(
+      {
+        loadTideExtremesForCurrentCivilDay: load,
+        civilDayWindowStartMsAfterSuccessfulLoad: () => 1,
+      },
+      {
+        onLoading: () => {},
+        onSuccess: () => {},
+        onLoadFailed,
+        onQuotaExhausted,
+        onLoadRejected,
+      }
+    );
+    refreshTidesForTown(aTown);
+    await vi.waitFor(() => expect(onQuotaExhausted).toHaveBeenCalledTimes(1));
+    expect(onLoadRejected).toHaveBeenCalledWith(err);
+    expect(onLoadFailed).not.toHaveBeenCalled();
   });
 
   it("ignores stale completion when a newer refresh was started", async () => {
@@ -104,7 +130,7 @@ describe("createTideRefreshController", () => {
         loadTideExtremesForCurrentCivilDay: load,
         civilDayWindowStartMsAfterSuccessfulLoad: () => 1,
       },
-      { onLoading: () => {}, onSuccess, onError: () => {} }
+      { onLoading: () => {}, onSuccess, onLoadFailed: () => {} }
     );
     refreshTidesForTown(aTown);
     refreshTidesForTown(otherTown);

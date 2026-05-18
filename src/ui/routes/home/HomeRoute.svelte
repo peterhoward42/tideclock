@@ -80,7 +80,7 @@
   } from "./fullscreen";
 
   let {
-    tideLoadState,
+    tidePresentation,
     tideExtremes,
     townName,
     tidePreviewBannerLine,
@@ -163,7 +163,7 @@
     if (onboardingDeferDefaultLocationExplainerToLandscape(displaySnapshot)) {
       return false;
     }
-    if (tideLoadState.status !== "ready" || tideExtremes === undefined) {
+    if (tidePresentation.kind !== "ready" || tideExtremes === undefined) {
       return false;
     }
     if (diagramError !== undefined) return false;
@@ -327,10 +327,10 @@
       void minuteEpoch;
     }
     const extremes = tideExtremes;
-    const load = tideLoadState;
+    const presentation = tidePresentation;
 
     if (
-      load.status !== "ready" ||
+      presentation.kind !== "ready" ||
       extremes === undefined ||
       extremes.extremes.length === 0
     ) {
@@ -576,7 +576,7 @@
     bind:diagramHostEl
     bind:homeInstrumentEl
     bind:homeMenuPanelEl
-    {tideLoadState}
+    {tidePresentation}
     {tideExtremes}
     {diagramError}
     {diagramSvg}

@@ -1,12 +1,14 @@
 import type { TideExtremesAtLocation } from "../../../core-models/TideExtremesAtLocation";
 
-/** Tide prediction pipeline snapshot from the app shell into the home route. */
-export type TidePredictionsLoadState = {
-  readonly status: "loading" | "ready" | "error";
-};
+/** Shell tide presentation: quota is distinct from generic load failure. */
+export type TidePresentation =
+  | { readonly kind: "loading" }
+  | { readonly kind: "ready" }
+  | { readonly kind: "loadFailed" }
+  | { readonly kind: "quotaExhausted" };
 
 export interface RouteProps {
-  readonly tideLoadState: TidePredictionsLoadState;
+  readonly tidePresentation: TidePresentation;
   readonly tideExtremes: TideExtremesAtLocation | undefined;
   readonly townName: string;
   /** Dev-only copy from shell when `?tideUxPreview=` is active; null in production or when idle. */

@@ -51,6 +51,7 @@ export interface CivilDayExtremesQuerySeams {
 export interface QuotaSessionGate {
   readonly isSessionQuotaExhausted: () => boolean;
   readonly setSessionQuotaExhausted: () => void;
+  readonly clearSessionQuotaExhausted: () => void;
 }
 
 export function createQuotaSessionGate(): QuotaSessionGate {
@@ -59,6 +60,9 @@ export function createQuotaSessionGate(): QuotaSessionGate {
     isSessionQuotaExhausted: () => sessionQuotaExhausted,
     setSessionQuotaExhausted: () => {
       sessionQuotaExhausted = true;
+    },
+    clearSessionQuotaExhausted: () => {
+      sessionQuotaExhausted = false;
     }
   };
 }

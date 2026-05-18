@@ -10,6 +10,7 @@
   import { subscribeMinuteCadence } from "../application/minuteCadence";
   import { decideRolloverTideRefresh } from "../application/civilDayRolloverTick";
   import { createTideRefreshController } from "../application/tideRefreshController";
+  import type { TidePresentation } from "./routes/home/routeProps";
   import {
     createQuotaSessionGate,
     loadCivilDayExtremes,
@@ -38,8 +39,7 @@
   /** Mirrors {@link RouteId} in `router.js` for header copy and route surface mode mapping. */
   type AppRouteId = Parameters<typeof surfaceModeForRoute>[0];
 
-  type TidePredictionsLoadState = { status: "loading" | "ready" | "error" };
-  let tideLoadState = $state<TidePredictionsLoadState>({ status: "ready" });
+  let tidePresentation = $state<TidePresentation>({ kind: "ready" });
   /** Last successful civil-day slice; Home assembles the diagram spec from this. Not cleared on transient errors. */
   let lastSuccessfulTideExtremes = $state<TideExtremesAtLocation | undefined>(undefined);
   /** Local civil-day window start (ms) after the last successful load completed; drives midnight rollover detection. */
@@ -48,7 +48,7 @@
   let lastRolloverAttemptCivilDayStartMs = $state<number | undefined>(undefined);
   /** Dev-only: `?tideUxPreview=<id>` — simulates Category-B tide load outcomes. */
   let tidePreviewIdFromUrl = $state<TidePreviewId | null>(null);
-  /** Session-only: after proxy quota exhaustion, load path bypasses persisted extremes (Stage 3 clears on success). */
+  /** Session-only: after proxy quota exhaustion, load path bypasses persisted extremes; cleared on successful fetch. */
   const tideQuotaSession = createQuotaSessionGate();
 
   function readStoredTownPickBrowser(): Town | undefined {
@@ -149,16 +149,20 @@
     },
     {
       onLoading: () => {
-        tideLoadState = { status: "loading" };
+        tidePresentation = { kind: "loading" };
       },
       onSuccess: ({ extremes, civilDayWindowStartMs }) => {
+        tideQuotaSession.clearSessionQuotaExhausted();
         lastSuccessfulTideExtremes = extremes;
         civilDayWindowStartMsAtLastSuccessfulLoad = civilDayWindowStartMs;
         lastRolloverAttemptCivilDayStartMs = undefined;
-        tideLoadState = { status: "ready" };
+        tidePresentation = { kind: "ready" };
       },
-      onError: () => {
-        tideLoadState = { status: "error" };
+      onLoadFailed: () => {
+        tidePresentation = { kind: "loadFailed" };
+      },
+      onQuotaExhausted: () => {
+        tidePresentation = { kind: "quotaExhausted" };
       },
       onLoadRejected: (e) => {
         appDiag("refreshTidesForTown error", e);
@@ -202,7 +206,7 @@
     const currentStart = civilDayWindowFromHostClock().startLocal.getTime();
     const decision = decideRolloverTideRefresh({
       town,
-      tideLoadIsLoading: tideLoadState.status === "loading",
+      tideLoadIsLoading: tidePresentation.kind === "loading",
       currentCivilDayStartMs: currentStart,
       civilDayWindowStartMsAtLastSuccessfulLoad,
       lastRolloverAttemptCivilDayStartMs
@@ -295,8 +299,10 @@
   >
     {#if $route === "home"}
       <Home
-        tideLoadState={tideLoadState}
-        tideExtremes={lastSuccessfulTideExtremes}
+        tidePresentation={tidePresentation}
+        tideExtremes={tidePresentation.kind === "ready"
+          ? lastSuccessfulTideExtremes
+          : undefined}
         townName={currentTown?.name ?? "Unknown"}
         tidePreviewBannerLine={tidePreviewBannerLine}
         defaultLocationExplainerOpen={showDefaultLocationExplainer}

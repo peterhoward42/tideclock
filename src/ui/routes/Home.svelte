@@ -7,7 +7,7 @@
   import type { RouteProps } from "./home/routeProps";
 
   let {
-    tideLoadState,
+    tidePresentation,
     tideExtremes,
     townName,
     tidePreviewBannerLine,
@@ -18,7 +18,7 @@
 </script>
 
 <HomeRoute
-  {tideLoadState}
+  {tidePresentation}
   {tideExtremes}
   {townName}
   {tidePreviewBannerLine}

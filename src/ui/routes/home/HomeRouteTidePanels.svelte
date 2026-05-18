@@ -9,12 +9,10 @@
   } from "../../components/PrimaryMenuContent.svelte";
   import HomeDefaultLocationExplainerOverlay from "./HomeDefaultLocationExplainerOverlay.svelte";
 
-  type TidePredictionsLoadState = {
-    readonly status: "loading" | "ready" | "error";
-  };
+  import type { TidePresentation } from "./routeProps";
 
   interface Props {
-    readonly tideLoadState: TidePredictionsLoadState;
+    readonly tidePresentation: TidePresentation;
     readonly tideExtremes: TideExtremesAtLocation | undefined;
     readonly diagramError: string | undefined;
     readonly diagramSvg: string;
@@ -39,7 +37,7 @@
   }
 
   let {
-    tideLoadState,
+    tidePresentation,
     tideExtremes,
     diagramError,
     diagramSvg,
@@ -64,17 +62,19 @@
   }: Props = $props();
 </script>
 
-{#if tideLoadState.status === "loading" || (tideLoadState.status === "ready" && tideExtremes === undefined)}
+{#if tidePresentation.kind === "loading" || (tidePresentation.kind === "ready" && tideExtremes === undefined)}
   <div class="home-panel" aria-live="polite">
     <p class="muted" role="status">Loading tides…</p>
   </div>
-{:else if tideLoadState.status === "error"}
+{:else if tidePresentation.kind === "quotaExhausted"}
+  <div class="home-panel" aria-live="polite"></div>
+{:else if tidePresentation.kind === "loadFailed"}
   <div class="home-panel" aria-live="polite">
     <p class="muted" role="alert">
       Tides could not be loaded. Check the connection and try again.
     </p>
   </div>
-{:else if tideExtremes.extremes.length === 0}
+{:else if tideExtremes === undefined || tideExtremes.extremes.length === 0}
   <div class="home-panel" aria-live="polite">
     <p class="muted" role="status">No tide extremes for this day.</p>
     {#if showDefaultLocationExplainer}
