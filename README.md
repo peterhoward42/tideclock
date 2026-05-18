@@ -60,6 +60,7 @@ More detail: [`docs/planning/diagram-dev-preview-catalog.md`](docs/planning/diag
 | http://localhost:5173/#/home?tideUxPreview=load-failed | Error panel: tides could not be loaded. |
 | http://localhost:5173/#/home?tideUxPreview=load-stuck | “Loading tides…” stays forever. |
 | http://localhost:5173/#/home?tideUxPreview=no-extremes-today | Success path with zero extremes: “No tide extremes for this day.” |
+| http://localhost:5173/#/home?tideUxPreview=quota-exhausted | Quota panel: “Tide data is paused” (simulated operator credit exhaustion). |
 
 ---
 

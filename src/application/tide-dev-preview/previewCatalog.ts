@@ -5,6 +5,7 @@
  */
 
 import { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
+import { ProxyQuotaExhaustedError } from "../../data-pipelines/proxyV1Types";
 
 export const TIDE_PREVIEW_QUERY_PARAM = "tideUxPreview" as const;
 
@@ -13,6 +14,7 @@ export const TIDE_PREVIEW_IDS = [
   "load-failed",
   "load-stuck",
   "no-extremes-today",
+  "quota-exhausted",
 ] as const;
 
 export type TidePreviewId = (typeof TIDE_PREVIEW_IDS)[number];
@@ -21,6 +23,7 @@ const HEADLINE: Record<TidePreviewId, string> = {
   "load-failed": "tide load failed (simulated)",
   "load-stuck": "tide load stuck loading (simulated)",
   "no-extremes-today": "ready, no extremes for civil day (simulated)",
+  "quota-exhausted": "quota exhausted (simulated)",
 };
 
 export function tidePreviewShortHeadline(id: TidePreviewId): string {
@@ -71,6 +74,8 @@ export function tidePreviewMaybeOverrideLoad(
       return Promise.resolve(
         TideExtremesAtLocation.fromPossiblyUnordered(latitude, longitude, []),
       );
+    case "quota-exhausted":
+      return Promise.reject(new ProxyQuotaExhaustedError());
     default: {
       const _exhaustive: never = previewId;
       return _exhaustive;

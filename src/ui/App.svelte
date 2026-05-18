@@ -162,6 +162,7 @@
         tidePresentation = { kind: "loadFailed" };
       },
       onQuotaExhausted: () => {
+        tideQuotaSession.setSessionQuotaExhausted();
         tidePresentation = { kind: "quotaExhausted" };
       },
       onLoadRejected: (e) => {
