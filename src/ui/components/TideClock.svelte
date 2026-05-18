@@ -9,6 +9,7 @@
   import ClockDivisionDial from "./ClockDivisionDial.svelte";
 
   import type { TidePresentation } from "../routes/home/routeProps";
+  import { quotaExhaustedShortStatus } from "../quotaExhaustedCopy";
 
   interface Props {
     readonly clockScene: ClockSceneModel;
@@ -43,6 +44,8 @@
 
   {#if tidePresentation.kind === "loading"}
     <p class="muted" role="status">Loading tides…</p>
+  {:else if tidePresentation.kind === "quotaExhausted"}
+    <p class="muted" role="status">{quotaExhaustedShortStatus}</p>
   {:else if tidePresentation.kind === "loadFailed"}
     <p class="muted" role="alert">Tides could not be loaded. Check the connection and try again.</p>
   {:else if clockScene.tideEvents.length > 0}

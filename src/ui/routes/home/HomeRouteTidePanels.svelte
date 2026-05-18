@@ -10,6 +10,10 @@
   import HomeDefaultLocationExplainerOverlay from "./HomeDefaultLocationExplainerOverlay.svelte";
 
   import type { TidePresentation } from "./routeProps";
+  import {
+    quotaExhaustedBody,
+    quotaExhaustedHeadline,
+  } from "../../quotaExhaustedCopy";
 
   interface Props {
     readonly tidePresentation: TidePresentation;
@@ -67,7 +71,12 @@
     <p class="muted" role="status">Loading tides…</p>
   </div>
 {:else if tidePresentation.kind === "quotaExhausted"}
-  <div class="home-panel" aria-live="polite"></div>
+  <div class="home-panel home-panel--quota" aria-live="polite">
+    <div class="home-quota-message" role="status">
+      <p class="home-quota-message__headline">{quotaExhaustedHeadline}</p>
+      <p class="home-quota-message__body muted">{quotaExhaustedBody}</p>
+    </div>
+  </div>
 {:else if tidePresentation.kind === "loadFailed"}
   <div class="home-panel" aria-live="polite">
     <p class="muted" role="alert">
@@ -162,6 +171,31 @@
   /* Positioning context for the menu flyout (sibling of figure, not clipped by figure overflow). */
   .home-panel--diagram-host {
     position: relative;
+  }
+
+  .home-panel--quota {
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .home-quota-message {
+    max-width: min(42ch, 100%);
+    margin: 0;
+  }
+
+  .home-quota-message__headline {
+    margin: 0 0 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text-home-panel-muted);
+  }
+
+  .home-quota-message__body {
+    margin: 0;
+    line-height: 1.5;
+    text-align: left;
   }
 
   .home-instrument {
