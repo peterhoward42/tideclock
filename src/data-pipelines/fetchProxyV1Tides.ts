@@ -3,7 +3,11 @@
  * Kind: Adapter / boundary (HTTP). Does not map into domain models.
  */
 
-import type { ProxyV1ErrorResponse, TideProxyV1Response } from './proxyV1Types';
+import {
+  ProxyQuotaExhaustedError,
+  type ProxyV1ErrorResponse,
+  type TideProxyV1Response
+} from './proxyV1Types';
 
 export interface FetchProxyV1TidesParams {
   lat: number;
@@ -60,17 +64,38 @@ export async function fetchProxyV1Tides({
     return payload as TideProxyV1Response;
   }
 
+  const proxyError = readProxyErrorBody(payload);
   if (
-    typeof payload === 'object' &&
-    payload !== null &&
-    'error' in payload &&
-    payload.error &&
-    typeof payload.error === 'object' &&
-    'message' in payload.error &&
-    typeof payload.error.message === 'string'
+    response.status === 503 &&
+    proxyError?.code === 'UPSTREAM_CREDITS_EXHAUSTED'
   ) {
-    throw new Error(`Tide proxy request failed (${response.status}): ${payload.error.message}`);
+    throw new ProxyQuotaExhaustedError(proxyError.message);
+  }
+
+  if (proxyError) {
+    throw new Error(`Tide proxy request failed (${response.status}): ${proxyError.message}`);
   }
 
   throw new Error(`Tide proxy request failed (${response.status}).`);
+}
+
+function readProxyErrorBody(
+  payload: unknown
+): { code: string; message: string } | undefined {
+  if (
+    typeof payload !== 'object' ||
+    payload === null ||
+    !('error' in payload) ||
+    !payload.error ||
+    typeof payload.error !== 'object'
+  ) {
+    return undefined;
+  }
+
+  const { code, message } = payload.error as { code?: unknown; message?: unknown };
+  if (typeof code !== 'string' || typeof message !== 'string') {
+    return undefined;
+  }
+
+  return { code, message };
 }

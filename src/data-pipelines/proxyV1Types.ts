@@ -19,9 +19,30 @@ export interface TideProxyV1Response {
   readonly attribution: string;
 }
 
+/** Tide Proxy API `APIError.error.code` values (OpenAPI enum). */
+export const PROXY_V1_ERROR_CODES = [
+  'INVALID_QUERY',
+  'UPSTREAM_ERROR',
+  'UPSTREAM_CREDITS_EXHAUSTED',
+  'INTERNAL_ERROR'
+] as const;
+
+export type ProxyV1ErrorCode = (typeof PROXY_V1_ERROR_CODES)[number];
+
 export interface ProxyV1ErrorResponse {
   readonly error: {
-    readonly code: string;
+    readonly code: ProxyV1ErrorCode | string;
     readonly message: string;
   };
+}
+
+/** Operator monthly WorldTides credits exhausted (`503` + `UPSTREAM_CREDITS_EXHAUSTED`). */
+export class ProxyQuotaExhaustedError extends Error {
+  readonly code: ProxyV1ErrorCode = 'UPSTREAM_CREDITS_EXHAUSTED';
+  readonly status = 503;
+
+  constructor(message = 'Monthly API credits exhausted') {
+    super(message);
+    this.name = 'ProxyQuotaExhaustedError';
+  }
 }
