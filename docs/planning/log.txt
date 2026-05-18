@@ -12,8 +12,11 @@ TIDE DIAL
 
 o  proxy cost risk containment 
 	*  remind my plan
-	o  update proxy to return out of credits
-	o  ask cursor to get oriented with new mission
+	*  update proxy to return out of credits
+	*  update the dial to react to quota error with placeholder UI
+	o  make sure dashboard alerts me on quota
+		o  or build something
+	o  flesh out the real UI response in place of placeholder
 
 
 
@@ -33,6 +36,8 @@ Updates will resume automatically at the start of next month.
 o  frame buy me a coffee as pay for api offset
 o  oven ready sorry normal service back soon page
 	o  but consider app caching obstacle
+
+o  how to prevent abuse of my proxy
 
 
 o  scarborough to whitby coverage is bad for some reason?

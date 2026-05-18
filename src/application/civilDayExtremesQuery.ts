@@ -109,6 +109,7 @@ export async function loadCivilDayExtremes(
   });
 
   // When quota was detected this session, always fetch so recovery is a real 200.
+  // @see docs/planning/quota-response.md (operator notes: reload vs civil-day rollover).
   if (!quotaSession.isSessionQuotaExhausted()) {
     const fromStore = loadStoredCivilExtremes({
       requiredLatitude: latitude,

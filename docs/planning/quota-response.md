@@ -54,6 +54,17 @@ Implications:
 
 Quota mode must **not** clear `civilDayWindowStartMsAtLastSuccessfulLoad` in a way that disables rollover unless that is an explicit future decision.
 
+## Operator notes
+
+For whoever operates the WorldTides / proxy billing:
+
+1. **Monitor** the [WorldTides](https://www.worldtides.info/) dashboard (and proxy-side credit usage) so monthly exhaustion is visible before users report it.
+2. **While exhausted** the app enters `quotaExhausted` presentation: honest “paused” copy, empty dial, no tide times from cache or network.
+3. **Credits restored the same civil day** — users need a **full page reload** or **location change**; rollover will not attempt another fetch until the next local civil day (and only once per day after a prior successful load).
+4. **Credits restored overnight** — returning users who had loaded successfully before quota usually recover via **local civil-day rollover** (one fetch); first-time visitors still need reload or a location pick.
+
+Dev check without burning credits: `?tideUxPreview=quota-exhausted` (DEV builds only; see README).
+
 ## Placeholder UX (interim)
 
 Until final design, use a dedicated home panel (and matching `TideClock` line) distinct from generic error:
@@ -217,5 +228,9 @@ flowchart TD
 - `src/application/tide-dev-preview/previewCatalog.ts`
 
 ---
+
+## Implementation status
+
+Stages 1–5 are implemented in the tideclock repo (typed proxy error → fail-closed load path → `TidePresentation` shell state → placeholder UI → dev preview).
 
 *Aligned in discussion: quota is a useless-for-tides mode with honest operator messaging, not degraded cache display; plumbing is a presentation trigger, not error-handling taxonomy.*

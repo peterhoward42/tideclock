@@ -62,6 +62,8 @@ More detail: [`docs/planning/diagram-dev-preview-catalog.md`](docs/planning/diag
 | http://localhost:5173/#/home?tideUxPreview=no-extremes-today | Success path with zero extremes: “No tide extremes for this day.” |
 | http://localhost:5173/#/home?tideUxPreview=quota-exhausted | Quota panel: “Tide data is paused” (simulated operator credit exhaustion). |
 
+Operator notes (WorldTides dashboard, same-day reload vs next-day rollover): [`docs/planning/quota-response.md`](docs/planning/quota-response.md).
+
 ---
 
 ### Adding a new scenario later
