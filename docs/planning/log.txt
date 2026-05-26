@@ -1,0 +1,38 @@
+
+TIDE DIAL
+
+
+*  remove routine keep screen awake menu and internals, but retain in pwa
+*  sort out thetidedial.page DNS
+*  review and plan other pages
+*  showing tides for looe panel should scale to be big enough on desktop
+*  Buy me a coffee (I have no violent objection)
+*  QR code
+*  are menu items spaced further apart than necessary? = no
+*  proxy cost risk containment telegram alert and placeholder app UI
+*  flesh out the real UI quota response 
+*  oven ready sorry normal service back soon page
+
+o  sanitise github for pub scrutiny
+	*  proxy
+	o  clock
+		o  proper readme
+			*  simplify  existing
+			o  add more typical content
+			o  say is open source berkely licence both repos
+
+		o  ditch redundant docs
+		o  scan what's there
+		o  what do skills tell us?
+
+o  Don't like "for the screen that stays there"
+o  Tide nerd tone a bit off
+
+o  don't forget
+	o  proxy api should come from envar?
+	o  policy for exceptions
+	o  price cap control on worldtimes costs
+o  github housekeeping incl readme
+
+o  futures
+	o  scarborough to whitby coverage is bad for some reason?
