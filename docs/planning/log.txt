@@ -16,14 +16,16 @@ TIDE DIAL
 o  sanitise github for pub scrutiny
 	*  proxy
 	o  clock
-		o  proper readme
-			*  simplify  existing
-			o  add more typical content
-			o  say is open source berkely licence both repos
-
-		o  ditch redundant docs
-		o  scan what's there
-		o  what do skills tell us?
+		*  proper readme
+		*  ditch redundant docs
+		*  scan what's there
+		*  get advice for topic broad or by topics one at time deep
+		*  get advice for things to check
+		o  push back on the plan
+		o  remove repo hygene doc
+		o  remove log.text
+			o  first check if any non tide stuff in there
+			o  ditch it
 
 o  Don't like "for the screen that stays there"
 o  Tide nerd tone a bit off
