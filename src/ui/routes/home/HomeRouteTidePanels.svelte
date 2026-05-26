@@ -11,8 +11,20 @@
 
   import type { TidePresentation } from "./routeProps";
   import {
-    quotaExhaustedBody,
+    quotaExhaustedBodyParagraphs,
     quotaExhaustedHeadline,
+    quotaExhaustedIntroEnd,
+    quotaExhaustedIntroLead,
+    quotaExhaustedIntroSiteLabel,
+    quotaExhaustedWorldTidesHref,
+    quotaExhaustedSoftwareNerdHref,
+    quotaExhaustedCoffeeAsideBuyLinkLabel,
+    quotaExhaustedCoffeeAsideEnd,
+    quotaExhaustedCoffeeAsideMid,
+    quotaExhaustedCoffeeAsidePrefix,
+    quotaExhaustedCoffeeAsideStoryLinkLabel,
+    quotaExhaustedSoftwareNerdLinkText,
+    quotaExhaustedStoryHref,
   } from "../../quotaExhaustedCopy";
 
   interface Props {
@@ -74,7 +86,37 @@
   <div class="home-panel home-panel--quota" aria-live="polite">
     <div class="home-quota-message" role="status">
       <p class="home-quota-message__headline">{quotaExhaustedHeadline}</p>
-      <p class="home-quota-message__body muted">{quotaExhaustedBody}</p>
+      <p class="home-quota-message__body muted">
+        {quotaExhaustedIntroLead}<a
+          class="home-quota-message__link"
+          href={quotaExhaustedWorldTidesHref}
+          target="_blank"
+          rel="noopener noreferrer">{quotaExhaustedIntroSiteLabel}</a
+        >{quotaExhaustedIntroEnd}
+      </p>
+      {#each quotaExhaustedBodyParagraphs as paragraph}
+        <p class="home-quota-message__body muted">{paragraph}</p>
+      {/each}
+      <div class="home-quota-asides">
+        <aside class="home-quota-aside" aria-label="Optional support">
+          <p class="home-quota-aside__line muted">
+            {quotaExhaustedCoffeeAsidePrefix}<a
+              class="home-quota-aside__link"
+              href={quotaExhaustedStoryHref}>{quotaExhaustedCoffeeAsideBuyLinkLabel}</a
+            >{quotaExhaustedCoffeeAsideMid}<a
+              class="home-quota-aside__link"
+              href={quotaExhaustedStoryHref}>{quotaExhaustedCoffeeAsideStoryLinkLabel}</a
+            >{quotaExhaustedCoffeeAsideEnd}
+          </p>
+        </aside>
+        <aside class="home-quota-aside" aria-label="How the dial gets its data">
+          <p class="home-quota-aside__line muted">
+            <a class="home-quota-aside__link" href={quotaExhaustedSoftwareNerdHref}
+              >{quotaExhaustedSoftwareNerdLinkText}</a
+            >
+          </p>
+        </aside>
+      </div>
     </div>
   </div>
 {:else if tidePresentation.kind === "loadFailed"}
@@ -182,10 +224,12 @@
   .home-quota-message {
     max-width: min(42ch, 100%);
     margin: 0;
+    display: grid;
+    gap: 0.75rem;
   }
 
   .home-quota-message__headline {
-    margin: 0 0 0.75rem;
+    margin: 0;
     font-size: 1.125rem;
     font-weight: 600;
     line-height: 1.35;
@@ -196,6 +240,41 @@
     margin: 0;
     line-height: 1.5;
     text-align: left;
+  }
+
+  .home-quota-message__link {
+    color: var(--text-link-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+  }
+
+  .home-quota-asides {
+    margin-top: 0.35rem;
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .home-quota-aside {
+    margin: 0;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid color-mix(in srgb, var(--text-link-accent) 55%, var(--border-subtle));
+    border-radius: 0.35rem;
+    background: color-mix(in srgb, var(--surface-page) 72%, var(--text-home-panel-muted) 8%);
+    box-shadow: 0 1px 3px rgb(15 23 42 / 0.06);
+  }
+
+  .home-quota-aside__line {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    text-align: left;
+  }
+
+  .home-quota-aside__link {
+    color: var(--text-link-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
   }
 
   .home-instrument {

@@ -9,28 +9,10 @@ TIDE DIAL
 *  Buy me a coffee (I have no violent objection)
 *  QR code
 *  are menu items spaced further apart than necessary? = no
-
-o  proxy cost risk containment 
-	*  remind my plan
-	*  update proxy to return out of credits
-	*  update the dial to react to quota error with placeholder UI
-	o  make sure dashboard alerts me on quota
-		o  or build something
-	o  flesh out the real UI response in place of placeholder
-
-
-
-Tide updates are temporarily paused because the app has reached this month’s tide-data allowance.
-
-The data service behind the app charges per update request, and the always-on displays have clearly been getting a lot of use lately. Which is honestly lovely to see.
-
-Updates will resume automatically at the start of next month.
-
-
-
-
-
-
+*  proxy cost risk containment telegram alert and placeholder app UI
+*  flesh out the real UI quota response 
+	o  do
+	o  check regression on deployed
 
 
 o  frame buy me a coffee as pay for api offset
