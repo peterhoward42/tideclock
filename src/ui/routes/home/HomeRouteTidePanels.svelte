@@ -26,6 +26,10 @@
     quotaExhaustedSoftwareNerdLinkText,
     quotaExhaustedStoryHref,
   } from "../../quotaExhaustedCopy";
+  import {
+    operatorNoticeBodyParagraphs,
+    operatorNoticeHeadline,
+  } from "../../operatorNoticeCopy";
 
   interface Props {
     readonly tidePresentation: TidePresentation;
@@ -78,7 +82,16 @@
   }: Props = $props();
 </script>
 
-{#if tidePresentation.kind === "loading" || (tidePresentation.kind === "ready" && tideExtremes === undefined)}
+{#if tidePresentation.kind === "operatorNotice"}
+  <div class="home-panel home-panel--operator-notice" aria-live="polite">
+    <div class="home-operator-notice-message" role="status">
+      <p class="home-operator-notice-message__headline">{operatorNoticeHeadline}</p>
+      {#each operatorNoticeBodyParagraphs as paragraph}
+        <p class="home-operator-notice-message__body muted">{paragraph}</p>
+      {/each}
+    </div>
+  </div>
+{:else if tidePresentation.kind === "loading" || (tidePresentation.kind === "ready" && tideExtremes === undefined)}
   <div class="home-panel" aria-live="polite">
     <p class="muted" role="status">Loading tides…</p>
   </div>
@@ -215,10 +228,32 @@
     position: relative;
   }
 
-  .home-panel--quota {
+  .home-panel--quota,
+  .home-panel--operator-notice {
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
+  }
+
+  .home-operator-notice-message {
+    max-width: min(42ch, 100%);
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .home-operator-notice-message__headline {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text-home-panel-muted);
+  }
+
+  .home-operator-notice-message__body {
+    margin: 0;
+    line-height: 1.5;
+    text-align: left;
   }
 
   .home-quota-message {

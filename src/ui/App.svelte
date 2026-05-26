@@ -35,11 +35,15 @@
   import SoftwareNerdRoute from "./routes/SoftwareNerdRoute.svelte";
   import { THE_TIDE_DIAL, TIDE_DIAL_PRODUCTION_ORIGIN } from "./brand";
   import { surfaceModeForRoute } from "./routeSurfaceMode";
+  import { OPERATOR_NOTICE_ACTIVE } from "./operatorNoticeConfig";
+  import { effectiveSearchFromLocation } from "./homeUrlQuery";
 
   /** Mirrors {@link RouteId} in `router.js` for header copy and route surface mode mapping. */
   type AppRouteId = Parameters<typeof surfaceModeForRoute>[0];
 
-  let tidePresentation = $state<TidePresentation>({ kind: "ready" });
+  let tidePresentation = $state<TidePresentation>(
+    OPERATOR_NOTICE_ACTIVE ? { kind: "operatorNotice" } : { kind: "ready" },
+  );
   /** Last successful civil-day slice; Home assembles the diagram spec from this. Not cleared on transient errors. */
   let lastSuccessfulTideExtremes = $state<TideExtremesAtLocation | undefined>(undefined);
   /** Local civil-day window start (ms) after the last successful load completed; drives midnight rollover detection. */
@@ -88,15 +92,17 @@
     return town.county !== "" ? `${town.name}, ${town.county}` : town.name;
   });
 
+  function effectiveSearchFromWindow(): string {
+    if (typeof window === "undefined") return "";
+    return effectiveSearchFromLocation(
+      window.location.search,
+      window.location.hash,
+    );
+  }
+
   function readTidePreviewIdFromLocation(): TidePreviewId | null {
     if (!import.meta.env.DEV) return null;
-    if (typeof window === "undefined") return null;
-    const search =
-      window.location.search ||
-      (window.location.hash.includes("?")
-        ? window.location.hash.slice(window.location.hash.indexOf("?"))
-        : "");
-    return tidePreviewIdFromSearch(search);
+    return tidePreviewIdFromSearch(effectiveSearchFromWindow());
   }
 
   function appDiag(...args: unknown[]) {
@@ -202,6 +208,9 @@
   }
 
   function maybeRefreshTideAfterLocalMidnightRollover(): void {
+    if (OPERATOR_NOTICE_ACTIVE) {
+      return;
+    }
     const town = loadTownPick({ loader: localStorage }) ?? currentTown;
     currentTown = town;
     const currentStart = civilDayWindowFromHostClock().startLocal.getTime();
@@ -249,7 +258,7 @@
     attachHashListener();
     appDiag("app root mounted, hash listener attached");
     tidePreviewIdFromUrl = readTidePreviewIdFromLocation();
-    if (currentTown !== undefined) {
+    if (!OPERATOR_NOTICE_ACTIVE && currentTown !== undefined) {
       refreshTidesForTown(currentTown);
     }
     let devUrlCleanup: (() => void) | undefined;
@@ -279,49 +288,69 @@
 </script>
 
 <svelte:head>
-  <title>{documentTitleForRoute($route)}</title>
+  <title
+    >{OPERATOR_NOTICE_ACTIVE
+      ? THE_TIDE_DIAL
+      : documentTitleForRoute($route)}</title
+  >
   {#if import.meta.env.PROD}
     <link rel="canonical" href={`${TIDE_DIAL_PRODUCTION_ORIGIN}/`} />
   {/if}
 </svelte:head>
 
-<div class="app-frame" data-surface-mode={surfaceModeForRoute($route)}>
-  {#if $route !== "home"}
-    <AppHeader
-      tone={"light"}
-      center={{ kind: "title", title: headerPlaceholderForRoute($route) }}
-    />
-  {/if}
-
-  <section
-    class="content"
-    class:content--home={$route === "home"}
-    class:content--home-no-top-bar={$route === "home"}
-  >
-    {#if $route === "home"}
+{#if OPERATOR_NOTICE_ACTIVE}
+  <div class="app-frame" data-surface-mode="home">
+    <section class="content content--home content--home-no-top-bar">
       <Home
-        tidePresentation={tidePresentation}
-        tideExtremes={tidePresentation.kind === "ready"
-          ? lastSuccessfulTideExtremes
-          : undefined}
+        tidePresentation={{ kind: "operatorNotice" }}
+        tideExtremes={undefined}
         townName={currentTown?.name ?? "Unknown"}
-        tidePreviewBannerLine={tidePreviewBannerLine}
-        defaultLocationExplainerOpen={showDefaultLocationExplainer}
+        tidePreviewBannerLine={null}
+        defaultLocationExplainerOpen={false}
         defaultLocationExplainerPlaceLine={defaultLocationExplainerPlaceLine}
         onDismissDefaultLocationExplainer={dismissDefaultLocationExplainer}
       />
-    {:else if $route === "location"}
-      <LocationRoute setCurrentLocation={setCurrentLocation} />
-    {:else if $route === "about"}
-      <AboutRoute />
-    {:else if $route === "onwall"}
-      <OnWallRoute />
-    {:else if $route === "story"}
-      <StoryRoute />
-    {:else if $route === "tidenerd"}
-      <TideNerdRoute />
-    {:else if $route === "softwarenerd"}
-      <SoftwareNerdRoute />
+    </section>
+  </div>
+{:else}
+  <div class="app-frame" data-surface-mode={surfaceModeForRoute($route)}>
+    {#if $route !== "home"}
+      <AppHeader
+        tone={"light"}
+        center={{ kind: "title", title: headerPlaceholderForRoute($route) }}
+      />
     {/if}
-  </section>
-</div>
+
+    <section
+      class="content"
+      class:content--home={$route === "home"}
+      class:content--home-no-top-bar={$route === "home"}
+    >
+      {#if $route === "home"}
+        <Home
+          {tidePresentation}
+          tideExtremes={tidePresentation.kind === "ready"
+            ? lastSuccessfulTideExtremes
+            : undefined}
+          townName={currentTown?.name ?? "Unknown"}
+          tidePreviewBannerLine={tidePreviewBannerLine}
+          defaultLocationExplainerOpen={showDefaultLocationExplainer}
+          defaultLocationExplainerPlaceLine={defaultLocationExplainerPlaceLine}
+          onDismissDefaultLocationExplainer={dismissDefaultLocationExplainer}
+        />
+      {:else if $route === "location"}
+        <LocationRoute setCurrentLocation={setCurrentLocation} />
+      {:else if $route === "about"}
+        <AboutRoute />
+      {:else if $route === "onwall"}
+        <OnWallRoute />
+      {:else if $route === "story"}
+        <StoryRoute />
+      {:else if $route === "tidenerd"}
+        <TideNerdRoute />
+      {:else if $route === "softwarenerd"}
+        <SoftwareNerdRoute />
+      {/if}
+    </section>
+  </div>
+{/if}

@@ -5,7 +5,8 @@ export type TidePresentation =
   | { readonly kind: "loading" }
   | { readonly kind: "ready" }
   | { readonly kind: "loadFailed" }
-  | { readonly kind: "quotaExhausted" };
+  | { readonly kind: "quotaExhausted" }
+  | { readonly kind: "operatorNotice" };
 
 export interface RouteProps {
   readonly tidePresentation: TidePresentation;

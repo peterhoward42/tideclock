@@ -11,13 +11,7 @@ TIDE DIAL
 *  are menu items spaced further apart than necessary? = no
 *  proxy cost risk containment telegram alert and placeholder app UI
 *  flesh out the real UI quota response 
-	o  do
-	o  check regression on deployed
-
-
-o  frame buy me a coffee as pay for api offset
-o  oven ready sorry normal service back soon page
-	o  but consider app caching obstacle
+*  oven ready sorry normal service back soon page
 
 o  how to prevent abuse of my proxy
 

@@ -1,6 +1,10 @@
 # tideclock
 
-Tide clock web app (Vite + Svelte). **This README currently documents the developer-only preview helpers** (everything below).
+Tide clock web app (Vite + Svelte).
+
+## Operator notice (production)
+
+To show visitors that the app is unavailable (no tides, no navigation): edit **`src/ui/operatorNoticeConfig.ts`**, set **`OPERATOR_NOTICE_ACTIVE`** to **`true`**, commit, and **redeploy**. Set it back to **`false`** when done. Edit **`src/ui/operatorNoticeCopy.ts`** if you need different wording.
 
 ```bash
 npm install
@@ -13,7 +17,7 @@ npm run dev
 
 **When they work:** only in a **dev** build (`npm run dev`). They are disabled in production builds and in `vite preview`, so they never ship as a user feature by accident.
 
-**What they are:** special **query parameters** on the URL that force specific Home-route behaviour (frozen diagram branches, or fake tide-load outcomes) so you can review UI without waiting on the right tide, time, or network.
+**What they are:** special **query parameters** on the URL that force specific Home-route behaviour (frozen diagram branches or fake tide-load outcomes) so you can review UI without waiting on the right tide, time, or network.
 
 ### Steps
 

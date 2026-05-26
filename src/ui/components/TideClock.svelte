@@ -10,6 +10,7 @@
 
   import type { TidePresentation } from "../routes/home/routeProps";
   import { quotaExhaustedShortStatus } from "../quotaExhaustedCopy";
+  import { operatorNoticeHeadline } from "../operatorNoticeCopy";
 
   interface Props {
     readonly clockScene: ClockSceneModel;
@@ -46,6 +47,8 @@
     <p class="muted" role="status">Loading tides…</p>
   {:else if tidePresentation.kind === "quotaExhausted"}
     <p class="muted" role="status">{quotaExhaustedShortStatus}</p>
+  {:else if tidePresentation.kind === "operatorNotice"}
+    <p class="muted" role="status">{operatorNoticeHeadline}</p>
   {:else if tidePresentation.kind === "loadFailed"}
     <p class="muted" role="alert">Tides could not be loaded. Check the connection and try again.</p>
   {:else if clockScene.tideEvents.length > 0}

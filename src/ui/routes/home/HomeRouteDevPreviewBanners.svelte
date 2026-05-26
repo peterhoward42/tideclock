@@ -20,7 +20,6 @@
     {tidePreviewBannerLine}
   </div>
 {/if}
-
 <style>
   .home-diagram-preview-banner {
     flex: 0 0 auto;
@@ -41,4 +40,5 @@
     font-weight: 600;
     border-bottom: 1px solid rgb(96 165 250 / 0.35);
   }
+
 </style>
