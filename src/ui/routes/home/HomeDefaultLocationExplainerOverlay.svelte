@@ -2,7 +2,6 @@
   /**
    * First-run caption when no coastal place is stored yet: orientation (why this place) plus a
    * minimal conceptual key, anchored lower-left like an instrument label (not a centred modal).
-   * @see docs/planning/onboarding.md
    */
   interface Props {
     /** e.g. `Looe, Cornwall` — shown after “Showing tides for”. */

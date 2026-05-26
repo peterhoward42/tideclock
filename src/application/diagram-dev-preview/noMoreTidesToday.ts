@@ -1,5 +1,5 @@
 /**
- * noMoreTidesToday.ts — Dev preview `no-more-tides-today` (see docs/planning/diagram-dev-preview-catalog.md).
+ * noMoreTidesToday.ts — Dev preview `no-more-tides-today` (see README “Developer previews”).
  * Pure clock patching from civil-day extremes; does not touch fetch or stores.
  */
 

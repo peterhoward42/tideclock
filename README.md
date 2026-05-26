@@ -14,7 +14,7 @@ In the app menu, **Tide Nerd** and **Software Nerd** explain tides and how the s
 
 - **Svelte 5** + **Vite** — single-page application (hash routing), built to static assets in `dist/`
 - **Runtime tide data** — fetched from a separate [tide proxy](https://github.com/peterhoward42/tideproxy) (WorldTides upstream); not bundled in this repo
-- **Town list** — baked into the client build (`tools/towns2/`)
+- **Town list** — baked into the client build (`tools/towns2/` — see [`tools/towns2/README.md`](tools/towns2/README.md))
 
 End-user technical overview: [Software Nerd](https://thetidedial.page/#/softwarenerd) in the live app (also `#/softwarenerd`). Tide background: [Tide Nerd](https://thetidedial.page/#/tidenerd).
 
@@ -31,22 +31,20 @@ All persistence is in the browser’s **`localStorage`** on the user’s device 
 
 On a first visit with empty storage, the app shows tides for **Looe, Cornwall** until you pick another location (see **Location** in the menu). Cookie policy, safety wording, tide-data copyright, and related notices are on the in-app **[About](https://thetidedial.page/#/about)** page (`#/about`), not duplicated here.
 
-## Development
+## Getting started
 
 ```bash
+git clone git@github.com:peterhoward42/tideclock.git
+cd tideclock
 npm install
+cp .env.example .env   # set VITE_TIDE_PROXY_BASE_URL to your tide proxy origin
+npm test
 npm run dev
 ```
 
-Opens the Vite dev server (default [http://localhost:5173](http://localhost:5173)) with hot reload. Dev-only URL query parameters for diagram and tide-load previews are documented at the end of this file.
+Opens the Vite dev server (default [http://localhost:5173](http://localhost:5173)) with hot reload. Dev-only URL query parameters for diagram and tide-load previews are listed under [Developer previews](#developer-previews) below.
 
 **`npm run preview`** serves the already-built production output from `dist/` locally. Use it after `npm run build` when you want to check the static bundle (routing, assets, env-injected values) without deploying. It is not used for day-to-day feature work — use `npm run dev` for that.
-
-```bash
-npm test
-```
-
-Runs the Vitest suite once.
 
 ## Build and deploy
 
@@ -58,7 +56,7 @@ Produces `dist/` for static hosting.
 
 **Hosting:** [Vercel](https://vercel.com/) — static build on **git push**, single production environment. The live site is [thetidedial.page](https://thetidedial.page).
 
-**Build-time configuration:** set `VITE_TIDE_PROXY_BASE_URL` (see `.env` for the local example) so the client knows where to request `/v1/tides`. Configure the same variable in the Vercel project for production builds.
+**Build-time configuration:** set `VITE_TIDE_PROXY_BASE_URL` (see [`.env.example`](.env.example)) so the client knows where to request `/v1/tides`. Configure the same variable in the Vercel project for production builds.
 
 ## Documentation
 
@@ -66,7 +64,9 @@ Produces `dist/` for static hosting.
 |-----|----------|
 | [`docs/specs/elevator-pitch.md`](docs/specs/elevator-pitch.md) | Product introduction |
 | [`docs/specs/tide-diagram.md`](docs/specs/tide-diagram.md) | Home diagram behaviour and layout |
-| [`docs/planning/diagram-dev-preview-catalog.md`](docs/planning/diagram-dev-preview-catalog.md) | Dev preview URL catalogue (diagram) |
+| [`tools/towns2/README.md`](tools/towns2/README.md) | Location data tooling (not runtime) |
+
+In-app routes **Tide Nerd** and **Software Nerd** cover tide background and technical architecture for visitors.
 
 ## Licence
 
@@ -77,11 +77,6 @@ This repository is licensed under the **MIT License**. See [`LICENSE`](LICENSE).
 ## Operator notice (production)
 
 To show visitors that the app is unavailable (no tides, no navigation): edit **`src/ui/operatorNoticeConfig.ts`**, set **`OPERATOR_NOTICE_ACTIVE`** to **`true`**, commit, and **redeploy**. Set it back to **`false`** when done. Edit **`src/ui/operatorNoticeCopy.ts`** if you need different wording.
-
-```bash
-npm install
-npm run dev
-```
 
 ---
 
@@ -102,5 +97,3 @@ Dev only (`npm run dev`; not production or `vite preview`). Paste a URL to force
 - http://localhost:5173/#/home?tideUxPreview=load-stuck — loading stuck
 - http://localhost:5173/#/home?tideUxPreview=no-extremes-today — no extremes today
 - http://localhost:5173/#/home?tideUxPreview=quota-exhausted — quota exhausted
-
-Diagram catalog: [`docs/planning/diagram-dev-preview-catalog.md`](docs/planning/diagram-dev-preview-catalog.md).

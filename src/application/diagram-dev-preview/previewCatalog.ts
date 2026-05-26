@@ -1,5 +1,5 @@
 /**
- * previewCatalog.ts — Shared wiring for diagram dev previews (see docs/planning/diagram-dev-preview-catalog.md).
+ * previewCatalog.ts — Shared wiring for diagram dev previews (see README “Developer previews”).
  * Owns query-param decoding and preview ids, but not scenario-specific clock logic.
  */
 

@@ -1,5 +1,5 @@
 /**
- * timeDeltaShort.ts — Dev preview `time-delta-short` (see docs/planning/diagram-dev-preview-catalog.md).
+ * timeDeltaShort.ts — Dev preview `time-delta-short` (see README “Developer previews”).
  * Pure clock patching from civil-day extremes; does not touch fetch or stores.
  *
  * Intent: freeze `timeNow` a few minutes before the *next* tide so that

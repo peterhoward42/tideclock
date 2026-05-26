@@ -3,7 +3,7 @@
  * Owns monotonic load serial so late responses cannot overwrite a newer location’s result.
  * Caller supplies I/O and binds callbacks to UI state. Kind: Application orchestration.
  *
- * @see docs/planning/quota-response.md — `ProxyQuotaExhaustedError` → `onQuotaExhausted` (not `onLoadFailed`).
+ * `ProxyQuotaExhaustedError` → `onQuotaExhausted` (not `onLoadFailed`).
  */
 import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
 import type { Town } from "../data/townSchema";

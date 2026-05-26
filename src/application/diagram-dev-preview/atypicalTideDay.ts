@@ -1,5 +1,5 @@
 /**
- * atypicalTideDay.ts — Dev preview `atypical-tide-day` (see docs/planning/diagram-dev-preview-catalog.md).
+ * atypicalTideDay.ts — Dev preview `atypical-tide-day` (see README “Developer previews”).
  * Replaces the civil-day extremes with a deterministic five-extrema snapshot on the same local calendar day as the
  * loaded first extreme, then freezes “now” in the mid-afternoon gap so countdown copy uses the atypical branch.
  */

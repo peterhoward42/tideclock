@@ -2,7 +2,7 @@
 
 ## Intent
 
-- Drive **pass 1** geocoding described in `docs/planning/get-lat-lon.md` and `docs/planning/get-lat-lon-agent-prompt.md`: one TSV row per source line, merge semantics for partial ranges.
+- Drive **pass 1** geocoding (one TSV row per source line, merge semantics for partial ranges) as specified in `geocode_universal_prompt.md`.
 - Each headless Cursor agent run is a **fresh session** that performs **at most one** line batch (or **zero** if the queue is already finished), then updates YAML state on disk.
 
 ## State
@@ -15,7 +15,7 @@
 
 ## Outputs
 
-- Per stem: `tools/towns2/coastal-geocoded/<stem>.tsv` — same pairing rules as `get-lat-lon-agent-prompt.md` (merge when the file already exists).
+- Per stem: `tools/towns2/coastal-geocoded/<stem>.tsv` — merge when the file already exists (see `geocode_universal_prompt.md`).
 
 ## CLI orchestration
 

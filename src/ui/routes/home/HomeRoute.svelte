@@ -96,7 +96,7 @@
   /** Drives Loop B: bumps only on local minute rollover (aligned scheduler), not every second. */
   let minuteEpoch = $state(Math.floor(Date.now() / 60_000));
 
-  /** Dev-only: `?diagramPreview=<id>` (see docs/planning/diagram-dev-preview-catalog.md). */
+  /** Dev-only: `?diagramPreview=<id>` (see README “Developer previews”). */
   let diagramPreviewIdFromUrl = $state<DiagramPreviewId | null>(null);
 
   let diagramSvg = $state("");
@@ -156,7 +156,7 @@
   /**
    * Wait for tides + diagram paint before showing the caption so “showing tides for …”
    * is not ahead of the async fetch / SVG generation. Portrait touch phone/tablet: defer until
-   * landscape so only the rotation encouragement shows (see docs/planning/onboarding.md).
+   * landscape so only the rotation encouragement shows.
    */
   const defaultLocationExplainerVisible = $derived.by(() => {
     if (!defaultLocationExplainerOpen) return false;

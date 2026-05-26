@@ -2,7 +2,7 @@
  * fetchProxyV1Tides.ts — Single GET to Tide Proxy API v1; returns typed JSON or throws.
  * Kind: Adapter / boundary (HTTP). Does not map into domain models.
  *
- * @see docs/planning/quota-response.md — `503` + `UPSTREAM_CREDITS_EXHAUSTED` → {@link ProxyQuotaExhaustedError}.
+ * Quota exhaustion: HTTP `503` with `UPSTREAM_CREDITS_EXHAUSTED` → {@link ProxyQuotaExhaustedError}.
  */
 
 import {

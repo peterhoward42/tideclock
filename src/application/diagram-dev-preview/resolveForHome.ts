@@ -1,6 +1,5 @@
 /**
- * resolveForHome.ts — Single place that turns URL preview id + loaded extremes into
- * frozen clock, optional extremes override, and banner copy (see docs/planning/diagram-dev-preview-catalog.md).
+ * resolveForHome.ts — Dev preview resolver: frozen clock, optional extremes override, and banner copy (see README “Developer previews”).
  */
 
 import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";

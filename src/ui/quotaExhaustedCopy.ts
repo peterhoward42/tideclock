@@ -2,7 +2,6 @@
  * Operator-facing copy when proxy monthly credits are exhausted.
  * Quota-only panel — generic load failures use different messaging.
  *
- * @see docs/planning/quota-response.md
  */
 
 export const quotaExhaustedHeadline = "Tide data is paused";

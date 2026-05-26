@@ -4,9 +4,8 @@ Perform **exactly one** iteration of the coastal geocoding queue, then stop. A s
 
 ## Required reading (in order)
 
-1. **`docs/planning/get-lat-lon.md`** — especially “Conclusions from design discussion”.
-2. **`docs/planning/get-lat-lon-agent-prompt.md`** — prompt body, TSV columns, merge rules, and output path.
-3. **This file** — orchestration rules below.
+1. **`tools/towns2/prompt-colateral/geocode_batch_automation_spec.md`** — batch automation, state file, and TSV merge rules.
+2. **This file** — orchestration rules below.
 
 ## State file
 
@@ -34,7 +33,7 @@ Skip any stem for which **`tools/towns2/coastal/<stem>.txt`** does not exist (if
    - Let `L` be the stem list (from the previous section).
    - If **`current_stem`** is empty or whitespace: set **`current_stem`** to `L[0]` and **`next_line_start`** to **`1`**. (To resume mid-county, the human sets **`current_stem`** and **`next_line_start`** explicitly.)
    - If **`current_stem`** is non-empty but **not** in `L`: set **`queue_exhausted`** to **`true`** and stop, **or** correct **`current_stem`** to a valid stem if the fix is obvious from context.
-   - Let **`path`** = `tools/towns2/coastal/<current_stem>.txt`. Let **`line_count`** be the **physical** line count of that file (including blank lines). Batch ranges use **1-based** indices into those physical lines. One TSV row per **`line_index`** in the batch, per **`get-lat-lon-agent-prompt.md`** (blank source lines still get a row: trimmed name, appropriate **`status`** / **`notes`**).
+   - Let **`path`** = `tools/towns2/coastal/<current_stem>.txt`. Let **`line_count`** be the **physical** line count of that file (including blank lines). Batch ranges use **1-based** indices into those physical lines. One TSV row per **`line_index`** in the batch (blank source lines still get a row: trimmed name, appropriate **`status`** / **`notes`**).
 
 3. **Advance past completed stems**
    - While **`next_line_start` > `line_count`** for **`current_stem`**:
@@ -47,9 +46,8 @@ Skip any stem for which **`tools/towns2/coastal/<stem>.txt`** does not exist (if
    - **`end`** = min(`start` + **`lines_per_batch`** − 1, **`line_count`**)
 
 5. **Do the geocoding work** (only this batch)
-   - Follow **`get-lat-lon-agent-prompt.md`** “Prompt body” for batch:
-     - County stem = **`current_stem`**
-     - Line range = **`start`–`end`** inclusive (1-based)
+   - County stem = **`current_stem`**
+   - Line range = **`start`–`end`** inclusive (1-based)
    - Write/merge **`tools/towns2/coastal-geocoded/<current_stem>.tsv`** only.
 
 6. **Update the pointer for the next run**

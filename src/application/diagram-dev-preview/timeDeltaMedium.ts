@@ -1,5 +1,5 @@
 /**
- * timeDeltaMedium.ts — Dev preview `time-delta-medium` (see docs/planning/diagram-dev-preview-catalog.md).
+ * timeDeltaMedium.ts — Dev preview `time-delta-medium` (see README “Developer previews”).
  * Pure clock patching from civil-day extremes; does not touch fetch or stores.
  *
  * Intent: freeze `timeNow` within the short window before the next tide where
