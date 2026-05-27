@@ -41,7 +41,7 @@ Orchestration in `HomeRoute.svelte`; presentation panels in `HomeRouteTidePanels
 |------|---------|
 | Diagram DOM | `diagramDom.ts` — menu anchor, dev outline helpers. |
 | SVG glue | `menuSvgTriggerWire.ts`, `instrumentLetterboxObserver.ts`. |
-| PWA | `pwaPreferences.ts`, `pwaUi.ts`, `pwaDisplayMode.ts`, `installFlow.ts`, `screenWakeLock.ts`, `wakeLockPresentation.ts`, overlays/sections. |
+| PWA | `pwaPreferences.ts`, `pwaUi.ts`, `pwaDisplayMode.ts`, `screenWakeLock.ts`, `wakeLockPresentation.ts`, overlays/sections. |
 | Display | `fullscreen.ts`, `orientationLock.ts`, `wakeLockSupport.ts`. |
 | Props contract | `routeProps.ts` — `TidePresentation`, `RouteProps`. |
 

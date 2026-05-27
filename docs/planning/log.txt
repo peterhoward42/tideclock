@@ -14,7 +14,17 @@ TIDE DIAL
 *  oven ready sorry normal service back soon page
 *  sanitise github for pub scrutiny
 
+o  Test deployed
+
 o  Don't like "for the screen that stays there"
+	*  Better copy (1)
+	o  Strip captions and fix spacing
+	o  Like here in your kitchen - alone
+	o  Better images in some cases
+	o  Better copy at tail
+
+o  Better images for story images in some cases
+
 o  Tide nerd tone a bit off
 
 o  don't forget
