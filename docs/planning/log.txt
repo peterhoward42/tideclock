@@ -18,9 +18,19 @@ o  Test deployed
 
 o  Don't like "for the screen that stays there"
 	*  Better copy (1)
-	o  Strip captions and fix spacing
-	o  Like here in your kitchen - alone
+	*  Strip captions and fix spacing
+	*  Like here in your kitchen - alone
 	o  Better images in some cases
+		o  Guesthouse
+			o  more obviously a guest house
+				o  Visitor reception
+			o  see in background?
+			o  fewer distractons
+			o  with visitors noticing it
+		o  Pub
+			o  Guests referring to it
+			o  Context more from pictures than words
+
 	o  Better copy at tail
 
 o  Better images for story images in some cases

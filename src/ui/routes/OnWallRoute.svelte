@@ -18,7 +18,7 @@
       src: "/onwall-guest-house.png",
       width: 1024,
       height: 1024,
-      alt: "Wall-mounted screen in a guest house reception showing the tide dial above a welcome desk.",
+      alt: "Wall-mounted screen in a coastal guest house reception showing the tide dial, with guests at the welcome desk and harbour views through the windows.",
       heading: "In your guesthouse hallway",
     },
     {
