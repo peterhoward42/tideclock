@@ -25,6 +25,8 @@ Wiring lives in `ui/App.svelte` (load + rollover) and `ui/routes/home/HomeRoute.
 
 Production Home uses `buildDiagramSpecWithDerivedNextTide()` (base spec → semantics → injected spec).
 
+Presentation layers (diagram presets and render): see [`../diagram-config/README.md`](../diagram-config/README.md), [`../diagram-generation/README.md`](../diagram-generation/README.md).
+
 ## Developer previews (DEV only)
 
 Two catalogs, two query params (see root [README](../README.md#developer-previews)):

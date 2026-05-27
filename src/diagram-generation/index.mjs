@@ -6,27 +6,13 @@
  * Public diagram-generation surface: layout, scene mapping, SVG render, time/tide helpers, and style loading.
  */
 export { buildDiagram } from "./layout/buildDiagram.mjs";
-export {
-  handDiagramToGroup,
-  tideDiagramToScene,
-  tideMarkDiagramToGroup,
-} from "./mapping/toScene.mjs";
+export { tideDiagramToScene } from "./mapping/toScene.mjs";
 
-export {
-  annularBandMaxX,
-  polar,
-  refArcAngles,
-  timeToTheta,
-} from "./model/tideDiagramModel.mjs";
-export {
-  formatCanonicalHHMM,
-  parseCanonicalTimeOrThrow,
-} from "./model/timeCanonical.mjs";
+export { annularBandMaxX } from "./model/tideDiagramModel.mjs";
+export { parseCanonicalTimeOrThrow } from "./model/timeCanonical.mjs";
 export {
   computeNextTideEventCore,
-  computeNextTideEventFromSpec,
   formatIntervalHoursMinutes,
-  readOptionalInjectedNextTide,
 } from "./model/tideEvents.mjs";
 
 export { loadStyleModel } from "./presets/styleBindings.mjs";

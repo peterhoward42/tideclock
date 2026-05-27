@@ -407,19 +407,3 @@ a {
 .u-nav-link-list a:hover {
   background: var(--surface-menu-flyout-nav-hover);
 }
-
-.tide-clock {
-  width: min(22rem, 100%);
-  color: var(--text-primary);
-}
-
-.tide-clock svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.clock-readout {
-  fill: var(--text-muted);
-  font-family: ui-monospace, monospace;
-}

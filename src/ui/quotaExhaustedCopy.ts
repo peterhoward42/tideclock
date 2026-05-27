@@ -32,5 +32,5 @@ export const quotaExhaustedCoffeeAsideMid = " link on the ";
 export const quotaExhaustedCoffeeAsideStoryLinkLabel = "Story page";
 export const quotaExhaustedCoffeeAsideEnd = ".";
 
-/** Short line for compact chrome (e.g. TideClock). */
+/** Short line for compact status chrome when space is limited. */
 export const quotaExhaustedShortStatus = quotaExhaustedHeadline;

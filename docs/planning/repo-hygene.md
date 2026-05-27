@@ -40,6 +40,8 @@ Per slice, briefly check:
 
 **Application** (slice 2): `buildDiagramSpecWithDerivedNextTide` consolidates Home’s two-pass spec build; `src/application/README.md` maps refresh vs diagram vs dev previews; gap tests for diagram preview catalog and `resolveForHome`.
 
+**Presentation** (slice 3): removed unused `homeScreenModel.ts`; tightened `diagram-generation/index.mjs` to the collaborator barrel; `README.md` in `diagram-generation/`; removed unmounted `TideClock` / `ClockDivisionDial` and orphaned `clock-presentation/` + `clockPathMapping` stack.
+
 ## Phase 2 — Cross-cutting (only where needed)
 
 After Phase 0–1, or if something obvious appears:
