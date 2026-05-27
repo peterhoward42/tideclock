@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { getCurrentCivilDayWindow } from './currentCivilDayWindow';
+import {
+  civilDayWindowFromHostClock,
+  getCurrentCivilDayWindow,
+} from './currentCivilDayWindow';
 import type { TimeNowProvider } from './civilDayWindow';
 
 class FakeTimeNowProvider implements TimeNowProvider {
@@ -52,5 +55,34 @@ describe('getCurrentCivilDayWindow', () => {
 
     expect(result.startLocal).toEqual(new Date(2026, 2, 23, 0, 0, 0, 0));
     expect(result.endLocalExclusive).toEqual(new Date(2026, 2, 24, 0, 0, 0, 0));
+  });
+});
+
+describe('civilDayWindowFromHostClock', () => {
+  it('returns a half-open window spanning the host local calendar day', () => {
+    const result = civilDayWindowFromHostClock();
+    const now = new Date();
+    const expectedStart = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      0,
+      0,
+      0,
+      0,
+    );
+    const expectedEnd = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() + 1,
+      0,
+      0,
+      0,
+      0,
+    );
+    expect(result.startLocal).toEqual(expectedStart);
+    expect(result.endLocalExclusive).toEqual(expectedEnd);
+    expect(now.getTime()).toBeGreaterThanOrEqual(result.startLocal.getTime());
+    expect(now.getTime()).toBeLessThan(result.endLocalExclusive.getTime());
   });
 });

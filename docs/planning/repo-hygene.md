@@ -42,6 +42,8 @@ Per slice, briefly check:
 
 **Presentation** (slice 3): removed unused `homeScreenModel.ts`; tightened `diagram-generation/index.mjs` to the collaborator barrel; `README.md` in `diagram-generation/`; removed unmounted `TideClock` / `ClockDivisionDial` and orphaned `clock-presentation/` + `clockPathMapping` stack.
 
+**Time & location** (slice 4): moved `minuteCadence` into `time-services/`; `README.md` in `time-services/`, `data/`, and `data-pipelines/`; gap tests for `CivilDayWindow` invariants and `civilDayWindowFromHostClock`; cross-linked `application/README.md`.
+
 ## Phase 2 — Cross-cutting (only where needed)
 
 After Phase 0–1, or if something obvious appears:

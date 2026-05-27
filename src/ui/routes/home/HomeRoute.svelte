@@ -30,7 +30,7 @@
     renderSceneSvg,
     type DiagramCollaborator,
   } from "../../../application/diagramCollaborator";
-  import { subscribeMinuteCadence } from "../../../application/minuteCadence";
+  import { subscribeMinuteCadence } from "../../../time-services/minuteCadence";
   import { displayOptimisation } from "../../displayOptimisation";
   import HomeRouteDevPreviewBanners from "./HomeRouteDevPreviewBanners.svelte";
   import HomeRouteDomDebugPanel from "./HomeRouteDomDebugPanel.svelte";

@@ -7,7 +7,7 @@
   import { onMount } from "svelte";
   import type { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
   import type { Town } from "../data/townSchema";
-  import { subscribeMinuteCadence } from "../application/minuteCadence";
+  import { subscribeMinuteCadence } from "../time-services/minuteCadence";
   import { decideRolloverTideRefresh } from "../application/civilDayRolloverTick";
   import { createTideRefreshController } from "../application/tideRefreshController";
   import type { TidePresentation } from "./routes/home/routeProps";

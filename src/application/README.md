@@ -9,10 +9,11 @@ Orchestration between data pipelines, time services, diagram-generation, and the
 | `tideRefreshController.ts` | Serial tide reloads; stale completions ignored; maps quota errors to `onQuotaExhausted`. |
 | `civilDayRolloverRefresh.ts` | Pure predicate: should the host refetch after local midnight? |
 | `civilDayRolloverTick.ts` | Minute-tick adapter: shell snapshot → refresh decision. |
-| `minuteCadence.ts` | Local wall-clock minute subscription (App rollover + Home diagram regen). |
 | `civilDayExtremesQuery.ts` | Civil-day tide query façade (storage → slice → fetch); see data-pipelines for I/O. |
 
-Wiring lives in `ui/App.svelte` (load + rollover) and `ui/routes/home/HomeRoute.svelte` (diagram regen).
+Civil-day bounds and minute cadence: [`../time-services/README.md`](../time-services/README.md). Location corpus and persistence: [`../data/README.md`](../data/README.md), [`../data-pipelines/README.md`](../data-pipelines/README.md).
+
+Wiring lives in `ui/App.svelte` (load + rollover) and `ui/routes/home/HomeRoute.svelte` (diagram regen on minute tick).
 
 ## Diagram build
 
