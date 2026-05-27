@@ -4,6 +4,13 @@ This directory is **not** part of the runtime app. It holds source lists, geocod
 
 **Output:** `npm run build-towns2-data` (runs `buildCompact.mjs`) writes `src/data/towns2.compact.json`, which Vite bundles into the static app.
 
+## Attribution and licensing
+
+Many of the geocoding “hits” in `coastal-geocoded/` come from **OpenStreetMap via Nominatim**.
+© OpenStreetMap contributors; OpenStreetMap data is licensed under the **Open Data Commons Open
+Database License (ODbL)**. See
+[`openstreetmap.org/copyright`](https://www.openstreetmap.org/copyright).
+
 **Layout:**
 
 - `coastal/` — raw place-name lists (one file per county stem)

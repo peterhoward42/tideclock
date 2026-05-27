@@ -74,6 +74,14 @@ In-app routes **Tide Nerd** and **Software Nerd** cover tide background and tech
 
 This repository is licensed under the **MIT License**. See [`LICENSE`](LICENSE).
 
+Tide times are fetched at runtime from a separate proxy (WorldTides upstream) and are **not**
+distributed as part of this repository.
+
+The baked town list shipped in the client build is compiled from curated sources and geocoding
+passes, including OpenStreetMap via Nominatim. © OpenStreetMap contributors; OpenStreetMap data is
+licensed under the Open Data Commons Open Database License (ODbL). See
+[`openstreetmap.org/copyright`](https://www.openstreetmap.org/copyright).
+
 ---
 
 ## Operator notice (production)

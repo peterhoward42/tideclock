@@ -39,7 +39,7 @@ Per slice, briefly check:
 **Data pathway** (slice 1): boundaries already clean; no code changes required.
 
 **Application** (slice 2): `buildDiagramSpecWithDerivedNextTide` consolidates Home’s two-pass spec build; `src/application/README.md` maps refresh vs diagram vs dev previews; gap tests for diagram preview catalog and `resolveForHome`.
-
+    
 **Presentation** (slice 3): removed unused `homeScreenModel.ts`; tightened `diagram-generation/index.mjs` to the collaborator barrel; `README.md` in `diagram-generation/`; removed unmounted `TideClock` / `ClockDivisionDial` and orphaned `clock-presentation/` + `clockPathMapping` stack.
 
 **Time & location** (slice 4): moved `minuteCadence` into `time-services/`; `README.md` in `time-services/`, `data/`, and `data-pipelines/`; gap tests for `CivilDayWindow` invariants and `civilDayWindowFromHostClock`; cross-linked `application/README.md`.

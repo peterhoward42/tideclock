@@ -65,6 +65,28 @@
     </p>
   </section>
 
+  <section class="about-route__section" aria-labelledby="about-towns-heading">
+    <h2 class="about-route__h" id="about-towns-heading">Town list</h2>
+    <p class="about-route__p">
+      Place names and coordinates are compiled into the app from a curated list, with many entries
+      geocoded against OpenStreetMap via Nominatim. © OpenStreetMap contributors. OpenStreetMap data
+      is licensed under the Open Data Commons Open Database License (ODbL). See
+      <a
+        class="about-route__link"
+        href="https://www.openstreetmap.org/copyright"
+        target="_blank"
+        rel="noopener noreferrer">openstreetmap.org/copyright</a
+      >.
+    </p>
+  </section>
+
+  <section class="about-route__section" aria-labelledby="about-licence-heading">
+    <h2 class="about-route__h" id="about-licence-heading">Source code</h2>
+    <p class="about-route__p">
+      {THE_TIDE_DIAL} source code is licensed under the MIT License.
+    </p>
+  </section>
+
   <section class="about-route__section" aria-labelledby="about-cookies-heading">
     <h2 class="about-route__h" id="about-cookies-heading">Cookies</h2>
     <p class="about-route__p">{THE_TIDE_DIAL} uses only necessary cookies. Specifically:</p>
