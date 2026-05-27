@@ -30,11 +30,15 @@ One slice at a time, end to end. Suggested order:
 
 Per slice, briefly check:
 
-- [ ] Responsibilities clear
-- [ ] Tests cover real contracts (gap-hunt only; suite already substantial)
-- [ ] Names match roles
-- [ ] Dead code — unused modules, files, functions, types
-- [ ] Anything worth documenting in README or specs?
+- [x] Responsibilities clear *(Data pathway, Application — see slice notes below)*
+- [x] Tests cover real contracts (gap-hunt only; suite already substantial)
+- [x] Names match roles
+- [x] Dead code — unused modules, files, functions, types
+- [x] Anything worth documenting in README or specs?
+
+**Data pathway** (slice 1): boundaries already clean; no code changes required.
+
+**Application** (slice 2): `buildDiagramSpecWithDerivedNextTide` consolidates Home’s two-pass spec build; `src/application/README.md` maps refresh vs diagram vs dev previews; gap tests for diagram preview catalog and `resolveForHome`.
 
 ## Phase 2 — Cross-cutting (only where needed)
 

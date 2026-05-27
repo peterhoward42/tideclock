@@ -9,7 +9,7 @@
   import { onMount, tick } from "svelte";
 
   import {
-    buildDiagramSpec,
+    buildDiagramSpecWithDerivedNextTide,
     utcIsoToLocalCanonicalTimeLocal,
   } from "../../../application/buildDiagramSpec";
   import {
@@ -30,7 +30,6 @@
     renderSceneSvg,
     type DiagramCollaborator,
   } from "../../../application/diagramCollaborator";
-  import { deriveNextTideSemantics } from "../../../application/nextTideSemantics";
   import { subscribeMinuteCadence } from "../../../application/minuteCadence";
   import { displayOptimisation } from "../../displayOptimisation";
   import HomeRouteDevPreviewBanners from "./HomeRouteDevPreviewBanners.svelte";
@@ -347,21 +346,12 @@
         preview.state === "frozen" ? preview.frozenEpochMs : Date.now();
       const timeNow = localCanonicalTimeNow(wallClockMs);
       const brhcDatePrefix = localBrhcDatePrefix(wallClockMs);
-      const baseSpec = buildDiagramSpec({
+      const spec = buildDiagramSpecWithDerivedNextTide({
         extremesAtLocation: extremesForSpec,
         timeNow,
         brhcDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
         townName,
-      });
-      const derived = deriveNextTideSemantics(baseSpec);
-      const spec = buildDiagramSpec({
-        extremesAtLocation: extremesForSpec,
-        timeNow,
-        brhcDatePrefix,
-        utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
-        townName,
-        derivedSemantics: { nextTide: derived.nextTide },
       });
       const { scene, styleRuntime } = collaborator.generate(spec);
       diagramSvg = renderSceneSvg(scene, {

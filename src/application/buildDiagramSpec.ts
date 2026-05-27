@@ -18,7 +18,10 @@ import {
   ExtremaPatternDetection,
 } from '../time-services/extremaPattern';
 import type { DiagramSpec } from './diagramCollaborator';
-import type { DerivedNextTideSemantics } from './nextTideSemantics';
+import {
+  deriveNextTideSemantics,
+  type DerivedNextTideSemantics,
+} from './nextTideSemantics';
 
 export type { HomeTideMarks, TideMarkMarker } from '../diagram-config';
 
@@ -135,4 +138,19 @@ export function buildDiagramSpec(
       : { atypicalTideSummary, nextTide: derivedSemantics.nextTide };
 
   return spec;
+}
+
+/**
+ * Home’s production path: base spec → minute-scale next-tide semantics → spec with
+ * `semantic.nextTide` injected so layout matches {@link deriveNextTideSemantics}.
+ */
+export function buildDiagramSpecWithDerivedNextTide(
+  params: Omit<BuildDiagramSpecParams, 'derivedSemantics'>,
+): DiagramSpec {
+  const baseSpec = buildDiagramSpec(params);
+  const derived = deriveNextTideSemantics(baseSpec);
+  return buildDiagramSpec({
+    ...params,
+    derivedSemantics: { nextTide: derived.nextTide },
+  });
 }

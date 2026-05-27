@@ -3,6 +3,7 @@ import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import {
   buildDiagramSpec,
+  buildDiagramSpecWithDerivedNextTide,
   formatTideHeightMetres,
   type HomeTideMarks,
   utcIsoToLocalCanonicalTimeUtc,
@@ -82,6 +83,24 @@ describe('buildDiagramSpec', () => {
       derivedSemantics: { nextTide },
     });
     expect(withSemantic.semantic).toEqual({ atypicalTideSummary: false, nextTide });
+  });
+});
+
+describe('buildDiagramSpecWithDerivedNextTide', () => {
+  it('matches manual base + derive + inject path', () => {
+    const params = {
+      extremesAtLocation: fixtureExtremesAtLocation(),
+      timeNow: '19:20:03',
+      brhcDatePrefix: FIXTURE_DATE_PREFIX,
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+      townName: 'Lymington',
+    };
+    const baseSpec = buildDiagramSpec(params);
+    const manual = buildDiagramSpec({
+      ...params,
+      derivedSemantics: deriveNextTideSemantics(baseSpec),
+    });
+    expect(buildDiagramSpecWithDerivedNextTide(params)).toEqual(manual);
   });
 });
 

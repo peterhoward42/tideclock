@@ -108,7 +108,6 @@ export async function loadCivilDayExtremes(
     sessionQuotaExhausted: quotaSession.isSessionQuotaExhausted()
   });
 
-  // When quota was detected this session, always fetch so recovery is a real 200.
   // After quota exhaustion this session, always fetch so recovery is a real 200 (not stale cache).
   if (!quotaSession.isSessionQuotaExhausted()) {
     const fromStore = loadStoredCivilExtremes({
