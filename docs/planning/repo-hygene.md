@@ -46,6 +46,8 @@ Per slice, briefly check:
 
 **UI & routing** (slice 5): removed unused `dialFrame.js`; `README.md` in `ui/` and `infrastructure/`; gap tests for `formatPwaWakeStatusLine` branches and `isStandaloneDisplayMode`; root README doc table links contributor map.
 
+**Build & deploy** (slice 6): extracted `build/resolveBuildCommitShort.mjs` with unit tests; `build/README.md` for Vite env, `vercel.json` cache policy, and `buildCommit` wiring; slimmed `vite.config.js`.
+
 ## Phase 2 — Cross-cutting (only where needed)
 
 After Phase 0–1, or if something obvious appears:

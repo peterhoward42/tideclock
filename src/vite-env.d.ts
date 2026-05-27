@@ -3,6 +3,7 @@
 /**
  * vite-env.d.ts — Ambient typings for `import.meta.env` (VITE_* contract).
  * Kind: Definition. Extend when adding variables so `import.meta.env` stays typed.
+ * Build/deploy: see `build/README.md`.
  */
 interface ImportMetaEnv {
   readonly VITE_TIDE_PROXY_BASE_URL: string;
