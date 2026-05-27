@@ -22,9 +22,8 @@ o  sanitise github for pub scrutiny
 		*  get advice for topic broad or by topics one at time deep
 		*  get advice for things to check
 		*  push back on the plan
-		o  do phase 0
+		*  do phase 0
 		o  remove repo hygene doc
-		o  recheck readme for gratuituous additions
 		o  remove log.text
 			o  first check if any non tide stuff in there
 			o  ditch it
