@@ -64,6 +64,7 @@ Produces `dist/` for static hosting.
 |-----|----------|
 | [`docs/specs/elevator-pitch.md`](docs/specs/elevator-pitch.md) | Product introduction |
 | [`docs/specs/tide-diagram.md`](docs/specs/tide-diagram.md) | Home diagram behaviour and layout |
+| [`src/ui/README.md`](src/ui/README.md) | Shell, routes, PWA, operator notice (contributors) |
 | [`tools/towns2/README.md`](tools/towns2/README.md) | Location data tooling (not runtime) |
 
 In-app routes **Tide Nerd** and **Software Nerd** cover tide background and technical architecture for visitors.

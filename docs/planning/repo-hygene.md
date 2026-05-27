@@ -44,6 +44,8 @@ Per slice, briefly check:
 
 **Time & location** (slice 4): moved `minuteCadence` into `time-services/`; `README.md` in `time-services/`, `data/`, and `data-pipelines/`; gap tests for `CivilDayWindow` invariants and `civilDayWindowFromHostClock`; cross-linked `application/README.md`.
 
+**UI & routing** (slice 5): removed unused `dialFrame.js`; `README.md` in `ui/` and `infrastructure/`; gap tests for `formatPwaWakeStatusLine` branches and `isStandaloneDisplayMode`; root README doc table links contributor map.
+
 ## Phase 2 — Cross-cutting (only where needed)
 
 After Phase 0–1, or if something obvious appears:
