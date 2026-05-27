@@ -48,6 +48,8 @@ Per slice, briefly check:
 
 **Build & deploy** (slice 6): extracted `build/resolveBuildCommitShort.mjs` with unit tests; `build/README.md` for Vite env, `vercel.json` cache policy, and `buildCommit` wiring; slimmed `vite.config.js`.
 
+**Town data tooling** (slice 7): isolated location corpus generation in `tools/towns2/` with a contributor README and source-of-truth pipeline note; `npm run build-towns2-data` compiles curated coastal TSVs into `src/data/towns2.compact.json`, which feeds the baked towns schema, query helpers, and tests (`bakedTowns2.ts`, `townSchema.ts`, `townPickerDisplay.ts`).
+
 ## Phase 2 — Cross-cutting (only where needed)
 
 After Phase 0–1, or if something obvious appears:
