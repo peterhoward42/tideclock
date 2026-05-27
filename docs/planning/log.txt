@@ -12,30 +12,16 @@ TIDE DIAL
 *  proxy cost risk containment telegram alert and placeholder app UI
 *  flesh out the real UI quota response 
 *  oven ready sorry normal service back soon page
-
-o  sanitise github for pub scrutiny
-	*  proxy
-	o  clock
-		*  proper readme
-		*  ditch redundant docs
-		*  scan what's there
-		*  get advice for topic broad or by topics one at time deep
-		*  get advice for things to check
-		*  push back on the plan
-		*  do phase 0
-		o  remove repo hygene doc
-		o  remove log.text
-			o  first check if any non tide stuff in there
-			o  ditch it
+*  sanitise github for pub scrutiny
 
 o  Don't like "for the screen that stays there"
 o  Tide nerd tone a bit off
 
 o  don't forget
-	o  proxy api should come from envar?
 	o  policy for exceptions
 	o  price cap control on worldtimes costs
-o  github housekeeping incl readme
 
 o  futures
 	o  scarborough to whitby coverage is bad for some reason?
+
+o  remove this log.txt
