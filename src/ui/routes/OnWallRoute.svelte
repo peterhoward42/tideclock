@@ -25,7 +25,7 @@
       src: "/onwall-pub.png",
       width: 1024,
       height: 1024,
-      alt: "Wall-mounted screen in a harbour-side pub showing the tide dial above dining tables.",
+      alt: "Wall-mounted screen in a harbour-side cafe showing the tide dial, with diners at a table and boats on the water through open windows.",
       heading: "In your seaside cafe or pub",
     },
     {
