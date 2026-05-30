@@ -13,20 +13,26 @@ TIDE DIAL
 *  flesh out the real UI quota response 
 *  oven ready sorry normal service back soon page
 *  sanitise github for pub scrutiny
+*  Ditch PWA
+*  Improve full screen messaging
 
+o  Better words for story as is
+	*  general
+	*  change role of  pic
+	o  drawexact as another example, segue into contact me
 
-o  Don't like "for the screen that stays there"
-	*  Better copy (1)
-	*  Strip captions and fix spacing
-	*  Like here in your kitchen - alone
-	*  Better images in some cases
-		*  Guesthouse
-		*  Pub
-	o  Better copy at tail
-		o  Really beginning to doubt the value prop of installing it
+o  Add subsidy of costs to coffee
+o  Move phone image to stick on wall or elsewhere, or drop
 
-o  Better images for story images in some cases
 o  All wording of articles
+	o  story
+		o  show dont explain
+		o  more inexorable arc: phenon > what is problem > visual soln > the person
+		o  oddly familiar isn't it
+		o  where you are in today - lumpy
+		o  what is easy to find is... - too long
+		o  Looe on the screen
+		o  compelling image(s) for drawexact
 
 o  Tide nerd tone a bit off
 o  Telegram alerts for site load and set own location and each route
