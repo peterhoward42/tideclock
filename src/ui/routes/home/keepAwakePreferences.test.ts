@@ -2,11 +2,9 @@ import { describe, expect, it, beforeEach } from "vitest";
 import {
   readKeepAwakeEnabled,
   writeKeepAwakeEnabled,
-  readStandaloneSetupHiddenForever,
-  writeStandaloneSetupHiddenForever,
-} from "./pwaPreferences";
+} from "./keepAwakePreferences";
 
-describe("pwaPreferences", () => {
+describe("keepAwakePreferences", () => {
   const store: Record<string, string> = {};
   const mockStorage: Storage = {
     get length() {
@@ -39,11 +37,5 @@ describe("pwaPreferences", () => {
     expect(readKeepAwakeEnabled(mockStorage)).toBe(true);
     writeKeepAwakeEnabled(mockStorage, false);
     expect(readKeepAwakeEnabled(mockStorage)).toBe(false);
-  });
-
-  it("records standalone setup hidden forever", () => {
-    expect(readStandaloneSetupHiddenForever(mockStorage)).toBe(false);
-    writeStandaloneSetupHiddenForever(mockStorage);
-    expect(readStandaloneSetupHiddenForever(mockStorage)).toBe(true);
   });
 });

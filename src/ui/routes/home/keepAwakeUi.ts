@@ -5,7 +5,7 @@ import { get, writable, type Readable } from "svelte/store";
 import {
   readKeepAwakeEnabled,
   writeKeepAwakeEnabled,
-} from "./pwaPreferences";
+} from "./keepAwakePreferences";
 import type { WakeLockPresentation } from "./wakeLockPresentation";
 import { isWakeLockApiSupported } from "./wakeLockSupport";
 
@@ -50,9 +50,9 @@ export function setTideWakePresentation(value: WakeLockPresentation | null): voi
 }
 
 /**
- * One-line status for menus and the setup panel (route-aware: when not on home, lock cannot be live).
+ * One-line status for menus (route-aware: when not on home, lock cannot be live).
  */
-export function formatPwaWakeStatusLine(
+export function formatKeepAwakeStatusLine(
   isHomeRoute: boolean,
   userWants: boolean,
   homePresentation: WakeLockPresentation | null,

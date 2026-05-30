@@ -2,8 +2,6 @@ import { describe, expect, it } from "vitest";
 import {
   effectiveSearchFromLocation,
   homeDevDebugFlagsFromSearch,
-  pwaSetupDevPreviewWanted,
-  pwaSetupDevResetWanted,
 } from "./homeUrlQuery";
 
 describe("effectiveSearchFromLocation", () => {
@@ -48,21 +46,5 @@ describe("homeDevDebugFlagsFromSearch", () => {
       outline: false,
       previewFrame: false,
     });
-  });
-});
-
-describe("PWA setup dev URL hints", () => {
-  it("detects pwaSetup=1", () => {
-    expect(pwaSetupDevPreviewWanted("?pwaSetup=1")).toBe(true);
-    expect(pwaSetupDevPreviewWanted("")).toBe(false);
-    expect(pwaSetupDevPreviewWanted("?pwaSetup=0")).toBe(false);
-  });
-
-  it("detects pwaReset=1", () => {
-    expect(pwaSetupDevResetWanted("?pwaReset=1")).toBe(true);
-    expect(
-      pwaSetupDevResetWanted("?pwaSetup=1&pwaReset=1"),
-    ).toBe(true);
-    expect(pwaSetupDevResetWanted("")).toBe(false);
   });
 });

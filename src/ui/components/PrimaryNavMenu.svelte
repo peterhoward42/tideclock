@@ -11,25 +11,25 @@
     keepAwakeUserStore,
     setKeepAwakeUserEnabled,
     tideWakePresentationStore,
-  } from "../routes/home/pwaUi";
+  } from "../routes/home/keepAwakeUi";
   import { isWakeLockApiSupported } from "../routes/home/wakeLockSupport";
 
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
   let nerdsOpen = $state(false);
   let contactOpen = $state(false);
-  let pwaDisplaySectionOpen = $state(false);
-  let pwaUserWants = $state(get(keepAwakeUserStore));
-  let pwaTideViewPresentation = $state(get(tideWakePresentationStore));
-  const pwaIsHome = $derived($route === "home");
+  let keepAwakeSectionOpen = $state(false);
+  let keepAwakeUserWants = $state(get(keepAwakeUserStore));
+  let keepAwakeTideViewPresentation = $state(get(tideWakePresentationStore));
+  const keepAwakeIsHome = $derived($route === "home");
 
-  const pwaForMenu = $derived({
-    sectionOpen: pwaDisplaySectionOpen,
+  const keepAwakeForMenu = $derived({
+    sectionOpen: keepAwakeSectionOpen,
     apiSupported: isWakeLockApiSupported(),
-    isHomeRoute: pwaIsHome,
-    userWants: pwaUserWants,
-    homePresentation: pwaIsHome ? pwaTideViewPresentation : null,
+    isHomeRoute: keepAwakeIsHome,
+    userWants: keepAwakeUserWants,
+    homePresentation: keepAwakeIsHome ? keepAwakeTideViewPresentation : null,
     onToggleSection: () => {
-      pwaDisplaySectionOpen = !pwaDisplaySectionOpen;
+      keepAwakeSectionOpen = !keepAwakeSectionOpen;
     },
     onToggle: (next: boolean) => {
       setKeepAwakeUserEnabled(next);
@@ -41,7 +41,7 @@
     menuDetails?.removeAttribute("open");
     nerdsOpen = false;
     contactOpen = false;
-    pwaDisplaySectionOpen = false;
+    keepAwakeSectionOpen = false;
   }
 
   function closeFromLink(): void {
@@ -81,12 +81,12 @@
   });
 
   onMount(() =>
-    keepAwakeUserStore.subscribe((v) => (pwaUserWants = v)),
+    keepAwakeUserStore.subscribe((v) => (keepAwakeUserWants = v)),
   );
 
   onMount(() =>
     tideWakePresentationStore.subscribe(
-      (v) => (pwaTideViewPresentation = v),
+      (v) => (keepAwakeTideViewPresentation = v),
     ),
   );
 </script>
@@ -101,7 +101,7 @@
       contactOpen={contactOpen}
       onToggleContact={handleContactEntry}
       onNavigate={closeFromLink}
-      pwa={pwaForMenu}
+      keepAwake={keepAwakeForMenu}
     />
   </div>
 </details>

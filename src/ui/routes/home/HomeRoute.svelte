@@ -35,7 +35,6 @@
   import HomeRouteDevPreviewBanners from "./HomeRouteDevPreviewBanners.svelte";
   import HomeRouteDomDebugPanel from "./HomeRouteDomDebugPanel.svelte";
   import HomeRouteTidePanels from "./HomeRouteTidePanels.svelte";
-  import HomePwaStandaloneSetupOverlay from "./HomePwaStandaloneSetupOverlay.svelte";
   import {
     computeMenuPanelAnchorStyle,
     queryMenuTriggerGroup,
@@ -51,10 +50,7 @@
   import {
     effectiveSearchFromLocation,
     homeDevDebugFlagsFromSearch,
-    pwaSetupDevPreviewWanted,
-    pwaSetupDevResetWanted,
   } from "../../homeUrlQuery";
-  import { mountOrientationLock } from "./orientationLock";
   import { mountScreenWakeLock } from "./screenWakeLock";
   import {
     getKeepAwakeUserEnabled,
@@ -62,17 +58,8 @@
     setKeepAwakeUserEnabled,
     setTideWakePresentation,
     tideWakePresentationStore,
-  } from "./pwaUi";
+  } from "./keepAwakeUi";
   import { isWakeLockApiSupported } from "./wakeLockSupport";
-  import {
-    clearStandaloneSetupHiddenForeverIn,
-    clearStandaloneSetupSessionDismissal,
-    readStandaloneSetupDismissedThisSession,
-    readStandaloneSetupHiddenForever,
-    writeStandaloneSetupDismissedThisSession,
-    writeStandaloneSetupHiddenForever,
-  } from "./pwaPreferences";
-  import { isStandaloneDisplayMode } from "./pwaDisplayMode";
   import {
     getDiagramFullscreenTarget,
     toggleInstrumentFullscreen,
@@ -110,14 +97,9 @@
   let homeFullscreenActive = $state(false);
   let homeNerdsOpen = $state(false);
   let homeContactOpen = $state(false);
-  let pwaUserWants = $state(get(keepAwakeUserStore));
-  let pwaTideViewPresentation = $state(get(tideWakePresentationStore));
-  let pwaDisplaySectionOpen = $state(false);
-  let pwaSetupOverlayOpen = $state(false);
-  /** In dev, `?pwaSetup=1` in a non-installed tab. */
-  let pwaDevPreviewInTab = $state(false);
-  /** For menu “show welcome” + first-run; set on mount. */
-  let isStandalonePwa = $state(false);
+  let keepAwakeUserWants = $state(get(keepAwakeUserStore));
+  let keepAwakeTideViewPresentation = $state(get(tideWakePresentationStore));
+  let keepAwakeSectionOpen = $state(false);
   /** Snapshot from {@link displayOptimisation}; sole source for hint device/aspect policy. */
   let displaySnapshot = $state(get(displayOptimisation));
   /** Vertical letterbox slack (px) for `xMidYMid meet` fit of the diagram SVG inside the instrument. */
@@ -172,23 +154,17 @@
     return diagramSvg !== "";
   });
 
-  const pwaForHomeMenu = $derived({
-    sectionOpen: pwaDisplaySectionOpen,
+  const keepAwakeForHomeMenu = $derived({
+    sectionOpen: keepAwakeSectionOpen,
     apiSupported: isWakeLockApiSupported(),
     isHomeRoute: true,
-    userWants: pwaUserWants,
-    homePresentation: pwaTideViewPresentation,
+    userWants: keepAwakeUserWants,
+    homePresentation: keepAwakeTideViewPresentation,
     onToggleSection: () => {
-      pwaDisplaySectionOpen = !pwaDisplaySectionOpen;
+      keepAwakeSectionOpen = !keepAwakeSectionOpen;
     },
     onToggle: (next: boolean) => {
       setKeepAwakeUserEnabled(next);
-    },
-    showWelcomeCardEntry: isStandalonePwa,
-    onShowWelcomeCard: () => {
-      pwaSetupOverlayOpen = true;
-      pwaDisplaySectionOpen = false;
-      homeMenuOpen = false;
     },
   });
 
@@ -232,12 +208,12 @@
   onMount(() => displayOptimisation.subscribe((v) => (displaySnapshot = v)));
 
   onMount(() =>
-    keepAwakeUserStore.subscribe((v) => (pwaUserWants = v)),
+    keepAwakeUserStore.subscribe((v) => (keepAwakeUserWants = v)),
   );
 
   onMount(() =>
     tideWakePresentationStore.subscribe(
-      (v) => (pwaTideViewPresentation = v),
+      (v) => (keepAwakeTideViewPresentation = v),
     ),
   );
 
@@ -256,46 +232,6 @@
       wake.dispose();
       setTideWakePresentation(null);
     };
-  });
-
-  onMount(() => {
-    if (typeof window === "undefined") return;
-    const search = effectiveSearchFromLocation(
-      window.location.search,
-      window.location.hash,
-    );
-    isStandalonePwa = isStandaloneDisplayMode();
-
-    if (import.meta.env.DEV) {
-      if (pwaSetupDevResetWanted(search)) {
-        clearStandaloneSetupSessionDismissal();
-        if (typeof localStorage !== "undefined") {
-          clearStandaloneSetupHiddenForeverIn(localStorage);
-        }
-      }
-      if (pwaSetupDevPreviewWanted(search)) {
-        pwaSetupOverlayOpen = true;
-        pwaDevPreviewInTab = !isStandalonePwa;
-      }
-    }
-
-    if (pwaSetupOverlayOpen) return;
-
-    try {
-      if (typeof localStorage === "undefined") return;
-      if (!isStandalonePwa) return;
-      if (readStandaloneSetupHiddenForever(localStorage)) return;
-      if (readStandaloneSetupDismissedThisSession()) return;
-      pwaSetupOverlayOpen = true;
-    } catch {
-      // ignore
-    }
-  });
-
-  onMount(() => {
-    const routeRoot = homeRouteEl;
-    if (routeRoot == null) return;
-    return mountOrientationLock(routeRoot);
   });
 
   onMount(() => {
@@ -419,7 +355,7 @@
     if (!homeMenuOpen || diagramSvg === "") return;
     void homeNerdsOpen;
     void homeContactOpen;
-    void pwaDisplaySectionOpen;
+    void keepAwakeSectionOpen;
     void tick().then(() => {
       const host = diagramHostEl;
       if (host == null) return;
@@ -502,23 +438,7 @@
     homeMenuOpen = false;
     homeNerdsOpen = false;
     homeContactOpen = false;
-    pwaDisplaySectionOpen = false;
-  }
-
-  function dismissPwaStandaloneSetupThisSession(): void {
-    writeStandaloneSetupDismissedThisSession();
-    pwaSetupOverlayOpen = false;
-  }
-
-  function dismissPwaStandaloneSetupForever(): void {
-    try {
-      if (typeof localStorage !== "undefined") {
-        writeStandaloneSetupHiddenForever(localStorage);
-      }
-    } catch {
-      // ignore
-    }
-    pwaSetupOverlayOpen = false;
+    keepAwakeSectionOpen = false;
   }
 
   async function handleHomeFullscreenToggle(): Promise<void> {
@@ -538,20 +458,6 @@
 </script>
 
 <main class="home-route" bind:this={homeRouteEl}>
-  {#if pwaSetupOverlayOpen}
-    <div class="home-route__pwa-setup">
-      <HomePwaStandaloneSetupOverlay
-        devPreviewInTab={pwaDevPreviewInTab}
-        isHomeRoute={true}
-        userWants={pwaUserWants}
-        homePresentation={pwaTideViewPresentation}
-        toggleEnabled={isWakeLockApiSupported()}
-        onToggleKeepAwake={setKeepAwakeUserEnabled}
-        onDismissThisSession={dismissPwaStandaloneSetupThisSession}
-        onDismissForever={dismissPwaStandaloneSetupForever}
-      />
-    </div>
-  {/if}
   <HomeRouteDevPreviewBanners
     diagramPreviewBannerLine={diagramPreviewBannerLine}
     tidePreviewBannerLine={tidePreviewBannerLine}
@@ -584,7 +490,7 @@
     onToggleHomeFullscreen={handleHomeFullscreenToggle}
     onToggleHomeNerds={handleHomeNerdsEntry}
     onToggleHomeContact={handleHomeContactEntry}
-    pwa={pwaForHomeMenu}
+    keepAwake={keepAwakeForHomeMenu}
   />
 </main>
 
@@ -603,16 +509,4 @@
     display: flex;
     flex-direction: column;
   }
-
-  .home-route__pwa-setup {
-    /* Fixed: avoids clipping in nested flex/overflow; stays above the diagram (see menu z-index). */
-    position: fixed;
-    z-index: 40;
-    left: 50%;
-    bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
-    transform: translateX(-50%);
-    max-width: min(22rem, calc(100% - 1.25rem));
-    pointer-events: auto;
-  }
-
 </style>

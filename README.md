@@ -26,8 +26,7 @@ All persistence is in the browser’s **`localStorage`** on the user’s device 
 |-----|---------|
 | `current-location` | The town you chose for tide display (JSON snapshot). |
 | `tide-extremes-at-location` | Cached high/low extremes for the current civil day, to avoid refetching when possible. |
-| `tideclock.pwa.v1.keepScreenAwake` | Optional “keep screen awake” preference when installed as a PWA. |
-| `tideclock.pwa.v1.standaloneSetupHiddenForever` | Whether to hide the standalone-install setup prompt. |
+| `tideclock.keepScreenAwake` | Optional “keep screen awake” preference for the home tide view. |
 
 On a first visit with empty storage, the app shows tides for **Looe, Cornwall** until you pick another location (see **Location** in the menu). Cookie policy, safety wording, tide-data copyright, and related notices are on the in-app **[About](https://thetidedial.page/#/about)** page (`#/about`), not duplicated here.
 
@@ -64,7 +63,7 @@ Produces `dist/` for static hosting.
 |-----|----------|
 | [`docs/specs/elevator-pitch.md`](docs/specs/elevator-pitch.md) | Product introduction |
 | [`docs/specs/tide-diagram.md`](docs/specs/tide-diagram.md) | Home diagram behaviour and layout |
-| [`src/ui/README.md`](src/ui/README.md) | Shell, routes, PWA, operator notice (contributors) |
+| [`src/ui/README.md`](src/ui/README.md) | Shell, routes, operator notice (contributors) |
 | [`build/README.md`](build/README.md) | Vite build, env vars, Vercel deploy, build commit |
 | [`tools/towns2/README.md`](tools/towns2/README.md) | Location data tooling (not runtime) |
 

@@ -5,7 +5,7 @@
    */
   import type { TideExtremesAtLocation } from "../../../core-models/TideExtremesAtLocation";
   import PrimaryMenuContent, {
-    type PwaDisplayMenu,
+    type KeepAwakeMenu,
   } from "../../components/PrimaryMenuContent.svelte";
   import HomeDefaultLocationExplainerOverlay from "./HomeDefaultLocationExplainerOverlay.svelte";
 
@@ -50,7 +50,7 @@
     readonly onToggleHomeNerds: () => void;
     readonly onToggleHomeContact: () => void;
     readonly onToggleHomeFullscreen: () => void | Promise<void>;
-    readonly pwa: PwaDisplayMenu;
+    readonly keepAwake: KeepAwakeMenu;
     diagramHostEl?: HTMLElement | undefined;
     homeInstrumentEl?: HTMLElement | undefined;
     homeMenuPanelEl?: HTMLElement | undefined;
@@ -75,7 +75,7 @@
     onToggleHomeNerds,
     onToggleHomeContact,
     onToggleHomeFullscreen,
-    pwa,
+    keepAwake,
     diagramHostEl = $bindable(),
     homeInstrumentEl = $bindable(),
     homeMenuPanelEl = $bindable(),
@@ -202,7 +202,7 @@
             ? "Exit fullscreen"
             : "Really fullscreen"}
           onToggleFullscreen={onToggleHomeFullscreen}
-          {pwa}
+          {keepAwake}
         />
       </div>
     {/if}

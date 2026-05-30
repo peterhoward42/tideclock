@@ -1,9 +1,9 @@
 <script lang="ts">
   import PrimaryNavLinks from "./PrimaryNavLinks.svelte";
-  import HomePwaDisplaySection from "../routes/home/HomePwaDisplaySection.svelte";
+  import HomeKeepAwakeSection from "../routes/home/HomeKeepAwakeSection.svelte";
   import type { WakeLockPresentation } from "../routes/home/wakeLockPresentation";
 
-  export type PwaDisplayMenu = {
+  export type KeepAwakeMenu = {
     readonly sectionOpen: boolean;
     readonly apiSupported: boolean;
     readonly isHomeRoute: boolean;
@@ -11,9 +11,6 @@
     readonly homePresentation: WakeLockPresentation | null;
     readonly onToggleSection: () => void;
     readonly onToggle: (next: boolean) => void;
-    /** Shown in the home diagram menu in standalone: pops the first-run card again. */
-    readonly onShowWelcomeCard?: () => void;
-    readonly showWelcomeCardEntry?: boolean;
   };
 
   interface Props {
@@ -26,7 +23,7 @@
     readonly fullscreenActionLabel?: string;
     readonly onToggleFullscreen?: () => void | Promise<void>;
     /** Optional: keep screen awake (home route + header menu). */
-    readonly pwa?: PwaDisplayMenu;
+    readonly keepAwake?: KeepAwakeMenu;
   }
 
   let {
@@ -38,43 +35,34 @@
     onNavigate,
     fullscreenActionLabel,
     onToggleFullscreen,
-    pwa = undefined,
+    keepAwake = undefined,
   }: Props = $props();
 
-  const pwaToggleEnabled = $derived(
-    pwa === undefined ? false : pwa.apiSupported,
+  const keepAwakeToggleEnabled = $derived(
+    keepAwake === undefined ? false : keepAwake.apiSupported,
   );
 </script>
 
 <nav class={linksClassName} aria-label="Primary">
   <PrimaryNavLinks {onNavigate} />
   <a href="#/onwall" onclick={() => onNavigate?.()}>Stick it on the wall</a>
-  {#if pwa !== undefined}
+  {#if keepAwake !== undefined}
     <button
       type="button"
       class="primary-menu-content__action"
-      onclick={pwa.onToggleSection}
+      onclick={keepAwake.onToggleSection}
     >
       Keep screen awake
     </button>
-    {#if pwa.sectionOpen}
-      <section class="primary-menu-content__pwa" aria-label="Keep screen awake">
-        <HomePwaDisplaySection
-          isHomeRoute={pwa.isHomeRoute}
-          userWants={pwa.userWants}
-          homePresentation={pwa.homePresentation}
-          toggleEnabled={pwaToggleEnabled}
-          onToggle={pwa.onToggle}
+    {#if keepAwake.sectionOpen}
+      <section class="primary-menu-content__keep-awake" aria-label="Keep screen awake">
+        <HomeKeepAwakeSection
+          isHomeRoute={keepAwake.isHomeRoute}
+          userWants={keepAwake.userWants}
+          homePresentation={keepAwake.homePresentation}
+          toggleEnabled={keepAwakeToggleEnabled}
+          onToggle={keepAwake.onToggle}
         />
-        {#if pwa.showWelcomeCardEntry && pwa.onShowWelcomeCard}
-          <button
-            type="button"
-            class="primary-menu-content__pwa-welcome-again"
-            onclick={pwa.onShowWelcomeCard}
-          >
-            Show first-run setup card
-          </button>
-        {/if}
       </section>
     {/if}
   {/if}
@@ -208,27 +196,11 @@
     color: var(--text-menu-content-primary);
   }
 
-  .primary-menu-content__pwa {
+  .primary-menu-content__keep-awake {
     margin-top: 0.35rem;
     padding: 0.45rem 0.5rem;
     border: 1px solid var(--border-menu-content-inset);
     border-radius: 0.25rem;
     background: var(--surface-menu-content-inset);
-  }
-
-  .primary-menu-content__pwa-welcome-again {
-    margin-top: 0.45rem;
-    width: 100%;
-    border: 0;
-    background: none;
-    color: var(--text-menu-content-status);
-    text-decoration: underline;
-    text-underline-offset: 0.1em;
-    font: inherit;
-    font-size: 0.75rem;
-    line-height: 1.3;
-    cursor: pointer;
-    text-align: left;
-    padding: 0.2rem 0 0;
   }
 </style>

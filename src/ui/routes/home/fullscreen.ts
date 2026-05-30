@@ -63,7 +63,7 @@ export async function exitInstrumentFullscreen(): Promise<void> {
  * `figure.home-instrument` and the menu flyout. The flyout is a *sibling* of the figure
  * (so it is not clipped by `overflow: hidden`). The Fullscreen API only paints the
  * fullscreen element and its descendants in the top layer—fullscreening the figure
- * alone would leave the menu behind that layer (regression: installed PWA + fullscreen).
+ * alone would leave the menu behind that layer (regression: fullscreen + diagram-host target).
  */
 export function getDiagramFullscreenTarget(
   diagramHost: HTMLElement | undefined,

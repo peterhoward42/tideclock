@@ -1,9 +1,9 @@
 <script lang="ts">
   /**
-   * Keep-screen-awake preference + one-line status (menu panel or standalone setup).
+   * Keep-screen-awake preference + one-line status (menu panel).
    */
   import type { WakeLockPresentation } from "./wakeLockPresentation";
-  import { formatPwaWakeStatusLine } from "./pwaUi";
+  import { formatKeepAwakeStatusLine } from "./keepAwakeUi";
 
   interface Props {
     readonly isHomeRoute: boolean;
@@ -23,21 +23,21 @@
   }: Props = $props();
 
   const line = $derived(
-    formatPwaWakeStatusLine(isHomeRoute, userWants, homePresentation),
+    formatKeepAwakeStatusLine(isHomeRoute, userWants, homePresentation),
   );
 </script>
 
-<div class="pwa-display">
-  <p class="pwa-display__line" id="pwa-keep-awake-status" role="status" aria-live="polite">
+<div class="keep-awake">
+  <p class="keep-awake__line" id="keep-awake-status" role="status" aria-live="polite">
     {line}
   </p>
-  <label class="pwa-display__row">
+  <label class="keep-awake__row">
     <input
       type="checkbox"
-      class="pwa-display__check"
+      class="keep-awake__check"
       checked={userWants}
       disabled={!toggleEnabled}
-      aria-labelledby="pwa-keep-awake-status"
+      aria-labelledby="keep-awake-status"
       onchange={(e) => {
         const c = e.currentTarget;
         onToggle(c.checked);
@@ -47,25 +47,25 @@
 </div>
 
 <style>
-  .pwa-display {
+  .keep-awake {
     display: grid;
     gap: 0.4rem;
     margin-top: 0.35rem;
   }
 
-  .pwa-display__line {
+  .keep-awake__line {
     margin: 0;
     font-size: 0.76rem;
     line-height: 1.35;
     color: var(--text-menu-content-status);
   }
 
-  .pwa-display__row {
+  .keep-awake__row {
     display: block;
     cursor: pointer;
   }
 
-  .pwa-display__check {
+  .keep-awake__check {
     width: 1rem;
     height: 1rem;
   }

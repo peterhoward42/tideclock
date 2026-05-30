@@ -5,7 +5,6 @@
   const REPO_TIDEPROXY = "https://github.com/peterhoward42/tideproxy";
   /** Plain-language definitions — MDN glossary / guides read well for non-specialists. */
   const LINK_SPA = "https://developer.mozilla.org/en-US/docs/Glossary/SPA";
-  const LINK_PWA = "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps";
   /** Product docs read clearer than the marketing homepage for “what is Cursor?”. */
   const LINK_CURSOR = "https://docs.cursor.com/";
 </script>
@@ -60,31 +59,6 @@
 
   <section
     class="software-nerd-route__section"
-    aria-labelledby="software-nerd-pwa-heading"
-  >
-    <h2 class="software-nerd-route__h" id="software-nerd-pwa-heading">Installed app</h2>
-    <p class="software-nerd-route__p">
-      The site is also a
-      <a
-        class="software-nerd-route__link"
-        href={LINK_PWA}
-        target="_blank"
-        rel="noopener noreferrer">progressive web app</a
-      >
-      (PWA): a web manifest and icons let you add
-      {THE_TIDE_DIAL} to your home screen and open it in <strong>standalone</strong> display mode —
-      closer to a dedicated appliance than a browser tab.
-    </p>
-    <p class="software-nerd-route__p">
-      In that installed session the app can request a <strong>screen wake lock</strong> so the dial
-      stays visible on a wall or counter, and it may encourage landscape on phones where that helps
-      the diagram use the screen. A short first-run card explains those choices; the same controls
-      live in the main menu.
-    </p>
-  </section>
-
-  <section
-    class="software-nerd-route__section"
     aria-labelledby="software-nerd-responsive-heading"
   >
     <h2 class="software-nerd-route__h" id="software-nerd-responsive-heading">Screens and layout</h2>
@@ -101,6 +75,12 @@
       bands above and below when the aspect ratio does not match. On small phones in portrait, a
       gentle hint may suggest turning landscape when that genuinely helps. Menus and overlays anchor
       to diagram geometry rather than assuming a fixed height for headers and surrounding controls.
+    </p>
+    <p class="software-nerd-route__p">
+      For a counter or wall display, the menu can request a <strong>screen wake lock</strong> so the
+      dial stays visible while the tab is open, and <strong>Really fullscreen</strong> hides browser
+      chrome via the Fullscreen API. Both are progressive enhancement: they work in a normal browser
+      tab where the platform allows them.
     </p>
   </section>
 
