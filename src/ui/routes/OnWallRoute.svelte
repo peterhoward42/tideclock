@@ -1,10 +1,4 @@
 <script lang="ts">
-  import { THE_TIDE_DIAL } from "../brand";
-
-  /** Plain-language install guide — for readers who want more than the on-page hint. */
-  const LINK_INSTALL_PWA =
-    "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Installing";
-
   const heroPlace = {
     src: "/onwall-kitchen.png",
     width: 1024,
@@ -42,9 +36,14 @@
   <h1>Stick it on the wall</h1>
 
   <p class="onwall-route__p onwall-route__lead">
-    {THE_TIDE_DIAL} is just a website like any other. But it was also designed
-    carefully with some features that make it good on a permanent screen you
-    <strong>leave on</strong>.
+    The TideDial is just a website, but it was also carefully designed with a
+    couple of features that make it work really well on a permanent screen that
+    you leave on.
+  </p>
+
+  <p class="onwall-route__p">
+    There's a menu option to make it fill the entire screen, and another option
+    to keep the screen awake so it doesn't dim or switch off.
   </p>
 
   <div class="onwall-route__spots">
@@ -83,45 +82,6 @@
       </section>
     {/each}
   </div>
-
-  <section
-    class="onwall-route__section"
-    aria-labelledby="onwall-permanent-heading"
-  >
-    <h2 class="onwall-route__h" id="onwall-permanent-heading">
-      Permanent screen features
-    </h2>
-    <p class="onwall-route__p">
-      On the tablet you leave on the shelf or counter, install {THE_TIDE_DIAL} so
-      it opens from its own icon. Then use the menu if you want the screen to
-      stay on and the dial to fill the display.
-    </p>
-  </section>
-
-  <section class="onwall-route__section" aria-labelledby="onwall-install">
-    <h2 class="onwall-route__h" id="onwall-install">How to install</h2>
-    <p class="onwall-route__p">
-      Most people use an old iPad or Android tablet, plugged in where it can
-      stay. Open {THE_TIDE_DIAL} on <strong>that</strong> tablet — not
-      necessarily on the phone you are reading this on.
-    </p>
-    <p class="onwall-route__p">
-      In the browser, look for <strong>Install</strong>,
-      <strong>Add to Home Screen</strong>, or similar — often in the menu (⋯) or
-      Share sheet. You want an icon on the home screen that opens the dial like
-      a simple app, not a bookmark you hunt for in the browser. The exact label
-      varies; if in doubt, pick the option that installs or adds the site.
-    </p>
-    <p class="onwall-route__p onwall-route__p--aside">
-      Want step-by-step detail for your browser?
-      <a
-        class="onwall-route__link"
-        href={LINK_INSTALL_PWA}
-        target="_blank"
-        rel="noopener noreferrer">Installing progressive web apps</a>
-      (MDN).
-    </p>
-  </section>
 </main>
 
 <style>
@@ -145,11 +105,6 @@
     gap: 0.4rem;
   }
 
-  .onwall-route__section {
-    display: grid;
-    gap: 0.4rem;
-  }
-
   .onwall-route__h {
     font-size: 1.05rem;
     font-weight: 600;
@@ -162,17 +117,6 @@
     font-size: 0.95rem;
     line-height: 1.5;
     color: var(--text-document-default);
-  }
-
-  .onwall-route__p--aside {
-    font-size: 0.88rem;
-    color: var(--text-document-secondary);
-  }
-
-  .onwall-route__link {
-    color: var(--text-link-accent);
-    text-decoration: underline;
-    text-underline-offset: 0.12em;
   }
 
   .onwall-route__figure {
