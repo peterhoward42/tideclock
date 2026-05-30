@@ -8,6 +8,7 @@
     type KeepAwakeMenu,
   } from "../../components/PrimaryMenuContent.svelte";
   import HomeDefaultLocationExplainerOverlay from "./HomeDefaultLocationExplainerOverlay.svelte";
+  import HomeFullscreenBrowserAdviceOverlay from "./HomeFullscreenBrowserAdviceOverlay.svelte";
 
   import type { TidePresentation } from "./routeProps";
   import {
@@ -44,6 +45,10 @@
     readonly homeMenuOpen: boolean;
     readonly homeMenuPanelStyle: string;
     readonly homeFullscreenActive: boolean;
+    readonly homeFullscreenAdviceOpen: boolean;
+    readonly homeFullscreenAdviceLead: string;
+    readonly homeFullscreenAdviceBody: string;
+    readonly onDismissHomeFullscreenAdvice: () => void;
     readonly homeNerdsOpen: boolean;
     readonly homeContactOpen: boolean;
     readonly onCloseHomeMenu: () => void;
@@ -69,6 +74,10 @@
     homeMenuOpen,
     homeMenuPanelStyle,
     homeFullscreenActive,
+    homeFullscreenAdviceOpen,
+    homeFullscreenAdviceLead,
+    homeFullscreenAdviceBody,
+    onDismissHomeFullscreenAdvice,
     homeNerdsOpen,
     homeContactOpen,
     onCloseHomeMenu,
@@ -185,6 +194,13 @@
         />
       {/if}
     </figure>
+    {#if homeFullscreenAdviceOpen}
+      <HomeFullscreenBrowserAdviceOverlay
+        lead={homeFullscreenAdviceLead}
+        body={homeFullscreenAdviceBody}
+        onDismiss={onDismissHomeFullscreenAdvice}
+      />
+    {/if}
     {#if homeMenuOpen}
       <div
         class="home-menu-panel"

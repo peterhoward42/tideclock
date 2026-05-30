@@ -61,9 +61,14 @@
   } from "./keepAwakeUi";
   import { isWakeLockApiSupported } from "./wakeLockSupport";
   import {
+    elementSupportsFullscreenRequest,
     getDiagramFullscreenTarget,
     toggleInstrumentFullscreen,
   } from "./fullscreen";
+  import {
+    detectFullscreenBrowserAdvice,
+    formatFullscreenBrowserAdviceMessage,
+  } from "./fullscreenBrowserAdvice";
 
   let {
     tidePresentation,
@@ -95,6 +100,9 @@
   let homeMenuOpen = $state(false);
   let homeMenuPanelStyle = $state("left: 0px; bottom: 0px;");
   let homeFullscreenActive = $state(false);
+  let homeFullscreenAdviceOpen = $state(false);
+  let homeFullscreenAdviceLead = $state("");
+  let homeFullscreenAdviceBody = $state("");
   let homeNerdsOpen = $state(false);
   let homeContactOpen = $state(false);
   let keepAwakeUserWants = $state(get(keepAwakeUserStore));
@@ -240,9 +248,13 @@
       webkitFullscreenElement?: Element | null;
     };
     const syncFullscreenState = (): void => {
-      homeFullscreenActive =
+      const active =
         runtimeDocument.fullscreenElement != null ||
         runtimeDocument.webkitFullscreenElement != null;
+      homeFullscreenActive = active;
+      if (!active) {
+        homeFullscreenAdviceOpen = false;
+      }
     };
     syncFullscreenState();
     runtimeDocument.addEventListener("fullscreenchange", syncFullscreenState);
@@ -441,11 +453,35 @@
     keepAwakeSectionOpen = false;
   }
 
+  function dismissHomeFullscreenAdvice(): void {
+    homeFullscreenAdviceOpen = false;
+  }
+
   async function handleHomeFullscreenToggle(): Promise<void> {
     const host = getDiagramFullscreenTarget(diagramHostEl);
     if (host == null) return;
+    const entering = !homeFullscreenActive;
     await toggleInstrumentFullscreen(host);
     homeMenuOpen = false;
+
+    if (!entering) {
+      homeFullscreenAdviceOpen = false;
+      return;
+    }
+
+    if (typeof navigator === "undefined") return;
+    const advice = detectFullscreenBrowserAdvice(
+      navigator.userAgent,
+      navigator.maxTouchPoints,
+      elementSupportsFullscreenRequest(host),
+    );
+    if (advice == null) return;
+
+    await tick();
+    const copy = formatFullscreenBrowserAdviceMessage(advice, homeFullscreenActive);
+    homeFullscreenAdviceLead = copy.lead;
+    homeFullscreenAdviceBody = copy.body;
+    homeFullscreenAdviceOpen = true;
   }
 
   function handleHomeNerdsEntry(): void {
@@ -484,6 +520,10 @@
     {homeMenuOpen}
     {homeMenuPanelStyle}
     {homeFullscreenActive}
+    homeFullscreenAdviceOpen={homeFullscreenAdviceOpen}
+    homeFullscreenAdviceLead={homeFullscreenAdviceLead}
+    homeFullscreenAdviceBody={homeFullscreenAdviceBody}
+    onDismissHomeFullscreenAdvice={dismissHomeFullscreenAdvice}
     {homeNerdsOpen}
     {homeContactOpen}
     onCloseHomeMenu={closeHomeMenu}

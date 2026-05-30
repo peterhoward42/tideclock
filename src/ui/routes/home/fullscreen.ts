@@ -16,8 +16,13 @@ function activeFullscreenElement(doc: FullscreenDocument): Element | null {
   return doc.fullscreenElement ?? doc.webkitFullscreenElement ?? null;
 }
 
-function supportsFullscreenRequest(el: FullscreenElement): boolean {
-  return typeof el.requestFullscreen === "function" || typeof el.webkitRequestFullscreen === "function";
+/** Whether this element can request fullscreen in the current browser. */
+export function elementSupportsFullscreenRequest(el: HTMLElement): boolean {
+  const target = el as FullscreenElement;
+  return (
+    typeof target.requestFullscreen === "function" ||
+    typeof target.webkitRequestFullscreen === "function"
+  );
 }
 
 /**
@@ -27,7 +32,7 @@ function supportsFullscreenRequest(el: FullscreenElement): boolean {
 export async function requestInstrumentFullscreen(el: HTMLElement): Promise<void> {
   const target = el as FullscreenElement;
   if (typeof document === "undefined") return;
-  if (!supportsFullscreenRequest(target)) return;
+  if (!elementSupportsFullscreenRequest(target)) return;
   try {
     if (typeof target.requestFullscreen === "function") {
       await target.requestFullscreen();
