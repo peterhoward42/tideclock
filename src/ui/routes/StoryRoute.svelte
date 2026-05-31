@@ -1,9 +1,8 @@
 <script lang="ts">
+  import CopyableEmail from "../components/CopyableEmail.svelte";
   import { THE_TIDE_DIAL } from "../brand";
   import { VIRTUAL_COFFEE_URL } from "../../support";
   import { externalLinkNewTabAttrs } from "../externalLink";
-
-  const contactEmail = "peterhoward42@gmail.com";
 </script>
 
 <main class="route story-route">
@@ -99,10 +98,7 @@
     <p>
       Do you have an idea for bringing information alive through software
       created diagrams and interaction? If so it might be fun (or fruitful) to
-      get in touch at
-      <a class="story-route__link" href="mailto:{contactEmail}"
-        >{contactEmail}</a
-      >.
+      get in touch at <CopyableEmail textClass="story-route__link" />.
     </p>
     <h2 class="story-route__h">Other projects</h2>
 

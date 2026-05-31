@@ -1,4 +1,5 @@
 <script lang="ts">
+  import CopyableEmail from "./CopyableEmail.svelte";
   import PrimaryNavLinks from "./PrimaryNavLinks.svelte";
   import HomeKeepAwakeSection from "../routes/home/HomeKeepAwakeSection.svelte";
   import type { WakeLockPresentation } from "../routes/home/wakeLockPresentation";
@@ -120,8 +121,7 @@
         occasionally be slow, but I do read everything.
       </p>
       <p class="primary-menu-content__contact-email">
-        <a href="mailto:peterhoward42@gmail.com" onclick={() => onNavigate?.()}
-          >peterhoward42@gmail.com</a>
+        <CopyableEmail />
       </p>
     </section>
   {/if}
@@ -190,10 +190,6 @@
     margin: 0.45rem 0 0;
     font-size: 0.8rem;
     line-height: 1.35;
-  }
-
-  .primary-menu-content__contact-email a {
-    color: var(--text-menu-content-primary);
   }
 
   .primary-menu-content__keep-awake {

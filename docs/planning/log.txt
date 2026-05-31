@@ -19,26 +19,7 @@ TIDE DIAL
 *  Better words for story as is
 *  Add subsidy of costs to coffee
 *  Move phone image to stick on wall or elsewhere, or drop
-o  Better DrawExact linkaage
-	*  Prep image
-	*  Ask for placeholder intro and caption
-	*  Suggest words
-	*  Add explicit me me me
-	*  add between diagram and full CAD
-	*  Introduce this is me with with an explicit you don't have to read this
-	*  Add apple or similar?
-	o  Story -> contact link being overwridden
-	o  Tune
-		o  placeholder me me me wroding
-
-
-Do you have an idea for bringing information
-alive through software created diagrams and interaction? If so it 
-might be fun (or fruitful) to have a chat. See menu->contact.
-
-I'll leave you with a glancing reference to DrawExact - of my projects - 
-the one I'm most proud of.
-
+*  Better DrawExact linkaage
 
 
 o  ditch mailto:blah links
