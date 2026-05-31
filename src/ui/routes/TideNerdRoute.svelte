@@ -133,9 +133,11 @@
 	  springs at the moment". We experience it as a gradual weekly change, one week of
 	  spring tides, then a week of neap tides etc. You can see the planetry alignment that
 	  causes these by looking at the moon. Spring tides happen when the the moon is just a
-	  thin sliver in the sky and when its a full circle. What you're looking at is the
-	  shadow of earth cast onto the sun when all three of the earth, sun and moon are
-	  roughly lined up.
+	  thin sliver in the sky and when its a full circle. The sun always illuminates one
+	  hemisphere of the moon - rather like a torch being shone at a ball. The front is lit
+	  up, the back gets no light. But as the moon orbits the earth our viewing position is
+	  changing. We could be looking almost at the back of the moon (only a sliver lit), 
+	  or almost exactly the front (most of the circle lit).
     </p>
     <p class="tide-nerd-route__nod">
       Solar and lunar tidal potentials superpose; spring and neap tides follow the beat between the

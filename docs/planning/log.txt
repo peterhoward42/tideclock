@@ -22,7 +22,7 @@ TIDE DIAL
 *  Better DrawExact linkaage
 *  ditch mailto:blah links
 *  Tide nerd tone a bit off
-o  sw nerd?
+*  sw nerd?
 o  Telegram alerts for site load and set own location and each route
 	o  if proxy already has state - can add uniqute user id
 
