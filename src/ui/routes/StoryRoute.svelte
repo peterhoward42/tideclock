@@ -2,7 +2,7 @@
   import { THE_TIDE_DIAL } from "../brand";
   import { VIRTUAL_COFFEE_URL } from "../../support";
 
-  const contactInMenuHref = "#/home?contact=1";
+  const contactEmail = "peterhoward42@gmail.com";
 </script>
 
 <main class="route story-route">
@@ -24,8 +24,8 @@
   <div class="story-route__body">
     <p>
       The road to my house crosses a river, and the bridge floods so much at
-      high tides I go kayaking there. Not so good however for popping out in
-      the car for a pint of milk.
+      high tides I go kayaking there. Not so good however for popping out in the
+      car for a pint of milk.
     </p>
     <p>
       Tides can be a source of delight and interest when you visit a tidal
@@ -38,7 +38,7 @@
     <p>
       You can look up the tide times in tables. But they just show numbers, and
       more numbers. I find myself trying to work out in my head what the number
-      are telling me about the moving patterns for today - and how its going to
+      are telling me about the moving patterns for today - and how it's going to
       affect my day.
     </p>
     <p>
@@ -77,30 +77,88 @@
 
     <aside class="story-route__support" aria-label="Optional support">
       <p>
-        If you've enjoyed {THE_TIDE_DIAL} - and would like to buy me a
+        If you've enjoyed {THE_TIDE_DIAL} - and would like perhaps to buy me a
         <a
           class="story-route__support-link"
           href={VIRTUAL_COFFEE_URL}
           target="_blank"
           rel="noopener noreferrer">coffee</a
         >
-        - perhaps to say thanks, or make a small contribution towards my ongoing
-        tide-data costs - I would have no great objection.
+        - to say thanks, or make a small contribution towards my ongoing tide-data
+        costs - I would have no great objection.
       </p>
     </aside>
 
+    <h2 class="story-route__h">Collaboration</h2>
     <p>
-      I've also built visual software systems to please <em>me</em> in other
-      domains over the years. One of them is
+      This story is also partly about me the person, and to encourage you to
+      engage with me professionally if you'd like to. I don't want to sneak that
+      transition in — so I'm choosing to be up front about it.
+    </p>
+
+    <h2 class="story-route__h">Your ideas</h2>
+    <p>
+      Do you have an idea for bringing information alive through software
+      created diagrams and interaction? If so it might be fun (or fruitful) to
+      get in touch at
+      <a class="story-route__link" href="mailto:{contactEmail}"
+        >{contactEmail}</a
+      >.
+    </p>
+    <h2 class="story-route__h">Other projects</h2>
+
+    <p>
+      I'll leave you with a glancing reference to
       <a
         class="story-route__link"
         href="https://www.drawexact.click/"
         target="_blank"
         rel="noopener noreferrer">DrawExact</a
       >
-      — a free drawing tool for when it's the geometry that matters. It sits deliberately
-      somewhere between diagramming tools and CAD software.
+      — one of my other projects. It's the project I'm most proud of. It's a free
+      drawing app that works in your browser — for drawings where it's the geometry
+      that matters. It sits somewhere in between diagramming tools and full blown
+      2D CAD.
     </p>
+
+    <figure class="story-route__figure">
+      <img
+        class="story-route__img"
+        src="/story-hook-diagram.png"
+        width="645"
+        height="1024"
+        alt="Engineering diagram of a heavy-duty industrial hook with dimension lines and radii annotated in pink."
+      />
+      <figcaption class="story-route__caption">
+        One of the classic 2D CAD examples - drawn in DrawExact
+      </figcaption>
+    </figure>
+
+    <figure class="story-route__figure">
+      <img
+        class="story-route__img"
+        src="/story-apple-logo-diagram.png"
+        width="827"
+        height="1024"
+        alt="Geometric construction diagram of the Apple logo, with yellow outline curves and grey construction circles on a black background."
+      />
+      <figcaption class="story-route__caption">
+        A playful take on the Apple logo - drawn in DrawExact
+      </figcaption>
+    </figure>
+
+    <aside class="story-route__note" aria-label="Side note">
+      <p>
+        See the fun (and completely false)
+        <a
+          class="story-route__note-link"
+          href="https://www.quora.com/Does-the-Apple-logo-really-adhere-to-the-golden-ratio"
+          target="_blank"
+          rel="noopener noreferrer">conspiracy theory</a
+        >
+        that the real Apple logo is based on the mathematical Fibonacci series.
+      </p>
+    </aside>
   </div>
 </main>
 
@@ -141,6 +199,13 @@
     gap: 0.85rem;
   }
 
+  .story-route__h {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-document-default);
+  }
+
   .story-route__body p {
     margin: 0;
     font-size: 0.95rem;
@@ -152,6 +217,34 @@
     color: var(--text-link-accent);
     text-decoration: underline;
     text-underline-offset: 0.12em;
+  }
+
+  .story-route__note {
+    margin: 0.15rem 0 0;
+    padding: 0.55rem 0 0 0.85rem;
+    border-left: 2px solid color-mix(in srgb, var(--text-muted) 35%, transparent);
+    max-width: 28rem;
+  }
+
+  .story-route__note p {
+    margin: 0;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  .story-route__note-link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  }
+
+  .story-route__note-link:hover {
+    color: var(--text-link-accent);
+    font-style: normal;
+    text-decoration-color: currentColor;
   }
 
   .story-route__support {

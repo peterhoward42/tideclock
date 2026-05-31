@@ -16,25 +16,34 @@ TIDE DIAL
 *  Ditch PWA
 *  Improve full screen messaging
 
-o  Better words for story as is
-	*  general
-	*  change role of  pic
-	o  drawexact as another example, segue into contact me
+*  Better words for story as is
+*  Add subsidy of costs to coffee
+*  Move phone image to stick on wall or elsewhere, or drop
+o  Better DrawExact linkaage
+	*  Prep image
+	*  Ask for placeholder intro and caption
+	*  Suggest words
+	*  Add explicit me me me
+	*  add between diagram and full CAD
+	*  Introduce this is me with with an explicit you don't have to read this
+	*  Add apple or similar?
+	o  Story -> contact link being overwridden
+	o  Tune
+		o  placeholder me me me wroding
 
-o  Add subsidy of costs to coffee
-o  Move phone image to stick on wall or elsewhere, or drop
 
-o  All wording of articles
-	o  story
-		o  show dont explain
-		o  more inexorable arc: phenon > what is problem > visual soln > the person
-		o  oddly familiar isn't it
-		o  where you are in today - lumpy
-		o  what is easy to find is... - too long
-		o  Looe on the screen
-		o  compelling image(s) for drawexact
+Do you have an idea for bringing information
+alive through software created diagrams and interaction? If so it 
+might be fun (or fruitful) to have a chat. See menu->contact.
 
+I'll leave you with a glancing reference to DrawExact - of my projects - 
+the one I'm most proud of.
+
+
+
+o  ditch mailto:blah links
 o  Tide nerd tone a bit off
+	o  rule of 12ths
 o  Telegram alerts for site load and set own location and each route
 	o  if proxy already has state - can add uniqute user id
 

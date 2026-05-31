@@ -1,7 +1,7 @@
 // @ts-check
 import { get } from "svelte/store";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { parseHash, route, syncRouteFromHash } from "./router.js";
+import { parseHash, route, syncRouteFromHash, navigate } from "./router.js";
 
 describe("parseHash", () => {
   it("maps home variants to home", () => {
@@ -9,7 +9,6 @@ describe("parseHash", () => {
     expect(parseHash("#")).toBe("home");
     expect(parseHash("#/")).toBe("home");
     expect(parseHash("#/home")).toBe("home");
-    expect(parseHash("#/home?contact=1")).toBe("home");
   });
 
   it("maps location and legacy location2 to location", () => {
@@ -185,5 +184,22 @@ describe("syncRouteFromHash", () => {
 
     expect(get(route)).toBe("location");
     expect(replaceState).not.toHaveBeenCalled();
+  });
+});
+
+describe("navigate", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    route.set("home");
+  });
+
+  it("sets the location hash", () => {
+    vi.stubGlobal("window", {
+      location: { hash: "#/story" },
+    });
+
+    navigate("home");
+
+    expect(window.location.hash).toBe("/home");
   });
 });
