@@ -20,11 +20,9 @@ TIDE DIAL
 *  Add subsidy of costs to coffee
 *  Move phone image to stick on wall or elsewhere, or drop
 *  Better DrawExact linkaage
-
-
-o  ditch mailto:blah links
-o  Tide nerd tone a bit off
-	o  rule of 12ths
+*  ditch mailto:blah links
+*  Tide nerd tone a bit off
+o  sw nerd?
 o  Telegram alerts for site load and set own location and each route
 	o  if proxy already has state - can add uniqute user id
 
