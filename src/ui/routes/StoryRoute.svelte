@@ -1,6 +1,7 @@
 <script lang="ts">
   import { THE_TIDE_DIAL } from "../brand";
   import { VIRTUAL_COFFEE_URL } from "../../support";
+  import { externalLinkNewTabAttrs } from "../externalLink";
 
   const contactEmail = "peterhoward42@gmail.com";
 </script>
@@ -37,9 +38,8 @@
     </p>
     <p>
       You can look up the tide times in tables. But they just show numbers, and
-      more numbers. I find myself trying to work out in my head what the number
-      are telling me about the moving patterns for today - and how it's going to
-      affect my day.
+      more numbers. I find myself trying to figure out the big picture ebb and
+      flow pattern of the day - to help me organise my day.
     </p>
     <p>
       So I made The Tide Dial - to bridge that gap and paint the picture for me.
@@ -81,8 +81,7 @@
         <a
           class="story-route__support-link"
           href={VIRTUAL_COFFEE_URL}
-          target="_blank"
-          rel="noopener noreferrer">coffee</a
+          {...externalLinkNewTabAttrs}>coffee</a
         >
         - to say thanks, or make a small contribution towards my ongoing tide-data
         costs - I would have no great objection.
@@ -112,8 +111,7 @@
       <a
         class="story-route__link"
         href="https://www.drawexact.click/"
-        target="_blank"
-        rel="noopener noreferrer">DrawExact</a
+        {...externalLinkNewTabAttrs}>DrawExact</a
       >
       — one of my other projects. It's the project I'm most proud of. It's a free
       drawing app that works in your browser — for drawings where it's the geometry
@@ -153,8 +151,7 @@
         <a
           class="story-route__note-link"
           href="https://www.quora.com/Does-the-Apple-logo-really-adhere-to-the-golden-ratio"
-          target="_blank"
-          rel="noopener noreferrer">conspiracy theory</a
+          {...externalLinkNewTabAttrs}>conspiracy theory</a
         >
         that the real Apple logo is based on the mathematical Fibonacci series.
       </p>
@@ -222,7 +219,8 @@
   .story-route__note {
     margin: 0.15rem 0 0;
     padding: 0.55rem 0 0 0.85rem;
-    border-left: 2px solid color-mix(in srgb, var(--text-muted) 35%, transparent);
+    border-left: 2px solid
+      color-mix(in srgb, var(--text-muted) 35%, transparent);
     max-width: 28rem;
   }
 

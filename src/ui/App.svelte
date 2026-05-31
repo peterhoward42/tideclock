@@ -37,6 +37,7 @@
   import { surfaceModeForRoute } from "./routeSurfaceMode";
   import { OPERATOR_NOTICE_ACTIVE } from "./operatorNoticeConfig";
   import { effectiveSearchFromLocation } from "./homeUrlQuery";
+  import { handleOffSiteLinkClick } from "./externalLink";
 
   /** Mirrors {@link RouteId} in `router.js` for header copy and route surface mode mapping. */
   type AppRouteId = Parameters<typeof surfaceModeForRoute>[0];
@@ -280,9 +281,11 @@
     const unsubMinute = subscribeMinuteCadence(() => {
       maybeRefreshTideAfterLocalMidnightRollover();
     });
+    document.addEventListener("click", handleOffSiteLinkClick);
     return () => {
       unsubMinute();
       devUrlCleanup?.();
+      document.removeEventListener("click", handleOffSiteLinkClick);
     };
   });
 </script>

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { THE_TIDE_DIAL } from "../brand";
+  import { externalLinkNewTabAttrs } from "../externalLink";
 
   const REPO_TIDECLOCK = "https://github.com/peterhoward42/tideclock";
   const REPO_TIDEPROXY = "https://github.com/peterhoward42/tideproxy";
@@ -17,8 +18,7 @@
     <a
       class="software-nerd-route__link"
       href={REPO_TIDECLOCK}
-      target="_blank"
-      rel="noopener noreferrer">github.com/peterhoward42/tideclock</a
+      {...externalLinkNewTabAttrs}>github.com/peterhoward42/tideclock</a
     >. This page is not a formal architecture document; detail will grow over time.
   </p>
 
@@ -32,22 +32,19 @@
       <a
         class="software-nerd-route__link"
         href="https://svelte.dev/"
-        target="_blank"
-        rel="noopener noreferrer">Svelte</a
+        {...externalLinkNewTabAttrs}>Svelte</a
       >
       (currently Svelte 5). It runs as a
       <a
         class="software-nerd-route__link"
         href={LINK_SPA}
-        target="_blank"
-        rel="noopener noreferrer">single-page application</a
+        {...externalLinkNewTabAttrs}>single-page application</a
       >
       (SPA): hash-based routing swaps views without full page reloads.
       <a
         class="software-nerd-route__link"
         href="https://vite.dev/"
-        target="_blank"
-        rel="noopener noreferrer">Vite</a
+        {...externalLinkNewTabAttrs}>Vite</a
       >
       bundles the TypeScript and Svelte sources for development and production builds.
     </p>
@@ -95,8 +92,7 @@
       <a
         class="software-nerd-route__link"
         href="https://vercel.com/"
-        target="_blank"
-        rel="noopener noreferrer">Vercel</a
+        {...externalLinkNewTabAttrs}>Vercel</a
       >
       and served from their edge CDN. Pushing to the linked GitHub repository is enough to trigger a
       new deployment — no separate release ceremony.
@@ -117,8 +113,7 @@
       <a
         class="software-nerd-route__link"
         href="https://www.worldtides.info/"
-        target="_blank"
-        rel="noopener noreferrer">WorldTides</a
+        {...externalLinkNewTabAttrs}>WorldTides</a
       >
       (worldtides.info). The browser never holds the upstream API key.
     </p>
@@ -128,14 +123,12 @@
       <a
         class="software-nerd-route__link"
         href="https://cloud.google.com/functions"
-        target="_blank"
-        rel="noopener noreferrer">Google Cloud Function</a
+        {...externalLinkNewTabAttrs}>Google Cloud Function</a
       >. Source:
       <a
         class="software-nerd-route__link"
         href={REPO_TIDEPROXY}
-        target="_blank"
-        rel="noopener noreferrer">github.com/peterhoward42/tideproxy</a
+        {...externalLinkNewTabAttrs}>github.com/peterhoward42/tideproxy</a
       >. The proxy server keeps credentials on the server, shapes responses into a stable contract for
       the client, and throttles traffic to WorldTides so request volume (and cost) stay under control.
     </p>
@@ -212,8 +205,7 @@
       <a
         class="software-nerd-route__link"
         href="https://vitest.dev/"
-        target="_blank"
-        rel="noopener noreferrer">Vitest</a
+        {...externalLinkNewTabAttrs}>Vitest</a
       >: fast unit tests across application logic, time services, data pipelines, and UI helpers. Where
       outputs are stable and textual, snapshot tests guard regressions (diagram specs, SVG-related
       mapping). Network boundaries are exercised with mocks rather than live WorldTides or proxy
@@ -234,15 +226,13 @@
       <a
         class="software-nerd-route__link"
         href={REPO_TIDECLOCK}
-        target="_blank"
-        rel="noopener noreferrer">tideclock</a
+        {...externalLinkNewTabAttrs}>tideclock</a
       >
       repository was <strong>AI-generated</strong> — chiefly through
       <a
         class="software-nerd-route__link"
         href={LINK_CURSOR}
-        target="_blank"
-        rel="noopener noreferrer">Cursor</a
+        {...externalLinkNewTabAttrs}>Cursor</a
       >
       (an AI-assisted code editor)
       — but not in one heroic paste. An experienced software developer directed the work across 574 small

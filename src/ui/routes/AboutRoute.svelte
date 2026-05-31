@@ -1,6 +1,7 @@
 <script lang="ts">
   import { TIDECLOCK_BUILD_COMMIT } from "../../buildCommit";
   import { THE_TIDE_DIAL } from "../brand";
+  import { externalLinkNewTabAttrs } from "../externalLink";
 
   const versionLabel =
     TIDECLOCK_BUILD_COMMIT.length > 0 ? TIDECLOCK_BUILD_COMMIT : "unknown";
@@ -41,8 +42,7 @@
       <a
         class="about-route__link"
         href="https://www.worldtides.info/"
-        target="_blank"
-        rel="noopener noreferrer">www.worldtides.info</a
+        {...externalLinkNewTabAttrs}>www.worldtides.info</a
       >.
       Copyright © 2014-2026 Brainware LLC. Licensed for use of individual spatial coordinates by an
       end-user. NO GUARANTEES ARE MADE ABOUT THE CORRECTNESS OF THIS TIDAL DATA. You may not use
@@ -52,15 +52,13 @@
       <a
         class="about-route__link"
         href="https://www.worldtides.info/copyright"
-        target="_blank"
-        rel="noopener noreferrer">www.worldtides.info/copyright</a
+        {...externalLinkNewTabAttrs}>www.worldtides.info/copyright</a
       >
       (required notice per
       <a
         class="about-route__link"
         href="https://www.worldtides.info/terms"
-        target="_blank"
-        rel="noopener noreferrer">WorldTides terms — Additional provisions</a
+        {...externalLinkNewTabAttrs}>WorldTides terms — Additional provisions</a
       >).
     </p>
   </section>
@@ -74,8 +72,7 @@
       <a
         class="about-route__link"
         href="https://www.openstreetmap.org/copyright"
-        target="_blank"
-        rel="noopener noreferrer">openstreetmap.org/copyright</a
+        {...externalLinkNewTabAttrs}>openstreetmap.org/copyright</a
       >.
     </p>
   </section>

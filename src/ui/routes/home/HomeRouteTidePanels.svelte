@@ -27,6 +27,7 @@
     quotaExhaustedSoftwareNerdLinkText,
     quotaExhaustedStoryHref,
   } from "../../quotaExhaustedCopy";
+  import { externalLinkNewTabAttrs } from "../../externalLink";
   import {
     operatorNoticeBodyParagraphs,
     operatorNoticeHeadline,
@@ -112,8 +113,7 @@
         {quotaExhaustedIntroLead}<a
           class="home-quota-message__link"
           href={quotaExhaustedWorldTidesHref}
-          target="_blank"
-          rel="noopener noreferrer">{quotaExhaustedIntroSiteLabel}</a
+          {...externalLinkNewTabAttrs}>{quotaExhaustedIntroSiteLabel}</a
         >{quotaExhaustedIntroEnd}
       </p>
       {#each quotaExhaustedBodyParagraphs as paragraph}
