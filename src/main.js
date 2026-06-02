@@ -7,6 +7,7 @@
 import { mount } from 'svelte'
 import './app.css'
 import App from './ui/App.svelte'
+import { initProxyUserIdAtBoot } from './infrastructure/proxyUserId'
 
 console.log('[tideclock] boot: main.js running (bundle loaded)')
 if (import.meta.env.DEV) {
@@ -20,6 +21,16 @@ if (import.meta.env.DEV) {
     '[tideclock] boot: VITE_TIDE_PROXY_BASE_URL configured:',
     Boolean(import.meta.env.VITE_TIDE_PROXY_BASE_URL)
   )
+}
+
+if (typeof localStorage !== 'undefined') {
+  const proxyUserId = initProxyUserIdAtBoot({
+    loader: localStorage,
+    storer: localStorage
+  })
+  if (import.meta.env.DEV && proxyUserId !== undefined) {
+    console.log('[tideclock] boot: proxy user id ready')
+  }
 }
 
 const target = document.getElementById('app')
