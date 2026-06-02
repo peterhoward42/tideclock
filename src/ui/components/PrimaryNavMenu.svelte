@@ -12,6 +12,7 @@
     tideWakePresentationStore,
   } from "../routes/home/keepAwakeUi";
   import { isWakeLockApiSupported } from "../routes/home/wakeLockSupport";
+  import { emitTelemetry } from "../../infrastructure/telemetry/emitTelemetry";
 
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
   let nerdsOpen = $state(false);
@@ -52,7 +53,18 @@
   }
 
   function handleContactEntry(): void {
-    contactOpen = !contactOpen;
+    const opening = !contactOpen;
+    contactOpen = opening;
+    if (opening) {
+      emitTelemetry("visited_contact");
+    }
+  }
+
+  function handleMenuToggle(event: Event): void {
+    const target = event.currentTarget;
+    if (target instanceof HTMLDetailsElement && target.open) {
+      emitTelemetry("opened_menu_from_header");
+    }
   }
 
   onMount(() =>
@@ -66,7 +78,7 @@
   );
 </script>
 
-<details class="menu" bind:this={menuDetails}>
+<details class="menu" bind:this={menuDetails} ontoggle={handleMenuToggle}>
   <summary class="menu-toggle" aria-label="Menu">Menu</summary>
   <div class="nav-links u-pad-surface-sm">
     <PrimaryMenuContent

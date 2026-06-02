@@ -16,6 +16,7 @@ Static SPA built with **Vite 8** + **Svelte 5**, hosted on **Vercel** at [thetid
 | Variable | When | Role |
 |----------|------|------|
 | `VITE_TIDE_PROXY_BASE_URL` | Dev + build | Origin for `${base}/v1/tides` (no trailing slash). Baked into the client bundle. |
+| `VITE_TELEMETRY_BASE_URL` | Dev + build | Origin for `${base}/v1/events` (no trailing slash). Baked into the client bundle. |
 
 Copy [`.env.example`](../.env.example) → `.env` locally. Set the same variable in the **Vercel project** for production builds. Typings: [`src/vite-env.d.ts`](../src/vite-env.d.ts).
 

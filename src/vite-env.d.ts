@@ -7,6 +7,7 @@
  */
 interface ImportMetaEnv {
   readonly VITE_TIDE_PROXY_BASE_URL: string;
+  readonly VITE_TELEMETRY_BASE_URL: string;
 }
 
 /** Injected by Vite `define` in `vite.config.js`. */

@@ -69,6 +69,7 @@
     detectFullscreenBrowserAdvice,
     formatFullscreenBrowserAdviceMessage,
   } from "./fullscreenBrowserAdvice";
+  import { emitTelemetry, emitTelemetryError } from "../../../infrastructure/telemetry/emitTelemetry";
 
   let {
     tidePresentation,
@@ -112,6 +113,7 @@
   let displaySnapshot = $state(get(displayOptimisation));
   /** Vertical letterbox slack (px) for `xMidYMid meet` fit of the diagram SVG inside the instrument. */
   let verticalLetterboxSlackPx = $state(0);
+  let diagramErrorTelemetrySent = $state(false);
 
   /** Dev-only: optional debug tooling (toggle with query params). */
   let domDumpEnabled = $state(false);
@@ -314,6 +316,18 @@
   });
 
   $effect(() => {
+    if (diagramError === undefined) {
+      diagramErrorTelemetrySent = false;
+      return;
+    }
+    if (diagramErrorTelemetrySent) {
+      return;
+    }
+    diagramErrorTelemetrySent = true;
+    emitTelemetryError("diagram_render_failed");
+  });
+
+  $effect(() => {
     if (diagramHostEl == null) return;
     if (diagramSvg === "") return;
 
@@ -348,6 +362,9 @@
       getMenuPanel: () => homeMenuPanelEl,
       isMenuOpen: () => homeMenuOpen,
       setMenuOpen: (open) => {
+        if (open && !homeMenuOpen) {
+          emitTelemetry("opened_menu_from_diagram");
+        }
         homeMenuOpen = open;
       },
       setMenuPanelStyle: (cssText) => {
@@ -469,6 +486,8 @@
       return;
     }
 
+    emitTelemetry("used_really_full");
+
     if (typeof navigator === "undefined") return;
     const advice = detectFullscreenBrowserAdvice(
       navigator.userAgent,
@@ -489,7 +508,11 @@
   }
 
   function handleHomeContactEntry(): void {
-    homeContactOpen = !homeContactOpen;
+    const opening = !homeContactOpen;
+    homeContactOpen = opening;
+    if (opening) {
+      emitTelemetry("visited_contact");
+    }
   }
 </script>
 
