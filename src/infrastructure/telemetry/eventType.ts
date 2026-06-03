@@ -6,6 +6,7 @@
 /** Canonical `type` field sent to the telemetry ingest API. */
 export type TelemetryEventType =
   | 'loaded'
+  | 'data_fetch_from_proxy'
   | 'set_custom_loc'
   | 'visited_stick_on_wall'
   | 'used_screen_awake'

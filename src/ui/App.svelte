@@ -138,6 +138,7 @@
         loader: localStorage,
         storer: localStorage,
         baseUrl: import.meta.env.VITE_TIDE_PROXY_BASE_URL,
+        onExternalTideFetch: () => emitTelemetry("data_fetch_from_proxy"),
         quotaSession: tideQuotaSession,
       });
       appDiag("loadTideExtremesForCurrentCivilDay finished", {

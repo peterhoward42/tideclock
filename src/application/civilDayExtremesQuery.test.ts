@@ -39,19 +39,35 @@ class FakeExtremesStorer implements ExtremesStorer {
   }
 }
 
+/** Records when the query decides persisted tide data is insufficient and a proxy fetch will run. */
+class FakeExternalTideFetchNotifier {
+  externalFetchDecisionCount = 0;
+
+  onExternalTideFetch(): void {
+    this.externalFetchDecisionCount += 1;
+  }
+}
+
 function queryDeps(
-  partial: Omit<Parameters<typeof loadCivilDayExtremes>[2], 'quotaSession'> & {
+  partial: Omit<Parameters<typeof loadCivilDayExtremes>[2], 'quotaSession' | 'onExternalTideFetch'> & {
     quotaSession?: QuotaSessionGate;
+    externalFetchNotifier?: FakeExternalTideFetchNotifier;
   }
 ): Parameters<typeof loadCivilDayExtremes>[2] {
-  const { quotaSession, ...rest } = partial;
-  return { quotaSession: quotaSession ?? createQuotaSessionGate(), ...rest };
+  const { quotaSession, externalFetchNotifier, ...rest } = partial;
+  const notifier = externalFetchNotifier ?? new FakeExternalTideFetchNotifier();
+  return {
+    quotaSession: quotaSession ?? createQuotaSessionGate(),
+    onExternalTideFetch: () => notifier.onExternalTideFetch(),
+    ...rest
+  };
 }
 
 describe('loadCivilDayExtremes', () => {
   const timeNowProvider = new FakeTimeNowProvider(new Date(2026, 2, 23, 10, 30, 0, 0));
 
   it('returns from store without calling fetch when the snapshot satisfies the query', async () => {
+    const externalFetchNotifier = new FakeExternalTideFetchNotifier();
     const storer = new FakeExtremesStorer();
     const loader = new FakeExtremesLoader({
       [EXTREMES_SNAPSHOT_KEY]: JSON.stringify({
@@ -78,11 +94,13 @@ describe('loadCivilDayExtremes', () => {
         storer,
         baseUrl: 'https://example.test',
         fetchImpl,
-        timeNowProvider
+        timeNowProvider,
+        externalFetchNotifier
       })
     );
 
     expect(fetchImpl).not.toHaveBeenCalled();
+    expect(externalFetchNotifier.externalFetchDecisionCount).toBe(0);
     expect(storer.writes).toHaveLength(0);
     expect(result).toEqual(
       TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
@@ -93,6 +111,7 @@ describe('loadCivilDayExtremes', () => {
   });
 
   it('fetches, persists, and returns civil-day extremes when the store does not satisfy', async () => {
+    const externalFetchNotifier = new FakeExternalTideFetchNotifier();
     const storer = new FakeExtremesStorer();
     const loader = new FakeExtremesLoader({
       [EXTREMES_SNAPSHOT_KEY]: null
@@ -126,10 +145,12 @@ describe('loadCivilDayExtremes', () => {
         storer,
         baseUrl: 'https://example.test',
         fetchImpl,
-        timeNowProvider
+        timeNowProvider,
+        externalFetchNotifier
       })
     );
 
+    expect(externalFetchNotifier.externalFetchDecisionCount).toBe(1);
     expect(fetchImpl).toHaveBeenCalledTimes(1);
     expect(storer.writes).toHaveLength(1);
     expect(storer.writes[0]?.key).toBe(EXTREMES_SNAPSHOT_KEY);
@@ -190,6 +211,7 @@ describe('loadCivilDayExtremes', () => {
   });
 
   it('bypasses store and fetches when session quota is already exhausted', async () => {
+    const externalFetchNotifier = new FakeExternalTideFetchNotifier();
     const storer = new FakeExtremesStorer();
     const loader = new FakeExtremesLoader({
       [EXTREMES_SNAPSHOT_KEY]: JSON.stringify({
@@ -235,10 +257,12 @@ describe('loadCivilDayExtremes', () => {
         baseUrl: 'https://example.test',
         fetchImpl,
         timeNowProvider,
-        quotaSession
+        quotaSession,
+        externalFetchNotifier
       })
     );
 
+    expect(externalFetchNotifier.externalFetchDecisionCount).toBe(1);
     expect(fetchImpl).toHaveBeenCalledTimes(1);
     expect(result).toEqual(
       TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
@@ -249,6 +273,7 @@ describe('loadCivilDayExtremes', () => {
   });
 
   it('sets session quota and propagates ProxyQuotaExhaustedError without using store', async () => {
+    const externalFetchNotifier = new FakeExternalTideFetchNotifier();
     const storer = new FakeExtremesStorer();
     const loader = new FakeExtremesLoader({
       [EXTREMES_SNAPSHOT_KEY]: JSON.stringify({
@@ -285,11 +310,13 @@ describe('loadCivilDayExtremes', () => {
           baseUrl: 'https://example.test',
           fetchImpl,
           timeNowProvider,
-          quotaSession
+          quotaSession,
+          externalFetchNotifier
         })
       )
     ).rejects.toBeInstanceOf(ProxyQuotaExhaustedError);
 
+    expect(externalFetchNotifier.externalFetchDecisionCount).toBe(1);
     expect(fetchImpl).toHaveBeenCalledTimes(1);
     expect(storer.writes).toHaveLength(0);
     expect(quotaSession.isSessionQuotaExhausted()).toBe(true);

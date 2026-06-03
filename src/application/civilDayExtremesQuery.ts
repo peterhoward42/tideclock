@@ -28,12 +28,14 @@ function queryDiag(...args: unknown[]): void {
   console.log('[tideclock] tide-query:', ...args);
 }
 
-/** Loader, storer, and proxy origin — required on every call. */
+/** Loader, storer, proxy origin, and external-fetch notification — required on every call. */
 export interface ExtremesQueryCoreDeps {
   readonly loader: ExtremesLoader;
   readonly storer: ExtremesStorer;
   /** Non-empty tide proxy origin (e.g. from env in the app shell). */
   readonly baseUrl: string;
+  /** Called once when the query decides persisted data is insufficient and a proxy fetch will run. */
+  readonly onExternalTideFetch: () => void;
 }
 
 /**
@@ -128,6 +130,8 @@ export async function loadCivilDayExtremes(
   }
 
   queryDiag('store miss or quota bypass — fetching proxy');
+
+  deps.onExternalTideFetch();
 
   try {
     const fullSnapshot = await fetchPersistExtremes({
