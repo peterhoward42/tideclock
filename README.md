@@ -31,7 +31,7 @@ All persistence is in the browser’s **`localStorage`** on the user’s device 
 
 On a first visit with empty storage, the app shows tides for **Looe, Cornwall** until you pick another location (see **Location** in the menu). Cookie policy, safety wording, tide-data copyright, and related notices are on the in-app **[About](https://thetidedial.page/#/about)** page (`#/about`), not duplicated here.
 
-**Runtime telemetry:** anonymous product events (menu use, route visits, errors, etc.) are POSTed to a separate ingest API when `VITE_TELEMETRY_BASE_URL` is configured at build time. Payload shape: [`src/infrastructure/telemetry/telemetryPayload.ts`](src/infrastructure/telemetry/telemetryPayload.ts).
+**Runtime telemetry:** anonymous product events (route visits, location picks, errors, etc.) are POSTed to a separate ingest API when `VITE_TELEMETRY_BASE_URL` is configured at build time. Payload shape: [`src/infrastructure/telemetry/telemetryPayload.ts`](src/infrastructure/telemetry/telemetryPayload.ts).
 
 ## Getting started
 

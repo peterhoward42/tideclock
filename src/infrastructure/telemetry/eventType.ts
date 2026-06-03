@@ -1,5 +1,5 @@
 /**
- * eventType.ts — Closed vocabulary of client telemetry event types (no per-event payload).
+ * eventType.ts — Closed vocabulary of client telemetry event types.
  * Kind: Definition. Extend when adding new product signals; keep values stable for the ingest API.
  */
 
@@ -7,8 +7,6 @@
 export type TelemetryEventType =
   | 'loaded'
   | 'set_custom_loc'
-  | 'opened_menu_from_diagram'
-  | 'opened_menu_from_header'
   | 'visited_stick_on_wall'
   | 'used_screen_awake'
   | 'used_really_full'

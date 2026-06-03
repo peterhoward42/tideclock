@@ -4,7 +4,7 @@
  */
 
 import { runtimeProxyUserId } from '../proxyUserId';
-import type { TelemetryErrorQualification } from './errorQualification';
+import type { TelemetryErrorEventParam } from './errorEventParam';
 import type { TelemetryEventType } from './eventType';
 import { buildTelemetryPayload } from './telemetryPayload';
 import { postTelemetryEvent } from './telemetryClient';
@@ -38,7 +38,7 @@ export function setEmitTelemetryDepsForTests(next: EmitTelemetryDeps | undefined
 }
 
 export interface EmitTelemetryOptions {
-  readonly errorQualification?: TelemetryErrorQualification;
+  readonly eventParams?: string;
 }
 
 /**
@@ -54,18 +54,13 @@ export function emitTelemetry(
     return;
   }
 
-  let payload;
-  try {
-    payload = buildTelemetryPayload({
-      type,
-      proxyUserId,
-      eventId: deps.mintEventId(),
-      occurredAt: deps.nowIsoUtc(),
-      errorQualification: options.errorQualification
-    });
-  } catch {
-    return;
-  }
+  const payload = buildTelemetryPayload({
+    type,
+    proxyUserId,
+    eventId: deps.mintEventId(),
+    occurredAt: deps.nowIsoUtc(),
+    eventParams: options.eventParams
+  });
 
   void postTelemetryEvent({
     baseUrl: deps.baseUrl,
@@ -74,9 +69,7 @@ export function emitTelemetry(
   });
 }
 
-/** Shorthand for `emitTelemetry('error', { errorQualification })`. */
-export function emitTelemetryError(
-  errorQualification: TelemetryErrorQualification
-): void {
-  emitTelemetry('error', { errorQualification });
+/** Shorthand for `emitTelemetry('error', { eventParams })`. */
+export function emitTelemetryError(eventParams: TelemetryErrorEventParam): void {
+  emitTelemetry('error', { eventParams });
 }

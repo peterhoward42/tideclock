@@ -3,9 +3,16 @@
  * Kind: Definition / boundary contract. Does not perform HTTP.
  */
 
-import type { TelemetryErrorQualification } from './errorQualification';
 import type { TelemetryEventType } from './eventType';
 import type { ProxyUserId } from '../proxyUserId';
+
+const MAX_EVENT_PARAMS_LENGTH = 200;
+
+function truncateEventParams(value: string): string {
+  return value.length <= MAX_EVENT_PARAMS_LENGTH
+    ? value
+    : value.slice(0, MAX_EVENT_PARAMS_LENGTH);
+}
 
 /** One client telemetry event — flat record, no nested context objects. */
 export interface TelemetryEventPayload {
@@ -13,8 +20,7 @@ export interface TelemetryEventPayload {
   readonly type: TelemetryEventType;
   readonly occurredAt: string;
   readonly proxyUserId: ProxyUserId;
-  /** Present only when `type` is `'error'`. */
-  readonly errorQualification?: TelemetryErrorQualification;
+  readonly eventParams?: string;
 }
 
 export interface BuildTelemetryPayloadInput {
@@ -22,34 +28,26 @@ export interface BuildTelemetryPayloadInput {
   readonly proxyUserId: ProxyUserId;
   readonly eventId: string;
   readonly occurredAt: string;
-  readonly errorQualification?: TelemetryErrorQualification;
+  readonly eventParams?: string;
 }
 
-/** Assembles the ingest body; enforces error events carry a qualification. */
+/** Assembles the ingest body; truncates `eventParams` when present. */
 export function buildTelemetryPayload(
   input: BuildTelemetryPayloadInput
 ): TelemetryEventPayload {
-  if (input.type === 'error') {
-    if (input.errorQualification === undefined) {
-      throw new Error('Telemetry error events require errorQualification.');
-    }
-    return {
-      eventId: input.eventId,
-      type: input.type,
-      occurredAt: input.occurredAt,
-      proxyUserId: input.proxyUserId,
-      errorQualification: input.errorQualification
-    };
-  }
-
-  if (input.errorQualification !== undefined) {
-    throw new Error('errorQualification is only valid when type is "error".');
-  }
-
-  return {
+  const base = {
     eventId: input.eventId,
     type: input.type,
     occurredAt: input.occurredAt,
     proxyUserId: input.proxyUserId
+  };
+
+  if (input.eventParams === undefined) {
+    return base;
+  }
+
+  return {
+    ...base,
+    eventParams: truncateEventParams(input.eventParams)
   };
 }

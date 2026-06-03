@@ -12,7 +12,7 @@ const EVENT_ID = '550e8400-e29b-41d4-a716-446655440000';
 const OCCURRED_AT = '2026-06-02T12:00:00.000Z';
 
 describe('buildTelemetryPayload', () => {
-  it('builds a non-error payload without errorQualification', () => {
+  it('builds a payload without eventParams when omitted', () => {
     expect(
       buildTelemetryPayload({
         type: 'loaded',
@@ -28,27 +28,35 @@ describe('buildTelemetryPayload', () => {
     });
   });
 
-  it('requires errorQualification for error events', () => {
-    expect(() =>
+  it('includes eventParams when provided', () => {
+    expect(
       buildTelemetryPayload({
         type: 'error',
         proxyUserId: PROXY_USER_ID,
         eventId: EVENT_ID,
-        occurredAt: OCCURRED_AT
+        occurredAt: OCCURRED_AT,
+        eventParams: 'tide_load_failed'
       })
-    ).toThrow(/errorQualification/);
+    ).toEqual({
+      eventId: EVENT_ID,
+      type: 'error',
+      occurredAt: OCCURRED_AT,
+      proxyUserId: PROXY_USER_ID,
+      eventParams: 'tide_load_failed'
+    });
   });
 
-  it('rejects errorQualification on non-error events', () => {
-    expect(() =>
-      buildTelemetryPayload({
-        type: 'loaded',
-        proxyUserId: PROXY_USER_ID,
-        eventId: EVENT_ID,
-        occurredAt: OCCURRED_AT,
-        errorQualification: 'tide_load_failed'
-      })
-    ).toThrow(/only valid when type is "error"/);
+  it('truncates eventParams longer than 200 characters', () => {
+    const long = 'x'.repeat(250);
+    const payload = buildTelemetryPayload({
+      type: 'set_custom_loc',
+      proxyUserId: PROXY_USER_ID,
+      eventId: EVENT_ID,
+      occurredAt: OCCURRED_AT,
+      eventParams: long
+    });
+    expect(payload.eventParams).toHaveLength(200);
+    expect(payload.eventParams).toBe('x'.repeat(200));
   });
 });
 
@@ -121,7 +129,7 @@ describe('emitTelemetry with injected deps', () => {
     expect(fetchImpl).toHaveBeenCalledOnce();
   });
 
-  it('posts an error event with qualification', () => {
+  it('posts an error event with eventParams', () => {
     emitTelemetryError('tide_load_failed');
     expect(fetchImpl).toHaveBeenCalledOnce();
     const init = fetchImpl.mock.calls[0]?.[1] as RequestInit;
@@ -130,7 +138,7 @@ describe('emitTelemetry with injected deps', () => {
       type: 'error',
       occurredAt: OCCURRED_AT,
       proxyUserId: PROXY_USER_ID,
-      errorQualification: 'tide_load_failed'
+      eventParams: 'tide_load_failed'
     });
   });
 

@@ -60,13 +60,6 @@
     }
   }
 
-  function handleMenuToggle(event: Event): void {
-    const target = event.currentTarget;
-    if (target instanceof HTMLDetailsElement && target.open) {
-      emitTelemetry("opened_menu_from_header");
-    }
-  }
-
   onMount(() =>
     keepAwakeUserStore.subscribe((v) => (keepAwakeUserWants = v)),
   );
@@ -78,7 +71,7 @@
   );
 </script>
 
-<details class="menu" bind:this={menuDetails} ontoggle={handleMenuToggle}>
+<details class="menu" bind:this={menuDetails}>
   <summary class="menu-toggle" aria-label="Menu">Menu</summary>
   <div class="nav-links u-pad-surface-sm">
     <PrimaryMenuContent

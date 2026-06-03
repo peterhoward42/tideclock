@@ -362,9 +362,6 @@
       getMenuPanel: () => homeMenuPanelEl,
       isMenuOpen: () => homeMenuOpen,
       setMenuOpen: (open) => {
-        if (open && !homeMenuOpen) {
-          emitTelemetry("opened_menu_from_diagram");
-        }
         homeMenuOpen = open;
       },
       setMenuPanelStyle: (cssText) => {

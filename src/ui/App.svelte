@@ -204,7 +204,9 @@
     storeTownPick(town, { storer: localStorage });
     appDiag("setCurrentLocation stored town in localStorage", { townId: town.id });
     showDefaultLocationExplainer = false;
-    emitTelemetry("set_custom_loc");
+    emitTelemetry("set_custom_loc", {
+      eventParams: `${town.name} - ${town.county}`,
+    });
     refreshTidesForTown(town);
   }
 
