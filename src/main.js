@@ -16,10 +16,21 @@ if (import.meta.env.DEV) {
     '[tideclock] boot: VITE_TIDE_PROXY_BASE_URL',
     typeof base === 'string' && base.trim() !== '' ? base : '(missing or empty)'
   )
+  const telemetryBase = import.meta.env.VITE_TELEMETRY_BASE_URL
+  console.log(
+    '[tideclock] boot: VITE_TELEMETRY_BASE_URL',
+    typeof telemetryBase === 'string' && telemetryBase.trim() !== ''
+      ? telemetryBase
+      : '(missing or empty)'
+  )
 } else {
   console.log(
     '[tideclock] boot: VITE_TIDE_PROXY_BASE_URL configured:',
     Boolean(import.meta.env.VITE_TIDE_PROXY_BASE_URL)
+  )
+  console.log(
+    '[tideclock] boot: VITE_TELEMETRY_BASE_URL configured:',
+    Boolean(import.meta.env.VITE_TELEMETRY_BASE_URL)
   )
 }
 

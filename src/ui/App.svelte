@@ -38,6 +38,11 @@
   import { OPERATOR_NOTICE_ACTIVE } from "./operatorNoticeConfig";
   import { effectiveSearchFromLocation } from "./homeUrlQuery";
   import { handleOffSiteLinkClick } from "./externalLink";
+  import {
+    emitTelemetry,
+    emitTelemetryError,
+  } from "../infrastructure/telemetry/emitTelemetry";
+  import { emitRouteVisitTelemetry } from "../infrastructure/telemetry/routeVisitTelemetry";
 
   /** Mirrors {@link RouteId} in `router.js` for header copy and route surface mode mapping. */
   type AppRouteId = Parameters<typeof surfaceModeForRoute>[0];
@@ -167,10 +172,12 @@
       },
       onLoadFailed: () => {
         tidePresentation = { kind: "loadFailed" };
+        emitTelemetryError("tide_load_failed");
       },
       onQuotaExhausted: () => {
         tideQuotaSession.setSessionQuotaExhausted();
         tidePresentation = { kind: "quotaExhausted" };
+        emitTelemetryError("tide_quota_exhausted");
       },
       onLoadRejected: (e) => {
         appDiag("refreshTidesForTown error", e);
@@ -197,6 +204,7 @@
     storeTownPick(town, { storer: localStorage });
     appDiag("setCurrentLocation stored town in localStorage", { townId: town.id });
     showDefaultLocationExplainer = false;
+    emitTelemetry("set_custom_loc");
     refreshTidesForTown(town);
   }
 
@@ -258,6 +266,10 @@
   onMount(() => {
     attachHashListener();
     appDiag("app root mounted, hash listener attached");
+    emitTelemetry("loaded");
+    const unsubRoute = route.subscribe((routeId) => {
+      emitRouteVisitTelemetry(routeId);
+    });
     tidePreviewIdFromUrl = readTidePreviewIdFromLocation();
     if (!OPERATOR_NOTICE_ACTIVE && currentTown !== undefined) {
       refreshTidesForTown(currentTown);
@@ -283,6 +295,7 @@
     });
     document.addEventListener("click", handleOffSiteLinkClick);
     return () => {
+      unsubRoute();
       unsubMinute();
       devUrlCleanup?.();
       document.removeEventListener("click", handleOffSiteLinkClick);

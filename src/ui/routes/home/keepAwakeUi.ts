@@ -8,6 +8,7 @@ import {
 } from "./keepAwakePreferences";
 import type { WakeLockPresentation } from "./wakeLockPresentation";
 import { isWakeLockApiSupported } from "./wakeLockSupport";
+import { emitTelemetry } from "../../../infrastructure/telemetry/emitTelemetry";
 
 const storage: Storage | null =
   typeof globalThis !== "undefined" &&
@@ -32,7 +33,11 @@ export function getKeepAwakeUserEnabled(): boolean {
 }
 
 export function setKeepAwakeUserEnabled(next: boolean): void {
+  const wasEnabled = get(keepAwakeUser);
   keepAwakeUser.set(next);
+  if (next && !wasEnabled) {
+    emitTelemetry("used_screen_awake");
+  }
   if (storage !== null) {
     writeKeepAwakeEnabled(storage, next);
   }

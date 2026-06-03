@@ -3,6 +3,30 @@
   import { THE_TIDE_DIAL } from "../brand";
   import { VIRTUAL_COFFEE_URL } from "../../support";
   import { externalLinkNewTabAttrs } from "../externalLink";
+  import { emitTelemetry } from "../../infrastructure/telemetry/emitTelemetry";
+  import {
+    DRAWEXACT_URL,
+    isCoffeeOutboundHref,
+    isDrawExactOutboundHref,
+  } from "../../infrastructure/telemetry/outboundLinkTelemetry";
+
+  function handleOutboundTelemetryClick(event: MouseEvent): void {
+    const anchor = event.currentTarget;
+    if (!(anchor instanceof HTMLAnchorElement)) {
+      return;
+    }
+    const href = anchor.getAttribute("href");
+    if (href === null) {
+      return;
+    }
+    if (isCoffeeOutboundHref(href)) {
+      emitTelemetry("clicked_thru_to_coffee");
+      return;
+    }
+    if (isDrawExactOutboundHref(href)) {
+      emitTelemetry("clicked_thru_to_drawexact");
+    }
+  }
 </script>
 
 <main class="route story-route">
@@ -80,7 +104,8 @@
         <a
           class="story-route__support-link"
           href={VIRTUAL_COFFEE_URL}
-          {...externalLinkNewTabAttrs}>coffee</a
+          {...externalLinkNewTabAttrs}
+          onclick={handleOutboundTelemetryClick}>coffee</a
         >
         - to say thanks, or make a small contribution towards my ongoing tide-data
         costs - I would have no great objection.
@@ -106,8 +131,9 @@
       I'll leave you with a glancing reference to
       <a
         class="story-route__link"
-        href="https://www.drawexact.click/"
-        {...externalLinkNewTabAttrs}>DrawExact</a
+        href={DRAWEXACT_URL}
+        {...externalLinkNewTabAttrs}
+        onclick={handleOutboundTelemetryClick}>DrawExact</a
       >
       — one of my other projects. It's the project I'm most proud of. It's a free
       drawing app that works in your browser — for drawings where it's the geometry
