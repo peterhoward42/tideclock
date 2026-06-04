@@ -18,7 +18,6 @@
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "qrcode-generator": "^2.0.4",
-    "ulid": "^3.0.2"
+    "qrcode-generator": "^2.0.4"
   }
 }

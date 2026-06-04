@@ -1,5 +1,5 @@
 /**
- * outboundLinkTelemetry.ts — Classify off-site anchors for click-through telemetry.
+ * outboundLinkTelemetry.ts — Classify off-site anchors for click-through analytics.
  * Kind: Application helper. Coffee is Story-route only (enforced at call site).
  */
 

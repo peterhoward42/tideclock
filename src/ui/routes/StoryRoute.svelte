@@ -8,7 +8,7 @@
     DRAWEXACT_URL,
     isCoffeeOutboundHref,
     isDrawExactOutboundHref,
-  } from "../../infrastructure/telemetry/outboundLinkTelemetry";
+  } from "../../infrastructure/analytics/outboundLinkTelemetry";
 
   function handleOutboundTelemetryClick(event: MouseEvent): void {
     const anchor = event.currentTarget;

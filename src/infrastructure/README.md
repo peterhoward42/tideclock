@@ -18,15 +18,6 @@ Hash-based SPA routing for static hosting (no server rewrite required).
 
 Tests: `router.test.js`. Consumer map: [`../ui/README.md`](../ui/README.md).
 
-## Proxy user id (`proxyUserId.ts`)
+## Analytics (`analytics/`)
 
-Opaque per-browser ULID for telemetry correlation (not a logged-in user).
-
-| Export | Role |
-|--------|------|
-| `getOrCreateProxyUserId` | Read valid id from storage or mint, persist, return. |
-| `initProxyUserIdAtBoot` | Called from `main.js` before mount; caches for runtime. |
-| `runtimeProxyUserId` | Boot-time id for event assembly; `undefined` if storage failed. |
-| `isValidUlid` | Crockford Base32 ULID validation. |
-
-Storage key: `tideclock.proxyUserId`. Tests: `proxyUserId.test.ts`.
+Vercel Web Analytics custom events via `trackProductEvent.ts`. Injected from `main.js` in production only. Route visits, outbound link classification, and event name types live alongside the wrapper.

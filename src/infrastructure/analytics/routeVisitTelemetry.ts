@@ -4,7 +4,7 @@
  */
 
 import { trackProductEvent } from './trackProductEvent';
-import type { TelemetryEventType } from '../telemetry/eventType';
+import type { TelemetryEventType } from './eventType';
 
 type VisitTelemetryRoute =
   | 'install'

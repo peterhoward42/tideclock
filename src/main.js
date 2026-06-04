@@ -8,7 +8,6 @@ import { mount } from 'svelte'
 import './app.css'
 import App from './ui/App.svelte'
 import { injectProductAnalytics } from './infrastructure/analytics/trackProductEvent'
-import { initProxyUserIdAtBoot } from './infrastructure/proxyUserId'
 
 injectProductAnalytics()
 
@@ -19,32 +18,11 @@ if (import.meta.env.DEV) {
     '[tideclock] boot: VITE_TIDE_PROXY_BASE_URL',
     typeof base === 'string' && base.trim() !== '' ? base : '(missing or empty)'
   )
-  const telemetryBase = import.meta.env.VITE_TELEMETRY_BASE_URL
-  console.log(
-    '[tideclock] boot: VITE_TELEMETRY_BASE_URL',
-    typeof telemetryBase === 'string' && telemetryBase.trim() !== ''
-      ? telemetryBase
-      : '(missing or empty)'
-  )
 } else {
   console.log(
     '[tideclock] boot: VITE_TIDE_PROXY_BASE_URL configured:',
     Boolean(import.meta.env.VITE_TIDE_PROXY_BASE_URL)
   )
-  console.log(
-    '[tideclock] boot: VITE_TELEMETRY_BASE_URL configured:',
-    Boolean(import.meta.env.VITE_TELEMETRY_BASE_URL)
-  )
-}
-
-if (typeof localStorage !== 'undefined') {
-  const proxyUserId = initProxyUserIdAtBoot({
-    loader: localStorage,
-    storer: localStorage
-  })
-  if (import.meta.env.DEV && proxyUserId !== undefined) {
-    console.log('[tideclock] boot: proxy user id ready')
-  }
 }
 
 const target = document.getElementById('app')

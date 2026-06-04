@@ -4,8 +4,8 @@
  */
 
 import { inject, track } from '@vercel/analytics';
-import type { TelemetryErrorEventParam } from '../telemetry/errorEventParam';
-import type { TelemetryEventType } from '../telemetry/eventType';
+import type { TelemetryErrorEventParam } from './errorEventParam';
+import type { TelemetryEventType } from './eventType';
 
 type ProductEventProperties = Record<
   string,

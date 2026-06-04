@@ -27,11 +27,10 @@ All persistence is in the browser’s **`localStorage`** on the user’s device 
 | `current-location` | The town you chose for tide display (JSON snapshot). |
 | `tide-extremes-at-location` | Cached high/low extremes for the current civil day, to avoid refetching when possible. |
 | `tideclock.keepScreenAwake` | Optional “keep screen awake” preference for the home tide view. |
-| `tideclock.proxyUserId` | Opaque per-browser installation id (ULID) for telemetry correlation. |
 
 On a first visit with empty storage, the app shows tides for **Looe, Cornwall** until you pick another location (see **Location** in the menu). Cookie policy, safety wording, tide-data copyright, and related notices are on the in-app **[About](https://thetidedial.page/#/about)** page (`#/about`), not duplicated here.
 
-**Runtime telemetry:** anonymous product events (route visits, location picks, errors, etc.) are POSTed to a separate ingest API when `VITE_TELEMETRY_BASE_URL` is configured at build time. Payload shape: [`src/infrastructure/telemetry/telemetryPayload.ts`](src/infrastructure/telemetry/telemetryPayload.ts).
+**Product analytics:** anonymous custom events (route visits, location picks, errors, etc.) are sent via [Vercel Web Analytics](https://vercel.com/docs/analytics) in production builds. See [`src/infrastructure/analytics/`](src/infrastructure/analytics/).
 
 ## Getting started
 
@@ -39,7 +38,7 @@ On a first visit with empty storage, the app shows tides for **Looe, Cornwall** 
 git clone git@github.com:peterhoward42/tideclock.git
 cd tideclock
 npm install
-cp .env.example .env   # set VITE_TIDE_PROXY_BASE_URL and VITE_TELEMETRY_BASE_URL
+cp .env.example .env   # set VITE_TIDE_PROXY_BASE_URL
 npm test
 npm run dev
 ```
@@ -58,7 +57,7 @@ Produces `dist/` for static hosting.
 
 **Hosting:** [Vercel](https://vercel.com/) — static build on **git push**, single production environment. The live site is [thetidedial.page](https://thetidedial.page).
 
-**Build-time configuration:** set `VITE_TIDE_PROXY_BASE_URL` and `VITE_TELEMETRY_BASE_URL` (see [`.env.example`](.env.example)) so the client knows where to request `/v1/tides` and POST `/v1/events`. Configure the same variables in the Vercel project for production builds.
+**Build-time configuration:** set `VITE_TIDE_PROXY_BASE_URL` (see [`.env.example`](.env.example)) so the client knows where to request `/v1/tides`. Configure the same variable in the Vercel project for production builds. Enable **Web Analytics** in the Vercel dashboard for custom event data.
 
 ## Documentation
 
