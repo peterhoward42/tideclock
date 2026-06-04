@@ -6,6 +6,7 @@ export type AppRouteId =
   | "home"
   | "location"
   | "about"
+  | "install"
   | "onwall"
   | "story"
   | "tidenerd"

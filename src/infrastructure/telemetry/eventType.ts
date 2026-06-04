@@ -9,6 +9,7 @@ export type TelemetryEventType =
   | 'data_fetch_from_proxy'
   | 'set_custom_loc'
   | 'visited_stick_on_wall'
+  | 'visited_install'
   | 'used_screen_awake'
   | 'used_really_full'
   | 'visited_story'

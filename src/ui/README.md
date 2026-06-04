@@ -19,6 +19,7 @@ Surface styling: `routeSurfaceMode.ts` (`appliance` for home, `document` for oth
 | `home` | `routes/home/HomeRoute.svelte` | Diagram, menus, dev URL flags. |
 | `location` | `routes/LocationRoute.svelte` | Step-back town picker ([`../data/README.md`](../data/README.md)). |
 | `about` | `routes/AboutRoute.svelte` | Privacy, cookies, tide data attribution. |
+| `install` | `routes/InstallRoute.svelte` | Multi-platform install / Add to Home Screen steps. |
 | `onwall` | `routes/OnWallRoute.svelte` | Wall-mount guidance. |
 | `story` | `routes/StoryRoute.svelte` | Author story, support links. |
 | `tidenerd` | `routes/TideNerdRoute.svelte` | Tide background for visitors. |

@@ -29,6 +29,7 @@
   import Home from "./routes/Home.svelte";
   import LocationRoute from "./routes/LocationRoute.svelte";
   import AboutRoute from "./routes/AboutRoute.svelte";
+  import InstallRoute from "./routes/InstallRoute.svelte";
   import OnWallRoute from "./routes/OnWallRoute.svelte";
   import StoryRoute from "./routes/StoryRoute.svelte";
   import TideNerdRoute from "./routes/TideNerdRoute.svelte";
@@ -246,6 +247,8 @@
         return "Location";
       case "about":
         return "About";
+      case "install":
+        return "Install app / Add to home screen";
       case "onwall":
         return "Stick it on the wall";
       case "story":
@@ -361,6 +364,8 @@
         <LocationRoute setCurrentLocation={setCurrentLocation} />
       {:else if $route === "about"}
         <AboutRoute />
+      {:else if $route === "install"}
+        <InstallRoute />
       {:else if $route === "onwall"}
         <OnWallRoute />
       {:else if $route === "story"}

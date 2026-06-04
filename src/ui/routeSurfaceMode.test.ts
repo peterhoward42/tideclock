@@ -11,6 +11,7 @@ describe("surfaceModeForRoute", () => {
     const documentRoutes: AppRouteId[] = [
       "location",
       "about",
+      "install",
       "onwall",
       "story",
       "tidenerd",

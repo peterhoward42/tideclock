@@ -35,6 +35,11 @@ describe("parseHash", () => {
     expect(parseHash("#/about#meet-the-author")).toBe("about");
   });
 
+  it("maps install route", () => {
+    expect(parseHash("#/install")).toBe("install");
+    expect(parseHash("install")).toBe("install");
+  });
+
   it("maps onwall route", () => {
     expect(parseHash("#/onwall")).toBe("onwall");
     expect(parseHash("onwall")).toBe("onwall");
