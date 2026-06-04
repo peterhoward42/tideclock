@@ -17,6 +17,7 @@
     "vitest": "^3.2.4"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "qrcode-generator": "^2.0.4",
     "ulid": "^3.0.2"
   }

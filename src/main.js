@@ -7,7 +7,10 @@
 import { mount } from 'svelte'
 import './app.css'
 import App from './ui/App.svelte'
+import { injectProductAnalytics } from './infrastructure/analytics/trackProductEvent'
 import { initProxyUserIdAtBoot } from './infrastructure/proxyUserId'
+
+injectProductAnalytics()
 
 console.log('[tideclock] boot: main.js running (bundle loaded)')
 if (import.meta.env.DEV) {
