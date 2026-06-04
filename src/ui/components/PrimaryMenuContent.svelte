@@ -46,6 +46,7 @@
 
 <nav class={linksClassName} aria-label="Primary">
   <PrimaryNavLinks {onNavigate} />
+  <a href="#/install" onclick={() => onNavigate?.()}>Install app / Add to home screen</a>
   <a href="#/onwall" onclick={() => onNavigate?.()}>Stick it on the wall</a>
   {#if keepAwake !== undefined}
     <button
