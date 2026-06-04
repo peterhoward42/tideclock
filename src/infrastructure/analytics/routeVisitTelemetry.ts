@@ -1,10 +1,10 @@
 /**
- * routeVisitTelemetry.ts — Maps hash route ids to visit telemetry events.
+ * routeVisitTelemetry.ts — Maps hash route ids to visit analytics events.
  * Kind: Application helper. Does not subscribe to the router.
  */
 
-import { emitTelemetry } from './emitTelemetry';
-import type { TelemetryEventType } from './eventType';
+import { trackProductEvent } from './trackProductEvent';
+import type { TelemetryEventType } from '../telemetry/eventType';
 
 type VisitTelemetryRoute =
   | 'install'
@@ -23,10 +23,10 @@ const ROUTE_VISIT_EVENT: Record<VisitTelemetryRoute, TelemetryEventType> = {
   about: 'visited_about'
 };
 
-/** Emits a route visit event when the route has a mapped telemetry type. */
+/** Records a route visit event when the route has a mapped analytics type. */
 export function emitRouteVisitTelemetry(routeId: string): void {
   if (!(routeId in ROUTE_VISIT_EVENT)) {
     return;
   }
-  emitTelemetry(ROUTE_VISIT_EVENT[routeId as VisitTelemetryRoute]);
+  trackProductEvent(ROUTE_VISIT_EVENT[routeId as VisitTelemetryRoute]);
 }

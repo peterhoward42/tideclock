@@ -1,12 +1,10 @@
 /**
- * eventType.ts — Closed vocabulary of client telemetry event types.
- * Kind: Definition. Extend when adding new product signals; keep values stable for the ingest API.
+ * eventType.ts — Closed vocabulary of Vercel Web Analytics custom event names.
+ * Kind: Definition. Extend when adding new product signals; keep values stable across dashboards.
  */
 
-/** Canonical `type` field sent to the telemetry ingest API. */
+/** Custom event name passed to Vercel `track()`. */
 export type TelemetryEventType =
-  | 'loaded'
-  | 'data_fetch_from_proxy'
   | 'set_custom_loc'
   | 'visited_stick_on_wall'
   | 'visited_install'

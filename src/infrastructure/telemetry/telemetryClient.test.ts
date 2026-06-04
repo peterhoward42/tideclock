@@ -15,14 +15,14 @@ describe('buildTelemetryPayload', () => {
   it('builds a payload without eventParams when omitted', () => {
     expect(
       buildTelemetryPayload({
-        type: 'loaded',
+        type: 'visited_story',
         proxyUserId: PROXY_USER_ID,
         eventId: EVENT_ID,
         occurredAt: OCCURRED_AT
       })
     ).toEqual({
       eventId: EVENT_ID,
-      type: 'loaded',
+      type: 'visited_story',
       occurredAt: OCCURRED_AT,
       proxyUserId: PROXY_USER_ID
     });
@@ -68,7 +68,7 @@ describe('postTelemetryEvent', () => {
       fetchImpl,
       payload: {
         eventId: EVENT_ID,
-        type: 'loaded',
+        type: 'visited_story',
         occurredAt: OCCURRED_AT,
         proxyUserId: PROXY_USER_ID
       }
@@ -84,7 +84,7 @@ describe('postTelemetryEvent', () => {
     });
     expect(JSON.parse(String(init.body))).toEqual({
       eventId: EVENT_ID,
-      type: 'loaded',
+      type: 'visited_story',
       occurredAt: OCCURRED_AT,
       proxyUserId: PROXY_USER_ID
     });
@@ -97,7 +97,7 @@ describe('postTelemetryEvent', () => {
       fetchImpl,
       payload: {
         eventId: EVENT_ID,
-        type: 'loaded',
+        type: 'visited_story',
         occurredAt: OCCURRED_AT,
         proxyUserId: PROXY_USER_ID
       }
@@ -150,7 +150,7 @@ describe('emitTelemetry with injected deps', () => {
       mintEventId: () => EVENT_ID,
       nowIsoUtc: () => OCCURRED_AT
     });
-    emitTelemetry('loaded');
+    emitTelemetry('visited_story');
     expect(fetchImpl).not.toHaveBeenCalled();
   });
 });

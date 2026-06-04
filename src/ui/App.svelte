@@ -40,10 +40,10 @@
   import { effectiveSearchFromLocation } from "./homeUrlQuery";
   import { handleOffSiteLinkClick } from "./externalLink";
   import {
-    emitTelemetry,
-    emitTelemetryError,
-  } from "../infrastructure/telemetry/emitTelemetry";
-  import { emitRouteVisitTelemetry } from "../infrastructure/telemetry/routeVisitTelemetry";
+    trackProductError,
+    trackProductEvent,
+  } from "../infrastructure/analytics/trackProductEvent";
+  import { emitRouteVisitTelemetry } from "../infrastructure/analytics/routeVisitTelemetry";
 
   /** Mirrors {@link RouteId} in `router.js` for header copy and route surface mode mapping. */
   type AppRouteId = Parameters<typeof surfaceModeForRoute>[0];
@@ -139,7 +139,6 @@
         loader: localStorage,
         storer: localStorage,
         baseUrl: import.meta.env.VITE_TIDE_PROXY_BASE_URL,
-        onExternalTideFetch: () => emitTelemetry("data_fetch_from_proxy"),
         quotaSession: tideQuotaSession,
       });
       appDiag("loadTideExtremesForCurrentCivilDay finished", {
@@ -174,12 +173,12 @@
       },
       onLoadFailed: () => {
         tidePresentation = { kind: "loadFailed" };
-        emitTelemetryError("tide_load_failed");
+        trackProductError("tide_load_failed");
       },
       onQuotaExhausted: () => {
         tideQuotaSession.setSessionQuotaExhausted();
         tidePresentation = { kind: "quotaExhausted" };
-        emitTelemetryError("tide_quota_exhausted");
+        trackProductError("tide_quota_exhausted");
       },
       onLoadRejected: (e) => {
         appDiag("refreshTidesForTown error", e);
@@ -206,8 +205,12 @@
     storeTownPick(town, { storer: localStorage });
     appDiag("setCurrentLocation stored town in localStorage", { townId: town.id });
     showDefaultLocationExplainer = false;
-    emitTelemetry("set_custom_loc", {
-      eventParams: `${town.name} - ${town.county}`,
+    const locationLabel = `${town.name} - ${town.county}`;
+    trackProductEvent("set_custom_loc", {
+      label:
+        locationLabel.length <= 200
+          ? locationLabel
+          : locationLabel.slice(0, 200),
     });
     refreshTidesForTown(town);
   }
@@ -272,7 +275,6 @@
   onMount(() => {
     attachHashListener();
     appDiag("app root mounted, hash listener attached");
-    emitTelemetry("loaded");
     const unsubRoute = route.subscribe((routeId) => {
       emitRouteVisitTelemetry(routeId);
     });

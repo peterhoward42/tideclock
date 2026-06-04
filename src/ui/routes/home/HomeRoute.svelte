@@ -69,7 +69,10 @@
     detectFullscreenBrowserAdvice,
     formatFullscreenBrowserAdviceMessage,
   } from "./fullscreenBrowserAdvice";
-  import { emitTelemetry, emitTelemetryError } from "../../../infrastructure/telemetry/emitTelemetry";
+  import {
+    trackProductError,
+    trackProductEvent,
+  } from "../../../infrastructure/analytics/trackProductEvent";
 
   let {
     tidePresentation,
@@ -324,7 +327,7 @@
       return;
     }
     diagramErrorTelemetrySent = true;
-    emitTelemetryError("diagram_render_failed");
+    trackProductError("diagram_render_failed");
   });
 
   $effect(() => {
@@ -483,7 +486,7 @@
       return;
     }
 
-    emitTelemetry("used_really_full");
+    trackProductEvent("used_really_full");
 
     if (typeof navigator === "undefined") return;
     const advice = detectFullscreenBrowserAdvice(
@@ -508,7 +511,7 @@
     const opening = !homeContactOpen;
     homeContactOpen = opening;
     if (opening) {
-      emitTelemetry("visited_contact");
+      trackProductEvent("visited_contact");
     }
   }
 </script>

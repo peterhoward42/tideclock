@@ -3,7 +3,7 @@
   import { THE_TIDE_DIAL } from "../brand";
   import { VIRTUAL_COFFEE_URL } from "../../support";
   import { externalLinkNewTabAttrs } from "../externalLink";
-  import { emitTelemetry } from "../../infrastructure/telemetry/emitTelemetry";
+  import { trackProductEvent } from "../../infrastructure/analytics/trackProductEvent";
   import {
     DRAWEXACT_URL,
     isCoffeeOutboundHref,
@@ -20,11 +20,11 @@
       return;
     }
     if (isCoffeeOutboundHref(href)) {
-      emitTelemetry("clicked_thru_to_coffee");
+      trackProductEvent("clicked_thru_to_coffee");
       return;
     }
     if (isDrawExactOutboundHref(href)) {
-      emitTelemetry("clicked_thru_to_drawexact");
+      trackProductEvent("clicked_thru_to_drawexact");
     }
   }
 </script>

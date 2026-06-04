@@ -12,7 +12,7 @@
     tideWakePresentationStore,
   } from "../routes/home/keepAwakeUi";
   import { isWakeLockApiSupported } from "../routes/home/wakeLockSupport";
-  import { emitTelemetry } from "../../infrastructure/telemetry/emitTelemetry";
+  import { trackProductEvent } from "../../infrastructure/analytics/trackProductEvent";
 
   let menuDetails = $state<HTMLDetailsElement | undefined>(undefined);
   let nerdsOpen = $state(false);
@@ -56,7 +56,7 @@
     const opening = !contactOpen;
     contactOpen = opening;
     if (opening) {
-      emitTelemetry("visited_contact");
+      trackProductEvent("visited_contact");
     }
   }
 
