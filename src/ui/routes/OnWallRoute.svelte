@@ -46,6 +46,11 @@
     to keep the screen awake so it doesn't dim or switch off.
   </p>
 
+  <p class="onwall-route__p">
+    To open it from an icon on your device, see
+    <a class="onwall-route__link" href="#/install">Install app / Add to home screen</a>.
+  </p>
+
   <div class="onwall-route__spots">
     <section class="onwall-route__spot" aria-labelledby="onwall-kitchen-heading">
       <h2 class="onwall-route__h" id="onwall-kitchen-heading">{heroPlace.heading}</h2>
@@ -130,4 +135,9 @@
     border-radius: 0.25rem;
   }
 
+  .onwall-route__link {
+    color: var(--text-link-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+  }
 </style>

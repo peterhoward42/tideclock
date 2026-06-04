@@ -60,11 +60,13 @@
     </p>
   </section>
 
-  <p class="install-route__p">
-    Once it opens from your icon, see
-    <a class="install-route__link" href="#/onwall">Stick it on the wall</a>
-    if you are leaving a screen on permanently.
-  </p>
+  <aside class="install-route__cta" aria-label="Leaving a screen on">
+    <p>
+      Once it opens from your icon, see
+      <a class="install-route__link" href="#/onwall">Stick it on the wall</a>
+      if you are leaving a screen on permanently.
+    </p>
+  </aside>
 </main>
 
 <style>
@@ -115,5 +117,28 @@
     color: var(--text-link-accent);
     text-decoration: underline;
     text-underline-offset: 0.12em;
+  }
+
+  .install-route__cta {
+    margin: 0;
+    padding: 0.9rem 1rem 0.95rem;
+    border: 1px solid color-mix(in srgb, #d97706 28%, var(--border-subtle));
+    border-left: 3px solid #d97706;
+    border-radius: 0.35rem;
+    background: color-mix(in srgb, #fef3c7 42%, var(--surface-panel));
+    box-shadow: 0 1px 4px rgb(15 23 42 / 0.07);
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .install-route__cta p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-document-default);
+  }
+
+  .install-route__cta .install-route__link {
+    font-weight: 600;
   }
 </style>
