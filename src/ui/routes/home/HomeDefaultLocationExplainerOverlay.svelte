@@ -21,14 +21,13 @@
   aria-label="About this tide diagram"
 >
   <div class="default-loc-explainer__card">
-    <h2 class="default-loc-explainer__title">
-      Showing tides for {placeLine}
-    </h2>
+    <h2 class="default-loc-explainer__title">This is Looe</h2>
     <p class="default-loc-explainer__body">
-      Start here, then set your own location from the menu.
+      Switch to Cardiff, Whitby, Newquay ... from the menu
     </p>
+    <h3 class="default-loc-explainer__subtitle">Diagram Key</h3>
     <ul class="default-loc-explainer__key" aria-label="Diagram key">
-      <li>Today’s 24 hour clock</li>
+      <li>Today's 24 hour clock</li>
       <li>Green hand = time now</li>
       <li>Purple markers = tides and heights</li>
     </ul>
@@ -86,6 +85,13 @@
     font-size: 1.04em;
     line-height: 1.4;
     color: var(--text-menu-content-primary);
+  }
+
+  .default-loc-explainer__subtitle {
+    margin: 0 0 1dvh;
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 1.25;
   }
 
   .default-loc-explainer__key {
