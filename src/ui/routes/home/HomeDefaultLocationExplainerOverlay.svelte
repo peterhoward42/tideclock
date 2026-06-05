@@ -21,9 +21,9 @@
   aria-label="About this tide diagram"
 >
   <div class="default-loc-explainer__card">
-    <h2 class="default-loc-explainer__title">This is Looe</h2>
+    <h2 class="default-loc-explainer__title">This is showing Looe</h2>
     <p class="default-loc-explainer__body">
-      Switch to Cardiff, Whitby, Newquay ... from the menu
+      Switch to Skegness, Whitby, Newquay ... from the menu
     </p>
     <h3 class="default-loc-explainer__subtitle">Diagram Key</h3>
     <ul class="default-loc-explainer__key" aria-label="Diagram key">
