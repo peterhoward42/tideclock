@@ -21,17 +21,26 @@
   aria-label="About this tide diagram"
 >
   <div class="default-loc-explainer__card">
-    <h2 class="default-loc-explainer__title">This is showing Looe</h2>
-    <p class="default-loc-explainer__body">
-      Switch to Skegness, Whitby, Newquay ... from the menu
-    </p>
+    <h2 class="default-loc-explainer__title">Showing Looe tides</h2>
+    <div class="default-loc-explainer__switch">
+      <p class="default-loc-explainer__body">
+        Switch to your place of interest - when you're ready
+      </p>
+      <p class="default-loc-explainer__examples">
+        Skegness, Whitby, Newquay .... etc.
+      </p>
+    </div>
     <h3 class="default-loc-explainer__subtitle">Diagram Key</h3>
     <ul class="default-loc-explainer__key" aria-label="Diagram key">
       <li>Today's 24 hour clock</li>
       <li>Green hand = time now</li>
       <li>Purple markers = tides and heights</li>
     </ul>
-    <button type="button" class="default-loc-explainer__btn" onclick={onDismiss}>
+    <button
+      type="button"
+      class="default-loc-explainer__btn"
+      onclick={onDismiss}
+    >
       Continue
     </button>
   </div>
@@ -80,11 +89,22 @@
     line-height: 1.25;
   }
 
-  .default-loc-explainer__body {
+  .default-loc-explainer__switch {
     margin: 0 0 1.8dvh;
+  }
+
+  .default-loc-explainer__body {
+    margin: 0 0 0.5dvh;
     font-size: 1.04em;
     line-height: 1.4;
     color: var(--text-menu-content-primary);
+  }
+
+  .default-loc-explainer__examples {
+    margin: 0;
+    font-size: 1.04em;
+    line-height: 1.4;
+    color: var(--text-menu-content-status);
   }
 
   .default-loc-explainer__subtitle {
