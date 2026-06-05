@@ -1,6 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { mountScreenWakeLock } from "./screenWakeLock";
 
+// Partially migrated (FakeDocument). Retains vi.fn / vi.spyOn for wake-lock
+// request, sentinel release, and removeEventListener: browser globals are
+// stubbed via vi.stubGlobal. Named fakes (FakeWakeLock, RecordingSentinel)
+// would finish the migration but are deferred as low priority.
 class FakeDocument extends EventTarget {
   visibilityState: "visible" | "hidden" = "visible";
 

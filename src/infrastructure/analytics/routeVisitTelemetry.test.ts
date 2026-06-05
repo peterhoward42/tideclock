@@ -1,5 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+// Retains vi.mock rather than a RecordingProductAnalytics fake: production code
+// imports @vercel/analytics directly with no injectable seam. Replacing mocks
+// requires a production refactor (analytics port + default adapter) first.
+
 const { mockTrack } = vi.hoisted(() => ({
   mockTrack: vi.fn()
 }));

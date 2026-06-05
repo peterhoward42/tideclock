@@ -1,6 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { formatKeepAwakeStatusLine } from "./keepAwakeUi";
 
+// Retains vi.fn inside navigator.wakeLock stub: only signals API presence, is
+// never called or asserted. A minimal FakeNavigator would align with
+// fakes-over-mocks but is deferred as low priority.
 function stubWakeLockSupported(): void {
   vi.stubGlobal("navigator", {
     wakeLock: { request: vi.fn() },

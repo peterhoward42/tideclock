@@ -1,7 +1,8 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { fetchPersistExtremes } from './fetchPersistExtremes';
 import { ProxyQuotaExhaustedError, type TideProxyV1Response } from './proxyV1Types';
 import { EXTREMES_SNAPSHOT_KEY, type ExtremesStorer } from './extremesSnapshot';
+import { jsonResponse, RecordingFetch } from './recordingFetch.test-support';
 
 class FakeExtremesStorer implements ExtremesStorer {
   public writes: Array<{ key: string; value: string }> = [];
@@ -25,23 +26,18 @@ describe('fetchPersistExtremes', () => {
       attribution: 'Example source'
     };
 
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
-      return new Response(JSON.stringify(responsePayload), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    });
+    const fetch = new RecordingFetch(() => jsonResponse(responsePayload));
 
     const result = await fetchPersistExtremes({
       lat: 50.8,
       lon: -1.1,
       baseUrl: 'https://example.test',
-      fetchImpl,
+      fetchImpl: fetch.fetch,
       storer,
       storageKey: EXTREMES_SNAPSHOT_KEY
     });
 
-    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(fetch.calls).toHaveLength(1);
     expect(result.latitude).toBe(50.8);
     expect(result.longitude).toBe(-1.1);
     expect(result.extremes).toEqual([
@@ -65,27 +61,21 @@ describe('fetchPersistExtremes', () => {
 
   it('uses custom storage key when provided', async () => {
     const storer = new FakeExtremesStorer();
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
-      return new Response(
-        JSON.stringify({
-          tides: [],
-          datum: 'CD',
-          windowStart: '2026-03-23T00:00:00Z',
-          expiresAt: '2026-03-23T12:00:00Z',
-          attribution: 'Example source'
-        } satisfies TideProxyV1Response),
-        {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' }
-        }
-      );
-    });
+    const fetch = new RecordingFetch(() =>
+      jsonResponse({
+        tides: [],
+        datum: 'CD',
+        windowStart: '2026-03-23T00:00:00Z',
+        expiresAt: '2026-03-23T12:00:00Z',
+        attribution: 'Example source'
+      } satisfies TideProxyV1Response)
+    );
 
     await fetchPersistExtremes({
       lat: 50.8,
       lon: -1.1,
       baseUrl: 'https://example.test',
-      fetchImpl,
+      fetchImpl: fetch.fetch,
       storer,
       storageKey: 'custom-key'
     });
@@ -96,24 +86,24 @@ describe('fetchPersistExtremes', () => {
 
   it('propagates ProxyQuotaExhaustedError without persisting a snapshot', async () => {
     const storer = new FakeExtremesStorer();
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
-      return new Response(
-        JSON.stringify({
+    const fetch = new RecordingFetch(() =>
+      jsonResponse(
+        {
           error: {
             code: 'UPSTREAM_CREDITS_EXHAUSTED',
             message: 'Monthly API credits exhausted'
           }
-        }),
-        { status: 503, headers: { 'Content-Type': 'application/json' } }
-      );
-    });
+        },
+        503
+      )
+    );
 
     await expect(
       fetchPersistExtremes({
         lat: 50.8,
         lon: -1.1,
         baseUrl: 'https://example.test',
-        fetchImpl,
+        fetchImpl: fetch.fetch,
         storer,
         storageKey: EXTREMES_SNAPSHOT_KEY
       })

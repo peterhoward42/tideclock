@@ -1,6 +1,7 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { fetchProxyV1Tides } from './fetchProxyV1Tides';
 import { ProxyQuotaExhaustedError, type TideProxyV1Response } from './proxyV1Types';
+import { jsonResponse, RecordingFetch } from './recordingFetch.test-support';
 
 const baseParams = {
   lat: 50.8,
@@ -18,35 +19,32 @@ describe('fetchProxyV1Tides', () => {
       attribution: 'Example source'
     };
 
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
-      return new Response(JSON.stringify(responsePayload), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    });
+    const fetch = new RecordingFetch(() => jsonResponse(responsePayload));
 
-    const result = await fetchProxyV1Tides({ ...baseParams, fetchImpl });
+    const result = await fetchProxyV1Tides({ ...baseParams, fetchImpl: fetch.fetch });
     expect(result).toEqual(responsePayload);
   });
 
   it('throws ProxyQuotaExhaustedError on 503 with UPSTREAM_CREDITS_EXHAUSTED', async () => {
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
-      return new Response(
-        JSON.stringify({
+    const fetch = new RecordingFetch(() =>
+      jsonResponse(
+        {
           error: {
             code: 'UPSTREAM_CREDITS_EXHAUSTED',
             message: 'Monthly API credits exhausted'
           }
-        }),
-        { status: 503, headers: { 'Content-Type': 'application/json' } }
-      );
-    });
-
-    await expect(fetchProxyV1Tides({ ...baseParams, fetchImpl })).rejects.toBeInstanceOf(
-      ProxyQuotaExhaustedError
+        },
+        503
+      )
     );
 
-    await expect(fetchProxyV1Tides({ ...baseParams, fetchImpl })).rejects.toMatchObject({
+    await expect(
+      fetchProxyV1Tides({ ...baseParams, fetchImpl: fetch.fetch })
+    ).rejects.toBeInstanceOf(ProxyQuotaExhaustedError);
+
+    await expect(
+      fetchProxyV1Tides({ ...baseParams, fetchImpl: fetch.fetch })
+    ).rejects.toMatchObject({
       code: 'UPSTREAM_CREDITS_EXHAUSTED',
       status: 503,
       message: 'Monthly API credits exhausted'
@@ -54,57 +52,54 @@ describe('fetchProxyV1Tides', () => {
   });
 
   it('throws generic Error on 503 with a different error code', async () => {
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
-      return new Response(
-        JSON.stringify({
+    const fetch = new RecordingFetch(() =>
+      jsonResponse(
+        {
           error: {
             code: 'INTERNAL_ERROR',
             message: 'WorldTides API key is not configured'
           }
-        }),
-        { status: 503, headers: { 'Content-Type': 'application/json' } }
-      );
-    });
+        },
+        503
+      )
+    );
 
-    await expect(fetchProxyV1Tides({ ...baseParams, fetchImpl })).rejects.toThrow(
-      'Tide proxy request failed (503): WorldTides API key is not configured'
-    );
-    await expect(fetchProxyV1Tides({ ...baseParams, fetchImpl })).rejects.not.toBeInstanceOf(
-      ProxyQuotaExhaustedError
-    );
+    await expect(
+      fetchProxyV1Tides({ ...baseParams, fetchImpl: fetch.fetch })
+    ).rejects.toThrow('Tide proxy request failed (503): WorldTides API key is not configured');
+    await expect(
+      fetchProxyV1Tides({ ...baseParams, fetchImpl: fetch.fetch })
+    ).rejects.not.toBeInstanceOf(ProxyQuotaExhaustedError);
   });
 
   it('throws generic Error when quota code appears on a non-503 status', async () => {
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
-      return new Response(
-        JSON.stringify({
+    const fetch = new RecordingFetch(() =>
+      jsonResponse(
+        {
           error: {
             code: 'UPSTREAM_CREDITS_EXHAUSTED',
             message: 'Monthly API credits exhausted'
           }
-        }),
-        { status: 502, headers: { 'Content-Type': 'application/json' } }
-      );
-    });
+        },
+        502
+      )
+    );
 
-    await expect(fetchProxyV1Tides({ ...baseParams, fetchImpl })).rejects.toThrow(
-      'Tide proxy request failed (502): Monthly API credits exhausted'
-    );
-    await expect(fetchProxyV1Tides({ ...baseParams, fetchImpl })).rejects.not.toBeInstanceOf(
-      ProxyQuotaExhaustedError
-    );
+    await expect(
+      fetchProxyV1Tides({ ...baseParams, fetchImpl: fetch.fetch })
+    ).rejects.toThrow('Tide proxy request failed (502): Monthly API credits exhausted');
+    await expect(
+      fetchProxyV1Tides({ ...baseParams, fetchImpl: fetch.fetch })
+    ).rejects.not.toBeInstanceOf(ProxyQuotaExhaustedError);
   });
 
   it('throws generic Error when error body is malformed', async () => {
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
-      return new Response(JSON.stringify({ error: { code: 'UPSTREAM_ERROR' } }), {
-        status: 502,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    });
-
-    await expect(fetchProxyV1Tides({ ...baseParams, fetchImpl })).rejects.toThrow(
-      'Tide proxy request failed (502).'
+    const fetch = new RecordingFetch(() =>
+      jsonResponse({ error: { code: 'UPSTREAM_ERROR' } }, 502)
     );
+
+    await expect(
+      fetchProxyV1Tides({ ...baseParams, fetchImpl: fetch.fetch })
+    ).rejects.toThrow('Tide proxy request failed (502).');
   });
 });

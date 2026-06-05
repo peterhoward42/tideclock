@@ -64,6 +64,10 @@ describe("parseHash", () => {
 });
 
 describe("syncRouteFromHash", () => {
+  // Retains vi.fn for history.replaceState: browser globals are stubbed via
+  // vi.stubGlobal and the one-method stand-in is terse. Named fakes (e.g.
+  // FakeHistory with replaceStateCalls) would align with fakes-over-mocks but
+  // are deferred as low priority.
   afterEach(() => {
     vi.unstubAllGlobals();
     route.set("home");

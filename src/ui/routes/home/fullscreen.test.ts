@@ -9,6 +9,10 @@ import {
   toggleInstrumentFullscreen,
 } from "./fullscreen";
 
+// Retains vi.fn for requestFullscreen / exitFullscreen: browser globals are
+// stubbed via vi.stubGlobal and the one-method stand-ins are terse. Named fakes
+// (e.g. FakeFullscreenElement) would align with fakes-over-mocks but are
+// deferred as low priority.
 describe("fullscreen (home route)", () => {
   afterEach(() => {
     vi.unstubAllGlobals();

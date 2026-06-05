@@ -1,8 +1,9 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import { EXTREMES_SNAPSHOT_KEY, type ExtremesLoader, type ExtremesStorer } from '../data-pipelines/extremesSnapshot';
 import type { TideProxyV1Response } from '../data-pipelines/proxyV1Types';
+import { jsonResponse, RecordingFetch } from '../data-pipelines/recordingFetch.test-support';
 import type { TimeNowProvider } from '../time-services/civilDayWindow';
 import {
   createQuotaSessionGate,
@@ -69,7 +70,7 @@ describe('loadCivilDayExtremes', () => {
       })
     });
 
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
+    const fetch = new RecordingFetch(() => {
       throw new Error('fetch should not run when store satisfies query');
     });
 
@@ -80,12 +81,12 @@ describe('loadCivilDayExtremes', () => {
         loader,
         storer,
         baseUrl: 'https://example.test',
-        fetchImpl,
+        fetchImpl: fetch.fetch,
         timeNowProvider
       })
     );
 
-    expect(fetchImpl).not.toHaveBeenCalled();
+    expect(fetch.calls).toHaveLength(0);
     expect(storer.writes).toHaveLength(0);
     expect(result).toEqual(
       TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
@@ -114,12 +115,7 @@ describe('loadCivilDayExtremes', () => {
       attribution: 'Test'
     };
 
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
-      return new Response(JSON.stringify(responsePayload), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    });
+    const fetch = new RecordingFetch(() => jsonResponse(responsePayload));
 
     const result = await loadCivilDayExtremes(
       50.8,
@@ -128,12 +124,12 @@ describe('loadCivilDayExtremes', () => {
         loader,
         storer,
         baseUrl: 'https://example.test',
-        fetchImpl,
+        fetchImpl: fetch.fetch,
         timeNowProvider
       })
     );
 
-    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(fetch.calls).toHaveLength(1);
     expect(storer.writes).toHaveLength(1);
     expect(storer.writes[0]?.key).toBe(EXTREMES_SNAPSHOT_KEY);
     expect(result).toEqual(
@@ -163,12 +159,7 @@ describe('loadCivilDayExtremes', () => {
       attribution: 'Test'
     };
 
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
-      return new Response(JSON.stringify(responsePayload), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    });
+    const fetch = new RecordingFetch(() => jsonResponse(responsePayload));
 
     const result = await loadCivilDayExtremes(
       50.8,
@@ -177,13 +168,13 @@ describe('loadCivilDayExtremes', () => {
         loader,
         storer,
         baseUrl: 'https://example.test',
-        fetchImpl,
+        fetchImpl: fetch.fetch,
         storageKey: customKey,
         timeNowProvider
       })
     );
 
-    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(fetch.calls).toHaveLength(1);
     expect(storer.writes).toEqual([{ key: customKey, value: expect.any(String) }]);
     expect(result).toEqual(
       TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
@@ -219,12 +210,7 @@ describe('loadCivilDayExtremes', () => {
       attribution: 'Test'
     };
 
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
-      return new Response(JSON.stringify(responsePayload), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    });
+    const fetch = new RecordingFetch(() => jsonResponse(responsePayload));
 
     const quotaSession = createQuotaSessionGate();
     quotaSession.setSessionQuotaExhausted();
@@ -236,13 +222,13 @@ describe('loadCivilDayExtremes', () => {
         loader,
         storer,
         baseUrl: 'https://example.test',
-        fetchImpl,
+        fetchImpl: fetch.fetch,
         timeNowProvider,
         quotaSession
       })
     );
 
-    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(fetch.calls).toHaveLength(1);
     expect(result).toEqual(
       TideExtremesAtLocation.fromPossiblyUnordered(50.8, -1.1, [
         new TideExtreme('low', utcIsoForLocal(2026, 2, 23, 6, 0), 0.4),
@@ -264,17 +250,17 @@ describe('loadCivilDayExtremes', () => {
       })
     });
 
-    const fetchImpl = vi.fn<typeof fetch>(async () => {
-      return new Response(
-        JSON.stringify({
+    const fetch = new RecordingFetch(() =>
+      jsonResponse(
+        {
           error: {
             code: 'UPSTREAM_CREDITS_EXHAUSTED',
             message: 'Monthly API credits exhausted'
           }
-        }),
-        { status: 503, headers: { 'Content-Type': 'application/json' } }
-      );
-    });
+        },
+        503
+      )
+    );
 
     const quotaSession = createQuotaSessionGate();
 
@@ -286,14 +272,14 @@ describe('loadCivilDayExtremes', () => {
           loader,
           storer,
           baseUrl: 'https://example.test',
-          fetchImpl,
+          fetchImpl: fetch.fetch,
           timeNowProvider,
           quotaSession
         })
       )
     ).rejects.toBeInstanceOf(ProxyQuotaExhaustedError);
 
-    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(fetch.calls).toHaveLength(1);
     expect(storer.writes).toHaveLength(0);
     expect(quotaSession.isSessionQuotaExhausted()).toBe(true);
   });

@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import { createTideRefreshController } from "./tideRefreshController";
+import type { TideRefreshCallbacks } from "./tideRefreshController";
 import { TideExtremesAtLocation } from "../core-models/TideExtremesAtLocation";
 import type { Town } from "../data/townSchema";
 import { ProxyQuotaExhaustedError } from "../data-pipelines/proxyV1Types";
@@ -32,117 +33,212 @@ function deferred<T>(): {
   return { promise, resolve };
 }
 
+class FixedTideLoader {
+  readonly calls: Array<{ lat: number; lon: number }> = [];
+
+  constructor(
+    private readonly result:
+      | TideExtremesAtLocation
+      | undefined
+      | Promise<TideExtremesAtLocation | undefined>
+  ) {}
+
+  loadTideExtremesForCurrentCivilDay = (
+    lat: number,
+    lon: number
+  ): Promise<TideExtremesAtLocation | undefined> => {
+    this.calls.push({ lat, lon });
+    return Promise.resolve(this.result);
+  };
+}
+
+class RejectingTideLoader {
+  readonly calls: Array<{ lat: number; lon: number }> = [];
+
+  constructor(private readonly error: unknown) {}
+
+  loadTideExtremesForCurrentCivilDay = (
+    lat: number,
+    lon: number
+  ): Promise<TideExtremesAtLocation | undefined> => {
+    this.calls.push({ lat, lon });
+    return Promise.reject(this.error);
+  };
+}
+
+class QueuedTideLoader {
+  readonly calls: Array<{ lat: number; lon: number }> = [];
+
+  constructor(
+    private readonly queue: Array<
+      () => Promise<TideExtremesAtLocation | undefined>
+    >
+  ) {}
+
+  loadTideExtremesForCurrentCivilDay = (
+    lat: number,
+    lon: number
+  ): Promise<TideExtremesAtLocation | undefined> => {
+    this.calls.push({ lat, lon });
+    const next = this.queue.shift();
+    if (!next) {
+      throw new Error("QueuedTideLoader: no response queued");
+    }
+    return next();
+  };
+}
+
+class FixedCivilDayStart {
+  callCount = 0;
+
+  constructor(private readonly ms: number) {}
+
+  civilDayWindowStartMsAfterSuccessfulLoad = (): number => {
+    this.callCount++;
+    return this.ms;
+  };
+}
+
+class RecordingRefreshCallbacks {
+  loadingCount = 0;
+  successes: Array<{
+    extremes: TideExtremesAtLocation;
+    civilDayWindowStartMs: number;
+  }> = [];
+  loadFailedCount = 0;
+  rejectedErrors: unknown[] = [];
+  quotaExhaustedCount = 0;
+
+  asCallbacks(): TideRefreshCallbacks {
+    return {
+      onLoading: () => {
+        this.loadingCount++;
+      },
+      onSuccess: (payload) => {
+        this.successes.push(payload);
+      },
+      onLoadFailed: () => {
+        this.loadFailedCount++;
+      },
+      onLoadRejected: (error) => {
+        this.rejectedErrors.push(error);
+      },
+      onQuotaExhausted: () => {
+        this.quotaExhaustedCount++;
+      },
+    };
+  }
+}
+
 describe("createTideRefreshController", () => {
   it("invokes onLoading then onSuccess with civil-day start from deps", async () => {
-    const load = vi.fn().mockResolvedValue(extremesA);
-    const civilDay = vi.fn().mockReturnValue(99);
-    const onLoading = vi.fn();
-    const onSuccess = vi.fn();
-    const onLoadFailed = vi.fn();
+    const load = new FixedTideLoader(extremesA);
+    const civilDay = new FixedCivilDayStart(99);
+    const callbacks = new RecordingRefreshCallbacks();
     const { refreshTidesForTown } = createTideRefreshController(
       {
-        loadTideExtremesForCurrentCivilDay: load,
-        civilDayWindowStartMsAfterSuccessfulLoad: civilDay,
+        loadTideExtremesForCurrentCivilDay:
+          load.loadTideExtremesForCurrentCivilDay,
+        civilDayWindowStartMsAfterSuccessfulLoad:
+          civilDay.civilDayWindowStartMsAfterSuccessfulLoad,
       },
-      { onLoading, onSuccess, onLoadFailed }
+      callbacks.asCallbacks()
     );
     refreshTidesForTown(aTown);
-    expect(onLoading).toHaveBeenCalledTimes(1);
+    expect(callbacks.loadingCount).toBe(1);
     await vi.waitFor(() => {
-      expect(onSuccess).toHaveBeenCalledWith({
-        extremes: extremesA,
-        civilDayWindowStartMs: 99,
-      });
+      expect(callbacks.successes).toEqual([
+        {
+          extremes: extremesA,
+          civilDayWindowStartMs: 99,
+        },
+      ]);
     });
-    expect(onLoadFailed).not.toHaveBeenCalled();
-    expect(load).toHaveBeenCalledWith(10, 20);
-    expect(civilDay).toHaveBeenCalledTimes(1);
+    expect(callbacks.loadFailedCount).toBe(0);
+    expect(load.calls).toEqual([{ lat: 10, lon: 20 }]);
+    expect(civilDay.callCount).toBe(1);
   });
 
   it("calls onLoadFailed when load resolves undefined", async () => {
-    const load = vi.fn().mockResolvedValue(undefined);
-    const onSuccess = vi.fn();
-    const onLoadFailed = vi.fn();
+    const load = new FixedTideLoader(undefined);
+    const callbacks = new RecordingRefreshCallbacks();
     const { refreshTidesForTown } = createTideRefreshController(
       {
-        loadTideExtremesForCurrentCivilDay: load,
+        loadTideExtremesForCurrentCivilDay:
+          load.loadTideExtremesForCurrentCivilDay,
         civilDayWindowStartMsAfterSuccessfulLoad: () => 1,
       },
-      { onLoading: () => {}, onSuccess, onLoadFailed }
+      callbacks.asCallbacks()
     );
     refreshTidesForTown(aTown);
-    await vi.waitFor(() => expect(onLoadFailed).toHaveBeenCalledTimes(1));
-    expect(onSuccess).not.toHaveBeenCalled();
+    await vi.waitFor(() => expect(callbacks.loadFailedCount).toBe(1));
+    expect(callbacks.successes).toHaveLength(0);
   });
 
   it("calls onLoadRejected then onLoadFailed when load throws", async () => {
     const err = new Error("network");
-    const load = vi.fn().mockRejectedValue(err);
-    const onLoadRejected = vi.fn();
-    const onLoadFailed = vi.fn();
+    const load = new RejectingTideLoader(err);
+    const callbacks = new RecordingRefreshCallbacks();
     const { refreshTidesForTown } = createTideRefreshController(
       {
-        loadTideExtremesForCurrentCivilDay: load,
+        loadTideExtremesForCurrentCivilDay:
+          load.loadTideExtremesForCurrentCivilDay,
         civilDayWindowStartMsAfterSuccessfulLoad: () => 1,
       },
-      { onLoading: () => {}, onSuccess: () => {}, onLoadFailed, onLoadRejected }
+      callbacks.asCallbacks()
     );
     refreshTidesForTown(aTown);
-    await vi.waitFor(() => expect(onLoadFailed).toHaveBeenCalledTimes(1));
-    expect(onLoadRejected).toHaveBeenCalledWith(err);
+    await vi.waitFor(() => expect(callbacks.loadFailedCount).toBe(1));
+    expect(callbacks.rejectedErrors).toEqual([err]);
   });
 
   it("calls onQuotaExhausted but not onLoadFailed when load throws ProxyQuotaExhaustedError", async () => {
     const err = new ProxyQuotaExhaustedError();
-    const load = vi.fn().mockRejectedValue(err);
-    const onLoadRejected = vi.fn();
-    const onLoadFailed = vi.fn();
-    const onQuotaExhausted = vi.fn();
+    const load = new RejectingTideLoader(err);
+    const callbacks = new RecordingRefreshCallbacks();
     const { refreshTidesForTown } = createTideRefreshController(
       {
-        loadTideExtremesForCurrentCivilDay: load,
+        loadTideExtremesForCurrentCivilDay:
+          load.loadTideExtremesForCurrentCivilDay,
         civilDayWindowStartMsAfterSuccessfulLoad: () => 1,
       },
-      {
-        onLoading: () => {},
-        onSuccess: () => {},
-        onLoadFailed,
-        onQuotaExhausted,
-        onLoadRejected,
-      }
+      callbacks.asCallbacks()
     );
     refreshTidesForTown(aTown);
-    await vi.waitFor(() => expect(onQuotaExhausted).toHaveBeenCalledTimes(1));
-    expect(onLoadRejected).toHaveBeenCalledWith(err);
-    expect(onLoadFailed).not.toHaveBeenCalled();
+    await vi.waitFor(() => expect(callbacks.quotaExhaustedCount).toBe(1));
+    expect(callbacks.rejectedErrors).toEqual([err]);
+    expect(callbacks.loadFailedCount).toBe(0);
   });
 
   it("ignores stale completion when a newer refresh was started", async () => {
     const first = deferred<TideExtremesAtLocation | undefined>();
     const second = deferred<TideExtremesAtLocation | undefined>();
-    const load = vi
-      .fn()
-      .mockImplementationOnce(() => first.promise)
-      .mockImplementationOnce(() => second.promise);
-    const onSuccess = vi.fn();
+    const load = new QueuedTideLoader([
+      () => first.promise,
+      () => second.promise,
+    ]);
+    const callbacks = new RecordingRefreshCallbacks();
     const { refreshTidesForTown } = createTideRefreshController(
       {
-        loadTideExtremesForCurrentCivilDay: load,
+        loadTideExtremesForCurrentCivilDay:
+          load.loadTideExtremesForCurrentCivilDay,
         civilDayWindowStartMsAfterSuccessfulLoad: () => 1,
       },
-      { onLoading: () => {}, onSuccess, onLoadFailed: () => {} }
+      callbacks.asCallbacks()
     );
     refreshTidesForTown(aTown);
     refreshTidesForTown(otherTown);
     second.resolve(extremesB);
     await vi.waitFor(() =>
-      expect(onSuccess).toHaveBeenCalledWith({
-        extremes: extremesB,
-        civilDayWindowStartMs: 1,
-      })
+      expect(callbacks.successes).toEqual([
+        {
+          extremes: extremesB,
+          civilDayWindowStartMs: 1,
+        },
+      ])
     );
     first.resolve(extremesA);
     await new Promise((r) => setTimeout(r, 10));
-    expect(onSuccess).toHaveBeenCalledTimes(1);
+    expect(callbacks.successes).toHaveLength(1);
   });
 });
