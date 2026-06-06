@@ -365,6 +365,9 @@
       getMenuPanel: () => homeMenuPanelEl,
       isMenuOpen: () => homeMenuOpen,
       setMenuOpen: (open) => {
+        if (open && !homeMenuOpen) {
+          trackProductEvent("opened_menu");
+        }
         homeMenuOpen = open;
       },
       setMenuPanelStyle: (cssText) => {
@@ -504,7 +507,11 @@
   }
 
   function handleHomeNerdsEntry(): void {
-    homeNerdsOpen = !homeNerdsOpen;
+    const opening = !homeNerdsOpen;
+    homeNerdsOpen = opening;
+    if (opening) {
+      trackProductEvent("expanded_for_nerds");
+    }
   }
 
   function handleHomeContactEntry(): void {

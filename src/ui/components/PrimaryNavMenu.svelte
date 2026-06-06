@@ -49,7 +49,17 @@
   }
 
   function handleNerdsEntry(): void {
-    nerdsOpen = !nerdsOpen;
+    const opening = !nerdsOpen;
+    nerdsOpen = opening;
+    if (opening) {
+      trackProductEvent("expanded_for_nerds");
+    }
+  }
+
+  function handleMenuToggle(): void {
+    if (menuDetails?.open) {
+      trackProductEvent("opened_menu");
+    }
   }
 
   function handleContactEntry(): void {
@@ -71,7 +81,7 @@
   );
 </script>
 
-<details class="menu" bind:this={menuDetails}>
+<details class="menu" bind:this={menuDetails} ontoggle={handleMenuToggle}>
   <summary class="menu-toggle" aria-label="Menu">Menu</summary>
   <div class="nav-links u-pad-surface-sm">
     <PrimaryMenuContent

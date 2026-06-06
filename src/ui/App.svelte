@@ -44,6 +44,12 @@
     trackProductEvent,
   } from "../infrastructure/analytics/trackProductEvent";
   import { emitRouteVisitTelemetry } from "../infrastructure/analytics/routeVisitTelemetry";
+  import {
+    createBrowserFirstCustomLocationDeps,
+    createBrowserUsageSpanCadenceDeps,
+    recordFirstCustomLocationIfNeeded,
+    runUsageSpanCadenceTick,
+  } from "../application/usageSpanCadenceRunner";
 
   /** Mirrors {@link RouteId} in `router.js` for header copy and route surface mode mapping. */
   type AppRouteId = Parameters<typeof surfaceModeForRoute>[0];
@@ -206,12 +212,18 @@
     appDiag("setCurrentLocation stored town in localStorage", { townId: town.id });
     showDefaultLocationExplainer = false;
     const locationLabel = `${town.name} - ${town.county}`;
-    trackProductEvent("set_custom_loc", {
+    trackProductEvent("chose_custom_loc", {
       label:
         locationLabel.length <= 200
           ? locationLabel
           : locationLabel.slice(0, 200),
     });
+    if (town.id !== defaultTideLocationTown.id) {
+      const firstCustomLocDeps = createBrowserFirstCustomLocationDeps(trackProductEvent);
+      if (firstCustomLocDeps !== undefined) {
+        recordFirstCustomLocationIfNeeded(firstCustomLocDeps);
+      }
+    }
     refreshTidesForTown(town);
   }
 
@@ -298,8 +310,15 @@
         window.removeEventListener("popstate", onUrlChange);
       };
     }
+    const usageSpanDeps = createBrowserUsageSpanCadenceDeps(trackProductEvent);
+    if (usageSpanDeps !== undefined) {
+      runUsageSpanCadenceTick(usageSpanDeps);
+    }
     const unsubMinute = subscribeMinuteCadence(() => {
       maybeRefreshTideAfterLocalMidnightRollover();
+      if (usageSpanDeps !== undefined) {
+        runUsageSpanCadenceTick(usageSpanDeps);
+      }
     });
     document.addEventListener("click", handleOffSiteLinkClick);
     return () => {

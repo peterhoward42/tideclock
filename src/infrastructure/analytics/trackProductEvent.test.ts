@@ -34,10 +34,10 @@ describe('trackProductEvent', () => {
 
   it('passes event name and properties to track', async () => {
     const { trackProductEvent } = await loadModule();
-    trackProductEvent('set_custom_loc', { label: 'Looe - Cornwall' });
+    trackProductEvent('chose_custom_loc', { label: 'Looe - Cornwall' });
 
     expect(mockTrack).toHaveBeenCalledOnce();
-    expect(mockTrack).toHaveBeenCalledWith('set_custom_loc', {
+    expect(mockTrack).toHaveBeenCalledWith('chose_custom_loc', {
       label: 'Looe - Cornwall'
     });
   });

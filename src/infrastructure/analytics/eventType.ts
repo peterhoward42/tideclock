@@ -3,9 +3,16 @@
  * Kind: Definition. Extend when adding new product signals; keep values stable across dashboards.
  */
 
+import type { UsageSpanEventType } from './usageSpanEvents';
+
 /** Custom event name passed to Vercel `track()`. */
 export type TelemetryEventType =
-  | 'set_custom_loc'
+  | 'opened_menu'
+  | 'expanded_for_nerds'
+  | 'chose_custom_loc'
+  | 'first_custom_loc'
+  | 'launched_as_pwa'
+  | UsageSpanEventType
   | 'visited_stick_on_wall'
   | 'visited_install'
   | 'used_screen_awake'
