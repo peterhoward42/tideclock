@@ -32,6 +32,14 @@
     operatorNoticeBodyParagraphs,
     operatorNoticeHeadline,
   } from "../../operatorNoticeCopy";
+  import {
+    urlLocationErrorBodyExample,
+    urlLocationErrorBodyLead,
+    urlLocationErrorBodyTail,
+    urlLocationErrorDetailForReason,
+    urlLocationErrorHeadline,
+    urlLocationErrorReceivedLine,
+  } from "../../urlLocationErrorCopy";
 
   interface Props {
     readonly tidePresentation: TidePresentation;
@@ -141,6 +149,29 @@
       </div>
     </div>
   </div>
+{:else if tidePresentation.kind === "urlLocationError"}
+  <div class="home-panel home-panel--url-location-error" aria-live="polite">
+    <div class="home-url-location-error-message" role="alert">
+      <p class="home-url-location-error-message__headline">
+        {urlLocationErrorHeadline}
+      </p>
+      {#if urlLocationErrorDetailForReason(tidePresentation.reason) !== null}
+        <p class="home-url-location-error-message__body muted">
+          {urlLocationErrorDetailForReason(tidePresentation.reason)}
+        </p>
+      {/if}
+      <p class="home-url-location-error-message__body muted">
+        {urlLocationErrorBodyLead}<span class="home-url-location-error-message__mono"
+          >{urlLocationErrorBodyExample}</span
+        >{urlLocationErrorBodyTail}
+      </p>
+      {#if urlLocationErrorReceivedLine(tidePresentation.place, tidePresentation.county) !== null}
+        <p class="home-url-location-error-message__body muted">
+          {urlLocationErrorReceivedLine(tidePresentation.place, tidePresentation.county)}
+        </p>
+      {/if}
+    </div>
+  </div>
 {:else if tidePresentation.kind === "loadFailed"}
   <div class="home-panel" aria-live="polite">
     <p class="muted" role="alert">
@@ -245,10 +276,38 @@
   }
 
   .home-panel--quota,
-  .home-panel--operator-notice {
+  .home-panel--operator-notice,
+  .home-panel--url-location-error {
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
+  }
+
+  .home-url-location-error-message {
+    max-width: min(42ch, 100%);
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .home-url-location-error-message__headline {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text-home-panel-muted);
+  }
+
+  .home-url-location-error-message__body {
+    margin: 0;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .home-url-location-error-message__mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.92em;
+    word-break: break-word;
   }
 
   .home-operator-notice-message {

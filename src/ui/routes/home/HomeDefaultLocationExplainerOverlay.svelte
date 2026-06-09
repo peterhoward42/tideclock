@@ -21,7 +21,7 @@
   aria-label="About this tide diagram"
 >
   <div class="default-loc-explainer__card">
-    <h2 class="default-loc-explainer__title">Showing Looe tides</h2>
+    <h2 class="default-loc-explainer__title">Showing {placeLine} tides</h2>
     <div class="default-loc-explainer__switch">
       <p class="default-loc-explainer__body">
         Switch to your place of interest - when you're ready

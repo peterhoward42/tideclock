@@ -30,6 +30,8 @@ All persistence is in the browser’s **`localStorage`** on the user’s device 
 
 On a first visit with empty storage, the app shows tides for **Looe, Cornwall** until you pick another location (see **Location** in the menu). Cookie policy, safety wording, tide-data copyright, and related notices are on the in-app **[About](https://thetidedial.page/#/about)** page (`#/about`), not duplicated here.
 
+**Share links:** open the live diagram for a specific place with both query parameters `place` and `county` (same spelling as in the Location picker), for example [https://thetidedial.page/?place=Looe&county=Cornwall](https://thetidedial.page/?place=Looe&county=Cornwall). Hash routing works too: `#/home?place=Whitby&county=North%20Yorkshire`. A valid share link always applies that place, even when you already have another location saved.
+
 **Product analytics:** anonymous custom events (route visits, location picks, errors, etc.) are sent via [Vercel Web Analytics](https://vercel.com/docs/analytics) in production builds. See [`src/infrastructure/analytics/`](src/infrastructure/analytics/).
 
 ## Getting started

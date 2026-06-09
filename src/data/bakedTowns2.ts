@@ -65,7 +65,8 @@ type IndexedTown = {
   readonly normalizedCounty: string;
 };
 
-function normalizeTownSearchText(input: string): string {
+/** Trim, lower-case, collapse internal spaces — shared by picker prefix search and URL place lookup. */
+export function normalizeTownSearchText(input: string): string {
   return input.trim().toLowerCase().replace(/\s+/g, ' ');
 }
 

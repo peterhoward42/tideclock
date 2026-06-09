@@ -63,6 +63,20 @@
     </p>
   </section>
 
+  <section class="about-route__section" aria-labelledby="about-share-heading">
+    <h2 class="about-route__h" id="about-share-heading">Share a place</h2>
+    <p class="about-route__p">
+      You can link directly to tides for a place using both a place name and a county in the web
+      address, for example
+      <span class="about-route__mono">?place=Looe&amp;county=Cornwall</span>
+      on
+      <a class="about-route__link" href="https://thetidedial.page/?place=Looe&amp;county=Cornwall"
+        >thetidedial.page</a
+      >. Use the same spelling as in the Location menu. Opening a share link applies that place even
+      if you already saved another one.
+    </p>
+  </section>
+
   <section class="about-route__section" aria-labelledby="about-towns-heading">
     <h2 class="about-route__h" id="about-towns-heading">Town list</h2>
     <p class="about-route__p">

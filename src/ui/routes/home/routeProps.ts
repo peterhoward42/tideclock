@@ -1,11 +1,19 @@
 import type { TideExtremesAtLocation } from "../../../core-models/TideExtremesAtLocation";
 
+export type UrlLocationErrorReason = "missing_param" | "unknown" | "ambiguous";
+
 /** Shell tide presentation: quota is distinct from generic load failure. */
 export type TidePresentation =
   | { readonly kind: "loading" }
   | { readonly kind: "ready" }
   | { readonly kind: "loadFailed" }
   | { readonly kind: "quotaExhausted" }
+  | {
+      readonly kind: "urlLocationError";
+      readonly reason: UrlLocationErrorReason;
+      readonly place: string | null;
+      readonly county: string | null;
+    }
   | { readonly kind: "operatorNotice" };
 
 export interface RouteProps {

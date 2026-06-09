@@ -15,7 +15,7 @@
     createQuotaSessionGate,
     loadCivilDayExtremes,
   } from "../application/civilDayExtremesQuery";
-  import { defaultTideLocationTown } from "../data/bakedTowns2";
+  import { bakedTowns2, defaultTideLocationTown } from "../data/bakedTowns2";
   import { loadTownPick, storeTownPick } from "../data-pipelines/townPick";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import {
@@ -38,6 +38,7 @@
   import { surfaceModeForRoute } from "./routeSurfaceMode";
   import { OPERATOR_NOTICE_ACTIVE } from "./operatorNoticeConfig";
   import { effectiveSearchFromLocation } from "./homeUrlQuery";
+  import { resolveBootLocation } from "./resolveBootLocation";
   import { handleOffSiteLinkClick } from "./externalLink";
   import {
     trackProductError,
@@ -54,9 +55,72 @@
   /** Mirrors {@link RouteId} in `router.js` for header copy and route surface mode mapping. */
   type AppRouteId = Parameters<typeof surfaceModeForRoute>[0];
 
-  let tidePresentation = $state<TidePresentation>(
-    OPERATOR_NOTICE_ACTIVE ? { kind: "operatorNotice" } : { kind: "ready" },
-  );
+  function readStoredTownPickBrowser(): Town | undefined {
+    try {
+      if (typeof localStorage === "undefined") return undefined;
+      return loadTownPick({ loader: localStorage });
+    } catch {
+      return undefined;
+    }
+  }
+
+  function readBootSearch(): string {
+    if (typeof window === "undefined") return "";
+    return effectiveSearchFromLocation(
+      window.location.search,
+      window.location.hash,
+    );
+  }
+
+  const initialStoredTown = readStoredTownPickBrowser();
+  const canAccessLocationStorage = typeof localStorage !== "undefined";
+  const bootLocation = resolveBootLocation({
+    search: readBootSearch(),
+    storedTown: initialStoredTown,
+    defaultTown: defaultTideLocationTown,
+    towns: bakedTowns2,
+  });
+
+  function initialTidePresentation(): TidePresentation {
+    if (OPERATOR_NOTICE_ACTIVE) {
+      return { kind: "operatorNotice" };
+    }
+    if (bootLocation.kind === "urlError") {
+      return {
+        kind: "urlLocationError",
+        reason: bootLocation.error.reason,
+        place: bootLocation.error.place,
+        county: bootLocation.error.county,
+      };
+    }
+    return { kind: "ready" };
+  }
+
+  function initialCurrentTown(): Town | undefined {
+    if (bootLocation.kind === "urlError") {
+      return undefined;
+    }
+    if (
+      bootLocation.kind === "fromStorage" ||
+      bootLocation.kind === "fromUrl" ||
+      bootLocation.kind === "default"
+    ) {
+      return bootLocation.town;
+    }
+    return canAccessLocationStorage ? defaultTideLocationTown : undefined;
+  }
+
+  function initialShowDefaultLocationExplainer(): boolean {
+    if (!canAccessLocationStorage) {
+      return false;
+    }
+    if (bootLocation.kind === "fromUrl" || bootLocation.kind === "default") {
+      return bootLocation.showExplainer;
+    }
+    return false;
+  }
+
+  let tidePresentation = $state<TidePresentation>(initialTidePresentation());
   /** Last successful civil-day slice; Home assembles the diagram spec from this. Not cleared on transient errors. */
   let lastSuccessfulTideExtremes = $state<TideExtremesAtLocation | undefined>(undefined);
   /** Local civil-day window start (ms) after the last successful load completed; drives midnight rollover detection. */
@@ -68,29 +132,13 @@
   /** Session-only: after proxy quota exhaustion, load path bypasses persisted extremes; cleared on successful fetch. */
   const tideQuotaSession = createQuotaSessionGate();
 
-  function readStoredTownPickBrowser(): Town | undefined {
-    try {
-      if (typeof localStorage === "undefined") return undefined;
-      return loadTownPick({ loader: localStorage });
-    } catch {
-      return undefined;
-    }
-  }
-
-  const initialStoredTown = readStoredTownPickBrowser();
-  const canAccessLocationStorage = typeof localStorage !== "undefined";
-
-  let currentTown = $state<Town | undefined>(
-    initialStoredTown ?? (canAccessLocationStorage ? defaultTideLocationTown : undefined),
-  );
+  let currentTown = $state<Town | undefined>(initialCurrentTown());
 
   /**
-   * True when no town was in storage at boot: lower-left caption explains the shipped default until dismissed
-   * (dismissal persists that default like a normal menu pick).
+   * True when no town was in storage at boot: lower-left caption explains the active place until dismissed
+   * (dismissal persists that place like a normal menu pick).
    */
-  let showDefaultLocationExplainer = $state(
-    canAccessLocationStorage && initialStoredTown === undefined,
-  );
+  let showDefaultLocationExplainer = $state(initialShowDefaultLocationExplainer());
 
   const tidePreviewBannerLine = $derived.by(() => {
     if (!import.meta.env.DEV || tidePreviewIdFromUrl === null) {
@@ -197,12 +245,16 @@
    * Intent hold (Phase 5): keep this as the single trigger point for follow-on
    * orchestration work (reloads/navigation/etc.) until a concrete replacement exists.
    */
-  function setCurrentLocation(town: Town): void {
-    appDiag("setCurrentLocation called from Location route", {
+  function setCurrentLocation(
+    town: Town,
+    options?: { readonly source?: "menu" | "url"; readonly keepExplainer?: boolean },
+  ): void {
+    appDiag("setCurrentLocation called", {
       townId: town.id,
       townName: town.name,
       county: town.county,
-      country: town.country
+      country: town.country,
+      source: options?.source ?? "menu",
     });
     lastSuccessfulTideExtremes = undefined;
     civilDayWindowStartMsAtLastSuccessfulLoad = undefined;
@@ -210,33 +262,40 @@
     currentTown = town;
     storeTownPick(town, { storer: localStorage });
     appDiag("setCurrentLocation stored town in localStorage", { townId: town.id });
-    showDefaultLocationExplainer = false;
+    if (!options?.keepExplainer) {
+      showDefaultLocationExplainer = false;
+    }
     const locationLabel = `${town.name} - ${town.county}`;
-    trackProductEvent("chose_custom_loc", {
-      label:
-        locationLabel.length <= 200
-          ? locationLabel
-          : locationLabel.slice(0, 200),
-    });
-    if (town.id !== defaultTideLocationTown.id) {
-      const firstCustomLocDeps = createBrowserFirstCustomLocationDeps(trackProductEvent);
-      if (firstCustomLocDeps !== undefined) {
-        recordFirstCustomLocationIfNeeded(firstCustomLocDeps);
+    const telemetryLabel =
+      locationLabel.length <= 200 ? locationLabel : locationLabel.slice(0, 200);
+    if (options?.source === "url") {
+      trackProductEvent("url_location_applied", { label: telemetryLabel });
+    } else {
+      trackProductEvent("chose_custom_loc", { label: telemetryLabel });
+      if (town.id !== defaultTideLocationTown.id) {
+        const firstCustomLocDeps = createBrowserFirstCustomLocationDeps(trackProductEvent);
+        if (firstCustomLocDeps !== undefined) {
+          recordFirstCustomLocationIfNeeded(firstCustomLocDeps);
+        }
       }
     }
     refreshTidesForTown(town);
   }
 
   function dismissDefaultLocationExplainer(): void {
-    storeTownPick(defaultTideLocationTown, { storer: localStorage });
+    const town = currentTown ?? defaultTideLocationTown;
+    storeTownPick(town, { storer: localStorage });
     showDefaultLocationExplainer = false;
-    appDiag("default location explainer dismissed; Looe persisted", {
-      townId: defaultTideLocationTown.id,
+    appDiag("default location explainer dismissed; active town persisted", {
+      townId: town.id,
     });
   }
 
   function maybeRefreshTideAfterLocalMidnightRollover(): void {
-    if (OPERATOR_NOTICE_ACTIVE) {
+    if (
+      OPERATOR_NOTICE_ACTIVE ||
+      tidePresentation.kind === "urlLocationError"
+    ) {
       return;
     }
     const town = loadTownPick({ loader: localStorage }) ?? currentTown;
@@ -291,8 +350,19 @@
       emitRouteVisitTelemetry(routeId);
     });
     tidePreviewIdFromUrl = readTidePreviewIdFromLocation();
-    if (!OPERATOR_NOTICE_ACTIVE && currentTown !== undefined) {
-      refreshTidesForTown(currentTown);
+    if (!OPERATOR_NOTICE_ACTIVE) {
+      if (bootLocation.kind === "urlError") {
+        trackProductEvent("url_location_failed", {
+          reason: bootLocation.error.reason,
+        });
+      } else if (bootLocation.kind === "fromUrl") {
+        setCurrentLocation(bootLocation.town, {
+          source: "url",
+          keepExplainer: bootLocation.showExplainer,
+        });
+      } else if (currentTown !== undefined) {
+        refreshTidesForTown(currentTown);
+      }
     }
     let devUrlCleanup: (() => void) | undefined;
     if (import.meta.env.DEV) {
