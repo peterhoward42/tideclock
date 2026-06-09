@@ -18,6 +18,26 @@ In the app menu, **Tide Nerd** and **Software Nerd** explain tides and how the s
 
 End-user technical overview: [Software Nerd](https://thetidedial.page/#/softwarenerd) in the live app (also `#/softwarenerd`). Tide background: [Tide Nerd](https://thetidedial.page/#/tidenerd).
 
+## Opening a specific place from the URL
+
+The home route accepts optional query parameters **`place`** and **`county`**. Both are required. Use the same spelling as in the **Location** menu (matching is case-insensitive; extra spaces are ignored).
+
+| Form | Example |
+|------|---------|
+| Site root | `https://thetidedial.page/?place=Skegness&county=Lincolnshire` |
+| Hash route | `https://thetidedial.page/#/home?place=Skegness&county=Lincolnshire` |
+| Local dev | `http://localhost:5173/?place=Skegness&county=Lincolnshire` |
+
+When either name contains spaces, encode them in the URL (for example `%20`):
+
+`https://thetidedial.page/?place=Donmouth&county=Aberdeen%20City`
+
+Behaviour:
+
+- A valid link **always applies that place**, even if the visitor already saved another in `localStorage`.
+- The query string **stays in the address bar** so the link remains copy-pasteable and reloads reopen the same place.
+- A missing param, unknown place, or ambiguous match shows an error on home instead of falling back to a default.
+
 ## Local storage
 
 All persistence is in the browser’s **`localStorage`** on the user’s device — nothing is sent to a first-party server for storage.
@@ -29,8 +49,6 @@ All persistence is in the browser’s **`localStorage`** on the user’s device 
 | `tideclock.keepScreenAwake` | Optional “keep screen awake” preference for the home tide view. |
 
 On a first visit with empty storage, the app shows tides for **Looe, Cornwall** until you pick another location (see **Location** in the menu). Cookie policy, safety wording, tide-data copyright, and related notices are on the in-app **[About](https://thetidedial.page/#/about)** page (`#/about`), not duplicated here.
-
-**Share links:** open the live diagram for a specific place with both query parameters `place` and `county` (same spelling as in the Location picker), for example [https://thetidedial.page/?place=Looe&county=Cornwall](https://thetidedial.page/?place=Looe&county=Cornwall). Hash routing works too: `#/home?place=Whitby&county=North%20Yorkshire`. A valid share link always applies that place, even when you already have another location saved.
 
 **Product analytics:** anonymous custom events (route visits, location picks, errors, etc.) are sent via [Vercel Web Analytics](https://vercel.com/docs/analytics) in production builds. See [`src/infrastructure/analytics/`](src/infrastructure/analytics/).
 
