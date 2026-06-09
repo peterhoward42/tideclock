@@ -37,7 +37,10 @@
   import { THE_TIDE_DIAL, TIDE_DIAL_PRODUCTION_ORIGIN } from "./brand";
   import { surfaceModeForRoute } from "./routeSurfaceMode";
   import { OPERATOR_NOTICE_ACTIVE } from "./operatorNoticeConfig";
-  import { effectiveSearchFromLocation } from "./homeUrlQuery";
+  import {
+    effectiveSearchFromLocation,
+    syncShareParamsInLocationBar,
+  } from "./homeUrlQuery";
   import { resolveBootLocation } from "./resolveBootLocation";
   import { handleOffSiteLinkClick } from "./externalLink";
   import {
@@ -272,6 +275,7 @@
       trackProductEvent("url_location_applied", { label: telemetryLabel });
     } else {
       trackProductEvent("chose_custom_loc", { label: telemetryLabel });
+      syncShareParamsInLocationBar(town);
       if (town.id !== defaultTideLocationTown.id) {
         const firstCustomLocDeps = createBrowserFirstCustomLocationDeps(trackProductEvent);
         if (firstCustomLocDeps !== undefined) {
@@ -417,6 +421,7 @@
       <Home
         tidePresentation={{ kind: "operatorNotice" }}
         tideExtremes={undefined}
+        currentTown={currentTown}
         townName={currentTown?.name ?? "Unknown"}
         tidePreviewBannerLine={null}
         defaultLocationExplainerOpen={false}
@@ -445,6 +450,7 @@
           tideExtremes={tidePresentation.kind === "ready"
             ? lastSuccessfulTideExtremes
             : undefined}
+          currentTown={currentTown}
           townName={currentTown?.name ?? "Unknown"}
           tidePreviewBannerLine={tidePreviewBannerLine}
           defaultLocationExplainerOpen={showDefaultLocationExplainer}

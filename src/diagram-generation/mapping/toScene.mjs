@@ -681,6 +681,24 @@ export function handDiagramToGroup(hand, cx, cy) {
  * @param {number} cy
  * @returns {import('../model/sceneModel.mjs').GroupNode}
  */
+/**
+ * @param {import('../model/tideDiagramModel.mjs').HomeShareTriggerDiagram} hs
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {import('../model/sceneModel.mjs').GroupNode}
+ */
+function homeShareTriggerDiagramToGroup(hs, cx, cy) {
+  return group("HomeShareTrigger", [
+    text({
+      content: hs.content,
+      size: hs.fontSize,
+      hAlign: hs.hAlign,
+      angleRad: 0,
+      anchor: mapPoint(hs.anchor, cx, cy),
+    }),
+  ]);
+}
+
 function homeMenuTriggerDiagramToGroup(hm, cx, cy) {
   const c = mapPoint(hm.center, cx, cy);
   const d = hm.diameter;
@@ -716,6 +734,7 @@ export function tideDiagramToScene(diagram) {
     tideMarks,
     annularBand: annularBandDiagram,
     homeMenuTrigger,
+    homeShareTrigger,
     hand,
     mainLabel,
     brhcLocation,
@@ -873,6 +892,7 @@ export function tideDiagramToScene(diagram) {
   ]);
 
   const homeMenuTriggerGroup = homeMenuTriggerDiagramToGroup(homeMenuTrigger, cx, cy);
+  const homeShareTriggerGroup = homeShareTriggerDiagramToGroup(homeShareTrigger, cx, cy);
   const brandPlate = brand.brandQr.plate;
   const brandPlateCenter = mapPoint(brandPlate.center, cx, cy);
   const brandGroup = group("Brand", [
@@ -925,6 +945,7 @@ export function tideDiagramToScene(diagram) {
     brhcBundleGroup,
     brandGroup,
     homeMenuTriggerGroup,
+    homeShareTriggerGroup,
   ]);
   const orderedRoot = applyPaintOrderOverrides(
     root,

@@ -9,6 +9,12 @@ export function queryMenuTriggerGroup(
   return diagramHost.querySelector('svg g[data-name="HomeMenuTrigger"]');
 }
 
+export function queryShareTriggerGroup(
+  diagramHost: HTMLElement,
+): SVGGElement | null {
+  return diagramHost.querySelector('svg g[data-name="HomeShareTrigger"]');
+}
+
 /** Optional layout for tests; production uses the browser viewport. */
 export type MenuPanelAnchorOptions = {
   /** Defaults to `window.innerHeight` when available. */

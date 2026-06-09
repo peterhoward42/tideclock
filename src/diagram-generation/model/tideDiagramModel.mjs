@@ -136,6 +136,15 @@
  *   iconBarCenterSpacing: number,
  * }} HomeMenuTriggerDiagram
  *
+ * Home share trigger: single right-aligned label; top-level scene sibling (not inside **BRHCBundle**).
+ *
+ * @typedef {{
+ *   content: string,
+ *   fontSize: number,
+ *   anchor: DiagramPoint,
+ *   hAlign: 'right',
+ * }} HomeShareTriggerDiagram
+ *
  * **Brand** compound: **BrandURL** text + **BrandQR** matrix (see spec §Brand).
  *
  * @typedef {{
@@ -180,6 +189,7 @@
  *   tideMarks: TideMarkDiagram[],
  *   annularBand: AnnularBandDiagram,
  *   homeMenuTrigger: HomeMenuTriggerDiagram,
+ *   homeShareTrigger: HomeShareTriggerDiagram,
  *   hand: HandDiagram,
  *   brhcLocation: DiagramTextInst,
  *   brhcDate: DiagramTextInst,

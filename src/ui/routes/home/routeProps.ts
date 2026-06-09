@@ -1,4 +1,5 @@
 import type { TideExtremesAtLocation } from "../../../core-models/TideExtremesAtLocation";
+import type { Town } from "../../../data/townSchema";
 
 export type UrlLocationErrorReason = "missing_param" | "unknown" | "ambiguous";
 
@@ -19,6 +20,8 @@ export type TidePresentation =
 export interface RouteProps {
   readonly tidePresentation: TidePresentation;
   readonly tideExtremes: TideExtremesAtLocation | undefined;
+  /** Active coastal place; used for share-link copy when tides are ready. */
+  readonly currentTown: Town | undefined;
   readonly townName: string;
   /** Dev-only copy from shell when `?tideUxPreview=` is active; null in production or when idle. */
   readonly tidePreviewBannerLine: string | null;

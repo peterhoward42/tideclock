@@ -9,6 +9,7 @@
   let {
     tidePresentation,
     tideExtremes,
+    currentTown,
     townName,
     tidePreviewBannerLine,
     defaultLocationExplainerOpen,
@@ -20,6 +21,7 @@
 <HomeRoute
   {tidePresentation}
   {tideExtremes}
+  {currentTown}
   {townName}
   {tidePreviewBannerLine}
   {defaultLocationExplainerOpen}

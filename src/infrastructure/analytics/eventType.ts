@@ -12,6 +12,7 @@ export type TelemetryEventType =
   | 'chose_custom_loc'
   | 'url_location_applied'
   | 'url_location_failed'
+  | 'copied_location_link'
   | 'first_custom_loc'
   | 'launched_as_pwa'
   | UsageSpanEventType

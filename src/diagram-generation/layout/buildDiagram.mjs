@@ -648,7 +648,13 @@ export function buildDiagram(spec) {
     layoutBounds.minX,
     layoutBounds.minY,
   );
-  // Intentionally omit homeMenuTrigger from layoutBounds — spec: menu geometry must not expand B_*.
+  const homeShareTrigger = buildHomeShareTriggerFromSpec(
+    spec,
+    refRadius,
+    layoutBounds.maxX,
+    layoutBounds.minY,
+  );
+  // Intentionally omit homeMenuTrigger / homeShareTrigger from layoutBounds — excluded from B_*.
   includeDiagramTextBounds(layoutBounds, {
     content: brand.brandUrl.content,
     fontSize: brand.brandUrl.fontSize,
@@ -675,6 +681,7 @@ export function buildDiagram(spec) {
     tideMarks,
     annularBand,
     homeMenuTrigger,
+    homeShareTrigger,
     hand,
     brhcLocation,
     brhcDate,
@@ -852,6 +859,43 @@ function includeQrMatrixBounds(bounds, qr) {
  * @param {number} bBottom **B_bottom** (global layout min **Y**)
  * @returns {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram}
  */
+/**
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @param {number} rightEdgeX **B_right**
+ * @param {number} bBottom **B_bottom**
+ * @returns {import('../model/tideDiagramModel.mjs').HomeShareTriggerDiagram}
+ */
+function buildHomeShareTriggerFromSpec(spec, refRadius, rightEdgeX, bBottom) {
+  const o = requirePlainObject(spec.homeShareTrigger, "spec.homeShareTrigger");
+  const aboveBottomK = requireFiniteNumber(
+    o.aboveBottom,
+    "spec.homeShareTrigger.aboveBottom",
+  );
+  const fontHeightK = requireFiniteNumber(
+    o.fontHeight,
+    "spec.homeShareTrigger.fontHeight",
+  );
+  const label = requireString(o.label, "spec.homeShareTrigger.label").trim();
+  if (aboveBottomK < 0) {
+    throw new Error("spec.homeShareTrigger.aboveBottom must be >= 0");
+  }
+  if (!(fontHeightK > 0)) {
+    throw new Error("spec.homeShareTrigger.fontHeight must be greater than 0");
+  }
+  if (label === "") {
+    throw new Error("spec.homeShareTrigger.label must be non-empty");
+  }
+  const fontSize = fontHeightK * refRadius;
+  const baselineY = bBottom + aboveBottomK * refRadius + TEXT_DESCENT_EM * fontSize;
+  return {
+    content: label,
+    fontSize,
+    anchor: { x: rightEdgeX, y: baselineY },
+    hAlign: /** @type {const} */ ("right"),
+  };
+}
+
 function buildHomeMenuTriggerFromSpec(spec, refRadius, leftEdgeX, bBottom) {
   const o = requirePlainObject(spec.homeMenuTrigger, "spec.homeMenuTrigger");
   const diameterK = requireFiniteNumber(o.diameter, "spec.homeMenuTrigger.diameter");

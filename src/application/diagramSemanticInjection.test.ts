@@ -70,6 +70,11 @@ type SemanticInjectionDiagramSpec = {
     readonly iconBarLength: number;
     readonly iconBarGap: number;
   };
+  readonly homeShareTrigger: {
+    readonly aboveBottom: number;
+    readonly fontHeight: number;
+    readonly label: string;
+  };
 };
 
 /** `buildDiagram` is implemented in `.mjs`; align returns with {@link TideDiagramDocument}. */
@@ -127,6 +132,11 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       menuAboveBottom: 0.068,
       iconBarLength: 0.048,
       iconBarGap: 0.015,
+    },
+    homeShareTrigger: {
+      aboveBottom: 0.06,
+      fontHeight: 0.04,
+      label: 'Share ↗',
     },
   };
 }

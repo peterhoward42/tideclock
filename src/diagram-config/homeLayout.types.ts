@@ -104,5 +104,13 @@ export type HomeLayoutBase = {
     /** k·RefRadius: distance between adjacent bar centerlines (middle bar is on trigger centre). */
     readonly iconBarGap: number;
   };
+  readonly homeShareTrigger: {
+    /** k·RefRadius: distance from **B_bottom** up to the share label baseline. */
+    readonly aboveBottom: number;
+    /** k·RefRadius: share label font height. */
+    readonly fontHeight: number;
+    /** Label text (Unicode glyph allowed), e.g. `Share ↗`. */
+    readonly label: string;
+  };
   readonly tideMarksDefaults: HomeTideMarksDefaults;
 };

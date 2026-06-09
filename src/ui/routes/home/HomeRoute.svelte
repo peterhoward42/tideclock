@@ -42,6 +42,9 @@
   } from "./diagramDom";
   import { mountLetterboxSlackObserver } from "./instrumentLetterboxObserver";
   import { mountMenuSvgTriggerWire } from "./menuSvgTriggerWire";
+  import { mountShareSvgTriggerWire } from "./shareSvgTriggerWire";
+  import { copyTextToClipboard } from "../../copyEmail";
+  import { buildShareUrlForTown } from "../../homeUrlQuery";
   import type { RouteProps } from "./routeProps";
   import {
     onboardingDeferDefaultLocationExplainerToLandscape,
@@ -77,6 +80,7 @@
   let {
     tidePresentation,
     tideExtremes,
+    currentTown,
     townName,
     tidePreviewBannerLine,
     defaultLocationExplainerOpen,
@@ -109,6 +113,8 @@
   let homeFullscreenAdviceBody = $state("");
   let homeNerdsOpen = $state(false);
   let homeContactOpen = $state(false);
+  let homeShareLinkCopiedOpen = $state(false);
+  let homeShareLinkCopiedUrl = $state("");
   let keepAwakeUserWants = $state(get(keepAwakeUserStore));
   let keepAwakeTideViewPresentation = $state(get(tideWakePresentationStore));
   let keepAwakeSectionOpen = $state(false);
@@ -166,6 +172,12 @@
     }
     return diagramSvg !== "";
   });
+
+  const shareTriggerEnabled = $derived(
+    tidePresentation.kind === "ready" &&
+      currentTown !== undefined &&
+      !defaultLocationExplainerVisible,
+  );
 
   const keepAwakeForHomeMenu = $derived({
     sectionOpen: keepAwakeSectionOpen,
@@ -355,6 +367,20 @@
   });
 
   $effect(() => {
+    if (!shareTriggerEnabled || diagramSvg === "") {
+      return;
+    }
+
+    return mountShareSvgTriggerWire({
+      getDiagramHost: () => diagramHostEl,
+      onShareClick: handleShareLocationClick,
+      scheduleAfterDomReady: (fn) => {
+        void tick().then(fn);
+      },
+    });
+  });
+
+  $effect(() => {
     if (diagramSvg === "") {
       homeMenuOpen = false;
       return;
@@ -521,6 +547,23 @@
       trackProductEvent("visited_contact");
     }
   }
+
+  function dismissHomeShareLinkCopied(): void {
+    homeShareLinkCopiedOpen = false;
+  }
+
+  async function handleShareLocationClick(): Promise<void> {
+    const town = currentTown;
+    if (town === undefined) return;
+    const shareUrl = buildShareUrlForTown(town);
+    const ok = await copyTextToClipboard(shareUrl);
+    if (!ok) return;
+    trackProductEvent("copied_location_link", {
+      label: `${town.name} - ${town.county}`,
+    });
+    homeShareLinkCopiedUrl = shareUrl;
+    homeShareLinkCopiedOpen = true;
+  }
 </script>
 
 <main class="home-route" bind:this={homeRouteEl}>
@@ -540,11 +583,13 @@
     bind:homeMenuPanelEl
     {tidePresentation}
     {tideExtremes}
+    {currentTown}
     {diagramError}
     {diagramSvg}
     {showLandscapeHint}
     {verticalLetterboxSlackPx}
     showDefaultLocationExplainer={defaultLocationExplainerVisible}
+    shareTriggerEnabled={shareTriggerEnabled}
     defaultLocationExplainerPlaceLine={defaultLocationExplainerPlaceLine}
     onDismissDefaultLocationExplainer={onDismissDefaultLocationExplainer}
     {homeMenuOpen}
@@ -554,6 +599,9 @@
     homeFullscreenAdviceLead={homeFullscreenAdviceLead}
     homeFullscreenAdviceBody={homeFullscreenAdviceBody}
     onDismissHomeFullscreenAdvice={dismissHomeFullscreenAdvice}
+    homeShareLinkCopiedOpen={homeShareLinkCopiedOpen}
+    homeShareLinkCopiedUrl={homeShareLinkCopiedUrl}
+    onDismissHomeShareLinkCopied={dismissHomeShareLinkCopied}
     {homeNerdsOpen}
     {homeContactOpen}
     onCloseHomeMenu={closeHomeMenu}

@@ -742,6 +742,15 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     "iconBarCenterSpacing": 2.95,
     "iconBarHalfLength": 5.31,
   },
+  "homeShareTrigger": {
+    "anchor": {
+      "x": 155.76000000000002,
+      "y": -150.90883550303113,
+    },
+    "content": "Share ↗",
+    "fontSize": 4.72,
+    "hAlign": "right",
+  },
   "mainLabel": {
     "anchor": {
       "x": 155.76000000000002,
@@ -3891,6 +3900,23 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
         ],
         "kind": "group",
         "name": "HomeMenuTrigger",
+      },
+      {
+        "children": [
+          {
+            "anchor": {
+              "x": 155.76000000000002,
+              "y": -150.90883550303113,
+            },
+            "angleRad": 0,
+            "content": "Share ↗",
+            "hAlign": "right",
+            "kind": "text",
+            "size": 4.72,
+          },
+        ],
+        "kind": "group",
+        "name": "HomeShareTrigger",
       },
     ],
     "kind": "group",

@@ -134,6 +134,13 @@ type HomeMenuTriggerDiagram = {
   readonly iconBarCenterSpacing: number;
 };
 
+type HomeShareTriggerDiagram = {
+  readonly content: string;
+  readonly fontSize: number;
+  readonly anchor: DiagramPoint;
+  readonly hAlign: 'right';
+};
+
 type HandTimeReadoutPartDiagram = {
   readonly timeContent: string;
   readonly nowTagContent: string;
@@ -179,6 +186,7 @@ export type TideDiagramDocument = {
   readonly tideMarks: TideMarkDiagram[];
   readonly annularBand: AnnularBandDiagram;
   readonly homeMenuTrigger: HomeMenuTriggerDiagram;
+  readonly homeShareTrigger: HomeShareTriggerDiagram;
   readonly hand: HandDiagram;
   readonly brhcLocation: DiagramTextInst;
   readonly brhcDate: DiagramTextInst;

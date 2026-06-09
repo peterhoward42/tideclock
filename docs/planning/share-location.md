@@ -1,6 +1,6 @@
 # Sharing a tide dial location
 
-**Status:** UX settled — ready for implementation planning  
+**Status:** Implemented (2026-06-09)  
 **Last updated:** 2026-06-09
 
 ---
@@ -38,7 +38,7 @@ Both `place` and `county` are required and must match corpus spelling (same norm
 | About-page contract | `src/ui/routes/AboutRoute.svelte` — “Share a place” |
 | Clipboard helper | `src/ui/copyEmail.ts` — `copyTextToClipboard` |
 
-**Not built yet:** `buildShareUrlForTown`, in-diagram CTA, copy confirmation UI, address-bar sync on menu location change.
+**Built (sender path):** `buildShareUrlForTown`, `syncShareParamsInLocationBar`, in-diagram `HomeShareTrigger`, `shareSvgTriggerWire`, `HomeShareLinkCopiedOverlay`, address-bar sync on menu location change (`App.svelte` → `setCurrentLocation`).
 
 ---
 

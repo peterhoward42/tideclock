@@ -119,6 +119,7 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
     { name: "HomeMenuTrigger", roleName: "role.menu.trigger" },
     { name: "HomeMenuTriggerIcon", roleName: "role.menu.trigger.icon" },
+    { name: "HomeShareTrigger", roleName: "role.structure.text" },
     ],
   lineStyles: [],
 };

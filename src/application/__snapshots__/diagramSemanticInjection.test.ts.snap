@@ -742,6 +742,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "iconBarCenterSpacing": 1.77,
     "iconBarHalfLength": 2.832,
   },
+  "homeShareTrigger": {
+    "anchor": {
+      "x": 128.05368250390558,
+      "y": -125.08000000000001,
+    },
+    "content": "Share ↗",
+    "fontSize": 4.72,
+    "hAlign": "right",
+  },
   "mainLabel": {
     "anchor": {
       "x": 128.05368250390558,

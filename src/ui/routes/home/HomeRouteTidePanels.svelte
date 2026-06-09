@@ -9,6 +9,8 @@
   } from "../../components/PrimaryMenuContent.svelte";
   import HomeDefaultLocationExplainerOverlay from "./HomeDefaultLocationExplainerOverlay.svelte";
   import HomeFullscreenBrowserAdviceOverlay from "./HomeFullscreenBrowserAdviceOverlay.svelte";
+  import HomeShareLinkCopiedOverlay from "./HomeShareLinkCopiedOverlay.svelte";
+  import type { Town } from "../../../data/townSchema";
 
   import type { TidePresentation } from "./routeProps";
   import {
@@ -44,11 +46,13 @@
   interface Props {
     readonly tidePresentation: TidePresentation;
     readonly tideExtremes: TideExtremesAtLocation | undefined;
+    readonly currentTown: Town | undefined;
     readonly diagramError: string | undefined;
     readonly diagramSvg: string;
     readonly showLandscapeHint: boolean;
     readonly verticalLetterboxSlackPx: number;
     readonly showDefaultLocationExplainer: boolean;
+    readonly shareTriggerEnabled: boolean;
     readonly defaultLocationExplainerPlaceLine: string;
     readonly onDismissDefaultLocationExplainer: () => void;
     readonly homeMenuOpen: boolean;
@@ -58,6 +62,9 @@
     readonly homeFullscreenAdviceLead: string;
     readonly homeFullscreenAdviceBody: string;
     readonly onDismissHomeFullscreenAdvice: () => void;
+    readonly homeShareLinkCopiedOpen: boolean;
+    readonly homeShareLinkCopiedUrl: string;
+    readonly onDismissHomeShareLinkCopied: () => void;
     readonly homeNerdsOpen: boolean;
     readonly homeContactOpen: boolean;
     readonly onCloseHomeMenu: () => void;
@@ -73,11 +80,13 @@
   let {
     tidePresentation,
     tideExtremes,
+    currentTown,
     diagramError,
     diagramSvg,
     showLandscapeHint,
     verticalLetterboxSlackPx,
     showDefaultLocationExplainer,
+    shareTriggerEnabled,
     defaultLocationExplainerPlaceLine,
     onDismissDefaultLocationExplainer,
     homeMenuOpen,
@@ -87,6 +96,9 @@
     homeFullscreenAdviceLead,
     homeFullscreenAdviceBody,
     onDismissHomeFullscreenAdvice,
+    homeShareLinkCopiedOpen,
+    homeShareLinkCopiedUrl,
+    onDismissHomeShareLinkCopied,
     homeNerdsOpen,
     homeContactOpen,
     onCloseHomeMenu,
@@ -98,6 +110,12 @@
     homeInstrumentEl = $bindable(),
     homeMenuPanelEl = $bindable(),
   }: Props = $props();
+
+  const sharePlaceLine = $derived.by(() => {
+    const town = currentTown;
+    if (town === undefined) return "Unknown";
+    return town.county !== "" ? `${town.name}, ${town.county}` : town.name;
+  });
 </script>
 
 {#if tidePresentation.kind === "operatorNotice"}
@@ -202,6 +220,7 @@
   >
     <figure
       class="home-instrument"
+      class:home-instrument--share-hidden={!shareTriggerEnabled}
       bind:this={homeInstrumentEl}
       aria-label="Tide diagram for the current civil day"
     >
@@ -230,6 +249,13 @@
         lead={homeFullscreenAdviceLead}
         body={homeFullscreenAdviceBody}
         onDismiss={onDismissHomeFullscreenAdvice}
+      />
+    {/if}
+    {#if homeShareLinkCopiedOpen}
+      <HomeShareLinkCopiedOverlay
+        placeLine={sharePlaceLine}
+        shareUrl={homeShareLinkCopiedUrl}
+        onDismiss={onDismissHomeShareLinkCopied}
       />
     {/if}
     {#if homeMenuOpen}
@@ -403,6 +429,27 @@
    */
   .home-instrument :global(svg g[data-name="HomeMenuTrigger"]) {
     pointer-events: all;
+  }
+
+  .home-instrument :global(svg g[data-name="HomeShareTrigger"]) {
+    pointer-events: all;
+  }
+
+  .home-instrument :global(svg g[data-name="HomeShareTrigger"] text) {
+    transition: fill 120ms ease-out;
+  }
+
+  .home-instrument
+    :global(
+      svg g[data-name="HomeShareTrigger"].home-share-trigger--hover text
+    ) {
+    fill: var(--text-home-share-trigger-hover, #aaa);
+  }
+
+  .home-instrument--share-hidden
+    :global(svg g[data-name="HomeShareTrigger"]) {
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .home-instrument :global(svg g[data-name="HomeMenuTrigger"] > rect) {

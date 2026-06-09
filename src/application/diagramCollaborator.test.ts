@@ -268,6 +268,28 @@ describe('createDiagramCollaborator', () => {
     expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(bBottom + menuAboveK * R + 0.5 * d, 6);
   });
 
+  it('right-aligns HomeShareTrigger to B_right at aboveBottom from B_bottom (excluded from B_*)', () => {
+    const collaborator = createDiagramCollaborator();
+    const spec = baseSpecForCollaboratorTest();
+    const { diagram } = collaborator.generate(spec);
+    const bundleRightX = diagram.brhcDate.anchor.x;
+    const bBottom =
+      diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
+    const aboveBottomK = (spec.homeShareTrigger as { readonly aboveBottom: number })
+      .aboveBottom;
+    const fontHeightK = (spec.homeShareTrigger as { readonly fontHeight: number })
+      .fontHeight;
+    const R = diagram.refArc.refRadius;
+    expect(diagram.homeShareTrigger.anchor.x).toBe(bundleRightX);
+    expect(diagram.homeShareTrigger.hAlign).toBe('right');
+    expect(diagram.homeShareTrigger.fontSize).toBeCloseTo(fontHeightK * R, 6);
+    expect(diagram.homeShareTrigger.anchor.y).toBeCloseTo(
+      bBottom + aboveBottomK * R + 0.2 * diagram.homeShareTrigger.fontSize,
+      6,
+    );
+    expect(diagram.homeShareTrigger.content).toContain('Share');
+  });
+
   it('applies layoutBoundsBottomMargin by extending B_bottom (date row and MainLabel shift down)', () => {
     const collaborator = createDiagramCollaborator();
     const base = baseSpecForCollaboratorTest();
@@ -343,6 +365,7 @@ describe('createDiagramCollaborator', () => {
       'BRHCBundle',
       'Brand',
       'HomeMenuTrigger',
+      'HomeShareTrigger',
     ]);
   });
 

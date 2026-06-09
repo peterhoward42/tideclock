@@ -69,5 +69,11 @@ export const homeLayoutBase = {
     iconBarLength: 0.09,
     iconBarGap: 0.025,
   },
+  homeShareTrigger: {
+    /** k·R: share label baseline above **B_bottom** (bottom-right; excluded from **B_***). */
+    aboveBottom: 0.2,
+    fontHeight: 0.04,
+    label: "Share ↗",
+  },
   tideMarksDefaults,
 } satisfies HomeLayoutBase;

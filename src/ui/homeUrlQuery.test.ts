@@ -1,8 +1,11 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
+  buildShareSearchForTown,
+  buildShareUrlForTown,
   effectiveSearchFromLocation,
   homeDevDebugFlagsFromSearch,
   placeAndCountyFromSearch,
+  syncShareParamsInLocationBar,
 } from "./homeUrlQuery";
 
 describe("effectiveSearchFromLocation", () => {
@@ -80,6 +83,60 @@ describe("effectiveSearchFromLocation with place params", () => {
       place: "Looe",
       county: "Cornwall",
     });
+  });
+});
+
+describe("buildShareSearchForTown", () => {
+  it("encodes place and county with URL encoding", () => {
+    expect(
+      buildShareSearchForTown({ name: "Looe", county: "Cornwall" }),
+    ).toBe("?place=Looe&county=Cornwall");
+    expect(
+      buildShareSearchForTown({
+        name: "St Ives",
+        county: "Cornwall",
+      }),
+    ).toBe("?place=St+Ives&county=Cornwall");
+    expect(
+      buildShareSearchForTown({
+        name: "Whitby",
+        county: "North Yorkshire",
+      }),
+    ).toBe("?place=Whitby&county=North+Yorkshire");
+  });
+});
+
+describe("buildShareUrlForTown", () => {
+  it("uses the provided origin", () => {
+    expect(
+      buildShareUrlForTown(
+        { name: "Looe", county: "Cornwall" },
+        { origin: "https://thetidedial.page" },
+      ),
+    ).toBe("https://thetidedial.page/?place=Looe&county=Cornwall");
+  });
+});
+
+describe("syncShareParamsInLocationBar", () => {
+  it("sets search params, strips dev flags, and clears hash query", () => {
+    const replaceState = vi.fn();
+    vi.stubGlobal("history", { replaceState });
+    vi.stubGlobal("window", {
+      location: {
+        href: "https://thetidedial.page/#/home?diagramPreview=x&dom",
+      },
+    });
+
+    syncShareParamsInLocationBar({ name: "Looe", county: "Cornwall" });
+
+    expect(replaceState).toHaveBeenCalledOnce();
+    const nextHref = replaceState.mock.calls[0][2] as string;
+    const url = new URL(nextHref);
+    expect(url.searchParams.get("place")).toBe("Looe");
+    expect(url.searchParams.get("county")).toBe("Cornwall");
+    expect(url.searchParams.has("dom")).toBe(false);
+    expect(url.searchParams.has("diagramPreview")).toBe(false);
+    expect(url.hash).toBe("#/home");
   });
 });
 
