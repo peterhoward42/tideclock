@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { TideExtreme } from '../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import { homeLayoutBase } from '../diagram-config';
-import { buildDiagramSpec, utcIsoToLocalCanonicalTimeUtc } from './buildDiagramSpec';
+import { buildDiagramSpec, FIXTURE_SHARE_URL, utcIsoToLocalCanonicalTimeUtc } from './buildDiagramSpec';
 import { loadStyleModel } from '../diagram-generation/index.mjs';
 import {
   annularBandMaxX,
@@ -24,6 +24,7 @@ function baseSpecForCollaboratorTest() {
     brhcDatePrefix: FIXTURE_DATE_PREFIX,
     utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     townName: 'Lymington',
+    shareUrl: FIXTURE_SHARE_URL,
   });
 }
 
@@ -202,7 +203,7 @@ describe('createDiagramCollaborator', () => {
     const bLeft = diagram.brand.brandQr.origin.x;
     expect(diagram.brand.brandQr.origin.x).toBeCloseTo(bLeft, 6);
     expect(diagram.brand.brandUrl.anchor.x).toBeCloseTo(bLeft + qrSizeK * R + gapK * R, 6);
-    expect(diagram.brand.brandQr.payload).toBe('https://thetidedial.page');
+    expect(diagram.brand.brandQr.payload).toBe(FIXTURE_SHARE_URL);
     expect(diagram.brand.brandQr.moduleCount).toBeGreaterThan(0);
     expect(diagram.brand.brandQr.moduleCount * diagram.brand.brandQr.moduleSize).toBeCloseTo(
       qrSizeK * R,
@@ -252,8 +253,12 @@ describe('createDiagramCollaborator', () => {
       diagram.mainLabel.anchor.y + dateAbove + fontHeight,
       6,
     );
+    const locationAboveDate =
+      (spec.brhcBundle as {
+        readonly locationAboveDate: number;
+      }).locationAboveDate * diagram.refArc.refRadius;
     expect(diagram.brhcLocation.anchor.y).toBeCloseTo(
-      diagram.brhcDate.anchor.y + dateAbove + fontHeight,
+      diagram.brhcDate.anchor.y + locationAboveDate + fontHeight,
       6,
     );
 
@@ -268,26 +273,24 @@ describe('createDiagramCollaborator', () => {
     expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(bBottom + menuAboveK * R + 0.5 * d, 6);
   });
 
-  it('right-aligns HomeShareTrigger to B_right at aboveBottom from B_bottom (excluded from B_*)', () => {
+  it('left-aligns HomeShareTrigger from homeShareTrigger offsets (excluded from B_*)', () => {
     const collaborator = createDiagramCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
-    const bundleRightX = diagram.brhcDate.anchor.x;
-    const bBottom =
-      diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
-    const aboveBottomK = (spec.homeShareTrigger as { readonly aboveBottom: number })
-      .aboveBottom;
-    const fontHeightK = (spec.homeShareTrigger as { readonly fontHeight: number })
-      .fontHeight;
     const R = diagram.refArc.refRadius;
-    expect(diagram.homeShareTrigger.anchor.x).toBe(bundleRightX);
-    expect(diagram.homeShareTrigger.hAlign).toBe('right');
-    expect(diagram.homeShareTrigger.fontSize).toBeCloseTo(fontHeightK * R, 6);
-    expect(diagram.homeShareTrigger.anchor.y).toBeCloseTo(
-      bBottom + aboveBottomK * R + 0.2 * diagram.homeShareTrigger.fontSize,
-      6,
-    );
-    expect(diagram.homeShareTrigger.content).toContain('Share');
+    const shareCfg = (spec.homeShareTrigger as {
+      readonly fontHeight: number;
+      readonly leftPadding: number;
+      readonly aboveBottom: number;
+      readonly label: string;
+    });
+    const bLeft = diagram.brand.brandQr.origin.x;
+    const bBottom = diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
+    expect(diagram.homeShareTrigger.anchor.x).toBeCloseTo(bLeft + shareCfg.leftPadding * R, 6);
+    expect(diagram.homeShareTrigger.anchor.y).toBeCloseTo(bBottom + shareCfg.aboveBottom * R, 6);
+    expect(diagram.homeShareTrigger.hAlign).toBe('left');
+    expect(diagram.homeShareTrigger.fontSize).toBeCloseTo(shareCfg.fontHeight * R, 6);
+    expect(diagram.homeShareTrigger.content).toBe(shareCfg.label);
   });
 
   it('applies layoutBoundsBottomMargin by extending B_bottom (date row and MainLabel shift down)', () => {
@@ -318,6 +321,7 @@ describe('createDiagramCollaborator', () => {
       brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
+      shareUrl: FIXTURE_SHARE_URL,
     });
     const auto = collaborator.generate(base).diagram;
     const forcedAm = collaborator.generate({ ...base, civilHalfDayLayout: 'beforeNoon' }).diagram;

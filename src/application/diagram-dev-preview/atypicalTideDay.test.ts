@@ -7,6 +7,7 @@ import {
 } from "../../time-services/extremaPattern";
 import {
   buildDiagramSpec,
+  FIXTURE_SHARE_URL,
   utcIsoToLocalCanonicalTimeLocal,
 } from "../buildDiagramSpec";
 import { buildAtypicalTideDayPreview } from "./atypicalTideDay";
@@ -53,6 +54,7 @@ describe("buildAtypicalTideDayPreview", () => {
       brhcDatePrefix,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
       townName: "Lymington",
+      shareUrl: FIXTURE_SHARE_URL,
     });
     expect(spec.timeNow).toBe(timeNow);
     expect(spec.brhcDatePrefix).toBe(brhcDatePrefix);

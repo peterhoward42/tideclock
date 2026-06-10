@@ -4,6 +4,7 @@ import { TideExtremesAtLocation } from '../core-models/TideExtremesAtLocation';
 import {
   buildDiagramSpec,
   buildDiagramSpecWithDerivedNextTide,
+  FIXTURE_SHARE_URL,
   formatTideHeightMetres,
   type HomeTideMarks,
   utcIsoToLocalCanonicalTimeUtc,
@@ -46,6 +47,7 @@ describe('buildDiagramSpec', () => {
       brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
+      shareUrl: FIXTURE_SHARE_URL,
     });
     const markers = (spec.tideMarks as HomeTideMarks).markers;
     expect(markers).toEqual(expectedFixtureMarkers);
@@ -61,6 +63,7 @@ describe('buildDiagramSpec', () => {
         brhcDatePrefix: FIXTURE_DATE_PREFIX,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
         townName: 'Lymington',
+        shareUrl: FIXTURE_SHARE_URL,
       }),
     ).toThrow(/at least one tide extreme/);
   });
@@ -72,6 +75,7 @@ describe('buildDiagramSpec', () => {
       brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
+      shareUrl: FIXTURE_SHARE_URL,
     });
     const { nextTide } = deriveNextTideSemantics(base);
     const withSemantic = buildDiagramSpec({
@@ -80,6 +84,7 @@ describe('buildDiagramSpec', () => {
       brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
+      shareUrl: FIXTURE_SHARE_URL,
       derivedSemantics: { nextTide },
     });
     expect(withSemantic.semantic).toEqual({ atypicalTideSummary: false, nextTide });
@@ -94,6 +99,7 @@ describe('buildDiagramSpecWithDerivedNextTide', () => {
       brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
+      shareUrl: FIXTURE_SHARE_URL,
     };
     const baseSpec = buildDiagramSpec(params);
     const manual = buildDiagramSpec({
@@ -113,6 +119,7 @@ describe('buildDiagramSpec + createDiagramCollaborator', () => {
       brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
+      shareUrl: FIXTURE_SHARE_URL,
     });
     const baseline = collaborator.generate(baseSpec);
     const { nextTide } = deriveNextTideSemantics(baseSpec);
@@ -122,6 +129,7 @@ describe('buildDiagramSpec + createDiagramCollaborator', () => {
       brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
+      shareUrl: FIXTURE_SHARE_URL,
       derivedSemantics: { nextTide },
     });
     expect(collaborator.generate(injected).diagram).toEqual(baseline.diagram);
@@ -135,6 +143,7 @@ describe('buildDiagramSpec + createDiagramCollaborator', () => {
       brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
+      shareUrl: FIXTURE_SHARE_URL,
     });
     const spec = buildDiagramSpec({
       extremesAtLocation: fixtureExtremesAtLocation(),
@@ -142,6 +151,7 @@ describe('buildDiagramSpec + createDiagramCollaborator', () => {
       brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
+      shareUrl: FIXTURE_SHARE_URL,
       derivedSemantics: deriveNextTideSemantics(baseSpec),
     });
     expect(collaborator.generate(spec).diagram).toMatchSnapshot();
@@ -155,6 +165,7 @@ describe('buildDiagramSpec + createDiagramCollaborator', () => {
       brhcDatePrefix: FIXTURE_DATE_PREFIX,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Lymington',
+      shareUrl: FIXTURE_SHARE_URL,
     });
     expect(collaborator.generate(spec).scene).toMatchSnapshot();
   });

@@ -44,6 +44,7 @@ type SemanticInjectionDiagramSpec = {
   readonly brhcBundle: {
     readonly fontHeight: number;
     readonly dateAboveTime: number;
+    readonly locationAboveDate: number;
   };
   readonly brandFontHeight: number;
   readonly brandAboveBottom: number;
@@ -71,10 +72,12 @@ type SemanticInjectionDiagramSpec = {
     readonly iconBarGap: number;
   };
   readonly homeShareTrigger: {
-    readonly aboveBottom: number;
     readonly fontHeight: number;
     readonly label: string;
+    readonly leftPadding: number;
+    readonly aboveBottom: number;
   };
+  readonly shareUrl: string;
 };
 
 /** `buildDiagram` is implemented in `.mjs`; align returns with {@link TideDiagramDocument}. */
@@ -107,7 +110,11 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
         { time: '23:06:00', heightText: '4.80 m', highOrLow: 'High' },
       ],
     },
-    brhcBundle: { fontHeight: 0.05, dateAboveTime: 0.05 },
+    brhcBundle: {
+      fontHeight: 0.05,
+      dateAboveTime: 0.05,
+      locationAboveDate: 0.04,
+    },
     brandFontHeight: 0.03,
     brandAboveBottom: 0.006,
     brandQrGap: 0.01,
@@ -134,10 +141,12 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       iconBarGap: 0.015,
     },
     homeShareTrigger: {
-      aboveBottom: 0.06,
       fontHeight: 0.04,
-      label: 'Share ↗',
+      label: 'Share',
+      leftPadding: 0,
+      aboveBottom: 0.14,
     },
+    shareUrl: 'https://thetidedial.page/?place=Lymington&county=Hampshire',
   };
 }
 

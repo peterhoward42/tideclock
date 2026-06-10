@@ -138,7 +138,7 @@ type HomeShareTriggerDiagram = {
   readonly content: string;
   readonly fontSize: number;
   readonly anchor: DiagramPoint;
-  readonly hAlign: 'right';
+  readonly hAlign: 'left';
 };
 
 type HandTimeReadoutPartDiagram = {

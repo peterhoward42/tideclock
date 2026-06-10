@@ -266,6 +266,25 @@ homeMenuTrigger: {
 }
 ```
 
+### HomeShareTrigger
+
+- **HomeShareTrigger** is a top-level named group: one horizontal **Share** label (clipboard action; see product share-location plan).
+- **Not** part of **BRHCBundle**; bounds are **excluded** from **`B_*`** expansion (same as **HomeMenuTrigger**).
+- **Horizontal** — leading anchor at **`B_left + homeShareTrigger.leftPadding·R`**; **left** justification.
+- **Vertical** — alphabetic baseline at **`B_bottom + homeShareTrigger.aboveBottom·R`**.
+- **FontHeight** from **`homeShareTrigger.fontHeight`** (**k·R**).
+- **Content** from **`homeShareTrigger.label`** (e.g. **`Share`**).
+- **BrandQR** is scan-only; no pointer/click wiring on the QR matrix.
+
+```
+homeShareTrigger: {
+    fontHeight: 0.038,
+    label: "Share",
+    leftPadding: 0,
+    aboveBottom: 0.22,
+}
+```
+
 ### Brand
 
 **Brand** is a **top-level** named **compound** group: a QR code (**BrandQR**) at the **left**, then the fixed URL line (**BrandURL**) immediately to its **right**. Visually the URL line matches the former single-string **Brand** (same copy and preset styling intent).
@@ -285,7 +304,7 @@ homeMenuTrigger: {
 
 #### BrandQR (matrix)
 
-- **Payload** is fixed: **`https://thetidedial.page`** (scannable URL; display copy remains hostless **`thetidedial.page`** on **BrandURL**).
+- **Payload** is host-supplied **`shareUrl`** (full canonical place share URL; display copy on **BrandURL** remains fixed **`thetidedial.page`**).
 - **Module grid** — square modules from a standard QR encoder (error correction **M**); includes the symbol quiet zone in the module count.
 - **Size** — square side **`brandQrSize·R`** from diagram input **`brandQrSize`** (**k·R**, independent of **`brandFontHeight`**).
 - **Gap** — horizontal clearance **`brandQrGap·R`** between the **right** edge of the QR bounding box and the **left** edge of the URL text bounding box (monospace **0.6 em** per code unit, same heuristic as **BRHCBundle**).

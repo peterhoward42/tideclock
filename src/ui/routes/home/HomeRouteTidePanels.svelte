@@ -443,7 +443,7 @@
     :global(
       svg g[data-name="HomeShareTrigger"].home-share-trigger--hover text
     ) {
-    fill: var(--text-home-share-trigger-hover, #aaa);
+    fill: var(--text-home-share-trigger-hover, #ccc);
   }
 
   .home-instrument--share-hidden

@@ -3,6 +3,7 @@ import { TideExtreme } from '../../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../../core-models/TideExtremesAtLocation';
 import {
   buildDiagramSpec,
+  FIXTURE_SHARE_URL,
   utcIsoToLocalCanonicalTimeUtc,
 } from '../buildDiagramSpec';
 import { buildNoMoreTidesTodayClock } from './noMoreTidesToday';
@@ -27,6 +28,7 @@ describe('buildNoMoreTidesTodayClock', () => {
       brhcDatePrefix: preview.brhcDatePrefix,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       townName: 'Test',
+      shareUrl: FIXTURE_SHARE_URL,
     });
     expect(deriveNextTideSemantics(spec).nextTide).toBeNull();
   });

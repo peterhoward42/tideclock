@@ -296,7 +296,8 @@
     if (
       presentation.kind !== "ready" ||
       extremes === undefined ||
-      extremes.extremes.length === 0
+      extremes.extremes.length === 0 ||
+      currentTown === undefined
     ) {
       diagramSvg = "";
       diagramError = undefined;
@@ -317,6 +318,7 @@
         brhcDatePrefix,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
         townName,
+        shareUrl: buildShareUrlForTown(currentTown),
       });
       const { scene, styleRuntime } = collaborator.generate(spec);
       diagramSvg = renderSceneSvg(scene, {

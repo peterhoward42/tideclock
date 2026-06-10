@@ -46,10 +46,18 @@ export type HomeLayoutBase = {
    * Optional k·RefRadius: pass 3 global layout bounds — extends B_bottom downward; omit for 0.
    */
   readonly layoutBoundsBottomMargin?: number;
+  /**
+   * Bottom-right text stack (**BRHCBundle** rows).
+   * Each `*Above*` value is k·RefRadius gap upward from the row below (same convention throughout).
+   * Stack bottom → top: **MainLabel** → **BRHCDate** → **BRHCLocation**.
+   */
   readonly brhcBundle: {
+    /** k·RefRadius: **FontHeight** for **MainLabel**, **BRHCDate**, and **BRHCLocation**. */
     readonly fontHeight: number;
-    /** k·RefRadius: date baseline is this far above (+Y) the clock baseline (tick-label-min Y). */
+    /** k·RefRadius: gap above **MainLabel** baseline to **BRHCDate** baseline. */
     readonly dateAboveTime: number;
+    /** k·RefRadius: gap above **BRHCDate** baseline to **BRHCLocation** baseline. */
+    readonly locationAboveDate: number;
   };
   /** k·RefRadius: **Brand** uniform font height (BrandTitle + BrandURL; see tide-diagram spec). */
   readonly brandFontHeight: number;
@@ -104,13 +112,19 @@ export type HomeLayoutBase = {
     /** k·RefRadius: distance between adjacent bar centerlines (middle bar is on trigger centre). */
     readonly iconBarGap: number;
   };
+  /**
+   * Bottom-left **Share** label (top-level scene sibling; excluded from **B_***).
+   * Leading anchor at **B_left + leftPadding·R**; baseline at **B_bottom + aboveBottom·R**.
+   */
   readonly homeShareTrigger: {
-    /** k·RefRadius: distance from **B_bottom** up to the share label baseline. */
-    readonly aboveBottom: number;
     /** k·RefRadius: share label font height. */
     readonly fontHeight: number;
-    /** Label text (Unicode glyph allowed), e.g. `Share ↗`. */
+    /** Label text, e.g. `Share`. */
     readonly label: string;
+    /** k·RefRadius: inset from **B_left** to the leading edge of the label. */
+    readonly leftPadding: number;
+    /** k·RefRadius: distance from **B_bottom** up to the label baseline. */
+    readonly aboveBottom: number;
   };
   readonly tideMarksDefaults: HomeTideMarksDefaults;
 };

@@ -688,13 +688,14 @@ export function handDiagramToGroup(hand, cx, cy) {
  * @returns {import('../model/sceneModel.mjs').GroupNode}
  */
 function homeShareTriggerDiagramToGroup(hs, cx, cy) {
+  const anchor = mapPoint(hs.anchor, cx, cy);
   return group("HomeShareTrigger", [
     text({
       content: hs.content,
       size: hs.fontSize,
       hAlign: hs.hAlign,
       angleRad: 0,
-      anchor: mapPoint(hs.anchor, cx, cy),
+      anchor,
     }),
   ]);
 }

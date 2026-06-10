@@ -45,6 +45,10 @@ export const homeStyleModel: StyleModelSpec = {
       colors: { color: "#666" },
     },
     {
+      name: "role.share.trigger",
+      colors: { color: "#888", strokeWidth: 1.75 },
+    },
+    {
       name: "role.structure.ref",
       colors: { color: "#888" },
     },
@@ -119,7 +123,7 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
     { name: "HomeMenuTrigger", roleName: "role.menu.trigger" },
     { name: "HomeMenuTriggerIcon", roleName: "role.menu.trigger.icon" },
-    { name: "HomeShareTrigger", roleName: "role.structure.text" },
+    { name: "HomeShareTrigger", roleName: "role.share.trigger" },
     ],
   lineStyles: [],
 };

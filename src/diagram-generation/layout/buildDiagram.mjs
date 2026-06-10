@@ -15,8 +15,10 @@
  * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **Hand.TimeReadout** placement) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
  * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**menuLeftPadding**`, `**menuAboveBottom**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; paddings and **iconBarGap** **>= 0**). Placed as a **top-level** scene sibling (**not** inside **BRHCBundle**): leading edge inset from **B_left** by **`menuLeftPadding·R`**; the **bottom** of the circular control lies **`menuAboveBottom·R`** above **B_bottom** (**Y** upward). Independent of **Brand** placement. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
+ * - `**homeShareTrigger**` is required: plain object with finite **`fontHeight`** (**> 0**), **`leftPadding`** (**>= 0**), **`aboveBottom`** (**>= 0**), and non-empty **`label`**. Top-level scene sibling: leading anchor at **`B_left + leftPadding·R`**; baseline at **`B_bottom + aboveBottom·R`**. Excluded from **`layoutBounds`**.
  * - **MainLabel** is horizontal text inside **BRHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
- * - `**brhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** as **k·R**); `**brhcDatePrefix**` is a required string (see spec).
+ * - `**brhcBundle**` is required (plain object with finite **fontHeight** and row gaps — all **k·R**); `**brhcDatePrefix**` is a required string (see spec).
+ * - `**shareUrl**` is required: non-empty string encoded by **BrandQR** and mirrored by **HomeShareTrigger** clipboard action.
  * - `**brandFontHeight**` is required: finite **k·R** **> 0** for **BrandURL** font height (see tide-diagram spec §Brand).
  * - `**brandAboveBottom**` is required: finite **k·R** **>= 0** (validated; **Brand** bottoms align to **B_bottom** per spec, offset not applied).
  * - `**brandQrGap**` is required: finite **k·R** **>= 0**; horizontal gap between URL text and **BrandQR**.
@@ -53,8 +55,6 @@ const HAND_BOSS_LABEL_TEXT = "Tides";
 
 /** Fixed **BrandURL** display copy. */
 const BRAND_URL = "thetidedial.page";
-/** Fixed **BrandQR** scannable payload (full URL). */
-const BRAND_QR_PAYLOAD = "https://thetidedial.page";
 
 /**
  * **BRHCBundle**: **MainLabel** (tide summary, bottom row), **BRHCDate**, **BRHCLocation** — each row **right**-justified to **B_right**;
@@ -81,15 +81,19 @@ function buildBrhcBundleFromSpec(
   const o = requirePlainObject(spec.brhcBundle, "spec.brhcBundle");
   const fontHeightK = o.fontHeight;
   const dateAboveK = o.dateAboveTime;
+  const locationAboveDateK = o.locationAboveDate;
   if (
     typeof fontHeightK !== "number" ||
     !Number.isFinite(fontHeightK) ||
     typeof dateAboveK !== "number" ||
     !Number.isFinite(dateAboveK) ||
-    dateAboveK < 0
+    dateAboveK < 0 ||
+    typeof locationAboveDateK !== "number" ||
+    !Number.isFinite(locationAboveDateK) ||
+    locationAboveDateK < 0
   ) {
     throw new Error(
-      "spec.brhcBundle requires finite numbers fontHeight and dateAboveTime (RefRadius multiples); dateAboveTime must be >= 0",
+      "spec.brhcBundle requires finite fontHeight, dateAboveTime, and locationAboveDate (RefRadius multiples, gaps >= 0)",
     );
   }
   if (typeof spec.brhcDatePrefix !== "string") {
@@ -105,7 +109,7 @@ function buildBrhcBundleFromSpec(
   // **MainLabel** bottom row: baseline aligns so the row sits on **B_bottom** (see spec).
   const mainLabelBaselineY = layoutBoundsBottomY + TEXT_DESCENT_EM * fontSize;
   const dateY = mainLabelBaselineY + dateAboveK * refRadius + fontSize;
-  const locationY = dateY + dateAboveK * refRadius + fontSize;
+  const locationY = dateY + locationAboveDateK * refRadius + fontSize;
   const mainLabel = buildMainLabel(ax, mainLabelBaselineY, fontSize, mainLabelContent);
   return {
     mainLabel,
@@ -610,7 +614,8 @@ export function buildDiagram(spec) {
   const brandQrSide = brandQrSizeK * refRadius;
   const brandBaselineY = bBottom + TEXT_DESCENT_EM * brandFontSize;
   const brandUrlLeadingX = brandLeadingX + brandQrSide + brandQrGap;
-  const qrEncoded = encodeQrMatrix(BRAND_QR_PAYLOAD);
+  const shareUrl = readShareUrlFromSpec(spec);
+  const qrEncoded = encodeQrMatrix(shareUrl);
   const brandQrOrigin = {
     x: brandLeadingX,
     y: bBottom,
@@ -629,7 +634,7 @@ export function buildDiagram(spec) {
       hAlign: /** @type {const} */ ("left"),
     },
     brandQr: {
-      payload: BRAND_QR_PAYLOAD,
+      payload: shareUrl,
       origin: brandQrOrigin,
       moduleSize: brandQrModuleSize,
       moduleCount: qrEncoded.moduleCount,
@@ -651,7 +656,7 @@ export function buildDiagram(spec) {
   const homeShareTrigger = buildHomeShareTriggerFromSpec(
     spec,
     refRadius,
-    layoutBounds.maxX,
+    layoutBounds.minX,
     layoutBounds.minY,
   );
   // Intentionally omit homeMenuTrigger / homeShareTrigger from layoutBounds — excluded from B_*.
@@ -861,38 +866,43 @@ function includeQrMatrixBounds(bounds, qr) {
  */
 /**
  * @param {Record<string, unknown>} spec
- * @param {number} refRadius
- * @param {number} rightEdgeX **B_right**
- * @param {number} bBottom **B_bottom**
- * @returns {import('../model/tideDiagramModel.mjs').HomeShareTriggerDiagram}
+ * @returns {string}
  */
-function buildHomeShareTriggerFromSpec(spec, refRadius, rightEdgeX, bBottom) {
-  const o = requirePlainObject(spec.homeShareTrigger, "spec.homeShareTrigger");
-  const aboveBottomK = requireFiniteNumber(
-    o.aboveBottom,
-    "spec.homeShareTrigger.aboveBottom",
-  );
-  const fontHeightK = requireFiniteNumber(
-    o.fontHeight,
-    "spec.homeShareTrigger.fontHeight",
-  );
-  const label = requireString(o.label, "spec.homeShareTrigger.label").trim();
-  if (aboveBottomK < 0) {
-    throw new Error("spec.homeShareTrigger.aboveBottom must be >= 0");
+function readShareUrlFromSpec(spec) {
+  const shareUrl = requireString(spec.shareUrl, "spec.shareUrl").trim();
+  if (shareUrl === "") {
+    throw new Error("spec.shareUrl must be a non-empty string");
   }
+  return shareUrl;
+}
+
+function buildHomeShareTriggerFromSpec(spec, refRadius, leftEdgeX, bBottom) {
+  const o = requirePlainObject(spec.homeShareTrigger, "spec.homeShareTrigger");
+  const fontHeightK = requireFiniteNumber(o.fontHeight, "spec.homeShareTrigger.fontHeight");
+  const leftPaddingK = requireFiniteNumber(o.leftPadding, "spec.homeShareTrigger.leftPadding");
+  const aboveBottomK = requireFiniteNumber(o.aboveBottom, "spec.homeShareTrigger.aboveBottom");
+  const label = requireString(o.label, "spec.homeShareTrigger.label").trim();
   if (!(fontHeightK > 0)) {
     throw new Error("spec.homeShareTrigger.fontHeight must be greater than 0");
+  }
+  if (leftPaddingK < 0) {
+    throw new Error("spec.homeShareTrigger.leftPadding must be >= 0");
+  }
+  if (aboveBottomK < 0) {
+    throw new Error("spec.homeShareTrigger.aboveBottom must be >= 0");
   }
   if (label === "") {
     throw new Error("spec.homeShareTrigger.label must be non-empty");
   }
   const fontSize = fontHeightK * refRadius;
-  const baselineY = bBottom + aboveBottomK * refRadius + TEXT_DESCENT_EM * fontSize;
   return {
     content: label,
     fontSize,
-    anchor: { x: rightEdgeX, y: baselineY },
-    hAlign: /** @type {const} */ ("right"),
+    anchor: {
+      x: leftEdgeX + leftPaddingK * refRadius,
+      y: bBottom + aboveBottomK * refRadius,
+    },
+    hAlign: /** @type {const} */ ("left"),
   };
 }
 

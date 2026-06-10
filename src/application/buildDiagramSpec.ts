@@ -2,8 +2,8 @@
  * buildDiagramSpec.ts — Maps domain extremes and local time into `DiagramSpec` fields.
  * Fed by Home and tests; consumed by diagram-generation. Kind: Pure logic (with injectable time mapping).
  * Does not invoke `buildDiagram` itself. Time-now date/clock placement is derived in diagram-generation
- * from AnnularBand and TickLabels; this module only supplies `brhcBundle.fontHeight`, `dateAboveTime`,
- * and `brhcLocation`/`brhcDatePrefix`.
+ * from AnnularBand and TickLabels; this module only supplies `brhcBundle` layout and
+ * `brhcLocation`/`brhcDatePrefix`.
  *
  * Tunable layout numbers live in `diagram-config/homeLayout.preset.ts`.
  */
@@ -52,7 +52,13 @@ export type BuildDiagramSpecParams = BuildDiagramSpecTimeInput & {
   readonly derivedSemantics?: Pick<DerivedNextTideSemantics, 'nextTide'>;
   /** Display town name for the **BRHCLocation** row. */
   readonly townName: string;
+  /** Canonical share URL for **BrandQR** payload and diagram share affordance. */
+  readonly shareUrl: string;
 };
+
+/** Stable share URL for tests and previews without a full {@link Town}. */
+export const FIXTURE_SHARE_URL =
+  'https://thetidedial.page/?place=Lymington&county=Hampshire';
 
 function highOrLowFromExtremeType(type: TideExtremeType): string {
   return type === 'high' ? 'High' : 'Low';
@@ -109,6 +115,7 @@ export function buildDiagramSpec(
     utcIsoToLocalCanonicalTime,
     derivedSemantics,
     townName,
+    shareUrl,
   } = params;
   if (extremesAtLocation.extremes.length === 0) {
     throw new Error('buildDiagramSpec requires at least one tide extreme');
@@ -129,6 +136,7 @@ export function buildDiagramSpec(
     timeNow,
     brhcDatePrefix,
     brhcLocation: townName,
+    shareUrl,
     tideMarks,
   };
 
