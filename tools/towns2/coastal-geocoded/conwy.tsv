@@ -29,7 +29,6 @@ line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
 28	conwy.txt	Maesdu	resolved	53.3090	-3.8324	locality	Maesdu Avenue coastal locality west Llandudno (Streetmap centroid LL30)
 29	conwy.txt	Maesdu Sands	resolved	53.3100	-3.8330	beach	West-shore beach/sands near Maesdu links coast (approximate foreshore)
 30	conwy.txt	Llansanffraid Glan Conwy	resolved	53.2682	-3.7962	village	Glan Conwy; OS Open Names-style centroid (getthedata.com LL28)
-31	conwy.txt	Llansanffraid Glan Conwy	resolved	53.2680	-3.7960	village	Same community as Glan Conwy; Wikipedia/GeoHack settlement centroid (SH8075)
 32	conwy.txt	Glan Conwy	resolved	53.2680	-3.7960	village	Wikipedia/GeoHack; Llansanffraid Glan Conwy shortened name
 33	conwy.txt	Llandudno	resolved	53.3250	-3.8250	town	GeoHack/Wikipedia town centroid (SH784628)
 34	conwy.txt	Llandudno Junction	resolved	53.283402	-3.810399	town	GeoHack settlement/station centroid (SH793177)

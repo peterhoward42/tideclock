@@ -2,8 +2,8 @@
 
 Remove three erroneous duplicate geocoded rows so `Town.name` + `Town.county` is unique in the shipped corpus.
 
-**Status:** planned — not started  
-**Last updated:** 2026-06-09  
+**Status:** done  
+**Last updated:** 2026-06-12  
 **Related:** [location-from-url.md](./location-from-url.md) (URL deep links assume unique `place`+`county`; dedupe is **out of scope** for that work until done separately)
 
 ---
@@ -113,3 +113,4 @@ Note completion in [location-from-url.md](./location-from-url.md) conversation l
 | Date | Notes |
 | --- | --- |
 | 2026-06-09 | Identified 3 duplicate pairs (6 rows); TSV-only fix; gaps in id suffix are fine; split from URL-location work. |
+| 2026-06-12 | Deleted TSV rows at line_index 31 (conwy), 61 (durham), 151 (stirling); rebuilt corpus 15,274 → 15,271; added shipped-corpus uniqueness test. |

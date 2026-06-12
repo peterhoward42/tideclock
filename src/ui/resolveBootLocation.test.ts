@@ -110,11 +110,15 @@ describe('resolveBootLocation', () => {
   });
 
   it('returns urlError for ambiguous corpus pairs', () => {
+    const ambiguousCorpus: readonly Town[] = [
+      storedTown({ id: 'dup-a', name: 'Duplicate Place', county: 'Testshire' }),
+      storedTown({ id: 'dup-b', name: 'Duplicate Place', county: 'Testshire' }),
+    ];
     const result = resolveBootLocation({
-      search: '?place=Llansanffraid%20Glan%20Conwy&county=Conwy',
+      search: '?place=Duplicate%20Place&county=Testshire',
       storedTown: undefined,
       defaultTown,
-      towns: bakedTowns2,
+      towns: ambiguousCorpus,
     });
     expect(result.kind).toBe('urlError');
     if (result.kind === 'urlError') {

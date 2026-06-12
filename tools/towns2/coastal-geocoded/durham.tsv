@@ -59,7 +59,6 @@ line_index	county_file	place_name	status	latitude	longitude	feature_kind	notes
 58	durham.txt	Chemical Beach	resolved	54.8260338	-1.3221685	beach	OpenStreetMap/Nominatim (beach relation)
 59	durham.txt	Featherbed Rocks	resolved	54.8424092	-1.3317248	locality	OpenStreetMap/Nominatim
 60	durham.txt	Noses Point	resolved	54.8240300	-1.3187190	headland	Wikimedia Commons / Geograph camera object coordinates (Nose’s Point); no Nominatim hit for this spelling
-61	durham.txt	Noses Point	resolved	54.8237073	-1.3206983	headland	OpenStreetMap/Nominatim (“Nose’s Point”, Dawdon/Seaham)
 62	durham.txt	Red Acre Point	resolved	54.8388257	-1.3275401	cape	OpenStreetMap/Nominatim
 63	durham.txt	George Elmy Lifeboat Way	resolved	54.8353464	-1.3289629	promenade	OpenStreetMap/Nominatim (named cycleway along seafront)
 64	durham.txt	St Mary the Virgin Seaham	resolved	54.8475280	-1.3436884	church	OpenStreetMap/Nominatim (Church of St Mary The Virgin, Seaham)

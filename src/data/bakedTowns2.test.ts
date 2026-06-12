@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   bakedTowns2,
   defaultTideLocationTown,
+  normalizeTownSearchText,
   queryTowns2ByCountyAndNamePrefix,
   towns2ByTownId,
   towns2Counties,
@@ -68,6 +69,16 @@ describe('bakedTowns2 step-back query', () => {
 });
 
 describe('bakedTowns2 step-back supporting data', () => {
+  it('ships a unique normalized name and county pair per town', () => {
+    const seen = new Map<string, string>();
+    for (const town of bakedTowns2) {
+      const key = `${normalizeTownSearchText(town.name)}|${normalizeTownSearchText(town.county)}`;
+      const priorId = seen.get(key);
+      expect(priorId, `duplicate place+county: ${key} (${priorId}, ${town.id})`).toBeUndefined();
+      seen.set(key, town.id);
+    }
+  });
+
   it('pins Looe, Cornwall as the default tide location', () => {
     expect(defaultTideLocationTown.name).toBe('Looe');
     expect(defaultTideLocationTown.county).toBe('Cornwall');
