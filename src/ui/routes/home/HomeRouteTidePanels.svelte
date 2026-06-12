@@ -431,23 +431,29 @@
     pointer-events: all;
   }
 
-  .home-instrument :global(svg g[data-name="HomeShareTrigger"]) {
+  .home-instrument :global(svg g[data-name="HomeShareTrigger"]),
+  .home-instrument :global(svg g[data-name="HomeLocationTrigger"]) {
     pointer-events: all;
   }
 
-  .home-instrument :global(svg g[data-name="HomeShareTrigger"] text) {
+  .home-instrument :global(svg g[data-name="HomeShareTrigger"] text),
+  .home-instrument :global(svg g[data-name="HomeLocationTrigger"] text) {
     transition: fill 120ms ease-out;
   }
 
   .home-instrument
     :global(
       svg g[data-name="HomeShareTrigger"].home-share-trigger--hover text
+    ),
+  .home-instrument
+    :global(
+      svg g[data-name="HomeLocationTrigger"].home-location-trigger--hover text
     ) {
     fill: var(--text-home-share-trigger-hover, #ccc);
   }
 
   .home-instrument--share-hidden
-    :global(svg g[data-name="HomeShareTrigger"]) {
+    :global(svg g[data-name="HomeLocationPanel"]) {
     visibility: hidden;
     pointer-events: none;
   }

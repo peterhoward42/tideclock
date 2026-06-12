@@ -46,9 +46,8 @@ type SemanticInjectionDiagramSpec = {
     readonly dateAboveTime: number;
     readonly locationAboveDate: number;
   };
-  readonly brandFontHeight: number;
-  readonly brandAboveBottom: number;
-  readonly brandQrGap: number;
+  readonly brandQrLeftPadding: number;
+  readonly brandQrAboveBottom: number;
   readonly brandQrSize: number;
   readonly brandQrPlateCornerRx: number;
   readonly annularBand: { readonly annularBandWidth: number };
@@ -71,11 +70,23 @@ type SemanticInjectionDiagramSpec = {
     readonly iconBarLength: number;
     readonly iconBarGap: number;
   };
-  readonly homeShareTrigger: {
-    readonly fontHeight: number;
-    readonly label: string;
+  readonly homeLocationPanel: {
     readonly leftPadding: number;
     readonly aboveBottom: number;
+    readonly width: number;
+    readonly height: number;
+    readonly cornerRx: number;
+    readonly labelFontHeight: number;
+    readonly actionFontHeight: number;
+    readonly label: string;
+    readonly shareLabel: string;
+    readonly changeLabel: string;
+    readonly separator: string;
+    readonly innerPadLeft: number;
+    readonly innerPadBottom: number;
+    readonly labelAboveActions: number;
+    readonly actionSeparatorLeading: number;
+    readonly actionChangeLeading: number;
   };
   readonly shareUrl: string;
 };
@@ -115,9 +126,8 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       dateAboveTime: 0.05,
       locationAboveDate: 0.04,
     },
-    brandFontHeight: 0.03,
-    brandAboveBottom: 0.006,
-    brandQrGap: 0.01,
+    brandQrLeftPadding: 0,
+    brandQrAboveBottom: 0,
     brandQrSize: 0.11,
     brandQrPlateCornerRx: 0.01,
     annularBand: { annularBandWidth: 0.05 },
@@ -140,11 +150,23 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       iconBarLength: 0.048,
       iconBarGap: 0.015,
     },
-    homeShareTrigger: {
-      fontHeight: 0.04,
-      label: 'Share',
-      leftPadding: 0,
-      aboveBottom: 0.14,
+    homeLocationPanel: {
+      leftPadding: 0.12,
+      aboveBottom: 0,
+      width: 0.34,
+      height: 0.12,
+      cornerRx: 0.01,
+      labelFontHeight: 0.03,
+      actionFontHeight: 0.04,
+      label: 'Location',
+      shareLabel: 'Share',
+      changeLabel: 'Change',
+      separator: ' · ',
+      innerPadLeft: 0.015,
+      innerPadBottom: 0.018,
+      labelAboveActions: 0.024,
+      actionSeparatorLeading: 0.1,
+      actionChangeLeading: 0.128,
     },
     shareUrl: 'https://thetidedial.page/?place=Lymington&county=Hampshire',
   };

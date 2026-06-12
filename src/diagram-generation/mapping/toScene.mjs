@@ -682,21 +682,58 @@ export function handDiagramToGroup(hand, cx, cy) {
  * @returns {import('../model/sceneModel.mjs').GroupNode}
  */
 /**
- * @param {import('../model/tideDiagramModel.mjs').HomeShareTriggerDiagram} hs
+ * @param {import('../model/tideDiagramModel.mjs').HomeLocationPanelDiagram} panel
  * @param {number} cx
  * @param {number} cy
  * @returns {import('../model/sceneModel.mjs').GroupNode}
  */
-function homeShareTriggerDiagramToGroup(hs, cx, cy) {
-  const anchor = mapPoint(hs.anchor, cx, cy);
-  return group("HomeShareTrigger", [
-    text({
-      content: hs.content,
-      size: hs.fontSize,
-      hAlign: hs.hAlign,
-      angleRad: 0,
-      anchor,
-    }),
+function homeLocationPanelDiagramToGroup(panel, cx, cy) {
+  const plate = panel.plate;
+  const plateCenter = mapPoint(plate.center, cx, cy);
+  const label = panel.label;
+  const share = panel.share;
+  const separator = panel.separator;
+  const change = panel.change;
+  return group("HomeLocationPanel", [
+    group("HomeLocationPanelPlate", [
+      roundedRect(plateCenter, plate.width, plate.height, plate.rx),
+    ]),
+    group("HomeLocationPanelLabel", [
+      text({
+        content: label.content,
+        size: label.fontSize,
+        hAlign: label.hAlign ?? "left",
+        angleRad: 0,
+        anchor: mapPoint(label.anchor, cx, cy),
+      }),
+    ]),
+    group("HomeShareTrigger", [
+      text({
+        content: share.content,
+        size: share.fontSize,
+        hAlign: share.hAlign,
+        angleRad: 0,
+        anchor: mapPoint(share.anchor, cx, cy),
+      }),
+    ]),
+    group("HomeLocationPanelSeparator", [
+      text({
+        content: separator.content,
+        size: separator.fontSize,
+        hAlign: separator.hAlign,
+        angleRad: 0,
+        anchor: mapPoint(separator.anchor, cx, cy),
+      }),
+    ]),
+    group("HomeLocationTrigger", [
+      text({
+        content: change.content,
+        size: change.fontSize,
+        hAlign: change.hAlign,
+        angleRad: 0,
+        anchor: mapPoint(change.anchor, cx, cy),
+      }),
+    ]),
   ]);
 }
 
@@ -735,7 +772,7 @@ export function tideDiagramToScene(diagram) {
     tideMarks,
     annularBand: annularBandDiagram,
     homeMenuTrigger,
-    homeShareTrigger,
+    homeLocationPanel,
     hand,
     mainLabel,
     brhcLocation,
@@ -893,7 +930,7 @@ export function tideDiagramToScene(diagram) {
   ]);
 
   const homeMenuTriggerGroup = homeMenuTriggerDiagramToGroup(homeMenuTrigger, cx, cy);
-  const homeShareTriggerGroup = homeShareTriggerDiagramToGroup(homeShareTrigger, cx, cy);
+  const homeLocationPanelGroup = homeLocationPanelDiagramToGroup(homeLocationPanel, cx, cy);
   const brandPlate = brand.brandQr.plate;
   const brandPlateCenter = mapPoint(brandPlate.center, cx, cy);
   const brandGroup = group("Brand", [
@@ -911,15 +948,6 @@ export function tideDiagramToScene(diagram) {
         moduleSize: brand.brandQr.moduleSize,
         moduleCount: brand.brandQr.moduleCount,
         cells: brand.brandQr.cells,
-      }),
-    ]),
-    group("BrandURL", [
-      text({
-        content: brand.brandUrl.content,
-        size: brand.brandUrl.fontSize,
-        hAlign: brand.brandUrl.hAlign,
-        angleRad: 0,
-        anchor: mapPoint(brand.brandUrl.anchor, cx, cy),
       }),
     ]),
   ]);
@@ -946,7 +974,7 @@ export function tideDiagramToScene(diagram) {
     brhcBundleGroup,
     brandGroup,
     homeMenuTriggerGroup,
-    homeShareTriggerGroup,
+    homeLocationPanelGroup,
   ]);
   const orderedRoot = applyPaintOrderOverrides(
     root,

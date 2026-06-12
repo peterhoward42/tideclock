@@ -15,14 +15,13 @@
  * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **Hand.TimeReadout** placement) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
  * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**menuLeftPadding**`, `**menuAboveBottom**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; paddings and **iconBarGap** **>= 0**). Placed as a **top-level** scene sibling (**not** inside **BRHCBundle**): leading edge inset from **B_left** by **`menuLeftPadding·R`**; the **bottom** of the circular control lies **`menuAboveBottom·R`** above **B_bottom** (**Y** upward). Independent of **Brand** placement. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
- * - `**homeShareTrigger**` is required: plain object with finite **`fontHeight`** (**> 0**), **`leftPadding`** (**>= 0**), **`aboveBottom`** (**>= 0**), and non-empty **`label`**. Top-level scene sibling: leading anchor at **`B_left + leftPadding·R`**; baseline at **`B_bottom + aboveBottom·R`**. Excluded from **`layoutBounds`**.
+ * - `**homeLocationPanel**` is required: plate + heading + **Share** / **Change** actions to the right of **BrandQR** (see tide-diagram spec §HomeLocationPanel). Excluded from **`layoutBounds`** except via **BrandQR** horizontal extent.
  * - **MainLabel** is horizontal text inside **BRHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
  * - `**brhcBundle**` is required (plain object with finite **fontHeight** and row gaps — all **k·R**); `**brhcDatePrefix**` is a required string (see spec).
- * - `**shareUrl**` is required: non-empty string encoded by **BrandQR** and mirrored by **HomeShareTrigger** clipboard action.
- * - `**brandFontHeight**` is required: finite **k·R** **> 0** for **BrandURL** font height (see tide-diagram spec §Brand).
- * - `**brandAboveBottom**` is required: finite **k·R** **>= 0** (validated; **Brand** bottoms align to **B_bottom** per spec, offset not applied).
- * - `**brandQrGap**` is required: finite **k·R** **>= 0**; horizontal gap between URL text and **BrandQR**.
- * - `**brandQrSize**` is required: finite **k·R** **> 0**; **BrandQR** square side (independent of **`brandFontHeight`**).
+ * - `**shareUrl**` is required: non-empty string encoded by **BrandQR** and copied by **HomeShareTrigger** clipboard action.
+ * - `**brandQrLeftPadding**` is required: finite **k·R** **>= 0**; **BrandQR** leading edge inset from **B_left**.
+ * - `**brandQrAboveBottom**` is required: finite **k·R** **>= 0**; **BrandQR** bottom edge above **B_bottom**.
+ * - `**brandQrSize**` is required: finite **k·R** **> 0**; **BrandQR** square side.
  * - `**brandQrPlateCornerRx**` is required: finite **k·R** **>= 0**; **BrandQRPlate** corner radius.
  */
 import { buildTideMarksFromSpec } from "./tideMarks.mjs";
@@ -52,9 +51,6 @@ const TEXT_ASCENT_EM = 0.8;
 const TEXT_DESCENT_EM = 0.2;
 const HAND_NOW_TAG_TEXT = "time now";
 const HAND_BOSS_LABEL_TEXT = "Tides";
-
-/** Fixed **BrandURL** display copy. */
-const BRAND_URL = "thetidedial.page";
 
 /**
  * **BRHCBundle**: **MainLabel** (tide summary, bottom row), **BRHCDate**, **BRHCLocation** — each row **right**-justified to **B_right**;
@@ -602,37 +598,28 @@ export function buildDiagram(spec) {
     hAlign: "right",
   });
 
-  const brandFontHeightK = readBrandFontHeightKFromSpec(spec);
-  readBrandAboveBottomKFromSpec(spec);
-  const brandQrGapK = readBrandQrGapKFromSpec(spec);
   const brandQrSizeK = readBrandQrSizeKFromSpec(spec);
   const brandQrPlateCornerRxK = readBrandQrPlateCornerRxKFromSpec(spec);
-  const brandFontSize = brandFontHeightK * refRadius;
+  const brandQrLeftPaddingK = readBrandQrLeftPaddingKFromSpec(spec);
+  const brandQrAboveBottomK = readBrandQrAboveBottomKFromSpec(spec);
   const bBottom = layoutBounds.minY;
-  const brandLeadingX = layoutBounds.minX;
-  const brandQrGap = brandQrGapK * refRadius;
+  const bLeft = layoutBounds.minX;
   const brandQrSide = brandQrSizeK * refRadius;
-  const brandBaselineY = bBottom + TEXT_DESCENT_EM * brandFontSize;
-  const brandUrlLeadingX = brandLeadingX + brandQrSide + brandQrGap;
+  const brandQrLeftX = bLeft + brandQrLeftPaddingK * refRadius;
+  const brandQrBottomY = bBottom + brandQrAboveBottomK * refRadius;
   const shareUrl = readShareUrlFromSpec(spec);
   const qrEncoded = encodeQrMatrix(shareUrl);
   const brandQrOrigin = {
-    x: brandLeadingX,
-    y: bBottom,
+    x: brandQrLeftX,
+    y: brandQrBottomY,
   };
   const brandQrModuleSize = brandQrSide / qrEncoded.moduleCount;
   const brandQrPlateCenter = {
-    x: brandLeadingX + 0.5 * brandQrSide,
-    y: bBottom + 0.5 * brandQrSide,
+    x: brandQrLeftX + 0.5 * brandQrSide,
+    y: brandQrBottomY + 0.5 * brandQrSide,
   };
   const brandQrPlateRx = brandQrPlateCornerRxK * refRadius;
   const brand = {
-    brandUrl: {
-      content: BRAND_URL,
-      fontSize: brandFontSize,
-      anchor: { x: brandUrlLeadingX, y: brandBaselineY },
-      hAlign: /** @type {const} */ ("left"),
-    },
     brandQr: {
       payload: shareUrl,
       origin: brandQrOrigin,
@@ -650,23 +637,18 @@ export function buildDiagram(spec) {
   const homeMenuTrigger = buildHomeMenuTriggerFromSpec(
     spec,
     refRadius,
-    layoutBounds.minX,
-    layoutBounds.minY,
+    bLeft,
+    bBottom,
   );
-  const homeShareTrigger = buildHomeShareTriggerFromSpec(
+  const homeLocationPanel = buildHomeLocationPanelFromSpec(
     spec,
     refRadius,
-    layoutBounds.minX,
-    layoutBounds.minY,
+    bLeft,
+    bBottom,
   );
-  // Intentionally omit homeMenuTrigger / homeShareTrigger from layoutBounds — excluded from B_*.
-  includeDiagramTextBounds(layoutBounds, {
-    content: brand.brandUrl.content,
-    fontSize: brand.brandUrl.fontSize,
-    anchor: brand.brandUrl.anchor,
-    hAlign: brand.brandUrl.hAlign,
-  });
+  // Intentionally omit homeMenuTrigger from layoutBounds; homeLocationPanel extends B_* (replacing former BrandURL).
   includeQrMatrixBounds(layoutBounds, brand.brandQr);
+  includeHomeLocationPanelBounds(layoutBounds, homeLocationPanel);
 
   return {
     version: 1,
@@ -686,7 +668,7 @@ export function buildDiagram(spec) {
     tideMarks,
     annularBand,
     homeMenuTrigger,
-    homeShareTrigger,
+    homeLocationPanel,
     hand,
     brhcLocation,
     brhcDate,
@@ -782,48 +764,33 @@ function readLayoutBoundsBottomMarginKFromSpec(spec) {
 }
 
 /**
- * **k·R** font height for **Brand** (fixed URL line; see tide-diagram spec).
+ * **k·R** inset from **B_left** to **BrandQR** leading edge.
  *
  * @param {Record<string, unknown>} spec
- * @returns {number} dimensionless k
  */
-function readBrandFontHeightKFromSpec(spec) {
-  const k = requireFiniteNumber(spec.brandFontHeight, "spec.brandFontHeight");
-  if (!(k > 0)) {
-    throw new Error("spec.brandFontHeight must be greater than 0");
-  }
-  return k;
-}
-
-/**
- * **k·R** offset from **B_bottom** to **Brand** alphabetic baseline (see tide-diagram spec §Brand).
- *
- * @param {Record<string, unknown>} spec
- * @returns {number} dimensionless k
- */
-function readBrandAboveBottomKFromSpec(spec) {
-  const k = requireFiniteNumber(spec.brandAboveBottom, "spec.brandAboveBottom");
+function readBrandQrLeftPaddingKFromSpec(spec) {
+  const k = requireFiniteNumber(spec.brandQrLeftPadding, "spec.brandQrLeftPadding");
   if (k < 0) {
-    throw new Error("spec.brandAboveBottom must be >= 0");
+    throw new Error("spec.brandQrLeftPadding must be >= 0");
   }
   return k;
 }
 
 /**
- * **k·R** horizontal gap between **BrandURL** text and **BrandQR** (see tide-diagram spec §Brand).
+ * **k·R** inset from **B_bottom** up to **BrandQR** bottom edge.
  *
  * @param {Record<string, unknown>} spec
  */
-function readBrandQrGapKFromSpec(spec) {
-  const k = requireFiniteNumber(spec.brandQrGap, "spec.brandQrGap");
+function readBrandQrAboveBottomKFromSpec(spec) {
+  const k = requireFiniteNumber(spec.brandQrAboveBottom, "spec.brandQrAboveBottom");
   if (k < 0) {
-    throw new Error("spec.brandQrGap must be >= 0");
+    throw new Error("spec.brandQrAboveBottom must be >= 0");
   }
   return k;
 }
 
 /**
- * **k·R** **BrandQR** square side (see tide-diagram spec §Brand).
+ * **k·R** **BrandQR** square side.
  *
  * @param {Record<string, unknown>} spec
  */
@@ -876,34 +843,174 @@ function readShareUrlFromSpec(spec) {
   return shareUrl;
 }
 
-function buildHomeShareTriggerFromSpec(spec, refRadius, leftEdgeX, bBottom) {
-  const o = requirePlainObject(spec.homeShareTrigger, "spec.homeShareTrigger");
-  const fontHeightK = requireFiniteNumber(o.fontHeight, "spec.homeShareTrigger.fontHeight");
-  const leftPaddingK = requireFiniteNumber(o.leftPadding, "spec.homeShareTrigger.leftPadding");
-  const aboveBottomK = requireFiniteNumber(o.aboveBottom, "spec.homeShareTrigger.aboveBottom");
-  const label = requireString(o.label, "spec.homeShareTrigger.label").trim();
-  if (!(fontHeightK > 0)) {
-    throw new Error("spec.homeShareTrigger.fontHeight must be greater than 0");
+function buildHomeLocationPanelFromSpec(spec, refRadius, bLeft, bBottom) {
+  const o = requirePlainObject(spec.homeLocationPanel, "spec.homeLocationPanel");
+  const leftPaddingK = requireFiniteNumber(
+    o.leftPadding,
+    "spec.homeLocationPanel.leftPadding",
+  );
+  const aboveBottomK = requireFiniteNumber(
+    o.aboveBottom,
+    "spec.homeLocationPanel.aboveBottom",
+  );
+  const widthK = requireFiniteNumber(o.width, "spec.homeLocationPanel.width");
+  const heightK = requireFiniteNumber(o.height, "spec.homeLocationPanel.height");
+  const cornerRxK = requireFiniteNumber(o.cornerRx, "spec.homeLocationPanel.cornerRx");
+  const labelFontHeightK = requireFiniteNumber(
+    o.labelFontHeight,
+    "spec.homeLocationPanel.labelFontHeight",
+  );
+  const actionFontHeightK = requireFiniteNumber(
+    o.actionFontHeight,
+    "spec.homeLocationPanel.actionFontHeight",
+  );
+  const innerPadLeftK = requireFiniteNumber(
+    o.innerPadLeft,
+    "spec.homeLocationPanel.innerPadLeft",
+  );
+  const innerPadBottomK = requireFiniteNumber(
+    o.innerPadBottom,
+    "spec.homeLocationPanel.innerPadBottom",
+  );
+  const labelAboveActionsK = requireFiniteNumber(
+    o.labelAboveActions,
+    "spec.homeLocationPanel.labelAboveActions",
+  );
+  const actionSeparatorLeadingK = requireFiniteNumber(
+    o.actionSeparatorLeading,
+    "spec.homeLocationPanel.actionSeparatorLeading",
+  );
+  const actionChangeLeadingK = requireFiniteNumber(
+    o.actionChangeLeading,
+    "spec.homeLocationPanel.actionChangeLeading",
+  );
+  const label = requireString(o.label, "spec.homeLocationPanel.label").trim();
+  const shareLabel = requireString(o.shareLabel, "spec.homeLocationPanel.shareLabel").trim();
+  const changeLabel = requireString(o.changeLabel, "spec.homeLocationPanel.changeLabel").trim();
+  const separator = requireString(o.separator, "spec.homeLocationPanel.separator");
+  if (!(widthK > 0)) {
+    throw new Error("spec.homeLocationPanel.width must be greater than 0");
   }
   if (leftPaddingK < 0) {
-    throw new Error("spec.homeShareTrigger.leftPadding must be >= 0");
+    throw new Error("spec.homeLocationPanel.leftPadding must be >= 0");
   }
   if (aboveBottomK < 0) {
-    throw new Error("spec.homeShareTrigger.aboveBottom must be >= 0");
+    throw new Error("spec.homeLocationPanel.aboveBottom must be >= 0");
+  }
+  if (!(heightK > 0)) {
+    throw new Error("spec.homeLocationPanel.height must be greater than 0");
+  }
+  if (cornerRxK < 0) {
+    throw new Error("spec.homeLocationPanel.cornerRx must be >= 0");
+  }
+  if (!(labelFontHeightK > 0)) {
+    throw new Error("spec.homeLocationPanel.labelFontHeight must be greater than 0");
+  }
+  if (!(actionFontHeightK > 0)) {
+    throw new Error("spec.homeLocationPanel.actionFontHeight must be greater than 0");
+  }
+  if (innerPadLeftK < 0) {
+    throw new Error("spec.homeLocationPanel.innerPadLeft must be >= 0");
+  }
+  if (innerPadBottomK < 0) {
+    throw new Error("spec.homeLocationPanel.innerPadBottom must be >= 0");
+  }
+  if (labelAboveActionsK < 0) {
+    throw new Error("spec.homeLocationPanel.labelAboveActions must be >= 0");
+  }
+  if (actionSeparatorLeadingK < 0) {
+    throw new Error("spec.homeLocationPanel.actionSeparatorLeading must be >= 0");
+  }
+  if (actionChangeLeadingK < 0) {
+    throw new Error("spec.homeLocationPanel.actionChangeLeading must be >= 0");
+  }
+  if (actionChangeLeadingK < actionSeparatorLeadingK) {
+    throw new Error(
+      "spec.homeLocationPanel.actionChangeLeading must be >= actionSeparatorLeading",
+    );
   }
   if (label === "") {
-    throw new Error("spec.homeShareTrigger.label must be non-empty");
+    throw new Error("spec.homeLocationPanel.label must be non-empty");
   }
-  const fontSize = fontHeightK * refRadius;
+  if (shareLabel === "") {
+    throw new Error("spec.homeLocationPanel.shareLabel must be non-empty");
+  }
+  if (changeLabel === "") {
+    throw new Error("spec.homeLocationPanel.changeLabel must be non-empty");
+  }
+
+  const panelLeftX = bLeft + leftPaddingK * refRadius;
+  const panelBottomY = bBottom + aboveBottomK * refRadius;
+  const panelWidth = widthK * refRadius;
+  const panelHeight = heightK * refRadius;
+  const labelFontSize = labelFontHeightK * refRadius;
+  const actionFontSize = actionFontHeightK * refRadius;
+  const innerLeftX = panelLeftX + innerPadLeftK * refRadius;
+  const actionBaselineY =
+    panelBottomY + innerPadBottomK * refRadius + TEXT_DESCENT_EM * actionFontSize;
+  const labelBaselineY =
+    actionBaselineY + labelAboveActionsK * refRadius + actionFontSize;
+  const separatorLeadingX = innerLeftX + actionSeparatorLeadingK * refRadius;
+  const changeLeadingX = innerLeftX + actionChangeLeadingK * refRadius;
+
   return {
-    content: label,
-    fontSize,
-    anchor: {
-      x: leftEdgeX + leftPaddingK * refRadius,
-      y: bBottom + aboveBottomK * refRadius,
+    plate: {
+      center: {
+        x: panelLeftX + 0.5 * panelWidth,
+        y: panelBottomY + 0.5 * panelHeight,
+      },
+      width: panelWidth,
+      height: panelHeight,
+      rx: cornerRxK * refRadius,
     },
-    hAlign: /** @type {const} */ ("left"),
+    label: {
+      content: label,
+      fontSize: labelFontSize,
+      anchor: { x: innerLeftX, y: labelBaselineY },
+      hAlign: /** @type {const} */ ("left"),
+    },
+    share: {
+      content: shareLabel,
+      fontSize: actionFontSize,
+      anchor: { x: innerLeftX, y: actionBaselineY },
+      hAlign: /** @type {const} */ ("left"),
+    },
+    separator: {
+      content: separator,
+      fontSize: actionFontSize,
+      anchor: { x: separatorLeadingX, y: actionBaselineY },
+      hAlign: /** @type {const} */ ("left"),
+    },
+    change: {
+      content: changeLabel,
+      fontSize: actionFontSize,
+      anchor: { x: changeLeadingX, y: actionBaselineY },
+      hAlign: /** @type {const} */ ("left"),
+    },
   };
+}
+
+/**
+ * @param {{ minX: number, maxX: number, minY: number, maxY: number }} bounds
+ * @param {import('../model/tideDiagramModel.mjs').HomeLocationPanelDiagram} panel
+ */
+function includeHomeLocationPanelBounds(bounds, panel) {
+  const plate = panel.plate;
+  includeRect(
+    bounds,
+    plate.center.x - 0.5 * plate.width,
+    plate.center.x + 0.5 * plate.width,
+    plate.center.y - 0.5 * plate.height,
+    plate.center.y + 0.5 * plate.height,
+  );
+  for (const textInst of [panel.label, panel.share, panel.separator, panel.change]) {
+    includeDiagramTextBounds(bounds, {
+      content: textInst.content,
+      fontSize: textInst.fontSize,
+      anchor: textInst.anchor,
+      hAlign: textInst.hAlign,
+    });
+  }
 }
 
 function buildHomeMenuTriggerFromSpec(spec, refRadius, leftEdgeX, bBottom) {

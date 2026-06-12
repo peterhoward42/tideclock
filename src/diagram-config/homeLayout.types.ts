@@ -59,16 +59,14 @@ export type HomeLayoutBase = {
     /** k·RefRadius: gap above **BRHCDate** baseline to **BRHCLocation** baseline. */
     readonly locationAboveDate: number;
   };
-  /** k·RefRadius: **Brand** uniform font height (BrandTitle + BrandURL; see tide-diagram spec). */
-  readonly brandFontHeight: number;
-  /** k·RefRadius: **BrandURL** alphabetic baseline offset upward from **B_bottom** (see tide-diagram spec §Brand). */
-  readonly brandAboveBottom: number;
-  /** k·RefRadius: horizontal gap between **BrandURL** text and **BrandQR** (see tide-diagram spec §Brand). */
-  readonly brandQrGap: number;
-  /** k·RefRadius: **BrandQR** square side (see tide-diagram spec §Brand). */
+  /** k·RefRadius: **BrandQR** square side. */
   readonly brandQrSize: number;
-  /** k·RefRadius: **BrandQRPlate** `roundedRect` corner radius (see tide-diagram spec §Brand). */
+  /** k·RefRadius: **BrandQRPlate** corner radius. */
   readonly brandQrPlateCornerRx: number;
+  /** k·RefRadius: inset from **B_left** to **BrandQR** leading edge. */
+  readonly brandQrLeftPadding: number;
+  /** k·RefRadius: inset from **B_bottom** up to **BrandQR** bottom edge. */
+  readonly brandQrAboveBottom: number;
   readonly annularBand: { readonly annularBandWidth: number };
   /** Stroked arc concentric with RefArc, same sweep; radius is **radiusK·refRadius** (see tide-diagram spec §Sizing). */
   readonly dividorArc: { readonly radiusK: number };
@@ -113,18 +111,42 @@ export type HomeLayoutBase = {
     readonly iconBarGap: number;
   };
   /**
-   * Bottom-left **Share** label (top-level scene sibling; excluded from **B_***).
-   * Leading anchor at **B_left + leftPadding·R**; baseline at **B_bottom + aboveBottom·R**.
+   * Bottom-left **Location** panel: plate + heading + **Share** / **Change** actions.
+   * Positioned independently via **leftPadding** / **aboveBottom** from **B_left** / **B_bottom**.
    */
-  readonly homeShareTrigger: {
-    /** k·RefRadius: share label font height. */
-    readonly fontHeight: number;
-    /** Label text, e.g. `Share`. */
-    readonly label: string;
-    /** k·RefRadius: inset from **B_left** to the leading edge of the label. */
+  readonly homeLocationPanel: {
+    /** k·RefRadius: inset from **B_left** to panel leading edge. */
     readonly leftPadding: number;
-    /** k·RefRadius: distance from **B_bottom** up to the label baseline. */
+    /** k·RefRadius: inset from **B_bottom** up to panel bottom edge. */
     readonly aboveBottom: number;
+    /** k·RefRadius: panel width. */
+    readonly width: number;
+    /** k·RefRadius: panel height. */
+    readonly height: number;
+    /** k·RefRadius: **HomeLocationPanelPlate** corner radius. */
+    readonly cornerRx: number;
+    /** k·RefRadius: **Location** heading font height. */
+    readonly labelFontHeight: number;
+    /** k·RefRadius: **Share** / **Change** font height. */
+    readonly actionFontHeight: number;
+    /** Heading copy, e.g. `Location`. */
+    readonly label: string;
+    /** Share action copy. */
+    readonly shareLabel: string;
+    /** Change-location action copy. */
+    readonly changeLabel: string;
+    /** Separator between action labels on one row, e.g. ` · `. */
+    readonly separator: string;
+    /** k·RefRadius: leading anchor of separator from action row leading edge (after **Share**). */
+    readonly actionSeparatorLeading: number;
+    /** k·RefRadius: leading anchor of **Change** from action row leading edge. */
+    readonly actionChangeLeading: number;
+    /** k·RefRadius: inset from panel leading edge to text. */
+    readonly innerPadLeft: number;
+    /** k·RefRadius: inset from **B_bottom** to action em-box bottom. */
+    readonly innerPadBottom: number;
+    /** k·RefRadius: gap from action baseline up to heading baseline. */
+    readonly labelAboveActions: number;
   };
   readonly tideMarksDefaults: HomeTideMarksDefaults;
 };

@@ -32,16 +32,6 @@ export const homeLayoutBase = {
     dateAboveTime: 0.02,
     locationAboveDate: 0.04,
   },
-  /** k·RefRadius: BrandURL font height. */
-  brandFontHeight: 0.04,
-  /** k·RefRadius: retained; Brand bottoms align to **B_bottom** (see tide-diagram spec §Brand). */
-  brandAboveBottom: 0,
-  /** k·RefRadius: gap between BrandURL text and BrandQR. */
-  brandQrGap: 0.06,
-  /** k·RefRadius: BrandQR square side (larger for place-specific share URLs). */
-  brandQrSize: 0.2,
-  /** k·RefRadius: rounded corners on **BrandQRPlate** (menu-adjacent chip). */
-  brandQrPlateCornerRx: 0.014,
   hand: {
     bossCircleRadius: 0.1,
     /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */
@@ -63,21 +53,37 @@ export const homeLayoutBase = {
     overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],
   },
   annularBand: { annularBandWidth: 0.14 },
-  /** k·refRadius: stroked arc concentric with RefArc, same sweep. */
+  /** k·RefRadius: stroked arc concentric with RefArc, same sweep. */
   dividorArc: { radiusK: 1.32 },
+  /** Bottom-left instrument chrome — each block has independent leftPadding / aboveBottom from B_left / B_bottom. */
   homeMenuTrigger: {
     diameter: 0.18,
     menuLeftPadding: 0,
-    /** k·R: bottom edge of trigger circle above **B_bottom**. */
-    menuAboveBottom: 0.27,
+    menuAboveBottom: 0.45,
     iconBarLength: 0.09,
     iconBarGap: 0.025,
   },
-  homeShareTrigger: {
-    fontHeight: 0.045,
-    label: "Share",
-    leftPadding: 0.26,
-    aboveBottom: 0.17,
+  brandQrSize: 0.2,
+  brandQrPlateCornerRx: 0.014,
+  brandQrLeftPadding: 0,
+  brandQrAboveBottom: .20,
+  homeLocationPanel: {
+    leftPadding: 0.0,
+    aboveBottom: 0,
+    width: 0.38,
+    height: 0.15,
+    cornerRx: 0.014,
+    labelFontHeight: 0.034,
+    actionFontHeight: 0.045,
+    label: "Location",
+    shareLabel: "Share",
+    changeLabel: "Change",
+    separator: " · ",
+    actionSeparatorLeading: 0.135,
+    actionChangeLeading: 0.168,
+    innerPadLeft: 0.018,
+    innerPadBottom: 0.022,
+    labelAboveActions: 0.028,
   },
   tideMarksDefaults,
 } satisfies HomeLayoutBase;

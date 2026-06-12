@@ -1122,15 +1122,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "width": 12.98,
       },
     },
-    "brandUrl": {
-      "anchor": {
-        "x": -112.26985520821962,
-        "y": -132.39600000000002,
-      },
-      "content": "thetidedial.page",
-      "fontSize": 3.54,
-      "hAlign": "left",
-    },
   },
   "brhcDate": {
     "anchor": {
@@ -1197,6 +1188,53 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "theta": 5.552762244273579,
     "timeHours": 19.33416666666667,
   },
+  "homeLocationPanel": {
+    "change": {
+      "anchor": {
+        "x": -95.39585520821964,
+        "y": -130.03600000000003,
+      },
+      "content": "Change",
+      "fontSize": 4.72,
+      "hAlign": "left",
+    },
+    "label": {
+      "anchor": {
+        "x": -110.49985520821964,
+        "y": -122.48400000000004,
+      },
+      "content": "Location",
+      "fontSize": 3.54,
+      "hAlign": "left",
+    },
+    "plate": {
+      "center": {
+        "x": -92.20985520821964,
+        "y": -126.02400000000002,
+      },
+      "height": 14.16,
+      "rx": 1.18,
+      "width": 40.120000000000005,
+    },
+    "separator": {
+      "anchor": {
+        "x": -98.69985520821965,
+        "y": -130.03600000000003,
+      },
+      "content": " · ",
+      "fontSize": 4.72,
+      "hAlign": "left",
+    },
+    "share": {
+      "anchor": {
+        "x": -110.49985520821964,
+        "y": -130.03600000000003,
+      },
+      "content": "Share",
+      "fontSize": 4.72,
+      "hAlign": "left",
+    },
+  },
   "homeMenuTrigger": {
     "center": {
       "x": -119.93985520821964,
@@ -1205,15 +1243,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "diameter": 12.98,
     "iconBarCenterSpacing": 1.77,
     "iconBarHalfLength": 2.832,
-  },
-  "homeShareTrigger": {
-    "anchor": {
-      "x": -126.42985520821964,
-      "y": -116.584,
-    },
-    "content": "Share",
-    "fontSize": 4.72,
-    "hAlign": "left",
   },
   "mainLabel": {
     "anchor": {

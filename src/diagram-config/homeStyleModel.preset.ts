@@ -45,7 +45,7 @@ export const homeStyleModel: StyleModelSpec = {
       colors: { color: "#666" },
     },
     {
-      name: "role.share.trigger",
+      name: "role.location.action",
       colors: { color: "#888", strokeWidth: 1.75 },
     },
     {
@@ -67,10 +67,6 @@ export const homeStyleModel: StyleModelSpec = {
     {
       name: "role.structure.dialTick.quarter",
       colors: { color: "white", strokeWidth: 2.35 },
-    },
-    {
-      name: "BrandURL",
-      colors: { color: "#777" },
     },
     {
       name: "BrandQR",
@@ -117,13 +113,16 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
     { name: "BRHCLocation", roleName: "role.structure.emphasis" },
     { name: "BRHCDate", roleName: "role.structure.text" },
-    { name: "BrandURL", roleName: "BrandURL" },
     { name: "BrandQRPlate", roleName: "role.menu.trigger" },
     { name: "BrandQR", roleName: "BrandQR" },
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
     { name: "HomeMenuTrigger", roleName: "role.menu.trigger" },
     { name: "HomeMenuTriggerIcon", roleName: "role.menu.trigger.icon" },
-    { name: "HomeShareTrigger", roleName: "role.share.trigger" },
+    { name: "HomeLocationPanelPlate", roleName: "role.menu.trigger" },
+    { name: "HomeLocationPanelLabel", roleName: "role.structure.text" },
+    { name: "HomeShareTrigger", roleName: "role.location.action" },
+    { name: "HomeLocationPanelSeparator", roleName: "role.structure.text" },
+    { name: "HomeLocationTrigger", roleName: "role.location.action" },
     ],
   lineStyles: [],
 };

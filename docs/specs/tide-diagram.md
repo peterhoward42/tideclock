@@ -251,83 +251,99 @@ the diagram from a dedicated input - one per row.
 
 ## HomeMenuTrigger
 
-- HomeMenuTrigger is a top-level named group.
-
-- It comprises three horizontal lines centred inside a circle
-- Sizing and positioning paramters are taken from the following inputs:
+- **HomeMenuTrigger** is a top-level named group.
+- It comprises three horizontal lines centred inside a circle.
+- **Not** part of **BRHCBundle**; bounds are **excluded** from **`B_*`** expansion.
+- **Horizontal** — circular control leading edge at **`B_left + homeMenuTrigger.menuLeftPadding·R`**.
+- **Vertical** — bottom of the circular control at **`B_bottom + homeMenuTrigger.menuAboveBottom·R`** (**Y** upward).
+- Sizing and positioning parameters:
 
 ```
 homeMenuTrigger: {
     diameter: 0.18,
-    menuLeftPadding: 0, // from B_left
-    menuAboveBottom: 0.070, 
+    menuLeftPadding: 0,   // k·R inset from B_left
+    menuAboveBottom: 0.27, // k·R above B_bottom to control bottom edge
     iconBarLength: 0.09,
     iconBarGap: 0.025,
 }
 ```
 
-### HomeShareTrigger
+### HomeLocationPanel
 
-- **HomeShareTrigger** is a top-level named group: one horizontal **Share** label (clipboard action; see product share-location plan).
-- **Not** part of **BRHCBundle**; bounds are **excluded** from **`B_*`** expansion (same as **HomeMenuTrigger**).
-- **Horizontal** — leading anchor at **`B_left + homeShareTrigger.leftPadding·R`**; **left** justification.
-- **Vertical** — alphabetic baseline at **`B_bottom + homeShareTrigger.aboveBottom·R`**.
-- **FontHeight** from **`homeShareTrigger.fontHeight`** (**k·R**).
-- **Content** from **`homeShareTrigger.label`** (e.g. **`Share`**).
-- **BrandQR** is scan-only; no pointer/click wiring on the QR matrix.
+Bottom-left **location** affordances: a boxed heading (**Location**) and one action row (**Share** · **Change**). **Share** copies the canonical place **`shareUrl`**; **Change** navigates to the location picker (host wiring).
+
+- **HomeLocationPanel** is a top-level named compound group.
+- **HomeMenuTrigger** and **Brand** are **not** ancestors; all three bottom-left chrome blocks (**HomeMenuTrigger**, **Brand**, **HomeLocationPanel**) are positioned **independently** via their own **`leftPadding`** / **`aboveBottom`** (or **`menuLeftPadding`** / **`menuAboveBottom`**) offsets from **`B_left`** / **`B_bottom`**.
+- **Horizontal** — panel leading edge at **`B_left + homeLocationPanel.leftPadding·R`**.
+- **Vertical** — panel bottom edge at **`B_bottom + homeLocationPanel.aboveBottom·R`**.
+- **Plate** — leaf group **`HomeLocationPanelPlate`**: **`roundedRect`** behind the text block; preset surface matches **`role.menu.trigger`**.
+- **Heading** — leaf group **`HomeLocationPanelLabel`**: fixed copy from **`homeLocationPanel.label`** (e.g. **`Location`**); **`labelFontHeight·R`**.
+- **Actions** — sibling leaf groups on one row at **`actionFontHeight·R`**:
+  - **`HomeShareTrigger`** — **`shareLabel`** (e.g. **`Share`**); pointer/clipboard wiring in the host.
+  - **`HomeLocationPanelSeparator`** — **`separator`** (e.g. **` · `**); display only.
+  - **`HomeLocationTrigger`** — **`changeLabel`** (e.g. **`Change`**); pointer/navigation wiring in the host.
+- **Action row leading anchors** (from the panel inner leading edge **`panelLeft + innerPadLeft·R`**) use explicit **`actionSeparatorLeading·R`** and **`actionChangeLeading·R`** offsets — not character-width estimation (proportional font metrics differ from layout heuristics).
+- **Layout bounds** — **`HomeLocationPanel`** plate and text extend **`B_*`** (replacing the former **BrandURL** horizontal extent).
 
 ```
-homeShareTrigger: {
-    fontHeight: 0.038,
-    label: "Share",
-    leftPadding: 0,
-    aboveBottom: 0.22,
+homeLocationPanel: {
+    leftPadding: 0.24,       // k·R from B_left to panel leading edge
+    aboveBottom: 0,          // k·R from B_bottom to panel bottom edge
+    width: 0.38,
+    height: 0.15,
+    cornerRx: 0.014,
+    labelFontHeight: 0.034,
+    actionFontHeight: 0.045,
+    label: "Location",
+    shareLabel: "Share",
+    changeLabel: "Change",
+    separator: " · ",
+    actionSeparatorLeading: 0.135, // k·R from inner action row origin
+    actionChangeLeading: 0.168,
+    innerPadLeft: 0.018,
+    innerPadBottom: 0.022,
+    labelAboveActions: 0.028,
 }
 ```
 
+#### Scene model
+
+- Top-level group **`HomeLocationPanel`** with children **`HomeLocationPanelPlate`**, **`HomeLocationPanelLabel`**, **`HomeShareTrigger`**, **`HomeLocationPanelSeparator`**, **`HomeLocationTrigger`**.
+
 ### Brand
 
-**Brand** is a **top-level** named **compound** group: a QR code (**BrandQR**) at the **left**, then the fixed URL line (**BrandURL**) immediately to its **right**. Visually the URL line matches the former single-string **Brand** (same copy and preset styling intent).
+**Brand** is a **top-level** named **compound** group containing only the place-share **QR** matrix (**BrandQR**). The former fixed URL line (**BrandURL** / **`thetidedial.page`**) is removed; outbound sharing is via **HomeLocationPanel** and scan-only **BrandQR**.
 
-#### Placement (shared)
+#### Placement
 
-- **Bottom alignment** — the **bottom** of the **BrandQR** bounding box and the **bottom** of the **BrandURL** em box (alphabetic descent) lie on **`B_bottom`**.
-- **Horizontal** — **BrandQR** leading edge at **`B_left`**; **BrandURL** leading anchor at **`B_left + brandQrSize·R + brandQrGap·R`**.
-
-#### BrandURL (text)
-
-- **Content** is fixed: **`thetidedial.page`**.
-- **FontHeight** from diagram input **`brandFontHeight`** (**k·R**, **§Sizing**).
-- **Horizontal justification** — **left**; leading anchor **`x`** per **Placement (shared)** above.
-- **Baseline** **`y = B_bottom + TEXT_DESCENT·brandFontHeight·R`** so the em-box bottom sits on **`B_bottom`** (descent **0.2** em per layout heuristic).
-- **Style binding** — leaf group **`BrandURL`**; preset role **BrandURL** uses an existing grey, with **no** **`fontWeight`**.
+- **Horizontal** — **BrandQR** leading edge at **`B_left + brandQrLeftPadding·R`**.
+- **Vertical** — **BrandQR** bottom edge at **`B_bottom + brandQrAboveBottom·R`**.
+- **BrandQR** is scan-only; no pointer/click wiring on the QR matrix.
 
 #### BrandQR (matrix)
 
-- **Payload** is host-supplied **`shareUrl`** (full canonical place share URL; display copy on **BrandURL** remains fixed **`thetidedial.page`**).
+- **Payload** is host-supplied **`shareUrl`** (full canonical place share URL).
 - **Module grid** — square modules from a standard QR encoder (error correction **M**); includes the symbol quiet zone in the module count.
-- **Size** — square side **`brandQrSize·R`** from diagram input **`brandQrSize`** (**k·R**, independent of **`brandFontHeight`**).
-- **Gap** — horizontal clearance **`brandQrGap·R`** between the **right** edge of the QR bounding box and the **left** edge of the URL text bounding box (monospace **0.6 em** per code unit, same heuristic as **BRHCBundle**).
-- **Origin** — bottom-left corner of the QR bounding box at **`(B_left, B_bottom)`**.
-- **Plate** — leaf group **`BrandQRPlate`**: one **`roundedRect`** coincident with the QR square (same width/height as **`brandQrSize·R`**, corner radius **`brandQrPlateCornerRx·R`**), centred on the QR box, drawn **behind** the modules. Preset surface matches **`role.menu.trigger`** (**`#111`** fill, **`#555`** stroke) so the symbol sits on a calm quiet-zone field rather than bare page black.
+- **Size** — square side **`brandQrSize·R`** from diagram input **`brandQrSize`** (**k·R**).
+- **Origin** — bottom-left corner of the QR bounding box at **`(B_left + brandQrLeftPadding·R, B_bottom + brandQrAboveBottom·R)`**.
+- **Plate** — leaf group **`BrandQRPlate`**: one **`roundedRect`** coincident with the QR square (same width/height as **`brandQrSize·R`**, corner radius **`brandQrPlateCornerRx·R`**), centred on the QR box, drawn **behind** the modules. Preset surface matches **`role.menu.trigger`** (**`#111`** fill, **`#555`** stroke).
 - **Modules** — leaf group **`BrandQR`**: one **`qrMatrix`** primitive (dark modules only; plate provides the light margin).
-- **Style binding** — **`BrandQR`** module fill uses grey **`#666`** on the plate (no **`fontWeight`**); **`BrandURL`** unchanged.
+- **Style binding** — **`BrandQR`** module fill uses grey **`#666`** on the plate (no **`fontWeight`**).
 
 #### Layout bounds
 
-- **`B_left`**, **`B_right`**, and **`B_bottom`** extend to include **BrandURL** and **BrandQR** geometry (same text-bounds rules as other horizontal labels for the URL; axis-aligned box for the QR).
+- **`B_left`**, **`B_right`**, and **`B_bottom`** extend to include **BrandQR** geometry (axis-aligned box for the QR).
 
 #### Diagram inputs
 
-- **`brandFontHeight`** — required finite **k·R** **> 0**.
-- **`brandAboveBottom`** — required finite **k·R** **>= 0** (retained for host/spec compatibility; **Brand** vertical placement uses **B_bottom** bottom alignment and does not apply this offset).
-- **`brandQrGap`** — required finite **k·R** **>= 0**.
-- **`brandQrSize`** — required finite **k·R** **> 0** (QR square side; independent of **`brandFontHeight`**).
+- **`brandQrLeftPadding`** — required finite **k·R** **>= 0**; inset from **`B_left`** to **BrandQR** leading edge.
+- **`brandQrAboveBottom`** — required finite **k·R** **>= 0**; inset from **`B_bottom`** up to **BrandQR** bottom edge.
+- **`brandQrSize`** — required finite **k·R** **> 0** (QR square side).
 - **`brandQrPlateCornerRx`** — required finite **k·R** **>= 0**; **`roundedRect`** corner radius for **`BrandQRPlate`**.
 
 #### Scene model
 
-- Top-level group **`Brand`** with children **`BrandQRPlate`** (**`roundedRect`**), **`BrandQR`** (**`qrMatrix`**), then **`BrandURL`** (**text**).
+- Top-level group **`Brand`** with children **`BrandQRPlate`** (**`roundedRect`**) and **`BrandQR`** (**`qrMatrix`**).
 
 ### MainLabel
 

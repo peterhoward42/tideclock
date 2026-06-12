@@ -15,6 +15,12 @@ export function queryShareTriggerGroup(
   return diagramHost.querySelector('svg g[data-name="HomeShareTrigger"]');
 }
 
+export function queryLocationTriggerGroup(
+  diagramHost: HTMLElement,
+): SVGGElement | null {
+  return diagramHost.querySelector('svg g[data-name="HomeLocationTrigger"]');
+}
+
 /** Optional layout for tests; production uses the browser viewport. */
 export type MenuPanelAnchorOptions = {
   /** Defaults to `window.innerHeight` when available. */

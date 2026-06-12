@@ -80,31 +80,24 @@ describe('createDiagramCollaborator', () => {
     expect(() => collaborator.generate(spec)).toThrow(/greater than 0/);
   });
 
-  it('throws when spec.brandFontHeight is omitted', () => {
+  it('throws when spec.brandQrLeftPadding is omitted', () => {
     const collaborator = createDiagramCollaborator();
     const base = baseSpecForCollaboratorTest();
-    const { brandFontHeight: _omit, ...rest } = base as { brandFontHeight: number } & Record<
+    const { brandQrLeftPadding: _omit, ...rest } = base as { brandQrLeftPadding: number } & Record<
       string,
       unknown
     >;
-    expect(() => collaborator.generate(rest)).toThrow(/spec\.brandFontHeight/);
+    expect(() => collaborator.generate(rest)).toThrow(/spec\.brandQrLeftPadding/);
   });
 
-  it('throws when spec.brandAboveBottom is omitted', () => {
+  it('throws when spec.brandQrAboveBottom is omitted', () => {
     const collaborator = createDiagramCollaborator();
     const base = baseSpecForCollaboratorTest();
-    const { brandAboveBottom: _omit, ...rest } = base as { brandAboveBottom: number } & Record<
+    const { brandQrAboveBottom: _omit, ...rest } = base as { brandQrAboveBottom: number } & Record<
       string,
       unknown
     >;
-    expect(() => collaborator.generate(rest)).toThrow(/spec\.brandAboveBottom/);
-  });
-
-  it('throws when spec.brandQrGap is omitted', () => {
-    const collaborator = createDiagramCollaborator();
-    const base = baseSpecForCollaboratorTest();
-    const { brandQrGap: _omit, ...rest } = base as { brandQrGap: number } & Record<string, unknown>;
-    expect(() => collaborator.generate(rest)).toThrow(/spec\.brandQrGap/);
+    expect(() => collaborator.generate(rest)).toThrow(/spec\.brandQrAboveBottom/);
   });
 
   it('throws when spec.brandQrSize is omitted', () => {
@@ -186,23 +179,35 @@ describe('createDiagramCollaborator', () => {
     );
   });
 
-  it('places BrandQR at B_left on B_bottom and BrandURL to its right', () => {
+  it('places BrandQR and HomeLocationPanel from independent B_left / B_bottom offsets', () => {
     const collaborator = createDiagramCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
     const R = diagram.refArc.refRadius;
-    const k = (spec as { brandFontHeight: number }).brandFontHeight;
-    const gapK = (spec as { brandQrGap: number }).brandQrGap;
+    const qrLeftK = (spec as { brandQrLeftPadding: number }).brandQrLeftPadding;
+    const qrAboveK = (spec as { brandQrAboveBottom: number }).brandQrAboveBottom;
     const qrSizeK = (spec as { brandQrSize: number }).brandQrSize;
-    expect(diagram.brand.brandUrl.content).toBe('thetidedial.page');
-    expect(diagram.brand.brandUrl.hAlign).toBe('left');
-    expect(diagram.brand.brandUrl.fontSize).toBeCloseTo(k * R, 6);
+    const panelCfg = spec as {
+      homeLocationPanel: {
+        readonly leftPadding: number;
+        readonly aboveBottom: number;
+        readonly width: number;
+      };
+    };
     const bBottom = diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
-    expect(diagram.brand.brandQr.origin.y).toBeCloseTo(bBottom, 6);
-    expect(diagram.brand.brandUrl.anchor.y).toBeCloseTo(bBottom + 0.2 * diagram.brand.brandUrl.fontSize, 6);
-    const bLeft = diagram.brand.brandQr.origin.x;
-    expect(diagram.brand.brandQr.origin.x).toBeCloseTo(bLeft, 6);
-    expect(diagram.brand.brandUrl.anchor.x).toBeCloseTo(bLeft + qrSizeK * R + gapK * R, 6);
+    const bLeft = diagram.brand.brandQr.origin.x - qrLeftK * R;
+    expect(diagram.brand.brandQr.origin.x).toBeCloseTo(bLeft + qrLeftK * R, 6);
+    expect(diagram.brand.brandQr.origin.y).toBeCloseTo(bBottom + qrAboveK * R, 6);
+    expect(diagram.homeLocationPanel.plate.center.x).toBeCloseTo(
+      bLeft + panelCfg.homeLocationPanel.leftPadding * R + 0.5 * panelCfg.homeLocationPanel.width * R,
+      6,
+    );
+    expect(diagram.homeLocationPanel.plate.center.y).toBeCloseTo(
+      bBottom +
+        panelCfg.homeLocationPanel.aboveBottom * R +
+        0.5 * panelCfg.homeLocationPanel.height * R,
+      6,
+    );
     expect(diagram.brand.brandQr.payload).toBe(FIXTURE_SHARE_URL);
     expect(diagram.brand.brandQr.moduleCount).toBeGreaterThan(0);
     expect(diagram.brand.brandQr.moduleCount * diagram.brand.brandQr.moduleSize).toBeCloseTo(
@@ -211,13 +216,16 @@ describe('createDiagramCollaborator', () => {
     );
   });
 
-  it('renders BrandURL, BrandQRPlate, and BrandQR from the home style model', () => {
+  it('renders BrandQRPlate, BrandQR, and HomeLocationPanel from the home style model', () => {
     const collaborator = createDiagramCollaborator();
     const { scene, styleRuntime } = collaborator.generate(baseSpecForCollaboratorTest());
     const svg = renderSceneSvg(scene, { styleRuntime });
-    expect(svg).toContain('>thetidedial.page<');
     expect(svg).toContain('data-name="BrandQRPlate"');
     expect(svg).toContain('data-name="BrandQR"');
+    expect(svg).toContain('data-name="HomeLocationPanel"');
+    expect(svg).toContain('>Location<');
+    expect(svg).toContain('>Share<');
+    expect(svg).toContain('>Change<');
     expect(svg).toMatch(/<rect[^>]+fill="#111"[^>]+stroke="#555"/);
     expect(svg).toMatch(/<path d="M [^"]+ h [^"]+ v [^"]+ h [^"]+ Z/);
   });
@@ -264,7 +272,7 @@ describe('createDiagramCollaborator', () => {
 
     const d = diagram.homeMenuTrigger.diameter;
     const R = diagram.refArc.refRadius;
-    const bLeft = diagram.brand.brandQr.origin.x;
+    const bLeft = diagram.brand.brandQr.origin.x - (spec as { brandQrLeftPadding: number }).brandQrLeftPadding * R;
     const padK = (spec.homeMenuTrigger as { readonly menuLeftPadding: number }).menuLeftPadding;
     expect(diagram.homeMenuTrigger.center.x).toBeCloseTo(bLeft + padK * R + 0.5 * d, 6);
     const bBottom =
@@ -273,24 +281,44 @@ describe('createDiagramCollaborator', () => {
     expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(bBottom + menuAboveK * R + 0.5 * d, 6);
   });
 
-  it('left-aligns HomeShareTrigger from homeShareTrigger offsets (excluded from B_*)', () => {
+  it('places HomeLocationPanel share and change actions on one row inside the plate', () => {
     const collaborator = createDiagramCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
     const R = diagram.refArc.refRadius;
-    const shareCfg = (spec.homeShareTrigger as {
-      readonly fontHeight: number;
-      readonly leftPadding: number;
-      readonly aboveBottom: number;
-      readonly label: string;
-    });
-    const bLeft = diagram.brand.brandQr.origin.x;
+    const panelCfg = (spec as {
+      homeLocationPanel: {
+        readonly actionFontHeight: number;
+        readonly shareLabel: string;
+        readonly changeLabel: string;
+        readonly separator: string;
+      };
+    }).homeLocationPanel;
     const bBottom = diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
-    expect(diagram.homeShareTrigger.anchor.x).toBeCloseTo(bLeft + shareCfg.leftPadding * R, 6);
-    expect(diagram.homeShareTrigger.anchor.y).toBeCloseTo(bBottom + shareCfg.aboveBottom * R, 6);
-    expect(diagram.homeShareTrigger.hAlign).toBe('left');
-    expect(diagram.homeShareTrigger.fontSize).toBeCloseTo(shareCfg.fontHeight * R, 6);
-    expect(diagram.homeShareTrigger.content).toBe(shareCfg.label);
+    expect(diagram.homeLocationPanel.label.content).toBe('Location');
+    expect(diagram.homeLocationPanel.share.content).toBe(panelCfg.shareLabel);
+    expect(diagram.homeLocationPanel.change.content).toBe(panelCfg.changeLabel);
+    expect(diagram.homeLocationPanel.separator.content).toBe(panelCfg.separator);
+    expect(diagram.homeLocationPanel.share.fontSize).toBeCloseTo(
+      panelCfg.actionFontHeight * R,
+      6,
+    );
+    expect(diagram.homeLocationPanel.share.anchor.y).toBe(
+      diagram.homeLocationPanel.change.anchor.y,
+    );
+    expect(diagram.homeLocationPanel.share.anchor.x).toBeLessThan(
+      diagram.homeLocationPanel.change.anchor.x,
+    );
+    expect(diagram.homeLocationPanel.plate.center.y).toBeCloseTo(
+      bBottom +
+        (spec as { homeLocationPanel: { readonly aboveBottom: number; readonly height: number } })
+          .homeLocationPanel.aboveBottom *
+          R +
+        0.5 *
+          (spec as { homeLocationPanel: { readonly height: number } }).homeLocationPanel.height *
+          R,
+      6,
+    );
   });
 
   it('applies layoutBoundsBottomMargin by extending B_bottom (date row and MainLabel shift down)', () => {
@@ -369,7 +397,7 @@ describe('createDiagramCollaborator', () => {
       'BRHCBundle',
       'Brand',
       'HomeMenuTrigger',
-      'HomeShareTrigger',
+      'HomeLocationPanel',
     ]);
   });
 

@@ -56,11 +56,26 @@ type DiagramTextInst = {
   readonly hAlign?: "left" | "center" | "right";
 };
 
-type BrandUrlDiagram = {
+type HomeLocationActionDiagram = {
   readonly content: string;
   readonly fontSize: number;
   readonly anchor: DiagramPoint;
   readonly hAlign: "left";
+};
+
+type HomeLocationPanelPlateDiagram = {
+  readonly center: DiagramPoint;
+  readonly width: number;
+  readonly height: number;
+  readonly rx: number;
+};
+
+type HomeLocationPanelDiagram = {
+  readonly plate: HomeLocationPanelPlateDiagram;
+  readonly label: DiagramTextInst;
+  readonly share: HomeLocationActionDiagram;
+  readonly separator: HomeLocationActionDiagram;
+  readonly change: HomeLocationActionDiagram;
 };
 
 type BrandQrPlateDiagram = {
@@ -79,9 +94,8 @@ type BrandQrDiagram = {
   readonly plate: BrandQrPlateDiagram;
 };
 
-/** **Brand** compound: **BrandURL** + **BrandQR** (see tide-diagram spec §Brand). */
+/** **Brand** compound: **BrandQR** only (see tide-diagram spec §Brand). */
 type BrandCompoundDiagram = {
-  readonly brandUrl: BrandUrlDiagram;
   readonly brandQr: BrandQrDiagram;
 };
 
@@ -134,13 +148,6 @@ type HomeMenuTriggerDiagram = {
   readonly iconBarCenterSpacing: number;
 };
 
-type HomeShareTriggerDiagram = {
-  readonly content: string;
-  readonly fontSize: number;
-  readonly anchor: DiagramPoint;
-  readonly hAlign: 'left';
-};
-
 type HandTimeReadoutPartDiagram = {
   readonly timeContent: string;
   readonly nowTagContent: string;
@@ -186,11 +193,11 @@ export type TideDiagramDocument = {
   readonly tideMarks: TideMarkDiagram[];
   readonly annularBand: AnnularBandDiagram;
   readonly homeMenuTrigger: HomeMenuTriggerDiagram;
-  readonly homeShareTrigger: HomeShareTriggerDiagram;
+  readonly homeLocationPanel: HomeLocationPanelDiagram;
   readonly hand: HandDiagram;
   readonly brhcLocation: DiagramTextInst;
   readonly brhcDate: DiagramTextInst;
-  /** **Brand** compound (**BrandURL** + **BrandQR**); see tide-diagram spec §Brand. */
+  /** **Brand** compound (**BrandQR** only); see tide-diagram spec §Brand. */
   readonly brand: BrandCompoundDiagram;
 };
 

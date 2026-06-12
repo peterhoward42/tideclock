@@ -141,17 +141,24 @@
  *   fontSize: number,
  *   anchor: DiagramPoint,
  *   hAlign: 'left',
- * }} HomeShareTriggerDiagram
- *
- * **Brand** compound: **BrandURL** text + **BrandQR** matrix (see spec §Brand).
+ * }} HomeLocationActionDiagram
  *
  * @typedef {{
- *   content: string,
- *   fontSize: number,
- *   anchor: DiagramPoint,
- *   hAlign: 'left',
- * }} BrandUrlDiagram
+ *   center: DiagramPoint,
+ *   width: number,
+ *   height: number,
+ *   rx: number,
+ * }} HomeLocationPanelPlateDiagram
  *
+ * @typedef {{
+ *   plate: HomeLocationPanelPlateDiagram,
+ *   label: DiagramTextInst,
+ *   share: HomeLocationActionDiagram,
+ *   separator: HomeLocationActionDiagram,
+ *   change: HomeLocationActionDiagram,
+ * }} HomeLocationPanelDiagram
+ *
+ * **Brand** compound: **BrandQR** matrix only (see spec §Brand).
  * @typedef {{
  *   center: DiagramPoint,
  *   width: number,
@@ -169,7 +176,6 @@
  * }} BrandQrDiagram
  *
  * @typedef {{
- *   brandUrl: BrandUrlDiagram,
  *   brandQr: BrandQrDiagram,
  * }} BrandCompoundDiagram
  *
@@ -187,7 +193,7 @@
  *   tideMarks: TideMarkDiagram[],
  *   annularBand: AnnularBandDiagram,
  *   homeMenuTrigger: HomeMenuTriggerDiagram,
- *   homeShareTrigger: HomeShareTriggerDiagram,
+ *   homeLocationPanel: HomeLocationPanelDiagram,
  *   hand: HandDiagram,
  *   brhcLocation: DiagramTextInst,
  *   brhcDate: DiagramTextInst,

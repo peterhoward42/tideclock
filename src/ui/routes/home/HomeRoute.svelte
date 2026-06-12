@@ -43,6 +43,7 @@
   import { mountLetterboxSlackObserver } from "./instrumentLetterboxObserver";
   import { mountMenuSvgTriggerWire } from "./menuSvgTriggerWire";
   import { mountShareSvgTriggerWire } from "./shareSvgTriggerWire";
+  import { mountLocationSvgTriggerWire } from "./locationSvgTriggerWire";
   import { copyTextToClipboard } from "../../copyEmail";
   import { buildShareUrlForTown } from "../../homeUrlQuery";
   import type { RouteProps } from "./routeProps";
@@ -383,6 +384,20 @@
   });
 
   $effect(() => {
+    if (!shareTriggerEnabled || diagramSvg === "") {
+      return;
+    }
+
+    return mountLocationSvgTriggerWire({
+      getDiagramHost: () => diagramHostEl,
+      onLocationClick: handleChangeLocationClick,
+      scheduleAfterDomReady: (fn) => {
+        void tick().then(fn);
+      },
+    });
+  });
+
+  $effect(() => {
     if (diagramSvg === "") {
       homeMenuOpen = false;
       return;
@@ -552,6 +567,13 @@
 
   function dismissHomeShareLinkCopied(): void {
     homeShareLinkCopiedOpen = false;
+  }
+
+  async function handleChangeLocationClick(): Promise<void> {
+    trackProductEvent("clicked_change_location_diagram");
+    if (typeof window !== "undefined") {
+      window.location.hash = "#/location";
+    }
   }
 
   async function handleShareLocationClick(): Promise<void> {

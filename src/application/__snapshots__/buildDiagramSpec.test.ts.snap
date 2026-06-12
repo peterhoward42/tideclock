@@ -1122,15 +1122,6 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
         "width": 23.6,
       },
     },
-    "brandUrl": {
-      "anchor": {
-        "x": -125.08000000000003,
-        "y": -157.98883550303114,
-      },
-      "content": "thetidedial.page",
-      "fontSize": 4.72,
-      "hAlign": "left",
-    },
   },
   "brhcDate": {
     "anchor": {
@@ -1197,6 +1188,53 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     "theta": 5.67242915205982,
     "timeHours": 19.33416666666667,
   },
+  "homeLocationPanel": {
+    "change": {
+      "anchor": {
+        "x": -105.49200000000003,
+        "y": -155.2748355030311,
+      },
+      "content": "Change",
+      "fontSize": 5.31,
+      "hAlign": "left",
+    },
+    "label": {
+      "anchor": {
+        "x": -125.31600000000003,
+        "y": -146.6608355030311,
+      },
+      "content": "Location",
+      "fontSize": 4.0120000000000005,
+      "hAlign": "left",
+    },
+    "plate": {
+      "center": {
+        "x": -105.02000000000002,
+        "y": -150.08283550303113,
+      },
+      "height": 17.7,
+      "rx": 1.6520000000000001,
+      "width": 44.84,
+    },
+    "separator": {
+      "anchor": {
+        "x": -109.38600000000002,
+        "y": -155.2748355030311,
+      },
+      "content": " · ",
+      "fontSize": 5.31,
+      "hAlign": "left",
+    },
+    "share": {
+      "anchor": {
+        "x": -125.31600000000003,
+        "y": -155.2748355030311,
+      },
+      "content": "Share",
+      "fontSize": 5.31,
+      "hAlign": "left",
+    },
+  },
   "homeMenuTrigger": {
     "center": {
       "x": -145.14000000000001,
@@ -1205,15 +1243,6 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     "diameter": 21.24,
     "iconBarCenterSpacing": 2.95,
     "iconBarHalfLength": 5.31,
-  },
-  "homeShareTrigger": {
-    "anchor": {
-      "x": -125.08000000000001,
-      "y": -138.87283550303113,
-    },
-    "content": "Share",
-    "fontSize": 5.31,
-    "hAlign": "left",
   },
   "mainLabel": {
     "anchor": {
@@ -4753,23 +4782,6 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "kind": "group",
             "name": "BrandQR",
           },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": -125.08000000000003,
-                  "y": -157.98883550303114,
-                },
-                "angleRad": 0,
-                "content": "thetidedial.page",
-                "hAlign": "left",
-                "kind": "text",
-                "size": 4.72,
-              },
-            ],
-            "kind": "group",
-            "name": "BrandURL",
-          },
         ],
         "kind": "group",
         "name": "Brand",
@@ -4832,19 +4844,92 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
       {
         "children": [
           {
-            "anchor": {
-              "x": -125.08000000000001,
-              "y": -138.87283550303113,
-            },
-            "angleRad": 0,
-            "content": "Share",
-            "hAlign": "left",
-            "kind": "text",
-            "size": 5.31,
+            "children": [
+              {
+                "center": {
+                  "x": -105.02000000000002,
+                  "y": -150.08283550303113,
+                },
+                "height": 17.7,
+                "kind": "roundedRect",
+                "rx": 1.6520000000000001,
+                "width": 44.84,
+              },
+            ],
+            "kind": "group",
+            "name": "HomeLocationPanelPlate",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": -125.31600000000003,
+                  "y": -146.6608355030311,
+                },
+                "angleRad": 0,
+                "content": "Location",
+                "hAlign": "left",
+                "kind": "text",
+                "size": 4.0120000000000005,
+              },
+            ],
+            "kind": "group",
+            "name": "HomeLocationPanelLabel",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": -125.31600000000003,
+                  "y": -155.2748355030311,
+                },
+                "angleRad": 0,
+                "content": "Share",
+                "hAlign": "left",
+                "kind": "text",
+                "size": 5.31,
+              },
+            ],
+            "kind": "group",
+            "name": "HomeShareTrigger",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": -109.38600000000002,
+                  "y": -155.2748355030311,
+                },
+                "angleRad": 0,
+                "content": " · ",
+                "hAlign": "left",
+                "kind": "text",
+                "size": 5.31,
+              },
+            ],
+            "kind": "group",
+            "name": "HomeLocationPanelSeparator",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": -105.49200000000003,
+                  "y": -155.2748355030311,
+                },
+                "angleRad": 0,
+                "content": "Change",
+                "hAlign": "left",
+                "kind": "text",
+                "size": 5.31,
+              },
+            ],
+            "kind": "group",
+            "name": "HomeLocationTrigger",
           },
         ],
         "kind": "group",
-        "name": "HomeShareTrigger",
+        "name": "HomeLocationPanel",
       },
     ],
     "kind": "group",
