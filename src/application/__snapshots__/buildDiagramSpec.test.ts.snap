@@ -1109,13 +1109,13 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
       "moduleSize": 0.7151515151515152,
       "origin": {
         "x": -155.76000000000002,
-        "y": -158.93283550303113,
+        "y": -135.33283550303113,
       },
       "payload": "https://thetidedial.page/?place=Lymington&county=Hampshire",
       "plate": {
         "center": {
           "x": -143.96,
-          "y": -147.13283550303112,
+          "y": -123.53283550303114,
         },
         "height": 23.6,
         "rx": 1.6520000000000001,
@@ -1129,15 +1129,6 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
       "y": -150.2008355030311,
     },
     "content": "Mon 23 Mar",
-    "fontSize": 5.31,
-    "hAlign": "right",
-  },
-  "brhcLocation": {
-    "anchor": {
-      "x": 155.76000000000002,
-      "y": -140.1708355030311,
-    },
-    "content": "Lymington",
     "fontSize": 5.31,
     "hAlign": "right",
   },
@@ -1191,7 +1182,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   "homeLocationPanel": {
     "change": {
       "anchor": {
-        "x": -105.49200000000003,
+        "x": -133.812,
         "y": -155.2748355030311,
       },
       "content": "Change",
@@ -1200,7 +1191,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     },
     "label": {
       "anchor": {
-        "x": -125.31600000000003,
+        "x": -153.63600000000002,
         "y": -146.6608355030311,
       },
       "content": "Location",
@@ -1209,7 +1200,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     },
     "plate": {
       "center": {
-        "x": -105.02000000000002,
+        "x": -133.34000000000003,
         "y": -150.08283550303113,
       },
       "height": 17.7,
@@ -1218,7 +1209,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     },
     "separator": {
       "anchor": {
-        "x": -109.38600000000002,
+        "x": -137.70600000000002,
         "y": -155.2748355030311,
       },
       "content": " · ",
@@ -1227,7 +1218,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     },
     "share": {
       "anchor": {
-        "x": -125.31600000000003,
+        "x": -153.63600000000002,
         "y": -155.2748355030311,
       },
       "content": "Share",
@@ -1238,11 +1229,20 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   "homeMenuTrigger": {
     "center": {
       "x": -145.14000000000001,
-      "y": -116.45283550303112,
+      "y": -95.21283550303113,
     },
     "diameter": 21.24,
     "iconBarCenterSpacing": 2.95,
     "iconBarHalfLength": 5.31,
+  },
+  "locationLabel": {
+    "anchor": {
+      "x": 11.8,
+      "y": -7.08,
+    },
+    "content": "Lymington",
+    "fontSize": 5.31,
+    "hAlign": "right",
   },
   "mainLabel": {
     "anchor": {
@@ -2239,7 +2239,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     "previewFrame": {
       "maxX": 156.76000000000002,
       "maxY": 13.272000000000002,
-      "minX": -156.76000000000002,
+      "minX": -156.76000000000005,
       "minY": -159.93283550303113,
     },
     "title": "home-tide-diagram",
@@ -3637,26 +3637,26 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "kind": "group",
             "name": "BRHCDate",
           },
-          {
-            "children": [
-              {
-                "anchor": {
-                  "x": 155.76000000000002,
-                  "y": -140.1708355030311,
-                },
-                "angleRad": 0,
-                "content": "Lymington",
-                "hAlign": "right",
-                "kind": "text",
-                "size": 5.31,
-              },
-            ],
-            "kind": "group",
-            "name": "BRHCLocation",
-          },
         ],
         "kind": "group",
         "name": "BRHCBundle",
+      },
+      {
+        "children": [
+          {
+            "anchor": {
+              "x": 11.8,
+              "y": -7.08,
+            },
+            "angleRad": 0,
+            "content": "Lymington",
+            "hAlign": "right",
+            "kind": "text",
+            "size": 5.31,
+          },
+        ],
+        "kind": "group",
+        "name": "LocationLabel",
       },
       {
         "children": [
@@ -3665,7 +3665,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
               {
                 "center": {
                   "x": -143.96,
-                  "y": -147.13283550303112,
+                  "y": -123.53283550303114,
                 },
                 "height": 23.6,
                 "kind": "roundedRect",
@@ -4775,7 +4775,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
                 "moduleSize": 0.7151515151515152,
                 "origin": {
                   "x": -155.76000000000002,
-                  "y": -158.93283550303113,
+                  "y": -135.33283550303113,
                 },
               },
             ],
@@ -4791,7 +4791,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
           {
             "center": {
               "x": -145.14000000000001,
-              "y": -116.45283550303112,
+              "y": -95.21283550303113,
             },
             "height": 21.24,
             "kind": "roundedRect",
@@ -4803,34 +4803,34 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
               {
                 "end": {
                   "x": -139.83,
-                  "y": -113.50283550303112,
+                  "y": -92.26283550303113,
                 },
                 "kind": "line",
                 "start": {
                   "x": -150.45000000000002,
-                  "y": -113.50283550303112,
+                  "y": -92.26283550303113,
                 },
               },
               {
                 "end": {
                   "x": -139.83,
-                  "y": -116.45283550303112,
+                  "y": -95.21283550303113,
                 },
                 "kind": "line",
                 "start": {
                   "x": -150.45000000000002,
-                  "y": -116.45283550303112,
+                  "y": -95.21283550303113,
                 },
               },
               {
                 "end": {
                   "x": -139.83,
-                  "y": -119.40283550303113,
+                  "y": -98.16283550303113,
                 },
                 "kind": "line",
                 "start": {
                   "x": -150.45000000000002,
-                  "y": -119.40283550303113,
+                  "y": -98.16283550303113,
                 },
               },
             ],
@@ -4847,7 +4847,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "center": {
-                  "x": -105.02000000000002,
+                  "x": -133.34000000000003,
                   "y": -150.08283550303113,
                 },
                 "height": 17.7,
@@ -4863,7 +4863,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "anchor": {
-                  "x": -125.31600000000003,
+                  "x": -153.63600000000002,
                   "y": -146.6608355030311,
                 },
                 "angleRad": 0,
@@ -4880,7 +4880,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "anchor": {
-                  "x": -125.31600000000003,
+                  "x": -153.63600000000002,
                   "y": -155.2748355030311,
                 },
                 "angleRad": 0,
@@ -4897,7 +4897,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "anchor": {
-                  "x": -109.38600000000002,
+                  "x": -137.70600000000002,
                   "y": -155.2748355030311,
                 },
                 "angleRad": 0,
@@ -4914,7 +4914,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "anchor": {
-                  "x": -105.49200000000003,
+                  "x": -133.812,
                   "y": -155.2748355030311,
                 },
                 "angleRad": 0,

@@ -49,7 +49,7 @@
  *   hAlign?: 'left' | 'center' | 'right',
  * }} DiagramTextInst
  *
- * **BRHCBundle** (scene group): **MainLabel** (tide summary, bottom row), **BRHCDate**, **BRHCLocation**.
+ * **BRHCBundle** (scene group): **MainLabel** (tide summary, bottom row), **BRHCDate**.
  *
  * **Hand** arm clock readout: one composed scene group built from
  * literal **`time now`** and **`HH:MM`** (tag precedes time along the arm).
@@ -195,7 +195,7 @@
  *   homeMenuTrigger: HomeMenuTriggerDiagram,
  *   homeLocationPanel: HomeLocationPanelDiagram,
  *   hand: HandDiagram,
- *   brhcLocation: DiagramTextInst,
+ *   locationLabel: DiagramTextInst,
  *   brhcDate: DiagramTextInst,
  *   brand: BrandCompoundDiagram,
  * }} TideDiagramDocument

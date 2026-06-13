@@ -775,7 +775,7 @@ export function tideDiagramToScene(diagram) {
     homeLocationPanel,
     hand,
     mainLabel,
-    brhcLocation,
+    locationLabel,
     brhcDate,
     brand,
   } = diagram;
@@ -909,13 +909,13 @@ export function tideDiagramToScene(diagram) {
   const tideMarksGroup = group("TideMarks", tideMarkGroups);
   const handGroup = handDiagramToGroup(hand, cx, cy);
 
-  const brhcLocationGroup = group("BRHCLocation", [
+  const locationLabelGroup = group("LocationLabel", [
     text({
-      content: brhcLocation.content,
-      size: brhcLocation.fontSize,
-      hAlign: brhcLocation.hAlign ?? "center",
+      content: locationLabel.content,
+      size: locationLabel.fontSize,
+      hAlign: locationLabel.hAlign ?? "center",
       angleRad: 0,
-      anchor: mapPoint(brhcLocation.anchor, cx, cy),
+      anchor: mapPoint(locationLabel.anchor, cx, cy),
     }),
   ]);
 
@@ -954,7 +954,6 @@ export function tideDiagramToScene(diagram) {
   const brhcBundleGroup = group("BRHCBundle", [
     mainLabelGroup,
     brhcDateGroup,
-    brhcLocationGroup,
   ]);
 
   const meta = {
@@ -972,6 +971,7 @@ export function tideDiagramToScene(diagram) {
     tideMarksGroup,
     tickLabelsGroup,
     brhcBundleGroup,
+    locationLabelGroup,
     brandGroup,
     homeMenuTriggerGroup,
     homeLocationPanelGroup,

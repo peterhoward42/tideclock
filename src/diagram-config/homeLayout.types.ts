@@ -28,6 +28,19 @@ export type HomeTideMarksDefaults = Omit<HomeTideMarks, "markers">;
  */
 export type CivilHalfDayLayoutMode = "auto" | "beforeNoon" | "afterNoon";
 
+export type LocationPlacementRange = {
+  readonly from: string;
+  readonly to: string;
+  readonly justification: "left" | "right" | "centre";
+  readonly belowOrigin: number;
+  readonly offsetRight: number;
+};
+
+export type LocationPlacement = {
+  readonly fontHeight: number;
+  readonly ranges: readonly LocationPlacementRange[];
+};
+
 export type HomeLayoutBase = {
   readonly title: "home-tide-diagram";
   readonly refRadius: number;
@@ -49,16 +62,18 @@ export type HomeLayoutBase = {
   /**
    * Bottom-right text stack (**BRHCBundle** rows).
    * Each `*Above*` value is k·RefRadius gap upward from the row below (same convention throughout).
-   * Stack bottom → top: **MainLabel** → **BRHCDate** → **BRHCLocation**.
+   * Stack bottom → top: **MainLabel** → **BRHCDate**.
    */
   readonly brhcBundle: {
-    /** k·RefRadius: **FontHeight** for **MainLabel**, **BRHCDate**, and **BRHCLocation**. */
+    /** k·RefRadius: **FontHeight** for **MainLabel** and **BRHCDate**. */
     readonly fontHeight: number;
     /** k·RefRadius: gap above **MainLabel** baseline to **BRHCDate** baseline. */
     readonly dateAboveTime: number;
-    /** k·RefRadius: gap above **BRHCDate** baseline to **BRHCLocation** baseline. */
-    readonly locationAboveDate: number;
   };
+  /**
+   * Dial-interior **LocationLabel** preset anchors keyed by **t_now** (see tide-diagram spec §LocationLabel).
+   */
+  readonly locationPlacement: LocationPlacement;
   /** k·RefRadius: **BrandQR** square side. */
   readonly brandQrSize: number;
   /** k·RefRadius: **BrandQRPlate** corner radius. */

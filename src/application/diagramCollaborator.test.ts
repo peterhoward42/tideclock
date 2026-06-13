@@ -247,7 +247,6 @@ describe('createDiagramCollaborator', () => {
     const annularMaxX = annularBandMaxX(diagram.annularBand);
     const bundleRightX = diagram.brhcDate.anchor.x;
     expect(diagram.mainLabel.anchor.y).not.toBe(tickMinY);
-    expect(diagram.brhcLocation.anchor.x).toBe(bundleRightX);
     expect(bundleRightX).toBeGreaterThanOrEqual(annularMaxX);
     const dateAbove =
       (spec.brhcBundle as { readonly fontHeight: number; readonly dateAboveTime: number }).dateAboveTime *
@@ -261,14 +260,6 @@ describe('createDiagramCollaborator', () => {
       diagram.mainLabel.anchor.y + dateAbove + fontHeight,
       6,
     );
-    const locationAboveDate =
-      (spec.brhcBundle as {
-        readonly locationAboveDate: number;
-      }).locationAboveDate * diagram.refArc.refRadius;
-    expect(diagram.brhcLocation.anchor.y).toBeCloseTo(
-      diagram.brhcDate.anchor.y + locationAboveDate + fontHeight,
-      6,
-    );
 
     const d = diagram.homeMenuTrigger.diameter;
     const R = diagram.refArc.refRadius;
@@ -279,6 +270,35 @@ describe('createDiagramCollaborator', () => {
       diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
     const menuAboveK = (spec.homeMenuTrigger as { readonly menuAboveBottom: number }).menuAboveBottom;
     expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(bBottom + menuAboveK * R + 0.5 * d, 6);
+  });
+
+  it('places LocationLabel inside the dial from locationPlacement × t_now', () => {
+    const collaborator = createDiagramCollaborator();
+    const spec = baseSpecForCollaboratorTest();
+    const { diagram } = collaborator.generate(spec);
+    const R = diagram.refArc.refRadius;
+    const placement = (spec as {
+      locationPlacement: {
+        readonly fontHeight: number;
+        readonly ranges: readonly {
+          readonly from: string;
+          readonly to: string;
+          readonly belowOrigin: number;
+          readonly offsetRight: number;
+          readonly justification: string;
+        }[];
+      };
+    }).locationPlacement;
+    expect(diagram.locationLabel.content).toBe('Lymington');
+    expect(diagram.locationLabel.fontSize).toBeCloseTo(placement.fontHeight * R, 6);
+    const active = placement.ranges.find(
+      (r) => r.from === '08:00:00' && r.to === '16:00:00',
+    );
+    expect(active).toBeDefined();
+    if (active == null) return;
+    expect(diagram.locationLabel.hAlign).toBe('center');
+    expect(diagram.locationLabel.anchor.x).toBeCloseTo(active.offsetRight * R, 6);
+    expect(diagram.locationLabel.anchor.y).toBeCloseTo(-active.belowOrigin * R, 6);
   });
 
   it('places HomeLocationPanel share and change actions on one row inside the plate', () => {
@@ -395,6 +415,7 @@ describe('createDiagramCollaborator', () => {
       'TideMarks',
       'TickLabel',
       'BRHCBundle',
+      'LocationLabel',
       'Brand',
       'HomeMenuTrigger',
       'HomeLocationPanel',

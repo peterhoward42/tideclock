@@ -111,7 +111,7 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "Hand.TimeReadout", roleName: "role.structure.emphasis" },
     { name: "Hand.TimeReadoutNowTag", roleName: "role.structure.text" },
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
-    { name: "BRHCLocation", roleName: "role.structure.emphasis" },
+    { name: "LocationLabel", roleName: "role.structure.emphasis" },
     { name: "BRHCDate", roleName: "role.structure.text" },
     { name: "BrandQRPlate", roleName: "role.menu.trigger" },
     { name: "BrandQR", roleName: "BrandQR" },

@@ -1132,15 +1132,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "fontSize": 5.9,
     "hAlign": "right",
   },
-  "brhcLocation": {
-    "anchor": {
-      "x": 128.05368250390558,
-      "y": -109.50399999999999,
-    },
-    "content": "Lymington",
-    "fontSize": 5.9,
-    "hAlign": "right",
-  },
   "dividorArc": {
     "radiusK": 0.8653,
   },
@@ -1243,6 +1234,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "diameter": 12.98,
     "iconBarCenterSpacing": 1.77,
     "iconBarHalfLength": 2.832,
+  },
+  "locationLabel": {
+    "anchor": {
+      "x": 11.8,
+      "y": -7.08,
+    },
+    "content": "Lymington",
+    "fontSize": 5.31,
+    "hAlign": "right",
   },
   "mainLabel": {
     "anchor": {

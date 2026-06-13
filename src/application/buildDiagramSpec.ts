@@ -2,8 +2,8 @@
  * buildDiagramSpec.ts — Maps domain extremes and local time into `DiagramSpec` fields.
  * Fed by Home and tests; consumed by diagram-generation. Kind: Pure logic (with injectable time mapping).
  * Does not invoke `buildDiagram` itself. Time-now date/clock placement is derived in diagram-generation
- * from AnnularBand and TickLabels; this module only supplies `brhcBundle` layout and
- * `brhcLocation`/`brhcDatePrefix`.
+ * from AnnularBand and TickLabels; this module only supplies `brhcBundle` layout,
+ * `locationName`/`locationPlacement`, and `brhcDatePrefix`.
  *
  * Tunable layout numbers live in `diagram-config/homeLayout.preset.ts`.
  */
@@ -50,7 +50,7 @@ export type BuildDiagramSpecParams = BuildDiagramSpecTimeInput & {
    * same conceptual spec). When omitted, layout derives next tide from `tideMarks` as usual.
    */
   readonly derivedSemantics?: Pick<DerivedNextTideSemantics, 'nextTide'>;
-  /** Display town name for the **BRHCLocation** row. */
+  /** Display town name for **LocationLabel**. */
   readonly townName: string;
   /** Canonical share URL for **BrandQR** payload and diagram share affordance. */
   readonly shareUrl: string;
@@ -135,7 +135,7 @@ export function buildDiagramSpec(
     ...layoutWithoutTideMarkRows,
     timeNow,
     brhcDatePrefix,
-    brhcLocation: townName,
+    locationName: townName,
     shareUrl,
     tideMarks,
   };

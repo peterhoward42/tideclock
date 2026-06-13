@@ -33,7 +33,17 @@ type SemanticInjectionDiagramSpec = {
   readonly tickLabelClearance: number;
   readonly timeNow: string;
   readonly brhcDatePrefix: string;
-  readonly brhcLocation: string;
+  readonly locationName: string;
+  readonly locationPlacement: {
+    readonly fontHeight: number;
+    readonly ranges: readonly {
+      readonly from: string;
+      readonly to: string;
+      readonly justification: 'left' | 'right' | 'centre';
+      readonly belowOrigin: number;
+      readonly offsetRight: number;
+    }[];
+  };
   readonly tideMarks: {
     readonly tideLabelRadius: number;
     readonly tideHeightLabelSize: number;
@@ -44,7 +54,6 @@ type SemanticInjectionDiagramSpec = {
   readonly brhcBundle: {
     readonly fontHeight: number;
     readonly dateAboveTime: number;
-    readonly locationAboveDate: number;
   };
   readonly brandQrLeftPadding: number;
   readonly brandQrAboveBottom: number;
@@ -108,7 +117,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     tickLabelClearance: 0.07,
     timeNow: '19:20:03',
     brhcDatePrefix: 'Mon 23 Mar',
-    brhcLocation: 'Lymington',
+    locationName: 'Lymington',
     tideMarks: {
       tideLabelRadius: 0.84,
       tideHeightLabelSize: 0.046,
@@ -124,7 +133,32 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     brhcBundle: {
       fontHeight: 0.05,
       dateAboveTime: 0.05,
-      locationAboveDate: 0.04,
+    },
+    locationPlacement: {
+      fontHeight: 0.045,
+      ranges: [
+        {
+          from: '00:00:00',
+          to: '08:00:00',
+          justification: 'left',
+          belowOrigin: 0.06,
+          offsetRight: -0.10,
+        },
+        {
+          from: '08:00:00',
+          to: '16:00:00',
+          justification: 'centre',
+          belowOrigin: 0.08,
+          offsetRight: 0,
+        },
+        {
+          from: '16:00:00',
+          to: '24:00:00',
+          justification: 'right',
+          belowOrigin: 0.06,
+          offsetRight: 0.10,
+        },
+      ],
     },
     brandQrLeftPadding: 0,
     brandQrAboveBottom: 0,
@@ -197,11 +231,11 @@ describe('spec.semantic.nextTide injection', () => {
     expect(withSemantic).toEqual(baseline);
   });
 
-  it('after last tide still renders BRHCBundle text', () => {
+  it('after last tide still renders BRHCBundle text and LocationLabel', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
     const diagram = buildDiagramFromSpec(spec as DiagramSpec);
     expect(diagram.brhcDate.content).toBe('Mon 23 Mar');
-    expect(diagram.brhcLocation.content).toBe('Lymington');
+    expect(diagram.locationLabel.content).toBe('Lymington');
     expect(diagram.hand.armTimeReadout.timeContent).toBe('23:59');
     expect(diagram.hand.armTimeReadout.nowTagContent).toBe('time now');
   });

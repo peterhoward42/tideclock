@@ -30,7 +30,32 @@ export const homeLayoutBase = {
   brhcBundle: {
     fontHeight: 0.045,
     dateAboveTime: 0.02,
-    locationAboveDate: 0.04,
+  },
+  locationPlacement: {
+    fontHeight: 0.045,
+    ranges: [
+      {
+        from: "00:00:00",
+        to: "08:00:00",
+        justification: "left",
+        belowOrigin: 0.06,
+        offsetRight: -0.10,
+      },
+      {
+        from: "08:00:00",
+        to: "16:00:00",
+        justification: "centre",
+        belowOrigin: 0.08,
+        offsetRight: 0,
+      },
+      {
+        from: "16:00:00",
+        to: "24:00:00",
+        justification: "right",
+        belowOrigin: 0.06,
+        offsetRight: 0.10,
+      },
+    ],
   },
   hand: {
     bossCircleRadius: 0.1,

@@ -17,7 +17,8 @@
  * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**menuLeftPadding**`, `**menuAboveBottom**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; paddings and **iconBarGap** **>= 0**). Placed as a **top-level** scene sibling (**not** inside **BRHCBundle**): leading edge inset from **B_left** by **`menuLeftPadding·R`**; the **bottom** of the circular control lies **`menuAboveBottom·R`** above **B_bottom** (**Y** upward). Independent of **Brand** placement. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
  * - `**homeLocationPanel**` is required: plate + heading + **Share** / **Change** actions to the right of **BrandQR** (see tide-diagram spec §HomeLocationPanel). Excluded from **`layoutBounds`** except via **BrandQR** horizontal extent.
  * - **MainLabel** is horizontal text inside **BRHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
- * - `**brhcBundle**` is required (plain object with finite **fontHeight** and row gaps — all **k·R**); `**brhcDatePrefix**` is a required string (see spec).
+ * - `**brhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** — all **k·R**); `**brhcDatePrefix**` is a required string (see spec).
+ * - `**locationName**` is required: non-empty host place name for **LocationLabel**; `**locationPlacement**` is required (see spec §LocationLabel).
  * - `**shareUrl**` is required: non-empty string encoded by **BrandQR** and copied by **HomeShareTrigger** clipboard action.
  * - `**brandQrLeftPadding**` is required: finite **k·R** **>= 0**; **BrandQR** leading edge inset from **B_left**.
  * - `**brandQrAboveBottom**` is required: finite **k·R** **>= 0**; **BrandQR** bottom edge above **B_bottom**.
@@ -53,7 +54,7 @@ const HAND_NOW_TAG_TEXT = "time now";
 const HAND_BOSS_LABEL_TEXT = "Tides";
 
 /**
- * **BRHCBundle**: **MainLabel** (tide summary, bottom row), **BRHCDate**, **BRHCLocation** — each row **right**-justified to **B_right**;
+ * **BRHCBundle**: **MainLabel** (tide summary, bottom row), **BRHCDate** — each row **right**-justified to **B_right**;
  * **Y** baselines are independent per row (see spec).
  *
  * @param {Record<string, unknown>} spec
@@ -63,7 +64,6 @@ const HAND_BOSS_LABEL_TEXT = "Tides";
  * @param {string} mainLabelContent synthesized **MainLabel** line
  * @returns {{
  *   mainLabel: import('../model/tideDiagramModel.mjs').MainLabelDiagram,
- *   brhcLocation: import('../model/tideDiagramModel.mjs').DiagramTextInst,
  *   brhcDate: import('../model/tideDiagramModel.mjs').DiagramTextInst,
  * }}
  */
@@ -77,50 +77,127 @@ function buildBrhcBundleFromSpec(
   const o = requirePlainObject(spec.brhcBundle, "spec.brhcBundle");
   const fontHeightK = o.fontHeight;
   const dateAboveK = o.dateAboveTime;
-  const locationAboveDateK = o.locationAboveDate;
   if (
     typeof fontHeightK !== "number" ||
     !Number.isFinite(fontHeightK) ||
     typeof dateAboveK !== "number" ||
     !Number.isFinite(dateAboveK) ||
-    dateAboveK < 0 ||
-    typeof locationAboveDateK !== "number" ||
-    !Number.isFinite(locationAboveDateK) ||
-    locationAboveDateK < 0
+    dateAboveK < 0
   ) {
     throw new Error(
-      "spec.brhcBundle requires finite fontHeight, dateAboveTime, and locationAboveDate (RefRadius multiples, gaps >= 0)",
+      "spec.brhcBundle requires finite fontHeight and dateAboveTime (RefRadius multiples, gaps >= 0)",
     );
   }
   if (typeof spec.brhcDatePrefix !== "string") {
     throw new Error("spec.brhcDatePrefix must be a string");
   }
   const datePrefix = spec.brhcDatePrefix.trim();
-  if (typeof spec.brhcLocation !== "string") {
-    throw new Error("spec.brhcLocation must be a string");
-  }
-  const locationName = spec.brhcLocation.trim();
   const fontSize = fontHeightK * refRadius;
   const ax = layoutBoundsRightX;
   // **MainLabel** bottom row: baseline aligns so the row sits on **B_bottom** (see spec).
   const mainLabelBaselineY = layoutBoundsBottomY + TEXT_DESCENT_EM * fontSize;
   const dateY = mainLabelBaselineY + dateAboveK * refRadius + fontSize;
-  const locationY = dateY + locationAboveDateK * refRadius + fontSize;
   const mainLabel = buildMainLabel(ax, mainLabelBaselineY, fontSize, mainLabelContent);
   return {
     mainLabel,
-    brhcLocation: {
-      content: locationName,
-      fontSize,
-      anchor: { x: ax, y: locationY },
-      hAlign: "right",
-    },
     brhcDate: {
       content: datePrefix,
       fontSize,
       anchor: { x: ax, y: dateY },
       hAlign: "right",
     },
+  };
+}
+
+/**
+ * @param {unknown} raw
+ * @param {string} label
+ * @returns {'left' | 'center' | 'right'}
+ */
+function readLocationJustification(raw, label) {
+  if (raw === "left" || raw === "right") {
+    return raw;
+  }
+  if (raw === "centre" || raw === "center") {
+    return "center";
+  }
+  throw new Error(`${label} must be "left", "right", or "centre"`);
+}
+
+/**
+ * **LocationLabel** — dial-interior place name; preset anchor from `spec.locationPlacement` × **t_now** (see spec).
+ *
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @returns {import('../model/tideDiagramModel.mjs').DiagramTextInst}
+ */
+function buildLocationLabelFromSpec(spec, refRadius) {
+  const locationName = requireString(spec.locationName, "spec.locationName").trim();
+  const o = requirePlainObject(spec.locationPlacement, "spec.locationPlacement");
+  const fontHeightK = requireFiniteNumber(
+    o.fontHeight,
+    "spec.locationPlacement.fontHeight",
+  );
+  if (!(fontHeightK > 0)) {
+    throw new Error("spec.locationPlacement.fontHeight must be greater than 0");
+  }
+  const ranges = o.ranges;
+  if (!Array.isArray(ranges) || ranges.length === 0) {
+    throw new Error("spec.locationPlacement.ranges must be a non-empty array");
+  }
+  const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
+  if (parsedNow.isRightEndpoint) {
+    throw new Error('spec.timeNow cannot be "24:00:00"');
+  }
+  const tNow = parsedNow.hours;
+
+  /** @type {Record<string, unknown> | null} */
+  let matched = null;
+  for (let i = 0; i < ranges.length; i += 1) {
+    const entry = requirePlainObject(
+      ranges[i],
+      `spec.locationPlacement.ranges[${i}]`,
+    );
+    const fromParsed = parseCanonicalTimeOrThrow(
+      entry.from,
+      `spec.locationPlacement.ranges[${i}].from`,
+    );
+    const toParsed = parseCanonicalTimeOrThrow(
+      entry.to,
+      `spec.locationPlacement.ranges[${i}].to`,
+    );
+    if (fromParsed.hours <= tNow && tNow < toParsed.hours) {
+      matched = entry;
+      break;
+    }
+  }
+  if (matched == null) {
+    throw new Error(
+      `spec.locationPlacement.ranges: no entry matches t_now=${tNow}`,
+    );
+  }
+
+  const belowOriginK = requireFiniteNumber(
+    matched.belowOrigin,
+    "spec.locationPlacement matched entry belowOrigin",
+  );
+  const offsetRightK = requireFiniteNumber(
+    matched.offsetRight,
+    "spec.locationPlacement matched entry offsetRight",
+  );
+  const hAlign = readLocationJustification(
+    matched.justification,
+    "spec.locationPlacement matched entry justification",
+  );
+  const fontSize = fontHeightK * refRadius;
+  return {
+    content: locationName,
+    fontSize,
+    anchor: {
+      x: offsetRightK * refRadius,
+      y: -belowOriginK * refRadius,
+    },
+    hAlign,
   };
 }
 
@@ -584,13 +661,14 @@ export function buildDiagram(spec) {
     mainLabelContent = `${nextEventForMainLabel.kind} tide at ${formatEventClockHHMM(nextEventForMainLabel.seconds)}`;
   }
 
-  const { mainLabel, brhcLocation, brhcDate } = buildBrhcBundleFromSpec(
+  const { mainLabel, brhcDate } = buildBrhcBundleFromSpec(
     spec,
     refRadius,
     layoutBounds.maxX,
     layoutBounds.minY,
     mainLabelContent,
   );
+  const locationLabel = buildLocationLabelFromSpec(spec, refRadius);
   includeDiagramTextBounds(layoutBounds, {
     content: mainLabel.content,
     fontSize: mainLabel.fontSize,
@@ -670,7 +748,7 @@ export function buildDiagram(spec) {
     homeMenuTrigger,
     homeLocationPanel,
     hand,
-    brhcLocation,
+    locationLabel,
     brhcDate,
     brand,
   };
