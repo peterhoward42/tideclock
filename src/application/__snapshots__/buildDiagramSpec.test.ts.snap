@@ -1235,15 +1235,17 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     "iconBarCenterSpacing": 2.95,
     "iconBarHalfLength": 5.31,
   },
-  "locationLabel": {
-    "anchor": {
-      "x": 11.8,
-      "y": -7.08,
+  "locationLabel": [
+    {
+      "anchor": {
+        "x": 0,
+        "y": -59,
+      },
+      "content": "Lymington",
+      "fontSize": 7.08,
+      "hAlign": "center",
     },
-    "content": "Lymington",
-    "fontSize": 5.31,
-    "hAlign": "right",
-  },
+  ],
   "mainLabel": {
     "anchor": {
       "x": 155.76000000000002,
@@ -3644,15 +3646,21 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
       {
         "children": [
           {
-            "anchor": {
-              "x": 11.8,
-              "y": -7.08,
-            },
-            "angleRad": 0,
-            "content": "Lymington",
-            "hAlign": "right",
-            "kind": "text",
-            "size": 5.31,
+            "children": [
+              {
+                "anchor": {
+                  "x": 0,
+                  "y": -59,
+                },
+                "angleRad": 0,
+                "content": "Lymington",
+                "hAlign": "center",
+                "kind": "text",
+                "size": 7.08,
+              },
+            ],
+            "kind": "group",
+            "name": "LocationLabel.Line0",
           },
         ],
         "kind": "group",

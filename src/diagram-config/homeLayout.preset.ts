@@ -33,6 +33,8 @@ export const homeLayoutBase = {
   },
   locationPlacement: {
     fontHeight: 0.060,
+    maxSegmentLength: 21,
+    lineGap: 0.07,
     ranges: [
       {
         from: "18:00:00",

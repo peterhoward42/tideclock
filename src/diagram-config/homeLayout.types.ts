@@ -38,6 +38,10 @@ export type LocationPlacementRange = {
 
 export type LocationPlacement = {
   readonly fontHeight: number;
+  /** Maximum character count per **LocationLabel** line (word-wrap). */
+  readonly maxSegmentLength: number;
+  /** k·RefRadius: downward baseline step between consecutive lines. */
+  readonly lineGap: number;
   readonly ranges: readonly LocationPlacementRange[];
 };
 

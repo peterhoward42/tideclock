@@ -264,43 +264,75 @@ chosen from a small set of **preset anchors** keyed by `**t_now`** (**§Global
 “time now” input**), so tuning can happen entirely in diagram input without
 changing generator geometry code.
 
-**Scene model** — top-level group `**LocationLabel`** containing one **text**
-leaf (style binding name `**LocationLabel`** per **Style binding names
-(exact-match contract)**).
+Long place names are split into multiple **TextElement** lines per
+`**maxSegmentLength**` (see **Diagram input** below). Each line is a separate
+text leaf; **TextElement** remains one line of text (**§Text Element**).
 
-**Text** — host-supplied place name.
+**Scene model** — top-level group `**LocationLabel`** containing **N** sibling
+**text** leaves, one per wrapped line, in top-to-bottom order:
 
-**FontHeight** — `**locationPlacement.fontHeight·RefRadius`** (**§Sizing**).
+- Leaf names `**LocationLabel.Line0**`, `**LocationLabel.Line1**`, …
+  `**LocationLabel.Line(N−1)**` (zero-based index; **Style binding names
+  (exact-match contract)**).
+- The generator emits only as many line leaves as the wrap produces (**N ≥ 1**).
 
-**Baseline polar angle** — **0** (horizontal baseline in diagram space; **TextElement defaults**). Anchor **Y** follows **Text anchor Y (global)**.
+**Text** — host-supplied place name (`**spec.locationName**`), trimmed; split
+into line strings per `**maxSegmentLength**`.
+
+**FontHeight** — `**locationPlacement.fontHeight·RefRadius`** (**§Sizing**);
+shared by every line.
+
+**Baseline polar angle** — **0** on every line (horizontal baseline in diagram
+space; **TextElement defaults**). Anchor **Y** follows **Text anchor Y (global)**.
 
 **Diagram input** — plain object `**locationPlacement`**:
 
 - `**fontHeight**` — **k·R** (**§Sizing**).
+- `**maxSegmentLength**` — positive integer: maximum character count per line
+  (monospace width heuristic per **§Text Element**). The generator word-wraps
+  `**spec.locationName**` into one or more lines so that no emitted line
+  exceeds this length. Prefer breaks at whitespace; when a single word exceeds
+  the limit, break within that word.
+- `**lineGap**` — non-negative **k·R** (**§Sizing**): fixed downward offset
+  between consecutive line baselines (see **Vertical stacking**).
 - `**ranges**` — ordered array of range entries. Entries are evaluated in
   **array order**; the **first** matching entry wins. Each entry supplies:
   - `**from**` — canonical time `**HH:MM:SS**` per **§Time and θ(t)** (inclusive lower bound on `**t_now`**).
   - `**to**` — canonical time `**HH:MM:SS**` per **§Time and θ(t)** (**exclusive** upper bound on `**t_now`**; `**24:00:00**` permitted only as `**to**` on the final range).
-  - `**justification**` — `**"left"**`, `**"right"**`, or `**"centre"**` (**Text Element**).
-  - `**belowOrigin**` — **k·R** (**§Sizing**): anchor `**belowOrigin·RefRadius**` **below** **O** along **−Y** (**§Axes**).
-  - `**offsetRight**` — signed **k·R** (**§Sizing**): anchor `**offsetRight·RefRadius**` to the **right** of **O** along **+X** (negative → **left** of **O**).
+  - `**justification**` — `**"left"**`, `**"right"**`, or `**"centre"**` (**Text Element**); shared by every line in the block.
+  - `**belowOrigin**` — **k·R** (**§Sizing**): anchor of the **first** line
+    (`**LocationLabel.Line0**`) `**belowOrigin·RefRadius**` **below** **O**
+    along **−Y** (**§Axes**).
+  - `**offsetRight**` — signed **k·R** (**§Sizing**): horizontal anchor
+    `**offsetRight·RefRadius**` to the **right** of **O** along **+X**
+    (negative → **left** of **O**); shared by every line.
 
 **Matching** — parse `**from**` and `**to**` to `**t_from**`, `**t_to**` per **§Time and θ(t)**. Entry matches when `**t_from ≤ t_now < t_to`**.
 
-**Anchor** for the active entry (diagram model space, relative to **O**):
+**Horizontal placement** — for the active range entry, every line uses the same
+`**x = offsetRight · RefRadius**` and the same horizontal **justification** at
+that **x** per **Text Element**.
 
-- `**x = offsetRight · RefRadius`**
-- `**y = −belowOrigin · RefRadius**`
+**Vertical stacking** — let `**y₀ = −belowOrigin · RefRadius**` be the anchor
+**Y** of `**LocationLabel.Line0**` (diagram model space, relative to **O**).
+For line index `**i ≥ 1**`:
 
-Horizontal **justification** applies at that anchor per **Text Element**. The
-anchor does **not** rotate with `**θ_now`**; only the **selected preset**
-changes with `**t_now`**.
+- `**yᵢ = y₀ − i × lineGap · RefRadius**`
+
+Each step moves the baseline **downward** along **−Y** by the fixed unsigned
+`**lineGap · RefRadius**` increment. Line `**i**` is emitted as text leaf
+`**LocationLabel.Line<i>**` with anchor `**(x, yᵢ)`**.
+
+The preset anchor does **not** rotate with `**θ_now`**; only the **selected
+range entry** changes with `**t_now`**.
 
 Reference product (three presets — tunable without code changes):
 
 ```
 locationPlacement: {
     fontHeight: 0.045,
+    maxSegmentLength: 21,
+    lineGap: 0.05,
     ranges: [
         {
             from: "00:00:00",

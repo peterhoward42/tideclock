@@ -5,6 +5,9 @@
 
 import type { StyleModelSpec } from "./styleModel.types";
 
+/** Max dial-interior location lines (200-char cap ÷ 21-char segments). */
+const LOCATION_LABEL_LINE_BINDING_COUNT = 10;
+
 export const homeStyleModel: StyleModelSpec = {
   roles: [
     {
@@ -115,7 +118,10 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "Hand.TimeReadout", roleName: "role.structure.emphasis" },
     { name: "Hand.TimeReadoutNowTag", roleName: "role.structure.text" },
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
-    { name: "LocationLabel", roleName: "role.location.emphasis" },
+    ...Array.from({ length: LOCATION_LABEL_LINE_BINDING_COUNT }, (_, i) => ({
+      name: `LocationLabel.Line${i}`,
+      roleName: "role.location.emphasis",
+    })),
     { name: "BRHCDate", roleName: "role.structure.text" },
     { name: "BrandQRPlate", roleName: "role.menu.trigger" },
     { name: "BrandQR", roleName: "BrandQR" },

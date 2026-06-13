@@ -1235,15 +1235,17 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "iconBarCenterSpacing": 1.77,
     "iconBarHalfLength": 2.832,
   },
-  "locationLabel": {
-    "anchor": {
-      "x": 11.8,
-      "y": -7.08,
+  "locationLabel": [
+    {
+      "anchor": {
+        "x": 11.8,
+        "y": -7.08,
+      },
+      "content": "Lymington",
+      "fontSize": 5.31,
+      "hAlign": "right",
     },
-    "content": "Lymington",
-    "fontSize": 5.31,
-    "hAlign": "right",
-  },
+  ],
   "mainLabel": {
     "anchor": {
       "x": 128.05368250390558,

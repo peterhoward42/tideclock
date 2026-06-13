@@ -195,7 +195,7 @@ export type TideDiagramDocument = {
   readonly homeMenuTrigger: HomeMenuTriggerDiagram;
   readonly homeLocationPanel: HomeLocationPanelDiagram;
   readonly hand: HandDiagram;
-  readonly locationLabel: DiagramTextInst;
+  readonly locationLabel: readonly DiagramTextInst[];
   readonly brhcDate: DiagramTextInst;
   /** **Brand** compound (**BrandQR** only); see tide-diagram spec §Brand. */
   readonly brand: BrandCompoundDiagram;

@@ -36,6 +36,8 @@ type SemanticInjectionDiagramSpec = {
   readonly locationName: string;
   readonly locationPlacement: {
     readonly fontHeight: number;
+    readonly maxSegmentLength: number;
+    readonly lineGap: number;
     readonly ranges: readonly {
       readonly from: string;
       readonly to: string;
@@ -136,6 +138,8 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     },
     locationPlacement: {
       fontHeight: 0.045,
+      maxSegmentLength: 21,
+      lineGap: 0.05,
       ranges: [
         {
           from: '00:00:00',
@@ -235,7 +239,7 @@ describe('spec.semantic.nextTide injection', () => {
     const spec = { ...sampleTideDiagramSpec(), timeNow: '23:59:00' };
     const diagram = buildDiagramFromSpec(spec as DiagramSpec);
     expect(diagram.brhcDate.content).toBe('Mon 23 Mar');
-    expect(diagram.locationLabel.content).toBe('Lymington');
+    expect(diagram.locationLabel[0].content).toBe('Lymington');
     expect(diagram.hand.armTimeReadout.timeContent).toBe('23:59');
     expect(diagram.hand.armTimeReadout.nowTagContent).toBe('time now');
   });

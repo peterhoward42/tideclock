@@ -909,15 +909,20 @@ export function tideDiagramToScene(diagram) {
   const tideMarksGroup = group("TideMarks", tideMarkGroups);
   const handGroup = handDiagramToGroup(hand, cx, cy);
 
-  const locationLabelGroup = group("LocationLabel", [
-    text({
-      content: locationLabel.content,
-      size: locationLabel.fontSize,
-      hAlign: locationLabel.hAlign ?? "center",
-      angleRad: 0,
-      anchor: mapPoint(locationLabel.anchor, cx, cy),
-    }),
-  ]);
+  const locationLabelGroup = group(
+    "LocationLabel",
+    locationLabel.map((line, index) =>
+      group(`LocationLabel.Line${index}`, [
+        text({
+          content: line.content,
+          size: line.fontSize,
+          hAlign: line.hAlign ?? "center",
+          angleRad: 0,
+          anchor: mapPoint(line.anchor, cx, cy),
+        }),
+      ]),
+    ),
+  );
 
   const brhcDateGroup = group("BRHCDate", [
     text({

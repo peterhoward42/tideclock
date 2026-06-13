@@ -125,14 +125,61 @@ function readLocationJustification(raw, label) {
 }
 
 /**
+ * @param {unknown} raw
+ * @param {string} label
+ * @returns {number}
+ */
+function requirePositiveInteger(raw, label) {
+  if (typeof raw !== "number" || !Number.isInteger(raw) || raw <= 0) {
+    throw new Error(`${label} must be a positive integer`);
+  }
+  return raw;
+}
+
+/**
+ * Word-wrap a place name into single-line segments (see tide-diagram spec §LocationLabel).
+ *
+ * @param {string} text trimmed non-empty
+ * @param {number} maxSegmentLength positive integer
+ * @returns {string[]}
+ */
+function wrapLocationNameToLines(text, maxSegmentLength) {
+  if (text.length <= maxSegmentLength) {
+    return [text];
+  }
+  /** @type {string[]} */
+  const lines = [];
+  let remaining = text;
+  while (remaining.length > 0) {
+    if (remaining.length <= maxSegmentLength) {
+      lines.push(remaining);
+      break;
+    }
+    const chunk = remaining.slice(0, maxSegmentLength);
+    const lastSpace = chunk.lastIndexOf(" ");
+    if (lastSpace > 0) {
+      lines.push(remaining.slice(0, lastSpace));
+      remaining = remaining.slice(lastSpace + 1);
+      continue;
+    }
+    lines.push(remaining.slice(0, maxSegmentLength));
+    remaining = remaining.slice(maxSegmentLength);
+  }
+  return lines;
+}
+
+/**
  * **LocationLabel** — dial-interior place name; preset anchor from `spec.locationPlacement` × **t_now** (see spec).
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
- * @returns {import('../model/tideDiagramModel.mjs').DiagramTextInst}
+ * @returns {import('../model/tideDiagramModel.mjs').DiagramTextInst[]}
  */
 function buildLocationLabelFromSpec(spec, refRadius) {
   const locationName = requireString(spec.locationName, "spec.locationName").trim();
+  if (locationName.length === 0) {
+    throw new Error("spec.locationName must be non-empty");
+  }
   const o = requirePlainObject(spec.locationPlacement, "spec.locationPlacement");
   const fontHeightK = requireFiniteNumber(
     o.fontHeight,
@@ -140,6 +187,17 @@ function buildLocationLabelFromSpec(spec, refRadius) {
   );
   if (!(fontHeightK > 0)) {
     throw new Error("spec.locationPlacement.fontHeight must be greater than 0");
+  }
+  const maxSegmentLength = requirePositiveInteger(
+    o.maxSegmentLength,
+    "spec.locationPlacement.maxSegmentLength",
+  );
+  const lineGapK = requireFiniteNumber(
+    o.lineGap,
+    "spec.locationPlacement.lineGap",
+  );
+  if (lineGapK < 0) {
+    throw new Error("spec.locationPlacement.lineGap must be >= 0");
   }
   const ranges = o.ranges;
   if (!Array.isArray(ranges) || ranges.length === 0) {
@@ -190,15 +248,19 @@ function buildLocationLabelFromSpec(spec, refRadius) {
     "spec.locationPlacement matched entry justification",
   );
   const fontSize = fontHeightK * refRadius;
-  return {
-    content: locationName,
+  const x = offsetRightK * refRadius;
+  const y0 = -belowOriginK * refRadius;
+  const lineStep = lineGapK * refRadius;
+  const lineTexts = wrapLocationNameToLines(locationName, maxSegmentLength);
+  return lineTexts.map((content, index) => ({
+    content,
     fontSize,
     anchor: {
-      x: offsetRightK * refRadius,
-      y: -belowOriginK * refRadius,
+      x,
+      y: y0 - index * lineStep,
     },
     hAlign,
-  };
+  }));
 }
 
 function emptyBounds() {

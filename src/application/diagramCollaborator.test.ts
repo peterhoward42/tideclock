@@ -280,6 +280,7 @@ describe('createDiagramCollaborator', () => {
     const placement = (spec as {
       locationPlacement: {
         readonly fontHeight: number;
+        readonly lineGap: number;
         readonly ranges: readonly {
           readonly from: string;
           readonly to: string;
@@ -289,16 +290,52 @@ describe('createDiagramCollaborator', () => {
         }[];
       };
     }).locationPlacement;
-    expect(diagram.locationLabel.content).toBe('Lymington');
-    expect(diagram.locationLabel.fontSize).toBeCloseTo(placement.fontHeight * R, 6);
+    expect(diagram.locationLabel).toHaveLength(1);
+    expect(diagram.locationLabel[0].content).toBe('Lymington');
+    expect(diagram.locationLabel[0].fontSize).toBeCloseTo(placement.fontHeight * R, 6);
     const active = placement.ranges.find(
-      (r) => r.from === '08:00:00' && r.to === '16:00:00',
+      (r) => r.from === '12:00:00' && r.to === '18:00:00',
     );
     expect(active).toBeDefined();
     if (active == null) return;
-    expect(diagram.locationLabel.hAlign).toBe('center');
-    expect(diagram.locationLabel.anchor.x).toBeCloseTo(active.offsetRight * R, 6);
-    expect(diagram.locationLabel.anchor.y).toBeCloseTo(-active.belowOrigin * R, 6);
+    expect(diagram.locationLabel[0].hAlign).toBe('center');
+    expect(diagram.locationLabel[0].anchor.x).toBeCloseTo(active.offsetRight * R, 6);
+    expect(diagram.locationLabel[0].anchor.y).toBeCloseTo(-active.belowOrigin * R, 6);
+  });
+
+  it('wraps long LocationLabel place names onto multiple lines with lineGap', () => {
+    const collaborator = createDiagramCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const spec = {
+      ...base,
+      timeNow: '12:00:00',
+      locationName: 'North Somercotes - Lincolnshire',
+      locationPlacement: {
+        ...base.locationPlacement,
+        maxSegmentLength: 21,
+        lineGap: 0.05,
+      },
+    };
+    const { diagram } = collaborator.generate(spec);
+    const R = diagram.refArc.refRadius;
+    expect(diagram.locationLabel.map((line) => line.content)).toEqual([
+      'North Somercotes -',
+      'Lincolnshire',
+    ]);
+    const active = spec.locationPlacement.ranges.find(
+      (r) => r.from === '12:00:00' && r.to === '18:00:00',
+    );
+    expect(active).toBeDefined();
+    if (active == null) return;
+    expect(diagram.locationLabel[0].anchor.y).toBeCloseTo(-active.belowOrigin * R, 6);
+    expect(diagram.locationLabel[1].anchor.y).toBeCloseTo(
+      -active.belowOrigin * R - 0.05 * R,
+      6,
+    );
+    const { scene, styleRuntime } = collaborator.generate(spec);
+    const svg = renderSceneSvg(scene, { styleRuntime });
+    expect(svg).toContain('data-name="LocationLabel.Line0"');
+    expect(svg).toContain('data-name="LocationLabel.Line1"');
   });
 
   it('places HomeLocationPanel share and change actions on one row inside the plate', () => {

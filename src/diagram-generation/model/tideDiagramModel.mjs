@@ -195,7 +195,7 @@
  *   homeMenuTrigger: HomeMenuTriggerDiagram,
  *   homeLocationPanel: HomeLocationPanelDiagram,
  *   hand: HandDiagram,
- *   locationLabel: DiagramTextInst,
+ *   locationLabel: DiagramTextInst[],
  *   brhcDate: DiagramTextInst,
  *   brand: BrandCompoundDiagram,
  * }} TideDiagramDocument
