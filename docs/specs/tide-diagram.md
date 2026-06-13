@@ -48,7 +48,6 @@ mean increasing / decreasing **Y**. **Above** / **below** mean toward **top** /
 
 - The bounding box of the diagram is modeled as four conceptual variables: 
 B_left, B_right, B_top, and B_bottom.
-
 - These are initialised to accomodate the AnnularBand.
 - Then B_top is overwritten with the max_y point of the Hand.BossCircle
 - The box is then extended if necessary to accomodate any part of each TideMarker
@@ -103,11 +102,11 @@ independent notion of “now.”
 
 ### §Global civil half-day layout
 
-- Optional top-level diagram input **`civilHalfDayLayout`** — exact string, one of:
-  - **`"auto"`** (default when the field is omitted) — any presentation rule in this specification that branches on **before noon** vs **after noon** uses the same condition as **`t_now`**: the **t_now ≤ 12** branch when **`t_now ≤ 12`**, else the **`t_now > 12`** branch (**t_now** per **§Global “time now” input**).
-  - **`"beforeNoon"`** — force the **t_now ≤ 12** presentation branch everywhere this specification defines such a split, **regardless of** the numeric value of **`t_now`**.
-  - **`"afterNoon"`** — force the **`t_now > 12`** presentation branch everywhere this specification defines such a split, **regardless of** **`t_now`**.
-- **`civilHalfDayLayout` does not change** **`timeNow`**, **`t_now`**, **`θ_now`**, hand position along the dial, tide markers, **MainLabel** tide copy, or any semantics derived from the marker schedule. It affects **only** layout/presentation branches keyed to civil half-day (currently **Hand.TimeReadout** anchor offset and baseline rotation; additional elements MUST use this same input if they gain a half-day split later).
+- Optional top-level diagram input `**civilHalfDayLayout`** — exact string, one of:
+  - `**"auto"**` (default when the field is omitted) — any presentation rule in this specification that branches on **before noon** vs **after noon** uses the same condition as `**t_now`**: the **t_now ≤ 12** branch when `**t_now ≤ 12`**, else the `**t_now > 12**` branch (**t_now** per **§Global “time now” input**).
+  - `**"beforeNoon"`** — force the **t_now ≤ 12** presentation branch everywhere this specification defines such a split, **regardless of** the numeric value of `**t_now`**.
+  - `**"afterNoon"**` — force the `**t_now > 12**` presentation branch everywhere this specification defines such a split, **regardless of** `**t_now`**.
+- `**civilHalfDayLayout` does not change** `**timeNow`**, `**t_now**`, `**θ_now**`, hand position along the dial, tide markers, **MainLabel** tide copy, or any semantics derived from the marker schedule. It affects **only** layout/presentation branches keyed to civil half-day (currently **Hand.TimeReadout** anchor offset and baseline rotation; additional elements MUST use this same input if they gain a half-day split later).
 
 ### Radial lines and radial segments
 
@@ -127,7 +126,7 @@ of travel.”
   - Text elements
   - One **closed path** for **TideMarks.TimePointer** (tip **Vertex1**, sides **Vertex1 → Vertex2** and **Vertex1 → Vertex3**, head arc **Vertex2 → Vertex3** as a single composite boundary; **fill** and **stroke** on that path; see **TimePointer**)
   - One **closed annular sector** path (**fill** and **stroke** on the composite
-    boundary) introduced by **AnnularBand** (see **AnnularBand**)
+  boundary) introduced by **AnnularBand** (see **AnnularBand**)
 
 ### Independent stroked curves
 
@@ -135,8 +134,8 @@ of travel.”
 model. They are **stroked** along the curve and, for now, **never** treated as
 **filled** regions.
 - **Circle** primitives are also one-dimensional stroked curves in the same sense
-  (full 2π circular outlines; **fill** is none unless a subsection explicitly
-  overrides).
+(full 2π circular outlines; **fill** is none unless a subsection explicitly
+overrides).
 - Area fills are represented by dedicated closed-region primitives (currently:
 **TimePointer** when the host supplies a **fill** for that leaf).
 - Where multiple curve primitives are **independent**, they are **topologically**
@@ -187,7 +186,7 @@ model em-boxes or similar font metrics.
 The generator **throws** when required host fields are missing or wrong-type; it
 does **not** apply silent numeric defaults for layout keys 
 
-- Optional `**civilHalfDayLayout**` — see **§Global civil half-day layout**; invalid values are **errors**; when omitted, behaviour matches **`"auto"`**.
+- Optional `**civilHalfDayLayout`** — see **§Global civil half-day layout**; invalid values are **errors**; when omitted, behaviour matches `**"auto"`**.
 - Required `**tickLabelHours`** — non-empty array; each element must be an integer in **{0, 1, …, 24}** (otherwise an error). **TickLabel** rows are emitted for those hours in list order; the reference product lists **1..23**.
 
 ### Derived behaviour (civil day vs `timeNow`)
@@ -198,7 +197,7 @@ The **product** assumes at least **one** tide extreme on the civil day and a
 When `**spec.semantic.nextTide`** is injected, layout may use it for next-tide timing
 instead of scanning markers; `**tideMarks`** remains **required** for drawing **TideMarks**.
 When `**spec.semantic.atypicalTideSummary`** is injected as boolean true, **MainLabel**
-uses atypical summary copy (`**Tricky tides today**`) whenever a next event exists.
+uses atypical summary copy (`**Tricky tides today`**) whenever a next event exists.
 
 - `**paintOrder`** — optional plain object.
   - Optional `**overrides`** array.
@@ -214,7 +213,6 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
     - cyclic constraints are errors.
   - Default behaviour when omitted: preserve current deterministic scene-child order.
 
-
 ## 4. Scene model contracts (TB-4)
 
 ### Diagram elements
@@ -228,34 +226,114 @@ uses atypical summary copy (`**Tricky tides today**`) whenever a next event exis
 - A style binding name must match the emitted leaf element name byte-for-byte.
 - This specification allocates leaf names **where the corresponding leaf is
 mandated**; it does not maintain a separate exhaustive registry section.
-- Optional role property **`fontWeight`**: when present on a bound role, must be **400** or **700**; hosts apply it to **text** primitives as SVG/CSS **`font-weight`**. When omitted, presentation uses the user agent default weight.
+- Optional role property `**fontWeight`**: when present on a bound role, must be **400** or **700**; hosts apply it to **text** primitives as SVG/CSS `**font-weight`**. When omitted, presentation uses the user agent default weight.
 
 ## 5. Element specs (TB-5)
 
 ### BRHCBundle
 
+**BRHC** — **b**ottom-**r**ight-**h**and-**c**orner: the margin text stack anchored at
+**B_bottom** / **B_right** (**§Global layout bounds**). Names prefixed **BRHC** belong
+only to that stack.
+
 **BRHCBundle** is a **top-level** named group of the diagram root; that holds
-three **horizontal** text rows, stacked **upward** along **+Y** from **B_bottom**:
-tide summary (**MainLabel**), then host-supplied civil date text (**BRHCDate**),
-then host-supplied place name (**BRHCLocation**). 
+two **horizontal** text rows, stacked **upward** along **+Y** from **B_bottom**:
+tide summary (**MainLabel**), then host-supplied civil date text (**BRHCDate**).
 
 **Other Inputs** 
 
-- `**brhcBundle**` — plain object with finite **`fontHeight`** (**k·R**, **§Sizing**): **FontHeight** shared by **MainLabel**, **BRHCDate**, and **BRHCLocation**
+- `**brhcBundle`** — plain object with finite `**fontHeight**` (**k·R**, **§Sizing**): **FontHeight** shared by **MainLabel** and **BRHCDate**
 
-**Horizontal placement**: All three rows use **right** justification: each anchor
+**Horizontal placement**: Both rows use **right** justification: each anchor
 **x** is **B_right** from **§Global layout bounds** 
 
-**Vertical placement**: Each of the rows receives its height above the bottom of
-the diagram from a dedicated input - one per row.
+**Vertical placement**: Each row receives its height above the bottom of the
+diagram from a dedicated input — one per row.
+
+### LocationLabel
+
+**LocationLabel** is a **first-class top-level** named group on the diagram root
+(hard-coded scene emission — not nested under any other element). It shows the
+host-supplied place name **inside the dial**, near the **Hand** boss at **O**
+(**§Origin**). It is **not** part of the **BRHC** bottom-right margin stack
+(**BRHCBundle**).
+
+As `**θ_now`** sweeps through the day, a single fixed anchor would intersect the
+**Arm** or sit awkwardly against the radial geometry. Placement is therefore
+chosen from a small set of **preset anchors** keyed by `**t_now`** (**§Global
+“time now” input**), so tuning can happen entirely in diagram input without
+changing generator geometry code.
+
+**Scene model** — top-level group `**LocationLabel`** containing one **text**
+leaf (style binding name `**LocationLabel`** per **Style binding names
+(exact-match contract)**).
+
+**Text** — host-supplied place name.
+
+**FontHeight** — `**locationPlacement.fontHeight·RefRadius`** (**§Sizing**).
+
+**Baseline polar angle** — **0** (horizontal baseline in diagram space; **TextElement defaults**). Anchor **Y** follows **Text anchor Y (global)**.
+
+**Diagram input** — plain object `**locationPlacement`**:
+
+- `**fontHeight**` — **k·R** (**§Sizing**).
+- `**ranges**` — ordered array of range entries. Entries are evaluated in
+  **array order**; the **first** matching entry wins. Each entry supplies:
+  - `**from**` — canonical time `**HH:MM:SS**` per **§Time and θ(t)** (inclusive lower bound on `**t_now`**).
+  - `**to**` — canonical time `**HH:MM:SS**` per **§Time and θ(t)** (**exclusive** upper bound on `**t_now`**; `**24:00:00**` permitted only as `**to**` on the final range).
+  - `**justification**` — `**"left"**`, `**"right"**`, or `**"centre"**` (**Text Element**).
+  - `**belowOrigin**` — **k·R** (**§Sizing**): anchor `**belowOrigin·RefRadius**` **below** **O** along **−Y** (**§Axes**).
+  - `**offsetRight**` — signed **k·R** (**§Sizing**): anchor `**offsetRight·RefRadius**` to the **right** of **O** along **+X** (negative → **left** of **O**).
+
+**Matching** — parse `**from**` and `**to**` to `**t_from**`, `**t_to**` per **§Time and θ(t)**. Entry matches when `**t_from ≤ t_now < t_to`**.
+
+**Anchor** for the active entry (diagram model space, relative to **O**):
+
+- `**x = offsetRight · RefRadius`**
+- `**y = −belowOrigin · RefRadius**`
+
+Horizontal **justification** applies at that anchor per **Text Element**. The
+anchor does **not** rotate with `**θ_now`**; only the **selected preset**
+changes with `**t_now`**.
+
+Reference product (three presets — tunable without code changes):
+
+```
+locationPlacement: {
+    fontHeight: 0.045,
+    ranges: [
+        {
+            from: "00:00:00",
+            to: "08:00:00",
+            justification: "left",
+            belowOrigin: 0.06,
+            offsetRight: -0.10,
+        },
+        {
+            from: "08:00:00",
+            to: "16:00:00",
+            justification: "centre",
+            belowOrigin: 0.08,
+            offsetRight: 0,
+        },
+        {
+            from: "16:00:00",
+            to: "24:00:00",
+            justification: "right",
+            belowOrigin: 0.06,
+            offsetRight: 0.10,
+        },
+    ],
+}
+```
 
 ## HomeMenuTrigger
 
 - **HomeMenuTrigger** is a top-level named group.
 - It comprises three horizontal lines centred inside a circle.
-- **Not** part of **BRHCBundle**; bounds are **excluded** from **`B_*`** expansion.
-- **Horizontal** — circular control leading edge at **`B_left + homeMenuTrigger.menuLeftPadding·R`**.
-- **Vertical** — bottom of the circular control at **`B_bottom + homeMenuTrigger.menuAboveBottom·R`** (**Y** upward).
+- **Not** part of **BRHCBundle**; bounds are **excluded** from `**B_*`** expansion.
+- **Horizontal** — circular control leading edge at `**B_left + homeMenuTrigger.menuLeftPadding·R`**.
+- **Vertical** — bottom of the circular control at `**B_bottom + homeMenuTrigger.menuAboveBottom·R`** (**Y** upward).
 - Sizing and positioning parameters:
 
 ```
@@ -270,20 +348,20 @@ homeMenuTrigger: {
 
 ### HomeLocationPanel
 
-Bottom-left **location** affordances: a boxed heading (**Location**) and one action row (**Share** · **Change**). **Share** copies the canonical place **`shareUrl`**; **Change** navigates to the location picker (host wiring).
+Bottom-left **location** affordances: a boxed heading (**Location**) and one action row (**Share** · **Change**). **Share** copies the canonical place `**shareUrl`**; **Change** navigates to the location picker (host wiring).
 
 - **HomeLocationPanel** is a top-level named compound group.
-- **HomeMenuTrigger** and **Brand** are **not** ancestors; all three bottom-left chrome blocks (**HomeMenuTrigger**, **Brand**, **HomeLocationPanel**) are positioned **independently** via their own **`leftPadding`** / **`aboveBottom`** (or **`menuLeftPadding`** / **`menuAboveBottom`**) offsets from **`B_left`** / **`B_bottom`**.
-- **Horizontal** — panel leading edge at **`B_left + homeLocationPanel.leftPadding·R`**.
-- **Vertical** — panel bottom edge at **`B_bottom + homeLocationPanel.aboveBottom·R`**.
-- **Plate** — leaf group **`HomeLocationPanelPlate`**: **`roundedRect`** behind the text block; preset surface matches **`role.menu.trigger`**.
-- **Heading** — leaf group **`HomeLocationPanelLabel`**: fixed copy from **`homeLocationPanel.label`** (e.g. **`Location`**); **`labelFontHeight·R`**.
-- **Actions** — sibling leaf groups on one row at **`actionFontHeight·R`**:
-  - **`HomeShareTrigger`** — **`shareLabel`** (e.g. **`Share`**); pointer/clipboard wiring in the host.
-  - **`HomeLocationPanelSeparator`** — **`separator`** (e.g. **` · `**); display only.
-  - **`HomeLocationTrigger`** — **`changeLabel`** (e.g. **`Change`**); pointer/navigation wiring in the host.
-- **Action row leading anchors** (from the panel inner leading edge **`panelLeft + innerPadLeft·R`**) use explicit **`actionSeparatorLeading·R`** and **`actionChangeLeading·R`** offsets — not character-width estimation (proportional font metrics differ from layout heuristics).
-- **Layout bounds** — **`HomeLocationPanel`** plate and text extend **`B_*`** (replacing the former **BrandURL** horizontal extent).
+- **HomeMenuTrigger** and **Brand** are **not** ancestors; all three bottom-left chrome blocks (**HomeMenuTrigger**, **Brand**, **HomeLocationPanel**) are positioned **independently** via their own `**leftPadding`** / `**aboveBottom**` (or `**menuLeftPadding**` / `**menuAboveBottom**`) offsets from `**B_left**` / `**B_bottom**`.
+- **Horizontal** — panel leading edge at `**B_left + homeLocationPanel.leftPadding·R`**.
+- **Vertical** — panel bottom edge at `**B_bottom + homeLocationPanel.aboveBottom·R`**.
+- **Plate** — leaf group `**HomeLocationPanelPlate`**: `**roundedRect**` behind the text block; preset surface matches `**role.menu.trigger**`.
+- **Heading** — leaf group `**HomeLocationPanelLabel`**: fixed copy from `**homeLocationPanel.label**` (e.g. `**Location**`); `**labelFontHeight·R**`.
+- **Actions** — sibling leaf groups on one row at `**actionFontHeight·R`**:
+  - `**HomeShareTrigger**` — `**shareLabel**` (e.g. `**Share**`); pointer/clipboard wiring in the host.
+  - `**HomeLocationPanelSeparator**` — `**separator**` (e.g. `**·**`); display only.
+  - `**HomeLocationTrigger**` — `**changeLabel**` (e.g. `**Change**`); pointer/navigation wiring in the host.
+- **Action row leading anchors** (from the panel inner leading edge `**panelLeft + innerPadLeft·R`**) use explicit `**actionSeparatorLeading·R**` and `**actionChangeLeading·R**` offsets — not character-width estimation (proportional font metrics differ from layout heuristics).
+- **Layout bounds** — `**HomeLocationPanel`** plate and text extend `**B_***` (replacing the former **BrandURL** horizontal extent).
 
 ```
 homeLocationPanel: {
@@ -308,66 +386,65 @@ homeLocationPanel: {
 
 #### Scene model
 
-- Top-level group **`HomeLocationPanel`** with children **`HomeLocationPanelPlate`**, **`HomeLocationPanelLabel`**, **`HomeShareTrigger`**, **`HomeLocationPanelSeparator`**, **`HomeLocationTrigger`**.
+- Top-level group `**HomeLocationPanel**` with children `**HomeLocationPanelPlate**`, `**HomeLocationPanelLabel**`, `**HomeShareTrigger**`, `**HomeLocationPanelSeparator**`, `**HomeLocationTrigger**`.
 
 ### Brand
 
-**Brand** is a **top-level** named **compound** group containing only the place-share **QR** matrix (**BrandQR**). The former fixed URL line (**BrandURL** / **`thetidedial.page`**) is removed; outbound sharing is via **HomeLocationPanel** and scan-only **BrandQR**.
+**Brand** is a **top-level** named **compound** group containing only the place-share **QR** matrix (**BrandQR**). The former fixed URL line (**BrandURL** / `**thetidedial.page`**) is removed; outbound sharing is via **HomeLocationPanel** and scan-only **BrandQR**.
 
 #### Placement
 
-- **Horizontal** — **BrandQR** leading edge at **`B_left + brandQrLeftPadding·R`**.
-- **Vertical** — **BrandQR** bottom edge at **`B_bottom + brandQrAboveBottom·R`**.
+- **Horizontal** — **BrandQR** leading edge at `**B_left + brandQrLeftPadding·R`**.
+- **Vertical** — **BrandQR** bottom edge at `**B_bottom + brandQrAboveBottom·R`**.
 - **BrandQR** is scan-only; no pointer/click wiring on the QR matrix.
 
 #### BrandQR (matrix)
 
-- **Payload** is host-supplied **`shareUrl`** (full canonical place share URL).
+- **Payload** is host-supplied `**shareUrl`** (full canonical place share URL).
 - **Module grid** — square modules from a standard QR encoder (error correction **M**); includes the symbol quiet zone in the module count.
-- **Size** — square side **`brandQrSize·R`** from diagram input **`brandQrSize`** (**k·R**).
-- **Origin** — bottom-left corner of the QR bounding box at **`(B_left + brandQrLeftPadding·R, B_bottom + brandQrAboveBottom·R)`**.
-- **Plate** — leaf group **`BrandQRPlate`**: one **`roundedRect`** coincident with the QR square (same width/height as **`brandQrSize·R`**, corner radius **`brandQrPlateCornerRx·R`**), centred on the QR box, drawn **behind** the modules. Preset surface matches **`role.menu.trigger`** (**`#111`** fill, **`#555`** stroke).
-- **Modules** — leaf group **`BrandQR`**: one **`qrMatrix`** primitive (dark modules only; plate provides the light margin).
-- **Style binding** — **`BrandQR`** module fill uses grey **`#666`** on the plate (no **`fontWeight`**).
+- **Size** — square side `**brandQrSize·R`** from diagram input `**brandQrSize**` (**k·R**).
+- **Origin** — bottom-left corner of the QR bounding box at `**(B_left + brandQrLeftPadding·R, B_bottom + brandQrAboveBottom·R)`**.
+- **Plate** — leaf group `**BrandQRPlate`**: one `**roundedRect**` coincident with the QR square (same width/height as `**brandQrSize·R**`, corner radius `**brandQrPlateCornerRx·R**`), centred on the QR box, drawn **behind** the modules. Preset surface matches `**role.menu.trigger`** (`**#111**` fill, `**#555**` stroke).
+- **Modules** — leaf group `**BrandQR`**: one `**qrMatrix**` primitive (dark modules only; plate provides the light margin).
+- **Style binding** — `**BrandQR`** module fill uses grey `**#666**` on the plate (no `**fontWeight**`).
 
 #### Layout bounds
 
-- **`B_left`**, **`B_right`**, and **`B_bottom`** extend to include **BrandQR** geometry (axis-aligned box for the QR).
+- `**B_left**`, `**B_right**`, and `**B_bottom**` extend to include **BrandQR** geometry (axis-aligned box for the QR).
 
 #### Diagram inputs
 
-- **`brandQrLeftPadding`** — required finite **k·R** **>= 0**; inset from **`B_left`** to **BrandQR** leading edge.
-- **`brandQrAboveBottom`** — required finite **k·R** **>= 0**; inset from **`B_bottom`** up to **BrandQR** bottom edge.
-- **`brandQrSize`** — required finite **k·R** **> 0** (QR square side).
-- **`brandQrPlateCornerRx`** — required finite **k·R** **>= 0**; **`roundedRect`** corner radius for **`BrandQRPlate`**.
+- `**brandQrLeftPadding`** — required finite **k·R** **>= 0**; inset from `**B_left`** to **BrandQR** leading edge.
+- `**brandQrAboveBottom`** — required finite **k·R** **>= 0**; inset from `**B_bottom`** up to **BrandQR** bottom edge.
+- `**brandQrSize`** — required finite **k·R** **> 0** (QR square side).
+- `**brandQrPlateCornerRx`** — required finite **k·R** **>= 0**; `**roundedRect`** corner radius for `**BrandQRPlate**`.
 
 #### Scene model
 
-- Top-level group **`Brand`** with children **`BrandQRPlate`** (**`roundedRect`**) and **`BrandQR`** (**`qrMatrix`**).
+- Top-level group `**Brand**` with children `**BrandQRPlate**` (`**roundedRect**`) and `**BrandQR**` (`**qrMatrix**`).
 
 ### MainLabel
 
 ### MainLabel placement
 
 - **MainLabel** is emitted as one **text** leaf in named group **MainLabel**, **child of** named group **BRHCBundle** (see **§BRHCBundle** scene model).
-- **MainLabel** **FontHeight** is **`brhcBundle.fontHeight·RefRadius`** (same as the other **BRHCBundle** text rows; **§Sizing**).
-- **MainLabel** uses horizontal justification **right**; trailing anchor **`x = B_right`** (see **§Horizontal placement (bundle rows)**).
-- MainLabel baseline **`y_mainLabel`** per **§Vertical placement** (independent **Y** from other bundle rows).
+- **MainLabel** **FontHeight** is `**brhcBundle.fontHeight·RefRadius`** (same as the other **BRHCBundle** text rows; **§Sizing**).
+- **MainLabel** uses horizontal justification **right**; trailing anchor `**x = B_right`** (see **§Horizontal placement (bundle rows)**).
+- MainLabel baseline `**y_mainLabel`** per **§Vertical placement** (independent **Y** from other bundle rows).
 - Baseline polar angle is **0** (horizontal baseline in diagram space).
 
 ### MainLabel copy synthesis
 
 - Source data is the marker schedule (`**tideMarks.markers`**) plus canonical
-  `**timeNow`** and optional semantic override `**spec.semantic.atypicalTideSummary`**.
+`**timeNow`** and optional semantic override `**spec.semantic.atypicalTideSummary`**.
 - Compute the next tide event at or after `**timeNow`** on the same civil day.
 - If no next event exists, **MainLabel** content is:
-  `**Next tide extreme tomorrow**`.
+`**Next tide extreme tomorrow`**.
 - Else if `**spec.semantic.atypicalTideSummary = true`**, **MainLabel** content is:
-  `**Tricky tides today**`.
+`**Tricky tides today`**.
 - Else (next event exists and atypical summary is not true), **MainLabel** content is:
-  `**<Low|High> tide at <HH:MM>**`.
+`**<Low|High> tide at <HH:MM>`**.
 - No separate host-provided content field exists for **MainLabel**.
-
 
 ### AnnularBand
 
@@ -378,22 +455,22 @@ orientation (**§Polar**), with radial closures at **θ_left** and **θ_right**.
 ### Geometry
 
 - **Inner boundary**: coincident with **RefArc** (radius **RefRadius**, centre
-  **O**, from **θ_left** to **θ_right** with the same CCW sweep).
+**O**, from **θ_left** to **θ_right** with the same CCW sweep).
 - **Outer boundary**: same centre and angles, radius **RefRadius + w**, where
-  `**w = AnnularBandWidth·RefRadius`** and
-  `**AnnularBandWidth = annularBand.annularBandWidth`** (**§Sizing**, linear
-  **k·R**).
+`**w = AnnularBandWidth·RefRadius`** and
+`**AnnularBandWidth = annularBand.annularBandWidth`** (**§Sizing**, linear
+**k·R**).
 - **End closures**: radial segments at **θ_left** and **θ_right**, each between
-  radii **RefRadius** and **RefRadius + w**.
+radii **RefRadius** and **RefRadius + w**.
 
 Together these four edges form one **closed** region (an **annular sector**).
 
 ### Logical model and presentation
 
 - **AnnularBand** is one drawable with both **fill** and **stroke** on its full
-  closed boundary (inner arc, outer arc, radial closures).
+closed boundary (inner arc, outer arc, radial closures).
 - **RefArc** remains a separate top-level stroked arc with unchanged geometry
-  (coincident with the AnnularBand inner edge).
+(coincident with the AnnularBand inner edge).
 
 ### Input
 
@@ -412,13 +489,13 @@ concrete `styleName` values are **not** fixed in this specification).
 
 ### Input
 
-- Diagram input object `**dividorArc**` (see **Strict diagram input**): **required**; `**radiusK`** must be finite and strictly **> 0** (**§Sizing**). Model radius = **`radiusK·RefRadius`**.
+- Diagram input object `**dividorArc`** (see **Strict diagram input**): **required**; `**radiusK`** must be finite and strictly **> 0** (**§Sizing**). Model radius = `**radiusK·RefRadius`**.
 
 ### Geometry
 
 - **Centre** — **O** (same as **RefArc**, **§Origin**).
 - **Sweep** — same subtended angle and CCW orientation as **RefArc** (**§Polar**): from **θ_left** at the left endpoint to **θ_right** at the right endpoint.
-- **Radius** — **`dividorArc.radiusK·RefRadius`** (not necessarily equal to **RefRadius**).
+- **Radius** — `**dividorArc.radiusK·RefRadius`** (not necessarily equal to **RefRadius**).
 
 ### Scene model
 
@@ -431,9 +508,9 @@ radial segments**) on the ray at **θ(t)** (**§Time and θ(t)**).
 - Inner radius is always **1.0·R**.
 - Outer radius depends on whether hour **t** is in `**tickLabelHours`**:
   - For **general** (non-labelled) hours, tick length is **locked by definition** to **AnnularBand** thickness:
-    `**k_general = annularBand.annularBandWidth`** and outer radius **(1.0 + k_general)·R**.
+  `**k_general = annularBand.annularBandWidth`** and outer radius **(1.0 + k_general)·R**.
   - For **labelled** hours (those that emit **TickLabel**), tick length uses
-    input `**tickLabelTickLen`** (`**k_label`**) and outer radius **(1.0 + k_label)·R**.
+  input `**tickLabelTickLen`** (`**k_label`**) and outer radius **(1.0 + k_label)·R**.
 - Constraint: `**0 < tickLabelTickLen < annularBand.annularBandWidth`**.
 
 ### Placement
@@ -450,7 +527,7 @@ implies time **t** and angle **θ(t)** (**§Time and θ(t)**).
 - **Horizontal justification** — **centre**.
 - **FontHeight** — **k·R** for input **k** (**§Sizing**).
 - **Baseline polar angle** — **0** (**TextElement defaults**).
-- Generated only for hours listed in **`tickLabelHours`** (integers in **{0, 1, …, 24}**). The reference diagram labels **1..23** only (see **Strict diagram input** for **`tickLabelHours`**).
+- Generated only for hours listed in `**tickLabelHours`** (integers in **{0, 1, …, 24}**). The reference diagram labels **1..23** only (see **Strict diagram input** for `**tickLabelHours`**).
 - Anchor: start at the **outer** end of the associated tick, then:
   - add a polar offset: angle = tick’s **θ(t)**, length = **k·R** (**§Sizing**);
   - add Cartesian offset **(0, −0.5 × FontHeight)**.
@@ -466,7 +543,7 @@ implies time **t** and angle **θ(t)** (**§Time and θ(t)**).
 - Parse marker `**time`** per **§Time and θ(t)** to derive **t** and **θ(t)**.
 - Marker-time validity and duplicate-time failures follow **Strict diagram input**.
 - Each marker carries `**highOrLow ∈ {"High", "Low"}`** for derived event
-  descriptions (see **MainLabel**).
+descriptions (see **MainLabel**).
 
 ### Logical structure
 
@@ -494,11 +571,11 @@ with the same boundary as the former trio of two **line** primitives and one
 **Construction** (defines vertices and head circle):
 
 - `**tideMarkArrowDivergence`**: non-negative radians (host field on
-  `**tideMarks`**).
-- `**tideMarkArrowLineLen`**: non-negative float (**k·R** scale; host field on
-  `**tideMarks`**).
-- `**tideMarkOuterBandGap`**: optional signed float (**k·R**; host field on
-  `**tideMarks`**; default **0** when omitted). **Vertex1** lies on the marker radial at polar angle **θ(t)** at radius **`(1 + AnnularBandWidth + tideMarkOuterBandGap) × RefRadius`** (**§Sizing**). The **AnnularBand** outer boundary is **`(1 + AnnularBandWidth) × RefRadius`**: negative values inset **Vertex1** toward **O** (clearance from the outer boundary); positive values place **Vertex1** outside that boundary.
+`**tideMarks`**).
+- `**tideMarkArrowLineLen`**: non-negative float (k·R scale; host field on
+`**tideMarks`**).
+- `**tideMarkOuterBandGap`**: optional signed float (k·R; host field on
+`**tideMarks`**; default **0** when omitted). **Vertex1** lies on the marker radial at polar angle **θ(t)** at radius `**(1 + AnnularBandWidth + tideMarkOuterBandGap) × RefRadius`** (**§Sizing**). The **AnnularBand** outer boundary is `**(1 + AnnularBandWidth) × RefRadius`**: negative values inset **Vertex1** toward **O** (clearance from the outer boundary); positive values place **Vertex1** outside that boundary.
 - **halfAngle** is **0.5 × tideMarkArrowDivergence**
 - **Vertex2** is located with a polar offset from Vertex1:
   - **R:** **tideMarkArrowLineLen × RefRadius**
@@ -507,10 +584,10 @@ with the same boundary as the former trio of two **line** primitives and one
   - **R:** **tideMarkArrowLineLen × RefRadius**
   - **theta:** RadialAngle(t) + π − halfAngle
 - Let **line1** = segment **Vertex1 → Vertex2** and **line2** =
-  **Vertex1 → Vertex3** (the equal sides of isosceles triangle
-  **Vertex1, Vertex2, Vertex3**).
+**Vertex1 → Vertex3** (the equal sides of isosceles triangle
+**Vertex1, Vertex2, Vertex3**).
 - Let **radial1** be the line through **Vertex2** perpendicular to **line1**,
-  and **radial2** the line through **Vertex3** perpendicular to **line2**.
+and **radial2** the line through **Vertex3** perpendicular to **line2**.
 - Let **centre** = the intersection of **radial1** and **radial2**.
 - Let **radius** = the distance from **centre** to **Vertex2** (equals distance to **Vertex3**; **Vertex1, Vertex2, Vertex3** lie on this circle).
 
@@ -518,12 +595,12 @@ with the same boundary as the former trio of two **line** primitives and one
 independent **line**/**line**/**arc** trio):
 
 - Subpath: **Vertex1** → **Vertex2** → circular arc **Vertex2** → **Vertex3**
-  → close to **Vertex1**.
+→ close to **Vertex1**.
 - Head arc: centre **centre**, radius **radius**, endpoints **Vertex2** and
-  **Vertex3**, choosing the arc that does **not** contain **Vertex1** in its
-  interior (the head cap on the opposite side of chord **Vertex2–Vertex3** from
-  **Vertex1**). Equivalently, choose the **Vertex2**-to-**Vertex3** arc that
-  does not pass through **Vertex1**.
+**Vertex3**, choosing the arc that does **not** contain **Vertex1** in its
+interior (the head cap on the opposite side of chord **Vertex2–Vertex3** from
+**Vertex1**). Equivalently, choose the **Vertex2**-to-**Vertex3** arc that
+does not pass through **Vertex1**.
 
 **Presentation:** **TimePointer** uses leaf-style **stroke** color from the
 bound role. **Fill** is **none** unless the host sets an explicit **fill** colour
@@ -543,7 +620,7 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 - **BossCircle** — named group containing one stroked **circle** (see below).
 - **Arm** — named group containing:
   - the stroked radial **line** segment (**Arm** geometry below), and
-- **Hand.TimeReadout** — composed readout along the arm (**`time now`** then **`HH:MM`**; see below).
+- **Hand.TimeReadout** — composed readout along the arm (`**time now`** then `**HH:MM**`; see below).
 - **Hand** curve primitives (**BossCircle** outline, **Arm** segment) are stroked only; **fill** is **none**.
 - **Arm** should render with a slightly wider stroke width than the default diagram stroke.
 
@@ -556,30 +633,31 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 
 - **Arm** is colinear with the `**θ_now`** ray.
 - Let:
-  - `**r_arm_outer = RefRadius − hand.armRefArcGap · RefRadius**`
+  - `**r_arm_outer = RefRadius − hand.armRefArcGap · RefRadius`**
   - `**r_boss = hand.bossCircleRadius · RefRadius**`
 - Segment radii:
   - **Arm** — from `**r_boss`** to `**r_arm_outer`** (outer end is on the **RefArc** radius when `**hand.armRefArcGap = 0`**; positive gap shortens the segment so it stops just short of the **RefArc**).
 - Validation: generation fails if radial ordering is invalid at emission time
-  (specifically, require `**r_boss < r_arm_outer**`).
+(specifically, require `**r_boss < r_arm_outer`**).
 
 ### Hand time readout (`Hand.TimeReadout`)
 
-A single visual line showing **`time now HH:MM`** (literal **`time now`**, a
+A single visual line showing `**time now HH:MM**` (literal `**time now**`, a
 space, then the clock readout). The time part is derived from the global
-canonical **`timeNow`** (**`HH:MM:SS`**, **§Global “time now” input**
+canonical `**timeNow**` (`**HH:MM:SS**`, **§Global “time now” input**
 / **§Time and θ(t)**): the first two fields only (five characters:
-**`HH:MM`**, no trailing colon in the display string). It is positioned along
-the **Hand** so it moves with **`θ_now`**, emitted as **one** named group
-**`Hand.TimeReadout`** containing **`Hand.TimeReadoutNowTag`** (literal
-**`time now`**) and a sibling **text** leaf for **`HH:MM`**, to allow dedicated
+`**HH:MM`**, no trailing colon in the display string). It is positioned along
+the **Hand** so it moves with `**θ_now`**, emitted as **one** named group
+`**Hand.TimeReadout`** containing `**Hand.TimeReadoutNowTag**` (literal
+`**time now**`) and a sibling **text** leaf for `**HH:MM`**, to allow dedicated
 style binding for the tag.
 
-- Required diagram input **`hand.armTimeLabelFontHeight`**: finite dimensionless **k > 0** (**§Sizing**). **FontHeight** is **`hand.armTimeLabelFontHeight · RefRadius`**. This is independent of **TickLabel** sizing.
-- **Text** — the first five characters of the canonical **`timeNow`** string (the hours and minutes fields and their delimiters; no seconds).
+- Required diagram input `**hand.armTimeLabelFontHeight**`: finite dimensionless **k > 0** (**§Sizing**). **FontHeight** is `**hand.armTimeLabelFontHeight · RefRadius`**. This is independent of **TickLabel** sizing.
+- **Text** — the first five characters of the canonical `**timeNow`** string (the hours and minutes fields and their delimiters; no seconds).
 - **Horizontal justification** — **centre** on the rotated baseline for the
-  composed line **`time now HH:MM`** (monospace **0.6 em** per code unit width
-  heuristic, consistent with diagram-wide text bounds).
-- Anchor placement uses the midpoint of the **Arm** segment (between **`r_boss`** and **`r_arm_outer`**, **§Radial segments**), then shifts by **0.05·RefRadius** along the **RefArc** tangent at **`θ_now`** that points toward **decreasing θ** (earlier clock time along the arc) when the **before-noon** presentation branch applies, and **opposite** that tangent when the **after-noon** branch applies. With **`civilHalfDayLayout = "auto"`**, the before-noon branch is **`t_now ≤ 12`** and the after-noon branch is **`t_now > 12`** (**t_now** per **§Global “time now” input**). With **`"beforeNoon"`** or **`"afterNoon"`**, the branch is forced per **§Global civil half-day layout** without changing **`θ_now`**.
-- **Baseline rotation** (radians, same convention as other rotated diagram **text**): **`θ_now + π`** on the **before-noon** branch, else **`θ_now`**, so the string runs along the arm with a consistent reading sense across morning and afternoon. Branch selection matches the preceding bullet (**§Global civil half-day layout** when not **`"auto"`**).
+composed line `**time now HH:MM`** (monospace **0.6 em** per code unit width
+heuristic, consistent with diagram-wide text bounds).
+- Anchor placement uses the midpoint of the **Arm** segment (between `**r_boss`** and `**r_arm_outer**`, **§Radial segments**), then shifts by **0.05·RefRadius** along the **RefArc** tangent at `**θ_now`** that points toward **decreasing θ** (earlier clock time along the arc) when the **before-noon** presentation branch applies, and **opposite** that tangent when the **after-noon** branch applies. With `**civilHalfDayLayout = "auto"`**, the before-noon branch is `**t_now ≤ 12**` and the after-noon branch is `**t_now > 12**` (**t_now** per **§Global “time now” input**). With `**"beforeNoon"`** or `**"afterNoon"**`, the branch is forced per **§Global civil half-day layout** without changing `**θ_now`**.
+- **Baseline rotation** (radians, same convention as other rotated diagram **text**): `**θ_now + π`** on the **before-noon** branch, else `**θ_now`**, so the string runs along the arm with a consistent reading sense across morning and afternoon. Branch selection matches the preceding bullet (**§Global civil half-day layout** when not `**"auto"`**).
 - **Dominant baseline** — **middle** (anchor is the nominal centre of the line’s em box in the host).
+
