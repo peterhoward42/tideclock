@@ -92,12 +92,11 @@ type SemanticInjectionDiagramSpec = {
     readonly label: string;
     readonly shareLabel: string;
     readonly changeLabel: string;
-    readonly separator: string;
+    readonly gapBeforeSeparator: number;
+    readonly gapAfterSeparator: number;
     readonly innerPadLeft: number;
     readonly innerPadBottom: number;
     readonly labelAboveActions: number;
-    readonly actionSeparatorLeading: number;
-    readonly actionChangeLeading: number;
   };
   readonly shareUrl: string;
 };
@@ -199,12 +198,11 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       label: 'Location',
       shareLabel: 'Share',
       changeLabel: 'Change',
-      separator: ' · ',
+      gapBeforeSeparator: 0.01,
+      gapAfterSeparator: 0.01,
       innerPadLeft: 0.015,
       innerPadBottom: 0.018,
       labelAboveActions: 0.024,
-      actionSeparatorLeading: 0.1,
-      actionChangeLeading: 0.128,
     },
     shareUrl: 'https://thetidedial.page/?place=Lymington&county=Hampshire',
   };

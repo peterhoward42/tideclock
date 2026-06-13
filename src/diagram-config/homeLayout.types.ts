@@ -154,12 +154,10 @@ export type HomeLayoutBase = {
     readonly shareLabel: string;
     /** Change-location action copy. */
     readonly changeLabel: string;
-    /** Separator between action labels on one row, e.g. ` · `. */
-    readonly separator: string;
-    /** k·RefRadius: leading anchor of separator from action row leading edge (after **Share**). */
-    readonly actionSeparatorLeading: number;
-    /** k·RefRadius: leading anchor of **Change** from action row leading edge. */
-    readonly actionChangeLeading: number;
+    /** k·RefRadius: horizontal gap after **Share** trailing edge before the middle dot. */
+    readonly gapBeforeSeparator: number;
+    /** k·RefRadius: horizontal gap after the middle dot before **Change** leading edge. */
+    readonly gapAfterSeparator: number;
     /** k·RefRadius: inset from panel leading edge to text. */
     readonly innerPadLeft: number;
     /** k·RefRadius: inset from **B_bottom** to action em-box bottom. */

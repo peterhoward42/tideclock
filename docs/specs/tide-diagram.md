@@ -390,9 +390,9 @@ Bottom-left **location** affordances: a boxed heading (**Location**) and one act
 - **Heading** — leaf group `**HomeLocationPanelLabel`**: fixed copy from `**homeLocationPanel.label**` (e.g. `**Location**`); `**labelFontHeight·R**`.
 - **Actions** — sibling leaf groups on one row at `**actionFontHeight·R`**:
   - `**HomeShareTrigger**` — `**shareLabel**` (e.g. `**Share**`); pointer/clipboard wiring in the host.
-  - `**HomeLocationPanelSeparator**` — `**separator**` (e.g. `**·**`); display only.
+  - `**HomeLocationPanelSeparator**` — middle dot (`**·**`); display only.
   - `**HomeLocationTrigger**` — `**changeLabel**` (e.g. `**Change**`); pointer/navigation wiring in the host.
-- **Action row leading anchors** (from the panel inner leading edge `**panelLeft + innerPadLeft·R`**) use explicit `**actionSeparatorLeading·R**` and `**actionChangeLeading·R**` offsets — not character-width estimation (proportional font metrics differ from layout heuristics).
+- **Action row horizontal spacing** (from the panel inner leading edge `**panelLeft + innerPadLeft·R`**) — **Share** at the row origin; **·** and **Change** placed from estimated monospace label width (`**0.6 × actionFontHeight·R**` per code point) plus `**gapBeforeSeparator·R**` and `**gapAfterSeparator·R**`.
 - **Layout bounds** — `**HomeLocationPanel`** plate and text extend `**B_***` (replacing the former **BrandURL** horizontal extent).
 
 ```
@@ -407,9 +407,8 @@ homeLocationPanel: {
     label: "Location",
     shareLabel: "Share",
     changeLabel: "Change",
-    separator: " · ",
-    actionSeparatorLeading: 0.135, // k·R from inner action row origin
-    actionChangeLeading: 0.168,
+    gapBeforeSeparator: 0.01, // k·R after Share before ·
+    gapAfterSeparator: 0.01,  // k·R after · before Change
     innerPadLeft: 0.018,
     innerPadBottom: 0.022,
     labelAboveActions: 0.028,

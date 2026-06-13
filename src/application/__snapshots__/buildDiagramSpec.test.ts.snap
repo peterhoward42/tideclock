@@ -1182,7 +1182,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   "homeLocationPanel": {
     "change": {
       "anchor": {
-        "x": -133.812,
+        "x": -132.16000000000003,
         "y": -155.2748355030311,
       },
       "content": "Change",
@@ -1195,24 +1195,24 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
         "y": -146.6608355030311,
       },
       "content": "Location",
-      "fontSize": 4.0120000000000005,
+      "fontSize": 5.31,
       "hAlign": "left",
     },
     "plate": {
       "center": {
         "x": -133.34000000000003,
-        "y": -150.08283550303113,
+        "y": -149.49283550303113,
       },
-      "height": 17.7,
+      "height": 18.88,
       "rx": 1.6520000000000001,
       "width": 44.84,
     },
     "separator": {
       "anchor": {
-        "x": -137.70600000000002,
+        "x": -136.526,
         "y": -155.2748355030311,
       },
-      "content": " · ",
+      "content": "·",
       "fontSize": 5.31,
       "hAlign": "left",
     },
@@ -4856,9 +4856,9 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
               {
                 "center": {
                   "x": -133.34000000000003,
-                  "y": -150.08283550303113,
+                  "y": -149.49283550303113,
                 },
-                "height": 17.7,
+                "height": 18.88,
                 "kind": "roundedRect",
                 "rx": 1.6520000000000001,
                 "width": 44.84,
@@ -4878,7 +4878,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
                 "content": "Location",
                 "hAlign": "left",
                 "kind": "text",
-                "size": 4.0120000000000005,
+                "size": 5.31,
               },
             ],
             "kind": "group",
@@ -4905,11 +4905,11 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "anchor": {
-                  "x": -137.70600000000002,
+                  "x": -136.526,
                   "y": -155.2748355030311,
                 },
                 "angleRad": 0,
-                "content": " · ",
+                "content": "·",
                 "hAlign": "left",
                 "kind": "text",
                 "size": 5.31,
@@ -4922,7 +4922,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "anchor": {
-                  "x": -133.812,
+                  "x": -132.16000000000003,
                   "y": -155.2748355030311,
                 },
                 "angleRad": 0,

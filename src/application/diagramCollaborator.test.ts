@@ -16,6 +16,8 @@ function minimalExtremesForCollaboratorTest(): TideExtremesAtLocation {
   ]);
 }
 const FIXTURE_DATE_PREFIX = 'Mon 23 Mar';
+/** Matches `BRHC_LABEL_CHAR_WIDTH_EM` in `buildDiagram.mjs`. */
+const MONO_LABEL_CHAR_WIDTH_EM = 0.6;
 
 function baseSpecForCollaboratorTest() {
   return buildDiagramSpec({
@@ -348,14 +350,32 @@ describe('createDiagramCollaborator', () => {
         readonly actionFontHeight: number;
         readonly shareLabel: string;
         readonly changeLabel: string;
-        readonly separator: string;
+        readonly gapBeforeSeparator: number;
+        readonly gapAfterSeparator: number;
       };
     }).homeLocationPanel;
     const bBottom = diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
+    const shareWidthK =
+      panelCfg.shareLabel.length * panelCfg.actionFontHeight * MONO_LABEL_CHAR_WIDTH_EM;
+    const separatorCharWidthK = panelCfg.actionFontHeight * MONO_LABEL_CHAR_WIDTH_EM;
     expect(diagram.homeLocationPanel.label.content).toBe('Location');
     expect(diagram.homeLocationPanel.share.content).toBe(panelCfg.shareLabel);
     expect(diagram.homeLocationPanel.change.content).toBe(panelCfg.changeLabel);
-    expect(diagram.homeLocationPanel.separator.content).toBe(panelCfg.separator);
+    expect(diagram.homeLocationPanel.separator.content).toBe('·');
+    expect(diagram.homeLocationPanel.separator.anchor.x).toBeCloseTo(
+      diagram.homeLocationPanel.share.anchor.x +
+        (shareWidthK + panelCfg.gapBeforeSeparator) * R,
+      6,
+    );
+    expect(diagram.homeLocationPanel.change.anchor.x).toBeCloseTo(
+      diagram.homeLocationPanel.share.anchor.x +
+        (shareWidthK +
+          panelCfg.gapBeforeSeparator +
+          separatorCharWidthK +
+          panelCfg.gapAfterSeparator) *
+          R,
+      6,
+    );
     expect(diagram.homeLocationPanel.share.fontSize).toBeCloseTo(
       panelCfg.actionFontHeight * R,
       6,

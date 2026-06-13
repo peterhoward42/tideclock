@@ -1016,18 +1016,17 @@ function buildHomeLocationPanelFromSpec(spec, refRadius, bLeft, bBottom) {
     o.labelAboveActions,
     "spec.homeLocationPanel.labelAboveActions",
   );
-  const actionSeparatorLeadingK = requireFiniteNumber(
-    o.actionSeparatorLeading,
-    "spec.homeLocationPanel.actionSeparatorLeading",
+  const gapBeforeSeparatorK = requireFiniteNumber(
+    o.gapBeforeSeparator,
+    "spec.homeLocationPanel.gapBeforeSeparator",
   );
-  const actionChangeLeadingK = requireFiniteNumber(
-    o.actionChangeLeading,
-    "spec.homeLocationPanel.actionChangeLeading",
+  const gapAfterSeparatorK = requireFiniteNumber(
+    o.gapAfterSeparator,
+    "spec.homeLocationPanel.gapAfterSeparator",
   );
   const label = requireString(o.label, "spec.homeLocationPanel.label").trim();
   const shareLabel = requireString(o.shareLabel, "spec.homeLocationPanel.shareLabel").trim();
   const changeLabel = requireString(o.changeLabel, "spec.homeLocationPanel.changeLabel").trim();
-  const separator = requireString(o.separator, "spec.homeLocationPanel.separator");
   if (!(widthK > 0)) {
     throw new Error("spec.homeLocationPanel.width must be greater than 0");
   }
@@ -1058,16 +1057,11 @@ function buildHomeLocationPanelFromSpec(spec, refRadius, bLeft, bBottom) {
   if (labelAboveActionsK < 0) {
     throw new Error("spec.homeLocationPanel.labelAboveActions must be >= 0");
   }
-  if (actionSeparatorLeadingK < 0) {
-    throw new Error("spec.homeLocationPanel.actionSeparatorLeading must be >= 0");
+  if (gapBeforeSeparatorK < 0) {
+    throw new Error("spec.homeLocationPanel.gapBeforeSeparator must be >= 0");
   }
-  if (actionChangeLeadingK < 0) {
-    throw new Error("spec.homeLocationPanel.actionChangeLeading must be >= 0");
-  }
-  if (actionChangeLeadingK < actionSeparatorLeadingK) {
-    throw new Error(
-      "spec.homeLocationPanel.actionChangeLeading must be >= actionSeparatorLeading",
-    );
+  if (gapAfterSeparatorK < 0) {
+    throw new Error("spec.homeLocationPanel.gapAfterSeparator must be >= 0");
   }
   if (label === "") {
     throw new Error("spec.homeLocationPanel.label must be non-empty");
@@ -1090,8 +1084,14 @@ function buildHomeLocationPanelFromSpec(spec, refRadius, bLeft, bBottom) {
     panelBottomY + innerPadBottomK * refRadius + TEXT_DESCENT_EM * actionFontSize;
   const labelBaselineY =
     actionBaselineY + labelAboveActionsK * refRadius + actionFontSize;
-  const separatorLeadingX = innerLeftX + actionSeparatorLeadingK * refRadius;
-  const changeLeadingX = innerLeftX + actionChangeLeadingK * refRadius;
+  const shareWidthK = shareLabel.length * actionFontHeightK * BRHC_LABEL_CHAR_WIDTH_EM;
+  const separatorCharWidthK = actionFontHeightK * BRHC_LABEL_CHAR_WIDTH_EM;
+  const separatorLeadingX =
+    innerLeftX + (shareWidthK + gapBeforeSeparatorK) * refRadius;
+  const changeLeadingX =
+    innerLeftX +
+    (shareWidthK + gapBeforeSeparatorK + separatorCharWidthK + gapAfterSeparatorK) *
+      refRadius;
 
   return {
     plate: {
@@ -1116,7 +1116,7 @@ function buildHomeLocationPanelFromSpec(spec, refRadius, bLeft, bBottom) {
       hAlign: /** @type {const} */ ("left"),
     },
     separator: {
-      content: separator,
+      content: "·",
       fontSize: actionFontSize,
       anchor: { x: separatorLeadingX, y: actionBaselineY },
       hAlign: /** @type {const} */ ("left"),
