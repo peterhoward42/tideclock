@@ -26,23 +26,35 @@ function isString(value: unknown): value is string {
   return typeof value === 'string';
 }
 
-function isTown(value: unknown): value is Town {
+function parseStoredTown(value: unknown): Town | undefined {
   if (!value || typeof value !== 'object') {
-    return false;
+    return undefined;
   }
 
-  const typed = value as Partial<Town>;
-  return (
-    isString(typed.id) &&
-    isString(typed.name) &&
-    isFiniteNumber(typed.lat) &&
-    isFiniteNumber(typed.lon) &&
-    isString(typed.localType) &&
-    isString(typed.county) &&
-    isString(typed.postcodeDistrict) &&
-    isString(typed.region) &&
-    isString(typed.country)
-  );
+  const typed = value as Record<string, unknown>;
+  if (
+    !isString(typed.name) ||
+    !isFiniteNumber(typed.lat) ||
+    !isFiniteNumber(typed.lon) ||
+    !isString(typed.localType) ||
+    !isString(typed.county) ||
+    !isString(typed.postcodeDistrict) ||
+    !isString(typed.region) ||
+    !isString(typed.country)
+  ) {
+    return undefined;
+  }
+
+  return {
+    name: typed.name,
+    lat: typed.lat,
+    lon: typed.lon,
+    localType: typed.localType,
+    county: typed.county,
+    postcodeDistrict: typed.postcodeDistrict,
+    region: typed.region,
+    country: typed.country,
+  };
 }
 
 /** Serializes a validated Town into the persisted JSON shape. */
@@ -54,10 +66,7 @@ export function serializeTownPick(town: Town): string {
 export function deserializeTownPick(raw: string): Town | undefined {
   try {
     const parsed: unknown = JSON.parse(raw);
-    if (!isTown(parsed)) {
-      return undefined;
-    }
-    return parsed;
+    return parseStoredTown(parsed);
   } catch {
     return undefined;
   }

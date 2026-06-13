@@ -15,7 +15,7 @@
     createQuotaSessionGate,
     loadCivilDayExtremes,
   } from "../application/civilDayExtremesQuery";
-  import { bakedTowns2, defaultTideLocationTown } from "../data/bakedTowns2";
+  import { bakedTowns2, defaultTideLocationTown, isDefaultTideLocationTown } from "../data/bakedTowns2";
   import { loadTownPick, storeTownPick } from "../data-pipelines/townPick";
   import { attachHashListener, route } from "../infrastructure/router.js";
   import {
@@ -253,7 +253,6 @@
     options?: { readonly source?: "menu" | "url"; readonly keepExplainer?: boolean },
   ): void {
     appDiag("setCurrentLocation called", {
-      townId: town.id,
       townName: town.name,
       county: town.county,
       country: town.country,
@@ -264,7 +263,10 @@
     lastRolloverAttemptCivilDayStartMs = undefined;
     currentTown = town;
     storeTownPick(town, { storer: localStorage });
-    appDiag("setCurrentLocation stored town in localStorage", { townId: town.id });
+    appDiag("setCurrentLocation stored town in localStorage", {
+      townName: town.name,
+      county: town.county,
+    });
     if (!options?.keepExplainer) {
       showDefaultLocationExplainer = false;
     }
@@ -276,7 +278,7 @@
     } else {
       trackProductEvent("chose_custom_loc", { label: telemetryLabel });
       syncShareParamsInLocationBar(town);
-      if (town.id !== defaultTideLocationTown.id) {
+      if (!isDefaultTideLocationTown(town)) {
         const firstCustomLocDeps = createBrowserFirstCustomLocationDeps(trackProductEvent);
         if (firstCustomLocDeps !== undefined) {
           recordFirstCustomLocationIfNeeded(firstCustomLocDeps);
@@ -291,7 +293,8 @@
     storeTownPick(town, { storer: localStorage });
     showDefaultLocationExplainer = false;
     appDiag("default location explainer dismissed; active town persisted", {
-      townId: town.id,
+      townName: town.name,
+      county: town.county,
     });
   }
 

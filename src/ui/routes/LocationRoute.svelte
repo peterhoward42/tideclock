@@ -5,9 +5,9 @@
   import type { Town } from "../../data/townSchema";
   import {
     queryTowns2ByCountyAndNamePrefix,
-    towns2ByTownId,
     towns2Counties,
-    towns2StepbackLabelsByTownId
+    towns2StepbackLabels,
+    townPickerRowKey,
   } from "../../data/bakedTowns2";
   import { displayOptimisation } from "../displayOptimisation";
 
@@ -39,19 +39,13 @@
   );
 
   const visibleRows = $derived.by(() =>
-    query.visibleTownIds
-      .map((id) => {
-        const town = towns2ByTownId.get(id);
-        if (town === undefined) {
-          return null;
-        }
-        return {
-          id,
-          town,
-          label: towns2StepbackLabelsByTownId.get(id) ?? `${town.name} — ${town.county}`
-        };
-      })
-      .filter((row): row is { id: string; town: Town; label: string } => row !== null)
+    query.visibleTowns.map((town) => ({
+      key: townPickerRowKey(town),
+      town,
+      label:
+        towns2StepbackLabels.get(townPickerRowKey(town)) ??
+        `${town.name} — ${town.county}`,
+    })),
   );
 
   function chooseTown(town: Town): void {
@@ -126,13 +120,10 @@
   {#if query.bucket === "many_matches" || query.bucket === "too_many_matches"}
     <p class="guidance-detail">{query.totalMatches} places</p>
   {/if}
-  {#if query.exactPrefixTownId !== null}
-    {@const exactTown = towns2ByTownId.get(query.exactPrefixTownId)}
-    {#if exactTown !== undefined}
-      <button type="button" class="match-button" onclick={() => chooseTown(exactTown)}>
-        Use {exactTown.name}
-      </button>
-    {/if}
+  {#if query.exactPrefixTown !== null}
+    <button type="button" class="match-button" onclick={() => chooseTown(query.exactPrefixTown!)}>
+      Use {query.exactPrefixTown.name}
+    </button>
   {/if}
   {#if query.normalizedCounty !== null &&
     (query.bucket === "many_matches" || query.bucket === "too_many_matches") &&
@@ -159,7 +150,7 @@
     </button>
   {:else if query.bucket === "few_matches"}
     <ul class="results">
-      {#each visibleRows as row (row.id)}
+      {#each visibleRows as row (row.key)}
         <li class="results__item">
           <button type="button" class="match-button" onclick={() => chooseTown(row.town)}>
             {row.label}

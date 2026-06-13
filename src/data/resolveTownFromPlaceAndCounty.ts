@@ -3,7 +3,7 @@
  * Kind: Definition. Used by URL deep links and boot resolution; does not persist selection.
  */
 
-import { normalizeTownSearchText } from './bakedTowns2';
+import { normalizeTownSearchText } from './townSchema';
 import type { Town } from './townSchema';
 
 export type ResolveTownFromPlaceAndCountyResult =

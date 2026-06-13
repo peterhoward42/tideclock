@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { Town } from './townSchema';
 import { resolveTownByPlaceAndCounty } from './resolveTownFromPlaceAndCounty';
 
-function town(overrides: Partial<Town> & Pick<Town, 'id' | 'name' | 'county'>): Town {
+function town(overrides: Partial<Town> & Pick<Town, 'name' | 'county'>): Town {
   return {
     lat: 50,
     lon: -4,
@@ -16,10 +16,10 @@ function town(overrides: Partial<Town> & Pick<Town, 'id' | 'name' | 'county'>): 
 
 describe('resolveTownByPlaceAndCounty', () => {
   const corpus: readonly Town[] = [
-    town({ id: 'a', name: 'Looe', county: 'Cornwall' }),
-    town({ id: 'b', name: 'Whitby', county: 'North Yorkshire' }),
-    town({ id: 'c1', name: 'Duplicate Place', county: 'Testshire' }),
-    town({ id: 'c2', name: 'Duplicate Place', county: 'Testshire' }),
+    town({ name: 'Looe', county: 'Cornwall' }),
+    town({ name: 'Whitby', county: 'North Yorkshire' }),
+    town({ name: 'Duplicate Place', county: 'Testshire' }),
+    town({ name: 'Duplicate Place', county: 'Testshire' }),
   ];
 
   it('finds a unique normalized match', () => {

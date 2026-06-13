@@ -1,4 +1,4 @@
-import type { Town } from './townSchema';
+import { townPickerRowKey, type Town } from './townSchema';
 
 export type TownPickerDisplayParts = Pick<Town, 'name' | 'county' | 'country'>;
 
@@ -17,7 +17,7 @@ export function formatTownPickerPrimary(parts: Pick<Town, 'name'>): string {
  * extra qualifier only when duplicate labels still collide.
  */
 export function buildTownPickerStepbackLabels(
-  towns: readonly Town[],
+  towns: readonly Pick<Town, 'name' | 'county' | 'localType' | 'lat' | 'lon'>[],
 ): ReadonlyMap<string, string> {
   const baseCounts = new Map<string, number>();
   for (const town of towns) {
@@ -28,11 +28,12 @@ export function buildTownPickerStepbackLabels(
   const labels = new Map<string, string>();
   for (const town of towns) {
     const base = `${town.name} — ${town.county}`;
+    const key = townPickerRowKey(town);
     if ((baseCounts.get(base) ?? 0) <= 1) {
-      labels.set(town.id, base);
+      labels.set(key, base);
       continue;
     }
-    labels.set(town.id, `${base} — ${town.localType}`);
+    labels.set(key, `${base} — ${town.localType}`);
   }
   return labels;
 }

@@ -10,7 +10,6 @@ import {
 } from './townPickSerde';
 
 const exampleTown: Town = {
-  id: 'osgb4000000074540474',
   name: 'Southampton',
   lat: 50.9097,
   lon: -1.4044,
@@ -56,12 +55,19 @@ describe('townPickSerde', () => {
 
   it('returns undefined when required fields are missing', () => {
     const raw = JSON.stringify({
-      id: 'x',
       name: 'Y',
       lat: 1,
-      lon: 2
+      lon: 2,
     });
     expect(deserializeTownPick(raw)).toBeUndefined();
+  });
+
+  it('accepts legacy snapshots that still include an id field', () => {
+    const raw = JSON.stringify({
+      id: 't2:cornwall:166',
+      ...exampleTown,
+    });
+    expect(deserializeTownPick(raw)).toEqual(exampleTown);
   });
 });
 

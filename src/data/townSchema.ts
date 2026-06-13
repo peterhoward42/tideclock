@@ -5,7 +5,6 @@
 
 /** One settlement row after hydration from a compact towns JSON document. */
 export type Town = {
-  readonly id: string;
   readonly name: string;
   readonly lat: number;
   readonly lon: number;
@@ -16,8 +15,22 @@ export type Town = {
   readonly country: string;
 };
 
+/** Trim, lower-case, collapse internal spaces — shared by picker prefix search and URL place lookup. */
+export function normalizeTownSearchText(input: string): string {
+  return input.trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+/** Stable lookup key for a place within the shipped corpus. */
+export function townPlaceCountyKey(town: Pick<Town, 'name' | 'county'>): string {
+  return `${normalizeTownSearchText(town.name)}|${normalizeTownSearchText(town.county)}`;
+}
+
+/** Unique picker row key; disambiguates rare duplicate name/county pairs. */
+export function townPickerRowKey(town: Pick<Town, 'name' | 'county' | 'lat' | 'lon'>): string {
+  return `${townPlaceCountyKey(town)}|${town.lat}|${town.lon}`;
+}
+
 const REQUIRED_COLUMNS = [
-  'id',
   'name',
   'lat',
   'lon',
@@ -98,7 +111,6 @@ export function hydrateTownsCompact(doc: unknown): readonly Town[] {
       throw new Error(`towns compact: row ${rowIndex} has length ${row.length}, need > ${maxIdx}`);
     }
     towns.push({
-      id: asString(row[idx.id], 'id', rowIndex),
       name: asString(row[idx.name], 'name', rowIndex),
       lat: asNumber(row[idx.lat], 'lat', rowIndex),
       lon: asNumber(row[idx.lon], 'lon', rowIndex),

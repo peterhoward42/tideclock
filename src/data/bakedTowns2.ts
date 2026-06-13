@@ -4,32 +4,33 @@
  * Kind: Definition + county/prefix query for the step-back location picker. Does not persist selection.
  */
 
-import { hydrateTownsCompact, type Town } from './townSchema';
-import {
-  buildTownPickerStepbackLabels,
-} from './townPickerDisplay';
+import { hydrateTownsCompact, normalizeTownSearchText, type Town } from './townSchema';
+import { resolveTownByPlaceAndCounty } from './resolveTownFromPlaceAndCounty';
+import { buildTownPickerStepbackLabels } from './townPickerDisplay';
 import towns2CompactJson from './towns2.compact.json';
 
 export type { Town };
+export { normalizeTownSearchText, townPlaceCountyKey, townPickerRowKey } from './townSchema';
 
 export const bakedTowns2: readonly Town[] = hydrateTownsCompact(towns2CompactJson);
 
-export const towns2ByTownId: ReadonlyMap<string, Town> = new Map(
-  bakedTowns2.map((t) => [t.id, t]),
-);
-
 /** Canonical default when no town is persisted (`current-location` in `townPickSerde.ts`). */
-const DEFAULT_TIDE_LOCATION_TOWN_ID = 't2:cornwall:166';
-
 export const defaultTideLocationTown: Town = (() => {
-  const town = towns2ByTownId.get(DEFAULT_TIDE_LOCATION_TOWN_ID);
-  if (town === undefined) {
-    throw new Error(
-      `default tide location ${DEFAULT_TIDE_LOCATION_TOWN_ID} missing from towns2 corpus`,
-    );
+  const result = resolveTownByPlaceAndCounty('Looe', 'Cornwall', bakedTowns2);
+  if (result.kind !== 'found') {
+    throw new Error('default tide location Looe, Cornwall missing from towns2 corpus');
   }
-  return town;
+  return result.town;
 })();
+
+export function isDefaultTideLocationTown(town: Pick<Town, 'name' | 'county'>): boolean {
+  return (
+    normalizeTownSearchText(town.name) ===
+      normalizeTownSearchText(defaultTideLocationTown.name) &&
+    normalizeTownSearchText(town.county) ===
+      normalizeTownSearchText(defaultTideLocationTown.county)
+  );
+}
 
 export type TownPrefixBucket =
   | 'need_input'
@@ -45,9 +46,9 @@ export type TownPrefixQueryResult = {
   readonly minPrefixLength: number;
   readonly totalMatches: number;
   readonly bucket: TownPrefixBucket;
-  readonly visibleTownIds: readonly string[];
+  readonly visibleTowns: readonly Town[];
   /** First row whose canonical normalized name equals `normalizedPrefix`, if any. */
-  readonly exactPrefixTownId: string | null;
+  readonly exactPrefixTown: Town | null;
   /**
    * Literal query suffixes that can be appended to `normalizedPrefix` to narrow broad results.
    * Items may begin with a space (for multi-word place names).
@@ -64,11 +65,6 @@ type IndexedTown = {
   readonly normalizedName: string;
   readonly normalizedCounty: string;
 };
-
-/** Trim, lower-case, collapse internal spaces — shared by picker prefix search and URL place lookup. */
-export function normalizeTownSearchText(input: string): string {
-  return input.trim().toLowerCase().replace(/\s+/g, ' ');
-}
 
 function suggestionAppendFromNameSuffix(suffix: string): string | null {
   if (suffix.length === 0) {
@@ -105,7 +101,7 @@ const indexedTowns: readonly IndexedTown[] = bakedTowns2.map((town) => ({
   normalizedCounty: normalizeTownSearchText(town.county),
 }));
 
-export const towns2StepbackLabelsByTownId = buildTownPickerStepbackLabels(bakedTowns2);
+export const towns2StepbackLabels = buildTownPickerStepbackLabels(bakedTowns2);
 
 export const towns2Counties: readonly string[] = [...new Set(bakedTowns2.map((t) => t.county))]
   .filter((county) => county.trim() !== '')
@@ -139,14 +135,14 @@ export function queryTowns2ByCountyAndNamePrefix(
       minPrefixLength,
       totalMatches: 0,
       bucket: 'need_input',
-      visibleTownIds: [],
-      exactPrefixTownId: null,
+      visibleTowns: [],
+      exactPrefixTown: null,
       narrowingAppends: [],
     };
   }
 
-  const visibleTownIds: string[] = [];
-  let exactPrefixTownId: string | null = null;
+  const visibleTowns: Town[] = [];
+  let exactPrefixTown: Town | null = null;
   const narrowingAppendCounts = new Map<string, number>();
   let totalMatches = 0;
   for (const row of indexedTowns) {
@@ -157,11 +153,11 @@ export function queryTowns2ByCountyAndNamePrefix(
       continue;
     }
     totalMatches += 1;
-    if (exactPrefixTownId === null && row.normalizedName === normalizedPrefix) {
-      exactPrefixTownId = row.town.id;
+    if (exactPrefixTown === null && row.normalizedName === normalizedPrefix) {
+      exactPrefixTown = row.town;
     }
-    if (visibleTownIds.length < maxVisibleMatches) {
-      visibleTownIds.push(row.town.id);
+    if (visibleTowns.length < maxVisibleMatches) {
+      visibleTowns.push(row.town);
     }
     const suffix = row.normalizedName.slice(normalizedPrefix.length);
     const append = suggestionAppendFromNameSuffix(suffix);
@@ -191,8 +187,8 @@ export function queryTowns2ByCountyAndNamePrefix(
     minPrefixLength,
     totalMatches,
     bucket,
-    visibleTownIds,
-    exactPrefixTownId,
+    visibleTowns,
+    exactPrefixTown,
     narrowingAppends,
   };
 }

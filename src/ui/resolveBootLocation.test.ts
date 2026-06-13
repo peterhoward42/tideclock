@@ -3,7 +3,7 @@ import { defaultTideLocationTown, bakedTowns2 } from '../data/bakedTowns2';
 import type { Town } from '../data/townSchema';
 import { resolveBootLocation } from './resolveBootLocation';
 
-function storedTown(overrides: Partial<Town> & Pick<Town, 'id' | 'name' | 'county'>): Town {
+function storedTown(overrides: Partial<Town> & Pick<Town, 'name' | 'county'>): Town {
   return {
     lat: 50,
     lon: -4,
@@ -20,7 +20,7 @@ describe('resolveBootLocation', () => {
   const looe = defaultTown;
 
   it('prefers a valid URL place over stored town', () => {
-    const stored = storedTown({ id: 'stored', name: 'Skegness', county: 'Lincolnshire' });
+    const stored = storedTown({ name: 'Skegness', county: 'Lincolnshire' });
     expect(
       resolveBootLocation({
         search: '?place=Looe&county=Cornwall',
@@ -51,7 +51,7 @@ describe('resolveBootLocation', () => {
   });
 
   it('uses storage when URL params are absent', () => {
-    const stored = storedTown({ id: 'stored', name: 'Looe', county: 'Cornwall' });
+    const stored = storedTown({ name: 'Looe', county: 'Cornwall' });
     expect(
       resolveBootLocation({
         search: '',
@@ -111,8 +111,8 @@ describe('resolveBootLocation', () => {
 
   it('returns urlError for ambiguous corpus pairs', () => {
     const ambiguousCorpus: readonly Town[] = [
-      storedTown({ id: 'dup-a', name: 'Duplicate Place', county: 'Testshire' }),
-      storedTown({ id: 'dup-b', name: 'Duplicate Place', county: 'Testshire' }),
+      storedTown({ name: 'Duplicate Place', county: 'Testshire' }),
+      storedTown({ name: 'Duplicate Place', county: 'Testshire' }),
     ];
     const result = resolveBootLocation({
       search: '?place=Duplicate%20Place&county=Testshire',

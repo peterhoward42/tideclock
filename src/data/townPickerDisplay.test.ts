@@ -4,6 +4,7 @@ import {
   formatTownPickerPrimary,
   formatTownPickerQualified,
 } from './townPickerDisplay';
+import { townPickerRowKey } from './townSchema';
 
 describe('townPickerDisplay', () => {
   it('formats a qualified picker label from structured town fields', () => {
@@ -21,33 +22,34 @@ describe('townPickerDisplay', () => {
   });
 
   it('formats step-back labels as name and county by default', () => {
-    const labels = buildTownPickerStepbackLabels([
-      {
-        id: 'a',
-        name: 'Looe',
-        county: 'Cornwall',
-        localType: 'town',
-      } as const,
-    ]);
-    expect(labels.get('a')).toBe('Looe — Cornwall');
+    const town = {
+      name: 'Looe',
+      county: 'Cornwall',
+      localType: 'town',
+      lat: 50.35,
+      lon: -4.45,
+    } as const;
+    const labels = buildTownPickerStepbackLabels([town]);
+    expect(labels.get(townPickerRowKey(town))).toBe('Looe — Cornwall');
   });
 
   it('adds local type only when name/county duplicate labels collide', () => {
-    const labels = buildTownPickerStepbackLabels([
-      {
-        id: 'a',
-        name: 'Newport',
-        county: 'Isle of Wight',
-        localType: 'town',
-      } as const,
-      {
-        id: 'b',
-        name: 'Newport',
-        county: 'Isle of Wight',
-        localType: 'village',
-      } as const,
-    ]);
-    expect(labels.get('a')).toBe('Newport — Isle of Wight — town');
-    expect(labels.get('b')).toBe('Newport — Isle of Wight — village');
+    const townA = {
+      name: 'Newport',
+      county: 'Isle of Wight',
+      localType: 'town',
+      lat: 50.7,
+      lon: -1.3,
+    } as const;
+    const townB = {
+      name: 'Newport',
+      county: 'Isle of Wight',
+      localType: 'village',
+      lat: 50.71,
+      lon: -1.31,
+    } as const;
+    const labels = buildTownPickerStepbackLabels([townA, townB]);
+    expect(labels.get(townPickerRowKey(townA))).toBe('Newport — Isle of Wight — town');
+    expect(labels.get(townPickerRowKey(townB))).toBe('Newport — Isle of Wight — village');
   });
 });

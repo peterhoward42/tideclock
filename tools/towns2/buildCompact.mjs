@@ -49,7 +49,6 @@ function parseTsv(text) {
 const files = fs.readdirSync(geocodedDir).filter((f) => f.endsWith('.tsv')).sort();
 
 const columns = [
-  'id',
   'name',
   'lat',
   'lon',
@@ -79,17 +78,14 @@ for (const file of files) {
     const stem = countyFile.replace(/\.txt$/i, '').toLowerCase();
     if (stem === '') continue;
 
-    const lineIndex = (r.line_index ?? '').trim();
     const placeName = (r.place_name ?? '').trim();
     const featureKind = (r.feature_kind ?? '').trim();
     if (placeName === '') continue;
 
     const countyHuman = humanCountyFromStem(stem);
     const country = countryForCountyStem(stem);
-    const id = `t2:${stem}:${lineIndex}`;
 
     rows.push([
-      id,
       placeName,
       lat,
       lon,

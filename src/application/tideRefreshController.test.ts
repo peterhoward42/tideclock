@@ -6,7 +6,6 @@ import type { Town } from "../data/townSchema";
 import { ProxyQuotaExhaustedError } from "../data-pipelines/proxyV1Types";
 
 const aTown = {
-  id: "t1",
   name: "Test",
   lat: 10,
   lon: 20,
@@ -17,7 +16,7 @@ const aTown = {
   country: "UK",
 } satisfies Town;
 
-const otherTown = { ...aTown, id: "t2", lat: 11, lon: 21 };
+const otherTown = { ...aTown, lat: 11, lon: 21 };
 
 const extremesA = TideExtremesAtLocation.fromPossiblyUnordered(1, 2, []);
 const extremesB = TideExtremesAtLocation.fromPossiblyUnordered(3, 4, []);
