@@ -20,6 +20,7 @@ describe('resolveHomeDiagramPreview', () => {
       resolveHomeDiagramPreview({
         dev: false,
         previewId: 'no-more-tides-today',
+        timeNowHour: null,
         tideExtremes: fixtureExtremes(),
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       }),
@@ -28,6 +29,7 @@ describe('resolveHomeDiagramPreview', () => {
       resolveHomeDiagramPreview({
         dev: true,
         previewId: null,
+        timeNowHour: null,
         tideExtremes: fixtureExtremes(),
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       }),
@@ -39,6 +41,7 @@ describe('resolveHomeDiagramPreview', () => {
       resolveHomeDiagramPreview({
         dev: true,
         previewId: 'time-delta-short',
+        timeNowHour: null,
         tideExtremes: undefined,
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       }),
@@ -47,6 +50,7 @@ describe('resolveHomeDiagramPreview', () => {
       resolveHomeDiagramPreview({
         dev: true,
         previewId: 'time-delta-short',
+        timeNowHour: null,
         tideExtremes: TideExtremesAtLocation.fromPossiblyUnordered(50, -1, []),
         utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
       }),
@@ -58,6 +62,7 @@ describe('resolveHomeDiagramPreview', () => {
     const preview = resolveHomeDiagramPreview({
       dev: true,
       previewId: 'no-more-tides-today',
+      timeNowHour: null,
       tideExtremes: extremes,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
     });
@@ -65,6 +70,34 @@ describe('resolveHomeDiagramPreview', () => {
     if (preview.state !== 'frozen') return;
     expect(preview.extremesAtLocation).toBe(extremes);
     expect(preview.frozenEpochMs).toBeTypeOf('number');
+  });
+
+  it('freezes clock at a whole hour for location layout preview', () => {
+    const extremes = fixtureExtremes();
+    const preview = resolveHomeDiagramPreview({
+      dev: true,
+      previewId: null,
+      timeNowHour: 10,
+      tideExtremes: extremes,
+      utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+    });
+    expect(preview.state).toBe('frozen');
+    if (preview.state !== 'frozen') return;
+    expect('hour' in preview && preview.hour).toBe(10);
+    expect(preview.extremesAtLocation).toBe(extremes);
+    expect(preview.frozenEpochMs).toBeTypeOf('number');
+  });
+
+  it('waits for tide data when timeNowHour is set without extremes', () => {
+    expect(
+      resolveHomeDiagramPreview({
+        dev: true,
+        previewId: null,
+        timeNowHour: 23,
+        tideExtremes: undefined,
+        utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+      }),
+    ).toEqual({ state: 'waiting', hour: 23 });
   });
 });
 
@@ -77,5 +110,11 @@ describe('formatDiagramPreviewBanner', () => {
     expect(
       formatDiagramPreviewBanner({ state: 'waiting', id: 'atypical-tide-day' }),
     ).toBe('Preview: atypical tide day (waiting for tide data…)');
+  });
+
+  it('formats location layout hour preview banner', () => {
+    expect(
+      formatDiagramPreviewBanner({ state: 'waiting', hour: 10 }),
+    ).toBe('Preview: location layout at 10:00 (waiting for tide data…)');
   });
 });

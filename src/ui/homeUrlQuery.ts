@@ -18,6 +18,7 @@ export const HOME_DEV_QUERY_KEYS = [
   'pf',
   'diagramPreview',
   'tideUxPreview',
+  'timeNowHour',
 ] as const;
 
 export type PlaceCountyFromSearch =

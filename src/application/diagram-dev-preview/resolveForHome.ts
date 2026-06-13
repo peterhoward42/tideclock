@@ -5,6 +5,7 @@
 import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";
 import type { UtcIsoToLocalCanonicalTime } from "../buildDiagramSpec";
 import { buildAtypicalTideDayPreview } from "./atypicalTideDay";
+import { buildLocationLayoutHourClock } from "./locationLayoutHour";
 import {
   diagramPreviewShortHeadline,
   type DiagramPreviewId,
@@ -16,9 +17,15 @@ import { buildTimeDeltaShortClock } from "./timeDeltaShort";
 export type HomeDiagramPreviewState =
   | { readonly state: "live" }
   | { readonly state: "waiting"; readonly id: DiagramPreviewId }
+  | { readonly state: "waiting"; readonly hour: number }
   | {
       readonly state: "inactive";
       readonly id: DiagramPreviewId;
+      readonly userDetail: string;
+    }
+  | {
+      readonly state: "inactive";
+      readonly hour: number;
       readonly userDetail: string;
     }
   | {
@@ -27,16 +34,57 @@ export type HomeDiagramPreviewState =
       readonly userDetail: string;
       readonly frozenEpochMs: number;
       readonly extremesAtLocation: TideExtremesAtLocation;
+    }
+  | {
+      readonly state: "frozen";
+      readonly hour: number;
+      readonly userDetail: string;
+      readonly frozenEpochMs: number;
+      readonly extremesAtLocation: TideExtremesAtLocation;
     };
+
+function formatLocationLayoutHourLabel(hour: number): string {
+  return `${String(hour).padStart(2, "0")}:00`;
+}
 
 export function resolveHomeDiagramPreview(params: {
   readonly dev: boolean;
   readonly previewId: DiagramPreviewId | null;
+  readonly timeNowHour: number | null;
   readonly tideExtremes: TideExtremesAtLocation | undefined;
   readonly utcIsoToLocalCanonicalTime: UtcIsoToLocalCanonicalTime;
 }): HomeDiagramPreviewState {
-  const { dev, previewId, tideExtremes, utcIsoToLocalCanonicalTime } = params;
-  if (!dev || previewId === null) {
+  const { dev, previewId, timeNowHour, tideExtremes, utcIsoToLocalCanonicalTime } =
+    params;
+  if (!dev) {
+    return { state: "live" };
+  }
+
+  if (timeNowHour !== null) {
+    if (tideExtremes === undefined || tideExtremes.extremes.length === 0) {
+      return { state: "waiting", hour: timeNowHour };
+    }
+    const clock = buildLocationLayoutHourClock({
+      hour: timeNowHour,
+      extremesAtLocation: tideExtremes,
+    });
+    if (clock.kind !== "active") {
+      return {
+        state: "inactive",
+        hour: timeNowHour,
+        userDetail: "unavailable (no tide extremes loaded)",
+      };
+    }
+    return {
+      state: "frozen",
+      hour: timeNowHour,
+      userDetail: "frozen timeNow for location placement",
+      frozenEpochMs: clock.frozenEpochMs,
+      extremesAtLocation: tideExtremes,
+    };
+  }
+
+  if (previewId === null) {
     return { state: "live" };
   }
   if (tideExtremes === undefined || tideExtremes.extremes.length === 0) {
@@ -137,6 +185,16 @@ export function formatDiagramPreviewBanner(
 ): string | null {
   if (preview.state === "live") {
     return null;
+  }
+  if ("hour" in preview) {
+    const label = formatLocationLayoutHourLabel(preview.hour);
+    if (preview.state === "waiting") {
+      return `Preview: location layout at ${label} (waiting for tide data…)`;
+    }
+    if (preview.state === "inactive") {
+      return `Preview: location layout at ${label} — ${preview.userDetail}`;
+    }
+    return `Preview: location layout at ${label} (${preview.userDetail})`;
   }
   const headline = diagramPreviewShortHeadline(preview.id);
   if (preview.state === "waiting") {

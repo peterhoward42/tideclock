@@ -36,5 +36,6 @@ Two catalogs, two query params (see root [README](../README.md#developer-preview
 |--------|-------------|-----------|
 | `tide-dev-preview/` | `tideUxPreview` | Tide **load path** (failed, stuck, empty day, quota). |
 | `diagram-dev-preview/` | `diagramPreview` | **Frozen diagram** scenarios (no more tides, time-delta bands, atypical day). |
+| `diagram-dev-preview/` | `timeNowHour` | **Location placement** at a whole-hour `timeNow` (`0`–`23`). |
 
 `diagram-dev-preview/resolveForHome.ts` is the Home resolver: live vs waiting vs frozen clock + optional extremes override.

@@ -14,6 +14,7 @@
   } from "../../../application/buildDiagramSpec";
   import {
     diagramPreviewIdFromSearch,
+    timeNowHourFromSearch,
     type DiagramPreviewId,
   } from "../../../application/diagram-dev-preview/previewCatalog";
   import {
@@ -99,6 +100,9 @@
   /** Dev-only: `?diagramPreview=<id>` (see README “Developer previews”). */
   let diagramPreviewIdFromUrl = $state<DiagramPreviewId | null>(null);
 
+  /** Dev-only: `?timeNowHour=<0–23>` — freeze `timeNow` at a whole hour for Location layout. */
+  let timeNowHourFromUrl = $state<number | null>(null);
+
   let diagramSvg = $state("");
   let diagramError = $state<string | undefined>(undefined);
   /** Container for injected SVG; diagram text updates each minute via full scene regen (see minute cadence below). */
@@ -141,6 +145,7 @@
     resolveHomeDiagramPreview({
       dev: import.meta.env.DEV,
       previewId: diagramPreviewIdFromUrl,
+      timeNowHour: timeNowHourFromUrl,
       tideExtremes,
       utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeLocal,
     }),
@@ -205,9 +210,11 @@
       outlineEnabled = debugFlags.outline;
       previewFrameEnabled = debugFlags.previewFrame;
       diagramPreviewIdFromUrl = readDiagramPreviewIdFromLocation();
+      timeNowHourFromUrl = readTimeNowHourFromLocation();
 
       const onUrlChange = (): void => {
         diagramPreviewIdFromUrl = readDiagramPreviewIdFromLocation();
+        timeNowHourFromUrl = readTimeNowHourFromLocation();
       };
       window.addEventListener("hashchange", onUrlChange);
       window.addEventListener("popstate", onUrlChange);
@@ -449,6 +456,16 @@
       window.location.hash,
     );
     return diagramPreviewIdFromSearch(search);
+  }
+
+  function readTimeNowHourFromLocation(): number | null {
+    if (!import.meta.env.DEV) return null;
+    if (typeof window === "undefined") return null;
+    const search = effectiveSearchFromLocation(
+      window.location.search,
+      window.location.hash,
+    );
+    return timeNowHourFromSearch(search);
   }
 
   function refreshDomSummary(): void {

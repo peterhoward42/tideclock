@@ -88,6 +88,10 @@ export const homeStyleModel: StyleModelSpec = {
       name: "role.menu.trigger.icon",
       colors: { color: "#555", strokeWidth: 2.25 },
     },
+    {
+      name: "role.location.emphasis",
+      colors: { color: "#FFF" },
+    },
   ],
   bindings: [
     { name: "AnnularBand", roleName: "role.structure.annular-band" },
@@ -111,7 +115,7 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "Hand.TimeReadout", roleName: "role.structure.emphasis" },
     { name: "Hand.TimeReadoutNowTag", roleName: "role.structure.text" },
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
-    { name: "LocationLabel", roleName: "role.structure.emphasis" },
+    { name: "LocationLabel", roleName: "role.location.emphasis" },
     { name: "BRHCDate", roleName: "role.structure.text" },
     { name: "BrandQRPlate", roleName: "role.menu.trigger" },
     { name: "BrandQR", roleName: "BrandQR" },

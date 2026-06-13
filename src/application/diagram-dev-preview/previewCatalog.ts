@@ -5,6 +5,9 @@
 
 export const DIAGRAM_PREVIEW_QUERY_PARAM = "diagramPreview" as const;
 
+/** Whole-hour `timeNow` for inspecting Location placement (`0`–`23`). */
+export const TIME_NOW_HOUR_QUERY_PARAM = "timeNowHour" as const;
+
 /** Known dev-preview scenarios for the Home tide diagram. */
 export const DIAGRAM_PREVIEW_IDS = [
   "no-more-tides-today",
@@ -46,6 +49,26 @@ export function diagramPreviewIdFromSearch(
       return value;
     }
     return null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Reads a whole-hour dev override for `timeNow` from a raw search string.
+ * DEV-only: returns null outside dev builds or when the value is not `0`–`23`.
+ */
+export function timeNowHourFromSearch(search: string): number | null {
+  if (!import.meta.env.DEV) return null;
+  try {
+    const q = new URLSearchParams(search);
+    const value = q.get(TIME_NOW_HOUR_QUERY_PARAM);
+    if (value === null) return null;
+    const hour = Number.parseInt(value, 10);
+    if (!Number.isInteger(hour) || hour < 0 || hour > 23) {
+      return null;
+    }
+    return hour;
   } catch {
     return null;
   }

@@ -122,6 +122,11 @@ Dev only (`npm run dev`; not production or `vite preview`). Paste a URL to force
 - http://localhost:5173/#/?diagramPreview=time-delta-medium — Now label hidden, radial shown (5 min–1 hr)
 - http://localhost:5173/#/?diagramPreview=atypical-tide-day — atypical / “Tricky tides today”
 
+**Location layout** (`timeNowHour`)
+
+- http://localhost:5173/#/?timeNowHour=10 — freeze `timeNow` at 10:00 for Location placement
+- http://localhost:5173/#/?timeNowHour=23 — same at 23:00 (any whole hour `0`–`23`)
+
 **Tide load** (`tideUxPreview`)
 
 - http://localhost:5173/#/home?tideUxPreview=load-failed — load error
