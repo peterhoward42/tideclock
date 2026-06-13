@@ -93,7 +93,7 @@ export const homeStyleModel: StyleModelSpec = {
     },
     {
       name: "role.location.emphasis",
-      colors: { color: "#FFF" },
+      colors: { color: "#BBB" },
     },
   ],
   bindings: [
