@@ -1229,7 +1229,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   "homeMenuTrigger": {
     "center": {
       "x": 145.14000000000001,
-      "y": -95.21283550303113,
+      "y": -124.71283550303113,
     },
     "diameter": 21.24,
     "iconBarCenterSpacing": 2.95,
@@ -4799,7 +4799,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
           {
             "center": {
               "x": 145.14000000000001,
-              "y": -95.21283550303113,
+              "y": -124.71283550303113,
             },
             "height": 21.24,
             "kind": "roundedRect",
@@ -4811,34 +4811,34 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
               {
                 "end": {
                   "x": 150.45000000000002,
-                  "y": -92.26283550303113,
+                  "y": -121.76283550303113,
                 },
                 "kind": "line",
                 "start": {
                   "x": 139.83,
-                  "y": -92.26283550303113,
+                  "y": -121.76283550303113,
                 },
               },
               {
                 "end": {
                   "x": 150.45000000000002,
-                  "y": -95.21283550303113,
+                  "y": -124.71283550303113,
                 },
                 "kind": "line",
                 "start": {
                   "x": 139.83,
-                  "y": -95.21283550303113,
+                  "y": -124.71283550303113,
                 },
               },
               {
                 "end": {
                   "x": 150.45000000000002,
-                  "y": -98.16283550303113,
+                  "y": -127.66283550303113,
                 },
                 "kind": "line",
                 "start": {
                   "x": 139.83,
-                  "y": -98.16283550303113,
+                  "y": -127.66283550303113,
                 },
               },
             ],

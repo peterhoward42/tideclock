@@ -91,10 +91,6 @@ export const homeStyleModel: StyleModelSpec = {
       name: "role.menu.trigger.icon",
       colors: { color: "#555", strokeWidth: 2.25 },
     },
-    {
-      name: "role.location.emphasis",
-      colors: { color: "#BBB" },
-    },
   ],
   bindings: [
     { name: "AnnularBand", roleName: "role.structure.annular-band" },
@@ -120,7 +116,7 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
     ...Array.from({ length: LOCATION_LABEL_LINE_BINDING_COUNT }, (_, i) => ({
       name: `LocationLabel.Line${i}`,
-      roleName: "role.location.emphasis",
+      roleName: "role.hand.bossLabel",
     })),
     { name: "BRHCDate", roleName: "role.structure.text" },
     { name: "BrandQRPlate", roleName: "role.menu.trigger" },
