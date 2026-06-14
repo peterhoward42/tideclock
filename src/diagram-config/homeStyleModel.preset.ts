@@ -48,8 +48,12 @@ export const homeStyleModel: StyleModelSpec = {
       colors: { color: "#666" },
     },
     {
-      name: "role.location.action",
+      name: "role.location.share",
       colors: { color: "#888", strokeWidth: 1.75 },
+    },
+    {
+      name: "role.location.change",
+      colors: { color: "#AAA", strokeWidth: 1.75 },
     },
     {
       name: "role.structure.ref",
@@ -126,9 +130,9 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "HomeMenuTriggerIcon", roleName: "role.menu.trigger.icon" },
     { name: "HomeLocationPanelPlate", roleName: "role.menu.trigger" },
     { name: "HomeLocationPanelLabel", roleName: "role.structure.text" },
-    { name: "HomeShareTrigger", roleName: "role.location.action" },
+    { name: "HomeShareTrigger", roleName: "role.location.share" },
     { name: "HomeLocationPanelSeparator", roleName: "role.structure.text" },
-    { name: "HomeLocationTrigger", roleName: "role.location.action" },
+    { name: "HomeLocationTrigger", roleName: "role.location.change" },
     ],
   lineStyles: [],
 };
