@@ -51,9 +51,9 @@ function readViewInnerHeight(fallback: number, override?: number): number {
  * Positioning context is the diagram host (`.home-panel`), not the instrument `figure` —
  * the flyout is a sibling of the figure so it is not clipped by `overflow: hidden` on the figure.
  *
- * The panel is bottom-anchored and grows upward. Horizontally it is **left-aligned** to the
- * trigger (with a 4px inset matching the former right-edge nudge) so the flyout expands
- * **right** from the hamburger on the diagram’s bottom-left. `80dvh` alone can be taller than the space
+ * The panel is bottom-anchored and grows upward. Horizontally it is **right-aligned** to the
+ * trigger (with a 4px inset) so the flyout expands **left** from the hamburger on the diagram’s
+ * bottom-right. `80dvh` alone can be taller than the space
  * from the viewport top to the menu’s bottom, so the top is clipped. We set `max-height` to
  * `min(80dvh, <px>)` where that px caps height so the top stays in view. Re-run when the open
  * menu’s height or layout may change (e.g. install block toggled).
@@ -65,7 +65,7 @@ export function computeMenuPanelAnchorStyle(
 ): string {
   const panelRect = diagramHost.getBoundingClientRect();
   const triggerRect = trigger.getBoundingClientRect();
-  const left = Math.max(0, triggerRect.left - panelRect.left + 4);
+  const right = Math.max(0, panelRect.right - triggerRect.right + 4);
   // Anchor just above the trigger (8px gap), measured from the host bottom edge.
   const bottom = Math.max(0, panelRect.bottom - triggerRect.bottom + 8);
   const topGutter = options?.topGutterPx ?? 8;
@@ -75,7 +75,7 @@ export function computeMenuPanelAnchorStyle(
   const availableFromTop = Math.max(0, triggerRect.bottom - 8 - topGutter);
   const capFromViewport = Math.min(0.8 * ih, availableFromTop);
   const maxHeightPx = Math.max(0, Math.floor(capFromViewport));
-  return `left: ${left}px; bottom: ${bottom}px; max-height: min(80dvh, ${maxHeightPx}px);`;
+  return `right: ${right}px; bottom: ${bottom}px; max-height: min(80dvh, ${maxHeightPx}px);`;
 }
 
 export function scheduleDiagramDevPresentation(

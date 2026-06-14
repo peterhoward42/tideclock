@@ -37,10 +37,10 @@ describe("computeMenuPanelAnchorStyle", () => {
       computeMenuPanelAnchorStyle(diagramHost, trigger, {
         viewInnerHeight: 1000,
       }),
-    ).toBe("left: 14px; bottom: 18px; max-height: min(80dvh, 74px);");
+    ).toBe("right: 64px; bottom: 18px; max-height: min(80dvh, 74px);");
   });
 
-  it("clamps left inset to zero when the trigger’s left edge is past the host’s left", () => {
+  it("clamps right inset to zero when the trigger’s right edge is past the host’s right", () => {
     const diagramHost = {
       getBoundingClientRect: () =>
         ({
@@ -59,13 +59,13 @@ describe("computeMenuPanelAnchorStyle", () => {
     const trigger = {
       getBoundingClientRect: () =>
         ({
-          left: 10,
+          left: 90,
           top: 60,
-          right: 50,
+          right: 130,
           bottom: 70,
           width: 40,
           height: 10,
-          x: 10,
+          x: 90,
           y: 60,
           toJSON: () => ({}),
         }) as DOMRect,
@@ -75,7 +75,7 @@ describe("computeMenuPanelAnchorStyle", () => {
       computeMenuPanelAnchorStyle(diagramHost, trigger, {
         viewInnerHeight: 1000,
       }),
-    ).toBe("left: 0px; bottom: 18px; max-height: min(80dvh, 54px);");
+    ).toBe("right: 0px; bottom: 18px; max-height: min(80dvh, 54px);");
   });
 
   it("anchors bottom from the diagram host rect, not an inner clipped box", () => {
@@ -113,7 +113,7 @@ describe("computeMenuPanelAnchorStyle", () => {
       computeMenuPanelAnchorStyle(diagramHost, trigger, {
         viewInnerHeight: 1000,
       }),
-    ).toBe("left: 14px; bottom: 38px; max-height: min(80dvh, 154px);");
+    ).toBe("right: 64px; bottom: 38px; max-height: min(80dvh, 154px);");
   });
 
   it("uses the 80% viewport cap when plenty of room above the trigger", () => {
@@ -151,6 +151,6 @@ describe("computeMenuPanelAnchorStyle", () => {
       computeMenuPanelAnchorStyle(diagramHost, trigger, {
         viewInnerHeight: 1000,
       }),
-    ).toBe("left: 14px; bottom: 58px; max-height: min(80dvh, 800px);");
+    ).toBe("right: 64px; bottom: 58px; max-height: min(80dvh, 800px);");
   });
 });
