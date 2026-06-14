@@ -1,9 +1,9 @@
-# Primary menu restructure — discovery and intent layering
+# Primary menu restructure — intent layering
 
-Working notes from product discussion (June 2026). Captures analytics interpretation, a rejected three-bucket sketch, and a preferred direction for radical menu simplification. Not an implementation spec.
+Working notes from product discussion (June 2026). Captures analytics interpretation and a preferred direction for menu simplification. Not an implementation spec.
 
-**Status:** discussion captured — next step is location on instrument chrome (see [Next step](#next-step))  
-**Last updated:** 2026-06-12  
+**Status:** location on the home diagram (done) — next step is fullscreen toggle as a dial icon (top-right)  
+**Last updated:** 2026-06-14  
 **Related:** [elevator-pitch.md](../specs/elevator-pitch.md), [story-discovery-lifecycle.md](./story-discovery-lifecycle.md), [pen-response.md](./pen-response.md)
 
 ---
@@ -20,9 +20,7 @@ A Cornwall Facebook post and a LinkedIn post asked who was interested in how tid
 | Spike after curiosity-framed outbound link | **Curiosity hooks have legs** when the link promise matches the destination |
 | Tide Nerd > home in that cohort | Those visitors came for the article, not the dial — success for outbound penetration, not evidence that everyone should discover nerd content via the flyout |
 
-Roughly a third of visitors still open the menu and change location. The menu **works as instrument chrome** for that task. It does **not** work as a discovery channel for narrative or nerd routes.
-
-Current flyout (`PrimaryMenuContent.svelte`) mixes intents in one flat list: Home, location, install, on-wall, keep-awake, fullscreen, Story, for-nerds (expandable), About, contact (expandable).
+The flyout still mixes intents in one flat list. Location already lives on the home diagram (`HomeLocationPanel` — **Change** and **Share**). The remaining clutter is deployment, curiosity, and admin items sitting alongside instrument actions that belong on the dial itself.
 
 ---
 
@@ -32,110 +30,121 @@ Current flyout (`PrimaryMenuContent.svelte`) mixes intents in one flat list: Hom
 
 **In-app discovery** — visitor arrived for the instrument, may later be receptive to Story or nerd content. Currently failing because curiosity links sit in a task-oriented panel as bare site-map entries. Aligns with the psychological model in [story-discovery-lifecycle.md](./story-discovery-lifecycle.md).
 
-Menu reform serves the **second** funnel. It does not replace outbound hooks or the planned time-since-custom-location tease — it complements them.
+Menu reform serves the **second** funnel. It complements outbound hooks and the planned time-since-custom-location tease — it does not replace them.
 
 ---
 
-## Problem framing (refined)
+## Problem
 
 The issue is not simply “the menu is too long.” It is **unlayered mixing of intents**:
 
-| Intent | Items today | User mode |
+| Intent | Examples | User mode |
 | --- | --- | --- |
-| **Instrument** | Location, keep-awake, fullscreen | Using the dial now |
+| **Instrument** | Fullscreen (keep-awake later) | Using the dial now |
 | **Deployment** | Install, stick it on the wall | Making the app part of daily / ambient life |
-| **Curiosity** | Story, for nerds | Time and interest for narrative or explanation |
+| **Curiosity** | Story, Tide Nerd, Software Nerd | Time and interest for narrative or explanation |
 | **Administrative** | About, contact | Compliance, version, email |
 
-Story between keep-awake and About reads as **site navigation**, not intrigue — even though the label says *here is a story*. About is intentionally dull (compliance); it must not be treated as a discovery path to Story.
+Story between utility items reads as **site navigation**, not intrigue. About is intentionally dull (compliance); it must not be treated as a discovery path to Story.
 
-Low Story/nerd numbers from instrument-first visitors may still be **appropriate filtering** until a deliberate invitation fires (timed prompt → Entertainment hub, or outbound link). That lifecycle view still holds; the new data adds that **outbound** curiosity is a separate, working lane.
-
----
-
-## Explored idea: Home · Settings · Entertainment
-
-Sketch: shorten the menu to three top-level entries, each a **hub route** with space to explain and pitch child pages. **Entertainment** would grant psychological permission to leave utility mode.
-
-### What survived
-
-- **Radical menu change is likely beneficial** — flat twelve-purpose list is the wrong shape.
-- **Entertainment as a hub** — one named mode switch plus **pitch space** (Tide Nerd works when the Facebook post is the pitch; Story needs tone and timing a one-line menu item cannot provide).
-- **Location stays mission-critical** — immediately below Home in the menu, **or** moved into instrument chrome (see [Next step](#next-step)); not demoted as a “setting.”
-
-### What fell apart
-
-- **Settings as a catch-all hub** — Install, on-wall, keep-awake, fullscreen, About, and contact are not one family. Labeling them “settings” undersells install and on-wall and mislabels instrument ops.
-- **Demoting install and on-wall** — These are **deployment** paths aligned with the product vision (launcher, wall appliance, guest house, pub, hire desk). They deserve visible prominence, not a preferences drawer.
+Low Story/nerd numbers from instrument-first visitors may still be **appropriate filtering** until a deliberate invitation fires (timed prompt → Entertainment hub, or outbound link). Outbound curiosity is a separate, working lane.
 
 ---
 
-## Preferred direction (conclusion)
+## Three surfaces
 
-**Layer by intent**, not by three opaque buckets.
+Actions are split across three surfaces by intent, not one flat list.
 
-### Principles
+### 1. Home diagram chrome
 
-1. **Location** — sacred; header centre and/or dial chrome; only remove from the flyout if another affordance is clearly sufficient (validate header vs menu location clicks first).
-2. **Install + on-wall** — stay prominent as **deployment**, not settings. May remain two lines or group under one labeled section (e.g. “Make it yours”) without burying them.
-3. **Entertainment** — single flyout entry → hub route pitching Story, Tide Nerd, Software Nerd. Destination for a future timed curiosity prompt as well as manual exploration.
-4. **Instrument-only actions** (keep-awake, fullscreen) — contextual on home / referenced from `#/onwall`; avoid pretending they are global “settings.”
-5. **About + contact** — administrative tail; contact can stay expandable or live on About.
+Instrument tasks while viewing the dial. Not flyout items.
 
-### Illustrative target shape (not final copy)
+| Affordance | Status |
+| --- | --- |
+| Location (**Change** / **Share**) | Done |
+| Fullscreen on/off | **Next step** — icon tucked into the top-right corner of the dial |
+| Menu trigger | Existing (bottom-right) |
+| Keep screen awake | Deferred — revisit after fullscreen |
+
+### 2. Home flyout (launched from the dial)
+
+Forward actions and mode switches from the instrument. No wayfinding entries the user does not need.
 
 ```
-Home
-Set your location          ← until / unless dial-only
-
-— Make it yours —
-Install
-Stick it on the wall
-
-— More —
-Entertainment              → hub route
-About
-Contact
+Put it on the wall
+Install / Config / Settings     → hub route
+Entertainment                   → hub route
+Please get in touch
 ```
 
-Radical variants still on the table: **sectioned flyout only** (no new routes except Entertainment), or **route-specific menus** (home flyout vs header on secondary routes). Any of these is a meaningful break from the current list.
+No **Home** or **Today's Tides** line — the user is already on the dial.
 
-### Entertainment hub — open choice
+### 3. Header flyout (all other routes)
 
-Cold curiosity traffic (outbound) may favour leading with **Tide Nerd**; warm instrument users may favour **Story** as the affinity bridge. The hub can pitch each differently — copy room is the point.
+Same shared menu component, with **Today's Tides** at the top for wayfinding back to the instrument. The descriptive label names the destination, not the route.
 
-### Complements (unchanged from lifecycle doc)
+```
+Today's Tides
+Put it on the wall
+Install / Config / Settings     → hub route
+Entertainment                   → hub route
+Please get in touch
+```
+
+---
+
+## Hub routes
+
+Bare menu links failed because curiosity content needs **pitch space**. Two hub routes carry narrative and child access.
+
+### Install / Config / Settings
+
+A dedicated route with narrative and links to:
+
+- Install
+- About
+
+Keep-awake placement is open; likely here or on the dial, to be decided separately. Fullscreen does not belong in this hub — it lives on the dial.
+
+### Entertainment
+
+A dedicated route with narrative and links to:
+
+- Story
+- Tide Nerd
+- Software Nerd
+
+Cold curiosity traffic (outbound) may favour leading with **Tide Nerd**; warm instrument users may favour **Story** as the affinity bridge. The hub can pitch each differently — copy room is the point. Also the destination for a future timed curiosity prompt.
+
+### Please get in touch
+
+Warm, top-level contact entry. Separated from About so compliance stays dull and outreach stays human.
+
+---
+
+## Incremental delivery
+
+Pick off isolated problems rather than landing the full restructure at once.
+
+| Step | Scope |
+| --- | --- |
+| 1. Location on dial | Done (`HomeLocationPanel`) |
+| 2. Fullscreen on dial | Icon, top-right corner; remove from home flyout |
+| 3. Context-sensitive home link | Omit from home flyout; **Today's Tides** in header flyout only |
+| 4. Flyout restructure + hub routes | Five-item shape, Install/Config/Settings and Entertainment hubs |
+| 5. Keep screen awake | Placement TBD |
+
+---
+
+## Complements
 
 - **Timed tease** after first custom location → point at Entertainment (or a specific child), once, dismissible, never blocking the dial.
 - **Outbound episodes** with source-aware dedicated routes — primary path for cold nerd traffic.
-- Funnel telemetry before further home UX churn: menu opens, location clicks (header vs menu), Entertainment entry, child route visits, prompt shown/dismissed.
+- Funnel telemetry: menu opens, diagram chrome clicks (location, fullscreen), Entertainment entry, child route visits, prompt shown/dismissed.
 
 ---
 
-## Rejected for this workstream
+## Out of scope
 
-- Collapsing install, on-wall, and compliance into a **Settings** hub.
 - Expecting menu shortening alone to lift nerd/story traffic without Entertainment pitch space, timed prompts, or outbound links.
 - Fragile lifecycle signal stacks (PWA install detection, wall heuristics, etc.) — see [story-discovery-lifecycle.md](./story-discovery-lifecycle.md).
-
----
-
-## Next step
-
-**Move location changing onto the instrument display** (dial chrome), in line with existing SVG affordances (`HomeMenuTrigger`, share trigger; header centre already links to `#/location`).
-
-Rationale:
-
-- Universally useful if it goes well — location is the menu’s proven task.
-- Shortens the flyout and reduces duplicate affordances (header label, menu line, dial).
-- Simplifies the wider menu-restructure topic before committing to Entertainment hub shape or section labels.
-
-Defer final decisions on Entertainment hub copy, section headings, and timed prompt until location-on-dial is tried.
-
----
-
-## Conversation log
-
-| Date | Notes |
-| --- | --- |
-| 2026-06-12 | Diagnostics: nil story/nerd traffic except curiosity-framed `#/tidenerd` posts (Cornwall FB, LinkedIn). Discussed Home/Settings/Entertainment buckets; Settings rejected; Entertainment hub + intent layering retained. Install/on-wall stay deployment-prominent. Next: location on instrument chrome. |
