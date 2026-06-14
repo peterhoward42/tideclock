@@ -4,7 +4,7 @@
    * minimal conceptual key, anchored lower-left like an instrument label (not a centred modal).
    */
   interface Props {
-    /** e.g. `Looe, Cornwall` — shown after “Showing tides for”. */
+    /** e.g. `Looe (Cornwall)` — shown after “Showing tides for”. */
     readonly placeLine: string;
     readonly onDismiss: () => void;
     /** When not inside the instrument figure (e.g. no extremes to draw), pin to the viewport instead. */
@@ -21,7 +21,7 @@
   aria-label="About this tide diagram"
 >
   <div class="default-loc-explainer__card">
-    <h2 class="default-loc-explainer__title">Showing {placeLine} tides</h2>
+    <h2 class="default-loc-explainer__title">Showing tides for {placeLine}</h2>
     <div class="default-loc-explainer__switch">
       <p class="default-loc-explainer__body">
         Switch to your place of interest - when you're ready

@@ -153,7 +153,7 @@
   const defaultLocationExplainerPlaceLine = $derived.by(() => {
     const town = currentTown;
     if (town === undefined) return "Unknown";
-    return town.county !== "" ? `${town.name}, ${town.county}` : town.name;
+    return town.county !== "" ? `${town.name} (${town.county})` : town.name;
   });
 
   function effectiveSearchFromWindow(): string {
