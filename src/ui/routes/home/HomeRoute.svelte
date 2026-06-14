@@ -179,12 +179,6 @@
     return diagramSvg !== "";
   });
 
-  const shareTriggerEnabled = $derived(
-    tidePresentation.kind === "ready" &&
-      currentTown !== undefined &&
-      !defaultLocationExplainerVisible,
-  );
-
   const keepAwakeForHomeMenu = $derived({
     sectionOpen: keepAwakeSectionOpen,
     apiSupported: isWakeLockApiSupported(),
@@ -377,7 +371,7 @@
   });
 
   $effect(() => {
-    if (!shareTriggerEnabled || diagramSvg === "") {
+    if (diagramSvg === "") {
       return;
     }
 
@@ -391,7 +385,7 @@
   });
 
   $effect(() => {
-    if (!shareTriggerEnabled || diagramSvg === "") {
+    if (diagramSvg === "") {
       return;
     }
 
@@ -630,7 +624,6 @@
     {showLandscapeHint}
     {verticalLetterboxSlackPx}
     showDefaultLocationExplainer={defaultLocationExplainerVisible}
-    shareTriggerEnabled={shareTriggerEnabled}
     defaultLocationExplainerPlaceLine={defaultLocationExplainerPlaceLine}
     onDismissDefaultLocationExplainer={onDismissDefaultLocationExplainer}
     {homeMenuOpen}

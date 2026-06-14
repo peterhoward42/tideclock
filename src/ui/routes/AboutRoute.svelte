@@ -19,8 +19,9 @@
   <section class="about-route__section" aria-labelledby="about-safety-heading">
     <h2 class="about-route__h" id="about-safety-heading">Safety</h2>
     <p class="about-route__p">
-      {THE_TIDE_DIAL} provides information for leisure, entertainment and tourism purposes. It is
-      strictly not suitable or dependable for any safety critical purposes.
+      {THE_TIDE_DIAL} provides information for leisure, entertainment and tourism
+      purposes. It is strictly not suitable or dependable for any safety critical
+      purposes.
     </p>
   </section>
 
@@ -30,25 +31,28 @@
       {THE_TIDE_DIAL} has been created by Pete Howard.
     </p>
     <p class="about-route__p">
-      You can read more in the <a class="about-route__link" href="#/story">Story</a> in the main
-      menu.
+      You can read more in the <a class="about-route__link" href="#/story"
+        >Story</a
+      > in the main menu.
     </p>
   </section>
 
   <section class="about-route__section" aria-labelledby="about-data-heading">
-    <h2 class="about-route__h" id="about-data-heading">Tide data and copyright</h2>
+    <h2 class="about-route__h" id="about-data-heading">
+      Tide data and copyright
+    </h2>
     <p class="about-route__p">
       Tidal data retrieved from
       <a
         class="about-route__link"
         href="https://www.worldtides.info/"
         {...externalLinkNewTabAttrs}>www.worldtides.info</a
-      >.
-      Copyright © 2014-2026 Brainware LLC. Licensed for use of individual spatial coordinates by an
-      end-user. NO GUARANTEES ARE MADE ABOUT THE CORRECTNESS OF THIS TIDAL DATA. You may not use
-      this data if anyone or anything could come to harm as a result of using it (e.g. for
-      navigational purposes). Tidal data is obtained from various sources and is covered in part or
-      whole by various copyrights. For details see:
+      >. Copyright © 2014-2026 Brainware LLC. Licensed for use of individual
+      spatial coordinates by an end-user. NO GUARANTEES ARE MADE ABOUT THE
+      CORRECTNESS OF THIS TIDAL DATA. You may not use this data if anyone or
+      anything could come to harm as a result of using it (e.g. for navigational
+      purposes). Tidal data is obtained from various sources and is covered in
+      part or whole by various copyrights. For details see:
       <a
         class="about-route__link"
         href="https://www.worldtides.info/copyright"
@@ -66,23 +70,27 @@
   <section class="about-route__section" aria-labelledby="about-share-heading">
     <h2 class="about-route__h" id="about-share-heading">Share a place</h2>
     <p class="about-route__p">
-      You can link directly to tides for a place using both a place name and a county in the web
-      address, for example
+      You can link directly to tides for a place using both a place name and a
+      county in the web address, for example
       <span class="about-route__mono">?place=Looe&amp;county=Cornwall</span>
       on
-      <a class="about-route__link" href="https://thetidedial.page/?place=Looe&amp;county=Cornwall"
+      <a
+        class="about-route__link"
+        href="https://thetidedial.page/?place=Looe&amp;county=Cornwall"
         >thetidedial.page</a
-      >. Use the same spelling as in the Location menu. Opening a share link applies that place even
-      if you already saved another one.
+      >. Use the same spelling as when you choose a place with Change on the tide
+      dial. Opening a share link
+      applies that place even if you already saved another one.
     </p>
   </section>
 
   <section class="about-route__section" aria-labelledby="about-towns-heading">
     <h2 class="about-route__h" id="about-towns-heading">Town list</h2>
     <p class="about-route__p">
-      Place names and coordinates are compiled into the app from a curated list, with many entries
-      geocoded against OpenStreetMap via Nominatim. © OpenStreetMap contributors. OpenStreetMap data
-      is licensed under the Open Data Commons Open Database License (ODbL). See
+      Place names and coordinates are compiled into the app from a curated list,
+      with many entries geocoded against OpenStreetMap via Nominatim. ©
+      OpenStreetMap contributors. OpenStreetMap data is licensed under the Open
+      Data Commons Open Database License (ODbL). See
       <a
         class="about-route__link"
         href="https://www.openstreetmap.org/copyright"
@@ -100,18 +108,22 @@
 
   <section class="about-route__section" aria-labelledby="about-cookies-heading">
     <h2 class="about-route__h" id="about-cookies-heading">Cookies</h2>
-    <p class="about-route__p">{THE_TIDE_DIAL} uses only necessary cookies. Specifically:</p>
+    <p class="about-route__p">
+      {THE_TIDE_DIAL} uses only necessary cookies. Specifically:
+    </p>
     <ul class="about-route__list">
       <li>
-        We do not discover, nor ever know your identity, and do not store it in any form.
+        We do not discover, nor ever know your identity, and do not store it in
+        any form.
       </li>
       <li>
-        We do fetch the required tide information over the internet and the app cannot function
-        without doing so.
+        We do fetch the required tide information over the internet and the app
+        cannot function without doing so.
       </li>
       <li>
-        We do store the location you have chosen to show tides for — but only on your own computer.
-        This avoids you having to choose it every time you visit {THE_TIDE_DIAL}.
+        We do store the location you have chosen to show tides for — but only on
+        your own computer. This avoids you having to choose it every time you
+        visit {THE_TIDE_DIAL}.
       </li>
     </ul>
   </section>

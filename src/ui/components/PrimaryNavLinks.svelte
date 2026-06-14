@@ -16,13 +16,3 @@
 </script>
 
 <a href="#/home" onclick={handleNavigate}>Home</a>
-<a href="#/location" onclick={handleNavigate}
-  >Set <span class="primary-nav-links__emph-your">your</span> location</a
->
-
-<style>
-  .primary-nav-links__emph-your {
-    font-weight: 600;
-    font-style: normal;
-  }
-</style>

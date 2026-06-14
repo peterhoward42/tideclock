@@ -13,7 +13,7 @@ export const urlLocationErrorBodyLead =
 export const urlLocationErrorBodyExample = '?place=Looe&county=Cornwall';
 
 export const urlLocationErrorBodyTail =
-  '. Check the spelling, or open Location in the menu to pick your place.';
+  '. Check the spelling, or tap Change on the home tide dial to pick your place.';
 
 export function urlLocationErrorReceivedLine(
   place: string | null,

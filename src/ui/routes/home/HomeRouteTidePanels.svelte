@@ -52,7 +52,6 @@
     readonly showLandscapeHint: boolean;
     readonly verticalLetterboxSlackPx: number;
     readonly showDefaultLocationExplainer: boolean;
-    readonly shareTriggerEnabled: boolean;
     readonly defaultLocationExplainerPlaceLine: string;
     readonly onDismissDefaultLocationExplainer: () => void;
     readonly homeMenuOpen: boolean;
@@ -86,7 +85,6 @@
     showLandscapeHint,
     verticalLetterboxSlackPx,
     showDefaultLocationExplainer,
-    shareTriggerEnabled,
     defaultLocationExplainerPlaceLine,
     onDismissDefaultLocationExplainer,
     homeMenuOpen,
@@ -121,7 +119,9 @@
 {#if tidePresentation.kind === "operatorNotice"}
   <div class="home-panel home-panel--operator-notice" aria-live="polite">
     <div class="home-operator-notice-message" role="status">
-      <p class="home-operator-notice-message__headline">{operatorNoticeHeadline}</p>
+      <p class="home-operator-notice-message__headline">
+        {operatorNoticeHeadline}
+      </p>
       {#each operatorNoticeBodyParagraphs as paragraph}
         <p class="home-operator-notice-message__body muted">{paragraph}</p>
       {/each}
@@ -150,16 +150,20 @@
           <p class="home-quota-aside__line muted">
             {quotaExhaustedCoffeeAsidePrefix}<a
               class="home-quota-aside__link"
-              href={quotaExhaustedStoryHref}>{quotaExhaustedCoffeeAsideBuyLinkLabel}</a
+              href={quotaExhaustedStoryHref}
+              >{quotaExhaustedCoffeeAsideBuyLinkLabel}</a
             >{quotaExhaustedCoffeeAsideMid}<a
               class="home-quota-aside__link"
-              href={quotaExhaustedStoryHref}>{quotaExhaustedCoffeeAsideStoryLinkLabel}</a
+              href={quotaExhaustedStoryHref}
+              >{quotaExhaustedCoffeeAsideStoryLinkLabel}</a
             >{quotaExhaustedCoffeeAsideEnd}
           </p>
         </aside>
         <aside class="home-quota-aside" aria-label="How the dial gets its data">
           <p class="home-quota-aside__line muted">
-            <a class="home-quota-aside__link" href={quotaExhaustedSoftwareNerdHref}
+            <a
+              class="home-quota-aside__link"
+              href={quotaExhaustedSoftwareNerdHref}
               >{quotaExhaustedSoftwareNerdLinkText}</a
             >
           </p>
@@ -179,13 +183,17 @@
         </p>
       {/if}
       <p class="home-url-location-error-message__body muted">
-        {urlLocationErrorBodyLead}<span class="home-url-location-error-message__mono"
+        {urlLocationErrorBodyLead}<span
+          class="home-url-location-error-message__mono"
           >{urlLocationErrorBodyExample}</span
         >{urlLocationErrorBodyTail}
       </p>
       {#if urlLocationErrorReceivedLine(tidePresentation.place, tidePresentation.county) !== null}
         <p class="home-url-location-error-message__body muted">
-          {urlLocationErrorReceivedLine(tidePresentation.place, tidePresentation.county)}
+          {urlLocationErrorReceivedLine(
+            tidePresentation.place,
+            tidePresentation.county,
+          )}
         </p>
       {/if}
     </div>
@@ -214,13 +222,9 @@
     </p>
   </div>
 {:else if diagramSvg !== ""}
-  <div
-    class="home-panel home-panel--diagram-host"
-    bind:this={diagramHostEl}
-  >
+  <div class="home-panel home-panel--diagram-host" bind:this={diagramHostEl}>
     <figure
       class="home-instrument"
-      class:home-instrument--share-hidden={!shareTriggerEnabled}
       bind:this={homeInstrumentEl}
       aria-label="Tide diagram for the current civil day"
     >
@@ -331,7 +335,8 @@
   }
 
   .home-url-location-error-message__mono {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      monospace;
     font-size: 0.92em;
     word-break: break-word;
   }
@@ -394,9 +399,14 @@
     margin: 0;
     padding: 0.85rem 1rem;
     border: 1px solid var(--border-subtle);
-    border-left: 3px solid color-mix(in srgb, var(--text-link-accent) 55%, var(--border-subtle));
+    border-left: 3px solid
+      color-mix(in srgb, var(--text-link-accent) 55%, var(--border-subtle));
     border-radius: 0.35rem;
-    background: color-mix(in srgb, var(--surface-page) 72%, var(--text-home-panel-muted) 8%);
+    background: color-mix(
+      in srgb,
+      var(--surface-page) 72%,
+      var(--text-home-panel-muted) 8%
+    );
     box-shadow: 0 1px 3px rgb(15 23 42 / 0.06);
   }
 
@@ -442,20 +452,12 @@
   }
 
   .home-instrument
-    :global(
-      svg g[data-name="HomeShareTrigger"].home-share-trigger--hover text
-    ),
+    :global(svg g[data-name="HomeShareTrigger"].home-share-trigger--hover text),
   .home-instrument
     :global(
       svg g[data-name="HomeLocationTrigger"].home-location-trigger--hover text
     ) {
     fill: var(--text-home-share-trigger-hover, #ccc);
-  }
-
-  .home-instrument--share-hidden
-    :global(svg g[data-name="HomeLocationPanel"]) {
-    visibility: hidden;
-    pointer-events: none;
   }
 
   .home-instrument :global(svg g[data-name="HomeMenuTrigger"] > rect) {
@@ -466,10 +468,7 @@
 
   .home-instrument
     :global(
-      svg
-        g[data-name="HomeMenuTrigger"]
-        g[data-name="HomeMenuTriggerIcon"]
-        line
+      svg g[data-name="HomeMenuTrigger"] g[data-name="HomeMenuTriggerIcon"] line
     ) {
     transition: stroke 120ms ease-out;
   }
@@ -578,5 +577,4 @@
     border-radius: 0.375rem;
     box-shadow: var(--shadow-menu-flyout);
   }
-
 </style>

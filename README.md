@@ -20,7 +20,7 @@ End-user technical overview: [Software Nerd](https://thetidedial.page/#/software
 
 ## Opening a specific place from the URL
 
-The home route accepts optional query parameters **`place`** and **`county`**. Both are required. Use the same spelling as in the **Location** menu (matching is case-insensitive; extra spaces are ignored).
+The home route accepts optional query parameters **`place`** and **`county`**. Both are required. Use the same spelling as when choosing a place with **Change** on the tide dial (matching is case-insensitive; extra spaces are ignored).
 
 | Form | Example |
 |------|---------|
@@ -48,7 +48,7 @@ All persistence is in the browser’s **`localStorage`** on the user’s device 
 | `tide-extremes-at-location` | Cached high/low extremes for the current civil day, to avoid refetching when possible. |
 | `tideclock.keepScreenAwake` | Optional “keep screen awake” preference for the home tide view. |
 
-On a first visit with empty storage, the app shows tides for **Looe, Cornwall** until you pick another location (see **Location** in the menu). Cookie policy, safety wording, tide-data copyright, and related notices are on the in-app **[About](https://thetidedial.page/#/about)** page (`#/about`), not duplicated here.
+On a first visit with empty storage, the app shows tides for **Looe, Cornwall** until you pick another location (**Change** on the tide dial). Cookie policy, safety wording, tide-data copyright, and related notices are on the in-app **[About](https://thetidedial.page/#/about)** page (`#/about`), not duplicated here.
 
 **Product analytics:** anonymous custom events (route visits, location picks, errors, etc.) are sent via [Vercel Web Analytics](https://vercel.com/docs/analytics) in production builds. See [`src/infrastructure/analytics/`](src/infrastructure/analytics/).
 
