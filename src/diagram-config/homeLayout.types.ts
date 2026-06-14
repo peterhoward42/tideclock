@@ -154,9 +154,9 @@ export type HomeLayoutBase = {
     readonly shareLabel: string;
     /** Change-location action copy. */
     readonly changeLabel: string;
-    /** k·RefRadius: horizontal gap after **Share** trailing edge before the middle dot. */
+    /** k·RefRadius: horizontal gap after **Change** trailing edge before the middle dot. */
     readonly gapBeforeSeparator: number;
-    /** k·RefRadius: horizontal gap after the middle dot before **Change** leading edge. */
+    /** k·RefRadius: horizontal gap after the middle dot before **Share** leading edge. */
     readonly gapAfterSeparator: number;
     /** k·RefRadius: inset from panel leading edge to text. */
     readonly innerPadLeft: number;

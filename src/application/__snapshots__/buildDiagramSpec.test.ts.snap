@@ -1182,7 +1182,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   "homeLocationPanel": {
     "change": {
       "anchor": {
-        "x": -129.80000000000004,
+        "x": -153.63600000000002,
         "y": -155.2748355030311,
       },
       "content": "Change",
@@ -1209,7 +1209,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     },
     "separator": {
       "anchor": {
-        "x": -135.34600000000003,
+        "x": -132.16000000000003,
         "y": -155.2748355030311,
       },
       "content": "·",
@@ -1218,7 +1218,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     },
     "share": {
       "anchor": {
-        "x": -153.63600000000002,
+        "x": -126.61400000000003,
         "y": -155.2748355030311,
       },
       "content": "Share",
@@ -4892,20 +4892,20 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
                   "y": -155.2748355030311,
                 },
                 "angleRad": 0,
-                "content": "Share",
+                "content": "Change",
                 "hAlign": "left",
                 "kind": "text",
                 "size": 5.31,
               },
             ],
             "kind": "group",
-            "name": "HomeShareTrigger",
+            "name": "HomeLocationTrigger",
           },
           {
             "children": [
               {
                 "anchor": {
-                  "x": -135.34600000000003,
+                  "x": -132.16000000000003,
                   "y": -155.2748355030311,
                 },
                 "angleRad": 0,
@@ -4922,18 +4922,18 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "anchor": {
-                  "x": -129.80000000000004,
+                  "x": -126.61400000000003,
                   "y": -155.2748355030311,
                 },
                 "angleRad": 0,
-                "content": "Change",
+                "content": "Share",
                 "hAlign": "left",
                 "kind": "text",
                 "size": 5.31,
               },
             ],
             "kind": "group",
-            "name": "HomeLocationTrigger",
+            "name": "HomeShareTrigger",
           },
         ],
         "kind": "group",

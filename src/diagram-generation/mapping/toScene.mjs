@@ -707,13 +707,13 @@ function homeLocationPanelDiagramToGroup(panel, cx, cy) {
         anchor: mapPoint(label.anchor, cx, cy),
       }),
     ]),
-    group("HomeShareTrigger", [
+    group("HomeLocationTrigger", [
       text({
-        content: share.content,
-        size: share.fontSize,
-        hAlign: share.hAlign,
+        content: change.content,
+        size: change.fontSize,
+        hAlign: change.hAlign,
         angleRad: 0,
-        anchor: mapPoint(share.anchor, cx, cy),
+        anchor: mapPoint(change.anchor, cx, cy),
       }),
     ]),
     group("HomeLocationPanelSeparator", [
@@ -725,13 +725,13 @@ function homeLocationPanelDiagramToGroup(panel, cx, cy) {
         anchor: mapPoint(separator.anchor, cx, cy),
       }),
     ]),
-    group("HomeLocationTrigger", [
+    group("HomeShareTrigger", [
       text({
-        content: change.content,
-        size: change.fontSize,
-        hAlign: change.hAlign,
+        content: share.content,
+        size: share.fontSize,
+        hAlign: share.hAlign,
         angleRad: 0,
-        anchor: mapPoint(change.anchor, cx, cy),
+        anchor: mapPoint(share.anchor, cx, cy),
       }),
     ]),
   ]);

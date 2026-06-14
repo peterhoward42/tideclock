@@ -340,7 +340,7 @@ describe('createDiagramCollaborator', () => {
     expect(svg).toContain('data-name="LocationLabel.Line1"');
   });
 
-  it('places HomeLocationPanel share and change actions on one row inside the plate', () => {
+  it('places HomeLocationPanel change and share actions on one row inside the plate', () => {
     const collaborator = createDiagramCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
@@ -355,21 +355,21 @@ describe('createDiagramCollaborator', () => {
       };
     }).homeLocationPanel;
     const bBottom = diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
-    const shareWidthK =
-      panelCfg.shareLabel.length * panelCfg.actionFontHeight * MONO_LABEL_CHAR_WIDTH_EM;
+    const changeWidthK =
+      panelCfg.changeLabel.length * panelCfg.actionFontHeight * MONO_LABEL_CHAR_WIDTH_EM;
     const separatorCharWidthK = panelCfg.actionFontHeight * MONO_LABEL_CHAR_WIDTH_EM;
     expect(diagram.homeLocationPanel.label.content).toBe('Location');
     expect(diagram.homeLocationPanel.share.content).toBe(panelCfg.shareLabel);
     expect(diagram.homeLocationPanel.change.content).toBe(panelCfg.changeLabel);
     expect(diagram.homeLocationPanel.separator.content).toBe('·');
     expect(diagram.homeLocationPanel.separator.anchor.x).toBeCloseTo(
-      diagram.homeLocationPanel.share.anchor.x +
-        (shareWidthK + panelCfg.gapBeforeSeparator) * R,
+      diagram.homeLocationPanel.change.anchor.x +
+        (changeWidthK + panelCfg.gapBeforeSeparator) * R,
       6,
     );
-    expect(diagram.homeLocationPanel.change.anchor.x).toBeCloseTo(
-      diagram.homeLocationPanel.share.anchor.x +
-        (shareWidthK +
+    expect(diagram.homeLocationPanel.share.anchor.x).toBeCloseTo(
+      diagram.homeLocationPanel.change.anchor.x +
+        (changeWidthK +
           panelCfg.gapBeforeSeparator +
           separatorCharWidthK +
           panelCfg.gapAfterSeparator) *
@@ -383,8 +383,8 @@ describe('createDiagramCollaborator', () => {
     expect(diagram.homeLocationPanel.share.anchor.y).toBe(
       diagram.homeLocationPanel.change.anchor.y,
     );
-    expect(diagram.homeLocationPanel.share.anchor.x).toBeLessThan(
-      diagram.homeLocationPanel.change.anchor.x,
+    expect(diagram.homeLocationPanel.change.anchor.x).toBeLessThan(
+      diagram.homeLocationPanel.share.anchor.x,
     );
     expect(diagram.homeLocationPanel.plate.center.y).toBeCloseTo(
       bBottom +

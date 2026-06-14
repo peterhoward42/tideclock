@@ -1077,13 +1077,13 @@ function buildHomeLocationPanelFromSpec(spec, refRadius, bLeft, bBottom) {
     panelBottomY + innerPadBottomK * refRadius + TEXT_DESCENT_EM * actionFontSize;
   const labelBaselineY =
     actionBaselineY + labelAboveActionsK * refRadius + actionFontSize;
-  const shareWidthK = shareLabel.length * actionFontHeightK * BRHC_LABEL_CHAR_WIDTH_EM;
+  const changeWidthK = changeLabel.length * actionFontHeightK * BRHC_LABEL_CHAR_WIDTH_EM;
   const separatorCharWidthK = actionFontHeightK * BRHC_LABEL_CHAR_WIDTH_EM;
   const separatorLeadingX =
-    innerLeftX + (shareWidthK + gapBeforeSeparatorK) * refRadius;
-  const changeLeadingX =
+    innerLeftX + (changeWidthK + gapBeforeSeparatorK) * refRadius;
+  const shareLeadingX =
     innerLeftX +
-    (shareWidthK + gapBeforeSeparatorK + separatorCharWidthK + gapAfterSeparatorK) *
+    (changeWidthK + gapBeforeSeparatorK + separatorCharWidthK + gapAfterSeparatorK) *
       refRadius;
 
   return {
@@ -1102,8 +1102,8 @@ function buildHomeLocationPanelFromSpec(spec, refRadius, bLeft, bBottom) {
       anchor: { x: innerLeftX, y: labelBaselineY },
       hAlign: /** @type {const} */ ("left"),
     },
-    share: {
-      content: shareLabel,
+    change: {
+      content: changeLabel,
       fontSize: actionFontSize,
       anchor: { x: innerLeftX, y: actionBaselineY },
       hAlign: /** @type {const} */ ("left"),
@@ -1114,10 +1114,10 @@ function buildHomeLocationPanelFromSpec(spec, refRadius, bLeft, bBottom) {
       anchor: { x: separatorLeadingX, y: actionBaselineY },
       hAlign: /** @type {const} */ ("left"),
     },
-    change: {
-      content: changeLabel,
+    share: {
+      content: shareLabel,
       fontSize: actionFontSize,
-      anchor: { x: changeLeadingX, y: actionBaselineY },
+      anchor: { x: shareLeadingX, y: actionBaselineY },
       hAlign: /** @type {const} */ ("left"),
     },
   };

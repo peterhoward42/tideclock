@@ -1182,7 +1182,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "homeLocationPanel": {
     "change": {
       "anchor": {
-        "x": -91.14785520821964,
+        "x": -110.49985520821964,
         "y": -130.03600000000003,
       },
       "content": "Change",
@@ -1209,7 +1209,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     "separator": {
       "anchor": {
-        "x": -95.15985520821964,
+        "x": -92.32785520821965,
         "y": -130.03600000000003,
       },
       "content": "·",
@@ -1218,7 +1218,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
     "share": {
       "anchor": {
-        "x": -110.49985520821964,
+        "x": -88.31585520821965,
         "y": -130.03600000000003,
       },
       "content": "Share",
