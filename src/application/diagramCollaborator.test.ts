@@ -241,7 +241,7 @@ describe('createDiagramCollaborator', () => {
     ).toThrow(/fontWeight must be 400 or 700/);
   });
 
-  it('right-aligns BRHCBundle to B_right and places HomeMenuTrigger at menuAboveBottom from B_bottom (excluded from B_*)', () => {
+  it('right-aligns BRHCBundle to B_right and places HomeMenuTrigger at menuRightPadding from B_right and menuAboveBottom from B_bottom (excluded from B_*)', () => {
     const collaborator = createDiagramCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
@@ -265,9 +265,9 @@ describe('createDiagramCollaborator', () => {
 
     const d = diagram.homeMenuTrigger.diameter;
     const R = diagram.refArc.refRadius;
-    const bLeft = diagram.brand.brandQr.origin.x - (spec as { brandQrLeftPadding: number }).brandQrLeftPadding * R;
-    const padK = (spec.homeMenuTrigger as { readonly menuLeftPadding: number }).menuLeftPadding;
-    expect(diagram.homeMenuTrigger.center.x).toBeCloseTo(bLeft + padK * R + 0.5 * d, 6);
+    const bRight = bundleRightX;
+    const padK = (spec.homeMenuTrigger as { readonly menuRightPadding: number }).menuRightPadding;
+    expect(diagram.homeMenuTrigger.center.x).toBeCloseTo(bRight - padK * R - 0.5 * d, 6);
     const bBottom =
       diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
     const menuAboveK = (spec.homeMenuTrigger as { readonly menuAboveBottom: number }).menuAboveBottom;

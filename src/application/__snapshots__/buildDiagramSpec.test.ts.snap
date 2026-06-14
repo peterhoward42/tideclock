@@ -1182,7 +1182,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   "homeLocationPanel": {
     "change": {
       "anchor": {
-        "x": -132.16000000000003,
+        "x": -129.80000000000004,
         "y": -155.2748355030311,
       },
       "content": "Change",
@@ -1200,16 +1200,16 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     },
     "plate": {
       "center": {
-        "x": -133.34000000000003,
+        "x": -132.16000000000003,
         "y": -149.49283550303113,
       },
       "height": 18.88,
       "rx": 1.6520000000000001,
-      "width": 44.84,
+      "width": 47.2,
     },
     "separator": {
       "anchor": {
-        "x": -136.526,
+        "x": -135.34600000000003,
         "y": -155.2748355030311,
       },
       "content": "·",
@@ -1228,7 +1228,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   },
   "homeMenuTrigger": {
     "center": {
-      "x": -145.14000000000001,
+      "x": 145.14000000000001,
       "y": -95.21283550303113,
     },
     "diameter": 21.24,
@@ -2241,7 +2241,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     "previewFrame": {
       "maxX": 156.76000000000002,
       "maxY": 13.272000000000002,
-      "minX": -156.76000000000005,
+      "minX": -156.76000000000002,
       "minY": -159.93283550303113,
     },
     "title": "home-tide-diagram",
@@ -4798,7 +4798,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
         "children": [
           {
             "center": {
-              "x": -145.14000000000001,
+              "x": 145.14000000000001,
               "y": -95.21283550303113,
             },
             "height": 21.24,
@@ -4810,34 +4810,34 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "end": {
-                  "x": -139.83,
+                  "x": 150.45000000000002,
                   "y": -92.26283550303113,
                 },
                 "kind": "line",
                 "start": {
-                  "x": -150.45000000000002,
+                  "x": 139.83,
                   "y": -92.26283550303113,
                 },
               },
               {
                 "end": {
-                  "x": -139.83,
+                  "x": 150.45000000000002,
                   "y": -95.21283550303113,
                 },
                 "kind": "line",
                 "start": {
-                  "x": -150.45000000000002,
+                  "x": 139.83,
                   "y": -95.21283550303113,
                 },
               },
               {
                 "end": {
-                  "x": -139.83,
+                  "x": 150.45000000000002,
                   "y": -98.16283550303113,
                 },
                 "kind": "line",
                 "start": {
-                  "x": -150.45000000000002,
+                  "x": 139.83,
                   "y": -98.16283550303113,
                 },
               },
@@ -4855,13 +4855,13 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "center": {
-                  "x": -133.34000000000003,
+                  "x": -132.16000000000003,
                   "y": -149.49283550303113,
                 },
                 "height": 18.88,
                 "kind": "roundedRect",
                 "rx": 1.6520000000000001,
-                "width": 44.84,
+                "width": 47.2,
               },
             ],
             "kind": "group",
@@ -4905,7 +4905,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "anchor": {
-                  "x": -136.526,
+                  "x": -135.34600000000003,
                   "y": -155.2748355030311,
                 },
                 "angleRad": 0,
@@ -4922,7 +4922,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
             "children": [
               {
                 "anchor": {
-                  "x": -132.16000000000003,
+                  "x": -129.80000000000004,
                   "y": -155.2748355030311,
                 },
                 "angleRad": 0,

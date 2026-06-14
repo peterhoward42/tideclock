@@ -364,14 +364,14 @@ locationPlacement: {
 - **HomeMenuTrigger** is a top-level named group.
 - It comprises three horizontal lines centred inside a circle.
 - **Not** part of **BRHCBundle**; bounds are **excluded** from `**B_*`** expansion.
-- **Horizontal** — circular control leading edge at `**B_left + homeMenuTrigger.menuLeftPadding·R`**.
+- **Horizontal** — circular control trailing edge at `**B_right − homeMenuTrigger.menuRightPadding·R`**.
 - **Vertical** — bottom of the circular control at `**B_bottom + homeMenuTrigger.menuAboveBottom·R`** (**Y** upward).
 - Sizing and positioning parameters:
 
 ```
 homeMenuTrigger: {
     diameter: 0.18,
-    menuLeftPadding: 0,   // k·R inset from B_left
+    menuRightPadding: 0,   // k·R inset from B_right
     menuAboveBottom: 0.27, // k·R above B_bottom to control bottom edge
     iconBarLength: 0.09,
     iconBarGap: 0.025,
@@ -383,7 +383,7 @@ homeMenuTrigger: {
 Bottom-left **location** affordances: a boxed heading (**Location**) and one action row (**Share** · **Change**). **Share** copies the canonical place `**shareUrl`**; **Change** navigates to the location picker (host wiring).
 
 - **HomeLocationPanel** is a top-level named compound group.
-- **HomeMenuTrigger** and **Brand** are **not** ancestors; all three bottom-left chrome blocks (**HomeMenuTrigger**, **Brand**, **HomeLocationPanel**) are positioned **independently** via their own `**leftPadding`** / `**aboveBottom**` (or `**menuLeftPadding**` / `**menuAboveBottom**`) offsets from `**B_left**` / `**B_bottom**`.
+- **HomeMenuTrigger** and **Brand** are **not** ancestors; **HomeMenuTrigger**, **Brand**, and **HomeLocationPanel** are positioned **independently** via their own offsets from `**B_left**` / `**B_right**` / `**B_bottom**` (`**menuRightPadding**` / `**menuAboveBottom**` for **HomeMenuTrigger**; `**leftPadding**` / `**aboveBottom**` or `**brandQrLeftPadding**` / `**brandQrAboveBottom**` for the others).
 - **Horizontal** — panel leading edge at `**B_left + homeLocationPanel.leftPadding·R`**.
 - **Vertical** — panel bottom edge at `**B_bottom + homeLocationPanel.aboveBottom·R`**.
 - **Plate** — leaf group `**HomeLocationPanelPlate`**: `**roundedRect**` behind the text block; preset surface matches `**role.menu.trigger**`.

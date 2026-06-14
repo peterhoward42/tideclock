@@ -89,11 +89,11 @@ export const homeLayoutBase = {
   annularBand: { annularBandWidth: 0.14 },
   /** k·RefRadius: stroked arc concentric with RefArc, same sweep. */
   dividorArc: { radiusK: 1.32 },
-  /** Bottom-left instrument chrome — each block has independent leftPadding / aboveBottom from B_left / B_bottom. */
+  /** Instrument chrome — each block has independent offsets from layout bounds (see tide-diagram spec). */
   homeMenuTrigger: {
     diameter: 0.18,
-    menuLeftPadding: 0,
-    menuAboveBottom: 0.45,
+    menuRightPadding: 0,
+    menuAboveBottom: 0.20,
     iconBarLength: 0.09,
     iconBarGap: 0.025,
   },

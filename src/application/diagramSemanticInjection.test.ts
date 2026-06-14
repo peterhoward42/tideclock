@@ -76,7 +76,7 @@ type SemanticInjectionDiagramSpec = {
   };
   readonly homeMenuTrigger: {
     readonly diameter: number;
-    readonly menuLeftPadding: number;
+    readonly menuRightPadding: number;
     readonly menuAboveBottom: number;
     readonly iconBarLength: number;
     readonly iconBarGap: number;
@@ -182,7 +182,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
     },
     homeMenuTrigger: {
       diameter: 0.11,
-      menuLeftPadding: 0,
+      menuRightPadding: 0,
       menuAboveBottom: 0.068,
       iconBarLength: 0.048,
       iconBarGap: 0.015,

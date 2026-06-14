@@ -120,8 +120,8 @@ export type HomeLayoutBase = {
   readonly homeMenuTrigger: {
     /** k·RefRadius: circular control diameter. */
     readonly diameter: number;
-    /** k·RefRadius: inset from **B_left** to the leading (left) edge of the circular control. */
-    readonly menuLeftPadding: number;
+    /** k·RefRadius: inset from **B_right** to the trailing (right) edge of the circular control. */
+    readonly menuRightPadding: number;
     /** k·RefRadius: distance from **B_bottom** up to the bottom of the circular control (see tide-diagram spec §HomeMenuTrigger). */
     readonly menuAboveBottom: number;
     /** k·RefRadius: full width of each hamburger bar. */
