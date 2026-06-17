@@ -36,6 +36,7 @@ export const homeLayoutBase = {
     fontHeight: 0.060,
     maxSegmentLength: 21,
     lineGap: 0.07,
+    tidesForGap: 0.10,
     ranges: [
       {
         from: "18:00:00",

@@ -1234,6 +1234,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
         "x": 11.8,
         "y": -7.08,
       },
+      "content": "Tides for:",
+      "fontSize": 5.31,
+      "hAlign": "right",
+    },
+    {
+      "anchor": {
+        "x": 11.8,
+        "y": -12.98,
+      },
       "content": "Lymington",
       "fontSize": 5.31,
       "hAlign": "right",

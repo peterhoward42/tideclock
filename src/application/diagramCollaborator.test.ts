@@ -266,6 +266,7 @@ describe('createDiagramCollaborator', () => {
       locationPlacement: {
         readonly fontHeight: number;
         readonly lineGap: number;
+        readonly tidesForGap: number;
         readonly ranges: readonly {
           readonly from: string;
           readonly to: string;
@@ -275,17 +276,25 @@ describe('createDiagramCollaborator', () => {
         }[];
       };
     }).locationPlacement;
-    expect(diagram.locationLabel).toHaveLength(1);
-    expect(diagram.locationLabel[0].content).toBe('Lymington');
+    expect(diagram.locationLabel).toHaveLength(2);
+    expect(diagram.locationLabel[0].content).toBe('Tides for:');
+    expect(diagram.locationLabel[1].content).toBe('Lymington');
     expect(diagram.locationLabel[0].fontSize).toBeCloseTo(placement.fontHeight * R, 6);
+    expect(diagram.locationLabel[1].fontSize).toBeCloseTo(placement.fontHeight * R, 6);
     const active = placement.ranges.find(
       (r) => r.from === '12:00:00' && r.to === '18:00:00',
     );
     expect(active).toBeDefined();
     if (active == null) return;
     expect(diagram.locationLabel[0].hAlign).toBe('center');
+    expect(diagram.locationLabel[1].hAlign).toBe('center');
     expect(diagram.locationLabel[0].anchor.x).toBeCloseTo(active.offsetRight * R, 6);
+    expect(diagram.locationLabel[1].anchor.x).toBeCloseTo(active.offsetRight * R, 6);
     expect(diagram.locationLabel[0].anchor.y).toBeCloseTo(-active.belowOrigin * R, 6);
+    expect(diagram.locationLabel[1].anchor.y).toBeCloseTo(
+      -active.belowOrigin * R - placement.tidesForGap * R,
+      6,
+    );
   });
 
   it('wraps long LocationLabel place names onto multiple lines with lineGap', () => {
@@ -299,11 +308,13 @@ describe('createDiagramCollaborator', () => {
         ...base.locationPlacement,
         maxSegmentLength: 21,
         lineGap: 0.05,
+        tidesForGap: 0.08,
       },
     };
     const { diagram } = collaborator.generate(spec);
     const R = diagram.refArc.refRadius;
     expect(diagram.locationLabel.map((line) => line.content)).toEqual([
+      'Tides for:',
       'North Somercotes -',
       'Lincolnshire',
     ]);
@@ -314,11 +325,16 @@ describe('createDiagramCollaborator', () => {
     if (active == null) return;
     expect(diagram.locationLabel[0].anchor.y).toBeCloseTo(-active.belowOrigin * R, 6);
     expect(diagram.locationLabel[1].anchor.y).toBeCloseTo(
-      -active.belowOrigin * R - 0.05 * R,
+      -active.belowOrigin * R - 0.08 * R,
+      6,
+    );
+    expect(diagram.locationLabel[2].anchor.y).toBeCloseTo(
+      -active.belowOrigin * R - 0.08 * R - 0.05 * R,
       6,
     );
     const { scene, styleRuntime } = collaborator.generate(spec);
     const svg = renderSceneSvg(scene, { styleRuntime });
+    expect(svg).toContain('data-name="LocationLabel.TidesFor"');
     expect(svg).toContain('data-name="LocationLabel.Line0"');
     expect(svg).toContain('data-name="LocationLabel.Line1"');
   });

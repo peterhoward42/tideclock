@@ -40,8 +40,10 @@ export type LocationPlacement = {
   readonly fontHeight: number;
   /** Maximum character count per **LocationLabel** line (word-wrap). */
   readonly maxSegmentLength: number;
-  /** k·RefRadius: downward baseline step between consecutive lines. */
+  /** k·RefRadius: downward baseline step between consecutive place-name lines. */
   readonly lineGap: number;
+  /** k·RefRadius: downward baseline gap from **LocationLabel.TidesFor** to **LocationLabel.Line0**. */
+  readonly tidesForGap: number;
   readonly ranges: readonly LocationPlacementRange[];
 };
 

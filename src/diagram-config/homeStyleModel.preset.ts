@@ -104,6 +104,7 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "TickMark.Endpoint", roleName: "role.structure.dialTick.endpoint" },
     { name: "TickMark.Quarter", roleName: "role.structure.dialTick.quarter" },
     { name: "HeightLabel", roleName: "role.tide.primary" },
+    { name: "LocationLabel.TidesFor", roleName: "role.tide.primary" },
     { name: "TimeDeltaLocation", roleName: "role.text.primary" },
     { name: "TimeDeltaPhase", roleName: "role.tide.primary" },
     { name: "TimeDeltaNext", roleName: "role.tide.secondary" },

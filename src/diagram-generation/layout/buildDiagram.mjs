@@ -167,8 +167,12 @@ function wrapLocationNameToLines(text, maxSegmentLength) {
   return lines;
 }
 
+/** Fixed prefix row above wrapped place-name lines (see spec §LocationLabel). */
+const LOCATION_LABEL_TIDES_FOR_COPY = "Tides for:";
+
 /**
  * **LocationLabel** — dial-interior place name; preset anchor from `spec.locationPlacement` × **t_now** (see spec).
+ * Returns `[tidesForPrefix, ...placeNameLines]`; prefix uses leaf **LocationLabel.TidesFor**, place lines **LocationLabel.Line0**…
  *
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
@@ -197,6 +201,13 @@ function buildLocationLabelFromSpec(spec, refRadius) {
   );
   if (lineGapK < 0) {
     throw new Error("spec.locationPlacement.lineGap must be >= 0");
+  }
+  const tidesForGapK = requireFiniteNumber(
+    o.tidesForGap,
+    "spec.locationPlacement.tidesForGap",
+  );
+  if (tidesForGapK < 0) {
+    throw new Error("spec.locationPlacement.tidesForGap must be >= 0");
   }
   const ranges = o.ranges;
   if (!Array.isArray(ranges) || ranges.length === 0) {
@@ -250,16 +261,24 @@ function buildLocationLabelFromSpec(spec, refRadius) {
   const x = offsetRightK * refRadius;
   const y0 = -belowOriginK * refRadius;
   const lineStep = lineGapK * refRadius;
+  const tidesForStep = tidesForGapK * refRadius;
   const lineTexts = wrapLocationNameToLines(locationName, maxSegmentLength);
-  return lineTexts.map((content, index) => ({
+  const tidesForPrefix = {
+    content: LOCATION_LABEL_TIDES_FOR_COPY,
+    fontSize,
+    anchor: { x, y: y0 },
+    hAlign,
+  };
+  const placeNameLines = lineTexts.map((content, index) => ({
     content,
     fontSize,
     anchor: {
       x,
-      y: y0 - index * lineStep,
+      y: y0 - tidesForStep - index * lineStep,
     },
     hAlign,
   }));
+  return [tidesForPrefix, ...placeNameLines];
 }
 
 function emptyBounds() {

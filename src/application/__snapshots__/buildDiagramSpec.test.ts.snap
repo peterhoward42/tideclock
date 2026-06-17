@@ -1234,6 +1234,15 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
         "x": 0,
         "y": -59,
       },
+      "content": "Tides for:",
+      "fontSize": 7.08,
+      "hAlign": "center",
+    },
+    {
+      "anchor": {
+        "x": 0,
+        "y": -70.8,
+      },
       "content": "Lymington",
       "fontSize": 7.08,
       "hAlign": "center",
@@ -3625,6 +3634,23 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
                 "anchor": {
                   "x": 0,
                   "y": -59,
+                },
+                "angleRad": 0,
+                "content": "Tides for:",
+                "hAlign": "center",
+                "kind": "text",
+                "size": 7.08,
+              },
+            ],
+            "kind": "group",
+            "name": "LocationLabel.TidesFor",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 0,
+                  "y": -70.8,
                 },
                 "angleRad": 0,
                 "content": "Lymington",
