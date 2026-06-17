@@ -67,7 +67,6 @@ type SemanticInjectionDiagramSpec = {
     readonly bossCircleRadius: number;
     readonly armRefArcGap: number;
     readonly armTimeLabelFontHeight: number;
-    readonly bossLabelFontHeight: number;
   };
   readonly homeMenuTrigger: {
     readonly diameter: number;
@@ -168,7 +167,6 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       bossCircleRadius: 0.08,
       armRefArcGap: 0.01,
       armTimeLabelFontHeight: 0.0288,
-      bossLabelFontHeight: 0.03,
     },
     homeMenuTrigger: {
       diameter: 0.11,

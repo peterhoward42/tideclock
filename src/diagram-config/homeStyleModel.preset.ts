@@ -32,7 +32,7 @@ export const homeStyleModel: StyleModelSpec = {
       colors: { color: "#0FFF50", strokeWidth: 4.0 }, // hand boss circle stroke
     },
     {
-      name: "role.hand.bossLabel",
+      name: "role.location.label",
       colors: { color: "#0FFF50" },
     },
     {
@@ -113,14 +113,13 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "TickLabel", roleName: "role.structure.emphasis" },
     { name: "MainLabel", roleName: "role.tide.primary" },
     { name: "BossCircle", roleName: "role.hand.bossCircle" },
-    { name: "BossLabel", roleName: "role.hand.bossLabel" },
     { name: "Arm", roleName: "role.hand.arm" },
     { name: "Hand.TimeReadout", roleName: "role.structure.emphasis" },
     { name: "Hand.TimeReadoutNowTag", roleName: "role.structure.text" },
     { name: "CentreFrame", roleName: "role.surface.centre-frame" },
     ...Array.from({ length: LOCATION_LABEL_LINE_BINDING_COUNT }, (_, i) => ({
       name: `LocationLabel.Line${i}`,
-      roleName: "role.hand.bossLabel",
+      roleName: "role.location.label",
     })),
     { name: "BRHCDate", roleName: "role.structure.text" },
     { name: "BrandQRPlate", roleName: "role.menu.trigger" },

@@ -72,8 +72,6 @@ export const homeLayoutBase = {
     /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */
     armRefArcGap: 0.040,
     armTimeLabelFontHeight: 0.045,
-    /** k·RefRadius: centered label inside the hand boss circle ("Tides"). */
-    bossLabelFontHeight: 0.048,
   },
   paintOrder: {
     overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],

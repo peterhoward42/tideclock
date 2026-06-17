@@ -1142,14 +1142,14 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
         "y": -64.96461611792053,
       },
       "start": {
-        "x": 9.666732361403039,
-        "y": -6.767147512283389,
+        "x": 14.500098542104556,
+        "y": -10.150721268425082,
       },
     },
     "armTimeReadout": {
       "anchor": {
-        "x": 54.61725527157779,
-        "y": -31.03251563440044,
+        "x": 57.03393836192855,
+        "y": -32.72430251247129,
       },
       "angleRad": 5.67242915205982,
       "fontSize": 5.31,
@@ -1161,15 +1161,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
         "x": 0,
         "y": 0,
       },
-      "radius": 11.8,
-    },
-    "bossLabel": {
-      "anchor": {
-        "x": 0,
-        "y": 0,
-      },
-      "content": "Tides",
-      "fontSize": 5.664,
+      "radius": 17.7,
     },
     "theta": 5.67242915205982,
     "timeHours": 19.33416666666667,
@@ -2260,7 +2252,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
                 },
                 "kind": "arc",
                 "start": {
-                  "x": -11.8,
+                  "x": -17.7,
                   "y": 0,
                 },
                 "sweepRad": 3.141592653589793,
@@ -2272,32 +2264,14 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
           {
             "children": [
               {
-                "anchor": {
-                  "x": 0,
-                  "y": 0,
-                },
-                "angleRad": 0,
-                "content": "Tides",
-                "dominantBaseline": "middle",
-                "hAlign": "center",
-                "kind": "text",
-                "size": 5.664,
-              },
-            ],
-            "kind": "group",
-            "name": "BossLabel",
-          },
-          {
-            "children": [
-              {
                 "end": {
                   "x": 92.80063066946916,
                   "y": -64.96461611792053,
                 },
                 "kind": "line",
                 "start": {
-                  "x": 9.666732361403039,
-                  "y": -6.767147512283389,
+                  "x": 14.500098542104556,
+                  "y": -10.150721268425082,
                 },
               },
               {
@@ -2306,8 +2280,8 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
                     "children": [
                       {
                         "anchor": {
-                          "x": 36.34713110852606,
-                          "y": -18.24260683618484,
+                          "x": 38.763814198876815,
+                          "y": -19.93439371425569,
                         },
                         "angleRad": 5.67242915205982,
                         "content": "time now",
@@ -2322,8 +2296,8 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
                   },
                   {
                     "anchor": {
-                      "x": 59.837290746735434,
-                      "y": -34.68677529103347,
+                      "x": 62.25397383708619,
+                      "y": -36.37856216910432,
                     },
                     "angleRad": 5.67242915205982,
                     "content": "19:20",
