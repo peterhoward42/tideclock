@@ -398,6 +398,31 @@ describe('createDiagramCollaborator', () => {
     );
   });
 
+  it('applies layoutBoundsTopMargin by extending B_top (previewFrame maxY grows)', () => {
+    const collaborator = createDiagramCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    const { layoutBoundsTopMargin: _presetMargin, ...baseNoTopMargin } = base;
+    const without = collaborator.generate(baseNoTopMargin);
+    const k = 0.03;
+    const withMargin = collaborator.generate({ ...baseNoTopMargin, layoutBoundsTopMargin: k });
+    const delta = k * withMargin.diagram.refArc.refRadius;
+    const pfWithout = without.scene.meta.previewFrame;
+    const pfWith = withMargin.scene.meta.previewFrame;
+    expect(pfWith.maxY - pfWithout.maxY).toBeCloseTo(delta, 6);
+    expect(withMargin.diagram.layoutBounds.maxY - without.diagram.layoutBounds.maxY).toBeCloseTo(
+      delta,
+      6,
+    );
+  });
+
+  it('throws when layoutBoundsTopMargin is negative', () => {
+    const collaborator = createDiagramCollaborator();
+    const base = baseSpecForCollaboratorTest();
+    expect(() => collaborator.generate({ ...base, layoutBoundsTopMargin: -0.01 })).toThrow(
+      /layoutBoundsTopMargin must be >= 0/,
+    );
+  });
+
   it('applies layoutBoundsBottomMargin by extending B_bottom (date row and MainLabel shift down)', () => {
     const collaborator = createDiagramCollaborator();
     const base = baseSpecForCollaboratorTest();

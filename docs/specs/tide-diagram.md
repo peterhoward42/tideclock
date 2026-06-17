@@ -52,6 +52,8 @@ B_left, B_right, B_top, and B_bottom.
 - Then B_top is overwritten with the max_y point of the Hand.BossCircle
 - The box is then extended if necessary to accomodate any part of each TideMarker
 - Then B_bottom is extended incrementally by the layoutBoundsBottomMargin * RefRadius
+- The box is then extended if necessary for diagram-wide extent (tick labels, ref/dividor arcs, hand arm readout)
+- Then B_top is extended incrementally by the layoutBoundsTopMargin * RefRadius
 
 ### §Polar — reference arc geometry
 

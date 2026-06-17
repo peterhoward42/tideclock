@@ -11,6 +11,7 @@
  * - `spec.tickLabelHours` must be an array of integers in 0..24; invalid entries throw.
  * - Sub-builders (`buildTideMarksFromSpec`) enforce their own throw rules.
  * - `**annularBand**` is required: plain object with finite `**annularBandWidth**` (**k·R**) **> 0**.
+ * - Optional `**layoutBoundsTopMargin**` (**k·R**, **>= 0**): after diagram-wide extent pass, extends **B_top** upward; when omitted, **0**.
  * - Optional `**layoutBoundsBottomMargin**` (**k·R**, **>= 0**): pass 3 of global layout bounds; extends **B_bottom** downward; when omitted, **0**.
  * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **Hand.TimeReadout** placement) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
@@ -707,6 +708,8 @@ export function buildDiagram(spec) {
     thetaLeft,
     sweepRad,
   });
+  const layoutBoundsTopMarginK = readLayoutBoundsTopMarginKFromSpec(spec);
+  layoutBounds.maxY += layoutBoundsTopMarginK * refRadius;
 
   const parsedNowForMainLabel = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNowForMainLabel.isRightEndpoint) {
@@ -793,6 +796,12 @@ export function buildDiagram(spec) {
   return {
     version: 1,
     meta: { title },
+    layoutBounds: {
+      minX: layoutBounds.minX,
+      maxX: layoutBounds.maxX,
+      minY: layoutBounds.minY,
+      maxY: layoutBounds.maxY,
+    },
     paintOrder: spec.paintOrder,
     refArc: {
       center: { x: 0, y: 0 },
@@ -885,6 +894,24 @@ function buildMainLabel(anchorRightX, baselineY, fontSize, content) {
  * @param {number} refRadius
  * @returns {number}
  */
+/**
+ * Optional **k·R** margin extending global layout **B_top** upward after diagram-wide extent (see tide-diagram spec).
+ *
+ * @param {Record<string, unknown>} spec
+ * @returns {number} dimensionless k (multiply by refRadius for model units)
+ */
+function readLayoutBoundsTopMarginKFromSpec(spec) {
+  const raw = spec.layoutBoundsTopMargin;
+  if (raw === undefined || raw === null) {
+    return 0;
+  }
+  const k = requireFiniteNumber(raw, "spec.layoutBoundsTopMargin");
+  if (k < 0) {
+    throw new Error("spec.layoutBoundsTopMargin must be >= 0");
+  }
+  return k;
+}
+
 /**
  * Optional **k·R** margin extending global layout **B_bottom** downward (see tide-diagram spec pass 3).
  *

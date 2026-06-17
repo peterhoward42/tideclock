@@ -59,10 +59,10 @@ export type HomeLayoutBase = {
   readonly tickLabelHours: readonly number[];
   readonly tickLabelSize: number;
   readonly tickLabelClearance: number;
-  /**
-   * Optional k·RefRadius: pass 3 global layout bounds — extends B_bottom downward; omit for 0.
-   */
-  readonly layoutBoundsBottomMargin?: number;
+  /** k·RefRadius: after diagram-wide extent — extends B_top upward. */
+  readonly layoutBoundsTopMargin: number;
+  /** k·RefRadius: pass 3 global layout bounds — extends B_bottom downward. */
+  readonly layoutBoundsBottomMargin: number;
   /**
    * Bottom-right text stack (**BRHCBundle** rows).
    * Each `*Above*` value is k·RefRadius gap upward from the row below (same convention throughout).

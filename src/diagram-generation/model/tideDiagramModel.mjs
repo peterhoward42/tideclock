@@ -180,8 +180,16 @@
  * }} BrandCompoundDiagram
  *
  * @typedef {{
+ *   minX: number,
+ *   maxX: number,
+ *   minY: number,
+ *   maxY: number,
+ * }} LayoutBoundsBox
+ *
+ * @typedef {{
  *   version: number,
  *   meta: { title: string },
+ *   layoutBounds: LayoutBoundsBox,
  *   paintOrder?: {
  *     overrides?: { name: string, place: 'before' | 'after', relativeTo: string }[],
  *   },

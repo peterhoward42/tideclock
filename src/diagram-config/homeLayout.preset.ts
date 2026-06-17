@@ -21,6 +21,7 @@ export const homeLayoutBase = {
    */
   civilHalfDayLayout: "auto",
   refRadius: 118,
+  layoutBoundsTopMargin: 0.05,
   layoutBoundsBottomMargin: 0.05,
   sweepRad: Math.PI,
   tickLabelTickLen: 0.025,

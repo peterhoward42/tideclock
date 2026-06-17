@@ -175,9 +175,17 @@ type HandDiagram = {
  * Shape returned by {@link buildDiagram} in `buildDiagram.mjs` (see JSDoc on `TideDiagramDocument`
  * in `tideDiagramModel.mjs`). App code treats this as the diagram-generation boundary contract.
  */
+export type LayoutBoundsBox = {
+  readonly minX: number;
+  readonly maxX: number;
+  readonly minY: number;
+  readonly maxY: number;
+};
+
 export type TideDiagramDocument = {
   readonly version: number;
   readonly meta: { readonly title: string };
+  readonly layoutBounds: LayoutBoundsBox;
   readonly paintOrder?: {
     readonly overrides?: ReadonlyArray<{
       readonly name: string;

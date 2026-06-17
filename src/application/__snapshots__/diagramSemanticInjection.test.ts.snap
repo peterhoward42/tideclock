@@ -1235,6 +1235,12 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "iconBarCenterSpacing": 1.77,
     "iconBarHalfLength": 2.832,
   },
+  "layoutBounds": {
+    "maxX": 128.05368250390558,
+    "maxY": 9.7232,
+    "minX": -126.42985520821964,
+    "minY": -133.104,
+  },
   "locationLabel": [
     {
       "anchor": {

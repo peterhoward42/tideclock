@@ -1235,6 +1235,12 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     "iconBarCenterSpacing": 2.95,
     "iconBarHalfLength": 5.31,
   },
+  "layoutBounds": {
+    "maxX": 155.76000000000002,
+    "maxY": 18.172000000000004,
+    "minX": -155.76000000000002,
+    "minY": -158.93283550303113,
+  },
   "locationLabel": [
     {
       "anchor": {
@@ -2240,7 +2246,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   "meta": {
     "previewFrame": {
       "maxX": 156.76000000000002,
-      "maxY": 13.272000000000002,
+      "maxY": 19.172000000000004,
       "minX": -156.76000000000002,
       "minY": -159.93283550303113,
     },

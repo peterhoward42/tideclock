@@ -345,10 +345,27 @@ function expandBoundsByAnnularSector(b, node) {
   });
 }
 
+/** @param {{ minX: number, minY: number, maxX: number, maxY: number }} b mutated in place */
+function includeLayoutRect(b, minX, maxX, minY, maxY) {
+  if (minX < b.minX) b.minX = minX;
+  if (maxX > b.maxX) b.maxX = maxX;
+  if (minY < b.minY) b.minY = minY;
+  if (maxY > b.maxY) b.maxY = maxY;
+}
+
 /** @param {import('../model/sceneModel.mjs').GroupNode} root */
-function computeScenePreviewFrame(root) {
+function computeScenePreviewFrame(root, layoutBounds) {
   const b = emptyBounds();
   expandBoundsByNode(b, root);
+  if (layoutBounds != null) {
+    includeLayoutRect(
+      b,
+      layoutBounds.minX,
+      layoutBounds.maxX,
+      layoutBounds.minY,
+      layoutBounds.maxY,
+    );
+  }
   if (![b.minX, b.minY, b.maxX, b.maxY].every((v) => Number.isFinite(v))) {
     // Fallback to a non-degenerate frame.
     return { minX: 0, maxX: 1, minY: 0, maxY: 1 };
@@ -985,7 +1002,7 @@ export function tideDiagramToScene(diagram) {
     root,
     parsePaintOrderOverrides(diagram.paintOrder),
   );
-  meta.previewFrame = computeScenePreviewFrame(orderedRoot);
+  meta.previewFrame = computeScenePreviewFrame(orderedRoot, diagram.layoutBounds);
 
   return {
     version: 2,
