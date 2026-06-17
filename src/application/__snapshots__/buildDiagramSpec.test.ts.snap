@@ -1232,7 +1232,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   },
   "layoutBounds": {
     "maxX": 155.76000000000002,
-    "maxY": 17.700000000000003,
+    "maxY": 5.900000000000019,
     "minX": -155.76000000000002,
     "minY": -158.93283550303113,
   },
@@ -2241,7 +2241,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   "meta": {
     "previewFrame": {
       "maxX": 156.76000000000002,
-      "maxY": 18.700000000000003,
+      "maxY": 6.900000000000019,
       "minX": -156.76000000000002,
       "minY": -159.93283550303113,
     },
@@ -2258,8 +2258,12 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
                   "x": 0,
                   "y": 0,
                 },
-                "kind": "circle",
-                "radius": 11.8,
+                "kind": "arc",
+                "start": {
+                  "x": -11.8,
+                  "y": 0,
+                },
+                "sweepRad": 3.141592653589793,
               },
             ],
             "kind": "group",

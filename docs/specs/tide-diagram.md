@@ -49,7 +49,8 @@ mean increasing / decreasing **Y**. **Above** / **below** mean toward **top** /
 - The bounding box of the diagram is modeled as four conceptual variables: 
 B_left, B_right, B_top, and B_bottom.
 - These are initialised to accomodate the AnnularBand.
-- Then B_top is overwritten with the max_y point of the Hand.BossCircle
+- Then B_top is overwritten with the max_y point of the Hand.BossCircle (the
+  horizontal diameter through **O** at **y = 0**; see **BossCircle**)
 - The box is then extended if necessary to accomodate any part of each TideMarker
 - Then B_bottom is extended incrementally by the layoutBoundsBottomMargin * RefRadius
 - The box is then extended if necessary for diagram-wide extent (tick labels, ref/dividor arcs, hand arm readout)
@@ -123,7 +124,7 @@ of travel.”
 
 - The scene graph at this stage consists of:
   - Arc primitives (for **RefArc** and **Dividor**)
-  - Circle primitives (for **Hand.BossCircle** outlines)
+  - Arc primitives (for **Hand.BossCircle** outline and other stroked arcs)
   - Line segments (for radial segments and tick marks)
   - Text elements
   - One **closed path** for **TideMarks.TimePointer** (tip **Vertex1**, sides **Vertex1 → Vertex2** and **Vertex1 → Vertex3**, head arc **Vertex2 → Vertex3** as a single composite boundary; **fill** and **stroke** on that path; see **TimePointer**)
@@ -650,7 +651,8 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 ### Scene model
 
 - Emitted as a named group **Hand** (`**hand`** input is required).
-- **BossCircle** — named group containing one stroked **circle** (see below).
+- **BossCircle** — named group containing one stroked **arc** (bottom semicircle;
+  see below).
 - **Arm** — named group containing:
   - the stroked radial **line** segment (**Arm** geometry below), and
 - **Hand.TimeReadout** — composed readout along the arm (`**time now`** then `**HH:MM**`; see below).
@@ -659,8 +661,15 @@ unchanged either way. Hosts may set `stroke-linecap`/`stroke-linejoin` on the
 
 ### BossCircle
 
-- Center at **O** (`(0,0)`).
+- Centre at **O** (`(0,0)`).
 - Radius: `**hand.bossCircleRadius · RefRadius`**.
+- **Bottom semicircle**: the arc on the circle of that radius from the **left**
+  endpoint **(−r_boss, 0)** to the **right** endpoint **(r_boss, 0)**, sweeping
+  **counterclockwise** through the **bottom** of the circle (the half in **y ≤ 0**;
+  flat edge along the horizontal diameter through **O**). Equivalently: start
+  angle **π**, sweep **π** radians CCW.
+- For **§Global layout bounds**, the boss contributes **max_y = 0** (the diameter
+  endpoints); it does **not** extend **B_top** above **O**.
 
 ### Radial segments
 

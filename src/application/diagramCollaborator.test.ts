@@ -398,7 +398,7 @@ describe('createDiagramCollaborator', () => {
     );
   });
 
-  it('applies layoutBoundsTopMargin by extending B_top (previewFrame maxY grows)', () => {
+  it('applies layoutBoundsTopMargin by extending B_top (layoutBounds maxY grows)', () => {
     const collaborator = createDiagramCollaborator();
     const base = baseSpecForCollaboratorTest();
     const { layoutBoundsTopMargin: _presetMargin, ...baseNoTopMargin } = base;
@@ -406,12 +406,12 @@ describe('createDiagramCollaborator', () => {
     const k = 0.03;
     const withMargin = collaborator.generate({ ...baseNoTopMargin, layoutBoundsTopMargin: k });
     const delta = k * withMargin.diagram.refArc.refRadius;
-    const pfWithout = without.scene.meta.previewFrame;
-    const pfWith = withMargin.scene.meta.previewFrame;
-    expect(pfWith.maxY - pfWithout.maxY).toBeCloseTo(delta, 6);
     expect(withMargin.diagram.layoutBounds.maxY - without.diagram.layoutBounds.maxY).toBeCloseTo(
       delta,
       6,
+    );
+    expect(withMargin.scene.meta.previewFrame.maxY).toBeGreaterThanOrEqual(
+      without.scene.meta.previewFrame.maxY,
     );
   });
 

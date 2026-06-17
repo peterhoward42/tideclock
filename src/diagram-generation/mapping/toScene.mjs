@@ -7,7 +7,6 @@
 import {
   annularSector,
   arc,
-  circle,
   group,
   line,
   point,
@@ -633,10 +632,18 @@ export function handDiagramToGroup(hand, cx, cy) {
     x: firstAnchor.x + tagPrefix.length * charWidth * ux,
     y: firstAnchor.y + tagPrefix.length * charWidth * uy,
   };
+  const bossCenter = mapPoint(hand.bossCircle.center, cx, cy);
+  const rBoss = hand.bossCircle.radius;
+  const bossArcStart = mapPoint(
+    {
+      x: hand.bossCircle.center.x - rBoss,
+      y: hand.bossCircle.center.y,
+    },
+    cx,
+    cy,
+  );
   return group("Hand", [
-    group("BossCircle", [
-      circle(mapPoint(hand.bossCircle.center, cx, cy), hand.bossCircle.radius),
-    ]),
+    group("BossCircle", [arc(bossCenter, bossArcStart, Math.PI)]),
     group("BossLabel", [
       text({
         content: bossLabel.content,

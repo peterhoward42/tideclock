@@ -68,7 +68,7 @@ export const homeLayoutBase = {
     ],
   },
   hand: {
-    bossCircleRadius: 0.1,
+    bossCircleRadius: 0.15,
     /** k·RefRadius: arm outer end is this far inside the RefArc (0 = flush with RefArc). */
     armRefArcGap: 0.040,
     armTimeLabelFontHeight: 0.045,

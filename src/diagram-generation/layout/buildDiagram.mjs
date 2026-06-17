@@ -654,7 +654,14 @@ export function buildDiagram(spec) {
     annularBounds.minY,
     annularBounds.maxY,
   );
-  includePoint(layoutBounds, { x: 0, y: hand.bossCircle.radius });
+  includeArcSweepAxisBounds(
+    layoutBounds,
+    hand.bossCircle.center.x,
+    hand.bossCircle.center.y,
+    hand.bossCircle.radius,
+    Math.PI,
+    Math.PI,
+  );
   for (const marker of tideMarks) {
     extendBoundsByTideMarker(layoutBounds, marker);
   }

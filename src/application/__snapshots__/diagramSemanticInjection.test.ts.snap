@@ -1232,7 +1232,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "layoutBounds": {
     "maxX": 128.05368250390558,
-    "maxY": 9.44,
+    "maxY": 1.1560665783951014e-15,
     "minX": -126.42985520821964,
     "minY": -133.104,
   },
