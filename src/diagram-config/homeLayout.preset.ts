@@ -74,15 +74,6 @@ export const homeLayoutBase = {
     armTimeLabelFontHeight: 0.045,
     /** k·RefRadius: centered label inside the hand boss circle ("Tides"). */
     bossLabelFontHeight: 0.048,
-    livePulse: {
-      periodSeconds: 4,
-      radiusRelativeAmplitude: 0.04,
-      /**
-       * Kept alongside geometry pulse settings (rather than style config) because the pulse is one
-       * coherent animation envelope authored with radius behavior and consumed in scene construction.
-       */
-      opacityRelativeAmplitude: 0.40,
-    },
   },
   paintOrder: {
     overrides: [{ name: "Hand", place: "before", relativeTo: "AnnularBand" }],

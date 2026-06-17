@@ -68,11 +68,6 @@ type SemanticInjectionDiagramSpec = {
     readonly armRefArcGap: number;
     readonly armTimeLabelFontHeight: number;
     readonly bossLabelFontHeight: number;
-    readonly livePulse: {
-      readonly periodSeconds: number;
-      readonly radiusRelativeAmplitude: number;
-      readonly opacityRelativeAmplitude: number;
-    };
   };
   readonly homeMenuTrigger: {
     readonly diameter: number;
@@ -174,11 +169,6 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       armRefArcGap: 0.01,
       armTimeLabelFontHeight: 0.0288,
       bossLabelFontHeight: 0.03,
-      livePulse: {
-        periodSeconds: 4,
-        radiusRelativeAmplitude: 0.03,
-        opacityRelativeAmplitude: 0.30,
-      },
     },
     homeMenuTrigger: {
       diameter: 0.11,

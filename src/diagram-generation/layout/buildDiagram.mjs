@@ -37,7 +37,6 @@ import {
   parseCivilHalfDayLayoutOrThrow,
   resolveCivilHalfDayIsBeforeNoon,
 } from "../model/civilHalfDayLayout.mjs";
-import { handBossCircleMaxRadiusForLayout } from "./handBossLivePulse.mjs";
 import { parseCanonicalTimeOrThrow } from "../model/timeCanonical.mjs";
 import { computeNextTideEventFromSpec } from "../model/tideEvents.mjs";
 import {
@@ -498,28 +497,6 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
   if (!(bossLabelFontHeightK > 0)) {
     throw new Error("spec.hand.bossLabelFontHeight must be greater than 0");
   }
-  const livePulse = requirePlainObject(hand.livePulse, "spec.hand.livePulse");
-  const livePulsePeriodSeconds = requireFiniteNumber(
-    livePulse.periodSeconds,
-    "spec.hand.livePulse.periodSeconds",
-  );
-  if (!(livePulsePeriodSeconds > 0)) {
-    throw new Error("spec.hand.livePulse.periodSeconds must be greater than 0");
-  }
-  const livePulseRadiusRelativeAmplitude = requireFiniteNumber(
-    livePulse.radiusRelativeAmplitude,
-    "spec.hand.livePulse.radiusRelativeAmplitude",
-  );
-  if (!(livePulseRadiusRelativeAmplitude >= 0)) {
-    throw new Error("spec.hand.livePulse.radiusRelativeAmplitude must be >= 0");
-  }
-  const livePulseOpacityRelativeAmplitude = requireFiniteNumber(
-    livePulse.opacityRelativeAmplitude,
-    "spec.hand.livePulse.opacityRelativeAmplitude",
-  );
-  if (!(livePulseOpacityRelativeAmplitude >= 0)) {
-    throw new Error("spec.hand.livePulse.opacityRelativeAmplitude must be >= 0");
-  }
   const parsedNow = parseCanonicalTimeOrThrow(spec.timeNow, "spec.timeNow");
   if (parsedNow.isRightEndpoint) {
     throw new Error('spec.timeNow cannot be "24:00:00"');
@@ -563,11 +540,6 @@ function buildHandFromSpec(spec, refRadius, thetaLeft, thetaRight) {
     timeHours: parsedNow.hours,
     theta,
     bossCircle: { center: { x: 0, y: 0 }, radius: rBoss },
-    livePulse: {
-      periodSeconds: livePulsePeriodSeconds,
-      radiusRelativeAmplitude: livePulseRadiusRelativeAmplitude,
-      opacityRelativeAmplitude: livePulseOpacityRelativeAmplitude,
-    },
     bossLabel: {
       content: HAND_BOSS_LABEL_TEXT,
       fontSize: bossLabelFontHeightK * refRadius,
@@ -682,13 +654,7 @@ export function buildDiagram(spec) {
     annularBounds.minY,
     annularBounds.maxY,
   );
-  includePoint(layoutBounds, {
-    x: 0,
-    y: handBossCircleMaxRadiusForLayout(
-      hand.bossCircle.radius,
-      hand.livePulse.radiusRelativeAmplitude,
-    ),
-  });
+  includePoint(layoutBounds, { x: 0, y: hand.bossCircle.radius });
   for (const marker of tideMarks) {
     extendBoundsByTideMarker(layoutBounds, marker);
   }

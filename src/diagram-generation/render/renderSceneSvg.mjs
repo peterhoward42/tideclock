@@ -9,40 +9,6 @@ import { svgStrokeDasharrayAttrFragment } from "../presets/lineStyleRendering.mj
 const SCENE_STROKE_WIDTH = 1.0;
 const SVG_NON_SCALING_STROKE_ATTR = `vector-effect="non-scaling-stroke"`;
 
-/** Piecewise-linear SMIL samples per sine period (smooth enough at tiny amplitude). */
-const HAND_BOSS_RADIUS_OSCILLATION_SAMPLE_SEGMENTS = 32;
-
-/**
- * @param {number} baseRadius
- * @param {number} baseOpacity — from style role, or **1** when unset.
- * @param {{
- *   relativeAmplitude: number,
- *   periodSeconds: number,
- *   opacityRelativeAmplitude: number,
- * }} osc
- */
-function svgBossCircleLivePulseAnimates(baseRadius, baseOpacity, osc) {
-  const n = HAND_BOSS_RADIUS_OSCILLATION_SAMPLE_SEGMENTS;
-  const rValues = [];
-  const opacityValues = [];
-  const keyTimes = [];
-  for (let i = 0; i <= n; i += 1) {
-    const t = (i / n) * 2 * Math.PI;
-    const s = Math.sin(t);
-    rValues.push(baseRadius * (1 + osc.relativeAmplitude * s));
-    opacityValues.push(
-      Math.min(1, Math.max(0, baseOpacity * (1 + osc.opacityRelativeAmplitude * s))),
-    );
-    keyTimes.push(i / n);
-  }
-  const keyTimesStr = keyTimes.map((k) => k.toFixed(6)).join(";");
-  const rStr = rValues.map((r) => r.toFixed(6)).join(";");
-  const oStr = opacityValues.map((o) => o.toFixed(6)).join(";");
-  const dur = osc.periodSeconds;
-  return `    <animate attributeName="r" values="${rStr}" keyTimes="${keyTimesStr}" dur="${dur}s" repeatCount="indefinite" calcMode="linear" />
-    <animate attributeName="opacity" values="${oStr}" keyTimes="${keyTimesStr}" dur="${dur}s" repeatCount="indefinite" calcMode="linear" />`;
-}
-
 const RENDER_DEFAULTS = {
   lineStroke: "#334",
   curveStroke: "#335",
@@ -335,17 +301,6 @@ function renderNode(node, styleRuntime, leafName) {
         node.kind,
       );
       const strokeWidth = strokeWidthFromLeaf(styleRuntime, leafName);
-      const baseOpacity = opacityFromLeaf(styleRuntime, leafName, node.kind) ?? 1;
-      if (node.radiusOscillation != null) {
-        const inner = svgBossCircleLivePulseAnimates(
-          radius,
-          baseOpacity,
-          node.radiusOscillation,
-        );
-        const opacityAttr = ` opacity="${baseOpacity.toFixed(6)}"`;
-        const baseAttrs = `cx="${center.x}" cy="${center.y}" r="${radius}" fill="none" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR}${dash}${opacityAttr}`;
-        return `    <circle ${baseAttrs}>\n${inner}\n    </circle>`;
-      }
       const opacityAttr = opacityAttrFragmentFromLeaf(styleRuntime, leafName, node.kind);
       const baseAttrs = `cx="${center.x}" cy="${center.y}" r="${radius}" fill="none" stroke="${stroke}" stroke-width="${strokeWidth}" ${SVG_NON_SCALING_STROKE_ATTR}${dash}${opacityAttr}`;
       return `    <circle ${baseAttrs} />`;

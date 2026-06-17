@@ -72,11 +72,6 @@
  *   timeHours: number,
  *   theta: number,
  *   bossCircle: { center: DiagramPoint, radius: number },
- *   livePulse: {
- *     periodSeconds: number,
- *     radiusRelativeAmplitude: number,
- *     opacityRelativeAmplitude: number,
- *   },
  *   bossLabel: HandBossLabelDiagram,
  *   arm: DiagramLineSeg,
  *   armTimeReadout: HandTimeReadoutPartDiagram,

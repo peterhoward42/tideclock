@@ -1171,11 +1171,6 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
       "content": "Tides",
       "fontSize": 3.54,
     },
-    "livePulse": {
-      "opacityRelativeAmplitude": 0.3,
-      "periodSeconds": 4,
-      "radiusRelativeAmplitude": 0.03,
-    },
     "theta": 5.552762244273579,
     "timeHours": 19.33416666666667,
   },
@@ -1237,7 +1232,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "layoutBounds": {
     "maxX": 128.05368250390558,
-    "maxY": 9.7232,
+    "maxY": 9.44,
     "minX": -126.42985520821964,
     "minY": -133.104,
   },

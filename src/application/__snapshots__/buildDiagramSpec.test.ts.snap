@@ -1171,11 +1171,6 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
       "content": "Tides",
       "fontSize": 5.664,
     },
-    "livePulse": {
-      "opacityRelativeAmplitude": 0.4,
-      "periodSeconds": 4,
-      "radiusRelativeAmplitude": 0.04,
-    },
     "theta": 5.67242915205982,
     "timeHours": 19.33416666666667,
   },
@@ -1237,7 +1232,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   },
   "layoutBounds": {
     "maxX": 155.76000000000002,
-    "maxY": 18.172000000000004,
+    "maxY": 17.700000000000003,
     "minX": -155.76000000000002,
     "minY": -158.93283550303113,
   },
@@ -2246,7 +2241,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   "meta": {
     "previewFrame": {
       "maxX": 156.76000000000002,
-      "maxY": 19.172000000000004,
+      "maxY": 18.700000000000003,
       "minX": -156.76000000000002,
       "minY": -159.93283550303113,
     },
@@ -2265,11 +2260,6 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
                 },
                 "kind": "circle",
                 "radius": 11.8,
-                "radiusOscillation": {
-                  "opacityRelativeAmplitude": 0.4,
-                  "periodSeconds": 4,
-                  "relativeAmplitude": 0.04,
-                },
               },
             ],
             "kind": "group",

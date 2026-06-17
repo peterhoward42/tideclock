@@ -17,10 +17,6 @@ import {
   timePointerPath,
   qrMatrix,
 } from "../model/sceneModel.mjs";
-import {
-  handBossCircleMaxRadiusForLayout,
-} from "../layout/handBossLivePulse.mjs";
-
 /** Style-binding leaf names for tick segments (nested under scene group `TickMark`). */
 function tickMarkStyleLeafGroup(hour) {
   if (hour === 0 || hour === 24) return "TickMark.Endpoint";
@@ -259,19 +255,12 @@ function expandBoundsByNode(b, node) {
       expandBoundsByPoint(b, node.end);
       return;
     case "circle": {
-      const r =
-        node.radiusOscillation != null
-          ? handBossCircleMaxRadiusForLayout(
-              node.radius,
-              node.radiusOscillation.relativeAmplitude,
-            )
-          : node.radius;
       expandBoundsByRect(
         b,
-        node.center.x - r,
-        node.center.y - r,
-        node.center.x + r,
-        node.center.y + r,
+        node.center.x - node.radius,
+        node.center.y - node.radius,
+        node.center.x + node.radius,
+        node.center.y + node.radius,
       );
       return;
     }
@@ -646,13 +635,7 @@ export function handDiagramToGroup(hand, cx, cy) {
   };
   return group("Hand", [
     group("BossCircle", [
-      circle(mapPoint(hand.bossCircle.center, cx, cy), hand.bossCircle.radius, {
-        radiusOscillation: {
-          relativeAmplitude: hand.livePulse.radiusRelativeAmplitude,
-          periodSeconds: hand.livePulse.periodSeconds,
-          opacityRelativeAmplitude: hand.livePulse.opacityRelativeAmplitude,
-        },
-      }),
+      circle(mapPoint(hand.bossCircle.center, cx, cy), hand.bossCircle.radius),
     ]),
     group("BossLabel", [
       text({

@@ -20,7 +20,6 @@ Style colours and leaf bindings are loaded at collaborator init from `diagram-co
 | `layout/buildDiagram.mjs` | Orchestrator: spec → diagram document. |
 | `layout/tideMarks.mjs` | Tide mark rows from `spec.tideMarks`. |
 | `layout/specRequire.mjs` | Strict spec field guards. |
-| `layout/handBossLivePulse.mjs` | Hand boss pulse radius cap (layout + scene bounds). |
 | `model/` | Time canonical form, tide events, polar geometry, civil half-day branch. |
 | `mapping/toScene.mjs` | Diagram → scene groups (coordinates scaled to preview frame). |
 | `render/renderSceneSvg.mjs` | Scene → SVG (roles, line styles, QR plate). |
