@@ -1135,6 +1135,16 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "dividorArc": {
     "radiusK": 0.8653,
   },
+  "fullScreenIcon": {
+    "center": {
+      "x": 121.56368250390558,
+      "y": -12.39,
+    },
+    "hitSize": 12.98,
+    "iconHalfSize": 3.3040000000000003,
+    "rootSegmentLength": 0.3333333333333333,
+    "tipStrokeReach": 0.3333333333333333,
+  },
   "hand": {
     "arm": {
       "end": {
@@ -1221,6 +1231,15 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "diameter": 12.98,
     "iconBarCenterSpacing": 1.77,
     "iconBarHalfLength": 2.832,
+  },
+  "keepAwakeIcon": {
+    "center": {
+      "x": 106.22368250390558,
+      "y": -12.39,
+    },
+    "hitSize": 12.98,
+    "iconArmLength": 1.6520000000000001,
+    "iconHalfSize": 3.3040000000000003,
   },
   "layoutBounds": {
     "maxX": 128.05368250390558,

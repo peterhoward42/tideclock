@@ -45,6 +45,12 @@
   import { mountMenuSvgTriggerWire } from "./menuSvgTriggerWire";
   import { mountShareSvgTriggerWire } from "./shareSvgTriggerWire";
   import { mountLocationSvgTriggerWire } from "./locationSvgTriggerWire";
+  import { mountFullScreenIconWire } from "./fullScreenIconWire";
+  import { mountKeepAwakeIconWire } from "./keepAwakeIconWire";
+  import {
+    syncFullScreenIconAppearance,
+    syncKeepAwakeIconAppearance,
+  } from "./instrumentIconAppearance";
   import { copyTextToClipboard } from "../../copyEmail";
   import { buildShareUrlForTown } from "../../homeUrlQuery";
   import type { RouteProps } from "./routeProps";
@@ -60,11 +66,9 @@
   import {
     getKeepAwakeUserEnabled,
     keepAwakeUserStore,
-    setKeepAwakeUserEnabled,
     setTideWakePresentation,
     tideWakePresentationStore,
   } from "./keepAwakeUi";
-  import { isWakeLockApiSupported } from "./wakeLockSupport";
   import {
     elementSupportsFullscreenRequest,
     getDiagramFullscreenTarget,
@@ -122,7 +126,6 @@
   let homeShareLinkCopiedUrl = $state("");
   let keepAwakeUserWants = $state(get(keepAwakeUserStore));
   let keepAwakeTideViewPresentation = $state(get(tideWakePresentationStore));
-  let keepAwakeSectionOpen = $state(false);
   /** Snapshot from {@link displayOptimisation}; sole source for hint device/aspect policy. */
   let displaySnapshot = $state(get(displayOptimisation));
   /** Vertical letterbox slack (px) for `xMidYMid meet` fit of the diagram SVG inside the instrument. */
@@ -177,20 +180,6 @@
       return true;
     }
     return diagramSvg !== "";
-  });
-
-  const keepAwakeForHomeMenu = $derived({
-    sectionOpen: keepAwakeSectionOpen,
-    apiSupported: isWakeLockApiSupported(),
-    isHomeRoute: true,
-    userWants: keepAwakeUserWants,
-    homePresentation: keepAwakeTideViewPresentation,
-    onToggleSection: () => {
-      keepAwakeSectionOpen = !keepAwakeSectionOpen;
-    },
-    onToggle: (next: boolean) => {
-      setKeepAwakeUserEnabled(next);
-    },
   });
 
   // Subscriptions and lifecycle (onMount)
@@ -400,6 +389,44 @@
 
   $effect(() => {
     if (diagramSvg === "") {
+      return;
+    }
+
+    return mountFullScreenIconWire({
+      getDiagramHost: () => diagramHostEl,
+      onToggle: handleHomeFullscreenToggle,
+      scheduleAfterDomReady: (fn) => {
+        void tick().then(fn);
+      },
+    });
+  });
+
+  $effect(() => {
+    if (diagramSvg === "") {
+      return;
+    }
+
+    return mountKeepAwakeIconWire({
+      getDiagramHost: () => diagramHostEl,
+      scheduleAfterDomReady: (fn) => {
+        void tick().then(fn);
+      },
+    });
+  });
+
+  $effect(() => {
+    if (diagramSvg === "") return;
+    void homeFullscreenActive;
+    void keepAwakeUserWants;
+    void keepAwakeTideViewPresentation;
+    void tick().then(() => {
+      syncFullScreenIconAppearance(diagramHostEl, homeFullscreenActive);
+      syncKeepAwakeIconAppearance(diagramHostEl, keepAwakeUserWants);
+    });
+  });
+
+  $effect(() => {
+    if (diagramSvg === "") {
       homeMenuOpen = false;
       return;
     }
@@ -431,7 +458,6 @@
     if (!homeMenuOpen || diagramSvg === "") return;
     void homeNerdsOpen;
     void homeContactOpen;
-    void keepAwakeSectionOpen;
     void tick().then(() => {
       const host = diagramHostEl;
       if (host == null) return;
@@ -524,7 +550,6 @@
     homeMenuOpen = false;
     homeNerdsOpen = false;
     homeContactOpen = false;
-    keepAwakeSectionOpen = false;
   }
 
   function dismissHomeFullscreenAdvice(): void {
@@ -628,7 +653,6 @@
     onDismissDefaultLocationExplainer={onDismissDefaultLocationExplainer}
     {homeMenuOpen}
     {homeMenuPanelStyle}
-    {homeFullscreenActive}
     homeFullscreenAdviceOpen={homeFullscreenAdviceOpen}
     homeFullscreenAdviceLead={homeFullscreenAdviceLead}
     homeFullscreenAdviceBody={homeFullscreenAdviceBody}
@@ -639,10 +663,8 @@
     {homeNerdsOpen}
     {homeContactOpen}
     onCloseHomeMenu={closeHomeMenu}
-    onToggleHomeFullscreen={handleHomeFullscreenToggle}
     onToggleHomeNerds={handleHomeNerdsEntry}
     onToggleHomeContact={handleHomeContactEntry}
-    keepAwake={keepAwakeForHomeMenu}
   />
 </main>
 

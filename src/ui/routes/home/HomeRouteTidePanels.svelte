@@ -4,9 +4,7 @@
    * DOM refs are bindable so the route’s effects (SVG glue, menu wiring, clock patch) stay in Home.
    */
   import type { TideExtremesAtLocation } from "../../../core-models/TideExtremesAtLocation";
-  import PrimaryMenuContent, {
-    type KeepAwakeMenu,
-  } from "../../components/PrimaryMenuContent.svelte";
+  import PrimaryMenuContent from "../../components/PrimaryMenuContent.svelte";
   import HomeDefaultLocationExplainerOverlay from "./HomeDefaultLocationExplainerOverlay.svelte";
   import HomeFullscreenBrowserAdviceOverlay from "./HomeFullscreenBrowserAdviceOverlay.svelte";
   import HomeShareLinkCopiedOverlay from "./HomeShareLinkCopiedOverlay.svelte";
@@ -56,7 +54,6 @@
     readonly onDismissDefaultLocationExplainer: () => void;
     readonly homeMenuOpen: boolean;
     readonly homeMenuPanelStyle: string;
-    readonly homeFullscreenActive: boolean;
     readonly homeFullscreenAdviceOpen: boolean;
     readonly homeFullscreenAdviceLead: string;
     readonly homeFullscreenAdviceBody: string;
@@ -69,8 +66,6 @@
     readonly onCloseHomeMenu: () => void;
     readonly onToggleHomeNerds: () => void;
     readonly onToggleHomeContact: () => void;
-    readonly onToggleHomeFullscreen: () => void | Promise<void>;
-    readonly keepAwake: KeepAwakeMenu;
     diagramHostEl?: HTMLElement | undefined;
     homeInstrumentEl?: HTMLElement | undefined;
     homeMenuPanelEl?: HTMLElement | undefined;
@@ -89,7 +84,6 @@
     onDismissDefaultLocationExplainer,
     homeMenuOpen,
     homeMenuPanelStyle,
-    homeFullscreenActive,
     homeFullscreenAdviceOpen,
     homeFullscreenAdviceLead,
     homeFullscreenAdviceBody,
@@ -102,8 +96,6 @@
     onCloseHomeMenu,
     onToggleHomeNerds,
     onToggleHomeContact,
-    onToggleHomeFullscreen,
-    keepAwake,
     diagramHostEl = $bindable(),
     homeInstrumentEl = $bindable(),
     homeMenuPanelEl = $bindable(),
@@ -275,11 +267,6 @@
           contactOpen={homeContactOpen}
           onToggleContact={onToggleHomeContact}
           onNavigate={onCloseHomeMenu}
-          fullscreenActionLabel={homeFullscreenActive
-            ? "Exit fullscreen"
-            : "Really fullscreen"}
-          onToggleFullscreen={onToggleHomeFullscreen}
-          {keepAwake}
         />
       </div>
     {/if}
@@ -439,6 +426,118 @@
    */
   .home-instrument :global(svg g[data-name="HomeMenuTrigger"]) {
     pointer-events: all;
+  }
+
+  .home-instrument :global(svg g[data-name="FullScreenIcon"]),
+  .home-instrument :global(svg g[data-name="KeepAwakeIcon"]) {
+    pointer-events: all;
+  }
+
+  .home-instrument
+    :global(svg g[data-name="FullScreenIcon"]:not(.fullscreen-icon--active) g[data-name="FullScreenIcon.On"]),
+  .home-instrument
+    :global(svg g[data-name="FullScreenIcon"].fullscreen-icon--active g[data-name="FullScreenIcon.Off"]),
+  .home-instrument
+    :global(svg g[data-name="KeepAwakeIcon"]:not(.keep-awake-icon--active) g[data-name="KeepAwakeIcon.On"]),
+  .home-instrument
+    :global(svg g[data-name="KeepAwakeIcon"].keep-awake-icon--active g[data-name="KeepAwakeIcon.Off"]) {
+    display: none;
+  }
+
+  .home-instrument
+    :global(
+      svg
+        g[data-name="FullScreenIcon"]
+        g[data-name="FullScreenIcon.HitFrame"]
+        rect
+    ),
+  .home-instrument
+    :global(
+      svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.HitFrame"] rect
+    ) {
+    fill: transparent;
+    stroke: transparent;
+    opacity: 0;
+    transition:
+      fill 120ms ease-out,
+      stroke 120ms ease-out,
+      opacity 120ms ease-out;
+  }
+
+  .home-instrument :global(svg g[data-name="FullScreenIcon"] g[data-name="FullScreenIcon.Off"] line),
+  .home-instrument :global(svg g[data-name="FullScreenIcon"] g[data-name="FullScreenIcon.On"] line),
+  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.Off"] line),
+  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.On"] line),
+  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.Off"] circle),
+  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.On"] circle) {
+    transition:
+      stroke 120ms ease-out,
+      fill 120ms ease-out;
+  }
+
+  .home-instrument
+    :global(
+      svg
+        g[data-name="FullScreenIcon"].fullscreen-icon--hover
+        g[data-name="FullScreenIcon.HitFrame"]
+        rect
+    ),
+  .home-instrument
+    :global(
+      svg
+        g[data-name="KeepAwakeIcon"].keep-awake-icon--hover
+        g[data-name="KeepAwakeIcon.HitFrame"]
+        rect
+    ) {
+    fill: var(--surface-home-menu-trigger-hover);
+    stroke: var(--border-home-menu-trigger-hover);
+    opacity: 1;
+  }
+
+  .home-instrument
+    :global(
+      svg
+        g[data-name="FullScreenIcon"].fullscreen-icon--hover
+        g[data-name="FullScreenIcon.Off"]
+        line
+    ),
+  .home-instrument
+    :global(
+      svg
+        g[data-name="FullScreenIcon"].fullscreen-icon--hover
+        g[data-name="FullScreenIcon.On"]
+        line
+    ),
+  .home-instrument
+    :global(
+      svg
+        g[data-name="KeepAwakeIcon"].keep-awake-icon--hover
+        g[data-name="KeepAwakeIcon.Off"]
+        line
+    ),
+  .home-instrument
+    :global(
+      svg
+        g[data-name="KeepAwakeIcon"].keep-awake-icon--hover
+        g[data-name="KeepAwakeIcon.On"]
+        line
+    ),
+  .home-instrument
+    :global(
+      svg
+        g[data-name="KeepAwakeIcon"].keep-awake-icon--hover
+        g[data-name="KeepAwakeIcon.Off"]
+        circle
+    ),
+  .home-instrument
+    :global(
+      svg
+        g[data-name="KeepAwakeIcon"].keep-awake-icon--hover
+        g[data-name="KeepAwakeIcon.On"]
+        circle
+    ) {
+    stroke: var(--text-home-menu-trigger-hover);
+    fill: var(--text-home-menu-trigger-hover);
   }
 
   .home-instrument :global(svg g[data-name="HomeShareTrigger"]),

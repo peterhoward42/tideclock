@@ -153,5 +153,30 @@ export type HomeLayoutBase = {
     /** k·RefRadius: gap from action baseline up to heading baseline. */
     readonly labelAboveActions: number;
   };
+  /**
+   * Top-right instrument toggles (**FullScreenIcon**, **KeepAwakeIcon**); see tide-diagram spec.
+   */
+  readonly homeInstrumentIcons: {
+    /** k·RefRadius: distance from **B_top** down to the top edge of each hit frame. */
+    readonly offsetDownFromTop: number;
+    /** k·RefRadius: shared square hit-frame side length. */
+    readonly hitSize: number;
+    /** k·RefRadius: half-width of the glyph square inside the hit frame. */
+    readonly iconHalfSize: number;
+    /** k·RefRadius: keep-awake sun-ray layout scale. */
+    readonly iconArmLength: number;
+    readonly fullScreen: {
+      /** k·RefRadius: inset from **B_right** to **FullScreenIcon** trailing edge. */
+      readonly offsetInFromRight: number;
+      /** Dimensionless × |leading diagonal|; see tide-diagram spec §FullScreenIcon glyph. */
+      readonly rootSegmentLength: number;
+      /** Dimensionless × glyph square edge; see tide-diagram spec §FullScreenIcon glyph. */
+      readonly tipStrokeReach: number;
+    };
+    readonly keepAwake: {
+      /** k·RefRadius: inset from **B_right** to **KeepAwakeIcon** trailing edge. */
+      readonly offsetInFromRight: number;
+    };
+  };
   readonly tideMarksDefaults: HomeTideMarksDefaults;
 };

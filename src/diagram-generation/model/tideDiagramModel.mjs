@@ -124,6 +124,25 @@
  *   iconBarCenterSpacing: number,
  * }} HomeMenuTriggerDiagram
  *
+ * Top-right **FullScreenIcon**: square hit frame + Off/On diagonal-arrow glyphs.
+ *
+ * @typedef {{
+ *   center: DiagramPoint,
+ *   hitSize: number,
+ *   iconHalfSize: number,
+ *   rootSegmentLength: number,
+ *   tipStrokeReach: number,
+ * }} FullScreenIconDiagram
+ *
+ * Top-right **KeepAwakeIcon**: square hit frame + Off/On sun glyphs.
+ *
+ * @typedef {{
+ *   center: DiagramPoint,
+ *   hitSize: number,
+ *   iconHalfSize: number,
+ *   iconArmLength: number,
+ * }} KeepAwakeIconDiagram
+ *
  * @typedef {{
  *   content: string,
  *   fontSize: number,
@@ -189,6 +208,8 @@
  *   tideMarks: TideMarkDiagram[],
  *   annularBand: AnnularBandDiagram,
  *   homeMenuTrigger: HomeMenuTriggerDiagram,
+ *   fullScreenIcon: FullScreenIconDiagram,
+ *   keepAwakeIcon: KeepAwakeIconDiagram,
  *   homeLocationPanel: HomeLocationPanelDiagram,
  *   hand: HandDiagram,
  *   locationLabel: DiagramTextInst[],

@@ -362,6 +362,110 @@ locationPlacement: {
 }
 ```
 
+## FullScreenIcon and KeepAwakeIcon
+
+Top-right **instrument** toggles on the home tide diagram: **Really fullscreen** and **Keep screen awake**. Each is a **top-level** named group with a square **hit frame** (layout + hover chrome only; invisible at rest) and two glyph subgroups (**Off** / **On**) for enter/exit and off/on appearances. The host shows one glyph subgroup at a time.
+
+- **Not** part of **BRHCBundle**; bounds are **excluded** from `**B_*`** expansion (same rule as **HomeMenuTrigger**).
+
+### Shared placement
+
+- **Vertical** — shared top edge of each **hit frame** lies **`homeInstrumentIcons.offsetDownFromTop·R`** below **`B_top`** along **−Y** (**§Axes**).
+- **Horizontal** — each control’s trailing (right) edge lies **`offsetInFromRight·R`** inset from **`B_right`** (per-icon key under **`homeInstrumentIcons`**; see **FullScreenIcon placement**, **KeepAwakeIcon placement**).
+
+```
+homeInstrumentIcons: {
+    offsetDownFromTop: 0.06,  // k·R below B_top to hit-frame top edge
+    hitSize: 0.14,              // k·R square hit-frame side (shared)
+    iconHalfSize: 0.032,      // k·R half-width of glyph square inside hit frame
+    iconArmLength: 0.018,     // k·R ray layout scale (keep awake only)
+    fullScreen: {
+        offsetInFromRight: 0,   // k·R inset from B_right (outermost control)
+        rootSegmentLength: 1 / 3,   // dimensionless × |leading diagonal|; see FullScreenIcon glyph
+        tipStrokeReach: 1 / 3,      // dimensionless × square edge; see FullScreenIcon glyph
+    },
+    keepAwake: {
+        offsetInFromRight: 0.17, // k·R inset from B_right
+    },
+}
+```
+
+### Instrument hit frame
+
+Shared by **FullScreenIcon** and **KeepAwakeIcon**:
+
+- Axis-aligned **square** centred on the control, side **`hitSize`** (**k·R**).
+- Defines trailing/top placement, pointer target, and hover background.
+- **Not visible at rest**; the host may style **`*.HitFrame`** on hover.
+- The **glyph square** is centred inside the hit frame.
+
+### FullScreenIcon
+
+Host toggle for **Really fullscreen** / **Exit fullscreen**. Stroke via **`role.instrument.fullscreen.icon`**. Glyph geometry is **FullScreenIcon glyph**; position is **FullScreenIcon placement**.
+
+#### FullScreenIcon placement
+
+- Trailing edge inset **`homeInstrumentIcons.fullScreen.offsetInFromRight·R`** from **`B_right`** (outermost instrument control).
+- Vertical position per **Shared placement** above.
+- The glyph square (**FullScreenIcon glyph**) is centred in the hit frame.
+
+#### FullScreenIcon glyph
+
+Geometry is defined on a **glyph square**: axis-aligned square centred in the hit frame with side **`2 × iconHalfSize`** (half-width **`iconHalfSize`**, **§Sizing**).
+
+- **Leading diagonal** — the segment from the square’s **bottom-left** vertex to its **top-right** vertex.
+- **Composition** — the complete icon comprises **two Arrows** in all cases.
+- **Vertex assignment**
+  - One **Arrow** is anchored at the **bottom-left** vertex of the leading diagonal.
+  - One **Arrow** is anchored at the **top-right** vertex of the leading diagonal.
+
+**Arrow** (each):
+
+- Comprises one **root segment** and two **tip strokes** (**line** primitives).
+- **Root segment**
+  - Colinear with the **leading diagonal**.
+  - Length **`rootSegmentLength × |leading diagonal|`**, where **`rootSegmentLength`** is the dimensionless preset **`homeInstrumentIcons.fullScreen.rootSegmentLength`**.
+  - One endpoint at the arrow’s **assigned vertex**; the other toward the **centre** of the glyph square (the **inner** endpoint).
+  - The **logical tip** selects which root endpoint anchors the tip strokes:
+    - **Outer** — the assigned vertex (expand / enter fullscreen).
+    - **Inner** — the root segment’s inner endpoint (compress / exit fullscreen).
+- **Tip strokes**
+  - One stroke is **horizontal**; one is **vertical**.
+  - Both originate at the **logical tip**.
+  - Each stroke’s free endpoint lies on the **square edge** adjacent to the assigned vertex.
+  - When the logical tip is **outer**, each free endpoint is **`tipStrokeReach × edge length`** measured from the assigned vertex **inward** along that edge, where **`tipStrokeReach`** is the dimensionless preset **`homeInstrumentIcons.fullScreen.tipStrokeReach`** and **edge length** is the side of the glyph square.
+  - When the logical tip is **inner**, each free endpoint is where the horizontal or vertical line through the logical tip meets the corresponding adjacent edge.
+
+**Off / On presentation**:
+
+- **`FullScreenIcon.Off`** — enter fullscreen: both arrows with **outer** logical tip.
+- **`FullScreenIcon.On`** — exit fullscreen: both arrows with **inner** logical tip (same root segments; tip strokes re-anchor to the inner endpoint).
+
+The proportion scalars are **dimensionless fractions of the glyph square**; they are tunable presets and must not be hard-coded.
+
+#### FullScreenIcon scene model
+
+- Top-level group **`FullScreenIcon`**: child **`FullScreenIcon.HitFrame`** (**square `roundedRect`**, **`rx = 0`**); children **`FullScreenIcon.Off`** / **`FullScreenIcon.On`** (**line** primitives only).
+
+### KeepAwakeIcon
+
+Sun glyph toggle for **Keep screen awake**. When the Screen Wake Lock API is unavailable, the host **omits** **KeepAwakeIcon** from the live UI (diagram generation may still emit it; host hides the group).
+
+#### KeepAwakeIcon placement
+
+- Trailing edge inset **`homeInstrumentIcons.keepAwake.offsetInFromRight·R`** from **`B_right`**.
+- Vertical position per **Shared placement** above.
+
+#### KeepAwakeIcon glyph
+
+- **Off** — outline sun with rays.
+- **On** — filled disc with rays.
+- Ray layout scale: **`homeInstrumentIcons.iconArmLength`** (**k·R**).
+
+#### KeepAwakeIcon scene model
+
+- Top-level group **`KeepAwakeIcon`**: child **`KeepAwakeIcon.HitFrame`** (**square `roundedRect`**, **`rx = 0`**); children **`KeepAwakeIcon.Off`** / **`KeepAwakeIcon.On`** (**line** / **circle** primitives only).
+
 ## HomeMenuTrigger
 
 - **HomeMenuTrigger** is a top-level named group.

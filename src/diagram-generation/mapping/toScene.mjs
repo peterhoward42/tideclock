@@ -7,6 +7,7 @@
 import {
   annularSector,
   arc,
+  circle,
   group,
   line,
   point,
@@ -752,6 +753,198 @@ function homeMenuTriggerDiagramToGroup(hm, cx, cy) {
 }
 
 /**
+ * @param {{ x: number, y: number }} p
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {{ x: number, y: number }}
+ */
+function rotatePoint180(p, cx, cy) {
+  return { x: 2 * cx - p.x, y: 2 * cy - p.y };
+}
+
+/**
+ * One arrow on the fullscreen glyph square (see tide-diagram spec §FullScreenIcon glyph).
+ *
+ * @param {number} vertexX assigned vertex **X**
+ * @param {number} vertexY assigned vertex **Y**
+ * @param {number} innerX root inner endpoint **X**
+ * @param {number} innerY root inner endpoint **Y**
+ * @param {number} tipReach tip-stroke reach along edge when logical tip is outer
+ * @param {boolean} outerLogicalTip
+ * @returns {import('../model/sceneModel.mjs').LinePrimitive[]}
+ */
+function fullScreenArrowLines(
+  vertexX,
+  vertexY,
+  innerX,
+  innerY,
+  tipReach,
+  outerLogicalTip,
+) {
+  const root = line({ x: innerX, y: innerY }, { x: vertexX, y: vertexY });
+  if (outerLogicalTip) {
+    const isTopRight = vertexX > innerX;
+    if (isTopRight) {
+      return [
+        root,
+        line({ x: vertexX, y: vertexY }, { x: vertexX - tipReach, y: vertexY }),
+        line({ x: vertexX, y: vertexY }, { x: vertexX, y: vertexY - tipReach }),
+      ];
+    }
+    return [
+      root,
+      line({ x: vertexX, y: vertexY }, { x: vertexX + tipReach, y: vertexY }),
+      line({ x: vertexX, y: vertexY }, { x: vertexX, y: vertexY + tipReach }),
+    ];
+  }
+  const isTopRight = vertexX > innerX;
+  if (isTopRight) {
+    return [
+      root,
+      line({ x: innerX, y: innerY }, { x: vertexX, y: innerY }),
+      line({ x: innerX, y: innerY }, { x: innerX, y: vertexY }),
+    ];
+  }
+  return [
+    root,
+    line({ x: innerX, y: innerY }, { x: vertexX, y: innerY }),
+    line({ x: innerX, y: innerY }, { x: innerX, y: vertexY }),
+  ];
+}
+
+/**
+ * Two diagonal arrows on a glyph square (see tide-diagram spec §FullScreenIcon glyph).
+ *
+ * @param {number} cx
+ * @param {number} cy
+ * @param {number} hs half-size of glyph square
+ * @param {number} rootSegmentLength dimensionless × |leading diagonal|
+ * @param {number} tipStrokeReach dimensionless × square edge (outer logical tip only)
+ * @param {boolean} outerLogicalTip false = exit/compress (On), true = enter/expand (Off)
+ * @returns {import('../model/sceneModel.mjs').LinePrimitive[]}
+ */
+function fullScreenGlyphArrowLines(
+  cx,
+  cy,
+  hs,
+  rootSegmentLength,
+  tipStrokeReach,
+  outerLogicalTip,
+) {
+  const edge = 2 * hs;
+  const diagonal = edge * Math.SQRT2;
+  const rootLen = rootSegmentLength * diagonal;
+  const tipReach = tipStrokeReach * edge;
+  const invSqrt2 = 1 / Math.SQRT2;
+
+  const blX = cx - hs;
+  const blY = cy - hs;
+  const trX = cx + hs;
+  const trY = cy + hs;
+
+  const trInnerX = trX - rootLen * invSqrt2;
+  const trInnerY = trY - rootLen * invSqrt2;
+  const blInnerX = blX + rootLen * invSqrt2;
+  const blInnerY = blY + rootLen * invSqrt2;
+
+  return [
+    ...fullScreenArrowLines(trX, trY, trInnerX, trInnerY, tipReach, outerLogicalTip),
+    ...fullScreenArrowLines(blX, blY, blInnerX, blInnerY, tipReach, outerLogicalTip),
+  ];
+}
+
+/**
+ * @param {number} cx
+ * @param {number} cy
+ * @param {number} hs
+ * @param {boolean} filled when true (On), include filled sun disc
+ * @returns {import('../model/sceneModel.mjs').ScenePrimitive[]}
+ */
+function sunIconPrimitives(cx, cy, hs, filled) {
+  const discR = hs * 0.42;
+  const c = point(cx, cy);
+  const rays = [];
+  for (let i = 0; i < 8; i += 1) {
+    const a = (i * Math.PI) / 4;
+    const cosA = Math.cos(a);
+    const sinA = Math.sin(a);
+    rays.push(
+      line(
+        { x: cx + discR * cosA, y: cy + discR * sinA },
+        { x: cx + hs * cosA, y: cy + hs * sinA },
+      ),
+    );
+  }
+  if (filled) {
+    return [circle(c, discR), ...rays];
+  }
+  return [circle(c, discR), ...rays];
+}
+
+/**
+ * Square hit frame for instrument icon controls (layout + hover chrome only).
+ *
+ * @param {string} iconName
+ * @param {{ x: number, y: number }} center
+ * @param {number} hitSize
+ * @returns {import('../model/sceneModel.mjs').GroupNode}
+ */
+function instrumentIconHitFrameGroup(iconName, center, hitSize) {
+  return group(`${iconName}.HitFrame`, [roundedRect(center, hitSize, hitSize, 0)]);
+}
+
+/**
+ * @param {import('../model/tideDiagramModel.mjs').FullScreenIconDiagram} icon
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {import('../model/sceneModel.mjs').GroupNode}
+ */
+function fullScreenIconDiagramToGroup(icon, cx, cy) {
+  const c = mapPoint(icon.center, cx, cy);
+  const hitSize = icon.hitSize;
+  const hs = icon.iconHalfSize;
+  const { rootSegmentLength, tipStrokeReach } = icon;
+  const offGlyphs = fullScreenGlyphArrowLines(
+    c.x,
+    c.y,
+    hs,
+    rootSegmentLength,
+    tipStrokeReach,
+    true,
+  );
+  const onGlyphs = fullScreenGlyphArrowLines(
+    c.x,
+    c.y,
+    hs,
+    rootSegmentLength,
+    tipStrokeReach,
+    false,
+  );
+  return group("FullScreenIcon", [
+    instrumentIconHitFrameGroup("FullScreenIcon", c, hitSize),
+    group("FullScreenIcon.Off", offGlyphs),
+    group("FullScreenIcon.On", onGlyphs),
+  ]);
+}
+
+/**
+ * @param {import('../model/tideDiagramModel.mjs').KeepAwakeIconDiagram} icon
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {import('../model/sceneModel.mjs').GroupNode}
+ */
+function keepAwakeIconDiagramToGroup(icon, cx, cy) {
+  const c = mapPoint(icon.center, cx, cy);
+  const hitSize = icon.hitSize;
+  const hs = icon.iconHalfSize;
+  return group("KeepAwakeIcon", [
+    instrumentIconHitFrameGroup("KeepAwakeIcon", c, hitSize),
+    group("KeepAwakeIcon.Off", sunIconPrimitives(c.x, c.y, hs, false)),
+    group("KeepAwakeIcon.On", sunIconPrimitives(c.x, c.y, hs, true)),
+  ]);
+}
+
+/**
  * @param {import('../model/tideDiagramModel.mjs').TideDiagramDocument} diagram
  * @returns {import('../model/sceneModel.mjs').SceneDocument}
  */
@@ -769,6 +962,8 @@ export function tideDiagramToScene(diagram) {
     annularBand: annularBandDiagram,
     homeMenuTrigger,
     homeLocationPanel,
+    fullScreenIcon,
+    keepAwakeIcon,
     hand,
     mainLabel,
     locationLabel,
@@ -941,6 +1136,8 @@ export function tideDiagramToScene(diagram) {
   ]);
 
   const homeMenuTriggerGroup = homeMenuTriggerDiagramToGroup(homeMenuTrigger, cx, cy);
+  const fullScreenIconGroup = fullScreenIconDiagramToGroup(fullScreenIcon, cx, cy);
+  const keepAwakeIconGroup = keepAwakeIconDiagramToGroup(keepAwakeIcon, cx, cy);
   const homeLocationPanelGroup = homeLocationPanelDiagramToGroup(homeLocationPanel, cx, cy);
   const brandPlate = brand.brandQr.plate;
   const brandPlateCenter = mapPoint(brandPlate.center, cx, cy);
@@ -985,6 +1182,8 @@ export function tideDiagramToScene(diagram) {
     locationLabelGroup,
     brandGroup,
     homeMenuTriggerGroup,
+    fullScreenIconGroup,
+    keepAwakeIconGroup,
     homeLocationPanelGroup,
   ]);
   const orderedRoot = applyPaintOrderOverrides(

@@ -257,6 +257,35 @@ describe('createDiagramCollaborator', () => {
     expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(bBottom + menuAboveK * R + 0.5 * d, 6);
   });
 
+  it('places FullScreenIcon and KeepAwakeIcon below B_top with per-icon right insets (excluded from B_*)', () => {
+    const collaborator = createDiagramCollaborator();
+    const spec = baseSpecForCollaboratorTest();
+    const { diagram } = collaborator.generate(spec);
+    const R = diagram.refArc.refRadius;
+    const bRight = diagram.brhcDate.anchor.x;
+    const bTop = diagram.layoutBounds.maxY;
+    const icons = spec.homeInstrumentIcons as {
+      readonly offsetDownFromTop: number;
+      readonly hitSize: number;
+      readonly fullScreen: { readonly offsetInFromRight: number };
+      readonly keepAwake: { readonly offsetInFromRight: number };
+    };
+    const hitSize = icons.hitSize * R;
+    const topEdgeY = bTop - icons.offsetDownFromTop * R;
+    const expectedCenterY = topEdgeY - 0.5 * hitSize;
+
+    expect(diagram.fullScreenIcon.center.y).toBeCloseTo(expectedCenterY, 6);
+    expect(diagram.keepAwakeIcon.center.y).toBeCloseTo(expectedCenterY, 6);
+    expect(diagram.fullScreenIcon.center.x).toBeCloseTo(
+      bRight - icons.fullScreen.offsetInFromRight * R - 0.5 * hitSize,
+      6,
+    );
+    expect(diagram.keepAwakeIcon.center.x).toBeCloseTo(
+      bRight - icons.keepAwake.offsetInFromRight * R - 0.5 * hitSize,
+      6,
+    );
+  });
+
   it('places LocationLabel inside the dial from locationPlacement × t_now', () => {
     const collaborator = createDiagramCollaborator();
     const spec = baseSpecForCollaboratorTest();
@@ -499,6 +528,8 @@ describe('createDiagramCollaborator', () => {
       'LocationLabel',
       'Brand',
       'HomeMenuTrigger',
+      'FullScreenIcon',
+      'KeepAwakeIcon',
       'HomeLocationPanel',
     ]);
   });

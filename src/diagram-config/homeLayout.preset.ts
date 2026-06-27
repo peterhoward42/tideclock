@@ -21,7 +21,7 @@ export const homeLayoutBase = {
    */
   civilHalfDayLayout: "auto",
   refRadius: 118,
-  layoutBoundsTopMargin: 0.05,
+  layoutBoundsTopMargin: 0.25,
   layoutBoundsBottomMargin: 0.05,
   sweepRad: Math.PI,
   tickLabelTickLen: 0.025,
@@ -87,6 +87,18 @@ export const homeLayoutBase = {
     menuAboveBottom: 0.20,
     iconBarLength: 0.09,
     iconBarGap: 0.025,
+  },
+  homeInstrumentIcons: {
+    offsetDownFromTop: 0.06,
+    hitSize: 0.14,
+    iconHalfSize: 0.032,
+    iconArmLength: 0.018,
+    fullScreen: {
+      offsetInFromRight: 0,
+      rootSegmentLength: 1 / 3,
+      tipStrokeReach: 1 / 3,
+    },
+    keepAwake: { offsetInFromRight: 0.17 },
   },
   brandQrSize: 0.2,
   brandQrPlateCornerRx: 0.014,

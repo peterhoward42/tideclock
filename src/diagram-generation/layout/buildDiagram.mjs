@@ -16,6 +16,7 @@
  * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **Hand.TimeReadout** placement) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
  * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**menuRightPadding**`, `**menuAboveBottom**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; paddings and **iconBarGap** **>= 0**). Placed as a **top-level** scene sibling (**not** inside **BRHCBundle**): trailing edge inset from **B_right** by **`menuRightPadding·R`**; the **bottom** of the circular control lies **`menuAboveBottom·R`** above **B_bottom** (**Y** upward). Independent of **Brand** placement. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
+ * - `**homeInstrumentIcons**` is required: plain object with finite shared **`offsetDownFromTop`**, **`hitSize`**, **`iconHalfSize`**, **`iconArmLength`** (all **k·R** except **`fullScreen.rootSegmentLength`** / **`fullScreen.tipStrokeReach`**, which are dimensionless; hitSize and iconHalfSize **> 0**; others **>= 0**; fullscreen proportion scalars **> 0**) and per-icon **`fullScreen`** / **`keepAwake`** blocks with **`offsetInFromRight`** (**k·R**, **>= 0**). Emits top-level **FullScreenIcon** and **KeepAwakeIcon** with top edges **`offsetDownFromTop·R`** below **B_top**; trailing edges inset from **B_right** per icon. Excluded from **`layoutBounds`** (see tide-diagram spec §FullScreenIcon and KeepAwakeIcon).
  * - `**homeLocationPanel**` is required: plate + heading + **Share** / **Change** actions to the right of **BrandQR** (see tide-diagram spec §HomeLocationPanel). Excluded from **`layoutBounds`** except via **BrandQR** horizontal extent.
  * - **MainLabel** is horizontal text inside **BRHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
  * - `**brhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** — all **k·R**); `**brhcDatePrefix**` is a required string (see spec).
@@ -762,13 +763,26 @@ export function buildDiagram(spec) {
     layoutBounds.maxX,
     bBottom,
   );
+  const bTop = layoutBounds.maxY;
+  const fullScreenIcon = buildFullScreenIconFromSpec(
+    spec,
+    refRadius,
+    layoutBounds.maxX,
+    bTop,
+  );
+  const keepAwakeIcon = buildKeepAwakeIconFromSpec(
+    spec,
+    refRadius,
+    layoutBounds.maxX,
+    bTop,
+  );
   const homeLocationPanel = buildHomeLocationPanelFromSpec(
     spec,
     refRadius,
     bLeft,
     bBottom,
   );
-  // Intentionally omit homeMenuTrigger from layoutBounds; homeLocationPanel extends B_* (replacing former BrandURL).
+  // Intentionally omit homeMenuTrigger and instrument icons from layoutBounds; homeLocationPanel extends B_* (replacing former BrandURL).
   includeQrMatrixBounds(layoutBounds, brand.brandQr);
   includeHomeLocationPanelBounds(layoutBounds, homeLocationPanel);
 
@@ -796,6 +810,8 @@ export function buildDiagram(spec) {
     tideMarks,
     annularBand,
     homeMenuTrigger,
+    fullScreenIcon,
+    keepAwakeIcon,
     homeLocationPanel,
     hand,
     locationLabel,
@@ -1199,6 +1215,128 @@ function buildHomeMenuTriggerFromSpec(spec, refRadius, rightEdgeX, bBottom) {
     diameter,
     iconBarHalfLength: 0.5 * iconBarLengthK * refRadius,
     iconBarCenterSpacing: iconBarGapK * refRadius,
+  };
+}
+
+/**
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @param {number} rightEdgeX **B_right**
+ * @param {number} bTop **B_top** (global layout max **Y**)
+ * @param {'fullScreen' | 'keepAwake'} iconKey
+ * @returns {{
+ *   center: { x: number, y: number },
+ *   hitSize: number,
+ *   iconHalfSize: number,
+ * }}
+ */
+function instrumentIconPlacementFromSpec(spec, refRadius, rightEdgeX, bTop, iconKey) {
+  const o = requirePlainObject(spec.homeInstrumentIcons, "spec.homeInstrumentIcons");
+  const offsetDownFromTopK = requireFiniteNumber(
+    o.offsetDownFromTop,
+    "spec.homeInstrumentIcons.offsetDownFromTop",
+  );
+  const hitSizeK = requireFiniteNumber(o.hitSize, "spec.homeInstrumentIcons.hitSize");
+  const iconHalfSizeK = requireFiniteNumber(
+    o.iconHalfSize,
+    "spec.homeInstrumentIcons.iconHalfSize",
+  );
+  const iconBlock = requirePlainObject(o[iconKey], `spec.homeInstrumentIcons.${iconKey}`);
+  const offsetInFromRightK = requireFiniteNumber(
+    iconBlock.offsetInFromRight,
+    `spec.homeInstrumentIcons.${iconKey}.offsetInFromRight`,
+  );
+  if (offsetDownFromTopK < 0) {
+    throw new Error("spec.homeInstrumentIcons.offsetDownFromTop must be >= 0");
+  }
+  if (!(hitSizeK > 0)) {
+    throw new Error("spec.homeInstrumentIcons.hitSize must be greater than 0");
+  }
+  if (!(iconHalfSizeK > 0)) {
+    throw new Error("spec.homeInstrumentIcons.iconHalfSize must be greater than 0");
+  }
+  if (offsetInFromRightK < 0) {
+    throw new Error(`spec.homeInstrumentIcons.${iconKey}.offsetInFromRight must be >= 0`);
+  }
+  const hitSize = hitSizeK * refRadius;
+  const topEdgeY = bTop - offsetDownFromTopK * refRadius;
+  const centerY = topEdgeY - 0.5 * hitSize;
+  const centerX = rightEdgeX - offsetInFromRightK * refRadius - 0.5 * hitSize;
+  return {
+    center: { x: centerX, y: centerY },
+    hitSize,
+    iconHalfSize: iconHalfSizeK * refRadius,
+  };
+}
+
+/**
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @param {number} rightEdgeX **B_right**
+ * @param {number} bTop **B_top** (global layout max **Y**)
+ * @returns {import('../model/tideDiagramModel.mjs').FullScreenIconDiagram}
+ */
+function buildFullScreenIconFromSpec(spec, refRadius, rightEdgeX, bTop) {
+  const placement = instrumentIconPlacementFromSpec(
+    spec,
+    refRadius,
+    rightEdgeX,
+    bTop,
+    "fullScreen",
+  );
+  const o = requirePlainObject(spec.homeInstrumentIcons, "spec.homeInstrumentIcons");
+  const fullScreen = requirePlainObject(o.fullScreen, "spec.homeInstrumentIcons.fullScreen");
+  const rootSegmentLength = requireFiniteNumber(
+    fullScreen.rootSegmentLength,
+    "spec.homeInstrumentIcons.fullScreen.rootSegmentLength",
+  );
+  const tipStrokeReach = requireFiniteNumber(
+    fullScreen.tipStrokeReach,
+    "spec.homeInstrumentIcons.fullScreen.tipStrokeReach",
+  );
+  if (!(rootSegmentLength > 0)) {
+    throw new Error(
+      "spec.homeInstrumentIcons.fullScreen.rootSegmentLength must be greater than 0",
+    );
+  }
+  if (!(tipStrokeReach > 0)) {
+    throw new Error(
+      "spec.homeInstrumentIcons.fullScreen.tipStrokeReach must be greater than 0",
+    );
+  }
+  return {
+    ...placement,
+    rootSegmentLength,
+    tipStrokeReach,
+  };
+}
+
+/**
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @param {number} rightEdgeX **B_right**
+ * @param {number} bTop **B_top** (global layout max **Y**)
+ * @returns {import('../model/tideDiagramModel.mjs').KeepAwakeIconDiagram}
+ */
+function buildKeepAwakeIconFromSpec(spec, refRadius, rightEdgeX, bTop) {
+  const placement = instrumentIconPlacementFromSpec(
+    spec,
+    refRadius,
+    rightEdgeX,
+    bTop,
+    "keepAwake",
+  );
+  const o = requirePlainObject(spec.homeInstrumentIcons, "spec.homeInstrumentIcons");
+  const iconArmLengthK = requireFiniteNumber(
+    o.iconArmLength,
+    "spec.homeInstrumentIcons.iconArmLength",
+  );
+  if (iconArmLengthK < 0) {
+    throw new Error("spec.homeInstrumentIcons.iconArmLength must be >= 0");
+  }
+  return {
+    ...placement,
+    iconArmLength: iconArmLengthK * refRadius,
   };
 }
 

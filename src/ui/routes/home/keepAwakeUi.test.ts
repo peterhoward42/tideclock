@@ -1,65 +1,17 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { formatKeepAwakeStatusLine } from "./keepAwakeUi";
+import { describe, expect, it } from "vitest";
+import {
+  fullScreenIconAriaLabel,
+  keepAwakeIconAriaLabel,
+} from "./instrumentIconAria";
 
-// Retains vi.fn inside navigator.wakeLock stub: only signals API presence, is
-// never called or asserted. A minimal FakeNavigator would align with
-// fakes-over-mocks but is deferred as low priority.
-function stubWakeLockSupported(): void {
-  vi.stubGlobal("navigator", {
-    wakeLock: { request: vi.fn() },
-  });
-}
-
-describe("formatKeepAwakeStatusLine", () => {
-  beforeEach(() => {
-    vi.unstubAllGlobals();
+describe("instrument icon aria labels", () => {
+  it("labels fullscreen off and on", () => {
+    expect(fullScreenIconAriaLabel(false)).toBe("Really fullscreen");
+    expect(fullScreenIconAriaLabel(true)).toBe("Exit fullscreen");
   });
 
-  it("reports unsupported when the API is missing", () => {
-    vi.stubGlobal("navigator", {});
-    expect(formatKeepAwakeStatusLine(true, true, null)).toMatch(/not supported/i);
-  });
-
-  it("reports off when the user has not opted in", () => {
-    stubWakeLockSupported();
-    expect(formatKeepAwakeStatusLine(true, false, null)).toMatch(/is off/i);
-  });
-
-  it("directs the user to home when opted in elsewhere", () => {
-    stubWakeLockSupported();
-    const line = formatKeepAwakeStatusLine(false, true, null);
-    expect(line).toMatch(/home tide view/i);
-  });
-
-  it("reports requesting while presentation is null on home", () => {
-    stubWakeLockSupported();
-    expect(formatKeepAwakeStatusLine(true, true, null)).toMatch(/requesting/i);
-  });
-
-  it("reports active when the lock is held", () => {
-    stubWakeLockSupported();
-    expect(formatKeepAwakeStatusLine(true, true, { kind: "active" })).toMatch(
-      /stays awake/i,
-    );
-  });
-
-  it("reports paused when the tab is backgrounded", () => {
-    stubWakeLockSupported();
-    expect(
-      formatKeepAwakeStatusLine(true, true, {
-        kind: "inactive",
-        reason: "background",
-      }),
-    ).toMatch(/paused/i);
-  });
-
-  it("reports failure when the request was rejected", () => {
-    stubWakeLockSupported();
-    expect(
-      formatKeepAwakeStatusLine(true, true, {
-        kind: "inactive",
-        reason: "request_failed",
-      }),
-    ).toMatch(/could not request/i);
+  it("labels keep awake off and on", () => {
+    expect(keepAwakeIconAriaLabel(false)).toMatch(/is off/i);
+    expect(keepAwakeIconAriaLabel(true)).toMatch(/is on/i);
   });
 });

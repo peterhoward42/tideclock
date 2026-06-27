@@ -75,6 +75,18 @@ type SemanticInjectionDiagramSpec = {
     readonly iconBarLength: number;
     readonly iconBarGap: number;
   };
+  readonly homeInstrumentIcons: {
+    readonly offsetDownFromTop: number;
+    readonly hitSize: number;
+    readonly iconHalfSize: number;
+    readonly iconArmLength: number;
+    readonly fullScreen: {
+      readonly offsetInFromRight: number;
+      readonly rootSegmentLength: number;
+      readonly tipStrokeReach: number;
+    };
+    readonly keepAwake: { readonly offsetInFromRight: number };
+  };
   readonly homeLocationPanel: {
     readonly leftPadding: number;
     readonly aboveBottom: number;
@@ -175,6 +187,18 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       menuAboveBottom: 0.068,
       iconBarLength: 0.048,
       iconBarGap: 0.015,
+    },
+    homeInstrumentIcons: {
+      offsetDownFromTop: 0.05,
+      hitSize: 0.11,
+      iconHalfSize: 0.028,
+      iconArmLength: 0.014,
+      fullScreen: {
+        offsetInFromRight: 0,
+        rootSegmentLength: 1 / 3,
+        tipStrokeReach: 1 / 3,
+      },
+      keepAwake: { offsetInFromRight: 0.13 },
     },
     homeLocationPanel: {
       leftPadding: 0.12,
