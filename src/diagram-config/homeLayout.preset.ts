@@ -100,7 +100,7 @@ export const homeLayoutBase = {
     },
     keepAwake: {
       offsetFromLeft: 0,
-      aboveBottom: 0.4,
+      aboveBottom: 0.15,
       zzz: {
         label: "Zzz",
         fontHeight: .046,
@@ -110,7 +110,7 @@ export const homeLayoutBase = {
   brandQrSize: 0.2,
   brandQrPlateCornerRx: 0.014,
   brandQrLeftPadding: 0,
-  brandQrAboveBottom: .20,
+  brandQrAboveBottom: .30,
   homeLocationPanel: {
     leftPadding: 0.0,
     aboveBottom: 0,
