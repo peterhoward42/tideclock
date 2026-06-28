@@ -3,23 +3,22 @@
    * Centred explainer after each keep-awake diagram-icon toggle.
    */
   interface Props {
-    readonly lead: string;
-    readonly body: string;
+    readonly message: string;
     readonly onDismiss: () => void;
   }
 
-  let { lead, body, onDismiss }: Props = $props();
+  let { message, onDismiss }: Props = $props();
 </script>
 
 <div
   class="home-keep-awake-explainer"
   role="dialog"
-  aria-labelledby="home-keep-awake-explainer-lead"
-  aria-describedby="home-keep-awake-explainer-body"
+  aria-labelledby="home-keep-awake-explainer-message"
 >
   <div class="home-keep-awake-explainer__card">
-    <p class="home-keep-awake-explainer__lead" id="home-keep-awake-explainer-lead">{lead}</p>
-    <p class="home-keep-awake-explainer__body" id="home-keep-awake-explainer-body">{body}</p>
+    <p class="home-keep-awake-explainer__message" id="home-keep-awake-explainer-message">
+      {message}
+    </p>
     <button type="button" class="home-keep-awake-explainer__btn" onclick={onDismiss}>
       OK
     </button>
@@ -63,14 +62,7 @@
     }
   }
 
-  .home-keep-awake-explainer__lead {
-    margin: 0 0 1dvh;
-    font-size: 1.12em;
-    font-weight: 600;
-    line-height: 1.25;
-  }
-
-  .home-keep-awake-explainer__body {
+  .home-keep-awake-explainer__message {
     margin: 0 0 1.5dvh;
     font-size: 1em;
     line-height: 1.45;

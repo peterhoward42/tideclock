@@ -1,17 +1,8 @@
 /** Copy for the dismissable keep-awake explainer shown after each diagram-icon toggle. */
 
-export function formatKeepAwakeExplainerMessage(enabled: boolean): {
-  readonly lead: string;
-  readonly body: string;
-} {
+export function formatKeepAwakeExplainerMessage(enabled: boolean): string {
   if (enabled) {
-    return {
-      lead: "Keep screen awake is on",
-      body: "The display won't dim or switch off while TideDial is open and visible.",
-    };
+    return "Now your screen will stay awake";
   }
-  return {
-    lead: "Keep screen awake is off",
-    body: "The screen can sleep normally again.",
-  };
+  return "Now your screen can sleep as normal";
 }

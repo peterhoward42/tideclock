@@ -122,8 +122,7 @@
   let homeFullscreenAdviceLead = $state("");
   let homeFullscreenAdviceBody = $state("");
   let homeKeepAwakeExplainerOpen = $state(false);
-  let homeKeepAwakeExplainerLead = $state("");
-  let homeKeepAwakeExplainerBody = $state("");
+  let homeKeepAwakeExplainerMessage = $state("");
   let homeNerdsOpen = $state(false);
   let homeContactOpen = $state(false);
   let homeShareLinkCopiedOpen = $state(false);
@@ -427,9 +426,7 @@
         void tick().then(fn);
       },
       onToggled: (enabled) => {
-        const copy = formatKeepAwakeExplainerMessage(enabled);
-        homeKeepAwakeExplainerLead = copy.lead;
-        homeKeepAwakeExplainerBody = copy.body;
+        homeKeepAwakeExplainerMessage = formatKeepAwakeExplainerMessage(enabled);
         homeKeepAwakeExplainerOpen = true;
       },
     });
@@ -683,8 +680,7 @@
     homeFullscreenAdviceBody={homeFullscreenAdviceBody}
     onDismissHomeFullscreenAdvice={dismissHomeFullscreenAdvice}
     homeKeepAwakeExplainerOpen={homeKeepAwakeExplainerOpen}
-    homeKeepAwakeExplainerLead={homeKeepAwakeExplainerLead}
-    homeKeepAwakeExplainerBody={homeKeepAwakeExplainerBody}
+    homeKeepAwakeExplainerMessage={homeKeepAwakeExplainerMessage}
     onDismissHomeKeepAwakeExplainer={dismissHomeKeepAwakeExplainer}
     homeShareLinkCopiedOpen={homeShareLinkCopiedOpen}
     homeShareLinkCopiedUrl={homeShareLinkCopiedUrl}

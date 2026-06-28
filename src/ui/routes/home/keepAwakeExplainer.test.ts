@@ -3,14 +3,10 @@ import { formatKeepAwakeExplainerMessage } from "./keepAwakeExplainer";
 
 describe("formatKeepAwakeExplainerMessage", () => {
   it("explains when keep awake is on", () => {
-    const msg = formatKeepAwakeExplainerMessage(true);
-    expect(msg.lead).toMatch(/is on/i);
-    expect(msg.body).toMatch(/won't dim/i);
+    expect(formatKeepAwakeExplainerMessage(true)).toBe("Now your screen will stay awake");
   });
 
   it("explains when keep awake is off", () => {
-    const msg = formatKeepAwakeExplainerMessage(false);
-    expect(msg.lead).toMatch(/is off/i);
-    expect(msg.body).toMatch(/sleep normally/i);
+    expect(formatKeepAwakeExplainerMessage(false)).toBe("Now your screen can sleep as normal");
   });
 });

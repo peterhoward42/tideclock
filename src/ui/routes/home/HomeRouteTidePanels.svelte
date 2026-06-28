@@ -60,8 +60,7 @@
     readonly homeFullscreenAdviceBody: string;
     readonly onDismissHomeFullscreenAdvice: () => void;
     readonly homeKeepAwakeExplainerOpen: boolean;
-    readonly homeKeepAwakeExplainerLead: string;
-    readonly homeKeepAwakeExplainerBody: string;
+    readonly homeKeepAwakeExplainerMessage: string;
     readonly onDismissHomeKeepAwakeExplainer: () => void;
     readonly homeShareLinkCopiedOpen: boolean;
     readonly homeShareLinkCopiedUrl: string;
@@ -94,8 +93,7 @@
     homeFullscreenAdviceBody,
     onDismissHomeFullscreenAdvice,
     homeKeepAwakeExplainerOpen,
-    homeKeepAwakeExplainerLead,
-    homeKeepAwakeExplainerBody,
+    homeKeepAwakeExplainerMessage,
     onDismissHomeKeepAwakeExplainer,
     homeShareLinkCopiedOpen,
     homeShareLinkCopiedUrl,
@@ -258,8 +256,7 @@
     {/if}
     {#if homeKeepAwakeExplainerOpen}
       <HomeKeepAwakeExplainerOverlay
-        lead={homeKeepAwakeExplainerLead}
-        body={homeKeepAwakeExplainerBody}
+        message={homeKeepAwakeExplainerMessage}
         onDismiss={onDismissHomeKeepAwakeExplainer}
       />
     {/if}
