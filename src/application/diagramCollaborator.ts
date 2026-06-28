@@ -149,8 +149,8 @@ type HomeMenuTriggerDiagram = {
 };
 
 type FullScreenIconDiagram = {
+  readonly plate: HomeLocationPanelPlateDiagram;
   readonly center: DiagramPoint;
-  readonly hitSize: number;
   readonly iconHalfSize: number;
   readonly rootSegmentLength: number;
   readonly tipStrokeReach: number;

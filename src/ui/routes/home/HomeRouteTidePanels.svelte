@@ -459,13 +459,6 @@
 
   .home-instrument
     :global(
-      svg
-        g[data-name="FullScreenIcon"]
-        g[data-name="FullScreenIcon.HitFrame"]
-        rect
-    ),
-  .home-instrument
-    :global(
       svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.HitFrame"] rect
     ) {
     fill: transparent;
@@ -475,6 +468,18 @@
       fill 120ms ease-out,
       stroke 120ms ease-out,
       opacity 120ms ease-out;
+  }
+
+  .home-instrument
+    :global(
+      svg
+        g[data-name="FullScreenIcon"]
+        g[data-name="FullScreenIcon.HitFrame"]
+        rect
+    ) {
+    transition:
+      fill 120ms ease-out,
+      stroke 120ms ease-out;
   }
 
   .home-instrument :global(svg g[data-name="FullScreenIcon"] g[data-name="FullScreenIcon.Off"] line),

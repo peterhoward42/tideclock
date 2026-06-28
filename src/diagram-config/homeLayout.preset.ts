@@ -94,8 +94,9 @@ export const homeLayoutBase = {
     fullScreen: {
       offsetFromLeft: 0.45,
       aboveBottom: 0,
-      rootSegmentLength: 1 / 3,
-      tipStrokeReach: 1 / 3,
+      boxPad: 0.020,
+      rootSegmentLength: 1 / 2.5,
+      tipStrokeReach: 1 / 2.0,
     },
     keepAwake: {
       offsetFromLeft: 0,

@@ -380,8 +380,9 @@ homeInstrumentIcons: {
     hitSize: 0.14,              // k·R square hit-frame side (shared)
     iconHalfSize: 0.032,      // k·R half-width of glyph square inside hit frame
     fullScreen: {
-        offsetFromLeft: 0,      // k·R from B_left to hit-frame leading edge
-        aboveBottom: 0,         // k·R from B_bottom to hit-frame bottom edge
+        offsetFromLeft: 0,      // k·R from B_left to box leading edge
+        aboveBottom: 0,         // k·R from B_bottom to box bottom edge
+        boxPad: 0.012,          // k·R inset from glyph square edge to box edge (each side)
         rootSegmentLength: 1 / 3,   // dimensionless × |leading diagonal|; see FullScreenIcon glyph
         tipStrokeReach: 1 / 3,      // dimensionless × square edge; see FullScreenIcon glyph
     },
@@ -398,26 +399,29 @@ homeInstrumentIcons: {
 
 ### Instrument hit frame
 
-Shared by **FullScreenIcon** and **KeepAwakeIcon**:
+**KeepAwakeIcon** only:
 
 - Axis-aligned **square** centred on the control, side **`hitSize`** (**k·R**).
 - Defines pointer target and hover background.
-- **Not visible at rest**; the host may style **`*.HitFrame`** on hover.
+- **Not visible at rest**; the host may style **`KeepAwakeIcon.HitFrame`** on hover.
 - The **glyph square** is centred inside the hit frame.
 
 ### FullScreenIcon
 
-Host toggle for **Really fullscreen** / **Exit fullscreen**. Stroke via **`role.instrument.fullscreen.icon`**. Glyph geometry is **FullScreenIcon glyph**; position is **FullScreenIcon placement**.
+Host toggle for **Really fullscreen** / **Exit fullscreen**. Box stroke/fill via **`role.menu.trigger`** (same as **HomeLocationPanelPlate**). Glyph stroke via **`role.instrument.fullscreen.icon`**. Glyph geometry is **FullScreenIcon glyph**; position is **FullScreenIcon placement**.
 
 #### FullScreenIcon placement
 
-- Leading edge at **`homeInstrumentIcons.fullScreen.offsetFromLeft·R`** from **`B_left`**.
-- Bottom edge at **`homeInstrumentIcons.fullScreen.aboveBottom·R`** above **`B_bottom`**.
-- The glyph square (**FullScreenIcon glyph**) is centred in the hit frame.
+- Box leading edge at **`homeInstrumentIcons.fullScreen.offsetFromLeft·R`** from **`B_left`**.
+- Box bottom edge at **`homeInstrumentIcons.fullScreen.aboveBottom·R`** above **`B_bottom`**.
+- Box side **`2 × iconHalfSize + 2 × boxPad`** (**k·R**); **`boxPad`** is inset from the glyph square edge to the box edge on each side.
+- Corner radius **`homeLocationPanel.cornerRx·R`** (same as **HomeLocationPanelPlate**).
+- The glyph square (**FullScreenIcon glyph**) is centred in the box.
+- **`FullScreenIcon.HitFrame`** is the visible rounded box and the pointer hit target.
 
 #### FullScreenIcon glyph
 
-Geometry is defined on a **glyph square**: axis-aligned square centred in the hit frame with side **`2 × iconHalfSize`** (half-width **`iconHalfSize`**, **§Sizing**).
+Geometry is defined on a **glyph square**: axis-aligned square centred in the box with side **`2 × iconHalfSize`** (half-width **`iconHalfSize`**, **§Sizing**).
 
 - **Leading diagonal** — the segment from the square’s **bottom-left** vertex to its **top-right** vertex.
 - **Composition** — the complete icon comprises **two Arrows** in all cases.
@@ -451,7 +455,7 @@ The proportion scalars are **dimensionless fractions of the glyph square**; they
 
 #### FullScreenIcon scene model
 
-- Top-level group **`FullScreenIcon`**: child **`FullScreenIcon.HitFrame`** (**square `roundedRect`**, **`rx = 0`**); children **`FullScreenIcon.Off`** / **`FullScreenIcon.On`** (**line** primitives only).
+- Top-level group **`FullScreenIcon`**: child **`FullScreenIcon.HitFrame`** (**`roundedRect`** box, **`role.menu.trigger`**); children **`FullScreenIcon.Off`** / **`FullScreenIcon.On`** (**line** primitives only).
 
 ### KeepAwakeIcon
 

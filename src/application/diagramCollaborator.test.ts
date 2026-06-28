@@ -265,27 +265,45 @@ describe('createDiagramCollaborator', () => {
     const bLeft = diagram.layoutBounds.minX;
     const bBottom = diagram.layoutBounds.minY;
     const icons = spec.homeInstrumentIcons as {
+      readonly iconHalfSize: number;
       readonly hitSize: number;
-      readonly fullScreen: { readonly offsetFromLeft: number; readonly aboveBottom: number };
+      readonly fullScreen: {
+        readonly offsetFromLeft: number;
+        readonly aboveBottom: number;
+        readonly boxPad: number;
+      };
       readonly keepAwake: { readonly offsetFromLeft: number; readonly aboveBottom: number };
     };
-    const hitSize = icons.hitSize * R;
+    const keepAwakeHitSize = icons.hitSize * R;
+    const fullScreenBoxSide =
+      2 * icons.iconHalfSize * R + 2 * icons.fullScreen.boxPad * R;
 
-    const expectIconCenter = (
+    const expectKeepAwakeCenter = (
       icon: { center: { x: number; y: number } },
       offsetFromLeft: number,
       aboveBottom: number,
     ) => {
-      expect(icon.center.x).toBeCloseTo(bLeft + offsetFromLeft * R + 0.5 * hitSize, 6);
-      expect(icon.center.y).toBeCloseTo(bBottom + aboveBottom * R + 0.5 * hitSize, 6);
+      expect(icon.center.x).toBeCloseTo(
+        bLeft + offsetFromLeft * R + 0.5 * keepAwakeHitSize,
+        6,
+      );
+      expect(icon.center.y).toBeCloseTo(
+        bBottom + aboveBottom * R + 0.5 * keepAwakeHitSize,
+        6,
+      );
     };
 
-    expectIconCenter(
-      diagram.fullScreenIcon,
-      icons.fullScreen.offsetFromLeft,
-      icons.fullScreen.aboveBottom,
+    expect(diagram.fullScreenIcon.plate.width).toBeCloseTo(fullScreenBoxSide, 6);
+    expect(diagram.fullScreenIcon.plate.height).toBeCloseTo(fullScreenBoxSide, 6);
+    expect(diagram.fullScreenIcon.center.x).toBeCloseTo(
+      bLeft + icons.fullScreen.offsetFromLeft * R + 0.5 * fullScreenBoxSide,
+      6,
     );
-    expectIconCenter(
+    expect(diagram.fullScreenIcon.center.y).toBeCloseTo(
+      bBottom + icons.fullScreen.aboveBottom * R + 0.5 * fullScreenBoxSide,
+      6,
+    );
+    expectKeepAwakeCenter(
       diagram.keepAwakeIcon,
       icons.keepAwake.offsetFromLeft,
       icons.keepAwake.aboveBottom,

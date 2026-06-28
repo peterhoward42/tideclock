@@ -157,15 +157,17 @@ export type HomeLayoutBase = {
    * Top instrument toggles (**FullScreenIcon**, **KeepAwakeIcon**); see tide-diagram spec.
    */
   readonly homeInstrumentIcons: {
-    /** k·RefRadius: shared square hit-frame side length. */
+    /** k·RefRadius: shared square hit-frame side length (**KeepAwakeIcon** only). */
     readonly hitSize: number;
-    /** k·RefRadius: half-width of the glyph square inside the hit frame. */
+    /** k·RefRadius: half-width of the glyph square inside each control. */
     readonly iconHalfSize: number;
     readonly fullScreen: {
-      /** k·RefRadius: offset from **B_left** to hit-frame leading edge. */
+      /** k·RefRadius: offset from **B_left** to box leading edge. */
       readonly offsetFromLeft: number;
-      /** k·RefRadius: offset from **B_bottom** to hit-frame bottom edge. */
+      /** k·RefRadius: offset from **B_bottom** to box bottom edge. */
       readonly aboveBottom: number;
+      /** k·RefRadius: inset from glyph square edge to box edge on each side. */
+      readonly boxPad: number;
       /** Dimensionless × |leading diagonal|; see tide-diagram spec §FullScreenIcon glyph. */
       readonly rootSegmentLength: number;
       /** Dimensionless × glyph square edge; see tide-diagram spec §FullScreenIcon glyph. */

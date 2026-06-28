@@ -81,6 +81,7 @@ type SemanticInjectionDiagramSpec = {
     readonly fullScreen: {
       readonly offsetFromLeft: number;
       readonly aboveBottom: number;
+      readonly boxPad: number;
       readonly rootSegmentLength: number;
       readonly tipStrokeReach: number;
     };
@@ -200,6 +201,7 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       fullScreen: {
         offsetFromLeft: 0,
         aboveBottom: 0,
+        boxPad: 0.01,
         rootSegmentLength: 1 / 3,
         tipStrokeReach: 1 / 3,
       },

@@ -1137,11 +1137,19 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "fullScreenIcon": {
     "center": {
-      "x": -119.93985520821964,
-      "y": -126.61400000000002,
+      "x": -121.94585520821964,
+      "y": -128.62,
     },
-    "hitSize": 12.98,
     "iconHalfSize": 3.3040000000000003,
+    "plate": {
+      "center": {
+        "x": -121.94585520821964,
+        "y": -128.62,
+      },
+      "height": 8.968,
+      "rx": 1.18,
+      "width": 8.968,
+    },
     "rootSegmentLength": 0.3333333333333333,
     "tipStrokeReach": 0.3333333333333333,
   },

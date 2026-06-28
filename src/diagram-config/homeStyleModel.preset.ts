@@ -101,7 +101,7 @@ export const homeStyleModel: StyleModelSpec = {
     },
     {
       name: "role.instrument.fullscreen.icon",
-      colors: { color: "#555", strokeWidth: 1.75 },
+      colors: { color: "#777", strokeWidth: 1.5 },
     },
     {
       name: "role.instrument.keepAwake.prohibition",
@@ -109,7 +109,7 @@ export const homeStyleModel: StyleModelSpec = {
     },
     {
       name: "role.instrument.hitFrame",
-      colors: { strokeColor: "#555", fillColor: "#111", opacity: 0 },
+      colors: { strokeColor: "#555", fillColor: "#333", opacity: 0 },
     },
   ],
   bindings: [
@@ -144,7 +144,7 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
     { name: "HomeMenuTrigger", roleName: "role.menu.trigger" },
     { name: "HomeMenuTriggerIcon", roleName: "role.menu.trigger.icon" },
-    { name: "FullScreenIcon.HitFrame", roleName: "role.instrument.hitFrame" },
+    { name: "FullScreenIcon.HitFrame", roleName: "role.menu.trigger" },
     { name: "FullScreenIcon.Off", roleName: "role.instrument.fullscreen.icon" },
     { name: "FullScreenIcon.On", roleName: "role.instrument.fullscreen.icon" },
     { name: "KeepAwakeIcon.HitFrame", roleName: "role.instrument.hitFrame" },

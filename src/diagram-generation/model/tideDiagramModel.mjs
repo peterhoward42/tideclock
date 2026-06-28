@@ -124,11 +124,11 @@
  *   iconBarCenterSpacing: number,
  * }} HomeMenuTriggerDiagram
  *
- * Top-right **FullScreenIcon**: square hit frame + Off/On diagonal-arrow glyphs.
+ * Top-right **FullScreenIcon**: rounded box (hit target) + Off/On diagonal-arrow glyphs.
  *
  * @typedef {{
+ *   plate: HomeLocationPanelPlateDiagram,
  *   center: DiagramPoint,
- *   hitSize: number,
  *   iconHalfSize: number,
  *   rootSegmentLength: number,
  *   tipStrokeReach: number,

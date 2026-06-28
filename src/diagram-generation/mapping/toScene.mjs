@@ -923,7 +923,8 @@ function instrumentIconHitFrameGroup(iconName, center, hitSize) {
  */
 function fullScreenIconDiagramToGroup(icon, cx, cy) {
   const c = mapPoint(icon.center, cx, cy);
-  const hitSize = icon.hitSize;
+  const plate = icon.plate;
+  const plateCenter = mapPoint(plate.center, cx, cy);
   const hs = icon.iconHalfSize;
   const { rootSegmentLength, tipStrokeReach } = icon;
   const offGlyphs = fullScreenGlyphArrowLines(
@@ -943,7 +944,9 @@ function fullScreenIconDiagramToGroup(icon, cx, cy) {
     false,
   );
   return group("FullScreenIcon", [
-    instrumentIconHitFrameGroup("FullScreenIcon", c, hitSize),
+    group("FullScreenIcon.HitFrame", [
+      roundedRect(plateCenter, plate.width, plate.height, plate.rx),
+    ]),
     group("FullScreenIcon.Off", offGlyphs),
     group("FullScreenIcon.On", onGlyphs),
   ]);
