@@ -1138,7 +1138,7 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "fullScreenIcon": {
     "center": {
       "x": -119.93985520821964,
-      "y": -12.39,
+      "y": -126.61400000000002,
     },
     "hitSize": 12.98,
     "iconHalfSize": 3.3040000000000003,
@@ -1234,8 +1234,8 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   },
   "keepAwakeIcon": {
     "center": {
-      "x": -104.59985520821964,
-      "y": -12.39,
+      "x": -106.95985520821964,
+      "y": -126.61400000000002,
     },
     "hitSize": 12.98,
     "iconHalfSize": 3.3040000000000003,

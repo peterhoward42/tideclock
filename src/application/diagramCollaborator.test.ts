@@ -257,62 +257,38 @@ describe('createDiagramCollaborator', () => {
     expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(bBottom + menuAboveK * R + 0.5 * d, 6);
   });
 
-  it('places FullScreenIcon and KeepAwakeIcon below B_top with side-edge insets from B_right before noon (excluded from B_*)', () => {
+  it('places FullScreenIcon and KeepAwakeIcon from B_left and B_bottom per icon offsets (excluded from B_*)', () => {
     const collaborator = createDiagramCollaborator();
     const spec = baseSpecForCollaboratorTest();
     const { diagram } = collaborator.generate(spec);
     const R = diagram.refArc.refRadius;
-    const bRight = diagram.brhcDate.anchor.x;
-    const bTop = diagram.layoutBounds.maxY;
-    const icons = spec.homeInstrumentIcons as {
-      readonly offsetDownFromTop: number;
-      readonly hitSize: number;
-      readonly fullScreen: { readonly offsetInFromSideEdge: number };
-      readonly keepAwake: { readonly offsetInFromSideEdge: number };
-    };
-    const hitSize = icons.hitSize * R;
-    const topEdgeY = bTop - icons.offsetDownFromTop * R;
-    const expectedCenterY = topEdgeY - 0.5 * hitSize;
-
-    expect(diagram.fullScreenIcon.center.y).toBeCloseTo(expectedCenterY, 6);
-    expect(diagram.keepAwakeIcon.center.y).toBeCloseTo(expectedCenterY, 6);
-    expect(diagram.fullScreenIcon.center.x).toBeCloseTo(
-      bRight - icons.fullScreen.offsetInFromSideEdge * R - 0.5 * hitSize,
-      6,
-    );
-    expect(diagram.keepAwakeIcon.center.x).toBeCloseTo(
-      bRight - icons.keepAwake.offsetInFromSideEdge * R - 0.5 * hitSize,
-      6,
-    );
-  });
-
-  it('places FullScreenIcon and KeepAwakeIcon from B_left after noon', () => {
-    const collaborator = createDiagramCollaborator();
-    const base = baseSpecForCollaboratorTest();
-    const spec = { ...base, timeNow: '15:00:00' };
-    const { diagram } = collaborator.generate(spec);
-    const R = diagram.refArc.refRadius;
     const bLeft = diagram.layoutBounds.minX;
-    const bTop = diagram.layoutBounds.maxY;
+    const bBottom = diagram.layoutBounds.minY;
     const icons = spec.homeInstrumentIcons as {
-      readonly offsetDownFromTop: number;
       readonly hitSize: number;
-      readonly fullScreen: { readonly offsetInFromSideEdge: number };
-      readonly keepAwake: { readonly offsetInFromSideEdge: number };
+      readonly fullScreen: { readonly offsetFromLeft: number; readonly aboveBottom: number };
+      readonly keepAwake: { readonly offsetFromLeft: number; readonly aboveBottom: number };
     };
     const hitSize = icons.hitSize * R;
-    const topEdgeY = bTop - icons.offsetDownFromTop * R;
-    const expectedCenterY = topEdgeY - 0.5 * hitSize;
 
-    expect(diagram.fullScreenIcon.center.y).toBeCloseTo(expectedCenterY, 6);
-    expect(diagram.keepAwakeIcon.center.y).toBeCloseTo(expectedCenterY, 6);
-    expect(diagram.fullScreenIcon.center.x).toBeCloseTo(
-      bLeft + icons.fullScreen.offsetInFromSideEdge * R + 0.5 * hitSize,
-      6,
+    const expectIconCenter = (
+      icon: { center: { x: number; y: number } },
+      offsetFromLeft: number,
+      aboveBottom: number,
+    ) => {
+      expect(icon.center.x).toBeCloseTo(bLeft + offsetFromLeft * R + 0.5 * hitSize, 6);
+      expect(icon.center.y).toBeCloseTo(bBottom + aboveBottom * R + 0.5 * hitSize, 6);
+    };
+
+    expectIconCenter(
+      diagram.fullScreenIcon,
+      icons.fullScreen.offsetFromLeft,
+      icons.fullScreen.aboveBottom,
     );
-    expect(diagram.keepAwakeIcon.center.x).toBeCloseTo(
-      bLeft + icons.keepAwake.offsetInFromSideEdge * R + 0.5 * hitSize,
-      6,
+    expectIconCenter(
+      diagram.keepAwakeIcon,
+      icons.keepAwake.offsetFromLeft,
+      icons.keepAwake.aboveBottom,
     );
   });
 

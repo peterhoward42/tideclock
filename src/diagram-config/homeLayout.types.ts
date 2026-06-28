@@ -157,23 +157,25 @@ export type HomeLayoutBase = {
    * Top instrument toggles (**FullScreenIcon**, **KeepAwakeIcon**); see tide-diagram spec.
    */
   readonly homeInstrumentIcons: {
-    /** k·RefRadius: distance from **B_top** down to the top edge of each hit frame. */
-    readonly offsetDownFromTop: number;
     /** k·RefRadius: shared square hit-frame side length. */
     readonly hitSize: number;
     /** k·RefRadius: half-width of the glyph square inside the hit frame. */
     readonly iconHalfSize: number;
     readonly fullScreen: {
-      /** k·RefRadius: inset from **B_right** (before noon) or **B_left** (after noon) per civil half-day. */
-      readonly offsetInFromSideEdge: number;
+      /** k·RefRadius: offset from **B_left** to hit-frame leading edge. */
+      readonly offsetFromLeft: number;
+      /** k·RefRadius: offset from **B_bottom** to hit-frame bottom edge. */
+      readonly aboveBottom: number;
       /** Dimensionless × |leading diagonal|; see tide-diagram spec §FullScreenIcon glyph. */
       readonly rootSegmentLength: number;
       /** Dimensionless × glyph square edge; see tide-diagram spec §FullScreenIcon glyph. */
       readonly tipStrokeReach: number;
     };
     readonly keepAwake: {
-      /** k·RefRadius: inset from **B_right** (before noon) or **B_left** (after noon) per civil half-day. */
-      readonly offsetInFromSideEdge: number;
+      /** k·RefRadius: offset from **B_left** to hit-frame leading edge. */
+      readonly offsetFromLeft: number;
+      /** k·RefRadius: offset from **B_bottom** to hit-frame bottom edge. */
+      readonly aboveBottom: number;
       /** Sleep-label (**Zzz**) glyph tuning; see tide-diagram spec §KeepAwakeIcon glyph. */
       readonly zzz: {
         /** Label string (e.g. `"Zzz"`). */

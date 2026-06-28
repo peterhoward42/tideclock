@@ -7,9 +7,7 @@ import {
   utcIsoToLocalCanonicalTimeUtc,
 } from '../buildDiagramSpec';
 import { localBrhcDatePrefix, localCanonicalTimeNow } from '../localTimeStrings';
-import { createDiagramCollaborator, renderSceneSvg } from '../diagramCollaborator';
-import { loadStyleModel } from '../../diagram-generation/index.mjs';
-import { homeStyleModel } from '../../diagram-config';
+import { createDiagramCollaborator } from '../diagramCollaborator';
 import { buildLocationLayoutHourClock } from './locationLayoutHour';
 
 function fixtureExtremes(): TideExtremesAtLocation {
@@ -42,10 +40,9 @@ describe('buildLocationLayoutHourClock', () => {
     expect(clock.timeNow).toBe('23:00:00');
   });
 
-  it('timeNowHour preview path flips instrument icons across the dial like LocationLabel', () => {
+  it('timeNowHour preview path flips LocationLabel across the dial but not instrument icons', () => {
     const extremesAtLocation = fixtureExtremes();
     const collaborator = createDiagramCollaborator();
-    const styleRuntime = loadStyleModel(homeStyleModel);
 
     function bundleForPreviewHour(hour: number) {
       const clock = buildLocationLayoutHourClock({ hour, extremesAtLocation });
@@ -73,24 +70,14 @@ describe('buildLocationLayoutHourClock', () => {
       afternoon.diagram.locationLabel[0].anchor.x,
       6,
     );
-    expect(morning.diagram.fullScreenIcon.center.x).toBeGreaterThan(0);
-    expect(afternoon.diagram.fullScreenIcon.center.x).toBeLessThan(0);
-    expect(morning.diagram.fullScreenIcon.center.x).not.toBeCloseTo(
+    expect(morning.diagram.fullScreenIcon.center.x).toBeCloseTo(
       afternoon.diagram.fullScreenIcon.center.x,
       6,
     );
-
-    const morningSvg = renderSceneSvg(morning.scene, { styleRuntime });
-    const afternoonSvg = renderSceneSvg(afternoon.scene, { styleRuntime });
-    const morningHitFrame = morningSvg.match(
-      /data-name="FullScreenIcon\.HitFrame"[\s\S]*?x="([^"]+)"/,
+    expect(morning.diagram.fullScreenIcon.center.y).toBeCloseTo(
+      afternoon.diagram.fullScreenIcon.center.y,
+      6,
     );
-    const afternoonHitFrame = afternoonSvg.match(
-      /data-name="FullScreenIcon\.HitFrame"[\s\S]*?x="([^"]+)"/,
-    );
-    expect(morningHitFrame?.[1]).toBeDefined();
-    expect(afternoonHitFrame?.[1]).toBeDefined();
-    expect(morningHitFrame![1]).not.toBe(afternoonHitFrame![1]);
   });
 
   it('is inactive without extremes or for invalid hours', () => {

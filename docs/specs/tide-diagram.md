@@ -109,7 +109,7 @@ independent notion of “now.”
   - `**"auto"**` (default when the field is omitted) — any presentation rule in this specification that branches on **before noon** vs **after noon** uses the same condition as `**t_now`**: the **t_now ≤ 12** branch when `**t_now ≤ 12`**, else the `**t_now > 12**` branch (**t_now** per **§Global “time now” input**).
   - `**"beforeNoon"`** — force the **t_now ≤ 12** presentation branch everywhere this specification defines such a split, **regardless of** the numeric value of `**t_now`**.
   - `**"afterNoon"**` — force the `**t_now > 12**` presentation branch everywhere this specification defines such a split, **regardless of** `**t_now`**.
-- `**civilHalfDayLayout` does not change** `**timeNow`**, `**t_now**`, `**θ_now**`, hand position along the dial, tide markers, **MainLabel** tide copy, or any semantics derived from the marker schedule. It affects **only** layout/presentation branches keyed to civil half-day (currently **Hand.TimeReadout** anchor offset and baseline rotation, and **FullScreenIcon** / **KeepAwakeIcon** horizontal placement; additional elements MUST use this same input if they gain a half-day split later).
+- `**civilHalfDayLayout` does not change** `**timeNow`**, `**t_now**`, `**θ_now**`, hand position along the dial, tide markers, **MainLabel** tide copy, or any semantics derived from the marker schedule. It affects **only** layout/presentation branches keyed to civil half-day (currently **Hand.TimeReadout** anchor offset and baseline rotation; additional elements MUST use this same input if they gain a half-day split later).
 
 ### Radial lines and radial segments
 
@@ -364,30 +364,30 @@ locationPlacement: {
 
 ## FullScreenIcon and KeepAwakeIcon
 
-Top **instrument** toggles on the home tide diagram: **Really fullscreen** and **Keep screen awake**. Horizontal placement follows the civil half-day branch (**§Global civil half-day layout**): inset from **`B_right`** before noon, from **`B_left`** after noon. Each is a **top-level** named group with a square **hit frame** (layout + hover chrome only; invisible at rest) and two glyph subgroups (**Off** / **On**) for enter/exit and off/on appearances. The host shows one glyph subgroup at a time.
+Top **instrument** toggles on the home tide diagram: **Really fullscreen** and **Keep screen awake**. Each is a **top-level** named group with a square **hit frame** (layout + hover chrome only; invisible at rest) and two glyph subgroups (**Off** / **On**) for enter/exit and off/on appearances. The host shows one glyph subgroup at a time.
 
 - **Not** part of **BRHCBundle**; bounds are **excluded** from `**B_*`** expansion (same rule as **HomeMenuTrigger**).
+- Positioned **independently** via per-icon offsets from `**B_left**` / `**B_bottom**` (same convention as **HomeLocationPanel** and **BrandQR**).
 
 ### Shared placement
 
-- **Vertical** — shared top edge of each **hit frame** lies **`homeInstrumentIcons.offsetDownFromTop·R`** below **`B_top`** along **−Y** (**§Axes**).
-- **Horizontal** — per-icon **`offsetInFromSideEdge·R`** (**§Global civil half-day layout**):
-  - **Before-noon branch** (`**t_now ≤ 12**`, or forced via `**civilHalfDayLayout = "beforeNoon"`**): trailing (right) edge inset from **`B_right`**.
-  - **After-noon branch** (`**t_now > 12**`, or forced via `**civilHalfDayLayout = "afterNoon"`**): leading (left) edge inset from **`B_left`**.
-  - Keys live under **`homeInstrumentIcons.fullScreen`** / **`homeInstrumentIcons.keepAwake`** (see **FullScreenIcon placement**, **KeepAwakeIcon placement**).
+- **Horizontal** — per-icon leading edge at `**B_left + offsetFromLeft·R`**.
+- **Vertical** — per-icon bottom edge at `**B_bottom + aboveBottom·R`** (**Y** upward).
+- Keys live under **`homeInstrumentIcons.fullScreen`** / **`homeInstrumentIcons.keepAwake`** (see **FullScreenIcon placement**, **KeepAwakeIcon placement**).
 
 ```
 homeInstrumentIcons: {
-    offsetDownFromTop: 0.06,  // k·R below B_top to hit-frame top edge
     hitSize: 0.14,              // k·R square hit-frame side (shared)
     iconHalfSize: 0.032,      // k·R half-width of glyph square inside hit frame
     fullScreen: {
-        offsetInFromSideEdge: 0,   // k·R inset from active side edge (outermost control)
+        offsetFromLeft: 0,      // k·R from B_left to hit-frame leading edge
+        aboveBottom: 0,         // k·R from B_bottom to hit-frame bottom edge
         rootSegmentLength: 1 / 3,   // dimensionless × |leading diagonal|; see FullScreenIcon glyph
         tipStrokeReach: 1 / 3,      // dimensionless × square edge; see FullScreenIcon glyph
     },
     keepAwake: {
-        offsetInFromSideEdge: 0.17, // k·R inset from active side edge
+        offsetFromLeft: 0.14,   // k·R from B_left to hit-frame leading edge
+        aboveBottom: 0,         // k·R from B_bottom to hit-frame bottom edge
         zzz: {
             label: "Zzz",           // sleep label; first character capitalised in content
             fontHeight: 0.051,      // k·R uniform em size (§Sizing)
@@ -401,7 +401,7 @@ homeInstrumentIcons: {
 Shared by **FullScreenIcon** and **KeepAwakeIcon**:
 
 - Axis-aligned **square** centred on the control, side **`hitSize`** (**k·R**).
-- Defines trailing/top placement, pointer target, and hover background.
+- Defines pointer target and hover background.
 - **Not visible at rest**; the host may style **`*.HitFrame`** on hover.
 - The **glyph square** is centred inside the hit frame.
 
@@ -411,8 +411,8 @@ Host toggle for **Really fullscreen** / **Exit fullscreen**. Stroke via **`role.
 
 #### FullScreenIcon placement
 
-- Horizontal inset **`homeInstrumentIcons.fullScreen.offsetInFromSideEdge·R`** from the active side edge per **Shared placement** (outermost instrument control on that side).
-- Vertical position per **Shared placement** above.
+- Leading edge at **`homeInstrumentIcons.fullScreen.offsetFromLeft·R`** from **`B_left`**.
+- Bottom edge at **`homeInstrumentIcons.fullScreen.aboveBottom·R`** above **`B_bottom`**.
 - The glyph square (**FullScreenIcon glyph**) is centred in the hit frame.
 
 #### FullScreenIcon glyph
@@ -459,8 +459,8 @@ Sleep-metaphor glyph toggle for **Keep screen awake** (host semantics). When the
 
 #### KeepAwakeIcon placement
 
-- Horizontal inset **`homeInstrumentIcons.keepAwake.offsetInFromSideEdge·R`** from the active side edge per **Shared placement**.
-- Vertical position per **Shared placement** above.
+- Leading edge at **`homeInstrumentIcons.keepAwake.offsetFromLeft·R`** from **`B_left`**.
+- Bottom edge at **`homeInstrumentIcons.keepAwake.aboveBottom·R`** above **`B_bottom`**.
 - The glyph square (**KeepAwakeIcon glyph**) is centred in the hit frame.
 
 #### KeepAwakeIcon glyph

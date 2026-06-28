@@ -76,16 +76,17 @@ type SemanticInjectionDiagramSpec = {
     readonly iconBarGap: number;
   };
   readonly homeInstrumentIcons: {
-    readonly offsetDownFromTop: number;
     readonly hitSize: number;
     readonly iconHalfSize: number;
     readonly fullScreen: {
-      readonly offsetInFromSideEdge: number;
+      readonly offsetFromLeft: number;
+      readonly aboveBottom: number;
       readonly rootSegmentLength: number;
       readonly tipStrokeReach: number;
     };
     readonly keepAwake: {
-      readonly offsetInFromSideEdge: number;
+      readonly offsetFromLeft: number;
+      readonly aboveBottom: number;
       readonly zzz: {
         readonly label: string;
         readonly fontHeight: number;
@@ -194,16 +195,17 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       iconBarGap: 0.015,
     },
     homeInstrumentIcons: {
-      offsetDownFromTop: 0.05,
       hitSize: 0.11,
       iconHalfSize: 0.028,
       fullScreen: {
-        offsetInFromSideEdge: 0,
+        offsetFromLeft: 0,
+        aboveBottom: 0,
         rootSegmentLength: 1 / 3,
         tipStrokeReach: 1 / 3,
       },
       keepAwake: {
-        offsetInFromSideEdge: 0.13,
+        offsetFromLeft: 0.11,
+        aboveBottom: 0,
         zzz: {
           label: "Zzz",
           fontHeight: 0.045,

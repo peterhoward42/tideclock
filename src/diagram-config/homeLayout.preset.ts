@@ -89,16 +89,17 @@ export const homeLayoutBase = {
     iconBarGap: 0.025,
   },
   homeInstrumentIcons: {
-    offsetDownFromTop: 0.0,
     hitSize: 0.14,
     iconHalfSize: 0.032,
     fullScreen: {
-      offsetInFromSideEdge: .6,
+      offsetFromLeft: 0.45,
+      aboveBottom: 0,
       rootSegmentLength: 1 / 3,
       tipStrokeReach: 1 / 3,
     },
     keepAwake: {
-      offsetInFromSideEdge: 0.4,
+      offsetFromLeft: 0,
+      aboveBottom: 0.4,
       zzz: {
         label: "Zzz",
         fontHeight: .046,
