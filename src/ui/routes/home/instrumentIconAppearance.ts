@@ -20,6 +20,12 @@ export function queryKeepAwakeIconGroup(
   return diagramHost.querySelector('svg g[data-name="KeepAwakeIcon"]');
 }
 
+export function queryKeepAwakeIconControlGroup(
+  diagramHost: HTMLElement,
+): SVGGElement | null {
+  return diagramHost.querySelector('svg g[data-name="KeepAwakeIcon.Control"]');
+}
+
 export function syncFullScreenIconAppearance(
   diagramHost: HTMLElement | undefined,
   active: boolean,
@@ -43,6 +49,9 @@ export function syncKeepAwakeIconAppearance(
   icon.style.display = supported ? "" : "none";
   if (!supported) return;
   icon.classList.toggle("keep-awake-icon--active", userWants);
-  icon.setAttribute("role", "button");
-  icon.setAttribute("aria-label", keepAwakeIconAriaLabel(userWants));
+  const control = queryKeepAwakeIconControlGroup(diagramHost);
+  if (control == null) return;
+  control.setAttribute("role", "checkbox");
+  control.setAttribute("aria-checked", userWants ? "true" : "false");
+  control.setAttribute("aria-label", keepAwakeIconAriaLabel(userWants));
 }

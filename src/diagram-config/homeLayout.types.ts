@@ -157,8 +157,6 @@ export type HomeLayoutBase = {
    * Top instrument toggles (**FullScreenIcon**, **KeepAwakeIcon**); see tide-diagram spec.
    */
   readonly homeInstrumentIcons: {
-    /** k·RefRadius: shared square hit-frame side length (**KeepAwakeIcon** only). */
-    readonly hitSize: number;
     /** k·RefRadius: half-width of the glyph square inside each control. */
     readonly iconHalfSize: number;
     readonly fullScreen: {
@@ -174,17 +172,18 @@ export type HomeLayoutBase = {
       readonly tipStrokeReach: number;
     };
     readonly keepAwake: {
-      /** k·RefRadius: offset from **B_left** to hit-frame leading edge. */
+      /** k·RefRadius: offset from **B_left** to control leading edge. */
       readonly offsetFromLeft: number;
-      /** k·RefRadius: offset from **B_bottom** to hit-frame bottom edge. */
+      /** k·RefRadius: offset from **B_bottom** to control bottom edge. */
       readonly aboveBottom: number;
-      /** Sleep-label (**Zzz**) glyph tuning; see tide-diagram spec §KeepAwakeIcon glyph. */
-      readonly zzz: {
-        /** Label string (e.g. `"Zzz"`). */
-        readonly label: string;
-        /** k·RefRadius: uniform label **FontHeight** (§Sizing). */
-        readonly fontHeight: number;
-      };
+      /** Label copy; see tide-diagram spec §KeepAwakeIcon. */
+      readonly label: string;
+      /** k·RefRadius: uniform label **FontHeight** (§Sizing). */
+      readonly fontHeight: number;
+      /** k·RefRadius: checkbox square side length. */
+      readonly checkboxSize: number;
+      /** k·RefRadius: gap from label trailing edge to checkbox leading edge. */
+      readonly gapBeforeCheckbox: number;
     };
   };
   readonly tideMarksDefaults: HomeTideMarksDefaults;

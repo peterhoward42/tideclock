@@ -266,7 +266,6 @@ describe('createDiagramCollaborator', () => {
     const bBottom = diagram.layoutBounds.minY;
     const icons = spec.homeInstrumentIcons as {
       readonly iconHalfSize: number;
-      readonly hitSize: number;
       readonly fullScreen: {
         readonly offsetFromLeft: number;
         readonly aboveBottom: number;
@@ -274,23 +273,16 @@ describe('createDiagramCollaborator', () => {
       };
       readonly keepAwake: { readonly offsetFromLeft: number; readonly aboveBottom: number };
     };
-    const keepAwakeHitSize = icons.hitSize * R;
     const fullScreenBoxSide =
       2 * icons.iconHalfSize * R + 2 * icons.fullScreen.boxPad * R;
 
-    const expectKeepAwakeCenter = (
-      icon: { center: { x: number; y: number } },
+    const expectKeepAwakeAnchor = (
+      icon: { anchor: { x: number; y: number } },
       offsetFromLeft: number,
       aboveBottom: number,
     ) => {
-      expect(icon.center.x).toBeCloseTo(
-        bLeft + offsetFromLeft * R + 0.5 * keepAwakeHitSize,
-        6,
-      );
-      expect(icon.center.y).toBeCloseTo(
-        bBottom + aboveBottom * R + 0.5 * keepAwakeHitSize,
-        6,
-      );
+      expect(icon.anchor.x).toBeCloseTo(bLeft + offsetFromLeft * R, 6);
+      expect(icon.anchor.y).toBeCloseTo(bBottom + aboveBottom * R, 6);
     };
 
     expect(diagram.fullScreenIcon.plate.width).toBeCloseTo(fullScreenBoxSide, 6);
@@ -303,7 +295,7 @@ describe('createDiagramCollaborator', () => {
       bBottom + icons.fullScreen.aboveBottom * R + 0.5 * fullScreenBoxSide,
       6,
     );
-    expectKeepAwakeCenter(
+    expectKeepAwakeAnchor(
       diagram.keepAwakeIcon,
       icons.keepAwake.offsetFromLeft,
       icons.keepAwake.aboveBottom,

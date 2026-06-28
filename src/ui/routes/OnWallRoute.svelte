@@ -42,9 +42,9 @@
   </p>
 
   <p class="onwall-route__p">
-    On the tide diagram there is a fullscreen control and a keep-awake control (the
-    <strong>Zzz</strong> icon). Use fullscreen to fill the display, and keep awake so it
-    doesn't dim or switch off.
+    On the tide diagram there is a fullscreen control and a
+    <strong>Keep awake</strong> checkbox. Use fullscreen to fill the display, and keep
+    awake so it doesn't dim or switch off.
   </p>
 
   <p class="onwall-route__p">

@@ -134,18 +134,23 @@
  *   tipStrokeReach: number,
  * }} FullScreenIconDiagram
  *
- * Top-right **KeepAwakeIcon**: square hit frame + Off/On sleep-metaphor glyphs.
+ * Top-left **KeepAwakeIcon**: plain label + checkbox toggle (**Off** / **On** branches).
  *
  * @typedef {{
- *   label: string,
+ *   text: string,
  *   fontSize: number,
- * }} KeepAwakeZzzLabel
+ *   anchor: DiagramPoint,
+ * }} KeepAwakeLabelDiagram
  *
  * @typedef {{
+ *   size: number,
  *   center: DiagramPoint,
- *   hitSize: number,
- *   iconHalfSize: number,
- *   zzz: KeepAwakeZzzLabel,
+ * }} KeepAwakeCheckboxDiagram
+ *
+ * @typedef {{
+ *   anchor: DiagramPoint,
+ *   label: KeepAwakeLabelDiagram,
+ *   checkbox: KeepAwakeCheckboxDiagram,
  * }} KeepAwakeIconDiagram
  *
  * @typedef {{

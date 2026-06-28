@@ -89,7 +89,6 @@ export const homeLayoutBase = {
     iconBarGap: 0.025,
   },
   homeInstrumentIcons: {
-    hitSize: 0.14,
     iconHalfSize: 0.032,
     fullScreen: {
       offsetFromLeft: 0.45,
@@ -100,11 +99,11 @@ export const homeLayoutBase = {
     },
     keepAwake: {
       offsetFromLeft: 0,
-      aboveBottom: 0.15,
-      zzz: {
-        label: "Zzz",
-        fontHeight: .046,
-      },
+      aboveBottom: 0.20,
+      label: "Keep awake",
+      fontHeight: 0.045,
+      checkboxSize: 0.042,
+      gapBeforeCheckbox: 0.025,
     },
   },
   brandQrSize: 0.2,

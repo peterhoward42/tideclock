@@ -10,8 +10,8 @@ describe("instrument icon aria labels", () => {
     expect(fullScreenIconAriaLabel(true)).toBe("Exit fullscreen");
   });
 
-  it("labels keep awake off and on", () => {
-    expect(keepAwakeIconAriaLabel(false)).toMatch(/is off/i);
-    expect(keepAwakeIconAriaLabel(true)).toMatch(/is on/i);
+  it("labels keep awake checkbox", () => {
+    expect(keepAwakeIconAriaLabel(false)).toBe("Keep screen awake");
+    expect(keepAwakeIconAriaLabel(true)).toBe("Keep screen awake");
   });
 });

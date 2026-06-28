@@ -853,66 +853,44 @@ function fullScreenGlyphArrowLines(
   ];
 }
 
-/** Monospace width estimate; matches `BRHC_LABEL_CHAR_WIDTH_EM` in `buildDiagram.mjs`. */
-const KEEP_AWAKE_LABEL_CHAR_WIDTH_EM = 0.6;
-/** Half-em vertical extent for `dominantBaseline: middle`; matches `includeDiagramTextBounds`. */
-const KEEP_AWAKE_LABEL_MIDDLE_HALF_EM = 0.52;
-
 /**
- * @param {number} cx
- * @param {number} cy
- * @param {import('../model/tideDiagramModel.mjs').KeepAwakeZzzLabel} zzz
+ * @param {import('../model/tideDiagramModel.mjs').KeepAwakeLabelDiagram} label
  * @returns {import('../model/sceneModel.mjs').TextPrimitive}
  */
-function keepAwakeZzzText(cx, cy, zzz) {
+function keepAwakeLabelText(label) {
   return text({
-    content: zzz.label,
-    size: zzz.fontSize,
-    hAlign: "center",
+    content: label.text,
+    size: label.fontSize,
+    hAlign: "left",
     angleRad: 0,
-    anchor: point(cx, cy),
+    anchor: point(label.anchor.x, label.anchor.y),
     dominantBaseline: "middle",
   });
 }
 
 /**
- * @param {string} content
- * @param {number} fontSize
- * @returns {{ halfWidth: number, halfHeight: number }}
+ * @param {import('../model/tideDiagramModel.mjs').KeepAwakeCheckboxDiagram} checkbox
+ * @returns {import('../model/sceneModel.mjs').RoundedRectPrimitive}
  */
-function keepAwakeLabelHalfExtents(content, fontSize) {
-  return {
-    halfWidth: 0.5 * content.length * fontSize * KEEP_AWAKE_LABEL_CHAR_WIDTH_EM,
-    halfHeight: KEEP_AWAKE_LABEL_MIDDLE_HALF_EM * fontSize,
-  };
+function keepAwakeCheckboxBox(checkbox) {
+  const { center, size } = checkbox;
+  return roundedRect(point(center.x, center.y), size, size, 0);
 }
 
 /**
- * Diagonal prohibition line across the estimated label bounding box (bottom-left → top-right).
- *
- * @param {number} cx
- * @param {number} cy
- * @param {import('../model/tideDiagramModel.mjs').KeepAwakeZzzLabel} zzz
- * @returns {import('../model/sceneModel.mjs').ScenePrimitive}
+ * @param {import('../model/tideDiagramModel.mjs').KeepAwakeCheckboxDiagram} checkbox
+ * @returns {import('../model/sceneModel.mjs').LinePrimitive[]}
  */
-function keepAwakeProhibitionLineOverText(cx, cy, zzz) {
-  const { halfWidth, halfHeight } = keepAwakeLabelHalfExtents(zzz.label, zzz.fontSize);
-  return line(
-    { x: cx - halfWidth, y: cy - halfHeight },
-    { x: cx + halfWidth, y: cy + halfHeight },
-  );
-}
-
-/**
- * Square hit frame for instrument icon controls (layout + hover chrome only).
- *
- * @param {string} iconName
- * @param {{ x: number, y: number }} center
- * @param {number} hitSize
- * @returns {import('../model/sceneModel.mjs').GroupNode}
- */
-function instrumentIconHitFrameGroup(iconName, center, hitSize) {
-  return group(`${iconName}.HitFrame`, [roundedRect(center, hitSize, hitSize, 0)]);
+function keepAwakeCheckboxCheckmark(checkbox) {
+  const { center, size } = checkbox;
+  const cx = center.x;
+  const cy = center.y;
+  const s = size;
+  const knee = { x: cx - 0.08 * s, y: cy - 0.22 * s };
+  return [
+    line({ x: cx - 0.3 * s, y: cy + 0.05 * s }, knee),
+    line(knee, { x: cx + 0.32 * s, y: cy + 0.28 * s }),
+  ];
 }
 
 /**
@@ -959,16 +937,24 @@ function fullScreenIconDiagramToGroup(icon, cx, cy) {
  * @returns {import('../model/sceneModel.mjs').GroupNode}
  */
 function keepAwakeIconDiagramToGroup(icon, cx, cy) {
-  const c = mapPoint(icon.center, cx, cy);
-  const hitSize = icon.hitSize;
-  const zzzText = keepAwakeZzzText(c.x, c.y, icon.zzz);
+  const labelAnchor = mapPoint(icon.label.anchor, cx, cy);
+  const checkboxCenter = mapPoint(icon.checkbox.center, cx, cy);
+  const checkbox = { size: icon.checkbox.size, center: checkboxCenter };
+  const labelText = keepAwakeLabelText({
+    ...icon.label,
+    anchor: labelAnchor,
+  });
+  const checkboxBox = keepAwakeCheckboxBox(checkbox);
+  const checkmarkLines = keepAwakeCheckboxCheckmark(checkbox);
   return group("KeepAwakeIcon", [
-    instrumentIconHitFrameGroup("KeepAwakeIcon", c, hitSize),
-    group("KeepAwakeIcon.Off", [zzzText]),
-    group("KeepAwakeIcon.On", [
-      group("KeepAwakeIcon.On.Zzz", [zzzText]),
-      group("KeepAwakeIcon.On.Slash", [
-        keepAwakeProhibitionLineOverText(c.x, c.y, icon.zzz),
+    group("KeepAwakeIcon.Control", [
+      group("KeepAwakeIcon.Label", [labelText]),
+      group("KeepAwakeIcon.Off", [
+        group("KeepAwakeIcon.Off.Checkbox", [checkboxBox]),
+      ]),
+      group("KeepAwakeIcon.On", [
+        group("KeepAwakeIcon.On.Checkbox", [checkboxBox]),
+        group("KeepAwakeIcon.On.Checkmark", checkmarkLines),
       ]),
     ]),
   ]);

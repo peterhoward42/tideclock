@@ -364,7 +364,7 @@ locationPlacement: {
 
 ## FullScreenIcon and KeepAwakeIcon
 
-Top **instrument** toggles on the home tide diagram: **Really fullscreen** and **Keep screen awake**. Each is a **top-level** named group with a square **hit frame** (layout + hover chrome only; invisible at rest) and two glyph subgroups (**Off** / **On**) for enter/exit and off/on appearances. The host shows one glyph subgroup at a time.
+Top **instrument** toggles on the home tide diagram: **Really fullscreen** and **Keep screen awake**. **FullScreenIcon** is a top-level named group with a square **hit frame** (layout + hover chrome only; invisible at rest) and two glyph subgroups (**Off** / **On**) for enter/exit appearances. **KeepAwakeIcon** is a plain label plus checkbox with **Off** / **On** checkbox branches; the host shows one branch at a time. The host shows one glyph/checkbox subgroup at a time for each control.
 
 - **Not** part of **BRHCBundle**; bounds are **excluded** from `**B_*`** expansion (same rule as **HomeMenuTrigger**).
 - Positioned **independently** via per-icon offsets from `**B_left**` / `**B_bottom**` (same convention as **HomeLocationPanel** and **BrandQR**).
@@ -377,7 +377,6 @@ Top **instrument** toggles on the home tide diagram: **Really fullscreen** and *
 
 ```
 homeInstrumentIcons: {
-    hitSize: 0.14,              // k·R square hit-frame side (shared)
     iconHalfSize: 0.032,      // k·R half-width of glyph square inside hit frame
     fullScreen: {
         offsetFromLeft: 0,      // k·R from B_left to box leading edge
@@ -387,24 +386,22 @@ homeInstrumentIcons: {
         tipStrokeReach: 1 / 3,      // dimensionless × square edge; see FullScreenIcon glyph
     },
     keepAwake: {
-        offsetFromLeft: 0.14,   // k·R from B_left to hit-frame leading edge
-        aboveBottom: 0,         // k·R from B_bottom to hit-frame bottom edge
-        zzz: {
-            label: "Zzz",           // sleep label; first character capitalised in content
-            fontHeight: 0.051,      // k·R uniform em size (§Sizing)
-        },
+        offsetFromLeft: 0.14,   // k·R from B_left to control leading edge
+        aboveBottom: 0,         // k·R from B_bottom to control bottom edge
+        label: "Keep awake",
+        fontHeight: 0.051,      // k·R uniform em size (§Sizing)
+        checkboxSize: 0.045,    // k·R checkbox square side
+        gapBeforeCheckbox: 0.012, // k·R gap from label to checkbox
     },
 }
 ```
 
 ### Instrument hit frame
 
-**KeepAwakeIcon** only:
+**FullScreenIcon** only:
 
-- Axis-aligned **square** centred on the control, side **`hitSize`** (**k·R**).
-- Defines pointer target and hover background.
-- **Not visible at rest**; the host may style **`KeepAwakeIcon.HitFrame`** on hover.
-- The **glyph square** is centred inside the hit frame.
+- **`FullScreenIcon.HitFrame`** is the visible rounded box and the pointer hit target (see **FullScreenIcon placement**).
+- **Not** used by **KeepAwakeIcon** — that control’s pointer target is **`KeepAwakeIcon.Control`** (label + checkbox only).
 
 ### FullScreenIcon
 
@@ -459,33 +456,30 @@ The proportion scalars are **dimensionless fractions of the glyph square**; they
 
 ### KeepAwakeIcon
 
-Sleep-metaphor glyph toggle for **Keep screen awake** (host semantics). When the Screen Wake Lock API is unavailable, the host **omits** **KeepAwakeIcon** from the live UI (diagram generation may still emit it; host hides the group).
+Plain label + checkbox toggle for **Keep screen awake** (host semantics). When the Screen Wake Lock API is unavailable, the host **omits** **KeepAwakeIcon** from the live UI (diagram generation may still emit it; host hides the group).
 
 #### KeepAwakeIcon placement
 
-- Leading edge at **`homeInstrumentIcons.keepAwake.offsetFromLeft·R`** from **`B_left`**.
-- Bottom edge at **`homeInstrumentIcons.keepAwake.aboveBottom·R`** above **`B_bottom`**.
-- The glyph square (**KeepAwakeIcon glyph**) is centred in the hit frame.
+- Control leading edge at **`homeInstrumentIcons.keepAwake.offsetFromLeft·R`** from **`B_left`**.
+- Control bottom edge at **`homeInstrumentIcons.keepAwake.aboveBottom·R`** above **`B_bottom`**.
+- Label and checkbox are vertically centred within the control height (**`max(label em-box height, checkboxSize)`**).
 
-#### KeepAwakeIcon glyph
+#### KeepAwakeIcon control
 
-Geometry is defined on a **glyph square**: axis-aligned square centred in the hit frame with side **`2 × iconHalfSize`** (half-width **`iconHalfSize`**, **§Sizing**).
+- **Label** — one **`text`** primitive (**`dominantBaseline: middle`**, **`hAlign: left`**, upright). Content and size from **`homeInstrumentIcons.keepAwake.label`** / **`fontHeight`** (**FontHeight** = **`fontHeight·RefRadius`**, **§Sizing**).
+- **Checkbox** — one axis-aligned **`roundedRect`** square (**`rx = 0`**) immediately to the right of the label, separated by **`gapBeforeCheckbox·R`**. Side **`checkboxSize·R`**. **On** adds a **`line`** checkmark inside the box.
+- **Off / On presentation** (host shows one checkbox branch at a time):
+  - **`KeepAwakeIcon.Off`** — empty checkbox (**allow sleep**).
+  - **`KeepAwakeIcon.On`** — checkbox plus checkmark (**block sleep**).
+- The label is always visible; only the checkbox branch toggles.
+- Pointer target: **`KeepAwakeIcon.Control`** (label + checkbox). Host hover: label text colour only.
+- Host **`aria-label`** may use a longer phrase (e.g. **Keep screen awake**) when the visible **`label`** preset is shortened.
 
-- **Sleep label** — one **`text`** primitive centred in the glyph square (**`dominantBaseline: middle`**, **`hAlign: center`**, upright). Content and size from **`homeInstrumentIcons.keepAwake.zzz`**:
-  - **`label`** — string (e.g. **`"Zzz"`**); uniform font size; conventional sleep spelling with a leading capital **Z**.
-  - **`fontHeight`** — **FontHeight** = **`fontHeight·RefRadius`** (**k·R**, **§Sizing**; **> 0**).
-- **Prohibition line** (**On** only) — one **line** from the estimated label bounding box’s **bottom-left** to **top-right** (diagonal “no” over the sleep label). Width uses **`0.6 × FontHeight`** per character (monospace estimate, same as layout bounds elsewhere); height uses **`1.04 × FontHeight`** for **`dominantBaseline: middle`**.
-
-**Off / On presentation** (host shows one branch at a time according to user preference):
-
-- **`KeepAwakeIcon.Off`** — sleep label only (**allow sleep** appearance).
-- **`KeepAwakeIcon.On`** — sleep label plus prohibition line when emitted (**block sleep** appearance).
-
-Fill colours: label via **`role.menu.trigger.icon`** (**Off**) and **`role.menu.trigger.icon.on`** (**On**); prohibition line via **`role.instrument.keepAwake.prohibition`**.
+Fill colours: label via **`role.instrument.keepAwake.label`** (host may brighten on hover only); checkbox outline via **`role.menu.trigger.icon`** in both states; checkmark via **`role.menu.trigger.icon.on`** (**On** only).
 
 #### KeepAwakeIcon scene model
 
-- Top-level group **`KeepAwakeIcon`**: child **`KeepAwakeIcon.HitFrame`** (**square `roundedRect`**, **`rx = 0`**); children **`KeepAwakeIcon.Off`** (**`text`** primitive); **`KeepAwakeIcon.On`** containing **`KeepAwakeIcon.On.Zzz`** (**`text`**) and **`KeepAwakeIcon.On.Slash`** (**`line`**).
+- Top-level group **`KeepAwakeIcon`**: child **`KeepAwakeIcon.Control`** containing **`KeepAwakeIcon.Label`** (**`text`**); **`KeepAwakeIcon.Off`** with **`KeepAwakeIcon.Off.Checkbox`** (**`roundedRect`**); **`KeepAwakeIcon.On`** with **`KeepAwakeIcon.On.Checkbox`** (**`roundedRect`**) and **`KeepAwakeIcon.On.Checkmark`** (**`line`** primitives).
 
 ## HomeMenuTrigger
 

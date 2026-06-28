@@ -156,16 +156,21 @@ type FullScreenIconDiagram = {
   readonly tipStrokeReach: number;
 };
 
-type KeepAwakeZzzLabel = {
-  readonly label: string;
+type KeepAwakeLabelDiagram = {
+  readonly text: string;
   readonly fontSize: number;
+  readonly anchor: DiagramPoint;
+};
+
+type KeepAwakeCheckboxDiagram = {
+  readonly size: number;
+  readonly center: DiagramPoint;
 };
 
 type KeepAwakeIconDiagram = {
-  readonly center: DiagramPoint;
-  readonly hitSize: number;
-  readonly iconHalfSize: number;
-  readonly zzz: KeepAwakeZzzLabel;
+  readonly anchor: DiagramPoint;
+  readonly label: KeepAwakeLabelDiagram;
+  readonly checkbox: KeepAwakeCheckboxDiagram;
 };
 
 type HandTimeReadoutPartDiagram = {

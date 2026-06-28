@@ -3,7 +3,7 @@
  */
 
 import { getKeepAwakeUserEnabled, setKeepAwakeUserEnabled } from "./keepAwakeUi";
-import { queryKeepAwakeIconGroup } from "./instrumentIconAppearance";
+import { queryKeepAwakeIconControlGroup } from "./instrumentIconAppearance";
 import { isWakeLockApiSupported } from "./wakeLockSupport";
 
 export type KeepAwakeIconWireHandles = {
@@ -52,7 +52,7 @@ export function mountKeepAwakeIconWire(
     if (!isWakeLockApiSupported()) return;
     const host = handles.getDiagramHost();
     if (host == null) return;
-    const icon = queryKeepAwakeIconGroup(host);
+    const icon = queryKeepAwakeIconControlGroup(host);
     if (icon == null) {
       frames += 1;
       if (frames < MAX_ATTACH_FRAMES) {

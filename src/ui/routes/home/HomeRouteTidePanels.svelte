@@ -441,8 +441,15 @@
     pointer-events: all;
   }
 
-  .home-instrument :global(svg g[data-name="FullScreenIcon"]),
+  .home-instrument :global(svg g[data-name="FullScreenIcon"]) {
+    pointer-events: all;
+  }
+
   .home-instrument :global(svg g[data-name="KeepAwakeIcon"]) {
+    pointer-events: none;
+  }
+
+  .home-instrument :global(svg g[data-name="KeepAwakeIcon.Control"]) {
     pointer-events: all;
   }
 
@@ -459,19 +466,6 @@
 
   .home-instrument
     :global(
-      svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.HitFrame"] rect
-    ) {
-    fill: transparent;
-    stroke: transparent;
-    opacity: 0;
-    transition:
-      fill 120ms ease-out,
-      stroke 120ms ease-out,
-      opacity 120ms ease-out;
-  }
-
-  .home-instrument
-    :global(
       svg
         g[data-name="FullScreenIcon"]
         g[data-name="FullScreenIcon.HitFrame"]
@@ -484,12 +478,23 @@
 
   .home-instrument :global(svg g[data-name="FullScreenIcon"] g[data-name="FullScreenIcon.Off"] line),
   .home-instrument :global(svg g[data-name="FullScreenIcon"] g[data-name="FullScreenIcon.On"] line),
-  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.Off"] text),
-  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.On.Zzz"] text),
-  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.On.Slash"] line) {
+  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.Label"] text),
+  .home-instrument
+    :global(svg g[data-name="KeepAwakeIcon.Off.Checkbox"] rect),
+  .home-instrument
+    :global(svg g[data-name="KeepAwakeIcon.On.Checkbox"] rect),
+  .home-instrument
+    :global(svg g[data-name="KeepAwakeIcon.On.Checkmark"] line) {
     transition:
       stroke 120ms ease-out,
       fill 120ms ease-out;
+  }
+
+  .home-instrument
+    :global(svg g[data-name="KeepAwakeIcon.Off.Checkbox"] rect),
+  .home-instrument
+    :global(svg g[data-name="KeepAwakeIcon.On.Checkbox"] rect) {
+    fill: none;
   }
 
   .home-instrument
@@ -497,13 +502,6 @@
       svg
         g[data-name="FullScreenIcon"].fullscreen-icon--hover
         g[data-name="FullScreenIcon.HitFrame"]
-        rect
-    ),
-  .home-instrument
-    :global(
-      svg
-        g[data-name="KeepAwakeIcon"].keep-awake-icon--hover
-        g[data-name="KeepAwakeIcon.HitFrame"]
         rect
     ) {
     fill: var(--surface-home-menu-trigger-hover);
@@ -528,15 +526,8 @@
   .home-instrument
     :global(
       svg
-        g[data-name="KeepAwakeIcon"].keep-awake-icon--hover
-        g[data-name="KeepAwakeIcon.Off"]
-        text
-    ),
-  .home-instrument
-    :global(
-      svg
-        g[data-name="KeepAwakeIcon"].keep-awake-icon--hover
-        g[data-name="KeepAwakeIcon.On.Zzz"]
+        g[data-name="KeepAwakeIcon.Control"].keep-awake-icon--hover
+        g[data-name="KeepAwakeIcon.Label"]
         text
     ) {
     fill: var(--text-home-menu-trigger-hover);
