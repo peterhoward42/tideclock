@@ -475,7 +475,7 @@ Plain label + checkbox toggle for **Keep screen awake** (host semantics). When t
 - Pointer target: **`KeepAwakeIcon.Control`** (label + checkbox). Host hover: label text colour only.
 - Host **`aria-label`** may use a longer phrase (e.g. **Keep screen awake**) when the visible **`label`** preset is shortened.
 
-Fill colours: label via **`role.instrument.keepAwake.label`** (host may brighten on hover only); checkbox outline via **`role.menu.trigger.icon`** in both states; checkmark via **`role.menu.trigger.icon.on`** (**On** only).
+Fill colours: label via **`role.instrument.keepAwake.label`** (host may brighten on hover only); checkbox outline via **`role.instrument.keepAwake.checkbox`** in both states; checkmark via **`role.instrument.keepAwake.checkmark`** (**On** only).
 
 #### KeepAwakeIcon scene model
 

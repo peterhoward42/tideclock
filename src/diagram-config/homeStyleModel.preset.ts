@@ -107,6 +107,14 @@ export const homeStyleModel: StyleModelSpec = {
       name: "role.instrument.keepAwake.label",
       colors: { color: "#555" },
     },
+    {
+      name: "role.instrument.keepAwake.checkbox",
+      colors: { color: "#555", strokeWidth: 1.00 },
+    },
+    {
+      name: "role.instrument.keepAwake.checkmark",
+      colors: { color: "#aaa", strokeWidth: 1.00 },
+    },
   ],
   bindings: [
     { name: "AnnularBand", roleName: "role.structure.annular-band" },
@@ -144,9 +152,9 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "FullScreenIcon.Off", roleName: "role.instrument.fullscreen.icon" },
     { name: "FullScreenIcon.On", roleName: "role.instrument.fullscreen.icon" },
     { name: "KeepAwakeIcon.Label", roleName: "role.instrument.keepAwake.label" },
-    { name: "KeepAwakeIcon.Off.Checkbox", roleName: "role.menu.trigger.icon" },
-    { name: "KeepAwakeIcon.On.Checkbox", roleName: "role.menu.trigger.icon" },
-    { name: "KeepAwakeIcon.On.Checkmark", roleName: "role.menu.trigger.icon.on" },
+    { name: "KeepAwakeIcon.Off.Checkbox", roleName: "role.instrument.keepAwake.checkbox" },
+    { name: "KeepAwakeIcon.On.Checkbox", roleName: "role.instrument.keepAwake.checkbox" },
+    { name: "KeepAwakeIcon.On.Checkmark", roleName: "role.instrument.keepAwake.checkmark" },
     { name: "HomeLocationPanelPlate", roleName: "role.menu.trigger" },
     { name: "HomeLocationPanelLabel", roleName: "role.structure.text" },
     { name: "HomeShareTrigger", roleName: "role.location.share" },
