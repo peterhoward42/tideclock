@@ -9,6 +9,7 @@ import { isWakeLockApiSupported } from "./wakeLockSupport";
 export type KeepAwakeIconWireHandles = {
   readonly getDiagramHost: () => HTMLElement | undefined;
   readonly scheduleAfterDomReady: (fn: () => void) => void;
+  readonly onToggled: (enabled: boolean) => void;
 };
 
 export function mountKeepAwakeIconWire(
@@ -38,7 +39,9 @@ export function mountKeepAwakeIconWire(
   const onClick = (event: Event): void => {
     event.preventDefault();
     event.stopPropagation();
-    setKeepAwakeUserEnabled(!getKeepAwakeUserEnabled());
+    const next = !getKeepAwakeUserEnabled();
+    setKeepAwakeUserEnabled(next);
+    handles.onToggled(next);
   };
 
   const MAX_ATTACH_FRAMES = 45;

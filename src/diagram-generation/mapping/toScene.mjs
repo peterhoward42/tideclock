@@ -853,32 +853,54 @@ function fullScreenGlyphArrowLines(
   ];
 }
 
+/** Monospace width estimate; matches `BRHC_LABEL_CHAR_WIDTH_EM` in `buildDiagram.mjs`. */
+const KEEP_AWAKE_LABEL_CHAR_WIDTH_EM = 0.6;
+/** Half-em vertical extent for `dominantBaseline: middle`; matches `includeDiagramTextBounds`. */
+const KEEP_AWAKE_LABEL_MIDDLE_HALF_EM = 0.52;
+
 /**
  * @param {number} cx
  * @param {number} cy
- * @param {number} hs
- * @param {boolean} filled when true (On), include filled sun disc
- * @returns {import('../model/sceneModel.mjs').ScenePrimitive[]}
+ * @param {import('../model/tideDiagramModel.mjs').KeepAwakeZzzLabel} zzz
+ * @returns {import('../model/sceneModel.mjs').TextPrimitive}
  */
-function sunIconPrimitives(cx, cy, hs, filled) {
-  const discR = hs * 0.42;
-  const c = point(cx, cy);
-  const rays = [];
-  for (let i = 0; i < 8; i += 1) {
-    const a = (i * Math.PI) / 4;
-    const cosA = Math.cos(a);
-    const sinA = Math.sin(a);
-    rays.push(
-      line(
-        { x: cx + discR * cosA, y: cy + discR * sinA },
-        { x: cx + hs * cosA, y: cy + hs * sinA },
-      ),
-    );
-  }
-  if (filled) {
-    return [circle(c, discR), ...rays];
-  }
-  return [circle(c, discR), ...rays];
+function keepAwakeZzzText(cx, cy, zzz) {
+  return text({
+    content: zzz.label,
+    size: zzz.fontSize,
+    hAlign: "center",
+    angleRad: 0,
+    anchor: point(cx, cy),
+    dominantBaseline: "middle",
+  });
+}
+
+/**
+ * @param {string} content
+ * @param {number} fontSize
+ * @returns {{ halfWidth: number, halfHeight: number }}
+ */
+function keepAwakeLabelHalfExtents(content, fontSize) {
+  return {
+    halfWidth: 0.5 * content.length * fontSize * KEEP_AWAKE_LABEL_CHAR_WIDTH_EM,
+    halfHeight: KEEP_AWAKE_LABEL_MIDDLE_HALF_EM * fontSize,
+  };
+}
+
+/**
+ * Diagonal prohibition line across the estimated label bounding box (bottom-left → top-right).
+ *
+ * @param {number} cx
+ * @param {number} cy
+ * @param {import('../model/tideDiagramModel.mjs').KeepAwakeZzzLabel} zzz
+ * @returns {import('../model/sceneModel.mjs').ScenePrimitive}
+ */
+function keepAwakeProhibitionLineOverText(cx, cy, zzz) {
+  const { halfWidth, halfHeight } = keepAwakeLabelHalfExtents(zzz.label, zzz.fontSize);
+  return line(
+    { x: cx - halfWidth, y: cy - halfHeight },
+    { x: cx + halfWidth, y: cy + halfHeight },
+  );
 }
 
 /**
@@ -936,11 +958,16 @@ function fullScreenIconDiagramToGroup(icon, cx, cy) {
 function keepAwakeIconDiagramToGroup(icon, cx, cy) {
   const c = mapPoint(icon.center, cx, cy);
   const hitSize = icon.hitSize;
-  const hs = icon.iconHalfSize;
+  const zzzText = keepAwakeZzzText(c.x, c.y, icon.zzz);
   return group("KeepAwakeIcon", [
     instrumentIconHitFrameGroup("KeepAwakeIcon", c, hitSize),
-    group("KeepAwakeIcon.Off", sunIconPrimitives(c.x, c.y, hs, false)),
-    group("KeepAwakeIcon.On", sunIconPrimitives(c.x, c.y, hs, true)),
+    group("KeepAwakeIcon.Off", [zzzText]),
+    group("KeepAwakeIcon.On", [
+      group("KeepAwakeIcon.On.Zzz", [zzzText]),
+      group("KeepAwakeIcon.On.Slash", [
+        keepAwakeProhibitionLineOverText(c.x, c.y, icon.zzz),
+      ]),
+    ]),
   ]);
 }
 

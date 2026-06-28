@@ -46,7 +46,7 @@ All persistence is in the browser’s **`localStorage`** on the user’s device 
 |-----|---------|
 | `current-location` | The town you chose for tide display (JSON snapshot). |
 | `tide-extremes-at-location` | Cached high/low extremes for the current civil day, to avoid refetching when possible. |
-| `tideclock.keepScreenAwake` | Optional “keep screen awake” preference for the home tide view. |
+| `tideclock.keepScreenAwake` | Optional “keep screen awake” preference for the home tide view (diagram instrument icon). |
 
 On a first visit with empty storage, the app shows tides for **Looe, Cornwall** until you pick another location (**Change** on the tide dial). Cookie policy, safety wording, tide-data copyright, and related notices are on the in-app **[About](https://thetidedial.page/#/about)** page (`#/about`), not duplicated here.
 

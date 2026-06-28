@@ -154,7 +154,7 @@ export type HomeLayoutBase = {
     readonly labelAboveActions: number;
   };
   /**
-   * Top-right instrument toggles (**FullScreenIcon**, **KeepAwakeIcon**); see tide-diagram spec.
+   * Top instrument toggles (**FullScreenIcon**, **KeepAwakeIcon**); see tide-diagram spec.
    */
   readonly homeInstrumentIcons: {
     /** k·RefRadius: distance from **B_top** down to the top edge of each hit frame. */
@@ -163,19 +163,24 @@ export type HomeLayoutBase = {
     readonly hitSize: number;
     /** k·RefRadius: half-width of the glyph square inside the hit frame. */
     readonly iconHalfSize: number;
-    /** k·RefRadius: keep-awake sun-ray layout scale. */
-    readonly iconArmLength: number;
     readonly fullScreen: {
-      /** k·RefRadius: inset from **B_right** to **FullScreenIcon** trailing edge. */
-      readonly offsetInFromRight: number;
+      /** k·RefRadius: inset from **B_right** (before noon) or **B_left** (after noon) per civil half-day. */
+      readonly offsetInFromSideEdge: number;
       /** Dimensionless × |leading diagonal|; see tide-diagram spec §FullScreenIcon glyph. */
       readonly rootSegmentLength: number;
       /** Dimensionless × glyph square edge; see tide-diagram spec §FullScreenIcon glyph. */
       readonly tipStrokeReach: number;
     };
     readonly keepAwake: {
-      /** k·RefRadius: inset from **B_right** to **KeepAwakeIcon** trailing edge. */
-      readonly offsetInFromRight: number;
+      /** k·RefRadius: inset from **B_right** (before noon) or **B_left** (after noon) per civil half-day. */
+      readonly offsetInFromSideEdge: number;
+      /** Sleep-label (**Zzz**) glyph tuning; see tide-diagram spec §KeepAwakeIcon glyph. */
+      readonly zzz: {
+        /** Label string (e.g. `"Zzz"`). */
+        readonly label: string;
+        /** k·RefRadius: uniform label **FontHeight** (§Sizing). */
+        readonly fontHeight: number;
+      };
     };
   };
   readonly tideMarksDefaults: HomeTideMarksDefaults;

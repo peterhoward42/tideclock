@@ -47,6 +47,7 @@
   import { mountLocationSvgTriggerWire } from "./locationSvgTriggerWire";
   import { mountFullScreenIconWire } from "./fullScreenIconWire";
   import { mountKeepAwakeIconWire } from "./keepAwakeIconWire";
+  import { formatKeepAwakeExplainerMessage } from "./keepAwakeExplainer";
   import {
     syncFullScreenIconAppearance,
     syncKeepAwakeIconAppearance,
@@ -104,7 +105,7 @@
   /** Dev-only: `?diagramPreview=<id>` (see README “Developer previews”). */
   let diagramPreviewIdFromUrl = $state<DiagramPreviewId | null>(null);
 
-  /** Dev-only: `?timeNowHour=<0–23>` — freeze `timeNow` at a whole hour for Location layout. */
+  /** Dev-only: `?timeNowHour=<0–23>` — freeze `timeNow` at a whole hour for layout placement previews. */
   let timeNowHourFromUrl = $state<number | null>(null);
 
   let diagramSvg = $state("");
@@ -120,6 +121,9 @@
   let homeFullscreenAdviceOpen = $state(false);
   let homeFullscreenAdviceLead = $state("");
   let homeFullscreenAdviceBody = $state("");
+  let homeKeepAwakeExplainerOpen = $state(false);
+  let homeKeepAwakeExplainerLead = $state("");
+  let homeKeepAwakeExplainerBody = $state("");
   let homeNerdsOpen = $state(false);
   let homeContactOpen = $state(false);
   let homeShareLinkCopiedOpen = $state(false);
@@ -280,6 +284,8 @@
   $effect(() => {
     if (!diagramPreviewLive) {
       void minuteEpoch;
+    } else if (import.meta.env.DEV) {
+      void timeNowHourFromUrl;
     }
     const extremes = tideExtremes;
     const presentation = tidePresentation;
@@ -299,10 +305,19 @@
       const preview = homeDiagramPreview;
       const extremesForSpec =
         preview.state === "frozen" ? preview.extremesAtLocation : extremes;
-      const wallClockMs =
-        preview.state === "frozen" ? preview.frozenEpochMs : Date.now();
-      const timeNow = localCanonicalTimeNow(wallClockMs);
-      const brhcDatePrefix = localBrhcDatePrefix(wallClockMs);
+      let timeNow: string;
+      let brhcDatePrefix: string;
+      if (preview.state === "frozen" && "timeNow" in preview) {
+        timeNow = preview.timeNow;
+        brhcDatePrefix = preview.brhcDatePrefix;
+      } else if (preview.state === "frozen") {
+        timeNow = localCanonicalTimeNow(preview.frozenEpochMs);
+        brhcDatePrefix = localBrhcDatePrefix(preview.frozenEpochMs);
+      } else {
+        const wallClockMs = Date.now();
+        timeNow = localCanonicalTimeNow(wallClockMs);
+        brhcDatePrefix = localBrhcDatePrefix(wallClockMs);
+      }
       const spec = buildDiagramSpecWithDerivedNextTide({
         extremesAtLocation: extremesForSpec,
         timeNow,
@@ -410,6 +425,12 @@
       getDiagramHost: () => diagramHostEl,
       scheduleAfterDomReady: (fn) => {
         void tick().then(fn);
+      },
+      onToggled: (enabled) => {
+        const copy = formatKeepAwakeExplainerMessage(enabled);
+        homeKeepAwakeExplainerLead = copy.lead;
+        homeKeepAwakeExplainerBody = copy.body;
+        homeKeepAwakeExplainerOpen = true;
       },
     });
   });
@@ -556,6 +577,10 @@
     homeFullscreenAdviceOpen = false;
   }
 
+  function dismissHomeKeepAwakeExplainer(): void {
+    homeKeepAwakeExplainerOpen = false;
+  }
+
   async function handleHomeFullscreenToggle(): Promise<void> {
     const host = getDiagramFullscreenTarget(diagramHostEl);
     if (host == null) return;
@@ -657,6 +682,10 @@
     homeFullscreenAdviceLead={homeFullscreenAdviceLead}
     homeFullscreenAdviceBody={homeFullscreenAdviceBody}
     onDismissHomeFullscreenAdvice={dismissHomeFullscreenAdvice}
+    homeKeepAwakeExplainerOpen={homeKeepAwakeExplainerOpen}
+    homeKeepAwakeExplainerLead={homeKeepAwakeExplainerLead}
+    homeKeepAwakeExplainerBody={homeKeepAwakeExplainerBody}
+    onDismissHomeKeepAwakeExplainer={dismissHomeKeepAwakeExplainer}
     homeShareLinkCopiedOpen={homeShareLinkCopiedOpen}
     homeShareLinkCopiedUrl={homeShareLinkCopiedUrl}
     onDismissHomeShareLinkCopied={dismissHomeShareLinkCopied}

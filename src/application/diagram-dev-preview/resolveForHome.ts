@@ -38,6 +38,8 @@ export type HomeDiagramPreviewState =
   | {
       readonly state: "frozen";
       readonly hour: number;
+      readonly timeNow: string;
+      readonly brhcDatePrefix: string;
       readonly userDetail: string;
       readonly frozenEpochMs: number;
       readonly extremesAtLocation: TideExtremesAtLocation;
@@ -78,7 +80,9 @@ export function resolveHomeDiagramPreview(params: {
     return {
       state: "frozen",
       hour: timeNowHour,
-      userDetail: "frozen timeNow for location placement",
+      timeNow: clock.timeNow,
+      brhcDatePrefix: clock.brhcDatePrefix,
+      userDetail: "frozen timeNow for layout placement",
       frozenEpochMs: clock.frozenEpochMs,
       extremesAtLocation: tideExtremes,
     };

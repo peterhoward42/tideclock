@@ -134,13 +134,18 @@
  *   tipStrokeReach: number,
  * }} FullScreenIconDiagram
  *
- * Top-right **KeepAwakeIcon**: square hit frame + Off/On sun glyphs.
+ * Top-right **KeepAwakeIcon**: square hit frame + Off/On sleep-metaphor glyphs.
+ *
+ * @typedef {{
+ *   label: string,
+ *   fontSize: number,
+ * }} KeepAwakeZzzLabel
  *
  * @typedef {{
  *   center: DiagramPoint,
  *   hitSize: number,
  *   iconHalfSize: number,
- *   iconArmLength: number,
+ *   zzz: KeepAwakeZzzLabel,
  * }} KeepAwakeIconDiagram
  *
  * @typedef {{

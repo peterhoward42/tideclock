@@ -84,6 +84,7 @@ describe('resolveHomeDiagramPreview', () => {
     expect(preview.state).toBe('frozen');
     if (preview.state !== 'frozen') return;
     expect('hour' in preview && preview.hour).toBe(10);
+    expect('timeNow' in preview && preview.timeNow).toBe('10:00:00');
     expect(preview.extremesAtLocation).toBe(extremes);
     expect(preview.frozenEpochMs).toBeTypeOf('number');
   });

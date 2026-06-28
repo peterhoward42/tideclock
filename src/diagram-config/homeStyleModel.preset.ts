@@ -104,6 +104,10 @@ export const homeStyleModel: StyleModelSpec = {
       colors: { color: "#555", strokeWidth: 1.75 },
     },
     {
+      name: "role.instrument.keepAwake.prohibition",
+      colors: { color: "#d44", strokeWidth: 2.25 },
+    },
+    {
       name: "role.instrument.hitFrame",
       colors: { strokeColor: "#555", fillColor: "#111", opacity: 0 },
     },
@@ -145,7 +149,8 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "FullScreenIcon.On", roleName: "role.instrument.fullscreen.icon" },
     { name: "KeepAwakeIcon.HitFrame", roleName: "role.instrument.hitFrame" },
     { name: "KeepAwakeIcon.Off", roleName: "role.menu.trigger.icon" },
-    { name: "KeepAwakeIcon.On", roleName: "role.menu.trigger.icon.on" },
+    { name: "KeepAwakeIcon.On.Zzz", roleName: "role.menu.trigger.icon.on" },
+    { name: "KeepAwakeIcon.On.Slash", roleName: "role.instrument.keepAwake.prohibition" },
     { name: "HomeLocationPanelPlate", roleName: "role.menu.trigger" },
     { name: "HomeLocationPanelLabel", roleName: "role.structure.text" },
     { name: "HomeShareTrigger", roleName: "role.location.share" },

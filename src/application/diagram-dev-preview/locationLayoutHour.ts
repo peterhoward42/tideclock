@@ -1,6 +1,6 @@
 /**
  * locationLayoutHour.ts — Dev preview via `?timeNowHour=<0–23>` (see README “Developer previews”).
- * Freezes `timeNow` at a whole hour so **Location** placement presets are easy to inspect.
+ * Freezes `timeNow` at a whole hour so **LocationLabel** and instrument icon placement are easy to inspect.
  */
 
 import type { TideExtremesAtLocation } from "../../core-models/TideExtremesAtLocation";

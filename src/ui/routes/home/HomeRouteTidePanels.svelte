@@ -7,6 +7,7 @@
   import PrimaryMenuContent from "../../components/PrimaryMenuContent.svelte";
   import HomeDefaultLocationExplainerOverlay from "./HomeDefaultLocationExplainerOverlay.svelte";
   import HomeFullscreenBrowserAdviceOverlay from "./HomeFullscreenBrowserAdviceOverlay.svelte";
+  import HomeKeepAwakeExplainerOverlay from "./HomeKeepAwakeExplainerOverlay.svelte";
   import HomeShareLinkCopiedOverlay from "./HomeShareLinkCopiedOverlay.svelte";
   import type { Town } from "../../../data/townSchema";
 
@@ -58,6 +59,10 @@
     readonly homeFullscreenAdviceLead: string;
     readonly homeFullscreenAdviceBody: string;
     readonly onDismissHomeFullscreenAdvice: () => void;
+    readonly homeKeepAwakeExplainerOpen: boolean;
+    readonly homeKeepAwakeExplainerLead: string;
+    readonly homeKeepAwakeExplainerBody: string;
+    readonly onDismissHomeKeepAwakeExplainer: () => void;
     readonly homeShareLinkCopiedOpen: boolean;
     readonly homeShareLinkCopiedUrl: string;
     readonly onDismissHomeShareLinkCopied: () => void;
@@ -88,6 +93,10 @@
     homeFullscreenAdviceLead,
     homeFullscreenAdviceBody,
     onDismissHomeFullscreenAdvice,
+    homeKeepAwakeExplainerOpen,
+    homeKeepAwakeExplainerLead,
+    homeKeepAwakeExplainerBody,
+    onDismissHomeKeepAwakeExplainer,
     homeShareLinkCopiedOpen,
     homeShareLinkCopiedUrl,
     onDismissHomeShareLinkCopied,
@@ -245,6 +254,13 @@
         lead={homeFullscreenAdviceLead}
         body={homeFullscreenAdviceBody}
         onDismiss={onDismissHomeFullscreenAdvice}
+      />
+    {/if}
+    {#if homeKeepAwakeExplainerOpen}
+      <HomeKeepAwakeExplainerOverlay
+        lead={homeKeepAwakeExplainerLead}
+        body={homeKeepAwakeExplainerBody}
+        onDismiss={onDismissHomeKeepAwakeExplainer}
       />
     {/if}
     {#if homeShareLinkCopiedOpen}
@@ -466,10 +482,9 @@
 
   .home-instrument :global(svg g[data-name="FullScreenIcon"] g[data-name="FullScreenIcon.Off"] line),
   .home-instrument :global(svg g[data-name="FullScreenIcon"] g[data-name="FullScreenIcon.On"] line),
-  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.Off"] line),
-  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.On"] line),
-  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.Off"] circle),
-  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.On"] circle) {
+  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.Off"] text),
+  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.On.Zzz"] text),
+  .home-instrument :global(svg g[data-name="KeepAwakeIcon"] g[data-name="KeepAwakeIcon.On.Slash"] line) {
     transition:
       stroke 120ms ease-out,
       fill 120ms ease-out;
@@ -513,30 +528,15 @@
       svg
         g[data-name="KeepAwakeIcon"].keep-awake-icon--hover
         g[data-name="KeepAwakeIcon.Off"]
-        line
+        text
     ),
   .home-instrument
     :global(
       svg
         g[data-name="KeepAwakeIcon"].keep-awake-icon--hover
-        g[data-name="KeepAwakeIcon.On"]
-        line
-    ),
-  .home-instrument
-    :global(
-      svg
-        g[data-name="KeepAwakeIcon"].keep-awake-icon--hover
-        g[data-name="KeepAwakeIcon.Off"]
-        circle
-    ),
-  .home-instrument
-    :global(
-      svg
-        g[data-name="KeepAwakeIcon"].keep-awake-icon--hover
-        g[data-name="KeepAwakeIcon.On"]
-        circle
+        g[data-name="KeepAwakeIcon.On.Zzz"]
+        text
     ) {
-    stroke: var(--text-home-menu-trigger-hover);
     fill: var(--text-home-menu-trigger-hover);
   }
 

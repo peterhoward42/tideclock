@@ -75,10 +75,11 @@
       to diagram geometry rather than assuming a fixed height for headers and surrounding controls.
     </p>
     <p class="software-nerd-route__p">
-      For a counter or wall display, the menu can request a <strong>screen wake lock</strong> so the
-      dial stays visible while the tab is open, and <strong>Really fullscreen</strong> hides browser
-      clutter via the Fullscreen API. Both are progressive enhancement: they work in a normal browser
-      tab where the platform allows them.
+      For a counter or wall display, the diagram has a <strong>keep-awake</strong> instrument
+      icon (sleep-metaphor <strong>Zzz</strong> glyph) that requests a <strong>screen wake
+      lock</strong> so the dial stays visible while the tab is open, and
+      <strong>Really fullscreen</strong> hides browser clutter via the Fullscreen API. Both are
+      progressive enhancement: they work in a normal browser tab where the platform allows them.
     </p>
   </section>
 
