@@ -26,11 +26,13 @@ describe('emitRouteVisitTelemetry', () => {
 
   it.each([
     ['install', 'visited_install'],
+    ['installconfig', 'visited_install_config'],
     ['onwall', 'visited_stick_on_wall'],
     ['story', 'visited_story'],
     ['tidenerd', 'visited_tide_nerd'],
     ['softwarenerd', 'visited_sw_nerd'],
-    ['about', 'visited_about']
+    ['about', 'visited_about'],
+    ['entertainment', 'visited_entertainment']
   ] as const)('maps %s to %s', async (routeId, eventName) => {
     await emit(routeId);
 

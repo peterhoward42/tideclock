@@ -26,5 +26,7 @@ export type TelemetryEventType =
   | 'visited_tide_nerd'
   | 'visited_sw_nerd'
   | 'visited_about'
+  | 'visited_install_config'
+  | 'visited_entertainment'
   | 'visited_contact'
   | 'error';

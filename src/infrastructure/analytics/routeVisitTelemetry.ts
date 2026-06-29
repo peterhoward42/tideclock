@@ -8,19 +8,23 @@ import type { TelemetryEventType } from './eventType';
 
 type VisitTelemetryRoute =
   | 'install'
+  | 'installconfig'
   | 'onwall'
   | 'story'
   | 'tidenerd'
   | 'softwarenerd'
-  | 'about';
+  | 'about'
+  | 'entertainment';
 
 const ROUTE_VISIT_EVENT: Record<VisitTelemetryRoute, TelemetryEventType> = {
   install: 'visited_install',
+  installconfig: 'visited_install_config',
   onwall: 'visited_stick_on_wall',
   story: 'visited_story',
   tidenerd: 'visited_tide_nerd',
   softwarenerd: 'visited_sw_nerd',
-  about: 'visited_about'
+  about: 'visited_about',
+  entertainment: 'visited_entertainment'
 };
 
 /** Records a route visit event when the route has a mapped analytics type. */

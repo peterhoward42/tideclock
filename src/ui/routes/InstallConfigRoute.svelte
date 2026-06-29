@@ -7,12 +7,12 @@
     {
       href: "#/install",
       label: "Install",
-      pitch: "Add a home-screen icon and open the app like any other.",
+      pitch: "Add a home-screen icon so the dial opens like any other app.",
     },
     {
       href: "#/about",
       label: "About",
-      pitch: "Version, safety, data sources, and the rest.",
+      pitch: "Version, safety, data sources, and the compliance pages.",
     },
   ];
 </script>
@@ -25,7 +25,8 @@
 >
   {#snippet intro()}
     <p>
-      Get the app onto your device and read the small print when you need it.
+      Deployment and admin in one place — get the app onto your device, then open
+      About when you need the dull-but-useful details.
     </p>
   {/snippet}
 </HubDocumentRoute>
