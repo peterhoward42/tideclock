@@ -37,8 +37,6 @@
   import HomeRouteDomDebugPanel from "./HomeRouteDomDebugPanel.svelte";
   import HomeRouteTidePanels from "./HomeRouteTidePanels.svelte";
   import {
-    computeMenuPanelAnchorStyle,
-    queryMenuTriggerGroup,
     scheduleDiagramDevPresentation,
   } from "./diagramDom";
   import { mountLetterboxSlackObserver } from "./instrumentLetterboxObserver";
@@ -118,7 +116,6 @@
   let homeFullscreenAdviceBody = $state("");
   let homeKeepAwakeExplainerOpen = $state(false);
   let homeKeepAwakeExplainerMessage = $state("");
-  let homeNerdsOpen = $state(false);
   let homeShareLinkCopiedOpen = $state(false);
   let homeShareLinkCopiedUrl = $state("");
   let keepAwakeUserWants = $state(get(keepAwakeUserStore));
@@ -450,22 +447,6 @@
     });
   });
 
-  /**
-   * When Nerds section grows, the menu height changes. Re-anchored from
-   * the same geometry as the SVG trigger; avoids stale layout on long portrait viewports.
-   */
-  $effect(() => {
-    if (!homeMenuOpen || diagramSvg === "") return;
-    void homeNerdsOpen;
-    void tick().then(() => {
-      const host = diagramHostEl;
-      if (host == null) return;
-      const trigger = queryMenuTriggerGroup(host);
-      if (trigger == null) return;
-      homeMenuPanelStyle = computeMenuPanelAnchorStyle(host, trigger);
-    });
-  });
-
   // Event handlers & imperative helpers (onMount, $effect, template)
   function readDiagramPreviewIdFromLocation(): DiagramPreviewId | null {
     if (!import.meta.env.DEV) return null;
@@ -547,7 +528,6 @@
 
   function closeHomeMenu(): void {
     homeMenuOpen = false;
-    homeNerdsOpen = false;
   }
 
   function dismissHomeFullscreenAdvice(): void {
@@ -585,14 +565,6 @@
     homeFullscreenAdviceLead = copy.lead;
     homeFullscreenAdviceBody = copy.body;
     homeFullscreenAdviceOpen = true;
-  }
-
-  function handleHomeNerdsEntry(): void {
-    const opening = !homeNerdsOpen;
-    homeNerdsOpen = opening;
-    if (opening) {
-      trackProductEvent("expanded_for_nerds");
-    }
   }
 
   function dismissHomeShareLinkCopied(): void {
@@ -657,9 +629,7 @@
     homeShareLinkCopiedOpen={homeShareLinkCopiedOpen}
     homeShareLinkCopiedUrl={homeShareLinkCopiedUrl}
     onDismissHomeShareLinkCopied={dismissHomeShareLinkCopied}
-    {homeNerdsOpen}
     onCloseHomeMenu={closeHomeMenu}
-    onToggleHomeNerds={handleHomeNerdsEntry}
   />
 </main>
 

@@ -65,9 +65,7 @@
     readonly homeShareLinkCopiedOpen: boolean;
     readonly homeShareLinkCopiedUrl: string;
     readonly onDismissHomeShareLinkCopied: () => void;
-    readonly homeNerdsOpen: boolean;
     readonly onCloseHomeMenu: () => void;
-    readonly onToggleHomeNerds: () => void;
     diagramHostEl?: HTMLElement | undefined;
     homeInstrumentEl?: HTMLElement | undefined;
     homeMenuPanelEl?: HTMLElement | undefined;
@@ -96,9 +94,7 @@
     homeShareLinkCopiedOpen,
     homeShareLinkCopiedUrl,
     onDismissHomeShareLinkCopied,
-    homeNerdsOpen,
     onCloseHomeMenu,
-    onToggleHomeNerds,
     diagramHostEl = $bindable(),
     homeInstrumentEl = $bindable(),
     homeMenuPanelEl = $bindable(),
@@ -272,8 +268,6 @@
         <PrimaryMenuContent
           linksClassName="u-stack-sm u-nav-link-list"
           showTodaysTidesLink={false}
-          nerdsOpen={homeNerdsOpen}
-          onToggleNerds={onToggleHomeNerds}
           onNavigate={onCloseHomeMenu}
         />
       </div>

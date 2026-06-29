@@ -8,7 +8,6 @@ import type { UsageSpanEventType } from './usageSpanEvents';
 /** Custom event name passed to Vercel `track()`. */
 export type TelemetryEventType =
   | 'opened_menu'
-  | 'expanded_for_nerds'
   | 'chose_custom_loc'
   | 'url_location_applied'
   | 'url_location_failed'
