@@ -1,93 +1,82 @@
 <script lang="ts">
-  const heroPlace = {
-    src: "/onwall-kitchen.png",
-    width: 1024,
-    height: 1024,
-    alt: "Tablet on a kitchen shelf showing the tide dial among everyday items, left running like a small clock.",
-    heading: "Like here in your kitchen.",
-  } as const;
-
   const wallPlaces = [
+    {
+      src: "/onwall-kitchen.png",
+      width: 1024,
+      height: 1024,
+      alt: "Tablet on a kitchen shelf showing the tide dial among everyday items, left running like a small clock.",
+    },
     {
       src: "/onwall-guest-house.png",
       width: 1024,
       height: 1024,
       alt: "Wall-mounted screen in a coastal guest house reception showing the tide dial, with guests at the welcome desk and harbour views through the windows.",
-      heading: "In your guesthouse hallway",
     },
     {
       src: "/onwall-pub.png",
       width: 1024,
       height: 1024,
       alt: "Wall-mounted screen in a harbour-side cafe showing the tide dial, with diners at a table and boats on the water through open windows.",
-      heading: "In your seaside cafe or pub",
     },
     {
       src: "/onwall-kayak-hire.png",
       width: 1024,
       height: 1024,
       alt: "Screen at a kayak hire counter showing the tide dial beside life jackets and hire signage.",
-      heading: "In your watersports premises",
     },
   ] as const;
 </script>
 
 <main class="route onwall-route">
-  <h1>Stick it on the wall</h1>
+  <h1>Put it on the wall</h1>
 
   <p class="onwall-route__p onwall-route__lead">
-    The TideDial is just a website, but it was also carefully designed with a
-    couple of features that make it work really well on a permanent screen that
-    you leave on.
+    Some people leave TideDial on a permanent screen so that it's just there as you
+    walk past.
   </p>
 
   <p class="onwall-route__p">
-    On the tide diagram there is a fullscreen control and a
-    <strong>Keep awake</strong> checkbox. Use fullscreen to fill the display, and keep
-    awake so it doesn't dim or switch off.
+    If tides affect your daily life — it's really handy on a tablet in your kitchen.
   </p>
 
   <p class="onwall-route__p">
-    To open it from an icon on your device, see
-    <a class="onwall-route__link" href="#/install">Install app / Add to home screen</a>.
+    Or if you run a guest house — your guests can glance at the tides as they leave
+    for the day.
   </p>
 
-  <div class="onwall-route__spots">
-    <section class="onwall-route__spot" aria-labelledby="onwall-kitchen-heading">
-      <h2 class="onwall-route__h" id="onwall-kitchen-heading">{heroPlace.heading}</h2>
+  <p class="onwall-route__p">
+    The pictures below show a few good places.
+  </p>
+
+  <div class="onwall-route__gallery">
+    {#each wallPlaces as place, index}
       <figure class="onwall-route__figure">
         <img
           class="onwall-route__img"
-          src={heroPlace.src}
-          width={heroPlace.width}
-          height={heroPlace.height}
-          alt={heroPlace.alt}
+          src={place.src}
+          width={place.width}
+          height={place.height}
+          alt={place.alt}
+          loading={index === 0 ? undefined : "lazy"}
+          decoding={index === 0 ? undefined : "async"}
         />
       </figure>
-    </section>
-
-    {#each wallPlaces as place, index}
-      <section
-        class="onwall-route__spot"
-        aria-labelledby="onwall-place-{index}-heading"
-      >
-        <h2 class="onwall-route__h" id="onwall-place-{index}-heading">
-          {place.heading}
-        </h2>
-        <figure class="onwall-route__figure">
-          <img
-            class="onwall-route__img"
-            src={place.src}
-            width={place.width}
-            height={place.height}
-            alt={place.alt}
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
-      </section>
     {/each}
   </div>
+
+  <aside class="onwall-route__inset" aria-label="Keeping the screen on">
+    <p>
+      You can tell it to stay on (not go to sleep), and to fill the whole screen
+      directly from the diagram (bottom left corner).
+    </p>
+  </aside>
+
+  <p class="onwall-route__p">
+    To open TideDial from an icon on your device, see
+    <a class="onwall-route__link" href="#/installconfig"
+      >Install / Config / Settings</a
+    >.
+  </p>
 </main>
 
 <style>
@@ -101,21 +90,9 @@
     margin: 0;
   }
 
-  .onwall-route__spots {
+  .onwall-route__gallery {
     display: grid;
     gap: 2rem;
-  }
-
-  .onwall-route__spot {
-    display: grid;
-    gap: 0.4rem;
-  }
-
-  .onwall-route__h {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin: 0;
-    color: var(--text-document-default);
   }
 
   .onwall-route__p {
@@ -134,6 +111,23 @@
     width: 100%;
     height: auto;
     border-radius: 0.25rem;
+  }
+
+  .onwall-route__inset {
+    margin: 0;
+    padding: 0.9rem 1rem 0.95rem;
+    border: 1px solid color-mix(in srgb, #d97706 28%, var(--border-subtle));
+    border-left: 3px solid #d97706;
+    border-radius: 0.35rem;
+    background: color-mix(in srgb, #fef3c7 42%, var(--surface-panel));
+    box-shadow: 0 1px 4px rgb(15 23 42 / 0.07);
+  }
+
+  .onwall-route__inset p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-document-default);
   }
 
   .onwall-route__link {

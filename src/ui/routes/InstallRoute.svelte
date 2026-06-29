@@ -63,7 +63,7 @@
   <aside class="install-route__cta" aria-label="Leaving a screen on">
     <p>
       Once it opens from your icon, see
-      <a class="install-route__link" href="#/onwall">Stick it on the wall</a>
+      <a class="install-route__link" href="#/onwall">Put it on the wall</a>
       if you are leaving a screen on permanently.
     </p>
   </aside>

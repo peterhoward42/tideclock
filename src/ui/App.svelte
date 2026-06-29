@@ -334,7 +334,7 @@
       case "install":
         return "Install app / Add to home screen";
       case "onwall":
-        return "Stick it on the wall";
+        return "Put it on the wall";
       case "story":
         return "Story";
       case "tidenerd":

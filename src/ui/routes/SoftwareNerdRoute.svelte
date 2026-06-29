@@ -244,7 +244,7 @@
     </p>
     <p class="software-nerd-route__p">
       Staged photos used to illustrate real-world use cases (for example on
-      <a class="software-nerd-route__link" href="#/onwall">Stick it on the wall</a>) were also
+      <a class="software-nerd-route__link" href="#/onwall">Put it on the wall</a>) were also
       AI-generated.
     </p>
     <p class="software-nerd-route__p">
