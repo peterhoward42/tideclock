@@ -50,21 +50,24 @@ describe("browserLabelFromUserAgent", () => {
 });
 
 describe("detectFullscreenBrowserAdvice", () => {
-  it("advises on iPhone even when fullscreen API is absent", () => {
+  it("advises on iPhone by platform, not browser", () => {
     const advice = detectFullscreenBrowserAdvice(IPHONE_SAFARI, 5, false);
-    expect(advice?.experience).toBe("unsupported");
-    expect(advice?.browserLabel).toBe("Safari on iPhone");
+    expect(advice).toEqual({ experience: "unsupported", platform: "iphone" });
   });
 
-  it("advises on iPhone Chrome (same WebKit limits)", () => {
+  it("advises on iPhone Chrome the same as Safari", () => {
     const advice = detectFullscreenBrowserAdvice(IPHONE_CHROME, 5, false);
-    expect(advice?.experience).toBe("unsupported");
-    expect(advice?.browserLabel).toBe("Chrome on iPhone");
+    expect(advice).toEqual({ experience: "unsupported", platform: "iphone" });
   });
 
   it("advises on iPad when API is present but limited", () => {
     const advice = detectFullscreenBrowserAdvice(IPAD_SAFARI, 5, true);
-    expect(advice?.experience).toBe("limited");
+    expect(advice).toEqual({ experience: "limited", platform: "ipad" });
+  });
+
+  it("advises on iPad without fullscreen API", () => {
+    const advice = detectFullscreenBrowserAdvice(IPAD_SAFARI, 5, false);
+    expect(advice).toEqual({ experience: "unsupported", platform: "ipad" });
   });
 
   it("returns null for Chrome on Mac with API support", () => {
@@ -77,19 +80,30 @@ describe("detectFullscreenBrowserAdvice", () => {
 });
 
 describe("formatFullscreenBrowserAdviceMessage", () => {
-  const iphoneAdvice = detectFullscreenBrowserAdvice(IPHONE_SAFARI, 5, false)!;
-
-  it("uses alternate lead when fullscreen did not activate", () => {
-    const msg = formatFullscreenBrowserAdviceMessage(iphoneAdvice, false);
+  it("explains the iPhone platform limit without suggesting another device", () => {
+    const advice = detectFullscreenBrowserAdvice(IPHONE_SAFARI, 5, false)!;
+    const msg = formatFullscreenBrowserAdviceMessage(advice, false);
     expect(msg.lead).toMatch(/isn't available/i);
-    expect(msg.body).toMatch(/Safari on iPhone/);
-    expect(msg.body).toMatch(/Chrome on a Mac or Android tablet/);
+    expect(msg.body).toMatch(/On iPhone/);
+    expect(msg.body).toMatch(/no browser can change that/i);
+    expect(msg.body).toMatch(/TideDial still works normally/i);
+    expect(msg.body).not.toMatch(/Mac|Android tablet|instead/i);
   });
 
-  it("uses success lead when fullscreen did activate on a limited platform", () => {
+  it("explains partial iPad fullscreen without suggesting another device", () => {
     const ipadAdvice = detectFullscreenBrowserAdvice(IPAD_SAFARI, 5, true)!;
     const msg = formatFullscreenBrowserAdviceMessage(ipadAdvice, true);
     expect(msg.lead).toMatch(/You've gone fullscreen/i);
-    expect(msg.body).toMatch(/partial fullscreen/i);
+    expect(msg.body).toMatch(/On iPad/);
+    expect(msg.body).toMatch(/only partial/i);
+    expect(msg.body).not.toMatch(/Mac|Android tablet|instead/i);
+  });
+
+  it("names Windows when describing browsers that support really fullscreen", () => {
+    const advice = detectFullscreenBrowserAdvice(MAC_CHROME, 0, false)!;
+    const msg = formatFullscreenBrowserAdviceMessage(advice, false);
+    expect(msg.body).toMatch(/Windows PC/);
+    expect(msg.body).toMatch(/Mac/);
+    expect(msg.body).toMatch(/Android tablet/);
   });
 });
