@@ -7,6 +7,7 @@
 import {
   annularSector,
   arc,
+  circle,
   group,
   line,
   point,
@@ -752,6 +753,214 @@ function homeMenuTriggerDiagramToGroup(hm, cx, cy) {
 }
 
 /**
+ * @param {{ x: number, y: number }} p
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {{ x: number, y: number }}
+ */
+function rotatePoint180(p, cx, cy) {
+  return { x: 2 * cx - p.x, y: 2 * cy - p.y };
+}
+
+/**
+ * One arrow on the fullscreen glyph square (see tide-diagram spec §FullScreenIcon glyph).
+ *
+ * @param {number} vertexX assigned vertex **X**
+ * @param {number} vertexY assigned vertex **Y**
+ * @param {number} innerX root inner endpoint **X**
+ * @param {number} innerY root inner endpoint **Y**
+ * @param {number} tipReach tip-stroke reach along edge when logical tip is outer
+ * @param {boolean} outerLogicalTip
+ * @returns {import('../model/sceneModel.mjs').LinePrimitive[]}
+ */
+function fullScreenArrowLines(
+  vertexX,
+  vertexY,
+  innerX,
+  innerY,
+  tipReach,
+  outerLogicalTip,
+) {
+  const root = line({ x: innerX, y: innerY }, { x: vertexX, y: vertexY });
+  if (outerLogicalTip) {
+    const isTopRight = vertexX > innerX;
+    if (isTopRight) {
+      return [
+        root,
+        line({ x: vertexX, y: vertexY }, { x: vertexX - tipReach, y: vertexY }),
+        line({ x: vertexX, y: vertexY }, { x: vertexX, y: vertexY - tipReach }),
+      ];
+    }
+    return [
+      root,
+      line({ x: vertexX, y: vertexY }, { x: vertexX + tipReach, y: vertexY }),
+      line({ x: vertexX, y: vertexY }, { x: vertexX, y: vertexY + tipReach }),
+    ];
+  }
+  const isTopRight = vertexX > innerX;
+  if (isTopRight) {
+    return [
+      root,
+      line({ x: innerX, y: innerY }, { x: vertexX, y: innerY }),
+      line({ x: innerX, y: innerY }, { x: innerX, y: vertexY }),
+    ];
+  }
+  return [
+    root,
+    line({ x: innerX, y: innerY }, { x: vertexX, y: innerY }),
+    line({ x: innerX, y: innerY }, { x: innerX, y: vertexY }),
+  ];
+}
+
+/**
+ * Two diagonal arrows on a glyph square (see tide-diagram spec §FullScreenIcon glyph).
+ *
+ * @param {number} cx
+ * @param {number} cy
+ * @param {number} hs half-size of glyph square
+ * @param {number} rootSegmentLength dimensionless × |leading diagonal|
+ * @param {number} tipStrokeReach dimensionless × square edge (outer logical tip only)
+ * @param {boolean} outerLogicalTip false = exit/compress (On), true = enter/expand (Off)
+ * @returns {import('../model/sceneModel.mjs').LinePrimitive[]}
+ */
+function fullScreenGlyphArrowLines(
+  cx,
+  cy,
+  hs,
+  rootSegmentLength,
+  tipStrokeReach,
+  outerLogicalTip,
+) {
+  const edge = 2 * hs;
+  const diagonal = edge * Math.SQRT2;
+  const rootLen = rootSegmentLength * diagonal;
+  const tipReach = tipStrokeReach * edge;
+  const invSqrt2 = 1 / Math.SQRT2;
+
+  const blX = cx - hs;
+  const blY = cy - hs;
+  const trX = cx + hs;
+  const trY = cy + hs;
+
+  const trInnerX = trX - rootLen * invSqrt2;
+  const trInnerY = trY - rootLen * invSqrt2;
+  const blInnerX = blX + rootLen * invSqrt2;
+  const blInnerY = blY + rootLen * invSqrt2;
+
+  return [
+    ...fullScreenArrowLines(trX, trY, trInnerX, trInnerY, tipReach, outerLogicalTip),
+    ...fullScreenArrowLines(blX, blY, blInnerX, blInnerY, tipReach, outerLogicalTip),
+  ];
+}
+
+/**
+ * @param {import('../model/tideDiagramModel.mjs').KeepAwakeLabelDiagram} label
+ * @returns {import('../model/sceneModel.mjs').TextPrimitive}
+ */
+function keepAwakeLabelText(label) {
+  return text({
+    content: label.text,
+    size: label.fontSize,
+    hAlign: "left",
+    angleRad: 0,
+    anchor: point(label.anchor.x, label.anchor.y),
+    dominantBaseline: "middle",
+  });
+}
+
+/**
+ * @param {import('../model/tideDiagramModel.mjs').KeepAwakeCheckboxDiagram} checkbox
+ * @returns {import('../model/sceneModel.mjs').RoundedRectPrimitive}
+ */
+function keepAwakeCheckboxBox(checkbox) {
+  const { center, size } = checkbox;
+  return roundedRect(point(center.x, center.y), size, size, 0);
+}
+
+/**
+ * @param {import('../model/tideDiagramModel.mjs').KeepAwakeCheckboxDiagram} checkbox
+ * @returns {import('../model/sceneModel.mjs').LinePrimitive[]}
+ */
+function keepAwakeCheckboxCheckmark(checkbox) {
+  const { center, size } = checkbox;
+  const cx = center.x;
+  const cy = center.y;
+  const s = size;
+  const knee = { x: cx - 0.08 * s, y: cy - 0.22 * s };
+  return [
+    line({ x: cx - 0.3 * s, y: cy + 0.05 * s }, knee),
+    line(knee, { x: cx + 0.32 * s, y: cy + 0.28 * s }),
+  ];
+}
+
+/**
+ * @param {import('../model/tideDiagramModel.mjs').FullScreenIconDiagram} icon
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {import('../model/sceneModel.mjs').GroupNode}
+ */
+function fullScreenIconDiagramToGroup(icon, cx, cy) {
+  const c = mapPoint(icon.center, cx, cy);
+  const plate = icon.plate;
+  const plateCenter = mapPoint(plate.center, cx, cy);
+  const hs = icon.iconHalfSize;
+  const { rootSegmentLength, tipStrokeReach } = icon;
+  const offGlyphs = fullScreenGlyphArrowLines(
+    c.x,
+    c.y,
+    hs,
+    rootSegmentLength,
+    tipStrokeReach,
+    true,
+  );
+  const onGlyphs = fullScreenGlyphArrowLines(
+    c.x,
+    c.y,
+    hs,
+    rootSegmentLength,
+    tipStrokeReach,
+    false,
+  );
+  return group("FullScreenIcon", [
+    group("FullScreenIcon.HitFrame", [
+      roundedRect(plateCenter, plate.width, plate.height, plate.rx),
+    ]),
+    group("FullScreenIcon.Off", offGlyphs),
+    group("FullScreenIcon.On", onGlyphs),
+  ]);
+}
+
+/**
+ * @param {import('../model/tideDiagramModel.mjs').KeepAwakeIconDiagram} icon
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {import('../model/sceneModel.mjs').GroupNode}
+ */
+function keepAwakeIconDiagramToGroup(icon, cx, cy) {
+  const labelAnchor = mapPoint(icon.label.anchor, cx, cy);
+  const checkboxCenter = mapPoint(icon.checkbox.center, cx, cy);
+  const checkbox = { size: icon.checkbox.size, center: checkboxCenter };
+  const labelText = keepAwakeLabelText({
+    ...icon.label,
+    anchor: labelAnchor,
+  });
+  const checkboxBox = keepAwakeCheckboxBox(checkbox);
+  const checkmarkLines = keepAwakeCheckboxCheckmark(checkbox);
+  return group("KeepAwakeIcon", [
+    group("KeepAwakeIcon.Control", [
+      group("KeepAwakeIcon.Label", [labelText]),
+      group("KeepAwakeIcon.Off", [
+        group("KeepAwakeIcon.Off.Checkbox", [checkboxBox]),
+      ]),
+      group("KeepAwakeIcon.On", [
+        group("KeepAwakeIcon.On.Checkbox", [checkboxBox]),
+        group("KeepAwakeIcon.On.Checkmark", checkmarkLines),
+      ]),
+    ]),
+  ]);
+}
+
+/**
  * @param {import('../model/tideDiagramModel.mjs').TideDiagramDocument} diagram
  * @returns {import('../model/sceneModel.mjs').SceneDocument}
  */
@@ -769,6 +978,8 @@ export function tideDiagramToScene(diagram) {
     annularBand: annularBandDiagram,
     homeMenuTrigger,
     homeLocationPanel,
+    fullScreenIcon,
+    keepAwakeIcon,
     hand,
     mainLabel,
     locationLabel,
@@ -941,6 +1152,8 @@ export function tideDiagramToScene(diagram) {
   ]);
 
   const homeMenuTriggerGroup = homeMenuTriggerDiagramToGroup(homeMenuTrigger, cx, cy);
+  const fullScreenIconGroup = fullScreenIconDiagramToGroup(fullScreenIcon, cx, cy);
+  const keepAwakeIconGroup = keepAwakeIconDiagramToGroup(keepAwakeIcon, cx, cy);
   const homeLocationPanelGroup = homeLocationPanelDiagramToGroup(homeLocationPanel, cx, cy);
   const brandPlate = brand.brandQr.plate;
   const brandPlateCenter = mapPoint(brandPlate.center, cx, cy);
@@ -985,6 +1198,8 @@ export function tideDiagramToScene(diagram) {
     locationLabelGroup,
     brandGroup,
     homeMenuTriggerGroup,
+    fullScreenIconGroup,
+    keepAwakeIconGroup,
     homeLocationPanelGroup,
   ]);
   const orderedRoot = applyPaintOrderOverrides(

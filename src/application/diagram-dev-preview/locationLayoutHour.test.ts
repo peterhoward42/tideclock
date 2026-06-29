@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { TideExtreme } from '../../core-models/TideExtreme';
 import { TideExtremesAtLocation } from '../../core-models/TideExtremesAtLocation';
+import {
+  buildDiagramSpecWithDerivedNextTide,
+  FIXTURE_SHARE_URL,
+  utcIsoToLocalCanonicalTimeUtc,
+} from '../buildDiagramSpec';
+import { localBrhcDatePrefix, localCanonicalTimeNow } from '../localTimeStrings';
+import { createDiagramCollaborator } from '../diagramCollaborator';
 import { buildLocationLayoutHourClock } from './locationLayoutHour';
 
 function fixtureExtremes(): TideExtremesAtLocation {
@@ -31,6 +38,46 @@ describe('buildLocationLayoutHourClock', () => {
     expect(clock.kind).toBe('active');
     if (clock.kind !== 'active') return;
     expect(clock.timeNow).toBe('23:00:00');
+  });
+
+  it('timeNowHour preview path flips LocationLabel across the dial but not instrument icons', () => {
+    const extremesAtLocation = fixtureExtremes();
+    const collaborator = createDiagramCollaborator();
+
+    function bundleForPreviewHour(hour: number) {
+      const clock = buildLocationLayoutHourClock({ hour, extremesAtLocation });
+      expect(clock.kind).toBe('active');
+      if (clock.kind !== 'active') {
+        throw new Error('expected active clock');
+      }
+      const timeNow = localCanonicalTimeNow(clock.frozenEpochMs);
+      expect(timeNow).toBe(clock.timeNow);
+      const spec = buildDiagramSpecWithDerivedNextTide({
+        extremesAtLocation,
+        timeNow,
+        brhcDatePrefix: localBrhcDatePrefix(clock.frozenEpochMs),
+        utcIsoToLocalCanonicalTime: utcIsoToLocalCanonicalTimeUtc,
+        townName: 'Lymington',
+        shareUrl: FIXTURE_SHARE_URL,
+      });
+      return collaborator.generate(spec);
+    }
+
+    const morning = bundleForPreviewHour(1);
+    const afternoon = bundleForPreviewHour(13);
+
+    expect(morning.diagram.locationLabel[0].anchor.x).not.toBeCloseTo(
+      afternoon.diagram.locationLabel[0].anchor.x,
+      6,
+    );
+    expect(morning.diagram.fullScreenIcon.center.x).toBeCloseTo(
+      afternoon.diagram.fullScreenIcon.center.x,
+      6,
+    );
+    expect(morning.diagram.fullScreenIcon.center.y).toBeCloseTo(
+      afternoon.diagram.fullScreenIcon.center.y,
+      6,
+    );
   });
 
   it('is inactive without extremes or for invalid hours', () => {

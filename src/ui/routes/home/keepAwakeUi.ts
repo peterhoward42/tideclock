@@ -7,7 +7,6 @@ import {
   writeKeepAwakeEnabled,
 } from "./keepAwakePreferences";
 import type { WakeLockPresentation } from "./wakeLockPresentation";
-import { isWakeLockApiSupported } from "./wakeLockSupport";
 import { trackProductEvent } from "../../../infrastructure/analytics/trackProductEvent";
 
 const storage: Storage | null =
@@ -52,40 +51,4 @@ export const tideWakePresentationStore: Readable<WakeLockPresentation | null> = 
 
 export function setTideWakePresentation(value: WakeLockPresentation | null): void {
   tideWakePresentation.set(value);
-}
-
-/**
- * One-line status for menus (route-aware: when not on home, lock cannot be live).
- */
-export function formatKeepAwakeStatusLine(
-  isHomeRoute: boolean,
-  userWants: boolean,
-  homePresentation: WakeLockPresentation | null,
-): string {
-  if (!isWakeLockApiSupported()) {
-    return "Keep screen awake is not supported in this browser.";
-  }
-  if (!userWants) {
-    return "Keep screen awake is off.";
-  }
-  if (!isHomeRoute) {
-    return "On: open the home tide view to keep the screen from sleeping.";
-  }
-  if (homePresentation === null) {
-    return "Waking: requesting screen lock…";
-  }
-  if (homePresentation.kind === "not_supported") {
-    return "Keep screen awake is not supported in this browser.";
-  }
-  if (homePresentation.kind === "active") {
-    return "Screen stays awake while this view is open and visible.";
-  }
-  switch (homePresentation.reason) {
-    case "user_off":
-      return "Keep screen awake is off.";
-    case "background":
-      return "Paused: screen sleep prevention resumes when you return to this tab.";
-    case "request_failed":
-      return "Could not request wake lock. The OS or browser may be limiting it.";
-  }
 }

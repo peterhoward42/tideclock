@@ -95,6 +95,26 @@ export const homeStyleModel: StyleModelSpec = {
       name: "role.menu.trigger.icon",
       colors: { color: "#555", strokeWidth: 2.25 },
     },
+    {
+      name: "role.menu.trigger.icon.on",
+      colors: { color: "#aaa", fillColor: "#aaa", strokeWidth: 2.25 },
+    },
+    {
+      name: "role.instrument.fullscreen.icon",
+      colors: { color: "#777", strokeWidth: 1.5 },
+    },
+    {
+      name: "role.instrument.keepAwake.label",
+      colors: { color: "#555" },
+    },
+    {
+      name: "role.instrument.keepAwake.checkbox",
+      colors: { color: "#555", strokeWidth: 1.00 },
+    },
+    {
+      name: "role.instrument.keepAwake.checkmark",
+      colors: { color: "#aaa", strokeWidth: 1.00 },
+    },
   ],
   bindings: [
     { name: "AnnularBand", roleName: "role.structure.annular-band" },
@@ -128,11 +148,18 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
     { name: "HomeMenuTrigger", roleName: "role.menu.trigger" },
     { name: "HomeMenuTriggerIcon", roleName: "role.menu.trigger.icon" },
+    { name: "FullScreenIcon.HitFrame", roleName: "role.menu.trigger" },
+    { name: "FullScreenIcon.Off", roleName: "role.instrument.fullscreen.icon" },
+    { name: "FullScreenIcon.On", roleName: "role.instrument.fullscreen.icon" },
+    { name: "KeepAwakeIcon.Label", roleName: "role.instrument.keepAwake.label" },
+    { name: "KeepAwakeIcon.Off.Checkbox", roleName: "role.instrument.keepAwake.checkbox" },
+    { name: "KeepAwakeIcon.On.Checkbox", roleName: "role.instrument.keepAwake.checkbox" },
+    { name: "KeepAwakeIcon.On.Checkmark", roleName: "role.instrument.keepAwake.checkmark" },
     { name: "HomeLocationPanelPlate", roleName: "role.menu.trigger" },
     { name: "HomeLocationPanelLabel", roleName: "role.structure.text" },
     { name: "HomeShareTrigger", roleName: "role.location.share" },
     { name: "HomeLocationPanelSeparator", roleName: "role.structure.text" },
     { name: "HomeLocationTrigger", roleName: "role.location.change" },
-    ],
+  ],
   lineStyles: [],
 };

@@ -153,5 +153,38 @@ export type HomeLayoutBase = {
     /** k·RefRadius: gap from action baseline up to heading baseline. */
     readonly labelAboveActions: number;
   };
+  /**
+   * Top instrument toggles (**FullScreenIcon**, **KeepAwakeIcon**); see tide-diagram spec.
+   */
+  readonly homeInstrumentIcons: {
+    /** k·RefRadius: half-width of the glyph square inside each control. */
+    readonly iconHalfSize: number;
+    readonly fullScreen: {
+      /** k·RefRadius: offset from **B_left** to box leading edge. */
+      readonly offsetFromLeft: number;
+      /** k·RefRadius: offset from **B_bottom** to box bottom edge. */
+      readonly aboveBottom: number;
+      /** k·RefRadius: inset from glyph square edge to box edge on each side. */
+      readonly boxPad: number;
+      /** Dimensionless × |leading diagonal|; see tide-diagram spec §FullScreenIcon glyph. */
+      readonly rootSegmentLength: number;
+      /** Dimensionless × glyph square edge; see tide-diagram spec §FullScreenIcon glyph. */
+      readonly tipStrokeReach: number;
+    };
+    readonly keepAwake: {
+      /** k·RefRadius: offset from **B_left** to control leading edge. */
+      readonly offsetFromLeft: number;
+      /** k·RefRadius: offset from **B_bottom** to control bottom edge. */
+      readonly aboveBottom: number;
+      /** Label copy; see tide-diagram spec §KeepAwakeIcon. */
+      readonly label: string;
+      /** k·RefRadius: uniform label **FontHeight** (§Sizing). */
+      readonly fontHeight: number;
+      /** k·RefRadius: checkbox square side length. */
+      readonly checkboxSize: number;
+      /** k·RefRadius: gap from label trailing edge to checkbox leading edge. */
+      readonly gapBeforeCheckbox: number;
+    };
+  };
   readonly tideMarksDefaults: HomeTideMarksDefaults;
 };

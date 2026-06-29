@@ -45,6 +45,13 @@
   import { mountMenuSvgTriggerWire } from "./menuSvgTriggerWire";
   import { mountShareSvgTriggerWire } from "./shareSvgTriggerWire";
   import { mountLocationSvgTriggerWire } from "./locationSvgTriggerWire";
+  import { mountFullScreenIconWire } from "./fullScreenIconWire";
+  import { mountKeepAwakeIconWire } from "./keepAwakeIconWire";
+  import { formatKeepAwakeExplainerMessage } from "./keepAwakeExplainer";
+  import {
+    syncFullScreenIconAppearance,
+    syncKeepAwakeIconAppearance,
+  } from "./instrumentIconAppearance";
   import { copyTextToClipboard } from "../../copyEmail";
   import { buildShareUrlForTown } from "../../homeUrlQuery";
   import type { RouteProps } from "./routeProps";
@@ -60,11 +67,9 @@
   import {
     getKeepAwakeUserEnabled,
     keepAwakeUserStore,
-    setKeepAwakeUserEnabled,
     setTideWakePresentation,
     tideWakePresentationStore,
   } from "./keepAwakeUi";
-  import { isWakeLockApiSupported } from "./wakeLockSupport";
   import {
     elementSupportsFullscreenRequest,
     getDiagramFullscreenTarget,
@@ -100,7 +105,7 @@
   /** Dev-only: `?diagramPreview=<id>` (see README “Developer previews”). */
   let diagramPreviewIdFromUrl = $state<DiagramPreviewId | null>(null);
 
-  /** Dev-only: `?timeNowHour=<0–23>` — freeze `timeNow` at a whole hour for Location layout. */
+  /** Dev-only: `?timeNowHour=<0–23>` — freeze `timeNow` at a whole hour for layout placement previews. */
   let timeNowHourFromUrl = $state<number | null>(null);
 
   let diagramSvg = $state("");
@@ -116,13 +121,14 @@
   let homeFullscreenAdviceOpen = $state(false);
   let homeFullscreenAdviceLead = $state("");
   let homeFullscreenAdviceBody = $state("");
+  let homeKeepAwakeExplainerOpen = $state(false);
+  let homeKeepAwakeExplainerMessage = $state("");
   let homeNerdsOpen = $state(false);
   let homeContactOpen = $state(false);
   let homeShareLinkCopiedOpen = $state(false);
   let homeShareLinkCopiedUrl = $state("");
   let keepAwakeUserWants = $state(get(keepAwakeUserStore));
   let keepAwakeTideViewPresentation = $state(get(tideWakePresentationStore));
-  let keepAwakeSectionOpen = $state(false);
   /** Snapshot from {@link displayOptimisation}; sole source for hint device/aspect policy. */
   let displaySnapshot = $state(get(displayOptimisation));
   /** Vertical letterbox slack (px) for `xMidYMid meet` fit of the diagram SVG inside the instrument. */
@@ -177,20 +183,6 @@
       return true;
     }
     return diagramSvg !== "";
-  });
-
-  const keepAwakeForHomeMenu = $derived({
-    sectionOpen: keepAwakeSectionOpen,
-    apiSupported: isWakeLockApiSupported(),
-    isHomeRoute: true,
-    userWants: keepAwakeUserWants,
-    homePresentation: keepAwakeTideViewPresentation,
-    onToggleSection: () => {
-      keepAwakeSectionOpen = !keepAwakeSectionOpen;
-    },
-    onToggle: (next: boolean) => {
-      setKeepAwakeUserEnabled(next);
-    },
   });
 
   // Subscriptions and lifecycle (onMount)
@@ -291,6 +283,8 @@
   $effect(() => {
     if (!diagramPreviewLive) {
       void minuteEpoch;
+    } else if (import.meta.env.DEV) {
+      void timeNowHourFromUrl;
     }
     const extremes = tideExtremes;
     const presentation = tidePresentation;
@@ -310,10 +304,19 @@
       const preview = homeDiagramPreview;
       const extremesForSpec =
         preview.state === "frozen" ? preview.extremesAtLocation : extremes;
-      const wallClockMs =
-        preview.state === "frozen" ? preview.frozenEpochMs : Date.now();
-      const timeNow = localCanonicalTimeNow(wallClockMs);
-      const brhcDatePrefix = localBrhcDatePrefix(wallClockMs);
+      let timeNow: string;
+      let brhcDatePrefix: string;
+      if (preview.state === "frozen" && "timeNow" in preview) {
+        timeNow = preview.timeNow;
+        brhcDatePrefix = preview.brhcDatePrefix;
+      } else if (preview.state === "frozen") {
+        timeNow = localCanonicalTimeNow(preview.frozenEpochMs);
+        brhcDatePrefix = localBrhcDatePrefix(preview.frozenEpochMs);
+      } else {
+        const wallClockMs = Date.now();
+        timeNow = localCanonicalTimeNow(wallClockMs);
+        brhcDatePrefix = localBrhcDatePrefix(wallClockMs);
+      }
       const spec = buildDiagramSpecWithDerivedNextTide({
         extremesAtLocation: extremesForSpec,
         timeNow,
@@ -400,6 +403,48 @@
 
   $effect(() => {
     if (diagramSvg === "") {
+      return;
+    }
+
+    return mountFullScreenIconWire({
+      getDiagramHost: () => diagramHostEl,
+      onToggle: handleHomeFullscreenToggle,
+      scheduleAfterDomReady: (fn) => {
+        void tick().then(fn);
+      },
+    });
+  });
+
+  $effect(() => {
+    if (diagramSvg === "") {
+      return;
+    }
+
+    return mountKeepAwakeIconWire({
+      getDiagramHost: () => diagramHostEl,
+      scheduleAfterDomReady: (fn) => {
+        void tick().then(fn);
+      },
+      onToggled: (enabled) => {
+        homeKeepAwakeExplainerMessage = formatKeepAwakeExplainerMessage(enabled);
+        homeKeepAwakeExplainerOpen = true;
+      },
+    });
+  });
+
+  $effect(() => {
+    if (diagramSvg === "") return;
+    void homeFullscreenActive;
+    void keepAwakeUserWants;
+    void keepAwakeTideViewPresentation;
+    void tick().then(() => {
+      syncFullScreenIconAppearance(diagramHostEl, homeFullscreenActive);
+      syncKeepAwakeIconAppearance(diagramHostEl, keepAwakeUserWants);
+    });
+  });
+
+  $effect(() => {
+    if (diagramSvg === "") {
       homeMenuOpen = false;
       return;
     }
@@ -431,7 +476,6 @@
     if (!homeMenuOpen || diagramSvg === "") return;
     void homeNerdsOpen;
     void homeContactOpen;
-    void keepAwakeSectionOpen;
     void tick().then(() => {
       const host = diagramHostEl;
       if (host == null) return;
@@ -524,11 +568,14 @@
     homeMenuOpen = false;
     homeNerdsOpen = false;
     homeContactOpen = false;
-    keepAwakeSectionOpen = false;
   }
 
   function dismissHomeFullscreenAdvice(): void {
     homeFullscreenAdviceOpen = false;
+  }
+
+  function dismissHomeKeepAwakeExplainer(): void {
+    homeKeepAwakeExplainerOpen = false;
   }
 
   async function handleHomeFullscreenToggle(): Promise<void> {
@@ -628,21 +675,21 @@
     onDismissDefaultLocationExplainer={onDismissDefaultLocationExplainer}
     {homeMenuOpen}
     {homeMenuPanelStyle}
-    {homeFullscreenActive}
     homeFullscreenAdviceOpen={homeFullscreenAdviceOpen}
     homeFullscreenAdviceLead={homeFullscreenAdviceLead}
     homeFullscreenAdviceBody={homeFullscreenAdviceBody}
     onDismissHomeFullscreenAdvice={dismissHomeFullscreenAdvice}
+    homeKeepAwakeExplainerOpen={homeKeepAwakeExplainerOpen}
+    homeKeepAwakeExplainerMessage={homeKeepAwakeExplainerMessage}
+    onDismissHomeKeepAwakeExplainer={dismissHomeKeepAwakeExplainer}
     homeShareLinkCopiedOpen={homeShareLinkCopiedOpen}
     homeShareLinkCopiedUrl={homeShareLinkCopiedUrl}
     onDismissHomeShareLinkCopied={dismissHomeShareLinkCopied}
     {homeNerdsOpen}
     {homeContactOpen}
     onCloseHomeMenu={closeHomeMenu}
-    onToggleHomeFullscreen={handleHomeFullscreenToggle}
     onToggleHomeNerds={handleHomeNerdsEntry}
     onToggleHomeContact={handleHomeContactEntry}
-    keepAwake={keepAwakeForHomeMenu}
   />
 </main>
 

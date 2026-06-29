@@ -124,6 +124,35 @@
  *   iconBarCenterSpacing: number,
  * }} HomeMenuTriggerDiagram
  *
+ * Top-right **FullScreenIcon**: rounded box (hit target) + Off/On diagonal-arrow glyphs.
+ *
+ * @typedef {{
+ *   plate: HomeLocationPanelPlateDiagram,
+ *   center: DiagramPoint,
+ *   iconHalfSize: number,
+ *   rootSegmentLength: number,
+ *   tipStrokeReach: number,
+ * }} FullScreenIconDiagram
+ *
+ * Top-left **KeepAwakeIcon**: plain label + checkbox toggle (**Off** / **On** branches).
+ *
+ * @typedef {{
+ *   text: string,
+ *   fontSize: number,
+ *   anchor: DiagramPoint,
+ * }} KeepAwakeLabelDiagram
+ *
+ * @typedef {{
+ *   size: number,
+ *   center: DiagramPoint,
+ * }} KeepAwakeCheckboxDiagram
+ *
+ * @typedef {{
+ *   anchor: DiagramPoint,
+ *   label: KeepAwakeLabelDiagram,
+ *   checkbox: KeepAwakeCheckboxDiagram,
+ * }} KeepAwakeIconDiagram
+ *
  * @typedef {{
  *   content: string,
  *   fontSize: number,
@@ -189,6 +218,8 @@
  *   tideMarks: TideMarkDiagram[],
  *   annularBand: AnnularBandDiagram,
  *   homeMenuTrigger: HomeMenuTriggerDiagram,
+ *   fullScreenIcon: FullScreenIconDiagram,
+ *   keepAwakeIcon: KeepAwakeIconDiagram,
  *   homeLocationPanel: HomeLocationPanelDiagram,
  *   hand: HandDiagram,
  *   locationLabel: DiagramTextInst[],

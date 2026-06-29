@@ -257,6 +257,51 @@ describe('createDiagramCollaborator', () => {
     expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(bBottom + menuAboveK * R + 0.5 * d, 6);
   });
 
+  it('places FullScreenIcon and KeepAwakeIcon from B_left and B_bottom per icon offsets (excluded from B_*)', () => {
+    const collaborator = createDiagramCollaborator();
+    const spec = baseSpecForCollaboratorTest();
+    const { diagram } = collaborator.generate(spec);
+    const R = diagram.refArc.refRadius;
+    const bLeft = diagram.layoutBounds.minX;
+    const bBottom = diagram.layoutBounds.minY;
+    const icons = spec.homeInstrumentIcons as {
+      readonly iconHalfSize: number;
+      readonly fullScreen: {
+        readonly offsetFromLeft: number;
+        readonly aboveBottom: number;
+        readonly boxPad: number;
+      };
+      readonly keepAwake: { readonly offsetFromLeft: number; readonly aboveBottom: number };
+    };
+    const fullScreenBoxSide =
+      2 * icons.iconHalfSize * R + 2 * icons.fullScreen.boxPad * R;
+
+    const expectKeepAwakeAnchor = (
+      icon: { anchor: { x: number; y: number } },
+      offsetFromLeft: number,
+      aboveBottom: number,
+    ) => {
+      expect(icon.anchor.x).toBeCloseTo(bLeft + offsetFromLeft * R, 6);
+      expect(icon.anchor.y).toBeCloseTo(bBottom + aboveBottom * R, 6);
+    };
+
+    expect(diagram.fullScreenIcon.plate.width).toBeCloseTo(fullScreenBoxSide, 6);
+    expect(diagram.fullScreenIcon.plate.height).toBeCloseTo(fullScreenBoxSide, 6);
+    expect(diagram.fullScreenIcon.center.x).toBeCloseTo(
+      bLeft + icons.fullScreen.offsetFromLeft * R + 0.5 * fullScreenBoxSide,
+      6,
+    );
+    expect(diagram.fullScreenIcon.center.y).toBeCloseTo(
+      bBottom + icons.fullScreen.aboveBottom * R + 0.5 * fullScreenBoxSide,
+      6,
+    );
+    expectKeepAwakeAnchor(
+      diagram.keepAwakeIcon,
+      icons.keepAwake.offsetFromLeft,
+      icons.keepAwake.aboveBottom,
+    );
+  });
+
   it('places LocationLabel inside the dial from locationPlacement × t_now', () => {
     const collaborator = createDiagramCollaborator();
     const spec = baseSpecForCollaboratorTest();
@@ -499,6 +544,8 @@ describe('createDiagramCollaborator', () => {
       'LocationLabel',
       'Brand',
       'HomeMenuTrigger',
+      'FullScreenIcon',
+      'KeepAwakeIcon',
       'HomeLocationPanel',
     ]);
   });

@@ -362,6 +362,125 @@ locationPlacement: {
 }
 ```
 
+## FullScreenIcon and KeepAwakeIcon
+
+Top **instrument** toggles on the home tide diagram: **Really fullscreen** and **Keep screen awake**. **FullScreenIcon** is a top-level named group with a square **hit frame** (layout + hover chrome only; invisible at rest) and two glyph subgroups (**Off** / **On**) for enter/exit appearances. **KeepAwakeIcon** is a plain label plus checkbox with **Off** / **On** checkbox branches; the host shows one branch at a time. The host shows one glyph/checkbox subgroup at a time for each control.
+
+- **Not** part of **BRHCBundle**; bounds are **excluded** from `**B_*`** expansion (same rule as **HomeMenuTrigger**).
+- Positioned **independently** via per-icon offsets from `**B_left**` / `**B_bottom**` (same convention as **HomeLocationPanel** and **BrandQR**).
+
+### Shared placement
+
+- **Horizontal** — per-icon leading edge at `**B_left + offsetFromLeft·R`**.
+- **Vertical** — per-icon bottom edge at `**B_bottom + aboveBottom·R`** (**Y** upward).
+- Keys live under **`homeInstrumentIcons.fullScreen`** / **`homeInstrumentIcons.keepAwake`** (see **FullScreenIcon placement**, **KeepAwakeIcon placement**).
+
+```
+homeInstrumentIcons: {
+    iconHalfSize: 0.032,      // k·R half-width of glyph square inside hit frame
+    fullScreen: {
+        offsetFromLeft: 0,      // k·R from B_left to box leading edge
+        aboveBottom: 0,         // k·R from B_bottom to box bottom edge
+        boxPad: 0.012,          // k·R inset from glyph square edge to box edge (each side)
+        rootSegmentLength: 1 / 3,   // dimensionless × |leading diagonal|; see FullScreenIcon glyph
+        tipStrokeReach: 1 / 3,      // dimensionless × square edge; see FullScreenIcon glyph
+    },
+    keepAwake: {
+        offsetFromLeft: 0.14,   // k·R from B_left to control leading edge
+        aboveBottom: 0,         // k·R from B_bottom to control bottom edge
+        label: "Keep awake",
+        fontHeight: 0.051,      // k·R uniform em size (§Sizing)
+        checkboxSize: 0.045,    // k·R checkbox square side
+        gapBeforeCheckbox: 0.012, // k·R gap from label to checkbox
+    },
+}
+```
+
+### Instrument hit frame
+
+**FullScreenIcon** only:
+
+- **`FullScreenIcon.HitFrame`** is the visible rounded box and the pointer hit target (see **FullScreenIcon placement**).
+- **Not** used by **KeepAwakeIcon** — that control’s pointer target is **`KeepAwakeIcon.Control`** (label + checkbox only).
+
+### FullScreenIcon
+
+Host toggle for **Really fullscreen** / **Exit fullscreen**. Box stroke/fill via **`role.menu.trigger`** (same as **HomeLocationPanelPlate**). Glyph stroke via **`role.instrument.fullscreen.icon`**. Glyph geometry is **FullScreenIcon glyph**; position is **FullScreenIcon placement**.
+
+#### FullScreenIcon placement
+
+- Box leading edge at **`homeInstrumentIcons.fullScreen.offsetFromLeft·R`** from **`B_left`**.
+- Box bottom edge at **`homeInstrumentIcons.fullScreen.aboveBottom·R`** above **`B_bottom`**.
+- Box side **`2 × iconHalfSize + 2 × boxPad`** (**k·R**); **`boxPad`** is inset from the glyph square edge to the box edge on each side.
+- Corner radius **`homeLocationPanel.cornerRx·R`** (same as **HomeLocationPanelPlate**).
+- The glyph square (**FullScreenIcon glyph**) is centred in the box.
+- **`FullScreenIcon.HitFrame`** is the visible rounded box and the pointer hit target.
+
+#### FullScreenIcon glyph
+
+Geometry is defined on a **glyph square**: axis-aligned square centred in the box with side **`2 × iconHalfSize`** (half-width **`iconHalfSize`**, **§Sizing**).
+
+- **Leading diagonal** — the segment from the square’s **bottom-left** vertex to its **top-right** vertex.
+- **Composition** — the complete icon comprises **two Arrows** in all cases.
+- **Vertex assignment**
+  - One **Arrow** is anchored at the **bottom-left** vertex of the leading diagonal.
+  - One **Arrow** is anchored at the **top-right** vertex of the leading diagonal.
+
+**Arrow** (each):
+
+- Comprises one **root segment** and two **tip strokes** (**line** primitives).
+- **Root segment**
+  - Colinear with the **leading diagonal**.
+  - Length **`rootSegmentLength × |leading diagonal|`**, where **`rootSegmentLength`** is the dimensionless preset **`homeInstrumentIcons.fullScreen.rootSegmentLength`**.
+  - One endpoint at the arrow’s **assigned vertex**; the other toward the **centre** of the glyph square (the **inner** endpoint).
+  - The **logical tip** selects which root endpoint anchors the tip strokes:
+    - **Outer** — the assigned vertex (expand / enter fullscreen).
+    - **Inner** — the root segment’s inner endpoint (compress / exit fullscreen).
+- **Tip strokes**
+  - One stroke is **horizontal**; one is **vertical**.
+  - Both originate at the **logical tip**.
+  - Each stroke’s free endpoint lies on the **square edge** adjacent to the assigned vertex.
+  - When the logical tip is **outer**, each free endpoint is **`tipStrokeReach × edge length`** measured from the assigned vertex **inward** along that edge, where **`tipStrokeReach`** is the dimensionless preset **`homeInstrumentIcons.fullScreen.tipStrokeReach`** and **edge length** is the side of the glyph square.
+  - When the logical tip is **inner**, each free endpoint is where the horizontal or vertical line through the logical tip meets the corresponding adjacent edge.
+
+**Off / On presentation**:
+
+- **`FullScreenIcon.Off`** — enter fullscreen: both arrows with **outer** logical tip.
+- **`FullScreenIcon.On`** — exit fullscreen: both arrows with **inner** logical tip (same root segments; tip strokes re-anchor to the inner endpoint).
+
+The proportion scalars are **dimensionless fractions of the glyph square**; they are tunable presets and must not be hard-coded.
+
+#### FullScreenIcon scene model
+
+- Top-level group **`FullScreenIcon`**: child **`FullScreenIcon.HitFrame`** (**`roundedRect`** box, **`role.menu.trigger`**); children **`FullScreenIcon.Off`** / **`FullScreenIcon.On`** (**line** primitives only).
+
+### KeepAwakeIcon
+
+Plain label + checkbox toggle for **Keep screen awake** (host semantics). When the Screen Wake Lock API is unavailable, the host **omits** **KeepAwakeIcon** from the live UI (diagram generation may still emit it; host hides the group).
+
+#### KeepAwakeIcon placement
+
+- Control leading edge at **`homeInstrumentIcons.keepAwake.offsetFromLeft·R`** from **`B_left`**.
+- Control bottom edge at **`homeInstrumentIcons.keepAwake.aboveBottom·R`** above **`B_bottom`**.
+- Label and checkbox are vertically centred within the control height (**`max(label em-box height, checkboxSize)`**).
+
+#### KeepAwakeIcon control
+
+- **Label** — one **`text`** primitive (**`dominantBaseline: middle`**, **`hAlign: left`**, upright). Content and size from **`homeInstrumentIcons.keepAwake.label`** / **`fontHeight`** (**FontHeight** = **`fontHeight·RefRadius`**, **§Sizing**).
+- **Checkbox** — one axis-aligned **`roundedRect`** square (**`rx = 0`**) immediately to the right of the label, separated by **`gapBeforeCheckbox·R`**. Side **`checkboxSize·R`**. **On** adds a **`line`** checkmark inside the box.
+- **Off / On presentation** (host shows one checkbox branch at a time):
+  - **`KeepAwakeIcon.Off`** — empty checkbox (**allow sleep**).
+  - **`KeepAwakeIcon.On`** — checkbox plus checkmark (**block sleep**).
+- The label is always visible; only the checkbox branch toggles.
+- Pointer target: **`KeepAwakeIcon.Control`** (label + checkbox). Host hover: label text colour only.
+- Host **`aria-label`** may use a longer phrase (e.g. **Keep screen awake**) when the visible **`label`** preset is shortened.
+
+Fill colours: label via **`role.instrument.keepAwake.label`** (host may brighten on hover only); checkbox outline via **`role.instrument.keepAwake.checkbox`** in both states; checkmark via **`role.instrument.keepAwake.checkmark`** (**On** only).
+
+#### KeepAwakeIcon scene model
+
+- Top-level group **`KeepAwakeIcon`**: child **`KeepAwakeIcon.Control`** containing **`KeepAwakeIcon.Label`** (**`text`**); **`KeepAwakeIcon.Off`** with **`KeepAwakeIcon.Off.Checkbox`** (**`roundedRect`**); **`KeepAwakeIcon.On`** with **`KeepAwakeIcon.On.Checkbox`** (**`roundedRect`**) and **`KeepAwakeIcon.On.Checkmark`** (**`line`** primitives).
+
 ## HomeMenuTrigger
 
 - **HomeMenuTrigger** is a top-level named group.

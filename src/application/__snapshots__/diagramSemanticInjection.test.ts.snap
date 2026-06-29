@@ -1135,6 +1135,24 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
   "dividorArc": {
     "radiusK": 0.8653,
   },
+  "fullScreenIcon": {
+    "center": {
+      "x": -121.94585520821964,
+      "y": -128.62,
+    },
+    "iconHalfSize": 3.3040000000000003,
+    "plate": {
+      "center": {
+        "x": -121.94585520821964,
+        "y": -128.62,
+      },
+      "height": 8.968,
+      "rx": 1.18,
+      "width": 8.968,
+    },
+    "rootSegmentLength": 0.3333333333333333,
+    "tipStrokeReach": 0.3333333333333333,
+  },
   "hand": {
     "arm": {
       "end": {
@@ -1221,6 +1239,27 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     "diameter": 12.98,
     "iconBarCenterSpacing": 1.77,
     "iconBarHalfLength": 2.832,
+  },
+  "keepAwakeIcon": {
+    "anchor": {
+      "x": -113.44985520821963,
+      "y": -133.104,
+    },
+    "checkbox": {
+      "center": {
+        "x": -78.04985520821963,
+        "y": -130.3428,
+      },
+      "size": 4.72,
+    },
+    "label": {
+      "anchor": {
+        "x": -113.44985520821963,
+        "y": -130.3428,
+      },
+      "fontSize": 5.31,
+      "text": "Keep awake",
+    },
   },
   "layoutBounds": {
     "maxX": 128.05368250390558,

@@ -21,7 +21,7 @@ export const homeLayoutBase = {
    */
   civilHalfDayLayout: "auto",
   refRadius: 118,
-  layoutBoundsTopMargin: 0.05,
+  layoutBoundsTopMargin: 0.00,
   layoutBoundsBottomMargin: 0.05,
   sweepRad: Math.PI,
   tickLabelTickLen: 0.025,
@@ -88,10 +88,28 @@ export const homeLayoutBase = {
     iconBarLength: 0.09,
     iconBarGap: 0.025,
   },
+  homeInstrumentIcons: {
+    iconHalfSize: 0.032,
+    fullScreen: {
+      offsetFromLeft: 0.45,
+      aboveBottom: 0,
+      boxPad: 0.020,
+      rootSegmentLength: 1 / 2.5,
+      tipStrokeReach: 1 / 2.0,
+    },
+    keepAwake: {
+      offsetFromLeft: 0,
+      aboveBottom: 0.20,
+      label: "Keep awake",
+      fontHeight: 0.045,
+      checkboxSize: 0.042,
+      gapBeforeCheckbox: 0.025,
+    },
+  },
   brandQrSize: 0.2,
   brandQrPlateCornerRx: 0.014,
   brandQrLeftPadding: 0,
-  brandQrAboveBottom: .20,
+  brandQrAboveBottom: .30,
   homeLocationPanel: {
     leftPadding: 0.0,
     aboveBottom: 0,

@@ -148,6 +148,31 @@ type HomeMenuTriggerDiagram = {
   readonly iconBarCenterSpacing: number;
 };
 
+type FullScreenIconDiagram = {
+  readonly plate: HomeLocationPanelPlateDiagram;
+  readonly center: DiagramPoint;
+  readonly iconHalfSize: number;
+  readonly rootSegmentLength: number;
+  readonly tipStrokeReach: number;
+};
+
+type KeepAwakeLabelDiagram = {
+  readonly text: string;
+  readonly fontSize: number;
+  readonly anchor: DiagramPoint;
+};
+
+type KeepAwakeCheckboxDiagram = {
+  readonly size: number;
+  readonly center: DiagramPoint;
+};
+
+type KeepAwakeIconDiagram = {
+  readonly anchor: DiagramPoint;
+  readonly label: KeepAwakeLabelDiagram;
+  readonly checkbox: KeepAwakeCheckboxDiagram;
+};
+
 type HandTimeReadoutPartDiagram = {
   readonly timeContent: string;
   readonly nowTagContent: string;
@@ -194,6 +219,8 @@ export type TideDiagramDocument = {
   readonly tideMarks: TideMarkDiagram[];
   readonly annularBand: AnnularBandDiagram;
   readonly homeMenuTrigger: HomeMenuTriggerDiagram;
+  readonly fullScreenIcon: FullScreenIconDiagram;
+  readonly keepAwakeIcon: KeepAwakeIconDiagram;
   readonly homeLocationPanel: HomeLocationPanelDiagram;
   readonly hand: HandDiagram;
   readonly locationLabel: readonly DiagramTextInst[];

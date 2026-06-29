@@ -42,7 +42,7 @@ Orchestration in `HomeRoute.svelte`; presentation panels in `HomeRouteTidePanels
 |------|---------|
 | Diagram DOM | `diagramDom.ts` — menu anchor, dev outline helpers. |
 | SVG glue | `menuSvgTriggerWire.ts`, `instrumentLetterboxObserver.ts`. |
-| Keep awake | `keepAwakePreferences.ts`, `keepAwakeUi.ts`, `screenWakeLock.ts`, `wakeLockPresentation.ts`, `HomeKeepAwakeSection.svelte`. |
+| Keep awake | `keepAwakePreferences.ts`, `keepAwakeUi.ts`, `keepAwakeExplainer.ts`, `screenWakeLock.ts`, `wakeLockPresentation.ts`, diagram **KeepAwakeIcon** on home. |
 | Display | `fullscreen.ts`, `fullscreenBrowserAdvice.ts`, `wakeLockSupport.ts`. |
 | Props contract | `routeProps.ts` — `TidePresentation`, `RouteProps`. |
 

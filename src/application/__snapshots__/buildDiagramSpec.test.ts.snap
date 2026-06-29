@@ -1109,13 +1109,13 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
       "moduleSize": 0.7151515151515152,
       "origin": {
         "x": -155.76000000000002,
-        "y": -135.33283550303113,
+        "y": -123.53283550303112,
       },
       "payload": "https://thetidedial.page/?place=Lymington&county=Hampshire",
       "plate": {
         "center": {
           "x": -143.96,
-          "y": -123.53283550303114,
+          "y": -111.73283550303113,
         },
         "height": 23.6,
         "rx": 1.6520000000000001,
@@ -1134,6 +1134,24 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   },
   "dividorArc": {
     "radiusK": 1.32,
+  },
+  "fullScreenIcon": {
+    "center": {
+      "x": -96.52400000000003,
+      "y": -152.79683550303113,
+    },
+    "iconHalfSize": 3.7760000000000002,
+    "plate": {
+      "center": {
+        "x": -96.52400000000003,
+        "y": -152.79683550303113,
+      },
+      "height": 12.272,
+      "rx": 1.6520000000000001,
+      "width": 12.272,
+    },
+    "rootSegmentLength": 0.4,
+    "tipStrokeReach": 0.5,
   },
   "hand": {
     "arm": {
@@ -1222,9 +1240,30 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     "iconBarCenterSpacing": 2.95,
     "iconBarHalfLength": 5.31,
   },
+  "keepAwakeIcon": {
+    "anchor": {
+      "x": -155.76000000000002,
+      "y": -135.33283550303113,
+    },
+    "checkbox": {
+      "center": {
+        "x": -118.47200000000002,
+        "y": -132.57163550303113,
+      },
+      "size": 4.956,
+    },
+    "label": {
+      "anchor": {
+        "x": -155.76000000000002,
+        "y": -132.57163550303113,
+      },
+      "fontSize": 5.31,
+      "text": "Keep awake",
+    },
+  },
   "layoutBounds": {
     "maxX": 155.76000000000002,
-    "maxY": 5.900000000000019,
+    "maxY": 1.9075098543519176e-14,
     "minX": -155.76000000000002,
     "minY": -158.93283550303113,
   },
@@ -2242,7 +2281,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
   "meta": {
     "previewFrame": {
       "maxX": 156.76000000000002,
-      "maxY": 6.900000000000019,
+      "maxY": 1.000000000000019,
       "minX": -156.76000000000002,
       "minY": -159.93283550303113,
     },
@@ -3673,7 +3712,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
               {
                 "center": {
                   "x": -143.96,
-                  "y": -123.53283550303114,
+                  "y": -111.73283550303113,
                 },
                 "height": 23.6,
                 "kind": "roundedRect",
@@ -4783,7 +4822,7 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
                 "moduleSize": 0.7151515151515152,
                 "origin": {
                   "x": -155.76000000000002,
-                  "y": -135.33283550303113,
+                  "y": -123.53283550303112,
                 },
               },
             ],
@@ -4848,6 +4887,274 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
         ],
         "kind": "group",
         "name": "HomeMenuTrigger",
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "center": {
+                  "x": -96.52400000000003,
+                  "y": -152.79683550303113,
+                },
+                "height": 12.272,
+                "kind": "roundedRect",
+                "rx": 1.6520000000000001,
+                "width": 12.272,
+              },
+            ],
+            "kind": "group",
+            "name": "FullScreenIcon.HitFrame",
+          },
+          {
+            "children": [
+              {
+                "end": {
+                  "x": -92.74800000000003,
+                  "y": -149.02083550303112,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -95.76880000000003,
+                  "y": -152.04163550303113,
+                },
+              },
+              {
+                "end": {
+                  "x": -96.52400000000003,
+                  "y": -149.02083550303112,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -92.74800000000003,
+                  "y": -149.02083550303112,
+                },
+              },
+              {
+                "end": {
+                  "x": -92.74800000000003,
+                  "y": -152.79683550303113,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -92.74800000000003,
+                  "y": -149.02083550303112,
+                },
+              },
+              {
+                "end": {
+                  "x": -100.30000000000003,
+                  "y": -156.57283550303114,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -97.27920000000003,
+                  "y": -153.55203550303114,
+                },
+              },
+              {
+                "end": {
+                  "x": -96.52400000000003,
+                  "y": -156.57283550303114,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -100.30000000000003,
+                  "y": -156.57283550303114,
+                },
+              },
+              {
+                "end": {
+                  "x": -100.30000000000003,
+                  "y": -152.79683550303113,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -100.30000000000003,
+                  "y": -156.57283550303114,
+                },
+              },
+            ],
+            "kind": "group",
+            "name": "FullScreenIcon.Off",
+          },
+          {
+            "children": [
+              {
+                "end": {
+                  "x": -92.74800000000003,
+                  "y": -149.02083550303112,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -95.76880000000003,
+                  "y": -152.04163550303113,
+                },
+              },
+              {
+                "end": {
+                  "x": -92.74800000000003,
+                  "y": -152.04163550303113,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -95.76880000000003,
+                  "y": -152.04163550303113,
+                },
+              },
+              {
+                "end": {
+                  "x": -95.76880000000003,
+                  "y": -149.02083550303112,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -95.76880000000003,
+                  "y": -152.04163550303113,
+                },
+              },
+              {
+                "end": {
+                  "x": -100.30000000000003,
+                  "y": -156.57283550303114,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -97.27920000000003,
+                  "y": -153.55203550303114,
+                },
+              },
+              {
+                "end": {
+                  "x": -100.30000000000003,
+                  "y": -153.55203550303114,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -97.27920000000003,
+                  "y": -153.55203550303114,
+                },
+              },
+              {
+                "end": {
+                  "x": -97.27920000000003,
+                  "y": -156.57283550303114,
+                },
+                "kind": "line",
+                "start": {
+                  "x": -97.27920000000003,
+                  "y": -153.55203550303114,
+                },
+              },
+            ],
+            "kind": "group",
+            "name": "FullScreenIcon.On",
+          },
+        ],
+        "kind": "group",
+        "name": "FullScreenIcon",
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "anchor": {
+                      "x": -155.76000000000002,
+                      "y": -132.57163550303113,
+                    },
+                    "angleRad": 0,
+                    "content": "Keep awake",
+                    "dominantBaseline": "middle",
+                    "hAlign": "left",
+                    "kind": "text",
+                    "size": 5.31,
+                  },
+                ],
+                "kind": "group",
+                "name": "KeepAwakeIcon.Label",
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "center": {
+                          "x": -118.47200000000002,
+                          "y": -132.57163550303113,
+                        },
+                        "height": 4.956,
+                        "kind": "roundedRect",
+                        "rx": 0,
+                        "width": 4.956,
+                      },
+                    ],
+                    "kind": "group",
+                    "name": "KeepAwakeIcon.Off.Checkbox",
+                  },
+                ],
+                "kind": "group",
+                "name": "KeepAwakeIcon.Off",
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "center": {
+                          "x": -118.47200000000002,
+                          "y": -132.57163550303113,
+                        },
+                        "height": 4.956,
+                        "kind": "roundedRect",
+                        "rx": 0,
+                        "width": 4.956,
+                      },
+                    ],
+                    "kind": "group",
+                    "name": "KeepAwakeIcon.On.Checkbox",
+                  },
+                  {
+                    "children": [
+                      {
+                        "end": {
+                          "x": -118.86848000000002,
+                          "y": -133.66195550303112,
+                        },
+                        "kind": "line",
+                        "start": {
+                          "x": -119.95880000000002,
+                          "y": -132.32383550303112,
+                        },
+                      },
+                      {
+                        "end": {
+                          "x": -116.88608000000002,
+                          "y": -131.18395550303114,
+                        },
+                        "kind": "line",
+                        "start": {
+                          "x": -118.86848000000002,
+                          "y": -133.66195550303112,
+                        },
+                      },
+                    ],
+                    "kind": "group",
+                    "name": "KeepAwakeIcon.On.Checkmark",
+                  },
+                ],
+                "kind": "group",
+                "name": "KeepAwakeIcon.On",
+              },
+            ],
+            "kind": "group",
+            "name": "KeepAwakeIcon.Control",
+          },
+        ],
+        "kind": "group",
+        "name": "KeepAwakeIcon",
       },
       {
         "children": [

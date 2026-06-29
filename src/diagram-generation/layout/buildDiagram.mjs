@@ -16,6 +16,7 @@
  * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **Hand.TimeReadout** placement) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
  * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**menuRightPadding**`, `**menuAboveBottom**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; paddings and **iconBarGap** **>= 0**). Placed as a **top-level** scene sibling (**not** inside **BRHCBundle**): trailing edge inset from **B_right** by **`menuRightPadding·R`**; the **bottom** of the circular control lies **`menuAboveBottom·R`** above **B_bottom** (**Y** upward). Independent of **Brand** placement. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
+ * - `**homeInstrumentIcons**` is required: plain object with finite **`iconHalfSize`** (**k·R**, **> 0**), and per-icon **`fullScreen`** / **`keepAwake`** blocks. **`fullScreen`** requires **`offsetFromLeft`**, **`aboveBottom`**, **`boxPad`** (**k·R** box offsets and glyph inset), plus dimensionless **`rootSegmentLength`** / **`tipStrokeReach`** (**> 0**). **`keepAwake`** requires **`offsetFromLeft`**, **`aboveBottom`**, label copy/size, and checkbox sizing. **FullScreenIcon** box corner radius matches **`homeLocationPanel.cornerRx`**. Excluded from **`layoutBounds`**.
  * - `**homeLocationPanel**` is required: plate + heading + **Share** / **Change** actions to the right of **BrandQR** (see tide-diagram spec §HomeLocationPanel). Excluded from **`layoutBounds`** except via **BrandQR** horizontal extent.
  * - **MainLabel** is horizontal text inside **BRHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
  * - `**brhcBundle**` is required (plain object with finite **fontHeight** and **dateAboveTime** — all **k·R**); `**brhcDatePrefix**` is a required string (see spec).
@@ -762,13 +763,15 @@ export function buildDiagram(spec) {
     layoutBounds.maxX,
     bBottom,
   );
+  const fullScreenIcon = buildFullScreenIconFromSpec(spec, refRadius, bLeft, bBottom);
+  const keepAwakeIcon = buildKeepAwakeIconFromSpec(spec, refRadius, bLeft, bBottom);
   const homeLocationPanel = buildHomeLocationPanelFromSpec(
     spec,
     refRadius,
     bLeft,
     bBottom,
   );
-  // Intentionally omit homeMenuTrigger from layoutBounds; homeLocationPanel extends B_* (replacing former BrandURL).
+  // Intentionally omit homeMenuTrigger and instrument icons from layoutBounds; homeLocationPanel extends B_* (replacing former BrandURL).
   includeQrMatrixBounds(layoutBounds, brand.brandQr);
   includeHomeLocationPanelBounds(layoutBounds, homeLocationPanel);
 
@@ -796,6 +799,8 @@ export function buildDiagram(spec) {
     tideMarks,
     annularBand,
     homeMenuTrigger,
+    fullScreenIcon,
+    keepAwakeIcon,
     homeLocationPanel,
     hand,
     locationLabel,
@@ -1199,6 +1204,156 @@ function buildHomeMenuTriggerFromSpec(spec, refRadius, rightEdgeX, bBottom) {
     diameter,
     iconBarHalfLength: 0.5 * iconBarLengthK * refRadius,
     iconBarCenterSpacing: iconBarGapK * refRadius,
+  };
+}
+
+/** Half-em vertical extent for `dominantBaseline: middle`; matches `toScene.mjs`. */
+const KEEP_AWAKE_LABEL_MIDDLE_HALF_EM = 0.52;
+
+/**
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @param {number} leftEdgeX **B_left**
+ * @param {number} bBottom **B_bottom** (global layout min **Y**)
+ * @returns {import('../model/tideDiagramModel.mjs').FullScreenIconDiagram}
+ */
+function buildFullScreenIconFromSpec(spec, refRadius, leftEdgeX, bBottom) {
+  const o = requirePlainObject(spec.homeInstrumentIcons, "spec.homeInstrumentIcons");
+  const iconHalfSizeK = requireFiniteNumber(
+    o.iconHalfSize,
+    "spec.homeInstrumentIcons.iconHalfSize",
+  );
+  const fullScreen = requirePlainObject(o.fullScreen, "spec.homeInstrumentIcons.fullScreen");
+  const offsetFromLeftK = requireFiniteNumber(
+    fullScreen.offsetFromLeft,
+    "spec.homeInstrumentIcons.fullScreen.offsetFromLeft",
+  );
+  const aboveBottomK = requireFiniteNumber(
+    fullScreen.aboveBottom,
+    "spec.homeInstrumentIcons.fullScreen.aboveBottom",
+  );
+  const boxPadK = requireFiniteNumber(
+    fullScreen.boxPad,
+    "spec.homeInstrumentIcons.fullScreen.boxPad",
+  );
+  const rootSegmentLength = requireFiniteNumber(
+    fullScreen.rootSegmentLength,
+    "spec.homeInstrumentIcons.fullScreen.rootSegmentLength",
+  );
+  const tipStrokeReach = requireFiniteNumber(
+    fullScreen.tipStrokeReach,
+    "spec.homeInstrumentIcons.fullScreen.tipStrokeReach",
+  );
+  const locationPanel = requirePlainObject(spec.homeLocationPanel, "spec.homeLocationPanel");
+  const cornerRxK = requireFiniteNumber(
+    locationPanel.cornerRx,
+    "spec.homeLocationPanel.cornerRx",
+  );
+  if (!(iconHalfSizeK > 0)) {
+    throw new Error("spec.homeInstrumentIcons.iconHalfSize must be greater than 0");
+  }
+  if (boxPadK < 0) {
+    throw new Error("spec.homeInstrumentIcons.fullScreen.boxPad must be >= 0");
+  }
+  if (cornerRxK < 0) {
+    throw new Error("spec.homeLocationPanel.cornerRx must be >= 0");
+  }
+  if (!(rootSegmentLength > 0)) {
+    throw new Error(
+      "spec.homeInstrumentIcons.fullScreen.rootSegmentLength must be greater than 0",
+    );
+  }
+  if (!(tipStrokeReach > 0)) {
+    throw new Error(
+      "spec.homeInstrumentIcons.fullScreen.tipStrokeReach must be greater than 0",
+    );
+  }
+  const iconHalfSize = iconHalfSizeK * refRadius;
+  const boxSide = 2 * iconHalfSize + 2 * boxPadK * refRadius;
+  const leadingEdgeX = leftEdgeX + offsetFromLeftK * refRadius;
+  const bottomEdgeY = bBottom + aboveBottomK * refRadius;
+  const center = {
+    x: leadingEdgeX + 0.5 * boxSide,
+    y: bottomEdgeY + 0.5 * boxSide,
+  };
+  return {
+    plate: {
+      center,
+      width: boxSide,
+      height: boxSide,
+      rx: cornerRxK * refRadius,
+    },
+    center,
+    iconHalfSize,
+    rootSegmentLength,
+    tipStrokeReach,
+  };
+}
+
+/**
+ * @param {Record<string, unknown>} spec
+ * @param {number} refRadius
+ * @param {number} leftEdgeX **B_left**
+ * @param {number} bBottom **B_bottom** (global layout min **Y**)
+ * @returns {import('../model/tideDiagramModel.mjs').KeepAwakeIconDiagram}
+ */
+function buildKeepAwakeIconFromSpec(spec, refRadius, leftEdgeX, bBottom) {
+  const icons = requirePlainObject(spec.homeInstrumentIcons, "spec.homeInstrumentIcons");
+  const keepAwake = requirePlainObject(icons.keepAwake, "spec.homeInstrumentIcons.keepAwake");
+  const offsetFromLeftK = requireFiniteNumber(
+    keepAwake.offsetFromLeft,
+    "spec.homeInstrumentIcons.keepAwake.offsetFromLeft",
+  );
+  const aboveBottomK = requireFiniteNumber(
+    keepAwake.aboveBottom,
+    "spec.homeInstrumentIcons.keepAwake.aboveBottom",
+  );
+  const labelText = keepAwake.label;
+  if (typeof labelText !== "string" || labelText.length === 0) {
+    throw new Error("spec.homeInstrumentIcons.keepAwake.label must be a non-empty string");
+  }
+  const fontHeightK = requireFiniteNumber(
+    keepAwake.fontHeight,
+    "spec.homeInstrumentIcons.keepAwake.fontHeight",
+  );
+  const checkboxSizeK = requireFiniteNumber(
+    keepAwake.checkboxSize,
+    "spec.homeInstrumentIcons.keepAwake.checkboxSize",
+  );
+  const gapBeforeCheckboxK = requireFiniteNumber(
+    keepAwake.gapBeforeCheckbox,
+    "spec.homeInstrumentIcons.keepAwake.gapBeforeCheckbox",
+  );
+  if (!(fontHeightK > 0)) {
+    throw new Error("spec.homeInstrumentIcons.keepAwake.fontHeight must be > 0");
+  }
+  if (!(checkboxSizeK > 0)) {
+    throw new Error("spec.homeInstrumentIcons.keepAwake.checkboxSize must be > 0");
+  }
+  if (gapBeforeCheckboxK < 0) {
+    throw new Error("spec.homeInstrumentIcons.keepAwake.gapBeforeCheckbox must be >= 0");
+  }
+  const fontSize = fontHeightK * refRadius;
+  const checkboxSize = checkboxSizeK * refRadius;
+  const gapBeforeCheckbox = gapBeforeCheckboxK * refRadius;
+  const leadingEdgeX = leftEdgeX + offsetFromLeftK * refRadius;
+  const bottomEdgeY = bBottom + aboveBottomK * refRadius;
+  const labelWidth = labelText.length * fontSize * BRHC_LABEL_CHAR_WIDTH_EM;
+  const labelHeight = 2 * KEEP_AWAKE_LABEL_MIDDLE_HALF_EM * fontSize;
+  const controlHeight = Math.max(labelHeight, checkboxSize);
+  const controlCenterY = bottomEdgeY + 0.5 * controlHeight;
+  const checkboxCenterX = leadingEdgeX + labelWidth + gapBeforeCheckbox + 0.5 * checkboxSize;
+  return {
+    anchor: { x: leadingEdgeX, y: bottomEdgeY },
+    label: {
+      text: labelText,
+      fontSize,
+      anchor: { x: leadingEdgeX, y: controlCenterY },
+    },
+    checkbox: {
+      size: checkboxSize,
+      center: { x: checkboxCenterX, y: controlCenterY },
+    },
   };
 }
 

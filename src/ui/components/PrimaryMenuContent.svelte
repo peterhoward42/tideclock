@@ -1,18 +1,6 @@
 <script lang="ts">
   import CopyableEmail from "./CopyableEmail.svelte";
   import PrimaryNavLinks from "./PrimaryNavLinks.svelte";
-  import HomeKeepAwakeSection from "../routes/home/HomeKeepAwakeSection.svelte";
-  import type { WakeLockPresentation } from "../routes/home/wakeLockPresentation";
-
-  export type KeepAwakeMenu = {
-    readonly sectionOpen: boolean;
-    readonly apiSupported: boolean;
-    readonly isHomeRoute: boolean;
-    readonly userWants: boolean;
-    readonly homePresentation: WakeLockPresentation | null;
-    readonly onToggleSection: () => void;
-    readonly onToggle: (next: boolean) => void;
-  };
 
   interface Props {
     readonly linksClassName: string;
@@ -21,10 +9,6 @@
     readonly contactOpen: boolean;
     readonly onToggleContact: () => void;
     readonly onNavigate?: () => void;
-    readonly fullscreenActionLabel?: string;
-    readonly onToggleFullscreen?: () => void | Promise<void>;
-    /** Optional: keep screen awake (home route + header menu). */
-    readonly keepAwake?: KeepAwakeMenu;
   }
 
   let {
@@ -34,14 +18,7 @@
     contactOpen,
     onToggleContact,
     onNavigate,
-    fullscreenActionLabel,
-    onToggleFullscreen,
-    keepAwake = undefined,
   }: Props = $props();
-
-  const keepAwakeToggleEnabled = $derived(
-    keepAwake === undefined ? false : keepAwake.apiSupported,
-  );
 </script>
 
 <nav class={linksClassName} aria-label="Primary">
@@ -50,38 +27,6 @@
     >Install app / Add to home screen</a
   >
   <a href="#/onwall" onclick={() => onNavigate?.()}>Stick it on the wall</a>
-  {#if keepAwake !== undefined}
-    <button
-      type="button"
-      class="primary-menu-content__action"
-      onclick={keepAwake.onToggleSection}
-    >
-      Keep screen awake
-    </button>
-    {#if keepAwake.sectionOpen}
-      <section
-        class="primary-menu-content__keep-awake"
-        aria-label="Keep screen awake"
-      >
-        <HomeKeepAwakeSection
-          isHomeRoute={keepAwake.isHomeRoute}
-          userWants={keepAwake.userWants}
-          homePresentation={keepAwake.homePresentation}
-          toggleEnabled={keepAwakeToggleEnabled}
-          onToggle={keepAwake.onToggle}
-        />
-      </section>
-    {/if}
-  {/if}
-  {#if fullscreenActionLabel !== undefined && onToggleFullscreen !== undefined}
-    <button
-      type="button"
-      class="primary-menu-content__action"
-      onclick={onToggleFullscreen}
-    >
-      {fullscreenActionLabel}
-    </button>
-  {/if}
   <a href="#/story" onclick={() => onNavigate?.()}>Story</a>
   <button
     type="button"
@@ -196,13 +141,5 @@
     margin: 0.45rem 0 0;
     font-size: 0.8rem;
     line-height: 1.35;
-  }
-
-  .primary-menu-content__keep-awake {
-    margin-top: 0.35rem;
-    padding: 0.45rem 0.5rem;
-    border: 1px solid var(--border-menu-content-inset);
-    border-radius: 0.25rem;
-    background: var(--surface-menu-content-inset);
   }
 </style>

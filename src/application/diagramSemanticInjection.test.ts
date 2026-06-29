@@ -75,6 +75,24 @@ type SemanticInjectionDiagramSpec = {
     readonly iconBarLength: number;
     readonly iconBarGap: number;
   };
+  readonly homeInstrumentIcons: {
+    readonly iconHalfSize: number;
+    readonly fullScreen: {
+      readonly offsetFromLeft: number;
+      readonly aboveBottom: number;
+      readonly boxPad: number;
+      readonly rootSegmentLength: number;
+      readonly tipStrokeReach: number;
+    };
+    readonly keepAwake: {
+      readonly offsetFromLeft: number;
+      readonly aboveBottom: number;
+      readonly label: string;
+      readonly fontHeight: number;
+      readonly checkboxSize: number;
+      readonly gapBeforeCheckbox: number;
+    };
+  };
   readonly homeLocationPanel: {
     readonly leftPadding: number;
     readonly aboveBottom: number;
@@ -175,6 +193,24 @@ function sampleTideDiagramSpec(): SemanticInjectionDiagramSpec {
       menuAboveBottom: 0.068,
       iconBarLength: 0.048,
       iconBarGap: 0.015,
+    },
+    homeInstrumentIcons: {
+      iconHalfSize: 0.028,
+      fullScreen: {
+        offsetFromLeft: 0,
+        aboveBottom: 0,
+        boxPad: 0.01,
+        rootSegmentLength: 1 / 3,
+        tipStrokeReach: 1 / 3,
+      },
+      keepAwake: {
+        offsetFromLeft: 0.11,
+        aboveBottom: 0,
+        label: "Keep awake",
+        fontHeight: 0.045,
+        checkboxSize: 0.04,
+        gapBeforeCheckbox: 0.01,
+      },
     },
     homeLocationPanel: {
       leftPadding: 0.12,
