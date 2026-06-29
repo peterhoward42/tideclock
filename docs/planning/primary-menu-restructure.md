@@ -2,8 +2,8 @@
 
 Working notes from product discussion (June 2026). Captures analytics interpretation and a preferred direction for menu simplification. Not an implementation spec.
 
-**Status:** location on the home diagram (done) — next step is fullscreen toggle as a dial icon (top-right)  
-**Last updated:** 2026-06-14  
+**Status:** location, fullscreen, and keep-awake controls on the home diagram (done) — menu simplification continues separately  
+**Last updated:** 2026-06-29  
 **Related:** [elevator-pitch.md](../specs/elevator-pitch.md), [story-discovery-lifecycle.md](./story-discovery-lifecycle.md), [pen-response.md](./pen-response.md)
 
 ---

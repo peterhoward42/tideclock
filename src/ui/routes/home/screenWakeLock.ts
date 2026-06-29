@@ -3,10 +3,7 @@
  * document is visible, and the user has opted in. Progressive enhancement only.
  */
 
-import type { WakeLockPresentation } from "./wakeLockPresentation";
 import { isWakeLockApiSupported } from "./wakeLockSupport";
-
-export type { WakeLockPresentation } from "./wakeLockPresentation";
 
 const LOG_PREFIX = "[home wake-lock]";
 
@@ -20,7 +17,6 @@ function debugLog(message: string, detail?: unknown): void {
 
 type MountOptions = {
   shouldRequestLock: () => boolean;
-  onPresentationChange: (p: WakeLockPresentation) => void;
 };
 
 /**
@@ -30,15 +26,10 @@ type MountOptions = {
 export function mountScreenWakeLock(
   options: MountOptions,
 ): { dispose: () => void; sync: () => void } {
-  const { shouldRequestLock, onPresentationChange } = options;
+  const { shouldRequestLock } = options;
   const apiOk = isWakeLockApiSupported();
   let sentinel: WakeLockSentinel | undefined;
   let disposed = false;
-
-  const report = (p: WakeLockPresentation): void => {
-    if (disposed) return;
-    onPresentationChange(p);
-  };
 
   const releaseNow = async (): Promise<void> => {
     if (!sentinel) return;
@@ -57,25 +48,21 @@ export function mountScreenWakeLock(
 
     if (!apiOk) {
       await releaseNow();
-      report({ kind: "not_supported" });
       return;
     }
 
     if (!shouldRequestLock()) {
       await releaseNow();
-      report({ kind: "inactive", reason: "user_off" });
       return;
     }
 
     if (document.visibilityState !== "visible") {
       await releaseNow();
-      report({ kind: "inactive", reason: "background" });
       return;
     }
 
     const wakeLock = navigator.wakeLock;
     if (!wakeLock?.request) {
-      report({ kind: "not_supported" });
       return;
     }
 
@@ -95,7 +82,6 @@ export function mountScreenWakeLock(
 
       sentinel = acquired;
       debugLog("WakeLock.request('screen') resolved; hold active");
-      report({ kind: "active" });
       acquired.addEventListener("release", () => {
         if (sentinel === acquired) sentinel = undefined;
         debugLog("sentinel released (platform or navigation)");
@@ -104,7 +90,6 @@ export function mountScreenWakeLock(
       });
     } catch (err) {
       debugLog("request('screen') failed", err);
-      report({ kind: "inactive", reason: "request_failed" });
     }
   };
 

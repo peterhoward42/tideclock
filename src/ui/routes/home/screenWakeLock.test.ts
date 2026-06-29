@@ -51,14 +51,11 @@ describe("mountScreenWakeLock", () => {
     vi.stubGlobal("document", doc);
     vi.stubGlobal("navigator", { wakeLock: { request } });
 
-    const onP = vi.fn();
     mountScreenWakeLock({
       shouldRequestLock: () => true,
-      onPresentationChange: onP,
     });
     await vi.waitFor(() => expect(request).toHaveBeenCalledTimes(1));
     expect(request).toHaveBeenCalledWith("screen");
-    expect(onP.mock.calls.length).toBeGreaterThan(0);
   });
 
   it("does not request when the user has opted out", () => {
@@ -70,7 +67,6 @@ describe("mountScreenWakeLock", () => {
 
     mountScreenWakeLock({
       shouldRequestLock: () => false,
-      onPresentationChange: () => {},
     });
 
     expect(request).not.toHaveBeenCalled();
@@ -87,7 +83,6 @@ describe("mountScreenWakeLock", () => {
 
     const { dispose } = mountScreenWakeLock({
       shouldRequestLock: () => true,
-      onPresentationChange: () => {},
     });
     await vi.waitFor(() => expect(request).toHaveBeenCalled());
 
@@ -112,7 +107,6 @@ describe("mountScreenWakeLock", () => {
 
     const { dispose } = mountScreenWakeLock({
       shouldRequestLock: () => true,
-      onPresentationChange: () => {},
     });
     await vi.waitFor(() => expect(sentinel.release).not.toHaveBeenCalled());
 

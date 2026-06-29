@@ -1,12 +1,11 @@
 /**
- * Keep-screen-awake UI state: user preference, live home-route wake line, and status copy.
+ * Keep-screen-awake UI state: persisted user preference for the home-route diagram icon.
  */
 import { get, writable, type Readable } from "svelte/store";
 import {
   readKeepAwakeEnabled,
   writeKeepAwakeEnabled,
 } from "./keepAwakePreferences";
-import type { WakeLockPresentation } from "./wakeLockPresentation";
 import { trackProductEvent } from "../../../infrastructure/analytics/trackProductEvent";
 
 const storage: Storage | null =
@@ -40,15 +39,4 @@ export function setKeepAwakeUserEnabled(next: boolean): void {
   if (storage !== null) {
     writeKeepAwakeEnabled(storage, next);
   }
-}
-
-/** Set only while {@link mountScreenWakeLock} is mounted; otherwise null. */
-const tideWakePresentation = writable<WakeLockPresentation | null>(null);
-
-export const tideWakePresentationStore: Readable<WakeLockPresentation | null> = {
-  subscribe: tideWakePresentation.subscribe,
-};
-
-export function setTideWakePresentation(value: WakeLockPresentation | null): void {
-  tideWakePresentation.set(value);
 }

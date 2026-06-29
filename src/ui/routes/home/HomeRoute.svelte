@@ -64,12 +64,7 @@
     homeDevDebugFlagsFromSearch,
   } from "../../homeUrlQuery";
   import { mountScreenWakeLock } from "./screenWakeLock";
-  import {
-    getKeepAwakeUserEnabled,
-    keepAwakeUserStore,
-    setTideWakePresentation,
-    tideWakePresentationStore,
-  } from "./keepAwakeUi";
+  import { getKeepAwakeUserEnabled, keepAwakeUserStore } from "./keepAwakeUi";
   import {
     elementSupportsFullscreenRequest,
     getDiagramFullscreenTarget,
@@ -128,7 +123,6 @@
   let homeShareLinkCopiedOpen = $state(false);
   let homeShareLinkCopiedUrl = $state("");
   let keepAwakeUserWants = $state(get(keepAwakeUserStore));
-  let keepAwakeTideViewPresentation = $state(get(tideWakePresentationStore));
   /** Snapshot from {@link displayOptimisation}; sole source for hint device/aspect policy. */
   let displaySnapshot = $state(get(displayOptimisation));
   /** Vertical letterbox slack (px) for `xMidYMid meet` fit of the diagram SVG inside the instrument. */
@@ -230,18 +224,9 @@
     keepAwakeUserStore.subscribe((v) => (keepAwakeUserWants = v)),
   );
 
-  onMount(() =>
-    tideWakePresentationStore.subscribe(
-      (v) => (keepAwakeTideViewPresentation = v),
-    ),
-  );
-
   onMount(() => {
     const wake = mountScreenWakeLock({
       shouldRequestLock: getKeepAwakeUserEnabled,
-      onPresentationChange: (p) => {
-        setTideWakePresentation(p);
-      },
     });
     const unsubKeep = keepAwakeUserStore.subscribe(() => {
       wake.sync();
@@ -249,7 +234,6 @@
     return () => {
       unsubKeep();
       wake.dispose();
-      setTideWakePresentation(null);
     };
   });
 
@@ -436,7 +420,6 @@
     if (diagramSvg === "") return;
     void homeFullscreenActive;
     void keepAwakeUserWants;
-    void keepAwakeTideViewPresentation;
     void tick().then(() => {
       syncFullScreenIconAppearance(diagramHostEl, homeFullscreenActive);
       syncKeepAwakeIconAppearance(diagramHostEl, keepAwakeUserWants);
@@ -469,7 +452,7 @@
   });
 
   /**
-   * When Contact / keep-awake sections grow, the menu height changes. Re-anchored from
+   * When Contact / Nerds sections grow, the menu height changes. Re-anchored from
    * the same geometry as the SVG trigger; avoids stale layout on long portrait viewports.
    */
   $effect(() => {

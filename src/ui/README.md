@@ -31,7 +31,7 @@ Surface styling: `routeSurfaceMode.ts` (`appliance` for home, `document` for oth
 |--------|------|
 | `components/AppHeader.svelte` | Document-mode title bar (non-home routes). |
 | `components/PrimaryNavMenu.svelte` | Header flyout menu. |
-| `components/PrimaryMenuContent.svelte` | Nav links + optional keep-awake section (header and in-diagram menu). |
+| `components/PrimaryMenuContent.svelte` | Nav links (header and in-diagram menu). |
 | `components/PrimaryNavLinks.svelte` | Hash links to routes. |
 
 ## Home subfolder (`routes/home/`)
@@ -42,7 +42,7 @@ Orchestration in `HomeRoute.svelte`; presentation panels in `HomeRouteTidePanels
 |------|---------|
 | Diagram DOM | `diagramDom.ts` — menu anchor, dev outline helpers. |
 | SVG glue | `menuSvgTriggerWire.ts`, `instrumentLetterboxObserver.ts`. |
-| Keep awake | `keepAwakePreferences.ts`, `keepAwakeUi.ts`, `keepAwakeExplainer.ts`, `screenWakeLock.ts`, `wakeLockPresentation.ts`, diagram **KeepAwakeIcon** on home. |
+| Keep awake | `keepAwakePreferences.ts`, `keepAwakeUi.ts`, `keepAwakeExplainer.ts`, `screenWakeLock.ts`, diagram **KeepAwakeIcon** on home. |
 | Display | `fullscreen.ts`, `fullscreenBrowserAdvice.ts`, `wakeLockSupport.ts`. |
 | Props contract | `routeProps.ts` — `TidePresentation`, `RouteProps`. |
 
