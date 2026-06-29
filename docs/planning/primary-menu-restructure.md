@@ -2,7 +2,7 @@
 
 Working notes from product discussion (June 2026). Captures analytics interpretation and a preferred direction for menu simplification. Not an implementation spec.
 
-**Status:** diagram chrome complete (location, fullscreen, keep-awake, **Menu** trigger on the dial) — flyout/hub restructure next  
+**Status:** diagram chrome and flyout/hub restructure complete  
 **Last updated:** 2026-06-29  
 **Related:** [elevator-pitch.md](../specs/elevator-pitch.md), [story-discovery-lifecycle.md](./story-discovery-lifecycle.md), [pen-response.md](./pen-response.md), [tide-diagram.md](../specs/tide-diagram.md) (§HomeLocationPanel, §FullScreenIcon, §KeepAwakeIcon, §HomeMenuTrigger)
 
@@ -133,10 +133,10 @@ Pick off isolated problems rather than landing the full restructure at once.
 | 1. Location on dial | Done (`HomeLocationPanel`) |
 | 2. Fullscreen on dial | Done — bottom-left; not in home flyout |
 | 3. Context-sensitive home link | Omit from home flyout; **Today's Tides** in header flyout only |
-| 4. Flyout restructure + hub routes | Five-item shape, Install/Config/Settings and Entertainment hubs |
+| 4. Flyout restructure + hub routes | Done — four flyout items, `#/installconfig`, `#/entertainment`, `#/contact` hubs |
 | 5. Keep screen awake | Done — bottom-left on dial |
 
-**Next:** steps 3 and 4.
+**Next:** timed curiosity tease → Entertainment (see Complements).
 
 ---
 
