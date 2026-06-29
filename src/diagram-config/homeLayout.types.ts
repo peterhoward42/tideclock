@@ -106,16 +106,14 @@ export type HomeLayoutBase = {
     }[];
   };
   readonly homeMenuTrigger: {
-    /** k·RefRadius: circular control diameter. */
-    readonly diameter: number;
-    /** k·RefRadius: inset from **B_right** to the trailing (right) edge of the circular control. */
+    /** k·RefRadius: inset from **B_right** to the trailing (right) edge of the label. */
     readonly menuRightPadding: number;
-    /** k·RefRadius: distance from **B_bottom** up to the bottom of the circular control (see tide-diagram spec §HomeMenuTrigger). */
+    /** k·RefRadius: distance from **B_bottom** up to the bottom of the label (see tide-diagram spec §HomeMenuTrigger). */
     readonly menuAboveBottom: number;
-    /** k·RefRadius: full width of each hamburger bar. */
-    readonly iconBarLength: number;
-    /** k·RefRadius: distance between adjacent bar centerlines (middle bar is on trigger centre). */
-    readonly iconBarGap: number;
+    /** k·RefRadius: **Menu** label font height. */
+    readonly fontHeight: number;
+    /** Menu trigger copy, e.g. `Menu`. */
+    readonly label: string;
   };
   /**
    * Bottom-left **Location** panel: plate + heading + **Share** / **Change** actions.

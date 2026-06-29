@@ -671,13 +671,25 @@ export function handDiagramToGroup(hand, cx, cy) {
 }
 
 /**
- * Circular menu control + three-bar icon; **top-level** scene sibling (not under **BRHCBundle**).
+ * Right-aligned **Menu** text link; **top-level** scene sibling (not under **BRHCBundle**).
  *
  * @param {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram} hm
  * @param {number} cx
  * @param {number} cy
  * @returns {import('../model/sceneModel.mjs').GroupNode}
  */
+function homeMenuTriggerDiagramToGroup(hm, cx, cy) {
+  return group("HomeMenuTrigger", [
+    text({
+      content: hm.content,
+      size: hm.fontSize,
+      hAlign: hm.hAlign,
+      angleRad: 0,
+      anchor: mapPoint(hm.anchor, cx, cy),
+    }),
+  ]);
+}
+
 /**
  * @param {import('../model/tideDiagramModel.mjs').HomeLocationPanelDiagram} panel
  * @param {number} cx
@@ -730,24 +742,6 @@ function homeLocationPanelDiagramToGroup(panel, cx, cy) {
         angleRad: 0,
         anchor: mapPoint(share.anchor, cx, cy),
       }),
-    ]),
-  ]);
-}
-
-function homeMenuTriggerDiagramToGroup(hm, cx, cy) {
-  const c = mapPoint(hm.center, cx, cy);
-  const d = hm.diameter;
-  const h = hm.iconBarHalfLength;
-  const g = hm.iconBarCenterSpacing;
-  const yTop = c.y + g;
-  const yMid = c.y;
-  const yBot = c.y - g;
-  return group("HomeMenuTrigger", [
-    roundedRect(c, d, d, 0.5 * d),
-    group("HomeMenuTriggerIcon", [
-      line({ x: c.x - h, y: yTop }, { x: c.x + h, y: yTop }),
-      line({ x: c.x - h, y: yMid }, { x: c.x + h, y: yMid }),
-      line({ x: c.x - h, y: yBot }, { x: c.x + h, y: yBot }),
     ]),
   ]);
 }

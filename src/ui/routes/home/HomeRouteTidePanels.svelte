@@ -434,8 +434,8 @@
   }
 
   /*
-   * Make the whole menu control’s bounds hit-testable (not only painted glyph edges).
-   * Avoids flaky pointerenter/hover when the pointer crosses “empty” parts of the group.
+   * Make the Menu link’s bounds hit-testable (not only painted glyph edges).
+   * Avoids flaky pointerenter/hover when the pointer crosses empty space in the group.
    */
   .home-instrument :global(svg g[data-name="HomeMenuTrigger"]) {
     pointer-events: all;
@@ -504,8 +504,8 @@
         g[data-name="FullScreenIcon.HitFrame"]
         rect
     ) {
-    fill: var(--surface-home-menu-trigger-hover);
-    stroke: var(--border-home-menu-trigger-hover);
+    fill: var(--surface-home-instrument-plate-hover);
+    stroke: var(--border-home-instrument-plate-hover);
     opacity: 1;
   }
 
@@ -530,7 +530,7 @@
         g[data-name="KeepAwakeIcon.Label"]
         text
     ) {
-    fill: var(--text-home-menu-trigger-hover);
+    fill: var(--text-home-instrument-text-hover);
   }
 
   .home-instrument :global(svg g[data-name="HomeShareTrigger"]),
@@ -552,35 +552,15 @@
     fill: var(--text-home-share-trigger-hover, #ccc);
   }
 
-  .home-instrument :global(svg g[data-name="HomeMenuTrigger"] > rect) {
-    transition:
-      fill 120ms ease-out,
-      stroke 120ms ease-out;
+  .home-instrument :global(svg g[data-name="HomeMenuTrigger"] text) {
+    transition: fill 120ms ease-out;
   }
 
   .home-instrument
     :global(
-      svg g[data-name="HomeMenuTrigger"] g[data-name="HomeMenuTriggerIcon"] line
+      svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover text
     ) {
-    transition: stroke 120ms ease-out;
-  }
-
-  .home-instrument
-    :global(
-      svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover > rect
-    ) {
-    fill: var(--surface-home-menu-trigger-hover);
-    stroke: var(--border-home-menu-trigger-hover);
-  }
-
-  .home-instrument
-    :global(
-      svg
-        g[data-name="HomeMenuTrigger"].home-menu-trigger--hover
-        g[data-name="HomeMenuTriggerIcon"]
-        line
-    ) {
-    stroke: var(--text-home-menu-trigger-hover);
+    fill: var(--text-home-instrument-text-hover);
   }
 
   .home-instrument :global(svg) {

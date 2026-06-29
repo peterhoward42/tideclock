@@ -1232,13 +1232,13 @@ exports[`spec.semantic.nextTide injection > golden snapshot: diagram with semant
     },
   },
   "homeMenuTrigger": {
-    "center": {
-      "x": 121.56368250390558,
-      "y": -118.59000000000002,
+    "anchor": {
+      "x": 128.05368250390558,
+      "y": -124.40032000000001,
     },
-    "diameter": 12.98,
-    "iconBarCenterSpacing": 1.77,
-    "iconBarHalfLength": 2.832,
+    "content": "Menu",
+    "fontSize": 3.3984,
+    "hAlign": "right",
   },
   "keepAwakeIcon": {
     "anchor": {

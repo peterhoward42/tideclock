@@ -77,9 +77,10 @@
   /* Portrait letterbox hint: readable on light chrome, still below primary UI. */
   --text-home-landscape-hint: rgb(71 85 105 / 0.95);
   --text-home-panel-muted: #dbeafe;
-  --surface-home-menu-trigger-hover: #191919;
-  --border-home-menu-trigger-hover: #aaa;
-  --text-home-menu-trigger-hover: #fff;
+  /* Diagram instrument chrome: plate fills (fullscreen hit frame) and text-link hovers. */
+  --surface-home-instrument-plate-hover: #191919;
+  --border-home-instrument-plate-hover: #aaa;
+  --text-home-instrument-text-hover: #fff;
 
   /* Menu flyout shell (must live on mode block: .app-frame sets these after mode). */
   --surface-menu-flyout: var(--surface-panel);
@@ -129,9 +130,9 @@
   /* Same hint on black letterbox: higher contrast so it scans as guidance, not metadata. */
   --text-home-landscape-hint: rgb(226 232 240 / 0.92);
   --text-home-panel-muted: rgb(191 219 254 / 0.92);
-  --surface-home-menu-trigger-hover: #191919;
-  --border-home-menu-trigger-hover: #aaa;
-  --text-home-menu-trigger-hover: #fff;
+  --surface-home-instrument-plate-hover: #191919;
+  --border-home-instrument-plate-hover: #aaa;
+  --text-home-instrument-text-hover: #fff;
 }
 
 html {

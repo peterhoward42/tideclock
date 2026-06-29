@@ -24,7 +24,7 @@
     <h2 class="default-loc-explainer__title">Showing tides for {placeLine}</h2>
     <div class="default-loc-explainer__switch">
       <p class="default-loc-explainer__body">
-        Switch to your place of interest - when you're ready
+        Switch to your place of interest with <strong>Change</strong> on the diagram — when you're ready
       </p>
       <p class="default-loc-explainer__examples">
         Skegness, Whitby, Newquay .... etc.

@@ -52,7 +52,7 @@ function readViewInnerHeight(fallback: number, override?: number): number {
  * the flyout is a sibling of the figure so it is not clipped by `overflow: hidden` on the figure.
  *
  * The panel is bottom-anchored and grows upward. Horizontally it is **right-aligned** to the
- * trigger (with a 4px inset) so the flyout expands **left** from the hamburger on the diagram’s
+ * trigger (with a 4px inset) so the flyout expands **left** from the menu link on the diagram’s
  * bottom-right. `80dvh` alone can be taller than the space
  * from the viewport top to the menu’s bottom, so the top is clipped. We set `max-height` to
  * `min(80dvh, <px>)` where that px caps height so the top stays in view. Re-run when the open

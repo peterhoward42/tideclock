@@ -484,19 +484,18 @@ Fill colours: label via **`role.instrument.keepAwake.label`** (host may brighten
 ## HomeMenuTrigger
 
 - **HomeMenuTrigger** is a top-level named group.
-- It comprises three horizontal lines centred inside a circle.
+- It comprises a right-aligned **Menu** text link (no underline); colour from `**role.location.change**` (same as **Change**).
 - **Not** part of **BRHCBundle**; bounds are **excluded** from `**B_*`** expansion.
-- **Horizontal** — circular control trailing edge at `**B_right − homeMenuTrigger.menuRightPadding·R`**.
-- **Vertical** — bottom of the circular control at `**B_bottom + homeMenuTrigger.menuAboveBottom·R`** (**Y** upward).
+- **Horizontal** — label trailing edge at `**B_right − homeMenuTrigger.menuRightPadding·R`**.
+- **Vertical** — bottom of the label at `**B_bottom + homeMenuTrigger.menuAboveBottom·R`** (**Y** upward).
 - Sizing and positioning parameters:
 
 ```
 homeMenuTrigger: {
-    diameter: 0.18,
     menuRightPadding: 0,   // k·R inset from B_right
-    menuAboveBottom: 0.27, // k·R above B_bottom to control bottom edge
-    iconBarLength: 0.09,
-    iconBarGap: 0.025,
+    menuAboveBottom: 0.20, // k·R above B_bottom to label bottom edge
+    fontHeight: 0.045,
+    label: "Menu",
 }
 ```
 

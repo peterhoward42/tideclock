@@ -82,11 +82,10 @@ export const homeLayoutBase = {
   dividorArc: { radiusK: 1.32 },
   /** Instrument chrome — each block has independent offsets from layout bounds (see tide-diagram spec). */
   homeMenuTrigger: {
-    diameter: 0.18,
     menuRightPadding: 0,
-    menuAboveBottom: 0.20,
-    iconBarLength: 0.09,
-    iconBarGap: 0.025,
+    menuAboveBottom: 0.16,
+    fontHeight: 0.045,
+    label: "Menu",
   },
   homeInstrumentIcons: {
     iconHalfSize: 0.032,

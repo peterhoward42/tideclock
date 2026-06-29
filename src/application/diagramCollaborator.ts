@@ -139,13 +139,10 @@ type MainLabelDiagram = {
 };
 
 type HomeMenuTriggerDiagram = {
-  readonly center: DiagramPoint;
-  /** Circular control diameter (diagram units). */
-  readonly diameter: number;
-  /** Half-length of each hamburger bar along X. */
-  readonly iconBarHalfLength: number;
-  /** Distance between adjacent bar centerlines along Y. */
-  readonly iconBarCenterSpacing: number;
+  readonly content: string;
+  readonly fontSize: number;
+  readonly anchor: DiagramPoint;
+  readonly hAlign: "right";
 };
 
 type FullScreenIconDiagram = {

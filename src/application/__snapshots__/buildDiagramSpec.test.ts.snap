@@ -1232,13 +1232,13 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
     },
   },
   "homeMenuTrigger": {
-    "center": {
-      "x": 145.14000000000001,
-      "y": -124.71283550303113,
+    "anchor": {
+      "x": 155.76000000000002,
+      "y": -138.99083550303112,
     },
-    "diameter": 21.24,
-    "iconBarCenterSpacing": 2.95,
-    "iconBarHalfLength": 5.31,
+    "content": "Menu",
+    "fontSize": 5.31,
+    "hAlign": "right",
   },
   "keepAwakeIcon": {
     "anchor": {
@@ -4836,53 +4836,15 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
       {
         "children": [
           {
-            "center": {
-              "x": 145.14000000000001,
-              "y": -124.71283550303113,
+            "anchor": {
+              "x": 155.76000000000002,
+              "y": -138.99083550303112,
             },
-            "height": 21.24,
-            "kind": "roundedRect",
-            "rx": 10.62,
-            "width": 21.24,
-          },
-          {
-            "children": [
-              {
-                "end": {
-                  "x": 150.45000000000002,
-                  "y": -121.76283550303113,
-                },
-                "kind": "line",
-                "start": {
-                  "x": 139.83,
-                  "y": -121.76283550303113,
-                },
-              },
-              {
-                "end": {
-                  "x": 150.45000000000002,
-                  "y": -124.71283550303113,
-                },
-                "kind": "line",
-                "start": {
-                  "x": 139.83,
-                  "y": -124.71283550303113,
-                },
-              },
-              {
-                "end": {
-                  "x": 150.45000000000002,
-                  "y": -127.66283550303113,
-                },
-                "kind": "line",
-                "start": {
-                  "x": 139.83,
-                  "y": -127.66283550303113,
-                },
-              },
-            ],
-            "kind": "group",
-            "name": "HomeMenuTriggerIcon",
+            "angleRad": 0,
+            "content": "Menu",
+            "hAlign": "right",
+            "kind": "text",
+            "size": 5.31,
           },
         ],
         "kind": "group",

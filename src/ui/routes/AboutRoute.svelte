@@ -31,9 +31,9 @@
       {THE_TIDE_DIAL} has been created by Pete Howard.
     </p>
     <p class="about-route__p">
-      You can read more in the <a class="about-route__link" href="#/story"
-        >Story</a
-      > in the main menu.
+      You can read more on the
+      <a class="about-route__link" href="#/story">Story</a>
+      page — you’ll find it in <strong>Menu</strong>.
     </p>
   </section>
 

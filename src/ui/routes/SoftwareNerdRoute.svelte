@@ -75,10 +75,9 @@
       to diagram geometry rather than assuming a fixed height for headers and surrounding controls.
     </p>
     <p class="software-nerd-route__p">
-      For a counter or wall display, the diagram has a <strong>keep-awake</strong> instrument
-      icon (sleep-metaphor <strong>Zzz</strong> glyph) that requests a <strong>screen wake
-      lock</strong> so the dial stays visible while the tab is open, and
-      <strong>Really fullscreen</strong> hides browser clutter via the Fullscreen API. Both are
+      For a counter or wall display, the diagram has a <strong>Keep awake</strong> checkbox
+      that requests a <strong>screen wake lock</strong> so the dial stays visible while the tab is
+      open, and <strong>Really fullscreen</strong> hides browser clutter via the Fullscreen API. Both
       progressive enhancement: they work in a normal browser tab where the platform allows them.
     </p>
   </section>
@@ -249,9 +248,9 @@
       AI-generated.
     </p>
     <p class="software-nerd-route__p">
-      If the human side of that story matters more than the stack, the
-      <a class="software-nerd-route__link" href="#/story">Story</a> in the main menu is the better
-      read.
+      If the human side of that story matters more than the stack,
+      <a class="software-nerd-route__link" href="#/story">Story</a>
+      (<strong>Menu</strong>) is the better read.
     </p>
   </section>
 </main>

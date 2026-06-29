@@ -246,15 +246,18 @@ describe('createDiagramCollaborator', () => {
       6,
     );
 
-    const d = diagram.homeMenuTrigger.diameter;
+    const fontSize = diagram.homeMenuTrigger.fontSize;
     const R = diagram.refArc.refRadius;
     const bRight = bundleRightX;
     const padK = (spec.homeMenuTrigger as { readonly menuRightPadding: number }).menuRightPadding;
-    expect(diagram.homeMenuTrigger.center.x).toBeCloseTo(bRight - padK * R - 0.5 * d, 6);
+    expect(diagram.homeMenuTrigger.anchor.x).toBeCloseTo(bRight - padK * R, 6);
     const bBottom =
       diagram.mainLabel.anchor.y - 0.2 * diagram.mainLabel.fontSize;
     const menuAboveK = (spec.homeMenuTrigger as { readonly menuAboveBottom: number }).menuAboveBottom;
-    expect(diagram.homeMenuTrigger.center.y).toBeCloseTo(bBottom + menuAboveK * R + 0.5 * d, 6);
+    expect(diagram.homeMenuTrigger.anchor.y).toBeCloseTo(
+      bBottom + menuAboveK * R + 0.2 * fontSize,
+      6,
+    );
   });
 
   it('places FullScreenIcon and KeepAwakeIcon from B_left and B_bottom per icon offsets (excluded from B_*)', () => {

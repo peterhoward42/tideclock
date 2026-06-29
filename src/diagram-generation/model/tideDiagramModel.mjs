@@ -115,13 +115,13 @@
  *   hAlign: 'right',
  * }} MainLabelDiagram
  *
- * Home menu trigger: circular control + hamburger icon; top-level scene sibling (not inside **BRHCBundle**).
+ * Home menu trigger: right-aligned text link; top-level scene sibling (not inside **BRHCBundle**).
  *
  * @typedef {{
- *   center: DiagramPoint,
- *   diameter: number,
- *   iconBarHalfLength: number,
- *   iconBarCenterSpacing: number,
+ *   content: string,
+ *   fontSize: number,
+ *   anchor: DiagramPoint,
+ *   hAlign: 'right',
  * }} HomeMenuTriggerDiagram
  *
  * Top-right **FullScreenIcon**: rounded box (hit target) + Off/On diagonal-arrow glyphs.

@@ -15,7 +15,7 @@
  * - Optional `**layoutBoundsBottomMargin**` (**k·R**, **>= 0**): pass 3 of global layout bounds; extends **B_bottom** downward; when omitted, **0**.
  * - Optional `**civilHalfDayLayout**`: `"auto"` | `"beforeNoon"` | `"afterNoon"`; when omitted, **`"auto"`**. Selects civil half-day **presentation** branches (e.g. **Hand.TimeReadout** placement) without changing **`timeNow`** or **θ_now** (see tide-diagram spec).
  * - `**dividorArc**` is required: plain object with finite `**radiusK**` (**> 0**, **k·R** arc radius).
- * - `**homeMenuTrigger**` is required: plain object with finite `**diameter**`, `**menuRightPadding**`, `**menuAboveBottom**`, `**iconBarLength**`, and `**iconBarGap**` (all **k·R**; diameter and iconBarLength **> 0**; paddings and **iconBarGap** **>= 0**). Placed as a **top-level** scene sibling (**not** inside **BRHCBundle**): trailing edge inset from **B_right** by **`menuRightPadding·R`**; the **bottom** of the circular control lies **`menuAboveBottom·R`** above **B_bottom** (**Y** upward). Independent of **Brand** placement. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
+ * - `**homeMenuTrigger**` is required: plain object with finite `**menuRightPadding**`, `**menuAboveBottom**`, and `**fontHeight**` (all **k·R**; **fontHeight** **> 0**; paddings **>= 0**), plus non-empty `**label**`. Placed as a **top-level** scene sibling (**not** inside **BRHCBundle**): trailing edge inset from **B_right** by **`menuRightPadding·R`**; the **bottom** of the label lies **`menuAboveBottom·R`** above **B_bottom** (**Y** upward). Independent of **Brand** placement. Trigger bounds are **not** merged into `layoutBounds` (see tide-diagram.md §Global layout bounds).
  * - `**homeInstrumentIcons**` is required: plain object with finite **`iconHalfSize`** (**k·R**, **> 0**), and per-icon **`fullScreen`** / **`keepAwake`** blocks. **`fullScreen`** requires **`offsetFromLeft`**, **`aboveBottom`**, **`boxPad`** (**k·R** box offsets and glyph inset), plus dimensionless **`rootSegmentLength`** / **`tipStrokeReach`** (**> 0**). **`keepAwake`** requires **`offsetFromLeft`**, **`aboveBottom`**, label copy/size, and checkbox sizing. **FullScreenIcon** box corner radius matches **`homeLocationPanel.cornerRx`**. Excluded from **`layoutBounds`**.
  * - `**homeLocationPanel**` is required: plate + heading + **Share** / **Change** actions to the right of **BrandQR** (see tide-diagram spec §HomeLocationPanel). Excluded from **`layoutBounds`** except via **BrandQR** horizontal extent.
  * - **MainLabel** is horizontal text inside **BRHCBundle**: **right**-justified to global **B_right** like other bundle rows; baseline **Y** is independent (see spec), not curved arc text.
@@ -1160,13 +1160,16 @@ function includeHomeLocationPanelBounds(bounds, panel) {
 /**
  * @param {Record<string, unknown>} spec
  * @param {number} refRadius
- * @param {number} rightEdgeX **B_right** (inset reference for the circular control)
+ * @param {number} rightEdgeX **B_right** (inset reference for the label trailing edge)
  * @param {number} bBottom **B_bottom** (global layout min **Y**)
  * @returns {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram}
  */
 function buildHomeMenuTriggerFromSpec(spec, refRadius, rightEdgeX, bBottom) {
   const o = requirePlainObject(spec.homeMenuTrigger, "spec.homeMenuTrigger");
-  const diameterK = requireFiniteNumber(o.diameter, "spec.homeMenuTrigger.diameter");
+  const fontHeightK = requireFiniteNumber(
+    o.fontHeight,
+    "spec.homeMenuTrigger.fontHeight",
+  );
   const menuRightPaddingK = requireFiniteNumber(
     o.menuRightPadding,
     "spec.homeMenuTrigger.menuRightPadding",
@@ -1175,13 +1178,9 @@ function buildHomeMenuTriggerFromSpec(spec, refRadius, rightEdgeX, bBottom) {
     o.menuAboveBottom,
     "spec.homeMenuTrigger.menuAboveBottom",
   );
-  const iconBarLengthK = requireFiniteNumber(
-    o.iconBarLength,
-    "spec.homeMenuTrigger.iconBarLength",
-  );
-  const iconBarGapK = requireFiniteNumber(o.iconBarGap, "spec.homeMenuTrigger.iconBarGap");
-  if (!(diameterK > 0)) {
-    throw new Error("spec.homeMenuTrigger.diameter must be greater than 0");
+  const label = requireString(o.label, "spec.homeMenuTrigger.label").trim();
+  if (!(fontHeightK > 0)) {
+    throw new Error("spec.homeMenuTrigger.fontHeight must be greater than 0");
   }
   if (menuRightPaddingK < 0) {
     throw new Error("spec.homeMenuTrigger.menuRightPadding must be >= 0");
@@ -1189,21 +1188,18 @@ function buildHomeMenuTriggerFromSpec(spec, refRadius, rightEdgeX, bBottom) {
   if (menuAboveBottomK < 0) {
     throw new Error("spec.homeMenuTrigger.menuAboveBottom must be >= 0");
   }
-  if (!(iconBarLengthK > 0)) {
-    throw new Error("spec.homeMenuTrigger.iconBarLength must be greater than 0");
+  if (label.length === 0) {
+    throw new Error("spec.homeMenuTrigger.label must be non-empty");
   }
-  if (iconBarGapK < 0) {
-    throw new Error("spec.homeMenuTrigger.iconBarGap must be >= 0");
-  }
-  const diameter = diameterK * refRadius;
+  const fontSize = fontHeightK * refRadius;
   const menuBottomY = bBottom + menuAboveBottomK * refRadius;
-  const centerY = menuBottomY + 0.5 * diameter;
-  const centerX = rightEdgeX - menuRightPaddingK * refRadius - 0.5 * diameter;
+  const baselineY = menuBottomY + TEXT_DESCENT_EM * fontSize;
+  const trailingX = rightEdgeX - menuRightPaddingK * refRadius;
   return {
-    center: { x: centerX, y: centerY },
-    diameter,
-    iconBarHalfLength: 0.5 * iconBarLengthK * refRadius,
-    iconBarCenterSpacing: iconBarGapK * refRadius,
+    content: label,
+    fontSize,
+    anchor: { x: trailingX, y: baselineY },
+    hAlign: /** @type {const} */ ("right"),
   };
 }
 

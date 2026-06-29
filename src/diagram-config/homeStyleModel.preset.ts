@@ -92,14 +92,6 @@ export const homeStyleModel: StyleModelSpec = {
       colors: { strokeColor: "#555", fillColor: "#111" },
     },
     {
-      name: "role.menu.trigger.icon",
-      colors: { color: "#555", strokeWidth: 2.25 },
-    },
-    {
-      name: "role.menu.trigger.icon.on",
-      colors: { color: "#aaa", fillColor: "#aaa", strokeWidth: 2.25 },
-    },
-    {
       name: "role.instrument.fullscreen.icon",
       colors: { color: "#777", strokeWidth: 1.5 },
     },
@@ -146,8 +138,7 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "BrandQRPlate", roleName: "role.menu.trigger" },
     { name: "BrandQR", roleName: "BrandQR" },
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
-    { name: "HomeMenuTrigger", roleName: "role.menu.trigger" },
-    { name: "HomeMenuTriggerIcon", roleName: "role.menu.trigger.icon" },
+    { name: "HomeMenuTrigger", roleName: "role.location.change" },
     { name: "FullScreenIcon.HitFrame", roleName: "role.menu.trigger" },
     { name: "FullScreenIcon.Off", roleName: "role.instrument.fullscreen.icon" },
     { name: "FullScreenIcon.On", roleName: "role.instrument.fullscreen.icon" },
