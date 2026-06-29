@@ -57,6 +57,15 @@ describe("parseHash", () => {
     expect(parseHash("softwarenerd")).toBe("softwarenerd");
   });
 
+  it("maps hub routes", () => {
+    expect(parseHash("#/installconfig")).toBe("installconfig");
+    expect(parseHash("installconfig")).toBe("installconfig");
+    expect(parseHash("#/entertainment")).toBe("entertainment");
+    expect(parseHash("entertainment")).toBe("entertainment");
+    expect(parseHash("#/contact")).toBe("contact");
+    expect(parseHash("contact")).toBe("contact");
+  });
+
   it("maps unknown meet-the-author segment to home", () => {
     expect(parseHash("#/meet-the-author")).toBe("home");
     expect(parseHash("meet-the-author")).toBe("home");
@@ -179,6 +188,22 @@ describe("syncRouteFromHash", () => {
     expect(replaceState).not.toHaveBeenCalled();
   });
 
+  it("does not replaceState for canonical hub routes", () => {
+    const replaceState = vi.fn();
+    vi.stubGlobal("history", { replaceState });
+    vi.stubGlobal("window", {
+      location: {
+        hash: "#/installconfig",
+        href: "http://localhost:5173/#/installconfig",
+      },
+    });
+
+    syncRouteFromHash();
+
+    expect(get(route)).toBe("installconfig");
+    expect(replaceState).not.toHaveBeenCalled();
+  });
+
   it("does not replaceState for canonical #/location", () => {
     const replaceState = vi.fn();
     vi.stubGlobal("history", { replaceState });
@@ -210,5 +235,20 @@ describe("navigate", () => {
     navigate("home");
 
     expect(window.location.hash).toBe("/home");
+  });
+
+  it("sets hash for hub routes", () => {
+    vi.stubGlobal("window", {
+      location: { hash: "#/home" },
+    });
+
+    navigate("installconfig");
+    expect(window.location.hash).toBe("/installconfig");
+
+    navigate("entertainment");
+    expect(window.location.hash).toBe("/entertainment");
+
+    navigate("contact");
+    expect(window.location.hash).toBe("/contact");
   });
 });

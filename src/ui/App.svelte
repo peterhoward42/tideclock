@@ -34,6 +34,9 @@
   import StoryRoute from "./routes/StoryRoute.svelte";
   import TideNerdRoute from "./routes/TideNerdRoute.svelte";
   import SoftwareNerdRoute from "./routes/SoftwareNerdRoute.svelte";
+  import InstallConfigRoute from "./routes/InstallConfigRoute.svelte";
+  import EntertainmentRoute from "./routes/EntertainmentRoute.svelte";
+  import ContactRoute from "./routes/ContactRoute.svelte";
   import { THE_TIDE_DIAL, TIDE_DIAL_PRODUCTION_ORIGIN } from "./brand";
   import { surfaceModeForRoute } from "./routeSurfaceMode";
   import { OPERATOR_NOTICE_ACTIVE } from "./operatorNoticeConfig";
@@ -338,6 +341,12 @@
         return "Tide Nerd";
       case "softwarenerd":
         return "Software Nerd";
+      case "installconfig":
+        return "Install / Config / Settings";
+      case "entertainment":
+        return "Entertainment";
+      case "contact":
+        return "Please get in touch";
       case "home":
         return "";
       default:
@@ -474,6 +483,12 @@
         <TideNerdRoute />
       {:else if $route === "softwarenerd"}
         <SoftwareNerdRoute />
+      {:else if $route === "installconfig"}
+        <InstallConfigRoute />
+      {:else if $route === "entertainment"}
+        <EntertainmentRoute />
+      {:else if $route === "contact"}
+        <ContactRoute />
       {/if}
     </section>
   </div>

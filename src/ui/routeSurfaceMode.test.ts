@@ -16,6 +16,9 @@ describe("surfaceModeForRoute", () => {
       "story",
       "tidenerd",
       "softwarenerd",
+      "installconfig",
+      "entertainment",
+      "contact",
     ];
     for (const routeId of documentRoutes) {
       expect(surfaceModeForRoute(routeId)).toBe("document");
