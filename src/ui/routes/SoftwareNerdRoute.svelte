@@ -250,7 +250,7 @@
     <p class="software-nerd-route__p">
       If the human side of that story matters more than the stack,
       <a class="software-nerd-route__link" href="#/story">Story</a>
-      (<strong>Menu</strong>) is the better read.
+      is the better read.
     </p>
   </section>
 </main>

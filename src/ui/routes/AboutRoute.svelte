@@ -33,7 +33,8 @@
     <p class="about-route__p">
       You can read more on the
       <a class="about-route__link" href="#/story">Story</a>
-      page — you’ll find it in <strong>Menu</strong>.
+      page, or browse from
+      <a class="about-route__link" href="#/entertainment">Entertainment</a>.
     </p>
   </section>
 
