@@ -17,9 +17,7 @@
 <nav class={linksClassName} aria-label="Primary">
   <PrimaryNavLinks {onNavigate} {showTodaysTidesLink} />
   <a href="#/onwall" onclick={() => onNavigate?.()}>Stick it on the wall</a>
-  <a href="#/installconfig" onclick={() => onNavigate?.()}
-    >Install / Config / Settings</a
-  >
+  <a href="#/installconfig" onclick={() => onNavigate?.()}>Install</a>
   <a href="#/entertainment" onclick={() => onNavigate?.()}>Entertainment</a>
   <a href="#/contact" onclick={() => onNavigate?.()}>Please get in touch</a>
 </nav>

@@ -8,7 +8,7 @@
   }
 
   interface Props {
-    readonly title: string;
+    readonly title?: string;
     readonly links: readonly HubChildLink[];
     readonly linksAriaLabel: string;
     readonly routeClass?: string;
@@ -25,7 +25,9 @@
 </script>
 
 <main class="route hub-route {routeClass}">
-  <h1>{title}</h1>
+  {#if title}
+    <h1>{title}</h1>
+  {/if}
 
   {#if intro}
     <div class="hub-route__intro">

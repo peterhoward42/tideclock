@@ -73,9 +73,7 @@
 
   <p class="onwall-route__p">
     To open TideDial from an icon on your device, see
-    <a class="onwall-route__link" href="#/installconfig"
-      >Install / Config / Settings</a
-    >.
+    <a class="onwall-route__link" href="#/installconfig">Install</a>.
   </p>
 </main>
 

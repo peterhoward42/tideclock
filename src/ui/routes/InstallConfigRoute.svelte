@@ -18,15 +18,7 @@
 </script>
 
 <HubDocumentRoute
-  title="Install / Config / Settings"
   routeClass="installconfig-route"
   linksAriaLabel="Install and configuration pages"
   {links}
->
-  {#snippet intro()}
-    <p>
-      Deployment and admin in one place — get the app onto your device, then open
-      About when you need the dull-but-useful details.
-    </p>
-  {/snippet}
-</HubDocumentRoute>
+/>

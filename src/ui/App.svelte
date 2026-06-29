@@ -342,7 +342,7 @@
       case "softwarenerd":
         return "Software Nerd";
       case "installconfig":
-        return "Install / Config / Settings";
+        return "Install";
       case "entertainment":
         return "Entertainment";
       case "contact":
