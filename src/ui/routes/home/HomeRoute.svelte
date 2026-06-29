@@ -119,7 +119,6 @@
   let homeKeepAwakeExplainerOpen = $state(false);
   let homeKeepAwakeExplainerMessage = $state("");
   let homeNerdsOpen = $state(false);
-  let homeContactOpen = $state(false);
   let homeShareLinkCopiedOpen = $state(false);
   let homeShareLinkCopiedUrl = $state("");
   let keepAwakeUserWants = $state(get(keepAwakeUserStore));
@@ -452,13 +451,12 @@
   });
 
   /**
-   * When Contact / Nerds sections grow, the menu height changes. Re-anchored from
+   * When Nerds section grows, the menu height changes. Re-anchored from
    * the same geometry as the SVG trigger; avoids stale layout on long portrait viewports.
    */
   $effect(() => {
     if (!homeMenuOpen || diagramSvg === "") return;
     void homeNerdsOpen;
-    void homeContactOpen;
     void tick().then(() => {
       const host = diagramHostEl;
       if (host == null) return;
@@ -550,7 +548,6 @@
   function closeHomeMenu(): void {
     homeMenuOpen = false;
     homeNerdsOpen = false;
-    homeContactOpen = false;
   }
 
   function dismissHomeFullscreenAdvice(): void {
@@ -595,14 +592,6 @@
     homeNerdsOpen = opening;
     if (opening) {
       trackProductEvent("expanded_for_nerds");
-    }
-  }
-
-  function handleHomeContactEntry(): void {
-    const opening = !homeContactOpen;
-    homeContactOpen = opening;
-    if (opening) {
-      trackProductEvent("visited_contact");
     }
   }
 
@@ -669,10 +658,8 @@
     homeShareLinkCopiedUrl={homeShareLinkCopiedUrl}
     onDismissHomeShareLinkCopied={dismissHomeShareLinkCopied}
     {homeNerdsOpen}
-    {homeContactOpen}
     onCloseHomeMenu={closeHomeMenu}
     onToggleHomeNerds={handleHomeNerdsEntry}
-    onToggleHomeContact={handleHomeContactEntry}
   />
 </main>
 

@@ -32,7 +32,8 @@ describe('emitRouteVisitTelemetry', () => {
     ['tidenerd', 'visited_tide_nerd'],
     ['softwarenerd', 'visited_sw_nerd'],
     ['about', 'visited_about'],
-    ['entertainment', 'visited_entertainment']
+    ['entertainment', 'visited_entertainment'],
+    ['contact', 'visited_contact']
   ] as const)('maps %s to %s', async (routeId, eventName) => {
     await emit(routeId);
 

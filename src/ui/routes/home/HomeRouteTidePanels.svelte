@@ -66,10 +66,8 @@
     readonly homeShareLinkCopiedUrl: string;
     readonly onDismissHomeShareLinkCopied: () => void;
     readonly homeNerdsOpen: boolean;
-    readonly homeContactOpen: boolean;
     readonly onCloseHomeMenu: () => void;
     readonly onToggleHomeNerds: () => void;
-    readonly onToggleHomeContact: () => void;
     diagramHostEl?: HTMLElement | undefined;
     homeInstrumentEl?: HTMLElement | undefined;
     homeMenuPanelEl?: HTMLElement | undefined;
@@ -99,10 +97,8 @@
     homeShareLinkCopiedUrl,
     onDismissHomeShareLinkCopied,
     homeNerdsOpen,
-    homeContactOpen,
     onCloseHomeMenu,
     onToggleHomeNerds,
-    onToggleHomeContact,
     diagramHostEl = $bindable(),
     homeInstrumentEl = $bindable(),
     homeMenuPanelEl = $bindable(),
@@ -278,8 +274,6 @@
           showTodaysTidesLink={false}
           nerdsOpen={homeNerdsOpen}
           onToggleNerds={onToggleHomeNerds}
-          contactOpen={homeContactOpen}
-          onToggleContact={onToggleHomeContact}
           onNavigate={onCloseHomeMenu}
         />
       </div>

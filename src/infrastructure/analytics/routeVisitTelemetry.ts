@@ -14,7 +14,8 @@ type VisitTelemetryRoute =
   | 'tidenerd'
   | 'softwarenerd'
   | 'about'
-  | 'entertainment';
+  | 'entertainment'
+  | 'contact';
 
 const ROUTE_VISIT_EVENT: Record<VisitTelemetryRoute, TelemetryEventType> = {
   install: 'visited_install',
@@ -24,7 +25,8 @@ const ROUTE_VISIT_EVENT: Record<VisitTelemetryRoute, TelemetryEventType> = {
   tidenerd: 'visited_tide_nerd',
   softwarenerd: 'visited_sw_nerd',
   about: 'visited_about',
-  entertainment: 'visited_entertainment'
+  entertainment: 'visited_entertainment',
+  contact: 'visited_contact'
 };
 
 /** Records a route visit event when the route has a mapped analytics type. */
