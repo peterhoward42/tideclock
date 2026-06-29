@@ -4,6 +4,7 @@
 
   interface Props {
     readonly linksClassName: string;
+    readonly showTodaysTidesLink?: boolean;
     readonly nerdsOpen: boolean;
     readonly onToggleNerds: () => void;
     readonly contactOpen: boolean;
@@ -13,6 +14,7 @@
 
   let {
     linksClassName,
+    showTodaysTidesLink = true,
     nerdsOpen,
     onToggleNerds,
     contactOpen,
@@ -22,7 +24,7 @@
 </script>
 
 <nav class={linksClassName} aria-label="Primary">
-  <PrimaryNavLinks {onNavigate} />
+  <PrimaryNavLinks {onNavigate} {showTodaysTidesLink} />
   <a href="#/install" onclick={() => onNavigate?.()}
     >Install app / Add to home screen</a
   >

@@ -6,13 +6,17 @@
 
   interface Props {
     readonly onNavigate?: () => void;
+    /** Wayfinding back to the dial; omitted on the home flyout (user is already there). */
+    readonly showTodaysTidesLink?: boolean;
   }
 
-  let { onNavigate }: Props = $props();
+  let { onNavigate, showTodaysTidesLink = true }: Props = $props();
 
   function handleNavigate(): void {
     onNavigate?.();
   }
 </script>
 
-<a href="#/home" onclick={handleNavigate}>Home</a>
+{#if showTodaysTidesLink}
+  <a href="#/home" onclick={handleNavigate}>Today's Tides</a>
+{/if}

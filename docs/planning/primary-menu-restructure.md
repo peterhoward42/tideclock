@@ -2,9 +2,9 @@
 
 Working notes from product discussion (June 2026). Captures analytics interpretation and a preferred direction for menu simplification. Not an implementation spec.
 
-**Status:** location, fullscreen, and keep-awake controls on the home diagram (done) — menu simplification continues separately  
+**Status:** diagram chrome complete (location, fullscreen, keep-awake, **Menu** trigger on the dial) — flyout/hub restructure next  
 **Last updated:** 2026-06-29  
-**Related:** [elevator-pitch.md](../specs/elevator-pitch.md), [story-discovery-lifecycle.md](./story-discovery-lifecycle.md), [pen-response.md](./pen-response.md)
+**Related:** [elevator-pitch.md](../specs/elevator-pitch.md), [story-discovery-lifecycle.md](./story-discovery-lifecycle.md), [pen-response.md](./pen-response.md), [tide-diagram.md](../specs/tide-diagram.md) (§HomeLocationPanel, §FullScreenIcon, §KeepAwakeIcon, §HomeMenuTrigger)
 
 ---
 
@@ -20,7 +20,7 @@ A Cornwall Facebook post and a LinkedIn post asked who was interested in how tid
 | Spike after curiosity-framed outbound link | **Curiosity hooks have legs** when the link promise matches the destination |
 | Tide Nerd > home in that cohort | Those visitors came for the article, not the dial — success for outbound penetration, not evidence that everyone should discover nerd content via the flyout |
 
-The flyout still mixes intents in one flat list. Location already lives on the home diagram (`HomeLocationPanel` — **Change** and **Share**). The remaining clutter is deployment, curiosity, and admin items sitting alongside instrument actions that belong on the dial itself.
+The flyout still mixes intents in one flat list. Instrument affordances now live on the home diagram (location, fullscreen, keep-awake). **What remains in the flyout** is deployment, curiosity, and admin — the menu-simplification work.
 
 ---
 
@@ -40,7 +40,7 @@ The issue is not simply “the menu is too long.” It is **unlayered mixing of 
 
 | Intent | Examples | User mode |
 | --- | --- | --- |
-| **Instrument** | Fullscreen (keep-awake later) | Using the dial now |
+| **Instrument** | Fullscreen, keep screen awake | Using the dial now |
 | **Deployment** | Install, stick it on the wall | Making the app part of daily / ambient life |
 | **Curiosity** | Story, Tide Nerd, Software Nerd | Time and interest for narrative or explanation |
 | **Administrative** | About, contact | Compliance, version, email |
@@ -53,18 +53,20 @@ Low Story/nerd numbers from instrument-first visitors may still be **appropriate
 
 ## Three surfaces
 
-Actions are split across three surfaces by intent, not one flat list.
+Actions are split across three surfaces by intent, not one flat list. Home diagram chrome now has four independent affordances (location panel, fullscreen, keep-awake, **Menu** link) — all outside the flyout.
 
 ### 1. Home diagram chrome
 
 Instrument tasks while viewing the dial. Not flyout items.
 
+The bottom band is split: **instrument toggles bottom-left**, **Menu bottom-right**.
+
 | Affordance | Status |
 | --- | --- |
-| Location (**Change** / **Share**) | Done |
-| Fullscreen on/off | **Next step** — icon tucked into the top-right corner of the dial |
-| Menu trigger | Existing (bottom-right) |
-| Keep screen awake | Deferred — revisit after fullscreen |
+| Location (**Change** / **Share**) | Done (`HomeLocationPanel`, bottom-left) |
+| Fullscreen on/off | Done — `FullScreenIcon`, bottom-left (`B_left` / `B_bottom`) |
+| Keep screen awake | Done — `KeepAwakeIcon` (label + checkbox), bottom-left |
+| Menu trigger | Done — plain **Menu** text link (`HomeMenuTrigger`), bottom-right; flyout opens upward, anchored to the right of the link |
 
 ### 2. Home flyout (launched from the dial)
 
@@ -104,7 +106,7 @@ A dedicated route with narrative and links to:
 - Install
 - About
 
-Keep-awake placement is open; likely here or on the dial, to be decided separately. Fullscreen does not belong in this hub — it lives on the dial.
+Fullscreen and keep-awake do not belong in this hub — both live on the dial.
 
 ### Entertainment
 
@@ -129,10 +131,12 @@ Pick off isolated problems rather than landing the full restructure at once.
 | Step | Scope |
 | --- | --- |
 | 1. Location on dial | Done (`HomeLocationPanel`) |
-| 2. Fullscreen on dial | Icon, top-right corner; remove from home flyout |
+| 2. Fullscreen on dial | Done — bottom-left; not in home flyout |
 | 3. Context-sensitive home link | Omit from home flyout; **Today's Tides** in header flyout only |
 | 4. Flyout restructure + hub routes | Five-item shape, Install/Config/Settings and Entertainment hubs |
-| 5. Keep screen awake | Placement TBD |
+| 5. Keep screen awake | Done — bottom-left on dial |
+
+**Next:** steps 3 and 4.
 
 ---
 
@@ -140,7 +144,7 @@ Pick off isolated problems rather than landing the full restructure at once.
 
 - **Timed tease** after first custom location → point at Entertainment (or a specific child), once, dismissible, never blocking the dial.
 - **Outbound episodes** with source-aware dedicated routes — primary path for cold nerd traffic.
-- Funnel telemetry: menu opens, diagram chrome clicks (location, fullscreen), Entertainment entry, child route visits, prompt shown/dismissed.
+- Funnel telemetry: menu opens, diagram chrome clicks (location, fullscreen, keep-awake), Entertainment entry, child route visits, prompt shown/dismissed.
 
 ---
 

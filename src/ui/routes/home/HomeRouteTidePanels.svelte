@@ -275,6 +275,7 @@
       >
         <PrimaryMenuContent
           linksClassName="u-stack-sm u-nav-link-list"
+          showTodaysTidesLink={false}
           nerdsOpen={homeNerdsOpen}
           onToggleNerds={onToggleHomeNerds}
           contactOpen={homeContactOpen}
