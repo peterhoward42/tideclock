@@ -3,7 +3,7 @@
 </script>
 
 <main class="route tide-nerd-route">
-  <h1>Tide Nerd</h1>
+  <h1>The moving sea</h1>
   <p class="tide-nerd-route__lede">
   	A playful explanation of how tides work, and what causes them - with respectful nods
 	and links to the more serious information. 

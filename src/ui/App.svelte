@@ -339,7 +339,7 @@
       case "story":
         return "Story";
       case "tidenerd":
-        return "Tide Nerd";
+        return "The moving sea";
       case "maker":
         return "A little bit about me";
       case "drawexact":
