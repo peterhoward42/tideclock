@@ -99,6 +99,15 @@
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-dance-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-dance-heading">Face each other, hold
 	hands and spin round</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-spin-game.png"
+        width="1536"
+        height="1024"
+        alt="Two children facing each other, holding hands and spinning round — the playground spin game."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 		The childhood game while facing each other and holding hands you spin round on the
 		spot supported by your friend opposite pulling you into the centre. Can you imagine
@@ -248,6 +257,17 @@
     font-weight: 600;
     margin: 0;
     color: var(--text-document-default);
+  }
+
+  .tide-nerd-route__figure {
+    margin: 0;
+  }
+
+  .tide-nerd-route__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
   }
 
   .tide-nerd-route__p {
