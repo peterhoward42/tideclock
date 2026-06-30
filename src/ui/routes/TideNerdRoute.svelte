@@ -11,6 +11,15 @@
 
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-pulse-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-pulse-heading">Let's start in your bath</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-bath-slosh.png"
+        width="1536"
+        height="1024"
+        alt="An adult sliding backward quickly in the bath as water spills over the back rim."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 		You know that thing when when you push yourself backwards in the bath a bit to
 		quickly?  A tidal wave of water gets pushed up behind you and you end up with a wet
