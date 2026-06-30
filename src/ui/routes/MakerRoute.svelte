@@ -6,6 +6,16 @@
 <main class="route story-route">
   <h1>A little bit about me</h1>
 
+  <figure class="story-route__figure story-route__figure--portrait">
+    <img
+      class="story-route__img"
+      src="/maker-headshot.png"
+      width="200"
+      height="200"
+      alt="Pete — maker of The Tide Dial, in a white t-shirt and glasses."
+    />
+  </figure>
+
   <div class="story-route__body">
     <p>
       I can't help myself — I have always created software because I enjoy it so
@@ -57,6 +67,21 @@
     font-weight: 600;
     margin: 0;
     color: var(--text-document-default);
+  }
+
+  .story-route__figure {
+    margin: 0;
+  }
+
+  .story-route__figure--portrait {
+    justify-self: center;
+  }
+
+  .story-route__img {
+    display: block;
+    width: 10rem;
+    height: auto;
+    border-radius: 0.25rem;
   }
 
   .story-route__body {
