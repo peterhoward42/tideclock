@@ -15,6 +15,8 @@ describe("surfaceModeForRoute", () => {
       "onwall",
       "story",
       "tidenerd",
+      "maker",
+      "drawexact",
       "installconfig",
       "entertainment",
       "contact",

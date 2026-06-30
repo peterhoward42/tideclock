@@ -14,19 +14,30 @@
       label: "Tide Nerd",
       pitch: "Tides, places, and the dial — explained without the lecture.",
     },
+    {
+      href: "#/maker",
+      label: "A little bit about me",
+      pitch:
+        "I'm the maker — a little about me, and whether we should talk.",
+    },
+    {
+      href: "#/drawexact",
+      label: "DrawExact",
+      pitch: "A free browser drawing tool for when geometry matters.",
+    },
   ];
 </script>
 
 <HubDocumentRoute
   title="Entertainment"
   routeClass="entertainment-route"
-  linksAriaLabel="Story and Tide Nerd"
+  linksAriaLabel="Story, Tide Nerd, A little bit about me, and DrawExact"
   {links}
 >
   {#snippet intro()}
     <p>
-      If you have a minute and some curiosity — the story behind the dial and
-      how tides work.
+      If you've got a minute and some curiosity — pick what appeals: the story
+      behind the dial, how tides work, a little about me, or another project.
     </p>
   {/snippet}
 </HubDocumentRoute>

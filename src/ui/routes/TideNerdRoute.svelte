@@ -1,3 +1,7 @@
+<script lang="ts">
+  import RouteShareClose from "../components/RouteShareClose.svelte";
+</script>
+
 <main class="route tide-nerd-route">
   <h1>Tide Nerd</h1>
   <p class="tide-nerd-route__lede">
@@ -217,6 +221,7 @@
     </p>
   </section>
 
+  <RouteShareClose routeId="tidenerd" />
 </main>
 
 <style>

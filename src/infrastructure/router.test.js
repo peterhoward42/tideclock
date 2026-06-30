@@ -56,6 +56,13 @@ describe("parseHash", () => {
     expect(parseHash("tidenerd")).toBe("tidenerd");
   });
 
+  it("maps entertainment child routes", () => {
+    expect(parseHash("#/maker")).toBe("maker");
+    expect(parseHash("maker")).toBe("maker");
+    expect(parseHash("#/drawexact")).toBe("drawexact");
+    expect(parseHash("drawexact")).toBe("drawexact");
+  });
+
   it("maps hub routes", () => {
     expect(parseHash("#/installconfig")).toBe("installconfig");
     expect(parseHash("installconfig")).toBe("installconfig");
