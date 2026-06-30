@@ -23,7 +23,6 @@ export type TelemetryEventType =
   | 'clicked_thru_to_coffee'
   | 'clicked_thru_to_drawexact'
   | 'visited_tide_nerd'
-  | 'visited_sw_nerd'
   | 'visited_about'
   | 'visited_install_config'
   | 'visited_entertainment'

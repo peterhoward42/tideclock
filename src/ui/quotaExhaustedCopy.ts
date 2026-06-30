@@ -19,10 +19,6 @@ export const quotaExhaustedBodyParagraphs = [
   "I'll be alerted and top it up — usually within a day.",
 ] as const;
 
-/** Soft pointer into the nerd route (WorldTides, proxy, fetch windows). */
-export const quotaExhaustedSoftwareNerdHref = "#/softwarenerd";
-export const quotaExhaustedSoftwareNerdLinkText = "The Software Nerd version";
-
 /** Story route — “Buy me a coffee” lives on that page. */
 export const quotaExhaustedStoryHref = "#/story";
 export const quotaExhaustedCoffeeAsidePrefix =

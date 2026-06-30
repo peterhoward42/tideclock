@@ -12,7 +12,6 @@ type VisitTelemetryRoute =
   | 'onwall'
   | 'story'
   | 'tidenerd'
-  | 'softwarenerd'
   | 'about'
   | 'entertainment'
   | 'contact';
@@ -23,7 +22,6 @@ const ROUTE_VISIT_EVENT: Record<VisitTelemetryRoute, TelemetryEventType> = {
   onwall: 'visited_stick_on_wall',
   story: 'visited_story',
   tidenerd: 'visited_tide_nerd',
-  softwarenerd: 'visited_sw_nerd',
   about: 'visited_about',
   entertainment: 'visited_entertainment',
   contact: 'visited_contact'

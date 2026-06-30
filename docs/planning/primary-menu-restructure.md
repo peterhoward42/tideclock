@@ -10,7 +10,7 @@ Working notes from product discussion (June 2026). Captures analytics interpreta
 
 ## Evidence
 
-Diagnostics show traffic to Story, Tide Nerd, and Software Nerd is **effectively nil** for typical organic visitors — with one exception.
+Diagnostics show traffic to Story and Tide Nerd is **effectively nil** for typical organic visitors — with one exception.
 
 A Cornwall Facebook post and a LinkedIn post asked who was interested in how tides work, with a **direct link to `#/tidenerd`**. After that, the proportion of visitors who had opened Tide Nerd jumped sharply — in fact **higher than home-route visits** in that cohort.
 
@@ -42,7 +42,7 @@ The issue is not simply “the menu is too long.” It is **unlayered mixing of 
 | --- | --- | --- |
 | **Instrument** | Fullscreen, keep screen awake | Using the dial now |
 | **Deployment** | Install, stick it on the wall | Making the app part of daily / ambient life |
-| **Curiosity** | Story, Tide Nerd, Software Nerd | Time and interest for narrative or explanation |
+| **Curiosity** | Story, Tide Nerd | Time and interest for narrative or explanation |
 | **Administrative** | About, contact | Compliance, version, email |
 
 Story between utility items reads as **site navigation**, not intrigue. About is intentionally dull (compliance); it must not be treated as a discovery path to Story.
@@ -114,7 +114,6 @@ A dedicated route with narrative and links to:
 
 - Story
 - Tide Nerd
-- Software Nerd
 
 Cold curiosity traffic (outbound) may favour leading with **Tide Nerd**; warm instrument users may favour **Story** as the affinity bridge. The hub can pitch each differently — copy room is the point. Also the destination for a future timed curiosity prompt.
 

@@ -15,7 +15,6 @@ describe("surfaceModeForRoute", () => {
       "onwall",
       "story",
       "tidenerd",
-      "softwarenerd",
       "installconfig",
       "entertainment",
       "contact",

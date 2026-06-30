@@ -27,6 +27,7 @@ describe("parseHash", () => {
     expect(parseHash("#/acknowledgements")).toBe("home");
     expect(parseHash("#/support")).toBe("home");
     expect(parseHash("#/cookies")).toBe("home");
+    expect(parseHash("#/softwarenerd")).toBe("home");
   });
 
   it("maps about and about with trailing fragment", () => {
@@ -50,11 +51,9 @@ describe("parseHash", () => {
     expect(parseHash("story")).toBe("story");
   });
 
-  it("maps nerd routes", () => {
+  it("maps tidenerd route", () => {
     expect(parseHash("#/tidenerd")).toBe("tidenerd");
     expect(parseHash("tidenerd")).toBe("tidenerd");
-    expect(parseHash("#/softwarenerd")).toBe("softwarenerd");
-    expect(parseHash("softwarenerd")).toBe("softwarenerd");
   });
 
   it("maps hub routes", () => {
@@ -112,6 +111,25 @@ describe("syncRouteFromHash", () => {
       location: {
         hash: "#/settings",
         href: "http://localhost:5173/#/settings",
+      },
+    });
+
+    syncRouteFromHash();
+
+    expect(get(route)).toBe("home");
+    expect(replaceState).toHaveBeenCalledOnce();
+    expect(replaceState.mock.calls[0][2]).toBe(
+      "http://localhost:5173/#/home",
+    );
+  });
+
+  it("rewrites legacy #/softwarenerd placeholder to #/home via replaceState", () => {
+    const replaceState = vi.fn();
+    vi.stubGlobal("history", { replaceState });
+    vi.stubGlobal("window", {
+      location: {
+        hash: "#/softwarenerd",
+        href: "http://localhost:5173/#/softwarenerd",
       },
     });
 

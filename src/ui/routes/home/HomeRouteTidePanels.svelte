@@ -19,13 +19,11 @@
     quotaExhaustedIntroLead,
     quotaExhaustedIntroSiteLabel,
     quotaExhaustedWorldTidesHref,
-    quotaExhaustedSoftwareNerdHref,
     quotaExhaustedCoffeeAsideBuyLinkLabel,
     quotaExhaustedCoffeeAsideEnd,
     quotaExhaustedCoffeeAsideMid,
     quotaExhaustedCoffeeAsidePrefix,
     quotaExhaustedCoffeeAsideStoryLinkLabel,
-    quotaExhaustedSoftwareNerdLinkText,
     quotaExhaustedStoryHref,
   } from "../../quotaExhaustedCopy";
   import { externalLinkNewTabAttrs } from "../../externalLink";
@@ -148,15 +146,6 @@
               href={quotaExhaustedStoryHref}
               >{quotaExhaustedCoffeeAsideStoryLinkLabel}</a
             >{quotaExhaustedCoffeeAsideEnd}
-          </p>
-        </aside>
-        <aside class="home-quota-aside" aria-label="How the dial gets its data">
-          <p class="home-quota-aside__line muted">
-            <a
-              class="home-quota-aside__link"
-              href={quotaExhaustedSoftwareNerdHref}
-              >{quotaExhaustedSoftwareNerdLinkText}</a
-            >
           </p>
         </aside>
       </div>

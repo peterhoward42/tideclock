@@ -10,7 +10,6 @@ export type AppRouteId =
   | "onwall"
   | "story"
   | "tidenerd"
-  | "softwarenerd"
   | "installconfig"
   | "entertainment"
   | "contact";
