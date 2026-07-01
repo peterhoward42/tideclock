@@ -189,6 +189,15 @@
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-equinox-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-equinox-heading">Those druids were on to
 	something</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-sun-moon-balance.png"
+        width="1536"
+        height="1024"
+        alt="Circular sun-and-moon balance symbol: interlocking lobes with a stylised sun on one side and a crescent moon on the other."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 		Druids concluded thousands of years' ago that the sun's equinoxes had a spiritual
 		significance. Equinoxes are the events that occur once in March and once in
