@@ -227,6 +227,15 @@
 
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-pressure-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-pressure-heading">The air is a blanket</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-air-blanket.png"
+        width="1536"
+        height="1024"
+        alt="Earth wrapped in a thick, quilted sky-blue blanket, suggesting the weight of the atmosphere."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 	  The atmosphere is a fat heavy blanket of air sitting on the sea. When the weather
 	  makes the atmospheric
