@@ -46,6 +46,15 @@
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-lumps-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-lumps-heading">A pair of bumps
 	</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-pair-of-bumps.png"
+        width="1536"
+        height="1024"
+        alt="Earth with a blue tidal bulge on opposite sides, and the Moon to the right."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 		Because all the earth's water is loose and spread out, the moon's gravity pulls it
 		into a hump pointing towards the moon. Suprisingly a hump forms on the opposite side
