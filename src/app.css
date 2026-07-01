@@ -408,3 +408,11 @@ a {
 .u-nav-link-list a:hover {
   background: var(--surface-menu-flyout-nav-hover);
 }
+
+.u-nav-link-list a.curiosity-tunnel-link {
+  color: inherit;
+}
+
+.u-nav-link-list a.curiosity-tunnel-link:hover :global(.curiosity-tunnel-text__glyph) {
+  filter: brightness(1.08);
+}

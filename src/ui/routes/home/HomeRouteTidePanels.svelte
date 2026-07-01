@@ -257,6 +257,7 @@
         <PrimaryMenuContent
           linksClassName="u-stack-sm u-nav-link-list"
           showTodaysTidesLink={false}
+          highlightEntertainmentLink={true}
           onNavigate={onCloseHomeMenu}
         />
       </div>
@@ -531,14 +532,12 @@
   }
 
   .home-instrument :global(svg g[data-name="HomeMenuTrigger"] text) {
-    transition: fill 120ms ease-out;
+    transition: filter 120ms ease-out;
   }
 
   .home-instrument
-    :global(
-      svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover text
-    ) {
-    fill: var(--text-home-instrument-text-hover);
+    :global(svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover) {
+    filter: brightness(1.2);
   }
 
   .home-instrument :global(svg) {
