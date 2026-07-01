@@ -158,6 +158,15 @@
 
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-sun-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-sun-heading">Here comes the sun</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-spring-neap-bulges.png"
+        width="1536"
+        height="1024"
+        alt="Earth with larger lunar tidal bulges on one axis and smaller solar bulges on a slightly offset axis, with the Moon and Sun nearby."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 	  No not the Beatles song!
 
