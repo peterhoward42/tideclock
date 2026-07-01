@@ -89,6 +89,15 @@
 
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-spin-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-spin-heading">The fast stuff</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-earth-spin.png"
+        width="1536"
+        height="1024"
+        alt="Earth spinning rapidly on its axis, with curved arrows suggesting rotation at the equator."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 		The earth spinning on its own axis is belting round. A full turn every 24 hours
 		means that if you stand at the equator you are travelling in a circle at round about
