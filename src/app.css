@@ -133,6 +133,10 @@
   --surface-home-instrument-plate-hover: #191919;
   --border-home-instrument-plate-hover: #aaa;
   --text-home-instrument-text-hover: #fff;
+  /* Curiosity tunnel Entertainment row — matches `role.menu.trigger` plate on the dial. */
+  --surface-curiosity-tunnel-strip: #111;
+  --surface-curiosity-tunnel-strip-hover: #191919;
+  --border-curiosity-tunnel-strip: #555;
 }
 
 html {
@@ -411,6 +415,15 @@ a {
 
 .u-nav-link-list a.curiosity-tunnel-link {
   color: inherit;
+  background: var(--surface-curiosity-tunnel-strip, #111);
+  border: 1px solid var(--border-curiosity-tunnel-strip, #555);
+  transition:
+    background 120ms ease-out,
+    border-color 120ms ease-out;
+}
+
+.u-nav-link-list a.curiosity-tunnel-link:hover {
+  background: var(--surface-curiosity-tunnel-strip-hover, #191919);
 }
 
 .u-nav-link-list a.curiosity-tunnel-link:hover :global(.curiosity-tunnel-text__glyph) {
