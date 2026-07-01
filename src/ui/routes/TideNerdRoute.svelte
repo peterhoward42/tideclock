@@ -102,8 +102,8 @@
 		The earth spinning on its own axis is belting round. A full turn every 24 hours
 		means that if you stand at the equator you are travelling in a circle at round about
 		1000mph. A little slower the further you move away from the equator. But those water
-		humps are not. This is slightly harder to imagine. The earch is spinning, all the
-		water particles are spinning keeping track with it, but the
+		humps are not. This is slightly harder to imagine. The earth is spinning, all the
+		water particles are staying with it, but the
 		<strong>position</strong> of the hump of water stays fixed pointing at wherever the
 		moon is. The water particles that make up the hump
 		are continuously being changed as the earth spins underneath the humps the humps
