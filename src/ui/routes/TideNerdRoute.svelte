@@ -21,7 +21,7 @@
       />
     </figure>
     <p class="tide-nerd-route__p">
-		You know that thing when when you push yourself backwards in the bath a bit to
+		You know that thing when when you push yourself backwards in the bath a bit too
 		quickly?  A tidal wave of water gets pushed up behind you and you end up with a wet
 		floor. Your wave then travels back the other way, and gradually subsides. The water
 		somehow got high enough to spill over the end without you adding any water. 
