@@ -19,13 +19,11 @@
     quotaExhaustedIntroLead,
     quotaExhaustedIntroSiteLabel,
     quotaExhaustedWorldTidesHref,
-    quotaExhaustedSoftwareNerdHref,
     quotaExhaustedCoffeeAsideBuyLinkLabel,
     quotaExhaustedCoffeeAsideEnd,
     quotaExhaustedCoffeeAsideMid,
     quotaExhaustedCoffeeAsidePrefix,
     quotaExhaustedCoffeeAsideStoryLinkLabel,
-    quotaExhaustedSoftwareNerdLinkText,
     quotaExhaustedStoryHref,
   } from "../../quotaExhaustedCopy";
   import { externalLinkNewTabAttrs } from "../../externalLink";
@@ -65,11 +63,7 @@
     readonly homeShareLinkCopiedOpen: boolean;
     readonly homeShareLinkCopiedUrl: string;
     readonly onDismissHomeShareLinkCopied: () => void;
-    readonly homeNerdsOpen: boolean;
-    readonly homeContactOpen: boolean;
     readonly onCloseHomeMenu: () => void;
-    readonly onToggleHomeNerds: () => void;
-    readonly onToggleHomeContact: () => void;
     diagramHostEl?: HTMLElement | undefined;
     homeInstrumentEl?: HTMLElement | undefined;
     homeMenuPanelEl?: HTMLElement | undefined;
@@ -98,11 +92,7 @@
     homeShareLinkCopiedOpen,
     homeShareLinkCopiedUrl,
     onDismissHomeShareLinkCopied,
-    homeNerdsOpen,
-    homeContactOpen,
     onCloseHomeMenu,
-    onToggleHomeNerds,
-    onToggleHomeContact,
     diagramHostEl = $bindable(),
     homeInstrumentEl = $bindable(),
     homeMenuPanelEl = $bindable(),
@@ -156,15 +146,6 @@
               href={quotaExhaustedStoryHref}
               >{quotaExhaustedCoffeeAsideStoryLinkLabel}</a
             >{quotaExhaustedCoffeeAsideEnd}
-          </p>
-        </aside>
-        <aside class="home-quota-aside" aria-label="How the dial gets its data">
-          <p class="home-quota-aside__line muted">
-            <a
-              class="home-quota-aside__link"
-              href={quotaExhaustedSoftwareNerdHref}
-              >{quotaExhaustedSoftwareNerdLinkText}</a
-            >
           </p>
         </aside>
       </div>
@@ -276,10 +257,7 @@
         <PrimaryMenuContent
           linksClassName="u-stack-sm u-nav-link-list"
           showTodaysTidesLink={false}
-          nerdsOpen={homeNerdsOpen}
-          onToggleNerds={onToggleHomeNerds}
-          contactOpen={homeContactOpen}
-          onToggleContact={onToggleHomeContact}
+          highlightEntertainmentLink={true}
           onNavigate={onCloseHomeMenu}
         />
       </div>
@@ -554,14 +532,12 @@
   }
 
   .home-instrument :global(svg g[data-name="HomeMenuTrigger"] text) {
-    transition: fill 120ms ease-out;
+    transition: filter 120ms ease-out;
   }
 
   .home-instrument
-    :global(
-      svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover text
-    ) {
-    fill: var(--text-home-instrument-text-hover);
+    :global(svg g[data-name="HomeMenuTrigger"].home-menu-trigger--hover) {
+    filter: brightness(1.2);
   }
 
   .home-instrument :global(svg) {

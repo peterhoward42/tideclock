@@ -10,7 +10,11 @@ export type AppRouteId =
   | "onwall"
   | "story"
   | "tidenerd"
-  | "softwarenerd";
+  | "maker"
+  | "drawexact"
+  | "installconfig"
+  | "entertainment"
+  | "contact";
 
 export type SurfaceMode = "appliance" | "document";
 

@@ -8,7 +8,7 @@ Source for **[The Tide Dial](https://thetidedial.page)** — a static web app th
 
 The Tide Dial is for people who live in or visit UK coastal areas. It does not aim to surface data you cannot already get from tide tables or other apps; its character comes from how the day is presented — a 24-hour curve with markers for highs and lows, and pointers for the current time, the next tidal event, and the interval between them.
 
-In the app menu, **Tide Nerd** and **Software Nerd** explain tides and how the software is built for curious visitors. This repository README is aimed at people working on or deploying the code.
+In the app menu, **Tide Nerd** explains tides for curious visitors. This repository README is aimed at people working on or deploying the code.
 
 ## Stack
 
@@ -16,7 +16,7 @@ In the app menu, **Tide Nerd** and **Software Nerd** explain tides and how the s
 - **Runtime tide data** — fetched from a separate [tide proxy](https://github.com/peterhoward42/tideproxy) (WorldTides upstream); not bundled in this repo
 - **Town list** — baked into the client build (`tools/towns2/` — see [`tools/towns2/README.md`](tools/towns2/README.md))
 
-End-user technical overview: [Software Nerd](https://thetidedial.page/#/softwarenerd) in the live app (also `#/softwarenerd`). Tide background: [Tide Nerd](https://thetidedial.page/#/tidenerd).
+Tide background for visitors: [Tide Nerd](https://thetidedial.page/#/tidenerd) in the live app (also `#/tidenerd`).
 
 ## Opening a specific place from the URL
 
@@ -89,7 +89,7 @@ Produces `dist/` for static hosting.
 | [`build/README.md`](build/README.md) | Vite build, env vars, Vercel deploy, build commit |
 | [`tools/towns2/README.md`](tools/towns2/README.md) | Location data tooling (not runtime) |
 
-In-app routes **Tide Nerd** and **Software Nerd** cover tide background and technical architecture for visitors.
+In-app route **Tide Nerd** covers tide background for visitors.
 
 ## Licence
 

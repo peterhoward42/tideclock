@@ -33,7 +33,11 @@
   import OnWallRoute from "./routes/OnWallRoute.svelte";
   import StoryRoute from "./routes/StoryRoute.svelte";
   import TideNerdRoute from "./routes/TideNerdRoute.svelte";
-  import SoftwareNerdRoute from "./routes/SoftwareNerdRoute.svelte";
+  import MakerRoute from "./routes/MakerRoute.svelte";
+  import DrawExactRoute from "./routes/DrawExactRoute.svelte";
+  import InstallConfigRoute from "./routes/InstallConfigRoute.svelte";
+  import EntertainmentRoute from "./routes/EntertainmentRoute.svelte";
+  import ContactRoute from "./routes/ContactRoute.svelte";
   import { THE_TIDE_DIAL, TIDE_DIAL_PRODUCTION_ORIGIN } from "./brand";
   import { surfaceModeForRoute } from "./routeSurfaceMode";
   import { OPERATOR_NOTICE_ACTIVE } from "./operatorNoticeConfig";
@@ -331,13 +335,21 @@
       case "install":
         return "Install app / Add to home screen";
       case "onwall":
-        return "Stick it on the wall";
+        return "Put it on the wall";
       case "story":
         return "Story";
       case "tidenerd":
-        return "Tide Nerd";
-      case "softwarenerd":
-        return "Software Nerd";
+        return "The moving sea";
+      case "maker":
+        return "A little bit about me";
+      case "drawexact":
+        return "DrawExact";
+      case "installconfig":
+        return "Install";
+      case "entertainment":
+        return "Entertainment";
+      case "contact":
+        return "Please get in touch";
       case "home":
         return "";
       default:
@@ -472,8 +484,16 @@
         <StoryRoute />
       {:else if $route === "tidenerd"}
         <TideNerdRoute />
-      {:else if $route === "softwarenerd"}
-        <SoftwareNerdRoute />
+      {:else if $route === "maker"}
+        <MakerRoute />
+      {:else if $route === "drawexact"}
+        <DrawExactRoute />
+      {:else if $route === "installconfig"}
+        <InstallConfigRoute />
+      {:else if $route === "entertainment"}
+        <EntertainmentRoute />
+      {:else if $route === "contact"}
+        <ContactRoute />
       {/if}
     </section>
   </div>

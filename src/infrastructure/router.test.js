@@ -27,6 +27,7 @@ describe("parseHash", () => {
     expect(parseHash("#/acknowledgements")).toBe("home");
     expect(parseHash("#/support")).toBe("home");
     expect(parseHash("#/cookies")).toBe("home");
+    expect(parseHash("#/softwarenerd")).toBe("home");
   });
 
   it("maps about and about with trailing fragment", () => {
@@ -50,11 +51,25 @@ describe("parseHash", () => {
     expect(parseHash("story")).toBe("story");
   });
 
-  it("maps nerd routes", () => {
+  it("maps tidenerd route", () => {
     expect(parseHash("#/tidenerd")).toBe("tidenerd");
     expect(parseHash("tidenerd")).toBe("tidenerd");
-    expect(parseHash("#/softwarenerd")).toBe("softwarenerd");
-    expect(parseHash("softwarenerd")).toBe("softwarenerd");
+  });
+
+  it("maps entertainment child routes", () => {
+    expect(parseHash("#/maker")).toBe("maker");
+    expect(parseHash("maker")).toBe("maker");
+    expect(parseHash("#/drawexact")).toBe("drawexact");
+    expect(parseHash("drawexact")).toBe("drawexact");
+  });
+
+  it("maps hub routes", () => {
+    expect(parseHash("#/installconfig")).toBe("installconfig");
+    expect(parseHash("installconfig")).toBe("installconfig");
+    expect(parseHash("#/entertainment")).toBe("entertainment");
+    expect(parseHash("entertainment")).toBe("entertainment");
+    expect(parseHash("#/contact")).toBe("contact");
+    expect(parseHash("contact")).toBe("contact");
   });
 
   it("maps unknown meet-the-author segment to home", () => {
@@ -103,6 +118,25 @@ describe("syncRouteFromHash", () => {
       location: {
         hash: "#/settings",
         href: "http://localhost:5173/#/settings",
+      },
+    });
+
+    syncRouteFromHash();
+
+    expect(get(route)).toBe("home");
+    expect(replaceState).toHaveBeenCalledOnce();
+    expect(replaceState.mock.calls[0][2]).toBe(
+      "http://localhost:5173/#/home",
+    );
+  });
+
+  it("rewrites legacy #/softwarenerd placeholder to #/home via replaceState", () => {
+    const replaceState = vi.fn();
+    vi.stubGlobal("history", { replaceState });
+    vi.stubGlobal("window", {
+      location: {
+        hash: "#/softwarenerd",
+        href: "http://localhost:5173/#/softwarenerd",
       },
     });
 
@@ -179,6 +213,22 @@ describe("syncRouteFromHash", () => {
     expect(replaceState).not.toHaveBeenCalled();
   });
 
+  it("does not replaceState for canonical hub routes", () => {
+    const replaceState = vi.fn();
+    vi.stubGlobal("history", { replaceState });
+    vi.stubGlobal("window", {
+      location: {
+        hash: "#/installconfig",
+        href: "http://localhost:5173/#/installconfig",
+      },
+    });
+
+    syncRouteFromHash();
+
+    expect(get(route)).toBe("installconfig");
+    expect(replaceState).not.toHaveBeenCalled();
+  });
+
   it("does not replaceState for canonical #/location", () => {
     const replaceState = vi.fn();
     vi.stubGlobal("history", { replaceState });
@@ -210,5 +260,20 @@ describe("navigate", () => {
     navigate("home");
 
     expect(window.location.hash).toBe("/home");
+  });
+
+  it("sets hash for hub routes", () => {
+    vi.stubGlobal("window", {
+      location: { hash: "#/home" },
+    });
+
+    navigate("installconfig");
+    expect(window.location.hash).toBe("/installconfig");
+
+    navigate("entertainment");
+    expect(window.location.hash).toBe("/entertainment");
+
+    navigate("contact");
+    expect(window.location.hash).toBe("/contact");
   });
 });

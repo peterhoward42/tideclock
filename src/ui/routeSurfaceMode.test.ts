@@ -15,7 +15,11 @@ describe("surfaceModeForRoute", () => {
       "onwall",
       "story",
       "tidenerd",
-      "softwarenerd",
+      "maker",
+      "drawexact",
+      "installconfig",
+      "entertainment",
+      "contact",
     ];
     for (const routeId of documentRoutes) {
       expect(surfaceModeForRoute(routeId)).toBe("document");

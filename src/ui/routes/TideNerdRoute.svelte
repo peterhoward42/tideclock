@@ -1,5 +1,9 @@
+<script lang="ts">
+  import RouteShareClose from "../components/RouteShareClose.svelte";
+</script>
+
 <main class="route tide-nerd-route">
-  <h1>Tide Nerd</h1>
+  <h1>The moving sea</h1>
   <p class="tide-nerd-route__lede">
   	A playful explanation of how tides work, and what causes them - with respectful nods
 	and links to the more serious information. 
@@ -7,6 +11,15 @@
 
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-pulse-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-pulse-heading">Let's start in your bath</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-bath-slosh.png"
+        width="1536"
+        height="1024"
+        alt="An adult sliding backward quickly in the bath as water spills over the back rim."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 		You know that thing when when you push yourself backwards in the bath a bit to
 		quickly?  A tidal wave of water gets pushed up behind you and you end up with a wet
@@ -33,6 +46,15 @@
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-lumps-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-lumps-heading">A pair of bumps
 	</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-pair-of-bumps.png"
+        width="1536"
+        height="1024"
+        alt="Earth with a blue tidal bulge on opposite sides, and the Moon to the right."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 		Because all the earth's water is loose and spread out, the moon's gravity pulls it
 		into a hump pointing towards the moon. Suprisingly a hump forms on the opposite side
@@ -67,12 +89,21 @@
 
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-spin-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-spin-heading">The fast stuff</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-earth-spin.png"
+        width="1536"
+        height="1024"
+        alt="Earth spinning rapidly on its axis, with curved arrows suggesting rotation at the equator."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 		The earth spinning on its own axis is belting round. A full turn every 24 hours
 		means that if you stand at the equator you are travelling in a circle at round about
 		1000mph. A little slower the further you move away from the equator. But those water
-		humps are not. This is slightly harder to imagine. The earch is spinning, all the
-		water particles are spinning keeping track with it, but the
+		humps are not. This is slightly harder to imagine. The earth is spinning, all the
+		water particles are staying with it, but the
 		<strong>position</strong> of the hump of water stays fixed pointing at wherever the
 		moon is. The water particles that make up the hump
 		are continuously being changed as the earth spins underneath the humps the humps
@@ -95,6 +126,15 @@
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-dance-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-dance-heading">Face each other, hold
 	hands and spin round</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-spin-game.png"
+        width="1536"
+        height="1024"
+        alt="Two children facing each other, holding hands and spinning round — the playground spin game."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 		The childhood game while facing each other and holding hands you spin round on the
 		spot supported by your friend opposite pulling you into the centre. Can you imagine
@@ -118,6 +158,15 @@
 
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-sun-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-sun-heading">Here comes the sun</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-spring-neap-bulges.png"
+        width="1536"
+        height="1024"
+        alt="Earth with larger lunar tidal bulges on one axis and smaller solar bulges on a slightly offset axis, with the Moon and Sun nearby."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 	  No not the Beatles song!
 
@@ -149,6 +198,15 @@
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-equinox-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-equinox-heading">Those druids were on to
 	something</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-sun-moon-balance.png"
+        width="1536"
+        height="1024"
+        alt="Circular sun-and-moon balance symbol: interlocking lobes with a stylised sun on one side and a crescent moon on the other."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 		Druids concluded thousands of years' ago that the sun's equinoxes had a spiritual
 		significance. Equinoxes are the events that occur once in March and once in
@@ -169,6 +227,15 @@
 
   <section class="tide-nerd-route__section" aria-labelledby="tide-nerd-pressure-heading">
     <h2 class="tide-nerd-route__h" id="tide-nerd-pressure-heading">The air is a blanket</h2>
+    <figure class="tide-nerd-route__figure">
+      <img
+        class="tide-nerd-route__img"
+        src="/tide-nerd-air-blanket.png"
+        width="1536"
+        height="1024"
+        alt="Earth wrapped in a thick, quilted sky-blue blanket, suggesting the weight of the atmosphere."
+      />
+    </figure>
     <p class="tide-nerd-route__p">
 	  The atmosphere is a fat heavy blanket of air sitting on the sea. When the weather
 	  makes the atmospheric
@@ -217,6 +284,7 @@
     </p>
   </section>
 
+  <RouteShareClose routeId="tidenerd" />
 </main>
 
 <style>
@@ -243,6 +311,17 @@
     font-weight: 600;
     margin: 0;
     color: var(--text-document-default);
+  }
+
+  .tide-nerd-route__figure {
+    margin: 0;
+  }
+
+  .tide-nerd-route__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
   }
 
   .tide-nerd-route__p {

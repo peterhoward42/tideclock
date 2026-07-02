@@ -23,7 +23,9 @@ Surface styling: `routeSurfaceMode.ts` (`appliance` for home, `document` for oth
 | `onwall` | `routes/OnWallRoute.svelte` | Wall-mount guidance. |
 | `story` | `routes/StoryRoute.svelte` | Author story, support links. |
 | `tidenerd` | `routes/TideNerdRoute.svelte` | Tide background for visitors. |
-| `softwarenerd` | `routes/SoftwareNerdRoute.svelte` | Technical architecture for visitors. |
+| `installconfig` | `routes/InstallConfigRoute.svelte` | Install / config hub. |
+| `entertainment` | `routes/EntertainmentRoute.svelte` | Story and Tide Nerd hub. |
+| `contact` | `routes/ContactRoute.svelte` | Outreach and email. |
 
 ## Shared components
 

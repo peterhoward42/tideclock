@@ -670,8 +670,12 @@ export function handDiagramToGroup(hand, cx, cy) {
   ]);
 }
 
+/** Monospace-ish glyph width; must match bounds heuristic in `expandBoundsByText`. */
+const MENU_TRIGGER_CHAR_WIDTH_EM = 0.6;
+
 /**
  * Right-aligned **Menu** text link; **top-level** scene sibling (not under **BRHCBundle**).
+ * One named leaf per glyph so curiosity-tunnel palette roles can bind per letter.
  *
  * @param {import('../model/tideDiagramModel.mjs').HomeMenuTriggerDiagram} hm
  * @param {number} cx
@@ -679,15 +683,29 @@ export function handDiagramToGroup(hand, cx, cy) {
  * @returns {import('../model/sceneModel.mjs').GroupNode}
  */
 function homeMenuTriggerDiagramToGroup(hm, cx, cy) {
-  return group("HomeMenuTrigger", [
-    text({
-      content: hm.content,
-      size: hm.fontSize,
-      hAlign: hm.hAlign,
-      angleRad: 0,
-      anchor: mapPoint(hm.anchor, cx, cy),
+  const anchor = mapPoint(hm.anchor, cx, cy);
+  const chars = Array.from(hm.content);
+  const charWidth = hm.fontSize * MENU_TRIGGER_CHAR_WIDTH_EM;
+  const trailingX = anchor.x;
+  const baselineY = anchor.y;
+  return group(
+    "HomeMenuTrigger",
+    chars.map((char, i) => {
+      const glyphAnchor = {
+        x: trailingX - (chars.length - i) * charWidth,
+        y: baselineY,
+      };
+      return group(`HomeMenuTrigger.G${i}`, [
+        text({
+          content: char,
+          size: hm.fontSize,
+          hAlign: "left",
+          angleRad: 0,
+          anchor: glyphAnchor,
+        }),
+      ]);
     }),
-  ]);
+  );
 }
 
 /**

@@ -3,13 +3,47 @@
  * Open this preset to adjust colors and bindings; validation lives in diagram-generation.
  */
 
-import type { StyleModelSpec } from "./styleModel.types";
+import type { NameRoleBinding, SemanticRole, StyleModelSpec } from "./styleModel.types";
 
 /** Max dial-interior location lines (200-char cap ÷ 21-char segments). */
 const LOCATION_LABEL_LINE_BINDING_COUNT = 10;
 
+/**
+ * Curiosity tunnel: per-letter colours for **Menu** (home dial) and **Entertainment** (home flyout).
+ * Index cycles with `letterIndex % length`. Roles/bindings below wire the dial side into SVG render.
+ *
+ * Named colours (CSS extended set) so hues are easy to read and swap when tuning.
+ */
+export const homeCuriosityTunnelPalette = [
+  "bisque",
+  "dodgerblue",
+  "red",
+  "yellow",
+] as const;
+
+export function curiosityTunnelColorAt(index: number): string {
+  const palette = homeCuriosityTunnelPalette;
+  const i = ((index % palette.length) + palette.length) % palette.length;
+  return palette[i]!;
+}
+
+function homeCuriosityTunnelRoles(): readonly SemanticRole[] {
+  return homeCuriosityTunnelPalette.map((color, i) => ({
+    name: `role.curiosity.tunnel.${i}`,
+    colors: { color },
+  }));
+}
+
+function homeCuriosityTunnelMenuGlyphBindings(): readonly NameRoleBinding[] {
+  return Array.from({ length: homeCuriosityTunnelPalette.length }, (_, i) => ({
+    name: `HomeMenuTrigger.G${i}`,
+    roleName: `role.curiosity.tunnel.${i}`,
+  }));
+}
+
 export const homeStyleModel: StyleModelSpec = {
   roles: [
+    ...homeCuriosityTunnelRoles(),
     {
       name: "role.tide.primary",
       colors: { color: "#bf94e4", fillColor: "#dab3f5" }, // bright lavender
@@ -138,7 +172,7 @@ export const homeStyleModel: StyleModelSpec = {
     { name: "BrandQRPlate", roleName: "role.menu.trigger" },
     { name: "BrandQR", roleName: "BrandQR" },
     { name: "NoMoreTidesToday", roleName: "role.structure.text" },
-    { name: "HomeMenuTrigger", roleName: "role.location.change" },
+    ...homeCuriosityTunnelMenuGlyphBindings(),
     { name: "FullScreenIcon.HitFrame", roleName: "role.menu.trigger" },
     { name: "FullScreenIcon.Off", roleName: "role.instrument.fullscreen.icon" },
     { name: "FullScreenIcon.On", roleName: "role.instrument.fullscreen.icon" },

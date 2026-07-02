@@ -14,10 +14,11 @@ const LEGACY_PLACEHOLDER_HASHES = [
   'acknowledgements',
   'support',
   'cookies',
+  'softwarenerd',
 ]
 
 /**
- * @typedef {'home' | 'location' | 'about' | 'install' | 'onwall' | 'story' | 'tidenerd' | 'softwarenerd'} RouteId
+ * @typedef {'home' | 'location' | 'about' | 'install' | 'onwall' | 'story' | 'tidenerd' | 'maker' | 'drawexact' | 'installconfig' | 'entertainment' | 'contact'} RouteId
  */
 
 /** @type {import('svelte/store').Writable<RouteId>} */
@@ -48,8 +49,16 @@ export function parseHash(hash) {
       return 'story'
     case 'tidenerd':
       return 'tidenerd'
-    case 'softwarenerd':
-      return 'softwarenerd'
+    case 'maker':
+      return 'maker'
+    case 'drawexact':
+      return 'drawexact'
+    case 'installconfig':
+      return 'installconfig'
+    case 'entertainment':
+      return 'entertainment'
+    case 'contact':
+      return 'contact'
     default:
       return 'home'
   }

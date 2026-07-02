@@ -4836,15 +4836,72 @@ exports[`buildDiagramSpec + createDiagramCollaborator > golden snapshot: stable 
       {
         "children": [
           {
-            "anchor": {
-              "x": 155.76000000000002,
-              "y": -138.99083550303112,
-            },
-            "angleRad": 0,
-            "content": "Menu",
-            "hAlign": "right",
-            "kind": "text",
-            "size": 5.31,
+            "children": [
+              {
+                "anchor": {
+                  "x": 143.01600000000002,
+                  "y": -138.99083550303112,
+                },
+                "angleRad": 0,
+                "content": "M",
+                "hAlign": "left",
+                "kind": "text",
+                "size": 5.31,
+              },
+            ],
+            "kind": "group",
+            "name": "HomeMenuTrigger.G0",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 146.20200000000003,
+                  "y": -138.99083550303112,
+                },
+                "angleRad": 0,
+                "content": "e",
+                "hAlign": "left",
+                "kind": "text",
+                "size": 5.31,
+              },
+            ],
+            "kind": "group",
+            "name": "HomeMenuTrigger.G1",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 149.38800000000003,
+                  "y": -138.99083550303112,
+                },
+                "angleRad": 0,
+                "content": "n",
+                "hAlign": "left",
+                "kind": "text",
+                "size": 5.31,
+              },
+            ],
+            "kind": "group",
+            "name": "HomeMenuTrigger.G2",
+          },
+          {
+            "children": [
+              {
+                "anchor": {
+                  "x": 152.574,
+                  "y": -138.99083550303112,
+                },
+                "angleRad": 0,
+                "content": "u",
+                "hAlign": "left",
+                "kind": "text",
+                "size": 5.31,
+              },
+            ],
+            "kind": "group",
+            "name": "HomeMenuTrigger.G3",
           },
         ],
         "kind": "group",
