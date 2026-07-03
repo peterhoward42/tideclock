@@ -33,11 +33,4 @@
   routeClass="entertainment-route"
   linksAriaLabel="Story, The moving sea, A little bit about me, and DrawExact"
   {links}
->
-  {#snippet intro()}
-    <p>
-      The dial is a graphical way to read the day. Pick what appeals: the story
-      behind it, how tides work, a little about me, or DrawExact.
-    </p>
-  {/snippet}
-</HubDocumentRoute>
+/>
