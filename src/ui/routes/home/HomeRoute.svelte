@@ -84,7 +84,6 @@
     townName,
     tidePreviewBannerLine,
     defaultLocationExplainerOpen,
-    defaultLocationExplainerPlaceLine,
     onDismissDefaultLocationExplainer,
   }: RouteProps = $props();
 
@@ -156,9 +155,9 @@
   );
 
   /**
-   * Wait for tides + diagram paint before showing the caption so “showing tides for …”
-   * is not ahead of the async fetch / SVG generation. Portrait touch phone/tablet: defer until
-   * landscape so only the rotation encouragement shows.
+   * Wait for tides + diagram paint before showing the diagram key overlay so it is not ahead of
+   * the async fetch / SVG generation. Portrait touch phone/tablet: defer until landscape so only
+   * the rotation encouragement shows.
    */
   const defaultLocationExplainerVisible = $derived.by(() => {
     if (!defaultLocationExplainerOpen) return false;
@@ -615,7 +614,6 @@
     {showLandscapeHint}
     {verticalLetterboxSlackPx}
     showDefaultLocationExplainer={defaultLocationExplainerVisible}
-    defaultLocationExplainerPlaceLine={defaultLocationExplainerPlaceLine}
     onDismissDefaultLocationExplainer={onDismissDefaultLocationExplainer}
     {homeMenuOpen}
     {homeMenuPanelStyle}

@@ -1,47 +1,38 @@
 <script lang="ts">
   /**
-   * First-run caption when no coastal place is stored yet: orientation (why this place) plus a
-   * minimal conceptual key, anchored lower-left like an instrument label (not a centred modal).
+   * First-run reading guide for visitors with no stored coastal place — anchored lower-left like
+   * an instrument label (not a centred modal).
    */
   interface Props {
-    /** e.g. `Looe (Cornwall)` — shown after “Showing tides for”. */
-    readonly placeLine: string;
     readonly onDismiss: () => void;
     /** When not inside the instrument figure (e.g. no extremes to draw), pin to the viewport instead. */
     readonly useViewportFixed?: boolean;
   }
 
-  let { placeLine, onDismiss, useViewportFixed = false }: Props = $props();
+  let { onDismiss, useViewportFixed = false }: Props = $props();
 </script>
 
 <div
   class="default-loc-explainer"
   class:default-loc-explainer--viewport-fixed={useViewportFixed}
   role="region"
-  aria-label="About this tide diagram"
+  aria-label="How to read this tide clock"
 >
   <div class="default-loc-explainer__card">
-    <h2 class="default-loc-explainer__title">Showing tides for {placeLine}</h2>
-    <div class="default-loc-explainer__switch">
-      <p class="default-loc-explainer__body">
-        Switch to your place of interest with <strong>Change</strong> on the diagram — when you're ready
-      </p>
-      <p class="default-loc-explainer__examples">
-        Skegness, Whitby, Newquay .... etc.
-      </p>
-    </div>
-    <h3 class="default-loc-explainer__subtitle">Diagram Key</h3>
-    <ul class="default-loc-explainer__key" aria-label="Diagram key">
-      <li>Today's 24 hour clock</li>
-      <li>Green hand = time now</li>
-      <li>Purple markers = tides and heights</li>
+    <p class="default-loc-explainer__hook">The colours aren't just for show …</p>
+    <p class="default-loc-explainer__body">
+      This is like a clock, but it shows all 24 hours around the curve.
+    </p>
+    <ul class="default-loc-explainer__key" aria-label="Colour key">
+      <li>Green hand = the time now</li>
+      <li>Purple markers = tide times and heights</li>
     </ul>
     <button
       type="button"
       class="default-loc-explainer__btn"
       onclick={onDismiss}
     >
-      Continue
+      Got it
     </button>
   </div>
 </div>
@@ -82,36 +73,19 @@
     }
   }
 
-  .default-loc-explainer__title {
-    margin: 0 0 1.2dvh;
-    font-size: 1.2em;
+  .default-loc-explainer__hook {
+    margin: 0 0 1.1dvh;
+    font-size: 1.12em;
     font-weight: 600;
-    line-height: 1.25;
-  }
-
-  .default-loc-explainer__switch {
-    margin: 0 0 1.8dvh;
-  }
-
-  .default-loc-explainer__body {
-    margin: 0 0 0.5dvh;
-    font-size: 1.04em;
-    line-height: 1.4;
+    line-height: 1.3;
     color: var(--text-menu-content-primary);
   }
 
-  .default-loc-explainer__examples {
-    margin: 0;
-    font-size: 1.04em;
-    line-height: 1.4;
-    color: var(--text-menu-content-status);
-  }
-
-  .default-loc-explainer__subtitle {
-    margin: 0 0 1dvh;
+  .default-loc-explainer__body {
+    margin: 0 0 1.2dvh;
     font-size: 1em;
-    font-weight: 600;
-    line-height: 1.25;
+    line-height: 1.45;
+    color: var(--text-menu-content-primary);
   }
 
   .default-loc-explainer__key {

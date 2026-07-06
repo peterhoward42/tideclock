@@ -142,7 +142,7 @@
   let currentTown = $state<Town | undefined>(initialCurrentTown());
 
   /**
-   * True when no town was in storage at boot: lower-left caption explains the active place until dismissed
+   * True when no town was in storage at boot: lower-left diagram key until dismissed
    * (dismissal persists that place like a normal menu pick).
    */
   let showDefaultLocationExplainer = $state(initialShowDefaultLocationExplainer());
@@ -152,12 +152,6 @@
       return null;
     }
     return `Preview: ${tidePreviewShortHeadline(tidePreviewIdFromUrl)}`;
-  });
-
-  const defaultLocationExplainerPlaceLine = $derived.by(() => {
-    const town = currentTown;
-    if (town === undefined) return "Unknown";
-    return town.county !== "" ? `${town.name} (${town.county})` : town.name;
   });
 
   function effectiveSearchFromWindow(): string {
@@ -440,7 +434,6 @@
         townName={currentTown?.name ?? "Unknown"}
         tidePreviewBannerLine={null}
         defaultLocationExplainerOpen={false}
-        defaultLocationExplainerPlaceLine={defaultLocationExplainerPlaceLine}
         onDismissDefaultLocationExplainer={dismissDefaultLocationExplainer}
       />
     </section>
@@ -469,7 +462,6 @@
           townName={currentTown?.name ?? "Unknown"}
           tidePreviewBannerLine={tidePreviewBannerLine}
           defaultLocationExplainerOpen={showDefaultLocationExplainer}
-          defaultLocationExplainerPlaceLine={defaultLocationExplainerPlaceLine}
           onDismissDefaultLocationExplainer={dismissDefaultLocationExplainer}
         />
       {:else if $route === "location"}

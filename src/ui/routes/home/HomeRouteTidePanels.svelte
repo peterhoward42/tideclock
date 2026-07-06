@@ -49,7 +49,6 @@
     readonly showLandscapeHint: boolean;
     readonly verticalLetterboxSlackPx: number;
     readonly showDefaultLocationExplainer: boolean;
-    readonly defaultLocationExplainerPlaceLine: string;
     readonly onDismissDefaultLocationExplainer: () => void;
     readonly homeMenuOpen: boolean;
     readonly homeMenuPanelStyle: string;
@@ -78,7 +77,6 @@
     showLandscapeHint,
     verticalLetterboxSlackPx,
     showDefaultLocationExplainer,
-    defaultLocationExplainerPlaceLine,
     onDismissDefaultLocationExplainer,
     homeMenuOpen,
     homeMenuPanelStyle,
@@ -189,7 +187,6 @@
     <p class="muted" role="status">No tide extremes for this day.</p>
     {#if showDefaultLocationExplainer}
       <HomeDefaultLocationExplainerOverlay
-        placeLine={defaultLocationExplainerPlaceLine}
         onDismiss={onDismissDefaultLocationExplainer}
         useViewportFixed={true}
       />
@@ -223,7 +220,6 @@
       {/if}
       {#if showDefaultLocationExplainer}
         <HomeDefaultLocationExplainerOverlay
-          placeLine={defaultLocationExplainerPlaceLine}
           onDismiss={onDismissDefaultLocationExplainer}
         />
       {/if}
