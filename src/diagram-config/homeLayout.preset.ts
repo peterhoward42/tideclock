@@ -83,8 +83,8 @@ export const homeLayoutBase = {
   /** Instrument chrome — each block has independent offsets from layout bounds (see tide-diagram spec). */
   homeMenuTrigger: {
     menuRightPadding: 0,
-    menuAboveBottom: 0.16,
-    fontHeight: 0.045,
+    menuAboveBottom: 0.20,
+    fontHeight: 0.060,
     label: "Menu",
   },
   homeInstrumentIcons: {
